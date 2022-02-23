@@ -3,24 +3,26 @@ import React from "react";
 class CompareSearchDropdown extends React.Component {
     constructor(props) {
         super(props)
+        console.log(props)
         this.state = {
-            results: this.props.data.slice(0,20)
+            results: this.props.results
         }
     }
     
     render() {
-        console.log(this.state.results)
+        console.log("dropdown")
         return (
-          <div className="mzp-c-menu-list">
-            <ul className="mzp-c-menu-list-list">
-              {this.state.results.map((item, i) => (
-                <li className="mzp-c-menu-list-item" key={i}>
-                  {item.revision}
-                </li>
-              ))}
+          <div className='mzp-c-menu-list'>
+            <ul className='mzp-c-menu-list-list'>
+              {this.props.data.length > 0 &&
+                this.props.data.map((item, i) => (
+                  <li className='mzp-c-menu-list-item' key={i}>
+                    <span className=''>{item.revision.slice(0, 11)}</span> - {item.author}
+                  </li>
+                ))}
             </ul>
           </div>
-        );
+        )
     }
 }
 
