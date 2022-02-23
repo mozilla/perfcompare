@@ -2,8 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import '@mozilla-protocol/core/protocol/css/protocol.css.map'
-import '@mozilla-protocol/core/protocol/css/protocol.min.css'
+import '@mozilla-protocol/core/protocol/css/protocol.css'
 import '@mozilla-protocol/core/protocol/css/protocol-components.css'
+import '@mozilla-protocol/core/protocol/css/protocol-components.css.map'
+import './style.css'
 
 
 import App from './components/App'
