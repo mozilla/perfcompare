@@ -1,6 +1,7 @@
 # PerfCompare
+
 Performance Comparison Tool
 
 ![screenshot](screenshot.png)
 
-[PerfCompare](https://kimberlythegeek.github.io/perfcompare/)
+[PerfCompare](https://mozilla.github.io/perfcompare/)
