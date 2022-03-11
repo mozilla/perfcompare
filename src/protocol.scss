@@ -1,0 +1,35 @@
+@import '../node_modules/@mozilla-protocol/core/protocol/css/includes/tokens/dist/index.scss';
+@import '../node_modules/@mozilla-protocol/core/protocol/css/includes/lib';
+@import '../node_modules/@mozilla-protocol/core/protocol/css/includes/forms/lib';
+
+$font-path: '../node_modules/@mozilla-protocol/core/protocol/fonts' !default;
+
+// Inter is our general-purpose font for body text in both Firefox and
+// Mozilla brands.
+@import '../node_modules/@mozilla-protocol/core/protocol/css/includes/fonts/inter';
+
+// Zilla Slab is used with the Mozilla brand. Remove this import if
+// your site uses the Firefox brand exclusively.
+@import '../node_modules/@mozilla-protocol/core/protocol/css/includes/fonts/zilla-slab';
+
+// Base elements - general HTML elements
+@import '../node_modules/@mozilla-protocol/core/protocol/css/base/elements';
+
+// Base utilities
+@import '../node_modules/@mozilla-protocol/core/protocol/css/base/utilities/backgrounds';
+@import '../node_modules/@mozilla-protocol/core/protocol/css/base/utilities/titles';
+
+// Base includes - animations
+@import '../node_modules/@mozilla-protocol/core/protocol/css/base/includes';
+
+// Global components
+@import '../node_modules/@mozilla-protocol/core/protocol/css/components/footer';
+
+@import '../node_modules/@mozilla-protocol/core/protocol/css/components/button';
+@import '../node_modules/@mozilla-protocol/core/protocol/css/components/menu-list';
+@import '../node_modules/@mozilla-protocol/core/protocol/css/components/section-heading';
+@import '../node_modules/@mozilla-protocol/core/protocol/css/components/zap';
+@import '../node_modules/@mozilla-protocol/core/protocol/css/templates/multi-column';
+
+$image-path: '../node_modules/@mozilla-protocol/core/protocol/img' !default;
+

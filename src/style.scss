@@ -1,0 +1,40 @@
+@import '../node_modules/@mozilla-protocol/core/protocol/css/includes/tokens/dist/index.scss';
+
+.input-group {
+    display: flex;
+    height: 2.5rem;
+}
+.input-group button,
+.input-group input {
+    height: 100%;
+    width: max-content;
+}
+.input-group .dropdown-button-left {
+     border-top-right-radius: 0;
+     border-bottom-right-radius: 0;
+}
+.input-group .dropdown-button-right,
+.input-group input:not(:first-child) {
+     border-top-left-radius: 0;
+     border-bottom-left-radius: 0;
+}
+.input-group .dropdown-button-left.dropdown-visible {
+    border-bottom-left-radius: 0;
+    border-bottom: none;
+}
+
+.dropdown-button-container ul.dropdown-visible {
+    border-bottom-left-radius: $border-radius-sm;
+    border-bottom-right-radius: $border-radius-sm;
+    border: 2px solid $color-blue-50;
+    border-top: none;
+}
+.dropdown-button-container li:hover {
+    transition: background-color 100ms, box-shadow 100ms, color 100ms;
+    background-color: $color-blue-50;
+    color: $color-white;
+}
+
+#select-repository {
+    width: 12rem;
+}
