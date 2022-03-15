@@ -72,7 +72,6 @@ class SearchView extends React.Component {
     }
 
     dropdownSelect = (event) => {
-        console.log(event)
         this.setState({
             dropdownSelected: true,
             dropdownText: event.target.innerText,
@@ -81,7 +80,6 @@ class SearchView extends React.Component {
     }
 
     render() {
-        console.log(this.state.results)
         return (
             <div className='mzp-l-content mzp-t-content-lg' data-testid='Compare'>
                 <h1 className='mzp-c-section-heading mzp-has-zap-10'>

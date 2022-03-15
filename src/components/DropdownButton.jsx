@@ -5,9 +5,6 @@ import store from '../common/store'
 import { repoList } from '../common/constants'
 import { isThisTypeNode } from 'typescript'
 
-// const repository = useSelector((state) => state.search.repository)
-// const useDispatch = useDispatch()
-
 class DropdownButton extends React.Component {
     constructor(props) {
         super(props)
@@ -22,14 +19,11 @@ class DropdownButton extends React.Component {
     }
 
     dropdownSelect = (event) => {
-        console.log(event)
         this.setState({ selected: true, text: event.target.innerText, toggled: false })
         store.dispatch({ type: 'search/repositoryChanged', payload: event.target.innerText })
     }
 
     render() {
-        console.log(this.state.toggled)
-        console.log(repoList)
         return (
             <span className='dropdown-button-container'>
                 <button
