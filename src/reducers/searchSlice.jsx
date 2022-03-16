@@ -1,5 +1,3 @@
-import { createSlice } from '@reduxjs/toolkit'
-
 import { apiBaseURL } from '../common/constants'
 
 const initialState = {

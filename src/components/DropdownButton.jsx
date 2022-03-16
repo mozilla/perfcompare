@@ -3,7 +3,6 @@ import React from 'react'
 import store from '../common/store'
 
 import { repoList } from '../common/constants'
-import { isThisTypeNode } from 'typescript'
 
 class DropdownButton extends React.Component {
     constructor(props) {

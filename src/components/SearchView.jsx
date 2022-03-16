@@ -3,7 +3,6 @@ import React from 'react'
 import SearchDropdown from './SearchDropdown'
 import DropdownButton from './DropdownButton'
 
-import { apiBaseURL } from '../common/constants'
 import store from '../common/store'
 
 const dropdownText = 'repository'
