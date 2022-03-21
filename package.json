@@ -1,7 +1,7 @@
 {
-  "name": "my-app",
-  "version": "0.1.0",
-  "homepage": "https://kimberlythegeek.github.io/perfcompare",
+    "name": "perfcompare",
+    "version": "0.1.0",
+    "homepage": "https://mozilla.github.io/perfcompare",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.8.2",
