@@ -3,32 +3,13 @@ orbs:
   node: circleci/node@5.0.1
   heroku: circleci/heroku@1.2.6
 jobs:
-  build:
-    executor:
-      name: node/default
-      tag: '16.13'
-    steps:
-      - checkout
-      - run: 
-          name: npm install
-          command: npm install
   test:
     executor:
       name: node/default
       tag: '16.13'
     steps:
-      - run: 
-          name: npm lint
-          command: echo "npm run lint"
-  deploy:
-    executor: heroku/default
-    steps:
       - checkout
-      - heroku/install
+      - run: npm install
+      - run: echo "npm run lint"
+      - run: echo "npm run test"
                 
-workflows:
-  build_test_deploy:
-    jobs:
-      - build
-      - test
-      - deploy
