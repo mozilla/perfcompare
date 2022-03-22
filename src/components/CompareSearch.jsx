@@ -30,9 +30,7 @@ class CompareSearch extends React.Component {
                         onChange={this.handleChange}
                     />
                 </label>
-                {this.state.searchValue.length > 0 && (
-                    <CompareSearchDropdown data={this.props.data.try} />
-                )}
+                {this.state.searchValue.length > 0 && <CompareSearchDropdown />}
             </div>
         )
     }

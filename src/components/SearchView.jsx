@@ -17,7 +17,6 @@ export default function SearchView() {
     const handleChange = (event) => {
         setRepository(event.target.value)
     }
-    const age = 'age'
 
     return (
         <React.Fragment>
