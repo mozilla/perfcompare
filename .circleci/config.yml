@@ -1,21 +1,14 @@
 version: 2.1
 orbs:
     node: circleci/node@5.0.1
-workflows:
-    build_test:
-        executor:
-            name: node/default
-            tag: '16.13'
-        jobs:
-            build:
-                steps:
-                    - checkout
-                    - run:
-                          name: npm install
-                          command: npm install
-            lint:
-                steps:
-                    - run: echo "npm run lint"
-            test:
-                steps:
-                    - run: echo "npm run test"
+jobs:
+  test:
+    docker:
+      - image: cimg/node:12.16
+    steps:
+        - checkout
+        - run:
+              name: npm install
+              command: npm install
+        - run: echo "npm run lint"
+        - run: echo "npm run test"
