@@ -3,40 +3,44 @@ import {
     fetchRecentRevisions,
     fetchRevisionByID,
     fetchRevisionByAuthor,
-} from '../common/asyncActions'
+} from '../reducers/searchSlice'
 
 export const handleChangeDropdown = (event) => {
-    // Update state with selected repository
-    store.dispatch({ type: 'search/repositoryChanged', payload: event.target.innerText })
+    const repository = event.target.innerText
+    const search = store.getState().search.searchValue
 
-    // If repository is selected after search value is input, fetch results
-    let search = store.getState().search.searchValue
+    // Update state with selected repository
+    store.dispatch({ type: 'search/repositoryChanged', payload: repository })
+
+    // If repository is selected after search value is input, fetch search results
     if (search !== '') {
-        searchByRevisionOrEmail(search)
+        searchByRevisionOrEmail(repository, search)
     }
 
     // Fetch 10 most recent revisions when repository changes
-    fetchRecentRevisions(event.target.innerText)
+    fetchRecentRevisions(repository)
 }
 
 export const handleChangeSearch = (event) => {
-    let search = event.target.value
-    let repo = store.getState().search.repository
+    const search = event.target.value
+    const repository = store.getState().search.repository
+
     store.dispatch({ type: 'search/searchValueChanged', payload: search })
 
+    // If search input is cleared, clear results
     if (search === '') store.dispatch({ type: 'search/searchResultsChanged', payload: [] })
 
-    if (repo === '') {
+    if (repository === '') {
         console.log('Please select a repository')
     } else {
-        searchByRevisionOrEmail(search)
+        searchByRevisionOrEmail(repository, search)
     }
 }
 
-const searchByRevisionOrEmail = (search) => {
+const searchByRevisionOrEmail = (repository, search) => {
     const emailMatch = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     const longHashMatch = /[a-zA-Z0-9]{40}/
 
-    if (emailMatch.test(search)) fetchRevisionByAuthor(search)
-    else if (longHashMatch.test(search)) fetchRevisionByID(search)
+    if (emailMatch.test(search)) fetchRevisionByAuthor(repository, search)
+    else if (longHashMatch.test(search)) fetchRevisionByID(repository, search)
 }
