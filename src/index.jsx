@@ -8,7 +8,7 @@ import '@mozilla-protocol/core/protocol/css/protocol-components.css'
 
 import App from './components/App'
 
-import store from './app/store.js'
+import store from './common/store.js'
 import { Provider } from 'react-redux'
 import * as serviceWorker from './serviceWorker'
 
