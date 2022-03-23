@@ -1,9 +1,7 @@
-import React from 'react'
-
-import Compare from './Compare'
+import SearchView from './SearchView'
 
 function App() {
-    return <Compare />
+    return <SearchView />
 }
 
 export default App

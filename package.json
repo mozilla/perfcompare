@@ -4,7 +4,9 @@
     "homepage": "https://mozilla.github.io/perfcompare",
     "private": true,
     "dependencies": {
-        "@mozilla-protocol/core": "^16.0.0",
+        "@emotion/react": "^11.8.2",
+        "@emotion/styled": "^11.8.1",
+        "@mui/material": "^5.5.1",
         "@reduxjs/toolkit": "^1.7.2",
         "@types/jest": "^24.9.1",
         "@types/node": "^12.20.43",
