@@ -33,5 +33,5 @@ We run our JavaScript code in the frontend through [ESLint](https://eslint.org/)
 npm run lint
 
 # Or to automatically fix issues found (where possible):
-npm run lint --fix
+npm run lint:fix
 ```
