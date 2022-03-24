@@ -28,8 +28,10 @@
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "lint": "eslint src/**/*.js src/**/*.jsx",
-        "lint:fix": "eslint src/**/*.js src/**/*.jsx --fix"
+        "lint": "eslint src/**/*.{js,jsx}",
+        "lint:fix": "eslint src/**/*.{js,jsx} --fix",
+        "format": "prettier --write src/**/*.{js,jsx,ts,tsx,css,html,md,json,yaml,yml} --config ./.prettierrc.js",
+        "format:check": "prettier --check src/**/*.{js,jsx,ts,tsx,css,html,md,json,yaml,yml} --config ./.prettierrc.js"
     },
     "eslintConfig": {
         "extends": "react-app"
@@ -49,10 +51,13 @@
     "devDependencies": {
         "eslint": "^8.11.0",
         "eslint-config-airbnb": "^19.0.4",
+        "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-import": "^2.25.4",
         "eslint-plugin-jsx-a11y": "^6.5.1",
+        "eslint-plugin-prettier": "^4.0.0",
         "eslint-plugin-react": "^7.29.4",
         "eslint-plugin-react-hooks": "^4.3.0",
-        "gh-pages": "^3.2.3"
+        "gh-pages": "^3.2.3",
+        "prettier": "^2.6.0"
     }
 }

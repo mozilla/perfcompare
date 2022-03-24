@@ -32,6 +32,12 @@ We run our JavaScript code in the frontend through [ESLint](https://eslint.org/)
 # To run ESLint by itself, you may run the lint task:
 npm run lint
 
-# Or to automatically fix issues found (where possible):
+# Automatically fix linting issues found (where possible):
 npm run lint:fix
+
+# Checking formatting issues with Prettier:
+npm run format:check
+
+# Automatically fix format issues found (where possible):
+npm run format
 ```
