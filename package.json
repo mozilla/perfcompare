@@ -30,8 +30,8 @@
         "eject": "react-scripts eject",
         "lint": "eslint src/**/*.{js,jsx}",
         "lint:fix": "eslint src/**/*.{js,jsx} --fix",
-        "format": "prettier --write src/**/*.{js,jsx,ts,tsx,css,html,md,json,yaml,yml} --config ./.prettierrc.js",
-        "format:check": "prettier --check src/**/*.{js,jsx,ts,tsx,css,html,md,json,yaml,yml} --config ./.prettierrc.js"
+        "format": "prettier --write \"src/**/*.{js,jsx,css,html,md,json,yaml,yml}\" --config ./.prettierrc.js",
+        "format:check": "prettier --check \"src/**/*.{js,jsx,css,html,md,json,yaml,yml}\" --config ./.prettierrc.js"
     },
     "eslintConfig": {
         "extends": "react-app"
