@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-import Compare from './Compare'
+import Compare from './Compare';
 
 function App() {
-    return <Compare />
+  return <Compare />;
 }
 
-export default App
+export default App;
