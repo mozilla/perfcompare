@@ -1,12 +1,12 @@
-import { configureStore } from '@reduxjs/toolkit'
-import { combineReducers } from 'redux'
+import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers } from 'redux';
 
-import search from '../reducers/searchSlice'
+import search from '../reducers/searchSlice';
 
 const reducer = combineReducers({
-    search,
-})
+  search,
+});
 
 export default configureStore({
-    reducer,
-})
+  reducer,
+});
