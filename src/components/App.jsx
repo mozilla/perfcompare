@@ -1,7 +1,7 @@
-import SearchView from './SearchView'
+import SearchView from './SearchView';
 
 function App() {
-    return <SearchView />
+  return <SearchView />;
 }
 
-export default App
+export default App;
