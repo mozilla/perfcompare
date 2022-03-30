@@ -9,6 +9,10 @@ jobs:
         steps:
             - checkout
             - run: npm install
+            - run:
+                # Why only production? See: https://overreacted.io/npm-audit-broken-by-design/#what-next
+                name: audit
+                command: npm audit --production
             - run: npm run lint
             - run: echo "npm run test"
 
