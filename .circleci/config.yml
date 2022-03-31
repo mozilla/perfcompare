@@ -1,34 +1,36 @@
 version: 2.1
 orbs:
-    node: circleci/node@5.0.1
+  node: circleci/node@5.0.1
 jobs:
-    test:
-        executor:
-            name: node/default
-            tag: '16.13'
-        steps:
-            - checkout
-            - restore_cache: # special step to restore the dependency cache
-                # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-                key: dependency-cache-{{ checksum "package.json" }}
-            - run: 
-                name: install
-                command: npm install
-            - save_cache: # special step to save the dependency cache
-                key: dependency-cache-{{ checksum "package.json" }}
-                paths:
-                    - ./node_modules
-            - run:
-                name: lint
-                command: npm run lint
-            - run: 
-                name: test
-                command: echo "npm run test"
-
-
+  test:
+    executor:
+      name: node/default
+      tag: '16.13'
+    steps:
+      - checkout
+      - restore_cache: # special step to restore the dependency cache
+          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install
+          command: npm install
+      - save_cache: # special step to save the dependency cache
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          # Why only production? See: https://overreacted.io/npm-audit-broken-by-design/#what-next
+          name: audit
+          command: npm audit --production
+      - run:
+          name: lint
+          command: npm run lint
+      - run:
+          name: test
+          command: echo "npm run test"
 
 workflows:
-    version: '2.1'
-    test_lint:
-        jobs:
-            - test
+  version: '2.1'
+  test_lint:
+    jobs:
+      - test
