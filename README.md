@@ -1,4 +1,5 @@
 # PerfCompare
+[![CircleCI](https://circleci.com/gh/mozilla/perfcompare/tree/master.svg?style=svg&circle-token=0e469081c107bb9544086a649c703dfc02ab178b)](https://circleci.com/gh/mozilla/perfcompare/tree/master)
 
 Performance Comparison Tool
 
