@@ -19,15 +19,20 @@ import {
 
 const unmockedFetch = global.fetch;
 
-beforeAll(() => {
-  global.fetch = jest.fn(() => []);
+beforeEach(() => {
+  global.fetch = () =>
+    Promise.resolve(
+      Promise.resolve({
+        json: () => [],
+      }),
+    );
 });
 
-afterAll(() => {
+afterEach(() => {
+  global.fetch = unmockedFetch;
   store.dispatch(updateSearchValue(''));
   store.dispatch(updateSearchResults([]));
   store.dispatch(updateRepository(''));
-  global.fetch = unmockedFetch;
   jest.clearAllMocks();
   jest.resetAllMocks();
   jest.restoreAllMocks();
@@ -61,6 +66,15 @@ describe('Search View', () => {
 
 describe('Search Input', () => {
   it('should fetch recent revisions when a repository is selected', async () => {
+    const spyOnFetch = jest.spyOn(global, 'fetch').mockImplementation(() =>
+      Promise.resolve(
+        Promise.resolve({
+          json: () => ({
+            results: [],
+          }),
+        }),
+      ),
+    );
     const user = userEvent.setup();
     render(<SearchInput />);
     const spyOnDispatch = jest.spyOn(store, 'dispatch');
@@ -76,7 +90,7 @@ describe('Search Input', () => {
 
     // Should call fetch, getState, and dispatch when an item is clicked
     await user.click(screen.getByRole('option', { name: 'autoland' }));
-    expect(fetch).toHaveBeenCalledTimes(1);
+    expect(spyOnFetch).toHaveBeenCalledTimes(1);
     expect(spyOnGetState).toHaveBeenCalled();
     expect(spyOnDispatch).toHaveBeenCalledTimes(2);
   });
@@ -102,14 +116,8 @@ describe('Search Results List', () => {
     ];
     store.dispatch(updateSearchResults(results));
 
-    const spyOnDispatch = jest.spyOn(store, 'dispatch');
-
     const searchResultsList = render(<SearchResultsList store={store} />);
 
-    expect(spyOnDispatch).toHaveBeenCalledWith({
-      type: 'search/updateSearchResults',
-      payload: results,
-    });
     expect(store.getState().search.searchResults).toBe(results);
     expect(screen.getByText('coconut')).toBeInTheDocument();
     expect(screen.getByText('spam')).toBeInTheDocument();

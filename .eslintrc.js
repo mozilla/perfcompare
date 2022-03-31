@@ -23,6 +23,7 @@ module.exports = {
     'operator-linebreak': ['error', 'after'],
     // error on prettier lint issues
     'prettier/prettier': 'error',
+    // ignore rule for reducers updating state
     'no-param-reassign': [
       'error',
       { props: true, ignorePropertyModificationsFor: ['state'] },
@@ -34,6 +35,8 @@ module.exports = {
       rules: {
         'react/prop-types': 'off',
         'import/no-extraneous-dependencies': 'off',
+        'function-paren-newline': 'off',
+        'implicit-arrow-linebreak': 'off',
       },
     },
   ],
