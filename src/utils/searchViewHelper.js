@@ -3,7 +3,7 @@ import {
   updateSearchValue,
   updateSearchResults,
   updateRepository,
-} from '../reducers/searchSlice';
+} from '../reducers/SearchSlice';
 import {
   fetchRecentRevisions,
   fetchRevisionByID,

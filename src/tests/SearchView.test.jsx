@@ -15,7 +15,7 @@ import {
   updateRepository,
   updateSearchResults,
   updateSearchValue,
-} from '../reducers/searchSlice';
+} from '../reducers/SearchSlice';
 
 const unmockedFetch = global.fetch;
 

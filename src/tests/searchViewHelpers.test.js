@@ -3,8 +3,8 @@ import {
   updateSearchValue,
   updateSearchResults,
   updateRepository,
-} from '../reducers/searchSlice';
-import SearchViewHelper from '../utils/SearchViewHelper';
+} from '../reducers/SearchSlice';
+import SearchViewHelper from '../utils/searchViewHelper';
 
 const { searchByRevisionOrEmail, handleChangeDropdown, handleChangeSearch } =
   SearchViewHelper;

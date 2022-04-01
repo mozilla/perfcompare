@@ -11,7 +11,7 @@ import TextField from '@mui/material/TextField';
 
 import SearchResultsList from './SearchResultsList';
 
-import SearchViewHelper from '../../utils/SearchViewHelper';
+import SearchViewHelper from '../../utils/searchViewHelper';
 
 const { handleChangeDropdown, handleChangeSearch } = SearchViewHelper;
 
