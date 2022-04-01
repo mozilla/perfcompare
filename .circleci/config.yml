@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   node: circleci/node@5.0.1
+  codecov: codecov/codecov@3.2.2
 jobs:
   test:
     executor:
@@ -28,9 +29,9 @@ jobs:
       - run:
           name: test
           command: npm run test:coverage
+      - codecov/upload
 
 workflows:
-  version: '2.1'
-  test_lint:
+  test:
     jobs:
       - test
