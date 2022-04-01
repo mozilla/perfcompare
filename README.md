@@ -45,3 +45,28 @@ npm run format:check
 # Automatically fix format issues found (where possible):
 npm run format
 ```
+
+### Running Tests
+
+Tests can be run with the following commands:
+
+```
+npm run test
+
+# Run tests and watch for changes
+npm run test:watch
+
+# Run tests with coverage
+npm run test:coverage
+```
+
+#### Snapshot Tests
+
+When making changes to the UI, snapshots should also be updated to match. Snapshot tests
+ensure no UI changes occur unexpectedly.
+
+After manually verifying the UI renders as intended, run the following command to update
+snapshots:
+`jest --updateSnapshot`
+
+Snapshot files should be included in your pull request(s).

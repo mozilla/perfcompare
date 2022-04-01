@@ -1,9 +1,16 @@
 import React from 'react';
 
-import Compare from './Compare';
+import CssBaseline from '@mui/material/CssBaseline';
+
+import SearchView from './Search/SearchView';
 
 function App() {
-  return <Compare />;
+  return (
+    <React.Fragment key="App Component">
+      <CssBaseline />
+      <SearchView />
+    </React.Fragment>
+  );
 }
 
 export default App;
