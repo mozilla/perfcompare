@@ -1,5 +1,6 @@
 # PerfCompare
-[![CircleCI](https://circleci.com/gh/mozilla/perfcompare/tree/master.svg?style=svg&circle-token=0e469081c107bb9544086a649c703dfc02ab178b)](https://circleci.com/gh/mozilla/perfcompare/tree/master)
+
+[![CircleCI](https://circleci.com/gh/mozilla/perfcompare/tree/master.svg?style=svg)](https://circleci.com/gh/mozilla/perfcompare/tree/master)
 
 Performance Comparison Tool
 
@@ -9,9 +10,9 @@ Performance Comparison Tool
 
 ### Requirements
 
--   [nodejs](https://nodejs.org/en/download/)
--   [python](https://www.python.org/downloads/release/python-369/)
--   [pip](https://pip.pypa.io/en/stable/installation/)
+- [nodejs](https://nodejs.org/en/download/)
+- [python](https://www.python.org/downloads/release/python-369/)
+- [pip](https://pip.pypa.io/en/stable/installation/)
 
 ### Installation
 
@@ -27,8 +28,10 @@ npm install
 npm start
 ```
 
-### Validating JavaScript 
-We run our JavaScript code in the frontend through [ESLint](https://eslint.org/) to ensure that new code has a consistent style and doesn't suffer from common errors. 
+### Validating JavaScript
+
+We run our JavaScript code in the frontend through [ESLint](https://eslint.org/) to ensure that new code has a consistent style and doesn't suffer from common errors.
+
 ```
 # To run ESLint by itself, you may run the lint task:
 npm run lint
