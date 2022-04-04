@@ -4,10 +4,10 @@ import {
   updateSearchResults,
   updateRepository,
 } from '../reducers/SearchSlice';
-import SearchViewHelper from '../utils/searchViewHelper';
+import searchViewHelper from '../utils/searchViewHelper';
 
 const { searchByRevisionOrEmail, handleChangeDropdown, handleChangeSearch } =
-  SearchViewHelper;
+  searchViewHelper;
 
 const unmockedFetch = global.fetch;
 
@@ -55,7 +55,7 @@ describe('handleChangeDropdown', () => {
 
   it('should call searchByRevisionOrEmail if searchValue is not empty', () => {
     const event = { target: { innerText: 'coconut' } };
-    const spy = jest.spyOn(SearchViewHelper, 'searchByRevisionOrEmail');
+    const spy = jest.spyOn(searchViewHelper, 'searchByRevisionOrEmail');
 
     // Ensure state has been reset in between tests
     expect(store.getState().search.searchValue).toBe('');
@@ -102,7 +102,7 @@ describe('handleChangeSearch', () => {
 
   it('should call searchByRevisionOrEmail with if repository is not empty', () => {
     const event = { target: { value: 'spam' } };
-    const spy = jest.spyOn(SearchViewHelper, 'searchByRevisionOrEmail');
+    const spy = jest.spyOn(searchViewHelper, 'searchByRevisionOrEmail');
     const spyOnDispatch = jest.spyOn(store, 'dispatch');
 
     // Ensure state has been reset in between tests

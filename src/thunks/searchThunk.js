@@ -1,13 +1,15 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-const TREEHERDER = 'https://treeherder.mozilla.org';
+const treeherderBaseURL = 'https://treeherder.mozilla.org';
 
 export const fetchRecentRevisions = createAsyncThunk(
   'search/fetchRecentRevisions',
   async (repository, { rejectWithValue }) => {
     let response;
     try {
-      response = await fetch(`${TREEHERDER}/api/project/${repository}/push/`)
+      response = await fetch(
+        `${treeherderBaseURL}/api/project/${repository}/push/`,
+      )
         .then((res) => res.json())
         .then((res) => res.results);
     } catch (err) {
@@ -23,7 +25,7 @@ export const fetchRevisionByID = createAsyncThunk(
     let response;
     try {
       response = await fetch(
-        `${TREEHERDER}/api/project/${repository}/push/?revision=${search}`,
+        `${treeherderBaseURL}/api/project/${repository}/push/?revision=${search}`,
       )
         .then((res) => res.json())
         .then((res) => res.results);
@@ -40,7 +42,7 @@ export const fetchRevisionsByAuthor = createAsyncThunk(
     let response;
     try {
       response = await fetch(
-        `${TREEHERDER}/api/project/${repository}/push/?author=${search}`,
+        `${treeherderBaseURL}/api/project/${repository}/push/?author=${search}`,
       )
         .then((res) => res.json())
         .then((res) => res.results);
