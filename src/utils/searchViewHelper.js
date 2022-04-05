@@ -10,7 +10,7 @@ import {
   fetchRevisionsByAuthor,
 } from '../thunks/searchThunk';
 
-const SearchViewHelper = {
+const searchViewHelper = {
   searchByRevisionOrEmail(repository, search) {
     const emailMatch = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const longHashMatch = /[a-zA-Z0-9]{40}/;
@@ -30,7 +30,7 @@ const SearchViewHelper = {
     store.dispatch(updateRepository(repository));
     // If repository is selected after search value is input, fetch search results
     if (search !== '') {
-      SearchViewHelper.searchByRevisionOrEmail(repository, search);
+      searchViewHelper.searchByRevisionOrEmail(repository, search);
     }
     // Fetch 10 most recent revisions when repository changes
     store.dispatch(fetchRecentRevisions(repository));
@@ -47,9 +47,9 @@ const SearchViewHelper = {
     if (repository === '') {
       console.log('Please select a repository');
     } else {
-      SearchViewHelper.searchByRevisionOrEmail(repository, search);
+      searchViewHelper.searchByRevisionOrEmail(repository, search);
     }
   },
 };
 
-export default SearchViewHelper;
+export default searchViewHelper;
