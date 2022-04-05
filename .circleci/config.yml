@@ -27,7 +27,7 @@ jobs:
           command: npm run lint
       - run:
           name: test
-          command: echo "npm run test"
+          command: npm run test:coverage
 
 workflows:
   version: '2.1'
