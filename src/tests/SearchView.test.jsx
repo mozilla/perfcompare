@@ -3,19 +3,19 @@
  */
 
 import React from 'react';
+
 import userEvent from '@testing-library/user-event';
 
-import { render, fireEvent, screen } from './utils/test-utils';
 import store from '../common/store';
-
-import SearchView from '../components/Search/SearchView';
 import SearchInput from '../components/Search/SearchInput';
 import SearchResultsList from '../components/Search/SearchResultsList';
+import SearchView from '../components/Search/SearchView';
 import {
   updateRepository,
   updateSearchResults,
   updateSearchValue,
 } from '../reducers/SearchSlice';
+import { render, fireEvent, screen } from './utils/test-utils';
 
 const unmockedFetch = global.fetch;
 

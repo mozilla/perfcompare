@@ -1,7 +1,7 @@
 {
   "name": "perfcompare",
   "version": "0.1.0",
-  "homepage": "https://mozilla.github.io/perfcompare",
+  "homepage": "./",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.8.2",
@@ -19,6 +19,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
+    "react-router-dom": "^6.3.0",
     "redux": "^4.1.2",
     "sass": "^1.49.7",
     "typescript": "^4.5.5"
