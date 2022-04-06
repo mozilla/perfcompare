@@ -1,6 +1,7 @@
 # PerfCompare
 
-[![CircleCI](https://circleci.com/gh/mozilla/perfcompare/tree/master.svg?style=svg)](https://circleci.com/gh/mozilla/perfcompare/tree/master)
+[![CircleCI](https://circleci.com/gh/mozilla/perfcompare/tree/master.svg?style=shield)](https://circleci.com/gh/mozilla/perfcompare/tree/master)
+[![codecov](https://codecov.io/gh/mozilla/perfcompare/branch/master/graph/badge.svg?token=XHP440JFDQ)](https://codecov.io/gh/mozilla/perfcompare)
 
 Performance Comparison Tool
 
