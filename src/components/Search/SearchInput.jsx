@@ -1,17 +1,16 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 
 import Container from '@mui/material/Container';
-import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import TextField from '@mui/material/TextField';
-
-import SearchResultsList from './SearchResultsList';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import SearchViewHelper from '../../utils/searchViewHelper';
+import SearchResultsList from './SearchResultsList';
 
 const { handleChangeDropdown, handleChangeSearch } = SearchViewHelper;
 
