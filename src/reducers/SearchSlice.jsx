@@ -7,20 +7,21 @@ import {
 } from '../thunks/searchThunk';
 
 const initialState = {
-  recentRevisions: [],
   repository: '',
   searchResults: [],
   searchValue: '',
-  loading: 'idle',
+  errorMessage: null,
 };
 
 const search = createSlice({
   name: 'search',
   initialState,
   reducers: {
-    updateLoadingState(state, action) {
-      state.loading = action.payload;
+    // BEGIN used for testing only
+    updateErrorMessage(state, action) {
+      state.errorMessage = action.payload;
     },
+    // END used for testing only
     updateSearchValue(state, action) {
       state.searchValue = action.payload;
     },
@@ -34,43 +35,31 @@ const search = createSlice({
   extraReducers: (builder) => {
     builder
       // fetchRecentRevisions
-      .addCase(fetchRecentRevisions.pending, (state) => {
-        state.loading = 'pending';
-      })
       .addCase(fetchRecentRevisions.fulfilled, (state, action) => {
-        state.loading = 'succeeded';
-        state.recentRevisions = action.payload;
+        state.searchResults = action.payload;
       })
-      .addCase(fetchRecentRevisions.rejected, (state) => {
-        state.loading = 'failed';
+      .addCase(fetchRecentRevisions.rejected, (state, action) => {
+        state.errorMessage = action.payload;
       })
       // fetchRevisionByID
-      .addCase(fetchRevisionByID.pending, (state) => {
-        state.loading = 'pending';
-      })
       .addCase(fetchRevisionByID.fulfilled, (state, action) => {
-        state.loading = 'succeeded';
         state.searchResults = action.payload;
       })
-      .addCase(fetchRevisionByID.rejected, (state) => {
-        state.loading = 'failed';
+      .addCase(fetchRevisionByID.rejected, (state, action) => {
+        state.errorMessage = action.payload;
       })
       // fetchRevisionsByAuthor
-      .addCase(fetchRevisionsByAuthor.pending, (state) => {
-        state.loading = 'pending';
-      })
       .addCase(fetchRevisionsByAuthor.fulfilled, (state, action) => {
-        state.loading = 'succeeded';
         state.searchResults = action.payload;
       })
-      .addCase(fetchRevisionsByAuthor.rejected, (state) => {
-        state.loading = 'failed';
+      .addCase(fetchRevisionsByAuthor.rejected, (state, action) => {
+        state.errorMessage = action.payload;
       });
   },
 });
 
 export const {
-  updateLoadingState,
+  updateErrorMessage,
   updateSearchValue,
   updateSearchResults,
   updateRepository,
