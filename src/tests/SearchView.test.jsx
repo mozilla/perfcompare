@@ -372,7 +372,6 @@ describe('Search View', () => {
     );
   });
 
-<<<<<<< HEAD
   it('should fetch results if repository is selected after searchValue is input', async () => {
     const spyOnFetch = jest.spyOn(global, 'fetch').mockImplementation(() =>
       Promise.resolve(
@@ -429,36 +428,5 @@ describe('Search View', () => {
 
     await user.clear(searchInput);
     expect(store.getState().search.searchResults).toStrictEqual([]);
-=======
-describe('Search Results List', () => {
-  it('should show results if searchResults is not empty', () => {
-    const results = [
-      {
-        id: 1,
-        revision: 'coconut',
-        author: 'johncleese@python.com',
-        push_timestamp: 42,
-        repository_id: 4,
-      },
-      {
-        id: 2,
-        revision: 'spam',
-        author: 'ericidle@python.com',
-        push_timestamp: 42,
-        repository_id: 3,
-      },
-    ];
-    act(() => {
-      store.dispatch(updateSearchResults(results));
-    });
-
-    const searchResultsList = render(<SearchResultsList store={store} />);
-
-    expect(store.getState().search.searchResults).toBe(results);
-    expect(screen.getByText('coconut')).toBeInTheDocument();
-    expect(screen.getByText('spam')).toBeInTheDocument();
-
-    expect(searchResultsList).toMatchSnapshot();
->>>>>>> * moved setup/teardown to setupTests.js
   });
 });
