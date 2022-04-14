@@ -15,7 +15,7 @@ import SearchResultsList from './SearchResultsList';
 const { handleChangeDropdown, handleChangeSearch } = SearchViewHelper;
 
 function SearchInput(props) {
-  const { repository } = props;
+  const { repository, searchResults } = props;
   const repoList = ['try', 'autoland', 'mozilla-central'];
 
   return (
@@ -46,18 +46,38 @@ function SearchInput(props) {
         sx={{ width: '75%' }}
         onChange={handleChangeSearch}
       />
-      <SearchResultsList />
+      {searchResults.length > 0 && <SearchResultsList />}
     </Container>
   );
 }
 
 SearchInput.propTypes = {
   repository: PropTypes.string.isRequired,
+  searchResults: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      revision: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+      revisions: PropTypes.arrayOf(
+        PropTypes.shape({
+          result_set_id: PropTypes.number,
+          repository_id: PropTypes.number,
+          revision: PropTypes.string,
+          author: PropTypes.string,
+          comments: PropTypes.string,
+        }),
+      ),
+      revision_count: PropTypes.number,
+      push_timestamp: PropTypes.number.isRequired,
+      repository_id: PropTypes.number.isRequired,
+    }),
+  ).isRequired,
 };
 
 function mapStateToProps(state) {
   return {
     repository: state.search.repository,
+    searchResults: state.search.searchResults,
   };
 }
 

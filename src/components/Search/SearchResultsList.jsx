@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 
 function SearchResultsList(props) {
   const { searchResults } = props;
-  return searchResults.length > 0 ? (
+  return (
     <Grid container>
       <Grid item xs={3} />
       <Grid item xs={9}>
@@ -44,8 +44,6 @@ function SearchResultsList(props) {
         </Box>
       </Grid>
     </Grid>
-  ) : (
-    <div />
   );
 }
 
