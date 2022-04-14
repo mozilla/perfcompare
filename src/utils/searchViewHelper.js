@@ -23,7 +23,7 @@ const searchViewHelper = {
   },
 
   handleChangeDropdown(event) {
-    const repository = event.target.innerText;
+    const repository = event.target.id;
     const search = store.getState().search.searchValue;
 
     // Update state with selected repository
