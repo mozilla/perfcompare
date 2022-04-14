@@ -6,12 +6,7 @@ import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import '@testing-library/jest-dom';
 
-import {
-  updateErrorMessage,
-  updateRepository,
-  updateSearchResults,
-  updateSearchValue,
-} from '../reducers/SearchSlice';
+import { resetState } from '../reducers/SearchSlice';
 import { act, store } from './utils/test-utils';
 
 const unmockedFetch = global.fetch;
@@ -26,10 +21,7 @@ afterAll(() => {
 
 beforeEach(() => {
   act(() => {
-    store.dispatch(updateErrorMessage(null));
-    store.dispatch(updateSearchValue(''));
-    store.dispatch(updateSearchResults([]));
-    store.dispatch(updateRepository(''));
+    store.dispatch(resetState());
   });
 });
 
