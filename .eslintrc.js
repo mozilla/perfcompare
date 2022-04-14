@@ -19,15 +19,6 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
-    // require line break after operator
-    'operator-linebreak': ['error', 'after'],
-    // error on prettier lint issues
-    'prettier/prettier': 'error',
-    // ignore rule for reducers updating state
-    'no-param-reassign': [
-      'error',
-      { props: true, ignorePropertyModificationsFor: ['state'] },
-    ],
     'import/order': [
       'error',
       {
@@ -47,6 +38,25 @@ module.exports = {
         },
       },
     ],
+    // ignore rule for reducers updating state
+    'no-param-reassign': [
+      'error',
+      { props: true, ignorePropertyModificationsFor: ['state'] },
+    ],
+    // this rule prevents using identifiers such as '_foo' or '__bar__',
+    // which indicate to those contributing that this should not be
+    // used outside the context in which it is defined
+    'no-underscore-dangle': 'off',
+    // require line breaks between curly braces in imports
+    // only if there are line breaks between properties
+    'object-curly-newline': [
+      'error',
+      { ImportDeclaration: { multiline: true } },
+    ],
+    // require line break after operator
+    'operator-linebreak': ['error', 'after'],
+    // error on prettier lint issues
+    'prettier/prettier': 'error',
   },
   overrides: [
     {
