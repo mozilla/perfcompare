@@ -6,14 +6,13 @@ import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import '@testing-library/jest-dom';
 
-import store from '../common/store';
 import {
   updateErrorMessage,
   updateRepository,
   updateSearchResults,
   updateSearchValue,
 } from '../reducers/SearchSlice';
-import { act } from './utils/test-utils';
+import { act, store } from './utils/test-utils';
 
 const unmockedFetch = global.fetch;
 
