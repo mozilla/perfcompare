@@ -10,14 +10,8 @@ import store from '../common/store';
 import SearchInput from '../components/Search/SearchInput';
 import SearchResultsList from '../components/Search/SearchResultsList';
 import SearchView from '../components/Search/SearchView';
-import {
-  updateRepository,
-  updateSearchResults,
-  updateSearchValue,
-} from '../reducers/SearchSlice';
-import { render, fireEvent, screen } from './utils/test-utils';
-
-const unmockedFetch = global.fetch;
+import { updateSearchResults } from '../reducers/SearchSlice';
+import { act, render, fireEvent, screen } from './utils/test-utils';
 
 beforeEach(() => {
   global.fetch = () =>
@@ -26,16 +20,6 @@ beforeEach(() => {
         json: () => [],
       }),
     );
-});
-
-afterEach(() => {
-  global.fetch = unmockedFetch;
-  store.dispatch(updateSearchValue(''));
-  store.dispatch(updateSearchResults([]));
-  store.dispatch(updateRepository(''));
-  jest.clearAllMocks();
-  jest.resetAllMocks();
-  jest.restoreAllMocks();
 });
 
 describe('Search View', () => {
@@ -114,7 +98,9 @@ describe('Search Results List', () => {
         repository_id: 3,
       },
     ];
-    store.dispatch(updateSearchResults(results));
+    act(() => {
+      store.dispatch(updateSearchResults(results));
+    });
 
     const searchResultsList = render(<SearchResultsList store={store} />);
 

@@ -9,13 +9,16 @@ export const fetchRecentRevisions = createAsyncThunk(
     try {
       response = await fetch(
         `${treeherderBaseURL}/api/project/${repository}/push/`,
-      )
-        .then((res) => res.json())
-        .then((res) => res.results);
+      );
     } catch (err) {
-      return rejectWithValue(err.response.data);
+      return rejectWithValue(err.message);
     }
-    return response;
+    const json = await response.json();
+    if (json.results.length > 0) {
+      return json.results;
+    }
+
+    return rejectWithValue('No results found');
   },
 );
 
@@ -26,29 +29,35 @@ export const fetchRevisionByID = createAsyncThunk(
     try {
       response = await fetch(
         `${treeherderBaseURL}/api/project/${repository}/push/?revision=${search}`,
-      )
-        .then((res) => res.json())
-        .then((res) => res.results);
+      );
     } catch (err) {
-      return rejectWithValue(err.response.data);
+      return rejectWithValue(err.message);
     }
-    return response;
+    const json = await response.json();
+    if (json.results.length > 0) {
+      return json.results;
+    }
+
+    return rejectWithValue('No results found');
   },
 );
 
 export const fetchRevisionsByAuthor = createAsyncThunk(
   'search/fetchRevisionsByAuthor',
-  async ({ repository, search }, rejectWithValue) => {
+  async ({ repository, search }, { rejectWithValue }) => {
     let response;
     try {
       response = await fetch(
         `${treeherderBaseURL}/api/project/${repository}/push/?author=${search}`,
-      )
-        .then((res) => res.json())
-        .then((res) => res.results);
+      );
     } catch (err) {
-      return rejectWithValue(err.response.data);
+      return rejectWithValue(err.message);
     }
-    return response;
+    const json = await response.json();
+    if (json.results.length > 0) {
+      return json.results;
+    }
+
+    return rejectWithValue('No results found');
   },
 );

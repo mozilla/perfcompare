@@ -9,20 +9,12 @@ import searchViewHelper from '../utils/searchViewHelper';
 const { searchByRevisionOrEmail, handleChangeDropdown, handleChangeSearch } =
   searchViewHelper;
 
-const unmockedFetch = global.fetch;
-
 beforeEach(() => {
-  global.fetch = jest.fn();
+  jest.useFakeTimers();
 });
 
 afterEach(() => {
-  store.dispatch(updateSearchValue(''));
-  store.dispatch(updateSearchResults([]));
-  store.dispatch(updateRepository(''));
-  global.fetch = unmockedFetch;
-  jest.clearAllMocks();
-  jest.resetAllMocks();
-  jest.restoreAllMocks();
+  jest.useRealTimers();
 });
 
 describe('handleChangeDropdown', () => {
@@ -32,6 +24,7 @@ describe('handleChangeDropdown', () => {
 
     // Ensure state has been reset in between tests
     expect(store.getState().search.repository).toBe('');
+    expect(store.getState().search.searchValue).toBe('');
 
     handleChangeDropdown(event);
 
@@ -44,6 +37,10 @@ describe('handleChangeDropdown', () => {
   });
 
   it('should call fetch with correct URL', () => {
+    // Ensure state has been reset in between tests
+    expect(store.getState().search.repository).toBe('');
+    expect(store.getState().search.searchValue).toBe('');
+
     const spyOnFetch = jest.spyOn(global, 'fetch');
     const event = { target: { innerText: 'coconut' } };
     handleChangeDropdown(event);
@@ -95,6 +92,7 @@ describe('handleChangeSearch', () => {
     expect(store.getState().search.searchValue).toBe('');
 
     handleChangeSearch(event);
+    jest.runAllTimers();
 
     expect(spyOnLog).toHaveBeenCalled();
     expect(store.getState().search.searchValue).toBe('spam');
@@ -112,6 +110,7 @@ describe('handleChangeSearch', () => {
     store.dispatch(updateRepository('coconut'));
 
     handleChangeSearch(event);
+    jest.runAllTimers();
 
     expect(spyOnDispatch).toHaveBeenCalledTimes(2);
     expect(spyOnDispatch).toHaveBeenNthCalledWith(2, {
