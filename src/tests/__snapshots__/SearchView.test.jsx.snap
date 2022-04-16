@@ -295,7 +295,7 @@ exports[`Search View should fetch and display recent results when repository is 
 </body>
 `;
 
-exports[`Search View should fetch revisions by ID if searchValue is a 40 character alphanumeric string 1`] = `
+exports[`Search View should fetch revisions by ID if searchValue is a 12 or 40 character hash 1`] = `
 <body
   style=""
 >

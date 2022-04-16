@@ -13,11 +13,12 @@ import {
 const searchViewHelper = {
   searchByRevisionOrEmail(repository, search) {
     const emailMatch = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const longHashMatch = /[a-zA-Z0-9]{40}/;
+    const longHashMatch = /\b[a-f0-9]{40}\b/;
+    const shortHashMatch = /\b[a-f0-9]{12}\b/;
 
     if (emailMatch.test(search)) {
       store.dispatch(fetchRevisionsByAuthor({ repository, search }));
-    } else if (longHashMatch.test(search)) {
+    } else if (longHashMatch.test(search) || shortHashMatch.test(search)) {
       store.dispatch(fetchRevisionByID({ repository, search }));
     }
   },
