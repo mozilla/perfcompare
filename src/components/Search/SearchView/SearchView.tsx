@@ -6,13 +6,15 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { connect } from 'react-redux';
 
-import useFocusInput from '../../hooks/useFocusInput';
-import zap from '../../theme/img/zap-10.svg';
-import { Revision, State } from '../../types/state';
-import AddRevisionButton from './AddRevisionButton';
-import SearchDropdown from './SearchDropdown';
-import SearchInput from './SearchInput';
-import SearchResultsList from './SearchResultsList';
+import useFocusInput from '../../../hooks/useFocusInput';
+import zap from '../../../theme/img/zap-10.svg';
+import { Revision, State } from '../../../types/state';
+import './SearchView.css';
+import AddRevisionButton from '../AddRevisionButton';
+import SearchDropdown from '../SearchDropdown';
+import SearchInput from '../SearchInput';
+import SearchResultsList from '../SearchResultsList';
+import SelectedRevisionsTable from '../SelectedRevisionsTable/SelectedRevisionsTable';
 
 function SearchView(props: SearchViewProps) {
   const { focused, handleParentClick, handleFocus, handleChildClick } =
@@ -55,6 +57,9 @@ function SearchView(props: SearchViewProps) {
           {searchResults.length > 0 && focused && (
             <SearchResultsList handleChildClick={handleChildClick} />
           )}
+        </Grid>
+        <Grid item xs={12}>
+          <SelectedRevisionsTable />
         </Grid>
       </Grid>
     </Container>

@@ -24,6 +24,13 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'source-map-loader',
       },
+
+      // css loader and style loader to help with easy accessibility of css in ts files
+      {
+        test: /\.css$/i,
+        use: ['css-loader', 'style-loader'],
+        modules: true,
+      },
     ],
   },
   externals: {
