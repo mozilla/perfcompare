@@ -143,7 +143,7 @@ describe('Search View', () => {
     );
   });
 
-  it('should fetch revisions by ID if searchValue is a 40 character alphanumeric string', async () => {
+  it('should fetch revisions by ID if searchValue is a 12 or 40 character hash', async () => {
     const spyOnFetch = jest.spyOn(global, 'fetch').mockImplementation(() =>
       Promise.resolve(
         Promise.resolve({
@@ -166,10 +166,22 @@ describe('Search View', () => {
 
     const searchInput = getByRole('textbox');
 
-    await user.type(searchInput, 'spamspamspamspamspamspamspamspamandeggs0');
+    await user.type(
+      searchInput,
+      'abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234',
+    );
 
-    expect(spyOnFetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/autoland/push/?revision=spamspamspamspamspamspamspamspamandeggs0',
+    expect(spyOnFetch).toHaveBeenNthCalledWith(
+      1,
+      'https://treeherder.mozilla.org/api/project/autoland/push/',
+    );
+    expect(spyOnFetch).toHaveBeenNthCalledWith(
+      2,
+      'https://treeherder.mozilla.org/api/project/autoland/push/?revision=abcdef123456',
+    );
+    expect(spyOnFetch).toHaveBeenNthCalledWith(
+      3,
+      'https://treeherder.mozilla.org/api/project/autoland/push/?revision=abcdef1234567890abcdef1234567890abcdef12',
     );
 
     await waitFor(() => expect(queryByText('try')).not.toBeInTheDocument());
@@ -218,7 +230,7 @@ describe('Search View', () => {
   });
 
   it('should reject fetchRevisionsByID if fetch returns no results', async () => {
-    const spyOnFetch = jest.spyOn(global, 'fetch').mockImplementation(() =>
+    jest.spyOn(global, 'fetch').mockImplementation(() =>
       Promise.resolve(
         Promise.resolve({
           json: () => ({
@@ -240,17 +252,16 @@ describe('Search View', () => {
 
     const searchInput = getByRole('textbox');
 
-    await user.type(searchInput, 'spamspamspamspamspamspamspamspamandeggs0');
-
-    expect(spyOnFetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/autoland/push/?revision=spamspamspamspamspamspamspamspamandeggs0',
+    await user.type(
+      searchInput,
+      'abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234',
     );
 
     expect(store.getState().search.errorMessage).toBe('No results found');
   });
 
   it('should update error state if fetchRevisionsByID returns an error', async () => {
-    const spyOnFetch = jest
+    jest
       .spyOn(global, 'fetch')
       .mockImplementation(() =>
         Promise.reject(
@@ -272,10 +283,9 @@ describe('Search View', () => {
 
     const searchInput = getByRole('textbox');
 
-    await user.type(searchInput, 'spamspamspamspamspamspamspamspamandeggs0');
-
-    expect(spyOnFetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/autoland/push/?revision=spamspamspamspamspamspamspamspamandeggs0',
+    await user.type(
+      searchInput,
+      'abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234',
     );
 
     expect(store.getState().search.errorMessage).toBe(
@@ -361,9 +371,13 @@ describe('Search View', () => {
     const searchInput = getByRole('textbox');
 
     await user.type(searchInput, 'coconut');
+    await user.clear(searchInput);
     await user.type(searchInput, 'spam@eggs');
+    await user.clear(searchInput);
     await user.type(searchInput, 'spamspamspamand@eggs.');
+    await user.clear(searchInput);
     await user.type(searchInput, 'iamalmostlongenoughtobeahashbutnotquite');
+    await user.clear(searchInput);
 
     // fetch should only be called when selecting a repository
     expect(spyOnFetch).toHaveBeenCalledTimes(1);
