@@ -18,8 +18,11 @@ const search = createSlice({
   initialState,
   reducers: {
     // BEGIN used for testing only
-    updateErrorMessage(state, action) {
-      state.errorMessage = action.payload;
+    resetState(state) {
+      state.repository = initialState.repository;
+      state.searchResults = initialState.searchResults;
+      state.searchValue = initialState.searchValue;
+      state.errorMessage = initialState.errorMessage;
     },
     // END used for testing only
     updateSearchValue(state, action) {
@@ -59,7 +62,7 @@ const search = createSlice({
 });
 
 export const {
-  updateErrorMessage,
+  resetState,
   updateSearchValue,
   updateSearchResults,
   updateRepository,

@@ -6,7 +6,6 @@ import React from 'react';
 
 import userEvent from '@testing-library/user-event';
 
-// import store from '../common/store';
 import SearchView from '../components/Search/SearchView';
 import { render, screen, waitFor, store } from './utils/test-utils';
 
