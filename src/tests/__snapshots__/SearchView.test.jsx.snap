@@ -10,7 +10,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
         class="MuiBox-root css-0"
       >
         <div
-          class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom css-1bn4tuo-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom css-vmrjt8-MuiTypography-root"
         >
           PerfCompare
         </div>
@@ -129,7 +129,7 @@ exports[`Search View should fetch and display recent results when repository is 
         class="MuiBox-root css-0"
       >
         <div
-          class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom css-1bn4tuo-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom css-vmrjt8-MuiTypography-root"
         >
           PerfCompare
         </div>
@@ -307,7 +307,7 @@ exports[`Search View should fetch revisions by ID if searchValue is a 12 or 40 c
         class="MuiBox-root css-0"
       >
         <div
-          class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom css-1bn4tuo-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom css-vmrjt8-MuiTypography-root"
         >
           PerfCompare
         </div>
@@ -485,7 +485,7 @@ exports[`Search View should fetch revisions by author if searchValue is an email
         class="MuiBox-root css-0"
       >
         <div
-          class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom css-1bn4tuo-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom css-vmrjt8-MuiTypography-root"
         >
           PerfCompare
         </div>

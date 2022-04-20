@@ -80,6 +80,10 @@
   "jest": {
     "setupFilesAfterEnv": [
       "./src/tests/setupTests.js"
-    ]
+    ],
+    "transform": {
+      "^.+\\.(js|jsx)$": "babel-jest",
+      "^.+\\.svg$": "<rootDir>/src/tests/utils/fileTransformer.js"
+    }
   }
 }
