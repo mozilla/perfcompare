@@ -28,8 +28,8 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start-dev": "react-scripts start",
-    "start": "serve -s build",
+    "start-dev": "echo 'Launching local development server.' && react-scripts start",
+    "start": "echo 'Launching deployment server for production builds. If you meant to run the local development server, please use `npm run start-dev` instead.' && serve -s build",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.{js,jsx}",
