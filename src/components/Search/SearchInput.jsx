@@ -32,6 +32,7 @@ class SearchInput extends Component {
             sx={{ width: '100%' }}
             onChange={handleChangeSearch}
             focused={searchIsFocused}
+            id="search-revision-input"
           />
         ) : (
           /* text field with errors */
@@ -43,6 +44,7 @@ class SearchInput extends Component {
             sx={{ width: '100%' }}
             onChange={handleChangeSearch}
             focused={searchIsFocused}
+            id="search-revision-input"
           />
         )}
         {searchResults.length > 0 && searchIsFocused && <SearchResultsList />}

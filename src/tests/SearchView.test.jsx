@@ -9,9 +9,6 @@ import userEvent from '@testing-library/user-event';
 import SearchView from '../components/Search/SearchView';
 import { render, screen, waitFor, store } from './utils/test-utils';
 
-const { getByLabelText, getByRole, getByText, queryByRole, queryByText } =
-  screen;
-
 const testResults = [
   {
     id: 1,
@@ -48,59 +45,58 @@ describe('Search View', () => {
     render(<SearchView />);
 
     // Title appears
-    expect(getByText(/PerfCompare/i)).toBeInTheDocument();
+    expect(screen.getByText(/PerfCompare/i)).toBeInTheDocument();
 
     // Repository Select appears
-    expect(getByLabelText(/Repository/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Repository/i)).toBeInTheDocument();
 
-    // No repositories are selected and dropdown is not visible
-    expect(queryByText(/autoland/i)).not.toBeInTheDocument();
-    expect(queryByText(/try/i)).not.toBeInTheDocument();
-    expect(queryByText(/mozilla-central/i)).not.toBeInTheDocument();
+    // try is the default repository and dropdown is not visible
+    expect(screen.queryByText(/try/i)).toBeInTheDocument();
+    expect(screen.queryByText(/autoland/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/mozilla-central/i)).not.toBeInTheDocument();
     // Search input appears
     expect(
-      getByLabelText(/Search By Revision ID or Author Email/i),
+      screen.getByLabelText(/Search By Revision ID or Author Email/i),
     ).toBeInTheDocument();
 
     // No list items should appear
-    expect(queryByRole('listitem')).not.toBeInTheDocument();
+    expect(screen.queryByRole('listitem')).not.toBeInTheDocument();
 
     expect(document.body).toMatchSnapshot();
   });
 
   it('should fetch and display recent results when repository is selected', async () => {
     const spyOnFetch = jest.spyOn(global, 'fetch').mockImplementation(() =>
-      Promise.resolve(
-        Promise.resolve({
-          json: () => ({
-            results: testResults,
-          }),
+      Promise.resolve({
+        json: () => ({
+          results: testResults,
         }),
-      ),
+      }),
     );
-    const user = userEvent.setup();
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
 
     render(<SearchView />);
 
     await screen.findByRole('button', { name: 'repository' });
-    await user.click(getByRole('button', { name: 'repository' }));
+    await user.click(screen.getByRole('button', { name: 'repository' }));
 
     // Menu items should be visible
-    expect(getByText(/autoland/i)).toBeInTheDocument();
-    expect(getByText(/try/i)).toBeInTheDocument();
-    expect(getByText(/mozilla-central/i)).toBeInTheDocument();
+    await screen.findByRole('option', { name: 'autoland' });
+    expect(screen.getByRole('option', { name: 'try' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('option', { name: 'mozilla-central' }),
+    ).toBeInTheDocument();
 
-    await user.click(getByRole('option', { name: 'autoland' }));
+    await user.click(screen.getByRole('option', { name: 'autoland' }));
+    jest.runOnlyPendingTimers();
 
     expect(store.getState().search.searchResults).toStrictEqual(testResults);
 
-    await waitFor(() =>
-      expect(
-        queryByText("coconut - you've got no arms left!"),
-      ).toBeInTheDocument(),
-    );
-    expect(getByText("coconut - you've got no arms left!")).toBeInTheDocument();
-    expect(getByText("spam - it's just a flesh wound")).toBeInTheDocument();
+    await screen.findByText("coconut - you've got no arms left!");
+    expect(
+      screen.getByText("spam - it's just a flesh wound"),
+    ).toBeInTheDocument();
 
     expect(spyOnFetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/autoland/push/',
@@ -118,86 +114,35 @@ describe('Search View', () => {
         }),
       ),
     );
-    const user = userEvent.setup();
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
 
     render(<SearchView />);
 
     await screen.findByRole('button', { name: 'repository' });
-    await user.click(getByRole('button', { name: 'repository' }));
+    await user.click(screen.getByRole('button', { name: 'repository' }));
 
     // Menu items should be visible
-    expect(getByText(/autoland/i)).toBeInTheDocument();
-    expect(getByText(/try/i)).toBeInTheDocument();
-    expect(getByText(/mozilla-central/i)).toBeInTheDocument();
+    await screen.findByRole('option', { name: 'try' });
+    expect(screen.getByText(/autoland/i)).toBeInTheDocument();
+    expect(screen.getByText(/mozilla-central/i)).toBeInTheDocument();
 
-    await user.click(getByRole('option', { name: 'autoland' }));
+    await user.click(screen.getByRole('option', { name: 'autoland' }));
 
     expect(store.getState().search.searchResults).toStrictEqual(testResults);
 
-    await waitFor(() =>
-      expect(
-        queryByText("coconut - you've got no arms left!"),
-      ).toBeInTheDocument(),
-    );
-    expect(getByText("coconut - you've got no arms left!")).toBeInTheDocument();
-    expect(getByText("spam - it's just a flesh wound")).toBeInTheDocument();
+    await screen.getByText("coconut - you've got no arms left!");
+    expect(
+      screen.getByText("spam - it's just a flesh wound"),
+    ).toBeInTheDocument();
 
-    await user.click(getByText('PerfCompare'));
+    await user.click(screen.getByText('PerfCompare'));
 
     expect(
-      queryByText("coconut - you've got no arms left!"),
+      screen.queryByText("coconut - you've got no arms left!"),
     ).not.toBeInTheDocument();
     expect(
-      queryByText("spam - it's just a flesh wound"),
-    ).not.toBeInTheDocument();
-
-    expect(document.body).toMatchSnapshot();
-  });
-
-  it('should catch error if element clicked has no parent element', async () => {
-    jest.spyOn(global, 'fetch').mockImplementation(() =>
-      Promise.resolve(
-        Promise.resolve({
-          json: () => ({
-            results: testResults,
-          }),
-        }),
-      ),
-    );
-    const user = userEvent.setup();
-
-    render(<SearchView />);
-
-    await screen.findByRole('button', { name: 'repository' });
-    await user.click(getByRole('button', { name: 'repository' }));
-
-    // Menu items should be visible
-    expect(getByText(/autoland/i)).toBeInTheDocument();
-    expect(getByText(/try/i)).toBeInTheDocument();
-    expect(getByText(/mozilla-central/i)).toBeInTheDocument();
-
-    await user.click(getByRole('option', { name: 'autoland' }));
-
-    expect(store.getState().search.searchResults).toStrictEqual(testResults);
-
-    await waitFor(() =>
-      expect(
-        queryByText("coconut - you've got no arms left!"),
-      ).toBeInTheDocument(),
-    );
-    expect(getByText("coconut - you've got no arms left!")).toBeInTheDocument();
-    expect(getByText("spam - it's just a flesh wound")).toBeInTheDocument();
-
-    try {
-      await user.click(document.getElementsByTagName('html')[0]);
-    } catch (e) {
-      expect(e).toBeInstanceOf(TypeError);
-    }
-    expect(
-      queryByText("coconut - you've got no arms left!"),
-    ).not.toBeInTheDocument();
-    expect(
-      queryByText("spam - it's just a flesh wound"),
+      screen.queryByText("spam - it's just a flesh wound"),
     ).not.toBeInTheDocument();
 
     expect(document.body).toMatchSnapshot();
@@ -205,30 +150,30 @@ describe('Search View', () => {
 
   it('should reject fetchRecentRevisions if fetch returns no results', async () => {
     const spyOnFetch = jest.spyOn(global, 'fetch').mockImplementation(() =>
-      Promise.resolve(
-        Promise.resolve({
-          json: () => ({
-            results: [],
-          }),
+      Promise.resolve({
+        json: () => ({
+          results: [],
         }),
-      ),
+      }),
     );
-    const user = userEvent.setup();
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
 
     render(<SearchView />);
 
     await screen.findByRole('button', { name: 'repository' });
-    await user.click(getByRole('button', { name: 'repository' }));
+    await user.click(screen.getByRole('button', { name: 'repository' }));
 
-    expect(getByText(/try/i)).toBeInTheDocument();
-
-    await user.click(getByRole('option', { name: 'autoland' }));
+    await screen.findByRole('option', { name: 'autoland' });
+    await user.click(screen.getByRole('option', { name: 'autoland' }));
+    jest.runOnlyPendingTimers();
 
     expect(spyOnFetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/autoland/push/',
     );
     expect(store.getState().search.searchResults).toStrictEqual([]);
-    expect(store.getState().search.errorMessage).toBe('No results found');
+    expect(store.getState().search.inputError).toBe(true);
+    expect(store.getState().search.inputHelperText).toBe('No results found');
   });
 
   it('should update error state if fetchRecentRevisions returns an error', async () => {
@@ -237,52 +182,51 @@ describe('Search View', () => {
       .mockImplementation(() =>
         Promise.reject(new Error('What, ridden on a horse?')),
       );
-    const user = userEvent.setup();
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
 
     render(<SearchView />);
 
     await screen.findByRole('button', { name: 'repository' });
-    await user.click(getByRole('button', { name: 'repository' }));
+    await user.click(screen.getByRole('button', { name: 'repository' }));
 
-    expect(getByText(/autoland/i)).toBeInTheDocument();
-    await user.click(getByRole('option', { name: 'autoland' }));
+    await screen.findByRole('option', { name: 'autoland' });
+    await user.click(screen.getByRole('option', { name: 'autoland' }));
+    jest.runOnlyPendingTimers();
 
     expect(spyOnFetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/autoland/push/',
     );
     expect(store.getState().search.searchResults).toStrictEqual([]);
-    expect(store.getState().search.errorMessage).toBe(
+    expect(store.getState().search.inputError).toBe(true);
+    expect(store.getState().search.inputHelperText).toBe(
       'What, ridden on a horse?',
     );
   });
 
   it('should fetch revisions by ID if searchValue is a 12 or 40 character hash', async () => {
     const spyOnFetch = jest.spyOn(global, 'fetch').mockImplementation(() =>
-      Promise.resolve(
-        Promise.resolve({
-          json: () => ({
-            results: testResults,
-          }),
+      Promise.resolve({
+        json: () => ({
+          results: testResults,
         }),
-      ),
+      }),
     );
-    const user = userEvent.setup();
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
 
     render(<SearchView />);
 
     await screen.findByRole('button', { name: 'repository' });
-    await user.click(getByRole('button', { name: 'repository' }));
+    await user.click(screen.getByRole('button', { name: 'repository' }));
 
-    expect(getByText(/try/i)).toBeInTheDocument();
+    await screen.findByRole('option', { name: 'try' });
+    await user.click(screen.getByRole('option', { name: 'autoland' }));
 
-    await user.click(getByRole('option', { name: 'autoland' }));
+    const searchInput = screen.getByRole('textbox');
 
-    const searchInput = getByRole('textbox');
-
-    await user.type(
-      searchInput,
-      'abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234',
-    );
+    await user.type(searchInput, 'abcdef1234567890abcdef1234567890abcdef12');
+    jest.runOnlyPendingTimers();
 
     expect(spyOnFetch).toHaveBeenNthCalledWith(
       1,
@@ -290,98 +234,95 @@ describe('Search View', () => {
     );
     expect(spyOnFetch).toHaveBeenNthCalledWith(
       2,
-      'https://treeherder.mozilla.org/api/project/autoland/push/?revision=abcdef123456',
-    );
-    expect(spyOnFetch).toHaveBeenNthCalledWith(
-      3,
       'https://treeherder.mozilla.org/api/project/autoland/push/?revision=abcdef1234567890abcdef1234567890abcdef12',
     );
 
-    await waitFor(() => expect(queryByText('try')).not.toBeInTheDocument());
     await waitFor(() =>
-      expect(
-        queryByText("coconut - you've got no arms left!"),
-      ).toBeInTheDocument(),
+      expect(screen.queryByText('try')).not.toBeInTheDocument(),
     );
-    expect(getByText("coconut - you've got no arms left!")).toBeInTheDocument();
-    expect(getByText("spam - it's just a flesh wound")).toBeInTheDocument();
+    await screen.findByText("coconut - you've got no arms left!");
+    expect(
+      screen.getByText("spam - it's just a flesh wound"),
+    ).toBeInTheDocument();
 
     expect(document.body).toMatchSnapshot();
   });
 
   it('should fetch revisions by author if searchValue is an email address', async () => {
     const spyOnFetch = jest.spyOn(global, 'fetch').mockImplementation(() =>
-      Promise.resolve(
-        Promise.resolve({
-          json: () => ({
-            results: testResults,
-          }),
+      Promise.resolve({
+        json: () => ({
+          results: testResults,
         }),
-      ),
+      }),
     );
-    const user = userEvent.setup();
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
 
     render(<SearchView />);
 
     await screen.findByRole('button', { name: 'repository' });
-    await user.click(getByRole('button', { name: 'repository' }));
+    await user.click(screen.getByRole('button', { name: 'repository' }));
 
-    expect(getByText(/try/i)).toBeInTheDocument();
+    await screen.findByRole('option', { name: 'autoland' });
+    await user.click(screen.getByRole('option', { name: 'autoland' }));
 
-    await user.click(getByRole('option', { name: 'autoland' }));
-
-    const searchInput = getByRole('textbox');
+    const searchInput = screen.getByRole('textbox');
 
     await user.type(searchInput, 'johncleese@python.com');
+    jest.runOnlyPendingTimers();
 
     expect(spyOnFetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/autoland/push/?author=johncleese@python.com',
     );
 
-    await waitFor(() => expect(queryByText('try')).not.toBeInTheDocument());
     await waitFor(() =>
-      expect(
-        queryByText("coconut - you've got no arms left!"),
-      ).toBeInTheDocument(),
+      expect(screen.queryByText('try')).not.toBeInTheDocument(),
     );
-    expect(getByText("coconut - you've got no arms left!")).toBeInTheDocument();
-    expect(getByText("spam - it's just a flesh wound")).toBeInTheDocument();
+    await screen.findByText("coconut - you've got no arms left!");
+    expect(
+      screen.getByText("spam - it's just a flesh wound"),
+    ).toBeInTheDocument();
+
     expect(document.body).toMatchSnapshot();
   });
 
   it('should reject fetchRevisionsByID if fetch returns no results', async () => {
-    jest.spyOn(global, 'fetch').mockImplementation(() =>
-      Promise.resolve(
-        Promise.resolve({
-          json: () => ({
-            results: [],
-          }),
+    const spyOnFetch = jest.spyOn(global, 'fetch').mockImplementation(() =>
+      Promise.resolve({
+        json: () => ({
+          results: [],
         }),
-      ),
+      }),
     );
-    const user = userEvent.setup();
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
 
     render(<SearchView />);
 
     await screen.findByRole('button', { name: 'repository' });
-    await user.click(getByRole('button', { name: 'repository' }));
+    await user.click(screen.getByRole('button', { name: 'repository' }));
 
-    expect(getByText(/try/i)).toBeInTheDocument();
+    await screen.findByRole('option', { name: 'autoland' });
+    await user.click(screen.getByRole('option', { name: 'autoland' }));
 
-    await user.click(getByRole('option', { name: 'autoland' }));
+    const searchInput = screen.getByRole('textbox');
 
-    const searchInput = getByRole('textbox');
+    await user.type(searchInput, 'abcdef1234567890abcdef1234567890abcdef12');
+    jest.runOnlyPendingTimers();
 
-    await user.type(
-      searchInput,
-      'abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234',
+    expect(spyOnFetch).toHaveBeenCalledWith(
+      'https://treeherder.mozilla.org/api/project/autoland/push/?revision=abcdef1234567890abcdef1234567890abcdef12',
     );
 
-    expect(store.getState().search.errorMessage).toBe('No results found');
+    await screen.findByText('No results found');
+    expect(screen.queryByText('No results found')).toBeInTheDocument();
+    expect(store.getState().search.inputError).toBe(true);
+    expect(store.getState().search.inputHelperText).toBe('No results found');
   });
 
   it('should update error state if fetchRevisionsByID returns an error', async () => {
-    jest
+    const spyOnFetch = jest
       .spyOn(global, 'fetch')
       .mockImplementation(() =>
         Promise.reject(
@@ -390,59 +331,68 @@ describe('Search View', () => {
           ),
         ),
       );
-    const user = userEvent.setup();
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
 
     render(<SearchView />);
 
     await screen.findByRole('button', { name: 'repository' });
-    await user.click(getByRole('button', { name: 'repository' }));
+    await user.click(screen.getByRole('button', { name: 'repository' }));
 
-    expect(getByText(/try/i)).toBeInTheDocument();
+    await screen.findByRole('option', { name: 'autoland' });
+    await user.click(screen.getByRole('option', { name: 'autoland' }));
 
-    await user.click(getByRole('option', { name: 'autoland' }));
+    const searchInput = screen.getByRole('textbox');
 
-    const searchInput = getByRole('textbox');
+    await user.type(searchInput, 'abcdef1234567890abcdef1234567890abcdef12');
+    jest.runOnlyPendingTimers();
 
-    await user.type(
-      searchInput,
-      'abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234',
+    expect(spyOnFetch).toHaveBeenCalledWith(
+      'https://treeherder.mozilla.org/api/project/autoland/push/?revision=abcdef1234567890abcdef1234567890abcdef12',
     );
 
-    expect(store.getState().search.errorMessage).toBe(
+    await screen.findByText(
+      "You've got two empty 'alves of coconuts and you're bangin' 'em togetha!",
+    );
+
+    expect(store.getState().search.inputError).toBe(true);
+    expect(store.getState().search.inputHelperText).toBe(
       "You've got two empty 'alves of coconuts and you're bangin' 'em togetha!",
     );
   });
 
   it('should reject fetchRevisionsByAuthor if fetch returns no results', async () => {
     const spyOnFetch = jest.spyOn(global, 'fetch').mockImplementation(() =>
-      Promise.resolve(
-        Promise.resolve({
-          json: () => ({
-            results: [],
-          }),
+      Promise.resolve({
+        json: () => ({
+          results: [],
         }),
-      ),
+      }),
     );
-    const user = userEvent.setup();
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
 
     render(<SearchView />);
 
     await screen.findByRole('button', { name: 'repository' });
-    await user.click(getByRole('button', { name: 'repository' }));
+    await user.click(screen.getByRole('button', { name: 'repository' }));
 
-    expect(getByText(/try/i)).toBeInTheDocument();
+    await screen.findByRole('option', { name: 'autoland' });
+    await user.click(screen.getByRole('option', { name: 'autoland' }));
 
-    await user.click(getByRole('option', { name: 'autoland' }));
-
-    const searchInput = getByRole('textbox');
+    const searchInput = screen.getByRole('textbox');
 
     await user.type(searchInput, 'ericidle@python.com');
+    jest.runOnlyPendingTimers();
 
     expect(spyOnFetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/autoland/push/?author=ericidle@python.com',
     );
 
-    expect(store.getState().search.errorMessage).toBe('No results found');
+    await screen.findByText('No results found');
+
+    expect(store.getState().search.inputError).toBe(true);
+    expect(store.getState().search.inputHelperText).toBe('No results found');
   });
 
   it('should update error state if fetchRevisionsByAuthor returns an error', async () => {
@@ -451,44 +401,55 @@ describe('Search View', () => {
       .mockImplementation(() =>
         Promise.reject(new Error('She turned me into a newt')),
       );
-    const user = userEvent.setup();
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
 
     render(<SearchView />);
 
     await screen.findByRole('button', { name: 'repository' });
-    await user.click(getByRole('button', { name: 'repository' }));
+    await user.click(screen.getByRole('button', { name: 'repository' }));
 
-    expect(getByText(/try/i)).toBeInTheDocument();
+    await screen.findByRole('option', { name: 'autoland' });
+    await user.click(screen.getByRole('option', { name: 'autoland' }));
 
-    await user.click(getByRole('option', { name: 'autoland' }));
-
-    const searchInput = getByRole('textbox');
+    const searchInput = screen.getByRole('textbox');
 
     await user.type(searchInput, 'grahamchapman@python.com');
+    jest.runOnlyPendingTimers();
 
     expect(spyOnFetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/autoland/push/?author=grahamchapman@python.com',
     );
 
-    expect(store.getState().search.errorMessage).toBe(
+    await screen.findByText('She turned me into a newt');
+
+    expect(store.getState().search.inputError).toBe(true);
+    expect(store.getState().search.inputHelperText).toBe(
       'She turned me into a newt',
     );
   });
 
   it('should not call fetch if searchValue is not a hash or email', async () => {
-    const spyOnFetch = jest.spyOn(global, 'fetch');
-    const user = userEvent.setup();
+    const spyOnFetch = jest.spyOn(global, 'fetch').mockImplementation(() =>
+      Promise.resolve({
+        json: () => ({
+          results: [],
+        }),
+      }),
+    );
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
 
     render(<SearchView />);
 
     await screen.findByRole('button', { name: 'repository' });
-    await user.click(getByRole('button', { name: 'repository' }));
+    await user.click(screen.getByRole('button', { name: 'repository' }));
 
-    expect(getByText(/autoland/i)).toBeInTheDocument();
+    expect(screen.getByText(/autoland/i)).toBeInTheDocument();
 
-    await user.click(getByRole('option', { name: 'autoland' }));
+    await user.click(screen.getByRole('option', { name: 'autoland' }));
 
-    const searchInput = getByRole('textbox');
+    const searchInput = screen.getByRole('textbox');
 
     await user.type(searchInput, 'coconut');
     await user.clear(searchInput);
@@ -497,13 +458,60 @@ describe('Search View', () => {
     await user.type(searchInput, 'spamspamspamand@eggs.');
     await user.clear(searchInput);
     await user.type(searchInput, 'iamalmostlongenoughtobeahashbutnotquite');
-    await user.clear(searchInput);
+    jest.runOnlyPendingTimers();
 
     // fetch should only be called when selecting a repository
     expect(spyOnFetch).toHaveBeenCalledTimes(1);
     expect(spyOnFetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/autoland/push/',
     );
+
+    await screen.findByText(
+      'Search must be a 12- or 40-character hash, or email address',
+    );
+
+    expect(store.getState().search.inputError).toBe(true);
+  });
+
+  it('should clear searchResults if searchValue is cleared', async () => {
+    const spyOnFetch = jest.spyOn(global, 'fetch').mockImplementation(() =>
+      Promise.resolve({
+        json: () => ({
+          results: testResults,
+        }),
+      }),
+    );
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
+
+    render(<SearchView />);
+
+    await screen.findByRole('button', { name: 'repository' });
+    await user.click(screen.getByRole('button', { name: 'repository' }));
+
+    expect(screen.getByRole('option', { name: 'try' })).toBeInTheDocument();
+
+    await user.click(screen.getByRole('option', { name: 'autoland' }));
+
+    const searchInput = screen.getByLabelText(
+      'Search By Revision ID or Author Email',
+    );
+    await user.type(searchInput, 'terryjones@python.com');
+    jest.runOnlyPendingTimers();
+
+    expect(spyOnFetch).toHaveBeenCalledWith(
+      'https://treeherder.mozilla.org/api/project/autoland/push/?author=terryjones@python.com',
+    );
+
+    await waitFor(() =>
+      expect(screen.queryByText('try')).not.toBeInTheDocument(),
+    );
+    await screen.findByText("coconut - you've got no arms left!");
+
+    expect(store.getState().search.searchResults).toStrictEqual(testResults);
+
+    await user.clear(searchInput);
+    expect(store.getState().search.searchResults).toStrictEqual([]);
   });
 
   it('should fetch results if repository is selected after searchValue is input', async () => {
@@ -516,51 +524,21 @@ describe('Search View', () => {
         }),
       ),
     );
-    const user = userEvent.setup();
+    const user = userEvent.setup({ delay: null });
 
     render(<SearchView />);
 
-    const searchInput = getByRole('textbox');
+    const searchInput = screen.getByRole('textbox');
     await user.type(searchInput, 'terryjones@python.com');
 
     await screen.findByRole('button', { name: 'repository' });
-    await user.click(getByRole('button', { name: 'repository' }));
+    await user.click(screen.getByRole('button', { name: 'repository' }));
 
-    expect(getByText(/try/i)).toBeInTheDocument();
-
-    await user.click(getByRole('option', { name: 'autoland' }));
+    await screen.getByRole('option', { name: 'try' });
+    await user.click(screen.getByRole('option', { name: 'autoland' }));
 
     expect(spyOnFetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/autoland/push/?author=terryjones@python.com',
     );
-  });
-
-  it('should clear searchResults if searchValue is cleared', async () => {
-    jest.spyOn(global, 'fetch').mockImplementation(() =>
-      Promise.resolve(
-        Promise.resolve({
-          json: () => ({
-            results: testResults,
-          }),
-        }),
-      ),
-    );
-    const user = userEvent.setup();
-
-    render(<SearchView />);
-
-    await screen.findByRole('button', { name: 'repository' });
-    await user.click(getByRole('button', { name: 'repository' }));
-
-    expect(getByText(/try/i)).toBeInTheDocument();
-
-    await user.click(getByRole('option', { name: 'autoland' }));
-
-    const searchInput = getByRole('textbox');
-    await user.type(searchInput, 'terryjones@python.com');
-    expect(store.getState().search.searchResults).toStrictEqual(testResults);
-
-    await user.clear(searchInput);
-    expect(store.getState().search.searchResults).toStrictEqual([]);
   });
 });
