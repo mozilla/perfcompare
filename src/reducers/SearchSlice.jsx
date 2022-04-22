@@ -7,11 +7,18 @@ import {
 } from '../thunks/searchThunk';
 
 const initialState = {
-  repository: '',
+  // true if search input is focused
   searchIsFocused: false,
+  // repository to search, string
+  repository: 'try',
+  // results of search, array of revisions
   searchResults: [],
+  // search value, string, 12- or 40- hash, or author email
   searchValue: '',
-  errorMessage: null,
+  // error if search input returns error, or no results found
+  inputError: false,
+  // helper text for search input
+  inputHelperText: '',
 };
 
 const search = createSlice({
@@ -24,7 +31,8 @@ const search = createSlice({
       state.searchIsFocused = initialState.searchIsFocused;
       state.searchResults = initialState.searchResults;
       state.searchValue = initialState.searchValue;
-      state.errorMessage = initialState.errorMessage;
+      state.inputError = initialState.inputError;
+      state.inputHelperText = initialState.inputHelperText;
     },
     // END used for testing only
     updateSearchIsFocused(state, action) {
@@ -39,6 +47,14 @@ const search = createSlice({
     updateRepository(state, action) {
       state.repository = action.payload;
     },
+    setInputError(state, action) {
+      state.inputError = true;
+      state.inputHelperText = action.payload;
+    },
+    clearInputError(state) {
+      state.inputError = false;
+      state.inputHelperText = '';
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -47,21 +63,24 @@ const search = createSlice({
         state.searchResults = action.payload;
       })
       .addCase(fetchRecentRevisions.rejected, (state, action) => {
-        state.errorMessage = action.payload;
+        state.inputError = true;
+        state.inputHelperText = action.payload;
       })
       // fetchRevisionByID
       .addCase(fetchRevisionByID.fulfilled, (state, action) => {
         state.searchResults = action.payload;
       })
       .addCase(fetchRevisionByID.rejected, (state, action) => {
-        state.errorMessage = action.payload;
+        state.inputError = true;
+        state.inputHelperText = action.payload;
       })
       // fetchRevisionsByAuthor
       .addCase(fetchRevisionsByAuthor.fulfilled, (state, action) => {
         state.searchResults = action.payload;
       })
       .addCase(fetchRevisionsByAuthor.rejected, (state, action) => {
-        state.errorMessage = action.payload;
+        state.inputError = true;
+        state.inputHelperText = action.payload;
       });
   },
 });
@@ -72,5 +91,7 @@ export const {
   updateSearchValue,
   updateSearchResults,
   updateRepository,
+  setInputError,
+  clearInputError,
 } = search.actions;
 export default search.reducer;
