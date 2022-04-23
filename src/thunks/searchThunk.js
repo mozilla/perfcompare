@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-const treeherderBaseURL = 'https://treeherder.mozilla.org';
+import { treeherderBaseURL } from '../common/constants';
 
 export const fetchRecentRevisions = createAsyncThunk(
   'search/fetchRecentRevisions',
