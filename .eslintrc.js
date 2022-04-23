@@ -60,9 +60,10 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['*test*', 'setupTests.js'],
+      files: ['src/tests/**/*'],
       rules: {
         'react/prop-types': 'off',
+        'import/no-import-module-exports': 'off',
         'import/no-extraneous-dependencies': 'off',
         'function-paren-newline': 'off',
         'implicit-arrow-linebreak': 'off',
