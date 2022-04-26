@@ -18,6 +18,13 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react'],
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
+  },
   rules: {
     'import/order': [
       'error',
@@ -53,20 +60,40 @@ module.exports = {
       'error',
       { ImportDeclaration: { multiline: true } },
     ],
-    // require line break after operator
-    'operator-linebreak': ['error', 'after'],
+    'operator-linebreak': 'off',
     // error on prettier lint issues
     'prettier/prettier': 'error',
+    'react/jsx-filename-extension': [
+      2,
+      { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
+    ],
   },
   overrides: [
     {
-      files: ['src/tests/**/*'],
+      files: ['src/tests/**/*.{js,jsx,ts,tsx}'],
+      extends: ['airbnb-typescript'],
+      parserOptions: {
+        project: './tsconfig.json',
+      },
       rules: {
         'react/prop-types': 'off',
-        'import/no-import-module-exports': 'off',
-        'import/no-extraneous-dependencies': 'off',
         'function-paren-newline': 'off',
         'implicit-arrow-linebreak': 'off',
+        'import/no-extraneous-dependencies': 'off',
+        'import/no-import-module-exports': 'off',
+        '@typescript-eslint/indent': 'off',
+      },
+    },
+    {
+      files: ['*.ts', '*.tsx'],
+      excludedFiles: 'src/tests/**',
+      extends: ['airbnb-typescript'],
+      parserOptions: {
+        project: './tsconfig.json',
+      },
+      rules: {
+        // https://github.com/typescript-eslint/typescript-eslint/issues/1824
+        '@typescript-eslint/indent': 'off',
       },
     },
   ],
