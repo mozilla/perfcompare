@@ -5,12 +5,13 @@ import {
   fetchRevisionByID,
   fetchRevisionsByAuthor,
 } from '../thunks/searchThunk';
+import type { SearchState } from '../types/state';
 
-const initialState = {
-  // true if search input is focused
-  searchIsFocused: false,
+const initialState: SearchState = {
   // repository to search, string
   repository: 'try',
+  // search input is focused
+  searchIsFocused: false,
   // results of search, array of revisions
   searchResults: [],
   // search value, string, 12- or 40- hash, or author email
@@ -64,7 +65,9 @@ const search = createSlice({
       })
       .addCase(fetchRecentRevisions.rejected, (state, action) => {
         state.inputError = true;
-        state.inputHelperText = action.payload;
+        state.inputHelperText = action.payload
+          ? action.payload
+          : 'An error has occurred';
       })
       // fetchRevisionByID
       .addCase(fetchRevisionByID.fulfilled, (state, action) => {
@@ -72,7 +75,9 @@ const search = createSlice({
       })
       .addCase(fetchRevisionByID.rejected, (state, action) => {
         state.inputError = true;
-        state.inputHelperText = action.payload;
+        state.inputHelperText = action.payload
+          ? action.payload
+          : 'An error has occurred';
       })
       // fetchRevisionsByAuthor
       .addCase(fetchRevisionsByAuthor.fulfilled, (state, action) => {
@@ -80,7 +85,9 @@ const search = createSlice({
       })
       .addCase(fetchRevisionsByAuthor.rejected, (state, action) => {
         state.inputError = true;
-        state.inputHelperText = action.payload;
+        state.inputHelperText = action.payload
+          ? action.payload
+          : 'An error has occurred';
       });
   },
 });

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
@@ -14,7 +14,7 @@ function App() {
         <CssBaseline />
         <Router>
           <Routes>
-            <Route path="/" element={<SearchView />} exact />
+            <Route path="/" element={<SearchView />} />
             {/*  Your routes go here .. */}
           </Routes>
         </Router>

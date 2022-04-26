@@ -5,12 +5,13 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import PropTypes from 'prop-types';
 
+import type { Revision } from '../../types/state';
 import { truncateHash, getLastRevision } from '../../utils/searchResultsHelper';
 
-function SearchResultsListItem(props) {
-  const { item } = props;
+function SearchResultsListItem(props: SearchResultsListItemProps) {
+  const { item, handleChildClick } = props;
+
   return (
     <ListItemButton key={item.id}>
       <ListItem className="search-revision-item search-revision" disablePadding>
@@ -20,6 +21,7 @@ function SearchResultsListItem(props) {
             edge="start"
             tabIndex={-1}
             disableRipple
+            onClick={handleChildClick}
           />
         </ListItemIcon>
         <ListItemText
@@ -29,30 +31,16 @@ function SearchResultsListItem(props) {
           sx={{ noWrap: 'true' }}
           primaryTypographyProps={{ noWrap: true }}
           secondaryTypographyProps={{ noWrap: true }}
+          onClick={handleChildClick}
         />
       </ListItem>
     </ListItemButton>
   );
 }
 
-SearchResultsListItem.propTypes = {
-  item: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    revision: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
-    revisions: PropTypes.arrayOf(
-      PropTypes.shape({
-        result_set_id: PropTypes.number,
-        repository_id: PropTypes.number,
-        revision: PropTypes.string,
-        author: PropTypes.string,
-        comments: PropTypes.string.isRequired,
-      }).isRequired,
-    ),
-    revision_count: PropTypes.number,
-    push_timestamp: PropTypes.number.isRequired,
-    repository_id: PropTypes.number.isRequired,
-  }).isRequired,
-};
+interface SearchResultsListItemProps {
+  item: Revision;
+  handleChildClick: (e: React.MouseEvent) => void;
+}
 
 export default SearchResultsListItem;
