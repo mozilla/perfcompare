@@ -19,6 +19,13 @@ const testResults = [
     author: 'johncleese@python.com',
     push_timestamp: 42,
     repository_id: 4,
+    revisions: [
+      {
+        revision: 'coconut',
+        author: 'johncleese@python.com',
+        comments: "you've got no arms left!",
+      },
+    ],
   },
   {
     id: 2,
@@ -26,6 +33,13 @@ const testResults = [
     author: 'ericidle@python.com',
     push_timestamp: 42,
     repository_id: 3,
+    revisions: [
+      {
+        revision: 'spam',
+        author: 'ericidle@python.com',
+        comments: "it's just a flesh wound",
+      },
+    ],
   },
 ];
 
@@ -80,13 +94,112 @@ describe('Search View', () => {
 
     expect(store.getState().search.searchResults).toStrictEqual(testResults);
 
-    await waitFor(() => expect(queryByText('coconut')).toBeInTheDocument());
-    expect(getByText('coconut')).toBeInTheDocument();
-    expect(getByText('spam')).toBeInTheDocument();
+    await waitFor(() =>
+      expect(
+        queryByText("coconut - you've got no arms left!"),
+      ).toBeInTheDocument(),
+    );
+    expect(getByText("coconut - you've got no arms left!")).toBeInTheDocument();
+    expect(getByText("spam - it's just a flesh wound")).toBeInTheDocument();
 
     expect(spyOnFetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/autoland/push/',
     );
+    expect(document.body).toMatchSnapshot();
+  });
+
+  it('should hide search results when clicking outside of search input', async () => {
+    jest.spyOn(global, 'fetch').mockImplementation(() =>
+      Promise.resolve(
+        Promise.resolve({
+          json: () => ({
+            results: testResults,
+          }),
+        }),
+      ),
+    );
+    const user = userEvent.setup();
+
+    render(<SearchView />);
+
+    await screen.findByRole('button', { name: 'repository' });
+    await user.click(getByRole('button', { name: 'repository' }));
+
+    // Menu items should be visible
+    expect(getByText(/autoland/i)).toBeInTheDocument();
+    expect(getByText(/try/i)).toBeInTheDocument();
+    expect(getByText(/mozilla-central/i)).toBeInTheDocument();
+
+    await user.click(getByRole('option', { name: 'autoland' }));
+
+    expect(store.getState().search.searchResults).toStrictEqual(testResults);
+
+    await waitFor(() =>
+      expect(
+        queryByText("coconut - you've got no arms left!"),
+      ).toBeInTheDocument(),
+    );
+    expect(getByText("coconut - you've got no arms left!")).toBeInTheDocument();
+    expect(getByText("spam - it's just a flesh wound")).toBeInTheDocument();
+
+    await user.click(getByText('PerfCompare'));
+
+    expect(
+      queryByText("coconut - you've got no arms left!"),
+    ).not.toBeInTheDocument();
+    expect(
+      queryByText("spam - it's just a flesh wound"),
+    ).not.toBeInTheDocument();
+
+    expect(document.body).toMatchSnapshot();
+  });
+
+  it('should catch error if element clicked has no parent element', async () => {
+    jest.spyOn(global, 'fetch').mockImplementation(() =>
+      Promise.resolve(
+        Promise.resolve({
+          json: () => ({
+            results: testResults,
+          }),
+        }),
+      ),
+    );
+    const user = userEvent.setup();
+
+    render(<SearchView />);
+
+    await screen.findByRole('button', { name: 'repository' });
+    await user.click(getByRole('button', { name: 'repository' }));
+
+    // Menu items should be visible
+    expect(getByText(/autoland/i)).toBeInTheDocument();
+    expect(getByText(/try/i)).toBeInTheDocument();
+    expect(getByText(/mozilla-central/i)).toBeInTheDocument();
+
+    await user.click(getByRole('option', { name: 'autoland' }));
+
+    expect(store.getState().search.searchResults).toStrictEqual(testResults);
+
+    await waitFor(() =>
+      expect(
+        queryByText("coconut - you've got no arms left!"),
+      ).toBeInTheDocument(),
+    );
+    expect(getByText("coconut - you've got no arms left!")).toBeInTheDocument();
+    expect(getByText("spam - it's just a flesh wound")).toBeInTheDocument();
+
+    try {
+      await user.click(document.getElementsByTagName('html')[0]);
+    } catch (e) {
+      expect(e).toBeInstanceOf(TypeError);
+    }
+    expect(
+      queryByText("coconut - you've got no arms left!"),
+    ).not.toBeInTheDocument();
+    expect(
+      queryByText("spam - it's just a flesh wound"),
+    ).not.toBeInTheDocument();
+
     expect(document.body).toMatchSnapshot();
   });
 
@@ -185,9 +298,13 @@ describe('Search View', () => {
     );
 
     await waitFor(() => expect(queryByText('try')).not.toBeInTheDocument());
-    await waitFor(() => expect(queryByText('coconut')).toBeInTheDocument());
-    expect(getByText('coconut')).toBeInTheDocument();
-    expect(getByText('spam')).toBeInTheDocument();
+    await waitFor(() =>
+      expect(
+        queryByText("coconut - you've got no arms left!"),
+      ).toBeInTheDocument(),
+    );
+    expect(getByText("coconut - you've got no arms left!")).toBeInTheDocument();
+    expect(getByText("spam - it's just a flesh wound")).toBeInTheDocument();
 
     expect(document.body).toMatchSnapshot();
   });
@@ -222,10 +339,13 @@ describe('Search View', () => {
     );
 
     await waitFor(() => expect(queryByText('try')).not.toBeInTheDocument());
-    await waitFor(() => expect(queryByText('coconut')).toBeInTheDocument());
-    expect(getByText('coconut')).toBeInTheDocument();
-    expect(getByText('spam')).toBeInTheDocument();
-
+    await waitFor(() =>
+      expect(
+        queryByText("coconut - you've got no arms left!"),
+      ).toBeInTheDocument(),
+    );
+    expect(getByText("coconut - you've got no arms left!")).toBeInTheDocument();
+    expect(getByText("spam - it's just a flesh wound")).toBeInTheDocument();
     expect(document.body).toMatchSnapshot();
   });
 

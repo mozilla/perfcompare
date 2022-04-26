@@ -78,8 +78,9 @@
     "react-scripts": "5.0.0"
   },
   "jest": {
+    "globalSetup": "./src/tests/utils/globalSetup.js",
     "setupFilesAfterEnv": [
-      "./src/tests/setupTests.js"
+      "./src/tests/utils/setupTests.js"
     ],
     "transform": {
       "^.+\\.(js|jsx)$": "babel-jest",

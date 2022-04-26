@@ -8,6 +8,7 @@ import {
 
 const initialState = {
   repository: '',
+  searchIsFocused: false,
   searchResults: [],
   searchValue: '',
   errorMessage: null,
@@ -20,11 +21,15 @@ const search = createSlice({
     // BEGIN used for testing only
     resetState(state) {
       state.repository = initialState.repository;
+      state.searchIsFocused = initialState.searchIsFocused;
       state.searchResults = initialState.searchResults;
       state.searchValue = initialState.searchValue;
       state.errorMessage = initialState.errorMessage;
     },
     // END used for testing only
+    updateSearchIsFocused(state, action) {
+      state.searchIsFocused = action.payload;
+    },
     updateSearchValue(state, action) {
       state.searchValue = action.payload;
     },
@@ -63,6 +68,7 @@ const search = createSlice({
 
 export const {
   resetState,
+  updateSearchIsFocused,
   updateSearchValue,
   updateSearchResults,
   updateRepository,
