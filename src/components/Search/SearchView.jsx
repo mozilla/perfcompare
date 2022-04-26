@@ -2,9 +2,11 @@ import React from 'react';
 
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
 import zap from '../../theme/img/zap-10.svg';
+import SearchDropdown from './SearchDropdown';
 import SearchInput from './SearchInput';
 
 export default function SearchView() {
@@ -32,7 +34,12 @@ export default function SearchView() {
           PerfCompare
         </Typography>
       </Box>
-      <SearchInput />
+      <Grid container>
+        <Grid item xs={2} />
+        <SearchDropdown />
+        <SearchInput />
+        <Grid item xs={2} />
+      </Grid>
     </Container>
   );
 }

@@ -1,20 +1,14 @@
 import React, { Component } from 'react';
 
-import Container from '@mui/material/Container';
-import FormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
+import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { repoList } from '../../common/constants';
 import SearchViewHelper from '../../utils/searchViewHelper';
 import SearchResultsList from './SearchResultsList';
 
-const { handleChangeDropdown, handleChangeSearch, handleClickOutsideInput } =
-  SearchViewHelper;
+const { handleChangeSearch, handleClickOutsideInput } = SearchViewHelper;
 
 class SearchInput extends Component {
   componentDidMount() {
@@ -26,45 +20,42 @@ class SearchInput extends Component {
   }
 
   render() {
-    const { repository, searchIsFocused, searchResults } = this.props;
+    const { inputError, inputHelperText, searchIsFocused, searchResults } =
+      this.props;
     return (
-      <Container maxWidth="md">
-        <FormControl sx={{ width: '25%' }}>
-          <InputLabel id="select-repository">repository</InputLabel>
-          <Select
-            value={repository}
-            labelId="select-repository"
-            label="repository"
-          >
-            {repoList.length > 0 &&
-              repoList.map((item) => (
-                <MenuItem
-                  id={item}
-                  value={item}
-                  key={item}
-                  onClick={handleChangeDropdown}
-                >
-                  {item}
-                </MenuItem>
-              ))}
-          </Select>
-        </FormControl>
-        <TextField
-          id="search-revision-input"
-          label="Search By Revision ID or Author Email"
-          variant="outlined"
-          sx={{ width: '75%' }}
-          onChange={handleChangeSearch}
-          focused={searchIsFocused}
-        />
+      <Grid item xs={6}>
+        {!inputError && !inputHelperText ? (
+          /* text field without errors */
+          <TextField
+            label="Search By Revision ID or Author Email"
+            variant="outlined"
+            sx={{ width: '100%' }}
+            onChange={handleChangeSearch}
+            focused={searchIsFocused}
+            id="search-revision-input"
+          />
+        ) : (
+          /* text field with errors */
+          <TextField
+            error
+            helperText={inputHelperText}
+            label="Search By Revision ID or Author Email"
+            variant="outlined"
+            sx={{ width: '100%' }}
+            onChange={handleChangeSearch}
+            focused={searchIsFocused}
+            id="search-revision-input"
+          />
+        )}
         {searchResults.length > 0 && searchIsFocused && <SearchResultsList />}
-      </Container>
+      </Grid>
     );
   }
 }
 
 SearchInput.propTypes = {
-  repository: PropTypes.string.isRequired,
+  inputError: PropTypes.bool.isRequired,
+  inputHelperText: PropTypes.string.isRequired,
   searchIsFocused: PropTypes.bool.isRequired,
   searchResults: PropTypes.arrayOf(
     PropTypes.shape({
@@ -89,8 +80,9 @@ SearchInput.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    repository: state.search.repository,
     searchIsFocused: state.search.searchIsFocused,
+    inputError: state.search.inputError,
+    inputHelperText: state.search.inputHelperText,
     searchResults: state.search.searchResults,
   };
 }

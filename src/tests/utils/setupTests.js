@@ -23,10 +23,13 @@ beforeEach(() => {
   act(() => {
     store.dispatch(resetState());
   });
+  jest.useFakeTimers();
 });
 
 afterEach(() => {
   jest.clearAllMocks();
   jest.resetAllMocks();
   jest.restoreAllMocks();
+  jest.runOnlyPendingTimers();
+  jest.useRealTimers();
 });

@@ -4,12 +4,16 @@ import {
   updateSearchValue,
   updateSearchResults,
   updateRepository,
+  setInputError,
+  clearInputError,
 } from '../reducers/SearchSlice';
 import {
   fetchRecentRevisions,
   fetchRevisionByID,
   fetchRevisionsByAuthor,
 } from '../thunks/searchThunk';
+
+let timeout = null;
 
 const searchViewHelper = {
   searchByRevisionOrEmail(repository, search) {
@@ -21,6 +25,12 @@ const searchViewHelper = {
       store.dispatch(fetchRevisionsByAuthor({ repository, search }));
     } else if (longHashMatch.test(search) || shortHashMatch.test(search)) {
       store.dispatch(fetchRevisionByID({ repository, search }));
+    } else {
+      store.dispatch(
+        setInputError(
+          'Search must be a 12- or 40-character hash, or email address',
+        ),
+      );
     }
   },
 
@@ -44,14 +54,23 @@ const searchViewHelper = {
     const search = event.target.value;
     const { repository } = store.getState().search;
     store.dispatch(updateSearchValue(search));
+    store.dispatch(updateSearchResults([]));
+    store.dispatch(clearInputError());
+
+    const idleTime = 500;
+    const onTimeout = () => {
+      searchViewHelper.searchByRevisionOrEmail(repository, search);
+    };
+
+    // Clear any existing timer whenever user types
+    if (timeout) clearTimeout(timeout);
 
     // If search input is cleared, clear results
-    if (search === '') store.dispatch(updateSearchResults([]));
-
-    if (repository === '') {
-      console.log('Please select a repository');
+    if (search === '') {
+      store.dispatch(updateSearchResults([]));
     } else {
-      searchViewHelper.searchByRevisionOrEmail(repository, search);
+      // Submit API call 500ms after user stops typing
+      timeout = setTimeout(onTimeout, idleTime);
     }
   },
 
