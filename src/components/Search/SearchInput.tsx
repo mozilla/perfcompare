@@ -1,86 +1,65 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import SearchViewHelper from '../../utils/searchViewHelper';
+import { Revision, State } from '../../types/state';
+import { handleChangeSearch } from '../../utils/searchViewHelper';
 import SearchResultsList from './SearchResultsList';
 
-const { handleChangeSearch, handleClickOutsideInput } = SearchViewHelper;
-
-class SearchInput extends Component {
-  componentDidMount() {
-    document.addEventListener('mousedown', handleClickOutsideInput);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('mousedown', handleClickOutsideInput);
-  }
-
-  render() {
-    const { inputError, inputHelperText, searchIsFocused, searchResults } =
-      this.props;
-    return (
-      <Grid item xs={6}>
-        {!inputError && !inputHelperText ? (
-          /* text field without errors */
-          <TextField
-            label="Search By Revision ID or Author Email"
-            variant="outlined"
-            sx={{ width: '100%' }}
-            onChange={handleChangeSearch}
-            focused={searchIsFocused}
-            id="search-revision-input"
-          />
-        ) : (
-          /* text field with errors */
-          <TextField
-            error
-            helperText={inputHelperText}
-            label="Search By Revision ID or Author Email"
-            variant="outlined"
-            sx={{ width: '100%' }}
-            onChange={handleChangeSearch}
-            focused={searchIsFocused}
-            id="search-revision-input"
-          />
-        )}
-        {searchResults.length > 0 && searchIsFocused && <SearchResultsList />}
-      </Grid>
-    );
-  }
+function SearchInput(props: SearchInputProps) {
+  const {
+    focused,
+    handleFocus,
+    handleChildClick,
+    inputError,
+    inputHelperText,
+    searchResults,
+  } = props;
+  return (
+    <Grid item xs={6}>
+      {!inputError && !inputHelperText ? (
+        /* text field without errors */
+        <TextField
+          label="Search By Revision ID or Author Email"
+          id="search-revision-input"
+          onFocus={handleFocus}
+          variant="outlined"
+          sx={{ width: '100%' }}
+          onChange={handleChangeSearch}
+        />
+      ) : (
+        /* text field with errors */
+        <TextField
+          error
+          helperText={inputHelperText}
+          label="Search By Revision ID or Author Email"
+          id="search-revision-input"
+          onFocus={handleFocus}
+          variant="outlined"
+          sx={{ width: '100%' }}
+          onChange={handleChangeSearch}
+        />
+      )}
+      {searchResults.length > 0 && focused && (
+        <SearchResultsList handleChildClick={handleChildClick} />
+      )}
+    </Grid>
+  );
 }
 
-SearchInput.propTypes = {
-  inputError: PropTypes.bool.isRequired,
-  inputHelperText: PropTypes.string.isRequired,
-  searchIsFocused: PropTypes.bool.isRequired,
-  searchResults: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      revision: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired,
-      revisions: PropTypes.arrayOf(
-        PropTypes.shape({
-          result_set_id: PropTypes.number,
-          repository_id: PropTypes.number,
-          revision: PropTypes.string,
-          author: PropTypes.string,
-          comments: PropTypes.string,
-        }),
-      ),
-      revision_count: PropTypes.number,
-      push_timestamp: PropTypes.number.isRequired,
-      repository_id: PropTypes.number.isRequired,
-    }),
-  ).isRequired,
-};
+interface SearchInputProps {
+  handleFocus: (e: React.FocusEvent) => void;
+  handleChildClick: (e: React.MouseEvent) => void;
+  inputError: boolean;
+  inputHelperText: string;
+  focused: boolean;
+  searchResults: Revision[];
+}
 
-function mapStateToProps(state) {
+function mapStateToProps(state: State) {
   return {
-    searchIsFocused: state.search.searchIsFocused,
     inputError: state.search.inputError,
     inputHelperText: state.search.inputHelperText,
     searchResults: state.search.searchResults,

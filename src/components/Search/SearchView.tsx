@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -10,8 +10,28 @@ import SearchDropdown from './SearchDropdown';
 import SearchInput from './SearchInput';
 
 export default function SearchView() {
+  const [focused, setFocused] = React.useState(false);
+
+  const handleParentClick = (e: React.MouseEvent) => {
+    if ((e.target as HTMLElement).id === 'search-revision-input') {
+      setFocused(true);
+    } else {
+      setFocused(false);
+    }
+  };
+
+  const handleFocus = (e: React.FocusEvent) => {
+    e.stopPropagation();
+    setFocused(true);
+  };
+
+  const handleChildClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setFocused(true);
+  };
+
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="lg" onClick={handleParentClick}>
       <Box>
         <Typography
           variant="h1"
@@ -37,7 +57,11 @@ export default function SearchView() {
       <Grid container>
         <Grid item xs={2} />
         <SearchDropdown />
-        <SearchInput />
+        <SearchInput
+          focused={focused}
+          handleFocus={handleFocus}
+          handleChildClick={handleChildClick}
+        />
         <Grid item xs={2} />
       </Grid>
     </Container>

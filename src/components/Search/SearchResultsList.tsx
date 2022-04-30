@@ -2,13 +2,14 @@ import React from 'react';
 
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import type { Revision, State } from '../../types/state';
 import SearchResultsListItem from './SearchResultsListItem';
 
-function SearchResultsList(props) {
-  const { searchResults } = props;
+function SearchResultsList(props: SearchResultsListProps) {
+  const { searchResults, handleChildClick } = props;
+
   return (
     <Box
       sx={{
@@ -28,39 +29,24 @@ function SearchResultsList(props) {
     >
       <List className="search-revision-list">
         {searchResults.map((item) => (
-          <SearchResultsListItem key={item.id} item={item} />
+          <SearchResultsListItem
+            key={item.id}
+            item={item}
+            handleChildClick={handleChildClick}
+          />
         ))}
       </List>
     </Box>
   );
 }
 
-SearchResultsList.propTypes = {
-  searchResults: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      revision: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired,
-      revisions: PropTypes.arrayOf(
-        PropTypes.shape({
-          result_set_id: PropTypes.number,
-          repository_id: PropTypes.number,
-          revision: PropTypes.string,
-          author: PropTypes.string,
-          comments: PropTypes.string,
-        }).isRequired,
-      ),
-      revision_count: PropTypes.number,
-      push_timestamp: PropTypes.number.isRequired,
-      repository_id: PropTypes.number.isRequired,
-    }),
-  ).isRequired,
-};
+interface SearchResultsListProps {
+  searchResults: Revision[];
+  handleChildClick: (e: React.MouseEvent) => void;
+}
 
-function mapStateToProps(state) {
-  return {
-    searchResults: state.search.searchResults,
-  };
+function mapStateToProps(state: State) {
+  return { searchResults: state.search.searchResults };
 }
 
 export default connect(mapStateToProps)(SearchResultsList);
