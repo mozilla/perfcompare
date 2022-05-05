@@ -5,10 +5,9 @@ import {
   fetchRevisionByID,
   fetchRevisionsByAuthor,
 } from '../thunks/searchThunk';
+import type { SearchState } from '../types/state';
 
-const initialState = {
-  // true if search input is focused
-  searchIsFocused: false,
+const initialState: SearchState = {
   // repository to search, string
   repository: 'try',
   // results of search, array of revisions
@@ -28,16 +27,12 @@ const search = createSlice({
     // BEGIN used for testing only
     resetState(state) {
       state.repository = initialState.repository;
-      state.searchIsFocused = initialState.searchIsFocused;
       state.searchResults = initialState.searchResults;
       state.searchValue = initialState.searchValue;
       state.inputError = initialState.inputError;
       state.inputHelperText = initialState.inputHelperText;
     },
     // END used for testing only
-    updateSearchIsFocused(state, action) {
-      state.searchIsFocused = action.payload;
-    },
     updateSearchValue(state, action) {
       state.searchValue = action.payload;
     },
@@ -64,7 +59,9 @@ const search = createSlice({
       })
       .addCase(fetchRecentRevisions.rejected, (state, action) => {
         state.inputError = true;
-        state.inputHelperText = action.payload;
+        state.inputHelperText = action.payload
+          ? action.payload
+          : 'An error has occurred';
       })
       // fetchRevisionByID
       .addCase(fetchRevisionByID.fulfilled, (state, action) => {
@@ -72,7 +69,9 @@ const search = createSlice({
       })
       .addCase(fetchRevisionByID.rejected, (state, action) => {
         state.inputError = true;
-        state.inputHelperText = action.payload;
+        state.inputHelperText = action.payload
+          ? action.payload
+          : 'An error has occurred';
       })
       // fetchRevisionsByAuthor
       .addCase(fetchRevisionsByAuthor.fulfilled, (state, action) => {
@@ -80,14 +79,15 @@ const search = createSlice({
       })
       .addCase(fetchRevisionsByAuthor.rejected, (state, action) => {
         state.inputError = true;
-        state.inputHelperText = action.payload;
+        state.inputHelperText = action.payload
+          ? action.payload
+          : 'An error has occurred';
       });
   },
 });
 
 export const {
   resetState,
-  updateSearchIsFocused,
   updateSearchValue,
   updateSearchResults,
   updateRepository,

@@ -5,14 +5,12 @@ import Grid from '@mui/material/Grid';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import SearchViewHelper from '../../utils/searchViewHelper';
+import type { State } from '../../types/state';
+import { handleChangeDropdown } from '../../utils/searchViewHelper';
 
-const { handleChangeDropdown } = SearchViewHelper;
-
-function SearchDropdown(props) {
+function SearchDropdown(props: SearchDropdownProps) {
   const { repository } = props;
   const repoList = ['try', 'autoland', 'mozilla-central'];
 
@@ -42,11 +40,11 @@ function SearchDropdown(props) {
   );
 }
 
-SearchDropdown.propTypes = {
-  repository: PropTypes.string.isRequired,
-};
+interface SearchDropdownProps {
+  repository: string;
+}
 
-function mapStateToProps(state) {
+function mapStateToProps(state: State) {
   return {
     repository: state.search.repository,
   };

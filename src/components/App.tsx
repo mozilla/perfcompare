@@ -14,7 +14,7 @@ function App() {
         <CssBaseline />
         <Router>
           <Routes>
-            <Route path="/" element={<SearchView />} exact />
+            <Route path="/" element={<SearchView />} />
             {/*  Your routes go here .. */}
           </Routes>
         </Router>

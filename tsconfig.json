@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "allowJs": true, // allow a partial TypeScript and JavaScript codebase
+    "esModuleInterop": true,
+    "jsx": "react", // use typescript to transpile jsx to js
+    "module": "es6", // specify module code generation
+    "moduleResolution": "node",
+    "outDir": "./dist/", // path to output directory
+    "preserveConstEnums": true,
+    "sourceMap": true, // allow sourcemap support
+    "strict": true,
+    "strictNullChecks": true, // enable strict null checks as a best practice
+    "target": "es5" // specify ECMAScript target version
+  },
+  "include": ["./src/"]
+}
