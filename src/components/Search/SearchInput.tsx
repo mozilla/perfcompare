@@ -4,21 +4,13 @@ import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import { connect } from 'react-redux';
 
-import { Revision, State } from '../../types/state';
+import { State } from '../../types/state';
 import { handleChangeSearch } from '../../utils/searchViewHelper';
-import SearchResultsList from './SearchResultsList';
 
 function SearchInput(props: SearchInputProps) {
-  const {
-    focused,
-    handleFocus,
-    handleChildClick,
-    inputError,
-    inputHelperText,
-    searchResults,
-  } = props;
+  const { handleFocus, inputError, inputHelperText } = props;
   return (
-    <Grid item xs={6}>
+    <Grid item xs={7}>
       {!inputError && !inputHelperText ? (
         /* text field without errors */
         <TextField
@@ -42,20 +34,14 @@ function SearchInput(props: SearchInputProps) {
           onChange={handleChangeSearch}
         />
       )}
-      {searchResults.length > 0 && focused && (
-        <SearchResultsList handleChildClick={handleChildClick} />
-      )}
     </Grid>
   );
 }
 
 interface SearchInputProps {
   handleFocus: (e: React.FocusEvent) => void;
-  handleChildClick: (e: React.MouseEvent) => void;
   inputError: boolean;
   inputHelperText: string;
-  focused: boolean;
-  searchResults: Revision[];
 }
 
 function mapStateToProps(state: State) {
