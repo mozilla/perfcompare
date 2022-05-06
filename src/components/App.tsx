@@ -9,17 +9,15 @@ import SearchView from './Search/SearchView';
 
 function App() {
   return (
-    <React.Fragment key="App Component">
-      <ThemeProvider theme={protocolTheme}>
-        <CssBaseline />
-        <Router>
-          <Routes>
-            <Route path="/" element={<SearchView />} />
-            {/*  Your routes go here .. */}
-          </Routes>
-        </Router>
-      </ThemeProvider>
-    </React.Fragment>
+    <ThemeProvider theme={protocolTheme}>
+      <CssBaseline />
+      <Router>
+        <Routes>
+          <Route path="/" element={<SearchView />} />
+          {/*  Your routes go here .. */}
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 }
 
