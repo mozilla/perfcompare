@@ -1,19 +1,15 @@
 /**
  * @jest-environment jsdom
  */
-import React from 'react';
-
-import { render, screen } from '@testing-library/react';
+import * as React from 'react';
 
 import App from '../components/App';
-import * as SearchView from '../components/Search/SearchView';
+import { render, screen } from './utils/test-utils';
 
 test('Should render search view on default route', () => {
-  jest
-    .spyOn(SearchView, 'default')
-    .mockImplementation(() => <div>SearchViewMock</div>);
-
   render(<App />);
 
-  expect(screen.getByText('SearchViewMock')).toBeInTheDocument();
+  expect(
+    screen.getByLabelText('Search By Revision ID or Author Email'),
+  ).toBeInTheDocument();
 });
