@@ -235,10 +235,14 @@ describe('Search View', () => {
 
     expect(spyOnFetch).toHaveBeenNthCalledWith(
       1,
-      'https://treeherder.mozilla.org/api/project/try/push/?revision=abcdef123456',
+      'https://treeherder.mozilla.org/api/project/try/push/',
     );
     expect(spyOnFetch).toHaveBeenNthCalledWith(
       2,
+      'https://treeherder.mozilla.org/api/project/try/push/?revision=abcdef123456',
+    );
+    expect(spyOnFetch).toHaveBeenNthCalledWith(
+      3,
       'https://treeherder.mozilla.org/api/project/try/push/?revision=abcdef1234567890abcdef1234567890abcdef12',
     );
 
