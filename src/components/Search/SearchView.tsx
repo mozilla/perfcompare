@@ -6,6 +6,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { connect } from 'react-redux';
 
+import useFocusInput from '../../hooks/useFocusInput';
 import zap from '../../theme/img/zap-10.svg';
 import { Revision, State } from '../../types/state';
 import AddRevisionButton from './AddRevisionButton';
@@ -14,25 +15,8 @@ import SearchInput from './SearchInput';
 import SearchResultsList from './SearchResultsList';
 
 function SearchView(props: SearchViewProps) {
-  const [focused, setFocused] = React.useState(false);
-
-  const handleParentClick = (e: React.MouseEvent) => {
-    if ((e.target as HTMLElement).id === 'search-revision-input') {
-      setFocused(true);
-    } else {
-      setFocused(false);
-    }
-  };
-
-  const handleFocus = (e: React.FocusEvent) => {
-    e.stopPropagation();
-    setFocused(true);
-  };
-
-  const handleChildClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setFocused(true);
-  };
+  const { focused, handleParentClick, handleFocus, handleChildClick } =
+    useFocusInput();
 
   const { searchResults } = props;
 
