@@ -1,3 +1,5 @@
+// Style overrides for typography to match Mozilla Protocol design system
+// https://protocol.mozilla.org/
 const h1Size = '3.5rem';
 
 const typography = {
