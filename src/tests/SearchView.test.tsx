@@ -103,7 +103,7 @@ describe('Search View', () => {
     ).toBeInTheDocument();
 
     expect(spyOnFetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/autoland/push/',
+      'https://treeherder.mozilla.org/api/project/autoland/push/?hide_reviewbot_pushes=true',
     );
     expect(document.body).toMatchSnapshot();
   });
@@ -173,7 +173,7 @@ describe('Search View', () => {
     await user.click(screen.getByRole('option', { name: 'autoland' }));
 
     expect(spyOnFetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/autoland/push/',
+      'https://treeherder.mozilla.org/api/project/autoland/push/?hide_reviewbot_pushes=true',
     );
     expect(store.getState().search.searchResults).toStrictEqual([]);
     expect(store.getState().search.inputError).toBe(true);
@@ -199,7 +199,7 @@ describe('Search View', () => {
     await user.click(screen.getByRole('option', { name: 'autoland' }));
 
     expect(spyOnFetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/autoland/push/',
+      'https://treeherder.mozilla.org/api/project/autoland/push/?hide_reviewbot_pushes=true',
     );
     expect(store.getState().search.searchResults).toStrictEqual([]);
     expect(store.getState().search.inputError).toBe(true);
@@ -235,7 +235,7 @@ describe('Search View', () => {
 
     expect(spyOnFetch).toHaveBeenNthCalledWith(
       1,
-      'https://treeherder.mozilla.org/api/project/try/push/',
+      'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true',
     );
     expect(spyOnFetch).toHaveBeenNthCalledWith(
       2,
@@ -512,7 +512,7 @@ describe('Search View', () => {
     await user.click(screen.getByRole('option', { name: 'autoland' }));
 
     expect(spyOnFetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/autoland/push/',
+      'https://treeherder.mozilla.org/api/project/autoland/push/?hide_reviewbot_pushes=true',
     );
     expect(store.getState().search.searchResults).toStrictEqual([]);
     expect(store.getState().search.inputError).toBe(true);
