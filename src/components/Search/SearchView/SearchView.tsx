@@ -55,11 +55,14 @@ function SearchView(props: SearchViewProps) {
         <SearchInput handleFocus={handleFocus} />
         {/* TODO: add behavior for Add Revision button */}
         <AddRevisionButton />
-        <Grid item xs={1} />
-        <Grid item xs={11}>
-          {searchResults.length > 0 && focused && (
-            <SearchResultsList handleChildClick={handleChildClick} />
-          )}
+        <Grid container>
+          <Grid item xs={1} />
+          <Grid item xs={10}>
+            {searchResults.length > 0 && focused && (
+              <SearchResultsList handleChildClick={handleChildClick} />
+            )}
+          </Grid>
+          <Grid item xs={1} />
         </Grid>
         <Grid item xs={12}>
           <SelectedRevisionsTable />

@@ -10,7 +10,7 @@ import { handleChangeSearch } from '../../utils/searchViewHelper';
 function SearchInput(props: SearchInputProps) {
   const { handleFocus, inputError, inputHelperText } = props;
   return (
-    <Grid item xs={7}>
+    <Grid item xs={6}>
       {!inputError && !inputHelperText ? (
         /* text field without errors */
         <TextField
