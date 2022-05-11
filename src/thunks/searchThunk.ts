@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { treeherderBaseURL } from '../common/constants';
+import type { APIPushResponse } from '../types/api';
 import type { Repository, Revision } from '../types/state';
 
 export const fetchRecentRevisions = createAsyncThunk<
@@ -16,7 +17,7 @@ export const fetchRecentRevisions = createAsyncThunk<
   } catch (err) {
     return rejectWithValue((err as Error).message);
   }
-  const json = await response.json();
+  const json = (await response.json()) as APIPushResponse;
   if (json.results.length > 0) {
     return json.results;
   }
@@ -39,7 +40,7 @@ export const fetchRevisionByID = createAsyncThunk<
     } catch (err) {
       return rejectWithValue((err as Error).message);
     }
-    const json = await response.json();
+    const json = (await response.json()) as APIPushResponse;
     if (json.results.length > 0) {
       return json.results;
     }
@@ -63,7 +64,7 @@ export const fetchRevisionsByAuthor = createAsyncThunk<
     } catch (err) {
       return rejectWithValue((err as Error).message);
     }
-    const json = await response.json();
+    const json = (await response.json()) as APIPushResponse;
     if (json.results.length > 0) {
       return json.results;
     }
