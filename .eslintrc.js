@@ -71,8 +71,33 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['src/tests/**/*.{js,jsx,ts,tsx}'],
-      extends: ['airbnb-typescript'],
+      files: ['src/tests/**/*.{js,jsx}'],
+      extends: [
+        'eslint:recommended',
+        'plugin:react/recommended',
+        'plugin:prettier/recommended',
+        'airbnb',
+      ],
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+      },
+      rules: {
+        'react/prop-types': 'off',
+        'function-paren-newline': 'off',
+        'import/no-extraneous-dependencies': 'off',
+        'import/no-import-module-exports': 'off',
+        '@typescript-eslint/indent': 'off',
+      },
+    },
+    {
+      files: ['src/tests/**/*.{ts,tsx}'],
+      parser: '@typescript-eslint/parser',
+      plugins: ['@typescript-eslint'],
+      extends: ['plugin:@typescript-eslint/recommended', 'airbnb-typescript'],
       parserOptions: {
         project: './tsconfig.json',
       },
@@ -86,14 +111,22 @@ module.exports = {
     },
     {
       files: ['*.ts', '*.tsx'],
+      parser: '@typescript-eslint/parser',
+      plugins: ['@typescript-eslint'],
       excludedFiles: 'src/tests/**',
-      extends: ['airbnb-typescript'],
+      extends: [
+        'airbnb-typescript',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:@typescript-eslint/recommended-requiring-type-checking',
+      ],
       parserOptions: {
         project: './tsconfig.json',
       },
       rules: {
         // https://github.com/typescript-eslint/typescript-eslint/issues/1824
         '@typescript-eslint/indent': 'off',
+        // TODO: rework dispatch calls in helper functions
+        '@typescript-eslint/no-floating-promises': 'off',
       },
     },
   ],
