@@ -15,7 +15,7 @@ import {
 } from '../thunks/searchThunk';
 import type { Repository } from '../types/state';
 
-let timeout: NodeJS.Timeout;
+let timeout: null | ReturnType<typeof setTimeout> = null;
 
 const searchByRevisionOrEmail = (
   repository: Repository['name'],

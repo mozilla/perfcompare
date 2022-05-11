@@ -1,11 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import {
   fetchRecentRevisions,
   fetchRevisionByID,
   fetchRevisionsByAuthor,
 } from '../thunks/searchThunk';
-import type { SearchState } from '../types/state';
+import type { Repository, Revision, SearchState } from '../types/state';
 
 const initialState: SearchState = {
   // repository to search, string
@@ -33,16 +33,16 @@ const search = createSlice({
       state.inputHelperText = initialState.inputHelperText;
     },
     // END used for testing only
-    updateSearchValue(state, action) {
+    updateSearchValue(state, action: PayloadAction<string>) {
       state.searchValue = action.payload;
     },
-    updateSearchResults(state, action) {
+    updateSearchResults(state, action: PayloadAction<Revision[]>) {
       state.searchResults = action.payload;
     },
-    updateRepository(state, action) {
+    updateRepository(state, action: PayloadAction<Repository['name']>) {
       state.repository = action.payload;
     },
-    setInputError(state, action) {
+    setInputError(state, action: PayloadAction<string>) {
       state.inputError = true;
       state.inputHelperText = action.payload;
     },
