@@ -93,7 +93,7 @@
     "setupFilesAfterEnv": [
       "./src/tests/utils/setupTests.ts"
     ],
-    "testEnvironment": "node",
+    "testEnvironment": "jsdom",
     "transform": {
       "^.+\\.(js|jsx)$": "babel-jest",
       "^.+\\.ts?$": "ts-jest",
