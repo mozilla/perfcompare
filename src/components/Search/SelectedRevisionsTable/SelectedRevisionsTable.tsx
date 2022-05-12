@@ -13,7 +13,6 @@ import { connect, useDispatch } from 'react-redux';
 import { deleteRevision } from '../../../reducers/SelectedRevisions';
 import { Revision, State } from '../../../types/state';
 import { TableHeaderDetails } from '../../../types/tableHeaderDetails';
-// import StyledTableCell from '../../Shared/StyledTableCell';
 import './SelectedRevisionsTable.css';
 
 const tableHeaderDetails: TableHeaderDetails[] = [
