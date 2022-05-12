@@ -1,42 +1,53 @@
-.revisionTable{
-    min-width: 700px;
+.revisionTable {
+  min-width: 700px;
 }
 
-.title{
-    font-weight: 600 !important;
+.title {
+  font-weight: 600 !important;
 }
 
-.cellStyle{
-    font-weight: 600;
-    border-radius: 2.5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    display: 'flex';
-    color: #737373; 
-    width: 50px;
-    text-align: center;
-    border: solid 1px #737373;
+.projectCell {
+  font-weight: 600;
+  border-radius: 2.5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: 'flex';
+  color: #737373;
+  width: 50px;
+  text-align: center;
+  border: solid 1px #737373;
 }
 
-.layout{
-    box-shadow: 'none'  !important;
-    padding-bottom: 3px !important;
-    display: 'flex' !important;
-    flex-direction: 'column' !important;
-    position: relative !important;
+.layout {
+  box-shadow: 'none' !important;
+  padding-bottom: 3px !important;
+  display: 'flex' !important;
+  flex-direction: 'column' !important;
+  position: relative !important;
 }
 
-.helperText{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    padding: 5px 0;
-    padding-right: 3px;
+.helperText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 5px 0;
+  padding-right: 3px;
 }
 
-.missingRevisions{
-    position: relative;
-    margin-top: 50px;
-    text-align: center;
+.missingRevisions {
+  position: relative;
+  margin-top: 50px;
+  text-align: center;
 }
 
+.rowStyle:nth-of-type(odd) {
+    background-color: #e4e4e4;
+}
+
+.cellStyle:first-of-type{
+    width: 40px;
+}
+
+.cellStyle.tableCellClasses.body{
+    font-size: 14
+}

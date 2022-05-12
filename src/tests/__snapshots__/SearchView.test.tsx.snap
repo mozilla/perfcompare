@@ -154,89 +154,85 @@ exports[`Search View renders correctly when there are no results 1`] = `
                   class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
                 >
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   />
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   >
                     Project
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   >
                     Revision
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   >
                     Author
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeMedium title css-6fj706-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeMedium title css-1ndpvdd-MuiTableCell-root"
                     scope="col"
                   >
                     Commit message
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   >
                     Timestamp
                   </th>
-                  <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-bcf2i1-MuiTableCell-root"
-                    scope="col"
-                  />
                 </tr>
               </thead>
               <tbody
                 class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
               >
                 <tr
-                  class="MuiTableRow-root css-1dqswt5-MuiTableRow-root"
+                  class="MuiTableRow-root rowStyle css-1q1u3t4-MuiTableRow-root"
                 >
                   <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                     scope="row"
                   >
                     <div
-                      class="cellStyle"
+                      class="projectCell"
                     >
                       BASE
                     </div>
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                     scope="row"
                   >
                     4
                   </th>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     coconut
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     john@python.com
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-4wtnjx-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium cellStyle css-1yhpg23-MuiTableCell-root"
                   >
                     This is my first message
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     42
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-lniu9z-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium cellStyle css-177gid-MuiTableCell-root"
                   >
                     <button
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
@@ -262,46 +258,46 @@ exports[`Search View renders correctly when there are no results 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1dqswt5-MuiTableRow-root"
+                  class="MuiTableRow-root rowStyle css-1q1u3t4-MuiTableRow-root"
                 >
                   <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                     scope="row"
                   >
                     <div
-                      class="cellStyle"
+                      class="projectCell"
                     >
                       NEW
                     </div>
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                     scope="row"
                   >
                     4
                   </th>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     coconut 2
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     johncleese@python.com
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-4wtnjx-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium cellStyle css-1yhpg23-MuiTableCell-root"
                   >
                     This is the second message
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     43
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-lniu9z-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium cellStyle css-177gid-MuiTableCell-root"
                   >
                     <button
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
@@ -610,89 +606,85 @@ exports[`Search View should fetch and display recent results when repository is 
                   class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
                 >
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   />
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   >
                     Project
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   >
                     Revision
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   >
                     Author
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeMedium title css-6fj706-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeMedium title css-1ndpvdd-MuiTableCell-root"
                     scope="col"
                   >
                     Commit message
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   >
                     Timestamp
                   </th>
-                  <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-bcf2i1-MuiTableCell-root"
-                    scope="col"
-                  />
                 </tr>
               </thead>
               <tbody
                 class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
               >
                 <tr
-                  class="MuiTableRow-root css-1dqswt5-MuiTableRow-root"
+                  class="MuiTableRow-root rowStyle css-1q1u3t4-MuiTableRow-root"
                 >
                   <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                     scope="row"
                   >
                     <div
-                      class="cellStyle"
+                      class="projectCell"
                     >
                       BASE
                     </div>
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                     scope="row"
                   >
                     4
                   </th>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     coconut
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     john@python.com
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-4wtnjx-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium cellStyle css-1yhpg23-MuiTableCell-root"
                   >
                     This is my first message
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     42
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-lniu9z-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium cellStyle css-177gid-MuiTableCell-root"
                   >
                     <button
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
@@ -718,46 +710,46 @@ exports[`Search View should fetch and display recent results when repository is 
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1dqswt5-MuiTableRow-root"
+                  class="MuiTableRow-root rowStyle css-1q1u3t4-MuiTableRow-root"
                 >
                   <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                     scope="row"
                   >
                     <div
-                      class="cellStyle"
+                      class="projectCell"
                     >
                       NEW
                     </div>
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                     scope="row"
                   >
                     4
                   </th>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     coconut 2
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     johncleese@python.com
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-4wtnjx-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium cellStyle css-1yhpg23-MuiTableCell-root"
                   >
                     This is the second message
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     43
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-lniu9z-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium cellStyle css-177gid-MuiTableCell-root"
                   >
                     <button
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
@@ -1147,89 +1139,85 @@ exports[`Search View should fetch revisions by ID if searchValue is a 12 or 40 c
                   class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
                 >
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   />
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   >
                     Project
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   >
                     Revision
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   >
                     Author
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeMedium title css-6fj706-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeMedium title css-1ndpvdd-MuiTableCell-root"
                     scope="col"
                   >
                     Commit message
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   >
                     Timestamp
                   </th>
-                  <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-bcf2i1-MuiTableCell-root"
-                    scope="col"
-                  />
                 </tr>
               </thead>
               <tbody
                 class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
               >
                 <tr
-                  class="MuiTableRow-root css-1dqswt5-MuiTableRow-root"
+                  class="MuiTableRow-root rowStyle css-1q1u3t4-MuiTableRow-root"
                 >
                   <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                     scope="row"
                   >
                     <div
-                      class="cellStyle"
+                      class="projectCell"
                     >
                       BASE
                     </div>
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                     scope="row"
                   >
                     4
                   </th>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     coconut
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     john@python.com
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-4wtnjx-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium cellStyle css-1yhpg23-MuiTableCell-root"
                   >
                     This is my first message
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     42
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-lniu9z-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium cellStyle css-177gid-MuiTableCell-root"
                   >
                     <button
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
@@ -1255,46 +1243,46 @@ exports[`Search View should fetch revisions by ID if searchValue is a 12 or 40 c
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1dqswt5-MuiTableRow-root"
+                  class="MuiTableRow-root rowStyle css-1q1u3t4-MuiTableRow-root"
                 >
                   <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                     scope="row"
                   >
                     <div
-                      class="cellStyle"
+                      class="projectCell"
                     >
                       NEW
                     </div>
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                     scope="row"
                   >
                     4
                   </th>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     coconut 2
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     johncleese@python.com
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-4wtnjx-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium cellStyle css-1yhpg23-MuiTableCell-root"
                   >
                     This is the second message
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     43
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-lniu9z-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium cellStyle css-177gid-MuiTableCell-root"
                   >
                     <button
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
@@ -1603,89 +1591,85 @@ exports[`Search View should fetch revisions by author if searchValue is an email
                   class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
                 >
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   />
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   >
                     Project
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   >
                     Revision
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   >
                     Author
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeMedium title css-6fj706-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeMedium title css-1ndpvdd-MuiTableCell-root"
                     scope="col"
                   >
                     Commit message
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   >
                     Timestamp
                   </th>
-                  <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-bcf2i1-MuiTableCell-root"
-                    scope="col"
-                  />
                 </tr>
               </thead>
               <tbody
                 class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
               >
                 <tr
-                  class="MuiTableRow-root css-1dqswt5-MuiTableRow-root"
+                  class="MuiTableRow-root rowStyle css-1q1u3t4-MuiTableRow-root"
                 >
                   <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                     scope="row"
                   >
                     <div
-                      class="cellStyle"
+                      class="projectCell"
                     >
                       BASE
                     </div>
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                     scope="row"
                   >
                     4
                   </th>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     coconut
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     john@python.com
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-4wtnjx-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium cellStyle css-1yhpg23-MuiTableCell-root"
                   >
                     This is my first message
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     42
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-lniu9z-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium cellStyle css-177gid-MuiTableCell-root"
                   >
                     <button
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
@@ -1711,46 +1695,46 @@ exports[`Search View should fetch revisions by author if searchValue is an email
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1dqswt5-MuiTableRow-root"
+                  class="MuiTableRow-root rowStyle css-1q1u3t4-MuiTableRow-root"
                 >
                   <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                     scope="row"
                   >
                     <div
-                      class="cellStyle"
+                      class="projectCell"
                     >
                       NEW
                     </div>
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                     scope="row"
                   >
                     4
                   </th>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     coconut 2
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     johncleese@python.com
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-4wtnjx-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium cellStyle css-1yhpg23-MuiTableCell-root"
                   >
                     This is the second message
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     43
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-lniu9z-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium cellStyle css-177gid-MuiTableCell-root"
                   >
                     <button
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
@@ -1946,89 +1930,85 @@ exports[`Search View should hide search results when clicking outside of search 
                   class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
                 >
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   />
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   >
                     Project
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   >
                     Revision
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   >
                     Author
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeMedium title css-6fj706-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeMedium title css-1ndpvdd-MuiTableCell-root"
                     scope="col"
                   >
                     Commit message
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   >
                     Timestamp
                   </th>
-                  <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-bcf2i1-MuiTableCell-root"
-                    scope="col"
-                  />
                 </tr>
               </thead>
               <tbody
                 class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
               >
                 <tr
-                  class="MuiTableRow-root css-1dqswt5-MuiTableRow-root"
+                  class="MuiTableRow-root rowStyle css-1q1u3t4-MuiTableRow-root"
                 >
                   <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                     scope="row"
                   >
                     <div
-                      class="cellStyle"
+                      class="projectCell"
                     >
                       BASE
                     </div>
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                     scope="row"
                   >
                     4
                   </th>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     coconut
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     john@python.com
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-4wtnjx-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium cellStyle css-1yhpg23-MuiTableCell-root"
                   >
                     This is my first message
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     42
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-lniu9z-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium cellStyle css-177gid-MuiTableCell-root"
                   >
                     <button
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
@@ -2054,46 +2034,46 @@ exports[`Search View should hide search results when clicking outside of search 
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1dqswt5-MuiTableRow-root"
+                  class="MuiTableRow-root rowStyle css-1q1u3t4-MuiTableRow-root"
                 >
                   <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                     scope="row"
                   >
                     <div
-                      class="cellStyle"
+                      class="projectCell"
                     >
                       NEW
                     </div>
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                     scope="row"
                   >
                     4
                   </th>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     coconut 2
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     johncleese@python.com
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-4wtnjx-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium cellStyle css-1yhpg23-MuiTableCell-root"
                   >
                     This is the second message
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     43
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-lniu9z-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium cellStyle css-177gid-MuiTableCell-root"
                   >
                     <button
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
@@ -2500,89 +2480,85 @@ exports[`Search View should not hide search results when clicking search results
                   class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
                 >
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   />
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   >
                     Project
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   >
                     Revision
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   >
                     Author
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeMedium title css-6fj706-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeMedium title css-1ndpvdd-MuiTableCell-root"
                     scope="col"
                   >
                     Commit message
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   >
                     Timestamp
                   </th>
-                  <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-bcf2i1-MuiTableCell-root"
-                    scope="col"
-                  />
                 </tr>
               </thead>
               <tbody
                 class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
               >
                 <tr
-                  class="MuiTableRow-root css-1dqswt5-MuiTableRow-root"
+                  class="MuiTableRow-root rowStyle css-1q1u3t4-MuiTableRow-root"
                 >
                   <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                     scope="row"
                   >
                     <div
-                      class="cellStyle"
+                      class="projectCell"
                     >
                       BASE
                     </div>
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                     scope="row"
                   >
                     4
                   </th>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     coconut
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     john@python.com
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-4wtnjx-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium cellStyle css-1yhpg23-MuiTableCell-root"
                   >
                     This is my first message
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     42
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-lniu9z-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium cellStyle css-177gid-MuiTableCell-root"
                   >
                     <button
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
@@ -2608,46 +2584,46 @@ exports[`Search View should not hide search results when clicking search results
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1dqswt5-MuiTableRow-root"
+                  class="MuiTableRow-root rowStyle css-1q1u3t4-MuiTableRow-root"
                 >
                   <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                     scope="row"
                   >
                     <div
-                      class="cellStyle"
+                      class="projectCell"
                     >
                       NEW
                     </div>
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                     scope="row"
                   >
                     4
                   </th>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     coconut 2
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     johncleese@python.com
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-4wtnjx-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium cellStyle css-1yhpg23-MuiTableCell-root"
                   >
                     This is the second message
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium cellStyle css-1ex1afd-MuiTableCell-root"
                   >
                     43
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-lniu9z-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium cellStyle css-177gid-MuiTableCell-root"
                   >
                     <button
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
