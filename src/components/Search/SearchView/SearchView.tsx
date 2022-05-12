@@ -14,6 +14,7 @@ import AddRevisionButton from '../AddRevisionButton';
 import SearchDropdown from '../SearchDropdown';
 import SearchInput from '../SearchInput';
 import SearchResultsList from '../SearchResultsList';
+import SearchViewInit from '../SearchViewInit';
 import SelectedRevisionsTable from '../SelectedRevisionsTable/SelectedRevisionsTable';
 
 function SearchView(props: SearchViewProps) {
@@ -24,6 +25,8 @@ function SearchView(props: SearchViewProps) {
 
   return (
     <Container maxWidth="lg" onClick={handleParentClick}>
+      {/* Component to fetch recent revisions on mount */}
+      <SearchViewInit />
       <Box>
         <Typography
           variant="h1"

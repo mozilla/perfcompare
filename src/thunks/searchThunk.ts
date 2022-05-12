@@ -11,7 +11,7 @@ export const fetchRecentRevisions = createAsyncThunk<
   let response;
   try {
     response = await fetch(
-      `${treeherderBaseURL}/api/project/${repository}/push/`,
+      `${treeherderBaseURL}/api/project/${repository}/push/?hide_reviewbot_pushes=true`,
     );
   } catch (err) {
     return rejectWithValue((err as Error).message);
