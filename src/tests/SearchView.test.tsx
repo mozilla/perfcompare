@@ -6,7 +6,7 @@ import React from 'react';
 
 import userEvent from '@testing-library/user-event';
 
-import SearchView from '../components/Search/SearchView';
+import SearchView from '../components/Search/SearchView/SearchView';
 import { render, screen, store } from './utils/test-utils';
 
 const testResults = [

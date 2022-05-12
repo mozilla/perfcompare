@@ -5,7 +5,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import protocolTheme from '../theme/protocolTheme';
-import SearchView from './Search/SearchView';
+import SearchView from './Search/SearchView/SearchView';
 
 function App() {
   return (

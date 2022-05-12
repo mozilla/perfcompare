@@ -1,0 +1,12 @@
+.MuiGrid-grid-xs-11 {
+  z-index: 2;
+}
+
+.MuiGrid-grid-xs-12 {
+  position: absolute;
+  z-index: 1;
+
+  top: 200px;
+  left: 90px;
+  width: 90%;
+}

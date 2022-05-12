@@ -29,6 +29,11 @@ export type SearchState = {
   inputHelperText: string;
 };
 
+export type SelectedRevisionsState = {
+  revisions: Revision[];
+};
+
 export type State = {
   search: SearchState;
+  selectedRevisions: SelectedRevisionsState;
 };

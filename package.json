@@ -6,6 +6,7 @@
   "dependencies": {
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.5.1",
     "@mui/material": "^5.5.1",
     "@reduxjs/toolkit": "^1.7.2",
     "@types/node": "^12.20.48",
@@ -66,6 +67,7 @@
     "@typescript-eslint/parser": "^5.20.0",
     "babel-jest": "^27.5.1",
     "core-js": "^3.21.1",
+    "css-loader": "^6.7.1",
     "eslint": "^8.11.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
@@ -76,9 +78,11 @@
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.3.0",
     "gh-pages": "^3.2.3",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
     "prettier": "^2.6.0",
     "react-scripts": "5.0.0",
+    "style-loader": "^3.3.1",
     "ts-jest": "^27.1.4",
     "typescript": "^4.6.3"
   },
@@ -93,6 +97,9 @@
       "^.+\\.(js|jsx)$": "babel-jest",
       "^.+\\.ts?$": "ts-jest",
       "^.+\\.svg$": "<rootDir>/src/tests/utils/fileTransformer.js"
+    },
+    "moduleNameMapper": {
+      "\\.(css)$": "identity-obj-proxy"
     }
   }
 }
