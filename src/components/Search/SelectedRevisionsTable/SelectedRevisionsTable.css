@@ -41,13 +41,14 @@
 }
 
 .rowStyle:nth-of-type(odd) {
-    background-color: #e4e4e4;
-}
-
-.cellStyle:first-of-type{
-    width: 40px;
+    background-color: rgba(0, 0, 0, 0.04);
 }
 
 .cellStyle.tableCellClasses.body{
     font-size: 14
+}
+
+.cellStyle{
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
 }
