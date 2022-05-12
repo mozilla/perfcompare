@@ -35,7 +35,7 @@ function SearchView(props: SearchViewProps) {
           gutterBottom
           sx={{
             '&:after': {
-              backgroundImage: `url(${zap})`,
+              backgroundImage: `url(${String(zap)})`,
               backgroundPosition: '55%',
               backgroundRepeat: 'no-repeat',
               backgroundSize: '25%',

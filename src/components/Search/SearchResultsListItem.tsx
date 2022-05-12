@@ -27,7 +27,9 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
         <ListItemText
           className="search-revision-item-text search-revision"
           primary={`${truncateHash(item)} - ${getLastRevision(item).comments} `}
-          secondary={`${item.author} - ${new Date(item.push_timestamp * 1000)}`}
+          secondary={`${item.author} - ${String(
+            new Date(item.push_timestamp * 1000),
+          )}`}
           sx={{ noWrap: 'true' }}
           primaryTypographyProps={{ noWrap: true }}
           secondaryTypographyProps={{ noWrap: true }}

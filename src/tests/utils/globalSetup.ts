@@ -1,5 +1,5 @@
 import 'regenerator-runtime/runtime';
 
-module.exports = async () => {
+module.exports = () => {
   process.env.TZ = 'UTC';
 };
