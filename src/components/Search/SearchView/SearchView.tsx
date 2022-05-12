@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 
 import useFocusInput from '../../../hooks/useFocusInput';
 import { Revision, State } from '../../../types/state';
-import './SearchView.css';
 import PerfCompareHeader from '../../Shared/PerfCompareHeader';
 import AddRevisionButton from '../AddRevisionButton';
 import SearchDropdown from '../SearchDropdown';
@@ -14,12 +13,13 @@ import SearchInput from '../SearchInput';
 import SearchResultsList from '../SearchResultsList';
 import SearchViewInit from '../SearchViewInit';
 import SelectedRevisionsTable from '../SelectedRevisionsTable/SelectedRevisionsTable';
+import './SearchView.css';
 
 function SearchView(props: SearchViewProps) {
   const { focused, handleParentClick, handleFocus, handleChildClick } =
     useFocusInput();
 
-  const { searchResults } = props;
+  const { searchResults, selectedRevisions } = props;
 
   return (
     <Container maxWidth="lg" onClick={handleParentClick}>
@@ -42,7 +42,7 @@ function SearchView(props: SearchViewProps) {
           <Grid item xs={1} />
         </Grid>
         <Grid item xs={12}>
-          <SelectedRevisionsTable />
+          {selectedRevisions.length > 0 && <SelectedRevisionsTable />}
         </Grid>
       </Grid>
     </Container>
@@ -51,11 +51,13 @@ function SearchView(props: SearchViewProps) {
 
 interface SearchViewProps {
   searchResults: Revision[];
+  selectedRevisions: Revision[];
 }
 
 function mapStateToProps(state: State) {
   return {
     searchResults: state.search.searchResults,
+    selectedRevisions: state.selectedRevisions.revisions,
   };
 }
 
