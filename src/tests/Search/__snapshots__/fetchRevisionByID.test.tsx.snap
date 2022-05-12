@@ -1,0 +1,462 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchView/fetchRevisionByID should fetch revisions by ID if searchValue is a 12 or 40 character hash 1`] = `
+<body>
+  <div>
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthLg css-1oqqzyl-MuiContainer-root"
+    >
+      <div
+        class="MuiBox-root css-0"
+      >
+        <div
+          class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom css-vmrjt8-MuiTypography-root"
+        >
+          PerfCompare
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-u78q51-MuiGrid-root"
+        />
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 css-1o7apob-MuiGrid-root"
+        >
+          <div
+            class="MuiFormControl-root css-q8hpuo-MuiFormControl-root"
+          >
+            <label
+              class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
+              data-shrink="true"
+              id="select-repository"
+            >
+              repository
+            </label>
+            <div
+              class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+            >
+              <div
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-labelledby="select-repository"
+                class="MuiSelect-select MuiSelect-outlined MuiOutlinedInput-input MuiInputBase-input css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                role="button"
+                tabindex="0"
+              >
+                try
+              </div>
+              <input
+                aria-hidden="true"
+                class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                tabindex="-1"
+                value="try"
+              />
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-hfutr2-MuiSvgIcon-root-MuiSelect-icon"
+                data-testid="ArrowDropDownIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7 10l5 5 5-5z"
+                />
+              </svg>
+              <fieldset
+                aria-hidden="true"
+                class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="css-1in441m"
+                >
+                  <span>
+                    repository
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-1osj8n2-MuiGrid-root"
+        >
+          <div
+            class="MuiFormControl-root MuiTextField-root css-136h9lv-MuiFormControl-root-MuiTextField-root"
+          >
+            <label
+              class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled Mui-focused css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
+              data-shrink="true"
+              for="search-revision-input"
+              id="search-revision-input-label"
+            >
+              Search By Revision ID or Author Email
+            </label>
+            <div
+              class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary Mui-focused MuiInputBase-formControl css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root"
+            >
+              <input
+                aria-invalid="false"
+                class="MuiOutlinedInput-input MuiInputBase-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                id="search-revision-input"
+                type="text"
+                value=""
+              />
+              <fieldset
+                aria-hidden="true"
+                class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="css-1in441m"
+                >
+                  <span>
+                    Search By Revision ID or Author Email
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 css-1o7apob-MuiGrid-root"
+        >
+          <button
+            class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root  css-p7bmct-MuiButtonBase-root-MuiButton-root"
+            tabindex="0"
+            type="button"
+          >
+            Add Revision(s)
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-u78q51-MuiGrid-root"
+          />
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 css-17p3wh3-MuiGrid-root"
+          >
+            <div
+              class="MuiBox-root css-l1oafp"
+            >
+              <ul
+                class="MuiList-root MuiList-padding search-revision-list css-h4y409-MuiList-root"
+              >
+                <div
+                  class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root"
+                  role="button"
+                  tabindex="0"
+                >
+                  <li
+                    class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
+                  >
+                    <div
+                      class="MuiListItemIcon-root search-revision-item-icon search-revision css-cveggr-MuiListItemIcon-root"
+                    >
+                      <span
+                        class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root PrivateSwitchBase-edgeStart search-revision-item-checkbox search-revision css-zkqepn-MuiButtonBase-root-MuiCheckbox-root"
+                      >
+                        <input
+                          class="PrivateSwitchBase-input css-1m9pwf3"
+                          data-indeterminate="false"
+                          tabindex="-1"
+                          type="checkbox"
+                        />
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="CheckBoxOutlineBlankIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                    <div
+                      class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text search-revision css-zbobkr-MuiListItemText-root"
+                    >
+                      <span
+                        class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-1f0fhap-MuiTypography-root"
+                      >
+                        coconut - you've got no arms left! 
+                      </span>
+                      <p
+                        class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-zq04ye-MuiTypography-root"
+                      >
+                        johncleese@python.com - Thu Jan 01 1970 00:00:42 GMT+0000 (Coordinated Universal Time)
+                      </p>
+                    </div>
+                  </li>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root"
+                  role="button"
+                  tabindex="0"
+                >
+                  <li
+                    class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
+                  >
+                    <div
+                      class="MuiListItemIcon-root search-revision-item-icon search-revision css-cveggr-MuiListItemIcon-root"
+                    >
+                      <span
+                        class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root PrivateSwitchBase-edgeStart search-revision-item-checkbox search-revision css-zkqepn-MuiButtonBase-root-MuiCheckbox-root"
+                      >
+                        <input
+                          class="PrivateSwitchBase-input css-1m9pwf3"
+                          data-indeterminate="false"
+                          tabindex="-1"
+                          type="checkbox"
+                        />
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="CheckBoxOutlineBlankIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                    <div
+                      class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text search-revision css-zbobkr-MuiListItemText-root"
+                    >
+                      <span
+                        class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-1f0fhap-MuiTypography-root"
+                      >
+                        spam - it's just a flesh wound 
+                      </span>
+                      <p
+                        class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-zq04ye-MuiTypography-root"
+                      >
+                        ericidle@python.com - Thu Jan 01 1970 00:00:42 GMT+0000 (Coordinated Universal Time)
+                      </p>
+                    </div>
+                  </li>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-u78q51-MuiGrid-root"
+          />
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
+        >
+          <div
+            class="MuiTableContainer-root layout css-rorn0c-MuiTableContainer-root"
+          >
+            <table
+              class="MuiTable-root css-rqglhn-MuiTable-root"
+            >
+              <thead
+                class="MuiTableHead-root css-15wwp11-MuiTableHead-root"
+              >
+                <tr
+                  class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
+                >
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-bcf2i1-MuiTableCell-root"
+                    scope="col"
+                  />
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    scope="col"
+                  >
+                    Project
+                  </th>
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    scope="col"
+                  >
+                    Revision
+                  </th>
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    scope="col"
+                  >
+                    Author
+                  </th>
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeMedium title css-6fj706-MuiTableCell-root"
+                    scope="col"
+                  >
+                    Commit message
+                  </th>
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    scope="col"
+                  >
+                    Timestamp
+                  </th>
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-bcf2i1-MuiTableCell-root"
+                    scope="col"
+                  />
+                </tr>
+              </thead>
+              <tbody
+                class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
+              >
+                <tr
+                  class="MuiTableRow-root css-1dqswt5-MuiTableRow-root"
+                >
+                  <th
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    scope="row"
+                  >
+                    <div
+                      class="cellStyle"
+                    >
+                      BASE
+                    </div>
+                  </th>
+                  <th
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    scope="row"
+                  >
+                    4
+                  </th>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                  >
+                    coconut
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                  >
+                    john@python.com
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-4wtnjx-MuiTableCell-root"
+                  >
+                    This is my first message
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                  >
+                    42
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-lniu9z-MuiTableCell-root"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                      id="close-button"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="CloseIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                        />
+                      </svg>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </td>
+                </tr>
+                <tr
+                  class="MuiTableRow-root css-1dqswt5-MuiTableRow-root"
+                >
+                  <th
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    scope="row"
+                  >
+                    <div
+                      class="cellStyle"
+                    >
+                      NEW
+                    </div>
+                  </th>
+                  <th
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    scope="row"
+                  >
+                    4
+                  </th>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                  >
+                    coconut 2
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                  >
+                    johncleese@python.com
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-4wtnjx-MuiTableCell-root"
+                  >
+                    This is the second message
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                  >
+                    43
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-lniu9z-MuiTableCell-root"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                      id="close-button"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="CloseIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                        />
+                      </svg>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div
+              class="helperText"
+            >
+              Maximum 4 revisions.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
