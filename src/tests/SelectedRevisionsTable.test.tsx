@@ -14,16 +14,20 @@ describe('Search View', () => {
     expect(screen.getByText('Maximum 4 revisions.')).toBeInTheDocument();
   });
 
-  it('should delete revisions after click', async () => {
-    // testing delete functionality
-    render(<SelectedRevisionsTable />);
+  it('should delete revisions after click and not show revisions table if no revisions', async () => {
+    const dispatchSpy = jest.spyOn(store, 'dispatch');
+
+    const { rerender } = render(<SelectedRevisionsTable />);
     const button = document.querySelectorAll('#close-button');
 
     await (button[0] as HTMLButtonElement).click();
     await (button[1] as HTMLButtonElement).click();
 
-    render(<SelectedRevisionsTable />);
+    expect(dispatchSpy).toHaveBeenCalledTimes(2);
+
+    rerender(<SelectedRevisionsTable />);
 
     expect(store.getState().selectedRevisions.revisions).toEqual([]);
+    expect(screen.queryByText('Commit Message')).not.toBeInTheDocument();
   });
 });
