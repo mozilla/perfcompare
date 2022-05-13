@@ -4,11 +4,12 @@ import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import { connect } from 'react-redux';
 
+import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
 import { State } from '../../types/state';
-import { handleChangeSearch } from '../../utils/searchViewHelper';
 
 function SearchInput(props: SearchInputProps) {
   const { handleFocus, inputError, inputHelperText } = props;
+  const { handleChangeSearch } = useHandleChangeSearch();
   return (
     <Grid item xs={6}>
       {!inputError && !inputHelperText ? (
@@ -19,7 +20,7 @@ function SearchInput(props: SearchInputProps) {
           onFocus={handleFocus}
           variant="outlined"
           sx={{ width: '100%' }}
-          onChange={handleChangeSearch}
+          onChange={(e) => handleChangeSearch(e)}
         />
       ) : (
         /* text field with errors */
@@ -31,7 +32,7 @@ function SearchInput(props: SearchInputProps) {
           onFocus={handleFocus}
           variant="outlined"
           sx={{ width: '100%' }}
-          onChange={handleChangeSearch}
+          onChange={(e) => handleChangeSearch(e)}
         />
       )}
     </Grid>
