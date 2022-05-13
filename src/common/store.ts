@@ -9,6 +9,8 @@ const reducer = combineReducers({
   selectedRevisions,
 });
 
-export default configureStore({
+export const store = configureStore({
   reducer,
 });
+
+export type AppDispatch = typeof store.dispatch;

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
-import store from '../../common/store';
+import { store } from '../../common/store';
 import { fetchRecentRevisions } from '../../thunks/searchThunk';
 import { Repository, State } from '../../types/state';
 

@@ -7,11 +7,12 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import { connect } from 'react-redux';
 
+import useHandleChangeDropdown from '../../hooks/useHandleChangeDropdown';
 import type { State } from '../../types/state';
-import { handleChangeDropdown } from '../../utils/searchViewHelper';
 
 function SearchDropdown(props: SearchDropdownProps) {
   const { repository } = props;
+  const { handleChangeDropdown } = useHandleChangeDropdown();
   const repoList = ['try', 'autoland', 'mozilla-central'];
 
   return (
@@ -29,7 +30,7 @@ function SearchDropdown(props: SearchDropdownProps) {
                 id={item}
                 value={item}
                 key={item}
-                onClick={handleChangeDropdown}
+                onClick={(e) => handleChangeDropdown(e)}
               >
                 {item}
               </MenuItem>
