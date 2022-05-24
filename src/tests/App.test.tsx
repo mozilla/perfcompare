@@ -1,7 +1,4 @@
-/**
- * @jest-environment jsdom
- */
-import * as React from 'react';
+import React from 'react';
 
 import App from '../components/App';
 import { render, screen } from './utils/test-utils';
