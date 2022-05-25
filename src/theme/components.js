@@ -1,6 +1,19 @@
 import zap from './img/zap-10.svg';
 
 const components = {
+  MuiButton: {
+    styleOverrides: {
+      root: {
+        '&.add-revision-button': {
+          fontSize: '2rem',
+          height: 'auto',
+          width: '100%',
+          lineHeight: '1.4375em',
+          padding: '16.5px 14px',
+        },
+      },
+    },
+  },
   MuiTypography: {
     styleOverrides: {
       root: {
