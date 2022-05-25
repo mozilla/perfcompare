@@ -1,15 +1,13 @@
 import React from 'react';
 
-import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
 import { connect } from 'react-redux';
 
 import useFocusInput from '../../../hooks/useFocusInput';
-import zap from '../../../theme/img/zap-10.svg';
 import { Revision, State } from '../../../types/state';
 import './SearchView.css';
+import PerfCompareHeader from '../../Shared/PerfCompareHeader';
 import AddRevisionButton from '../AddRevisionButton';
 import SearchDropdown from '../SearchDropdown';
 import SearchInput from '../SearchInput';
@@ -27,28 +25,7 @@ function SearchView(props: SearchViewProps) {
     <Container maxWidth="lg" onClick={handleParentClick}>
       {/* Component to fetch recent revisions on mount */}
       <SearchViewInit />
-      <Box>
-        <Typography
-          variant="h1"
-          component="div"
-          align="center"
-          gutterBottom
-          sx={{
-            '&:after': {
-              backgroundImage: `url(${String(zap)})`,
-              backgroundPosition: '55%',
-              backgroundRepeat: 'no-repeat',
-              backgroundSize: '25%',
-              content: '""',
-              display: 'block',
-              height: '0.3em',
-              marginTop: '-5px',
-            },
-          }}
-        >
-          PerfCompare
-        </Typography>
-      </Box>
+      <PerfCompareHeader />
       <Grid container>
         <Grid item xs={1} />
         <SearchDropdown />
