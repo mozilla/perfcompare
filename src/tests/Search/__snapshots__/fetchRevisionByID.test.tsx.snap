@@ -10,7 +10,7 @@ exports[`SearchView/fetchRevisionByID should fetch revisions by ID if searchValu
         class="MuiBox-root css-0"
       >
         <div
-          class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom css-vmrjt8-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-1bn4tuo-MuiTypography-root"
         >
           PerfCompare
         </div>
