@@ -28,9 +28,6 @@ function SelectedRevisionsTable(props: SelectedRevisionsProps) {
   const { revisions } = props;
   const dispatch = useDispatch();
 
-  if (revisions.length === 0) {
-    return <div className="missingRevisions">Add some revisions</div>;
-  }
   return (
     <TableContainer className="layout">
       <Table>
@@ -83,7 +80,6 @@ function SelectedRevisionsTable(props: SelectedRevisionsProps) {
     </TableContainer>
   );
 }
-
 interface SelectedRevisionsProps {
   revisions: Revision[];
 }
