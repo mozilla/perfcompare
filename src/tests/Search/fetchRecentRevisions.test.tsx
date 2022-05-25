@@ -2,7 +2,7 @@ import React from 'react';
 
 import userEvent from '@testing-library/user-event';
 
-import SearchView from '../../components/Search/SearchView/SearchView';
+import SearchView from '../../components/Search/SearchView';
 import getTestData from '../utils/fixtures';
 import { render, screen, store } from '../utils/test-utils';
 
@@ -35,6 +35,8 @@ describe('SearchView/fetchRecentRevisions', () => {
     ).toBeInTheDocument();
 
     await user.click(screen.getByRole('option', { name: 'autoland' }));
+    jest.runOnlyPendingTimers();
+    await expect(screen.queryByText('try')).not.toBeInTheDocument();
 
     expect(store.getState().search.searchResults).toStrictEqual(testData);
 

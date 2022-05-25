@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SelectedRevisionsTable from '../components/Search/SelectedRevisionsTable/SelectedRevisionsTable';
+import SelectedRevisionsTable from '../components/Shared/SelectedRevisionsTable';
 import { resetState } from '../reducers/SelectedRevisions';
 import { render, store, screen } from './utils/test-utils';
 
@@ -11,7 +11,7 @@ describe('Search View', () => {
 
   it('should render correctly when there are revisions', () => {
     render(<SelectedRevisionsTable />);
-    expect(screen.getByText('Maximum 4 revisions.')).toBeInTheDocument();
+    expect(screen.getByText('coconut')).toBeInTheDocument();
   });
 
   it('should delete revisions after click and not show revisions table if no revisions', async () => {
