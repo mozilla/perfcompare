@@ -1,22 +1,18 @@
 import React from 'react';
 
+import AddIcon from '@mui/icons-material/Add';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 
 export default function AddRevisionButton() {
   return (
-    <Grid item xs={2}>
+    <Grid item>
       <Button
         variant="contained"
-        sx={{
-          fontSize: '1rem',
-          height: 'auto',
-          width: '100%',
-          lineHeight: '1.4375em',
-          padding: '16.5px 14px',
-        }}
+        className="add-revision-button"
+        aria-label="add revisions"
       >
-        Add Revision(s)
+        <AddIcon />
       </Button>
     </Grid>
   );
