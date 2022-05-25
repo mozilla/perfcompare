@@ -14,6 +14,32 @@ const components = {
       },
     },
   },
+  MuiTableCell: {
+    styleOverrides: {
+      root: {
+        paddingTop: '10px',
+        paddingBottom: '10px',
+        '.cellStyle': {
+          fontWeight: 600,
+          borderRadius: '2.5px',
+          padding: '5px',
+          display: 'flex',
+          color: '#737373',
+          width: '50px',
+          border: 'solid 1px #737373',
+        },
+      },
+    },
+  },
+  MuiTableRow: {
+    styleOverrides: {
+      root: {
+        '&:nth-of-type(even)': {
+          backgroundColor: '#ededf0',
+        },
+      },
+    },
+  },
   MuiTypography: {
     styleOverrides: {
       root: {
