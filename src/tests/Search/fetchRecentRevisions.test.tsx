@@ -1,6 +1,7 @@
 import React from 'react';
 
 import userEvent from '@testing-library/user-event';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import SearchView from '../../components/Search/SearchView/SearchView';
 import getTestData from '../utils/fixtures';
@@ -20,7 +21,11 @@ describe('SearchView/fetchRecentRevisions', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    render(<SearchView />);
+    render(
+      <Router>
+        <SearchView />
+      </Router>,
+    );
 
     await screen.findByRole('button', { name: 'repository' });
     await user.click(screen.getByRole('button', { name: 'repository' }));
@@ -61,7 +66,11 @@ describe('SearchView/fetchRecentRevisions', () => {
     ) as jest.Mock;
     const spyOnFetch = jest.spyOn(global, 'fetch');
 
-    render(<SearchView />);
+    render(
+      <Router>
+        <SearchView />
+      </Router>,
+    );
 
     await screen.findByRole('button', { name: 'repository' });
 
@@ -79,7 +88,11 @@ describe('SearchView/fetchRecentRevisions', () => {
     ) as jest.Mock;
     const spyOnFetch = jest.spyOn(global, 'fetch');
 
-    render(<SearchView />);
+    render(
+      <Router>
+        <SearchView />
+      </Router>,
+    );
 
     await screen.findByRole('button', { name: 'repository' });
 

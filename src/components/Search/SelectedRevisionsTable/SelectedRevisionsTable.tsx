@@ -78,23 +78,6 @@ function SelectedRevisionsTable(props: SelectedRevisionsProps) {
         </TableBody>
       </Table>
       <div className="helperText">Maximum 4 revisions.</div>
-
-      {/* <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
-        <Button
-          className="compareButton"
-          variant="contained"
-          onClick={goToResultsPage}
-        >
-          COMPARE
-          <ArrowForward />
-        </Button>
-      </div> */}
     </TableContainer>
   );
 }

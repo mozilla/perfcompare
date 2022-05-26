@@ -1,14 +1,15 @@
 import React from 'react';
 
 import userEvent from '@testing-library/user-event';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import SearchView from '../../components/Search/SearchView/SearchView';
 import getTestData from '../utils/fixtures';
-import { render, screen, store } from '../utils/test-utils';
+import { render, renderWithRouter, screen, store } from '../utils/test-utils';
 
 describe('Search View', () => {
   it('renders correctly when there are no results', () => {
-    render(<SearchView />);
+    renderWithRouter(<SearchView />);
 
     // Title appears
     expect(screen.getByText(/PerfCompare/i)).toBeInTheDocument();
@@ -44,7 +45,7 @@ describe('Search View', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    render(<SearchView />);
+    renderWithRouter(<SearchView />);
 
     await screen.findByRole('button', { name: 'repository' });
 
@@ -76,7 +77,7 @@ describe('Search View', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    render(<SearchView />);
+    renderWithRouter(<SearchView />);
 
     const searchInput = screen.getByRole('textbox');
 
@@ -106,7 +107,7 @@ describe('Search View', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    render(<SearchView />);
+    renderWithRouter(<SearchView />);
 
     await screen.findByRole('button', { name: 'repository' });
 
@@ -139,7 +140,7 @@ describe('Search View', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    render(<SearchView />);
+    renderWithRouter(<SearchView />);
 
     await screen.findByRole('button', { name: 'repository' });
 
@@ -169,7 +170,7 @@ describe('Search View', () => {
     global.fetch = jest.fn(() => Promise.reject(new Error())) as jest.Mock;
     const spyOnFetch = jest.spyOn(global, 'fetch');
 
-    render(<SearchView />);
+    renderWithRouter(<SearchView />);
 
     await screen.findByRole('button', { name: 'repository' });
 
@@ -189,7 +190,7 @@ describe('Search View', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    render(<SearchView />);
+    renderWithRouter(<SearchView />);
 
     await screen.findByRole('button', { name: 'repository' });
 
@@ -210,7 +211,7 @@ describe('Search View', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    render(<SearchView />);
+    renderWithRouter(<SearchView />);
 
     await screen.findByRole('button', { name: 'repository' });
 
@@ -228,4 +229,13 @@ describe('Search View', () => {
       'An error has occurred',
     );
   });
+});
+
+it('should have compare button and once clicked should redirect to results page ', () => {
+  const { history } = renderWithRouter(<SearchView />);
+
+  const compareButton = document.querySelector('.compare-button');
+  (compareButton as HTMLButtonElement).click();
+
+  expect(history.location.pathname).toEqual('/results');
 });
