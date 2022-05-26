@@ -36,6 +36,17 @@ const components = {
       },
     },
   },
+  MuiGrid: {
+    styleOverrides: {
+      root: {
+        '&.compare-button-section': {
+          position: 'relative',
+          top: '350px',
+          left: '450px',
+        },
+      },
+    },
+  },
 };
 
 export default components;

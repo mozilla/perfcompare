@@ -10,3 +10,7 @@
   left: 90px;
   width: 90%;
 }
+
+.MuiGrid-grid-xs-13 {
+  position: absolute;
+}
