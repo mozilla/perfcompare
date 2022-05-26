@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import protocolTheme from '../theme/protocolTheme';
 import ResultsView from './Results/ResultsView';
-import SearchView from './Search/SearchView/SearchView';
+import SearchView from './Search/SearchView';
 
 function App() {
   return (
