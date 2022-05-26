@@ -11,7 +11,7 @@ const components = {
           lineHeight: '1.4375em',
           padding: '16.5px 14px',
         },
-        '&.compareButton': {
+        '&.compare-button': {
           lineHeight: '1.4375em',
           padding: '16.5px 14px',
         },
@@ -40,9 +40,19 @@ const components = {
     styleOverrides: {
       root: {
         '&.compare-button-section': {
-          position: 'relative',
-          top: '350px',
-          left: '450px',
+          position: 'absolute',
+          top: '500px',
+          left: '750px',
+          zIndex: -1,
+        },
+      },
+    },
+  },
+  MuiSvgIcon: {
+    styleOverrides: {
+      root: {
+        '&.compare-icon': {
+          marginLeft: '15px',
         },
       },
     },

@@ -55,12 +55,12 @@ function SearchView(props: SearchViewProps) {
 
         <Grid item xs={13} className="compare-button-section">
           <Button
-            className="compareButton"
+            className="compare-button"
             variant="contained"
             onClick={goToResultsPage}
           >
             COMPARE
-            <ArrowForward />
+            <ArrowForward className="compare-icon" />
           </Button>
         </Grid>
       </Grid>
