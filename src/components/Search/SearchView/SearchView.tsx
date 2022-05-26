@@ -45,12 +45,6 @@ function SearchView(props: SearchViewProps) {
         <Grid item xs={12}>
           {selectedRevisions.length > 0 && <SelectedRevisionsTable />}
         </Grid>
-
-        {/* <Grid item xs={13}>
-          {selectedRevisions.length > 0 && (
-            <Button variant="outlined">Text</Button>
-          )}
-        </Grid> */}
       </Grid>
     </Container>
   );

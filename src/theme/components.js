@@ -11,6 +11,10 @@ const components = {
           lineHeight: '1.4375em',
           padding: '16.5px 14px',
         },
+        '&.compareButton': {
+          lineHeight: '1.4375em',
+          padding: '16.5px 14px',
+        },
       },
     },
   },

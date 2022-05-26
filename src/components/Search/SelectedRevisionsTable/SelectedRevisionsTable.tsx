@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import ArrowForward from '@mui/icons-material/ArrowForward';
 import Close from '@mui/icons-material/Close';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
@@ -9,6 +10,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { connect, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import { deleteRevision } from '../../../reducers/SelectedRevisions';
 import { Revision, State } from '../../../types/state';
@@ -26,8 +28,14 @@ const tableHeaderDetails: TableHeaderDetails[] = [
 ];
 
 function SelectedRevisionsTable(props: SelectedRevisionsProps) {
-  const { revisions } = props;
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const goToResultsPage = () => {
+    navigate('/results', { replace: true });
+  };
+
+  const { revisions } = props;
 
   return (
     <TableContainer className="layout">
@@ -79,7 +87,22 @@ function SelectedRevisionsTable(props: SelectedRevisionsProps) {
       </Table>
       <div className="helperText">Maximum 4 revisions.</div>
 
-      <Button variant="outlined">Text</Button>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+        <Button
+          className="compareButton"
+          variant="contained"
+          onClick={goToResultsPage}
+        >
+          COMPARE
+          <ArrowForward />
+        </Button>
+      </div>
     </TableContainer>
   );
 }
