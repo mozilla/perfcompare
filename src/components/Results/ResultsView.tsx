@@ -3,8 +3,8 @@ import React from 'react';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 
-import SelectedRevisionsTable from '../Search/SelectedRevisionsTable/SelectedRevisionsTable';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
+import SelectedRevisionsTable from '../Shared/SelectedRevisionsTable';
 
 function ResultsView() {
   return (

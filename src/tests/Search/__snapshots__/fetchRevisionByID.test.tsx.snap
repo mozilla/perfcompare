@@ -270,7 +270,7 @@ exports[`SearchView/fetchRevisionByID should fetch revisions by ID if searchValu
           />
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1onbyc2-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
         >
           <div
             class="MuiTableContainer-root layout css-rorn0c-MuiTableContainer-root"
