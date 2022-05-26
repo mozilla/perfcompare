@@ -4,16 +4,15 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import { connect } from 'react-redux';
 
-import useFocusInput from '../../../hooks/useFocusInput';
-import { Revision, State } from '../../../types/state';
-import PerfCompareHeader from '../../Shared/PerfCompareHeader';
-import AddRevisionButton from '../AddRevisionButton';
-import SearchDropdown from '../SearchDropdown';
-import SearchInput from '../SearchInput';
-import SearchResultsList from '../SearchResultsList';
-import SearchViewInit from '../SearchViewInit';
-import SelectedRevisionsTable from '../SelectedRevisionsTable/SelectedRevisionsTable';
-import './SearchView.css';
+import useFocusInput from '../../hooks/useFocusInput';
+import { Revision, State } from '../../types/state';
+import PerfCompareHeader from '../Shared/PerfCompareHeader';
+import SelectedRevisionsTable from '../Shared/SelectedRevisionsTable';
+import AddRevisionButton from './AddRevisionButton';
+import SearchDropdown from './SearchDropdown';
+import SearchInput from './SearchInput';
+import SearchResultsList from './SearchResultsList';
+import SearchViewInit from './SearchViewInit';
 
 function SearchView(props: SearchViewProps) {
   const { focused, handleParentClick, handleFocus, handleChildClick } =
@@ -34,7 +33,7 @@ function SearchView(props: SearchViewProps) {
         <AddRevisionButton />
         <Grid container>
           <Grid item xs={1} />
-          <Grid item xs={10}>
+          <Grid item xs={10} sx={{ zIndex: 2 }}>
             {searchResults.length > 0 && focused && (
               <SearchResultsList handleChildClick={handleChildClick} />
             )}

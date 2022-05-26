@@ -150,7 +150,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-u78q51-MuiGrid-root"
           />
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 css-17p3wh3-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 css-1jsb9yk-MuiGrid-root"
           />
           <div
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-u78q51-MuiGrid-root"
@@ -172,41 +172,41 @@ exports[`Search View renders correctly when there are no results 1`] = `
                   class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
                 >
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-bcf2i1-MuiTableCell-root"
-                    scope="col"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1ygcj2i-MuiTableCell-root"
+                    scope="row"
                   />
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-xn32gr-MuiTableCell-root"
                     scope="col"
                   >
                     Project
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-xn32gr-MuiTableCell-root"
                     scope="col"
                   >
                     Revision
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-xn32gr-MuiTableCell-root"
                     scope="col"
                   >
                     Author
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeMedium title css-6fj706-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-xn32gr-MuiTableCell-root"
                     scope="col"
                   >
-                    Commit message
+                    Commit Message
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-xn32gr-MuiTableCell-root"
                     scope="col"
                   >
                     Timestamp
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   />
                 </tr>
@@ -215,46 +215,44 @@ exports[`Search View renders correctly when there are no results 1`] = `
                 class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
               >
                 <tr
-                  class="MuiTableRow-root css-1dqswt5-MuiTableRow-root"
+                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
                 >
-                  <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
-                    scope="row"
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     <div
                       class="cellStyle"
                     >
                       BASE
                     </div>
-                  </th>
-                  <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
-                    scope="row"
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     4
-                  </th>
+                  </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     coconut
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     john@python.com
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-4wtnjx-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     This is my first message
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     42
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-lniu9z-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     <button
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
@@ -280,46 +278,44 @@ exports[`Search View renders correctly when there are no results 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1dqswt5-MuiTableRow-root"
+                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
                 >
-                  <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
-                    scope="row"
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     <div
                       class="cellStyle"
                     >
                       NEW
                     </div>
-                  </th>
-                  <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
-                    scope="row"
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     4
-                  </th>
+                  </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     coconut 2
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     johncleese@python.com
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-4wtnjx-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     This is the second message
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     43
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-lniu9z-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     <button
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
@@ -346,11 +342,6 @@ exports[`Search View renders correctly when there are no results 1`] = `
                 </tr>
               </tbody>
             </table>
-            <div
-              class="helperText"
-            >
-              Maximum 4 revisions.
-            </div>
           </div>
         </div>
       </div>
@@ -509,7 +500,7 @@ exports[`Search View should hide search results when clicking outside of search 
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-u78q51-MuiGrid-root"
           />
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 css-17p3wh3-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 css-1jsb9yk-MuiGrid-root"
           />
           <div
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-u78q51-MuiGrid-root"
@@ -531,41 +522,41 @@ exports[`Search View should hide search results when clicking outside of search 
                   class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
                 >
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-bcf2i1-MuiTableCell-root"
-                    scope="col"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1ygcj2i-MuiTableCell-root"
+                    scope="row"
                   />
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-xn32gr-MuiTableCell-root"
                     scope="col"
                   >
                     Project
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-xn32gr-MuiTableCell-root"
                     scope="col"
                   >
                     Revision
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-xn32gr-MuiTableCell-root"
                     scope="col"
                   >
                     Author
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeMedium title css-6fj706-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-xn32gr-MuiTableCell-root"
                     scope="col"
                   >
-                    Commit message
+                    Commit Message
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-xn32gr-MuiTableCell-root"
                     scope="col"
                   >
                     Timestamp
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   />
                 </tr>
@@ -574,46 +565,44 @@ exports[`Search View should hide search results when clicking outside of search 
                 class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
               >
                 <tr
-                  class="MuiTableRow-root css-1dqswt5-MuiTableRow-root"
+                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
                 >
-                  <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
-                    scope="row"
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     <div
                       class="cellStyle"
                     >
                       BASE
                     </div>
-                  </th>
-                  <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
-                    scope="row"
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     4
-                  </th>
+                  </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     coconut
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     john@python.com
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-4wtnjx-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     This is my first message
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     42
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-lniu9z-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     <button
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
@@ -639,46 +628,44 @@ exports[`Search View should hide search results when clicking outside of search 
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1dqswt5-MuiTableRow-root"
+                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
                 >
-                  <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
-                    scope="row"
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     <div
                       class="cellStyle"
                     >
                       NEW
                     </div>
-                  </th>
-                  <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
-                    scope="row"
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     4
-                  </th>
+                  </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     coconut 2
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     johncleese@python.com
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-4wtnjx-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     This is the second message
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     43
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-lniu9z-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     <button
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
@@ -705,11 +692,6 @@ exports[`Search View should hide search results when clicking outside of search 
                 </tr>
               </tbody>
             </table>
-            <div
-              class="helperText"
-            >
-              Maximum 4 revisions.
-            </div>
           </div>
         </div>
       </div>
@@ -868,7 +850,7 @@ exports[`Search View should not hide search results when clicking search results
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-u78q51-MuiGrid-root"
           />
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 css-17p3wh3-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 css-1jsb9yk-MuiGrid-root"
           >
             <div
               class="MuiBox-root css-l1oafp"
@@ -1020,41 +1002,41 @@ exports[`Search View should not hide search results when clicking search results
                   class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
                 >
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-bcf2i1-MuiTableCell-root"
-                    scope="col"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1ygcj2i-MuiTableCell-root"
+                    scope="row"
                   />
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-xn32gr-MuiTableCell-root"
                     scope="col"
                   >
                     Project
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-xn32gr-MuiTableCell-root"
                     scope="col"
                   >
                     Revision
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-xn32gr-MuiTableCell-root"
                     scope="col"
                   >
                     Author
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeMedium title css-6fj706-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-xn32gr-MuiTableCell-root"
                     scope="col"
                   >
-                    Commit message
+                    Commit Message
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-xn32gr-MuiTableCell-root"
                     scope="col"
                   >
                     Timestamp
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   />
                 </tr>
@@ -1063,46 +1045,44 @@ exports[`Search View should not hide search results when clicking search results
                 class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
               >
                 <tr
-                  class="MuiTableRow-root css-1dqswt5-MuiTableRow-root"
+                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
                 >
-                  <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
-                    scope="row"
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     <div
                       class="cellStyle"
                     >
                       BASE
                     </div>
-                  </th>
-                  <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
-                    scope="row"
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     4
-                  </th>
+                  </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     coconut
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     john@python.com
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-4wtnjx-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     This is my first message
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     42
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-lniu9z-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     <button
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
@@ -1128,46 +1108,44 @@ exports[`Search View should not hide search results when clicking search results
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1dqswt5-MuiTableRow-root"
+                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
                 >
-                  <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
-                    scope="row"
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     <div
                       class="cellStyle"
                     >
                       NEW
                     </div>
-                  </th>
-                  <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
-                    scope="row"
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     4
-                  </th>
+                  </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     coconut 2
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     johncleese@python.com
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-4wtnjx-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     This is the second message
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     43
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-lniu9z-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     <button
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
@@ -1194,11 +1172,6 @@ exports[`Search View should not hide search results when clicking search results
                 </tr>
               </tbody>
             </table>
-            <div
-              class="helperText"
-            >
-              Maximum 4 revisions.
-            </div>
           </div>
         </div>
       </div>

@@ -152,7 +152,7 @@ exports[`SearchView/fetchRecentRevisions should fetch and display recent results
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-u78q51-MuiGrid-root"
           />
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 css-17p3wh3-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 css-1jsb9yk-MuiGrid-root"
           >
             <div
               class="MuiBox-root css-l1oafp"
@@ -287,41 +287,41 @@ exports[`SearchView/fetchRecentRevisions should fetch and display recent results
                   class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
                 >
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-bcf2i1-MuiTableCell-root"
-                    scope="col"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1ygcj2i-MuiTableCell-root"
+                    scope="row"
                   />
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-xn32gr-MuiTableCell-root"
                     scope="col"
                   >
                     Project
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-xn32gr-MuiTableCell-root"
                     scope="col"
                   >
                     Revision
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-xn32gr-MuiTableCell-root"
                     scope="col"
                   >
                     Author
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeMedium title css-6fj706-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-xn32gr-MuiTableCell-root"
                     scope="col"
                   >
-                    Commit message
+                    Commit Message
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium title css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-xn32gr-MuiTableCell-root"
                     scope="col"
                   >
                     Timestamp
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-bcf2i1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1ygcj2i-MuiTableCell-root"
                     scope="col"
                   />
                 </tr>
@@ -330,46 +330,44 @@ exports[`SearchView/fetchRecentRevisions should fetch and display recent results
                 class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
               >
                 <tr
-                  class="MuiTableRow-root css-1dqswt5-MuiTableRow-root"
+                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
                 >
-                  <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
-                    scope="row"
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     <div
                       class="cellStyle"
                     >
                       BASE
                     </div>
-                  </th>
-                  <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
-                    scope="row"
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     4
-                  </th>
+                  </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     coconut
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     john@python.com
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-4wtnjx-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     This is my first message
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     42
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-lniu9z-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     <button
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
@@ -395,46 +393,44 @@ exports[`SearchView/fetchRecentRevisions should fetch and display recent results
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1dqswt5-MuiTableRow-root"
+                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
                 >
-                  <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
-                    scope="row"
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     <div
                       class="cellStyle"
                     >
                       NEW
                     </div>
-                  </th>
-                  <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
-                    scope="row"
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     4
-                  </th>
+                  </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     coconut 2
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     johncleese@python.com
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-4wtnjx-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     This is the second message
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-ovykc-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     43
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-lniu9z-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                   >
                     <button
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
@@ -461,96 +457,10 @@ exports[`SearchView/fetchRecentRevisions should fetch and display recent results
                 </tr>
               </tbody>
             </table>
-            <div
-              class="helperText"
-            >
-              Maximum 4 revisions.
-            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div
-    aria-hidden="true"
-    class="MuiModal-root MuiPopover-root MuiMenu-root css-10nakn3-MuiModal-root-MuiPopover-root-MuiMenu-root"
-    id="menu-"
-    role="presentation"
-  >
-    <div
-      aria-hidden="true"
-      class="MuiBackdrop-root MuiBackdrop-invisible css-g3hgs1-MuiBackdrop-root-MuiModal-backdrop"
-      style="opacity: 0; webkit-transition: opacity 195ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 195ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
-    />
-    <div
-      data-test="sentinelStart"
-      tabindex="0"
-    />
-    <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiMenu-paper MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation8 MuiPopover-paper css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper"
-      style="opacity: 0; transform: scale(0.75, 0.5625); min-width: 0; transition: opacity 0ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 0ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; top: 16px; left: 16px; transform-origin: -16px -16px;"
-      tabindex="-1"
-    >
-      <ul
-        aria-labelledby="select-repository"
-        class="MuiList-root MuiList-padding MuiMenu-list css-6hp17o-MuiList-root-MuiMenu-list"
-        role="listbox"
-        tabindex="-1"
-      >
-        <li
-          aria-selected="false"
-          class="MuiMenuItem-root MuiMenuItem-gutters MuiButtonBase-root css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root"
-          data-value="try"
-          id="try"
-          role="option"
-          tabindex="-1"
-        >
-          try
-          <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
-        </li>
-        <li
-          aria-selected="true"
-          class="MuiMenuItem-root MuiMenuItem-gutters Mui-selected MuiButtonBase-root css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root"
-          data-value="autoland"
-          id="autoland"
-          role="option"
-          tabindex="0"
-        >
-          autoland
-          <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          >
-            <span
-              class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
-              style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
-            >
-              <span
-                class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
-              />
-            </span>
-          </span>
-        </li>
-        <li
-          aria-selected="false"
-          class="MuiMenuItem-root MuiMenuItem-gutters MuiButtonBase-root css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root"
-          data-value="mozilla-central"
-          id="mozilla-central"
-          role="option"
-          tabindex="-1"
-        >
-          mozilla-central
-          <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
-        </li>
-      </ul>
-    </div>
-    <div
-      data-test="sentinelEnd"
-      tabindex="0"
-    />
   </div>
 </body>
 `;
