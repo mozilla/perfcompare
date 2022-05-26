@@ -1,12 +1,13 @@
 import * as React from 'react';
 
 import Close from '@mui/icons-material/Close';
-import { TableRow } from '@mui/material';
+import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
 import { connect, useDispatch } from 'react-redux';
 
 import { deleteRevision } from '../../../reducers/SelectedRevisions';
@@ -77,6 +78,8 @@ function SelectedRevisionsTable(props: SelectedRevisionsProps) {
         </TableBody>
       </Table>
       <div className="helperText">Maximum 4 revisions.</div>
+
+      <Button variant="outlined">Text</Button>
     </TableContainer>
   );
 }

@@ -13,6 +13,7 @@ import SearchInput from '../SearchInput';
 import SearchResultsList from '../SearchResultsList';
 import SearchViewInit from '../SearchViewInit';
 import SelectedRevisionsTable from '../SelectedRevisionsTable/SelectedRevisionsTable';
+
 import './SearchView.css';
 
 function SearchView(props: SearchViewProps) {
@@ -44,6 +45,12 @@ function SearchView(props: SearchViewProps) {
         <Grid item xs={12}>
           {selectedRevisions.length > 0 && <SelectedRevisionsTable />}
         </Grid>
+
+        {/* <Grid item xs={13}>
+          {selectedRevisions.length > 0 && (
+            <Button variant="outlined">Text</Button>
+          )}
+        </Grid> */}
       </Grid>
     </Container>
   );
