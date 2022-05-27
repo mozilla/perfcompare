@@ -10,10 +10,14 @@ import type { Revision } from '../../types/state';
 import { truncateHash, getLastRevision } from '../../utils/searchResultsHelper';
 
 function SearchResultsListItem(props: SearchResultsListItemProps) {
-  const { item, handleChildClick } = props;
+  const { checked, item, handleToggle } = props;
 
   return (
-    <ListItemButton key={item.id}>
+    <ListItemButton
+      key={item.id}
+      id={item.revision}
+      onClick={(e) => handleToggle(e)}
+    >
       <ListItem className="search-revision-item search-revision" disablePadding>
         <ListItemIcon className="search-revision-item-icon search-revision">
           <Checkbox
@@ -21,7 +25,8 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
             edge="start"
             tabIndex={-1}
             disableRipple
-            onClick={handleChildClick}
+            data-testid={`checkbox-${item.id}`}
+            checked={checked.indexOf(item.revision) !== -1}
           />
         </ListItemIcon>
         <ListItemText
@@ -33,7 +38,6 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
           sx={{ noWrap: 'true' }}
           primaryTypographyProps={{ noWrap: true }}
           secondaryTypographyProps={{ noWrap: true }}
-          onClick={handleChildClick}
         />
       </ListItem>
     </ListItemButton>
@@ -41,8 +45,9 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
 }
 
 interface SearchResultsListItemProps {
+  checked: string[];
   item: Revision;
-  handleChildClick: (e: React.MouseEvent) => void;
+  handleToggle: (e: React.MouseEvent) => void;
 }
 
 export default SearchResultsListItem;
