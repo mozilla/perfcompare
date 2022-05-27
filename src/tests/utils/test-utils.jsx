@@ -23,7 +23,7 @@ function renderWithRouter(
 ) {
   return {
     ...render(
-      <Router location={history.location} history={history}>
+      <Router location={history.location} history={history} navigator={history}>
         {ui}
       </Router>,
     ),

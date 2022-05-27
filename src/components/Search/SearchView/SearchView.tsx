@@ -29,6 +29,7 @@ function SearchView(props: SearchViewProps) {
   const goToResultsPage = () => {
     navigate('/results', { replace: false });
   };
+  
   return (
     <Container maxWidth="lg" onClick={handleParentClick}>
       {/* Component to fetch recent revisions on mount */}

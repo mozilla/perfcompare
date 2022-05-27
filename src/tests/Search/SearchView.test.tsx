@@ -231,11 +231,12 @@ describe('Search View', () => {
   });
 });
 
-it('should have compare button and once clicked should redirect to results page ', () => {
+it('should have compare button and once clicked should redirect to results page ', async () => {
   const { history } = renderWithRouter(<SearchView />);
+  expect(history.location.pathname).toEqual('/');
 
   const compareButton = document.querySelector('.compare-button');
-  (compareButton as HTMLButtonElement).click();
+  await (compareButton as HTMLButtonElement).click();
 
   expect(history.location.pathname).toEqual('/results');
 });

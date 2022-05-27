@@ -1,11 +1,10 @@
 import React from 'react';
 
 import userEvent from '@testing-library/user-event';
-import { BrowserRouter as Router } from 'react-router-dom';
 
 import SearchView from '../../components/Search/SearchView/SearchView';
 import getTestData from '../utils/fixtures';
-import { render, screen, store } from '../utils/test-utils';
+import { renderWithRouter, screen, store } from '../utils/test-utils';
 
 describe('SearchView/fetchRevisionByID', () => {
   it('should fetch revisions by ID if searchValue is a 12 or 40 character hash', async () => {
@@ -21,9 +20,7 @@ describe('SearchView/fetchRevisionByID', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    render( <Router>
-        <SearchView />
-      </Router>);
+    renderWithRouter(<SearchView />);
 
     await screen.findByRole('button', { name: 'repository' });
     expect(screen.getByText('try')).toBeInTheDocument();
@@ -63,9 +60,7 @@ describe('SearchView/fetchRevisionByID', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    render( <Router>
-        <SearchView />
-      </Router>);
+    renderWithRouter(<SearchView />);
 
     await screen.findByRole('button', { name: 'repository' });
     expect(screen.getByText('try')).toBeInTheDocument();
@@ -95,9 +90,7 @@ describe('SearchView/fetchRevisionByID', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    render( <Router>
-        <SearchView />
-      </Router>);
+    renderWithRouter(<SearchView />);
 
     await screen.findByRole('button', { name: 'repository' });
 
