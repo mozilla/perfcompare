@@ -5,8 +5,8 @@ import { Provider } from 'react-redux';
 
 import { store } from '../../common/store';
 
-function render(ui) {
-  function Wrapper({ children }) {
+function render(ui: React.ReactElement) {
+  function Wrapper({ children }: { children: React.ReactElement }) {
     return <Provider store={store}>{children}</Provider>;
   }
   return rtlRender(ui, { wrapper: Wrapper });
