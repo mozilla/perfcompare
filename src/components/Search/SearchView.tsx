@@ -1,6 +1,12 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from 'react';
+
+import ArrowForward from '@mui/icons-material/ArrowForward';
+import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import { connect } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import useFocusInput from '../../hooks/useFocusInput';
 import { Revision, State } from '../../types/state';
@@ -13,9 +19,15 @@ import SearchResultsList from './SearchResultsList';
 import SearchViewInit from './SearchViewInit';
 
 function SearchView(props: SearchViewProps) {
-  const { focused, handleParentClick, handleFocus } = useFocusInput();
+  const { focused, handleParentClick, handleFocus } =
+    useFocusInput();
+  const navigate = useNavigate();
 
   const { searchResults, selectedRevisions } = props;
+
+  const goToResultsPage = () => {
+    navigate('/results', { replace: false });
+  };
 
   return (
     <Container maxWidth="lg" onClick={handleParentClick}>
@@ -38,6 +50,19 @@ function SearchView(props: SearchViewProps) {
       <Grid container>
         <Grid item xs={12}>
           {selectedRevisions.length > 0 && <SelectedRevisionsTable />}
+        </Grid>
+
+        <Grid item xs={13} className="compare-button-section">
+          {selectedRevisions.length > 0 && (
+            <Button
+              className="compare-button"
+              variant="contained"
+              onClick={goToResultsPage}
+            >
+              COMPARE
+              <ArrowForward className="compare-icon" />
+            </Button>
+          )}
         </Grid>
       </Grid>
     </Container>
