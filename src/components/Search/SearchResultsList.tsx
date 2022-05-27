@@ -4,12 +4,13 @@ import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import { connect } from 'react-redux';
 
+import useCheckRevision from '../../hooks/useCheckRevision';
 import type { Revision, State } from '../../types/state';
 import SearchResultsListItem from './SearchResultsListItem';
 
 function SearchResultsList(props: SearchResultsListProps) {
-  const { searchResults, handleChildClick } = props;
-
+  const { searchResults } = props;
+  const { checked, handleToggle } = useCheckRevision();
   return (
     <Box
       sx={{
@@ -32,7 +33,8 @@ function SearchResultsList(props: SearchResultsListProps) {
           <SearchResultsListItem
             key={item.id}
             item={item}
-            handleChildClick={handleChildClick}
+            checked={checked}
+            handleToggle={handleToggle}
           />
         ))}
       </List>
@@ -42,7 +44,6 @@ function SearchResultsList(props: SearchResultsListProps) {
 
 interface SearchResultsListProps {
   searchResults: Revision[];
-  handleChildClick: (e: React.MouseEvent) => void;
 }
 
 function mapStateToProps(state: State) {
