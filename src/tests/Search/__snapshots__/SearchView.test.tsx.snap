@@ -143,19 +143,20 @@ exports[`Search View renders correctly when there are no results 1`] = `
             />
           </button>
         </div>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
+      >
         <div
-          class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
-        >
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-u78q51-MuiGrid-root"
-          />
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 css-1jsb9yk-MuiGrid-root"
-          />
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-u78q51-MuiGrid-root"
-          />
-        </div>
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-u78q51-MuiGrid-root"
+        />
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 css-1jsb9yk-MuiGrid-root"
+        />
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
+      >
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
         >
@@ -493,19 +494,20 @@ exports[`Search View should hide search results when clicking outside of search 
             />
           </button>
         </div>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
+      >
         <div
-          class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
-        >
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-u78q51-MuiGrid-root"
-          />
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 css-1jsb9yk-MuiGrid-root"
-          />
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-u78q51-MuiGrid-root"
-          />
-        </div>
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-u78q51-MuiGrid-root"
+        />
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 css-1jsb9yk-MuiGrid-root"
+        />
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
+      >
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
         >
@@ -843,149 +845,317 @@ exports[`Search View should not hide search results when clicking search results
             />
           </button>
         </div>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
+      >
         <div
-          class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-u78q51-MuiGrid-root"
+        />
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 css-1jsb9yk-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-u78q51-MuiGrid-root"
-          />
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 css-1jsb9yk-MuiGrid-root"
+            class="MuiBox-root css-l1oafp"
           >
-            <div
-              class="MuiBox-root css-l1oafp"
+            <ul
+              class="MuiList-root MuiList-padding search-revision-list css-h4y409-MuiList-root"
             >
-              <ul
-                class="MuiList-root MuiList-padding search-revision-list css-h4y409-MuiList-root"
+              <div
+                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root"
+                id="coconut"
+                role="button"
+                tabindex="0"
               >
-                <div
-                  class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root"
-                  role="button"
-                  tabindex="0"
+                <li
+                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
                 >
-                  <li
-                    class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
+                  <div
+                    class="MuiListItemIcon-root search-revision-item-icon search-revision css-cveggr-MuiListItemIcon-root"
                   >
-                    <div
-                      class="MuiListItemIcon-root search-revision-item-icon search-revision css-cveggr-MuiListItemIcon-root"
+                    <span
+                      class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root Mui-checked PrivateSwitchBase-edgeStart search-revision-item-checkbox search-revision css-zkqepn-MuiButtonBase-root-MuiCheckbox-root"
+                      data-testid="checkbox-1"
                     >
-                      <span
-                        class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root PrivateSwitchBase-edgeStart search-revision-item-checkbox search-revision css-zkqepn-MuiButtonBase-root-MuiCheckbox-root"
+                      <input
+                        class="PrivateSwitchBase-input css-1m9pwf3"
+                        data-indeterminate="false"
+                        tabindex="-1"
+                        type="checkbox"
+                      />
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="CheckBoxIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
                       >
-                        <input
-                          class="PrivateSwitchBase-input css-1m9pwf3"
-                          data-indeterminate="false"
-                          tabindex="-1"
-                          type="checkbox"
+                        <path
+                          d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
                         />
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                          data-testid="CheckBoxOutlineBlankIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                    <div
-                      class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text search-revision css-zbobkr-MuiListItemText-root"
-                    >
-                      <span
-                        class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-1f0fhap-MuiTypography-root"
-                      >
-                        coconut - you've got no arms left! 
-                      </span>
-                      <p
-                        class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-zq04ye-MuiTypography-root"
-                      >
-                        johncleese@python.com - Thu Jan 01 1970 00:00:42 GMT+0000 (Coordinated Universal Time)
-                      </p>
-                    </div>
-                  </li>
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      </svg>
+                    </span>
+                  </div>
+                  <div
+                    class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text search-revision css-zbobkr-MuiListItemText-root"
                   >
                     <span
-                      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
-                      style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+                      class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-1f0fhap-MuiTypography-root"
                     >
-                      <span
-                        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
-                      />
+                      coconut - you've got no arms left! 
                     </span>
+                    <p
+                      class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-zq04ye-MuiTypography-root"
+                    >
+                      johncleese@python.com - Thu Jan 01 1970 00:00:42 GMT+0000 (Coordinated Universal Time)
+                    </p>
+                  </div>
+                </li>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                >
+                  <span
+                    class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+                    style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+                  >
                     <span
-                      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
-                      style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
-                    >
-                      <span
-                        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
-                      />
-                    </span>
+                      class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+                    />
                   </span>
-                </div>
-                <div
-                  class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root"
-                  role="button"
-                  tabindex="0"
+                </span>
+              </div>
+              <div
+                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root"
+                id="spam"
+                role="button"
+                tabindex="0"
+              >
+                <li
+                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
                 >
-                  <li
-                    class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
+                  <div
+                    class="MuiListItemIcon-root search-revision-item-icon search-revision css-cveggr-MuiListItemIcon-root"
                   >
-                    <div
-                      class="MuiListItemIcon-root search-revision-item-icon search-revision css-cveggr-MuiListItemIcon-root"
+                    <span
+                      class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root Mui-checked PrivateSwitchBase-edgeStart search-revision-item-checkbox search-revision css-zkqepn-MuiButtonBase-root-MuiCheckbox-root"
+                      data-testid="checkbox-2"
                     >
-                      <span
-                        class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root PrivateSwitchBase-edgeStart search-revision-item-checkbox search-revision css-zkqepn-MuiButtonBase-root-MuiCheckbox-root"
+                      <input
+                        class="PrivateSwitchBase-input css-1m9pwf3"
+                        data-indeterminate="false"
+                        tabindex="-1"
+                        type="checkbox"
+                      />
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="CheckBoxIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
                       >
-                        <input
-                          class="PrivateSwitchBase-input css-1m9pwf3"
-                          data-indeterminate="false"
-                          tabindex="-1"
-                          type="checkbox"
+                        <path
+                          d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
                         />
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                          data-testid="CheckBoxOutlineBlankIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                    <div
-                      class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text search-revision css-zbobkr-MuiListItemText-root"
+                      </svg>
+                    </span>
+                  </div>
+                  <div
+                    class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text search-revision css-zbobkr-MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-1f0fhap-MuiTypography-root"
                     >
-                      <span
-                        class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-1f0fhap-MuiTypography-root"
-                      >
-                        spam - it's just a flesh wound 
-                      </span>
-                      <p
-                        class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-zq04ye-MuiTypography-root"
-                      >
-                        ericidle@python.com - Thu Jan 01 1970 00:00:42 GMT+0000 (Coordinated Universal Time)
-                      </p>
-                    </div>
-                  </li>
+                      spam - it's just a flesh wound 
+                    </span>
+                    <p
+                      class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-zq04ye-MuiTypography-root"
+                    >
+                      ericidle@python.com - Thu Jan 01 1970 00:00:42 GMT+0000 (Coordinated Universal Time)
+                    </p>
+                  </div>
+                </li>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                >
                   <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </div>
-              </ul>
-            </div>
+                    class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+                    style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+                  >
+                    <span
+                      class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+                    />
+                  </span>
+                </span>
+              </div>
+              <div
+                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root"
+                id="spamspam"
+                role="button"
+                tabindex="0"
+              >
+                <li
+                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
+                >
+                  <div
+                    class="MuiListItemIcon-root search-revision-item-icon search-revision css-cveggr-MuiListItemIcon-root"
+                  >
+                    <span
+                      class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root PrivateSwitchBase-edgeStart search-revision-item-checkbox search-revision css-zkqepn-MuiButtonBase-root-MuiCheckbox-root"
+                      data-testid="checkbox-3"
+                    >
+                      <input
+                        class="PrivateSwitchBase-input css-1m9pwf3"
+                        data-indeterminate="false"
+                        tabindex="-1"
+                        type="checkbox"
+                      />
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="CheckBoxOutlineBlankIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div
+                    class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text search-revision css-zbobkr-MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-1f0fhap-MuiTypography-root"
+                    >
+                      spamspam - What, ridden on a horse? 
+                    </span>
+                    <p
+                      class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-zq04ye-MuiTypography-root"
+                    >
+                      terrygilliam@python.com - Thu Jan 01 1970 00:00:42 GMT+0000 (Coordinated Universal Time)
+                    </p>
+                  </div>
+                </li>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </div>
+              <div
+                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root"
+                id="spamspamspamandeggs"
+                role="button"
+                tabindex="0"
+              >
+                <li
+                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
+                >
+                  <div
+                    class="MuiListItemIcon-root search-revision-item-icon search-revision css-cveggr-MuiListItemIcon-root"
+                  >
+                    <span
+                      class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root PrivateSwitchBase-edgeStart search-revision-item-checkbox search-revision css-zkqepn-MuiButtonBase-root-MuiCheckbox-root"
+                      data-testid="checkbox-4"
+                    >
+                      <input
+                        class="PrivateSwitchBase-input css-1m9pwf3"
+                        data-indeterminate="false"
+                        tabindex="-1"
+                        type="checkbox"
+                      />
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="CheckBoxOutlineBlankIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div
+                    class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text search-revision css-zbobkr-MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-1f0fhap-MuiTypography-root"
+                    >
+                      spamspamspa - You've got two empty 'alves of coconuts and you're bangin' 'em togetha! 
+                    </span>
+                    <p
+                      class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-zq04ye-MuiTypography-root"
+                    >
+                      michaelpalin@python.com - Thu Jan 01 1970 00:00:42 GMT+0000 (Coordinated Universal Time)
+                    </p>
+                  </div>
+                </li>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </div>
+              <div
+                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root"
+                id="spamspamspamspamandeggs"
+                role="button"
+                tabindex="0"
+              >
+                <li
+                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
+                >
+                  <div
+                    class="MuiListItemIcon-root search-revision-item-icon search-revision css-cveggr-MuiListItemIcon-root"
+                  >
+                    <span
+                      class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root PrivateSwitchBase-edgeStart search-revision-item-checkbox search-revision css-zkqepn-MuiButtonBase-root-MuiCheckbox-root"
+                      data-testid="checkbox-5"
+                    >
+                      <input
+                        class="PrivateSwitchBase-input css-1m9pwf3"
+                        data-indeterminate="false"
+                        tabindex="-1"
+                        type="checkbox"
+                      />
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="CheckBoxOutlineBlankIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div
+                    class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text search-revision css-zbobkr-MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-1f0fhap-MuiTypography-root"
+                    >
+                      spamspamspa - She turned me into a newt! 
+                    </span>
+                    <p
+                      class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-zq04ye-MuiTypography-root"
+                    >
+                      grahamchapman@python.com - Thu Jan 01 1970 00:00:42 GMT+0000 (Coordinated Universal Time)
+                    </p>
+                  </div>
+                </li>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </div>
+            </ul>
           </div>
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-u78q51-MuiGrid-root"
-          />
         </div>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
+      >
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
         >

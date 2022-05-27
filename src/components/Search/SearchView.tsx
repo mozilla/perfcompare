@@ -15,8 +15,7 @@ import SearchResultsList from './SearchResultsList';
 import SearchViewInit from './SearchViewInit';
 
 function SearchView(props: SearchViewProps) {
-  const { focused, handleParentClick, handleFocus, handleChildClick } =
-    useFocusInput();
+  const { focused, handleParentClick, handleFocus } = useFocusInput();
 
   const { searchResults, selectedRevisions } = props;
 
@@ -31,15 +30,14 @@ function SearchView(props: SearchViewProps) {
         <SearchInput handleFocus={handleFocus} />
         {/* TODO: add behavior for Add Revision button */}
         <AddRevisionButton />
-        <Grid container>
-          <Grid item xs={1} />
-          <Grid item xs={10} sx={{ zIndex: 2 }}>
-            {searchResults.length > 0 && focused && (
-              <SearchResultsList handleChildClick={handleChildClick} />
-            )}
-          </Grid>
-          <Grid item xs={1} />
+      </Grid>
+      <Grid container>
+        <Grid item xs={1} />
+        <Grid item xs={10} sx={{ zIndex: 2 }}>
+          {searchResults.length > 0 && focused && <SearchResultsList />}
         </Grid>
+      </Grid>
+      <Grid container>
         <Grid item xs={12}>
           {selectedRevisions.length > 0 && <SelectedRevisionsTable />}
         </Grid>
