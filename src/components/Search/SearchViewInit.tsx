@@ -1,21 +1,18 @@
-import React from 'react';
+import { useEffect } from 'react';
 
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 
-import { store } from '../../common/store';
 import { fetchRecentRevisions } from '../../thunks/searchThunk';
 import { Repository, State } from '../../types/state';
 
 // component to fetch recent revisions when search view is loaded
-class SearchViewInit extends React.Component<SearchViewInitProps> {
-  componentDidMount() {
-    const { repository } = this.props;
-    store.dispatch(fetchRecentRevisions(repository));
-  }
-
-  render() {
-    return null;
-  }
+function SearchViewInit(props: SearchViewInitProps) {
+  const dispatch = useDispatch();
+  const { repository } = props;
+  useEffect(() => {
+    dispatch(fetchRecentRevisions(repository));
+  }, []);
+  return null;
 }
 
 interface SearchViewInitProps {

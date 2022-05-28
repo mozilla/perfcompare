@@ -2,7 +2,7 @@
   "compilerOptions": {
     "allowJs": true, // allow a partial TypeScript and JavaScript codebase
     "esModuleInterop": true,
-    "jsx": "react", // use typescript to transpile jsx to js
+    "jsx": "react-jsx", // use typescript to transpile jsx to js
     "module": "es6", // specify module code generation
     "moduleResolution": "node",
     "outDir": "./dist/", // path to output directory

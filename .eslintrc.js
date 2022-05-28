@@ -1,32 +1,33 @@
 module.exports = {
+  root: true,
   env: {
     browser: true,
-    es2021: true,
-    jest: true,
+    node: true,
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:prettier/recommended',
-    'airbnb',
-  ],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 'latest',
-    sourceType: 'module',
   },
-  plugins: ['react'],
+  plugins: ['@typescript-eslint', 'import', 'jest', 'react'],
+  extends: [
+    'plugin:react/recommended',
+    'plugin:react/jsx-runtime',
+    'plugin:jest/recommended',
+    'prettier',
+  ],
   settings: {
     'import/resolver': {
       node: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
     },
+    react: {
+      version: 'detect',
+    },
   },
   rules: {
-    'implicit-arrow-linebreak': 'off',
     'import/order': [
       'error',
       {
@@ -46,88 +47,43 @@ module.exports = {
         },
       },
     ],
-    // ignore rule for reducers updating state
-    'no-param-reassign': [
-      'error',
-      { props: true, ignorePropertyModificationsFor: ['state'] },
-    ],
-    // this rule prevents using identifiers such as '_foo' or '__bar__',
-    // which indicate to those contributing that this should not be
-    // used outside the context in which it is defined
-    'no-underscore-dangle': 'off',
-    // require line breaks between curly braces in imports
-    // only if there are line breaks between properties
-    'object-curly-newline': [
-      'error',
-      { ImportDeclaration: { multiline: true } },
-    ],
-    'operator-linebreak': 'off',
-    // error on prettier lint issues
-    'prettier/prettier': 'error',
-    'react/jsx-filename-extension': [
-      2,
-      { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
-    ],
   },
   overrides: [
     {
-      files: ['src/tests/**/*.{js,jsx}'],
-      extends: [
-        'eslint:recommended',
-        'plugin:react/recommended',
-        'plugin:prettier/recommended',
-        'airbnb',
-      ],
-      parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
-        },
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-      },
-      rules: {
-        'react/prop-types': 'off',
-        'function-paren-newline': 'off',
-        'import/no-extraneous-dependencies': 'off',
-        'import/no-import-module-exports': 'off',
-        '@typescript-eslint/indent': 'off',
-      },
-    },
-    {
-      files: ['src/tests/**/*.{ts,tsx}'],
-      parser: '@typescript-eslint/parser',
-      plugins: ['@typescript-eslint'],
-      extends: ['plugin:@typescript-eslint/recommended', 'airbnb-typescript'],
-      parserOptions: {
-        project: './tsconfig.json',
-      },
-      rules: {
-        'react/prop-types': 'off',
-        'function-paren-newline': 'off',
-        'import/no-extraneous-dependencies': 'off',
-        'import/no-import-module-exports': 'off',
-        '@typescript-eslint/indent': 'off',
-      },
-    },
-    {
       files: ['*.ts', '*.tsx'],
-      parser: '@typescript-eslint/parser',
-      plugins: ['@typescript-eslint'],
-      excludedFiles: 'src/tests/**',
+      // We should extend TypeScript plugins here instead of extending them
+      // outside the `overrides`.
       extends: [
-        'airbnb-typescript',
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
+        'airbnb-typescript',
       ],
       parserOptions: {
-        project: './tsconfig.json',
+        tsconfigRootDir: __dirname,
+        project: ['./tsconfig.json'],
       },
       rules: {
         // https://github.com/typescript-eslint/typescript-eslint/issues/1824
         '@typescript-eslint/indent': 'off',
-        // TODO: rework dispatch calls in helper functions
-        '@typescript-eslint/no-floating-promises': 'off',
       },
+    },
+    {
+      // typescript test files
+      files: ['src/tests/**/*.{ts,tsx}'],
+      rules: {
+        // TODO: update tests to not use store directly and remove these overrides
+        // https://github.com/mozilla/perfcompare/issues/115
+        '@typescript-eslint/no-unsafe-member-access': 'off',
+        '@typescript-eslint/no-unsafe-call': 'off',
+        // test dependencies should only exist in devDependencies
+        'import/no-extraneous-dependencies': 'off',
+      },
+    },
+    // javascript files
+    {
+      files: ['src/**/*.js'],
+      // disable forcing type for template literal in JS files
+      rules: { '@typescript-eslint/restrict-template-expressions': 'off' },
     },
   ],
 };

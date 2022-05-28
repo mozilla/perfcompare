@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import Close from '@mui/icons-material/Close';
 import IconButton from '@mui/material/IconButton';
 import Table from '@mui/material/Table';
