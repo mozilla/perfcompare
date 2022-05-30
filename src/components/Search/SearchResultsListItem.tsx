@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Checkbox from '@mui/material/Checkbox';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';

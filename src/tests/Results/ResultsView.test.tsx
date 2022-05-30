@@ -1,5 +1,3 @@
-import React from 'react';
-
 import ResultsView from '../../components/Results/ResultsView';
 import { render, screen } from '../utils/test-utils';
 

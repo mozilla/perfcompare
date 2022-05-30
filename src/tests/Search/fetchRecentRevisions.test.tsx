@@ -1,5 +1,3 @@
-import React from 'react';
-
 import userEvent from '@testing-library/user-event';
 
 import SearchView from '../../components/Search/SearchView';
@@ -36,7 +34,7 @@ describe('SearchView/fetchRecentRevisions', () => {
 
     await user.click(screen.getByRole('option', { name: 'autoland' }));
     jest.runOnlyPendingTimers();
-    await expect(screen.queryByText('try')).not.toBeInTheDocument();
+    expect(screen.queryByText('try')).not.toBeInTheDocument();
 
     expect(store.getState().search.searchResults).toStrictEqual(testData);
 

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import userEvent from '@testing-library/user-event';
 
 import SearchView from '../../components/Search/SearchView';
@@ -72,7 +70,7 @@ describe('Search View', () => {
   });
 
   it('should not call fetch if searchValue is not a hash or email', async () => {
-    jest.spyOn(global, 'fetch');
+    const spyOnFetch = jest.spyOn(global, 'fetch');
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
@@ -91,6 +89,9 @@ describe('Search View', () => {
     await screen.findByText(
       'Search must be a 12- or 40-character hash, or email address',
     );
+
+    // fetch should only be called on initial load
+    expect(spyOnFetch).toHaveBeenCalledTimes(1);
   });
 
   it('should clear searchResults if searchValue is cleared', async () => {
@@ -177,27 +178,6 @@ describe('Search View', () => {
       'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true',
     );
     expect(store.getState().search.searchResults).toStrictEqual([]);
-    expect(store.getState().search.inputError).toBe(true);
-    expect(store.getState().search.inputHelperText).toBe(
-      'An error has occurred',
-    );
-  });
-
-  it('should update error state with generic message if fetch error message is undefined', async () => {
-    global.fetch = jest.fn(() => Promise.reject(new Error())) as jest.Mock;
-    jest.spyOn(global, 'fetch');
-    // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
-
-    render(<SearchView />);
-
-    await screen.findByRole('button', { name: 'repository' });
-
-    const searchInput = screen.getByRole('textbox');
-    await user.type(searchInput, 'abcdef1234567890abcdef1234567890abcdef12');
-    jest.runOnlyPendingTimers();
-
-    await screen.findByText('An error has occurred');
     expect(store.getState().search.inputError).toBe(true);
     expect(store.getState().search.inputHelperText).toBe(
       'An error has occurred',

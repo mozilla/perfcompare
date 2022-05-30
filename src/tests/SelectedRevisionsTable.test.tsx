@@ -1,4 +1,4 @@
-import React from 'react';
+import userEvent from '@testing-library/user-event';
 
 import SearchView from '../components/Search/SearchView';
 import SelectedRevisionsTable from '../components/Shared/SelectedRevisionsTable';
@@ -16,11 +16,14 @@ describe('Search View', () => {
   });
 
   it('should delete revisions after click and not show revisions table if no revisions', async () => {
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
+
     render(<SearchView />);
     const button = document.querySelectorAll('#close-button');
 
-    await (button[0] as HTMLButtonElement).click();
-    await (button[1] as HTMLButtonElement).click();
+    await user.click(button[0]);
+    await user.click(button[1]);
 
     expect(store.getState().selectedRevisions.revisions).toEqual([]);
     expect(screen.queryByText('Commit Message')).not.toBeInTheDocument();
