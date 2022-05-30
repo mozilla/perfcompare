@@ -11,6 +11,12 @@ const components = {
           lineHeight: '1.4375em',
           padding: '16.5px 14px',
         },
+        '&.compare-button': {
+          lineHeight: '1.4375em',
+          padding: '16.5px 14px',
+          textTransform: 'uppercase',
+          marginBottom: '30px'
+        },
       },
     },
   },
@@ -63,6 +69,26 @@ const components = {
             height: '0.3em',
             marginTop: '-5px',
           },
+        },
+      },
+    },
+  },
+  MuiGrid: {
+    styleOverrides: {
+      root: {
+        '&.compare-button-section': {
+          display: 'flex',
+          alignItems: 'center',
+          flexDirection: 'column',
+        },
+      },
+    },
+  },
+  MuiSvgIcon: {
+    styleOverrides: {
+      root: {
+        '&.compare-icon': {
+          marginLeft: '15px',
         },
       },
     },

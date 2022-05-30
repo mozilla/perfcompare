@@ -3,7 +3,8 @@ import userEvent from '@testing-library/user-event';
 import SearchView from '../components/Search/SearchView';
 import SelectedRevisionsTable from '../components/Shared/SelectedRevisionsTable';
 import { resetState } from '../reducers/SelectedRevisions';
-import { render, store, screen } from './utils/test-utils';
+import { renderWithRouter, screen, store } from './utils/test-utils';
+
 
 describe('Search View', () => {
   afterEach(() => {
@@ -11,7 +12,7 @@ describe('Search View', () => {
   });
 
   it('should render correctly when there are revisions', () => {
-    render(<SelectedRevisionsTable />);
+    renderWithRouter(<SelectedRevisionsTable />);
     expect(screen.getByText('coconut')).toBeInTheDocument();
   });
 
@@ -19,7 +20,7 @@ describe('Search View', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    render(<SearchView />);
+    renderWithRouter(<SearchView />);
     const button = document.querySelectorAll('#close-button');
 
     await user.click(button[0]);

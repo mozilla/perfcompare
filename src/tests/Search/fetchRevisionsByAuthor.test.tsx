@@ -2,7 +2,7 @@ import userEvent from '@testing-library/user-event';
 
 import SearchView from '../../components/Search/SearchView';
 import getTestData from '../utils/fixtures';
-import { render, screen, store } from '../utils/test-utils';
+import { renderWithRouter, screen, store } from '../utils/test-utils';
 
 describe('SearchView/fetchRevisionsByAuthor', () => {
   it('should fetch revisions by author if searchValue is an email address', async () => {
@@ -18,7 +18,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    render(<SearchView />);
+    renderWithRouter(<SearchView />);
 
     await screen.findByRole('button', { name: 'repository' });
 
@@ -50,7 +50,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    render(<SearchView />);
+    renderWithRouter(<SearchView />);
 
     await screen.findByRole('button', { name: 'repository' });
 
@@ -75,7 +75,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    render(<SearchView />);
+    renderWithRouter(<SearchView />);
 
     await screen.findByRole('button', { name: 'repository' });
 
@@ -100,7 +100,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    render(<SearchView />);
+    renderWithRouter(<SearchView />);
 
     await screen.findByRole('button', { name: 'repository' });
 
