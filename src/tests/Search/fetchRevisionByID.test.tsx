@@ -105,4 +105,29 @@ describe('SearchView/fetchRevisionByID', () => {
       "You've got two empty 'alves of coconuts and you're bangin' 'em togetha!",
     );
   });
+
+  it('should update error state with generic message if fetch error message is undefined', async () => {
+    global.fetch = jest.fn(() => Promise.reject(new Error())) as jest.Mock;
+    const spyOnFetch = jest.spyOn(global, 'fetch');
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
+
+    render(<SearchView />);
+
+    await screen.findByRole('button', { name: 'repository' });
+
+    const searchInput = screen.getByRole('textbox');
+    await user.type(searchInput, 'abcdef123456');
+    jest.runOnlyPendingTimers();
+
+    expect(spyOnFetch).toHaveBeenCalledWith(
+      'https://treeherder.mozilla.org/api/project/try/push/?revision=abcdef123456',
+    );
+
+    await screen.findByText('An error has occurred');
+    expect(store.getState().search.inputError).toBe(true);
+    expect(store.getState().search.inputHelperText).toBe(
+      'An error has occurred',
+    );
+  });
 });
