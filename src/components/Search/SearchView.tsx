@@ -22,6 +22,9 @@ function SearchView(props: SearchViewProps) {
       {/* Component to fetch recent revisions on mount */}
       <SearchViewInit />
       <PerfCompareHeader />
+      <Grid item xs={12}>
+        {selectedRevisions.length > 0 && <SelectedRevisionsTable />}
+      </Grid>
       <Grid container>
         <Grid item xs={1} />
         <SearchDropdown />
@@ -31,13 +34,8 @@ function SearchView(props: SearchViewProps) {
       </Grid>
       <Grid container>
         <Grid item xs={1} />
-        <Grid item xs={10} sx={{ zIndex: 2 }}>
+        <Grid item xs={10}>
           {searchResults.length > 0 && focused && <SearchResultsList />}
-        </Grid>
-      </Grid>
-      <Grid container>
-        <Grid item xs={12}>
-          {selectedRevisions.length > 0 && <SelectedRevisionsTable />}
         </Grid>
       </Grid>
     </Container>

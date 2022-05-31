@@ -31,6 +31,15 @@ const components = {
       },
     },
   },
+  MuiTableContainer: {
+    styleOverrides: {
+      root: {
+        '&.layout': {
+          marginBottom: '2rem',
+        },
+      },
+    },
+  },
   MuiTableRow: {
     styleOverrides: {
       root: {
