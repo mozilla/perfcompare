@@ -75,7 +75,6 @@ describe('SearchResultsList', () => {
       }),
     ) as jest.Mock;
     jest.spyOn(global, 'fetch');
-    const spyOnConsole = jest.spyOn(console, 'log');
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
@@ -97,6 +96,12 @@ describe('SearchResultsList', () => {
       screen.getByTestId('checkbox-5').classList.contains('Mui-checked'),
     ).toBe(false);
 
-    expect(spyOnConsole).toHaveBeenCalledWith('maximum four revisions');
+    expect(screen.getByText('Maximum 4 Revisions')).toBeInTheDocument();
+
+    // Should allow unchecking revisions even after four have been selected
+    await user.click(screen.getByTestId('checkbox-1'));
+    expect(
+      screen.getByTestId('checkbox-1').classList.contains('Mui-checked'),
+    ).toBe(false);
   });
 });
