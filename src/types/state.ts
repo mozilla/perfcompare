@@ -1,3 +1,5 @@
+import type { AlertColor } from '@mui/material/Alert';
+
 export type Repository =
   | { id: 1; name: 'mozilla-central' }
   | { id: 4; name: 'try' }
@@ -21,6 +23,17 @@ export type Revision = {
   repository_id: Repository['id'];
 };
 
+export type AlertType = {
+  message: string;
+  title: string | undefined;
+  severity: AlertColor | undefined;
+};
+
+export type AlertState = {
+  isAlert: boolean;
+  alert: AlertType;
+};
+
 export type SearchState = {
   repository: Repository['name'];
   searchResults: Revision[];
@@ -34,6 +47,7 @@ export type SelectedRevisionsState = {
 };
 
 export type State = {
+  alert: AlertState;
   search: SearchState;
   selectedRevisions: SelectedRevisionsState;
 };
