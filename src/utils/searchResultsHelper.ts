@@ -1,8 +1,10 @@
 import type { Revision } from '../types/state';
 
-const truncateHash = (item: Revision) => item.revision.slice(0, 11);
+const truncateHash = (revision: Revision['revision']) => revision.slice(0, 12);
 
-const getLastRevision = (item: Revision) =>
-  item.revisions[item.revisions.length - 1];
+// return only most recent commit message
+// first commit is usually 'try_task_config'
+const getLatestCommitMessage = (item: Revision) =>
+  item.revisions[item.revisions.length - 1].comments;
 
-export { truncateHash, getLastRevision };
+export { truncateHash, getLatestCommitMessage };

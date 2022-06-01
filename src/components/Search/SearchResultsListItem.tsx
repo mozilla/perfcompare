@@ -5,10 +5,16 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 
 import type { Revision } from '../../types/state';
-import { truncateHash, getLastRevision } from '../../utils/searchResultsHelper';
+import {
+  truncateHash,
+  getLatestCommitMessage,
+} from '../../utils/searchResultsHelper';
 
 function SearchResultsListItem(props: SearchResultsListItemProps) {
   const { checked, item, handleToggle } = props;
+
+  const revisionHash = truncateHash(item.revision);
+  const commitMessage = getLatestCommitMessage(item);
 
   return (
     <ListItemButton
@@ -29,7 +35,7 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
         </ListItemIcon>
         <ListItemText
           className="search-revision-item-text search-revision"
-          primary={`${truncateHash(item)} - ${getLastRevision(item).comments} `}
+          primary={`${revisionHash} - ${commitMessage} `}
           secondary={`${item.author} - ${String(
             new Date(item.push_timestamp * 1000),
           )}`}
