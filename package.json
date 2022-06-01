@@ -60,6 +60,8 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
+    "@swc/core": "^1.2.196",
+    "@swc/jest": "^0.2.21",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^14.0.0",
@@ -95,8 +97,18 @@
     ],
     "testEnvironment": "jsdom",
     "transform": {
-      "^.+\\.(js|jsx)$": "babel-jest",
-      "^.+\\.ts?$": "ts-jest",
+      "^.+\\.(t|j)sx?$": [
+        "@swc/jest",
+        {
+          "jsc": {
+            "transform": {
+              "react": {
+                "runtime": "automatic"
+              }
+            }
+          }
+        }
+      ],
       "^.+\\.svg$": "<rootDir>/src/tests/utils/fileTransformer.js"
     },
     "moduleNameMapper": {
