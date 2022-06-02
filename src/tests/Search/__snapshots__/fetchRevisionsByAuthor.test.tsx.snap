@@ -10,6 +10,19 @@ exports[`SearchView/fetchRevisionsByAuthor should fetch revisions by author if s
         class="MuiBox-root css-0"
       >
         <div
+          class="MuiGrid-root MuiGrid-container css-5q2xqw-MuiGrid-root"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-gj1fbr-MuiGrid-root"
+          />
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-gj1fbr-MuiGrid-root"
+          />
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-gj1fbr-MuiGrid-root"
+          />
+        </div>
+        <div
           class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-1bn4tuo-MuiTypography-root"
         >
           PerfCompare
