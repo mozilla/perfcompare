@@ -1,6 +1,9 @@
+import { ArrowForward } from '@mui/icons-material';
+import { Button } from '@mui/material';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import { connect } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import useFocusInput from '../../hooks/useFocusInput';
 import { Revision, State } from '../../types/state';
@@ -15,6 +18,12 @@ import SearchViewInit from './SearchViewInit';
 function SearchView(props: SearchViewProps) {
   const { focused, handleParentClick, handleFocus } = useFocusInput();
 
+  const navigate = useNavigate();
+
+  const goToResultsPage = () => {
+    navigate('/results', { replace: false });
+  };
+
   const { searchResults, selectedRevisions } = props;
 
   return (
@@ -25,6 +34,18 @@ function SearchView(props: SearchViewProps) {
       <Grid item xs={12}>
         {selectedRevisions.length > 0 && <SelectedRevisionsTable />}
       </Grid>
+      <Grid item className="compare-button-section">
+          {selectedRevisions.length > 0 && (
+            <Button
+              className="compare-button"
+              variant="contained"
+              onClick={goToResultsPage}
+            > 
+              compare
+              <ArrowForward className="compare-icon" />
+            </Button>
+          )}
+        </Grid> 
       <Grid container>
         <Grid item xs={1} />
         <SearchDropdown />

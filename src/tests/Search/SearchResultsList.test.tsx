@@ -2,7 +2,7 @@ import userEvent from '@testing-library/user-event';
 
 import SearchView from '../../components/Search/SearchView';
 import getTestData from '../utils/fixtures';
-import { render, screen } from '../utils/test-utils';
+import { renderWithRouter, screen } from '../utils/test-utils';
 
 describe('SearchResultsList', () => {
   it('should fill the checkbox when a result is clicked', async () => {
@@ -18,7 +18,7 @@ describe('SearchResultsList', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    render(<SearchView />);
+    renderWithRouter(<SearchView />);
     // focus input to show results
     const searchInput = screen.getByRole('textbox');
     await user.click(searchInput);
@@ -46,7 +46,7 @@ describe('SearchResultsList', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    render(<SearchView />);
+    renderWithRouter(<SearchView />);
     // focus input to show results
     const searchInput = screen.getByRole('textbox');
     await user.click(searchInput);
@@ -78,7 +78,7 @@ describe('SearchResultsList', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    render(<SearchView />);
+    renderWithRouter(<SearchView />);
     // focus input to show results
     const searchInput = screen.getByRole('textbox');
     await user.click(searchInput);

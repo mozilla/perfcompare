@@ -2,11 +2,11 @@ import userEvent from '@testing-library/user-event';
 
 import SearchView from '../../components/Search/SearchView';
 import getTestData from '../utils/fixtures';
-import { render, screen, store } from '../utils/test-utils';
+import { renderWithRouter, screen, store } from '../utils/test-utils';
 
 describe('Search View', () => {
-  it('renders correctly when there are no results', () => {
-    render(<SearchView />);
+  it('render correctly when there are no results', () => {
+    renderWithRouter(<SearchView />);
 
     // Title appears
     expect(screen.getByText(/PerfCompare/i)).toBeInTheDocument();
@@ -42,7 +42,7 @@ describe('Search View', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    render(<SearchView />);
+    renderWithRouter(<SearchView />);
 
     await screen.findByRole('button', { name: 'repository' });
 
@@ -74,7 +74,7 @@ describe('Search View', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    render(<SearchView />);
+    renderWithRouter(<SearchView />);
 
     const searchInput = screen.getByRole('textbox');
 
@@ -107,7 +107,7 @@ describe('Search View', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    render(<SearchView />);
+    renderWithRouter(<SearchView />);
 
     await screen.findByRole('button', { name: 'repository' });
 
@@ -140,7 +140,7 @@ describe('Search View', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    render(<SearchView />);
+    renderWithRouter(<SearchView />);
 
     await screen.findByRole('button', { name: 'repository' });
 
@@ -170,7 +170,7 @@ describe('Search View', () => {
     global.fetch = jest.fn(() => Promise.reject(new Error())) as jest.Mock;
     const spyOnFetch = jest.spyOn(global, 'fetch');
 
-    render(<SearchView />);
+    renderWithRouter(<SearchView />);
 
     await screen.findByRole('button', { name: 'repository' });
 
@@ -182,5 +182,18 @@ describe('Search View', () => {
     expect(store.getState().search.inputHelperText).toBe(
       'An error has occurred',
     );
+  });
+
+  it('should have compare button and once clicked should redirect to results page', async () => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const { history } = renderWithRouter(<SearchView />);
+    expect(history.location.pathname).toEqual('/');
+
+    const user = userEvent.setup({ delay: null });
+
+    const compareButton = document.querySelector('.compare-button');
+    await user.click(compareButton as HTMLElement);
+
+    expect(history.location.pathname).toEqual('/results');
   });
 });
