@@ -42,6 +42,12 @@ export type SearchState = {
   inputHelperText: string;
 };
 
+// contains the indices of currently checked revisions
+// in searchResults state
+export type CheckedRevisionsState = {
+  revisions: number[];
+};
+
 export type SelectedRevisionsState = {
   revisions: Revision[];
 };

@@ -1,5 +1,9 @@
 import React from 'react';
 
+import { useDispatch } from 'react-redux';
+
+import { clearCheckedRevisions } from '../reducers/CheckedRevisions';
+
 // useFocusInput is a hook for event handlers that detect when
 // a user clicks outside the input, and hides the results,
 // focuses the input or clicks the search results and does not
@@ -7,12 +11,15 @@ import React from 'react';
 // stopPropagation()
 const useFocusInput = () => {
   const [focused, setFocused] = React.useState(false);
+  const dispatch = useDispatch();
 
   const handleParentClick = (e: React.MouseEvent) => {
     if ((e.target as HTMLElement).id === 'search-revision-input') {
       setFocused(true);
     } else {
       setFocused(false);
+      // clear checked revisions when click outside input or results
+      dispatch(clearCheckedRevisions());
     }
   };
 
