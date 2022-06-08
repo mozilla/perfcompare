@@ -188,7 +188,6 @@ describe('Search View', () => {
   it('should have compare button and once clicked should redirect to results page', async () => {
     const { testData } = getTestData();
     store.dispatch(setSelectedRevisions(testData.slice(0, 2)));
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const { history } = renderWithRouter(<SearchView />);
     expect(history.location.pathname).toEqual('/');
 
