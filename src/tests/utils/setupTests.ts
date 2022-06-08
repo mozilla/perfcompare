@@ -6,8 +6,10 @@ import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import '@testing-library/jest-dom';
 
-import { resetState } from '../../reducers/SearchSlice';
-import { act, store } from './test-utils';
+import { clearCheckedRevisions } from '../../reducers/CheckedRevisions';
+import { resetState as resetSearchState } from '../../reducers/SearchSlice';
+import { resetState as resetSelectedRevisionsState } from '../../reducers/SelectedRevisions';
+import { store } from '../utils/test-utils';
 
 const unmockedFetch = global.fetch;
 
@@ -20,9 +22,9 @@ afterAll(() => {
 });
 
 beforeEach(() => {
-  act(() => {
-    store.dispatch(resetState());
-  });
+  store.dispatch(clearCheckedRevisions());
+  store.dispatch(resetSearchState());
+  store.dispatch(resetSelectedRevisionsState());
   jest.useFakeTimers();
 });
 

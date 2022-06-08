@@ -2,7 +2,7 @@ import userEvent from '@testing-library/user-event';
 
 import SearchView from '../../components/Search/SearchView';
 import getTestData from '../utils/fixtures';
-import { renderWithRouter, screen } from '../utils/test-utils';
+import { renderWithRouter, screen, store } from '../utils/test-utils';
 
 describe('SearchResultsList', () => {
   it('should fill the checkbox when a result is clicked', async () => {
@@ -29,7 +29,7 @@ describe('SearchResultsList', () => {
 
     await user.click(fleshWound);
     expect(
-      screen.getByTestId('checkbox-2').classList.contains('Mui-checked'),
+      screen.getByTestId('checkbox-1').classList.contains('Mui-checked'),
     ).toBe(true);
   });
 
@@ -56,12 +56,10 @@ describe('SearchResultsList', () => {
     );
 
     await user.click(fleshWound);
-    expect(
-      screen.getByTestId('checkbox-2').classList.contains('Mui-checked'),
-    ).toBe(true);
+    expect(store.getState().checkedRevisions.revisions[0]).toBe(1);
     await user.click(fleshWound);
     expect(
-      screen.getByTestId('checkbox-2').classList.contains('Mui-checked'),
+      screen.getByTestId('checkbox-1').classList.contains('Mui-checked'),
     ).toBe(false);
   });
 
@@ -83,17 +81,17 @@ describe('SearchResultsList', () => {
     const searchInput = screen.getByRole('textbox');
     await user.click(searchInput);
 
+    await user.click(screen.getByTestId('checkbox-0'));
     await user.click(screen.getByTestId('checkbox-1'));
     await user.click(screen.getByTestId('checkbox-2'));
     await user.click(screen.getByTestId('checkbox-3'));
     await user.click(screen.getByTestId('checkbox-4'));
-    await user.click(screen.getByTestId('checkbox-5'));
 
     expect(
       screen.getByTestId('checkbox-1').classList.contains('Mui-checked'),
     ).toBe(true);
     expect(
-      screen.getByTestId('checkbox-5').classList.contains('Mui-checked'),
+      screen.getByTestId('checkbox-4').classList.contains('Mui-checked'),
     ).toBe(false);
 
     expect(screen.getByText('Maximum 4 Revisions')).toBeInTheDocument();
