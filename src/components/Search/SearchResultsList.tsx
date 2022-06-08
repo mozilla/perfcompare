@@ -8,7 +8,7 @@ import SearchResultsListItem from './SearchResultsListItem';
 
 function SearchResultsList(props: SearchResultsListProps) {
   const { searchResults } = props;
-  const { checked, handleToggle } = useCheckRevision();
+  const { handleToggle } = useCheckRevision();
   return (
     <Box
       sx={{
@@ -27,11 +27,11 @@ function SearchResultsList(props: SearchResultsListProps) {
       alignItems="flex-end"
     >
       <List className="search-revision-list">
-        {searchResults.map((item) => (
+        {searchResults.map((item, index) => (
           <SearchResultsListItem
             key={item.id}
+            index={index}
             item={item}
-            checked={checked}
             handleToggle={handleToggle}
           />
         ))}

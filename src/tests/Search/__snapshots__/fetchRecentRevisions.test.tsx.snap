@@ -32,217 +32,10 @@ exports[`SearchView/fetchRecentRevisions should fetch and display recent results
       </div>
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-13i4rnv-MuiGrid-root"
-      >
-        <div
-          class="MuiTableContainer-root layout css-rorn0c-MuiTableContainer-root"
-        >
-          <table
-            class="MuiTable-root css-rqglhn-MuiTable-root"
-          >
-            <thead
-              class="MuiTableHead-root css-15wwp11-MuiTableHead-root"
-            >
-              <tr
-                class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
-              >
-                <th
-                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1ygcj2i-MuiTableCell-root"
-                  scope="row"
-                />
-                <th
-                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-xn32gr-MuiTableCell-root"
-                  scope="col"
-                >
-                  Project
-                </th>
-                <th
-                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-xn32gr-MuiTableCell-root"
-                  scope="col"
-                >
-                  Revision
-                </th>
-                <th
-                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-xn32gr-MuiTableCell-root"
-                  scope="col"
-                >
-                  Author
-                </th>
-                <th
-                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-xn32gr-MuiTableCell-root"
-                  scope="col"
-                >
-                  Commit Message
-                </th>
-                <th
-                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-xn32gr-MuiTableCell-root"
-                  scope="col"
-                >
-                  Timestamp
-                </th>
-                <th
-                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1ygcj2i-MuiTableCell-root"
-                  scope="col"
-                />
-              </tr>
-            </thead>
-            <tbody
-              class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
-            >
-              <tr
-                class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
-              >
-                <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
-                >
-                  <div
-                    class="cellStyle"
-                  >
-                    BASE
-                  </div>
-                </td>
-                <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
-                >
-                  4
-                </td>
-                <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
-                >
-                  coconut
-                </td>
-                <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
-                >
-                  john@python.com
-                </td>
-                <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
-                >
-                  This is my first message
-                </td>
-                <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
-                >
-                  42
-                </td>
-                <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
-                >
-                  <button
-                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
-                    id="close-button"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                      data-testid="CloseIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                      />
-                    </svg>
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                    />
-                  </button>
-                </td>
-              </tr>
-              <tr
-                class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
-              >
-                <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
-                >
-                  <div
-                    class="cellStyle"
-                  >
-                    NEW
-                  </div>
-                </td>
-                <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
-                >
-                  4
-                </td>
-                <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
-                >
-                  coconut 2
-                </td>
-                <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
-                >
-                  johncleese@python.com
-                </td>
-                <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
-                >
-                  This is the second message
-                </td>
-                <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
-                >
-                  43
-                </td>
-                <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
-                >
-                  <button
-                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
-                    id="close-button"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                      data-testid="CloseIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                      />
-                    </svg>
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                    />
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+      />
       <div
         class="MuiGrid-root MuiGrid-item compare-button-section css-13i4rnv-MuiGrid-root"
-      >
-        <button
-          class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root compare-button css-sghohy-MuiButtonBase-root-MuiButton-root"
-          tabindex="0"
-          type="button"
-        >
-          compare
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium compare-icon css-i4bv87-MuiSvgIcon-root"
-            data-testid="ArrowForwardIcon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-            />
-          </svg>
-          <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
-        </button>
-      </div>
+      />
       <div
         class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
       >
@@ -389,7 +182,7 @@ exports[`SearchView/fetchRecentRevisions should fetch and display recent results
             >
               <div
                 class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root"
-                id="coconut"
+                id="0"
                 role="button"
                 tabindex="0"
               >
@@ -401,7 +194,7 @@ exports[`SearchView/fetchRecentRevisions should fetch and display recent results
                   >
                     <span
                       class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root PrivateSwitchBase-edgeStart search-revision-item-checkbox search-revision css-zkqepn-MuiButtonBase-root-MuiCheckbox-root"
-                      data-testid="checkbox-1"
+                      data-testid="checkbox-0"
                     >
                       <input
                         class="PrivateSwitchBase-input css-1m9pwf3"
@@ -443,7 +236,7 @@ exports[`SearchView/fetchRecentRevisions should fetch and display recent results
               </div>
               <div
                 class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root"
-                id="spam"
+                id="1"
                 role="button"
                 tabindex="0"
               >
@@ -455,7 +248,7 @@ exports[`SearchView/fetchRecentRevisions should fetch and display recent results
                   >
                     <span
                       class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root PrivateSwitchBase-edgeStart search-revision-item-checkbox search-revision css-zkqepn-MuiButtonBase-root-MuiCheckbox-root"
-                      data-testid="checkbox-2"
+                      data-testid="checkbox-1"
                     >
                       <input
                         class="PrivateSwitchBase-input css-1m9pwf3"
@@ -497,7 +290,7 @@ exports[`SearchView/fetchRecentRevisions should fetch and display recent results
               </div>
               <div
                 class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root"
-                id="spamspam"
+                id="2"
                 role="button"
                 tabindex="0"
               >
@@ -509,7 +302,7 @@ exports[`SearchView/fetchRecentRevisions should fetch and display recent results
                   >
                     <span
                       class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root PrivateSwitchBase-edgeStart search-revision-item-checkbox search-revision css-zkqepn-MuiButtonBase-root-MuiCheckbox-root"
-                      data-testid="checkbox-3"
+                      data-testid="checkbox-2"
                     >
                       <input
                         class="PrivateSwitchBase-input css-1m9pwf3"
@@ -551,7 +344,7 @@ exports[`SearchView/fetchRecentRevisions should fetch and display recent results
               </div>
               <div
                 class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root"
-                id="spamspamspamandeggs"
+                id="3"
                 role="button"
                 tabindex="0"
               >
@@ -563,7 +356,7 @@ exports[`SearchView/fetchRecentRevisions should fetch and display recent results
                   >
                     <span
                       class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root PrivateSwitchBase-edgeStart search-revision-item-checkbox search-revision css-zkqepn-MuiButtonBase-root-MuiCheckbox-root"
-                      data-testid="checkbox-4"
+                      data-testid="checkbox-3"
                     >
                       <input
                         class="PrivateSwitchBase-input css-1m9pwf3"
@@ -605,7 +398,7 @@ exports[`SearchView/fetchRecentRevisions should fetch and display recent results
               </div>
               <div
                 class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root"
-                id="spamspamspamspamandeggs"
+                id="4"
                 role="button"
                 tabindex="0"
               >
@@ -617,7 +410,7 @@ exports[`SearchView/fetchRecentRevisions should fetch and display recent results
                   >
                     <span
                       class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root PrivateSwitchBase-edgeStart search-revision-item-checkbox search-revision css-zkqepn-MuiButtonBase-root-MuiCheckbox-root"
-                      data-testid="checkbox-5"
+                      data-testid="checkbox-4"
                     >
                       <input
                         class="PrivateSwitchBase-input css-1m9pwf3"

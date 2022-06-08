@@ -1,6 +1,7 @@
 import userEvent from '@testing-library/user-event';
 
 import SearchView from '../../components/Search/SearchView';
+import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, screen, store } from '../utils/test-utils';
 
@@ -185,6 +186,8 @@ describe('Search View', () => {
   });
 
   it('should have compare button and once clicked should redirect to results page', async () => {
+    const { testData } = getTestData();
+    store.dispatch(setSelectedRevisions(testData.slice(0, 2)));
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const { history } = renderWithRouter(<SearchView />);
     expect(history.location.pathname).toEqual('/');

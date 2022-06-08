@@ -1,26 +1,57 @@
 import userEvent from '@testing-library/user-event';
 
 import SearchView from '../components/Search/SearchView';
-import SelectedRevisionsTable from '../components/Shared/SelectedRevisionsTable';
-import { resetState } from '../reducers/SelectedRevisions';
+import { setSelectedRevisions } from '../reducers/SelectedRevisions';
+import getTestData from './utils/fixtures';
 import { renderWithRouter, screen, store } from './utils/test-utils';
 
-
 describe('Search View', () => {
-  afterEach(() => {
-    store.dispatch(resetState());
-  });
-
-  it('should render correctly when there are revisions', () => {
-    renderWithRouter(<SelectedRevisionsTable />);
-    expect(screen.getByText('coconut')).toBeInTheDocument();
-  });
-
-  it('should delete revisions after click and not show revisions table if no revisions', async () => {
+  it('should render correctly when there are selected revisions', async () => {
+    const { testData } = getTestData();
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () => ({
+          results: testData,
+        }),
+      }),
+    ) as jest.Mock;
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
     renderWithRouter(<SearchView />);
+
+    // focus input to show results
+    const searchInput = screen.getByRole('textbox');
+    await user.click(searchInput);
+
+    const fleshWound = await screen.findByText(
+      "spam - it's just a flesh wound",
+    );
+
+    await user.click(fleshWound);
+    const addRevision = screen.getByRole('button', { name: 'add revisions' });
+    await user.click(addRevision);
+
+    expect(screen.getByText('BASE')).toBeInTheDocument();
+  });
+
+  it('should delete revisions after click and not show revisions table if no revisions', async () => {
+    const { testData } = getTestData();
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () => ({
+          results: testData,
+        }),
+      }),
+    ) as jest.Mock;
+    const selectedRevisions = testData.slice(0, 2);
+    store.dispatch(setSelectedRevisions(selectedRevisions));
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
+
+    renderWithRouter(<SearchView />);
+
+    expect(screen.queryByText('Commit Message')).toBeInTheDocument();
     const button = document.querySelectorAll('#close-button');
 
     await user.click(button[0]);
@@ -28,5 +59,69 @@ describe('Search View', () => {
 
     expect(store.getState().selectedRevisions.revisions).toEqual([]);
     expect(screen.queryByText('Commit Message')).not.toBeInTheDocument();
+  });
+
+  it('should print error message if trying to add more than four revisions', async () => {
+    const { testData } = getTestData();
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () => ({
+          results: testData,
+        }),
+      }),
+    ) as jest.Mock;
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
+
+    // start with four selected revisions
+    const selectedRevisions = testData.slice(0, 4);
+    store.dispatch(setSelectedRevisions(selectedRevisions));
+
+    renderWithRouter(<SearchView />);
+
+    // focus input to show results
+    const searchInput = screen.getByRole('textbox');
+    await user.click(searchInput);
+
+    await user.click(screen.getByTestId('checkbox-4'));
+
+    const addRevision = screen.getByRole('button', {
+      name: 'add revisions',
+    });
+    await user.click(addRevision);
+    expect(screen.getByText('Maximum four revisions.')).toBeInTheDocument();
+  });
+
+  it('should print error message if trying to add revision that has already been selected', async () => {
+    const { testData } = getTestData();
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () => ({
+          results: testData,
+        }),
+      }),
+    ) as jest.Mock;
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
+
+    // start with a selected revision
+    const selectedRevisions = testData.slice(0, 1);
+    store.dispatch(setSelectedRevisions(selectedRevisions));
+
+    renderWithRouter(<SearchView />);
+
+    // focus input to show results
+    const searchInput = screen.getByRole('textbox');
+    await user.click(searchInput);
+
+    await user.click(screen.getByTestId('checkbox-0'));
+
+    const addRevision = screen.getByRole('button', {
+      name: 'add revisions',
+    });
+    await user.click(addRevision);
+    expect(
+      screen.getByText('Revision coconut is already selected.'),
+    ).toBeInTheDocument();
   });
 });

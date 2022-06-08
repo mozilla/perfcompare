@@ -3,7 +3,9 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import { useSelector } from 'react-redux';
 
+import type { RootState } from '../../common/store';
 import type { Revision } from '../../types/state';
 import {
   truncateHash,
@@ -11,15 +13,19 @@ import {
 } from '../../utils/searchResultsHelper';
 
 function SearchResultsListItem(props: SearchResultsListItemProps) {
-  const { checked, item, handleToggle } = props;
+  const { index, item, handleToggle } = props;
+  const isChecked: boolean = useSelector((state: RootState) =>
+    state.checkedRevisions.revisions.includes(index),
+  );
+  const indexString = index.toString();
 
   const revisionHash = truncateHash(item.revision);
-  const commitMessage = getLatestCommitMessage(item);
+  const commitMessage: string = getLatestCommitMessage(item);
 
   return (
     <ListItemButton
       key={item.id}
-      id={item.revision}
+      id={indexString}
       onClick={(e) => handleToggle(e)}
     >
       <ListItem className="search-revision-item search-revision" disablePadding>
@@ -29,8 +35,8 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
             edge="start"
             tabIndex={-1}
             disableRipple
-            data-testid={`checkbox-${item.id}`}
-            checked={checked.indexOf(item.revision) !== -1}
+            data-testid={`checkbox-${indexString}`}
+            checked={isChecked}
           />
         </ListItemIcon>
         <ListItemText
@@ -49,7 +55,7 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
 }
 
 interface SearchResultsListItemProps {
-  checked: string[];
+  index: number;
   item: Revision;
   handleToggle: (e: React.MouseEvent) => void;
 }
