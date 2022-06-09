@@ -216,7 +216,7 @@ exports[`SearchView/fetchRecentRevisions should fetch and display recent results
                     </span>
                   </div>
                   <div
-                    class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text search-revision css-zbobkr-MuiListItemText-root"
+                    class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text search-revision css-konndc-MuiListItemText-root"
                   >
                     <span
                       class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-1f0fhap-MuiTypography-root"
@@ -270,7 +270,7 @@ exports[`SearchView/fetchRecentRevisions should fetch and display recent results
                     </span>
                   </div>
                   <div
-                    class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text search-revision css-zbobkr-MuiListItemText-root"
+                    class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text search-revision css-konndc-MuiListItemText-root"
                   >
                     <span
                       class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-1f0fhap-MuiTypography-root"
@@ -324,7 +324,7 @@ exports[`SearchView/fetchRecentRevisions should fetch and display recent results
                     </span>
                   </div>
                   <div
-                    class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text search-revision css-zbobkr-MuiListItemText-root"
+                    class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text search-revision css-konndc-MuiListItemText-root"
                   >
                     <span
                       class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-1f0fhap-MuiTypography-root"
@@ -378,7 +378,7 @@ exports[`SearchView/fetchRecentRevisions should fetch and display recent results
                     </span>
                   </div>
                   <div
-                    class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text search-revision css-zbobkr-MuiListItemText-root"
+                    class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text search-revision css-konndc-MuiListItemText-root"
                   >
                     <span
                       class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-1f0fhap-MuiTypography-root"
@@ -432,7 +432,7 @@ exports[`SearchView/fetchRecentRevisions should fetch and display recent results
                     </span>
                   </div>
                   <div
-                    class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text search-revision css-zbobkr-MuiListItemText-root"
+                    class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text search-revision css-konndc-MuiListItemText-root"
                   >
                     <span
                       class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-1f0fhap-MuiTypography-root"

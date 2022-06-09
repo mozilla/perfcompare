@@ -1,7 +1,8 @@
 import {
+  formatDate,
   getLatestCommitMessage,
   truncateHash,
-} from '../../utils/searchResultsHelper';
+} from '../../utils/searchViewHelper';
 import getTestData from '../utils/fixtures';
 
 describe('truncateHash Helper', () => {
@@ -22,5 +23,13 @@ describe('getLatestCommitMessage Helper', () => {
     const commitMessage = getLatestCommitMessage(testData[4]);
 
     expect(commitMessage).toStrictEqual('It got better...');
+  });
+});
+
+describe('formateDate Helper', () => {
+  it('correctly formats date', () => {
+    const timestamp = 1649883600;
+    const date = formatDate(timestamp);
+    expect(date).toStrictEqual('04/13/22 21:00');
   });
 });
