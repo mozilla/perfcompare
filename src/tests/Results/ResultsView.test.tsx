@@ -1,7 +1,8 @@
 import ResultsView from '../../components/Results/ResultsView';
 import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
 import getTestData from '../utils/fixtures';
-import { render, screen, store } from '../utils/test-utils';
+import { render, store } from '../utils/setupTests';
+import { screen } from '../utils/test-utils';
 
 describe('Results View', () => {
   it('Should match snapshot', () => {

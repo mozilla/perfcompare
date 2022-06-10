@@ -5,7 +5,8 @@ import { act } from 'react-dom/test-utils';
 import { maxRevisionsError } from '../common/constants';
 import SearchView from '../components/Search/SearchView';
 import getTestData from './utils/fixtures';
-import { renderWithRouter, screen } from './utils/test-utils';
+import { renderWithRouter } from './utils/setupTests';
+import { screen } from './utils/test-utils';
 
 describe('Snackbar', () => {
   it('should dismiss an alert when close button is clicked', async () => {

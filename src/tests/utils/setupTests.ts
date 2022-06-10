@@ -6,12 +6,15 @@ import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import '@testing-library/jest-dom';
 
-import { clearCheckedRevisions } from '../../reducers/CheckedRevisions';
-import { resetState as resetSearchState } from '../../reducers/SearchSlice';
-import { resetState as resetSelectedRevisionsState } from '../../reducers/SelectedRevisions';
-import { store } from '../utils/test-utils';
+import { createStore } from '../../common/store';
+import type { Store } from '../../common/store';
+import { createRender, createRenderWithRouter } from '../utils/test-utils';
+import type { Render, RenderWithRouter } from './test-utils';
 
 const unmockedFetch = global.fetch;
+let render: Render;
+let renderWithRouter: RenderWithRouter;
+let store: Store;
 
 beforeAll(() => {
   global.fetch = jest.fn();
@@ -22,10 +25,10 @@ afterAll(() => {
 });
 
 beforeEach(() => {
-  store.dispatch(clearCheckedRevisions());
-  store.dispatch(resetSearchState());
-  store.dispatch(resetSelectedRevisionsState());
   jest.useFakeTimers();
+  store = createStore();
+  render = createRender(store);
+  renderWithRouter = createRenderWithRouter(store);
 });
 
 afterEach(() => {
@@ -35,3 +38,5 @@ afterEach(() => {
   jest.runOnlyPendingTimers();
   jest.useRealTimers();
 });
+
+export { store, render, renderWithRouter };

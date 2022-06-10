@@ -10,9 +10,6 @@ const selectedRevisions = createSlice({
   name: 'selectedRevisions',
   initialState,
   reducers: {
-    resetState(state) {
-      state.revisions = initialState.revisions;
-    },
     setSelectedRevisions(state, action: PayloadAction<Revision[]>) {
       state.revisions = action.payload;
     },
@@ -26,6 +23,6 @@ const selectedRevisions = createSlice({
   },
 });
 
-export const { resetState, setSelectedRevisions, deleteRevision } =
+export const { setSelectedRevisions, deleteRevision } =
   selectedRevisions.actions;
 export default selectedRevisions.reducer;

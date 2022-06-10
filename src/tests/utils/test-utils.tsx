@@ -6,14 +6,13 @@ import { SnackbarProvider } from 'notistack';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
 
-import { store } from '../../common/store';
+import type { Store } from '../../common/store';
 import SnackbarCloseButton from '../../components/Shared/SnackbarCloseButton';
 
-function render(ui: React.ReactElement) {
-  function Wrapper({ children }: { children: React.ReactElement }) {
-    return (
-      <Provider store={store}>
-        {' '}
+const createRender = (store: Store) => {
+  function render(ui: React.ReactElement) {
+    function Wrapper({ children }: { children: React.ReactElement }) {
+      return (
         <SnackbarProvider
           maxSnack={3}
           autoHideDuration={6000}
@@ -21,33 +20,39 @@ function render(ui: React.ReactElement) {
             <SnackbarCloseButton snackbarKey={snackbarKey} />
           )}
         >
-          {children}
+          <Provider store={store}>{children}</Provider>
         </SnackbarProvider>
-      </Provider>
-    );
+      );
+    }
+    return rtlRender(ui, { wrapper: Wrapper });
   }
-  return rtlRender(ui, { wrapper: Wrapper });
-}
+  return render;
+};
 
-function renderWithRouter(
-  ui: React.ReactElement,
-  {
-    route = '/',
-    history = createMemoryHistory({ initialEntries: [route] }),
-  } = {},
-) {
-  return {
-    ...render(
-      <Router location={history.location} navigator={history}>
-        {ui}
-      </Router>,
-    ),
-    history,
-  };
-}
+const createRenderWithRouter = (store: Store) => {
+  function renderWithRouter(
+    ui: React.ReactElement,
+    {
+      route = '/',
+      history = createMemoryHistory({ initialEntries: [route] }),
+    } = {},
+  ) {
+    const render = createRender(store);
+    return {
+      ...render(
+        <Router location={history.location} navigator={history}>
+          {ui}
+        </Router>,
+      ),
+      history,
+    };
+  }
+  return renderWithRouter;
+};
 
 // re-export everything
 export * from '@testing-library/react';
 // override render method
-export { render, renderWithRouter };
-export { store };
+export type Render = ReturnType<typeof createRender>;
+export type RenderWithRouter = ReturnType<typeof createRenderWithRouter>;
+export { createRender, createRenderWithRouter };
