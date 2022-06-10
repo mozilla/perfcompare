@@ -24,15 +24,6 @@ const search = createSlice({
   name: 'search',
   initialState,
   reducers: {
-    // BEGIN used for testing only
-    resetState(state) {
-      state.repository = initialState.repository;
-      state.searchResults = initialState.searchResults;
-      state.searchValue = initialState.searchValue;
-      state.inputError = initialState.inputError;
-      state.inputHelperText = initialState.inputHelperText;
-    },
-    // END used for testing only
     updateSearchValue(state, action: PayloadAction<string>) {
       state.searchValue = action.payload;
     },
@@ -87,7 +78,6 @@ const search = createSlice({
 });
 
 export const {
-  resetState,
   updateSearchValue,
   updateSearchResults,
   updateRepository,
