@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SearchView/fetchRecentRevisions should fetch and display recent results when repository is selected 1`] = `
-<body
-  style=""
->
+exports[`SearchResultsList should match snapshot 1`] = `
+<body>
   <div>
      
     <div
@@ -54,13 +52,13 @@ exports[`SearchView/fetchRecentRevisions should fetch and display recent results
                 role="button"
                 tabindex="0"
               >
-                autoland
+                try
               </div>
               <input
                 aria-hidden="true"
                 class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
                 tabindex="-1"
-                value="autoland"
+                value="try"
               />
               <svg
                 aria-hidden="true"

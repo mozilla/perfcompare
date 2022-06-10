@@ -48,7 +48,6 @@ describe('SearchView/fetchRecentRevisions', () => {
     expect(spyOnFetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/autoland/push/?hide_reviewbot_pushes=true',
     );
-    expect(document.body).toMatchSnapshot();
   });
 
   it('should reject fetchRecentRevisions if fetch returns no results', async () => {
