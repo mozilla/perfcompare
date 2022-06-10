@@ -6,11 +6,11 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { connect } from 'react-redux';
 
-import type { TableHeaders } from '../../types/enums';
+import type { SelectedRevisionsTableHeaders } from '../../types/enums';
 import type { Revision, State } from '../../types/state';
 import SelectedRevisionsTableRow from './SelectedRevisionsTableRow';
 
-const tableHeaderDetails: TableHeaders[] = [
+const tableHeaderDetails: SelectedRevisionsTableHeaders[] = [
   'Project',
   'Revision',
   'Author',
@@ -27,7 +27,7 @@ function SelectedRevisionsTable(props: SelectedRevisionsProps) {
         <TableHead>
           <TableRow>
             <TableCell component="th" scope="row" />
-            {tableHeaderDetails.map((header: TableHeaders) => (
+            {tableHeaderDetails.map((header: SelectedRevisionsTableHeaders) => (
               <TableCell key={header} sx={{ fontWeight: 600 }}>
                 {header}
               </TableCell>
