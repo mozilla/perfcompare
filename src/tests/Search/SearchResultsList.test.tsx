@@ -1,5 +1,6 @@
 import userEvent from '@testing-library/user-event';
 
+import { maxRevisionsError } from '../../common/constants';
 import SearchView from '../../components/Search/SearchView';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, screen, store } from '../utils/test-utils';
@@ -94,7 +95,7 @@ describe('SearchResultsList', () => {
       screen.getByTestId('checkbox-4').classList.contains('Mui-checked'),
     ).toBe(false);
 
-    expect(screen.getByText('Maximum 4 Revisions')).toBeInTheDocument();
+    expect(screen.getByText(maxRevisionsError)).toBeInTheDocument();
 
     // Should allow unchecking revisions even after four have been selected
     await user.click(screen.getByTestId('checkbox-1'));

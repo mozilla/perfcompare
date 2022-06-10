@@ -11,3 +11,5 @@ export const repoMapping: Dictionary<Repository['name']> = {
   4: 'try',
   77: 'autoland',
 };
+
+export const maxRevisionsError = 'Maximum four revisions.';

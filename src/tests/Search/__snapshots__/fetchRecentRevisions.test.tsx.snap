@@ -5,25 +5,13 @@ exports[`SearchView/fetchRecentRevisions should fetch and display recent results
   style=""
 >
   <div>
+     
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg css-1oqqzyl-MuiContainer-root"
     >
       <div
-        class="MuiBox-root css-0"
+        class="header-container MuiBox-root css-0"
       >
-        <div
-          class="MuiGrid-root MuiGrid-container css-5q2xqw-MuiGrid-root"
-        >
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-gj1fbr-MuiGrid-root"
-          />
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-gj1fbr-MuiGrid-root"
-          />
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 css-gj1fbr-MuiGrid-root"
-          />
-        </div>
         <div
           class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-1bn4tuo-MuiTypography-root"
         >
