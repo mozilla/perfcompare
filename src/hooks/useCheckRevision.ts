@@ -1,14 +1,15 @@
 import React from 'react';
 
+import { useSnackbar, VariantType } from 'notistack';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { maxRevisionsError } from '../common/constants';
 import type { RootState } from '../common/store';
 import { setCheckedRevisions } from '../reducers/CheckedRevisions';
-import useAlert from './useAlert';
 import useFocusInput from './useFocusInput';
 
 const useCheckRevision = () => {
-  const { dispatchSetAlert } = useAlert();
+  const { enqueueSnackbar } = useSnackbar();
   const { handleChildClick } = useFocusInput();
   const dispatch = useDispatch();
 
@@ -29,7 +30,8 @@ const useCheckRevision = () => {
       newChecked.splice(checkedRevisions.indexOf(revisionIndex), 1);
     } else {
       // if there are already 4 checked revisions, print a warning
-      dispatchSetAlert('Maximum 4 Revisions', 'warning');
+      const variant: VariantType = 'warning';
+      enqueueSnackbar(maxRevisionsError, { variant });
     }
     handleChildClick(e);
 

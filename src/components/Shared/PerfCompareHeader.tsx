@@ -1,22 +1,9 @@
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import { connect } from 'react-redux';
 
-import type { State } from '../../types/state';
-import HeaderAlert from './HeaderAlert';
-
-function PerfCompareHeader(props: PerfCompareHeaderProps) {
-  const { isAlert } = props;
+function PerfCompareHeader() {
   return (
-    <Box>
-      <Grid container sx={{ height: '3rem' }}>
-        <Grid item xs={4} />
-        <Grid item xs={4}>
-          {isAlert && <HeaderAlert />}
-        </Grid>
-        <Grid item xs={4} />
-      </Grid>
+    <Box className="header-container">
       <Typography
         variant="h1"
         component="div"
@@ -30,14 +17,4 @@ function PerfCompareHeader(props: PerfCompareHeaderProps) {
   );
 }
 
-interface PerfCompareHeaderProps {
-  isAlert: boolean;
-}
-
-function mapStateToProps(state: State) {
-  return {
-    isAlert: state.alert.isAlert,
-  };
-}
-
-export default connect(mapStateToProps)(PerfCompareHeader);
+export default PerfCompareHeader;

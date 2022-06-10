@@ -1,13 +1,15 @@
+import { useSnackbar, VariantType } from 'notistack';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { maxRevisionsError } from '../common/constants';
 import type { RootState } from '../common/store';
 import { clearCheckedRevisions } from '../reducers/CheckedRevisions';
 import { setSelectedRevisions } from '../reducers/SelectedRevisions';
-import useAlert from './useAlert';
+import { truncateHash } from '../utils/searchViewHelper';
 
 const useSelectRevision = () => {
   const dispatch = useDispatch();
-  const { dispatchSetAlert } = useAlert();
+  const { enqueueSnackbar } = useSnackbar();
 
   const searchResults = useSelector(
     (state: RootState) => state.search.searchResults,
@@ -23,22 +25,30 @@ const useSelectRevision = () => {
 
   const addSelectedRevisions = () => {
     const newSelected = [...selectedRevisions];
+    const variant: VariantType = 'warning';
 
-    checkedRevisions.forEach((item) => {
+    checkedRevisions.every((item) => {
       const revision = searchResults[item];
       const isSelected = selectedRevisions.includes(revision);
 
       // Do not allow adding more than four revisions
-      if (selectedRevisions.length < 4 && !isSelected) {
+      if (selectedRevisions.length == 4) {
+        enqueueSnackbar(maxRevisionsError, { variant });
+        return false;
+      }
+
+      if (!isSelected) {
         newSelected.push(revision);
       } else if (isSelected) {
-        dispatchSetAlert(
-          `Revision ${revision.revision} is already selected.`,
-          'warning',
+        enqueueSnackbar(
+          `Revision ${truncateHash(revision.revision)} is already selected.`,
+          {
+            variant,
+          },
         );
-      } else {
-        dispatchSetAlert('Maximum four revisions.', 'warning');
       }
+
+      return true;
     });
     dispatch(setSelectedRevisions(newSelected));
     dispatch(clearCheckedRevisions());
