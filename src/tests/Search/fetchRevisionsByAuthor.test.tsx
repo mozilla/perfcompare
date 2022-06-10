@@ -34,8 +34,6 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     expect(
       screen.getByText("spam - it's just a flesh wound"),
     ).toBeInTheDocument();
-
-    expect(document.body).toMatchSnapshot();
   });
 
   it('should reject fetchRevisionsByAuthor if fetch returns no results', async () => {

@@ -6,6 +6,27 @@ import getTestData from '../utils/fixtures';
 import { renderWithRouter, screen, store } from '../utils/test-utils';
 
 describe('SearchResultsList', () => {
+  it('should match snapshot', async () => {
+    const { testData } = getTestData();
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () => ({
+          results: testData,
+        }),
+      }),
+    ) as jest.Mock;
+    jest.spyOn(global, 'fetch');
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
+
+    renderWithRouter(<SearchView />);
+    // focus input to show results
+    const searchInput = screen.getByRole('textbox');
+    await user.click(searchInput);
+
+    expect(document.body).toMatchSnapshot();
+  });
+
   it('should fill the checkbox when a result is clicked', async () => {
     const { testData } = getTestData();
     global.fetch = jest.fn(() =>

@@ -6,6 +6,24 @@ import getTestData from './utils/fixtures';
 import { renderWithRouter, screen, store } from './utils/test-utils';
 
 describe('Search View', () => {
+  it('should match snapshot', async () => {
+    const { testData } = getTestData();
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () => ({
+          results: testData,
+        }),
+      }),
+    ) as jest.Mock;
+
+    // start with four selected revisions
+    const selectedRevisions = testData.slice(0, 4);
+    store.dispatch(setSelectedRevisions(selectedRevisions));
+
+    renderWithRouter(<SearchView />);
+
+    expect(document.body).toMatchSnapshot();
+  });
   it('should render correctly when there are selected revisions', async () => {
     const { testData } = getTestData();
     global.fetch = jest.fn(() =>
