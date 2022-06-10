@@ -214,7 +214,7 @@ exports[`SearchView/fetchRevisionByID should fetch revisions by ID if searchValu
                     </span>
                   </div>
                   <div
-                    class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text search-revision css-zbobkr-MuiListItemText-root"
+                    class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text search-revision css-konndc-MuiListItemText-root"
                   >
                     <span
                       class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-1f0fhap-MuiTypography-root"
@@ -268,7 +268,7 @@ exports[`SearchView/fetchRevisionByID should fetch revisions by ID if searchValu
                     </span>
                   </div>
                   <div
-                    class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text search-revision css-zbobkr-MuiListItemText-root"
+                    class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text search-revision css-konndc-MuiListItemText-root"
                   >
                     <span
                       class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-1f0fhap-MuiTypography-root"
@@ -322,7 +322,7 @@ exports[`SearchView/fetchRevisionByID should fetch revisions by ID if searchValu
                     </span>
                   </div>
                   <div
-                    class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text search-revision css-zbobkr-MuiListItemText-root"
+                    class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text search-revision css-konndc-MuiListItemText-root"
                   >
                     <span
                       class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-1f0fhap-MuiTypography-root"
@@ -376,7 +376,7 @@ exports[`SearchView/fetchRevisionByID should fetch revisions by ID if searchValu
                     </span>
                   </div>
                   <div
-                    class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text search-revision css-zbobkr-MuiListItemText-root"
+                    class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text search-revision css-konndc-MuiListItemText-root"
                   >
                     <span
                       class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-1f0fhap-MuiTypography-root"
@@ -430,7 +430,7 @@ exports[`SearchView/fetchRevisionByID should fetch revisions by ID if searchValu
                     </span>
                   </div>
                   <div
-                    class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text search-revision css-zbobkr-MuiListItemText-root"
+                    class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text search-revision css-konndc-MuiListItemText-root"
                   >
                     <span
                       class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-1f0fhap-MuiTypography-root"

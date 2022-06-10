@@ -34,6 +34,12 @@ const components = {
           width: '50px',
           border: 'solid 1px #737373',
         },
+        '.commit-message': {
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          whiteSpace: 'nowrap',
+          width: '400px',
+        },
       },
     },
   },
@@ -42,6 +48,7 @@ const components = {
       root: {
         '&.layout': {
           marginBottom: '2rem',
+          tableLayout: 'fixed',
         },
       },
     },

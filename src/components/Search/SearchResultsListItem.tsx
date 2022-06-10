@@ -10,7 +10,7 @@ import type { Revision } from '../../types/state';
 import {
   truncateHash,
   getLatestCommitMessage,
-} from '../../utils/searchResultsHelper';
+} from '../../utils/searchViewHelper';
 
 function SearchResultsListItem(props: SearchResultsListItemProps) {
   const { index, item, handleToggle } = props;
@@ -20,7 +20,7 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
   const indexString = index.toString();
 
   const revisionHash = truncateHash(item.revision);
-  const commitMessage: string = getLatestCommitMessage(item);
+  const commitMessage = getLatestCommitMessage(item);
 
   return (
     <ListItemButton
@@ -45,7 +45,6 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
           secondary={`${item.author} - ${String(
             new Date(item.push_timestamp * 1000),
           )}`}
-          sx={{ noWrap: 'true' }}
           primaryTypographyProps={{ noWrap: true }}
           secondaryTypographyProps={{ noWrap: true }}
         />
