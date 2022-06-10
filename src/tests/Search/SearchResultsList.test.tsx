@@ -3,7 +3,8 @@ import userEvent from '@testing-library/user-event';
 import { maxRevisionsError } from '../../common/constants';
 import SearchView from '../../components/Search/SearchView';
 import getTestData from '../utils/fixtures';
-import { renderWithRouter, screen, store } from '../utils/test-utils';
+import { renderWithRouter, store } from '../utils/setupTests';
+import { screen } from '../utils/test-utils';
 
 describe('SearchResultsList', () => {
   it('should match snapshot', async () => {

@@ -3,7 +3,8 @@ import userEvent from '@testing-library/user-event';
 import SearchView from '../components/Search/SearchView';
 import { setSelectedRevisions } from '../reducers/SelectedRevisions';
 import getTestData from './utils/fixtures';
-import { renderWithRouter, screen, store } from './utils/test-utils';
+import { renderWithRouter, store } from './utils/setupTests';
+import { screen } from './utils/test-utils';
 
 describe('Search View', () => {
   it('should match snapshot', async () => {

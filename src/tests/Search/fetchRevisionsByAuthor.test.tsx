@@ -2,7 +2,8 @@ import userEvent from '@testing-library/user-event';
 
 import SearchView from '../../components/Search/SearchView';
 import getTestData from '../utils/fixtures';
-import { renderWithRouter, screen, store } from '../utils/test-utils';
+import { renderWithRouter, store } from '../utils/setupTests';
+import { screen } from '../utils/test-utils';
 
 describe('SearchView/fetchRevisionsByAuthor', () => {
   it('should fetch revisions by author if searchValue is an email address', async () => {

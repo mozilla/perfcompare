@@ -2,7 +2,8 @@ import userEvent from '@testing-library/user-event';
 
 import SearchView from '../../components/Search/SearchView';
 import getTestData from '../utils/fixtures';
-import { renderWithRouter, screen, store } from '../utils/test-utils';
+import { renderWithRouter, store } from '../utils/setupTests';
+import { screen } from '../utils/test-utils';
 
 describe('SearchView/fetchRevisionByID', () => {
   it('should fetch revisions by ID if searchValue is a 12 or 40 character hash', async () => {
