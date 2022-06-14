@@ -1,6 +1,9 @@
 export type Repository =
   | { id: 1; name: 'mozilla-central' }
+  | { id: 2; name: 'mozilla-beta' }
+  | { id: 3; name: 'mozilla-release' }
   | { id: 4; name: 'try' }
+  | { id: 30; name: 'fenix' }
   | { id: 77; name: 'autoland' };
 
 export type SubRevision = {

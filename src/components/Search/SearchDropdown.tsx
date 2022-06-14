@@ -5,13 +5,13 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import { connect } from 'react-redux';
 
+import { repoMapping } from '../../common/constants';
 import useHandleChangeDropdown from '../../hooks/useHandleChangeDropdown';
 import type { State } from '../../types/state';
 
 function SearchDropdown(props: SearchDropdownProps) {
   const { repository } = props;
   const { handleChangeDropdown } = useHandleChangeDropdown();
-  const repoList = ['try', 'autoland', 'mozilla-central'];
 
   return (
     <Grid item xs={2}>
@@ -22,17 +22,16 @@ function SearchDropdown(props: SearchDropdownProps) {
           labelId="select-repository"
           label="repository"
         >
-          {repoList.length > 0 &&
-            repoList.map((item) => (
-              <MenuItem
-                id={item}
-                value={item}
-                key={item}
-                onClick={(e) => handleChangeDropdown(e)}
-              >
-                {item}
-              </MenuItem>
-            ))}
+          {Object.keys(repoMapping).map((key) => (
+            <MenuItem
+              id={repoMapping[key]}
+              value={repoMapping[key]}
+              key={repoMapping[key]}
+              onClick={(e) => handleChangeDropdown(e)}
+            >
+              {repoMapping[key]}
+            </MenuItem>
+          ))}
         </Select>
       </FormControl>
     </Grid>
