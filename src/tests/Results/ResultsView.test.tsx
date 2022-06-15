@@ -8,7 +8,7 @@ describe('Results View', () => {
   it('Should match snapshot', () => {
     render(<ResultsView />);
 
-    expect(screen).toMatchSnapshot();
+    expect(document.body).toMatchSnapshot();
   });
 
   it('should display SelectedRevisionsTable if there are selected revisions', async () => {

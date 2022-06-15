@@ -1,3 +1,6 @@
+import high from './img/high.svg';
+import low from './img/low.svg';
+import med from './img/med.svg';
 import zap from './img/zap-10.svg';
 
 const components = {
@@ -15,7 +18,7 @@ const components = {
           lineHeight: '1.4375em',
           padding: '16.5px 14px',
           textTransform: 'uppercase',
-          marginBottom: '30px'
+          marginBottom: '30px',
         },
       },
     },
@@ -39,6 +42,24 @@ const components = {
           textOverflow: 'ellipsis',
           whiteSpace: 'nowrap',
           width: '400px',
+        },
+        '&.high': {
+          backgroundImage: `url(${high})`,
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+          backgroundSize: '10%',
+        },
+        '&.med': {
+          backgroundImage: `url(${med})`,
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+          backgroundSize: '10%',
+        },
+        '&.low': {
+          backgroundImage: `url(${low})`,
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+          backgroundSize: '10%',
         },
       },
     },

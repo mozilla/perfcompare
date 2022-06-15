@@ -6,19 +6,9 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 
-import type { ConfidenceText, ResultsTableHeaders } from '../../types/enums';
-
-// TODO: move to results state
-interface ResultsItem {
-  testName: string;
-  platformName: string;
-  baseValue: number;
-  newValue: number;
-  delta: number;
-  confidenceText: ConfidenceText;
-  baseRuns: number;
-  newRuns: number;
-}
+import type { ResultsTableHeaders } from '../../types/enums';
+import type { ResultsItem } from '../../types/state';
+import ResultsTableRow from './ResultsTableRow';
 
 const results: ResultsItem[] = [
   {
@@ -58,28 +48,12 @@ function ResultsTable() {
           {Array(10)
             .fill(0)
             .map((_, index) => {
-              const {
-                platformName,
-                testName,
-                baseValue,
-                newValue,
-                delta,
-                confidenceText,
-                baseRuns,
-                newRuns,
-              } = results[0];
               return (
-                <TableRow key={index}>
-                  <TableCell>{platformName}</TableCell>
-                  <TableCell>{testName}</TableCell>
-                  <TableCell>{baseValue}</TableCell>
-                  <TableCell>{newValue}</TableCell>
-                  <TableCell>{delta}%</TableCell>
-                  <TableCell>{confidenceText}</TableCell>
-                  <TableCell>
-                    {baseRuns}/{newRuns}
-                  </TableCell>
-                </TableRow>
+                <ResultsTableRow
+                  key={index}
+                  result={results[0]}
+                  index={index}
+                />
               );
             })}
         </TableBody>
