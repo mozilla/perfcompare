@@ -4,11 +4,12 @@ import { Repository } from '../types/state';
 
 export const treeherderBaseURL = 'https://treeherder.mozilla.org';
 
-export const repoList = ['try', 'autoland', 'mozilla-central'];
-
 export const repoMapping: Dictionary<Repository['name']> = {
   1: 'mozilla-central',
+  2: 'mozilla-beta',
+  3: 'mozilla-release',
   4: 'try',
+  30: 'fenix',
   77: 'autoland',
 };
 
