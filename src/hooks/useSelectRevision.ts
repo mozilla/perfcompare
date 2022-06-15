@@ -5,7 +5,7 @@ import { maxRevisionsError } from '../common/constants';
 import type { RootState } from '../common/store';
 import { clearCheckedRevisions } from '../reducers/CheckedRevisions';
 import { setSelectedRevisions } from '../reducers/SelectedRevisions';
-import { truncateHash } from '../utils/searchViewHelper';
+import { truncateHash } from '../utils/helpers';
 
 const useSelectRevision = () => {
   const dispatch = useDispatch();

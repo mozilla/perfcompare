@@ -2,7 +2,7 @@ import {
   formatDate,
   getLatestCommitMessage,
   truncateHash,
-} from '../../utils/searchViewHelper';
+} from '../../utils/helpers';
 import getTestData from '../utils/fixtures';
 
 describe('truncateHash Helper', () => {
