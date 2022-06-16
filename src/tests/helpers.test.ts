@@ -3,8 +3,8 @@ import {
   getLatestCommitMessage,
   setPlatformClassName,
   truncateHash,
-} from '../../utils/helpers';
-import getTestData from '../utils/fixtures';
+} from '../utils/helpers';
+import getTestData from './utils/fixtures';
 
 describe('truncateHash Helper', () => {
   it('correctly returns 12-character short hash', () => {
@@ -36,17 +36,13 @@ describe('formateDate Helper', () => {
 });
 
 describe('setPlatformClassName Helper', () => {
-  it('returns correct class name', () => {
-    const linux = 'linux-shippable';
-    const osx = 'OS X 10.14 Shippable';
-    const windows = 'windows10-64-mingwclang';
-    const android = 'Android 5.0 AArch64 Release';
-    const random = 'i am not an operating system';
-
-    expect(setPlatformClassName(linux)).toStrictEqual('linux');
-    expect(setPlatformClassName(osx)).toStrictEqual('osx');
-    expect(setPlatformClassName(windows)).toStrictEqual('windows');
-    expect(setPlatformClassName(android)).toStrictEqual('android');
-    expect(setPlatformClassName(random)).toStrictEqual('');
+  it.each([
+    { platform: 'linux-shippable', className: 'linux' },
+    { platform: 'OS X 10.14 Shippable', className: 'osx' },
+    { platform: 'windows10-64-mingwclang', className: 'windows' },
+    { platform: 'Android 5.0 AArch64 Release', className: 'android' },
+    { platform: 'i am not an operating system', className: '' },
+  ])('returns correct class name', (test) => {
+    expect(setPlatformClassName(test.platform)).toStrictEqual(test.className);
   });
 });

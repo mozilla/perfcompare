@@ -89,7 +89,7 @@ exports[`Results View Should match snapshot 1`] = `
                 >
                   <td
                     aria-label="Linux x64 asan"
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall linux css-dsuxgy-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon linux css-dsuxgy-MuiTableCell-root"
                     data-mui-internal-clone-element="true"
                   />
                   <td
@@ -114,7 +114,7 @@ exports[`Results View Should match snapshot 1`] = `
                     %
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall high css-dsuxgy-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon high css-dsuxgy-MuiTableCell-root"
                   />
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -129,7 +129,7 @@ exports[`Results View Should match snapshot 1`] = `
                 >
                   <td
                     aria-label="OS X Cross Compiled opt"
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall osx css-dsuxgy-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon osx css-dsuxgy-MuiTableCell-root"
                     data-mui-internal-clone-element="true"
                   />
                   <td
@@ -154,7 +154,7 @@ exports[`Results View Should match snapshot 1`] = `
                     %
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall high css-dsuxgy-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon high css-dsuxgy-MuiTableCell-root"
                   />
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -169,7 +169,7 @@ exports[`Results View Should match snapshot 1`] = `
                 >
                   <td
                     aria-label="Android 4.1 ARMv7 opt"
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall android css-dsuxgy-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon android css-dsuxgy-MuiTableCell-root"
                     data-mui-internal-clone-element="true"
                   />
                   <td
@@ -194,7 +194,7 @@ exports[`Results View Should match snapshot 1`] = `
                     %
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall high css-dsuxgy-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon high css-dsuxgy-MuiTableCell-root"
                   />
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -209,7 +209,7 @@ exports[`Results View Should match snapshot 1`] = `
                 >
                   <td
                     aria-label="Windows 2012 opt"
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall windows css-dsuxgy-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon windows css-dsuxgy-MuiTableCell-root"
                     data-mui-internal-clone-element="true"
                   />
                   <td
@@ -234,7 +234,7 @@ exports[`Results View Should match snapshot 1`] = `
                     %
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall high css-dsuxgy-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon high css-dsuxgy-MuiTableCell-root"
                   />
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"

@@ -47,47 +47,31 @@ const components = {
           whiteSpace: 'nowrap',
           width: '400px',
         },
-        '&.high': {
-          backgroundImage: `url(${high})`,
+        '&.background-icon': {
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
           backgroundSize: '10%',
+        },
+        '&.high': {
+          backgroundImage: `url(${high})`,
         },
         '&.med': {
           backgroundImage: `url(${med})`,
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-          backgroundSize: '10%',
         },
         '&.low': {
           backgroundImage: `url(${low})`,
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-          backgroundSize: '10%',
         },
         '&.linux': {
           backgroundImage: `url(${linux})`,
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-          backgroundSize: '10%',
         },
         '&.osx': {
           backgroundImage: `url(${osx})`,
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-          backgroundSize: '10%',
         },
         '&.windows': {
           backgroundImage: `url(${windows})`,
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-          backgroundSize: '10%',
         },
         '&.android': {
           backgroundImage: `url(${android})`,
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-          backgroundSize: '10%',
         },
       },
     },

@@ -21,13 +21,15 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
   return (
     <TableRow key={index}>
       <Tooltip title={platformName}>
-        <TableCell className={setPlatformClassName(platformName)}></TableCell>
+        <TableCell
+          className={`background-icon ${setPlatformClassName(platformName)}`}
+        ></TableCell>
       </Tooltip>
       <TableCell>{testName}</TableCell>
       <TableCell>{baseValue}</TableCell>
       <TableCell>{newValue}</TableCell>
       <TableCell>{delta}%</TableCell>
-      <TableCell className={confidenceText}></TableCell>
+      <TableCell className={`background-icon ${confidenceText}`}></TableCell>
       <TableCell>
         {baseRuns}/{newRuns}
       </TableCell>
