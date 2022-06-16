@@ -1,3 +1,5 @@
+import type { ConfidenceText } from './enums';
+
 export type Repository =
   | { id: 1; name: 'mozilla-central' }
   | { id: 2; name: 'mozilla-beta' }
@@ -22,6 +24,17 @@ export type Revision = {
   revision_count: number;
   push_timestamp: number;
   repository_id: Repository['id'];
+};
+
+export type ResultsItem = {
+  testName: string;
+  platformName: string;
+  baseValue: number;
+  newValue: number;
+  delta: number;
+  confidenceText: ConfidenceText;
+  baseRuns: number;
+  newRuns: number;
 };
 
 export type SearchState = {
