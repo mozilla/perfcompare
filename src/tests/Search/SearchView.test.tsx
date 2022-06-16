@@ -197,6 +197,6 @@ describe('Search View', () => {
     const compareButton = document.querySelector('.compare-button');
     await user.click(compareButton as HTMLElement);
 
-    expect(history.location.pathname).toEqual('/results');
+    expect(history.location.pathname).toEqual('/compare-results');
   });
 });
