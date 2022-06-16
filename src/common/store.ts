@@ -2,12 +2,14 @@ import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 
 import checkedRevisions from '../reducers/CheckedRevisions';
+import compareResults from '../reducers/CompareResultsSlice';
 import search from '../reducers/SearchSlice';
 import selectedRevisions from '../reducers/SelectedRevisions';
 
 const reducer = combineReducers({
-  search,
   checkedRevisions,
+  compareResults,
+  search,
   selectedRevisions,
 });
 

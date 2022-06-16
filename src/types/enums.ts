@@ -5,7 +5,7 @@ export type SelectedRevisionsTableHeaders =
   | 'Commit Message'
   | 'Timestamp';
 
-export type ResultsTableHeaders =
+export type CompareResultsTableHeaders =
   | 'Platform'
   | 'Test Name'
   | 'Base'

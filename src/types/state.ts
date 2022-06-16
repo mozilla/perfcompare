@@ -26,9 +26,9 @@ export type Revision = {
   repository_id: Repository['id'];
 };
 
-export type ResultsItem = {
-  testName: string;
+export type CompareResultsItem = {
   platformName: string;
+  testName: string;
   baseValue: number;
   newValue: number;
   delta: number;
@@ -54,6 +54,8 @@ export type CheckedRevisionsState = {
 export type SelectedRevisionsState = {
   revisions: Revision[];
 };
+
+export type CompareResultsState = CompareResultsItem[];
 
 export type State = {
   search: SearchState;

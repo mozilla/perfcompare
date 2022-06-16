@@ -20,8 +20,8 @@ function SearchView(props: SearchViewProps) {
 
   const navigate = useNavigate();
 
-  const goToResultsPage = () => {
-    navigate('/results', { replace: false });
+  const goToCompareResultsPage = () => {
+    navigate('/compare-results', { replace: false });
   };
 
   const { searchResults, selectedRevisions } = props;
@@ -35,17 +35,17 @@ function SearchView(props: SearchViewProps) {
         {selectedRevisions.length > 0 && <SelectedRevisionsTable />}
       </Grid>
       <Grid item className="compare-button-section">
-          {selectedRevisions.length > 0 && (
-            <Button
-              className="compare-button"
-              variant="contained"
-              onClick={goToResultsPage}
-            > 
-              compare
-              <ArrowForward className="compare-icon" />
-            </Button>
-          )}
-        </Grid> 
+        {selectedRevisions.length > 0 && (
+          <Button
+            className="compare-button"
+            variant="contained"
+            onClick={goToCompareResultsPage}
+          >
+            compare
+            <ArrowForward className="compare-icon" />
+          </Button>
+        )}
+      </Grid>
       <Grid container>
         <Grid item xs={1} />
         <SearchDropdown />

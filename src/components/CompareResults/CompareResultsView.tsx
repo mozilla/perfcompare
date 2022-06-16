@@ -5,9 +5,9 @@ import { connect } from 'react-redux';
 import { Revision, State } from '../../types/state';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
 import SelectedRevisionsTable from '../Shared/SelectedRevisionsTable';
-import ResultsTable from './ResultsTable';
+import CompareResultsTable from './CompareResultsTable';
 
-function ResultsView(props: ResultsViewProps) {
+function CompareResultsView(props: CompareResultsViewProps) {
   const { revisions } = props;
   return (
     <Container maxWidth="lg">
@@ -17,14 +17,14 @@ function ResultsView(props: ResultsViewProps) {
           {revisions.length > 0 && <SelectedRevisionsTable />}
         </Grid>
         <Grid item xs={12}>
-          <ResultsTable />
+          <CompareResultsTable />
         </Grid>
       </Grid>
     </Container>
   );
 }
 
-interface ResultsViewProps {
+interface CompareResultsViewProps {
   revisions: Revision[];
 }
 
@@ -34,4 +34,4 @@ function mapStateToProps(state: State) {
   };
 }
 
-export default connect(mapStateToProps)(ResultsView);
+export default connect(mapStateToProps)(CompareResultsView);
