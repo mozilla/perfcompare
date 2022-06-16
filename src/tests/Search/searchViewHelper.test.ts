@@ -1,6 +1,7 @@
 import {
   formatDate,
   getLatestCommitMessage,
+  setPlatformClassName,
   truncateHash,
 } from '../../utils/helpers';
 import getTestData from '../utils/fixtures';
@@ -31,5 +32,21 @@ describe('formateDate Helper', () => {
     const timestamp = 1649883600;
     const date = formatDate(timestamp);
     expect(date).toStrictEqual('04/13/22 21:00');
+  });
+});
+
+describe('setPlatformClassName Helper', () => {
+  it('returns correct class name', () => {
+    const linux = 'linux-shippable';
+    const osx = 'OS X 10.14 Shippable';
+    const windows = 'windows10-64-mingwclang';
+    const android = 'Android 5.0 AArch64 Release';
+    const random = 'i am not an operating system';
+
+    expect(setPlatformClassName(linux)).toStrictEqual('linux');
+    expect(setPlatformClassName(osx)).toStrictEqual('osx');
+    expect(setPlatformClassName(windows)).toStrictEqual('windows');
+    expect(setPlatformClassName(android)).toStrictEqual('android');
+    expect(setPlatformClassName(random)).toStrictEqual('');
   });
 });

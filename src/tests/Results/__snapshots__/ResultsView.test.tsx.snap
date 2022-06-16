@@ -88,10 +88,10 @@ exports[`Results View Should match snapshot 1`] = `
                   class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
                 >
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
-                  >
-                    Linux x64 asan
-                  </td>
+                    aria-label="Linux x64 asan"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall linux css-dsuxgy-MuiTableCell-root"
+                    data-mui-internal-clone-element="true"
+                  />
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
@@ -128,10 +128,10 @@ exports[`Results View Should match snapshot 1`] = `
                   class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
                 >
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
-                  >
-                    OS X Cross Compiled opt
-                  </td>
+                    aria-label="OS X Cross Compiled opt"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall osx css-dsuxgy-MuiTableCell-root"
+                    data-mui-internal-clone-element="true"
+                  />
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
@@ -168,10 +168,10 @@ exports[`Results View Should match snapshot 1`] = `
                   class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
                 >
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
-                  >
-                    Android 4.1 ARMv7 opt
-                  </td>
+                    aria-label="Android 4.1 ARMv7 opt"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall android css-dsuxgy-MuiTableCell-root"
+                    data-mui-internal-clone-element="true"
+                  />
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
@@ -208,10 +208,10 @@ exports[`Results View Should match snapshot 1`] = `
                   class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
                 >
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
-                  >
-                    Windows 2012 opt
-                  </td>
+                    aria-label="Windows 2012 opt"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall windows css-dsuxgy-MuiTableCell-root"
+                    data-mui-internal-clone-element="true"
+                  />
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
