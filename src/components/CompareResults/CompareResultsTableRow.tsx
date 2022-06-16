@@ -1,9 +1,9 @@
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 
-import { ResultsItem } from '../../types/state';
+import type { CompareResultsItem } from '../../types/state';
 
-function ResultsTableRow(props: ResultsTableRowProps) {
+function CompareResultsTableRow(props: ResultsTableRowProps) {
   const { index } = props;
   const {
     platformName,
@@ -31,8 +31,8 @@ function ResultsTableRow(props: ResultsTableRowProps) {
 }
 
 interface ResultsTableRowProps {
-  result: ResultsItem;
+  result: CompareResultsItem;
   index: number;
 }
 
-export default ResultsTableRow;
+export default CompareResultsTableRow;

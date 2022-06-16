@@ -4,7 +4,7 @@ import { SnackbarProvider } from 'notistack';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import protocolTheme from '../theme/protocolTheme';
-import ResultsView from './Results/ResultsView';
+import CompareResultsView from './CompareResults/CompareResultsView';
 import SearchView from './Search/SearchView';
 import SnackbarCloseButton from './Shared/SnackbarCloseButton';
 
@@ -22,7 +22,7 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={<SearchView />} />
-            <Route path="/results" element={<ResultsView />} />
+            <Route path="/compare-results" element={<CompareResultsView />} />
           </Routes>
         </Router>
       </SnackbarProvider>
