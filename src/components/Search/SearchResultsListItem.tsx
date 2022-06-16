@@ -7,10 +7,7 @@ import { useSelector } from 'react-redux';
 
 import type { RootState } from '../../common/store';
 import type { Revision } from '../../types/state';
-import {
-  truncateHash,
-  getLatestCommitMessage,
-} from '../../utils/searchViewHelper';
+import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
 
 function SearchResultsListItem(props: SearchResultsListItemProps) {
   const { index, item, handleToggle } = props;

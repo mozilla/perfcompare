@@ -12,7 +12,7 @@ import {
   getLatestCommitMessage,
   getTreeherderURL,
   truncateHash,
-} from '../../utils/searchViewHelper';
+} from '../../utils/helpers';
 
 function SelectedRevisionsTableRow(props: SelectedRevisionsRowProps) {
   const { row, index } = props;
