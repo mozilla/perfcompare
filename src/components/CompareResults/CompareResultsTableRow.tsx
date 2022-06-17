@@ -6,32 +6,25 @@ import type { CompareResultsItem } from '../../types/state';
 import { setPlatformClassName } from '../../utils/helpers';
 
 function CompareResultsTableRow(props: ResultsTableRowProps) {
-  const { index } = props;
-  const {
-    platformName,
-    testName,
-    baseValue,
-    newValue,
-    delta,
-    confidenceText,
-    baseRuns,
-    newRuns,
-  } = props.result;
+  const { result, index } = props;
 
   return (
     <TableRow key={index}>
-      <Tooltip title={platformName}>
+      <Tooltip title={result.platform}>
         <TableCell
-          className={`background-icon ${setPlatformClassName(platformName)}`}
+          className={`background-icon ${setPlatformClassName(result.platform)}`}
         ></TableCell>
       </Tooltip>
-      <TableCell>{testName}</TableCell>
-      <TableCell>{baseValue}</TableCell>
-      <TableCell>{newValue}</TableCell>
-      <TableCell>{delta}%</TableCell>
-      <TableCell className={`background-icon ${confidenceText}`}></TableCell>
+      <TableCell>{result.suite}</TableCell>
+      <TableCell>{result.test}</TableCell>
+      <TableCell>{result.base_avg_value}</TableCell>
+      <TableCell>{result.new_avg_value}</TableCell>
+      <TableCell>{result.delta}%</TableCell>
+      <TableCell
+        className={`background-icon ${result.confidence_text}`}
+      ></TableCell>
       <TableCell>
-        {baseRuns}/{newRuns}
+        {result.base_runs.length}/{result.new_runs.length}
       </TableCell>
     </TableRow>
   );

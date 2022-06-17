@@ -4,7 +4,7 @@ import getTestData from '../utils/fixtures';
 import { render, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
 
-describe('Results View', () => {
+describe('CompareResults View', () => {
   it('Should match snapshot', () => {
     render(<CompareResultsView />);
 

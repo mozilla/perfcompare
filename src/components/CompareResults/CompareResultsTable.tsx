@@ -8,12 +8,13 @@ import TableRow from '@mui/material/TableRow';
 import { useSelector } from 'react-redux';
 
 import type { RootState } from '../../common/store';
-import type { CompareResultsTableHeaders } from '../../types/enums';
 import type { CompareResultsItem } from '../../types/state';
+import type { CompareResultsTableHeaders } from '../../types/types';
 import CompareResultsTableRow from './CompareResultsTableRow';
 
 const tableHeaders: CompareResultsTableHeaders[] = [
   'Platform',
+  'Suite',
   'Test Name',
   'Base',
   'New',
