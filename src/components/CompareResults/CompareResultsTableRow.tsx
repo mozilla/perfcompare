@@ -1,7 +1,9 @@
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
+import Tooltip from '@mui/material/Tooltip';
 
 import type { CompareResultsItem } from '../../types/state';
+import { setPlatformClassName } from '../../utils/helpers';
 
 function CompareResultsTableRow(props: ResultsTableRowProps) {
   const { index } = props;
@@ -15,14 +17,19 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
     baseRuns,
     newRuns,
   } = props.result;
+
   return (
     <TableRow key={index}>
-      <TableCell>{platformName}</TableCell>
+      <Tooltip title={platformName}>
+        <TableCell
+          className={`background-icon ${setPlatformClassName(platformName)}`}
+        ></TableCell>
+      </Tooltip>
       <TableCell>{testName}</TableCell>
       <TableCell>{baseValue}</TableCell>
       <TableCell>{newValue}</TableCell>
       <TableCell>{delta}%</TableCell>
-      <TableCell className={confidenceText}></TableCell>
+      <TableCell className={`background-icon ${confidenceText}`}></TableCell>
       <TableCell>
         {baseRuns}/{newRuns}
       </TableCell>

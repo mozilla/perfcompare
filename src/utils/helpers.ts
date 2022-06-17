@@ -33,4 +33,22 @@ const getTreeherderURL = (
 ) =>
   `https://treeherder.mozilla.org/jobs?repo=${repository}&revision=${revision}`;
 
-export { formatDate, getLatestCommitMessage, getTreeherderURL, truncateHash };
+const setPlatformClassName = (platformName: string) => {
+  if (platformName.toLowerCase().includes('linux')) return 'linux';
+  else if (
+    platformName.toLowerCase().includes('osx') ||
+    platformName.toLowerCase().includes('os x')
+  )
+    return 'osx';
+  else if (platformName.toLowerCase().includes('windows')) return 'windows';
+  else if (platformName.toLowerCase().includes('android')) return 'android';
+  else return '';
+};
+
+export {
+  formatDate,
+  getLatestCommitMessage,
+  getTreeherderURL,
+  setPlatformClassName,
+  truncateHash,
+};
