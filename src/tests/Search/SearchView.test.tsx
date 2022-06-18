@@ -71,6 +71,36 @@ describe('Search View', () => {
     expect(document.body).toMatchSnapshot();
   });
 
+  it('should hide search results when Escape key is pressed', async () => {
+    const { testData } = getTestData();
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () => ({
+          results: testData,
+        }),
+      }),
+    ) as jest.Mock;
+    jest.spyOn(global, 'fetch');
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
+
+    renderWithRouter(<SearchView />);
+
+    await screen.findByRole('button', { name: 'repository' });
+
+    // focus input to show results
+    const searchInput = screen.getByRole('textbox');
+    await user.click(searchInput);
+
+    await screen.findByText("coconut - you've got no arms left!");
+
+    await user.keyboard('{Escape}');
+
+    expect(
+      screen.queryByText("coconut - you've got no arms left!"),
+    ).not.toBeInTheDocument();
+  });
+
   it('should not call fetch if searchValue is not a hash or email', async () => {
     const spyOnFetch = jest.spyOn(global, 'fetch');
     // set delay to null to prevent test time-out due to useFakeTimers

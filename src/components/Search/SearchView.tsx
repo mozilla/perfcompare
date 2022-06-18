@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import { ArrowForward } from '@mui/icons-material';
 import { Button } from '@mui/material';
 import Container from '@mui/material/Container';
@@ -16,15 +18,19 @@ import SearchResultsList from './SearchResultsList';
 import SearchViewInit from './SearchViewInit';
 
 function SearchView(props: SearchViewProps) {
-  const { focused, handleParentClick, handleFocus } = useFocusInput();
+  const { focused, handleParentClick, handleFocus, handleEscKey } =
+    useFocusInput();
 
   const navigate = useNavigate();
-
   const goToCompareResultsPage = () => {
     navigate('/compare-results', { replace: false });
   };
 
   const { searchResults, selectedRevisions } = props;
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleEscKey);
+  });
 
   return (
     <Container maxWidth="lg" onClick={handleParentClick}>
