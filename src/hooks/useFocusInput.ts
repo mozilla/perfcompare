@@ -33,7 +33,20 @@ const useFocusInput = () => {
     setFocused(true);
   };
 
-  return { focused, handleParentClick, handleFocus, handleChildClick };
+  const handleEscKey = (e: KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      e.stopPropagation();
+      setFocused(false);
+    }
+  };
+
+  return {
+    focused,
+    handleParentClick,
+    handleFocus,
+    handleChildClick,
+    handleEscKey,
+  };
 };
 
 export default useFocusInput;
