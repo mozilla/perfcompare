@@ -23,7 +23,8 @@ const tableHeaders: CompareResultsTableHeaders[] = [
   'Total Runs',
 ];
 
-function CompareResultsTable() {
+function CompareResultsTable(props: CompareResultsProps) {
+  const { mode } = props;
   const compareResults: CompareResultsItem[] = useSelector(
     (state: RootState) => state.compareResults,
   );
@@ -44,12 +45,17 @@ function CompareResultsTable() {
                 key={index}
                 result={result}
                 index={index}
+                mode={mode}
               />
             ))}
         </TableBody>
       </Table>
     </TableContainer>
   );
+}
+
+interface CompareResultsProps {
+  mode: 'light' | 'dark';
 }
 
 export default CompareResultsTable;

@@ -1,5 +1,6 @@
 import Close from '@mui/icons-material/Close';
 import IconButton from '@mui/material/IconButton';
+import Link from '@mui/material/Link';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import { useDispatch } from 'react-redux';
@@ -30,9 +31,7 @@ function SelectedRevisionsTableRow(props: SelectedRevisionsRowProps) {
       </TableCell>
       <TableCell>{repository}</TableCell>
       <TableCell>
-        <a href={treeherderURL} target="_blank" rel="noreferrer">
-          {hash}
-        </a>
+        <Link href={treeherderURL}>{hash}</Link>
       </TableCell>
       <TableCell>{row.author}</TableCell>
       <TableCell>

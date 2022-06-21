@@ -52,6 +52,9 @@ const components = {
           backgroundPosition: 'center',
           backgroundSize: '10%',
         },
+        '&.background-icon.dark-mode': {
+          filter: 'invert(100%)',
+        },
         '&.high': {
           backgroundImage: `url(${high})`,
         },
@@ -82,15 +85,6 @@ const components = {
         '&.layout': {
           marginBottom: '2rem',
           tableLayout: 'fixed',
-        },
-      },
-    },
-  },
-  MuiTableRow: {
-    styleOverrides: {
-      root: {
-        '&:nth-of-type(even)': {
-          backgroundColor: '#ededf0',
         },
       },
     },

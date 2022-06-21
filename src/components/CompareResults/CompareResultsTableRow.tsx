@@ -6,13 +6,15 @@ import type { CompareResultsItem } from '../../types/state';
 import { setPlatformClassName } from '../../utils/helpers';
 
 function CompareResultsTableRow(props: ResultsTableRowProps) {
-  const { result, index } = props;
+  const { result, index, mode } = props;
 
   return (
     <TableRow key={index}>
       <Tooltip title={result.platform}>
         <TableCell
-          className={`background-icon ${setPlatformClassName(result.platform)}`}
+          className={`background-icon ${mode}-mode ${setPlatformClassName(
+            result.platform,
+          )}`}
         ></TableCell>
       </Tooltip>
       <TableCell>{result.suite}</TableCell>
@@ -33,6 +35,7 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
 interface ResultsTableRowProps {
   result: CompareResultsItem;
   index: number;
+  mode: 'light' | 'dark';
 }
 
 export default CompareResultsTableRow;
