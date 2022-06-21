@@ -27,6 +27,24 @@ const components = {
       },
     },
   },
+  MuiTable: {
+    styleOverrides: {
+      root: {
+        '&.compare-results-selected-table': {
+          '& .MuiTableCell-root': {
+            paddingTop: '0',
+            paddingBottom: '0',
+          },
+        },
+        '&.search-selected-table': {
+          '& .MuiTableCell-root': {
+            paddingTop: '10px',
+            paddingBottom: '10px',
+          },
+        },
+      },
+    },
+  },
   MuiTableCell: {
     styleOverrides: {
       root: {

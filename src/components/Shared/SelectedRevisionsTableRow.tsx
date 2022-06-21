@@ -1,4 +1,5 @@
 import Close from '@mui/icons-material/Close';
+import EditIcon from '@mui/icons-material/Edit';
 import IconButton from '@mui/material/IconButton';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
@@ -15,7 +16,7 @@ import {
 } from '../../utils/helpers';
 
 function SelectedRevisionsTableRow(props: SelectedRevisionsRowProps) {
-  const { row, index } = props;
+  const { row, index, view } = props;
   const dispatch = useDispatch();
   const commitMessage = getLatestCommitMessage(row);
   const date = formatDate(row.push_timestamp);
@@ -40,12 +41,23 @@ function SelectedRevisionsTableRow(props: SelectedRevisionsRowProps) {
       </TableCell>
       <TableCell>{date}</TableCell>
       <TableCell>
-        <IconButton
-          id="close-button"
-          onClick={() => dispatch(deleteRevision(row.id))}
-        >
-          <Close />
-        </IconButton>
+        {view == 'search' && (
+          <IconButton
+            id="close-button"
+            onClick={() => dispatch(deleteRevision(row.id))}
+          >
+            <Close />
+          </IconButton>
+        )}
+        {view == 'compare-results' && (
+          <IconButton
+            id={`edit-revision-button-${index}`}
+            aria-label={`edit-revision-${row.id}`}
+          >
+            {/* TODO: implement edit revision */}
+            <EditIcon />
+          </IconButton>
+        )}
       </TableCell>
     </TableRow>
   );
@@ -54,6 +66,7 @@ function SelectedRevisionsTableRow(props: SelectedRevisionsRowProps) {
 interface SelectedRevisionsRowProps {
   row: Revision;
   index: number;
+  view: 'search' | 'compare-results';
 }
 
 export default SelectedRevisionsTableRow;
