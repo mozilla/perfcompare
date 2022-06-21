@@ -1,4 +1,9 @@
-import type { ConfidenceText } from './enums';
+import type {
+  ConfidenceText,
+  Framework,
+  MeasurementUnit,
+  Platform,
+} from './types';
 
 export type Repository =
   | { id: 1; name: 'mozilla-central' }
@@ -27,14 +32,32 @@ export type Revision = {
 };
 
 export type CompareResultsItem = {
-  platformName: string;
-  testName: string;
-  baseValue: number;
-  newValue: number;
+  base_retriggerable_job_ids: number[];
+  new_retriggerable_job_ids: number[];
+  base_measurement_unit: MeasurementUnit;
+  new_measurement_unit: MeasurementUnit;
+  platform: Platform;
+  suite: string;
+  framework_id: Framework['id'];
+  new_repository_name: Repository['name'];
+  base_repository_name: Repository['name'];
+  new_runs: number[];
+  base_runs: number[];
+  is_complete: boolean;
+  base_avg_value: number;
+  new_avg_value: number;
+  base_stddev: number;
+  new_stddev: number;
+  base_stddev_pct: number;
+  new_stddev_pct: number;
   delta: number;
-  confidenceText: ConfidenceText;
-  baseRuns: number;
-  newRuns: number;
+  new_is_better: boolean;
+  confidence: number;
+  confidence_text: ConfidenceText;
+  is_improvement: boolean;
+  is_regression: boolean;
+  is_meaningful: boolean;
+  test: string;
 };
 
 export type SearchState = {

@@ -5,7 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import { connect } from 'react-redux';
 
-import { repoMapping } from '../../common/constants';
+import { repoMap } from '../../common/constants';
 import useHandleChangeDropdown from '../../hooks/useHandleChangeDropdown';
 import type { State } from '../../types/state';
 
@@ -22,14 +22,14 @@ function SearchDropdown(props: SearchDropdownProps) {
           labelId="select-repository"
           label="repository"
         >
-          {Object.keys(repoMapping).map((key) => (
+          {Object.keys(repoMap).map((key) => (
             <MenuItem
-              id={repoMapping[key]}
-              value={repoMapping[key]}
-              key={repoMapping[key]}
+              id={repoMap[key]}
+              value={repoMap[key]}
+              key={repoMap[key]}
               onClick={(e) => handleChangeDropdown(e)}
             >
-              {repoMapping[key]}
+              {repoMap[key]}
             </MenuItem>
           ))}
         </Select>

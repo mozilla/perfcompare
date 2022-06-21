@@ -4,7 +4,7 @@ import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import { useDispatch } from 'react-redux';
 
-import { repoMapping } from '../../common/constants';
+import { repoMap } from '../../common/constants';
 import { deleteRevision } from '../../reducers/SelectedRevisions';
 import { Repository, Revision } from '../../types/state';
 import {
@@ -20,7 +20,7 @@ function SelectedRevisionsTableRow(props: SelectedRevisionsRowProps) {
   const commitMessage = getLatestCommitMessage(row);
   const date = formatDate(row.push_timestamp);
   const hash = truncateHash(row.revision);
-  const repository = repoMapping[row.repository_id] as Repository['name'];
+  const repository = repoMap[row.repository_id] as Repository['name'];
   const treeherderURL = getTreeherderURL(row.revision, repository);
 
   return (

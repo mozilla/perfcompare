@@ -6,8 +6,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { connect } from 'react-redux';
 
-import type { SelectedRevisionsTableHeaders } from '../../types/enums';
 import type { Revision, State } from '../../types/state';
+import type { SelectedRevisionsTableHeaders } from '../../types/types';
 import SelectedRevisionsTableRow from './SelectedRevisionsTableRow';
 
 const tableHeaderDetails: SelectedRevisionsTableHeaders[] = [

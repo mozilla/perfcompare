@@ -1,0 +1,956 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CompareResults View Should match snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthLg css-1oqqzyl-MuiContainer-root"
+    >
+      <div
+        class="header-container MuiBox-root css-0"
+      >
+        <div
+          class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-1bn4tuo-MuiTypography-root"
+        >
+          PerfCompare
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
+        />
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
+        >
+          <div
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root css-11xur9t-MuiPaper-root-MuiTableContainer-root"
+          >
+            <table
+              aria-label="a dense table"
+              class="MuiTable-root css-quj9j6-MuiTable-root"
+            >
+              <thead
+                class="MuiTableHead-root css-15wwp11-MuiTableHead-root"
+              >
+                <tr
+                  class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
+                >
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall css-1howxi1-MuiTableCell-root"
+                    scope="col"
+                  >
+                    Platform
+                  </th>
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall css-1howxi1-MuiTableCell-root"
+                    scope="col"
+                  >
+                    Suite
+                  </th>
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall css-1howxi1-MuiTableCell-root"
+                    scope="col"
+                  >
+                    Test Name
+                  </th>
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall css-1howxi1-MuiTableCell-root"
+                    scope="col"
+                  >
+                    Base
+                  </th>
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall css-1howxi1-MuiTableCell-root"
+                    scope="col"
+                  >
+                    New
+                  </th>
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall css-1howxi1-MuiTableCell-root"
+                    scope="col"
+                  >
+                    Delta
+                  </th>
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall css-1howxi1-MuiTableCell-root"
+                    scope="col"
+                  >
+                    Confidence
+                  </th>
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall css-1howxi1-MuiTableCell-root"
+                    scope="col"
+                  >
+                    Total Runs
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
+              >
+                <tr
+                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                >
+                  <td
+                    aria-label="linux1804-64-shippable-qr"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon linux css-dsuxgy-MuiTableCell-root"
+                    data-mui-internal-clone-element="true"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    wikipedia
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    fcp
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    50
+                    %
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon low css-dsuxgy-MuiTableCell-root"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                    /
+                    0
+                  </td>
+                </tr>
+                <tr
+                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                >
+                  <td
+                    aria-label="macosx1015-64-shippable-qr"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon osx css-dsuxgy-MuiTableCell-root"
+                    data-mui-internal-clone-element="true"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    instagram
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    fnbpaint
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                    %
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon low css-dsuxgy-MuiTableCell-root"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                    /
+                    0
+                  </td>
+                </tr>
+                <tr
+                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                >
+                  <td
+                    aria-label="linux1804-64-qr"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon linux css-dsuxgy-MuiTableCell-root"
+                    data-mui-internal-clone-element="true"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    instagram
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    loadtime
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    100
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    300
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    -50
+                    %
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon low css-dsuxgy-MuiTableCell-root"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                    /
+                    0
+                  </td>
+                </tr>
+                <tr
+                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                >
+                  <td
+                    aria-label="linux1804-64-qr"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon linux css-dsuxgy-MuiTableCell-root"
+                    data-mui-internal-clone-element="true"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    amazon
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    dcf
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    -50
+                    %
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon low css-dsuxgy-MuiTableCell-root"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                    /
+                    0
+                  </td>
+                </tr>
+                <tr
+                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                >
+                  <td
+                    aria-label="linux1804-64-qr"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon linux css-dsuxgy-MuiTableCell-root"
+                    data-mui-internal-clone-element="true"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    google
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    dcf
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    -100
+                    %
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon low css-dsuxgy-MuiTableCell-root"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                    /
+                    0
+                  </td>
+                </tr>
+                <tr
+                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                >
+                  <td
+                    aria-label="linux1804-64-qr"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon linux css-dsuxgy-MuiTableCell-root"
+                    data-mui-internal-clone-element="true"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    bing-search
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    loadtime
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    1000
+                    %
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon med css-dsuxgy-MuiTableCell-root"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                    /
+                    0
+                  </td>
+                </tr>
+                <tr
+                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                >
+                  <td
+                    aria-label="windows10-64-shippable-qr"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon windows css-dsuxgy-MuiTableCell-root"
+                    data-mui-internal-clone-element="true"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    fandom
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    fcp
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    10
+                    %
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon high css-dsuxgy-MuiTableCell-root"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                    /
+                    0
+                  </td>
+                </tr>
+                <tr
+                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                >
+                  <td
+                    aria-label="windows10-64-shippable-qr"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon windows css-dsuxgy-MuiTableCell-root"
+                    data-mui-internal-clone-element="true"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    fandom
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    fnbpaint
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    10
+                    %
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon high css-dsuxgy-MuiTableCell-root"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                    /
+                    0
+                  </td>
+                </tr>
+                <tr
+                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                >
+                  <td
+                    aria-label="linux1804-64-shippable-qr"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon linux css-dsuxgy-MuiTableCell-root"
+                    data-mui-internal-clone-element="true"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    fandom
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    dcf
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    10
+                    %
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon med css-dsuxgy-MuiTableCell-root"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                    /
+                    0
+                  </td>
+                </tr>
+                <tr
+                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                >
+                  <td
+                    aria-label="macosx1015-64-shippable-qr"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon osx css-dsuxgy-MuiTableCell-root"
+                    data-mui-internal-clone-element="true"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    yahoo-mail
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    loadtime
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    10
+                    %
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon med css-dsuxgy-MuiTableCell-root"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                    /
+                    0
+                  </td>
+                </tr>
+                <tr
+                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                >
+                  <td
+                    aria-label="macosx1015-64-shippable-qr"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon osx css-dsuxgy-MuiTableCell-root"
+                    data-mui-internal-clone-element="true"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    twitter
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    ContentfulSpeedIndex
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    10
+                    %
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon med css-dsuxgy-MuiTableCell-root"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                    /
+                    0
+                  </td>
+                </tr>
+                <tr
+                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                >
+                  <td
+                    aria-label="macosx1015-64-shippable-qr"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon osx css-dsuxgy-MuiTableCell-root"
+                    data-mui-internal-clone-element="true"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    youtube-watch
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    ContentfulSpeedIndex
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    10
+                    %
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon med css-dsuxgy-MuiTableCell-root"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                    /
+                    0
+                  </td>
+                </tr>
+                <tr
+                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                >
+                  <td
+                    aria-label="macosx1015-64-shippable-qr"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon osx css-dsuxgy-MuiTableCell-root"
+                    data-mui-internal-clone-element="true"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    amazon-search
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    PerceptualSpeedIndex
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    10
+                    %
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon high css-dsuxgy-MuiTableCell-root"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                    /
+                    0
+                  </td>
+                </tr>
+                <tr
+                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                >
+                  <td
+                    aria-label="linux1804-64-qr"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon linux css-dsuxgy-MuiTableCell-root"
+                    data-mui-internal-clone-element="true"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    google-search
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    SpeedIndex
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    10
+                    %
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon high css-dsuxgy-MuiTableCell-root"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                    /
+                    0
+                  </td>
+                </tr>
+                <tr
+                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                >
+                  <td
+                    aria-label="linux1804-64-clang-trunk"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon linux css-dsuxgy-MuiTableCell-root"
+                    data-mui-internal-clone-element="true"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    netflix
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    FirstVisualChange
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    10
+                    %
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon high css-dsuxgy-MuiTableCell-root"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                    /
+                    0
+                  </td>
+                </tr>
+                <tr
+                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                >
+                  <td
+                    aria-label="linux1804-64-qr"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon linux css-dsuxgy-MuiTableCell-root"
+                    data-mui-internal-clone-element="true"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    google-search
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    LastVisualChange
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    10
+                    %
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon high css-dsuxgy-MuiTableCell-root"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                    /
+                    0
+                  </td>
+                </tr>
+                <tr
+                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                >
+                  <td
+                    aria-label="windows10-64-shippable-qr"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon windows css-dsuxgy-MuiTableCell-root"
+                    data-mui-internal-clone-element="true"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    google-search
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    dcf
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    10
+                    %
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon high css-dsuxgy-MuiTableCell-root"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                    /
+                    0
+                  </td>
+                </tr>
+                <tr
+                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                >
+                  <td
+                    aria-label="linux1804-64-qr"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon linux css-dsuxgy-MuiTableCell-root"
+                    data-mui-internal-clone-element="true"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    google-search
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    fcp
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    10
+                    %
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon high css-dsuxgy-MuiTableCell-root"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                    /
+                    0
+                  </td>
+                </tr>
+                <tr
+                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                >
+                  <td
+                    aria-label="linux1804-64-shippable-qr"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon linux css-dsuxgy-MuiTableCell-root"
+                    data-mui-internal-clone-element="true"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    instagram
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    fcp
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    9
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    8
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    10
+                    %
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon low css-dsuxgy-MuiTableCell-root"
+                  />
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+                  >
+                    0
+                    /
+                    0
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
