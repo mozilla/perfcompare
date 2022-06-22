@@ -27,6 +27,15 @@ const components = {
       },
     },
   },
+  MuiPopover: {
+    styleOverrides: {
+      root: {
+        '&.edit-revision': {
+          maxWidth: '1200px',
+        },
+      },
+    },
+  },
   MuiTable: {
     styleOverrides: {
       root: {

@@ -1,5 +1,4 @@
 import Close from '@mui/icons-material/Close';
-import EditIcon from '@mui/icons-material/Edit';
 import IconButton from '@mui/material/IconButton';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
@@ -14,9 +13,10 @@ import {
   getTreeherderURL,
   truncateHash,
 } from '../../utils/helpers';
+import EditRevision from '../CompareResults/EditRevision';
 
 function SelectedRevisionsTableRow(props: SelectedRevisionsRowProps) {
-  const { row, index, view } = props;
+  const { focused, handleFocus, index, row, view } = props;
   const dispatch = useDispatch();
   const commitMessage = getLatestCommitMessage(row);
   const date = formatDate(row.push_timestamp);
@@ -25,7 +25,7 @@ function SelectedRevisionsTableRow(props: SelectedRevisionsRowProps) {
   const treeherderURL = getTreeherderURL(row.revision, repository);
 
   return (
-    <TableRow key={row.id}>
+    <TableRow key={row.id} id={row.revision}>
       <TableCell>
         <div className="cellStyle">{index === 0 ? 'BASE' : 'NEW'}</div>
       </TableCell>
@@ -50,13 +50,12 @@ function SelectedRevisionsTableRow(props: SelectedRevisionsRowProps) {
           </IconButton>
         )}
         {view == 'compare-results' && (
-          <IconButton
-            id={`edit-revision-button-${index}`}
-            aria-label={`edit-revision-${row.id}`}
-          >
-            {/* TODO: implement edit revision */}
-            <EditIcon />
-          </IconButton>
+          <EditRevision
+            revision={row.revision}
+            rowID={row.id}
+            focused={focused}
+            handleFocus={handleFocus}
+          />
         )}
       </TableCell>
     </TableRow>
@@ -64,6 +63,8 @@ function SelectedRevisionsTableRow(props: SelectedRevisionsRowProps) {
 }
 
 interface SelectedRevisionsRowProps {
+  focused?: boolean | undefined;
+  handleFocus?: (e: React.FocusEvent) => void | undefined;
   row: Revision;
   index: number;
   view: 'search' | 'compare-results';

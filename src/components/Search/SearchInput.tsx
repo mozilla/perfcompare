@@ -6,10 +6,10 @@ import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
 import { State } from '../../types/state';
 
 function SearchInput(props: SearchInputProps) {
-  const { handleFocus, inputError, inputHelperText } = props;
+  const { handleFocus, inputError, inputHelperText, muiXs } = props;
   const { handleChangeSearch } = useHandleChangeSearch();
   return (
-    <Grid item xs={7}>
+    <Grid item xs={muiXs}>
       {!inputError && !inputHelperText ? (
         /* text field without errors */
         <TextField
@@ -19,6 +19,7 @@ function SearchInput(props: SearchInputProps) {
           variant="outlined"
           sx={{ width: '100%' }}
           onChange={(e) => handleChangeSearch(e)}
+          InputLabelProps={{ shrink: false }}
         />
       ) : (
         /* text field with errors */
@@ -38,9 +39,10 @@ function SearchInput(props: SearchInputProps) {
 }
 
 interface SearchInputProps {
-  handleFocus: (e: React.FocusEvent) => void;
+  handleFocus?: (e: React.FocusEvent) => void | undefined;
   inputError: boolean;
   inputHelperText: string;
+  muiXs: number;
 }
 
 function mapStateToProps(state: State) {

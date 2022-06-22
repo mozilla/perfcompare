@@ -56,9 +56,8 @@ function SearchView(props: SearchViewProps) {
       </Grid>
       <Grid container>
         <Grid item xs={1} />
-        <SearchDropdown />
-        <SearchInput handleFocus={handleFocus} />
-        {/* TODO: add behavior for Add Revision button */}
+        <SearchDropdown muiXs={2} />
+        <SearchInput muiXs={7} handleFocus={handleFocus} />
         <AddRevisionButton />
       </Grid>
       <Grid container>

@@ -10,11 +10,11 @@ import useHandleChangeDropdown from '../../hooks/useHandleChangeDropdown';
 import type { State } from '../../types/state';
 
 function SearchDropdown(props: SearchDropdownProps) {
-  const { repository } = props;
+  const { repository, muiXs } = props;
   const { handleChangeDropdown } = useHandleChangeDropdown();
 
   return (
-    <Grid item xs={2}>
+    <Grid item xs={muiXs}>
       <FormControl sx={{ width: '100%' }}>
         <InputLabel id="select-repository">repository</InputLabel>
         <Select
@@ -40,6 +40,7 @@ function SearchDropdown(props: SearchDropdownProps) {
 
 interface SearchDropdownProps {
   repository: string;
+  muiXs: number;
 }
 
 function mapStateToProps(state: State) {

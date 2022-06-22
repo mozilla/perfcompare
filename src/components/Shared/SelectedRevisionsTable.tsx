@@ -19,7 +19,7 @@ const tableHeaderDetails: SelectedRevisionsTableHeaders[] = [
 ];
 
 function SelectedRevisionsTable(props: SelectedRevisionsProps) {
-  const { revisions, view } = props;
+  const { focused, handleFocus, revisions, view } = props;
 
   return (
     <TableContainer className="layout">
@@ -42,6 +42,8 @@ function SelectedRevisionsTable(props: SelectedRevisionsProps) {
               row={row}
               index={index}
               view={view}
+              focused={focused}
+              handleFocus={handleFocus}
             />
           ))}
         </TableBody>
@@ -51,6 +53,8 @@ function SelectedRevisionsTable(props: SelectedRevisionsProps) {
 }
 
 interface SelectedRevisionsProps {
+  focused?: boolean | undefined;
+  handleFocus?: (e: React.FocusEvent) => void | undefined;
   revisions: Revision[];
   view: 'search' | 'compare-results';
 }
