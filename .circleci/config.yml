@@ -27,6 +27,9 @@ jobs:
           name: lint
           command: npm run lint
       - run:
+          name: accessibility
+          command: npm run test:a11y || true
+      - run:
           name: test
           command: npm run test:coverage
       - codecov/upload
