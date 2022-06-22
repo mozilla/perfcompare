@@ -6,7 +6,7 @@ import { screen } from '../utils/test-utils';
 
 describe('CompareResults View', () => {
   it('Should match snapshot', () => {
-    render(<CompareResultsView />);
+    render(<CompareResultsView mode="light" />);
 
     expect(document.body).toMatchSnapshot();
   });
@@ -18,7 +18,7 @@ describe('CompareResults View', () => {
     const selectedRevisions = testData.slice(0, 4);
     store.dispatch(setSelectedRevisions(selectedRevisions));
 
-    render(<CompareResultsView />);
+    render(<CompareResultsView mode="light" />);
 
     expect(screen.getByText("you've got no arms left!")).toBeInTheDocument();
   });

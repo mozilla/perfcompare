@@ -8,7 +8,7 @@ import SelectedRevisionsTable from '../Shared/SelectedRevisionsTable';
 import CompareResultsTable from './CompareResultsTable';
 
 function CompareResultsView(props: CompareResultsViewProps) {
-  const { revisions } = props;
+  const { revisions, mode } = props;
   return (
     <Container maxWidth="lg">
       <PerfCompareHeader />
@@ -17,7 +17,7 @@ function CompareResultsView(props: CompareResultsViewProps) {
           {revisions.length > 0 && <SelectedRevisionsTable />}
         </Grid>
         <Grid item xs={12}>
-          <CompareResultsTable />
+          <CompareResultsTable mode={mode} />
         </Grid>
       </Grid>
     </Container>
@@ -26,6 +26,7 @@ function CompareResultsView(props: CompareResultsViewProps) {
 
 interface CompareResultsViewProps {
   revisions: Revision[];
+  mode: 'light' | 'dark';
 }
 
 function mapStateToProps(state: State) {

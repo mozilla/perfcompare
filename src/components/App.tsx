@@ -3,12 +3,14 @@ import { ThemeProvider } from '@mui/material/styles';
 import { SnackbarProvider } from 'notistack';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import protocolTheme from '../theme/protocolTheme';
+import useProtocolTheme from '../theme/protocolTheme';
 import CompareResultsView from './CompareResults/CompareResultsView';
 import SearchView from './Search/SearchView';
 import SnackbarCloseButton from './Shared/SnackbarCloseButton';
+import ToggleDarkMode from './Shared/ToggleDarkModeButton';
 
 function App() {
+  const { mode, toggleColorMode, protocolTheme } = useProtocolTheme();
   return (
     <ThemeProvider theme={protocolTheme}>
       <SnackbarProvider
@@ -19,10 +21,17 @@ function App() {
         )}
       >
         <CssBaseline />
+        <ToggleDarkMode
+          toggleColorMode={toggleColorMode}
+          theme={protocolTheme}
+        />
         <Router>
           <Routes>
             <Route path="/" element={<SearchView />} />
-            <Route path="/compare-results" element={<CompareResultsView />} />
+            <Route
+              path="/compare-results"
+              element={<CompareResultsView mode={mode} />}
+            />
           </Routes>
         </Router>
       </SnackbarProvider>

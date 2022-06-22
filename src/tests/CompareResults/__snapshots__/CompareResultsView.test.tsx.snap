@@ -95,7 +95,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon linux css-dsuxgy-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode linux css-dsuxgy-MuiTableCell-root"
                     data-mui-internal-clone-element="true"
                   />
                   <td
@@ -140,7 +140,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon osx css-dsuxgy-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode osx css-dsuxgy-MuiTableCell-root"
                     data-mui-internal-clone-element="true"
                   />
                   <td
@@ -185,7 +185,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                 >
                   <td
                     aria-label="linux1804-64-qr"
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon linux css-dsuxgy-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode linux css-dsuxgy-MuiTableCell-root"
                     data-mui-internal-clone-element="true"
                   />
                   <td
@@ -230,7 +230,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                 >
                   <td
                     aria-label="linux1804-64-qr"
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon linux css-dsuxgy-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode linux css-dsuxgy-MuiTableCell-root"
                     data-mui-internal-clone-element="true"
                   />
                   <td
@@ -275,7 +275,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                 >
                   <td
                     aria-label="linux1804-64-qr"
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon linux css-dsuxgy-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode linux css-dsuxgy-MuiTableCell-root"
                     data-mui-internal-clone-element="true"
                   />
                   <td
@@ -320,7 +320,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                 >
                   <td
                     aria-label="linux1804-64-qr"
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon linux css-dsuxgy-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode linux css-dsuxgy-MuiTableCell-root"
                     data-mui-internal-clone-element="true"
                   />
                   <td
@@ -365,7 +365,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon windows css-dsuxgy-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode windows css-dsuxgy-MuiTableCell-root"
                     data-mui-internal-clone-element="true"
                   />
                   <td
@@ -410,7 +410,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon windows css-dsuxgy-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode windows css-dsuxgy-MuiTableCell-root"
                     data-mui-internal-clone-element="true"
                   />
                   <td
@@ -455,7 +455,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon linux css-dsuxgy-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode linux css-dsuxgy-MuiTableCell-root"
                     data-mui-internal-clone-element="true"
                   />
                   <td
@@ -500,7 +500,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon osx css-dsuxgy-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode osx css-dsuxgy-MuiTableCell-root"
                     data-mui-internal-clone-element="true"
                   />
                   <td
@@ -545,7 +545,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon osx css-dsuxgy-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode osx css-dsuxgy-MuiTableCell-root"
                     data-mui-internal-clone-element="true"
                   />
                   <td
@@ -590,7 +590,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon osx css-dsuxgy-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode osx css-dsuxgy-MuiTableCell-root"
                     data-mui-internal-clone-element="true"
                   />
                   <td
@@ -635,7 +635,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon osx css-dsuxgy-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode osx css-dsuxgy-MuiTableCell-root"
                     data-mui-internal-clone-element="true"
                   />
                   <td
@@ -680,7 +680,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                 >
                   <td
                     aria-label="linux1804-64-qr"
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon linux css-dsuxgy-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode linux css-dsuxgy-MuiTableCell-root"
                     data-mui-internal-clone-element="true"
                   />
                   <td
@@ -725,7 +725,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                 >
                   <td
                     aria-label="linux1804-64-clang-trunk"
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon linux css-dsuxgy-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode linux css-dsuxgy-MuiTableCell-root"
                     data-mui-internal-clone-element="true"
                   />
                   <td
@@ -770,7 +770,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                 >
                   <td
                     aria-label="linux1804-64-qr"
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon linux css-dsuxgy-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode linux css-dsuxgy-MuiTableCell-root"
                     data-mui-internal-clone-element="true"
                   />
                   <td
@@ -815,7 +815,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon windows css-dsuxgy-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode windows css-dsuxgy-MuiTableCell-root"
                     data-mui-internal-clone-element="true"
                   />
                   <td
@@ -860,7 +860,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                 >
                   <td
                     aria-label="linux1804-64-qr"
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon linux css-dsuxgy-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode linux css-dsuxgy-MuiTableCell-root"
                     data-mui-internal-clone-element="true"
                   />
                   <td
@@ -905,7 +905,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon linux css-dsuxgy-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode linux css-dsuxgy-MuiTableCell-root"
                     data-mui-internal-clone-element="true"
                   />
                   <td
