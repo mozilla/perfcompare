@@ -48,4 +48,4 @@ workflows:
                 - master
                 - staging
     jobs:
-      - test 
+      - test
