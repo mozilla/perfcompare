@@ -50,7 +50,9 @@ describe('Accessibility', () => {
     const selectedRevisions = testData.slice(0, 4);
     store.dispatch(setSelectedRevisions(selectedRevisions));
 
-    const { container } = renderWithRouter(<SelectedRevisionsTable />);
+    const { container } = renderWithRouter(
+      <SelectedRevisionsTable view="search" />,
+    );
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
@@ -60,7 +62,7 @@ describe('Accessibility', () => {
     const selectedRevisions = testData.slice(0, 4);
     store.dispatch(setSelectedRevisions(selectedRevisions));
 
-    const { container } = renderWithRouter(<CompareResultsView />);
+    const { container } = renderWithRouter(<CompareResultsView mode="light" />);
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });

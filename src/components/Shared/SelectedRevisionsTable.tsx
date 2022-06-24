@@ -19,11 +19,11 @@ const tableHeaderDetails: SelectedRevisionsTableHeaders[] = [
 ];
 
 function SelectedRevisionsTable(props: SelectedRevisionsProps) {
-  const { revisions } = props;
+  const { revisions, view } = props;
 
   return (
     <TableContainer className="layout">
-      <Table>
+      <Table className={`${view}-selected-table`}>
         <TableHead>
           <TableRow>
             <TableCell component="th" scope="row" />
@@ -41,6 +41,7 @@ function SelectedRevisionsTable(props: SelectedRevisionsProps) {
               key={row.revision}
               row={row}
               index={index}
+              view={view}
             />
           ))}
         </TableBody>
@@ -51,6 +52,7 @@ function SelectedRevisionsTable(props: SelectedRevisionsProps) {
 
 interface SelectedRevisionsProps {
   revisions: Revision[];
+  view: 'search' | 'compare-results';
 }
 
 function mapStateToProps(state: State) {

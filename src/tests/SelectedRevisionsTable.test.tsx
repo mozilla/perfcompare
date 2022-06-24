@@ -1,5 +1,6 @@
 import userEvent from '@testing-library/user-event';
 
+import CompareResultsView from '../components/CompareResults/CompareResultsView';
 import SearchView from '../components/Search/SearchView';
 import { setSelectedRevisions } from '../reducers/SelectedRevisions';
 import getTestData from './utils/fixtures';
@@ -25,6 +26,7 @@ describe('Search View', () => {
 
     expect(document.body).toMatchSnapshot();
   });
+
   it('should render correctly when there are selected revisions', async () => {
     const { testData } = getTestData();
     global.fetch = jest.fn(() =>
@@ -141,6 +143,27 @@ describe('Search View', () => {
     await user.click(addRevision);
     expect(
       screen.getByText('Revision coconut is already selected.'),
+    ).toBeInTheDocument();
+  });
+
+  it('should display edit button on Compare View', async () => {
+    const { testData } = getTestData();
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () => ({
+          results: testData,
+        }),
+      }),
+    ) as jest.Mock;
+
+    // start with one selected revision
+    const selectedRevisions = testData.slice(0, 1);
+    store.dispatch(setSelectedRevisions(selectedRevisions));
+
+    renderWithRouter(<CompareResultsView mode="light" />);
+
+    expect(
+      screen.getByRole('button', { name: 'edit-revision-1' }),
     ).toBeInTheDocument();
   });
 });

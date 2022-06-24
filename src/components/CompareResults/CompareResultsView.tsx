@@ -14,7 +14,9 @@ function CompareResultsView(props: CompareResultsViewProps) {
       <PerfCompareHeader />
       <Grid container>
         <Grid item xs={12}>
-          {revisions.length > 0 && <SelectedRevisionsTable />}
+          {revisions.length > 0 && (
+            <SelectedRevisionsTable view="compare-results" />
+          )}
         </Grid>
         <Grid item xs={12}>
           <CompareResultsTable mode={mode} />

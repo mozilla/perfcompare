@@ -38,7 +38,9 @@ function SearchView(props: SearchViewProps) {
       <SearchViewInit />
       <PerfCompareHeader />
       <Grid item xs={12}>
-        {selectedRevisions.length > 0 && <SelectedRevisionsTable />}
+        {selectedRevisions.length > 0 && (
+          <SelectedRevisionsTable view="search" />
+        )}
       </Grid>
       <Grid item className="compare-button-section">
         {selectedRevisions.length > 0 && (

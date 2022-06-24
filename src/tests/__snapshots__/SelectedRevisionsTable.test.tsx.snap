@@ -22,7 +22,7 @@ exports[`Search View should match snapshot 1`] = `
           class="MuiTableContainer-root layout css-rorn0c-MuiTableContainer-root"
         >
           <table
-            class="MuiTable-root css-rqglhn-MuiTable-root"
+            class="MuiTable-root search-selected-table css-rqglhn-MuiTable-root"
           >
             <thead
               class="MuiTableHead-root css-15wwp11-MuiTableHead-root"
