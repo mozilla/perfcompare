@@ -38,3 +38,14 @@ workflows:
   test:
     jobs:
       - test
+  nightly:
+    triggers:
+      - schedule:
+          cron: '0 0 * * *'
+          filters:
+            branches:
+              only:
+                - master
+                - staging
+    jobs:
+      - test 

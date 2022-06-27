@@ -2,6 +2,8 @@
 
 [![CircleCI](https://circleci.com/gh/mozilla/perfcompare/tree/master.svg?style=shield)](https://circleci.com/gh/mozilla/perfcompare/tree/master)
 [![codecov](https://codecov.io/gh/mozilla/perfcompare/branch/master/graph/badge.svg?token=XHP440JFDQ)](https://codecov.io/gh/mozilla/perfcompare)
+![GitHub issues](https://img.shields.io/github/issues/mozilla/perfcompare)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/mozilla/perfcompare)
 
 Performance Comparison Tool
 
@@ -12,8 +14,6 @@ Performance Comparison Tool
 ### Requirements
 
 - [nodejs](https://nodejs.org/en/download/)
-- [python](https://www.python.org/downloads/release/python-369/)
-- [pip](https://pip.pypa.io/en/stable/installation/)
 
 ### Installation
 
@@ -29,12 +29,24 @@ npm install
 npm run start-dev
 ```
 
-### Contributions
+### Contributing
 
-In order to contribute to PerfCompare we recommend the following workflow:
+We welcome contributions to our project.
 
-1. [Set an upstream remote](https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories/) that points to the Mozilla PerfCompare's Github [repository](https://github.com/mozilla/perfcompare.git), in addition to `origin` that points to your fork.
-2. You should then frequently use `git rebase upstream` rather than merging from your fork to keep your branch up to date. There are less conflicts this way and the git history is cleaner.
+If you find an issue that you'd like to work on that is not assigned to anyone, leave a comment on the issue and request that it be assigned to you.
+
+If you do not receive a response within 2-3 days, you can follow up in the #PerfCompare matrix channel.
+
+After addressing the issue, ensure both tests and linting pass before submitting a pull request.
+
+When submitting a pull request, please mention the issue number to link the pull request and issue to one another. You can do this by typing # following immediately by the issue number, i.e., `#123`
+
+Submit your pull request to the `staging` branch. `staging` is merged to master weekly on Monday.
+
+We recommend the following workflow to contribute to PerfCompare:
+
+1. [Set an upstream remote](https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories/) that points to the project [repository](https://github.com/mozilla/perfcompare.git), and an 'origin' remote that points to your fork.
+2. To keep your fork up-to-date, use `git rebase upstream` rather than merging. This causes fewer merge conflicts and keeps the git history cleaner.
 
 ```
 # Git commands for keeping your branch up to date with the lastest master
