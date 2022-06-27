@@ -47,3 +47,5 @@ workflows:
               only:
                 - master
                 - staging
+    jobs:
+      - test 
