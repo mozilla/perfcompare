@@ -1,7 +1,7 @@
 name: Pull Request Action
 on:
   schedule:
-    - cron: '0 23 * * 1'
+    - cron: '5 * * * *'
       
 jobs:
   create-pull-request:
