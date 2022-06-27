@@ -41,7 +41,7 @@ After addressing the issue, ensure both tests and linting pass before submitting
 
 When submitting a pull request, please mention the issue number to link the pull request and issue to one another. You can do this by typing # following immediately by the issue number, i.e., `#123`
 
-Submit your pull request to the `staging` branch. `staging` is merged to master weekly on Monday at 6 AM MST.
+Submit your pull request to the `staging` branch. `staging` is merged to master weekly on Monday.
 
 We recommend the following workflow to contribute to PerfCompare:
 
