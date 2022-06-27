@@ -4,7 +4,7 @@ on:
     branches:
       - staging
   schedule:
-    - cron: '0 23 * * 0'
+    - cron: '0 23 * * 1'
       
 jobs:
   create-pull-request:
