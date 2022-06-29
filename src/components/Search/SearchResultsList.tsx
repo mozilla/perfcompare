@@ -1,14 +1,12 @@
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
-import { connect } from 'react-redux';
 
-import useCheckRevision from '../../hooks/useCheckRevision';
-import type { Revision, State } from '../../types/state';
+import type { Revision } from '../../types/state';
 import SearchResultsListItem from './SearchResultsListItem';
 
 function SearchResultsList(props: SearchResultsListProps) {
-  const { searchResults } = props;
-  const { handleToggle } = useCheckRevision();
+  const { searchResults, view } = props;
+
   return (
     <Box
       id="search-results-list"
@@ -33,7 +31,7 @@ function SearchResultsList(props: SearchResultsListProps) {
             key={item.id}
             index={index}
             item={item}
-            handleToggle={handleToggle}
+            view={view}
           />
         ))}
       </List>
@@ -43,10 +41,7 @@ function SearchResultsList(props: SearchResultsListProps) {
 
 interface SearchResultsListProps {
   searchResults: Revision[];
+  view: 'search' | 'compare-results';
 }
 
-function mapStateToProps(state: State) {
-  return { searchResults: state.search.searchResults };
-}
-
-export default connect(mapStateToProps)(SearchResultsList);
+export default SearchResultsList;

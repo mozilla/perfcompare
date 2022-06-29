@@ -28,7 +28,7 @@ exports[`Search View render correctly when there are no results 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 spacer css-u78q51-MuiGrid-root"
         />
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 css-1o7apob-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 search css-1o7apob-MuiGrid-root"
         >
           <div
             class="MuiFormControl-root css-q8hpuo-MuiFormControl-root"
@@ -86,7 +86,7 @@ exports[`Search View render correctly when there are no results 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 css-uqwprf-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 search css-uqwprf-MuiGrid-root"
         >
           <div
             class="MuiFormControl-root MuiTextField-root css-136h9lv-MuiFormControl-root-MuiTextField-root"
@@ -126,7 +126,7 @@ exports[`Search View render correctly when there are no results 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-u78q51-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 search css-u78q51-MuiGrid-root"
         >
           <button
             aria-label="add revisions"
@@ -195,7 +195,7 @@ exports[`Search View should hide search results when clicking outside of search 
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 spacer css-u78q51-MuiGrid-root"
         />
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 css-1o7apob-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 search css-1o7apob-MuiGrid-root"
         >
           <div
             class="MuiFormControl-root css-q8hpuo-MuiFormControl-root"
@@ -253,7 +253,7 @@ exports[`Search View should hide search results when clicking outside of search 
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 css-uqwprf-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 search css-uqwprf-MuiGrid-root"
         >
           <div
             class="MuiFormControl-root MuiTextField-root css-136h9lv-MuiFormControl-root-MuiTextField-root"
@@ -293,7 +293,7 @@ exports[`Search View should hide search results when clicking outside of search 
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-u78q51-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 search css-u78q51-MuiGrid-root"
         >
           <button
             aria-label="add revisions"
@@ -362,7 +362,7 @@ exports[`Search View should not hide search results when clicking search results
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 spacer css-u78q51-MuiGrid-root"
         />
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 css-1o7apob-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 search css-1o7apob-MuiGrid-root"
         >
           <div
             class="MuiFormControl-root css-q8hpuo-MuiFormControl-root"
@@ -420,7 +420,7 @@ exports[`Search View should not hide search results when clicking search results
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 css-uqwprf-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 search css-uqwprf-MuiGrid-root"
         >
           <div
             class="MuiFormControl-root MuiTextField-root css-136h9lv-MuiFormControl-root-MuiTextField-root"
@@ -460,7 +460,7 @@ exports[`Search View should not hide search results when clicking search results
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-u78q51-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 search css-u78q51-MuiGrid-root"
         >
           <button
             aria-label="add revisions"
