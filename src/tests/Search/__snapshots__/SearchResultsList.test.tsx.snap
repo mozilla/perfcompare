@@ -25,7 +25,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
         class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-u78q51-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 spacer css-u78q51-MuiGrid-root"
         />
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 css-1o7apob-MuiGrid-root"
@@ -122,14 +122,16 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 </legend>
               </fieldset>
             </div>
+            
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-u78q51-MuiGrid-root"
         >
           <button
             aria-label="add revisions"
             class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root add-revision-button css-sghohy-MuiButtonBase-root-MuiButton-root"
+            id="add-revision-button"
             tabindex="0"
             type="button"
           >
@@ -154,16 +156,17 @@ exports[`SearchResultsList should match snapshot 1`] = `
         class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-u78q51-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 spacer css-u78q51-MuiGrid-root"
         />
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 css-17p3wh3-MuiGrid-root"
         >
           <div
             class="MuiBox-root css-l1oafp"
+            id="search-results-list"
           >
             <ul
-              class="MuiList-root MuiList-padding search-revision-list css-h4y409-MuiList-root"
+              class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
             >
               <div
                 class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root"

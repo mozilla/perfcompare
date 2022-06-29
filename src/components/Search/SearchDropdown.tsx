@@ -1,5 +1,4 @@
 import FormControl from '@mui/material/FormControl';
-import Grid from '@mui/material/Grid';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
@@ -14,27 +13,21 @@ function SearchDropdown(props: SearchDropdownProps) {
   const { handleChangeDropdown } = useHandleChangeDropdown();
 
   return (
-    <Grid item xs={2}>
-      <FormControl sx={{ width: '100%' }}>
-        <InputLabel id="select-repository">repository</InputLabel>
-        <Select
-          value={repository}
-          labelId="select-repository"
-          label="repository"
-        >
-          {Object.keys(repoMap).map((key) => (
-            <MenuItem
-              id={repoMap[key]}
-              value={repoMap[key]}
-              key={repoMap[key]}
-              onClick={(e) => handleChangeDropdown(e)}
-            >
-              {repoMap[key]}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-    </Grid>
+    <FormControl sx={{ width: '100%' }}>
+      <InputLabel id="select-repository">repository</InputLabel>
+      <Select value={repository} labelId="select-repository" label="repository">
+        {Object.keys(repoMap).map((key) => (
+          <MenuItem
+            id={repoMap[key]}
+            value={repoMap[key]}
+            key={repoMap[key]}
+            onClick={(e) => handleChangeDropdown(e)}
+          >
+            {repoMap[key]}
+          </MenuItem>
+        ))}
+      </Select>
+    </FormControl>
   );
 }
 

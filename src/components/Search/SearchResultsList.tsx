@@ -11,6 +11,7 @@ function SearchResultsList(props: SearchResultsListProps) {
   const { handleToggle } = useCheckRevision();
   return (
     <Box
+      id="search-results-list"
       sx={{
         maxWidth: '100%',
         bgcolor: 'background.paper',
@@ -26,7 +27,7 @@ function SearchResultsList(props: SearchResultsListProps) {
       }}
       alignItems="flex-end"
     >
-      <List className="search-revision-list">
+      <List>
         {searchResults.map((item, index) => (
           <SearchResultsListItem
             key={item.id}
