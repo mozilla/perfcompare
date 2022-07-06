@@ -149,10 +149,25 @@ const components = {
     styleOverrides: {
       root: {
         '&.edit-revision-popover': {
+          '& .MuiTableCell-root': {
+            padding: '2px 0 2px 0',
+          },
+          '& .revision-hash': {
+            width: '30px!important',
+          },
           '& .MuiPaper-root': {
             width: '100%',
             maxWidth: '1152px',
-            paddingTop: '6px',
+            padding: '10px',
+            borderRadius: '5px',
+          },
+          '& .edit-revision-button': {
+            padding: '0',
+            minWidth: '50%',
+            '& .MuiSvgIcon-root': {
+              width: '2.5rem',
+              height: '2.5rem',
+            },
           },
         },
       },

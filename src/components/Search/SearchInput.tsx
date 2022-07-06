@@ -7,7 +7,7 @@ import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
 import { State } from '../../types/state';
 
 function SearchInput(props: SearchInputProps) {
-  const { setFocused, inputError, inputHelperText } = props;
+  const { setFocused, inputError, inputHelperText, size } = props;
   const { handleChangeSearch } = useHandleChangeSearch();
   return (
     <TextField
@@ -18,6 +18,7 @@ function SearchInput(props: SearchInputProps) {
       onFocus={() => setFocused(true)}
       variant="outlined"
       sx={{ width: '100%' }}
+      size={size}
       onChange={(e) => handleChangeSearch(e)}
     />
   );
@@ -27,6 +28,7 @@ interface SearchInputProps {
   setFocused: Dispatch<SetStateAction<boolean>>;
   inputError: boolean;
   inputHelperText: string;
+  size?: 'small' | 'medium' | undefined;
 }
 
 function mapStateToProps(state: State) {

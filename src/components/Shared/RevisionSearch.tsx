@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
@@ -89,18 +89,17 @@ function RevisionSearch(props: RevisionSearchProps) {
         <>
           <Grid container>
             <Grid item xs={2} className={view}>
-              <SearchDropdown />
+              <SearchDropdown size="small" />
             </Grid>
-
             <Grid item xs={9} className="compare-results">
-              <SearchInput setFocused={setFocused} />
+              <SearchInput setFocused={setFocused} size="small" />
             </Grid>
             <Grid item xs={1} className={view}>
               {/* TODO: add functionality for buttons and improve styling */}
-              <Button sx={{ padding: 'none' }}>
-                <CheckBoxIcon />
+              <Button className="edit-revision-button">
+                <CheckIcon />
               </Button>
-              <Button sx={{ padding: 'none' }}>
+              <Button className="edit-revision-button">
                 <CloseIcon />
               </Button>
             </Grid>

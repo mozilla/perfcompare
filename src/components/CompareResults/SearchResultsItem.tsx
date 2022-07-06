@@ -21,16 +21,17 @@ export default function SearchResultsItem(props: SearchResultsItemProps) {
       <Table>
         <TableBody>
           <TableRow>
-            <TableCell sx={{ border: 'none', width: '20px' }} align="left">
+            <TableCell
+              className="revision-hash"
+              // sx={{ border: 'none', width: '30px', minWidth: '30px' }}
+              align="left"
+            >
               {revisionHash}
             </TableCell>
-            <TableCell sx={{ border: 'none' }} align="left">
-              {commitMessage.slice(0, 60)}
-            </TableCell>
-            <TableCell sx={{ border: 'none' }} align="right">
-              {item.author}{' '}
-            </TableCell>
-            <TableCell sx={{ border: 'none', width: '140px' }} align="right">
+            <TableCell align="left">{commitMessage.slice(0, 60)}</TableCell>
+            <TableCell align="right">{item.author} </TableCell>
+            <TableCell align="right">
+              {/* <TableCell sx={{ border: 'none', width: '140px' }} align="right"> */}
               {formatDate(item.push_timestamp)}
             </TableCell>
           </TableRow>
