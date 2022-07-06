@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 import useFocusInput from '../../hooks/useFocusInput';
 import { Revision, State } from '../../types/state';
+import { truncateHash } from '../../utils/helpers';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
 import SelectedRevisionsTable from '../Shared/SelectedRevisionsTable';
 import AddRevisionButton from './AddRevisionButton';
@@ -22,8 +23,14 @@ function SearchView(props: SearchViewProps) {
     useFocusInput();
 
   const navigate = useNavigate();
-  const goToCompareResultsPage = () => {
-    navigate('/compare-results', { replace: false });
+
+  const goToCompareResultsPage = (selectedRevisions: Revision[]) => {
+    const revisions = selectedRevisions.map(rev => truncateHash(rev.revision));
+    const repos = selectedRevisions.map(rev => rev.repository_id);
+    navigate({
+      pathname: '/compare-results', 
+      search: `?revs=${revisions.join(',')}&repos=${repos.join(',')}`,
+    });
   };
 
   const { searchResults, selectedRevisions } = props;
@@ -47,7 +54,7 @@ function SearchView(props: SearchViewProps) {
           <Button
             className="compare-button"
             variant="contained"
-            onClick={goToCompareResultsPage}
+            onClick={() => goToCompareResultsPage(selectedRevisions)}
           >
             compare
             <ArrowForward className="compare-icon" />
