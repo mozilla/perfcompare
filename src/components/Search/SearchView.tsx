@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-
 import { ArrowForward } from '@mui/icons-material';
 import { Button } from '@mui/material';
 import Container from '@mui/material/Container';
@@ -7,21 +5,14 @@ import Grid from '@mui/material/Grid';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import useFocusInput from '../../hooks/useFocusInput';
 import { Revision, State } from '../../types/state';
 import { truncateHash } from '../../utils/helpers';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
+import RevisionSearch from '../Shared/RevisionSearch';
 import SelectedRevisionsTable from '../Shared/SelectedRevisionsTable';
-import AddRevisionButton from './AddRevisionButton';
-import SearchDropdown from './SearchDropdown';
-import SearchInput from './SearchInput';
-import SearchResultsList from './SearchResultsList';
 import SearchViewInit from './SearchViewInit';
 
 function SearchView(props: SearchViewProps) {
-  const { focused, handleParentClick, handleFocus, handleEscKey } =
-    useFocusInput();
-
   const navigate = useNavigate();
 
   const goToCompareResultsPage = (selectedRevisions: Revision[]) => {
@@ -33,14 +24,10 @@ function SearchView(props: SearchViewProps) {
     });
   };
 
-  const { searchResults, selectedRevisions } = props;
-
-  useEffect(() => {
-    document.addEventListener('keydown', handleEscKey);
-  });
+  const { selectedRevisions } = props;
 
   return (
-    <Container maxWidth="lg" onClick={handleParentClick}>
+    <Container maxWidth="lg">
       {/* Component to fetch recent revisions on mount */}
       <SearchViewInit />
       <PerfCompareHeader />
@@ -61,19 +48,7 @@ function SearchView(props: SearchViewProps) {
           </Button>
         )}
       </Grid>
-      <Grid container>
-        <Grid item xs={1} />
-        <SearchDropdown />
-        <SearchInput handleFocus={handleFocus} />
-        {/* TODO: add behavior for Add Revision button */}
-        <AddRevisionButton />
-      </Grid>
-      <Grid container>
-        <Grid item xs={1} />
-        <Grid item xs={10}>
-          {searchResults.length > 0 && focused && <SearchResultsList />}
-        </Grid>
-      </Grid>
+      <RevisionSearch view="search" />
     </Container>
   );
 }

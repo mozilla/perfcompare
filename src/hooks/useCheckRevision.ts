@@ -6,11 +6,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { maxRevisionsError } from '../common/constants';
 import type { RootState } from '../common/store';
 import { setCheckedRevisions } from '../reducers/CheckedRevisions';
-import useFocusInput from './useFocusInput';
 
 const useCheckRevision = () => {
   const { enqueueSnackbar } = useSnackbar();
-  const { handleChildClick } = useFocusInput();
   const dispatch = useDispatch();
 
   const checkedRevisions: number[] = useSelector(
@@ -33,7 +31,6 @@ const useCheckRevision = () => {
       const variant: VariantType = 'warning';
       enqueueSnackbar(maxRevisionsError, { variant });
     }
-    handleChildClick(e);
 
     dispatch(setCheckedRevisions(newChecked));
   };
