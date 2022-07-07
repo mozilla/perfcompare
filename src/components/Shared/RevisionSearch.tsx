@@ -20,11 +20,16 @@ function RevisionSearch(props: RevisionSearchProps) {
       (e.target as HTMLElement).matches(
         `#search-revision-input, 
           #search-results-list, 
-          #search-results-list *,
-          #add-revision-button`,
+          #search-results-list *`,
       )
     ) {
       setFocused(true);
+    } else if (
+      (e.target as HTMLElement).matches(
+        '#add-revision-button,#add-revision-button *',
+      )
+    ) {
+      return;
     } else {
       setFocused(false);
       dispatch(clearCheckedRevisions());
