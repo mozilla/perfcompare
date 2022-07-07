@@ -5,14 +5,14 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { maxRevisionsError } from '../common/constants';
 import type { RootState } from '../common/store';
-import { setCheckedRevisions } from '../reducers/CheckedRevisions';
+import { setCheckedRevisions } from '../reducers/RevisionSlice';
 
 const useCheckRevision = () => {
   const { enqueueSnackbar } = useSnackbar();
   const dispatch = useDispatch();
 
   const checkedRevisions: number[] = useSelector(
-    (state: RootState) => state.checkedRevisions.revisions,
+    (state: RootState) => state.revisions.checkedRevisions,
   );
 
   const handleToggle = (e: React.MouseEvent) => {

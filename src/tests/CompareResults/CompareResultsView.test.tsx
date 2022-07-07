@@ -1,5 +1,5 @@
 import CompareResultsView from '../../components/CompareResults/CompareResultsView';
-import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
+import { setSelectedRevisions } from '../../reducers/RevisionSlice';
 import getTestData from '../utils/fixtures';
 import { render, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';

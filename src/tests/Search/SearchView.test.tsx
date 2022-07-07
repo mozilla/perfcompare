@@ -1,7 +1,7 @@
 import userEvent from '@testing-library/user-event';
 
 import SearchView from '../../components/Search/SearchView';
-import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
+import { setSelectedRevisions } from '../../reducers/RevisionSlice';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
@@ -229,6 +229,5 @@ describe('Search View', () => {
 
     expect(history.location.pathname).toEqual('/compare-results');
     expect(history.location.search).toEqual('?revs=coconut,spam&repos=4,1');
-
   });
 });

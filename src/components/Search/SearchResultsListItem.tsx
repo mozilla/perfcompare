@@ -12,7 +12,7 @@ import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
 function SearchResultsListItem(props: SearchResultsListItemProps) {
   const { index, item, handleToggle } = props;
   const isChecked: boolean = useSelector((state: RootState) =>
-    state.checkedRevisions.revisions.includes(index),
+    state.revisions.checkedRevisions.includes(index),
   );
   const indexString = index.toString();
 

@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { maxRevisionsError } from '../common/constants';
 import type { RootState } from '../common/store';
-import { clearCheckedRevisions } from '../reducers/CheckedRevisions';
-import { setSelectedRevisions } from '../reducers/SelectedRevisions';
+import { setSelectedRevisions } from '../reducers/RevisionSlice';
 import { truncateHash } from '../utils/helpers';
 
 const useSelectRevision = () => {
@@ -15,13 +14,8 @@ const useSelectRevision = () => {
     (state: RootState) => state.search.searchResults,
   );
 
-  const checkedRevisions = useSelector(
-    (state: RootState) => state.checkedRevisions.revisions,
-  );
-
-  const selectedRevisions = useSelector(
-    (state: RootState) => state.selectedRevisions.revisions,
-  );
+  const revisions = useSelector((state: RootState) => state.revisions);
+  const { checkedRevisions, selectedRevisions } = revisions;
 
   const addSelectedRevisions = () => {
     const newSelected = [...selectedRevisions];
@@ -51,7 +45,6 @@ const useSelectRevision = () => {
       return true;
     });
     dispatch(setSelectedRevisions(newSelected));
-    dispatch(clearCheckedRevisions());
   };
 
   return { addSelectedRevisions };

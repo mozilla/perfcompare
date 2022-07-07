@@ -79,7 +79,7 @@ describe('SearchResultsList', () => {
     );
 
     await user.click(fleshWound);
-    expect(store.getState().checkedRevisions.revisions[0]).toBe(1);
+    expect(store.getState().revisions.checkedRevisions[0]).toBe(1);
     await user.click(fleshWound);
     expect(
       screen.getByTestId('checkbox-1').classList.contains('Mui-checked'),

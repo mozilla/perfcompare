@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import Grid from '@mui/material/Grid';
 import { connect, useDispatch } from 'react-redux';
 
-import { clearCheckedRevisions } from '../../reducers/CheckedRevisions';
+import { clearCheckedRevisions } from '../../reducers/RevisionSlice';
 import type { Revision, State } from '../../types/state';
 import AddRevisionButton from '../Search/AddRevisionButton';
 import SearchDropdown from '../Search/SearchDropdown';

@@ -5,8 +5,8 @@ import SearchDropdown from '../../components/Search/SearchDropdown';
 import SearchResultsList from '../../components/Search/SearchResultsList';
 import SearchView from '../../components/Search/SearchView';
 import SelectedRevisionsTable from '../../components/Shared/SelectedRevisionsTable';
+import { setSelectedRevisions } from '../../reducers/RevisionSlice';
 import { updateSearchResults } from '../../reducers/SearchSlice';
-import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 
