@@ -394,7 +394,7 @@ exports[`Search View should match snapshot 1`] = `
         class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-u78q51-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 spacer css-u78q51-MuiGrid-root"
         />
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 css-1o7apob-MuiGrid-root"
@@ -491,14 +491,16 @@ exports[`Search View should match snapshot 1`] = `
                 </legend>
               </fieldset>
             </div>
+            
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-u78q51-MuiGrid-root"
         >
           <button
             aria-label="add revisions"
             class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root add-revision-button css-sghohy-MuiButtonBase-root-MuiButton-root"
+            id="add-revision-button"
             tabindex="0"
             type="button"
           >
@@ -523,7 +525,7 @@ exports[`Search View should match snapshot 1`] = `
         class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-u78q51-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 spacer css-u78q51-MuiGrid-root"
         />
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 css-17p3wh3-MuiGrid-root"

@@ -216,7 +216,7 @@ describe('Search View', () => {
     );
   });
 
-  it('should have compare button and once clicked should redirect to results page', async () => {
+  it('should have compare button and once clicked should redirect to results page with the right query params', async () => {
     const { testData } = getTestData();
     store.dispatch(setSelectedRevisions(testData.slice(0, 2)));
     const { history } = renderWithRouter(<SearchView />);
@@ -228,5 +228,7 @@ describe('Search View', () => {
     await user.click(compareButton as HTMLElement);
 
     expect(history.location.pathname).toEqual('/compare-results');
+    expect(history.location.search).toEqual('?revs=coconut,spam&repos=4,1');
+
   });
 });
