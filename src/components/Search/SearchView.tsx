@@ -16,10 +16,12 @@ function SearchView(props: SearchViewProps) {
   const navigate = useNavigate();
 
   const goToCompareResultsPage = (selectedRevisions: Revision[]) => {
-    const revisions = selectedRevisions.map(rev => truncateHash(rev.revision));
-    const repos = selectedRevisions.map(rev => rev.repository_id);
+    const revisions = selectedRevisions.map((rev) =>
+      truncateHash(rev.revision),
+    );
+    const repos = selectedRevisions.map((rev) => rev.repository_id);
     navigate({
-      pathname: '/compare-results', 
+      pathname: '/compare-results',
       search: `?revs=${revisions.join(',')}&repos=${repos.join(',')}`,
     });
   };
@@ -48,7 +50,7 @@ function SearchView(props: SearchViewProps) {
           </Button>
         )}
       </Grid>
-      <RevisionSearch view="search" />
+      <RevisionSearch view="search" inputWidth={7} resultsWidth={10} />
     </Container>
   );
 }
