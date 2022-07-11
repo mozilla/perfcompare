@@ -29,9 +29,10 @@ describe('Accessibility', () => {
 
   it('SearchResultsList should have no violations', async () => {
     const { testData } = getTestData();
-    store.dispatch(updateSearchResults(testData));
 
-    const { container } = renderWithRouter(<SearchResultsList />);
+    const { container } = renderWithRouter(
+      <SearchResultsList view="search" searchResults={testData} />,
+    );
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });

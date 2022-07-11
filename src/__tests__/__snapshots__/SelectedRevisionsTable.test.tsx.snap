@@ -75,6 +75,7 @@ exports[`Search View should match snapshot 1`] = `
             >
               <tr
                 class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                id="coconut"
               >
                 <td
                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
@@ -147,6 +148,7 @@ exports[`Search View should match snapshot 1`] = `
               </tr>
               <tr
                 class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                id="spam"
               >
                 <td
                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
@@ -219,6 +221,7 @@ exports[`Search View should match snapshot 1`] = `
               </tr>
               <tr
                 class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                id="spamspam"
               >
                 <td
                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
@@ -291,6 +294,7 @@ exports[`Search View should match snapshot 1`] = `
               </tr>
               <tr
                 class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                id="spamspamspamandeggs"
               >
                 <td
                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
@@ -391,7 +395,7 @@ exports[`Search View should match snapshot 1`] = `
         </button>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container search css-11lq3yg-MuiGrid-root"
       >
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 spacer css-u78q51-MuiGrid-root"

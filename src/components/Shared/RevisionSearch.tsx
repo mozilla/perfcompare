@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
 
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import CloseIcon from '@mui/icons-material/Close';
+import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import { connect, useDispatch } from 'react-redux';
 
@@ -12,7 +15,7 @@ import SearchResultsList from '../Search/SearchResultsList';
 
 function RevisionSearch(props: RevisionSearchProps) {
   const [focused, setFocused] = useState(false);
-  const { searchResults, view } = props;
+  const { inputWidth, resultsWidth, searchResults, view } = props;
   const dispatch = useDispatch();
 
   const handleFocus = (e: MouseEvent) => {
@@ -59,22 +62,36 @@ function RevisionSearch(props: RevisionSearchProps) {
 
   return (
     <>
-      <Grid container>
+      <Grid container className={view}>
         {view == 'search' && <Grid item xs={1} className="spacer" />}
         <Grid item xs={2}>
           <SearchDropdown />
         </Grid>
-        <Grid item xs={7}>
+        <Grid item xs={inputWidth}>
           <SearchInput setFocused={setFocused} />
         </Grid>
+
         <Grid item xs={1}>
-          <AddRevisionButton setFocused={setFocused} />
+          {view == 'search' && <AddRevisionButton setFocused={setFocused} />}
+          {view == 'compare-results' && (
+            <>
+              {/* TODO: add functionality for buttons and improve styling */}
+              <Button sx={{ padding: 'none' }}>
+                <CheckBoxIcon />
+              </Button>
+              <Button sx={{ padding: 'none' }}>
+                <CloseIcon />
+              </Button>
+            </>
+          )}
         </Grid>
       </Grid>
       <Grid container>
         {view == 'search' && <Grid item xs={1} className="spacer" />}
-        <Grid item xs={10}>
-          {searchResults.length > 0 && focused && <SearchResultsList />}
+        <Grid item xs={resultsWidth}>
+          {searchResults.length > 0 && focused && (
+            <SearchResultsList view={view} searchResults={searchResults} />
+          )}
         </Grid>
       </Grid>
     </>
@@ -82,6 +99,8 @@ function RevisionSearch(props: RevisionSearchProps) {
 }
 
 interface RevisionSearchProps {
+  inputWidth: number;
+  resultsWidth: number;
   searchResults: Revision[];
   view: 'compare-results' | 'search';
 }
