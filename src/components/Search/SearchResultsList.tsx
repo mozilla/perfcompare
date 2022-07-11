@@ -36,6 +36,7 @@ function SearchResultsList(props: SearchResultsListProps) {
 
 interface SearchResultsListProps {
   searchResults: Revision[];
+  view: 'search' | 'compare-results';
 }
 
 export default SearchResultsList;
