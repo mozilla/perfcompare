@@ -1,0 +1,20 @@
+name: Pull Request Action
+on:
+  schedule:
+    - cron: '0 23 * * 0'
+jobs:
+  pull-request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+      - uses: actions/checkout@v3
+      - name: pull-request
+        uses: repo-sync/pull-request@v2
+        with:
+          pr_title: 'Weekly release ${{ steps.date.outputs.date }}'
+          pr_milestone: 'Alpha'
+          source_branch: 'staging'
+          destination_branch: 'master'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
