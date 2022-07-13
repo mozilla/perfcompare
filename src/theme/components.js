@@ -73,6 +73,9 @@ const components = {
         '&.background-icon.dark-mode': {
           filter: 'invert(100%)',
         },
+        '.graph-icon-color': {
+          color: 'inherit',
+        },
         '&.high': {
           backgroundImage: `url(${high})`,
         },

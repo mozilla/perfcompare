@@ -7,6 +7,7 @@ export type SelectedRevisionsTableHeaders =
 
 export type CompareResultsTableHeaders =
   | 'Platform'
+  | 'Graph'
   | 'Suite'
   | 'Test Name'
   | 'Base'
