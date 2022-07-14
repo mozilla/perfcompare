@@ -100,6 +100,9 @@ const components = {
           color: 'inherit',
           borderBottom: '1px dotted black',
         },
+        '.graph-icon-color': {
+          color: 'inherit',
+        },
         '&.background-icon': {
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
