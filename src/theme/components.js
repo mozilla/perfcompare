@@ -65,6 +65,9 @@ const components = {
           whiteSpace: 'nowrap',
           width: '400px',
         },
+        '.graph-icon-color': {
+          color: 'inherit',
+        },
         '&.background-icon': {
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
