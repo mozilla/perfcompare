@@ -7,9 +7,9 @@ import Link from '@mui/material/Link';
 import Popover from '@mui/material/Popover';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
-import { useDispatch } from 'react-redux';
 
 import { repoMap } from '../../common/constants';
+import { useAppDispatch } from '../../hooks/app';
 import { deleteRevision } from '../../reducers/SelectedRevisions';
 import { Repository, Revision } from '../../types/state';
 import {
@@ -23,8 +23,7 @@ import RevisionSearch from './RevisionSearch';
 function SelectedRevisionsTableRow(props: SelectedRevisionsRowProps) {
   const { row, index, view } = props;
   const [isOpen, setIsOpen] = useState(false);
-  const dispatch = useDispatch();
-
+  const dispatch = useAppDispatch();
   const commitMessage = getLatestCommitMessage(row);
   const date = formatDate(row.push_timestamp);
   const hash = truncateHash(row.revision);
