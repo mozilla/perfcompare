@@ -1,4 +1,5 @@
 import userEvent from '@testing-library/user-event';
+import { act } from 'react-dom/test-utils';
 
 import CompareResultsView from '../components/CompareResults/CompareResultsView';
 import SearchView from '../components/Search/SearchView';
@@ -23,6 +24,9 @@ describe('Search View', () => {
     store.dispatch(setSelectedRevisions(selectedRevisions));
 
     renderWithRouter(<SearchView />);
+    await act(async () => {
+      jest.runOnlyPendingTimers();
+    });
 
     expect(document.body).toMatchSnapshot();
   });

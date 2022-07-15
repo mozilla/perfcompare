@@ -1,4 +1,5 @@
 import userEvent from '@testing-library/user-event';
+import { act } from 'react-dom/test-utils';
 
 import SearchView from '../../components/Search/SearchView';
 import getTestData from '../utils/fixtures';
@@ -20,17 +21,24 @@ describe('SearchView/fetchRevisionByID', () => {
     const user = userEvent.setup({ delay: null });
 
     renderWithRouter(<SearchView />);
+    await act(async () => {
+      jest.runOnlyPendingTimers();
+    });
 
     await screen.findByRole('button', { name: 'repository' });
     expect(screen.getByText('try')).toBeInTheDocument();
 
     const searchInput = screen.getByRole('textbox');
     await user.type(searchInput, 'abcdef123456');
-    jest.runOnlyPendingTimers();
+    await act(async () => {
+      jest.runOnlyPendingTimers();
+    });
 
     await user.clear(searchInput);
     await user.type(searchInput, 'abcdef1234567890abcdef1234567890abcdef12');
-    jest.runOnlyPendingTimers();
+    await act(async () => {
+      jest.runOnlyPendingTimers();
+    });
 
     expect(spyOnFetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?revision=abcdef123456',

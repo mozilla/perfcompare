@@ -95,7 +95,7 @@ exports[`Search View should match snapshot 1`] = `
                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1iwtne7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1ps4owl-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
                   >
                     coconut
@@ -168,7 +168,7 @@ exports[`Search View should match snapshot 1`] = `
                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1iwtne7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1ps4owl-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
                   >
                     spam
@@ -241,7 +241,7 @@ exports[`Search View should match snapshot 1`] = `
                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1iwtne7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1ps4owl-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=try&revision=spamspam"
                   >
                     spamspam
@@ -314,7 +314,7 @@ exports[`Search View should match snapshot 1`] = `
                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1iwtne7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1ps4owl-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=autoland&revision=spamspamspamandeggs"
                   >
                     spamspamspam
@@ -495,7 +495,6 @@ exports[`Search View should match snapshot 1`] = `
                 </legend>
               </fieldset>
             </div>
-            
           </div>
         </div>
         <div
