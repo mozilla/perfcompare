@@ -93,7 +93,8 @@
     "globalSetup": "<rootDir>/src/__tests__/utils/globalSetup.ts",
     "preset": "ts-jest",
     "setupFilesAfterEnv": [
-      "<rootDir>/src/__tests__/utils/setupTests.ts"
+      "<rootDir>/src/__tests__/utils/setupTests.ts",
+      "<rootDir>/src/__tests__/utils/jest.setup.js"
     ],
     "testEnvironment": "jsdom",
     "modulePathIgnorePatterns": [
