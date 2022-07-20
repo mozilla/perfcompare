@@ -23,6 +23,7 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
         <Link
           href={'#'}
           className={`background-icon ${mode}-mode graph-icon-color`}
+          aria-label="Graph link"
         >
           <ShowChartIcon />
         </Link>
