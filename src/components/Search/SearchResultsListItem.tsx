@@ -11,7 +11,7 @@ import type { Revision } from '../../types/state';
 import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
 
 function SearchResultsListItem(props: SearchResultsListItemProps) {
-  const { index, item, view } = props;
+  const { index, item } = props;
   const isChecked: boolean = useSelector((state: RootState) =>
     state.checkedRevisions.revisions.includes(index),
   );
@@ -27,25 +27,22 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
       <ListItemButton
         key={item.id}
         id={indexString}
-        // TODO: add onClick functionality for Results View
         onClick={(e) => handleToggle(e)}
       >
         <ListItem
           className="search-revision-item search-revision"
           disablePadding
         >
-          {view == 'search' && (
-            <ListItemIcon className="search-revision-item-icon search-revision">
-              <Checkbox
-                className="search-revision-item-checkbox search-revision"
-                edge="start"
-                tabIndex={-1}
-                disableRipple
-                data-testid={`checkbox-${indexString}`}
-                checked={isChecked}
-              />
-            </ListItemIcon>
-          )}
+          <ListItemIcon className="search-revision-item-icon search-revision">
+            <Checkbox
+              className="search-revision-item-checkbox search-revision"
+              edge="start"
+              tabIndex={-1}
+              disableRipple
+              data-testid={`checkbox-${indexString}`}
+              checked={isChecked}
+            />
+          </ListItemIcon>
           <ListItemText
             className="search-revision-item-text search-revision"
             primary={`${revisionHash} - ${commitMessage} `}
@@ -64,7 +61,6 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
 interface SearchResultsListItemProps {
   index: number;
   item: Revision;
-  view: 'search' | 'compare-results';
 }
 
 export default SearchResultsListItem;

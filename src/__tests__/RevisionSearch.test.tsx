@@ -14,22 +14,13 @@ describe('RevisionSearch', () => {
 
     store.dispatch(updateSearchResults(testData));
 
-    render(
-      <RevisionSearch
-        inputWidth={9}
-        resultsWidth={12}
-        view="compare-results"
-      />,
-    );
+    render(<RevisionSearch inputWidth={9} view="compare-results" />);
 
     const input = screen.getByRole('textbox', {
       name: 'Search By Revision ID or Author Email',
     });
     await user.click(input);
     jest.runOnlyPendingTimers();
-
-    expect(
-      screen.getByText('spamspam - What, ridden on a horse?'),
-    ).toBeInTheDocument();
+    expect(screen.getByText('It got better...')).toBeInTheDocument();
   });
 });
