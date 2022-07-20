@@ -1,4 +1,5 @@
 import type {
+  ActiveFilters,
   ConfidenceText,
   Framework,
   MeasurementUnit,
@@ -58,6 +59,10 @@ export type CompareResultsItem = {
   is_regression: boolean;
   is_meaningful: boolean;
   test: string;
+};
+
+export type FilterOptionsListState = {
+  activeFilters: ActiveFilters,
 };
 
 export type SearchState = {

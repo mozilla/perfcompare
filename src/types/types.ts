@@ -5,7 +5,12 @@ export type SelectedRevisionsTableHeaders =
   | 'Commit Message'
   | 'Timestamp';
 
-export type CompareResultsTableHeaders =
+export type Header = {
+    title: CompareResultsTableHeader;
+    key: string;
+  };
+
+export type CompareResultsTableHeader =
   | 'Platform'
   | 'Graph'
   | 'Suite'
@@ -17,6 +22,8 @@ export type CompareResultsTableHeaders =
   | 'Total Runs';
 
 export type ConfidenceText = 'high' | 'med' | 'low';
+
+export type ConfidenceValue = 'Low' | 'Medium' | 'High';
 
 export type MeasurementUnit =
   | 'W'
@@ -41,6 +48,18 @@ export type Framework =
   | { id: 13; name: 'browsertime' }
   | { id: 15; name: 'mozperftest' }
   | { id: 16; name: 'fxrecord' };
+
+export type FilterValue = {
+  name: string,
+  value: string,
+};
+
+export type ActiveFilters = {
+  platform: string[],
+  suite: string[],
+  test: string[],
+  confidence: string[],
+};
 
 export type Platform =
   | 'linux32'
