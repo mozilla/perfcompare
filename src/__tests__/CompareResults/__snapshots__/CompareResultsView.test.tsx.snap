@@ -108,6 +108,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     <a
+                      aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1iwtne7-MuiTypography-root-MuiLink-root"
                       href="#"
                     >
@@ -173,6 +174,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     <a
+                      aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1iwtne7-MuiTypography-root-MuiLink-root"
                       href="#"
                     >
@@ -238,6 +240,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     <a
+                      aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1iwtne7-MuiTypography-root-MuiLink-root"
                       href="#"
                     >
@@ -303,6 +306,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     <a
+                      aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1iwtne7-MuiTypography-root-MuiLink-root"
                       href="#"
                     >
@@ -368,6 +372,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     <a
+                      aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1iwtne7-MuiTypography-root-MuiLink-root"
                       href="#"
                     >
@@ -433,6 +438,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     <a
+                      aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1iwtne7-MuiTypography-root-MuiLink-root"
                       href="#"
                     >
@@ -498,6 +504,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     <a
+                      aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1iwtne7-MuiTypography-root-MuiLink-root"
                       href="#"
                     >
@@ -563,6 +570,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     <a
+                      aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1iwtne7-MuiTypography-root-MuiLink-root"
                       href="#"
                     >
@@ -628,6 +636,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     <a
+                      aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1iwtne7-MuiTypography-root-MuiLink-root"
                       href="#"
                     >
@@ -693,6 +702,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     <a
+                      aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1iwtne7-MuiTypography-root-MuiLink-root"
                       href="#"
                     >
@@ -758,6 +768,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     <a
+                      aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1iwtne7-MuiTypography-root-MuiLink-root"
                       href="#"
                     >
@@ -823,6 +834,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     <a
+                      aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1iwtne7-MuiTypography-root-MuiLink-root"
                       href="#"
                     >
@@ -888,6 +900,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     <a
+                      aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1iwtne7-MuiTypography-root-MuiLink-root"
                       href="#"
                     >
@@ -953,6 +966,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     <a
+                      aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1iwtne7-MuiTypography-root-MuiLink-root"
                       href="#"
                     >
@@ -1018,6 +1032,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     <a
+                      aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1iwtne7-MuiTypography-root-MuiLink-root"
                       href="#"
                     >
@@ -1083,6 +1098,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     <a
+                      aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1iwtne7-MuiTypography-root-MuiLink-root"
                       href="#"
                     >
@@ -1148,6 +1164,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     <a
+                      aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1iwtne7-MuiTypography-root-MuiLink-root"
                       href="#"
                     >
@@ -1213,6 +1230,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     <a
+                      aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1iwtne7-MuiTypography-root-MuiLink-root"
                       href="#"
                     >
@@ -1278,6 +1296,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     <a
+                      aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1iwtne7-MuiTypography-root-MuiLink-root"
                       href="#"
                     >
