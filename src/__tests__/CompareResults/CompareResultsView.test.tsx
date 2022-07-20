@@ -1,7 +1,6 @@
 import userEvent from '@testing-library/user-event';
 
 import CompareResultsView from '../../components/CompareResults/CompareResultsView';
-import RevisionSearch from '../../components/Shared/RevisionSearch';
 import SelectedRevisionsTable from '../../components/Shared/SelectedRevisionsTable';
 import { updateSearchResults } from '../../reducers/SearchSlice';
 import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
@@ -54,33 +53,6 @@ describe('CompareResults View', () => {
   });
 });
 
-describe('RevisionSearch', () => {
-  it('should display SearchResultsItem when focusing input', async () => {
-    const { testData } = getTestData();
-    // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
-
-    store.dispatch(updateSearchResults(testData));
-
-    render(
-      <RevisionSearch
-        inputWidth={9}
-        resultsWidth={12}
-        view="compare-results"
-      />,
-    );
-
-    const input = screen.getByRole('textbox', {
-      name: 'Search By Revision ID or Author Email',
-    });
-    await user.click(input);
-    jest.runOnlyPendingTimers();
-    expect(
-      screen.getByText('spamspam - What, ridden on a horse?'),
-    ).toBeInTheDocument();
-  });
-});
-
 describe('SelectedRevisionsTableRow', () => {
   it('should close popover on close', async () => {
     const { testData } = getTestData();
@@ -102,15 +74,11 @@ describe('SelectedRevisionsTableRow', () => {
     await user.click(input);
     jest.runOnlyPendingTimers();
 
-    expect(
-      screen.getByText('spamspam - What, ridden on a horse?'),
-    ).toBeInTheDocument();
+    expect(screen.getByText('It got better...')).toBeInTheDocument();
 
     await user.keyboard('{Esc}');
     jest.runOnlyPendingTimers();
 
-    expect(
-      screen.queryByText('spamspam - What, ridden on a horse?'),
-    ).not.toBeInTheDocument();
+    expect(screen.queryByText('It got better...')).not.toBeInTheDocument();
   });
 });
