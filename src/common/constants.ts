@@ -29,6 +29,19 @@ export const frameworkMap: Record<Framework['id'], Framework['name']> = {
   16: 'fxrecord',
 };
 
+export const frameworks: Framework[] = [{ id: 1, name: 'talos' },
+{ id: 2, name: 'build_metrics' },
+{ id: 4, name: 'awsy' },
+{ id: 6, name: 'platform_microbench' },
+{ id: 10, name: 'raptor' },
+{ id: 11, name: 'js-bench' },
+{ id: 12, name: 'devtools' },
+{ id: 13, name: 'browsertime' },
+{ id: 15, name: 'mozperftest' },
+{ id: 16, name: 'fxrecord' },
+];
+
+
 export const platformMap: Record<Platform, string> = {
   linux32: 'Linux',
   'linux-shippable': 'Linux Shippable',

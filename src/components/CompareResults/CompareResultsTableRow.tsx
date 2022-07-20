@@ -16,7 +16,7 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
   const { result, index, mode } = props;
 
   return (
-    <TableRow key={index}>
+    <TableRow key={index} hover data-testid={'table-row'}>
       <Tooltip title={result.platform}>
         <TableCell
           className={`background-icon ${mode}-mode ${setPlatformClassName(

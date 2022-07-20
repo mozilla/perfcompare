@@ -25,6 +25,88 @@ exports[`CompareResults View Should match snapshot 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
         >
           <div
+            class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-1rnr86n-MuiAutocomplete-root"
+          >
+            <div
+              class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-wb57ya-MuiFormControl-root-MuiTextField-root"
+            >
+              <label
+                class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeSmall MuiInputLabel-standard MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-1c2i806-MuiFormLabel-root-MuiInputLabel-root"
+                data-shrink="true"
+                for="size-small-standard"
+                id="size-small-standard-label"
+              >
+                Framework
+              </label>
+              <div
+                class="MuiInput-root MuiInput-underline MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-1a1fmpi-MuiInputBase-root-MuiInput-root"
+              >
+                <input
+                  aria-autocomplete="list"
+                  aria-expanded="false"
+                  aria-invalid="false"
+                  autocapitalize="none"
+                  autocomplete="off"
+                  class="MuiInput-input MuiInputBase-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-nz481w-MuiInputBase-input-MuiInput-input"
+                  id="size-small-standard"
+                  placeholder="Select framework"
+                  role="combobox"
+                  spellcheck="false"
+                  type="text"
+                  value="talos"
+                />
+                <div
+                  class="MuiAutocomplete-endAdornment css-1q60rmi-MuiAutocomplete-endAdornment"
+                >
+                  <button
+                    aria-label="Clear"
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-clearIndicator css-1glvl0p-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-clearIndicator"
+                    tabindex="-1"
+                    title="Clear"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                      data-testid="CloseIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                      />
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                  <button
+                    aria-label="Open"
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-qzbt6i-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
+                    tabindex="-1"
+                    title="Open"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                      data-testid="ArrowDropDownIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M7 10l5 5 5-5z"
+                      />
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
             class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root css-11xur9t-MuiPaper-root-MuiTableContainer-root"
           >
             <table
@@ -42,6 +124,27 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     scope="col"
                   >
                     Platform
+                    <button
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                      data-testid="platform-options-button"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="MoreVertIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+                        />
+                      </svg>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
                   </th>
                   <th
                     class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
@@ -54,6 +157,27 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     scope="col"
                   >
                     Test Name
+                    <button
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                      data-testid="test-options-button"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="MoreVertIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+                        />
+                      </svg>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
                   </th>
                   <th
                     class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
@@ -78,6 +202,27 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     scope="col"
                   >
                     Confidence
+                    <button
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                      data-testid="confidence-options-button"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="MoreVertIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+                        />
+                      </svg>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
                   </th>
                   <th
                     class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
@@ -91,7 +236,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                 class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
               >
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -166,7 +312,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -241,7 +388,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -316,7 +464,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -391,7 +540,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -466,7 +616,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -541,7 +692,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -613,7 +765,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -685,7 +838,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -757,7 +911,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -829,7 +984,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -901,7 +1057,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -973,7 +1130,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -1045,7 +1203,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -1117,7 +1276,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -1189,7 +1349,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -1261,7 +1422,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -1333,7 +1495,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -1405,7 +1568,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -1479,7 +1643,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -1553,7 +1718,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -1627,7 +1793,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -1701,7 +1868,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -1775,7 +1943,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -1849,7 +2018,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -1923,7 +2093,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -1997,7 +2168,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -2071,7 +2243,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -2145,7 +2318,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -2219,7 +2393,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -2293,7 +2468,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -2365,7 +2541,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -2437,7 +2614,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -2509,7 +2687,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -2581,7 +2760,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -2653,7 +2833,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -2725,7 +2906,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -2797,7 +2979,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -2869,7 +3052,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -2941,7 +3125,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -3013,7 +3198,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -3085,7 +3271,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-ref-hw-2017-qr"
@@ -3157,7 +3344,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -3229,7 +3417,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -3301,7 +3490,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -3373,7 +3563,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -3445,7 +3636,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -3517,7 +3709,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -3589,7 +3782,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -3661,7 +3855,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -3733,7 +3928,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -3805,7 +4001,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-ref-hw-2017-qr"
@@ -3879,7 +4076,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -3953,7 +4151,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -4027,7 +4226,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -4101,7 +4301,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -4175,7 +4376,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -4249,7 +4451,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -4323,7 +4526,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -4397,7 +4601,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -4471,7 +4676,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -4545,7 +4751,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -4617,7 +4824,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -4689,7 +4897,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -4761,7 +4970,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-ref-hw-2017-qr"
@@ -4835,7 +5045,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -4909,7 +5120,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -4983,7 +5195,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -5057,7 +5270,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -5131,7 +5345,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -5205,7 +5420,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -5279,7 +5495,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -5353,7 +5570,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -5427,7 +5645,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -5501,7 +5720,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -5573,7 +5793,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -5645,7 +5866,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -5717,7 +5939,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -5789,7 +6012,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -5861,7 +6085,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -5933,7 +6158,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -6005,7 +6231,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -6077,7 +6304,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -6149,7 +6377,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -6221,7 +6450,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -6293,7 +6523,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -6365,7 +6596,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -6437,7 +6669,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -6509,7 +6742,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -6581,7 +6815,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -6655,7 +6890,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -6729,7 +6965,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -6803,7 +7040,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -6877,7 +7115,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -6951,7 +7190,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -7025,7 +7265,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -7099,7 +7340,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -7173,7 +7415,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -7247,7 +7490,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -7321,7 +7565,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -7395,7 +7640,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -7469,7 +7715,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -7541,7 +7788,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -7613,7 +7861,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -7685,7 +7934,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -7757,7 +8007,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -7829,7 +8080,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -7901,7 +8153,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -7973,7 +8226,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -8045,7 +8299,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -8117,7 +8372,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -8189,7 +8445,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -8261,7 +8518,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -8333,7 +8591,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -8405,7 +8664,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -8477,7 +8737,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -8549,7 +8810,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -8621,7 +8883,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -8693,7 +8956,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -8765,7 +9029,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -8837,7 +9102,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -8909,7 +9175,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -8981,7 +9248,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -9053,7 +9321,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -9125,7 +9394,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -9197,7 +9467,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -9269,7 +9540,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -9341,7 +9613,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -9413,7 +9686,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -9485,7 +9759,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -9557,7 +9832,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -9629,7 +9905,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -9701,7 +9978,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -9773,7 +10051,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -9845,7 +10124,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -9917,7 +10197,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -9989,7 +10270,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -10061,7 +10343,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -10133,7 +10416,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -10205,7 +10489,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -10277,7 +10562,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -10349,7 +10635,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -10421,7 +10708,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -10493,7 +10781,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -10565,7 +10854,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -10637,7 +10927,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -10709,7 +11000,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -10781,7 +11073,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -10853,7 +11146,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -10925,7 +11219,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -10997,7 +11292,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -11069,7 +11365,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-2004-shippable-qr"
@@ -11141,7 +11438,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-2004-shippable-qr"
@@ -11213,7 +11511,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-2004-shippable-qr"
@@ -11285,7 +11584,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-2004-shippable-qr"
@@ -11380,7 +11680,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-2004-shippable-qr"
@@ -11452,7 +11753,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-2004-shippable-qr"
@@ -11524,7 +11826,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-2004-shippable-qr"
@@ -11619,7 +11922,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-2004-shippable-qr"
@@ -11714,7 +12018,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-2004-shippable-qr"
@@ -11809,7 +12114,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-2004-shippable-qr"
@@ -11904,7 +12210,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-2004-shippable-qr"
@@ -11999,7 +12306,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-2004-shippable-qr"
@@ -12094,7 +12402,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-2004-shippable-qr"
@@ -12166,7 +12475,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-2004-shippable-qr"
@@ -12238,7 +12548,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-2004-shippable-qr"
@@ -12310,7 +12621,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-2004-shippable-qr"
@@ -12382,7 +12694,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-2004-shippable-qr"
@@ -12454,7 +12767,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-2004-shippable-qr"
@@ -12526,7 +12840,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-2004-shippable-qr"
@@ -12621,7 +12936,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-2004-shippable-qr"
@@ -12716,7 +13032,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -12788,7 +13105,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -12860,7 +13178,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -12932,7 +13251,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -13004,7 +13324,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -13076,7 +13397,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -13148,7 +13470,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -13220,7 +13543,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -13292,7 +13616,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -13364,7 +13689,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -13436,7 +13762,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -13508,7 +13835,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -13580,7 +13908,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -13652,7 +13981,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -13724,7 +14054,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -13796,7 +14127,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -13868,7 +14200,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -13940,7 +14273,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -14012,7 +14346,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -14084,7 +14419,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -14156,7 +14492,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -14228,7 +14565,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -14300,7 +14638,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -14372,7 +14711,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -14444,7 +14784,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -14516,7 +14857,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -14588,7 +14930,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -14660,7 +15003,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -14732,7 +15076,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -14804,7 +15149,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -14876,7 +15222,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -14951,7 +15298,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -15026,7 +15374,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -15101,7 +15450,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -15176,7 +15526,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -15251,7 +15602,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -15326,7 +15678,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -15399,7 +15752,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -15472,7 +15826,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -15545,7 +15900,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -15618,7 +15974,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -15691,7 +16048,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -15764,7 +16122,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -15837,7 +16196,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -15910,7 +16270,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -15983,7 +16344,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -16056,7 +16418,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -16129,7 +16492,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -16202,7 +16566,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -16275,7 +16640,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -16348,7 +16714,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -16421,7 +16788,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -16494,7 +16862,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -16567,7 +16936,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -16640,7 +17010,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -16713,7 +17084,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -16786,7 +17158,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -16859,7 +17232,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -16932,7 +17306,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -17005,7 +17380,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -17078,7 +17454,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -17151,7 +17528,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -17224,7 +17602,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -17297,7 +17676,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -17370,7 +17750,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -17443,7 +17824,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -17516,7 +17898,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -17589,7 +17972,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -17662,7 +18046,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -17735,7 +18120,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -17808,7 +18194,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -17881,7 +18268,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -17954,7 +18342,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -18027,7 +18416,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -18102,7 +18492,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -18177,7 +18568,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
@@ -18252,7 +18644,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="macosx1015-64-shippable-qr"
@@ -18327,7 +18720,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="linux1804-64-shippable-qr"
@@ -18402,7 +18796,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  data-testid="table-row"
                 >
                   <td
                     aria-label="windows10-64-shippable-qr"
