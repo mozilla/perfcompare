@@ -1,3 +1,5 @@
+import ShowChartIcon from '@mui/icons-material/ShowChart';
+import Link from '@mui/material/Link';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import Tooltip from '@mui/material/Tooltip';
@@ -17,6 +19,15 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
           )}`}
         ></TableCell>
       </Tooltip>
+      <TableCell>
+        <Link
+          href={'#'}
+          className={`background-icon ${mode}-mode graph-icon-color`}
+          aria-label="Graph link"
+        >
+          <ShowChartIcon />
+        </Link>
+      </TableCell>
       <TableCell>{result.suite}</TableCell>
       <TableCell>{result.test}</TableCell>
       <TableCell>{result.base_avg_value}</TableCell>

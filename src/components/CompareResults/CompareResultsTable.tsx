@@ -14,6 +14,7 @@ import CompareResultsTableRow from './CompareResultsTableRow';
 
 const tableHeaders: CompareResultsTableHeaders[] = [
   'Platform',
+  'Graph',
   'Suite',
   'Test Name',
   'Base',
