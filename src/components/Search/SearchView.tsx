@@ -50,7 +50,7 @@ function SearchView(props: SearchViewProps) {
           </Button>
         )}
       </Grid>
-      <RevisionSearch view="search" inputWidth={7} resultsWidth={10} />
+      <RevisionSearch view="search" inputWidth={7} />
     </Container>
   );
 }

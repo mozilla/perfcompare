@@ -9,11 +9,12 @@ import useHandleChangeDropdown from '../../hooks/useHandleChangeDropdown';
 import type { State } from '../../types/state';
 
 function SearchDropdown(props: SearchDropdownProps) {
-  const { repository } = props;
+  const { repository, view } = props;
   const { handleChangeDropdown } = useHandleChangeDropdown();
+  const size = view == 'compare-results' ? 'small' : undefined;
 
   return (
-    <FormControl sx={{ width: '100%' }}>
+    <FormControl sx={{ width: '100%' }} size={size}>
       <InputLabel id="select-repository">repository</InputLabel>
       <Select value={repository} labelId="select-repository" label="repository">
         {Object.keys(repoMap).map((key) => (
@@ -33,6 +34,7 @@ function SearchDropdown(props: SearchDropdownProps) {
 
 interface SearchDropdownProps {
   repository: string;
+  view: 'compare-results' | 'search';
 }
 
 function mapStateToProps(state: State) {
