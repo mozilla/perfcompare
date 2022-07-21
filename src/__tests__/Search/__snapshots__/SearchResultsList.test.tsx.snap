@@ -122,7 +122,6 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 </legend>
               </fieldset>
             </div>
-            
           </div>
         </div>
         <div
@@ -169,7 +168,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
               class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
             >
               <div
-                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root"
+                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
                 id="0"
                 role="button"
                 tabindex="0"
@@ -218,12 +217,9 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     </p>
                   </div>
                 </li>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
               </div>
               <div
-                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root"
+                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
                 id="1"
                 role="button"
                 tabindex="0"
@@ -272,12 +268,9 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     </p>
                   </div>
                 </li>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
               </div>
               <div
-                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root"
+                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
                 id="2"
                 role="button"
                 tabindex="0"
@@ -326,12 +319,9 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     </p>
                   </div>
                 </li>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
               </div>
               <div
-                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root"
+                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
                 id="3"
                 role="button"
                 tabindex="0"
@@ -380,12 +370,9 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     </p>
                   </div>
                 </li>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
               </div>
               <div
-                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root"
+                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
                 id="4"
                 role="button"
                 tabindex="0"
@@ -434,9 +421,6 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     </p>
                   </div>
                 </li>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
               </div>
             </ul>
           </div>

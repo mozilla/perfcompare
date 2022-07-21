@@ -122,7 +122,6 @@ exports[`Search View render correctly when there are no results 1`] = `
                 </legend>
               </fieldset>
             </div>
-            
           </div>
         </div>
         <div
@@ -289,7 +288,6 @@ exports[`Search View should hide search results when clicking outside of search 
                 </legend>
               </fieldset>
             </div>
-            
           </div>
         </div>
         <div
@@ -456,7 +454,6 @@ exports[`Search View should not hide search results when clicking search results
                 </legend>
               </fieldset>
             </div>
-            
           </div>
         </div>
         <div
@@ -503,7 +500,7 @@ exports[`Search View should not hide search results when clicking search results
               class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
             >
               <div
-                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root"
+                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
                 id="0"
                 role="button"
                 tabindex="0"
@@ -554,19 +551,10 @@ exports[`Search View should not hide search results when clicking search results
                 </li>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                >
-                  <span
-                    class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
-                    style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
-                  >
-                    <span
-                      class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
-                    />
-                  </span>
-                </span>
+                />
               </div>
               <div
-                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root"
+                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
                 id="1"
                 role="button"
                 tabindex="0"
@@ -629,7 +617,7 @@ exports[`Search View should not hide search results when clicking search results
                 </span>
               </div>
               <div
-                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root"
+                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
                 id="2"
                 role="button"
                 tabindex="0"
@@ -683,7 +671,7 @@ exports[`Search View should not hide search results when clicking search results
                 />
               </div>
               <div
-                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root"
+                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
                 id="3"
                 role="button"
                 tabindex="0"
@@ -737,7 +725,7 @@ exports[`Search View should not hide search results when clicking search results
                 />
               </div>
               <div
-                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root"
+                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
                 id="4"
                 role="button"
                 tabindex="0"

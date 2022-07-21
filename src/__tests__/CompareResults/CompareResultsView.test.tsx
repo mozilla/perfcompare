@@ -1,4 +1,5 @@
 import userEvent from '@testing-library/user-event';
+import { act } from 'react-dom/test-utils';
 
 import CompareResultsView from '../../components/CompareResults/CompareResultsView';
 import RevisionSearch from '../../components/Shared/RevisionSearch';
@@ -44,7 +45,9 @@ describe('CompareResults View', () => {
     });
 
     await user.click(editButton);
-    jest.runOnlyPendingTimers();
+    await act(async () => {
+      jest.runOnlyPendingTimers();
+    });
 
     expect(
       screen.getByRole('textbox', {
@@ -100,14 +103,18 @@ describe('SelectedRevisionsTableRow', () => {
       name: 'Search By Revision ID or Author Email',
     });
     await user.click(input);
-    jest.runOnlyPendingTimers();
+    await act(async () => {
+      jest.runOnlyPendingTimers();
+    });
 
     expect(
       screen.getByText('spamspam - What, ridden on a horse?'),
     ).toBeInTheDocument();
 
     await user.keyboard('{Esc}');
-    jest.runOnlyPendingTimers();
+    await act(async () => {
+      jest.runOnlyPendingTimers();
+    });
 
     expect(
       screen.queryByText('spamspam - What, ridden on a horse?'),

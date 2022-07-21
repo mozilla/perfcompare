@@ -1,18 +1,17 @@
 import React from 'react';
 
 import { useSnackbar, VariantType } from 'notistack';
-import { useDispatch, useSelector } from 'react-redux';
 
 import { maxRevisionsError } from '../common/constants';
-import type { RootState } from '../common/store';
 import { setCheckedRevisions } from '../reducers/CheckedRevisions';
+import { useAppDispatch, useAppSelector } from './app';
 
 const useCheckRevision = () => {
   const { enqueueSnackbar } = useSnackbar();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
-  const checkedRevisions: number[] = useSelector(
-    (state: RootState) => state.checkedRevisions.revisions,
+  const checkedRevisions: number[] = useAppSelector(
+    (state) => state.checkedRevisions.revisions,
   );
 
   const handleToggle = (e: React.MouseEvent) => {

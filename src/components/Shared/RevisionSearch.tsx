@@ -4,8 +4,9 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import CloseIcon from '@mui/icons-material/Close';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
-import { connect, useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 
+import { useAppDispatch } from '../../hooks/app';
 import { clearCheckedRevisions } from '../../reducers/CheckedRevisions';
 import type { Revision, State } from '../../types/state';
 import AddRevisionButton from '../Search/AddRevisionButton';
@@ -16,7 +17,7 @@ import SearchResultsList from '../Search/SearchResultsList';
 function RevisionSearch(props: RevisionSearchProps) {
   const [focused, setFocused] = useState(false);
   const { inputWidth, resultsWidth, searchResults, view } = props;
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleFocus = (e: MouseEvent) => {
     if (
