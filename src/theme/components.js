@@ -145,6 +145,19 @@ const components = {
       },
     },
   },
+  MuiPopover: {
+    styleOverrides: {
+      root: {
+        '&.edit-revision-popover': {
+          '& .MuiPaper-root': {
+            width: '100%',
+            maxWidth: '1152px',
+            paddingTop: '6px',
+          },
+        },
+      },
+    },
+  },
 };
 
 export default components;

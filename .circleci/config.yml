@@ -22,7 +22,7 @@ jobs:
       - run:
           # Why only production? See: https://overreacted.io/npm-audit-broken-by-design/#what-next
           name: audit
-          command: npm audit --production
+          command: npm audit --omit=dev
       - run:
           name: lint
           command: npm run lint
@@ -48,4 +48,4 @@ workflows:
                 - master
                 - staging
     jobs:
-      - test 
+      - test

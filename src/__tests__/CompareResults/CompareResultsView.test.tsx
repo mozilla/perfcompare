@@ -5,7 +5,7 @@ import { render, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
 
 describe('CompareResults View', () => {
-  it('Should match snapshot', () => {
+  it('Should match snapshot', async () => {
     render(<CompareResultsView mode="light" />);
 
     expect(document.body).toMatchSnapshot();

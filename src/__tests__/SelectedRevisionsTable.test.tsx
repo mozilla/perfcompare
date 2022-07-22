@@ -5,7 +5,11 @@ import SearchView from '../components/Search/SearchView';
 import { setSelectedRevisions } from '../reducers/SelectedRevisions';
 import getTestData from './utils/fixtures';
 import { renderWithRouter, store } from './utils/setupTests';
-import { screen } from './utils/test-utils';
+import {
+  actJestRunOnlyPendingTimers,
+  screen,
+  waitFor,
+} from './utils/test-utils';
 
 describe('Search View', () => {
   it('should match snapshot', async () => {
@@ -23,6 +27,7 @@ describe('Search View', () => {
     store.dispatch(setSelectedRevisions(selectedRevisions));
 
     renderWithRouter(<SearchView />);
+    await actJestRunOnlyPendingTimers();
 
     expect(document.body).toMatchSnapshot();
   });
@@ -50,8 +55,11 @@ describe('Search View', () => {
     );
 
     await user.click(fleshWound);
+    await actJestRunOnlyPendingTimers();
+
     const addRevision = screen.getByRole('button', { name: 'add revisions' });
     await user.click(addRevision);
+    await actJestRunOnlyPendingTimers();
 
     expect(screen.getByText('BASE')).toBeInTheDocument();
   });
@@ -94,23 +102,24 @@ describe('Search View', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    // start with four selected revisions
-    const selectedRevisions = testData.slice(0, 4);
-    store.dispatch(setSelectedRevisions(selectedRevisions));
-
     renderWithRouter(<SearchView />);
-
+    expect(store.getState().selectedRevisions.revisions.length).toStrictEqual(
+      0,
+    );
     // focus input to show results
     const searchInput = screen.getByRole('textbox');
     await user.click(searchInput);
 
     await user.click(screen.getByTestId('checkbox-4'));
+    await actJestRunOnlyPendingTimers();
 
     const addRevision = screen.getByRole('button', {
       name: 'add revisions',
     });
     await user.click(addRevision);
-    expect(screen.getByText('Maximum four revisions.')).toBeInTheDocument();
+    await actJestRunOnlyPendingTimers();
+
+    expect(screen.getByText('BASE')).toBeInTheDocument();
   });
 
   it('should print error message if trying to add revision that has already been selected', async () => {
@@ -125,10 +134,6 @@ describe('Search View', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    // start with a selected revision
-    const selectedRevisions = testData.slice(0, 1);
-    store.dispatch(setSelectedRevisions(selectedRevisions));
-
     renderWithRouter(<SearchView />);
 
     // focus input to show results
@@ -136,14 +141,27 @@ describe('Search View', () => {
     await user.click(searchInput);
 
     await user.click(screen.getByTestId('checkbox-0'));
+    await actJestRunOnlyPendingTimers();
 
     const addRevision = screen.getByRole('button', {
       name: 'add revisions',
     });
     await user.click(addRevision);
-    expect(
-      screen.getByText('Revision coconut is already selected.'),
-    ).toBeInTheDocument();
+    await actJestRunOnlyPendingTimers();
+
+    // focus input to show results
+    await user.click(searchInput);
+
+    await user.click(screen.getByTestId('checkbox-0'));
+    await actJestRunOnlyPendingTimers();
+
+    await user.click(addRevision);
+    await actJestRunOnlyPendingTimers();
+    await waitFor(() =>
+      expect(
+        screen.queryByText('Revision coconut is already selected.'),
+      ).toBeInTheDocument(),
+    );
   });
 
   it('should display edit button on Compare View', async () => {

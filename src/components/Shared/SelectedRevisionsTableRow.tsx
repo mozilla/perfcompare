@@ -4,9 +4,9 @@ import IconButton from '@mui/material/IconButton';
 import Link from '@mui/material/Link';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
-import { useDispatch } from 'react-redux';
 
 import { repoMap } from '../../common/constants';
+import { useAppDispatch } from '../../hooks/app';
 import { deleteRevision } from '../../reducers/SelectedRevisions';
 import { Repository, Revision } from '../../types/state';
 import {
@@ -18,7 +18,7 @@ import {
 
 function SelectedRevisionsTableRow(props: SelectedRevisionsRowProps) {
   const { row, index, view } = props;
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const commitMessage = getLatestCommitMessage(row);
   const date = formatDate(row.push_timestamp);
   const hash = truncateHash(row.revision);

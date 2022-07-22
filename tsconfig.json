@@ -3,14 +3,24 @@
     "allowJs": true, // allow a partial TypeScript and JavaScript codebase
     "esModuleInterop": true,
     "jsx": "react-jsx", // use typescript to transpile jsx to js
-    "module": "es6", // specify module code generation
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "ES2022", // specify module code generation
     "moduleResolution": "node",
+    "noEmit": true,
     "outDir": "./dist/", // path to output directory
     "preserveConstEnums": true,
     "sourceMap": true, // allow sourcemap support
+    "skipLibCheck": true,
     "strict": true,
     "strictNullChecks": true, // enable strict null checks as a best practice
-    "target": "es5" // specify ECMAScript target version
+    "target": "ES2022", // specify ECMAScript target version
+    "types": ["react/next", "react-dom/next", "node"]
   },
-  "include": ["./src/"]
+  "include": ["./src/"],
+  "ts-node": {
+    // these options are overrides used only by ts-node
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  }
 }

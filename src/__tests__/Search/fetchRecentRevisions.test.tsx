@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import SearchView from '../../components/Search/SearchView';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
-import { screen } from '../utils/test-utils';
+import { actJestRunOnlyPendingTimers, screen } from '../utils/test-utils';
 
 describe('SearchView/fetchRecentRevisions', () => {
   it('should fetch and display recent results when repository is selected', async () => {
@@ -34,7 +34,8 @@ describe('SearchView/fetchRecentRevisions', () => {
     ).toBeInTheDocument();
 
     await user.click(screen.getByRole('option', { name: 'autoland' }));
-    jest.runOnlyPendingTimers();
+
+    await actJestRunOnlyPendingTimers();
     expect(screen.queryByText('try')).not.toBeInTheDocument();
 
     expect(store.getState().search.searchResults).toStrictEqual(testData);
@@ -62,6 +63,7 @@ describe('SearchView/fetchRecentRevisions', () => {
     const spyOnFetch = jest.spyOn(global, 'fetch');
 
     renderWithRouter(<SearchView />);
+    await actJestRunOnlyPendingTimers();
 
     await screen.findByRole('button', { name: 'repository' });
 
@@ -80,6 +82,7 @@ describe('SearchView/fetchRecentRevisions', () => {
     const spyOnFetch = jest.spyOn(global, 'fetch');
 
     renderWithRouter(<SearchView />);
+    await actJestRunOnlyPendingTimers();
 
     await screen.findByRole('button', { name: 'repository' });
 

@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import SearchView from '../../components/Search/SearchView';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
-import { screen } from '../utils/test-utils';
+import { actJestRunOnlyPendingTimers, screen } from '../utils/test-utils';
 
 describe('SearchView/fetchRevisionByID', () => {
   it('should fetch revisions by ID if searchValue is a 12 or 40 character hash', async () => {
@@ -26,11 +26,11 @@ describe('SearchView/fetchRevisionByID', () => {
 
     const searchInput = screen.getByRole('textbox');
     await user.type(searchInput, 'abcdef123456');
-    jest.runOnlyPendingTimers();
+    await actJestRunOnlyPendingTimers();
 
     await user.clear(searchInput);
     await user.type(searchInput, 'abcdef1234567890abcdef1234567890abcdef12');
-    jest.runOnlyPendingTimers();
+    await actJestRunOnlyPendingTimers();
 
     expect(spyOnFetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?revision=abcdef123456',

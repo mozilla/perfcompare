@@ -1,8 +1,7 @@
-import React from 'react';
-
 import { render as rtlRender } from '@testing-library/react';
 import { createMemoryHistory } from 'history';
 import { SnackbarProvider } from 'notistack';
+import { act } from 'react-dom/test-utils';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
 
@@ -50,9 +49,11 @@ const createRenderWithRouter = (store: Store) => {
   return renderWithRouter;
 };
 
+const actJestRunOnlyPendingTimers = async () =>
+  act(() => void jest.runOnlyPendingTimers());
+
 // re-export everything
 export * from '@testing-library/react';
 // override render method
 export type Render = ReturnType<typeof createRender>;
-export type RenderWithRouter = ReturnType<typeof createRenderWithRouter>;
-export { createRender, createRenderWithRouter };
+export { actJestRunOnlyPendingTimers, createRender, createRenderWithRouter };

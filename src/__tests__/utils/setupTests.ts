@@ -9,11 +9,11 @@ import '@testing-library/jest-dom';
 import { createStore } from '../../common/store';
 import type { Store } from '../../common/store';
 import { createRender, createRenderWithRouter } from '../utils/test-utils';
-import type { Render, RenderWithRouter } from './test-utils';
+import type { Render } from './test-utils';
 
 const unmockedFetch = global.fetch;
 let render: Render;
-let renderWithRouter: RenderWithRouter;
+let renderWithRouter: Render;
 let store: Store;
 
 beforeAll(() => {

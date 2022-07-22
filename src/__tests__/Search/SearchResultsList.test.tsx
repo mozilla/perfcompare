@@ -4,7 +4,7 @@ import { maxRevisionsError } from '../../common/constants';
 import SearchView from '../../components/Search/SearchView';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
-import { screen } from '../utils/test-utils';
+import { actJestRunOnlyPendingTimers, screen } from '../utils/test-utils';
 
 describe('SearchResultsList', () => {
   it('should match snapshot', async () => {
@@ -51,6 +51,7 @@ describe('SearchResultsList', () => {
     );
 
     await user.click(fleshWound);
+    await actJestRunOnlyPendingTimers();
     expect(
       screen.getByTestId('checkbox-1').classList.contains('Mui-checked'),
     ).toBe(true);
@@ -79,14 +80,18 @@ describe('SearchResultsList', () => {
     );
 
     await user.click(fleshWound);
+    await actJestRunOnlyPendingTimers();
     expect(store.getState().checkedRevisions.revisions[0]).toBe(1);
     await user.click(fleshWound);
+    await actJestRunOnlyPendingTimers();
+
     expect(
       screen.getByTestId('checkbox-1').classList.contains('Mui-checked'),
     ).toBe(false);
   });
 
   it('should not allow selecting more than four revisions', async () => {
+    // mock fetchRecentRevisions
     const { testData } = getTestData();
     global.fetch = jest.fn(() =>
       Promise.resolve({
@@ -96,6 +101,7 @@ describe('SearchResultsList', () => {
       }),
     ) as jest.Mock;
     jest.spyOn(global, 'fetch');
+
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
@@ -117,7 +123,7 @@ describe('SearchResultsList', () => {
       screen.getByTestId('checkbox-4').classList.contains('Mui-checked'),
     ).toBe(false);
 
-    expect(screen.getByText(maxRevisionsError)).toBeInTheDocument();
+    expect(await screen.findByText(maxRevisionsError)).toBeInTheDocument();
 
     // Should allow unchecking revisions even after four have been selected
     await user.click(screen.getByTestId('checkbox-1'));
