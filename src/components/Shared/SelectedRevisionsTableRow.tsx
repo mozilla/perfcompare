@@ -44,9 +44,7 @@ function SelectedRevisionsTableRow(props: SelectedRevisionsRowProps) {
           <Link href={treeherderURL}>{hash}</Link>
         </TableCell>
         <TableCell>{row.author}</TableCell>
-        <TableCell>
-          <div className="commit-message">{commitMessage}</div>
-        </TableCell>
+        <TableCell className="commit-message">{commitMessage}</TableCell>
         <TableCell>{date}</TableCell>
         <TableCell>
           {view == 'search' && (
@@ -78,7 +76,7 @@ function SelectedRevisionsTableRow(props: SelectedRevisionsRowProps) {
           horizontal: 'left',
         }}
       >
-        <RevisionSearch inputWidth={9} resultsWidth={12} view={view} />
+        <RevisionSearch inputWidth={9} view={view} />
       </Popover>
     </>
   );
