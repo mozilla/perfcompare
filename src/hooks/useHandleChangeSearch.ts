@@ -1,7 +1,5 @@
 import { FormEvent } from 'react';
 
-import { useDispatch, useSelector } from 'react-redux';
-
 import {
   updateSearchValue,
   updateSearchResults,
@@ -13,14 +11,17 @@ import {
   fetchRevisionsByAuthor,
 } from '../thunks/searchThunk';
 import type { Repository, State } from '../types/state';
+import { useAppDispatch, useAppSelector } from './app';
 
 let timeout: null | ReturnType<typeof setTimeout> = null;
 
 const useHandleChangeSearch = () => {
-  const dispatch = useDispatch();
-  const getRepository = useSelector((state: State) => state.search.repository);
+  const dispatch = useAppDispatch();
+  const getRepository = useAppSelector(
+    (state: State) => state.search.repository,
+  );
 
-  const searchByRevisionOrEmail = (
+  const searchByRevisionOrEmail = async (
     repository: Repository['name'],
     search: string,
   ) => {
@@ -29,9 +30,9 @@ const useHandleChangeSearch = () => {
     const shortHashMatch = /\b[a-f0-9]{12}\b/;
 
     if (emailMatch.test(search)) {
-      dispatch(fetchRevisionsByAuthor({ repository, search }));
+      await dispatch(fetchRevisionsByAuthor({ repository, search }));
     } else if (longHashMatch.test(search) || shortHashMatch.test(search)) {
-      dispatch(fetchRevisionByID({ repository, search }));
+      await dispatch(fetchRevisionByID({ repository, search }));
     } else {
       dispatch(
         setInputError(
@@ -51,7 +52,7 @@ const useHandleChangeSearch = () => {
     dispatch(clearInputError());
     const idleTime = 500;
     const onTimeout = () => {
-      searchByRevisionOrEmail(getRepository, search);
+      void searchByRevisionOrEmail(getRepository, search);
     };
 
     // Clear any existing timer whenever user types
