@@ -1,5 +1,7 @@
 import userEvent from '@testing-library/user-event';
+import { act } from 'react-dom/test-utils';
 
+import { maxRevisionsError } from '../common/constants';
 import CompareResultsView from '../components/CompareResults/CompareResultsView';
 import SearchView from '../components/Search/SearchView';
 import { setSelectedRevisions } from '../reducers/SelectedRevisions';
@@ -23,6 +25,7 @@ describe('Search View', () => {
     store.dispatch(setSelectedRevisions(selectedRevisions));
 
     renderWithRouter(<SearchView />);
+    await act(async () => void jest.runOnlyPendingTimers());
 
     expect(document.body).toMatchSnapshot();
   });
@@ -93,11 +96,9 @@ describe('Search View', () => {
     ) as jest.Mock;
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
-
     // start with four selected revisions
     const selectedRevisions = testData.slice(0, 4);
     store.dispatch(setSelectedRevisions(selectedRevisions));
-
     renderWithRouter(<SearchView />);
 
     // focus input to show results
@@ -110,7 +111,7 @@ describe('Search View', () => {
       name: 'add revisions',
     });
     await user.click(addRevision);
-    expect(screen.getByText('Maximum four revisions.')).toBeInTheDocument();
+    expect(screen.getByText(maxRevisionsError)).toBeInTheDocument();
   });
 
   it('should print error message if trying to add revision that has already been selected', async () => {
@@ -128,7 +129,6 @@ describe('Search View', () => {
     // start with a selected revision
     const selectedRevisions = testData.slice(0, 1);
     store.dispatch(setSelectedRevisions(selectedRevisions));
-
     renderWithRouter(<SearchView />);
 
     // focus input to show results
