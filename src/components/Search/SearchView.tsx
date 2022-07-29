@@ -16,19 +16,12 @@ function SearchView(props: SearchViewProps) {
   const navigate = useNavigate();
 
   const goToCompareResultsPage = (selectedRevisions: Revision[]) => {
-<<<<<<< HEAD
     const revisions = selectedRevisions.map((rev) =>
       truncateHash(rev.revision),
     );
     const repos = selectedRevisions.map((rev) => rev.repository_id);
     navigate({
       pathname: '/compare-results',
-=======
-    const revisions = selectedRevisions.map(rev => truncateHash(rev.revision));
-    const repos = selectedRevisions.map(rev => rev.repository_id);
-    navigate({
-      pathname: '/compare-results', 
->>>>>>> master
       search: `?revs=${revisions.join(',')}&repos=${repos.join(',')}`,
     });
   };
