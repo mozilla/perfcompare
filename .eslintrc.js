@@ -22,7 +22,7 @@ module.exports = {
       version: 'detect',
     },
   },
-    rules: {
+  rules: {
     'import/order': [
       'error',
       {
@@ -57,7 +57,7 @@ module.exports = {
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
         'airbnb-typescript',
-        'plugin:import/typescript'
+        'plugin:import/typescript',
       ],
 
       rules: {
@@ -67,7 +67,7 @@ module.exports = {
     },
     {
       // Typescript test files
-      files: ['src/tests/**/*.{ts,tsx}'],
+      files: ['src/__tests__/**/*.{ts,tsx}'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
         ecmaFeatures: { jsx: true },
@@ -75,7 +75,7 @@ module.exports = {
         project: ['./tsconfig.json'],
       },
       plugins: ['jest'],
-      extends: ['plugin:jest/recommended','plugin:import/typescript'],
+      extends: ['plugin:jest/recommended', 'plugin:import/typescript'],
       rules: {
         // TODO: update tests to not use store directly and remove these overrides
         // https://github.com/mozilla/perfcompare/issues/115

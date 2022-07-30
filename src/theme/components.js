@@ -1,3 +1,6 @@
+import { green } from '@mui/material/colors';
+import { red } from '@mui/material/colors';
+
 import android from './img/android.svg';
 import high from './img/high.svg';
 import linux from './img/linux.svg';
@@ -17,6 +20,31 @@ const components = {
           width: '100%',
           lineHeight: '1.4375em',
           padding: '16.5px 14px',
+        },
+        '&.edit-revision-button': {
+          width: '50%',
+          padding: '0',
+          minWidth: '0',
+          '&:hover': {
+            backgroundColor: 'transparent',
+          },
+          '& .MuiSvgIcon-root': {
+            width: 'auto',
+            height: '2.4rem',
+            borderRadius: '5px',
+            '&.accept': {
+              color: green[500],
+              '&:hover': {
+                backgroundColor: green[100],
+              },
+            },
+            '&.cancel': {
+              color: red[500],
+              '&:hover': {
+                backgroundColor: red[100],
+              },
+            },
+          },
         },
         '&.compare-button': {
           lineHeight: '1.4375em',
@@ -59,16 +87,27 @@ const components = {
           width: '50px',
           border: 'solid 1px #737373',
         },
-        '.commit-message': {
+        '&.commit-message': {
           overflow: 'hidden',
           textOverflow: 'ellipsis',
           whiteSpace: 'nowrap',
-          width: '400px',
+          maxWidth: '450px',
+        },
+        '.graph-icon-color': {
+          color: 'inherit',
+        },
+        '.graph-icon-color:hover': {
+          color: 'inherit',
+          borderBottom: '1px dotted black',
         },
         '&.background-icon': {
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
           backgroundSize: '10%',
+        },
+        '&.edit-search-results': {
+          border: 'none',
+          padding: '10px 5px 10px 5px',
         },
         '&.background-icon.dark-mode': {
           filter: 'invert(100%)',
@@ -141,6 +180,19 @@ const components = {
       root: {
         '&.compare-icon': {
           marginLeft: '15px',
+        },
+      },
+    },
+  },
+  MuiPopover: {
+    styleOverrides: {
+      root: {
+        '&.edit-revision-popover': {
+          '& .MuiPaper-root': {
+            width: '100%',
+            maxWidth: '1152px',
+            padding: '6px',
+          },
         },
       },
     },
