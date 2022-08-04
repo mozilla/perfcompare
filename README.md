@@ -26,7 +26,7 @@ cd perfcompare
 npm install
 
 # Runs on localhost:3000 by default
-npm run start-dev
+npm run start
 ```
 
 ### Contributing
