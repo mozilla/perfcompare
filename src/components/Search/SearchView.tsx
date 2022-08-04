@@ -1,5 +1,5 @@
-import { ArrowForward } from '@mui/icons-material';
-import { Button } from '@mui/material';
+import ArrowForward from '@mui/icons-material/ArrowForward';
+import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import { connect } from 'react-redux';
