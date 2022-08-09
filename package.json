@@ -4,37 +4,29 @@
   "homepage": "./",
   "private": true,
   "dependencies": {
-    "@emotion/react": "^11.8.2",
-    "@emotion/styled": "^11.8.1",
-    "@mui/icons-material": "^5.5.1",
-    "@mui/material": "^5.5.1",
-    "@mui/system": "^5.5.1",
-    "@reduxjs/toolkit": "^1.7.2",
-    "@types/node": "^12.20.48",
-    "@types/react": "^16.14.25",
-    "@types/react-dom": "^16.9.14",
-    "@types/react-redux": "^7.1.22",
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.9.2",
+    "@mui/system": "^5.9.2",
+    "@reduxjs/toolkit": "^1.8.3",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
     "notistack": "^2.0.5",
-    "prop-types": "^15.8.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-redux": "^7.2.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0",
-    "redux": "^4.1.2",
-    "sass": "^1.49.7",
-    "serve": "^13.0.2"
+    "redux": "^4.2.0"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "start-dev": "echo 'Launching local development server.' && react-scripts start",
-    "start": "echo 'Launching deployment server for production builds. If you meant to run the local development server, please use `npm run start-dev` instead.' && serve -s build",
-    "build": "react-scripts build",
+    "start": "webpack serve --config webpack/webpack.config.js --env env=development --open",
+    "build": "webpack --config webpack/webpack.config.js --env env=production",
     "lint": "eslint src/**/*.{js,ts,tsx}",
     "lint:fix": "npm run lint -- --fix",
     "format": "prettier --write \"src/**/*.{js,jsx,css,html,md,json,yaml,yml}\" --config ./.prettierrc.js",
     "format:check": "prettier --check \"src/**/*.{js,jsx,css,html,md,json,yaml,yml}\" --config ./.prettierrc.js",
-    "test": "jest --testPathIgnorePatterns=accessibility",
+    "test": "jest --testPathIgnorePatterns=accessibility --testPathIgnorePatterns=utils",
     "test:a11y": "jest --testPathPattern=accessibility",
     "test:coverage": "npm test -- --coverage",
     "test:watch": "npm test -- --watch"
@@ -55,67 +47,55 @@
     ]
   },
   "devDependencies": {
-    "@babel/core": "^7.17.8",
-    "@babel/preset-env": "^7.16.11",
-    "@babel/preset-react": "^7.16.7",
-    "@babel/preset-typescript": "^7.16.7",
-    "@swc/core": "^1.2.196",
+    "@babel/core": "^7.18.9",
+    "@babel/plugin-transform-runtime": "^7.18.6",
+    "@babel/preset-env": "^7.18.9",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.18.6",
+    "@babel/runtime": "^7.18.6",
+    "@jest/types": "^28.1.3",
     "@swc/jest": "^0.2.21",
-    "@testing-library/jest-dom": "^5.16.3",
-    "@testing-library/react": "^12.1.4",
-    "@testing-library/user-event": "^14.0.0",
-    "@types/jest": "^27.4.1",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^14.2.1",
+    "@types/jest": "^28.1.4",
     "@types/jest-axe": "^3.5.4",
-    "@typescript-eslint/eslint-plugin": "^5.20.0",
-    "@typescript-eslint/parser": "^5.20.0",
-    "babel-jest": "^27.5.1",
-    "core-js": "^3.21.1",
+    "@types/node": "^18.6.1",
+    "@typescript-eslint/eslint-plugin": "^5.31.0",
+    "@typescript-eslint/parser": "^5.31.0",
+    "babel-loader": "^8.2.5",
+    "babel-preset-jest": "^28.1.3",
+    "case-sensitive-paths-webpack-plugin": "^2.4.0",
+    "core-js": "^3.24.0",
     "css-loader": "^6.7.1",
-    "eslint": "^8.11.0",
+    "eslint": "^8.20.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.29.4",
-    "eslint-plugin-react-hooks": "^4.3.0",
-    "gh-pages": "^3.2.3",
-    "identity-obj-proxy": "^3.0.0",
-    "jest": "^27.5.1",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^26.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.30.1",
+    "espree": "^9.3.2",
+    "history": "^5.3.0",
+    "html-webpack-plugin": "^5.5.0",
+    "jest": "^28.1.3",
     "jest-axe": "^6.0.0",
-    "prettier": "^2.6.0",
-    "react-scripts": "5.0.0",
+    "jest-environment-jsdom": "^28.1.2",
+    "jest-resolve": "^28.1.3",
+    "jest-watch-typeahead": "^2.0.0",
+    "prettier": "^2.7.1",
+    "react-app-polyfill": "^3.0.0",
+    "react-refresh": "^0.14.0",
+    "regenerator-runtime": "^0.13.9",
     "style-loader": "^3.3.1",
-    "ts-jest": "^27.1.4",
-    "typescript": "^4.6.3"
-  },
-  "jest": {
-    "globalSetup": "<rootDir>/src/__tests__/utils/globalSetup.ts",
-    "preset": "ts-jest",
-    "setupFilesAfterEnv": [
-      "<rootDir>/src/__tests__/utils/setupTests.ts"
-    ],
-    "testEnvironment": "jsdom",
-    "modulePathIgnorePatterns": [
-      "utils"
-    ],
-    "transform": {
-      "^.+\\.(t|j)sx?$": [
-        "@swc/jest",
-        {
-          "jsc": {
-            "transform": {
-              "react": {
-                "runtime": "automatic"
-              }
-            }
-          }
-        }
-      ],
-      "^.+\\.svg$": "<rootDir>/src/__tests__/utils/fileTransformer.js"
-    },
-    "moduleNameMapper": {
-      "\\.(css)$": "identity-obj-proxy"
-    }
+    "ts-jest": "^28.0.5",
+    "ts-loader": "^9.3.1",
+    "typescript": "^4.7.4",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.9.3",
+    "webpack-merge": "^5.8.0"
   }
 }

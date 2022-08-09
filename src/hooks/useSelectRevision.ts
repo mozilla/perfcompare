@@ -1,25 +1,25 @@
 import { useSnackbar, VariantType } from 'notistack';
-import { useDispatch, useSelector } from 'react-redux';
 
 import { maxRevisionsError } from '../common/constants';
 import type { RootState } from '../common/store';
 import { clearCheckedRevisions } from '../reducers/CheckedRevisions';
 import { setSelectedRevisions } from '../reducers/SelectedRevisions';
 import { truncateHash } from '../utils/helpers';
+import { useAppDispatch, useAppSelector } from './app';
 
 const useSelectRevision = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { enqueueSnackbar } = useSnackbar();
 
-  const searchResults = useSelector(
+  const searchResults = useAppSelector(
     (state: RootState) => state.search.searchResults,
   );
 
-  const checkedRevisions = useSelector(
+  const checkedRevisions = useAppSelector(
     (state: RootState) => state.checkedRevisions.revisions,
   );
 
-  const selectedRevisions = useSelector(
+  const selectedRevisions = useAppSelector(
     (state: RootState) => state.selectedRevisions.revisions,
   );
 

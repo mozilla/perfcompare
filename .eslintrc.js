@@ -87,7 +87,7 @@ module.exports = {
     },
     {
       // JavaScript linting
-      files: ['src/**/*.js'],
+      files: ['src/**/*.js', 'webpack/**/*.js'],
       parser: 'espree',
       parserOptions: {
         ecmaVersion: 12,
@@ -95,4 +95,4 @@ module.exports = {
       },
     },
   ],
-};
+}
