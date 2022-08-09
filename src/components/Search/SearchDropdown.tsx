@@ -22,7 +22,7 @@ function SearchDropdown(props: SearchDropdownProps) {
             id={repoMap[key]}
             value={repoMap[key]}
             key={repoMap[key]}
-            onClick={(e) => handleChangeDropdown(e)}
+            onClick={(e) => void handleChangeDropdown(e)}
           >
             {repoMap[key]}
           </MenuItem>

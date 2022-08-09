@@ -1,4 +1,5 @@
 import userEvent from '@testing-library/user-event';
+import { act } from 'react-dom/test-utils';
 
 import SearchView from '../../components/Search/SearchView';
 import getTestData from '../utils/fixtures';
@@ -26,7 +27,7 @@ describe('SearchView/fetchRevisionByID', () => {
 
     const searchInput = screen.getByRole('textbox');
     await user.type(searchInput, 'abcdef123456');
-    jest.runOnlyPendingTimers();
+    await act(async () => void jest.runOnlyPendingTimers());
 
     await user.clear(searchInput);
     await user.type(searchInput, 'abcdef1234567890abcdef1234567890abcdef12');

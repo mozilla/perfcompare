@@ -72,7 +72,7 @@ describe('Snackbar', () => {
     const closeButton = screen.getByTestId('alert-close');
 
     act(() => {
-      jest.runOnlyPendingTimers();
+      jest.advanceTimersByTime(6000);
     });
     expect(setTimeout).toHaveBeenCalled();
 
