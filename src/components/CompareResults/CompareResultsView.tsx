@@ -2,7 +2,8 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import { connect } from 'react-redux';
 
-import { Revision, State } from '../../types/state';
+import type { RootState } from '../../common/store';
+import { Revision } from '../../types/state';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
 import SelectedRevisionsTable from '../Shared/SelectedRevisionsTable';
 import CompareResultsTable from './CompareResultsTable';
@@ -31,7 +32,7 @@ interface CompareResultsViewProps {
   mode: 'light' | 'dark';
 }
 
-function mapStateToProps(state: State) {
+function mapStateToProps(state: RootState) {
   return {
     revisions: state.selectedRevisions.revisions,
   };

@@ -6,7 +6,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { connect } from 'react-redux';
 
-import type { Revision, State } from '../../types/state';
+import type { RootState } from '../../common/store';
+import type { Revision } from '../../types/state';
 import type { SelectedRevisionsTableHeaders } from '../../types/types';
 import SelectedRevisionsTableRow from './SelectedRevisionsTableRow';
 
@@ -55,7 +56,7 @@ interface SelectedRevisionsProps {
   view: 'search' | 'compare-results';
 }
 
-function mapStateToProps(state: State) {
+function mapStateToProps(state: RootState) {
   return {
     revisions: state.selectedRevisions.revisions,
   };
