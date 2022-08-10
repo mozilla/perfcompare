@@ -1,7 +1,6 @@
 import { useSnackbar, VariantType } from 'notistack';
 
 import { maxRevisionsError } from '../common/constants';
-import type { RootState } from '../common/store';
 import { clearCheckedRevisions } from '../reducers/CheckedRevisions';
 import { setSelectedRevisions } from '../reducers/SelectedRevisions';
 import { truncateHash } from '../utils/helpers';
@@ -11,16 +10,14 @@ const useSelectRevision = () => {
   const dispatch = useAppDispatch();
   const { enqueueSnackbar } = useSnackbar();
 
-  const searchResults = useAppSelector(
-    (state: RootState) => state.search.searchResults,
-  );
+  const searchResults = useAppSelector((state) => state.search.searchResults);
 
   const checkedRevisions = useAppSelector(
-    (state: RootState) => state.checkedRevisions.revisions,
+    (state) => state.checkedRevisions.revisions,
   );
 
   const selectedRevisions = useAppSelector(
-    (state: RootState) => state.selectedRevisions.revisions,
+    (state) => state.selectedRevisions.revisions,
   );
 
   const addSelectedRevisions = () => {

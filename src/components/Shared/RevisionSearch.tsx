@@ -6,9 +6,10 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import { connect } from 'react-redux';
 
+import type { RootState } from '../../common/store';
 import { useAppDispatch } from '../../hooks/app';
 import { clearCheckedRevisions } from '../../reducers/CheckedRevisions';
-import type { Revision, State } from '../../types/state';
+import type { Revision } from '../../types/state';
 import EditSearchResultsTable from '../CompareResults/EditSearchResultsTable';
 import AddRevisionButton from '../Search/AddRevisionButton';
 import SearchDropdown from '../Search/SearchDropdown';
@@ -115,7 +116,7 @@ interface RevisionSearchProps {
   view: 'compare-results' | 'search';
 }
 
-function mapStateToProps(state: State) {
+function mapStateToProps(state: RootState) {
   return {
     searchResults: state.search.searchResults,
   };
