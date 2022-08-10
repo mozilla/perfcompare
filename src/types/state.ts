@@ -79,8 +79,3 @@ export type SelectedRevisionsState = {
 };
 
 export type CompareResultsState = CompareResultsItem[];
-
-export type State = {
-  search: SearchState;
-  selectedRevisions: SelectedRevisionsState;
-};

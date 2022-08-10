@@ -10,16 +10,14 @@ import {
   fetchRevisionByID,
   fetchRevisionsByAuthor,
 } from '../thunks/searchThunk';
-import type { Repository, State } from '../types/state';
+import type { Repository } from '../types/state';
 import { useAppDispatch, useAppSelector } from './app';
 
 let timeout: null | ReturnType<typeof setTimeout> = null;
 
 const useHandleChangeSearch = () => {
   const dispatch = useAppDispatch();
-  const getRepository = useAppSelector(
-    (state: State) => state.search.repository,
-  );
+  const getRepository = useAppSelector((state) => state.search.repository);
 
   const searchByRevisionOrEmail = async (
     repository: Repository['name'],
