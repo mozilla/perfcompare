@@ -12,6 +12,7 @@
     "@reduxjs/toolkit": "^1.8.3",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
+    "express": "^4.18.1",
     "notistack": "^2.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -20,7 +21,8 @@
     "redux": "^4.2.0"
   },
   "scripts": {
-    "start": "webpack serve --config webpack/webpack.config.js --env env=development --open",
+    "dev": "webpack serve --config webpack/webpack.config.js --env env=development --open",
+    "start": "node server.js",
     "build": "webpack --config webpack/webpack.config.js --env env=production",
     "lint": "eslint src/**/*.{js,ts,tsx}",
     "lint:fix": "npm run lint -- --fix",
