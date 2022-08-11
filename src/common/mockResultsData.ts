@@ -1,5 +1,7 @@
 import type { CompareResultsItem } from '../types/state';
 
+const mockGraphLink = 'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=59134b451eec&highlightedRevisions=e5753b90aac1&series=mozilla-central%2Cedcc6311f15bdf7924ef3f0ccfd8b47ce1892212%2C1%2C1&timerange=86400';
+
 export const comparisonResults: CompareResultsItem[] = [
   {
     base_retriggerable_job_ids: [1, 2],
@@ -28,6 +30,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_regression: false,
     is_meaningful: false,
     test: 'fcp',
+    graphs_link: mockGraphLink,
   },
   {
     base_retriggerable_job_ids: [0, 3],
@@ -56,6 +59,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_regression: false,
     is_meaningful: false,
     test: 'fnbpaint',
+    graphs_link: mockGraphLink,
   },
   {
     base_retriggerable_job_ids: [0, 3],
@@ -84,6 +88,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_regression: false,
     is_meaningful: false,
     test: 'loadtime',
+    graphs_link: mockGraphLink,
   },
   {
     base_retriggerable_job_ids: [0, 6],
@@ -112,6 +117,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_regression: false,
     is_meaningful: false,
     test: 'dcf',
+    graphs_link: mockGraphLink,
   },
   {
     base_retriggerable_job_ids: [0, 7],
@@ -140,6 +146,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_regression: false,
     is_meaningful: false,
     test: 'dcf',
+    graphs_link: mockGraphLink,
   },
   {
     base_retriggerable_job_ids: [0, 8],
@@ -168,6 +175,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_regression: false,
     is_meaningful: false,
     test: 'loadtime',
+    graphs_link: mockGraphLink,
   },
   {
     base_retriggerable_job_ids: [0, 4],
@@ -196,6 +204,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_regression: false,
     is_meaningful: false,
     test: 'fcp',
+    graphs_link: mockGraphLink,
   },
   {
     base_retriggerable_job_ids: [0, 6],
@@ -224,6 +233,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_regression: false,
     is_meaningful: false,
     test: 'fnbpaint',
+    graphs_link: mockGraphLink,
   },
   {
     base_retriggerable_job_ids: [0, 4],
@@ -252,6 +262,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_regression: true,
     is_meaningful: true,
     test: 'dcf',
+    graphs_link: mockGraphLink,
   },
   {
     base_retriggerable_job_ids: [0, 3],
@@ -280,6 +291,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_regression: true,
     is_meaningful: true,
     test: 'loadtime',
+    graphs_link: mockGraphLink,
   },
   {
     base_retriggerable_job_ids: [0, 6],
@@ -308,6 +320,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_regression: true,
     is_meaningful: true,
     test: 'ContentfulSpeedIndex',
+    graphs_link: mockGraphLink,
   },
   {
     base_retriggerable_job_ids: [0, 70],
@@ -336,6 +349,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_regression: true,
     is_meaningful: true,
     test: 'ContentfulSpeedIndex',
+    graphs_link: mockGraphLink,
   },
   {
     base_retriggerable_job_ids: [0, 40],
@@ -364,6 +378,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_regression: true,
     is_meaningful: true,
     test: 'PerceptualSpeedIndex',
+    graphs_link: mockGraphLink,
   },
   {
     base_retriggerable_job_ids: [0, 888],
@@ -392,6 +407,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_regression: true,
     is_meaningful: true,
     test: 'SpeedIndex',
+    graphs_link: mockGraphLink,
   },
   {
     base_retriggerable_job_ids: [4, 5],
@@ -420,6 +436,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_regression: true,
     is_meaningful: true,
     test: 'FirstVisualChange',
+    graphs_link: mockGraphLink,
   },
   {
     base_retriggerable_job_ids: [0, 45],
@@ -448,6 +465,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_regression: true,
     is_meaningful: true,
     test: 'LastVisualChange',
+    graphs_link: mockGraphLink,
   },
   {
     base_retriggerable_job_ids: [123, 345],
@@ -476,6 +494,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_regression: true,
     is_meaningful: true,
     test: 'dcf',
+    graphs_link: mockGraphLink,
   },
   {
     base_retriggerable_job_ids: [0, 56],
@@ -504,6 +523,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_regression: true,
     is_meaningful: true,
     test: 'fcp',
+    graphs_link: mockGraphLink,
   },
   {
     base_retriggerable_job_ids: [0, 990],
@@ -532,5 +552,6 @@ export const comparisonResults: CompareResultsItem[] = [
     is_regression: true,
     is_meaningful: true,
     test: 'fcp',
+    graphs_link: mockGraphLink,
   },
 ];
