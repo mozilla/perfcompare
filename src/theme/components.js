@@ -93,17 +93,13 @@ const components = {
           whiteSpace: 'nowrap',
           maxWidth: '450px',
         },
-        '.graph-icon-color': {
-          color: 'inherit',
-        },
         '.graph-icon-color:hover': {
-          color: 'inherit',
-          borderBottom: '1px dotted black',
+          borderBottom: '1px dotted blue',
         },
         '&.background-icon': {
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
-          backgroundSize: '10%',
+          backgroundSize: '17.5%',
         },
         '&.edit-search-results': {
           border: 'none',
