@@ -103,7 +103,7 @@ const components = {
         '&.background-icon': {
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
-          backgroundSize: '10%',
+          backgroundSize: '17.5%',
         },
         '&.edit-search-results': {
           border: 'none',
