@@ -79,11 +79,9 @@ describe('SearchResultsList', () => {
     );
 
     await user.click(fleshWound);
-    expect(store.getState().checkedRevisions.revisions[0]).toBe(1);
+    expect(store.getState().checkedRevisions.revisions[0]).toBe(testData[1]);
     await user.click(fleshWound);
-    expect(
-      screen.getByTestId('checkbox-1').classList.contains('Mui-checked'),
-    ).toBe(false);
+    expect(fleshWound.classList.contains('Mui-checked')).toBe(false);
   });
 
   it('should not allow selecting more than four revisions', async () => {
