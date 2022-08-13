@@ -5,7 +5,7 @@ import type { Revision } from '../../types/state';
 import SearchResultsListItem from './SearchResultsListItem';
 
 function SearchResultsList(props: SearchResultsListProps) {
-  const { searchResults } = props;
+  const { searchResults, view } = props;
 
   return (
     <Box
@@ -25,9 +25,14 @@ function SearchResultsList(props: SearchResultsListProps) {
       }}
       alignItems="flex-end"
     >
-      <List>
+      <List dense={view == 'compare-results'}>
         {searchResults.map((item, index) => (
-          <SearchResultsListItem key={item.id} index={index} item={item} />
+          <SearchResultsListItem
+            key={item.id}
+            index={index}
+            item={item}
+            view={view}
+          />
         ))}
       </List>
     </Box>
@@ -36,6 +41,7 @@ function SearchResultsList(props: SearchResultsListProps) {
 
 interface SearchResultsListProps {
   searchResults: Revision[];
+  view: 'compare-results' | 'search';
 }
 
 export default SearchResultsList;

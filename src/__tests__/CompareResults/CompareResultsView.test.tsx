@@ -74,7 +74,9 @@ describe('SelectedRevisionsTableRow', () => {
     });
     await user.click(input);
 
-    expect(screen.getByText('It got better...')).toBeInTheDocument();
+    expect(
+      screen.getByText('spamspamspam - It got better...'),
+    ).toBeInTheDocument();
 
     await user.keyboard('{Esc}');
     act(() => void jest.runOnlyPendingTimers());

@@ -6,11 +6,10 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import { connect } from 'react-redux';
 
-import type { RootState } from '../../common/store';
+import { RootState } from '../../common/store';
 import { useAppDispatch } from '../../hooks/app';
 import { clearCheckedRevisions } from '../../reducers/CheckedRevisions';
 import type { Revision } from '../../types/state';
-import EditSearchResultsTable from '../CompareResults/EditSearchResultsTable';
 import AddRevisionButton from '../Search/AddRevisionButton';
 import SearchDropdown from '../Search/SearchDropdown';
 import SearchInput from '../Search/SearchInput';
@@ -18,7 +17,7 @@ import SearchResultsList from '../Search/SearchResultsList';
 
 function RevisionSearch(props: RevisionSearchProps) {
   const [focused, setFocused] = useState(false);
-  const { inputWidth, searchResults, view } = props;
+  const { searchResults, view } = props;
   const dispatch = useAppDispatch();
 
   const handleFocus = (e: MouseEvent) => {
@@ -64,54 +63,39 @@ function RevisionSearch(props: RevisionSearchProps) {
   });
 
   return (
-    <>
-      <Grid container className={view}>
-        {view == 'search' && <Grid item xs={1} className="spacer" />}
-        <Grid item xs={2}>
-          <SearchDropdown view={view} />
-        </Grid>
-        <Grid item xs={inputWidth}>
-          <SearchInput setFocused={setFocused} view={view} />
-        </Grid>
-
-        <Grid item xs={1}>
-          {view == 'search' && <AddRevisionButton setFocused={setFocused} />}
-          {view == 'compare-results' && (
-            <>
-              {/* TODO: add functionality for buttons and improve styling */}
-              <Button className="edit-revision-button" size="small">
-                <CheckIcon className="accept" />
-              </Button>
-              <Button className="edit-revision-button" size="small">
-                <CloseIcon className="cancel" />
-              </Button>
-            </>
-          )}
-        </Grid>
+    <Grid container alignItems="center" justifyContent="center">
+      <Grid item xs={2}>
+        <SearchDropdown view={view} />
       </Grid>
-      <Grid container>
-        {view == 'search' && (
+      <Grid item xs={9}>
+        <SearchInput setFocused={setFocused} view={view} />
+      </Grid>
+
+      <Grid item xs={1}>
+        {view == 'search' && <AddRevisionButton setFocused={setFocused} />}
+        {view == 'compare-results' && (
           <>
-            <Grid item xs={1} className="spacer" />
-            <Grid item xs={10}>
-              {searchResults.length > 0 && focused && (
-                <SearchResultsList searchResults={searchResults} />
-              )}
-            </Grid>
+            {/* TODO: add functionality for buttons and improve styling */}
+            <Button className="edit-revision-button" size="small">
+              <CheckIcon className="accept" />
+            </Button>
+            <Button className="edit-revision-button" size="small">
+              <CloseIcon className="cancel" />
+            </Button>
           </>
         )}
-        {view == 'compare-results' && (
-          <Grid item xs={12}>
-            <EditSearchResultsTable />
-          </Grid>
+      </Grid>
+
+      <Grid item xs={12}>
+        {searchResults.length > 0 && focused && (
+          <SearchResultsList searchResults={searchResults} view={view} />
         )}
       </Grid>
-    </>
+    </Grid>
   );
 }
 
 interface RevisionSearchProps {
-  inputWidth: number;
   searchResults: Revision[];
   view: 'compare-results' | 'search';
 }

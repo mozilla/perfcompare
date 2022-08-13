@@ -1,6 +1,5 @@
 import { useSnackbar, VariantType } from 'notistack';
 
-import { maxRevisionsError } from '../common/constants';
 import { setCheckedRevisions } from '../reducers/CheckedRevisions';
 import { Revision } from '../types/state';
 import { useAppDispatch, useAppSelector } from './app';
@@ -13,12 +12,12 @@ const useCheckRevision = () => {
     (state) => state.checkedRevisions.revisions,
   );
 
-  const handleToggle = (revision: Revision) => {
+  const handleToggle = (revision: Revision, maxRevisions: number) => {
     const isChecked = checkedRevisions.includes(revision);
     const newChecked = [...checkedRevisions];
 
     // if item is not already checked, add to checked
-    if (checkedRevisions.length < 4 && !isChecked) {
+    if (checkedRevisions.length < maxRevisions && !isChecked) {
       newChecked.push(revision);
     } else if (isChecked) {
       // if item is already checked, remove from checked
@@ -26,7 +25,7 @@ const useCheckRevision = () => {
     } else {
       // if there are already 4 checked revisions, print a warning
       const variant: VariantType = 'warning';
-      enqueueSnackbar(maxRevisionsError, { variant });
+      enqueueSnackbar(`Maximum ${maxRevisions} revision(s).`, { variant });
     }
 
     dispatch(setCheckedRevisions(newChecked));

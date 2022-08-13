@@ -21,10 +21,11 @@ const tableHeaderDetails: SelectedRevisionsTableHeaders[] = [
 
 function SelectedRevisionsTable(props: SelectedRevisionsProps) {
   const { revisions, view } = props;
+  const size = view == 'compare-results' ? 'small' : undefined;
 
   return (
     <TableContainer className="layout">
-      <Table className={`${view}-selected-table`}>
+      <Table className={`${view}-selected-table`} size={size}>
         <TableHead>
           <TableRow>
             <TableCell component="th" scope="row" />

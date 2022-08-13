@@ -55,29 +55,9 @@ const components = {
       },
     },
   },
-  MuiTable: {
-    styleOverrides: {
-      root: {
-        '&.compare-results-selected-table': {
-          '& .MuiTableCell-root': {
-            paddingTop: '0',
-            paddingBottom: '0',
-          },
-        },
-        '&.search-selected-table': {
-          '& .MuiTableCell-root': {
-            paddingTop: '10px',
-            paddingBottom: '10px',
-          },
-        },
-      },
-    },
-  },
   MuiTableCell: {
     styleOverrides: {
       root: {
-        paddingTop: '10px',
-        paddingBottom: '10px',
         '.cellStyle': {
           fontWeight: 600,
           borderRadius: '2.5px',
@@ -100,10 +80,6 @@ const components = {
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
           backgroundSize: '17.5%',
-        },
-        '&.edit-search-results': {
-          border: 'none',
-          padding: '10px 5px 10px 5px',
         },
         '&.background-icon.dark-mode': {
           filter: 'invert(100%)',
