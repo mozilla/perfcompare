@@ -27,7 +27,7 @@ const useSelectRevision = () => {
 
       // Do not allow adding more than four revisions
       if (selectedRevisions.length == 4) {
-        enqueueSnackbar(maxRevisionsError, { variant });
+        enqueueSnackbar(maxRevisionsError as string, { variant });
         return false;
       }
 
