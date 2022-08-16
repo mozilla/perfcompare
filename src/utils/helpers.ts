@@ -45,10 +45,15 @@ const setPlatformClassName = (platformName: string) => {
   else return '';
 };
 
+const setConfidenceClassName = (confidenceText: string | null) => {
+  return confidenceText == null ? '' : confidenceText;
+};
+
 export {
   formatDate,
   getLatestCommitMessage,
   getTreeherderURL,
   setPlatformClassName,
+  setConfidenceClassName,
   truncateHash,
 };

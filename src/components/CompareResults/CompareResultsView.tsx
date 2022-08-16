@@ -11,10 +11,10 @@ import CompareResultsTable from './CompareResultsTable';
 function CompareResultsView(props: CompareResultsViewProps) {
   const { revisions, mode } = props;
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="xl">
       <PerfCompareHeader />
-      <Grid container>
-        <Grid item xs={12}>
+      <Grid container alignItems="center" justifyContent="center">
+        <Grid item xs={10}>
           {revisions.length > 0 && (
             <SelectedRevisionsTable view="compare-results" />
           )}
