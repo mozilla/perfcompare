@@ -72,7 +72,7 @@ export type SearchState = {
 // contains the indices of currently checked revisions
 // in searchResults state
 export type CheckedRevisionsState = {
-  revisions: number[];
+  revisions: Revision[];
 };
 
 export type SelectedRevisionsState = {
