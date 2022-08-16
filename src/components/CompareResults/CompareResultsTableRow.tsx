@@ -21,7 +21,7 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
       </Tooltip>
       <TableCell>
         <Link
-          href={'#'}
+          href={result.graphs_link}
           className={`background-icon ${mode}-mode graph-icon-color`}
           aria-label="Graph link"
         >

@@ -110,7 +110,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     <a
                       aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1ps4owl-MuiTypography-root-MuiLink-root"
-                      href="#"
+                      href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=59134b451eec&highlightedRevisions=e5753b90aac1&series=mozilla-central%2Cedcc6311f15bdf7924ef3f0ccfd8b47ce1892212%2C1%2C1&timerange=86400"
                     >
                       <svg
                         aria-hidden="true"
@@ -176,7 +176,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     <a
                       aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1ps4owl-MuiTypography-root-MuiLink-root"
-                      href="#"
+                      href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=59134b451eec&highlightedRevisions=e5753b90aac1&series=mozilla-central%2Cedcc6311f15bdf7924ef3f0ccfd8b47ce1892212%2C1%2C1&timerange=86400"
                     >
                       <svg
                         aria-hidden="true"
@@ -242,7 +242,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     <a
                       aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1ps4owl-MuiTypography-root-MuiLink-root"
-                      href="#"
+                      href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=59134b451eec&highlightedRevisions=e5753b90aac1&series=mozilla-central%2Cedcc6311f15bdf7924ef3f0ccfd8b47ce1892212%2C1%2C1&timerange=86400"
                     >
                       <svg
                         aria-hidden="true"
@@ -308,7 +308,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     <a
                       aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1ps4owl-MuiTypography-root-MuiLink-root"
-                      href="#"
+                      href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=59134b451eec&highlightedRevisions=e5753b90aac1&series=mozilla-central%2Cedcc6311f15bdf7924ef3f0ccfd8b47ce1892212%2C1%2C1&timerange=86400"
                     >
                       <svg
                         aria-hidden="true"
@@ -374,7 +374,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     <a
                       aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1ps4owl-MuiTypography-root-MuiLink-root"
-                      href="#"
+                      href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=59134b451eec&highlightedRevisions=e5753b90aac1&series=mozilla-central%2Cedcc6311f15bdf7924ef3f0ccfd8b47ce1892212%2C1%2C1&timerange=86400"
                     >
                       <svg
                         aria-hidden="true"
@@ -440,7 +440,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     <a
                       aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1ps4owl-MuiTypography-root-MuiLink-root"
-                      href="#"
+                      href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=59134b451eec&highlightedRevisions=e5753b90aac1&series=mozilla-central%2Cedcc6311f15bdf7924ef3f0ccfd8b47ce1892212%2C1%2C1&timerange=86400"
                     >
                       <svg
                         aria-hidden="true"
@@ -506,7 +506,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     <a
                       aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1ps4owl-MuiTypography-root-MuiLink-root"
-                      href="#"
+                      href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=59134b451eec&highlightedRevisions=e5753b90aac1&series=mozilla-central%2Cedcc6311f15bdf7924ef3f0ccfd8b47ce1892212%2C1%2C1&timerange=86400"
                     >
                       <svg
                         aria-hidden="true"
@@ -572,7 +572,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     <a
                       aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1ps4owl-MuiTypography-root-MuiLink-root"
-                      href="#"
+                      href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=59134b451eec&highlightedRevisions=e5753b90aac1&series=mozilla-central%2Cedcc6311f15bdf7924ef3f0ccfd8b47ce1892212%2C1%2C1&timerange=86400"
                     >
                       <svg
                         aria-hidden="true"
@@ -638,7 +638,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     <a
                       aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1ps4owl-MuiTypography-root-MuiLink-root"
-                      href="#"
+                      href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=59134b451eec&highlightedRevisions=e5753b90aac1&series=mozilla-central%2Cedcc6311f15bdf7924ef3f0ccfd8b47ce1892212%2C1%2C1&timerange=86400"
                     >
                       <svg
                         aria-hidden="true"
@@ -704,7 +704,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     <a
                       aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1ps4owl-MuiTypography-root-MuiLink-root"
-                      href="#"
+                      href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=59134b451eec&highlightedRevisions=e5753b90aac1&series=mozilla-central%2Cedcc6311f15bdf7924ef3f0ccfd8b47ce1892212%2C1%2C1&timerange=86400"
                     >
                       <svg
                         aria-hidden="true"
@@ -770,7 +770,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     <a
                       aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1ps4owl-MuiTypography-root-MuiLink-root"
-                      href="#"
+                      href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=59134b451eec&highlightedRevisions=e5753b90aac1&series=mozilla-central%2Cedcc6311f15bdf7924ef3f0ccfd8b47ce1892212%2C1%2C1&timerange=86400"
                     >
                       <svg
                         aria-hidden="true"
@@ -836,7 +836,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     <a
                       aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1ps4owl-MuiTypography-root-MuiLink-root"
-                      href="#"
+                      href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=59134b451eec&highlightedRevisions=e5753b90aac1&series=mozilla-central%2Cedcc6311f15bdf7924ef3f0ccfd8b47ce1892212%2C1%2C1&timerange=86400"
                     >
                       <svg
                         aria-hidden="true"
@@ -902,7 +902,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     <a
                       aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1ps4owl-MuiTypography-root-MuiLink-root"
-                      href="#"
+                      href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=59134b451eec&highlightedRevisions=e5753b90aac1&series=mozilla-central%2Cedcc6311f15bdf7924ef3f0ccfd8b47ce1892212%2C1%2C1&timerange=86400"
                     >
                       <svg
                         aria-hidden="true"
@@ -968,7 +968,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     <a
                       aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1ps4owl-MuiTypography-root-MuiLink-root"
-                      href="#"
+                      href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=59134b451eec&highlightedRevisions=e5753b90aac1&series=mozilla-central%2Cedcc6311f15bdf7924ef3f0ccfd8b47ce1892212%2C1%2C1&timerange=86400"
                     >
                       <svg
                         aria-hidden="true"
@@ -1034,7 +1034,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     <a
                       aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1ps4owl-MuiTypography-root-MuiLink-root"
-                      href="#"
+                      href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=59134b451eec&highlightedRevisions=e5753b90aac1&series=mozilla-central%2Cedcc6311f15bdf7924ef3f0ccfd8b47ce1892212%2C1%2C1&timerange=86400"
                     >
                       <svg
                         aria-hidden="true"
@@ -1100,7 +1100,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     <a
                       aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1ps4owl-MuiTypography-root-MuiLink-root"
-                      href="#"
+                      href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=59134b451eec&highlightedRevisions=e5753b90aac1&series=mozilla-central%2Cedcc6311f15bdf7924ef3f0ccfd8b47ce1892212%2C1%2C1&timerange=86400"
                     >
                       <svg
                         aria-hidden="true"
@@ -1166,7 +1166,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     <a
                       aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1ps4owl-MuiTypography-root-MuiLink-root"
-                      href="#"
+                      href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=59134b451eec&highlightedRevisions=e5753b90aac1&series=mozilla-central%2Cedcc6311f15bdf7924ef3f0ccfd8b47ce1892212%2C1%2C1&timerange=86400"
                     >
                       <svg
                         aria-hidden="true"
@@ -1232,7 +1232,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     <a
                       aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1ps4owl-MuiTypography-root-MuiLink-root"
-                      href="#"
+                      href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=59134b451eec&highlightedRevisions=e5753b90aac1&series=mozilla-central%2Cedcc6311f15bdf7924ef3f0ccfd8b47ce1892212%2C1%2C1&timerange=86400"
                     >
                       <svg
                         aria-hidden="true"
@@ -1298,7 +1298,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     <a
                       aria-label="Graph link"
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1ps4owl-MuiTypography-root-MuiLink-root"
-                      href="#"
+                      href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=59134b451eec&highlightedRevisions=e5753b90aac1&series=mozilla-central%2Cedcc6311f15bdf7924ef3f0ccfd8b47ce1892212%2C1%2C1&timerange=86400"
                     >
                       <svg
                         aria-hidden="true"

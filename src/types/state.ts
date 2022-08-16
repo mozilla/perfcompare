@@ -58,6 +58,7 @@ export type CompareResultsItem = {
   is_regression: boolean;
   is_meaningful: boolean;
   test: string;
+  graphs_link: string;
 };
 
 export type SearchState = {
