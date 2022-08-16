@@ -1,4 +1,4 @@
-import ShowChartIcon from '@mui/icons-material/ShowChart';
+import TimelineIcon from '@mui/icons-material/Timeline';
 import Link from '@mui/material/Link';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
@@ -25,7 +25,7 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
           className={`background-icon ${mode}-mode graph-icon-color`}
           aria-label="Graph link"
         >
-          <ShowChartIcon />
+          <TimelineIcon />
         </Link>
       </TableCell>
       <TableCell>{result.suite}</TableCell>
