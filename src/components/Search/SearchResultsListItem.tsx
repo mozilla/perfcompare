@@ -12,22 +12,16 @@ import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
 function SearchResultsListItem(props: SearchResultsListItemProps) {
   const { index, item } = props;
   const isChecked: boolean = useAppSelector((state) =>
-    state.checkedRevisions.revisions.includes(index),
+    state.checkedRevisions.revisions.includes(item),
   );
   const { handleToggle } = useCheckRevision();
-
-  const indexString = index.toString();
 
   const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);
 
   return (
     <>
-      <ListItemButton
-        key={item.id}
-        id={indexString}
-        onClick={(e) => handleToggle(e)}
-      >
+      <ListItemButton key={item.id} onClick={() => handleToggle(item)}>
         <ListItem
           className="search-revision-item search-revision"
           disablePadding
@@ -38,7 +32,7 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
               edge="start"
               tabIndex={-1}
               disableRipple
-              data-testid={`checkbox-${indexString}`}
+              data-testid={`checkbox-${index}`}
               checked={isChecked}
             />
           </ListItemIcon>
