@@ -1,4 +1,5 @@
 import { axe, toHaveNoViolations } from 'jest-axe';
+import { act } from 'react-dom/test-utils';
 
 import CompareResultsView from '../../components/CompareResults/CompareResultsView';
 import SearchDropdown from '../../components/Search/SearchDropdown';
@@ -22,9 +23,11 @@ describe('Accessibility', () => {
   });
 
   it('SearchInput should have no violations', async () => {
-    const { container } = renderWithRouter(<SearchView />);
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
+    await act(async () => {
+      const { container } = renderWithRouter(<SearchView />);
+      const results = await axe(container);
+      expect(results).toHaveNoViolations();
+    });
   });
 
   it('SearchResultsList should have no violations', async () => {
@@ -41,7 +44,7 @@ describe('Accessibility', () => {
     const { testData } = getTestData();
     store.dispatch(updateSearchResults(testData));
 
-    const { container } = renderWithRouter(<SearchDropdown />);
+    const { container } = renderWithRouter(<SearchDropdown view="search" />);
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
@@ -58,12 +61,22 @@ describe('Accessibility', () => {
     expect(results).toHaveNoViolations();
   });
 
-  it('CompareResultsView should have no violations', async () => {
+  it('CompareResultsView should have no violations in light mode', async () => {
     const { testData } = getTestData();
     const selectedRevisions = testData.slice(0, 4);
     store.dispatch(setSelectedRevisions(selectedRevisions));
 
     const { container } = renderWithRouter(<CompareResultsView mode="light" />);
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
+  });
+
+  it('CompareResultsView should have no violations in dark mode', async () => {
+    const { testData } = getTestData();
+    const selectedRevisions = testData.slice(0, 4);
+    store.dispatch(setSelectedRevisions(selectedRevisions));
+
+    const { container } = renderWithRouter(<CompareResultsView mode="dark" />);
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
