@@ -28,7 +28,8 @@ export type MeasurementUnit =
   | 'mWh'
   | 'KB'
   | 'fps'
-  | 'bytes';
+  | 'bytes'
+  | null;
 
 export type Framework =
   | { id: 1; name: 'talos' }
