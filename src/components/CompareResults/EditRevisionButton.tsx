@@ -36,7 +36,11 @@ function EditRevisionButton(props: EditRevisionButtonProps) {
           horizontal: 'left',
         }}
       >
-        <RevisionSearch view="compare-results" />
+        <RevisionSearch
+          view="compare-results"
+          prevRevision={item}
+          setPopoverIsOpen={setPopoverIsOpen}
+        />
       </Popover>
     </>
   );
