@@ -5,7 +5,10 @@ import TableRow from '@mui/material/TableRow';
 import Tooltip from '@mui/material/Tooltip';
 
 import type { CompareResultsItem } from '../../types/state';
-import { setPlatformClassName } from '../../utils/helpers';
+import {
+  setPlatformClassName,
+  setConfidenceClassName,
+} from '../../utils/helpers';
 
 function CompareResultsTableRow(props: ResultsTableRowProps) {
   const { result, index, mode } = props;
@@ -32,9 +35,11 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
       <TableCell>{result.test}</TableCell>
       <TableCell>{result.base_avg_value}</TableCell>
       <TableCell>{result.new_avg_value}</TableCell>
-      <TableCell>{result.delta}%</TableCell>
+      <TableCell>{result.delta_percentage}%</TableCell>
       <TableCell
-        className={`background-icon ${result.confidence_text}`}
+        className={`background-icon ${setConfidenceClassName(
+          result.confidence_text,
+        )}`}
       ></TableCell>
       <TableCell>
         {result.base_runs.length}/{result.new_runs.length}
