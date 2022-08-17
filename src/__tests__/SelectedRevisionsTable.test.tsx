@@ -4,6 +4,7 @@ import { act } from 'react-dom/test-utils';
 import { maxRevisionsError } from '../common/constants';
 import CompareResultsView from '../components/CompareResults/CompareResultsView';
 import SearchView from '../components/Search/SearchView';
+import { updateSearchResults } from '../reducers/SearchSlice';
 import { setSelectedRevisions } from '../reducers/SelectedRevisions';
 import getTestData from './utils/fixtures';
 import { renderWithRouter, store } from './utils/setupTests';
@@ -146,24 +147,63 @@ describe('Search View', () => {
     ).toBeInTheDocument();
   });
 
-  it('should display edit button on Compare View', async () => {
+  it('should replace revision when editing from Compare View', async () => {
     const { testData } = getTestData();
-    global.fetch = jest.fn(() =>
-      Promise.resolve({
-        json: () => ({
-          results: testData,
-        }),
-      }),
-    ) as jest.Mock;
+    store.dispatch(updateSearchResults(testData));
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
 
     // start with one selected revision
     const selectedRevisions = testData.slice(0, 1);
     store.dispatch(setSelectedRevisions(selectedRevisions));
 
     renderWithRouter(<CompareResultsView mode="light" />);
+    const prevRevision = screen.getByText("you've got no arms left!");
+    const editRevisionButton = screen.getByRole('button', {
+      name: 'edit-revision-1',
+    });
+    expect(editRevisionButton).toBeInTheDocument();
 
+    await user.click(editRevisionButton);
+
+    // focus input to show results
+    const searchInput = screen.getByRole('textbox');
+    await user.click(searchInput);
+
+    await user.click(screen.getByTestId('checkbox-4'));
+    await user.click(screen.getByTestId('replace-revision-button'));
+    jest.runOnlyPendingTimers();
+
+    expect(prevRevision).not.toBeInTheDocument();
+    expect(screen.getByText('It got better...')).toBeInTheDocument();
+  });
+
+  it('should display an alert when editing revision from Compare View if revision is already selected', async () => {
+    const { testData } = getTestData();
+    store.dispatch(updateSearchResults(testData));
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
+
+    // start with one selected revision
+    const selectedRevisions = testData.slice(0, 1);
+    store.dispatch(setSelectedRevisions(selectedRevisions));
+
+    renderWithRouter(<CompareResultsView mode="light" />);
+    const editRevisionButton = screen.getByRole('button', {
+      name: 'edit-revision-1',
+    });
+    expect(editRevisionButton).toBeInTheDocument();
+
+    await user.click(editRevisionButton);
+
+    // focus input to show results
+    const searchInput = screen.getByRole('textbox');
+    await user.click(searchInput);
+
+    await user.click(screen.getByTestId('checkbox-0'));
+    await user.click(screen.getByTestId('replace-revision-button'));
     expect(
-      screen.getByRole('button', { name: 'edit-revision-1' }),
+      screen.getByText('Revision coconut is already selected.'),
     ).toBeInTheDocument();
   });
 });
