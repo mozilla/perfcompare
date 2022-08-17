@@ -27,6 +27,8 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
           href={result.graphs_link}
           className={`background-icon ${mode}-mode graph-icon-color`}
           aria-label="Graph link"
+          target="_blank"
+          rel="noopener"
         >
           <TimelineIcon />
         </Link>
