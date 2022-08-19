@@ -54,7 +54,7 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
             <IconButton className="missing-confidence-button">
               <QuestionMarkIcon className="missing-confidence-icon" />
             </IconButton>
-          </Tooltip>{' '}
+          </Tooltip>
         </TableCell>
       )}
 
