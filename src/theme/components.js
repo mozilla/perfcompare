@@ -26,7 +26,7 @@ const components = {
           padding: '0',
           minWidth: '0',
           '&:hover': {
-            backgroundColor: 'green',
+            backgroundColor: 'transparent',
           },
           '& .MuiSvgIcon-root': {
             width: 'auto',
@@ -46,7 +46,6 @@ const components = {
             },
           },
         },
-        // '&.MuiButtonBase-root-MuiIconButton-root'
         '&.compare-button': {
           lineHeight: '1.4375em',
           padding: '16.5px 14px',
