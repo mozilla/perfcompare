@@ -1,4 +1,6 @@
+import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import TimelineIcon from '@mui/icons-material/Timeline';
+import IconButton from '@mui/material/IconButton';
 import Link from '@mui/material/Link';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
@@ -38,11 +40,27 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
       <TableCell>{result.base_avg_value}</TableCell>
       <TableCell>{result.new_avg_value}</TableCell>
       <TableCell>{result.delta_percentage}%</TableCell>
-      <TableCell
-        className={`background-icon ${setConfidenceClassName(
-          result.confidence_text,
-        )}`}
-      ></TableCell>
+      {result.confidence_text ? (
+        <TableCell
+          className={`background-icon ${setConfidenceClassName(
+            result.confidence_text,
+          )}`}
+        ></TableCell>
+      ) : (
+        <TableCell
+          className={`${setConfidenceClassName(result.confidence_text)}`}
+        >
+          <Tooltip
+            className="missing-confidence-button"
+            title="Confidence not available"
+          >
+            <IconButton>
+              <QuestionMarkIcon className="missing-confidence-icon" />
+            </IconButton>
+          </Tooltip>{' '}
+        </TableCell>
+      )}
+
       <TableCell>
         {result.base_runs.length}/{result.new_runs.length}
       </TableCell>
