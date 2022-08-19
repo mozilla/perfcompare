@@ -26,7 +26,7 @@ const components = {
           padding: '0',
           minWidth: '0',
           '&:hover': {
-            backgroundColor: 'transparent',
+            backgroundColor: 'green',
           },
           '& .MuiSvgIcon-root': {
             width: 'auto',
@@ -44,22 +44,9 @@ const components = {
                 backgroundColor: red[100],
               },
             },
-
-            '&.missing-confidence-button': {
-              '&.css-78trlr-MuiButtonBase-root-MuiIconButton-roo': {
-                // height: '29px',
-                borderRadius: '0',
-                backgroundColor: 'pink',
-                // paddingTop: '0 !important',
-                // paddingBottom: '0 !important',
-
-                '&:hover': {
-                  backgroundColor: 'transparent',
-                },
-              },
-            },
           },
         },
+        // '&.MuiButtonBase-root-MuiIconButton-root'
         '&.compare-button': {
           lineHeight: '1.4375em',
           padding: '16.5px 14px',
@@ -173,6 +160,7 @@ const components = {
         },
         '&.missing-confidence-icon': {
           color: '#EE4B2B',
+          fontSize: '1.5rem',
         },
       },
     },
@@ -192,6 +180,20 @@ const components = {
         //   paddingTop: '0',
         //   paddingBottom: '0',
         // },
+      },
+    },
+  },
+  MuiIconButton: {
+    styleOverrides: {
+      root: {
+        '&.missing-confidence-button': {
+          borderRadius: '0',
+          paddingBottom: '0',
+
+          '&:hover': {
+            backgroundColor: 'transparent',
+          },
+        },
       },
     },
   },

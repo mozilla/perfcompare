@@ -50,11 +50,8 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
         <TableCell
           className={`${setConfidenceClassName(result.confidence_text)}`}
         >
-          <Tooltip
-            className="missing-confidence-button"
-            title="Confidence not available"
-          >
-            <IconButton>
+          <Tooltip title="Confidence not available">
+            <IconButton className="missing-confidence-button">
               <QuestionMarkIcon className="missing-confidence-icon" />
             </IconButton>
           </Tooltip>{' '}
