@@ -46,7 +46,7 @@ const setPlatformClassName = (platformName: string) => {
 };
 
 const setConfidenceClassName = (confidenceText: string | null) => {
-  return confidenceText == null ? '' : confidenceText;
+  return confidenceText || 'unknown-confidence';
 };
 
 export {
