@@ -53,7 +53,7 @@ describe('setConfidenceClassName', () => {
     { confidenceText: 'low', className: 'low' },
     { confidenceText: 'med', className: 'med' },
     { confidenceText: 'high', className: 'high' },
-    { confidenceText: null, className: '' },
+    { confidenceText: null, className: 'unknown-confidence' },
   ])('returns correct class name', (test) => {
     expect(setConfidenceClassName(test.confidenceText)).toStrictEqual(
       test.className,
