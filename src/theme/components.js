@@ -174,11 +174,6 @@ const components = {
             padding: '6px',
           },
         },
-        // '&.missing-confidence-tooltip': {
-
-        //   paddingTop: '0',
-        //   paddingBottom: '0',
-        // },
       },
     },
   },
