@@ -105,6 +105,10 @@ const components = {
         '&.android': {
           backgroundImage: `url(${android})`,
         },
+        '&.unknown-confidence': {
+          display: 'flex',
+          flexDirection: 'column',
+        },
       },
     },
   },
@@ -153,6 +157,10 @@ const components = {
         '&.compare-icon': {
           marginLeft: '15px',
         },
+        '&.missing-confidence-icon': {
+          color: '#EE4B2B',
+          fontSize: '1.5rem',
+        },
       },
     },
   },
@@ -164,6 +172,20 @@ const components = {
             width: '100%',
             maxWidth: '1152px',
             padding: '6px',
+          },
+        },
+      },
+    },
+  },
+  MuiIconButton: {
+    styleOverrides: {
+      root: {
+        '&.missing-confidence-button': {
+          borderRadius: '0',
+          paddingBottom: '0',
+
+          '&:hover': {
+            backgroundColor: 'transparent',
           },
         },
       },
