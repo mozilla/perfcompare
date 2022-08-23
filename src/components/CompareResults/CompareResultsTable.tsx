@@ -5,9 +5,8 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { useSelector } from 'react-redux';
 
-import type { RootState } from '../../common/store';
+import { useAppSelector } from '../../hooks/app';
 import type { CompareResultsItem } from '../../types/state';
 import type { CompareResultsTableHeaders } from '../../types/types';
 import CompareResultsTableRow from './CompareResultsTableRow';
@@ -26,8 +25,8 @@ const tableHeaders: CompareResultsTableHeaders[] = [
 
 function CompareResultsTable(props: CompareResultsProps) {
   const { mode } = props;
-  const compareResults: CompareResultsItem[] = useSelector(
-    (state: RootState) => state.compareResults,
+  const compareResults: CompareResultsItem[] = useAppSelector(
+    (state) => state.compareResults,
   );
   return (
     <TableContainer component={Paper}>

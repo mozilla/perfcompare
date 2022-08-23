@@ -32,6 +32,7 @@ export type Revision = {
 };
 
 export type CompareResultsItem = {
+  header_name: string;
   base_retriggerable_job_ids: number[];
   new_retriggerable_job_ids: number[];
   base_measurement_unit: MeasurementUnit;
@@ -46,18 +47,32 @@ export type CompareResultsItem = {
   is_complete: boolean;
   base_avg_value: number;
   new_avg_value: number;
+  base_median_value: number;
+  new_median_value: number;
   base_stddev: number;
   new_stddev: number;
   base_stddev_pct: number;
   new_stddev_pct: number;
-  delta: number;
   new_is_better: boolean;
-  confidence: number;
-  confidence_text: ConfidenceText;
+  confidence: number | null;
+  confidence_text: ConfidenceText | null;
+  confidence_text_long: string | null;
+  t_value_confidence: number;
+  t_value_care_min: number;
+  delta_value: number;
+  delta_percentage: number;
+  magnitude: number;
   is_improvement: boolean;
+  is_empty: boolean;
+  test: string;
+  option_name: string;
+  extra_options: string;
+  noise_metric: boolean;
+  is_confident: boolean;
+  graphs_link: string;
   is_regression: boolean;
   is_meaningful: boolean;
-  test: string;
+  more_runs_are_needed: boolean;
 };
 
 export type SearchState = {
@@ -71,7 +86,7 @@ export type SearchState = {
 // contains the indices of currently checked revisions
 // in searchResults state
 export type CheckedRevisionsState = {
-  revisions: number[];
+  revisions: Revision[];
 };
 
 export type SelectedRevisionsState = {
@@ -79,8 +94,3 @@ export type SelectedRevisionsState = {
 };
 
 export type CompareResultsState = CompareResultsItem[];
-
-export type State = {
-  search: SearchState;
-  selectedRevisions: SelectedRevisionsState;
-};

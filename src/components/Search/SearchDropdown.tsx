@@ -5,8 +5,8 @@ import Select from '@mui/material/Select';
 import { connect } from 'react-redux';
 
 import { repoMap } from '../../common/constants';
+import type { RootState } from '../../common/store';
 import useHandleChangeDropdown from '../../hooks/useHandleChangeDropdown';
-import type { State } from '../../types/state';
 
 function SearchDropdown(props: SearchDropdownProps) {
   const { repository, view } = props;
@@ -22,7 +22,7 @@ function SearchDropdown(props: SearchDropdownProps) {
             id={repoMap[key]}
             value={repoMap[key]}
             key={repoMap[key]}
-            onClick={(e) => handleChangeDropdown(e)}
+            onClick={(e) => void handleChangeDropdown(e)}
           >
             {repoMap[key]}
           </MenuItem>
@@ -37,7 +37,7 @@ interface SearchDropdownProps {
   view: 'compare-results' | 'search';
 }
 
-function mapStateToProps(state: State) {
+function mapStateToProps(state: RootState) {
   return {
     repository: state.search.repository,
   };

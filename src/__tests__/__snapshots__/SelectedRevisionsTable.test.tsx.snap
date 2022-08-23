@@ -95,7 +95,7 @@ exports[`Search View should match snapshot 1`] = `
                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1iwtne7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1ps4owl-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
                   >
                     coconut
@@ -164,7 +164,7 @@ exports[`Search View should match snapshot 1`] = `
                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1iwtne7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1ps4owl-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
                   >
                     spam
@@ -233,7 +233,7 @@ exports[`Search View should match snapshot 1`] = `
                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1iwtne7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1ps4owl-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=try&revision=spamspam"
                   >
                     spamspam
@@ -302,7 +302,7 @@ exports[`Search View should match snapshot 1`] = `
                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1iwtne7-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1ps4owl-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=autoland&revision=spamspamspamandeggs"
                   >
                     spamspamspam
@@ -379,11 +379,9 @@ exports[`Search View should match snapshot 1`] = `
         </button>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-container search css-11lq3yg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container css-go2vvz-MuiGrid-root"
+        id="revision-search-container"
       >
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 spacer css-u78q51-MuiGrid-root"
-        />
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 css-1o7apob-MuiGrid-root"
         >
@@ -443,7 +441,7 @@ exports[`Search View should match snapshot 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 css-uqwprf-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-9 css-1qpzhgb-MuiGrid-root"
         >
           <div
             class="MuiFormControl-root MuiTextField-root css-136h9lv-MuiFormControl-root-MuiTextField-root"
@@ -479,7 +477,6 @@ exports[`Search View should match snapshot 1`] = `
                 </legend>
               </fieldset>
             </div>
-            
           </div>
         </div>
         <div
@@ -508,15 +505,8 @@ exports[`Search View should match snapshot 1`] = `
             />
           </button>
         </div>
-      </div>
-      <div
-        class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
-      >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 spacer css-u78q51-MuiGrid-root"
-        />
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 css-17p3wh3-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
         />
       </div>
     </div>

@@ -1,4 +1,5 @@
 import userEvent from '@testing-library/user-event';
+import { act } from 'react-dom/test-utils';
 
 import SearchView from '../../components/Search/SearchView';
 import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
@@ -7,7 +8,7 @@ import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
 
 describe('Search View', () => {
-  it('render correctly when there are no results', () => {
+  it('renders correctly when there are no results', async () => {
     renderWithRouter(<SearchView />);
 
     // Title appears
@@ -29,6 +30,7 @@ describe('Search View', () => {
     expect(screen.queryByRole('listitem')).not.toBeInTheDocument();
 
     expect(document.body).toMatchSnapshot();
+    await act(async () => void jest.runOnlyPendingTimers());
   });
 
   it('should hide search results when clicking outside of search input', async () => {
@@ -204,7 +206,7 @@ describe('Search View', () => {
 
     renderWithRouter(<SearchView />);
 
-    await screen.findByRole('button', { name: 'repository' });
+    await act(async () => void jest.runOnlyPendingTimers());
 
     expect(spyOnFetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true',
@@ -229,6 +231,5 @@ describe('Search View', () => {
 
     expect(history.location.pathname).toEqual('/compare-results');
     expect(history.location.search).toEqual('?revs=coconut,spam&repos=4,1');
-
   });
 });

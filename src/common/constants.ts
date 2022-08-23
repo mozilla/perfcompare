@@ -5,7 +5,7 @@ import { Framework, Platform } from '../types/types';
 
 export const treeherderBaseURL = 'https://treeherder.mozilla.org';
 
-export const maxRevisionsError = 'Maximum four revisions.';
+export const maxRevisionsError = 'Maximum 4 revision(s).';
 
 export const repoMap: Dictionary<Repository['name']> = {
   1: 'mozilla-central',

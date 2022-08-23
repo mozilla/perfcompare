@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Search View render correctly when there are no results 1`] = `
+exports[`Search View renders correctly when there are no results 1`] = `
 <body>
   <div>
     <div
@@ -22,11 +22,9 @@ exports[`Search View render correctly when there are no results 1`] = `
         class="MuiGrid-root MuiGrid-item compare-button-section css-13i4rnv-MuiGrid-root"
       />
       <div
-        class="MuiGrid-root MuiGrid-container search css-11lq3yg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container css-go2vvz-MuiGrid-root"
+        id="revision-search-container"
       >
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 spacer css-u78q51-MuiGrid-root"
-        />
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 css-1o7apob-MuiGrid-root"
         >
@@ -86,7 +84,7 @@ exports[`Search View render correctly when there are no results 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 css-uqwprf-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-9 css-1qpzhgb-MuiGrid-root"
         >
           <div
             class="MuiFormControl-root MuiTextField-root css-136h9lv-MuiFormControl-root-MuiTextField-root"
@@ -122,7 +120,6 @@ exports[`Search View render correctly when there are no results 1`] = `
                 </legend>
               </fieldset>
             </div>
-            
           </div>
         </div>
         <div
@@ -151,15 +148,8 @@ exports[`Search View render correctly when there are no results 1`] = `
             />
           </button>
         </div>
-      </div>
-      <div
-        class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
-      >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 spacer css-u78q51-MuiGrid-root"
-        />
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 css-17p3wh3-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
         />
       </div>
     </div>
@@ -189,11 +179,9 @@ exports[`Search View should hide search results when clicking outside of search 
         class="MuiGrid-root MuiGrid-item compare-button-section css-13i4rnv-MuiGrid-root"
       />
       <div
-        class="MuiGrid-root MuiGrid-container search css-11lq3yg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container css-go2vvz-MuiGrid-root"
+        id="revision-search-container"
       >
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 spacer css-u78q51-MuiGrid-root"
-        />
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 css-1o7apob-MuiGrid-root"
         >
@@ -253,7 +241,7 @@ exports[`Search View should hide search results when clicking outside of search 
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 css-uqwprf-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-9 css-1qpzhgb-MuiGrid-root"
         >
           <div
             class="MuiFormControl-root MuiTextField-root css-136h9lv-MuiFormControl-root-MuiTextField-root"
@@ -289,7 +277,6 @@ exports[`Search View should hide search results when clicking outside of search 
                 </legend>
               </fieldset>
             </div>
-            
           </div>
         </div>
         <div
@@ -318,15 +305,8 @@ exports[`Search View should hide search results when clicking outside of search 
             />
           </button>
         </div>
-      </div>
-      <div
-        class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
-      >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 spacer css-u78q51-MuiGrid-root"
-        />
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 css-17p3wh3-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
         />
       </div>
     </div>
@@ -356,11 +336,9 @@ exports[`Search View should not hide search results when clicking search results
         class="MuiGrid-root MuiGrid-item compare-button-section css-13i4rnv-MuiGrid-root"
       />
       <div
-        class="MuiGrid-root MuiGrid-container search css-11lq3yg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container css-go2vvz-MuiGrid-root"
+        id="revision-search-container"
       >
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 spacer css-u78q51-MuiGrid-root"
-        />
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 css-1o7apob-MuiGrid-root"
         >
@@ -420,7 +398,7 @@ exports[`Search View should not hide search results when clicking search results
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 css-uqwprf-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-9 css-1qpzhgb-MuiGrid-root"
         >
           <div
             class="MuiFormControl-root MuiTextField-root css-136h9lv-MuiFormControl-root-MuiTextField-root"
@@ -456,7 +434,6 @@ exports[`Search View should not hide search results when clicking search results
                 </legend>
               </fieldset>
             </div>
-            
           </div>
         </div>
         <div
@@ -485,15 +462,8 @@ exports[`Search View should not hide search results when clicking search results
             />
           </button>
         </div>
-      </div>
-      <div
-        class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
-      >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 spacer css-u78q51-MuiGrid-root"
-        />
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 css-17p3wh3-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
         >
           <div
             class="MuiBox-root css-l1oafp"
@@ -503,8 +473,7 @@ exports[`Search View should not hide search results when clicking search results
               class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
             >
               <div
-                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root"
-                id="0"
+                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
                 role="button"
                 tabindex="0"
               >
@@ -566,8 +535,7 @@ exports[`Search View should not hide search results when clicking search results
                 </span>
               </div>
               <div
-                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root"
-                id="1"
+                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
                 role="button"
                 tabindex="0"
               >
@@ -629,8 +597,7 @@ exports[`Search View should not hide search results when clicking search results
                 </span>
               </div>
               <div
-                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root"
-                id="2"
+                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
                 role="button"
                 tabindex="0"
               >
@@ -683,8 +650,7 @@ exports[`Search View should not hide search results when clicking search results
                 />
               </div>
               <div
-                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root"
-                id="3"
+                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
                 role="button"
                 tabindex="0"
               >
@@ -737,8 +703,7 @@ exports[`Search View should not hide search results when clicking search results
                 />
               </div>
               <div
-                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root"
-                id="4"
+                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
                 role="button"
                 tabindex="0"
               >

@@ -5,9 +5,11 @@
     "jsx": "react-jsx", // use typescript to transpile jsx to js
     "module": "es6", // specify module code generation
     "moduleResolution": "node",
-    "outDir": "./dist/", // path to output directory
+    "noEmit": true, // do not emit output files
+    "outDir": "./build/", // path to output directory
     "preserveConstEnums": true,
     "sourceMap": true, // allow sourcemap support
+    "skipLibCheck": true, // skip type checking of default library declaration files
     "strict": true,
     "strictNullChecks": true, // enable strict null checks as a best practice
     "target": "es5" // specify ECMAScript target version

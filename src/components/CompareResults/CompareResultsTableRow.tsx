@@ -1,11 +1,16 @@
-import ShowChartIcon from '@mui/icons-material/ShowChart';
+import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
+import TimelineIcon from '@mui/icons-material/Timeline';
+import IconButton from '@mui/material/IconButton';
 import Link from '@mui/material/Link';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import Tooltip from '@mui/material/Tooltip';
 
 import type { CompareResultsItem } from '../../types/state';
-import { setPlatformClassName } from '../../utils/helpers';
+import {
+  setPlatformClassName,
+  setConfidenceClassName,
+} from '../../utils/helpers';
 
 function CompareResultsTableRow(props: ResultsTableRowProps) {
   const { result, index, mode } = props;
@@ -21,21 +26,38 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
       </Tooltip>
       <TableCell>
         <Link
-          href={'#'}
+          href={result.graphs_link}
           className={`background-icon ${mode}-mode graph-icon-color`}
           aria-label="Graph link"
+          target="_blank"
+          rel="noopener"
         >
-          <ShowChartIcon />
+          <TimelineIcon />
         </Link>
       </TableCell>
       <TableCell>{result.suite}</TableCell>
       <TableCell>{result.test}</TableCell>
       <TableCell>{result.base_avg_value}</TableCell>
       <TableCell>{result.new_avg_value}</TableCell>
-      <TableCell>{result.delta}%</TableCell>
-      <TableCell
-        className={`background-icon ${result.confidence_text}`}
-      ></TableCell>
+      <TableCell>{result.delta_percentage}%</TableCell>
+      {result.confidence_text ? (
+        <TableCell
+          className={`background-icon ${setConfidenceClassName(
+            result.confidence_text,
+          )}`}
+        ></TableCell>
+      ) : (
+        <TableCell
+          className={`${setConfidenceClassName(result.confidence_text)}`}
+        >
+          <Tooltip title="Confidence not available">
+            <IconButton className="missing-confidence-button">
+              <QuestionMarkIcon className="missing-confidence-icon" />
+            </IconButton>
+          </Tooltip>
+        </TableCell>
+      )}
+
       <TableCell>
         {result.base_runs.length}/{result.new_runs.length}
       </TableCell>

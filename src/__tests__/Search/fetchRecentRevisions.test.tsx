@@ -1,4 +1,5 @@
 import userEvent from '@testing-library/user-event';
+import { act } from 'react-dom/test-utils';
 
 import SearchView from '../../components/Search/SearchView';
 import getTestData from '../utils/fixtures';
@@ -34,7 +35,8 @@ describe('SearchView/fetchRecentRevisions', () => {
     ).toBeInTheDocument();
 
     await user.click(screen.getByRole('option', { name: 'autoland' }));
-    jest.runOnlyPendingTimers();
+
+    act(() => void jest.runOnlyPendingTimers());
     expect(screen.queryByText('try')).not.toBeInTheDocument();
 
     expect(store.getState().search.searchResults).toStrictEqual(testData);
@@ -62,7 +64,7 @@ describe('SearchView/fetchRecentRevisions', () => {
     const spyOnFetch = jest.spyOn(global, 'fetch');
 
     renderWithRouter(<SearchView />);
-
+    await act(async () => void jest.runOnlyPendingTimers());
     await screen.findByRole('button', { name: 'repository' });
 
     expect(spyOnFetch).toHaveBeenCalledWith(
@@ -80,7 +82,7 @@ describe('SearchView/fetchRecentRevisions', () => {
     const spyOnFetch = jest.spyOn(global, 'fetch');
 
     renderWithRouter(<SearchView />);
-
+    await act(async () => void jest.runOnlyPendingTimers());
     await screen.findByRole('button', { name: 'repository' });
 
     expect(spyOnFetch).toHaveBeenCalledWith(

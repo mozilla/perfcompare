@@ -2,6 +2,7 @@ import {
   formatDate,
   getLatestCommitMessage,
   setPlatformClassName,
+  setConfidenceClassName,
   truncateHash,
 } from '../utils/helpers';
 import getTestData from './utils/fixtures';
@@ -44,5 +45,18 @@ describe('setPlatformClassName Helper', () => {
     { platform: 'i am not an operating system', className: '' },
   ])('returns correct class name', (test) => {
     expect(setPlatformClassName(test.platform)).toStrictEqual(test.className);
+  });
+});
+
+describe('setConfidenceClassName', () => {
+  it.each([
+    { confidenceText: 'low', className: 'low' },
+    { confidenceText: 'med', className: 'med' },
+    { confidenceText: 'high', className: 'high' },
+    { confidenceText: null, className: 'unknown-confidence' },
+  ])('returns correct class name', (test) => {
+    expect(setConfidenceClassName(test.confidenceText)).toStrictEqual(
+      test.className,
+    );
   });
 });

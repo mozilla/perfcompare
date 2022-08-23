@@ -3,31 +3,28 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import { useSelector } from 'react-redux';
 
-import type { RootState } from '../../common/store';
+import { useAppSelector } from '../../hooks/app';
 import useCheckRevision from '../../hooks/useCheckRevision';
 import type { Revision } from '../../types/state';
 import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
 
 function SearchResultsListItem(props: SearchResultsListItemProps) {
-  const { index, item } = props;
-  const isChecked: boolean = useSelector((state: RootState) =>
-    state.checkedRevisions.revisions.includes(index),
+  const { index, item, view } = props;
+  const isChecked: boolean = useAppSelector((state) =>
+    state.checkedRevisions.revisions.includes(item),
   );
   const { handleToggle } = useCheckRevision();
 
-  const indexString = index.toString();
-
   const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);
+  const maxRevisions = view == 'compare-results' ? 1 : 4;
 
   return (
     <>
       <ListItemButton
         key={item.id}
-        id={indexString}
-        onClick={(e) => handleToggle(e)}
+        onClick={() => handleToggle(item, maxRevisions)}
       >
         <ListItem
           className="search-revision-item search-revision"
@@ -39,7 +36,7 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
               edge="start"
               tabIndex={-1}
               disableRipple
-              data-testid={`checkbox-${indexString}`}
+              data-testid={`checkbox-${index}`}
               checked={isChecked}
             />
           </ListItemIcon>
@@ -61,6 +58,7 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
 interface SearchResultsListItemProps {
   index: number;
   item: Revision;
+  view: 'search' | 'compare-results';
 }
 
 export default SearchResultsListItem;

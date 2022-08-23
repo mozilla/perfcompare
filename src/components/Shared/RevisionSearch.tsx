@@ -1,14 +1,16 @@
-import { useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
-import { connect, useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 
+import { RootState } from '../../common/store';
+import { useAppDispatch } from '../../hooks/app';
+import useSelectRevision from '../../hooks/useSelectRevision';
 import { clearCheckedRevisions } from '../../reducers/CheckedRevisions';
-import type { Revision, State } from '../../types/state';
-import EditSearchResultsTable from '../CompareResults/EditSearchResultsTable';
+import type { Revision } from '../../types/state';
 import AddRevisionButton from '../Search/AddRevisionButton';
 import SearchDropdown from '../Search/SearchDropdown';
 import SearchInput from '../Search/SearchInput';
@@ -16,23 +18,23 @@ import SearchResultsList from '../Search/SearchResultsList';
 
 function RevisionSearch(props: RevisionSearchProps) {
   const [focused, setFocused] = useState(false);
-  const { inputWidth, searchResults, view } = props;
-  const dispatch = useDispatch();
+  const { prevRevision, searchResults, setPopoverIsOpen, view } = props;
+
+  const dispatch = useAppDispatch();
+  const { replaceSelectedRevision } = useSelectRevision();
 
   const handleFocus = (e: MouseEvent) => {
     if (
       (e.target as HTMLElement).matches(
-        `#search-revision-input, 
-          #search-results-list, 
-          #search-results-list *`,
+        `#revision-search-container, 
+        #revision-search-container *`,
+      ) &&
+      // do not open search results when cancel button is clicked
+      !(e.target as HTMLElement).matches(
+        '#cancel-edit-revision-button, #cancel-edit-revision-button *',
       )
     ) {
       setFocused(true);
-    } else if (
-      (e.target as HTMLElement).matches(
-        '#add-revision-button,#add-revision-button *',
-      )
-    ) {
       return;
     } else {
       setFocused(false);
@@ -62,59 +64,63 @@ function RevisionSearch(props: RevisionSearchProps) {
   });
 
   return (
-    <>
-      <Grid container className={view}>
-        {view == 'search' && <Grid item xs={1} className="spacer" />}
-        <Grid item xs={2}>
-          <SearchDropdown view={view} />
-        </Grid>
-        <Grid item xs={inputWidth}>
-          <SearchInput setFocused={setFocused} view={view} />
-        </Grid>
-
-        <Grid item xs={1}>
-          {view == 'search' && <AddRevisionButton setFocused={setFocused} />}
-          {view == 'compare-results' && (
-            <>
-              {/* TODO: add functionality for buttons and improve styling */}
-              <Button className="edit-revision-button" size="small">
-                <CheckIcon className="accept" />
-              </Button>
-              <Button className="edit-revision-button" size="small">
-                <CloseIcon className="cancel" />
-              </Button>
-            </>
-          )}
-        </Grid>
+    <Grid
+      container
+      alignItems="center"
+      justifyContent="center"
+      id="revision-search-container"
+    >
+      <Grid item xs={2}>
+        <SearchDropdown view={view} />
       </Grid>
-      <Grid container>
-        {view == 'search' && (
+      <Grid item xs={9}>
+        <SearchInput setFocused={setFocused} view={view} />
+      </Grid>
+
+      <Grid item xs={1}>
+        {view == 'search' && <AddRevisionButton setFocused={setFocused} />}
+        {view == 'compare-results' && setPopoverIsOpen && prevRevision && (
           <>
-            <Grid item xs={1} className="spacer" />
-            <Grid item xs={10}>
-              {searchResults.length > 0 && focused && (
-                <SearchResultsList searchResults={searchResults} />
-              )}
-            </Grid>
+            {/* TODO: add functionality for buttons and improve styling */}
+            <Button
+              className="edit-revision-button"
+              id="replace-revision-button"
+              data-testid="replace-revision-button"
+              size="small"
+              onClick={() => replaceSelectedRevision(prevRevision)}
+            >
+              <CheckIcon className="accept" />
+            </Button>
+            <Button
+              className="edit-revision-button"
+              id="cancel-edit-revision-button"
+              data-testid="cancel-edit-revision-button"
+              size="small"
+              onClick={() => setPopoverIsOpen(false)}
+            >
+              <CloseIcon className="cancel" />
+            </Button>
           </>
         )}
-        {view == 'compare-results' && (
-          <Grid item xs={12}>
-            <EditSearchResultsTable />
-          </Grid>
+      </Grid>
+
+      <Grid item xs={12}>
+        {searchResults.length > 0 && focused && (
+          <SearchResultsList searchResults={searchResults} view={view} />
         )}
       </Grid>
-    </>
+    </Grid>
   );
 }
 
 interface RevisionSearchProps {
-  inputWidth: number;
   searchResults: Revision[];
   view: 'compare-results' | 'search';
+  setPopoverIsOpen?: Dispatch<SetStateAction<boolean>>;
+  prevRevision?: Revision;
 }
 
-function mapStateToProps(state: State) {
+function mapStateToProps(state: RootState) {
   return {
     searchResults: state.search.searchResults,
   };

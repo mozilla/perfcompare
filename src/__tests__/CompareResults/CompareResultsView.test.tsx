@@ -1,4 +1,5 @@
 import userEvent from '@testing-library/user-event';
+import { act } from 'react-dom/test-utils';
 
 import CompareResultsView from '../../components/CompareResults/CompareResultsView';
 import SelectedRevisionsTable from '../../components/Shared/SelectedRevisionsTable';
@@ -43,8 +44,8 @@ describe('CompareResults View', () => {
     });
 
     await user.click(editButton);
-    jest.runOnlyPendingTimers();
 
+    act(() => void jest.runOnlyPendingTimers());
     expect(
       screen.getByRole('textbox', {
         name: 'Search By Revision ID or Author Email',
@@ -72,13 +73,43 @@ describe('SelectedRevisionsTableRow', () => {
       name: 'Search By Revision ID or Author Email',
     });
     await user.click(input);
-    jest.runOnlyPendingTimers();
 
-    expect(screen.getByText('It got better...')).toBeInTheDocument();
+    expect(
+      screen.getByText('spamspamspam - It got better...'),
+    ).toBeInTheDocument();
 
     await user.keyboard('{Esc}');
-    jest.runOnlyPendingTimers();
+    act(() => void jest.runOnlyPendingTimers());
 
     expect(screen.queryByText('It got better...')).not.toBeInTheDocument();
+  });
+
+  it('should close popover when close button is clicked', async () => {
+    const { testData } = getTestData();
+    store.dispatch(updateSearchResults(testData));
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
+
+    // start with one selected revision
+    const selectedRevisions = testData.slice(0, 1);
+    store.dispatch(setSelectedRevisions(selectedRevisions));
+
+    render(<CompareResultsView mode="light" />);
+    const editRevisionButton = screen.getByRole('button', {
+      name: 'edit-revision-1',
+    });
+    expect(editRevisionButton).toBeInTheDocument();
+
+    await user.click(editRevisionButton);
+
+    const searchInput = screen.getByRole('textbox', {
+      name: 'Search By Revision ID or Author Email',
+    });
+    expect(searchInput).toBeInTheDocument();
+
+    await user.click(screen.getByTestId('cancel-edit-revision-button'));
+    act(() => void jest.runOnlyPendingTimers());
+
+    expect(searchInput).not.toBeInTheDocument();
   });
 });

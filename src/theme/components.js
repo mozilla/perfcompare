@@ -55,29 +55,9 @@ const components = {
       },
     },
   },
-  MuiTable: {
-    styleOverrides: {
-      root: {
-        '&.compare-results-selected-table': {
-          '& .MuiTableCell-root': {
-            paddingTop: '0',
-            paddingBottom: '0',
-          },
-        },
-        '&.search-selected-table': {
-          '& .MuiTableCell-root': {
-            paddingTop: '10px',
-            paddingBottom: '10px',
-          },
-        },
-      },
-    },
-  },
   MuiTableCell: {
     styleOverrides: {
       root: {
-        paddingTop: '10px',
-        paddingBottom: '10px',
         '.cellStyle': {
           fontWeight: 600,
           borderRadius: '2.5px',
@@ -93,21 +73,13 @@ const components = {
           whiteSpace: 'nowrap',
           maxWidth: '450px',
         },
-        '.graph-icon-color': {
-          color: 'inherit',
-        },
         '.graph-icon-color:hover': {
-          color: 'inherit',
-          borderBottom: '1px dotted black',
+          borderBottom: '1px dotted blue',
         },
         '&.background-icon': {
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
-          backgroundSize: '10%',
-        },
-        '&.edit-search-results': {
-          border: 'none',
-          padding: '10px 5px 10px 5px',
+          backgroundSize: '17.5%',
         },
         '&.background-icon.dark-mode': {
           filter: 'invert(100%)',
@@ -132,6 +104,10 @@ const components = {
         },
         '&.android': {
           backgroundImage: `url(${android})`,
+        },
+        '&.unknown-confidence': {
+          display: 'flex',
+          flexDirection: 'column',
         },
       },
     },
@@ -181,6 +157,10 @@ const components = {
         '&.compare-icon': {
           marginLeft: '15px',
         },
+        '&.missing-confidence-icon': {
+          color: '#EE4B2B',
+          fontSize: '1.5rem',
+        },
       },
     },
   },
@@ -192,6 +172,20 @@ const components = {
             width: '100%',
             maxWidth: '1152px',
             padding: '6px',
+          },
+        },
+      },
+    },
+  },
+  MuiIconButton: {
+    styleOverrides: {
+      root: {
+        '&.missing-confidence-button': {
+          borderRadius: '0',
+          paddingBottom: '0',
+
+          '&:hover': {
+            backgroundColor: 'transparent',
           },
         },
       },

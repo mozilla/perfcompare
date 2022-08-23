@@ -1,16 +1,18 @@
 import { useEffect } from 'react';
 
-import { connect, useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 
+import type { RootState } from '../../common/store';
+import { useAppDispatch } from '../../hooks/app';
 import { fetchRecentRevisions } from '../../thunks/searchThunk';
-import { Repository, State } from '../../types/state';
+import type { Repository } from '../../types/state';
 
 // component to fetch recent revisions when search view is loaded
 function SearchViewInit(props: SearchViewInitProps) {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { repository } = props;
   useEffect(() => {
-    dispatch(fetchRecentRevisions(repository));
+    void dispatch(fetchRecentRevisions(repository));
   }, []);
   return null;
 }
@@ -19,7 +21,7 @@ interface SearchViewInitProps {
   repository: Repository['name'];
 }
 
-function mapStateToProps(state: State) {
+function mapStateToProps(state: RootState) {
   return {
     repository: state.search.repository,
   };
