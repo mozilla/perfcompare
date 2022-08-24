@@ -37,8 +37,8 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
       </TableCell>
       <TableCell>{result.suite}</TableCell>
       <TableCell>{result.test}</TableCell>
-      <TableCell>{result.base_avg_value}</TableCell>
-      <TableCell>{result.new_avg_value}</TableCell>
+      <TableCell>{result.base_median_value}</TableCell>
+      <TableCell>{result.new_median_value}</TableCell>
       <TableCell>{result.delta_percentage}%</TableCell>
       {result.confidence_text ? (
         <TableCell
