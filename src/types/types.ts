@@ -5,16 +5,11 @@ export type SelectedRevisionsTableHeaders =
   | 'Commit Message'
   | 'Timestamp';
 
-export type CompareResultsTableHeaders =
-  | 'Platform'
-  | 'Graph'
-  | 'Suite'
-  | 'Test Name'
-  | 'Base'
-  | 'New'
-  | 'Delta'
-  | 'Confidence'
-  | 'Total Runs';
+export type CompareResultsTableHeaders = {
+  id: string;
+  label: string;
+  align: 'left' | 'center' | 'right';
+};
 
 export type ConfidenceText = 'high' | 'med' | 'low';
 
