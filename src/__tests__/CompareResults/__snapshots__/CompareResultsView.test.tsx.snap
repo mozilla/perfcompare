@@ -38,55 +38,55 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
                 >
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall css-1howxi1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
                     scope="col"
                   >
                     Platform
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall css-1howxi1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
                     scope="col"
                   >
                     Graph
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall css-1howxi1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeSmall css-1howxi1-MuiTableCell-root"
                     scope="col"
                   >
                     Suite
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall css-1howxi1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeSmall css-1howxi1-MuiTableCell-root"
                     scope="col"
                   >
                     Test Name
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall css-1howxi1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
                     scope="col"
                   >
                     Base
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall css-1howxi1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
                     scope="col"
                   >
                     New
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall css-1howxi1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
                     scope="col"
                   >
                     Delta
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall css-1howxi1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
                     scope="col"
                   >
                     Confidence
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall css-1howxi1-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
                     scope="col"
                   >
                     Total Runs
@@ -141,11 +141,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     704.84
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     712.44
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -209,11 +213,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     776.97
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     791.34
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -277,11 +285,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     643.54
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     628.09
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -345,11 +357,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     705.5
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     713.59
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -413,11 +429,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     780.64
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     779.31
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -481,11 +501,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     640.01
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     639.79
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -547,11 +571,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     90.39
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     93.96
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -613,11 +639,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     133.55
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     134.61
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -679,11 +707,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     126.15
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     123.15
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -745,11 +775,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     103.16
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     96.68
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -811,11 +843,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     146.58
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     138.77
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -877,11 +911,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     128.19
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     121.69
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -943,11 +979,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2.69
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2.69
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1009,11 +1047,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2.69
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2.69
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1075,11 +1115,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     3.36
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     3.4
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1141,11 +1183,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2.69
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2.69
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1207,11 +1251,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2.69
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2.69
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1273,11 +1319,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     3.4
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     3.38
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1341,11 +1389,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     102
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     105
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1409,11 +1461,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     61
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     58
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1477,11 +1533,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     61
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     62
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1545,11 +1605,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     101
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     100
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1613,11 +1677,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     63
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     57
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1681,11 +1749,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     61
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     62
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1747,11 +1819,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     217.84
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     167.88
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1813,11 +1889,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     249.5
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     258.76
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1879,11 +1959,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     278.38
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     278.08
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1945,11 +2029,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     218.84
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     215.9
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2011,11 +2099,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     240.04
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     244
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2077,11 +2169,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     280.34
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     292.5
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2143,11 +2239,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1799.19
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1798.36
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2209,11 +2307,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2455.74
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2474.22
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2275,11 +2375,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2470.01
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2415.55
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2341,11 +2443,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1793.31
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1821.26
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2407,11 +2511,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2256.58
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2151.42
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2473,11 +2579,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2520.64
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2526.29
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2539,11 +2647,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     15054.73
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     15108.36
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2605,11 +2715,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     15288.53
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     14977.98
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2671,11 +2783,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     16045.58
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     16536.25
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2737,11 +2851,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2591.68
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2687.64
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2803,11 +2919,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2822.49
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2795.48
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2869,11 +2987,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     0
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     6.74
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2935,11 +3055,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.46
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.43
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3001,11 +3123,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     8.36
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     8.1
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3067,11 +3191,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.62
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.64
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3133,11 +3259,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.26
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.4
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3199,11 +3327,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     8.89
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     8.25
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3265,11 +3395,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.48
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.69
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3331,11 +3463,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.34
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.33
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3397,11 +3531,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     7.94
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     7.95
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3463,11 +3599,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.57
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.28
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3531,11 +3669,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     0
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     4.7
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3599,11 +3741,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     23.45
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     22.94
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3667,11 +3813,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     16.48
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     16.73
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3735,11 +3885,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     4.32
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     4.32
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3803,11 +3957,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     23.12
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     25.61
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3871,11 +4029,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     16.93
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     16.82
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3939,11 +4101,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     4.35
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     4.34
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4007,11 +4173,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     23.64
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     25.29
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4075,11 +4245,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     17.37
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     16.54
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4143,11 +4317,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     4.24
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     4.34
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4209,11 +4387,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1434.3
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1430.4
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4275,11 +4455,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1323.8
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1452.9
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4341,11 +4523,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1424.3
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1261.9
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4409,11 +4593,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     0
+                     
+                    fps
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     6.62
+                     
+                    fps
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4477,11 +4665,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     14.42
+                     
+                    fps
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     17.12
+                     
+                    fps
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4545,11 +4737,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     8.29
+                     
+                    fps
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     8.81
+                     
+                    fps
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4613,11 +4809,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     11.99
+                     
+                    fps
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     12.19
+                     
+                    fps
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4681,11 +4881,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     20.25
+                     
+                    fps
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     14.13
+                     
+                    fps
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4749,11 +4953,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     10.61
+                     
+                    fps
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     10.3
+                     
+                    fps
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4817,11 +5025,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     13.11
+                     
+                    fps
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     12.21
+                     
+                    fps
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4885,11 +5097,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     16.84
+                     
+                    fps
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     15.38
+                     
+                    fps
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4953,11 +5169,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     10.08
+                     
+                    fps
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     10.44
+                     
+                    fps
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5021,11 +5241,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     12.5
+                     
+                    fps
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     12.09
+                     
+                    fps
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5087,11 +5311,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     631.71
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     608.19
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5153,11 +5379,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     838.37
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     829.79
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5219,11 +5447,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     658.86
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     665.02
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5285,11 +5515,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     574.02
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     613.24
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5351,11 +5583,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     787.45
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     811.85
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5417,11 +5651,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     597.8
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     626.63
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5483,11 +5719,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.38
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.35
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5549,11 +5787,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.9
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.77
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5615,11 +5855,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.41
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.25
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5681,11 +5923,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.2
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.39
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5747,11 +5991,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.73
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.66
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5813,11 +6059,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.22
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.32
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5879,11 +6127,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     82.68
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     83.87
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5945,11 +6195,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     92.33
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     92.42
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6011,11 +6263,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     80.88
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     81.53
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6077,11 +6331,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1370
+                     
+                    score
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1370
+                     
+                    score
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6143,11 +6401,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1373
+                     
+                    score
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1372
+                     
+                    score
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6209,11 +6471,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1361
+                     
+                    score
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1360
+                     
+                    score
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6275,11 +6541,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1295
+                     
+                    score
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1295
+                     
+                    score
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6341,11 +6611,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1317
+                     
+                    score
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1302
+                     
+                    score
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6407,11 +6681,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1327
+                     
+                    score
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1301
+                     
+                    score
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6473,11 +6751,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     9135.58
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     9146.96
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6539,11 +6821,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     9161.44
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     9178.94
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6605,11 +6891,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     9251.4
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     9262.24
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6671,11 +6961,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     9142.3
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     9149.88
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6737,11 +7031,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     9211.2
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     9247.98
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6803,11 +7101,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     9334.08
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     9387.38
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6871,11 +7173,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1086
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1071
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6939,11 +7243,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     551
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     552
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7007,11 +7313,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     467
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     466
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7075,11 +7383,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     850
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     851
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7143,11 +7453,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     516
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     517
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7211,11 +7523,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     432
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     459
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7279,11 +7593,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1075
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1058
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7347,11 +7663,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     549
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     538
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7415,11 +7733,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     475
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     470
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7483,11 +7803,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     848
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     857
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7551,11 +7873,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     518
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     518
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7619,11 +7943,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     425
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     445
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7687,11 +8013,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1099
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1083
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7755,11 +8083,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     563
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     578
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7823,11 +8153,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     472
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     467
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7891,11 +8223,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     862
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     873
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7959,11 +8293,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     524
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     517
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8027,11 +8363,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     438
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     449
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8095,11 +8433,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1344
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1247
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8163,11 +8503,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     718
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     703
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8231,11 +8573,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     593
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     597
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8299,11 +8643,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1023
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1014
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8367,11 +8713,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     670
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     670
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8435,11 +8783,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     568
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     579
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8503,11 +8853,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1333
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1224
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8571,11 +8923,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     676
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     679
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8639,11 +8993,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     564
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     560
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8707,11 +9063,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1004
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1002
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8775,11 +9133,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     638
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     649
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8843,11 +9203,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     539
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     562
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8911,11 +9273,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1246
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1247
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8979,11 +9343,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     717
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     720
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9047,11 +9413,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     615
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     617
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9113,11 +9481,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     41.14
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     39.73
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9179,11 +9549,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     42.57
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     46.09
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9245,11 +9617,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     50.54
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     56.54
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9311,11 +9685,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     40.8
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     40.49
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9377,11 +9753,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     47.57
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     49.18
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9443,11 +9821,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     54.31
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     57.06
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9509,11 +9889,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     7.26
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     7.1
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9575,11 +9957,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     7.26
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     7.05
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9641,11 +10025,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     7.12
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     7.24
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9707,11 +10093,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     7.31
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     7.26
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9773,11 +10161,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2.2
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2.24
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9839,11 +10229,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     3.9
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     3.85
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9905,11 +10297,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2.83
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2.84
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9971,11 +10365,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2.15
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2.17
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10037,11 +10433,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     3.81
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     3.61
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10103,11 +10501,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2.64
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2.81
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10169,11 +10569,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     21.84
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     21.58
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10237,11 +10639,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     27890935
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     32556439
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10305,11 +10709,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     32744355
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     28042960
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10373,11 +10779,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     316914
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1246788
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10441,11 +10849,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     0
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     0
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10532,11 +10942,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     651870
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     458862
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10600,11 +11012,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     450766
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     450766
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10668,11 +11082,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     0
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     0
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10759,11 +11175,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     0
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     0
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10850,11 +11268,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     0
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     0
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10941,11 +11361,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     0
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     0
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11032,11 +11454,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     0
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     0
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11123,11 +11547,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     0
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     0
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11214,11 +11640,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     463938974
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     461696311
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11282,11 +11710,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     465143523
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     464290594
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11350,11 +11780,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     202172480
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     201883744
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11418,11 +11850,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     207326032
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     202944290
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11486,11 +11920,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     877142
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     895894
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11554,11 +11990,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     903707
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     903718
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11622,11 +12060,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     0
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     0
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11713,11 +12153,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     0
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     0
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11804,11 +12246,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2645631.6
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2662261.27
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11872,11 +12316,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     7361545.29
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     7367133.18
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11938,11 +12384,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     171.18
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     166.81
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12004,11 +12452,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     206.33
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     208.06
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12070,11 +12520,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     220.53
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     224.57
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12136,11 +12588,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     166.82
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     171.35
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12202,11 +12656,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     199.31
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     199.54
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12268,11 +12724,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     195.52
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     223.17
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12336,11 +12794,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2.65
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2.58
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12404,11 +12864,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     0.79
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     0.82
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12472,11 +12934,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2.35
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2.31
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12540,11 +13004,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     0.72
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     0.79
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12606,11 +13072,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2.05
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2.13
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12672,11 +13140,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2.83
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2.75
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12738,11 +13208,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2.21
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2.24
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12804,11 +13276,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     3.43
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     3.57
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12870,11 +13344,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     3.62
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     3.67
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12936,11 +13412,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     3.54
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     3.48
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13004,11 +13482,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2650021.17
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     2650137.59
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13072,11 +13552,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     7358886.17
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     7363251.49
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13138,11 +13620,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     225.81
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     228.54
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13204,11 +13688,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     276.18
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     294.55
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13270,11 +13756,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     288.62
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     290.01
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13336,11 +13824,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     229.46
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     222.8
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13402,11 +13892,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     262.09
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     261.78
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13468,11 +13960,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     292.28
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     290.7
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13536,11 +14030,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     3.11
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     3.6
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13604,11 +14100,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.33
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.34
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13672,11 +14170,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     3.78
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     3.8
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13740,11 +14240,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.36
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.3
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13806,11 +14308,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     5.43
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     5.43
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13872,11 +14378,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     23.68
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     24.46
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13938,11 +14448,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     5.96
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     5.58
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14004,11 +14518,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     5.77
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     5.84
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14070,11 +14588,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     22.86
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     22.59
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14136,11 +14658,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     5.59
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     7.11
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14204,11 +14730,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1056
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1043
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14272,11 +14800,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     299
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     297
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14340,11 +14870,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     411
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     408
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14408,11 +14940,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     825
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     821
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14476,11 +15010,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     266
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     264
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14544,11 +15080,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     397
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     411
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14612,11 +15150,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     293
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     304
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14680,11 +15220,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1048
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1051
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14748,11 +15290,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     299
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     331
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14816,11 +15360,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     415
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     412
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14884,11 +15430,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     835
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     831
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14952,11 +15500,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     271
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     264
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15020,11 +15570,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     405
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     406
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15086,11 +15638,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     0.69
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     0.69
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15152,11 +15706,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.4
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.42
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15218,11 +15774,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.03
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15284,11 +15842,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     0.76
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     0.77
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15350,11 +15910,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.28
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.27
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15416,11 +15978,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     0.98
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     1.12
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15482,11 +16046,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     44.78
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     45.56
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15548,11 +16114,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     76.62
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     78.1
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15614,11 +16182,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     48.82
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     47.72
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15680,11 +16250,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     43.72
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     45.37
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15746,11 +16318,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     84.74
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     71.83
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15812,11 +16386,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     49.13
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     48.1
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15878,11 +16454,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     51.95
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     54.6
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15944,11 +16522,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     80.99
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     87.44
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16010,11 +16590,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     66.55
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     61.21
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16076,11 +16658,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     53.58
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     52.97
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16142,11 +16726,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     77.79
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     85.01
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16208,11 +16794,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     66.53
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     72.65
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16274,11 +16862,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     123.83
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     124.69
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16340,11 +16930,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     186.2
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     186.78
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16406,11 +16998,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     168.1
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     170.46
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16472,11 +17066,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     144.28
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     144.03
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16538,11 +17134,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     217.88
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     201.12
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16604,11 +17202,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     189.41
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     203.16
+                     
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16672,11 +17272,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     104.9
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     104.05
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16740,11 +17344,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     110.57
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     107.93
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16808,11 +17416,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     95.31
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     96.74
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16876,11 +17488,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     85.09
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     86.07
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16944,11 +17560,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     103.46
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     100.38
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -17012,11 +17632,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     83.41
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
                   >
                     86.41
+                     
+                    ms
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
