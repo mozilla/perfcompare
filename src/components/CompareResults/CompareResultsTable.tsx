@@ -14,7 +14,6 @@ import CompareResultsTableRow from './CompareResultsTableRow';
 const tableHeaders: CompareResultsTableHeaders[] = [
   { id: 'platform', label: 'Platform', align: 'center' },
   { id: 'graph', label: 'Graph', align: 'center' },
-  { id: 'suite', label: 'Suite', align: 'left' },
   { id: 'test-name', label: 'Test Name', align: 'left' },
   { id: 'base-value', label: 'Base', align: 'center' },
   { id: 'new-value', label: 'New', align: 'center' },
