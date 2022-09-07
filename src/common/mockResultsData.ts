@@ -45,6 +45,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -90,6 +91,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -135,6 +137,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -180,6 +183,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -225,6 +229,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -270,6 +275,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -9134,6 +9140,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -9179,6 +9186,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -9224,6 +9232,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -9269,6 +9278,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -9314,6 +9324,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -9359,6 +9370,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -9404,6 +9416,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -9449,6 +9462,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -9494,6 +9508,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -9539,6 +9554,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -9584,6 +9600,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -9629,6 +9646,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -9674,6 +9692,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -9719,6 +9738,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -9764,6 +9784,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -9809,6 +9830,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -9854,6 +9876,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -9899,6 +9922,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -9944,6 +9968,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -9989,6 +10014,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -10034,6 +10060,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -10079,6 +10106,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -10124,6 +10152,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -10169,6 +10198,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -10214,6 +10244,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -10259,6 +10290,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -10304,6 +10336,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -10349,6 +10382,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -10394,6 +10428,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -10439,6 +10474,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -10484,6 +10520,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -10529,6 +10566,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -10574,6 +10612,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -10619,6 +10658,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -10664,6 +10704,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -10709,6 +10750,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -10754,6 +10796,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -10799,6 +10842,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -10844,6 +10888,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -10889,6 +10934,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -10934,6 +10980,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -10979,6 +11026,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -11024,6 +11072,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -11070,6 +11119,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -11116,6 +11166,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -11162,6 +11213,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -11208,6 +11260,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -11254,6 +11307,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
   {
     framework_id: 1,
@@ -11300,5 +11354,6 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    description: 'Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI).',
   },
 ];

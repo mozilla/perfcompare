@@ -35,7 +35,11 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
           <TimelineIcon />
         </Link>
       </TableCell>
-      <TableCell>{result.header_name}</TableCell>
+      <TableCell>
+      <Tooltip title={result.description}>
+        <div> {result.header_name} </div>
+        </Tooltip>
+        </TableCell>
       <TableCell>
         {result.base_median_value} {result.base_measurement_unit}
       </TableCell>
