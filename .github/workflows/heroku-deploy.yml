@@ -5,6 +5,7 @@ on:
     branches:
       - 'staging'
       - 'master'
+      - 'mocking'
 
 jobs:
   deploy:

@@ -35,8 +35,7 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
           <TimelineIcon />
         </Link>
       </TableCell>
-      <TableCell>{result.suite}</TableCell>
-      <TableCell>{result.test}</TableCell>
+      <TableCell>{result.header_name}</TableCell>
       <TableCell>
         {result.base_median_value} {result.base_measurement_unit}
       </TableCell>
