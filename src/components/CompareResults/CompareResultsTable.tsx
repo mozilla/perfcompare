@@ -12,15 +12,14 @@ import type { CompareResultsTableHeaders } from '../../types/types';
 import CompareResultsTableRow from './CompareResultsTableRow';
 
 const tableHeaders: CompareResultsTableHeaders[] = [
-  'Platform',
-  'Graph',
-  'Suite',
-  'Test Name',
-  'Base',
-  'New',
-  'Delta',
-  'Confidence',
-  'Total Runs',
+  { id: 'platform', label: 'Platform', align: 'center' },
+  { id: 'graph', label: 'Graph', align: 'center' },
+  { id: 'test-name', label: 'Test Name', align: 'left' },
+  { id: 'base-value', label: 'Base', align: 'center' },
+  { id: 'new-value', label: 'New', align: 'center' },
+  { id: 'delta-percent', label: 'Delta', align: 'center' },
+  { id: 'confidence', label: 'Confidence', align: 'center' },
+  { id: 'total-runs', label: 'Total Runs', align: 'center' },
 ];
 
 function CompareResultsTable(props: CompareResultsProps) {
@@ -33,8 +32,10 @@ function CompareResultsTable(props: CompareResultsProps) {
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
-            {tableHeaders.map((header, index) => (
-              <TableCell key={index}>{header}</TableCell>
+            {tableHeaders.map((header) => (
+              <TableCell align={header.align} key={header.id}>
+                {header.label}
+              </TableCell>
             ))}
           </TableRow>
         </TableHead>
