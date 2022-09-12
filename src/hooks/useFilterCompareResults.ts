@@ -15,11 +15,11 @@ const useFilterCompareResults = () => {
   );
 
   const setFilters = (
-    e: React.ChangeEvent<HTMLInputElement>,
+    value: string,
     checked: boolean,
     name: string,
   ) => {
-    const filter: FilterValue = { name, value: e.target.value };
+    const filter: FilterValue = { name, value };    
 
     if (checked) {
       dispatch(addFilter(filter));

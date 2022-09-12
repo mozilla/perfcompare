@@ -26,12 +26,16 @@ function FilterOptionsList(props: FilterOptionsListProps) {
     e: React.ChangeEvent<HTMLInputElement>,
     checked: boolean,
   ) => {
-    setFilters(e, checked, column);
+    const { value } = e.target;
+
+    setFilters(value, checked, column);
   };
 
   const handleApplyOptions = () => {
     filterResults();
   };
+
+  const activeOptions = activeFilters[column as keyof typeof activeFilters];
 
   return (
     <List
@@ -55,9 +59,7 @@ function FilterOptionsList(props: FilterOptionsListProps) {
                     edge="start"
                     disableRipple
                     inputProps={{ 'aria-labelledby': labelId, value: value }}
-                    checked={activeFilters[
-                      column as keyof typeof activeFilters
-                    ].includes(value)}
+                    checked={activeOptions.includes(value)}
                     onChange={handleOnChangeOption}
                   />
                 </ListItemIcon>

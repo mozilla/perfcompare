@@ -249,7 +249,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              a11yr dhtml.html opt e10s fission stylo webrender
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                a11yr dhtml.html opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -317,7 +325,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              a11yr dhtml.html opt e10s fission stylo webrender
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                a11yr dhtml.html opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -385,7 +401,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              a11yr dhtml.html opt e10s fission stylo webrender
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                a11yr dhtml.html opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -453,7 +477,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              a11yr dhtml.html opt e10s fission stylo webrender-sw
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                a11yr dhtml.html opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -521,7 +553,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              a11yr dhtml.html opt e10s fission stylo webrender-sw
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                a11yr dhtml.html opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -589,7 +629,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              a11yr dhtml.html opt e10s fission stylo webrender-sw
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                a11yr dhtml.html opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -657,7 +705,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              about_preferences_basic opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                about_preferences_basic opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -723,7 +778,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              about_preferences_basic opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                about_preferences_basic opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -789,7 +851,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              about_preferences_basic opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                about_preferences_basic opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -855,7 +924,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              about_preferences_basic opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                about_preferences_basic opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -921,7 +997,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              about_preferences_basic opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                about_preferences_basic opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -987,7 +1070,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              about_preferences_basic opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                about_preferences_basic opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1053,7 +1143,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              basic_compositor_video opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                basic_compositor_video opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1119,7 +1216,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              basic_compositor_video opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                basic_compositor_video opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1185,7 +1289,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              basic_compositor_video opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                basic_compositor_video opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1251,7 +1362,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              basic_compositor_video opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                basic_compositor_video opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1317,7 +1435,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              basic_compositor_video opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                basic_compositor_video opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1383,7 +1508,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              basic_compositor_video opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                basic_compositor_video opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1449,7 +1581,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              cpstartup content-process-startup opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                cpstartup content-process-startup opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1517,7 +1656,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              cpstartup content-process-startup opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                cpstartup content-process-startup opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1585,7 +1731,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              cpstartup content-process-startup opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                cpstartup content-process-startup opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1653,7 +1806,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              cpstartup content-process-startup opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                cpstartup content-process-startup opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1721,7 +1881,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              cpstartup content-process-startup opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                cpstartup content-process-startup opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1789,7 +1956,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              cpstartup content-process-startup opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                cpstartup content-process-startup opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1857,7 +2031,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              cross_origin_pageload opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                cross_origin_pageload opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1925,7 +2106,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              cross_origin_pageload opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                cross_origin_pageload opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1993,7 +2181,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              cross_origin_pageload opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                cross_origin_pageload opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2061,7 +2256,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              cross_origin_pageload opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                cross_origin_pageload opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2129,7 +2331,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              cross_origin_pageload opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                cross_origin_pageload opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2197,7 +2406,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              cross_origin_pageload opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                cross_origin_pageload opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2265,7 +2481,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              displaylist_mutate opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                displaylist_mutate opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2331,7 +2554,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              displaylist_mutate opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                displaylist_mutate opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2397,7 +2627,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              displaylist_mutate opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                displaylist_mutate opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2463,7 +2700,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              displaylist_mutate opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                displaylist_mutate opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2529,7 +2773,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              displaylist_mutate opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                displaylist_mutate opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2595,7 +2846,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              displaylist_mutate opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                displaylist_mutate opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2661,7 +2919,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              dromaeo_css opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                dromaeo_css opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2727,7 +2992,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              dromaeo_css opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                dromaeo_css opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2793,7 +3065,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              dromaeo_css opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                dromaeo_css opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2859,7 +3138,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              dromaeo_dom opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                dromaeo_dom opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2925,7 +3211,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              dromaeo_dom opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                dromaeo_dom opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2991,7 +3284,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              glterrain opt e10s fission stylo webgl-ipc webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                glterrain opt e10s fission stylo webgl-ipc webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3057,7 +3357,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              glterrain opt e10s fission stylo webgl-ipc webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                glterrain opt e10s fission stylo webgl-ipc webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3123,7 +3430,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              glterrain opt e10s fission stylo webgl-ipc webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                glterrain opt e10s fission stylo webgl-ipc webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3189,7 +3503,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              glterrain opt e10s fission stylo webgl-ipc webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                glterrain opt e10s fission stylo webgl-ipc webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3255,7 +3576,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              glterrain opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                glterrain opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3321,7 +3649,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              glterrain opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                glterrain opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3387,7 +3722,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              glterrain opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                glterrain opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3453,7 +3795,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              glterrain opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                glterrain opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3519,7 +3868,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              glterrain opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                glterrain opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3585,7 +3941,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              glterrain opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                glterrain opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3651,7 +4014,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webgl-ipc webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webgl-ipc webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3719,7 +4089,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webgl-ipc webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webgl-ipc webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3787,7 +4164,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webgl-ipc webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webgl-ipc webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3855,7 +4239,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webgl-ipc webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webgl-ipc webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3923,7 +4314,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3991,7 +4389,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4059,7 +4464,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4127,7 +4539,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4195,7 +4614,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4263,7 +4689,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4331,7 +4764,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              kraken opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                kraken opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4397,7 +4837,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              kraken opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                kraken opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4463,7 +4910,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              kraken opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                kraken opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4529,7 +4983,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webgl-ipc webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webgl-ipc webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4597,7 +5058,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webgl-ipc webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webgl-ipc webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4665,7 +5133,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webgl-ipc webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webgl-ipc webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4733,7 +5208,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webgl-ipc webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webgl-ipc webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4801,7 +5283,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4869,7 +5358,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4937,7 +5433,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5005,7 +5508,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5073,7 +5583,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5141,7 +5658,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5209,7 +5733,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              pdfpaint opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                pdfpaint opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5275,7 +5806,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              pdfpaint opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                pdfpaint opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5341,7 +5879,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              pdfpaint opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                pdfpaint opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5407,7 +5952,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              pdfpaint opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                pdfpaint opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5473,7 +6025,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              pdfpaint opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                pdfpaint opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5539,7 +6098,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              pdfpaint opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                pdfpaint opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5605,7 +6171,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              perf_reftest opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                perf_reftest opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5671,7 +6244,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              perf_reftest opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                perf_reftest opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5737,7 +6317,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              perf_reftest opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                perf_reftest opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5803,7 +6390,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              perf_reftest opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                perf_reftest opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5869,7 +6463,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              perf_reftest opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                perf_reftest opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5935,7 +6536,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              perf_reftest opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                perf_reftest opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6001,7 +6609,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              perf_reftest_singletons opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                perf_reftest_singletons opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6067,7 +6682,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              perf_reftest_singletons opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                perf_reftest_singletons opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6133,7 +6755,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              perf_reftest_singletons opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                perf_reftest_singletons opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6199,7 +6828,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              rasterflood_gradient opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                rasterflood_gradient opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6267,7 +6903,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              rasterflood_gradient opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                rasterflood_gradient opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6335,7 +6978,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              rasterflood_gradient opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                rasterflood_gradient opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6403,7 +7053,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              rasterflood_gradient opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                rasterflood_gradient opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6471,7 +7128,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              rasterflood_gradient opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                rasterflood_gradient opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6539,7 +7203,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              rasterflood_gradient opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                rasterflood_gradient opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6607,7 +7278,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              rasterflood_svg opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                rasterflood_svg opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6675,7 +7353,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              rasterflood_svg opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                rasterflood_svg opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6743,7 +7428,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              rasterflood_svg opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                rasterflood_svg opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6811,7 +7503,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              rasterflood_svg opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                rasterflood_svg opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6879,7 +7578,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              rasterflood_svg opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                rasterflood_svg opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6947,7 +7653,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              rasterflood_svg opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                rasterflood_svg opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7015,7 +7728,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              sessionrestore opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                sessionrestore opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7081,7 +7801,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              sessionrestore opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                sessionrestore opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7147,7 +7874,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              sessionrestore opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                sessionrestore opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7213,7 +7947,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              sessionrestore opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                sessionrestore opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7279,7 +8020,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              sessionrestore opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                sessionrestore opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7345,7 +8093,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              sessionrestore opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                sessionrestore opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7411,7 +8166,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              sessionrestore_many_windows opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                sessionrestore_many_windows opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7477,7 +8239,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              sessionrestore_many_windows opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                sessionrestore_many_windows opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7543,7 +8312,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              sessionrestore_many_windows opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                sessionrestore_many_windows opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7609,7 +8385,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              sessionrestore_many_windows opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                sessionrestore_many_windows opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7675,7 +8458,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              sessionrestore_many_windows opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                sessionrestore_many_windows opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7741,7 +8531,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              sessionrestore_many_windows opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                sessionrestore_many_windows opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7807,7 +8604,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              sessionrestore_no_auto_restore opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                sessionrestore_no_auto_restore opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7873,7 +8677,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              sessionrestore_no_auto_restore opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                sessionrestore_no_auto_restore opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7939,7 +8750,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              sessionrestore_no_auto_restore opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                sessionrestore_no_auto_restore opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8005,7 +8823,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              sessionrestore_no_auto_restore opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                sessionrestore_no_auto_restore opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8071,7 +8896,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              sessionrestore_no_auto_restore opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                sessionrestore_no_auto_restore opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8137,7 +8969,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              sessionrestore_no_auto_restore opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                sessionrestore_no_auto_restore opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8203,7 +9042,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              startup_about_home_paint opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                startup_about_home_paint opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8269,7 +9115,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              startup_about_home_paint opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                startup_about_home_paint opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8335,7 +9188,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              startup_about_home_paint opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                startup_about_home_paint opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8401,7 +9261,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              startup_about_home_paint opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                startup_about_home_paint opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8467,7 +9334,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              startup_about_home_paint opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                startup_about_home_paint opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8533,7 +9407,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              startup_about_home_paint opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                startup_about_home_paint opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8599,7 +9480,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              startup_about_home_paint_cached opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                startup_about_home_paint_cached opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8665,7 +9553,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              startup_about_home_paint_cached opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                startup_about_home_paint_cached opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8731,7 +9626,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              startup_about_home_paint_cached opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                startup_about_home_paint_cached opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8797,7 +9699,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              startup_about_home_paint_cached opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                startup_about_home_paint_cached opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8863,7 +9772,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              startup_about_home_paint_cached opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                startup_about_home_paint_cached opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8929,7 +9845,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              startup_about_home_paint_cached opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                startup_about_home_paint_cached opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8995,7 +9918,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              startup_about_home_paint_realworld_webextensions opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                startup_about_home_paint_realworld_webextensions opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9061,7 +9991,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              startup_about_home_paint_realworld_webextensions opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                startup_about_home_paint_realworld_webextensions opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9127,7 +10064,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              startup_about_home_paint_realworld_webextensions opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                startup_about_home_paint_realworld_webextensions opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9193,7 +10137,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tabpaint opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tabpaint opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9259,7 +10210,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tabpaint opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tabpaint opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9325,7 +10283,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tabpaint opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tabpaint opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9391,7 +10356,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tabpaint opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tabpaint opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9457,7 +10429,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tabpaint opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tabpaint opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9523,7 +10502,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tabpaint opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tabpaint opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9589,7 +10575,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tabswitch opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tabswitch opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9655,7 +10648,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tabswitch opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tabswitch opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9721,7 +10721,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tabswitch opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tabswitch opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9787,7 +10794,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tabswitch opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tabswitch opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9853,7 +10867,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tart opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tart opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9919,7 +10940,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tart opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tart opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9985,7 +11013,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tart opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tart opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10051,7 +11086,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tart opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tart opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10117,7 +11159,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tart opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tart opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10183,7 +11232,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tart opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tart opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10249,7 +11305,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tart_flex opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tart_flex opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10315,7 +11378,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5n main_normal_fileio opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5n main_normal_fileio opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10381,7 +11451,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5n main_normal_fileio opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5n main_normal_fileio opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10447,7 +11524,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5n main_normal_netio opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5n main_normal_netio opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10513,7 +11597,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5n main_normal_netio opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5n main_normal_netio opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10602,7 +11693,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5n main_startup_fileio opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5n main_startup_fileio opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10668,7 +11766,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5n main_startup_fileio opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5n main_startup_fileio opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10734,7 +11839,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5n main_startup_netio opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5n main_startup_netio opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10823,7 +11935,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5n main_startup_netio opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5n main_startup_netio opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10912,7 +12031,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5n mainthread_writebytes opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5n mainthread_writebytes opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11001,7 +12127,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5n mainthread_writebytes opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5n mainthread_writebytes opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11090,7 +12223,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5n mainthread_writecount opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5n mainthread_writecount opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11179,7 +12319,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5n mainthread_writecount opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5n mainthread_writecount opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11268,7 +12415,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5n nonmain_normal_fileio opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5n nonmain_normal_fileio opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11334,7 +12488,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5n nonmain_normal_fileio opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5n nonmain_normal_fileio opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11400,7 +12561,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5n nonmain_normal_netio opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5n nonmain_normal_netio opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11466,7 +12634,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5n nonmain_normal_netio opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5n nonmain_normal_netio opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11532,7 +12707,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5n nonmain_startup_fileio opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5n nonmain_startup_fileio opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11598,7 +12780,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5n nonmain_startup_fileio opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5n nonmain_startup_fileio opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11664,7 +12853,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5n time_to_session_store_window_restored_ms opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5n time_to_session_store_window_restored_ms opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11753,7 +12949,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5n time_to_session_store_window_restored_ms opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5n time_to_session_store_window_restored_ms opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11842,7 +13045,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5o XRes opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5o XRes opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11908,7 +13118,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5o XRes opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5o XRes opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11974,7 +13191,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5o opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5o opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12040,7 +13264,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5o opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5o opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12106,7 +13337,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5o opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5o opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12172,7 +13410,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5o opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5o opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12238,7 +13483,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5o opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5o opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12304,7 +13556,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5o opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5o opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12370,7 +13629,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5o responsiveness opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5o responsiveness opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12436,7 +13702,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5o responsiveness opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5o responsiveness opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12502,7 +13775,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5o responsiveness opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5o responsiveness opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12568,7 +13848,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5o responsiveness opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5o responsiveness opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12634,7 +13921,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5o_scroll opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5o_scroll opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12700,7 +13994,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5o_scroll opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5o_scroll opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12766,7 +14067,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5o_scroll opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5o_scroll opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12832,7 +14140,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5o_scroll opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5o_scroll opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12898,7 +14213,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5o_scroll opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5o_scroll opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12964,7 +14286,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5o_scroll opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5o_scroll opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13030,7 +14359,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5o_webext XRes opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5o_webext XRes opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13096,7 +14432,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5o_webext XRes opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5o_webext XRes opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13162,7 +14505,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5o_webext opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5o_webext opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13228,7 +14578,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5o_webext opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5o_webext opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13294,7 +14651,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5o_webext opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5o_webext opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13360,7 +14724,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5o_webext opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5o_webext opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13426,7 +14797,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5o_webext opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5o_webext opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13492,7 +14870,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5o_webext opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5o_webext opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13558,7 +14943,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5o_webext responsiveness opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5o_webext responsiveness opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13624,7 +15016,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5o_webext responsiveness opt e10s fission stylo webrender
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5o_webext responsiveness opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13690,7 +15089,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5o_webext responsiveness opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5o_webext responsiveness opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13756,7 +15162,14 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tp5o_webext responsiveness opt e10s fission stylo webrender-sw
+              <div
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tp5o_webext responsiveness opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13822,7 +15235,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tresize opt e10s fission stylo webrender
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tresize opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13890,7 +15311,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tresize opt e10s fission stylo webrender
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tresize opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13958,7 +15387,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tresize opt e10s fission stylo webrender
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tresize opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14026,7 +15463,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tresize opt e10s fission stylo webrender-sw
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tresize opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14094,7 +15539,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tresize opt e10s fission stylo webrender-sw
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tresize opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14162,7 +15615,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tresize opt e10s fission stylo webrender-sw
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tresize opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14230,7 +15691,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              ts_paint opt e10s fission stylo webrender
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                ts_paint opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14296,7 +15765,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              ts_paint opt e10s fission stylo webrender
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                ts_paint opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14362,7 +15839,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              ts_paint opt e10s fission stylo webrender
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                ts_paint opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14428,7 +15913,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              ts_paint opt e10s fission stylo webrender-sw
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                ts_paint opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14494,7 +15987,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              ts_paint opt e10s fission stylo webrender-sw
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                ts_paint opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14560,7 +16061,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              ts_paint opt e10s fission stylo webrender-sw
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                ts_paint opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14626,7 +16135,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              ts_paint_flex opt e10s fission stylo webrender
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                ts_paint_flex opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14692,7 +16209,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              ts_paint_webext opt e10s fission stylo webrender
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                ts_paint_webext opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14758,7 +16283,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              ts_paint_webext opt e10s fission stylo webrender
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                ts_paint_webext opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14824,7 +16357,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              ts_paint_webext opt e10s fission stylo webrender
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                ts_paint_webext opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14890,7 +16431,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              ts_paint_webext opt e10s fission stylo webrender-sw
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                ts_paint_webext opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14956,7 +16505,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              ts_paint_webext opt e10s fission stylo webrender-sw
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                ts_paint_webext opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15022,7 +16579,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              ts_paint_webext opt e10s fission stylo webrender-sw
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                ts_paint_webext opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15088,7 +16653,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tscrollx opt e10s fission stylo webrender
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tscrollx opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15154,7 +16727,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tscrollx opt e10s fission stylo webrender
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tscrollx opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15220,7 +16801,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tscrollx opt e10s fission stylo webrender
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tscrollx opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15286,7 +16875,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tscrollx opt e10s fission stylo webrender-sw
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tscrollx opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15352,7 +16949,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tscrollx opt e10s fission stylo webrender-sw
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tscrollx opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15418,7 +17023,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tscrollx opt e10s fission stylo webrender-sw
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tscrollx opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15484,7 +17097,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tsvg_static opt e10s fission stylo webrender
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tsvg_static opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15550,7 +17171,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tsvg_static opt e10s fission stylo webrender
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tsvg_static opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15616,7 +17245,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tsvg_static opt e10s fission stylo webrender
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tsvg_static opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15682,7 +17319,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tsvg_static opt e10s fission stylo webrender-sw
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tsvg_static opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15748,7 +17393,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tsvg_static opt e10s fission stylo webrender-sw
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tsvg_static opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15814,7 +17467,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tsvg_static opt e10s fission stylo webrender-sw
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tsvg_static opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15880,7 +17541,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tsvgr_opacity opt e10s fission stylo webrender
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tsvgr_opacity opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15946,7 +17615,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tsvgr_opacity opt e10s fission stylo webrender
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tsvgr_opacity opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16012,7 +17689,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tsvgr_opacity opt e10s fission stylo webrender
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tsvgr_opacity opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16078,7 +17763,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tsvgr_opacity opt e10s fission stylo webrender-sw
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tsvgr_opacity opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16144,7 +17837,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tsvgr_opacity opt e10s fission stylo webrender-sw
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tsvgr_opacity opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16210,7 +17911,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tsvgr_opacity opt e10s fission stylo webrender-sw
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tsvgr_opacity opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16276,7 +17985,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tsvgx opt e10s fission stylo webrender
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tsvgx opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16342,7 +18059,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tsvgx opt e10s fission stylo webrender
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tsvgx opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16408,7 +18133,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tsvgx opt e10s fission stylo webrender
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tsvgx opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16474,7 +18207,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tsvgx opt e10s fission stylo webrender-sw
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tsvgx opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16540,7 +18281,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tsvgx opt e10s fission stylo webrender-sw
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tsvgx opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16606,7 +18355,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              tsvgx opt e10s fission stylo webrender-sw
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                tsvgx opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16672,7 +18429,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              twinopen ext+twinopen:twinopen.html opt e10s fission stylo webrender
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                twinopen ext+twinopen:twinopen.html opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16740,7 +18505,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              twinopen ext+twinopen:twinopen.html opt e10s fission stylo webrender
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                twinopen ext+twinopen:twinopen.html opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16808,7 +18581,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              twinopen ext+twinopen:twinopen.html opt e10s fission stylo webrender
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                twinopen ext+twinopen:twinopen.html opt e10s fission stylo webrender
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16876,7 +18657,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              twinopen ext+twinopen:twinopen.html opt e10s fission stylo webrender-sw
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                twinopen ext+twinopen:twinopen.html opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16944,7 +18733,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              twinopen ext+twinopen:twinopen.html opt e10s fission stylo webrender-sw
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                twinopen ext+twinopen:twinopen.html opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -17012,7 +18809,15 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
             >
-              twinopen ext+twinopen:twinopen.html opt e10s fission stylo webrender-sw
+              <div
+                aria-label="Each page in the manifest is part of the dromaeo css benchmark. Each page measures the performance of searching the DOM for nodes matching various CSS selectors, using different libraries for the selector implementation (jQuery, Dojo, Mootools, ExtJS, Prototype, and Yahoo UI)."
+                class=""
+                data-mui-internal-clone-element="true"
+              >
+                 
+                twinopen ext+twinopen:twinopen.html opt e10s fission stylo webrender-sw
+                 
+              </div>
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
