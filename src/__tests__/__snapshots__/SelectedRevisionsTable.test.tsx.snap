@@ -384,6 +384,7 @@ exports[`Search View should match snapshot 1`] = `
       >
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 css-1o7apob-MuiGrid-root"
+          id="revision-search-dropdown"
         >
           <div
             class="MuiFormControl-root css-q8hpuo-MuiFormControl-root"
