@@ -6,6 +6,7 @@ import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import Tooltip from '@mui/material/Tooltip';
 
+import { suiteMap } from '../../common/constants';
 import type { CompareResultsItem } from '../../types/state';
 import {
   setPlatformClassName,
@@ -14,6 +15,12 @@ import {
 
 function CompareResultsTableRow(props: ResultsTableRowProps) {
   const { result, index, mode } = props;
+  const testName =
+    result.suite in suiteMap ? suiteMap[result.suite] : result.header_name;
+  const filter = ['stylo', 'e10s', 'webrender', 'fission'];
+  const filtered: string[] = result.extra_options
+    .split(' ')
+    .filter((option) => filter.indexOf(option) < 0);
 
   return (
     <TableRow key={index}>
@@ -36,10 +43,18 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
         </Link>
       </TableCell>
       <TableCell>
-      <Tooltip title={result.description}>
-        <div> {result.header_name} </div>
+        <Tooltip title={result.description}>
+          <div>
+            {testName} {result.test}
+          </div>
         </Tooltip>
-        </TableCell>
+        {filtered.length > 0 &&
+          filtered.map((option) => (
+            <span key={option} className={`label ${option}`}>
+              {option}
+            </span>
+          ))}
+      </TableCell>
       <TableCell>
         {result.base_median_value} {result.base_measurement_unit}
       </TableCell>
