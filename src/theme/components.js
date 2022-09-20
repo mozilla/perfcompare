@@ -191,6 +191,24 @@ const components = {
       },
     },
   },
+  MuiContainer: {
+    styleOverrides: {
+      root: {
+        '&.perfcompare-body': {
+          minHeight: '85vh',
+        },
+      },
+    },
+  },
+  MuiAlert: {
+    styleOverrides: {
+      root: {
+        '&.feedback-alert': {
+            backgroundImage: 'linear-gradient( 45deg, rgb(138,35,135) 10%, rgb(233,64,87) 50%, rgb(242,113,33) 100% )',
+        },
+      },
+    },
+  },
 };
 
 export default components;
