@@ -129,9 +129,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      Accessibility
                        
-                      a11yr dhtml.html opt e10s fission stylo webrender
-                       
+                      dhtml.html
                     </div>
                   </td>
                   <td
@@ -204,9 +204,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      Accessibility
                        
-                      a11yr dhtml.html opt e10s fission stylo webrender
-                       
+                      dhtml.html
                     </div>
                   </td>
                   <td
@@ -279,9 +279,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      Accessibility
                        
-                      a11yr dhtml.html opt e10s fission stylo webrender
-                       
+                      dhtml.html
                     </div>
                   </td>
                   <td
@@ -354,10 +354,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      Accessibility
                        
-                      a11yr dhtml.html opt e10s fission stylo webrender-sw
-                       
+                      dhtml.html
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -429,10 +434,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      Accessibility
                        
-                      a11yr dhtml.html opt e10s fission stylo webrender-sw
-                       
+                      dhtml.html
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -504,10 +514,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      Accessibility
                        
-                      a11yr dhtml.html opt e10s fission stylo webrender-sw
-                       
+                      dhtml.html
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -578,8 +593,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      about_preferences_basic opt e10s fission stylo webrender
+                      about:preferences
                        
                     </div>
                   </td>
@@ -650,8 +664,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      about_preferences_basic opt e10s fission stylo webrender
+                      about:preferences
                        
                     </div>
                   </td>
@@ -722,8 +735,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      about_preferences_basic opt e10s fission stylo webrender
+                      about:preferences
                        
                     </div>
                   </td>
@@ -794,10 +806,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      about_preferences_basic opt e10s fission stylo webrender-sw
+                      about:preferences
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -866,10 +882,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      about_preferences_basic opt e10s fission stylo webrender-sw
+                      about:preferences
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -938,10 +958,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      about_preferences_basic opt e10s fission stylo webrender-sw
+                      about:preferences
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1010,8 +1034,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      basic_compositor_video opt e10s fission stylo webrender
+                      Basic Compositor Video
                        
                     </div>
                   </td>
@@ -1082,8 +1105,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      basic_compositor_video opt e10s fission stylo webrender
+                      Basic Compositor Video
                        
                     </div>
                   </td>
@@ -1154,8 +1176,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      basic_compositor_video opt e10s fission stylo webrender
+                      Basic Compositor Video
                        
                     </div>
                   </td>
@@ -1226,10 +1247,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      basic_compositor_video opt e10s fission stylo webrender-sw
+                      Basic Compositor Video
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1298,10 +1323,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      basic_compositor_video opt e10s fission stylo webrender-sw
+                      Basic Compositor Video
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1370,10 +1399,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      basic_compositor_video opt e10s fission stylo webrender-sw
+                      Basic Compositor Video
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1442,9 +1475,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      Content Process Startup
                        
-                      cpstartup content-process-startup opt e10s fission stylo webrender
-                       
+                      content-process-startup
                     </div>
                   </td>
                   <td
@@ -1516,9 +1549,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      Content Process Startup
                        
-                      cpstartup content-process-startup opt e10s fission stylo webrender
-                       
+                      content-process-startup
                     </div>
                   </td>
                   <td
@@ -1590,9 +1623,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      Content Process Startup
                        
-                      cpstartup content-process-startup opt e10s fission stylo webrender
-                       
+                      content-process-startup
                     </div>
                   </td>
                   <td
@@ -1664,10 +1697,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      Content Process Startup
                        
-                      cpstartup content-process-startup opt e10s fission stylo webrender-sw
-                       
+                      content-process-startup
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1738,10 +1776,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      Content Process Startup
                        
-                      cpstartup content-process-startup opt e10s fission stylo webrender-sw
-                       
+                      content-process-startup
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1812,10 +1855,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      Content Process Startup
                        
-                      cpstartup content-process-startup opt e10s fission stylo webrender-sw
-                       
+                      content-process-startup
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -1886,8 +1934,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      cross_origin_pageload opt e10s fission stylo webrender
+                      Cross-Origin Pageload
                        
                     </div>
                   </td>
@@ -1960,8 +2007,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      cross_origin_pageload opt e10s fission stylo webrender
+                      Cross-Origin Pageload
                        
                     </div>
                   </td>
@@ -2034,8 +2080,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      cross_origin_pageload opt e10s fission stylo webrender
+                      Cross-Origin Pageload
                        
                     </div>
                   </td>
@@ -2108,10 +2153,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      cross_origin_pageload opt e10s fission stylo webrender-sw
+                      Cross-Origin Pageload
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2182,10 +2231,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      cross_origin_pageload opt e10s fission stylo webrender-sw
+                      Cross-Origin Pageload
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2256,10 +2309,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      cross_origin_pageload opt e10s fission stylo webrender-sw
+                      Cross-Origin Pageload
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2330,8 +2387,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      displaylist_mutate opt e10s fission stylo webrender
+                      Display List Mutate
                        
                     </div>
                   </td>
@@ -2402,8 +2458,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      displaylist_mutate opt e10s fission stylo webrender
+                      Display List Mutate
                        
                     </div>
                   </td>
@@ -2474,8 +2529,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      displaylist_mutate opt e10s fission stylo webrender
+                      Display List Mutate
                        
                     </div>
                   </td>
@@ -2546,10 +2600,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      displaylist_mutate opt e10s fission stylo webrender-sw
+                      Display List Mutate
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2618,10 +2676,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      displaylist_mutate opt e10s fission stylo webrender-sw
+                      Display List Mutate
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2690,10 +2752,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      displaylist_mutate opt e10s fission stylo webrender-sw
+                      Display List Mutate
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -2762,8 +2828,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      dromaeo_css opt e10s fission stylo webrender
+                      Dromaeo CSS Benchmark
                        
                     </div>
                   </td>
@@ -2834,8 +2899,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      dromaeo_css opt e10s fission stylo webrender
+                      Dromaeo CSS Benchmark
                        
                     </div>
                   </td>
@@ -2906,8 +2970,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      dromaeo_css opt e10s fission stylo webrender
+                      Dromaeo CSS Benchmark
                        
                     </div>
                   </td>
@@ -2978,8 +3041,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      dromaeo_dom opt e10s fission stylo webrender
+                      Dromaeo DOM Benchmark
                        
                     </div>
                   </td>
@@ -3050,10 +3112,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      dromaeo_dom opt e10s fission stylo webrender-sw
+                      Dromaeo DOM Benchmark
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3122,10 +3188,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      glterrain opt e10s fission stylo webgl-ipc webrender
+                      WebGL Terrain
                        
                     </div>
+                    <span
+                      class="label webgl-ipc"
+                    >
+                      webgl-ipc
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3194,10 +3264,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      glterrain opt e10s fission stylo webgl-ipc webrender
+                      WebGL Terrain
                        
                     </div>
+                    <span
+                      class="label webgl-ipc"
+                    >
+                      webgl-ipc
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3266,10 +3340,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      glterrain opt e10s fission stylo webgl-ipc webrender
+                      WebGL Terrain
                        
                     </div>
+                    <span
+                      class="label webgl-ipc"
+                    >
+                      webgl-ipc
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3338,10 +3416,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      glterrain opt e10s fission stylo webgl-ipc webrender
+                      WebGL Terrain
                        
                     </div>
+                    <span
+                      class="label webgl-ipc"
+                    >
+                      webgl-ipc
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3410,8 +3492,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      glterrain opt e10s fission stylo webrender
+                      WebGL Terrain
                        
                     </div>
                   </td>
@@ -3482,8 +3563,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      glterrain opt e10s fission stylo webrender
+                      WebGL Terrain
                        
                     </div>
                   </td>
@@ -3554,8 +3634,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      glterrain opt e10s fission stylo webrender
+                      WebGL Terrain
                        
                     </div>
                   </td>
@@ -3626,10 +3705,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      glterrain opt e10s fission stylo webrender-sw
+                      WebGL Terrain
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3698,10 +3781,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      glterrain opt e10s fission stylo webrender-sw
+                      WebGL Terrain
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3770,10 +3857,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      glterrain opt e10s fission stylo webrender-sw
+                      WebGL Terrain
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3842,10 +3933,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      WebGL Video
                        
-                      glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webgl-ipc webrender
-                       
+                      Mean tick time across 100 ticks: 
                     </div>
+                    <span
+                      class="label webgl-ipc"
+                    >
+                      webgl-ipc
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3916,10 +4012,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      WebGL Video
                        
-                      glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webgl-ipc webrender
-                       
+                      Mean tick time across 100 ticks: 
                     </div>
+                    <span
+                      class="label webgl-ipc"
+                    >
+                      webgl-ipc
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -3990,10 +4091,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      WebGL Video
                        
-                      glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webgl-ipc webrender
-                       
+                      Mean tick time across 100 ticks: 
                     </div>
+                    <span
+                      class="label webgl-ipc"
+                    >
+                      webgl-ipc
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4064,10 +4170,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      WebGL Video
                        
-                      glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webgl-ipc webrender
-                       
+                      Mean tick time across 100 ticks: 
                     </div>
+                    <span
+                      class="label webgl-ipc"
+                    >
+                      webgl-ipc
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4138,9 +4249,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      WebGL Video
                        
-                      glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webrender
-                       
+                      Mean tick time across 100 ticks: 
                     </div>
                   </td>
                   <td
@@ -4212,9 +4323,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      WebGL Video
                        
-                      glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webrender
-                       
+                      Mean tick time across 100 ticks: 
                     </div>
                   </td>
                   <td
@@ -4286,9 +4397,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      WebGL Video
                        
-                      glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webrender
-                       
+                      Mean tick time across 100 ticks: 
                     </div>
                   </td>
                   <td
@@ -4360,10 +4471,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      WebGL Video
                        
-                      glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webrender-sw
-                       
+                      Mean tick time across 100 ticks: 
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4434,10 +4550,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      WebGL Video
                        
-                      glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webrender-sw
-                       
+                      Mean tick time across 100 ticks: 
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4508,10 +4629,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      WebGL Video
                        
-                      glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webrender-sw
-                       
+                      Mean tick time across 100 ticks: 
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4582,8 +4708,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      kraken opt e10s fission stylo webrender
+                      Kraken JS Benchmark
                        
                     </div>
                   </td>
@@ -4654,8 +4779,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      kraken opt e10s fission stylo webrender
+                      Kraken JS Benchmark
                        
                     </div>
                   </td>
@@ -4726,8 +4850,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      kraken opt e10s fission stylo webrender
+                      Kraken JS Benchmark
                        
                     </div>
                   </td>
@@ -4798,10 +4921,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      MotionMark WebGL
                        
-                      motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webgl-ipc webrender
-                       
+                      3DGraphics-WebGL
                     </div>
+                    <span
+                      class="label webgl-ipc"
+                    >
+                      webgl-ipc
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4872,10 +5000,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      MotionMark WebGL
                        
-                      motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webgl-ipc webrender
-                       
+                      3DGraphics-WebGL
                     </div>
+                    <span
+                      class="label webgl-ipc"
+                    >
+                      webgl-ipc
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -4946,10 +5079,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      MotionMark WebGL
                        
-                      motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webgl-ipc webrender
-                       
+                      3DGraphics-WebGL
                     </div>
+                    <span
+                      class="label webgl-ipc"
+                    >
+                      webgl-ipc
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5020,10 +5158,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      MotionMark WebGL
                        
-                      motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webgl-ipc webrender
-                       
+                      3DGraphics-WebGL
                     </div>
+                    <span
+                      class="label webgl-ipc"
+                    >
+                      webgl-ipc
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5094,9 +5237,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      MotionMark WebGL
                        
-                      motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webrender
-                       
+                      3DGraphics-WebGL
                     </div>
                   </td>
                   <td
@@ -5168,9 +5311,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      MotionMark WebGL
                        
-                      motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webrender
-                       
+                      3DGraphics-WebGL
                     </div>
                   </td>
                   <td
@@ -5242,9 +5385,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      MotionMark WebGL
                        
-                      motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webrender
-                       
+                      3DGraphics-WebGL
                     </div>
                   </td>
                   <td
@@ -5316,10 +5459,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      MotionMark WebGL
                        
-                      motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webrender-sw
-                       
+                      3DGraphics-WebGL
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5390,10 +5538,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      MotionMark WebGL
                        
-                      motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webrender-sw
-                       
+                      3DGraphics-WebGL
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5464,10 +5617,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      MotionMark WebGL
                        
-                      motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webrender-sw
-                       
+                      3DGraphics-WebGL
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5538,8 +5696,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      pdfpaint opt e10s fission stylo webrender
+                      PDF Page Load
                        
                     </div>
                   </td>
@@ -5610,8 +5767,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      pdfpaint opt e10s fission stylo webrender
+                      PDF Page Load
                        
                     </div>
                   </td>
@@ -5682,8 +5838,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      pdfpaint opt e10s fission stylo webrender
+                      PDF Page Load
                        
                     </div>
                   </td>
@@ -5754,10 +5909,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      pdfpaint opt e10s fission stylo webrender-sw
+                      PDF Page Load
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5826,10 +5985,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      pdfpaint opt e10s fission stylo webrender-sw
+                      PDF Page Load
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5898,10 +6061,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      pdfpaint opt e10s fission stylo webrender-sw
+                      PDF Page Load
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -5970,8 +6137,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      perf_reftest opt e10s fission stylo webrender
+                      Performance Reference Test
                        
                     </div>
                   </td>
@@ -6042,8 +6208,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      perf_reftest opt e10s fission stylo webrender
+                      Performance Reference Test
                        
                     </div>
                   </td>
@@ -6114,8 +6279,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      perf_reftest opt e10s fission stylo webrender
+                      Performance Reference Test
                        
                     </div>
                   </td>
@@ -6186,10 +6350,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      perf_reftest opt e10s fission stylo webrender-sw
+                      Performance Reference Test
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6258,10 +6426,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      perf_reftest opt e10s fission stylo webrender-sw
+                      Performance Reference Test
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6330,10 +6502,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      perf_reftest opt e10s fission stylo webrender-sw
+                      Performance Reference Test
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6402,8 +6578,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      perf_reftest_singletons opt e10s fission stylo webrender
+                      Performance Reference Test - Singletons
                        
                     </div>
                   </td>
@@ -6474,8 +6649,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      perf_reftest_singletons opt e10s fission stylo webrender
+                      Performance Reference Test - Singletons
                        
                     </div>
                   </td>
@@ -6546,8 +6720,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      perf_reftest_singletons opt e10s fission stylo webrender
+                      Performance Reference Test - Singletons
                        
                     </div>
                   </td>
@@ -6618,8 +6791,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      rasterflood_gradient opt e10s fission stylo webrender
+                      Rasterization Flood - Gradient
                        
                     </div>
                   </td>
@@ -6692,8 +6864,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      rasterflood_gradient opt e10s fission stylo webrender
+                      Rasterization Flood - Gradient
                        
                     </div>
                   </td>
@@ -6766,8 +6937,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      rasterflood_gradient opt e10s fission stylo webrender
+                      Rasterization Flood - Gradient
                        
                     </div>
                   </td>
@@ -6840,10 +7010,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      rasterflood_gradient opt e10s fission stylo webrender-sw
+                      Rasterization Flood - Gradient
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6914,10 +7088,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      rasterflood_gradient opt e10s fission stylo webrender-sw
+                      Rasterization Flood - Gradient
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -6988,10 +7166,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      rasterflood_gradient opt e10s fission stylo webrender-sw
+                      Rasterization Flood - Gradient
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7062,8 +7244,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      rasterflood_svg opt e10s fission stylo webrender
+                      Rasterization Flood - SVG
                        
                     </div>
                   </td>
@@ -7136,8 +7317,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      rasterflood_svg opt e10s fission stylo webrender
+                      Rasterization Flood - SVG
                        
                     </div>
                   </td>
@@ -7210,8 +7390,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      rasterflood_svg opt e10s fission stylo webrender
+                      Rasterization Flood - SVG
                        
                     </div>
                   </td>
@@ -7284,10 +7463,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      rasterflood_svg opt e10s fission stylo webrender-sw
+                      Rasterization Flood - SVG
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7358,10 +7541,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      rasterflood_svg opt e10s fission stylo webrender-sw
+                      Rasterization Flood - SVG
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7432,10 +7619,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      rasterflood_svg opt e10s fission stylo webrender-sw
+                      Rasterization Flood - SVG
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7506,9 +7697,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      Session Restore
                        
-                      sessionrestore opt e10s fission stylo webrender
-                       
+                      sessionrestore
                     </div>
                   </td>
                   <td
@@ -7578,9 +7769,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      Session Restore
                        
-                      sessionrestore opt e10s fission stylo webrender
-                       
+                      sessionrestore
                     </div>
                   </td>
                   <td
@@ -7650,9 +7841,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      Session Restore
                        
-                      sessionrestore opt e10s fission stylo webrender
-                       
+                      sessionrestore
                     </div>
                   </td>
                   <td
@@ -7722,10 +7913,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      Session Restore
                        
-                      sessionrestore opt e10s fission stylo webrender-sw
-                       
+                      sessionrestore
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7794,10 +7990,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      Session Restore
                        
-                      sessionrestore opt e10s fission stylo webrender-sw
-                       
+                      sessionrestore
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7866,10 +8067,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      Session Restore
                        
-                      sessionrestore opt e10s fission stylo webrender-sw
-                       
+                      sessionrestore
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -7938,9 +8144,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      Session Restore - Many Windows
                        
-                      sessionrestore_many_windows opt e10s fission stylo webrender
-                       
+                      sessionrestore_many_windows
                     </div>
                   </td>
                   <td
@@ -8010,9 +8216,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      Session Restore - Many Windows
                        
-                      sessionrestore_many_windows opt e10s fission stylo webrender
-                       
+                      sessionrestore_many_windows
                     </div>
                   </td>
                   <td
@@ -8082,9 +8288,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      Session Restore - Many Windows
                        
-                      sessionrestore_many_windows opt e10s fission stylo webrender
-                       
+                      sessionrestore_many_windows
                     </div>
                   </td>
                   <td
@@ -8154,10 +8360,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      Session Restore - Many Windows
                        
-                      sessionrestore_many_windows opt e10s fission stylo webrender-sw
-                       
+                      sessionrestore_many_windows
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8226,10 +8437,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      Session Restore - Many Windows
                        
-                      sessionrestore_many_windows opt e10s fission stylo webrender-sw
-                       
+                      sessionrestore_many_windows
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8298,10 +8514,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      Session Restore - Many Windows
                        
-                      sessionrestore_many_windows opt e10s fission stylo webrender-sw
-                       
+                      sessionrestore_many_windows
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8370,9 +8591,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      Session Restore - No Auto Restore
                        
-                      sessionrestore_no_auto_restore opt e10s fission stylo webrender
-                       
+                      sessionrestore_no_auto_restore
                     </div>
                   </td>
                   <td
@@ -8442,9 +8663,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      Session Restore - No Auto Restore
                        
-                      sessionrestore_no_auto_restore opt e10s fission stylo webrender
-                       
+                      sessionrestore_no_auto_restore
                     </div>
                   </td>
                   <td
@@ -8514,9 +8735,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      Session Restore - No Auto Restore
                        
-                      sessionrestore_no_auto_restore opt e10s fission stylo webrender
-                       
+                      sessionrestore_no_auto_restore
                     </div>
                   </td>
                   <td
@@ -8586,10 +8807,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      Session Restore - No Auto Restore
                        
-                      sessionrestore_no_auto_restore opt e10s fission stylo webrender-sw
-                       
+                      sessionrestore_no_auto_restore
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8658,10 +8884,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      Session Restore - No Auto Restore
                        
-                      sessionrestore_no_auto_restore opt e10s fission stylo webrender-sw
-                       
+                      sessionrestore_no_auto_restore
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8730,10 +8961,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      Session Restore - No Auto Restore
                        
-                      sessionrestore_no_auto_restore opt e10s fission stylo webrender-sw
-                       
+                      sessionrestore_no_auto_restore
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -8802,9 +9038,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      about:home Paint
                        
-                      startup_about_home_paint opt e10s fission stylo webrender
-                       
+                      startup_about_home_paint
                     </div>
                   </td>
                   <td
@@ -8874,9 +9110,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      about:home Paint
                        
-                      startup_about_home_paint opt e10s fission stylo webrender
-                       
+                      startup_about_home_paint
                     </div>
                   </td>
                   <td
@@ -8946,9 +9182,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      about:home Paint
                        
-                      startup_about_home_paint opt e10s fission stylo webrender
-                       
+                      startup_about_home_paint
                     </div>
                   </td>
                   <td
@@ -9018,10 +9254,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      about:home Paint
                        
-                      startup_about_home_paint opt e10s fission stylo webrender-sw
-                       
+                      startup_about_home_paint
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9090,10 +9331,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      about:home Paint
                        
-                      startup_about_home_paint opt e10s fission stylo webrender-sw
-                       
+                      startup_about_home_paint
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9162,10 +9408,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      about:home Paint
                        
-                      startup_about_home_paint opt e10s fission stylo webrender-sw
-                       
+                      startup_about_home_paint
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9234,9 +9485,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      about:home Paint - Cache Enabled
                        
-                      startup_about_home_paint_cached opt e10s fission stylo webrender
-                       
+                      startup_about_home_paint_cached
                     </div>
                   </td>
                   <td
@@ -9306,9 +9557,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      about:home Paint - Cache Enabled
                        
-                      startup_about_home_paint_cached opt e10s fission stylo webrender
-                       
+                      startup_about_home_paint_cached
                     </div>
                   </td>
                   <td
@@ -9378,9 +9629,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      about:home Paint - Cache Enabled
                        
-                      startup_about_home_paint_cached opt e10s fission stylo webrender
-                       
+                      startup_about_home_paint_cached
                     </div>
                   </td>
                   <td
@@ -9450,10 +9701,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      about:home Paint - Cache Enabled
                        
-                      startup_about_home_paint_cached opt e10s fission stylo webrender-sw
-                       
+                      startup_about_home_paint_cached
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9522,10 +9778,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      about:home Paint - Cache Enabled
                        
-                      startup_about_home_paint_cached opt e10s fission stylo webrender-sw
-                       
+                      startup_about_home_paint_cached
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9594,10 +9855,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      about:home Paint - Cache Enabled
                        
-                      startup_about_home_paint_cached opt e10s fission stylo webrender-sw
-                       
+                      startup_about_home_paint_cached
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -9666,9 +9932,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      about:home Paint - WebExtensions Installed
                        
-                      startup_about_home_paint_realworld_webextensions opt e10s fission stylo webrender
-                       
+                      startup_about_home_paint_realworld_webextensions
                     </div>
                   </td>
                   <td
@@ -9738,9 +10004,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      about:home Paint - WebExtensions Installed
                        
-                      startup_about_home_paint_realworld_webextensions opt e10s fission stylo webrender
-                       
+                      startup_about_home_paint_realworld_webextensions
                     </div>
                   </td>
                   <td
@@ -9810,9 +10076,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
+                      about:home Paint - WebExtensions Installed
                        
-                      startup_about_home_paint_realworld_webextensions opt e10s fission stylo webrender
-                       
+                      startup_about_home_paint_realworld_webextensions
                     </div>
                   </td>
                   <td
@@ -9882,8 +10148,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      tabpaint opt e10s fission stylo webrender
+                      New Tab Paint
                        
                     </div>
                   </td>
@@ -9954,8 +10219,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      tabpaint opt e10s fission stylo webrender
+                      New Tab Paint
                        
                     </div>
                   </td>
@@ -10026,8 +10290,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      tabpaint opt e10s fission stylo webrender
+                      New Tab Paint
                        
                     </div>
                   </td>
@@ -10098,10 +10361,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      tabpaint opt e10s fission stylo webrender-sw
+                      New Tab Paint
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10170,10 +10437,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      tabpaint opt e10s fission stylo webrender-sw
+                      New Tab Paint
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10242,10 +10513,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      tabpaint opt e10s fission stylo webrender-sw
+                      New Tab Paint
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10314,8 +10589,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      tabswitch opt e10s fission stylo webrender
+                      Tab Switch Paint
                        
                     </div>
                   </td>
@@ -10386,8 +10660,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      tabswitch opt e10s fission stylo webrender
+                      Tab Switch Paint
                        
                     </div>
                   </td>
@@ -10458,10 +10731,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      tabswitch opt e10s fission stylo webrender-sw
+                      Tab Switch Paint
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10530,10 +10807,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      tabswitch opt e10s fission stylo webrender-sw
+                      Tab Switch Paint
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10602,8 +10883,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      tart opt e10s fission stylo webrender
+                      Tab Animation Regression (TART)
                        
                     </div>
                   </td>
@@ -10674,8 +10954,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      tart opt e10s fission stylo webrender
+                      Tab Animation Regression (TART)
                        
                     </div>
                   </td>
@@ -10746,8 +11025,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      tart opt e10s fission stylo webrender
+                      Tab Animation Regression (TART)
                        
                     </div>
                   </td>
@@ -10818,10 +11096,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      tart opt e10s fission stylo webrender-sw
+                      Tab Animation Regression (TART)
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10890,10 +11172,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      tart opt e10s fission stylo webrender-sw
+                      Tab Animation Regression (TART)
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -10962,10 +11248,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      tart opt e10s fission stylo webrender-sw
+                      Tab Animation Regression (TART)
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11034,8 +11324,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
-                      tart_flex opt e10s fission stylo webrender
+                      Tab Animation Regression (TART) - CSS Flexbox
                        
                     </div>
                   </td>
@@ -11106,9 +11395,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5n main_normal_fileio opt e10s fission stylo webrender
                        
+                      main_normal_fileio
                     </div>
                   </td>
                   <td
@@ -11178,10 +11467,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5n main_normal_fileio opt e10s fission stylo webrender-sw
                        
+                      main_normal_fileio
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11250,9 +11544,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5n main_normal_netio opt e10s fission stylo webrender
                        
+                      main_normal_netio
                     </div>
                   </td>
                   <td
@@ -11322,10 +11616,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5n main_normal_netio opt e10s fission stylo webrender-sw
                        
+                      main_normal_netio
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11417,9 +11716,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5n main_startup_fileio opt e10s fission stylo webrender
                        
+                      main_startup_fileio
                     </div>
                   </td>
                   <td
@@ -11489,10 +11788,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5n main_startup_fileio opt e10s fission stylo webrender-sw
                        
+                      main_startup_fileio
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11561,9 +11865,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5n main_startup_netio opt e10s fission stylo webrender
                        
+                      main_startup_netio
                     </div>
                   </td>
                   <td
@@ -11656,10 +11960,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5n main_startup_netio opt e10s fission stylo webrender-sw
                        
+                      main_startup_netio
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11751,9 +12060,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5n mainthread_writebytes opt e10s fission stylo webrender
                        
+                      mainthread_writebytes
                     </div>
                   </td>
                   <td
@@ -11846,10 +12155,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5n mainthread_writebytes opt e10s fission stylo webrender-sw
                        
+                      mainthread_writebytes
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -11941,9 +12255,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5n mainthread_writecount opt e10s fission stylo webrender
                        
+                      mainthread_writecount
                     </div>
                   </td>
                   <td
@@ -12036,10 +12350,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5n mainthread_writecount opt e10s fission stylo webrender-sw
                        
+                      mainthread_writecount
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12131,9 +12450,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5n nonmain_normal_fileio opt e10s fission stylo webrender
                        
+                      nonmain_normal_fileio
                     </div>
                   </td>
                   <td
@@ -12203,10 +12522,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5n nonmain_normal_fileio opt e10s fission stylo webrender-sw
                        
+                      nonmain_normal_fileio
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12275,9 +12599,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5n nonmain_normal_netio opt e10s fission stylo webrender
                        
+                      nonmain_normal_netio
                     </div>
                   </td>
                   <td
@@ -12347,10 +12671,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5n nonmain_normal_netio opt e10s fission stylo webrender-sw
                        
+                      nonmain_normal_netio
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12419,9 +12748,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5n nonmain_startup_fileio opt e10s fission stylo webrender
                        
+                      nonmain_startup_fileio
                     </div>
                   </td>
                   <td
@@ -12491,10 +12820,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5n nonmain_startup_fileio opt e10s fission stylo webrender-sw
                        
+                      nonmain_startup_fileio
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12563,9 +12897,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5n time_to_session_store_window_restored_ms opt e10s fission stylo webrender
                        
+                      time_to_session_store_window_restored_ms
                     </div>
                   </td>
                   <td
@@ -12658,10 +12992,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5n time_to_session_store_window_restored_ms opt e10s fission stylo webrender-sw
                        
+                      time_to_session_store_window_restored_ms
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12753,9 +13092,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5o XRes opt e10s fission stylo webrender
                        
+                      XRes
                     </div>
                   </td>
                   <td
@@ -12825,10 +13164,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5o XRes opt e10s fission stylo webrender-sw
                        
+                      XRes
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -12897,7 +13241,6 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5o opt e10s fission stylo webrender
                        
                     </div>
@@ -12969,7 +13312,6 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5o opt e10s fission stylo webrender
                        
                     </div>
@@ -13041,7 +13383,6 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5o opt e10s fission stylo webrender
                        
                     </div>
@@ -13113,10 +13454,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5o opt e10s fission stylo webrender-sw
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13185,10 +13530,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5o opt e10s fission stylo webrender-sw
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13257,10 +13606,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5o opt e10s fission stylo webrender-sw
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13329,9 +13682,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5o responsiveness opt e10s fission stylo webrender
                        
+                      responsiveness
                     </div>
                   </td>
                   <td
@@ -13401,9 +13754,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5o responsiveness opt e10s fission stylo webrender
                        
+                      responsiveness
                     </div>
                   </td>
                   <td
@@ -13473,10 +13826,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5o responsiveness opt e10s fission stylo webrender-sw
                        
+                      responsiveness
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13545,10 +13903,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5o responsiveness opt e10s fission stylo webrender-sw
                        
+                      responsiveness
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13617,7 +13980,6 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5o_scroll opt e10s fission stylo webrender
                        
                     </div>
@@ -13689,7 +14051,6 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5o_scroll opt e10s fission stylo webrender
                        
                     </div>
@@ -13761,7 +14122,6 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5o_scroll opt e10s fission stylo webrender
                        
                     </div>
@@ -13833,10 +14193,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5o_scroll opt e10s fission stylo webrender-sw
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13905,10 +14269,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5o_scroll opt e10s fission stylo webrender-sw
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -13977,10 +14345,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5o_scroll opt e10s fission stylo webrender-sw
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14049,9 +14421,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5o_webext XRes opt e10s fission stylo webrender
                        
+                      XRes
                     </div>
                   </td>
                   <td
@@ -14121,10 +14493,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5o_webext XRes opt e10s fission stylo webrender-sw
                        
+                      XRes
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14193,7 +14570,6 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5o_webext opt e10s fission stylo webrender
                        
                     </div>
@@ -14265,7 +14641,6 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5o_webext opt e10s fission stylo webrender
                        
                     </div>
@@ -14337,7 +14712,6 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5o_webext opt e10s fission stylo webrender
                        
                     </div>
@@ -14409,10 +14783,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5o_webext opt e10s fission stylo webrender-sw
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14481,10 +14859,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5o_webext opt e10s fission stylo webrender-sw
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14553,10 +14935,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5o_webext opt e10s fission stylo webrender-sw
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14625,9 +15011,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5o_webext responsiveness opt e10s fission stylo webrender
                        
+                      responsiveness
                     </div>
                   </td>
                   <td
@@ -14697,9 +15083,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5o_webext responsiveness opt e10s fission stylo webrender
                        
+                      responsiveness
                     </div>
                   </td>
                   <td
@@ -14769,10 +15155,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5o_webext responsiveness opt e10s fission stylo webrender-sw
                        
+                      responsiveness
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14841,10 +15232,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tp5o_webext responsiveness opt e10s fission stylo webrender-sw
                        
+                      responsiveness
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -14914,7 +15310,6 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tresize opt e10s fission stylo webrender
                        
                     </div>
@@ -14989,7 +15384,6 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tresize opt e10s fission stylo webrender
                        
                     </div>
@@ -15064,7 +15458,6 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tresize opt e10s fission stylo webrender
                        
                     </div>
@@ -15139,10 +15532,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tresize opt e10s fission stylo webrender-sw
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15214,10 +15611,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tresize opt e10s fission stylo webrender-sw
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15289,10 +15690,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tresize opt e10s fission stylo webrender-sw
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15364,9 +15769,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       ts_paint opt e10s fission stylo webrender
                        
+                      ts_paint
                     </div>
                   </td>
                   <td
@@ -15437,9 +15842,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       ts_paint opt e10s fission stylo webrender
                        
+                      ts_paint
                     </div>
                   </td>
                   <td
@@ -15510,9 +15915,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       ts_paint opt e10s fission stylo webrender
                        
+                      ts_paint
                     </div>
                   </td>
                   <td
@@ -15583,10 +15988,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       ts_paint opt e10s fission stylo webrender-sw
                        
+                      ts_paint
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15656,10 +16066,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       ts_paint opt e10s fission stylo webrender-sw
                        
+                      ts_paint
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15729,10 +16144,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       ts_paint opt e10s fission stylo webrender-sw
                        
+                      ts_paint
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -15802,9 +16222,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       ts_paint_flex opt e10s fission stylo webrender
                        
+                      ts_paint_flex
                     </div>
                   </td>
                   <td
@@ -15875,9 +16295,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       ts_paint_webext opt e10s fission stylo webrender
                        
+                      ts_paint_webext
                     </div>
                   </td>
                   <td
@@ -15948,9 +16368,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       ts_paint_webext opt e10s fission stylo webrender
                        
+                      ts_paint_webext
                     </div>
                   </td>
                   <td
@@ -16021,9 +16441,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       ts_paint_webext opt e10s fission stylo webrender
                        
+                      ts_paint_webext
                     </div>
                   </td>
                   <td
@@ -16094,10 +16514,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       ts_paint_webext opt e10s fission stylo webrender-sw
                        
+                      ts_paint_webext
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16167,10 +16592,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       ts_paint_webext opt e10s fission stylo webrender-sw
                        
+                      ts_paint_webext
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16240,10 +16670,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       ts_paint_webext opt e10s fission stylo webrender-sw
                        
+                      ts_paint_webext
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16313,7 +16748,6 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tscrollx opt e10s fission stylo webrender
                        
                     </div>
@@ -16386,7 +16820,6 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tscrollx opt e10s fission stylo webrender
                        
                     </div>
@@ -16459,7 +16892,6 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tscrollx opt e10s fission stylo webrender
                        
                     </div>
@@ -16532,10 +16964,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tscrollx opt e10s fission stylo webrender-sw
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16605,10 +17041,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tscrollx opt e10s fission stylo webrender-sw
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16678,10 +17118,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tscrollx opt e10s fission stylo webrender-sw
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -16751,7 +17195,6 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tsvg_static opt e10s fission stylo webrender
                        
                     </div>
@@ -16824,7 +17267,6 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tsvg_static opt e10s fission stylo webrender
                        
                     </div>
@@ -16897,7 +17339,6 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tsvg_static opt e10s fission stylo webrender
                        
                     </div>
@@ -16970,10 +17411,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tsvg_static opt e10s fission stylo webrender-sw
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -17043,10 +17488,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tsvg_static opt e10s fission stylo webrender-sw
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -17116,10 +17565,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tsvg_static opt e10s fission stylo webrender-sw
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -17189,7 +17642,6 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tsvgr_opacity opt e10s fission stylo webrender
                        
                     </div>
@@ -17262,7 +17714,6 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tsvgr_opacity opt e10s fission stylo webrender
                        
                     </div>
@@ -17335,7 +17786,6 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tsvgr_opacity opt e10s fission stylo webrender
                        
                     </div>
@@ -17408,10 +17858,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tsvgr_opacity opt e10s fission stylo webrender-sw
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -17481,10 +17935,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tsvgr_opacity opt e10s fission stylo webrender-sw
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -17554,10 +18012,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tsvgr_opacity opt e10s fission stylo webrender-sw
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -17627,7 +18089,6 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tsvgx opt e10s fission stylo webrender
                        
                     </div>
@@ -17700,7 +18161,6 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tsvgx opt e10s fission stylo webrender
                        
                     </div>
@@ -17773,7 +18233,6 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tsvgx opt e10s fission stylo webrender
                        
                     </div>
@@ -17846,10 +18305,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tsvgx opt e10s fission stylo webrender-sw
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -17919,10 +18382,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tsvgx opt e10s fission stylo webrender-sw
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -17992,10 +18459,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       tsvgx opt e10s fission stylo webrender-sw
                        
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -18065,9 +18536,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       twinopen ext+twinopen:twinopen.html opt e10s fission stylo webrender
                        
+                      ext+twinopen:twinopen.html
                     </div>
                   </td>
                   <td
@@ -18140,9 +18611,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       twinopen ext+twinopen:twinopen.html opt e10s fission stylo webrender
                        
+                      ext+twinopen:twinopen.html
                     </div>
                   </td>
                   <td
@@ -18215,9 +18686,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       twinopen ext+twinopen:twinopen.html opt e10s fission stylo webrender
                        
+                      ext+twinopen:twinopen.html
                     </div>
                   </td>
                   <td
@@ -18290,10 +18761,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       twinopen ext+twinopen:twinopen.html opt e10s fission stylo webrender-sw
                        
+                      ext+twinopen:twinopen.html
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -18365,10 +18841,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       twinopen ext+twinopen:twinopen.html opt e10s fission stylo webrender-sw
                        
+                      ext+twinopen:twinopen.html
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
@@ -18440,10 +18921,15 @@ exports[`CompareResults View Should match snapshot 1`] = `
                       class=""
                       data-mui-internal-clone-element="true"
                     >
-                       
                       twinopen ext+twinopen:twinopen.html opt e10s fission stylo webrender-sw
                        
+                      ext+twinopen:twinopen.html
                     </div>
+                    <span
+                      class="label webrender-sw"
+                    >
+                      webrender-sw
+                    </span>
                   </td>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
