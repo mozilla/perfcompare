@@ -7,16 +7,14 @@ import {
   ListItemText,
   Button,
 } from '@mui/material';
-import { connect } from 'react-redux';
 
 import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
 import useFilterCompareResults from '../../hooks/useFilterCompareResults';
-import { FilterOptionsListState } from '../../types/state';
 import { ActiveFilters } from '../../types/types';
 
 function FilterOptionsList(props: FilterOptionsListProps) {
-  const { options, column }: FilterOptionsListProps = props;
+  const { options, column, closeOptions }: FilterOptionsListProps = props;
   const { setFilters, filterResults } = useFilterCompareResults();
   const activeFilters: ActiveFilters = useAppSelector(
     (state: RootState) => state.filterCompareResults.activeFilters,
@@ -32,6 +30,7 @@ function FilterOptionsList(props: FilterOptionsListProps) {
   };
 
   const handleApplyOptions = () => {
+    closeOptions();
     filterResults();
   };
 
@@ -86,13 +85,7 @@ function FilterOptionsList(props: FilterOptionsListProps) {
 interface FilterOptionsListProps {
   options: string[];
   column: string;
-  activeFilters: ActiveFilters;
+  closeOptions: () => void;
 }
 
-function mapStateToProps(state: FilterOptionsListState) {
-  return {
-    activeFilters: state.activeFilters,
-  };
-}
-
-export default connect(mapStateToProps)(FilterOptionsList);
+export default FilterOptionsList;

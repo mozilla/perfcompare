@@ -55,20 +55,26 @@ export const filterCompareResults = createSlice({
       const selectedFilters = Object.keys(action.payload).filter(
         (key) => activeFilters[key as keyof typeof activeFilters].length,
       );
-      
+
       const filteredResults = state.comparisonResults.filter(
         (result: CompareResultsItem) => {
           const isValid = true;
-          const validResult = selectedFilters.reduce((previousValue, currentValue) => {
-            return (
-              previousValue &&
-              activeFilters[
-                currentValue as keyof typeof activeFilters
-              ].includes(
-                result[currentValue as keyof typeof activeFilters] as string,
-              )
-            );
-          }, isValid);
+          const validResult = selectedFilters.reduce(
+            (previousValue, currentValue) => {
+              const resultField =
+                currentValue === 'confidence'
+                  ? 'confidence_text'
+                  : currentValue;
+
+              return (
+                previousValue &&
+                activeFilters[
+                  currentValue as keyof typeof activeFilters
+                ].includes(result[resultField as keyof typeof result] as string)
+              );
+            },
+            isValid,
+          );
           return validResult;
         },
       );

@@ -80,6 +80,7 @@ const components = {
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
           backgroundSize: '17.5%',
+          maxHeight: '100%',
         },
         '&.background-icon.dark-mode': {
           filter: 'invert(100%)',

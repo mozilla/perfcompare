@@ -25,8 +25,6 @@ export type CompareResultsTableHeaderName =
 
 export type ConfidenceText = 'high' | 'med' | 'low';
 
-export type ConfidenceValue = 'Low' | 'Medium' | 'High';
-
 export type MeasurementUnit =
   | 'W'
   | 'MHz'

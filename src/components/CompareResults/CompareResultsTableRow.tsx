@@ -36,10 +36,10 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
         </Link>
       </TableCell>
       <TableCell>
-        <Tooltip title={result.description}>
-          <div> {result.header_name} </div>
+      <Tooltip title={result.description}>
+        <div> {result.header_name} </div>
         </Tooltip>
-      </TableCell>
+        </TableCell>
       <TableCell>
         {result.base_median_value} {result.base_measurement_unit}
       </TableCell>
