@@ -9,6 +9,16 @@ Performance Comparison Tool
 
 ![screenshot](screenshot.png)
 
+## Deployments
+
+PerfCompare is hosted on heroku, and is updated every time commits are pushed to the following branches:
+
+| Branch Name | URL                                        | Description                                                                                                   |
+| ----------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
+| mocking     | http://perfcompare-mocking.herokuapp.com/  | Used for "mock" features that are not fully implemented, for the purposed of All Hands demo and presentation. |
+| staging     | https://perfcompare-staging.herokuapp.com/ | Staging branch before releasing to master                                                                     |
+| master      | https://perfcompare-master.herokuapp.com/  | Most stable branch, updated every 1-2 weeks.                                                                  |
+
 ## Setup
 
 ### Requirements
@@ -97,3 +107,7 @@ snapshots:
 `jest --updateSnapshot`
 
 Snapshot files should be included in your pull request(s).
+
+## Feedback
+
+You can submit feedback to perfcompare-user-feedback@mozilla.com, or find us on the [#perftest](https://matrix.to/#/#perftest:mozilla.org) or [#perfcompare-user-research](https://matrix.to/#/#perfcompare-user-research:mozilla.org) Matrix channels, as well as the [#perfcompare](https://join.slack.com/share/enQtNDEwODYxNzEwMTE3MC1hZWM0NzkwZjZmYjkyNTBhNDRlYTIxNWMxNDMzNjQ1OWEwYmVhMDBmYjM4OWVlZDg4NjE5NWJhMmQ5NGFjMDll) Slack channel.
