@@ -4,7 +4,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Link from '@mui/material/Link';
 import { ThemeProvider } from '@mui/material/styles';
 import { SnackbarProvider } from 'notistack';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 
 import useProtocolTheme from '../theme/protocolTheme';
 import CompareResultsView from './CompareResults/CompareResultsView';
@@ -33,16 +33,12 @@ function App() {
           </Link>
           .
         </Alert>
-        <Box
-          display="flex"
-          justifyContent="flex-end"
-          alignItems="flex-end"
-        >
-        <FeedbackAlert/>
-        <ToggleDarkMode
-          toggleColorMode={toggleColorMode}
-          theme={protocolTheme}
-        />
+        <Box display="flex" justifyContent="flex-end" alignItems="flex-end">
+          <FeedbackAlert />
+          <ToggleDarkMode
+            toggleColorMode={toggleColorMode}
+            theme={protocolTheme}
+          />
         </Box>
         <Router>
           <Routes>
