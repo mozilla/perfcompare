@@ -7,6 +7,9 @@ export const treeherderBaseURL = 'https://treeherder.mozilla.org';
 
 export const maxRevisionsError = 'Maximum 4 revision(s).';
 
+export const userFeedbackMessage  = 'For any kind of suggestions please contact us at ';
+export const perfCompareEmail = 'perfcompare-user-feedback@mozilla.com';
+
 export const repoMap: Dictionary<Repository['name']> = {
   1: 'mozilla-central',
   2: 'mozilla-beta',

@@ -7,12 +7,7 @@ import IconButton from '@mui/material/IconButton';
 function ToggleDarkMode(props: ToggleDarkModeProps) {
   const { theme, toggleColorMode } = props;
   return (
-    <Box
-      className="toggle-dark-mode"
-      display="flex"
-      justifyContent="flex-end"
-      alignItems="flex-end"
-    >
+    <Box className="toggle-dark-mode">
       <IconButton
         sx={{ ml: 1 }}
         onClick={toggleColorMode}
