@@ -251,3 +251,34 @@ export const platformMap: Record<Platform, string> = {
   'android-hw-a51-11-0-aarch64-shippable-qr':
     'Android 11.0 Samsung A51 Shippable AArch64',
 };
+
+export const suiteMap: Record<string, string> = {
+  a11yr: 'Accessibility',
+  about_preferences_basic: 'about:preferences',
+  basic_compositor_video: 'Basic Compositor Video',
+  cpstartup: 'Content Process Startup',
+  cross_origin_pageload: 'Cross-Origin Pageload',
+  displaylist_mutate: 'Display List Mutate',
+  dromaeo_css: 'Dromaeo CSS Benchmark',
+  dromaeo_dom: 'Dromaeo DOM Benchmark',
+  glterrain: 'WebGL Terrain',
+  glvideo: 'WebGL Video',
+  kraken: 'Kraken JS Benchmark',
+  motionmark_webgl: 'MotionMark WebGL',
+  pdfpaint: 'PDF Page Load',
+  perf_reftest: 'Performance Reference Test',
+  perf_reftest_singletons: 'Performance Reference Test - Singletons',
+  rasterflood_gradient: 'Rasterization Flood - Gradient',
+  rasterflood_svg: 'Rasterization Flood - SVG',
+  sessionrestore: 'Session Restore',
+  sessionrestore_many_windows: 'Session Restore - Many Windows',
+  sessionrestore_no_auto_restore: 'Session Restore - No Auto Restore',
+  startup_about_home_paint: 'about:home Paint',
+  startup_about_home_paint_cached: 'about:home Paint - Cache Enabled',
+  startup_about_home_paint_realworld_webextensions:
+    'about:home Paint - WebExtensions Installed',
+  tabpaint: 'New Tab Paint',
+  tabswitch: 'Tab Switch Paint',
+  tart: 'Tab Animation Regression (TART)',
+  tart_flex: 'Tab Animation Regression (TART) - CSS Flexbox',
+};

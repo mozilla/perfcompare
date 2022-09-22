@@ -109,6 +109,19 @@ const components = {
           display: 'flex',
           flexDirection: 'column',
         },
+        '& .label': {
+          backgroundColor: 'blue',
+          borderRadius: '5px',
+          color: 'white',
+          padding: '2px 5px',
+          margin: '0 2px',
+          '&.webrender-sw': {
+            backgroundColor: '#008787',
+          },
+          '&.webgl-ipc': {
+            backgroundColor: '#45278d',
+          },
+        },
       },
     },
   },
