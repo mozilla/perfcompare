@@ -7,6 +7,7 @@ import linux from './img/linux.svg';
 import low from './img/low.svg';
 import med from './img/med.svg';
 import osx from './img/osx.svg';
+import unknown from './img/unknown.svg';
 import windows from './img/windows.svg';
 import zap from './img/zap-10.svg';
 
@@ -106,8 +107,7 @@ const components = {
           backgroundImage: `url(${android})`,
         },
         '&.unknown-confidence': {
-          display: 'flex',
-          flexDirection: 'column',
+          backgroundImage: `url(${unknown})`,
         },
       },
     },
@@ -204,7 +204,8 @@ const components = {
     styleOverrides: {
       root: {
         '&.feedback-alert': {
-            backgroundImage: 'linear-gradient( 45deg, rgb(138,35,135) 10%, rgb(233,64,87) 50%, rgb(242,113,33) 100% )',
+          backgroundImage:
+            'linear-gradient( 45deg, rgb(138,35,135) 10%, rgb(233,64,87) 50%, rgb(242,113,33) 100% )',
         },
       },
     },

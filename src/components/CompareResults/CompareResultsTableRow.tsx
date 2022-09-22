@@ -1,6 +1,4 @@
-import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import TimelineIcon from '@mui/icons-material/Timeline';
-import IconButton from '@mui/material/IconButton';
 import Link from '@mui/material/Link';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
@@ -14,6 +12,9 @@ import {
 
 function CompareResultsTableRow(props: ResultsTableRowProps) {
   const { result, index, mode } = props;
+  const confidenceTooltip = result.confidence
+    ? result.confidence_text_long
+    : 'Unknown confidence.';
 
   return (
     <TableRow key={index}>
@@ -43,24 +44,13 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
         {result.new_median_value} {result.new_measurement_unit}
       </TableCell>
       <TableCell>{result.delta_percentage}%</TableCell>
-      {result.confidence_text ? (
+      <Tooltip title={confidenceTooltip}>
         <TableCell
           className={`background-icon ${setConfidenceClassName(
             result.confidence_text,
           )}`}
         ></TableCell>
-      ) : (
-        <TableCell
-          className={`${setConfidenceClassName(result.confidence_text)}`}
-        >
-          <Tooltip title="Confidence not available">
-            <IconButton className="missing-confidence-button">
-              <QuestionMarkIcon className="missing-confidence-icon" />
-            </IconButton>
-          </Tooltip>
-        </TableCell>
-      )}
-
+      </Tooltip>
       <TableCell>
         {result.base_runs.length}/{result.new_runs.length}
       </TableCell>
