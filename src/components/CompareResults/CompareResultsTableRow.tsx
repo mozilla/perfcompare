@@ -1,3 +1,4 @@
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import IconButton from '@mui/material/IconButton';
@@ -47,6 +48,9 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
           <div>
             {testName} {result.test}
           </div>
+        </Tooltip>
+        <Tooltip title={'https://www.linktodocumentation.com'}>
+          <InfoOutlinedIcon />
         </Tooltip>
         {filtered.length > 0 &&
           filtered.map((option) => (
