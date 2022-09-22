@@ -6,12 +6,21 @@ import SelectedRevisionsTable from '../../components/Shared/SelectedRevisionsTab
 import { updateSearchResults } from '../../reducers/SearchSlice';
 import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
 import getTestData from '../utils/fixtures';
-import { render, store } from '../utils/setupTests';
+import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
 
 describe('CompareResults View', () => {
   it('Should match snapshot', () => {
-    render(<CompareResultsView mode="light" />);
+    const { testCompareData } = getTestData();
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () => ({
+          results: testCompareData,
+        }),
+      }),
+    ) as jest.Mock;
+
+    renderWithRouter(<CompareResultsView mode="light" />);
 
     expect(document.body).toMatchSnapshot();
   });
@@ -23,7 +32,7 @@ describe('CompareResults View', () => {
     const selectedRevisions = testData.slice(0, 4);
     store.dispatch(setSelectedRevisions(selectedRevisions));
 
-    render(<CompareResultsView mode="light" />);
+    renderWithRouter(<CompareResultsView mode="light" />);
 
     expect(screen.getByText("you've got no arms left!")).toBeInTheDocument();
   });
@@ -37,7 +46,7 @@ describe('CompareResults View', () => {
     const selectedRevisions = testData.slice(0, 4);
     store.dispatch(setSelectedRevisions(selectedRevisions));
 
-    render(<CompareResultsView mode="light" />);
+    renderWithRouter(<CompareResultsView mode="light" />);
 
     const editButton = screen.getByRole('button', {
       name: 'edit-revision-1',
@@ -65,7 +74,7 @@ describe('SelectedRevisionsTableRow', () => {
     store.dispatch(setSelectedRevisions(selectedRevisions));
     store.dispatch(updateSearchResults(testData));
 
-    render(<SelectedRevisionsTable view="compare-results" />);
+    renderWithRouter(<SelectedRevisionsTable view="compare-results" />);
 
     await user.click(screen.getByRole('button', { name: 'edit-revision-1' }));
 
@@ -94,7 +103,7 @@ describe('SelectedRevisionsTableRow', () => {
     const selectedRevisions = testData.slice(0, 1);
     store.dispatch(setSelectedRevisions(selectedRevisions));
 
-    render(<CompareResultsView mode="light" />);
+    renderWithRouter(<CompareResultsView mode="light" />);
     const editRevisionButton = screen.getByRole('button', {
       name: 'edit-revision-1',
     });
