@@ -230,6 +230,8 @@ describe('Search View', () => {
     await user.click(compareButton as HTMLElement);
 
     expect(history.location.pathname).toEqual('/compare-results');
-    expect(history.location.search).toEqual('?revs=coconut,spam&repos=4,1');
+    expect(history.location.search).toEqual(
+      '?revs=coconut,spam&repos=try,mozilla-central',
+    );
   });
 });

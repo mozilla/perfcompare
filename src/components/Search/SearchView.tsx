@@ -5,9 +5,9 @@ import Grid from '@mui/material/Grid';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+import { repoMap } from '../../common/constants';
 import type { RootState } from '../../common/store';
 import { Revision } from '../../types/state';
-import { truncateHash } from '../../utils/helpers';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
 import RevisionSearch from '../Shared/RevisionSearch';
 import SelectedRevisionsTable from '../Shared/SelectedRevisionsTable';
@@ -17,13 +17,11 @@ function SearchView(props: SearchViewProps) {
   const navigate = useNavigate();
 
   const goToCompareResultsPage = (selectedRevisions: Revision[]) => {
-    const revisions = selectedRevisions.map((rev) =>
-      truncateHash(rev.revision),
-    );
-    const repos = selectedRevisions.map((rev) => rev.repository_id);
+    const revs = selectedRevisions.map((rev) => rev.revision);
+    const repos = selectedRevisions.map((rev) => repoMap[rev.repository_id]);
     navigate({
       pathname: '/compare-results',
-      search: `?revs=${revisions.join(',')}&repos=${repos.join(',')}`,
+      search: `?revs=${revs.join(',')}&repos=${repos.join(',')}`,
     });
   };
 
