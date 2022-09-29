@@ -67,9 +67,6 @@ const components = {
           width: '50px',
           border: 'solid 1px #737373',
         },
-        '.doc-icon': {
-          transform: 'translate(2px, 5px)',
-        },
         '&.commit-message': {
           overflow: 'hidden',
           textOverflow: 'ellipsis',
