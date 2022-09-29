@@ -47,10 +47,10 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
         <Tooltip title={result.description}>
           <div>
             {testName} {result.test}
+            <Link href="https://www.linktodocumentation.com" target="_blank">
+              <InfoOutlinedIcon fontSize='small' className='doc-icon'/>
+            </Link>
           </div>
-        </Tooltip>
-        <Tooltip title={'https://www.linktodocumentation.com'}>
-          <InfoOutlinedIcon />
         </Tooltip>
         {filtered.length > 0 &&
           filtered.map((option) => (
