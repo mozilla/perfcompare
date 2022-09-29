@@ -1,3 +1,4 @@
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import IconButton from '@mui/material/IconButton';
@@ -46,6 +47,9 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
         <Tooltip title={result.description}>
           <div>
             {testName} {result.test}
+            <Link href="https://www.linktodocumentation.com" target="_blank">
+              <InfoOutlinedIcon fontSize='small' className='doc-icon'/>
+            </Link>
           </div>
         </Tooltip>
         {filtered.length > 0 &&
