@@ -4,7 +4,7 @@ import { setCheckedRevisions } from '../reducers/CheckedRevisions';
 import { Revision } from '../types/state';
 import { useAppDispatch, useAppSelector } from './app';
 
-const useCheckRevision = () => {
+const useCheckRevision = (selectedRevisionsCount: number) => {
   const { enqueueSnackbar } = useSnackbar();
   const dispatch = useAppDispatch();
 
@@ -12,18 +12,22 @@ const useCheckRevision = () => {
     (state) => state.checkedRevisions.revisions,
   );
 
-  const handleToggle = (revision: Revision, maxRevisions: number) => {
+  const handleToggle = (revision: Revision, view: string) => {
     const isChecked = checkedRevisions.includes(revision);
     const newChecked = [...checkedRevisions];
+    const maxRevisions = view == 'compare-results' ? 1 : 2;
 
     // if item is not already checked, add to checked
-    if (checkedRevisions.length < maxRevisions && !isChecked) {
+    if (view === 'search' && selectedRevisionsCount < maxRevisions && checkedRevisions.length < maxRevisions && !isChecked) {
+      newChecked.push(revision);
+    } else if (view == 'compare-results' && checkedRevisions.length < maxRevisions && !isChecked) {
       newChecked.push(revision);
     } else if (isChecked) {
       // if item is already checked, remove from checked
       newChecked.splice(checkedRevisions.indexOf(revision), 1);
     } else {
-      // if there are already 4 checked revisions, print a warning
+      // Search View: if there are already 2 checked revisions, display warning
+      // Compare View: if there is already 1 checked revision, display warning
       const variant: VariantType = 'warning';
       enqueueSnackbar(`Maximum ${maxRevisions} revision(s).`, { variant });
     }

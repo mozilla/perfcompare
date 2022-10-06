@@ -30,8 +30,8 @@ describe('Snackbar', () => {
     await user.click(screen.getByTestId('checkbox-0'));
     await user.click(screen.getByTestId('checkbox-1'));
     await user.click(screen.getByTestId('checkbox-2'));
-    await user.click(screen.getByTestId('checkbox-3'));
-    await user.click(screen.getByTestId('checkbox-4'));
+    // await user.click(screen.getByTestId('checkbox-3'));
+    // await user.click(screen.getByTestId('checkbox-4'));
 
     const alert = screen.getByText(maxRevisionsError);
 
@@ -64,8 +64,8 @@ describe('Snackbar', () => {
     await user.click(screen.getByTestId('checkbox-0'));
     await user.click(screen.getByTestId('checkbox-1'));
     await user.click(screen.getByTestId('checkbox-2'));
-    await user.click(screen.getByTestId('checkbox-3'));
-    await user.click(screen.getByTestId('checkbox-4'));
+    // await user.click(screen.getByTestId('checkbox-3'));
+    // await user.click(screen.getByTestId('checkbox-4'));
 
     const alert = screen.getByText(maxRevisionsError);
 

@@ -5,7 +5,8 @@ import { Framework, Platform } from '../types/types';
 
 export const treeherderBaseURL = 'https://treeherder.mozilla.org';
 
-export const maxRevisionsError = 'Maximum 4 revision(s).';
+export const maxRevisionsError = 'Maximum 2 revision(s).';
+export const featureNotSupportedError = 'Feature not supported yet';
 
 export const userFeedbackMessage  = 'For any kind of suggestions please contact us at ';
 export const perfCompareEmail = 'perfcompare-user-feedback@mozilla.com';
