@@ -1,27 +1,38 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { fetchCompareResults } from '../thunks/compareResultsThunk';
 import type { CompareResultsState } from '../types/state';
 
-const initialState: CompareResultsState = [];
+const initialState: CompareResultsState = {
+  data: [],
+  loading: false,
+  error: undefined,
+};
 
 const compareResults = createSlice({
   name: 'compareResults',
   initialState,
-  reducers: {},
+  reducers: {
+    setCompareResults(state, action: PayloadAction<CompareResultsState>) {
+      state = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCompareResults.fulfilled, (state, action) => {
-        return action.payload;
+        state.data = action.payload;
+        state.loading = initialState.loading;
       })
-      // TODO: handle pending status and display loading icon
-      // .addCase(fetchCompareResults.pending, (state, action) => {
-      //   console.log('pending');
-      // })
-
-      // TODO: handle rejected requests and display error message
-      .addCase(fetchCompareResults.rejected, () => {});
+      .addCase(fetchCompareResults.pending, (state) => {
+        state.loading = true;
+        state.error = initialState.error;
+      })
+      .addCase(fetchCompareResults.rejected, (state, action) => {
+        state.error = action.payload;
+        state.loading = initialState.loading;
+      });
   },
 });
 
+export const { setCompareResults } = compareResults.actions;
 export default compareResults.reducer;
