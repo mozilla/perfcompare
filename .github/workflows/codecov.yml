@@ -1,0 +1,16 @@
+name: codecov
+
+on:
+  push:
+    branches: [ "staging", "master" ]
+  pull_request:
+    branches: [ "staging", "master" ]
+
+jobs:
+  codecov:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@master
+    - uses: codecov/codecov-action@v3.1.1
+
