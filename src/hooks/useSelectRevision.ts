@@ -36,16 +36,17 @@ const useSelectRevision = () => {
   const addSelectedRevisions = () => {
     const newSelected = [...selectedRevisions];
 
+    // Do not allow more then four total revisions (total, including the ones to be added)
+    const exceededMaxRevisions = (selectedRevisions.length + checkedRevisions.length) > 4;
+    if (exceededMaxRevisions) {
+      enqueueSnackbar(maxRevisionsError as string, {
+        variant: warningVariant,
+      });
+      return false;
+    }
+
     checkedRevisions.every((item) => {
       const isSelected = selectedRevisions.includes(item);
-
-      // Do not allow adding more than four revisions
-      if (selectedRevisions.length == 4) {
-        enqueueSnackbar(maxRevisionsError as string, {
-          variant: warningVariant,
-        });
-        return false;
-      }
 
       if (!isSelected) {
         newSelected.push(item);
