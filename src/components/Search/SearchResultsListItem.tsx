@@ -14,18 +14,17 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
   const isChecked: boolean = useAppSelector((state) =>
     state.checkedRevisions.revisions.includes(item),
   );
-  const selectedRevisionsCount: number = useAppSelector((state) =>
-    state.selectedRevisions.revisions.length);
-  const { handleToggle } = useCheckRevision(selectedRevisionsCount);
+  const { handleToggle } = useCheckRevision();
 
   const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);
+  const maxRevisions = view == 'compare-results' ? 1 : 4;
 
   return (
     <>
       <ListItemButton
         key={item.id}
-        onClick={() => handleToggle(item, view)}
+        onClick={() => handleToggle(item, maxRevisions)}
       >
         <ListItem
           className="search-revision-item search-revision"

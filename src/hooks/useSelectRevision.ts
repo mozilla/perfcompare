@@ -1,6 +1,6 @@
 import { useSnackbar, VariantType } from 'notistack';
 
-import { maxRevisionsError, featureNotSupportedError } from '../common/constants';
+import { maxRevisionsError } from '../common/constants';
 import { clearCheckedRevisions } from '../reducers/CheckedRevisions';
 import { setSelectedRevisions } from '../reducers/SelectedRevisions';
 import { Revision } from '../types/state';
@@ -36,19 +36,11 @@ const useSelectRevision = () => {
   const addSelectedRevisions = () => {
     const newSelected = [...selectedRevisions];
 
-    //
-    if (selectedRevisions.length == 0 && checkedRevisions.length == 1) {
-      enqueueSnackbar(featureNotSupportedError as string, {
-        variant: warningVariant,
-      });
-      return false;
-    }
-
     checkedRevisions.every((item) => {
       const isSelected = selectedRevisions.includes(item);
 
-      // Do not allow adding more than two revisions
-      if (selectedRevisions.length == 2) {
+      // Do not allow adding more than four revisions
+      if (selectedRevisions.length == 4) {
         enqueueSnackbar(maxRevisionsError as string, {
           variant: warningVariant,
         });

@@ -52,17 +52,12 @@ describe('Search View', () => {
     const fleshWound = await screen.findByText(
       "spam - it's just a flesh wound",
     );
-    const coconut = await screen.findByText(
-      "coconut - you've got no arms left!",
-    );
 
     await user.click(fleshWound);
-    await user.click(coconut);
     const addRevision = screen.getByRole('button', { name: 'add revisions' });
     await user.click(addRevision);
 
     expect(screen.getByText('BASE')).toBeInTheDocument();
-        expect(screen.getByText('NEW')).toBeInTheDocument();
   });
 
   it('should delete revisions after click and not show revisions table if no revisions', async () => {
