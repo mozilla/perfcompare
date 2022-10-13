@@ -4,7 +4,6 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
@@ -13,7 +12,7 @@ import TableRow from '@mui/material/TableRow';
 import { useAppSelector } from '../../hooks/app';
 import type { CompareResultsState } from '../../types/state';
 import type { CompareResultsTableHeaders } from '../../types/types';
-import CompareResultsTableRow from './CompareResultsTableRow';
+import PaginatedCompareResults from './PaginatedCompareResults';
 
 const tableHeaders: CompareResultsTableHeaders[] = [
   { id: 'platform', label: 'Platform', align: 'center' },
@@ -45,16 +44,7 @@ function CompareResultsTable(props: CompareResultsProps) {
                 ))}
               </TableRow>
             </TableHead>
-            <TableBody>
-              {compareResults.data.map((result, index) => (
-                <CompareResultsTableRow
-                  key={index}
-                  result={result}
-                  index={index}
-                  mode={mode}
-                />
-              ))}
-            </TableBody>
+            <PaginatedCompareResults mode={mode} />
           </Table>
         </TableContainer>
       )}
