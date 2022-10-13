@@ -93,4 +93,8 @@ export type SelectedRevisionsState = {
   revisions: Revision[];
 };
 
-export type CompareResultsState = CompareResultsItem[];
+export type CompareResultsState = {
+  data: CompareResultsItem[];
+  loading: boolean;
+  error: string | undefined;
+};

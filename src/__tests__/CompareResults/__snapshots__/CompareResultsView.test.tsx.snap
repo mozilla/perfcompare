@@ -23,76 +23,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
         />
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
-        >
-          <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root css-11xur9t-MuiPaper-root-MuiTableContainer-root"
-          >
-            <table
-              aria-label="a dense table"
-              class="MuiTable-root css-quj9j6-MuiTable-root"
-            >
-              <thead
-                class="MuiTableHead-root css-15wwp11-MuiTableHead-root"
-              >
-                <tr
-                  class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
-                >
-                  <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
-                    scope="col"
-                  >
-                    Platform
-                  </th>
-                  <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
-                    scope="col"
-                  >
-                    Graph
-                  </th>
-                  <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeSmall css-1howxi1-MuiTableCell-root"
-                    scope="col"
-                  >
-                    Test Name
-                  </th>
-                  <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
-                    scope="col"
-                  >
-                    Base
-                  </th>
-                  <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
-                    scope="col"
-                  >
-                    New
-                  </th>
-                  <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
-                    scope="col"
-                  >
-                    Delta
-                  </th>
-                  <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
-                    scope="col"
-                  >
-                    Confidence
-                  </th>
-                  <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
-                    scope="col"
-                  >
-                    Total Runs
-                  </th>
-                </tr>
-              </thead>
-              <tbody
-                class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
-              />
-            </table>
-          </div>
-        </div>
+        />
       </div>
     </div>
   </div>
