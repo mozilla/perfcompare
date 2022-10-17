@@ -1,11 +1,13 @@
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
+import { featureNotSupportedError } from '../../common/constants';
 import SearchView from '../../components/Search/SearchView';
 import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
+
 
 describe('Search View', () => {
   it('renders correctly when there are no results', async () => {
@@ -233,5 +235,35 @@ describe('Search View', () => {
     expect(history.location.search).toEqual(
       '?revs=coconut,spam&repos=try,mozilla-central',
     );
+  });
+
+    it('disable comparing without a base revision', async () => {
+    const { testData } = getTestData();
+    store.dispatch(setSelectedRevisions(testData.slice(0, 1)));
+    const { history } = renderWithRouter(<SearchView />);
+    expect(history.location.pathname).toEqual('/');
+
+    const user = userEvent.setup({ delay: null });
+
+    const compareButton = document.querySelector('.compare-button');
+    await user.click(compareButton as HTMLElement);
+
+    expect(screen.getByText(featureNotSupportedError)).toBeInTheDocument();
+    expect(history.location.pathname).toEqual('/');
+  });
+
+        it('disable comparing more than two revisions', async () => {
+    const { testData } = getTestData();
+    store.dispatch(setSelectedRevisions(testData.slice(0, 3)));
+    const { history } = renderWithRouter(<SearchView />);
+    expect(history.location.pathname).toEqual('/');
+
+    const user = userEvent.setup({ delay: null });
+
+    const compareButton = document.querySelector('.compare-button');
+    await user.click(compareButton as HTMLElement);
+
+    expect(screen.getByText(featureNotSupportedError)).toBeInTheDocument();
+    expect(history.location.pathname).toEqual('/');
   });
 });
