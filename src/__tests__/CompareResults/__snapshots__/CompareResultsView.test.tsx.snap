@@ -24,9 +24,8 @@ exports[`CompareResults View Should match snapshot 1`] = `
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
         />
-        </div>
       </div>
     </div>
-  </body>
-  `;
-    
+  </div>
+</body>
+`;
