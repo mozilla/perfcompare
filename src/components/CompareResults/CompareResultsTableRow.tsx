@@ -45,12 +45,14 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
       <TableCell>{result.delta_percentage}%</TableCell>
       {result.confidence_text ? (
         <TableCell
+          data-testid="confidence-icon"
           className={`background-icon ${setConfidenceClassName(
             result.confidence_text,
           )}`}
         ></TableCell>
       ) : (
         <TableCell
+          data-testid="confidence-icon"
           className={`${setConfidenceClassName(result.confidence_text)}`}
         >
           <Tooltip title="Confidence not available">

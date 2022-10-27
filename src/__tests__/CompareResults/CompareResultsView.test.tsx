@@ -1,8 +1,10 @@
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
+import CompareResultsTable from '../../components/CompareResults/CompareResultsTable';
 import CompareResultsView from '../../components/CompareResults/CompareResultsView';
 import SelectedRevisionsTable from '../../components/Shared/SelectedRevisionsTable';
+import { setCompareResults } from '../../reducers/CompareResultsSlice';
 import { updateSearchResults } from '../../reducers/SearchSlice';
 import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
 import getTestData from '../utils/fixtures';
@@ -12,15 +14,10 @@ import { screen } from '../utils/test-utils';
 describe('CompareResults View', () => {
   it('Should match snapshot', () => {
     const { testCompareData } = getTestData();
-    global.fetch = jest.fn(() =>
-      Promise.resolve({
-        json: () => ({
-          results: testCompareData,
-        }),
-      }),
-    ) as jest.Mock;
+    // set results data
+    store.dispatch(setCompareResults(testCompareData));
 
-    renderWithRouter(<CompareResultsView mode="light" />);
+    renderWithRouter(<CompareResultsTable mode="light" />);
 
     expect(document.body).toMatchSnapshot();
   });
@@ -120,5 +117,21 @@ describe('SelectedRevisionsTableRow', () => {
     act(() => void jest.runOnlyPendingTimers());
 
     expect(searchInput).not.toBeInTheDocument();
+  });
+});
+
+describe('CompareResultsTable', () => {
+  it('Should display correct confidence icon', async () => {
+    const { testCompareData } = getTestData();
+    // set results data
+    store.dispatch(setCompareResults(testCompareData));
+
+    renderWithRouter(<CompareResultsTable mode="light" />);
+
+    const icons = screen.getAllByTestId('confidence-icon');
+    expect(icons[0]).toHaveClass('low');
+    expect(icons[1]).toHaveClass('med');
+    expect(icons[2]).toHaveClass('high');
+    expect(icons[3]).toHaveClass('unknown-confidence');
   });
 });

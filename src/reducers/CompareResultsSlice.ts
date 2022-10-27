@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { fetchCompareResults } from '../thunks/compareResultsThunk';
-import type { CompareResultsState } from '../types/state';
+import type { CompareResultsItem, CompareResultsState } from '../types/state';
 
 const initialState: CompareResultsState = {
   data: [],
@@ -13,8 +13,8 @@ const compareResults = createSlice({
   name: 'compareResults',
   initialState,
   reducers: {
-    setCompareResults(state, action: PayloadAction<CompareResultsState>) {
-      state = action.payload;
+    setCompareResults(state, action: PayloadAction<CompareResultsItem[]>) {
+      state.data = action.payload;
     },
   },
   extraReducers: (builder) => {
