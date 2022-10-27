@@ -13,8 +13,12 @@ import TableFooter from '@mui/material/TableFooter';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 
+import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
-import type { CompareResultsItem } from '../../types/state';
+import type {
+  CompareResultsItem,
+  CompareResultsState,
+} from '../../types/state';
 import CompareResultsTableRow from './CompareResultsTableRow';
 
 interface TablePaginationActionsProps {
@@ -99,9 +103,20 @@ function TablePaginationActions(props: TablePaginationActionsProps) {
 
 function PaginatedCompareResults(props: PaginatedCompareResultsProps) {
   const { mode } = props;
-  const results: CompareResultsItem[] = useAppSelector(
-    (state) => state.compareResults.data,
+  const compareResults: CompareResultsState = useAppSelector(
+    (state: RootState) => state.compareResults,
   );
+
+  const filteredResults: CompareResultsItem[] = useAppSelector(
+    (state: RootState) => state.filterCompareResults.filteredResults,
+  );
+  const isFiltered = useAppSelector(
+    (state: RootState) => state.filterCompareResults.isFiltered,
+  );
+
+  const results: CompareResultsItem[] = isFiltered
+    ? filteredResults
+    : compareResults.data;
 
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(25);
@@ -126,44 +141,51 @@ function PaginatedCompareResults(props: PaginatedCompareResultsProps) {
 
   return (
     <>
-      <TableBody>
-        {(rowsPerPage > 0
-          ? results.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-          : results
-        ).map((result, index) => (
-          <CompareResultsTableRow
-            key={index}
-            result={result}
-            index={index}
-            mode={mode}
-          />
-        ))}
-        {emptyRows > 0 && (
-          <TableRow style={{ height: 53 * emptyRows }}>
-            <TableCell colSpan={6} />
-          </TableRow>
-        )}
-      </TableBody>
-      <TableFooter>
-        <TableRow>
-          <TablePagination
-            rowsPerPageOptions={[25, 50, 100, { label: 'All', value: -1 }]}
-            colSpan={8}
-            count={results.length}
-            rowsPerPage={rowsPerPage}
-            page={page}
-            SelectProps={{
-              inputProps: {
-                'aria-label': 'rows per page',
-              },
-              native: true,
-            }}
-            onPageChange={handleChangePage}
-            onRowsPerPageChange={handleChangeRowsPerPage}
-            ActionsComponent={TablePaginationActions}
-          />
-        </TableRow>
-      </TableFooter>
+      {results.length > 0 && (
+        <>
+          <TableBody>
+            {(rowsPerPage > 0
+              ? results.slice(
+                  page * rowsPerPage,
+                  page * rowsPerPage + rowsPerPage,
+                )
+              : results
+            ).map((result, index) => (
+              <CompareResultsTableRow
+                key={index}
+                result={result}
+                index={index}
+                mode={mode}
+              />
+            ))}
+            {emptyRows > 0 && (
+              <TableRow style={{ height: 53 * emptyRows }}>
+                <TableCell colSpan={6} />
+              </TableRow>
+            )}
+          </TableBody>
+          <TableFooter>
+            <TableRow>
+              <TablePagination
+                rowsPerPageOptions={[25, 50, 100, { label: 'All', value: -1 }]}
+                colSpan={8}
+                count={results.length}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                SelectProps={{
+                  inputProps: {
+                    'aria-label': 'rows per page',
+                  },
+                  native: true,
+                }}
+                onPageChange={handleChangePage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+                ActionsComponent={TablePaginationActions}
+              />
+            </TableRow>
+          </TableFooter>
+        </>
+      )}
     </>
   );
 }
