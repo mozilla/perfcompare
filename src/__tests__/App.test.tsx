@@ -31,4 +31,19 @@ describe('App', () => {
     await user.click(darkModeButton);
     expect(screen.queryByTestId('Brightness4Icon')).toBeInTheDocument();
   });
+
+    test('Clicking on the info icon an alert should be displayed', async () => {
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
+
+    render(<App />);
+
+    const infoButton = screen.getByRole('button', {
+      name: 'info-button',
+    });
+
+    expect(() => screen.getByTestId('feedback-alert')).toThrow('Unable to find an element');
+    await user.click(infoButton);
+    expect(screen.getByTestId('feedback-alert')).toBeInTheDocument();
+  });
 });
