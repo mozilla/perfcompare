@@ -58,6 +58,17 @@ describe('CompareResults View', () => {
       }),
     ).toBeInTheDocument();
   });
+
+  it('should show correct icon for improvements and regressions', () => {
+    const { testCompareData } = getTestData();
+    // set results data
+    store.dispatch(setCompareResults(testCompareData));
+
+    renderWithRouter(<CompareResultsTable mode="light" />);
+
+    expect(screen.getByTestId('ThumbUpAltIcon')).toBeInTheDocument();
+    expect(screen.getByTestId('WarningIcon')).toBeInTheDocument();
+  });
 });
 
 describe('SelectedRevisionsTableRow', () => {

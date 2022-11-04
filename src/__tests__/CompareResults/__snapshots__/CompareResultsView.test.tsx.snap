@@ -56,6 +56,12 @@ exports[`CompareResults View Should match snapshot 1`] = `
               class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
               scope="col"
             >
+              Status
+            </th>
+            <th
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
+              scope="col"
+            >
               Confidence
             </th>
             <th
@@ -126,6 +132,23 @@ exports[`CompareResults View Should match snapshot 1`] = `
               %
             </td>
             <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-colorSuccess MuiSvgIcon-fontSizeMedium css-4b67si-MuiSvgIcon-root"
+                data-testid="ThumbUpAltIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M2 20h2c.55 0 1-.45 1-1v-9c0-.55-.45-1-1-1H2v11zm19.83-7.12c.11-.25.17-.52.17-.8V11c0-1.1-.9-2-2-2h-5.5l.92-4.65c.05-.22.02-.46-.08-.66-.23-.45-.52-.86-.88-1.22L14 2 7.59 8.41C7.21 8.79 7 9.3 7 9.83v7.84C7 18.95 8.05 20 9.34 20h8.11c.7 0 1.36-.37 1.72-.97l2.66-6.15z"
+                />
+              </svg>
+               
+               
+            </td>
+            <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon low css-dsuxgy-MuiTableCell-root"
               data-testid="confidence-icon"
             />
@@ -192,6 +215,23 @@ exports[`CompareResults View Should match snapshot 1`] = `
             >
               1.85
               %
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+            >
+               
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-colorError MuiSvgIcon-fontSizeMedium css-1wxstni-MuiSvgIcon-root"
+                data-testid="WarningIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
+                />
+              </svg>
+               
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon med css-dsuxgy-MuiTableCell-root"
@@ -262,6 +302,12 @@ exports[`CompareResults View Should match snapshot 1`] = `
               %
             </td>
             <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+            >
+               
+               
+            </td>
+            <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon high css-dsuxgy-MuiTableCell-root"
               data-testid="confidence-icon"
             />
@@ -328,6 +374,12 @@ exports[`CompareResults View Should match snapshot 1`] = `
             >
               -2.4
               %
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+            >
+               
+               
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall unknown-confidence css-dsuxgy-MuiTableCell-root"
