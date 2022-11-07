@@ -1,15 +1,32 @@
+import { useEffect } from 'react';
+
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import { connect } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 
 import type { RootState } from '../../common/store';
-import { Revision } from '../../types/state';
+import useFetchCompareResults from '../../hooks/useFetchCompareResults';
+import { Repository, Revision } from '../../types/state';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
 import SelectedRevisionsTable from '../Shared/SelectedRevisionsTable';
 import CompareResultsTable from './CompareResultsTable';
 
 function CompareResultsView(props: CompareResultsViewProps) {
   const { revisions, mode } = props;
+
+  const location = useLocation();
+  const { dispatchFetchCompareResults } = useFetchCompareResults();
+
+  // TODO: if the revisions in the URL parameters are different from
+  // currently selected revisions, set selected revisions to those parameters
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const repos = searchParams.get('repos')?.split(',');
+    const revs = searchParams.get('revs')?.split(',');
+    void dispatchFetchCompareResults(repos as Repository['name'][], revs);
+  });
+
   return (
     <Container maxWidth="xl">
       <PerfCompareHeader />

@@ -1,25 +1,38 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-// TODO: replace with thunk that accesses endpoint
-// import { fetchCompareResults } from '../thunks/fetchCompareResults';
-import { comparisonResults } from '../common/mockResultsData';
+import { fetchCompareResults } from '../thunks/compareResultsThunk';
 import type { CompareResultsState } from '../types/state';
 
-// test values until we can fetch data from API
-const initialState: CompareResultsState = comparisonResults;
+const initialState: CompareResultsState = {
+  data: [],
+  loading: false,
+  error: undefined,
+};
 
 const compareResults = createSlice({
   name: 'compareResults',
   initialState,
-  reducers: {},
-  // TODO: replace with reducer to handle thunk
-  //   extraReducers: (builder) => {
-  //     builder.addCase(fetchCompareResults.fulfilled, (state, action) => {
-  //       state = action.payload;
-  //     });
-  //   },
+  reducers: {
+    setCompareResults(state, action: PayloadAction<CompareResultsState>) {
+      state = action.payload;
+    },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchCompareResults.fulfilled, (state, action) => {
+        state.data = action.payload;
+        state.loading = initialState.loading;
+      })
+      .addCase(fetchCompareResults.pending, (state) => {
+        state.loading = true;
+        state.error = initialState.error;
+      })
+      .addCase(fetchCompareResults.rejected, (state, action) => {
+        state.error = action.payload;
+        state.loading = initialState.loading;
+      });
+  },
 });
 
-// TODO: add actions
-// export const {} = results.actions;
+export const { setCompareResults } = compareResults.actions;
 export default compareResults.reducer;

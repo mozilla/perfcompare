@@ -4,7 +4,7 @@ exports[`Search View should match snapshot 1`] = `
 <body>
   <div>
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg css-1oqqzyl-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg perfcompare-body css-1oqqzyl-MuiContainer-root"
     >
       <div
         class="header-container MuiBox-root css-0"
@@ -384,6 +384,7 @@ exports[`Search View should match snapshot 1`] = `
       >
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 css-1o7apob-MuiGrid-root"
+          id="revision-search-dropdown"
         >
           <div
             class="MuiFormControl-root css-q8hpuo-MuiFormControl-root"

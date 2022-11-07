@@ -29,9 +29,12 @@ function RevisionSearch(props: RevisionSearchProps) {
         `#revision-search-container, 
         #revision-search-container *`,
       ) &&
-      // do not open search results when cancel button is clicked
+      // do not open search results when dropdown or cancel button is clicked
       !(e.target as HTMLElement).matches(
-        '#cancel-edit-revision-button, #cancel-edit-revision-button *',
+        `#revision-search-dropdown,
+        #revision-search-dropdown *,
+        #cancel-edit-revision-button, 
+        #cancel-edit-revision-button *`,
       )
     ) {
       setFocused(true);
@@ -70,7 +73,7 @@ function RevisionSearch(props: RevisionSearchProps) {
       justifyContent="center"
       id="revision-search-container"
     >
-      <Grid item xs={2}>
+      <Grid item xs={2} id="revision-search-dropdown">
         <SearchDropdown view={view} />
       </Grid>
       <Grid item xs={9}>

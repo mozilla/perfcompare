@@ -4,7 +4,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
 <body>
   <div>
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg css-1oqqzyl-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg perfcompare-body css-1oqqzyl-MuiContainer-root"
     >
       <div
         class="header-container MuiBox-root css-0"
@@ -27,6 +27,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
       >
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 css-1o7apob-MuiGrid-root"
+          id="revision-search-dropdown"
         >
           <div
             class="MuiFormControl-root css-q8hpuo-MuiFormControl-root"
@@ -161,7 +162,7 @@ exports[`Search View should hide search results when clicking outside of search 
 <body>
   <div>
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg css-1oqqzyl-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg perfcompare-body css-1oqqzyl-MuiContainer-root"
     >
       <div
         class="header-container MuiBox-root css-0"
@@ -184,6 +185,7 @@ exports[`Search View should hide search results when clicking outside of search 
       >
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 css-1o7apob-MuiGrid-root"
+          id="revision-search-dropdown"
         >
           <div
             class="MuiFormControl-root css-q8hpuo-MuiFormControl-root"
@@ -318,7 +320,7 @@ exports[`Search View should not hide search results when clicking search results
 <body>
   <div>
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg css-1oqqzyl-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg perfcompare-body css-1oqqzyl-MuiContainer-root"
     >
       <div
         class="header-container MuiBox-root css-0"
@@ -341,6 +343,7 @@ exports[`Search View should not hide search results when clicking search results
       >
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 css-1o7apob-MuiGrid-root"
+          id="revision-search-dropdown"
         >
           <div
             class="MuiFormControl-root css-q8hpuo-MuiFormControl-root"

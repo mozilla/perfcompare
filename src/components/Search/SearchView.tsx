@@ -2,12 +2,13 @@ import ArrowForward from '@mui/icons-material/ArrowForward';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
+import { useSnackbar, VariantType } from 'notistack';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+import { repoMap, featureNotSupportedError } from '../../common/constants';
 import type { RootState } from '../../common/store';
 import { Revision } from '../../types/state';
-import { truncateHash } from '../../utils/helpers';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
 import RevisionSearch from '../Shared/RevisionSearch';
 import SelectedRevisionsTable from '../Shared/SelectedRevisionsTable';
@@ -15,22 +16,30 @@ import SearchViewInit from './SearchViewInit';
 
 function SearchView(props: SearchViewProps) {
   const navigate = useNavigate();
+  const { enqueueSnackbar } = useSnackbar();
+  const warningVariant: VariantType = 'warning';
 
   const goToCompareResultsPage = (selectedRevisions: Revision[]) => {
-    const revisions = selectedRevisions.map((rev) =>
-      truncateHash(rev.revision),
-    );
-    const repos = selectedRevisions.map((rev) => rev.repository_id);
+    // TODO: remove this check once comparing without a base
+    //  and comparing multiple revisions against a base is enabled
+    if (selectedRevisions.length === 1 || selectedRevisions.length > 2) {
+    enqueueSnackbar(featureNotSupportedError as string, {
+        variant: warningVariant,
+    });
+    return;
+    }
+    const revs = selectedRevisions.map((rev) => rev.revision);
+    const repos = selectedRevisions.map((rev) => repoMap[rev.repository_id]);
     navigate({
       pathname: '/compare-results',
-      search: `?revs=${revisions.join(',')}&repos=${repos.join(',')}`,
+      search: `?revs=${revs.join(',')}&repos=${repos.join(',')}`,
     });
   };
 
   const { selectedRevisions } = props;
 
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="lg" className='perfcompare-body'>
       {/* Component to fetch recent revisions on mount */}
       <SearchViewInit />
       <PerfCompareHeader />
