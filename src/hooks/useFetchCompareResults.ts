@@ -1,9 +1,17 @@
+import {
+  clearSearchResults,
+  setSelectedRevisions,
+} from '../reducers/SelectedRevisions';
 import { fetchCompareResults } from '../thunks/compareResultsThunk';
-import type { Repository } from '../types/state';
-import { useAppDispatch } from './app';
+import { fetchSelectedRevisions } from '../thunks/selectedRevisionsThunk';
+import type { Repository, Revision } from '../types/state';
+import { useAppDispatch, useAppSelector } from './app';
 
 function useFetchCompareResults() {
   const dispatch = useAppDispatch();
+  const searchResults = useAppSelector(
+    (state) => state.selectedRevisions.searchResults,
+  );
 
   const dispatchFetchCompareResults = async (
     repos: Repository['name'][] | null,
@@ -33,7 +41,20 @@ function useFetchCompareResults() {
       // TODO: handle case for more than two selected revisions
     }
   };
-  return { dispatchFetchCompareResults };
+
+  const useFetchSelectedRevisions = async (repos: string, revs: string) => {
+    const paramRepos: string[] = repos.split(',');
+    const paramRevs: string[] = revs.split(',');
+    dispatch(clearSearchResults());
+
+    for (let i = 0; i < paramRepos.length; i++) {
+      const repo = paramRepos[i];
+      const rev = paramRevs[i];
+      await dispatch(fetchSelectedRevisions({ repo, rev }));
+    }
+    dispatch(setSelectedRevisions(searchResults));
+  };
+  return { dispatchFetchCompareResults, useFetchSelectedRevisions };
 }
 
 export default useFetchCompareResults;

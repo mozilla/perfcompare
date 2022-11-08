@@ -14,9 +14,9 @@ const container = document.getElementById('root');
 /* eslint-disable */
 const root: Root = createRoot(container!);
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  // </React.StrictMode>,
 );

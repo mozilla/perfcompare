@@ -23,23 +23,24 @@ function SearchView(props: SearchViewProps) {
     // TODO: remove this check once comparing without a base
     //  and comparing multiple revisions against a base is enabled
     if (selectedRevisions.length === 1 || selectedRevisions.length > 2) {
-    enqueueSnackbar(featureNotSupportedError as string, {
+      enqueueSnackbar(featureNotSupportedError as string, {
         variant: warningVariant,
-    });
-    return;
+      });
+      return;
     }
-    const revs = selectedRevisions.map((rev) => rev.revision);
-    const repos = selectedRevisions.map((rev) => repoMap[rev.repository_id]);
+    const revs = selectedRevisions.map((rev) => rev.revision).join(',');
+    const repos = selectedRevisions
+      .map((rev) => repoMap[rev.repository_id])
+      .join(',');
     navigate({
-      pathname: '/compare-results',
-      search: `?revs=${revs.join(',')}&repos=${repos.join(',')}`,
+      pathname: `/compare-results/repos/${repos}/revs/${revs}`,
     });
   };
 
   const { selectedRevisions } = props;
 
   return (
-    <Container maxWidth="lg" className='perfcompare-body'>
+    <Container maxWidth="lg" className="perfcompare-body">
       {/* Component to fetch recent revisions on mount */}
       <SearchViewInit />
       <PerfCompareHeader />

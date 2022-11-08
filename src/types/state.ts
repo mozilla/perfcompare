@@ -91,6 +91,9 @@ export type CheckedRevisionsState = {
 
 export type SelectedRevisionsState = {
   revisions: Revision[];
+  errorMessage: string;
+  status: 'idle' | 'loading';
+  searchResults: Revision[];
 };
 
 export type CompareResultsState = {

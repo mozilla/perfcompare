@@ -1,9 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import { fetchSelectedRevisions } from '../thunks/selectedRevisionsThunk';
 import { Revision, SelectedRevisionsState } from '../types/state';
 
 const initialState: SelectedRevisionsState = {
   revisions: [],
+  errorMessage: '',
+  status: 'idle',
+  searchResults: [],
 };
 
 const selectedRevisions = createSlice({
@@ -14,15 +18,21 @@ const selectedRevisions = createSlice({
       state.revisions = action.payload;
     },
     deleteRevision(state, action) {
-      return {
-        revisions: state.revisions.filter(
-          (revision) => revision.id !== action.payload,
-        ),
-      };
+      state.revisions = state.revisions.filter(
+        (revision) => revision.id !== action.payload,
+      );
     },
+    clearSearchResults(state) {
+      state.searchResults = initialState.searchResults;
+    },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchSelectedRevisions.fulfilled, (state, action) => {
+      state.searchResults.push(action.payload);
+    });
   },
 });
 
-export const { setSelectedRevisions, deleteRevision } =
+export const { setSelectedRevisions, deleteRevision, clearSearchResults } =
   selectedRevisions.actions;
 export default selectedRevisions.reducer;

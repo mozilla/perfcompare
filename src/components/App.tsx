@@ -44,7 +44,7 @@ function App() {
           <Routes>
             <Route path="/" element={<SearchView />} />
             <Route
-              path="/compare-results"
+              path="/compare-results/repos/:repos/revs/:revs"
               element={<CompareResultsView mode={mode} />}
             />
           </Routes>

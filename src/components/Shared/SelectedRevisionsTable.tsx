@@ -7,6 +7,7 @@ import TableRow from '@mui/material/TableRow';
 import { connect } from 'react-redux';
 
 import type { RootState } from '../../common/store';
+import { useAppSelector } from '../../hooks/app';
 import type { Revision } from '../../types/state';
 import type { SelectedRevisionsTableHeaders } from '../../types/types';
 import SelectedRevisionsTableRow from './SelectedRevisionsTableRow';
@@ -20,9 +21,11 @@ const tableHeaderDetails: SelectedRevisionsTableHeaders[] = [
 ];
 
 function SelectedRevisionsTable(props: SelectedRevisionsProps) {
-  const { revisions, view } = props;
+  const { view } = props;
   const size = view == 'compare-results' ? 'small' : undefined;
-
+  const revisions = useAppSelector(
+    (state) => state.selectedRevisions.revisions,
+  );
   return (
     <TableContainer className="layout">
       <Table className={`${view}-selected-table`} size={size}>
@@ -53,14 +56,15 @@ function SelectedRevisionsTable(props: SelectedRevisionsProps) {
 }
 
 interface SelectedRevisionsProps {
-  revisions: Revision[];
+  // revisions: Revision[];
   view: 'search' | 'compare-results';
 }
 
-function mapStateToProps(state: RootState) {
-  return {
-    revisions: state.selectedRevisions.revisions,
-  };
-}
+// function mapStateToProps(state: RootState) {
+//   return {
+//     revisions: state.selectedRevisions.revisions,
+//   };
+// }
 
-export default connect(mapStateToProps)(SelectedRevisionsTable);
+// export default connect(mapStateToProps)(SelectedRevisionsTable);
+export default SelectedRevisionsTable;

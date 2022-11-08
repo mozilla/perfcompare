@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import { connect } from 'react-redux';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 
 import { repoMap } from '../../common/constants';
 import type { RootState } from '../../common/store';
@@ -14,39 +14,24 @@ import { Repository, Revision } from '../../types/state';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
 import SelectedRevisionsTable from '../Shared/SelectedRevisionsTable';
 import CompareResultsTable from './CompareResultsTable';
+import { fetchSelectedRevisions } from '../../thunks/selectedRevisionsThunk';
+import { fetchCompareResults } from '../../thunks/compareResultsThunk';
 
 function CompareResultsView(props: CompareResultsViewProps) {
   const { revisions, mode } = props;
 
   const dispatch = useAppDispatch();
   const location = useLocation();
-  const { dispatchFetchCompareResults } = useFetchCompareResults();
-  const selectedRevisions = useAppSelector(
-    (state) => state.selectedRevisions.revisions,
-  );
+  const { dispatchFetchCompareResults, useFetchSelectedRevisions } =
+    useFetchCompareResults();
+
+  const { repos, revs } = useParams();
+
   // TODO: if the revisions in the URL parameters are different from
   // currently selected revisions, set selected revisions to those parameters
   useEffect(() => {
-    const searchParams = new URLSearchParams(location.search);
-    const paramRepos = searchParams.get('repos')?.split(',');
-    const paramRevs = searchParams.get('revs')?.split(',');
-    const selectedRepos = selectedRevisions.map(
-      (item) => repoMap[item.repository_id],
-    );
-    const selectedRevs = selectedRevisions.map((item) => item.revision);
-    if (
-      (paramRevs && paramRepos && paramRepos !== selectedRepos) ||
-      paramRevs !== selectedRevs
-    ) {
-      paramRepos?.forEach((item, index) => {
-        dispatch(fetchRevisionByID(item, paramRevs[index]))
-          .then((res) => console.log(res))
-          .catch((err) => console.log(err));
-      });
-      void dispatchFetchCompareResults(
-        paramRepos as Repository['name'][],
-        paramRevs,
-      );
+    if (repos && revs) {
+      void useFetchSelectedRevisions(repos, revs);
     }
   });
 
