@@ -21,6 +21,7 @@ const tableHeaders: CompareResultsTableHeaders[] = [
   { id: 'base-value', label: 'Base', align: 'center' },
   { id: 'new-value', label: 'New', align: 'center' },
   { id: 'delta-percent', label: 'Delta', align: 'center' },
+  { id: 'status', label: 'Status', align: 'center' },
   { id: 'confidence', label: 'Confidence', align: 'center' },
   { id: 'total-runs', label: 'Total Runs', align: 'center' },
 ];
