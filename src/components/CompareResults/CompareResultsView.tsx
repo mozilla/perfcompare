@@ -9,13 +9,13 @@ import { repoMap } from '../../common/constants';
 import type { RootState } from '../../common/store';
 import { useAppDispatch, useAppSelector } from '../../hooks/app';
 import useFetchCompareResults from '../../hooks/useFetchCompareResults';
+import { fetchCompareResults } from '../../thunks/compareResultsThunk';
 import { fetchRevisionByID } from '../../thunks/searchThunk';
+import { fetchSelectedRevisions } from '../../thunks/selectedRevisionsThunk';
 import { Repository, Revision } from '../../types/state';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
 import SelectedRevisionsTable from '../Shared/SelectedRevisionsTable';
 import CompareResultsTable from './CompareResultsTable';
-import { fetchSelectedRevisions } from '../../thunks/selectedRevisionsThunk';
-import { fetchCompareResults } from '../../thunks/compareResultsThunk';
 
 function CompareResultsView(props: CompareResultsViewProps) {
   const { revisions, mode } = props;
@@ -24,16 +24,6 @@ function CompareResultsView(props: CompareResultsViewProps) {
   const location = useLocation();
   const { dispatchFetchCompareResults, useFetchSelectedRevisions } =
     useFetchCompareResults();
-
-  const { repos, revs } = useParams();
-
-  // TODO: if the revisions in the URL parameters are different from
-  // currently selected revisions, set selected revisions to those parameters
-  useEffect(() => {
-    if (repos && revs) {
-      void useFetchSelectedRevisions(repos, revs);
-    }
-  });
 
   return (
     <Container maxWidth="xl">
