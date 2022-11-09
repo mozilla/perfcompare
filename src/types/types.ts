@@ -1,5 +1,3 @@
-import { CompareResultsItem } from './state';
-
 export type SelectedRevisionsTableHeaders =
   | 'Project'
   | 'Revision'
@@ -7,23 +5,11 @@ export type SelectedRevisionsTableHeaders =
   | 'Commit Message'
   | 'Timestamp';
 
-export type CompareResultsTableHeader = {
+export type CompareResultsTableHeaders = {
   id: string;
-  label: CompareResultsTableHeaderName;
-  key: string;
+  label: string;
   align: 'left' | 'center' | 'right';
 };
-
-export type CompareResultsTableHeaderName =
-  | 'Platform'
-  | 'Graph'
-  | 'Suite'
-  | 'Test Name'
-  | 'Base'
-  | 'New'
-  | 'Delta'
-  | 'Confidence'
-  | 'Total Runs';
 
 export type ConfidenceText = 'high' | 'med' | 'low';
 
@@ -51,23 +37,6 @@ export type Framework =
   | { id: 13; name: 'browsertime' }
   | { id: 15; name: 'mozperftest' }
   | { id: 16; name: 'fxrecord' };
-
-export type FilterValue = {
-  name: string;
-  value: string;
-};
-
-export type ActiveFilters = {
-  platform: string[];
-  test: string[];
-  confidence: string[];
-};
-
-export type FilteredResults = {
-  data: CompareResultsItem[];
-  activeFilters: ActiveFilters;
-  isFiltered: boolean,
-};
 
 export type Platform =
   | 'linux32'

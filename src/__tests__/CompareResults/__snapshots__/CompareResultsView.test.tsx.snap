@@ -21,27 +21,6 @@ exports[`CompareResults View Should match snapshot 1`] = `
               scope="col"
             >
               Platform
-              <button
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
-                data-testid="platform-options-button"
-                tabindex="0"
-                type="button"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                  data-testid="MoreVertIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
-                  />
-                </svg>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </button>
             </th>
             <th
               class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
@@ -54,27 +33,6 @@ exports[`CompareResults View Should match snapshot 1`] = `
               scope="col"
             >
               Test Name
-              <button
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
-                data-testid="test-options-button"
-                tabindex="0"
-                type="button"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                  data-testid="MoreVertIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
-                  />
-                </svg>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </button>
             </th>
             <th
               class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
@@ -98,28 +56,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
               class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
               scope="col"
             >
+              Status
+            </th>
+            <th
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
+              scope="col"
+            >
               Confidence
-              <button
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
-                data-testid="confidence-options-button"
-                tabindex="0"
-                type="button"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                  data-testid="MoreVertIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
-                  />
-                </svg>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </button>
             </th>
             <th
               class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
@@ -133,8 +76,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
           class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
         >
           <tr
-            class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
-            data-testid="table-row"
+            class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
           >
             <td
               aria-label="macosx1015-64-shippable-qr"
@@ -219,8 +161,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
             </td>
           </tr>
           <tr
-            class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
-            data-testid="table-row"
+            class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
           >
             <td
               aria-label="linux1804-64-shippable-qr"
@@ -305,8 +246,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
             </td>
           </tr>
           <tr
-            class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
-            data-testid="table-row"
+            class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
           >
             <td
               aria-label="windows10-64-shippable-qr"
@@ -380,8 +320,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
             </td>
           </tr>
           <tr
-            class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
-            data-testid="table-row"
+            class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
           >
             <td
               aria-label="windows10-64-shippable-qr"

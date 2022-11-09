@@ -17,7 +17,7 @@ import {
 function CompareResultsTableRow(props: ResultsTableRowProps) {
   const { result, index, mode } = props;
   return (
-    <TableRow key={index} hover data-testid={'table-row'}>
+    <TableRow key={index}>
       <Tooltip title={result.platform}>
         <TableCell
           className={`background-icon ${mode}-mode ${setPlatformClassName(
