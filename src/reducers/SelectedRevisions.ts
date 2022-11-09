@@ -18,11 +18,12 @@ const selectedRevisions = createSlice({
       state.revisions = action.payload;
     },
     deleteRevision(state, action) {
-      return {
-        revisions: state.revisions.filter(
-          (revision) => revision.id !== action.payload,
-        ),
-      };
+      state.revisions = state.revisions.filter(
+        (revision) => revision.id !== action.payload,
+      );
+    },
+    clearSearchResults(state) {
+      state.searchResults = initialState.searchResults;
     },
     clearSelectedRevisions(state) {
       state.revisions = initialState.revisions;
@@ -35,6 +36,10 @@ const selectedRevisions = createSlice({
   },
 });
 
-export const { setSelectedRevisions, deleteRevision, clearSelectedRevisions } =
-  selectedRevisions.actions;
+export const {
+  setSelectedRevisions,
+  deleteRevision,
+  clearSearchResults,
+  clearSelectedRevisions,
+} = selectedRevisions.actions;
 export default selectedRevisions.reducer;

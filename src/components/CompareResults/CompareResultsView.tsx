@@ -11,6 +11,7 @@ import { Repository, Revision } from '../../types/state';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
 import SelectedRevisionsTable from '../Shared/SelectedRevisionsTable';
 import CompareResultsTable from './CompareResultsTable';
+import CompareResultsViewInit from './CompareResultsViewInit';
 
 function CompareResultsView(props: CompareResultsViewProps) {
   const { revisions, mode } = props;
@@ -20,19 +21,20 @@ function CompareResultsView(props: CompareResultsViewProps) {
 
   // TODO: if the revisions in the URL parameters are different from
   // currently selected revisions, set selected revisions to those parameters
-  useEffect(() => {
-    const searchParams = new URLSearchParams(location.search);
-    const repos = searchParams.get('repos')?.split(',');
-    const revs = searchParams.get('revs')?.split(',');
-    void dispatchFetchCompareResults(repos as Repository['name'][], revs);
-  });
+  // useEffect(() => {
+  //   const searchParams = new URLSearchParams(location.search);
+  //   const repos = searchParams.get('repos')?.split(',');
+  //   const revs = searchParams.get('revs')?.split(',');
+  //   void dispatchFetchCompareResults(repos as Repository['name'][], revs);
+  // });
 
   return (
     <Container maxWidth="xl">
+      <CompareResultsViewInit />
       <PerfCompareHeader />
       <Grid container alignItems="center" justifyContent="center">
         <Grid item xs={10}>
-          {revisions.length > 0 && (
+          {revisions && revisions.length > 0 && (
             <SelectedRevisionsTable view="compare-results" />
           )}
         </Grid>

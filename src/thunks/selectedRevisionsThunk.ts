@@ -22,7 +22,7 @@ export const fetchSelectedRevisions = createAsyncThunk<
     }
     const json = (await response.json()) as APIPushResponse;
     if (json.results.length > 0) {
-      console.log(json.results);
+      // console.log(json.results);
       return json.results[0];
     }
 
