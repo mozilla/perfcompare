@@ -98,6 +98,12 @@ exports[`CompareResults View Should match snapshot 1`] = `
               class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
               scope="col"
             >
+              Status
+            </th>
+            <th
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
+              scope="col"
+            >
               Confidence
               <button
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"

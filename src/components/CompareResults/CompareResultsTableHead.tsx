@@ -52,6 +52,11 @@ const tableHead: CompareResultsTableHeader[] = [
     key: 'delta',
     align: 'center',
   },
+  { id: 'status', 
+    label: 'Status',
+    key: 'status',
+    align: 'center',
+  },
   {
     id: 'confidence',
     label: 'Confidence',
