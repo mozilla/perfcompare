@@ -22,19 +22,6 @@ export const repoMap: Dictionary<Repository['name']> = {
   77: 'autoland',
 };
 
-export const frameworkMap: Record<Framework['id'], Framework['name']> = {
-  1: 'talos',
-  2: 'build_metrics',
-  4: 'awsy',
-  6: 'platform_microbench',
-  10: 'raptor',
-  11: 'js-bench',
-  12: 'devtools',
-  13: 'browsertime',
-  15: 'mozperftest',
-  16: 'fxrecord',
-};
-
 export const frameworks: Framework[] = [
   { id: 1, name: 'talos' },
   { id: 2, name: 'build_metrics' },

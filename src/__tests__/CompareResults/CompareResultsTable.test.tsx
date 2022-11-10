@@ -3,7 +3,10 @@ import { act } from 'react-dom/test-utils';
 
 import CompareResultsTable from '../../components/CompareResults/CompareResultsTable';
 import SearchView from '../../components/Search/SearchView';
-import { setCompareResults } from '../../reducers/CompareResultsSlice';
+import {
+  setCompareResults,
+  setLoadingStatus,
+} from '../../reducers/CompareResultsSlice';
 import {
   addFilter,
   setFilteredResults,
@@ -19,6 +22,8 @@ const { testCompareData } = getTestData();
 
 describe('Compare Results Table', () => {
   it('Should match snapshot', () => {
+    store.dispatch(setCompareResults(testCompareData));
+    store.dispatch(setLoadingStatus(false));
     render(<CompareResultsTable mode="light" />);
 
     expect(document.body).toMatchSnapshot();

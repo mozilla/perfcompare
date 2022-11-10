@@ -8,11 +8,10 @@ import TableContainer from '@mui/material/TableContainer';
 
 import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
-import type {
-  CompareResultsState,
-} from '../../types/state';
+import type { CompareResultsState } from '../../types/state';
 import CompareResultsTableHead from './CompareResultsTableHead';
 import CompareTableStatus from './CompareTableStatus';
+import FrameworkDropdown from './FrameworkDropdown';
 import PaginatedCompareResults from './PaginatedCompareResults';
 
 function CompareResultsTable(props: CompareResultsProps) {
@@ -23,8 +22,9 @@ function CompareResultsTable(props: CompareResultsProps) {
 
   return (
     <>
-      {!compareResults.loading && (
+      {!compareResults.loading && compareResults.data.length > 0 && (
         <>
+          <FrameworkDropdown />
           <CompareTableStatus />
           <TableContainer component={Paper}>
             <Table

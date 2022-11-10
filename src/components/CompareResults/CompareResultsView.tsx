@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
 import type { RootState } from '../../common/store';
+import { useAppSelector } from '../../hooks/app';
 import useFetchCompareResults from '../../hooks/useFetchCompareResults';
 import { Repository, Revision } from '../../types/state';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
@@ -17,6 +18,9 @@ function CompareResultsView(props: CompareResultsViewProps) {
 
   const location = useLocation();
   const { dispatchFetchCompareResults } = useFetchCompareResults();
+  const frameworkID = useAppSelector(
+    (state) => state.compareResults.framework.id,
+  );
 
   // TODO: if the revisions in the URL parameters are different from
   // currently selected revisions, set selected revisions to those parameters
@@ -24,7 +28,11 @@ function CompareResultsView(props: CompareResultsViewProps) {
     const searchParams = new URLSearchParams(location.search);
     const repos = searchParams.get('repos')?.split(',');
     const revs = searchParams.get('revs')?.split(',');
-    void dispatchFetchCompareResults(repos as Repository['name'][], revs);
+    void dispatchFetchCompareResults(
+      repos as Repository['name'][],
+      revs,
+      frameworkID,
+    );
   });
 
   return (

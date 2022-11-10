@@ -10,7 +10,7 @@ import useHandleChangeDropdown from '../../hooks/useHandleChangeDropdown';
 
 function SearchDropdown(props: SearchDropdownProps) {
   const { repository, view } = props;
-  const { handleChangeDropdown } = useHandleChangeDropdown();
+  const { handleRepoDropdownChange } = useHandleChangeDropdown();
   const size = view == 'compare-results' ? 'small' : undefined;
 
   return (
@@ -22,7 +22,7 @@ function SearchDropdown(props: SearchDropdownProps) {
             id={repoMap[key]}
             value={repoMap[key]}
             key={repoMap[key]}
-            onClick={(e) => void handleChangeDropdown(e)}
+            onClick={(e) => void handleRepoDropdownChange(e)}
           >
             {repoMap[key]}
           </MenuItem>

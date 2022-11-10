@@ -95,6 +95,7 @@ export type SelectedRevisionsState = {
 
 export type CompareResultsState = {
   data: CompareResultsItem[];
+  framework: Framework;
   loading: boolean;
   error: string | undefined;
 };

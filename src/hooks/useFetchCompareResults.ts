@@ -1,5 +1,6 @@
 import { fetchCompareResults } from '../thunks/compareResultsThunk';
 import type { Repository } from '../types/state';
+import { Framework } from '../types/types';
 import { useAppDispatch } from './app';
 
 function useFetchCompareResults() {
@@ -8,6 +9,7 @@ function useFetchCompareResults() {
   const dispatchFetchCompareResults = async (
     repos: Repository['name'][] | null,
     revs: string[] | undefined,
+    frameworkID: Framework['id'],
   ) => {
     let baseRepo;
     let baseRev;
@@ -19,7 +21,13 @@ function useFetchCompareResults() {
         baseRepo = newRepo = repos[0];
         baseRev = newRev = revs[0];
         void dispatch(
-          fetchCompareResults({ baseRepo, baseRev, newRepo, newRev }),
+          fetchCompareResults({
+            baseRepo,
+            baseRev,
+            newRepo,
+            newRev,
+            frameworkID,
+          }),
         );
       } else if (revs.length == 2) {
         baseRepo = repos[0];
@@ -27,7 +35,13 @@ function useFetchCompareResults() {
         newRepo = repos[1];
         newRev = revs[1];
         void dispatch(
-          fetchCompareResults({ baseRepo, baseRev, newRepo, newRev }),
+          fetchCompareResults({
+            baseRepo,
+            baseRev,
+            newRepo,
+            newRev,
+            frameworkID,
+          }),
         );
       }
       // TODO: handle case for more than two selected revisions
