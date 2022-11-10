@@ -130,7 +130,7 @@ const components = {
             backgroundImage: `url(${zap})`,
             backgroundPosition: '55%',
             backgroundRepeat: 'no-repeat',
-            backgroundSize: '25%',
+            backgroundSize: '290px',
             content: '""',
             display: 'block',
             height: '0.3em',
@@ -204,7 +204,8 @@ const components = {
     styleOverrides: {
       root: {
         '&.feedback-alert': {
-            backgroundImage: 'linear-gradient( 45deg, rgb(138,35,135) 10%, rgb(233,64,87) 50%, rgb(242,113,33) 100% )',
+          backgroundImage:
+            'linear-gradient( 45deg, rgb(138,35,135) 10%, rgb(233,64,87) 50%, rgb(242,113,33) 100% )',
         },
       },
     },
