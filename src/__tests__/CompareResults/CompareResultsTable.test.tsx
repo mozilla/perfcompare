@@ -95,6 +95,48 @@ describe('Compare Results Table', () => {
     );
   });
 
+  it("Should filter data by confidence 'not available'", async () => {
+    // set results data
+    store.dispatch(setCompareResults(testCompareData));
+
+    const { rerender } = render(<CompareResultsTable mode="light" />);
+    const rows = screen.getAllByTestId('table-row');
+
+    expect(rows).not.toBeNull();
+
+    act(() => {
+      store.dispatch(addFilter({ name: 'confidence', value: 'not available' }));
+    });
+
+    const activeFilters: ActiveFilters = {
+      platform: [],
+      test: [],
+      confidence: ['not available'],
+    };
+    const filteredResults: FilteredResults = {
+      data: [testCompareData[3]],
+      activeFilters,
+      isFiltered: true,
+    };
+
+    act(() => {
+      store.dispatch(setFilteredResults(filteredResults));
+    });
+
+    act(() => {
+      rerender(<CompareResultsTable mode="light" />);
+    });
+
+    const filteredRows = screen.getAllByTestId('table-row');
+
+    filteredRows.forEach((row) =>
+      expect(row.childNodes[7].firstChild).toHaveAttribute(
+        'aria-label',
+        'Confidence not available',
+      ),
+    );
+  });
+
   it('Should remove platform macosx1015-64-shippable-qr from filter', async () => {
     // set results data
     store.dispatch(setCompareResults(testCompareData));
@@ -148,7 +190,7 @@ describe('Compare Results Table', () => {
     ).toStrictEqual([]);
   });
 
-  it('Should display succes message for filtering data.', () => {
+  it('Should display success message for filtering data.', () => {
     // set results data
     store.dispatch(setCompareResults(testCompareData));
 

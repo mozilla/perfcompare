@@ -34,21 +34,24 @@ const useFilterCompareResults = () => {
       (key) => activeFilters[key as keyof typeof activeFilters].length,
     );
     const { platform, test, confidence } = activeFilters;
-    const isFiltered = !!(platform.length || test.length || confidence.length);    
+    const isFiltered = !!(platform.length || test.length || confidence.length);
 
     const data = compareResults.filter((result: CompareResultsItem) => {
       const isValid = true;
       const validResult = selectedFilters.reduce(
         (previousValue, currentValue) => {
-          const resultField =
-            currentValue === 'confidence' ? 'confidence_text' : currentValue;
+          const currentOptions =
+            activeFilters[currentValue as keyof typeof activeFilters];
+          const resultField = (
+            currentValue === 'confidence' ? 'confidence_text' : currentValue
+          ) as keyof typeof result;
+          const fieldValue = result[resultField] as string;
 
-          return (
-            previousValue &&
-            activeFilters[currentValue as keyof typeof activeFilters].includes(
-              result[resultField as keyof typeof result] as string,
-            )
-          );
+          if (currentOptions.includes('not available') && !fieldValue) {
+            return previousValue && true;
+          }
+
+          return previousValue && currentOptions.includes(fieldValue);
         },
         isValid,
       );

@@ -22,10 +22,11 @@ export type CompareResultsTableHeaderName =
   | 'Base'
   | 'New'
   | 'Delta'
+  | 'Status'
   | 'Confidence'
   | 'Total Runs';
 
-export type ConfidenceText = 'high' | 'med' | 'low';
+export type ConfidenceText = 'high' | 'med' | 'low' | 'not available';
 
 export type MeasurementUnit =
   | 'W'

@@ -80,7 +80,7 @@ interface FilterOptions {
 const filterOptions: FilterOptions = {
   platform: new Set([]),
   test: new Set([]),
-  confidence: new Set(['low', 'med', 'high'] as ConfidenceText[]),
+  confidence: new Set(['low', 'med', 'high', 'not available'] as ConfidenceText[]),
 };
 
 const filterKeys = Object.keys(filterOptions);
