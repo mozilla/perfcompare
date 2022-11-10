@@ -6,9 +6,11 @@ import { Framework, Platform } from '../types/types';
 export const treeherderBaseURL = 'https://treeherder.mozilla.org';
 
 export const maxRevisionsError = 'Maximum 4 revision(s).';
-export const featureNotSupportedError = 'This feature is not supported yet. Please compare two revisions only.';
+export const featureNotSupportedError =
+  'This feature is not supported yet. Please compare two revisions only.';
 
-export const userFeedbackMessage  = 'For any kind of suggestions please contact us at ';
+export const userFeedbackMessage =
+  'For any kind of suggestions please contact us at ';
 export const perfCompareEmail = 'perfcompare-user-feedback@mozilla.com';
 
 export const repoMap: Dictionary<Repository['name']> = {
@@ -32,6 +34,19 @@ export const frameworkMap: Record<Framework['id'], Framework['name']> = {
   15: 'mozperftest',
   16: 'fxrecord',
 };
+
+export const frameworks: Framework[] = [
+  { id: 1, name: 'talos' },
+  { id: 2, name: 'build_metrics' },
+  { id: 4, name: 'awsy' },
+  { id: 6, name: 'platform_microbench' },
+  { id: 10, name: 'raptor' },
+  { id: 11, name: 'js-bench' },
+  { id: 12, name: 'devtools' },
+  { id: 13, name: 'browsertime' },
+  { id: 15, name: 'mozperftest' },
+  { id: 16, name: 'fxrecord' },
+];
 
 export const platformMap: Record<Platform, string> = {
   linux32: 'Linux',

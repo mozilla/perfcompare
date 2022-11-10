@@ -1,5 +1,7 @@
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
+import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import TimelineIcon from '@mui/icons-material/Timeline';
+import WarningIcon from '@mui/icons-material/Warning';
 import IconButton from '@mui/material/IconButton';
 import Link from '@mui/material/Link';
 import TableCell from '@mui/material/TableCell';
@@ -14,9 +16,8 @@ import {
 
 function CompareResultsTableRow(props: ResultsTableRowProps) {
   const { result, index, mode } = props;
-
   return (
-    <TableRow key={index}>
+    <TableRow key={index} hover data-testid={'table-row'}>
       <Tooltip title={result.platform}>
         <TableCell
           className={`background-icon ${mode}-mode ${setPlatformClassName(
@@ -43,6 +44,10 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
         {result.new_median_value} {result.new_measurement_unit}
       </TableCell>
       <TableCell>{result.delta_percentage}%</TableCell>
+      <TableCell>
+        {result.is_improvement && <ThumbUpAltIcon color="success" />}{' '}
+        {result.is_regression && <WarningIcon color="error" />}{' '}
+      </TableCell>
       {result.confidence_text ? (
         <TableCell
           data-testid="confidence-icon"

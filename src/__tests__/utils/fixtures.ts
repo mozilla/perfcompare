@@ -139,7 +139,7 @@ const getTestData = () => {
       is_confident: false,
       more_runs_are_needed: true,
       noise_metric: false,
-      is_improvement: false,
+      is_improvement: true,
       is_regression: false,
       is_meaningful: true,
     },
@@ -185,7 +185,7 @@ const getTestData = () => {
       more_runs_are_needed: true,
       noise_metric: false,
       is_improvement: false,
-      is_regression: false,
+      is_regression: true,
       is_meaningful: true,
     },
     {
