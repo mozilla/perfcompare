@@ -22,7 +22,7 @@ const CompareTableStatus = () => {
       <Alert severity="warning">
         Filter options have changed. Apply the new changes.
         <Button
-          data-testid="apply-filter"
+          data-testid="apply-filter-status"
           variant="outlined"
           color="inherit"
           onClick={() => filterResults()}
