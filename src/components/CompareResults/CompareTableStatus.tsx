@@ -15,16 +15,18 @@ const CompareTableStatus = () => {
   const isFiltered = useAppSelector(
     (state: RootState) => state.filterCompareResults.isFiltered,
   );
-  const { filterResults } = useFilterCompareResults();
+  const { filterResults, clearFilters } = useFilterCompareResults();
 
   if (updatedOptions) {
     return (
-      <Alert severity="warning">
+      <Alert severity="warning" className='filter-status'>
         Filter options have changed. Apply the new changes.
         <Button
           data-testid="apply-filter-status"
           variant="outlined"
           color="inherit"
+          size="small"
+          sx={{ margin: '5px 2px 10px 2px' }}
           onClick={() => filterResults()}
         >
           Apply
@@ -36,14 +38,22 @@ const CompareTableStatus = () => {
   if (isFiltered) {
     return (
       <>
-        <Alert>
+        <Alert className='filter-status'>
           <span>Filters have been applied.</span>
+          <Button
+            data-testid="clear-filter"
+            variant="outlined"
+            color="inherit"
+            size="small"
+            sx={{ margin: '5px 2px 10px 2px' }}
+            onClick={() => clearFilters()}
+          >
+            Clear
+          </Button>
           <FilterStatusChip color="success" />
         </Alert>
         {!filteredResults.length && (
-          <Alert severity="info">
-            No data for this combination.
-          </Alert>
+          <Alert severity="info">No data for this combination.</Alert>
         )}
       </>
     );

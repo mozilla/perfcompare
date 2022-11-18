@@ -39,12 +39,9 @@ describe('Compare Results Table', () => {
 
     render(<CompareResultsTable mode="light" />);
 
-    const platformFilter = await waitFor(() =>
-      screen.getByTestId('platform-options-button'),
-    );
     const user = userEvent.setup({ delay: null });
 
-    await user.click(platformFilter);
+    await user.click(screen.getByTestId('platform-options-button'));
 
     const platformOptionsList = screen.getByTestId('platform-options');
 
@@ -144,16 +141,7 @@ describe('Compare Results Table', () => {
     render(<CompareResultsTable mode="light" />);
     const user = userEvent.setup({ delay: null });
 
-    const confidenceFilter = await waitFor(() =>
-      screen.getByTestId('confidence-options-button'),
-    );
-    await user.click(confidenceFilter);
-
-    const confidenceOptionsList = await waitFor(() =>
-      screen.getByTestId('confidence-options'),
-    );
-
-    await user.click(confidenceOptionsList);
+    await user.click(screen.getByTestId('confidence-options-button'));
 
     const option = await waitFor(() =>
       screen.getByTestId('not available-checkbox'),
@@ -161,7 +149,7 @@ describe('Compare Results Table', () => {
 
     expect(option).not.toBeNull();
 
-    await user.click(screen.getByTestId('not available-checkbox'));
+    await user.click(option);
 
     expect(
       screen
@@ -198,17 +186,7 @@ describe('Compare Results Table', () => {
     render(<CompareResultsTable mode="light" />);
     const user = userEvent.setup({ delay: null });
 
-    const confidenceFilter = await waitFor(() =>
-      screen.getByTestId('confidence-options-button'),
-    );
-    await user.click(confidenceFilter);
-
-    const confidenceOptionsList = await waitFor(() =>
-      screen.getByTestId('confidence-options'),
-    );
-
-    await user.click(confidenceOptionsList);
-
+    await user.click(screen.getByTestId('confidence-options-button'));
     await user.click(screen.getByTestId('not available-checkbox'));
     await user.click(screen.getByTestId('not available-checkbox'));
 
@@ -385,7 +363,7 @@ describe('Compare Results Table', () => {
     expect(chip).toBeInTheDocument();
   });
 
-  it('Should reset filter', async () => {
+  it("Should reset filter when 'clear' button is clicked", async () => {
     // set results data
     store.dispatch(setCompareResults(testCompareData));
 
@@ -404,9 +382,7 @@ describe('Compare Results Table', () => {
 
     expect(filteredRows.length).toBe(1);
 
-    await user.click(screen.getByTestId('platform-options-button'));
-    await user.click(screen.getByTestId('macosx1015-64-shippable-qr-checkbox'));
-    await user.click(screen.getAllByTestId('apply-filter')[0]);
+    await user.click(screen.getByTestId('clear-filter'));
 
     filteredRows = await waitFor(() => screen.getAllByTestId('table-row'));   
 
