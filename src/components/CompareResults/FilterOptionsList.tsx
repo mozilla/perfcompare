@@ -20,12 +20,10 @@ function FilterOptionsList(props: FilterOptionsListProps) {
     (state: RootState) => state.filterCompareResults.activeFilters,
   );
 
-  const handleOnChangeOption = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    checked: boolean,
-  ) => {
-    const { value } = e.target;
-    setFilters(value, checked, column);
+  const handleOnChangeOption = (value: string) => {
+    const isChecked =
+      !activeFilters[column as keyof typeof activeFilters].includes(value);
+    setFilters(value, isChecked, column);
   };
 
   const handleApplyOptions = () => {
@@ -59,8 +57,12 @@ function FilterOptionsList(props: FilterOptionsListProps) {
         const labelId = `checkbox-list-label-${value}`;
         return (
           value && (
-            <ListItem key={value} disablePadding>
-              <ListItemButton role={undefined} dense sx={{ maxWidth: 54 }}>
+            <ListItemButton
+              key={value}
+              dense
+              onClick={() => handleOnChangeOption(value)}
+            >
+              <ListItem disablePadding>
                 <ListItemIcon>
                   <Checkbox
                     data-testid={`${value}-checkbox`}
@@ -68,12 +70,11 @@ function FilterOptionsList(props: FilterOptionsListProps) {
                     disableRipple
                     inputProps={{ 'aria-labelledby': labelId, value: value }}
                     checked={activeOptions.includes(value)}
-                    onChange={handleOnChangeOption}
                   />
                 </ListItemIcon>
-              </ListItemButton>
-              <ListItemText id={labelId} primary={value} />
-            </ListItem>
+                <ListItemText id={labelId} primary={value} />
+              </ListItem>
+            </ListItemButton>
           )
         );
       })}

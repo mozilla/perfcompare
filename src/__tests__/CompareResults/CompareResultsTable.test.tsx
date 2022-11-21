@@ -39,12 +39,9 @@ describe('Compare Results Table', () => {
 
     render(<CompareResultsTable mode="light" />);
 
-    const platformFilter = await waitFor(() =>
-      screen.getByTestId('platform-options-button'),
-    );
     const user = userEvent.setup({ delay: null });
 
-    await user.click(platformFilter);
+    await user.click(screen.getByTestId('platform-options-button'));
 
     const platformOptionsList = screen.getByTestId('platform-options');
 
@@ -93,6 +90,111 @@ describe('Compare Results Table', () => {
         'macosx1015-64-shippable-qr',
       ),
     );
+  });
+
+  it("Should filter data by confidence 'not available'", async () => {
+    // set results data
+    store.dispatch(setCompareResults(testCompareData));
+
+    const { rerender } = render(<CompareResultsTable mode="light" />);
+    const rows = screen.getAllByTestId('table-row');
+
+    expect(rows).not.toBeNull();
+
+    act(() => {
+      store.dispatch(addFilter({ name: 'confidence', value: 'not available' }));
+    });
+
+    const activeFilters: ActiveFilters = {
+      platform: [],
+      test: [],
+      confidence: ['not available'],
+    };
+    const filteredResults: FilteredResults = {
+      data: [testCompareData[3]],
+      activeFilters,
+      isFiltered: true,
+    };
+
+    act(() => {
+      store.dispatch(setFilteredResults(filteredResults));
+    });
+
+    act(() => {
+      rerender(<CompareResultsTable mode="light" />);
+    });
+
+    const filteredRows = screen.getAllByTestId('table-row');
+
+    filteredRows.forEach((row) =>
+      expect(row.childNodes[7].firstChild).toHaveAttribute(
+        'aria-label',
+        'Confidence not available',
+      ),
+    );
+  });
+
+  it("Should check confidence 'not available'", async () => {
+    // set results data
+    store.dispatch(setCompareResults(testCompareData));
+
+    render(<CompareResultsTable mode="light" />);
+    const user = userEvent.setup({ delay: null });
+
+    await user.click(screen.getByTestId('confidence-options-button'));
+
+    const option = await waitFor(() =>
+      screen.getByTestId('not available-checkbox'),
+    );
+
+    expect(option).not.toBeNull();
+
+    await user.click(option);
+
+    expect(
+      screen
+        .getByTestId('not available-checkbox')
+        .classList.contains('Mui-checked'),
+    ).toBe(true);
+  });
+
+  it("Should filter data on 'apply' button", async () => {
+    // set results data
+    store.dispatch(setCompareResults(testCompareData));
+
+    render(<CompareResultsTable mode="light" />);
+    const user = userEvent.setup({ delay: null });
+
+    await user.click(screen.getByTestId('confidence-options-button'));
+    await user.click(screen.getByTestId('not available-checkbox'));
+    await user.click(screen.getAllByTestId('apply-filter')[0]);
+
+    const filteredRows = screen.getAllByTestId('table-row');
+
+    filteredRows.forEach((row) =>
+      expect(row.childNodes[7].firstChild).toHaveAttribute(
+        'aria-label',
+        'Confidence not available',
+      ),
+    );
+  });
+
+  it("Should uncheck confidence 'not available'", async () => {
+    // set results data
+    store.dispatch(setCompareResults(testCompareData));
+
+    render(<CompareResultsTable mode="light" />);
+    const user = userEvent.setup({ delay: null });
+
+    await user.click(screen.getByTestId('confidence-options-button'));
+    await user.click(screen.getByTestId('not available-checkbox'));
+    await user.click(screen.getByTestId('not available-checkbox'));
+
+    expect(
+      screen
+        .getByTestId('not available-checkbox')
+        .classList.contains('Mui-checked'),
+    ).toBe(false);
   });
 
   it('Should remove platform macosx1015-64-shippable-qr from filter', async () => {
@@ -148,7 +250,7 @@ describe('Compare Results Table', () => {
     ).toStrictEqual([]);
   });
 
-  it('Should display succes message for filtering data.', () => {
+  it('Should display success message for filtering data.', () => {
     // set results data
     store.dispatch(setCompareResults(testCompareData));
 
@@ -259,5 +361,32 @@ describe('Compare Results Table', () => {
     const chip = screen.queryByLabelText('macosx1015-64-shippable-qr');
 
     expect(chip).toBeInTheDocument();
+  });
+
+  it("Should reset filter when 'clear' button is clicked", async () => {
+    // set results data
+    store.dispatch(setCompareResults(testCompareData));
+
+    render(<CompareResultsTable mode="light" />);
+    const user = userEvent.setup({ delay: null });
+
+    const rows = await waitFor(() => screen.getAllByTestId('table-row'));
+
+    expect(rows.length).toBe(4);
+
+    await user.click(screen.getByTestId('platform-options-button'));
+    await user.click(screen.getByTestId('macosx1015-64-shippable-qr-checkbox'));
+    await user.click(screen.getAllByTestId('apply-filter')[0]);
+
+    let filteredRows = await waitFor(() => screen.getAllByTestId('table-row'));
+
+    expect(filteredRows.length).toBe(1);
+
+    await user.click(screen.getByTestId('clear-filter'));
+
+    filteredRows = await waitFor(() => screen.getAllByTestId('table-row'));   
+
+    expect(filteredRows.length).toEqual(rows.length);   
+    expect(store.getState().filterCompareResults.activeFilters.platform).toStrictEqual([]); 
   });
 });
