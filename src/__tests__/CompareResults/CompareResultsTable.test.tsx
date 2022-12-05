@@ -2,15 +2,17 @@ import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
 import CompareResultsTable from '../../components/CompareResults/CompareResultsTable';
+import SearchView from '../../components/Search/SearchView';
 import { setCompareResults } from '../../reducers/CompareResultsSlice';
 import {
   addFilter,
   setFilteredResults,
   removeFilter,
 } from '../../reducers/FilterCompareResultsSlice';
+import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
 import { ActiveFilters, FilteredResults } from '../../types/types';
 import getTestData from '../utils/fixtures';
-import { render, store } from '../utils/setupTests';
+import { render, renderWithRouter, store } from '../utils/setupTests';
 import { screen, waitFor } from '../utils/test-utils';
 
 const { testCompareData } = getTestData();
@@ -384,9 +386,53 @@ describe('Compare Results Table', () => {
 
     await user.click(screen.getByTestId('clear-filter'));
 
-    filteredRows = await waitFor(() => screen.getAllByTestId('table-row'));   
+    filteredRows = await waitFor(() => screen.getAllByTestId('table-row'));
 
-    expect(filteredRows.length).toEqual(rows.length);   
-    expect(store.getState().filterCompareResults.activeFilters.platform).toStrictEqual([]); 
+    expect(filteredRows.length).toEqual(rows.length);
+    expect(
+      store.getState().filterCompareResults.activeFilters.platform,
+    ).toStrictEqual([]);
+  });
+
+  it('Should reset filter when new data is compared', async () => {
+    // set results data
+    store.dispatch(setCompareResults(testCompareData));
+
+    const activeFilters = {
+      platform: ['macosx1015-64-shippable-qr'],
+      test: [],
+      confidence: [],
+    };
+
+    const filteredResults: FilteredResults = {
+      data: [testCompareData[0]],
+      activeFilters,
+      isFiltered: true,
+    };
+
+    act(() => {
+      store.dispatch(setFilteredResults(filteredResults));
+    });
+    const { testData } = getTestData();
+
+    act(() => {
+      store.dispatch(setSelectedRevisions(testData.slice(0, 2)));
+    });
+
+    const { history } = renderWithRouter(<SearchView />);
+    expect(history.location.pathname).toEqual('/');
+
+    const user = userEvent.setup({ delay: null });
+
+    const compareButton = document.querySelector('.compare-button');
+    await user.click(compareButton as HTMLElement);
+
+    expect(history.location.pathname).toEqual('/compare-results');
+    expect(
+      store.getState().filterCompareResults.activeFilters.platform,
+    ).toStrictEqual([]);
+    expect(store.getState().filterCompareResults.isFiltered).toStrictEqual(
+      false,
+    );
   });
 });
