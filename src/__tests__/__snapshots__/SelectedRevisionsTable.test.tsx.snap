@@ -75,6 +75,7 @@ exports[`Search View should match snapshot 1`] = `
             >
               <tr
                 class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                draggable="true"
                 id="coconut"
               >
                 <td
@@ -147,6 +148,7 @@ exports[`Search View should match snapshot 1`] = `
               </tr>
               <tr
                 class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                draggable="true"
                 id="spam"
               >
                 <td
@@ -219,6 +221,7 @@ exports[`Search View should match snapshot 1`] = `
               </tr>
               <tr
                 class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                draggable="true"
                 id="spamspam"
               >
                 <td
@@ -291,6 +294,7 @@ exports[`Search View should match snapshot 1`] = `
               </tr>
               <tr
                 class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                draggable="true"
                 id="spamspamspamandeggs"
               >
                 <td
