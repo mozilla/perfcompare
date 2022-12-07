@@ -16,14 +16,14 @@ import {
 } from '../../utils/helpers';
 import EditRevisionButton from '../CompareResults/EditRevisionButton';
 
-function SelectedRevisionsTableRow(props: SelectedRevisionsRowProps) {
+export function SelectedRevisionsTableRow(props: SelectedRevisionsRowProps) {
   const {
     row,
     index,
     view,
     setDropRow,
     setDraggedRow,
-    handleDropEnd,
+    handleDragEnd,
     dropRow,
     draggedRow,
   } = props;
@@ -46,7 +46,7 @@ function SelectedRevisionsTableRow(props: SelectedRevisionsRowProps) {
       draggable={true}
       id={row.revision}
       key={row.id}
-      onDragEnd={handleDropEnd}
+      onDragEnd={handleDragEnd}
       onDragEnter={() => setDropRow(index)}
       onDragStart={() => setDraggedRow(index)}
     >
@@ -55,14 +55,7 @@ function SelectedRevisionsTableRow(props: SelectedRevisionsRowProps) {
       </TableCell>
       <TableCell>{repository}</TableCell>
       <TableCell>
-        <Link
-          aria-label="Treeherder link"
-          href={treeherderURL}
-          rel="noopener"
-          target="_blank"
-        >
-          {hash}
-        </Link>
+        <Link href={treeherderURL}>{hash}</Link>
       </TableCell>
       <TableCell>{row.author}</TableCell>
       <TableCell className="commit-message">{commitMessage}</TableCell>
@@ -84,10 +77,10 @@ function SelectedRevisionsTableRow(props: SelectedRevisionsRowProps) {
   );
 }
 
-interface SelectedRevisionsRowProps {
+export interface SelectedRevisionsRowProps {
   dropRow: number;
   draggedRow: number;
-  handleDropEnd: () => void;
+  handleDragEnd: () => void;
   index: number;
   row: Revision;
   setDraggedRow: (index: number) => void;

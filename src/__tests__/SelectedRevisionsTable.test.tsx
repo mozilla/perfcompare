@@ -4,11 +4,12 @@ import { act } from 'react-dom/test-utils';
 import { maxRevisionsError } from '../common/constants';
 import CompareResultsView from '../components/CompareResults/CompareResultsView';
 import SearchView from '../components/Search/SearchView';
+import { SelectedRevisionsTable } from '../components/Shared/SelectedRevisionsTable';
 import { updateSearchResults } from '../reducers/SearchSlice';
 import { setSelectedRevisions } from '../reducers/SelectedRevisions';
 import getTestData from './utils/fixtures';
 import { renderWithRouter, store } from './utils/setupTests';
-import { screen } from './utils/test-utils';
+import { fireEvent, screen } from './utils/test-utils';
 
 describe('Search View', () => {
   it('should match snapshot', async () => {
@@ -205,5 +206,32 @@ describe('Search View', () => {
     expect(
       screen.getByText('Revision coconut is already selected.'),
     ).toBeInTheDocument();
+  });
+  it('should render draggable rows', async () => {
+    const { testData } = getTestData();
+    const selectedRevisions = testData.slice(0, 4);
+    store.dispatch(setSelectedRevisions(selectedRevisions));
+    renderWithRouter(<SearchView />);
+    const rowEls = screen.getAllByRole('row');
+    const bodyRows = rowEls.slice(1);
+    bodyRows.forEach((row) => {
+      expect(row).toHaveAttribute('draggable');
+    });
+  });
+  it('should call dispatchSelectedRevisions on drop', async () => {
+    const { testData } = getTestData();
+    const revisions = testData.slice(0, 4);
+
+    const props = {
+      dispatchSelectedRevisions: jest.fn(),
+      view: 'search' as const,
+      revisions,
+    };
+    renderWithRouter(<SelectedRevisionsTable {...props} />);
+    const rows = screen.getAllByRole('row');
+    const lastRow = rows[rows.length - 1];
+    expect(props.dispatchSelectedRevisions).toBeCalledTimes(0);
+    fireEvent.dragEnd(lastRow);
+    expect(props.dispatchSelectedRevisions).toBeCalledTimes(1);
   });
 });
