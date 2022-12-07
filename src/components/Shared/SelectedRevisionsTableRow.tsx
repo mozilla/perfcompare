@@ -17,7 +17,16 @@ import {
 import EditRevisionButton from '../CompareResults/EditRevisionButton';
 
 function SelectedRevisionsTableRow(props: SelectedRevisionsRowProps) {
-  const { row, index, view } = props;
+  const {
+    row,
+    index,
+    view,
+    setDropRow,
+    setDraggedRow,
+    handleDropEnd,
+    dropRow,
+    draggedRow,
+  } = props;
   const dispatch = useAppDispatch();
   const commitMessage = getLatestCommitMessage(row);
   const date = formatDate(row.push_timestamp);
@@ -26,7 +35,21 @@ function SelectedRevisionsTableRow(props: SelectedRevisionsRowProps) {
   const treeherderURL = getTreeherderURL(row.revision, repository);
 
   return (
-    <TableRow key={row.id} id={row.revision}>
+    <TableRow
+      className={
+        draggedRow === index
+          ? 'draggedRow'
+          : dropRow === index
+          ? 'dropArea'
+          : ''
+      }
+      draggable={true}
+      id={row.revision}
+      key={row.id}
+      onDragEnd={handleDropEnd}
+      onDragEnter={() => setDropRow(index)}
+      onDragStart={() => setDraggedRow(index)}
+    >
       <TableCell>
         <div className="cellStyle">{index === 0 ? 'BASE' : 'NEW'}</div>
       </TableCell>
@@ -62,8 +85,13 @@ function SelectedRevisionsTableRow(props: SelectedRevisionsRowProps) {
 }
 
 interface SelectedRevisionsRowProps {
-  row: Revision;
+  dropRow: number;
+  draggedRow: number;
+  handleDropEnd: () => void;
   index: number;
+  row: Revision;
+  setDraggedRow: (index: number) => void;
+  setDropRow: (index: number) => void;
   view: 'search' | 'compare-results';
 }
 
