@@ -33,20 +33,20 @@ exports[`Search View renders correctly when there are no results 1`] = `
             class="MuiFormControl-root css-q8hpuo-MuiFormControl-root"
           >
             <label
-              class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
               data-shrink="true"
               id="select-repository"
             >
               repository
             </label>
             <div
-              class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
             >
               <div
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="select-repository"
-                class="MuiSelect-select MuiSelect-outlined MuiOutlinedInput-input MuiInputBase-input css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
                 role="button"
                 tabindex="0"
               >
@@ -74,7 +74,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                 class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="css-1in441m"
+                  class="css-14lo706"
                 >
                   <span>
                     repository
@@ -91,7 +91,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
             class="MuiFormControl-root MuiTextField-root css-136h9lv-MuiFormControl-root-MuiTextField-root"
           >
             <label
-              class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
               data-shrink="false"
               for="search-revision-input"
               id="search-revision-input-label"
@@ -99,11 +99,11 @@ exports[`Search View renders correctly when there are no results 1`] = `
               Search By Revision ID or Author Email
             </label>
             <div
-              class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root"
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root"
             >
               <input
                 aria-invalid="false"
-                class="MuiOutlinedInput-input MuiInputBase-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
                 id="search-revision-input"
                 type="text"
                 value=""
@@ -113,7 +113,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                 class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="css-1ftyaf0"
+                  class="css-yjsfm1"
                 >
                   <span>
                     Search By Revision ID or Author Email
@@ -128,7 +128,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
         >
           <button
             aria-label="add revisions"
-            class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root add-revision-button css-sghohy-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium add-revision-button css-sghohy-MuiButtonBase-root-MuiButton-root"
             id="add-revision-button"
             tabindex="0"
             type="button"
@@ -191,20 +191,20 @@ exports[`Search View should hide search results when clicking outside of search 
             class="MuiFormControl-root css-q8hpuo-MuiFormControl-root"
           >
             <label
-              class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
               data-shrink="true"
               id="select-repository"
             >
               repository
             </label>
             <div
-              class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
             >
               <div
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="select-repository"
-                class="MuiSelect-select MuiSelect-outlined MuiOutlinedInput-input MuiInputBase-input css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
                 role="button"
                 tabindex="0"
               >
@@ -232,7 +232,7 @@ exports[`Search View should hide search results when clicking outside of search 
                 class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="css-1in441m"
+                  class="css-14lo706"
                 >
                   <span>
                     repository
@@ -249,7 +249,7 @@ exports[`Search View should hide search results when clicking outside of search 
             class="MuiFormControl-root MuiTextField-root css-136h9lv-MuiFormControl-root-MuiTextField-root"
           >
             <label
-              class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
               data-shrink="false"
               for="search-revision-input"
               id="search-revision-input-label"
@@ -257,11 +257,11 @@ exports[`Search View should hide search results when clicking outside of search 
               Search By Revision ID or Author Email
             </label>
             <div
-              class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root"
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root"
             >
               <input
                 aria-invalid="false"
-                class="MuiOutlinedInput-input MuiInputBase-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
                 id="search-revision-input"
                 type="text"
                 value=""
@@ -271,7 +271,7 @@ exports[`Search View should hide search results when clicking outside of search 
                 class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="css-1ftyaf0"
+                  class="css-yjsfm1"
                 >
                   <span>
                     Search By Revision ID or Author Email
@@ -286,7 +286,7 @@ exports[`Search View should hide search results when clicking outside of search 
         >
           <button
             aria-label="add revisions"
-            class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root add-revision-button css-sghohy-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium add-revision-button css-sghohy-MuiButtonBase-root-MuiButton-root"
             id="add-revision-button"
             tabindex="0"
             type="button"
@@ -349,20 +349,20 @@ exports[`Search View should not hide search results when clicking search results
             class="MuiFormControl-root css-q8hpuo-MuiFormControl-root"
           >
             <label
-              class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
               data-shrink="true"
               id="select-repository"
             >
               repository
             </label>
             <div
-              class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
             >
               <div
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="select-repository"
-                class="MuiSelect-select MuiSelect-outlined MuiOutlinedInput-input MuiInputBase-input css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
                 role="button"
                 tabindex="0"
               >
@@ -390,7 +390,7 @@ exports[`Search View should not hide search results when clicking search results
                 class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="css-1in441m"
+                  class="css-14lo706"
                 >
                   <span>
                     repository
@@ -407,7 +407,7 @@ exports[`Search View should not hide search results when clicking search results
             class="MuiFormControl-root MuiTextField-root css-136h9lv-MuiFormControl-root-MuiTextField-root"
           >
             <label
-              class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
               data-shrink="false"
               for="search-revision-input"
               id="search-revision-input-label"
@@ -415,11 +415,11 @@ exports[`Search View should not hide search results when clicking search results
               Search By Revision ID or Author Email
             </label>
             <div
-              class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root"
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root"
             >
               <input
                 aria-invalid="false"
-                class="MuiOutlinedInput-input MuiInputBase-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
                 id="search-revision-input"
                 type="text"
                 value=""
@@ -429,7 +429,7 @@ exports[`Search View should not hide search results when clicking search results
                 class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="css-1ftyaf0"
+                  class="css-yjsfm1"
                 >
                   <span>
                     Search By Revision ID or Author Email
@@ -444,7 +444,7 @@ exports[`Search View should not hide search results when clicking search results
         >
           <button
             aria-label="add revisions"
-            class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root add-revision-button css-sghohy-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium add-revision-button css-sghohy-MuiButtonBase-root-MuiButton-root"
             id="add-revision-button"
             tabindex="0"
             type="button"
@@ -476,7 +476,7 @@ exports[`Search View should not hide search results when clicking search results
               class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
             >
               <div
-                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
+                class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
                 role="button"
                 tabindex="0"
               >
@@ -487,7 +487,7 @@ exports[`Search View should not hide search results when clicking search results
                     class="MuiListItemIcon-root search-revision-item-icon search-revision css-cveggr-MuiListItemIcon-root"
                   >
                     <span
-                      class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root Mui-checked PrivateSwitchBase-edgeStart search-revision-item-checkbox search-revision css-zkqepn-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-checked PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox search-revision css-zkqepn-MuiButtonBase-root-MuiCheckbox-root"
                       data-testid="checkbox-0"
                     >
                       <input
@@ -538,7 +538,7 @@ exports[`Search View should not hide search results when clicking search results
                 </span>
               </div>
               <div
-                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
+                class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
                 role="button"
                 tabindex="0"
               >
@@ -549,7 +549,7 @@ exports[`Search View should not hide search results when clicking search results
                     class="MuiListItemIcon-root search-revision-item-icon search-revision css-cveggr-MuiListItemIcon-root"
                   >
                     <span
-                      class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root Mui-checked PrivateSwitchBase-edgeStart search-revision-item-checkbox search-revision css-zkqepn-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-checked PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox search-revision css-zkqepn-MuiButtonBase-root-MuiCheckbox-root"
                       data-testid="checkbox-1"
                     >
                       <input
@@ -600,7 +600,7 @@ exports[`Search View should not hide search results when clicking search results
                 </span>
               </div>
               <div
-                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
+                class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
                 role="button"
                 tabindex="0"
               >
@@ -611,7 +611,7 @@ exports[`Search View should not hide search results when clicking search results
                     class="MuiListItemIcon-root search-revision-item-icon search-revision css-cveggr-MuiListItemIcon-root"
                   >
                     <span
-                      class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root PrivateSwitchBase-edgeStart search-revision-item-checkbox search-revision css-zkqepn-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox search-revision css-zkqepn-MuiButtonBase-root-MuiCheckbox-root"
                       data-testid="checkbox-2"
                     >
                       <input
@@ -653,7 +653,7 @@ exports[`Search View should not hide search results when clicking search results
                 />
               </div>
               <div
-                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
+                class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
                 role="button"
                 tabindex="0"
               >
@@ -664,7 +664,7 @@ exports[`Search View should not hide search results when clicking search results
                     class="MuiListItemIcon-root search-revision-item-icon search-revision css-cveggr-MuiListItemIcon-root"
                   >
                     <span
-                      class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root PrivateSwitchBase-edgeStart search-revision-item-checkbox search-revision css-zkqepn-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox search-revision css-zkqepn-MuiButtonBase-root-MuiCheckbox-root"
                       data-testid="checkbox-3"
                     >
                       <input
@@ -706,7 +706,7 @@ exports[`Search View should not hide search results when clicking search results
                 />
               </div>
               <div
-                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
+                class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
                 role="button"
                 tabindex="0"
               >
@@ -717,7 +717,7 @@ exports[`Search View should not hide search results when clicking search results
                     class="MuiListItemIcon-root search-revision-item-icon search-revision css-cveggr-MuiListItemIcon-root"
                   >
                     <span
-                      class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root PrivateSwitchBase-edgeStart search-revision-item-checkbox search-revision css-zkqepn-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox search-revision css-zkqepn-MuiButtonBase-root-MuiCheckbox-root"
                       data-testid="checkbox-4"
                     >
                       <input
