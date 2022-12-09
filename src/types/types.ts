@@ -67,7 +67,7 @@ export type ActiveFilters = {
 export type FilteredResults = {
   data: CompareResultsItem[];
   activeFilters: ActiveFilters;
-  isFiltered: boolean,
+  isFiltered: boolean;
 };
 
 export type Platform =
