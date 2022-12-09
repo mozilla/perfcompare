@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { repoMap, featureNotSupportedError } from '../../common/constants';
 import type { RootState } from '../../common/store';
+import useFilterCompareResults from '../../hooks/useFilterCompareResults';
 import { Revision } from '../../types/state';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
 import RevisionSearch from '../Shared/RevisionSearch';
@@ -16,6 +17,7 @@ import SearchViewInit from './SearchViewInit';
 
 function SearchView(props: SearchViewProps) {
   const navigate = useNavigate();
+  const { clearFilters } = useFilterCompareResults();
   const { enqueueSnackbar } = useSnackbar();
   const warningVariant: VariantType = 'warning';
 
@@ -30,6 +32,7 @@ function SearchView(props: SearchViewProps) {
     }
     const revs = selectedRevisions.map((rev) => rev.revision);
     const repos = selectedRevisions.map((rev) => repoMap[rev.repository_id]);
+    clearFilters();
     navigate({
       pathname: '/compare-results',
       search: `?revs=${revs.join(',')}&repos=${repos.join(',')}`,
