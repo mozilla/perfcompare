@@ -7,9 +7,17 @@ import { Router } from 'react-router-dom';
 import type { Store } from '../../common/store';
 import SnackbarCloseButton from '../../components/Shared/SnackbarCloseButton';
 
+type ChildrenProps = { children: React.ReactElement };
+
+const createStoreProvider = (store: Store) => {
+  return function SroreProvider({ children }: ChildrenProps) {
+    return <Provider store={store}>{children}</Provider>;
+  };
+};
+
 const createRender = (store: Store) => {
   function render(ui: React.ReactElement) {
-    function Wrapper({ children }: { children: React.ReactElement }) {
+    function Wrapper({ children }: ChildrenProps) {
       return (
         <SnackbarProvider
           maxSnack={3}
@@ -53,4 +61,4 @@ export * from '@testing-library/react';
 // override render method
 export type Render = ReturnType<typeof createRender>;
 export type RenderWithRouter = ReturnType<typeof createRenderWithRouter>;
-export { createRender, createRenderWithRouter };
+export { createRender, createRenderWithRouter, createStoreProvider };
