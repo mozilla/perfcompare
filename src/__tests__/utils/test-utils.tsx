@@ -10,7 +10,7 @@ import SnackbarCloseButton from '../../components/Shared/SnackbarCloseButton';
 type ChildrenProps = { children: React.ReactElement };
 
 const createStoreProvider = (store: Store) => {
-  return function SroreProvider({ children }: ChildrenProps) {
+  return function StoreProvider({ children }: ChildrenProps) {
     return <Provider store={store}>{children}</Provider>;
   };
 };

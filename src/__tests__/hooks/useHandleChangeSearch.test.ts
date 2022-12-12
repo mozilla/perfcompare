@@ -63,7 +63,7 @@ describe('Tests useHandleSearchHook', () => {
     expect(updatedSearchSlice.inputHelperText).toBe('');
   });
 
-  it('shold update inputHelperText to contain an error if search text does not match email or hash', () => {
+  it('should update inputHelperText to contain an error if search text does not match email or hash', () => {
     const testInput = 'test input';
     const { result } = renderHook(() => useHandleChangeSearch(), {
       wrapper: StoreProvider,
