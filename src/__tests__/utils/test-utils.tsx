@@ -61,7 +61,7 @@ const createRouterWrapper = (
   history = createMemoryHistory({ initialEntries: [route] }),
 ) => {
   return {
-    RouterWrapper: ({ children }: { children: React.ReactElement }) => (
+    RouterWrapper: ({ children }: ChildrenProps) => (
       <Router location={history.location} navigator={history}>
         {children}
       </Router>
@@ -78,6 +78,6 @@ export type RenderWithRouter = ReturnType<typeof createRenderWithRouter>;
 export {
   createRender,
   createRenderWithRouter,
-  createStoreProvider,
   createRouterWrapper,
+  createStoreProvider,
 };

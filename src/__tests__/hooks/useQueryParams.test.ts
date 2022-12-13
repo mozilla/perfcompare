@@ -1,4 +1,5 @@
 import { renderHook } from '@testing-library/react';
+
 import { useQuery } from '../../hooks/useQueryParams';
 import { createRouterWrapper } from '../utils/test-utils';
 
