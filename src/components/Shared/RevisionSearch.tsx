@@ -69,7 +69,7 @@ function RevisionSearch(props: RevisionSearchProps) {
   return (
     <Grid
       container
-      alignItems="center"
+      alignItems="flex-start"
       justifyContent="center"
       id="revision-search-container"
     >

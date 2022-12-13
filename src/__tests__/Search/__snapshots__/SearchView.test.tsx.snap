@@ -22,7 +22,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
         class="MuiGrid-root MuiGrid-item compare-button-section css-13i4rnv-MuiGrid-root"
       />
       <div
-        class="MuiGrid-root MuiGrid-container css-go2vvz-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container css-bydcm4-MuiGrid-root"
         id="revision-search-container"
       >
         <div
@@ -180,7 +180,7 @@ exports[`Search View should hide search results when clicking outside of search 
         class="MuiGrid-root MuiGrid-item compare-button-section css-13i4rnv-MuiGrid-root"
       />
       <div
-        class="MuiGrid-root MuiGrid-container css-go2vvz-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container css-bydcm4-MuiGrid-root"
         id="revision-search-container"
       >
         <div
@@ -338,7 +338,7 @@ exports[`Search View should not hide search results when clicking search results
         class="MuiGrid-root MuiGrid-item compare-button-section css-13i4rnv-MuiGrid-root"
       />
       <div
-        class="MuiGrid-root MuiGrid-container css-go2vvz-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container css-bydcm4-MuiGrid-root"
         id="revision-search-container"
       >
         <div
