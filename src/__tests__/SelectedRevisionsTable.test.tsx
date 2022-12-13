@@ -7,6 +7,8 @@ import SearchView from '../components/Search/SearchView';
 import { SelectedRevisionsTable } from '../components/Shared/SelectedRevisionsTable';
 import { updateSearchResults } from '../reducers/SearchSlice';
 import { setSelectedRevisions } from '../reducers/SelectedRevisions';
+import { Revision } from '../types/state';
+import { swapArrayElements } from '../utils/helpers';
 import getTestData from './utils/fixtures';
 import { renderWithRouter, store } from './utils/setupTests';
 import { fireEvent, screen } from './utils/test-utils';
@@ -218,20 +220,34 @@ describe('Search View', () => {
       expect(row).toHaveAttribute('draggable');
     });
   });
-  it('should call dispatchSelectedRevisions on drop', async () => {
+  it('should swap revisions on drop', async () => {
     const { testData } = getTestData();
     const revisions = testData.slice(0, 4);
-
+    store.dispatch(setSelectedRevisions(revisions));
+    const getRevisions = () => store.getState().selectedRevisions.revisions;
     const props = {
-      dispatchSelectedRevisions: jest.fn(),
+      dispatchSelectedRevisions: jest.fn((_revisions: Revision[]) =>
+        store.dispatch(setSelectedRevisions(_revisions)),
+      ),
       view: 'search' as const,
-      revisions,
+      revisions: getRevisions(),
     };
     renderWithRouter(<SelectedRevisionsTable {...props} />);
-    const rows = screen.getAllByRole('row');
-    const lastRow = rows[rows.length - 1];
+
+    //ignoring the header row
+    const rows = screen.getAllByRole('row').slice(1);
+
+    const firstRow = rows[0];
+    const lastRow = rows[3];
     expect(props.dispatchSelectedRevisions).toBeCalledTimes(0);
+    fireEvent.dragStart(firstRow);
+    fireEvent.dragEnter(lastRow);
     fireEvent.dragEnd(lastRow);
     expect(props.dispatchSelectedRevisions).toBeCalledTimes(1);
+    expect(props.dispatchSelectedRevisions).toBeCalledWith(
+      swapArrayElements(revisions, 0, 3),
+    );
+    expect(revisions[0]).toMatchObject(getRevisions()[3]);
+    expect(revisions[3]).toMatchObject(getRevisions()[0]);
   });
 });

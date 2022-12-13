@@ -63,4 +63,10 @@ describe('SelectedRevisionsTableRow', () => {
     const row = screen.getByRole('row');
     expect(row).toHaveClass('dropArea');
   });
+  it('should render drag icon indicator', () => {
+    const props = generateProps();
+    renderRow(props);
+    const DragIndicatorIcon = screen.getByTestId('DragIndicatorIcon');
+    expect(DragIndicatorIcon).toBeInTheDocument();
+  });
 });
