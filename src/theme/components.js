@@ -90,6 +90,10 @@ const components = {
           width: '50px',
           border: 'solid 1px #737373',
         },
+        '.dragIndicatorWrapper': {
+          display: 'flex',
+          alignItems: 'center',
+        },
         '&.commit-message': {
           overflow: 'hidden',
           textOverflow: 'ellipsis',

@@ -1,4 +1,5 @@
 import Close from '@mui/icons-material/Close';
+import DragIndicatorIcon from '@mui/icons-material/DragIndicator';
 import IconButton from '@mui/material/IconButton';
 import Link from '@mui/material/Link';
 import TableCell from '@mui/material/TableCell';
@@ -51,7 +52,10 @@ export function SelectedRevisionsTableRow(props: SelectedRevisionsRowProps) {
       onDragStart={() => setDraggedRow(index)}
     >
       <TableCell>
-        <div className="cellStyle">{index === 0 ? 'BASE' : 'NEW'}</div>
+        <div className="dragIndicatorWrapper">
+          <DragIndicatorIcon />
+          <div className="cellStyle">{index === 0 ? 'BASE' : 'NEW'}</div>
+        </div>
       </TableCell>
       <TableCell>{repository}</TableCell>
       <TableCell>
