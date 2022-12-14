@@ -3,9 +3,10 @@ import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
 import { maxRevisionsError } from '../common/constants';
+import App from '../components/App';
 import SearchView from '../components/Search/SearchView';
 import getTestData from './utils/fixtures';
-import { renderWithRouter } from './utils/setupTests';
+import { renderWithRouter, render } from './utils/setupTests';
 import { screen } from './utils/test-utils';
 
 describe('Snackbar', () => {
@@ -21,7 +22,7 @@ describe('Snackbar', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(<SearchView />);
+    render(<App />);
 
     // focus input to show results
     const searchInput = screen.getByRole('textbox');
