@@ -20,7 +20,6 @@ export default function FeedbackAlert() {
     event?: React.SyntheticEvent | Event,
     reason?: string,
   ) => {
-    console.log(reason);
     if (reason !== 'clickaway') {
       setOpen(false);
     }

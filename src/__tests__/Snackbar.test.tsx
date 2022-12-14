@@ -9,7 +9,6 @@ import getTestData from './utils/fixtures';
 import { renderWithRouter, render } from './utils/setupTests';
 import { screen } from './utils/test-utils';
 
-jest.useFakeTimers();
 describe('Snackbar', () => {
   it('should dismiss an alert when close button is clicked', async () => {
     const { testData } = getTestData();
@@ -81,6 +80,7 @@ describe('Snackbar', () => {
     await waitForElementToBeRemoved(closeButton);
     expect(alert).not.toBeInTheDocument();
   });
+
   it('should render feedback alert', async () => {
     const user = userEvent.setup({ delay: null });
     render(<App />);
@@ -89,21 +89,19 @@ describe('Snackbar', () => {
     const feedbackAlert = screen.getByTestId('feedback-alert');
     expect(feedbackAlert).toBeInTheDocument();
   });
+
   it('should close feedback alert on clicking the close button', async () => {
     const user = userEvent.setup({ delay: null });
     render(<App />);
     const infoButton = screen.getByTestId('InfoOutlinedIcon');
     await user.click(infoButton);
     const feedbackAlert = screen.getByTestId('feedback-alert');
-    expect(feedbackAlert).toBeInTheDocument();
+    expect(feedbackAlert).toBeVisible();
     const closeButton = feedbackAlert.querySelector('button');
-    await act(async () => {
-      await user.click(closeButton as Element);
-    });
-    expect(feedbackAlert).not.toBeInTheDocument();
-    await waitForElementToBeRemoved(feedbackAlert);
-    expect(feedbackAlert).not.toBeInTheDocument();
+    await user.click(closeButton as Element);
+    expect(feedbackAlert).not.toBeVisible();
   });
+
   it('should not close feedback alert on blur', async () => {
     const user = userEvent.setup({ delay: null });
     render(<App />);
@@ -113,7 +111,23 @@ describe('Snackbar', () => {
     expect(feedbackAlert).toBeInTheDocument();
     const searchInput = screen.getByRole('textbox');
     await user.click(searchInput);
-    // await waitForElementToBeRemoved(feedbackAlert);
-    expect(feedbackAlert).toBeInTheDocument();
+    expect(feedbackAlert).toBeVisible();
+  });
+
+  it('should dismiss feedback alert after 10 seconds', async () => {
+    jest.spyOn(global, 'setTimeout');
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
+    render(<App />);
+    renderWithRouter(<SearchView />);
+    const infoButton = screen.getByTestId('InfoOutlinedIcon');
+    await user.click(infoButton);
+    const feedbackAlert = screen.getByTestId('feedback-alert');
+    expect(feedbackAlert).toBeVisible();
+    act(() => {
+      jest.advanceTimersByTime(10000);
+    });
+    expect(setTimeout).toHaveBeenCalled();
+    expect(feedbackAlert).not.toBeVisible();
   });
 });
