@@ -54,18 +54,14 @@ const swapArrayElements = <T>(
   index1: number,
   index2: number,
 ): T[] => {
-  const newArray = [...array];
   if (
     index1 !== index2 &&
-    [index1, index2].every((index) => index < newArray.length && index >= 0)
+    [index1, index2].every((index) => index < array.length && index >= 0)
   ) {
+    const newArray = [...array];
     [newArray[index1], newArray[index2]] = [newArray[index2], newArray[index1]];
     return newArray;
   }
-  console.warn(
-    'one of the indexes is out of range, returning the original array\n',
-    `indexes: ${index1}, ${index2}`,
-  );
   return array;
 };
 
