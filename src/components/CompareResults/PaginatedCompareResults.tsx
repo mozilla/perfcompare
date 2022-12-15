@@ -19,6 +19,7 @@ import type {
   CompareResultsItem,
   CompareResultsState,
 } from '../../types/state';
+import CompareResultsTableHead from './CompareResultsTableHead';
 import CompareResultsTableRow from './CompareResultsTableRow';
 
 interface TablePaginationActionsProps {
@@ -143,6 +144,7 @@ function PaginatedCompareResults(props: PaginatedCompareResultsProps) {
     <>
       {results.length > 0 && (
         <>
+          <CompareResultsTableHead />
           <TableBody>
             {(rowsPerPage > 0
               ? results.slice(
