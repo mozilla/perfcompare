@@ -60,9 +60,9 @@ const components = {
       root: {
         '&.filter-status .MuiAlert-icon': {
           paddingTop: '17px',
-        }
-      }
-    }
+        },
+      },
+    },
   },
   MuiTableCell: {
     styleOverrides: {

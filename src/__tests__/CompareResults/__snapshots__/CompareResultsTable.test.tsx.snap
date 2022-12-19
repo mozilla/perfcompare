@@ -4,11 +4,11 @@ exports[`Compare Results Table Should match snapshot 1`] = `
 <body>
   <div>
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root css-11xur9t-MuiPaper-root-MuiTableContainer-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root css-w09ozj-MuiPaper-root-MuiTableContainer-root"
     >
       <table
         aria-label="a dense table"
-        class="MuiTable-root css-quj9j6-MuiTable-root"
+        class="MuiTable-root css-d8sagy-MuiTable-root"
       >
         <thead
           class="MuiTableHead-root css-15wwp11-MuiTableHead-root"
@@ -17,19 +17,19 @@ exports[`Compare Results Table Should match snapshot 1`] = `
             class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
           >
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-iiiqic-MuiTableCell-root"
               scope="col"
             >
               Platform
               <button
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="platform-options-button"
                 tabindex="0"
                 type="button"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
                   data-testid="MoreVertIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
@@ -44,25 +44,25 @@ exports[`Compare Results Table Should match snapshot 1`] = `
               </button>
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-iiiqic-MuiTableCell-root"
               scope="col"
             >
               Graph
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeSmall css-1howxi1-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeSmall css-i9boqm-MuiTableCell-root"
               scope="col"
             >
               Test Name
               <button
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="test-options-button"
                 tabindex="0"
                 type="button"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
                   data-testid="MoreVertIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
@@ -77,43 +77,43 @@ exports[`Compare Results Table Should match snapshot 1`] = `
               </button>
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-iiiqic-MuiTableCell-root"
               scope="col"
             >
               Base
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-iiiqic-MuiTableCell-root"
               scope="col"
             >
               New
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-iiiqic-MuiTableCell-root"
               scope="col"
             >
               Delta
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-iiiqic-MuiTableCell-root"
               scope="col"
             >
               Status
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-iiiqic-MuiTableCell-root"
               scope="col"
             >
               Confidence
               <button
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="confidence-options-button"
                 tabindex="0"
                 type="button"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
                   data-testid="MoreVertIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
@@ -128,7 +128,7 @@ exports[`Compare Results Table Should match snapshot 1`] = `
               </button>
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-iiiqic-MuiTableCell-root"
               scope="col"
             >
               Total Runs

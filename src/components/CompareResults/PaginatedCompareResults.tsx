@@ -21,7 +21,7 @@ import type {
 } from '../../types/state';
 import CompareResultsTableRow from './CompareResultsTableRow';
 
-interface TablePaginationActionsProps {
+export interface TablePaginationActionsProps {
   count: number;
   page: number;
   rowsPerPage: number;
@@ -31,7 +31,7 @@ interface TablePaginationActionsProps {
   ) => void;
 }
 
-function TablePaginationActions(props: TablePaginationActionsProps) {
+export function TablePaginationActions(props: TablePaginationActionsProps) {
   const theme = useTheme();
   const { count, page, rowsPerPage, onPageChange } = props;
 
@@ -117,7 +117,6 @@ function PaginatedCompareResults(props: PaginatedCompareResultsProps) {
   const results: CompareResultsItem[] = isFiltered
     ? filteredResults
     : compareResults.data;
-
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(25);
 
@@ -138,7 +137,6 @@ function PaginatedCompareResults(props: PaginatedCompareResultsProps) {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
-
   return (
     <>
       {results.length > 0 && (

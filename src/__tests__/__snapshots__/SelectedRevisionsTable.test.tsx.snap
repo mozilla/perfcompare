@@ -4,25 +4,25 @@ exports[`Search View should match snapshot 1`] = `
 <body>
   <div>
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg perfcompare-body css-1oqqzyl-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg perfcompare-body css-1tyv3cf-MuiContainer-root"
     >
       <div
         class="header-container MuiBox-root css-0"
       >
         <div
-          class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-1bn4tuo-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-8mdcpf-MuiTypography-root"
         >
           PerfCompare
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-13i4rnv-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-13eijkh-MuiGrid-root"
       >
         <div
-          class="MuiTableContainer-root layout css-rorn0c-MuiTableContainer-root"
+          class="MuiTableContainer-root layout css-10mitjm-MuiTableContainer-root"
         >
           <table
-            class="MuiTable-root search-selected-table css-rqglhn-MuiTable-root"
+            class="MuiTable-root search-selected-table css-qfwgoj-MuiTable-root"
           >
             <thead
               class="MuiTableHead-root css-15wwp11-MuiTableHead-root"
@@ -31,41 +31,41 @@ exports[`Search View should match snapshot 1`] = `
                 class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
               >
                 <th
-                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1ygcj2i-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1gfrx2z-MuiTableCell-root"
                   scope="row"
                 />
                 <th
-                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-xn32gr-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-6jkj7d-MuiTableCell-root"
                   scope="col"
                 >
                   Project
                 </th>
                 <th
-                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-xn32gr-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-6jkj7d-MuiTableCell-root"
                   scope="col"
                 >
                   Revision
                 </th>
                 <th
-                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-xn32gr-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-6jkj7d-MuiTableCell-root"
                   scope="col"
                 >
                   Author
                 </th>
                 <th
-                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-xn32gr-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-6jkj7d-MuiTableCell-root"
                   scope="col"
                 >
                   Commit Message
                 </th>
                 <th
-                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-xn32gr-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-6jkj7d-MuiTableCell-root"
                   scope="col"
                 >
                   Timestamp
                 </th>
                 <th
-                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1ygcj2i-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1gfrx2z-MuiTableCell-root"
                   scope="col"
                 />
               </tr>
@@ -78,7 +78,7 @@ exports[`Search View should match snapshot 1`] = `
                 id="coconut"
               >
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
                 >
                   <div
                     class="cellStyle"
@@ -87,16 +87,16 @@ exports[`Search View should match snapshot 1`] = `
                   </div>
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
                 >
                   try
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
                 >
                   <a
                     aria-label="Treeherder link"
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1ps4owl-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-e4zel8-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
                     rel="noopener"
                     target="_blank"
@@ -105,32 +105,32 @@ exports[`Search View should match snapshot 1`] = `
                   </a>
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
                 >
                   johncleese@python.com
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium commit-message css-1ex1afd-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium commit-message css-1gc7j6o-MuiTableCell-root"
                 >
                   you've got no arms left!
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
                 >
                   03/29/51 00:00
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
                 >
                   <button
-                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
                     id="close-button"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
                       data-testid="CloseIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
@@ -150,7 +150,7 @@ exports[`Search View should match snapshot 1`] = `
                 id="spam"
               >
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
                 >
                   <div
                     class="cellStyle"
@@ -159,16 +159,16 @@ exports[`Search View should match snapshot 1`] = `
                   </div>
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
                 >
                   mozilla-central
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
                 >
                   <a
                     aria-label="Treeherder link"
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1ps4owl-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-e4zel8-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
                     rel="noopener"
                     target="_blank"
@@ -177,32 +177,32 @@ exports[`Search View should match snapshot 1`] = `
                   </a>
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
                 >
                   ericidle@python.com
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium commit-message css-1ex1afd-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium commit-message css-1gc7j6o-MuiTableCell-root"
                 >
                   it's just a flesh wound
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
                 >
                   02/22/58 00:00
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
                 >
                   <button
-                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
                     id="close-button"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
                       data-testid="CloseIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
@@ -222,7 +222,7 @@ exports[`Search View should match snapshot 1`] = `
                 id="spamspam"
               >
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
                 >
                   <div
                     class="cellStyle"
@@ -231,16 +231,16 @@ exports[`Search View should match snapshot 1`] = `
                   </div>
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
                 >
                   try
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
                 >
                   <a
                     aria-label="Treeherder link"
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1ps4owl-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-e4zel8-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=try&revision=spamspam"
                     rel="noopener"
                     target="_blank"
@@ -249,32 +249,32 @@ exports[`Search View should match snapshot 1`] = `
                   </a>
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
                 >
                   terrygilliam@python.com
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium commit-message css-1ex1afd-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium commit-message css-1gc7j6o-MuiTableCell-root"
                 >
                   What, ridden on a horse?
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
                 >
                   07/29/87 00:00
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
                 >
                   <button
-                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
                     id="close-button"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
                       data-testid="CloseIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
@@ -294,7 +294,7 @@ exports[`Search View should match snapshot 1`] = `
                 id="spamspamspamandeggs"
               >
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
                 >
                   <div
                     class="cellStyle"
@@ -303,16 +303,16 @@ exports[`Search View should match snapshot 1`] = `
                   </div>
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
                 >
                   autoland
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
                 >
                   <a
                     aria-label="Treeherder link"
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1ps4owl-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-e4zel8-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=autoland&revision=spamspamspamandeggs"
                     rel="noopener"
                     target="_blank"
@@ -321,32 +321,32 @@ exports[`Search View should match snapshot 1`] = `
                   </a>
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
                 >
                   michaelpalin@python.com
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium commit-message css-1ex1afd-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium commit-message css-1gc7j6o-MuiTableCell-root"
                 >
                   You've got two empty 'alves of coconuts and you're bangin' 'em togetha!
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
                 >
                   07/04/20 00:00
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
                 >
                   <button
-                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
                     id="close-button"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
                       data-testid="CloseIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
@@ -366,17 +366,17 @@ exports[`Search View should match snapshot 1`] = `
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item compare-button-section css-13i4rnv-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item compare-button-section css-j8gwlw-MuiGrid-root"
       >
         <button
-          class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root compare-button css-sghohy-MuiButtonBase-root-MuiButton-root"
+          class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root compare-button css-6yg5eq-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >
           compare
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium compare-icon css-i4bv87-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium compare-icon css-fuz6rv-MuiSvgIcon-root"
             data-testid="ArrowForwardIcon"
             focusable="false"
             viewBox="0 0 24 24"
@@ -391,25 +391,25 @@ exports[`Search View should match snapshot 1`] = `
         </button>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-container css-bydcm4-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container css-vgf0yt-MuiGrid-root"
         id="revision-search-container"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 css-1o7apob-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 css-1awobkc-MuiGrid-root"
           id="revision-search-dropdown"
         >
           <div
             class="MuiFormControl-root css-q8hpuo-MuiFormControl-root"
           >
             <label
-              class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
+              class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-mru796-MuiFormLabel-root-MuiInputLabel-root"
               data-shrink="true"
               id="select-repository"
             >
               repository
             </label>
             <div
-              class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+              class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-11q0f3f-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
             >
               <div
                 aria-expanded="false"
@@ -429,7 +429,7 @@ exports[`Search View should match snapshot 1`] = `
               />
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-hfutr2-MuiSvgIcon-root-MuiSelect-icon"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-1pxapms-MuiSvgIcon-root-MuiSelect-icon"
                 data-testid="ArrowDropDownIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -454,13 +454,13 @@ exports[`Search View should match snapshot 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-9 css-1qpzhgb-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-9 css-124ajok-MuiGrid-root"
         >
           <div
             class="MuiFormControl-root MuiTextField-root css-136h9lv-MuiFormControl-root-MuiTextField-root"
           >
             <label
-              class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
+              class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary css-1dl35zc-MuiFormLabel-root-MuiInputLabel-root"
               data-shrink="false"
               for="search-revision-input"
               id="search-revision-input-label"
@@ -468,7 +468,7 @@ exports[`Search View should match snapshot 1`] = `
               Search By Revision ID or Author Email
             </label>
             <div
-              class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root"
+              class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1cg28ds-MuiInputBase-root-MuiOutlinedInput-root"
             >
               <input
                 aria-invalid="false"
@@ -493,18 +493,18 @@ exports[`Search View should match snapshot 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-u78q51-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-1t8rubm-MuiGrid-root"
         >
           <button
             aria-label="add revisions"
-            class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root add-revision-button css-sghohy-MuiButtonBase-root-MuiButton-root"
+            class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root add-revision-button css-6yg5eq-MuiButtonBase-root-MuiButton-root"
             id="add-revision-button"
             tabindex="0"
             type="button"
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
               data-testid="AddIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -519,7 +519,7 @@ exports[`Search View should match snapshot 1`] = `
           </button>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-z2teic-MuiGrid-root"
         />
       </div>
     </div>
