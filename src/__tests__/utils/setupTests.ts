@@ -6,15 +6,22 @@ import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import '@testing-library/jest-dom';
 
+import React from 'react';
+
 import { createStore } from '../../common/store';
 import type { Store } from '../../common/store';
-import { createRender, createRenderWithRouter } from '../utils/test-utils';
+import {
+  createRender,
+  createRenderWithRouter,
+  createStoreProvider,
+} from '../utils/test-utils';
 import type { Render, RenderWithRouter } from './test-utils';
 
 const unmockedFetch = global.fetch;
 let render: Render;
 let renderWithRouter: RenderWithRouter;
 let store: Store;
+let StoreProvider: React.FC<{ children: JSX.Element }>;
 
 beforeAll(() => {
   global.fetch = jest.fn();
@@ -29,6 +36,7 @@ beforeEach(() => {
   store = createStore();
   render = createRender(store);
   renderWithRouter = createRenderWithRouter(store);
+  StoreProvider = createStoreProvider(store);
 });
 
 afterEach(() => {
@@ -39,4 +47,4 @@ afterEach(() => {
   jest.useRealTimers();
 });
 
-export { store, render, renderWithRouter };
+export { store, render, renderWithRouter, StoreProvider };
