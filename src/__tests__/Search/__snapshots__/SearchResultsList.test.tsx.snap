@@ -22,7 +22,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
         class="MuiGrid-root MuiGrid-item compare-button-section css-13i4rnv-MuiGrid-root"
       />
       <div
-        class="MuiGrid-root MuiGrid-container css-go2vvz-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container css-bydcm4-MuiGrid-root"
         id="revision-search-container"
       >
         <div

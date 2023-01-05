@@ -32,7 +32,14 @@ function SelectedRevisionsTableRow(props: SelectedRevisionsRowProps) {
       </TableCell>
       <TableCell>{repository}</TableCell>
       <TableCell>
-        <Link href={treeherderURL}>{hash}</Link>
+        <Link
+          aria-label="Treeherder link"
+          href={treeherderURL}
+          rel="noopener"
+          target="_blank"
+        >
+          {hash}
+        </Link>
       </TableCell>
       <TableCell>{row.author}</TableCell>
       <TableCell className="commit-message">{commitMessage}</TableCell>
