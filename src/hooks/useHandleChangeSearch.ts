@@ -7,6 +7,7 @@ import {
   clearInputError,
 } from '../reducers/SearchSlice';
 import {
+  fetchRecentRevisions,
   fetchRevisionByID,
   fetchRevisionsByAuthor,
 } from '../thunks/searchThunk';
@@ -26,8 +27,9 @@ const useHandleChangeSearch = () => {
     const emailMatch = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const longHashMatch = /\b[a-f0-9]{40}\b/;
     const shortHashMatch = /\b[a-f0-9]{12}\b/;
-
-    if (emailMatch.test(search)) {
+    if (!search) {
+      await dispatch(fetchRecentRevisions(repository));
+    } else if (emailMatch.test(search)) {
       await dispatch(fetchRevisionsByAuthor({ repository, search }));
     } else if (longHashMatch.test(search) || shortHashMatch.test(search)) {
       await dispatch(fetchRevisionByID({ repository, search }));
@@ -56,13 +58,7 @@ const useHandleChangeSearch = () => {
     // Clear any existing timer whenever user types
     if (timeout) clearTimeout(timeout);
 
-    // If search input is cleared, clear results
-    if (search === '') {
-      dispatch(updateSearchResults([]));
-    } else {
-      // Submit API call 500ms after user stops typing
-      timeout = setTimeout(onTimeout, idleTime);
-    }
+    timeout = setTimeout(onTimeout, idleTime);
   };
   return { handleChangeSearch };
 };

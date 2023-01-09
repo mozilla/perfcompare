@@ -440,4 +440,33 @@ describe('Compare Results Table', () => {
       false,
     );
   });
+
+  it('Should close filter popover', async () => {
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
+
+    // set compare data
+    store.dispatch(setCompareResults(testCompareData));
+
+    render(<CompareResultsTable mode="light" />);
+
+    const filterButton = screen.getByTestId('platform-options-button');
+    await user.click(filterButton);
+
+    const windowsCheckbox = screen.getByRole('checkbox', {
+      name: 'windows10-64-shippable-qr',
+    });
+    expect(windowsCheckbox).toBeInTheDocument();
+
+    await user.click(windowsCheckbox);
+
+    const applyButtons = screen.getAllByRole('button', { name: 'Apply' });
+
+    await user.click(applyButtons[0]);
+    act(() => {
+      jest.runOnlyPendingTimers();
+    });
+
+    expect(windowsCheckbox).not.toBeInTheDocument();
+  });
 });
