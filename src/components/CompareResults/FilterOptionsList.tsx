@@ -40,6 +40,7 @@ function FilterOptionsList(props: FilterOptionsListProps) {
         maxWidth: 360,
         maxHeight: 350,
         bgcolor: 'background.paper',
+        overflow: 'auto',
       }}
       data-testid={`${column}-options`}
     >
