@@ -2,6 +2,7 @@ import React from 'react';
 
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import {
+  ClickAwayListener,
   Fade,
   IconButton,
   Paper,
@@ -126,6 +127,7 @@ const CompareResultsTableHead = () => {
   const handleClickPopper =
     (newPlacement: PopperPlacementType, headerId: string, options: string[]) =>
     (event: React.MouseEvent<HTMLButtonElement>) => {
+      event.stopPropagation();
       if (anchorEl === null || event.currentTarget === anchorEl) {
         setOpenPopper((prev) => !prev);
         setAnchorEl(event.currentTarget);
@@ -138,27 +140,36 @@ const CompareResultsTableHead = () => {
       setActivePopper({ options, headerId });
     };
 
+  const handleOnClickAway = () => {
+    if (openPopper) {
+      setAnchorEl(null);
+      setOpenPopper(false);
+    }
+  };
+
   return (
     <TableHead>
       <TableRow>
-        <Popper
-          open={openPopper}
-          anchorEl={anchorEl}
-          placement={placement}
-          transition
-        >
-          {({ TransitionProps }) => (
-            <Fade {...TransitionProps}>
-              <Paper>
-                <FilterOptionsList
-                  options={activePopper?.options as string[]}
-                  column={activePopper?.headerId as string}
-                  closeOptions={handleCloseOptions}
-                />
-              </Paper>
-            </Fade>
-          )}
-        </Popper>
+        <ClickAwayListener onClickAway={handleOnClickAway}>
+          <Popper
+            open={openPopper}
+            anchorEl={anchorEl}
+            placement={placement}
+            transition
+          >
+            {({ TransitionProps }) => (
+              <Fade {...TransitionProps}>
+                <Paper>
+                  <FilterOptionsList
+                    options={activePopper?.options as string[]}
+                    column={activePopper?.headerId as string}
+                    closeOptions={handleCloseOptions}
+                  />
+                </Paper>
+              </Fade>
+            )}
+          </Popper>
+        </ClickAwayListener>
         {tableHead.map(
           ({ label, key, align }: CompareResultsTableHeader, index) => {
             let options: string[] | ConfidenceText[] = [];
