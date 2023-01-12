@@ -15,7 +15,7 @@ import getTestData from '../utils/fixtures';
 import { render, renderWithRouter, store } from '../utils/setupTests';
 import { screen, waitFor } from '../utils/test-utils';
 
-const { testCompareData } = getTestData();
+const { testCompareData, paginationTestCompareData } = getTestData();
 
 describe('Compare Results Table', () => {
   it('Should match snapshot', () => {
@@ -463,5 +463,53 @@ describe('Compare Results Table', () => {
     });
 
     expect(windowsCheckbox).not.toBeInTheDocument();
+  });
+
+  it('should reset to first table page when filtering is changed', async () => {
+    // set results data
+    store.dispatch(setCompareResults(paginationTestCompareData));
+
+    const activeFilters: ActiveFilters = {
+      platform: ['macosx1015-64-shippable-qr'],
+      test: [],
+      confidence: [],
+    };
+
+    const filteredResults: FilteredResults = {
+      data: [...paginationTestCompareData.slice(1, 33)],
+      activeFilters,
+      isFiltered: true,
+    };
+
+    act(() => {
+      store.dispatch(setFilteredResults(filteredResults));
+    });
+
+    render(<CompareResultsTable mode="light" />);
+
+    let firstPageButton = await waitFor(() =>
+      screen.getByLabelText('first page'),
+    );
+
+    expect(firstPageButton).toHaveAttribute('disabled');
+
+    const user = userEvent.setup({ delay: null });
+
+    // goes to second page
+    await user.click(screen.getByLabelText('next page'));
+
+    firstPageButton = await waitFor(() => screen.getByLabelText('first page'));
+
+    expect(firstPageButton).not.toHaveAttribute('disabled');
+
+    act(() => {
+      store.dispatch(
+        addFilter({ name: 'test', value: 'content-process-startup' }),
+      );
+    });
+
+    firstPageButton = await waitFor(() => screen.getByLabelText('first page'));
+
+    expect(firstPageButton).toHaveAttribute('disabled');
   });
 });

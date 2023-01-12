@@ -65,9 +65,28 @@ const createRenderWithRouter = (store: Store) => {
   return renderWithRouter;
 };
 
+const createRouterWrapper = (
+  route: string,
+  history = createMemoryHistory({ initialEntries: [route] }),
+) => {
+  return {
+    RouterWrapper: ({ children }: ChildrenProps) => (
+      <Router location={history.location} navigator={history}>
+        {children}
+      </Router>
+    ),
+    history,
+  };
+};
+
 // re-export everything
 export * from '@testing-library/react';
 // override render method
 export type Render = ReturnType<typeof createRender>;
 export type RenderWithRouter = ReturnType<typeof createRenderWithRouter>;
-export { createRender, createRenderWithRouter, createStoreProvider };
+export {
+  createRender,
+  createRenderWithRouter,
+  createRouterWrapper,
+  createStoreProvider,
+};

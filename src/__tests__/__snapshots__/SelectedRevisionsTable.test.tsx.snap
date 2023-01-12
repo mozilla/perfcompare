@@ -28,44 +28,44 @@ exports[`Search View should match snapshot 1`] = `
               class="MuiTableHead-root css-15wwp11-MuiTableHead-root"
             >
               <tr
-                class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
+                class="MuiTableRow-root MuiTableRow-head css-1eza0l0-MuiTableRow-root"
               >
                 <th
-                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1gfrx2z-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-11b7jlo-MuiTableCell-root"
                   scope="row"
                 />
                 <th
-                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-6jkj7d-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-sievbq-MuiTableCell-root"
                   scope="col"
                 >
                   Project
                 </th>
                 <th
-                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-6jkj7d-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-sievbq-MuiTableCell-root"
                   scope="col"
                 >
                   Revision
                 </th>
                 <th
-                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-6jkj7d-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-sievbq-MuiTableCell-root"
                   scope="col"
                 >
                   Author
                 </th>
                 <th
-                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-6jkj7d-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-sievbq-MuiTableCell-root"
                   scope="col"
                 >
                   Commit Message
                 </th>
                 <th
-                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-6jkj7d-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-sievbq-MuiTableCell-root"
                   scope="col"
                 >
                   Timestamp
                 </th>
                 <th
-                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1gfrx2z-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-11b7jlo-MuiTableCell-root"
                   scope="col"
                 />
               </tr>
@@ -74,53 +74,66 @@ exports[`Search View should match snapshot 1`] = `
               class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
             >
               <tr
-                class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                class="MuiTableRow-root css-1eza0l0-MuiTableRow-root"
+                draggable="true"
                 id="coconut"
               >
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <div
-                    class="cellStyle"
+                    class="dragIndicatorWrapper"
                   >
-                    BASE
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                      data-testid="DragIndicatorIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M11 18c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm-2-8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 4c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+                      />
+                    </svg>
+                    <div
+                      class="cellStyle"
+                    >
+                      BASE
+                    </div>
                   </div>
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   try
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <a
-                    aria-label="Treeherder link"
                     class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-e4zel8-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
-                    rel="noopener"
-                    target="_blank"
                   >
                     coconut
                   </a>
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   johncleese@python.com
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium commit-message css-1gc7j6o-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium commit-message css-pmplfi-MuiTableCell-root"
                 >
                   you've got no arms left!
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   03/29/51 00:00
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <button
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
@@ -146,53 +159,66 @@ exports[`Search View should match snapshot 1`] = `
                 </td>
               </tr>
               <tr
-                class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                class="MuiTableRow-root css-1eza0l0-MuiTableRow-root"
+                draggable="true"
                 id="spam"
               >
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <div
-                    class="cellStyle"
+                    class="dragIndicatorWrapper"
                   >
-                    NEW
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                      data-testid="DragIndicatorIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M11 18c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm-2-8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 4c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+                      />
+                    </svg>
+                    <div
+                      class="cellStyle"
+                    >
+                      NEW
+                    </div>
                   </div>
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   mozilla-central
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <a
-                    aria-label="Treeherder link"
                     class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-e4zel8-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
-                    rel="noopener"
-                    target="_blank"
                   >
                     spam
                   </a>
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   ericidle@python.com
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium commit-message css-1gc7j6o-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium commit-message css-pmplfi-MuiTableCell-root"
                 >
                   it's just a flesh wound
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   02/22/58 00:00
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <button
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
@@ -218,53 +244,66 @@ exports[`Search View should match snapshot 1`] = `
                 </td>
               </tr>
               <tr
-                class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                class="MuiTableRow-root css-1eza0l0-MuiTableRow-root"
+                draggable="true"
                 id="spamspam"
               >
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <div
-                    class="cellStyle"
+                    class="dragIndicatorWrapper"
                   >
-                    NEW
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                      data-testid="DragIndicatorIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M11 18c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm-2-8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 4c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+                      />
+                    </svg>
+                    <div
+                      class="cellStyle"
+                    >
+                      NEW
+                    </div>
                   </div>
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   try
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <a
-                    aria-label="Treeherder link"
                     class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-e4zel8-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=try&revision=spamspam"
-                    rel="noopener"
-                    target="_blank"
                   >
                     spamspam
                   </a>
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   terrygilliam@python.com
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium commit-message css-1gc7j6o-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium commit-message css-pmplfi-MuiTableCell-root"
                 >
                   What, ridden on a horse?
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   07/29/87 00:00
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <button
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
@@ -290,53 +329,66 @@ exports[`Search View should match snapshot 1`] = `
                 </td>
               </tr>
               <tr
-                class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+                class="MuiTableRow-root css-1eza0l0-MuiTableRow-root"
+                draggable="true"
                 id="spamspamspamandeggs"
               >
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <div
-                    class="cellStyle"
+                    class="dragIndicatorWrapper"
                   >
-                    NEW
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                      data-testid="DragIndicatorIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M11 18c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm-2-8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 4c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+                      />
+                    </svg>
+                    <div
+                      class="cellStyle"
+                    >
+                      NEW
+                    </div>
                   </div>
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   autoland
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <a
-                    aria-label="Treeherder link"
                     class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-e4zel8-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=autoland&revision=spamspamspamandeggs"
-                    rel="noopener"
-                    target="_blank"
                   >
                     spamspamspam
                   </a>
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   michaelpalin@python.com
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium commit-message css-1gc7j6o-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium commit-message css-pmplfi-MuiTableCell-root"
                 >
                   You've got two empty 'alves of coconuts and you're bangin' 'em togetha!
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   07/04/20 00:00
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1gc7j6o-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <button
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"

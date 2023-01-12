@@ -9,7 +9,6 @@ import TableContainer from '@mui/material/TableContainer';
 import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
 import type { CompareResultsState } from '../../types/state';
-import CompareResultsTableHead from './CompareResultsTableHead';
 import CompareTableStatus from './CompareTableStatus';
 import PaginatedCompareResults from './PaginatedCompareResults';
 
@@ -30,7 +29,6 @@ function CompareResultsTable(props: CompareResultsProps) {
               size="small"
               aria-label="a dense table"
             >
-              <CompareResultsTableHead />
               <PaginatedCompareResults mode={mode} />
             </Table>
           </TableContainer>

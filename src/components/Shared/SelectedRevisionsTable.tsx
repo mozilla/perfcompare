@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -6,9 +8,11 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { connect } from 'react-redux';
 
-import type { RootState } from '../../common/store';
+import type { AppDispatch, RootState } from '../../common/store';
+import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
 import type { Revision } from '../../types/state';
 import type { SelectedRevisionsTableHeaders } from '../../types/types';
+import { swapArrayElements } from '../../utils/helpers';
 import SelectedRevisionsTableRow from './SelectedRevisionsTableRow';
 
 const tableHeaderDetails: SelectedRevisionsTableHeaders[] = [
@@ -19,10 +23,18 @@ const tableHeaderDetails: SelectedRevisionsTableHeaders[] = [
   'Timestamp',
 ];
 
-function SelectedRevisionsTable(props: SelectedRevisionsProps) {
-  const { revisions, view } = props;
+export function SelectedRevisionsTable(props: SelectedRevisionsProps) {
+  const { revisions, view, dispatchSelectedRevisions } = props;
   const size = view == 'compare-results' ? 'small' : undefined;
-
+  const [draggedRow, setDraggedRow] = useState(-1);
+  const [dropRow, setDropRow] = useState(-1);
+  const handleDragEnd = () => {
+    dispatchSelectedRevisions(
+      swapArrayElements(revisions, dropRow, draggedRow),
+    );
+    setDropRow(-1);
+    setDraggedRow(-1);
+  };
   return (
     <TableContainer className="layout">
       <Table className={`${view}-selected-table`} size={size}>
@@ -40,9 +52,14 @@ function SelectedRevisionsTable(props: SelectedRevisionsProps) {
         <TableBody>
           {revisions.map((row: Revision, index: number) => (
             <SelectedRevisionsTableRow
+              dropRow={dropRow}
+              draggedRow={draggedRow}
+              handleDragEnd={handleDragEnd}
+              index={index}
               key={row.revision}
               row={row}
-              index={index}
+              setDraggedRow={setDraggedRow}
+              setDropRow={setDropRow}
               view={view}
             />
           ))}
@@ -55,6 +72,7 @@ function SelectedRevisionsTable(props: SelectedRevisionsProps) {
 interface SelectedRevisionsProps {
   revisions: Revision[];
   view: 'search' | 'compare-results';
+  dispatchSelectedRevisions: (revisions: Revision[]) => void;
 }
 
 function mapStateToProps(state: RootState) {
@@ -63,4 +81,14 @@ function mapStateToProps(state: RootState) {
   };
 }
 
-export default connect(mapStateToProps)(SelectedRevisionsTable);
+function mapDispatchToProps(dispatch: AppDispatch) {
+  return {
+    dispatchSelectedRevisions: (revisions: Revision[]) =>
+      dispatch(setSelectedRevisions(revisions)),
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(SelectedRevisionsTable);
