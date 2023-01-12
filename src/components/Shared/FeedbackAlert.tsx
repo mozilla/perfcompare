@@ -4,7 +4,6 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import Box from '@mui/material/Box';
-import ClickAwayListener from '@mui/material/ClickAwayListener';
 import IconButton from '@mui/material/IconButton';
 import Snackbar from '@mui/material/Snackbar';
 
@@ -17,36 +16,41 @@ export default function FeedbackAlert() {
     setOpen(true);
   };
 
-  const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
-    if (reason === 'clickaway') {
-      return;
+  const handleClose = (
+    event?: React.SyntheticEvent | Event,
+    reason?: string,
+  ) => {
+    if (reason !== 'clickaway') {
+      setOpen(false);
     }
-
-    setOpen(false);
   };
 
   return (
-    <ClickAwayListener onClickAway={handleClose}>
-      <Box>
-        <IconButton color="inherit"
-          onClick={handleClick}
-          aria-label="info-button"
-        >
-          <InfoOutlinedIcon />
-        </IconButton>
-        <Snackbar
-          open={open}
-          autoHideDuration={10000}
+    <Box>
+      <IconButton
+        color="inherit"
+        onClick={handleClick}
+        aria-label="info-button"
+      >
+        <InfoOutlinedIcon />
+      </IconButton>
+      <Snackbar open={open} autoHideDuration={10000} onClose={handleClose}>
+        <Alert
+          variant="filled"
+          severity="info"
+          className="feedback-alert"
           onClose={handleClose}
+          data-testid="feedback-alert"
         >
-          <Alert variant="filled" severity="info" className="feedback-alert" onClose={handleClose} data-testid="feedback-alert">
           <AlertTitle>Give us feedback!</AlertTitle>
-            {userFeedbackMessage} — <strong><a href="mailto:perfcompare-user-feedback@mozilla.com">{perfCompareEmail}</a></strong>
-          </Alert>
-        </Snackbar>
-      </Box>
-    </ClickAwayListener>
+          {userFeedbackMessage} —{' '}
+          <strong>
+            <a href="mailto:perfcompare-user-feedback@mozilla.com">
+              {perfCompareEmail}
+            </a>
+          </strong>
+        </Alert>
+      </Snackbar>
+    </Box>
   );
 }
-
-
