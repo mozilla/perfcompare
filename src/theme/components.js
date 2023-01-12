@@ -1,5 +1,4 @@
-import { green } from '@mui/material/colors';
-import { red } from '@mui/material/colors';
+import { green, red, lightBlue } from '@mui/material/colors';
 
 import android from './img/android.svg';
 import high from './img/high.svg';
@@ -60,9 +59,24 @@ const components = {
       root: {
         '&.filter-status .MuiAlert-icon': {
           paddingTop: '17px',
-        }
-      }
-    }
+        },
+      },
+    },
+  },
+  MuiTableRow: {
+    styleOverrides: {
+      root: {
+        '&[draggable=true]': {
+          cursor: 'grab',
+        },
+        '&.draggedRow': {
+          opacity: 0.6,
+        },
+        '&.dropArea': {
+          backgroundColor: lightBlue[100],
+        },
+      },
+    },
   },
   MuiTableCell: {
     styleOverrides: {
@@ -75,6 +89,10 @@ const components = {
           color: '#737373',
           width: '50px',
           border: 'solid 1px #737373',
+        },
+        '.dragIndicatorWrapper': {
+          display: 'flex',
+          alignItems: 'center',
         },
         '&.commit-message': {
           overflow: 'hidden',
