@@ -28,19 +28,19 @@ export default function FeedbackAlert() {
   return (
     <Box>
       <IconButton
+        aria-label="info-button"
         color="inherit"
         onClick={handleClick}
-        aria-label="info-button"
       >
         <InfoOutlinedIcon />
       </IconButton>
       <Snackbar open={open} autoHideDuration={10000} onClose={handleClose}>
         <Alert
-          variant="filled"
-          severity="info"
           className="feedback-alert"
-          onClose={handleClose}
           data-testid="feedback-alert"
+          onClose={handleClose}
+          severity="info"
+          variant="filled"
         >
           <AlertTitle>Give us feedback!</AlertTitle>
           {userFeedbackMessage} —{' '}

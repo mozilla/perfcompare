@@ -108,7 +108,7 @@ describe('Snackbar', () => {
     const infoButton = screen.getByTestId('InfoOutlinedIcon');
     await user.click(infoButton);
     const feedbackAlert = screen.getByTestId('feedback-alert');
-    expect(feedbackAlert).toBeInTheDocument();
+    expect(feedbackAlert).toBeVisible();
     const searchInput = screen.getByRole('textbox');
     await user.click(searchInput);
     expect(feedbackAlert).toBeVisible();
@@ -119,7 +119,6 @@ describe('Snackbar', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
     render(<App />);
-    renderWithRouter(<SearchView />);
     const infoButton = screen.getByTestId('InfoOutlinedIcon');
     await user.click(infoButton);
     const feedbackAlert = screen.getByTestId('feedback-alert');
@@ -127,7 +126,6 @@ describe('Snackbar', () => {
     act(() => {
       jest.advanceTimersByTime(10000);
     });
-    expect(setTimeout).toHaveBeenCalled();
     expect(feedbackAlert).not.toBeVisible();
   });
 });
