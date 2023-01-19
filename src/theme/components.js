@@ -1,54 +1,53 @@
-import { green } from '@mui/material/colors';
-import { red } from '@mui/material/colors';
+import { green, red, lightBlue } from "@mui/material/colors";
 
-import android from './img/android.svg';
-import high from './img/high.svg';
-import linux from './img/linux.svg';
-import low from './img/low.svg';
-import med from './img/med.svg';
-import osx from './img/osx.svg';
-import windows from './img/windows.svg';
-import zap from './img/zap-10.svg';
+import android from "./img/android.svg";
+import high from "./img/high.svg";
+import linux from "./img/linux.svg";
+import low from "./img/low.svg";
+import med from "./img/med.svg";
+import osx from "./img/osx.svg";
+import windows from "./img/windows.svg";
+import zap from "./img/zap-10.svg";
 
 const components = {
   MuiButton: {
     styleOverrides: {
       root: {
-        '&.add-revision-button': {
-          height: 'auto',
-          width: '100%',
-          lineHeight: '1.4375em',
+        "&.add-revision-button": {
+          height: "auto",
+          width: "100%",
+          lineHeight: "1.4375em",
         },
-        '&.edit-revision-button': {
-          width: '50%',
-          padding: '0',
-          minWidth: '0',
-          '&:hover': {
-            backgroundColor: 'transparent',
+        "&.edit-revision-button": {
+          width: "50%",
+          padding: "0",
+          minWidth: "0",
+          "&:hover": {
+            backgroundColor: "transparent",
           },
-          '& .MuiSvgIcon-root': {
-            width: 'auto',
-            height: '2.4rem',
-            borderRadius: '5px',
-            '&.accept': {
+          "& .MuiSvgIcon-root": {
+            width: "auto",
+            height: "2.4rem",
+            borderRadius: "5px",
+            "&.accept": {
               color: green[500],
-              '&:hover': {
+              "&:hover": {
                 backgroundColor: green[100],
               },
             },
-            '&.cancel': {
+            "&.cancel": {
               color: red[500],
-              '&:hover': {
+              "&:hover": {
                 backgroundColor: red[100],
               },
             },
           },
         },
-        '&.compare-button': {
-          lineHeight: '1.4375em',
-          padding: '16.5px 14px',
-          textTransform: 'uppercase',
-          marginBottom: '30px',
+        "&.compare-button": {
+          lineHeight: "1.4375em",
+          padding: "16.5px 14px",
+          textTransform: "uppercase",
+          marginBottom: "30px",
         },
       },
     },
@@ -56,8 +55,8 @@ const components = {
   MuiPaper: {
     styleOverrides: {
       root: {
-        '&.filter-status .MuiAlert-icon': {
-          paddingTop: '17px',
+        "&.filter-status .MuiAlert-icon": {
+          paddingTop: "17px",
         },
       },
     },
@@ -65,56 +64,60 @@ const components = {
   MuiTableCell: {
     styleOverrides: {
       root: {
-        '.cellStyle': {
+        ".cellStyle": {
           fontWeight: 600,
-          borderRadius: '2.5px',
-          padding: '5px',
-          display: 'flex',
-          color: '#737373',
-          width: '50px',
-          border: 'solid 1px #737373',
+          borderRadius: "2.5px",
+          padding: "5px",
+          display: "flex",
+          color: "#737373",
+          width: "50px",
+          border: "solid 1px #737373",
         },
-        '&.commit-message': {
-          overflow: 'hidden',
-          textOverflow: 'ellipsis',
-          whiteSpace: 'nowrap',
-          maxWidth: '450px',
+        ".dragIndicatorWrapper": {
+          display: "flex",
+          alignItems: "center",
         },
-        '.graph-icon-color:hover': {
-          borderBottom: '1px dotted blue',
+        "&.commit-message": {
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+          whiteSpace: "nowrap",
+          maxWidth: "450px",
         },
-        '&.background-icon': {
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-          backgroundSize: '17.5%',
+        ".graph-icon-color:hover": {
+          borderBottom: "1px dotted blue",
         },
-        '&.background-icon.dark-mode': {
-          filter: 'invert(100%)',
+        "&.background-icon": {
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundSize: "17.5%",
         },
-        '&.high': {
+        "&.background-icon.dark-mode": {
+          filter: "invert(100%)",
+        },
+        "&.high": {
           backgroundImage: `url(${high})`,
         },
-        '&.med': {
+        "&.med": {
           backgroundImage: `url(${med})`,
         },
-        '&.low': {
+        "&.low": {
           backgroundImage: `url(${low})`,
         },
-        '&.linux': {
+        "&.linux": {
           backgroundImage: `url(${linux})`,
         },
-        '&.osx': {
+        "&.osx": {
           backgroundImage: `url(${osx})`,
         },
-        '&.windows': {
+        "&.windows": {
           backgroundImage: `url(${windows})`,
         },
-        '&.android': {
+        "&.android": {
           backgroundImage: `url(${android})`,
         },
-        '&.unknown-confidence': {
-          display: 'flex',
-          flexDirection: 'column',
+        "&.unknown-confidence": {
+          display: "flex",
+          flexDirection: "column",
         },
       },
     },
@@ -122,9 +125,9 @@ const components = {
   MuiTableContainer: {
     styleOverrides: {
       root: {
-        '&.layout': {
-          marginBottom: '2rem',
-          tableLayout: 'fixed',
+        "&.layout": {
+          marginBottom: "2rem",
+          tableLayout: "fixed",
         },
       },
     },
@@ -132,16 +135,16 @@ const components = {
   MuiTypography: {
     styleOverrides: {
       root: {
-        '&.perfcompare-header': {
-          '&:after': {
+        "&.perfcompare-header": {
+          "&:after": {
             backgroundImage: `url(${zap})`,
-            backgroundPosition: '55%',
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: '290px',
+            backgroundPosition: "55%",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "290px",
             content: '""',
-            display: 'block',
-            height: '0.3em',
-            marginTop: '-5px',
+            display: "block",
+            height: "0.3em",
+            marginTop: "-5px",
           },
         },
       },
@@ -150,10 +153,10 @@ const components = {
   MuiGrid: {
     styleOverrides: {
       root: {
-        '&.compare-button-section': {
-          display: 'flex',
-          alignItems: 'center',
-          flexDirection: 'column',
+        "&.compare-button-section": {
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "column",
         },
       },
     },
@@ -161,12 +164,12 @@ const components = {
   MuiSvgIcon: {
     styleOverrides: {
       root: {
-        '&.compare-icon': {
-          marginLeft: '15px',
+        "&.compare-icon": {
+          marginLeft: "15px",
         },
-        '&.missing-confidence-icon': {
-          color: '#EE4B2B',
-          fontSize: '1.5rem',
+        "&.missing-confidence-icon": {
+          color: "#EE4B2B",
+          fontSize: "1.5rem",
         },
       },
     },
@@ -174,11 +177,11 @@ const components = {
   MuiPopover: {
     styleOverrides: {
       root: {
-        '&.edit-revision-popover': {
-          '& .MuiPaper-root': {
-            width: '100%',
-            maxWidth: '1152px',
-            padding: '6px',
+        "&.edit-revision-popover": {
+          "& .MuiPaper-root": {
+            width: "100%",
+            maxWidth: "1152px",
+            padding: "6px",
           },
         },
       },
@@ -187,12 +190,12 @@ const components = {
   MuiIconButton: {
     styleOverrides: {
       root: {
-        '&.missing-confidence-button': {
-          borderRadius: '0',
-          paddingBottom: '0',
+        "&.missing-confidence-button": {
+          borderRadius: "0",
+          paddingBottom: "0",
 
-          '&:hover': {
-            backgroundColor: 'transparent',
+          "&:hover": {
+            backgroundColor: "transparent",
           },
         },
       },
@@ -201,8 +204,8 @@ const components = {
   MuiContainer: {
     styleOverrides: {
       root: {
-        '&.perfcompare-body': {
-          minHeight: '85vh',
+        "&.perfcompare-body": {
+          minHeight: "85vh",
         },
       },
     },
@@ -210,9 +213,9 @@ const components = {
   MuiAlert: {
     styleOverrides: {
       root: {
-        '&.feedback-alert': {
+        "&.feedback-alert": {
           backgroundImage:
-            'linear-gradient( 45deg, rgb(138,35,135) 10%, rgb(233,64,87) 50%, rgb(242,113,33) 100% )',
+            "linear-gradient( 45deg, rgb(138,35,135) 10%, rgb(233,64,87) 50%, rgb(242,113,33) 100% )",
         },
       },
     },

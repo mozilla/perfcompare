@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import FirstPageIcon from '@mui/icons-material/FirstPage';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
@@ -111,6 +111,11 @@ function PaginatedCompareResults(props: PaginatedCompareResultsProps) {
   const filteredResults: CompareResultsItem[] = useAppSelector(
     (state: RootState) => state.filterCompareResults.filteredResults,
   );
+
+  const updatedOptions = useAppSelector(
+    (state: RootState) => state.filterCompareResults.updatedOptions,
+  );
+
   const isFiltered = useAppSelector(
     (state: RootState) => state.filterCompareResults.isFiltered,
   );
@@ -121,6 +126,15 @@ function PaginatedCompareResults(props: PaginatedCompareResultsProps) {
 
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(25);
+
+  const shouldResetPage = updatedOptions && page > 0;
+
+  useEffect(() => {
+    if (shouldResetPage) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setPage(0);
+    }
+  });
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
@@ -173,7 +187,7 @@ function PaginatedCompareResults(props: PaginatedCompareResultsProps) {
                 colSpan={8}
                 count={results.length}
                 rowsPerPage={rowsPerPage}
-                page={page}
+                page={shouldResetPage ? 0 : page}
                 SelectProps={{
                   inputProps: {
                     'aria-label': 'rows per page',

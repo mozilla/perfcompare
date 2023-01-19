@@ -3,9 +3,10 @@ import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
 import { maxRevisionsError } from '../common/constants';
+import App from '../components/App';
 import SearchView from '../components/Search/SearchView';
 import getTestData from './utils/fixtures';
-import { renderWithRouter } from './utils/setupTests';
+import { renderWithRouter, render } from './utils/setupTests';
 import { screen } from './utils/test-utils';
 
 describe('Snackbar', () => {
@@ -21,7 +22,7 @@ describe('Snackbar', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(<SearchView />);
+    render(<App />);
 
     // focus input to show results
     const searchInput = screen.getByRole('textbox');
@@ -78,5 +79,53 @@ describe('Snackbar', () => {
 
     await waitForElementToBeRemoved(closeButton);
     expect(alert).not.toBeInTheDocument();
+  });
+
+  it('should render feedback alert', async () => {
+    const user = userEvent.setup({ delay: null });
+    render(<App />);
+    const infoButton = screen.getByTestId('InfoOutlinedIcon');
+    await user.click(infoButton);
+    const feedbackAlert = screen.getByTestId('feedback-alert');
+    expect(feedbackAlert).toBeInTheDocument();
+  });
+
+  it('should close feedback alert on clicking the close button', async () => {
+    const user = userEvent.setup({ delay: null });
+    render(<App />);
+    const infoButton = screen.getByTestId('InfoOutlinedIcon');
+    await user.click(infoButton);
+    const feedbackAlert = screen.getByTestId('feedback-alert');
+    expect(feedbackAlert).toBeVisible();
+    const closeButton = feedbackAlert.querySelector('button');
+    await user.click(closeButton as Element);
+    expect(feedbackAlert).not.toBeVisible();
+  });
+
+  it('should not close feedback alert on blur', async () => {
+    const user = userEvent.setup({ delay: null });
+    render(<App />);
+    const infoButton = screen.getByTestId('InfoOutlinedIcon');
+    await user.click(infoButton);
+    const feedbackAlert = screen.getByTestId('feedback-alert');
+    expect(feedbackAlert).toBeVisible();
+    const searchInput = screen.getByRole('textbox');
+    await user.click(searchInput);
+    expect(feedbackAlert).toBeVisible();
+  });
+
+  it('should dismiss feedback alert after 10 seconds', async () => {
+    jest.spyOn(global, 'setTimeout');
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
+    render(<App />);
+    const infoButton = screen.getByTestId('InfoOutlinedIcon');
+    await user.click(infoButton);
+    const feedbackAlert = screen.getByTestId('feedback-alert');
+    expect(feedbackAlert).toBeVisible();
+    act(() => {
+      jest.advanceTimersByTime(10000);
+    });
+    expect(feedbackAlert).not.toBeVisible();
   });
 });
