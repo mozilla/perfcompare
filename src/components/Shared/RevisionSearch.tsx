@@ -1,23 +1,43 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
-import { style } from "typestyle";
+import CheckIcon from '@mui/icons-material/Check';
+import CloseIcon from '@mui/icons-material/Close';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { connect } from 'react-redux';
+import { style } from 'typestyle';
 
-import CheckIcon from "@mui/icons-material/Check";
-import CloseIcon from "@mui/icons-material/Close";
-import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
-import { connect } from "react-redux";
 
-import { RootState } from "../../common/store";
-import { useAppDispatch } from "../../hooks/app";
-import useSelectRevision from "../../hooks/useSelectRevision";
-import { clearCheckedRevisions } from "../../reducers/CheckedRevisions";
-import type { Revision } from "../../types/state";
-import AddRevisionButton from "../Search/AddRevisionButton";
-import SearchDropdown from "../Search/SearchDropdown";
-import SearchInput from "../Search/SearchInput";
-import SearchResultsList from "../Search/SearchResultsList";
-import useMediaQuery from "@mui/material/useMediaQuery";
+import { RootState } from '../../common/store';
+import { useAppDispatch } from '../../hooks/app';
+import useSelectRevision from '../../hooks/useSelectRevision';
+import { clearCheckedRevisions } from '../../reducers/CheckedRevisions';
+import type { Revision } from '../../types/state';
+import AddRevisionButton from '../Search/AddRevisionButton';
+import SearchDropdown from '../Search/SearchDropdown';
+import SearchInput from '../Search/SearchInput';
+import SearchResultsList from '../Search/SearchResultsList';
+
+const styles = {
+  container: style({
+    maxWidth: '810px',
+    paddingTop: '68px',
+    margin: 'auto',
+    $nest: {
+      '.revision_search-dropdown': {
+        minWidth: '200px',
+        marginRight: '24px',
+      },
+      '.revision_search-input': {
+        maxWidth: '539px',
+      },
+      '.revision_search-input--mobile': {
+        maxWidth: '75%',
+      },
+    },
+  }),
+};
 
 function RevisionSearch(props: RevisionSearchProps) {
   const [focused, setFocused] = useState(false);
@@ -25,20 +45,20 @@ function RevisionSearch(props: RevisionSearchProps) {
 
   const dispatch = useAppDispatch();
   const { replaceSelectedRevision } = useSelectRevision();
-  const matches = useMediaQuery("(max-width:600px)");
+  const matches = useMediaQuery('(max-width:600px)');
 
   const handleFocus = (e: MouseEvent) => {
     if (
       (e.target as HTMLElement).matches(
         `#revision-search-container, 
-        #revision-search-container *`
+        #revision-search-container *`,
       ) &&
       // do not open search results when dropdown or cancel button is clicked
       !(e.target as HTMLElement).matches(
         `#revision-search-dropdown,
         #revision-search-dropdown *,
         #cancel-edit-revision-button, 
-        #cancel-edit-revision-button *`
+        #cancel-edit-revision-button *`,
       )
     ) {
       setFocused(true);
@@ -50,23 +70,23 @@ function RevisionSearch(props: RevisionSearchProps) {
   };
 
   const handleEscKeypress = (e: KeyboardEvent) => {
-    if (e.key === "Escape") {
+    if (e.key === 'Escape') {
       setFocused(false);
       dispatch(clearCheckedRevisions());
     }
   };
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleFocus);
+    document.addEventListener('mousedown', handleFocus);
     return () => {
-      document.removeEventListener("mousedown", handleFocus);
+      document.removeEventListener('mousedown', handleFocus);
     };
   }, []);
 
   useEffect(() => {
-    document.addEventListener("keydown", handleEscKeypress);
+    document.addEventListener('keydown', handleEscKeypress);
     return () => {
-      document.removeEventListener("keydown", handleEscKeypress);
+      document.removeEventListener('keydown', handleEscKeypress);
     };
   });
 
@@ -89,19 +109,19 @@ function RevisionSearch(props: RevisionSearchProps) {
       <Grid
         item
         xs={9}
-        className={`revision_search-input${matches ? "--mobile" : ""}`}
+        className={`revision_search-input${matches ? '--mobile' : ''}`}
       >
         <SearchInput setFocused={setFocused} view={view} />
         {searchResults.length > 0 && focused && (
           <SearchResultsList searchResults={searchResults} view={view} />
         )}
-        {view == "search" && searchResults.length > 0 && focused && (
+        {view == 'search' && searchResults.length > 0 && focused && (
           <AddRevisionButton setFocused={setFocused} />
         )}
       </Grid>
 
       <Grid item xs={9}>
-        {view == "compare-results" && setPopoverIsOpen && prevRevision && (
+        {view == 'compare-results' && setPopoverIsOpen && prevRevision && (
           <>
             {/* TODO: add functionality for buttons and improve styling */}
             <Button
@@ -135,29 +155,9 @@ function RevisionSearch(props: RevisionSearchProps) {
   );
 }
 
-const styles = {
-  container: style({
-    maxWidth: "810px",
-    paddingTop: "68px",
-    margin: "auto",
-    $nest: {
-      ".revision_search-dropdown": {
-        minWidth: "200px",
-        marginRight: "24px",
-      },
-      ".revision_search-input": {
-        maxWidth: "539px",
-      },
-      ".revision_search-input--mobile": {
-        maxWidth: "75%",
-      },
-    },
-  }),
-};
-
 interface RevisionSearchProps {
   searchResults: Revision[];
-  view: "compare-results" | "search";
+  view: 'compare-results' | 'search';
   setPopoverIsOpen?: Dispatch<SetStateAction<boolean>>;
   prevRevision?: Revision;
 }

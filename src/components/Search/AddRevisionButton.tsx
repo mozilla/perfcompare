@@ -1,8 +1,8 @@
-import type { Dispatch, SetStateAction } from "react";
+import type { Dispatch, SetStateAction } from 'react';
 
-import Button from "@mui/material/Button";
+import Button from '@mui/material/Button';
 
-import useSelectRevision from "../../hooks/useSelectRevision";
+import useSelectRevision from '../../hooks/useSelectRevision';
 
 export default function AddRevisionButton(props: AddRevisionButtonProps) {
   const { setFocused } = props;
