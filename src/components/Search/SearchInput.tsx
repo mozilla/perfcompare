@@ -1,27 +1,40 @@
-import type { Dispatch, SetStateAction } from 'react';
+import type { Dispatch, SetStateAction } from "react";
 
-import TextField from '@mui/material/TextField';
-import { connect } from 'react-redux';
+import TextField from "@mui/material/TextField";
+import FormControl from "@mui/material/FormControl";
+import SearchIcon from "@mui/icons-material/Search";
+import InputAdornment from "@mui/material/InputAdornment";
+import { connect } from "react-redux";
 
-import type { RootState } from '../../common/store';
-import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
+import type { RootState } from "../../common/store";
+import useHandleChangeSearch from "../../hooks/useHandleChangeSearch";
+import { InputStyles } from "../../styles/Input";
 
 function SearchInput(props: SearchInputProps) {
   const { setFocused, inputError, inputHelperText, view } = props;
   const { handleChangeSearch } = useHandleChangeSearch();
-  const size = view == 'compare-results' ? 'small' : undefined;
+  const size = view == "compare-results" ? "small" : undefined;
   return (
-    <TextField
-      error={inputError}
-      helperText={inputHelperText}
-      label="Search By Revision ID or Author Email"
-      id="search-revision-input"
-      onFocus={() => setFocused(true)}
-      variant="outlined"
-      sx={{ width: '100%' }}
-      onChange={(e) => handleChangeSearch(e)}
-      size={size}
-    />
+    <FormControl variant="outlined" fullWidth>
+      <TextField
+        error={inputError}
+        helperText={inputHelperText}
+        placeholder="Search By Revision ID or Author Email"
+        id="search-revision-input"
+        onFocus={() => setFocused(true)}
+        sx={{ width: "100%" }}
+        onChange={(e) => handleChangeSearch(e)}
+        size={size}
+        className={InputStyles.default}
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end">
+              <SearchIcon />
+            </InputAdornment>
+          ),
+        }}
+      />
+    </FormControl>
   );
 }
 
@@ -29,7 +42,7 @@ interface SearchInputProps {
   setFocused: Dispatch<SetStateAction<boolean>>;
   inputError: boolean;
   inputHelperText: string;
-  view: 'compare-results' | 'search';
+  view: "compare-results" | "search";
 }
 
 function mapStateToProps(state: RootState) {
