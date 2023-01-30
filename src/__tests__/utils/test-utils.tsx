@@ -1,3 +1,4 @@
+import { ThemeProvider, createTheme, Theme } from '@mui/material/styles';
 import { render as rtlRender } from '@testing-library/react';
 import { createMemoryHistory } from 'history';
 import { SnackbarProvider } from 'notistack';
@@ -6,6 +7,7 @@ import { Router } from 'react-router-dom';
 
 import type { Store } from '../../common/store';
 import SnackbarCloseButton from '../../components/Shared/SnackbarCloseButton';
+import useProtocolTheme from '../../theme/protocolTheme';
 
 type ChildrenProps = { children: React.ReactElement };
 
@@ -15,19 +17,24 @@ const createStoreProvider = (store: Store) => {
   };
 };
 
+type ThemeConfig = Partial<Theme> | null;
 const createRender = (store: Store) => {
-  function render(ui: React.ReactElement) {
+  function render(ui: React.ReactElement, themeConfig?: ThemeConfig) {
     function Wrapper({ children }: ChildrenProps) {
+      const { protocolTheme } = useProtocolTheme();
+      const theme = themeConfig ? createTheme(themeConfig) : protocolTheme;
       return (
-        <SnackbarProvider
-          maxSnack={3}
-          autoHideDuration={6000}
-          action={(snackbarKey) => (
-            <SnackbarCloseButton snackbarKey={snackbarKey} />
-          )}
-        >
-          <Provider store={store}>{children}</Provider>
-        </SnackbarProvider>
+        <ThemeProvider theme={theme}>
+          <SnackbarProvider
+            maxSnack={3}
+            autoHideDuration={6000}
+            action={(snackbarKey) => (
+              <SnackbarCloseButton snackbarKey={snackbarKey} />
+            )}
+          >
+            <Provider store={store}>{children}</Provider>
+          </SnackbarProvider>
+        </ThemeProvider>
       );
     }
     return rtlRender(ui, { wrapper: Wrapper });
@@ -42,6 +49,7 @@ const createRenderWithRouter = (store: Store) => {
       route = '/',
       history = createMemoryHistory({ initialEntries: [route] }),
     } = {},
+    theme: ThemeConfig = null,
   ) {
     const render = createRender(store);
     return {
@@ -49,6 +57,7 @@ const createRenderWithRouter = (store: Store) => {
         <Router location={history.location} navigator={history}>
           {ui}
         </Router>,
+        theme,
       ),
       history,
     };

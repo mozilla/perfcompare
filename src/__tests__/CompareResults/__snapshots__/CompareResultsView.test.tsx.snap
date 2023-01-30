@@ -4,32 +4,32 @@ exports[`CompareResults View Should match snapshot 1`] = `
 <body>
   <div>
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root css-11xur9t-MuiPaper-root-MuiTableContainer-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root css-w09ozj-MuiPaper-root-MuiTableContainer-root"
     >
       <table
         aria-label="a dense table"
-        class="MuiTable-root css-quj9j6-MuiTable-root"
+        class="MuiTable-root css-d8sagy-MuiTable-root"
       >
         <thead
           class="MuiTableHead-root css-15wwp11-MuiTableHead-root"
         >
           <tr
-            class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
+            class="MuiTableRow-root MuiTableRow-head css-1eza0l0-MuiTableRow-root"
           >
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-1l87mn7-MuiTableCell-root"
               scope="col"
             >
               Platform
               <button
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="platform-options-button"
                 tabindex="0"
                 type="button"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
                   data-testid="MoreVertIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
@@ -44,25 +44,25 @@ exports[`CompareResults View Should match snapshot 1`] = `
               </button>
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-1l87mn7-MuiTableCell-root"
               scope="col"
             >
               Graph
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeSmall css-1howxi1-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeSmall css-pmw8xp-MuiTableCell-root"
               scope="col"
             >
               Test Name
               <button
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="test-options-button"
                 tabindex="0"
                 type="button"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
                   data-testid="MoreVertIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
@@ -77,43 +77,43 @@ exports[`CompareResults View Should match snapshot 1`] = `
               </button>
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-1l87mn7-MuiTableCell-root"
               scope="col"
             >
               Base
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-1l87mn7-MuiTableCell-root"
               scope="col"
             >
               New
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-1l87mn7-MuiTableCell-root"
               scope="col"
             >
               Delta
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-1l87mn7-MuiTableCell-root"
               scope="col"
             >
               Status
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-1l87mn7-MuiTableCell-root"
               scope="col"
             >
               Confidence
               <button
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="confidence-options-button"
                 tabindex="0"
                 type="button"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
                   data-testid="MoreVertIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
@@ -128,7 +128,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
               </button>
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-12q85cb-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-1l87mn7-MuiTableCell-root"
               scope="col"
             >
               Total Runs
@@ -139,27 +139,27 @@ exports[`CompareResults View Should match snapshot 1`] = `
           class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
         >
           <tr
-            class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+            class="MuiTableRow-root MuiTableRow-hover css-1eza0l0-MuiTableRow-root"
             data-testid="table-row"
           >
             <td
               aria-label="macosx1015-64-shippable-qr"
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode osx css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode osx css-6qq5hg-MuiTableCell-root"
               data-mui-internal-clone-element="true"
             />
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-6qq5hg-MuiTableCell-root"
             >
               <a
                 aria-label="Graph link"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1ps4owl-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-e4zel8-MuiTypography-root-MuiLink-root"
                 href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000"
                 rel="noopener"
                 target="_blank"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
                   data-testid="TimelineIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
@@ -171,36 +171,36 @@ exports[`CompareResults View Should match snapshot 1`] = `
               </a>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-6qq5hg-MuiTableCell-root"
             >
               a11yr dhtml.html opt e10s fission stylo webrender
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-6qq5hg-MuiTableCell-root"
             >
               704.84
                
               ms
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-6qq5hg-MuiTableCell-root"
             >
               712.44
                
               ms
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-6qq5hg-MuiTableCell-root"
             >
               1.08
               %
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-6qq5hg-MuiTableCell-root"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-colorSuccess MuiSvgIcon-fontSizeMedium css-4b67si-MuiSvgIcon-root"
+                class="MuiSvgIcon-root MuiSvgIcon-colorSuccess MuiSvgIcon-fontSizeMedium css-116ao24-MuiSvgIcon-root"
                 data-testid="ThumbUpAltIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -213,11 +213,11 @@ exports[`CompareResults View Should match snapshot 1`] = `
                
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon low css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon low css-6qq5hg-MuiTableCell-root"
               data-testid="confidence-icon"
             />
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-6qq5hg-MuiTableCell-root"
             >
               1
               /
@@ -225,27 +225,27 @@ exports[`CompareResults View Should match snapshot 1`] = `
             </td>
           </tr>
           <tr
-            class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+            class="MuiTableRow-root MuiTableRow-hover css-1eza0l0-MuiTableRow-root"
             data-testid="table-row"
           >
             <td
               aria-label="linux1804-64-shippable-qr"
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode linux css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode linux css-6qq5hg-MuiTableCell-root"
               data-mui-internal-clone-element="true"
             />
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-6qq5hg-MuiTableCell-root"
             >
               <a
                 aria-label="Graph link"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1ps4owl-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-e4zel8-MuiTypography-root-MuiLink-root"
                 href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2Cedcc6311f15bdf7924ef3f0ccfd8b47ce1892212%2C1%2C1&timerange=5184000"
                 rel="noopener"
                 target="_blank"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
                   data-testid="TimelineIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
@@ -257,37 +257,37 @@ exports[`CompareResults View Should match snapshot 1`] = `
               </a>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-6qq5hg-MuiTableCell-root"
             >
               a11yr dhtml.html opt e10s fission stylo webrender
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-6qq5hg-MuiTableCell-root"
             >
               776.97
                
               ms
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-6qq5hg-MuiTableCell-root"
             >
               791.34
                
               ms
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-6qq5hg-MuiTableCell-root"
             >
               1.85
               %
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-6qq5hg-MuiTableCell-root"
             >
                
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-colorError MuiSvgIcon-fontSizeMedium css-1wxstni-MuiSvgIcon-root"
+                class="MuiSvgIcon-root MuiSvgIcon-colorError MuiSvgIcon-fontSizeMedium css-1uz6t4g-MuiSvgIcon-root"
                 data-testid="WarningIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -299,11 +299,11 @@ exports[`CompareResults View Should match snapshot 1`] = `
                
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon med css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon med css-6qq5hg-MuiTableCell-root"
               data-testid="confidence-icon"
             />
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-6qq5hg-MuiTableCell-root"
             >
               1
               /
@@ -311,27 +311,27 @@ exports[`CompareResults View Should match snapshot 1`] = `
             </td>
           </tr>
           <tr
-            class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+            class="MuiTableRow-root MuiTableRow-hover css-1eza0l0-MuiTableRow-root"
             data-testid="table-row"
           >
             <td
               aria-label="windows10-64-shippable-qr"
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode windows css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode windows css-6qq5hg-MuiTableCell-root"
               data-mui-internal-clone-element="true"
             />
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-6qq5hg-MuiTableCell-root"
             >
               <a
                 aria-label="Graph link"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1ps4owl-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-e4zel8-MuiTypography-root-MuiLink-root"
                 href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C3a6d4b6178678c3113c980b378bb83b2629926a0%2C1%2C1&timerange=5184000"
                 rel="noopener"
                 target="_blank"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
                   data-testid="TimelineIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
@@ -343,42 +343,42 @@ exports[`CompareResults View Should match snapshot 1`] = `
               </a>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-6qq5hg-MuiTableCell-root"
             >
               a11yr dhtml.html opt e10s fission stylo webrender
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-6qq5hg-MuiTableCell-root"
             >
               643.54
                
               ms
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-6qq5hg-MuiTableCell-root"
             >
               628.09
                
               ms
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-6qq5hg-MuiTableCell-root"
             >
               -2.4
               %
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-6qq5hg-MuiTableCell-root"
             >
                
                
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon high css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon high css-6qq5hg-MuiTableCell-root"
               data-testid="confidence-icon"
             />
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-6qq5hg-MuiTableCell-root"
             >
               1
               /
@@ -386,27 +386,27 @@ exports[`CompareResults View Should match snapshot 1`] = `
             </td>
           </tr>
           <tr
-            class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+            class="MuiTableRow-root MuiTableRow-hover css-1eza0l0-MuiTableRow-root"
             data-testid="table-row"
           >
             <td
               aria-label="windows10-64-shippable-qr"
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode windows css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode windows css-6qq5hg-MuiTableCell-root"
               data-mui-internal-clone-element="true"
             />
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-6qq5hg-MuiTableCell-root"
             >
               <a
                 aria-label="Graph link"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1ps4owl-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-e4zel8-MuiTypography-root-MuiLink-root"
                 href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C3a6d4b6178678c3113c980b378bb83b2629926a0%2C1%2C1&timerange=5184000"
                 rel="noopener"
                 target="_blank"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
                   data-testid="TimelineIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
@@ -418,50 +418,50 @@ exports[`CompareResults View Should match snapshot 1`] = `
               </a>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-6qq5hg-MuiTableCell-root"
             >
               a11yr dhtml.html opt e10s fission stylo webrender
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-6qq5hg-MuiTableCell-root"
             >
               643.54
                
               ms
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-6qq5hg-MuiTableCell-root"
             >
               628.09
                
               ms
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-6qq5hg-MuiTableCell-root"
             >
               -2.4
               %
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-6qq5hg-MuiTableCell-root"
             >
                
                
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall unknown-confidence css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall unknown-confidence css-6qq5hg-MuiTableCell-root"
               data-testid="confidence-icon"
             >
               <button
                 aria-label="Confidence not available"
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium missing-confidence-button css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium missing-confidence-button css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
                 data-mui-internal-clone-element="true"
                 tabindex="0"
                 type="button"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium missing-confidence-icon css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium missing-confidence-icon css-fuz6rv-MuiSvgIcon-root"
                   data-testid="QuestionMarkIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
@@ -476,7 +476,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
               </button>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-dsuxgy-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-6qq5hg-MuiTableCell-root"
             >
               1
               /
@@ -488,10 +488,10 @@ exports[`CompareResults View Should match snapshot 1`] = `
           class="MuiTableFooter-root css-9cgc89-MuiTableFooter-root"
         >
           <tr
-            class="MuiTableRow-root MuiTableRow-footer css-1q1u3t4-MuiTableRow-root"
+            class="MuiTableRow-root MuiTableRow-footer css-1eza0l0-MuiTableRow-root"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-footer MuiTableCell-sizeSmall MuiTablePagination-root css-m0bqz3-MuiTableCell-root-MuiTablePagination-root"
+              class="MuiTableCell-root MuiTableCell-footer MuiTableCell-sizeSmall MuiTablePagination-root css-3cyj5y-MuiTableCell-root-MuiTablePagination-root"
               colspan="8"
             >
               <div
@@ -501,13 +501,13 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   class="MuiTablePagination-spacer css-1psng7p-MuiTablePagination-spacer"
                 />
                 <p
-                  class="MuiTablePagination-selectLabel css-pdct74-MuiTablePagination-selectLabel"
+                  class="MuiTablePagination-selectLabel css-437z57-MuiTablePagination-selectLabel"
                   id=":r6:"
                 >
                   Rows per page:
                 </p>
                 <div
-                  class="MuiInputBase-root MuiInputBase-colorPrimary css-16c50h-MuiInputBase-root-MuiTablePagination-select"
+                  class="MuiInputBase-root MuiInputBase-colorPrimary css-9s8qn8-MuiInputBase-root-MuiTablePagination-select"
                   variant="standard"
                 >
                   <select
@@ -542,7 +542,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </select>
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiTablePagination-selectIcon MuiNativeSelect-icon MuiNativeSelect-iconStandard css-10bey84-MuiSvgIcon-root-MuiNativeSelect-icon"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiTablePagination-selectIcon MuiNativeSelect-icon MuiNativeSelect-iconStandard css-l5belf-MuiSvgIcon-root-MuiNativeSelect-icon"
                     data-testid="ArrowDropDownIcon"
                     focusable="false"
                     viewBox="0 0 24 24"
@@ -553,7 +553,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </svg>
                 </div>
                 <p
-                  class="MuiTablePagination-displayedRows css-levciy-MuiTablePagination-displayedRows"
+                  class="MuiTablePagination-displayedRows css-19c58e0-MuiTablePagination-displayedRows"
                 >
                   1–4 of 4
                 </p>
@@ -562,14 +562,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                 >
                   <button
                     aria-label="first page"
-                    class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
                     disabled=""
                     tabindex="-1"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
                       data-testid="FirstPageIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
@@ -581,14 +581,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </button>
                   <button
                     aria-label="previous page"
-                    class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
                     disabled=""
                     tabindex="-1"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
                       data-testid="KeyboardArrowLeftIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
@@ -600,14 +600,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </button>
                   <button
                     aria-label="next page"
-                    class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
                     disabled=""
                     tabindex="-1"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
                       data-testid="KeyboardArrowRightIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
@@ -619,14 +619,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </button>
                   <button
                     aria-label="last page"
-                    class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
                     disabled=""
                     tabindex="-1"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
                       data-testid="LastPageIcon"
                       focusable="false"
                       viewBox="0 0 24 24"

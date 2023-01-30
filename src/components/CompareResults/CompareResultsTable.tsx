@@ -8,9 +8,7 @@ import TableContainer from '@mui/material/TableContainer';
 
 import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
-import type {
-  CompareResultsState,
-} from '../../types/state';
+import type { CompareResultsState } from '../../types/state';
 import CompareTableStatus from './CompareTableStatus';
 import PaginatedCompareResults from './PaginatedCompareResults';
 

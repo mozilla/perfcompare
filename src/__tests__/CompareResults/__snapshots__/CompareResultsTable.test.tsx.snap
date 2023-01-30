@@ -4,11 +4,11 @@ exports[`Compare Results Table Should match snapshot 1`] = `
 <body>
   <div>
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root css-11xur9t-MuiPaper-root-MuiTableContainer-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root css-w09ozj-MuiPaper-root-MuiTableContainer-root"
     >
       <table
         aria-label="a dense table"
-        class="MuiTable-root css-quj9j6-MuiTable-root"
+        class="MuiTable-root css-d8sagy-MuiTable-root"
       />
     </div>
   </div>
