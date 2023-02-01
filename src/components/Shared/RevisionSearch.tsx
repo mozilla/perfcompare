@@ -22,18 +22,23 @@ import SearchResultsList from '../Search/SearchResultsList';
 const styles = {
   container: style({
     maxWidth: '810px',
-    paddingTop: '68px',
+		marginTop: '48px',
     margin: 'auto',
+		position: 'relative',
+		justifyContent: 'center',
     $nest: {
       '.revision_search-dropdown': {
         minWidth: '200px',
-        marginRight: '24px',
       },
       '.revision_search-input': {
         maxWidth: '539px',
+				position: 'absolute',
+				left: '14rem',
+				width: '100%',
       },
       '.revision_search-input--mobile': {
-        maxWidth: '75%',
+				top:'4rem',
+				left: '0',
       },
     },
   }),
@@ -45,7 +50,7 @@ function RevisionSearch(props: RevisionSearchProps) {
 
   const dispatch = useAppDispatch();
   const { replaceSelectedRevision } = useSelectRevision();
-  const matches = useMediaQuery('(max-width:600px)');
+  const matches = useMediaQuery('(max-width:768px)');
 
   const handleFocus = (e: MouseEvent) => {
     if (
@@ -94,7 +99,7 @@ function RevisionSearch(props: RevisionSearchProps) {
     <Grid
       container
       alignItems="flex-start"
-      justifyContent="center"
+      
       id="revision-search-container"
       className={styles.container}
     >
@@ -109,7 +114,7 @@ function RevisionSearch(props: RevisionSearchProps) {
       <Grid
         item
         xs={9}
-        className={`revision_search-input${matches ? '--mobile' : ''}`}
+        className={`revision_search-input ${matches ? 'revision_search-input--mobile' : ''}`}
       >
         <SearchInput setFocused={setFocused} view={view} />
         {searchResults.length > 0 && focused && (

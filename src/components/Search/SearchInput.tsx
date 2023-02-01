@@ -19,7 +19,7 @@ function SearchInput(props: SearchInputProps) {
       <TextField
         error={inputError}
         helperText={inputHelperText}
-        placeholder="Search By Revision ID or Author Email"
+				label= "Search By Revision ID or Author Email"
         id="search-revision-input"
         onFocus={() => setFocused(true)}
         sx={{ width: '100%' }}

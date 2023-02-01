@@ -24,8 +24,7 @@ function SearchDropdown(props: SearchDropdownProps) {
       <Select
         value={repository}
         labelId="select-repository-label"
-        id="select-repository"
-        label="Repository"
+        label="repository"
       >
         {Object.keys(repoMap).map((key) => (
           <MenuItem
