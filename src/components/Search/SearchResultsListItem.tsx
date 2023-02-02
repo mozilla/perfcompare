@@ -88,7 +88,7 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
         >
           <ListItemIcon className="search-revision-item-icon search-revision">
             <Checkbox
-              className="search-revision-item-checkbox search-revision"
+              className="search-revision-item-checkbox"
               edge="start"
               tabIndex={-1}
               disableRipple
@@ -97,7 +97,7 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
             />
           </ListItemIcon>
           <ListItemText
-            className="search-revision-item-text search-revision"
+            className="search-revision-item-text"
             primary={
               <React.Fragment>
                 <Typography
@@ -110,6 +110,7 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
                 >
                   {revisionHash}
                 </Typography>
+								
                 <div className="info-caption">
                   <div className="info-caption-item item-author">
                     {' '}

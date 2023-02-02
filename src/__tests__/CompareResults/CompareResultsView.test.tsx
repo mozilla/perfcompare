@@ -92,7 +92,7 @@ describe('SelectedRevisionsTableRow', () => {
     await user.click(input);
 
     expect(
-      screen.getByText('spamspamspam'),
+      screen.getAllByText('spamspamspam')[0],
     ).toBeInTheDocument();
 
     await user.keyboard('{Esc}');
