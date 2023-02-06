@@ -25,7 +25,6 @@ describe('SearchResultsList', () => {
     // focus input to show results
     const searchInput = screen.getByRole('textbox');
     await user.click(searchInput);
-
     expect(document.body).toMatchSnapshot();
   });
 

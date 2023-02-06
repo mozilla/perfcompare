@@ -30,7 +30,6 @@ describe('Search View', () => {
 
     renderWithRouter(<SearchView />);
     await act(async () => void jest.runOnlyPendingTimers());
-
     expect(document.body).toMatchSnapshot();
   });
 

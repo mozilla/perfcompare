@@ -18,7 +18,6 @@ describe('CompareResults View', () => {
     store.dispatch(setCompareResults(testCompareData));
 
     renderWithRouter(<CompareResultsTable mode="light" />);
-
     expect(document.body).toMatchSnapshot();
   });
 
