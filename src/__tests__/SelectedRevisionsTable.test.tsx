@@ -30,7 +30,6 @@ describe('Search View', () => {
 
     renderWithRouter(<SearchView />);
     await act(async () => void jest.runOnlyPendingTimers());
-
     expect(document.body).toMatchSnapshot();
   });
 
@@ -52,11 +51,11 @@ describe('Search View', () => {
     const searchInput = screen.getByRole('textbox');
     await user.click(searchInput);
 
-    const fleshWound = await screen.findByText(
-      "spam - it's just a flesh wound",
+    const fleshWound = await screen.findAllByText(
+      "it's just a flesh wound",
     );
 
-    await user.click(fleshWound);
+    await user.click(fleshWound[0]);
     const addRevision = screen.getByRole('button', { name: 'add revisions' });
     await user.click(addRevision);
 
@@ -109,7 +108,7 @@ describe('Search View', () => {
     const searchInput = screen.getByRole('textbox');
     await user.click(searchInput);
 
-    await user.click(screen.getByTestId('checkbox-4'));
+    await user.click(screen.getAllByTestId('checkbox-4')[0]);
 
     const addRevision = screen.getByRole('button', {
       name: 'add revisions',
@@ -139,8 +138,7 @@ describe('Search View', () => {
     const searchInput = screen.getByRole('textbox');
     await user.click(searchInput);
 
-    await user.click(screen.getByTestId('checkbox-0'));
-
+    await user.click(screen.getAllByTestId('checkbox-0')[0]);
     const addRevision = screen.getByRole('button', {
       name: 'add revisions',
     });
@@ -173,7 +171,7 @@ describe('Search View', () => {
     const searchInput = screen.getByRole('textbox');
     await user.click(searchInput);
 
-    await user.click(screen.getByTestId('checkbox-4'));
+    await user.click(screen.getAllByTestId('checkbox-4')[0]);
     await user.click(screen.getByTestId('replace-revision-button'));
     jest.runOnlyPendingTimers();
 
@@ -203,7 +201,7 @@ describe('Search View', () => {
     const searchInput = screen.getByRole('textbox');
     await user.click(searchInput);
 
-    await user.click(screen.getByTestId('checkbox-0'));
+    await user.click(screen.getAllByTestId('checkbox-0')[0]);
     await user.click(screen.getByTestId('replace-revision-button'));
     expect(
       screen.getByText('Revision coconut is already selected.'),

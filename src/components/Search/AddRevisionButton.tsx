@@ -1,6 +1,5 @@
 import type { Dispatch, SetStateAction } from 'react';
 
-import AddIcon from '@mui/icons-material/Add';
 import Button from '@mui/material/Button';
 
 import useSelectRevision from '../../hooks/useSelectRevision';
@@ -16,12 +15,14 @@ export default function AddRevisionButton(props: AddRevisionButtonProps) {
   return (
     <Button
       id="add-revision-button"
-      variant="contained"
+      variant="outlined"
       className="add-revision-button"
       aria-label="add revisions"
       onClick={handleAddRevision}
+      fullWidth
+      size="small"
     >
-      <AddIcon />
+      Add to compare
     </Button>
   );
 }
