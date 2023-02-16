@@ -60,7 +60,7 @@ const useHandleChangeSearch = () => {
 
     timeout = setTimeout(onTimeout, idleTime);
   };
-  return { handleChangeSearch };
+  return { handleChangeSearch, searchByRevisionOrEmail };
 };
 
 export default useHandleChangeSearch;

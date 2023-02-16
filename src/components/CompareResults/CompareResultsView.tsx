@@ -1,31 +1,39 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import { connect } from 'react-redux';
-import { useLocation } from 'react-router-dom';
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import { connect } from "react-redux";
+import { useLocation } from "react-router-dom";
 
-import type { RootState } from '../../common/store';
-import useFetchCompareResults from '../../hooks/useFetchCompareResults';
-import { Repository, Revision } from '../../types/state';
-import PerfCompareHeader from '../Shared/PerfCompareHeader';
-import SelectedRevisionsTable from '../Shared/SelectedRevisionsTable';
-import CompareResultsTable from './CompareResultsTable';
+import type { RootState } from "../../common/store";
+import useFetchCompareResults from "../../hooks/useFetchCompareResults";
+import useHandleChangeSearch from "../../hooks/useHandleChangeSearch";
+import { Repository, Revision } from "../../types/state";
+import PerfCompareHeader from "../Shared/PerfCompareHeader";
+import SelectedRevisionsTable from "../Shared/SelectedRevisionsTable";
+import CompareResultsTable from "./CompareResultsTable";
 
 function CompareResultsView(props: CompareResultsViewProps) {
   const { revisions, mode } = props;
 
   const location = useLocation();
   const { dispatchFetchCompareResults } = useFetchCompareResults();
+  const { searchByRevisionOrEmail } = useHandleChangeSearch();
 
   // TODO: if the revisions in the URL parameters are different from
   // currently selected revisions, set selected revisions to those parameters
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
-    const repos = searchParams.get('repos')?.split(',');
-    const revs = searchParams.get('revs')?.split(',');
-    void dispatchFetchCompareResults(repos as Repository['name'][], revs);
-  });
+    const repos = searchParams.get("repos")?.split(",");
+    const revs = searchParams.get("revs")?.split(",");
+    void dispatchFetchCompareResults(repos as Repository["name"][], revs);
+
+    if (revs && repos) {
+      revs.forEach((rev, index) => {
+        void searchByRevisionOrEmail(repos[index] as Repository["name"], rev);
+      });
+    }
+  }, []);
 
   return (
     <Container maxWidth="xl">
@@ -46,7 +54,7 @@ function CompareResultsView(props: CompareResultsViewProps) {
 
 interface CompareResultsViewProps {
   revisions: Revision[];
-  mode: 'light' | 'dark';
+  mode: "light" | "dark";
 }
 
 function mapStateToProps(state: RootState) {
