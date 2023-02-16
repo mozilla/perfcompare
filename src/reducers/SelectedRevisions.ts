@@ -1,14 +1,14 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { fetchRevisionByID } from "../thunks/searchThunk";
-import { Revision, SelectedRevisionsState } from "../types/state";
+import { fetchRevisionByID } from '../thunks/searchThunk';
+import { Revision, SelectedRevisionsState } from '../types/state';
 
 const initialState: SelectedRevisionsState = {
   revisions: [],
 };
 
 const selectedRevisions = createSlice({
-  name: "selectedRevisions",
+  name: 'selectedRevisions',
   initialState,
   reducers: {
     setSelectedRevisions(state, action: PayloadAction<Revision[]>) {
@@ -17,7 +17,7 @@ const selectedRevisions = createSlice({
     deleteRevision(state, action) {
       return {
         revisions: state.revisions.filter(
-          (revision) => revision.id !== action.payload
+          (revision) => revision.id !== action.payload,
         ),
       };
     },
@@ -28,7 +28,7 @@ const selectedRevisions = createSlice({
         .concat(action.payload[0])
         .filter(
           (revision, index, self) =>
-            self.findIndex((r) => r.id === revision.id) === index
+            self.findIndex((r) => r.id === revision.id) === index,
         );
     });
   },
