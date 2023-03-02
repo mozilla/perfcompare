@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import { repoMap } from '../../common/constants';
 import type { RootState } from '../../common/store';
 import useHandleChangeDropdown from '../../hooks/useHandleChangeDropdown';
+import { DefaultDropDownButton } from '../../styles/Buttons';
 import { InputStyles } from '../../styles/Input';
 
 function SearchDropdown(props: SearchDropdownProps) {
@@ -25,6 +26,7 @@ function SearchDropdown(props: SearchDropdownProps) {
         value={repository}
         labelId="select-repository-label"
         label="repository"
+				className={DefaultDropDownButton}
       >
         {Object.keys(repoMap).map((key) => (
           <MenuItem
