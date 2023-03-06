@@ -1,36 +1,84 @@
 import { style } from 'typestyle';
 
+import { Colors } from './Colors';
+
+const sharedFontStyles = {
+ FontStyle: 'normal',
+ color: Colors.PrimaryText,
+};
+
+const sharedFontStylesDark = {
+	FontStyle: 'normal',
+	color: Colors.ColorWhite,
+ };
+
 export const FontsRaw = {
-  Heading1: {
-    lineHeight: '16',
+  HeadingDefault: {
+    lineHeight: '22px',
 		fontWeight: '600',
-		fontSize: '14px',
+		fontSize: '17px',
+		fontFamily: 'SF Pro',
   },
 
-	BodyDefault: {
-		lineHeight: '16',
-		fontWeight: '400',
-		fontSize: '14px',
+	HeadingXS: {
+		lineHeight: '28px',
+		fontWeight: '700',
+		fontSize: '24px',
+		fontFamily: 'Metropolis',
 	},
 
-  BodySmallRegular: {
-		lineHeight: '14',
+  BodyDefault: {
+		lineHeight: '16px',
 		fontWeight: '400',
-		fontSize: '12px',
+		fontSize: '14px',
+		fontFamily: 'SF Pro',
   },
 
-  BodyXSmallRegular: {
-    lineHeight: '11',
+  BodySmall: {
+    lineHeight: '14px',
 		fontWeight: '400',
-		fontSize: '10px',
+		fontSize: '12px',
+		fontFamily: 'SF Pro',
+  },
+
+	HeadingDefaultDark: {
+    lineHeight: '22px',
+		fontWeight: '600',
+		fontSize: '17px',
+		fontFamily: 'SF Pro',
+  },
+
+	HeadingXSDark: {
+		lineHeight: '28px',
+		fontWeight: '700',
+		fontSize: '24px',
+		fontFamily: 'Metropolis',
+	},
+
+  BodyDefaultDark: {
+		lineHeight: '16px',
+		fontWeight: '400',
+		fontSize: '14px',
+		fontFamily: 'SF Pro',
+  },
+
+  BodySmallDark: {
+    lineHeight: '14px',
+		fontWeight: '400',
+		fontSize: '12px',
+		fontFamily: 'SF Pro',
   },
 };
 
 export const Fonts = {
-  Heading1: style(FontsRaw.Heading1),
-  BodyDefault: style(FontsRaw.BodyDefault),
-  BodySmallRegular: style(FontsRaw.BodySmallRegular),
-	BodyXSmallRegular: style(FontsRaw.BodyXSmallRegular),
+  HeadingDefault: style(FontsRaw.HeadingDefault, sharedFontStyles),
+  HeadingXS: style(FontsRaw.HeadingXS, sharedFontStyles),
+  BodyDefault: style(FontsRaw.BodyDefault, sharedFontStyles),
+	BodySmall: style(FontsRaw.BodySmall, sharedFontStyles),
+	HeadingDefaultDark: style(FontsRaw.HeadingDefaultDark, sharedFontStylesDark),
+  HeadingXSDark: style(FontsRaw.HeadingXSDark, sharedFontStylesDark),
+  BodyDefaultDark: style(FontsRaw.BodyDefaultDark, sharedFontStylesDark),
+	BodySmallDark: style(FontsRaw.BodySmallDark, sharedFontStylesDark),
 };
 
 export const FontSizeRaw = {
