@@ -22,7 +22,7 @@ PerfCompare is hosted on heroku, and is updated every time commits are pushed to
 ## Setup
 
 ### Requirements
-
+- [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - [nodejs](https://nodejs.org/en/download/)
 
 ### Installation
