@@ -1,5 +1,8 @@
 # PerfCompare
 
+**[Outreachy contributor information](https://docs.google.com/document/d/1NLKAR5B2Rc80lRUYWzU2ISrQCQhR4VsW5Qkz1hxE5n8/edit?usp=sharing)**
+_____
+
 [![CircleCI](https://circleci.com/gh/mozilla/perfcompare/tree/master.svg?style=shield)](https://circleci.com/gh/mozilla/perfcompare/tree/master)
 [![codecov](https://codecov.io/gh/mozilla/perfcompare/branch/master/graph/badge.svg?token=XHP440JFDQ)](https://codecov.io/gh/mozilla/perfcompare)
 ![GitHub issues](https://img.shields.io/github/issues/mozilla/perfcompare)
@@ -8,8 +11,6 @@
 Performance Comparison Tool
 
 ![screenshot](screenshot.png)
-
-[Outreachy contributor information](https://docs.google.com/document/d/1NLKAR5B2Rc80lRUYWzU2ISrQCQhR4VsW5Qkz1hxE5n8/edit?usp=sharing)
 
 ## Deployments
 
