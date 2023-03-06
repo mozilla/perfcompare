@@ -9,6 +9,8 @@ Performance Comparison Tool
 
 ![screenshot](screenshot.png)
 
+[Outreachy contributor information](https://docs.google.com/document/d/1NLKAR5B2Rc80lRUYWzU2ISrQCQhR4VsW5Qkz1hxE5n8/edit?usp=sharing)
+
 ## Deployments
 
 PerfCompare is hosted on heroku, and is updated every time commits are pushed to the following branches:
