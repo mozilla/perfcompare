@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 
@@ -44,4 +45,6 @@ interface SearchResultsListProps {
   view: 'compare-results' | 'search';
 }
 
-export default SearchResultsList;
+const SearchResultsListMemo = memo(SearchResultsList)
+
+export default SearchResultsListMemo;
