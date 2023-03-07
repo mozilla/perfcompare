@@ -98,7 +98,7 @@ const components = {
           overflow: 'hidden',
           textOverflow: 'ellipsis',
           whiteSpace: 'nowrap',
-          maxWidth: '450px',
+          maxWidth: '300px',
         },
         '.graph-icon-color:hover': {
           borderBottom: '1px dotted blue',
