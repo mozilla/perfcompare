@@ -133,8 +133,7 @@ const components = {
           backgroundImage: `url(${android})`,
         },
         '&.unknown-confidence': {
-          display: 'flex',
-          flexDirection: 'column',
+          textAlign: 'center',
         },
       },
     },
@@ -210,6 +209,7 @@ const components = {
         '&.missing-confidence-button': {
           borderRadius: '0',
           paddingBottom: '0',
+          paddingTop: '0',
 
           '&:hover': {
             backgroundColor: 'transparent',
