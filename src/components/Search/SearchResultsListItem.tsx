@@ -19,6 +19,7 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
   const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);
   const maxRevisions = view == 'compare-results' ? 1 : 4;
+  const label = { inputProps: { 'aria-label': `'${commitMessage}' by '${item.author}'` } };
 
   return (
     <>
@@ -38,6 +39,7 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
               disableRipple
               data-testid={`checkbox-${index}`}
               checked={isChecked}
+              {...label}
             />
           </ListItemIcon>
           <ListItemText
