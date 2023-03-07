@@ -8,7 +8,7 @@ _____
 ![GitHub issues](https://img.shields.io/github/issues/mozilla/perfcompare)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/mozilla/perfcompare)
 
-Performance Comparison Tool
+Performance Comparison Tools
 
 ![screenshot](screenshot.png)
 
