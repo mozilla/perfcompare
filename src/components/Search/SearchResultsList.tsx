@@ -1,4 +1,5 @@
-import { memo } from 'react'
+import { memo } from 'react';
+
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 
@@ -45,6 +46,6 @@ interface SearchResultsListProps {
   view: 'compare-results' | 'search';
 }
 
-const SearchResultsListMemoized = memo(SearchResultsList)
+const SearchResultsListMemoized = memo(SearchResultsList);
 
 export default SearchResultsListMemoized;
