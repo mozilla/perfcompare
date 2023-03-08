@@ -57,6 +57,7 @@
     "@babel/preset-typescript": "^7.18.6",
     "@babel/runtime": "^7.18.6",
     "@jest/types": "^28.1.3",
+    "@svgr/webpack": "^6.5.1",
     "@swc/core": "^1.2.233",
     "@swc/jest": "^0.2.21",
     "@testing-library/jest-dom": "^5.16.4",
