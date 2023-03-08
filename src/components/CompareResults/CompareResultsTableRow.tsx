@@ -25,7 +25,7 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
           )}`}
         ></TableCell>
       </Tooltip>
-      <TableCell>
+      <TableCell align="center">
         <Link
           href={result.graphs_link}
           className={`background-icon ${mode}-mode graph-icon-color`}
@@ -36,27 +36,27 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
           <TimelineIcon />
         </Link>
       </TableCell>
-      <TableCell>{result.header_name}</TableCell>
-      <TableCell>
+      <TableCell >{result.header_name}</TableCell>
+      <TableCell align="center">
         {result.base_median_value} {result.base_measurement_unit}
       </TableCell>
-      <TableCell>
+      <TableCell align="center">
         {result.new_median_value} {result.new_measurement_unit}
       </TableCell>
-      <TableCell>{result.delta_percentage}%</TableCell>
-      <TableCell>
+      <TableCell align="center">{result.delta_percentage}%</TableCell>
+      <TableCell align="center">
         {result.is_improvement && <ThumbUpAltIcon color="success" />}{' '}
         {result.is_regression && <WarningIcon color="error" />}{' '}
       </TableCell>
       {result.confidence_text ? (
-        <TableCell
+        <TableCell align="center"
           data-testid="confidence-icon"
           className={`background-icon ${setConfidenceClassName(
             result.confidence_text,
           )}`}
         ></TableCell>
       ) : (
-        <TableCell
+        <TableCell align="center"
           data-testid="confidence-icon"
           className={`${setConfidenceClassName(result.confidence_text)}`}
         >
@@ -68,7 +68,7 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
         </TableCell>
       )}
 
-      <TableCell>
+      <TableCell align="center">
         {result.base_runs.length}/{result.new_runs.length}
       </TableCell>
     </TableRow>
