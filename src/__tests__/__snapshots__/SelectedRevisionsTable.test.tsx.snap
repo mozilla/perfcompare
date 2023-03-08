@@ -461,7 +461,7 @@ exports[`Search View should match snapshot 1`] = `
               repository
             </label>
             <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-11q0f3f-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl f169iaw6 css-11q0f3f-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
             >
               <div
                 aria-expanded="false"

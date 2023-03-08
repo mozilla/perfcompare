@@ -40,7 +40,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
               repository
             </label>
             <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-11q0f3f-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl f169iaw6 css-11q0f3f-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
             >
               <div
                 aria-expanded="false"
@@ -194,7 +194,7 @@ exports[`Search View should hide search results when clicking outside of search 
               repository
             </label>
             <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-11q0f3f-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl f169iaw6 css-11q0f3f-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
             >
               <div
                 aria-expanded="false"
@@ -348,7 +348,7 @@ exports[`Search View should not hide search results when clicking search results
               repository
             </label>
             <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-11q0f3f-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl f169iaw6 css-11q0f3f-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
             >
               <div
                 aria-expanded="false"
