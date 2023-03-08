@@ -3,7 +3,7 @@ import type { Config } from '@jest/types';
 const config: Config.InitialOptions = {
   roots: ['<rootDir>/src'],
   collectCoverageFrom: ['src/**/*.{js,ts,tsx}', '!src/**/*.d.ts'],
-  coveragePathIgnorePatterns: ['__tests__', 'index'],
+  coveragePathIgnorePatterns: ['__tests__', 'index', 'resources', 'styles'],
   setupFiles: ['react-app-polyfill/jsdom'],
   setupFilesAfterEnv: ["<rootDir>/src/__tests__/utils/setupTests.ts"],
   testMatch: [
