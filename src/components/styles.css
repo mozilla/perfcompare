@@ -1,0 +1,45 @@
+@media only screen and (max-width: 767px) {
+    /* Adjust the layout and styles for small screens */
+    .MuiAlert-root {
+      font-size: 14px;
+      padding: 8px;
+    }
+    .MuiBox-root {
+      flex-direction: column-reverse;
+    }
+    .MuiSnackbarContent-root {
+      font-size: 14px;
+      padding: 8px;
+    }
+  }
+  
+  @media only screen and (min-width: 768px) and (max-width: 1023px) {
+    /* Adjust the layout and styles for medium screens */
+    .MuiAlert-root {
+      font-size: 16px;
+      padding: 12px;
+    }
+    .MuiBox-root {
+      flex-direction: row;
+    }
+    .MuiSnackbarContent-root {
+      font-size: 16px;
+      padding: 12px;
+    }
+  }
+  
+  @media only screen and (min-width: 1024px) {
+    /* Adjust the layout and styles for large screens */
+    .MuiAlert-root {
+      font-size: 18px;
+      padding: 16px;
+    }
+    .MuiBox-root {
+      flex-direction: row;
+    }
+    .MuiSnackbarContent-root {
+      font-size: 18px;
+      padding: 16px;
+    }
+  }
+  
