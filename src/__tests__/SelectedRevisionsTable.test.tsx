@@ -80,7 +80,7 @@ describe('Search View', () => {
     renderWithRouter(<SearchView />);
 
     expect(screen.queryByText('Commit Message')).toBeInTheDocument();
-    const button = document.querySelectorAll('#close-button');
+    const button = document.querySelectorAll('.close-button');
 
     await user.click(button[0]);
     await user.click(button[1]);
