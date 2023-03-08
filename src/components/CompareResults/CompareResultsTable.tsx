@@ -30,15 +30,15 @@ function CompareResultsTable(props: CompareResultsProps) {
               aria-label="a dense table"
             >
               <colgroup>
-      <col style={{width:'10%'}}/>
-      <col style={{width:'10%'}}/>
-      <col style={{width:'20%'}}/>
-      <col style={{width:'10%'}}/>
-      <col style={{width:'10%'}}/>
-      <col style={{width:'10%'}}/>
-      <col style={{width:'10%'}}/>
-      <col style={{width:'12%'}}/>
-      <col style={{width:'8%'}}/>
+      <col style={{ width:'10%' }}/>
+      <col style={{ width:'10%' }}/>
+      <col style={{ width:'20%' }}/>
+      <col style={{ width:'10%' }}/>
+      <col style={{ width:'10%' }}/>
+      <col style={{ width:'10%' }}/>
+      <col style={{ width:'10%' }}/>
+      <col style={{ width:'12%' }}/>
+      <col style={{ width:'8%' }}/>
    </colgroup>
               <PaginatedCompareResults mode={mode} />
             </Table>
