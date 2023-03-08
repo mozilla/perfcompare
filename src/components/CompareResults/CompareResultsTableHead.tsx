@@ -132,7 +132,7 @@ const CompareResultsTableHead = () => {
             }
 
             return (
-              <TableCell key={index} align={align}>
+              <TableCell key={index} align={align} sx={{ width:100, textAlign: 'start' }}>
                 {label}
                 {filterKeys.includes(headerId) && (
                   <React.Fragment>
