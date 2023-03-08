@@ -166,7 +166,7 @@ const CompareResultsTableHead = () => {
                 )}
               </TableCell>
             );
-          },
+          }
         )}
       </TableRow>
     </TableHead>
