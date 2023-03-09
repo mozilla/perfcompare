@@ -98,3 +98,10 @@ export type CompareResultsState = {
   loading: boolean;
   error: string | undefined;
 };
+
+export type RootStateType ={
+  search: SearchState;
+  checkedRevisions: CheckedRevisionsState;
+  selectedRevisions: SelectedRevisionsState;
+  compareResults: CompareResultsState;
+}

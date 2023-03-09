@@ -16,7 +16,7 @@ import { ActiveFilters } from '../../types/types';
 function FilterOptionsList(props: FilterOptionsListProps) {
   const { options, column, closeOptions }: FilterOptionsListProps = props;
   const { setFilters, filterResults } = useFilterCompareResults();
-  const activeFilters: ActiveFilters = useAppSelector(
+  const activeFilters = useAppSelector(
     (state: RootState) => state.filterCompareResults.activeFilters,
   );
 

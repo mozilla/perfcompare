@@ -6,7 +6,7 @@ import { ActiveFilters } from '../../types/types';
 
 const FilterStatusChip = (props: FilterStatusChipProps) => {
   const { color } = props;
-  const activeFilters: ActiveFilters = useAppSelector(
+  const activeFilters = useAppSelector(
     (state: RootState) => state.filterCompareResults.activeFilters,
   );
 

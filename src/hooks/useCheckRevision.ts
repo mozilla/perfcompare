@@ -8,7 +8,7 @@ const useCheckRevision = () => {
   const { enqueueSnackbar } = useSnackbar();
   const dispatch = useAppDispatch();
 
-  const checkedRevisions: Revision[] = useAppSelector(
+  const checkedRevisions = useAppSelector(
     (state) => state.checkedRevisions.revisions,
   );
 

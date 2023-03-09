@@ -99,9 +99,7 @@ const filterOptions: FilterOptions = {
 const filterKeys = Object.keys(filterOptions);
 
 const CompareResultsTableHead = () => {
-  const compareResults: CompareResultsItem[] = useAppSelector(
-    (state) => state.compareResults.data,
-  );
+  const compareResults = useAppSelector((state) => state.compareResults.data);
 
   filterOptions.platform = new Set(
     compareResults.map((result) => result.platform),

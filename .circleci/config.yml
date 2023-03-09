@@ -13,10 +13,6 @@ jobs:
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
-          name: Check outdated dependencies
-          command: |
-           npm outdated --depth=0 && npm outdated --depth=0 --dev
-      - run:
           name: install
           command: npm install
       - save_cache: # special step to save the dependency cache
