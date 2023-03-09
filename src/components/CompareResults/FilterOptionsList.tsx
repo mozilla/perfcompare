@@ -11,7 +11,6 @@ import {
 import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
 import useFilterCompareResults from '../../hooks/useFilterCompareResults';
-import { ActiveFilters } from '../../types/types';
 
 function FilterOptionsList(props: FilterOptionsListProps) {
   const { options, column, closeOptions }: FilterOptionsListProps = props;
