@@ -8,6 +8,7 @@ import {
   resetFilters,
 } from '../reducers/FilterCompareResultsSlice';
 import { CompareResultsItem } from '../types/state';
+
 import { ActiveFilters, FilteredResults, FilterValue } from '../types/types';
 import { useAppSelector } from './app';
 
