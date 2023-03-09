@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import * as React from 'react';
 
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
@@ -17,6 +18,7 @@ import type { Revision } from '../../types/state';
 import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
 
 const styles = {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
   listItemButton: style({
     $nest: {
       '.MuiListItem-root': {
@@ -110,7 +112,7 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
                 >
                   {revisionHash}
                 </Typography>
-								
+
                 <div className="info-caption">
                   <div className="info-caption-item item-author">
                     {' '}
@@ -140,7 +142,6 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
     </>
   );
 }
-
 
 interface SearchResultsListItemProps {
   index: number;

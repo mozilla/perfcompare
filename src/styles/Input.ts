@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { style } from 'typestyle';
 
-import { FontSizeRaw } from './Fonts';
+import { FontSizeRaw, FontsRaw } from './Fonts';
 import { Spacing } from './Spacing';
 
 const padding = '8px 4px 8px 8px';
@@ -16,11 +16,14 @@ export const InputStyles = {
         top,
       },
       input: {
+				...FontsRaw.BodyDefault,
         padding,
+				height: 'auto',
       },
     },
   }),
   dropDown: style({
+		height: '32px',
     $nest: {
       '.MuiSelect-select': {
         padding,

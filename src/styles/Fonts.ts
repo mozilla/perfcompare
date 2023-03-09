@@ -1,72 +1,76 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { style } from 'typestyle';
 
 import { Colors } from './Colors';
 
 const sharedFontStyles = {
- FontStyle: 'normal',
+ fontStyle: 'normal',
  color: Colors.PrimaryText,
 };
 
 const sharedFontStylesDark = {
-	FontStyle: 'normal',
+	fontStyle: 'normal',
 	color: Colors.ColorWhite,
  };
 
+ //fontFamily: 'SF Pro',
 export const FontsRaw = {
   HeadingDefault: {
     lineHeight: '22px',
 		fontWeight: '600',
 		fontSize: '17px',
-		fontFamily: 'SF Pro',
   },
 
+	//fontFamily: 'Metropolis',
 	HeadingXS: {
 		lineHeight: '28px',
 		fontWeight: '700',
 		fontSize: '24px',
-		fontFamily: 'Metropolis',
 	},
 
+	//fontFamily: 'SF Pro',
   BodyDefault: {
 		lineHeight: '16px',
 		fontWeight: '400',
 		fontSize: '14px',
-		fontFamily: 'SF Pro',
   },
 
+	//fontFamily: 'SF Pro',
   BodySmall: {
     lineHeight: '14px',
 		fontWeight: '400',
 		fontSize: '12px',
-		fontFamily: 'SF Pro',
   },
 
+	//fontFamily: 'SF Pro'
 	HeadingDefaultDark: {
     lineHeight: '22px',
 		fontWeight: '600',
 		fontSize: '17px',
-		fontFamily: 'SF Pro',
   },
 
+	//fontFamily: 'Metropolis',
 	HeadingXSDark: {
 		lineHeight: '28px',
 		fontWeight: '700',
 		fontSize: '24px',
-		fontFamily: 'Metropolis',
+	
 	},
 
+	//fontFamily: 'SF Pro',
   BodyDefaultDark: {
 		lineHeight: '16px',
 		fontWeight: '400',
 		fontSize: '14px',
-		fontFamily: 'SF Pro',
+		
   },
 
+	//fontFamily: 'SF Pro',
   BodySmallDark: {
     lineHeight: '14px',
 		fontWeight: '400',
 		fontSize: '12px',
-		fontFamily: 'SF Pro',
   },
 };
 

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { style } from 'typestyle';
 
 import { Colors } from './Colors';
@@ -64,6 +66,7 @@ export const SecondaryButtonDark = style({
 export const DefaultDropDownButton = style({
   backgroundColor: Colors.SecondaryDefault,
 	padding: dropDownPadding,
+	height: '32px',
   $nest: {
 		'.MuiSelect-select': {
 			color: Colors.PrimaryText,

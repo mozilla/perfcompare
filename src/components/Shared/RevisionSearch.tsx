@@ -8,11 +8,11 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { connect } from 'react-redux';
 import { style } from 'typestyle';
 
-
 import { RootState } from '../../common/store';
 import { useAppDispatch } from '../../hooks/app';
 import useSelectRevision from '../../hooks/useSelectRevision';
 import { clearCheckedRevisions } from '../../reducers/CheckedRevisions';
+import { Spacing } from '../../styles/Spacing';
 import type { Revision } from '../../types/state';
 import AddRevisionButton from '../Search/AddRevisionButton';
 import SearchDropdown from '../Search/SearchDropdown';
@@ -20,6 +20,7 @@ import SearchInput from '../Search/SearchInput';
 import SearchResultsList from '../Search/SearchResultsList';
 
 const styles = {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
   container: style({
     maxWidth: '810px',
 		marginTop: '48px',
@@ -29,6 +30,11 @@ const styles = {
     $nest: {
       '.revision_search-dropdown': {
         minWidth: '200px',
+				$nest:{
+					'.MuiFormControl-root':{
+						margin: `0px 0px 0px ${Spacing.Medium + 4}px`,
+					},
+				},
       },
       '.revision_search-input': {
         maxWidth: '539px',

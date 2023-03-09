@@ -22,7 +22,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
         class="MuiGrid-root MuiGrid-item compare-button-section css-j8gwlw-MuiGrid-root"
       />
       <div
-        class="MuiGrid-root MuiGrid-container f1g011md css-1ljzhs0-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container f1uwee9y css-1ljzhs0-MuiGrid-root"
         id="revision-search-container"
       >
         <div
@@ -30,7 +30,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
           id="revision-search-dropdown"
         >
           <div
-            class="MuiFormControl-root f4dd828 css-1anm9we-MuiFormControl-root"
+            class="MuiFormControl-root f12tflng f17k9m91 css-1anm9we-MuiFormControl-root"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-mru796-MuiFormLabel-root-MuiInputLabel-root"
@@ -40,7 +40,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
               repository
             </label>
             <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl f169iaw6 css-11q0f3f-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl fzus2vl css-11q0f3f-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
             >
               <div
                 aria-expanded="false"
@@ -91,7 +91,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
             class="MuiFormControl-root MuiFormControl-fullWidth css-q8hpuo-MuiFormControl-root"
           >
             <div
-              class="MuiFormControl-root MuiTextField-root f1aqlyxg css-136h9lv-MuiFormControl-root-MuiTextField-root"
+              class="MuiFormControl-root MuiTextField-root f1ci76mj f17k9m91 css-136h9lv-MuiFormControl-root-MuiTextField-root"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-focused MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-mru796-MuiFormLabel-root-MuiInputLabel-root"
@@ -102,15 +102,8 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 Search By Revision ID or Author Email
               </label>
               <div
-                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-focused MuiInputBase-formControl MuiInputBase-adornedEnd css-1m7it6k-MuiInputBase-root-MuiOutlinedInput-root"
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-focused MuiInputBase-formControl MuiInputBase-adornedStart css-1695314-MuiInputBase-root-MuiOutlinedInput-root"
               >
-                <input
-                  aria-invalid="false"
-                  class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
-                  id="search-revision-input"
-                  type="text"
-                  value=""
-                />
                 <div
                   class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
                 >
@@ -126,6 +119,14 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     />
                   </svg>
                 </div>
+                <input
+                  aria-invalid="false"
+                  class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input"
+                  id="search-revision-input"
+                  placeholder="Search By Revision ID or Author Email"
+                  type="text"
+                  value=""
+                />
                 <fieldset
                   aria-hidden="true"
                   class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
