@@ -1,7 +1,14 @@
 import React from 'react';
 
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { IconButton, Popover } from '@mui/material';
+import {
+  ClickAwayListener,
+  Fade,
+  IconButton,
+  Paper,
+  Popper,
+  PopperPlacementType,
+} from '@mui/material';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
@@ -52,11 +59,7 @@ const tableHead: CompareResultsTableHeader[] = [
     key: 'delta',
     align: 'center',
   },
-  { id: 'status', 
-    label: 'Status',
-    key: 'status',
-    align: 'center',
-  },
+  { id: 'status', label: 'Status', key: 'status', align: 'center' },
   {
     id: 'confidence',
     label: 'Confidence',
@@ -77,10 +80,20 @@ interface FilterOptions {
   confidence: Set<ConfidenceText>;
 }
 
+interface ActivePopper {
+  options: string[] | null;
+  headerId: string | null;
+}
+
 const filterOptions: FilterOptions = {
   platform: new Set([]),
   test: new Set([]),
-  confidence: new Set(['low', 'med', 'high', 'not available'] as ConfidenceText[]),
+  confidence: new Set([
+    'low',
+    'med',
+    'high',
+    'not available',
+  ] as ConfidenceText[]),
 };
 
 const filterKeys = Object.keys(filterOptions);
@@ -98,39 +111,72 @@ const CompareResultsTableHead = () => {
     ...compareResults.map((result) => result.test),
   ]);
 
-  const [openFilter, setOpenFilter] = React.useState<string | null>(null);
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
     null,
   );
 
-  const open = Boolean(anchorEl);
-
-  const handleOpenOptions = (
-    event: React.MouseEvent<HTMLButtonElement>,
-    key: string,
-  ) => {
-    setOpenFilter(key);
-    setAnchorEl(event.currentTarget);
-  };
+  const [openPopper, setOpenPopper] = React.useState(false);
+  const [placement, setPlacement] = React.useState<PopperPlacementType>();
+  const [activePopper, setActivePopper] = React.useState<ActivePopper>();
 
   const handleCloseOptions = () => {
     setAnchorEl(null);
-    setOpenFilter(null);
+    setOpenPopper(false);
+  };
+
+  const handleClickPopper =
+    (newPlacement: PopperPlacementType, headerId: string, options: string[]) =>
+    (event: React.MouseEvent<HTMLButtonElement>) => {
+      event.stopPropagation();
+      if (anchorEl === null || event.currentTarget === anchorEl) {
+        setOpenPopper((prev) => !prev);
+        setAnchorEl(event.currentTarget);
+      }
+      if (event.currentTarget !== anchorEl) {
+        setOpenPopper(true);
+        setPlacement(newPlacement);
+        setAnchorEl(event.currentTarget);
+      }
+      setActivePopper({ options, headerId });
+    };
+
+  const handleOnClickAway = () => {
+    if (openPopper) {
+      setAnchorEl(null);
+      setOpenPopper(false);
+    }
   };
 
   return (
     <TableHead>
       <TableRow>
+        <ClickAwayListener onClickAway={handleOnClickAway}>
+          <Popper
+            open={openPopper}
+            anchorEl={anchorEl}
+            placement={placement}
+            transition
+          >
+            {({ TransitionProps }) => (
+              <Fade {...TransitionProps}>
+                <Paper>
+                  <FilterOptionsList
+                    options={activePopper?.options as string[]}
+                    column={activePopper?.headerId as string}
+                    closeOptions={handleCloseOptions}
+                  />
+                </Paper>
+              </Fade>
+            )}
+          </Popper>
+        </ClickAwayListener>
         {tableHead.map(
           ({ label, key, align }: CompareResultsTableHeader, index) => {
             let options: string[] | ConfidenceText[] = [];
-            let id = '';
             const headerId = key as keyof typeof filterOptions;
             if (filterKeys.includes(headerId)) {
               options = Array.from(filterOptions[headerId].values());
-              id = open ? `${key as keyof typeof filterOptions}` : '';
             }
-
             return (
               <TableCell key={index} align={align}>
                 {label}
@@ -138,30 +184,14 @@ const CompareResultsTableHead = () => {
                   <React.Fragment>
                     <IconButton
                       data-testid={`${headerId}-options-button`}
-                      onClick={(e) => handleOpenOptions(e, headerId)}
+                      onClick={handleClickPopper(
+                        'bottom-end',
+                        headerId,
+                        options,
+                      )}
                     >
                       <MoreVertIcon />
                     </IconButton>
-                    <Popover
-                      id={id}
-                      open={openFilter === id}
-                      anchorEl={anchorEl}
-                      onClose={handleCloseOptions}
-                      anchorOrigin={{
-                        vertical: 'bottom',
-                        horizontal: 'center',
-                      }}
-                      transformOrigin={{
-                        vertical: 'top',
-                        horizontal: 'right',
-                      }}
-                    >
-                      <FilterOptionsList
-                        options={options}
-                        column={headerId}
-                        closeOptions={handleCloseOptions}
-                      />
-                    </Popover>
                   </React.Fragment>
                 )}
               </TableCell>
