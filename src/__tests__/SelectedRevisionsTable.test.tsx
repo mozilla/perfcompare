@@ -24,8 +24,8 @@ describe('Search View', () => {
       }),
     ) as jest.Mock;
 
-    // start with four selected revisions
-    const selectedRevisions = testData.slice(0, 4);
+    // start with two selected revisions
+    const selectedRevisions =  testData.filter((element, index) => index === 0 || index === 2);
     store.dispatch(setSelectedRevisions(selectedRevisions));
 
     renderWithRouter(<SearchView />);

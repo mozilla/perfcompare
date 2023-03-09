@@ -36,7 +36,7 @@ describe('Snackbar', () => {
 
     const alert = screen.getByText(maxRevisionsError);
 
-    const closeButton = screen.getByTestId('alert-close');
+    const closeButton = screen.getByTestId('CloseIcon');
     await user.click(closeButton);
 
     await waitForElementToBeRemoved(closeButton);
