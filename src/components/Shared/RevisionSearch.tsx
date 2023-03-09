@@ -56,14 +56,14 @@ function RevisionSearch(props: RevisionSearchProps) {
     if (
       (e.target as HTMLElement).matches(
         `#revision-search-container, 
-        #revision-search-container *`
+        #revision-search-container *`,
       ) &&
       // do not open search results when dropdown or cancel button is clicked
       !(e.target as HTMLElement).matches(
         `#revision-search-dropdown,
         #revision-search-dropdown *,
         #cancel-edit-revision-button, 
-        #cancel-edit-revision-button *`
+        #cancel-edit-revision-button *`,
       )
     ) {
       setFocused(true);
