@@ -1,7 +1,7 @@
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
-import { featureNotSupportedError } from '../../common/constants';
+import { differingProjectsWarning, featureNotSupportedError } from '../../common/constants';
 import SearchView from '../../components/Search/SearchView';
 import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
 import getTestData from '../utils/fixtures';
@@ -250,6 +250,20 @@ describe('Search View', () => {
 
     expect(screen.getByText(featureNotSupportedError)).toBeInTheDocument();
     expect(history.location.pathname).toEqual('/');
+  });
+
+  it('render warning when comparing different project builds', async () => {
+    const { testData } = getTestData();
+    store.dispatch(setSelectedRevisions(testData.slice(0, 2)));
+    const { history } = renderWithRouter(<SearchView />);
+    expect(history.location.pathname).toEqual('/');
+
+    const user = userEvent.setup({ delay: null });
+
+    const compareButton = document.querySelector('.compare-button');
+    await user.click(compareButton as HTMLElement);
+
+    expect(screen.getByText(differingProjectsWarning)).toBeInTheDocument();
   });
 
         it('disable comparing more than two revisions', async () => {

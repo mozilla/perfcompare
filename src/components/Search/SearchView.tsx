@@ -7,7 +7,8 @@ import Grid from '@mui/material/Grid';
 import { useSnackbar, VariantType } from 'notistack';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { repoMap, featureNotSupportedError, differingProjectsWarnings } from '../../common/constants';
+
+import { repoMap, featureNotSupportedError, differingProjectsWarning } from '../../common/constants';
 import type { RootState } from '../../common/store';
 import useFilterCompareResults from '../../hooks/useFilterCompareResults';
 import { Revision } from '../../types/state';
@@ -46,7 +47,7 @@ function SearchView(props: SearchViewProps) {
         if (selectedRevisions.length) {
             const uniqueRepos = new Set(selectedRevisions.map((rev) => rev.repository_id));
             if (uniqueRepos.size !== 1) {
-                enqueueSnackbar(differingProjectsWarnings as string, {
+                enqueueSnackbar(differingProjectsWarning as string, {
                     variant: warningVariant,
                 });
             }

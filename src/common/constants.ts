@@ -9,7 +9,7 @@ export const maxRevisionsError = 'Maximum 4 revision(s).';
 export const featureNotSupportedError =
   'This feature is not supported yet. Please compare two revisions only.';
 
-export const differingProjectsWarnings = 'Warning: Different project builds selected';
+export const differingProjectsWarning = 'Warning: Different project builds selected';
 
 export const userFeedbackMessage =
   'For any kind of suggestions please contact us at ';
