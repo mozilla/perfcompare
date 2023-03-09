@@ -34,7 +34,8 @@
     "test": "jest --testPathIgnorePatterns=accessibility --testPathIgnorePatterns=utils",
     "test:a11y": "jest --testPathPattern=accessibility",
     "test:coverage": "npm test -- --coverage",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "npm test -- --watch",
+    "commit": "npm run format && npm run lint:fix && npm test -- -u"
   },
   "eslintConfig": {
     "extends": "react-app"
