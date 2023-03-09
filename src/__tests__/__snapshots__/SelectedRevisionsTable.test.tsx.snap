@@ -443,7 +443,7 @@ exports[`Search View should match snapshot 1`] = `
         </button>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-container f1uwee9y css-1ljzhs0-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container f1g011md css-1ljzhs0-MuiGrid-root"
         id="revision-search-container"
       >
         <div
