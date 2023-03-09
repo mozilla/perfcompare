@@ -2,7 +2,6 @@ import { Stack, Chip } from '@mui/material';
 
 import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
-import { ActiveFilters } from '../../types/types';
 
 const FilterStatusChip = (props: FilterStatusChipProps) => {
   const { color } = props;
