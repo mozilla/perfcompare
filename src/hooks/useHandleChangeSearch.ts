@@ -1,4 +1,5 @@
 import { FormEvent } from 'react';
+import { RootState } from '../common/store';
 
 import {
   updateSearchValue,
@@ -18,7 +19,9 @@ let timeout: null | ReturnType<typeof setTimeout> = null;
 
 const useHandleChangeSearch = () => {
   const dispatch = useAppDispatch();
-  const getRepository = useAppSelector((state) => state.search.repository);
+  const getRepository = useAppSelector(
+    (state: RootState) => state.search.repository,
+  );
 
   const searchByRevisionOrEmail = async (
     repository: Repository['name'],

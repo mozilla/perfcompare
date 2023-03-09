@@ -3,6 +3,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import { RootState } from '../../common/store';
 
 import { useAppSelector } from '../../hooks/app';
 import useCheckRevision from '../../hooks/useCheckRevision';
@@ -11,7 +12,7 @@ import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
 
 function SearchResultsListItem(props: SearchResultsListItemProps) {
   const { index, item, view } = props;
-  const isChecked = useAppSelector((state) =>
+  const isChecked = useAppSelector((state: RootState) =>
     state.checkedRevisions.revisions.includes(item),
   );
   const { handleToggle } = useCheckRevision();
