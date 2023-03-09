@@ -12,7 +12,6 @@ import { RootState } from '../../common/store';
 import { useAppDispatch } from '../../hooks/app';
 import useSelectRevision from '../../hooks/useSelectRevision';
 import { clearCheckedRevisions } from '../../reducers/CheckedRevisions';
-import { Spacing } from '../../styles/Spacing';
 import type { Revision } from '../../types/state';
 import AddRevisionButton from '../Search/AddRevisionButton';
 import SearchDropdown from '../Search/SearchDropdown';
@@ -23,28 +22,23 @@ const styles = {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
   container: style({
     maxWidth: '810px',
-		marginTop: '48px',
+    marginTop: '48px',
     margin: 'auto',
-		position: 'relative',
-		justifyContent: 'center',
+    position: 'relative',
+    justifyContent: 'center',
     $nest: {
       '.revision_search-dropdown': {
         minWidth: '200px',
-				$nest:{
-					'.MuiFormControl-root':{
-						margin: `0px 0px 0px ${Spacing.Medium + 4}px`,
-					},
-				},
       },
       '.revision_search-input': {
         maxWidth: '539px',
-				position: 'absolute',
-				left: '14rem',
-				width: '100%',
+        position: 'absolute',
+        left: '14rem',
+        width: '100%',
       },
       '.revision_search-input--mobile': {
-				top:'4rem',
-				left: '0',
+        top: '4rem',
+        left: '0',
       },
     },
   }),
@@ -62,14 +56,14 @@ function RevisionSearch(props: RevisionSearchProps) {
     if (
       (e.target as HTMLElement).matches(
         `#revision-search-container, 
-        #revision-search-container *`,
+        #revision-search-container *`
       ) &&
       // do not open search results when dropdown or cancel button is clicked
       !(e.target as HTMLElement).matches(
         `#revision-search-dropdown,
         #revision-search-dropdown *,
         #cancel-edit-revision-button, 
-        #cancel-edit-revision-button *`,
+        #cancel-edit-revision-button *`
       )
     ) {
       setFocused(true);
@@ -104,23 +98,24 @@ function RevisionSearch(props: RevisionSearchProps) {
   return (
     <Grid
       container
-      alignItems="flex-start"
-      
-      id="revision-search-container"
+      alignItems='flex-start'
+      id='revision-search-container'
       className={styles.container}
     >
       <Grid
         item
         xs={2}
-        id="revision-search-dropdown"
-        className="revision_search-dropdown"
+        id='revision-search-dropdown'
+        className='revision_search-dropdown'
       >
         <SearchDropdown view={view} />
       </Grid>
       <Grid
         item
         xs={9}
-        className={`revision_search-input ${matches ? 'revision_search-input--mobile' : ''}`}
+        className={`revision_search-input ${
+          matches ? 'revision_search-input--mobile' : ''
+        }`}
       >
         <SearchInput setFocused={setFocused} view={view} />
         {searchResults.length > 0 && focused && (
@@ -136,28 +131,28 @@ function RevisionSearch(props: RevisionSearchProps) {
           <>
             {/* TODO: add functionality for buttons and improve styling */}
             <Button
-              className="edit-revision-button"
-              id="replace-revision-button"
-              data-testid="replace-revision-button"
-              size="small"
+              className='edit-revision-button'
+              id='replace-revision-button'
+              data-testid='replace-revision-button'
+              size='small'
               onClick={() => replaceSelectedRevision(prevRevision)}
             >
-              <CheckIcon className="accept" />
+              <CheckIcon className='accept' />
             </Button>
             <Button
-              className="edit-revision-button"
-              id="cancel-edit-revision-button"
-              data-testid="cancel-edit-revision-button"
-              size="small"
+              className='edit-revision-button'
+              id='cancel-edit-revision-button'
+              data-testid='cancel-edit-revision-button'
+              size='small'
               onClick={() => setPopoverIsOpen(false)}
             >
-              <CloseIcon className="cancel" />
+              <CloseIcon className='cancel' />
             </Button>
           </>
         )}
       </Grid>
 
-      <Grid item xs={12} display="none">
+      <Grid item xs={12} display='none'>
         {searchResults.length > 0 && focused && (
           <SearchResultsList searchResults={searchResults} view={view} />
         )}
