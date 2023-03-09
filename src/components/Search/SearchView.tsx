@@ -57,6 +57,7 @@ function SearchView(props: SearchViewProps) {
             className="compare-button"
             variant="contained"
             onClick={() => goToCompareResultsPage(selectedRevisions)}
+            aria-label="Compare selected revisions"
           >
             compare
             <ArrowForward className="compare-icon" />
