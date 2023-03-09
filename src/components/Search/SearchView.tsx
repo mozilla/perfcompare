@@ -6,7 +6,7 @@ import { useSnackbar, VariantType } from 'notistack';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { repoMap, featureNotSupportedError,differingProjectsWarning } from '../../common/constants';
+import { repoMap, featureNotSupportedError, differingProjectsWarning } from '../../common/constants';
 import type { RootState } from '../../common/store';
 import useFilterCompareResults from '../../hooks/useFilterCompareResults';
 import { Revision } from '../../types/state';
@@ -34,7 +34,7 @@ function SearchView(props: SearchViewProps) {
     const revs = selectedRevisions.map((rev) => rev.revision);
     const repos = selectedRevisions.map((rev) => repoMap[rev.repository_id]);
     
-    if(!repos.every(repo => repo === repos[0])){
+    if (!repos.every(repo => repo === repos[0])) {
       enqueueSnackbar(differingProjectsWarning as string, {
         variant: warningVariant,
     });
