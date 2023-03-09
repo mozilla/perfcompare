@@ -27,22 +27,22 @@ function EditRevisionButton(props: EditRevisionButtonProps) {
       </IconButton>
 
       
-        <Popover
-          className="edit-revision-popover"
-          open={popoverIsOpen}
-          anchorEl={anchorEl}
-          onClose={() => setPopoverIsOpen(false)}
-          anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'center',
-          }}
-          transformOrigin={{
-            vertical: 'top',
-            horizontal: 'center',
-          }}
-          PaperProps={{
-            style: { maxWidth: "81%" },
-          }}
+      <Popover
+        className="edit-revision-popover"
+        open={popoverIsOpen}
+        anchorEl={anchorEl}
+        onClose={() => setPopoverIsOpen(false)}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+        PaperProps={{
+          style: { maxWidth: '81%' },
+        }}
         >
         <RevisionSearch
           view="compare-results"
