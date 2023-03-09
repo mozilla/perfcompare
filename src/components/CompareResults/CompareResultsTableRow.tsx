@@ -56,7 +56,7 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
           )}`}
         ></TableCell>
       ) : (
-        <TableCell
+        <TableCell align ="center"
           data-testid="confidence-icon"
           className={`${setConfidenceClassName(result.confidence_text)}`}
         >

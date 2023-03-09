@@ -131,11 +131,7 @@ const components = {
         },
         '&.android': {
           backgroundImage: `url(${android})`,
-        },
-        '&.unknown-confidence': {
-          display: 'flex',
-          flexDirection: 'column',
-        },
+        }
       },
     },
   },
