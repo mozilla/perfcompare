@@ -68,7 +68,6 @@ export function SelectedRevisionsTableRow(props: SelectedRevisionsRowProps) {
         {view == 'search' && (
           <IconButton
             id={`close-button-${row.id}`}
-            data-testid="closeButton"
             onClick={() => dispatch(deleteRevision(row.id))}
             aria-label="Close"
           >
