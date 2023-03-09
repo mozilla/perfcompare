@@ -1,51 +1,26 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine.
+# See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
-orbs:
-  node: circleci/node@5.0.1
-  codecov: codecov/codecov@3.2.2
+
+# Define a job to be invoked later in a workflow.
+# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  test:
-    executor:
-      name: node/default
-      tag: '16.13'
+  say-hello:
+    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
+    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
+    docker:
+      - image: cimg/base:stable
+    # Add steps to the job
+    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - checkout
-      - restore_cache: # special step to restore the dependency cache
-          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-          key: dependency-cache-{{ checksum "package.json" }}
       - run:
-          name: install
-          command: npm install
-      - save_cache: # special step to save the dependency cache
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - ./node_modules
-      - run:
-          # Why only production? See: https://overreacted.io/npm-audit-broken-by-design/#what-next
-          name: audit
-          command: npm audit --omit=dev
-      - run:
-          name: lint
-          command: npm run lint
-      - run:
-          name: accessibility
-          command: npm run test:a11y || true
-      - run:
-          name: test
-          command: npm run test:coverage
-      - codecov/upload
+          name: "Say hello"
+          command: "echo Hello, World!"
 
+# Invoke jobs via workflows
+# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  test:
+  say-hello-workflow:
     jobs:
-      - test
-  nightly:
-    triggers:
-      - schedule:
-          cron: '0 0 * * *'
-          filters:
-            branches:
-              only:
-                - master
-                - staging
-    jobs:
-      - test
+      - say-hello
