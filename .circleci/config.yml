@@ -12,6 +12,10 @@ jobs:
       - restore_cache: # special step to restore the dependency cache
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
           key: dependency-cache-{{ checksum "package.json" }}
+       - run:
+          name: Check outdated dependencies
+          command: |
+            npm outdated --depth=0 && npm outdated --depth=0 --dev
       - run:
           name: install
           command: npm install
