@@ -3,12 +3,6 @@
   "version": "0.9.0",
   "homepage": "./",
   "private": true,
-  "audits": {
-    "npm-audit": {
-      "productionOnly": false,
-      "arguments": "--only=dev"
-    }
-  },
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
