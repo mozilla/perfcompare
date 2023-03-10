@@ -545,7 +545,7 @@ exports[`Search View should match snapshot 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-1t8rubm-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-sm-6 MuiGrid-grid-md-1 css-wuxvwx-MuiGrid-root"
         >
           <button
             aria-label="add revisions"
