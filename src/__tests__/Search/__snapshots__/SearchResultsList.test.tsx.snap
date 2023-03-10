@@ -159,13 +159,13 @@ exports[`SearchResultsList should match snapshot 1`] = `
             <ul
               class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
             >
-              <div
-                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
-                role="button"
-                tabindex="0"
+              <li
+                class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
               >
-                <li
-                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
+                <div
+                  class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
+                  role="button"
+                  tabindex="0"
                 >
                   <div
                     class="MuiListItemIcon-root search-revision-item-icon search-revision css-cveggr-MuiListItemIcon-root"
@@ -207,15 +207,15 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       johncleese@python.com - Thu Mar 29 1951 00:00:00 GMT+0000 (Coordinated Universal Time)
                     </p>
                   </div>
-                </li>
-              </div>
-              <div
-                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
-                role="button"
-                tabindex="0"
+                </div>
+              </li>
+              <li
+                class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
               >
-                <li
-                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
+                <div
+                  class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
+                  role="button"
+                  tabindex="0"
                 >
                   <div
                     class="MuiListItemIcon-root search-revision-item-icon search-revision css-cveggr-MuiListItemIcon-root"
@@ -257,15 +257,15 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       ericidle@python.com - Sat Feb 22 1958 00:00:00 GMT+0000 (Coordinated Universal Time)
                     </p>
                   </div>
-                </li>
-              </div>
-              <div
-                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
-                role="button"
-                tabindex="0"
+                </div>
+              </li>
+              <li
+                class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
               >
-                <li
-                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
+                <div
+                  class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
+                  role="button"
+                  tabindex="0"
                 >
                   <div
                     class="MuiListItemIcon-root search-revision-item-icon search-revision css-cveggr-MuiListItemIcon-root"
@@ -307,15 +307,15 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       terrygilliam@python.com - Wed Jul 29 1987 00:00:00 GMT+0000 (Coordinated Universal Time)
                     </p>
                   </div>
-                </li>
-              </div>
-              <div
-                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
-                role="button"
-                tabindex="0"
+                </div>
+              </li>
+              <li
+                class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
               >
-                <li
-                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
+                <div
+                  class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
+                  role="button"
+                  tabindex="0"
                 >
                   <div
                     class="MuiListItemIcon-root search-revision-item-icon search-revision css-cveggr-MuiListItemIcon-root"
@@ -357,15 +357,15 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       michaelpalin@python.com - Sat Jul 04 2020 00:00:00 GMT+0000 (Coordinated Universal Time)
                     </p>
                   </div>
-                </li>
-              </div>
-              <div
-                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
-                role="button"
-                tabindex="0"
+                </div>
+              </li>
+              <li
+                class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
               >
-                <li
-                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
+                <div
+                  class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
+                  role="button"
+                  tabindex="0"
                 >
                   <div
                     class="MuiListItemIcon-root search-revision-item-icon search-revision css-cveggr-MuiListItemIcon-root"
@@ -407,8 +407,8 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       grahamchapman@python.com - Wed Apr 13 2022 00:00:00 GMT+0000 (Coordinated Universal Time)
                     </p>
                   </div>
-                </li>
-              </div>
+                </div>
+              </li>
             </ul>
           </div>
         </div>
