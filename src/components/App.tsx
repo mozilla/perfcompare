@@ -7,6 +7,7 @@ import { SnackbarProvider } from 'notistack';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 
 import useProtocolTheme from '../theme/protocolTheme';
+import CompareResultsViewBeta from './CompareResults/beta/CompareResultsView';
 import CompareResultsView from './CompareResults/CompareResultsView';
 import SearchView from './Search/SearchView';
 import FeedbackAlert from './Shared/FeedbackAlert';
@@ -25,15 +26,15 @@ function App() {
         )}
       >
         <CssBaseline />
-        <Alert severity="warning" sx={{ textAlign: 'center' }}>
+        <Alert severity='warning' sx={{ textAlign: 'center' }}>
           This is an unstable <strong>pre-release</strong> version. Some
           features may not yet be supported. Please file any bugs on the{' '}
-          <Link href="https://github.com/mozilla/perfcompare/issues">
+          <Link href='https://github.com/mozilla/perfcompare/issues'>
             Github Repo
           </Link>
           .
         </Alert>
-        <Box display="flex" justifyContent="flex-end" alignItems="flex-end">
+        <Box display='flex' justifyContent='flex-end' alignItems='flex-end'>
           <FeedbackAlert />
           <ToggleDarkMode
             toggleColorMode={toggleColorMode}
@@ -42,11 +43,12 @@ function App() {
         </Box>
         <Router>
           <Routes>
-            <Route path="/" element={<SearchView />} />
+            <Route path='/' element={<SearchView />} />
             <Route
-              path="/compare-results"
+              path='/compare-results'
               element={<CompareResultsView mode={mode} />}
             />
+            <Route path='/beta/compare-results' element={<CompareResultsViewBeta />} />
           </Routes>
         </Router>
       </SnackbarProvider>
