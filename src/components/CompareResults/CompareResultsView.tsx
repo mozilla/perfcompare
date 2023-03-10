@@ -1,5 +1,4 @@
-import {  useEffect } from 'react';
-
+import { useEffect } from 'react';
 
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
@@ -31,18 +30,23 @@ function CompareResultsView(props: CompareResultsViewProps) {
       await dispatchFetchCompareResults(repos as Repository['name'][], revs);
     }
     void fetchCompareResults();
-  
+
     // Clear the checked revisions when the revisions prop changes
     dispatchSetCheckedRevisions([]);
-  }, [revisions, location.search, dispatchFetchCompareResults, dispatchSetCheckedRevisions]);
+  }, [
+    revisions,
+    location.search,
+    dispatchFetchCompareResults,
+    dispatchSetCheckedRevisions,
+  ]);
 
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth='xl'>
       <PerfCompareHeader />
-      <Grid container alignItems="center" justifyContent="center">
+      <Grid container alignItems='center' justifyContent='center'>
         <Grid item xs={10}>
           {revisions.length > 0 && (
-            <SelectedRevisionsTable view="compare-results" />
+            <SelectedRevisionsTable view='compare-results' />
           )}
         </Grid>
         <Grid item xs={12}>
@@ -66,9 +70,9 @@ function mapStateToProps(state: RootState) {
 }
 function mapDispatchToProps(dispatch: Dispatch) {
   return {
-    dispatchSetCheckedRevisions: (revisions: Revision[]) => dispatch(setCheckedRevisions(revisions)),
+    dispatchSetCheckedRevisions: (revisions: Revision[]) =>
+      dispatch(setCheckedRevisions(revisions)),
   };
 }
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(CompareResultsView);
