@@ -30,6 +30,7 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
         <ListItemButton
           key={item.id}
           onClick={() => handleToggle(item, maxRevisions)}
+          role="group"
         >
           <ListItemIcon className="search-revision-item-icon search-revision">
             <Checkbox
