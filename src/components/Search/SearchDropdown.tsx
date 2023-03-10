@@ -18,6 +18,7 @@ function SearchDropdown(props: SearchDropdownProps) {
   const size = view == 'compare-results' ? 'small' : undefined;
 
   return (
+<<<<<<< HEAD
     <FormControl
       sx={{ width: '100%', marginBottom: '8px' }}
       size={size}
@@ -32,6 +33,13 @@ function SearchDropdown(props: SearchDropdownProps) {
 				// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 				className={DefaultDropDownButton}
       >
+=======
+    <FormControl sx={{ width: '100%' }} size={size}>
+      <InputLabel id="select-repository">
+        repository
+      </InputLabel>
+      <Select value={repository} labelId="select-repository" label="repository">
+>>>>>>> Give body a stable padding for mobile version to prevent overflow on x
         {Object.keys(repoMap).map((key) => (
           <MenuItem
             id={repoMap[key]}
