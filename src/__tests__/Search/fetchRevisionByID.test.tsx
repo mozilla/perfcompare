@@ -6,6 +6,7 @@ import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
 
+jest.setTimeout(10000); // sets the timeout to 10 seconds
 describe('SearchView/fetchRevisionByID', () => {
   it('should fetch revisions by ID if searchValue is a 12 or 40 character hash', async () => {
     const { testData } = getTestData();

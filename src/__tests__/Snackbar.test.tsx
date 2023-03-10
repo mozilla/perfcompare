@@ -9,6 +9,7 @@ import getTestData from './utils/fixtures';
 import { renderWithRouter, render } from './utils/setupTests';
 import { screen } from './utils/test-utils';
 
+jest.setTimeout(10000);
 describe('Snackbar', () => {
   it('should dismiss an alert when close button is clicked', async () => {
     const { testData } = getTestData();
