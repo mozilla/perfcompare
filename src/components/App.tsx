@@ -1,3 +1,4 @@
+
 import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -12,6 +13,7 @@ import SearchView from './Search/SearchView';
 import FeedbackAlert from './Shared/FeedbackAlert';
 import SnackbarCloseButton from './Shared/SnackbarCloseButton';
 import ToggleDarkMode from './Shared/ToggleDarkModeButton';
+import './styles.css'; // Import the styles.css file
 
 function App() {
   const { mode, toggleColorMode, protocolTheme } = useProtocolTheme();

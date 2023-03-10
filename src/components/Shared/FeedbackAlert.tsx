@@ -31,6 +31,7 @@ export default function FeedbackAlert() {
         aria-label="info-button"
         color="inherit"
         onClick={handleClick}
+        title='info'
       >
         <InfoOutlinedIcon />
       </IconButton>
