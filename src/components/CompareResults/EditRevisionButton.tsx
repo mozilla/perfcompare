@@ -41,7 +41,7 @@ function EditRevisionButton(props: EditRevisionButtonProps) {
           horizontal: 'center',
         }}
         PaperProps={{
-          style: { maxWidth: "81%" },
+          style: { maxWidth: '81%' },
         }}
       >
         <RevisionSearch
