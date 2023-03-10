@@ -16,6 +16,10 @@ function SearchResultsList(props: SearchResultsListProps) {
         border: 1,
         borderColor: 'grey.500',
         borderRadius: '4px',
+        padding: '8px',
+        marginTop: '4px',
+        height: '210px',
+        overflow: 'auto',
         '&:focus': {
           borderColor: 'primary.main',
         },
@@ -25,7 +29,7 @@ function SearchResultsList(props: SearchResultsListProps) {
       }}
       alignItems="flex-end"
     >
-      <List dense={view == 'compare-results'}>
+      <List dense={view == 'compare-results'} sx={{ paddingTop: '0' }}>
         {searchResults.map((item, index) => (
           <SearchResultsListItem
             key={item.id}
