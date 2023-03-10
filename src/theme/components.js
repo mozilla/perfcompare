@@ -1,4 +1,4 @@
-import { green, red, lightBlue } from '@mui/material/colors';
+import { green, red } from '@mui/material/colors';
 
 import android from './img/android.svg';
 import high from './img/high.svg';
@@ -14,11 +14,9 @@ const components = {
     styleOverrides: {
       root: {
         '&.add-revision-button': {
-          fontSize: '2rem',
           height: 'auto',
           width: '100%',
           lineHeight: '1.4375em',
-          padding: '16.5px 14px',
         },
         '&.edit-revision-button': {
           width: '50%',
@@ -59,21 +57,6 @@ const components = {
       root: {
         '&.filter-status .MuiAlert-icon': {
           paddingTop: '17px',
-        },
-      },
-    },
-  },
-  MuiTableRow: {
-    styleOverrides: {
-      root: {
-        '&[draggable=true]': {
-          cursor: 'grab',
-        },
-        '&.draggedRow': {
-          opacity: 0.6,
-        },
-        '&.dropArea': {
-          backgroundColor: lightBlue[100],
         },
       },
     },

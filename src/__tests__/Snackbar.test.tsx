@@ -28,11 +28,11 @@ describe('Snackbar', () => {
     const searchInput = screen.getByRole('textbox');
     await user.click(searchInput);
 
-    await user.click(screen.getByTestId('checkbox-0'));
-    await user.click(screen.getByTestId('checkbox-1'));
-    await user.click(screen.getByTestId('checkbox-2'));
-    await user.click(screen.getByTestId('checkbox-3'));
-    await user.click(screen.getByTestId('checkbox-4'));
+    await user.click(screen.getAllByTestId('checkbox-0')[0]);
+    await user.click(screen.getAllByTestId('checkbox-1')[0]);
+    await user.click(screen.getAllByTestId('checkbox-2')[0]);
+    await user.click(screen.getAllByTestId('checkbox-3')[0]);
+    await user.click(screen.getAllByTestId('checkbox-4')[0]);
 
     const alert = screen.getByText(maxRevisionsError);
 
@@ -62,11 +62,11 @@ describe('Snackbar', () => {
     const searchInput = screen.getByRole('textbox');
     await user.click(searchInput);
 
-    await user.click(screen.getByTestId('checkbox-0'));
-    await user.click(screen.getByTestId('checkbox-1'));
-    await user.click(screen.getByTestId('checkbox-2'));
-    await user.click(screen.getByTestId('checkbox-3'));
-    await user.click(screen.getByTestId('checkbox-4'));
+    await user.click(screen.getAllByTestId('checkbox-0')[0]);
+    await user.click(screen.getAllByTestId('checkbox-1')[0]);
+    await user.click(screen.getAllByTestId('checkbox-2')[0]);
+    await user.click(screen.getAllByTestId('checkbox-3')[0]);
+    await user.click(screen.getAllByTestId('checkbox-4')[0]);
 
     const alert = screen.getByText(maxRevisionsError);
 

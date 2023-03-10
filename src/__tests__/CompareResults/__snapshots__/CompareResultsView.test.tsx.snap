@@ -14,7 +14,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
           class="MuiTableHead-root css-15wwp11-MuiTableHead-root"
         >
           <tr
-            class="MuiTableRow-root MuiTableRow-head css-1eza0l0-MuiTableRow-root"
+            class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
           >
             <th
               class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-1l87mn7-MuiTableCell-root"
@@ -139,7 +139,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
           class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
         >
           <tr
-            class="MuiTableRow-root MuiTableRow-hover css-1eza0l0-MuiTableRow-root"
+            class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
             data-testid="table-row"
           >
             <td
@@ -225,7 +225,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
             </td>
           </tr>
           <tr
-            class="MuiTableRow-root MuiTableRow-hover css-1eza0l0-MuiTableRow-root"
+            class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
             data-testid="table-row"
           >
             <td
@@ -311,7 +311,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
             </td>
           </tr>
           <tr
-            class="MuiTableRow-root MuiTableRow-hover css-1eza0l0-MuiTableRow-root"
+            class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
             data-testid="table-row"
           >
             <td
@@ -386,7 +386,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
             </td>
           </tr>
           <tr
-            class="MuiTableRow-root MuiTableRow-hover css-1eza0l0-MuiTableRow-root"
+            class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
             data-testid="table-row"
           >
             <td
@@ -488,7 +488,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
           class="MuiTableFooter-root css-9cgc89-MuiTableFooter-root"
         >
           <tr
-            class="MuiTableRow-root MuiTableRow-footer css-1eza0l0-MuiTableRow-root"
+            class="MuiTableRow-root MuiTableRow-footer css-1q1u3t4-MuiTableRow-root"
           >
             <td
               class="MuiTableCell-root MuiTableCell-footer MuiTableCell-sizeSmall MuiTablePagination-root css-3cyj5y-MuiTableCell-root-MuiTablePagination-root"
@@ -508,11 +508,10 @@ exports[`CompareResults View Should match snapshot 1`] = `
                 </p>
                 <div
                   class="MuiInputBase-root MuiInputBase-colorPrimary css-9s8qn8-MuiInputBase-root-MuiTablePagination-select"
-                  variant="standard"
                 >
                   <select
                     aria-label="rows per page"
-                    class="MuiTablePagination-select MuiNativeSelect-select MuiNativeSelect-standard MuiInputBase-input css-m3l1ig-MuiNativeSelect-select-MuiInputBase-input"
+                    class="MuiNativeSelect-select MuiTablePagination-select MuiNativeSelect-standard MuiInputBase-input css-m3l1ig-MuiNativeSelect-select-MuiInputBase-input"
                     id=":r5:"
                   >
                     <option
@@ -542,7 +541,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                   </select>
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiTablePagination-selectIcon MuiNativeSelect-icon MuiNativeSelect-iconStandard css-l5belf-MuiSvgIcon-root-MuiNativeSelect-icon"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiNativeSelect-icon MuiTablePagination-selectIcon MuiNativeSelect-iconStandard css-l5belf-MuiSvgIcon-root-MuiNativeSelect-icon"
                     data-testid="ArrowDropDownIcon"
                     focusable="false"
                     viewBox="0 0 24 24"

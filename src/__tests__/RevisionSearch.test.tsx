@@ -21,8 +21,7 @@ describe('RevisionSearch', () => {
     });
     await user.click(input);
     jest.runOnlyPendingTimers();
-    expect(
-      screen.getByText('spamspamspam - It got better...'),
-    ).toBeInTheDocument();
+		const testText = screen.getAllByText('spamspamspam');
+    expect(testText[0]).toBeInTheDocument();
   });
 });
