@@ -10,6 +10,7 @@ import useProtocolTheme from '../theme/protocolTheme';
 import CompareResultsView from './CompareResults/CompareResultsView';
 import SearchView from './Search/SearchView';
 import FeedbackAlert from './Shared/FeedbackAlert';
+import PageTitle from './Shared/PageTitle';
 import SnackbarCloseButton from './Shared/SnackbarCloseButton';
 import ToggleDarkMode from './Shared/ToggleDarkModeButton';
 
@@ -41,6 +42,7 @@ function App() {
           />
         </Box>
         <Router>
+          <PageTitle/>
           <Routes>
             <Route path="/" element={<SearchView />} />
             <Route

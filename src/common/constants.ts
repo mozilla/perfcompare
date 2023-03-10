@@ -267,3 +267,9 @@ export const platformMap: Record<Platform, string> = {
   'android-hw-a51-11-0-aarch64-shippable-qr':
     'Android 11.0 Samsung A51 Shippable AArch64',
 };
+
+
+export const routeTitles: { [path: string]: string; } = {
+  '/': 'PerfCompare',
+  '/compare-results': 'Compare Results',
+};
