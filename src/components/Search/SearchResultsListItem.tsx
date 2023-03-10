@@ -23,13 +23,13 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
 
   return (
     <>
-      <ListItemButton
-        key={item.id}
-        onClick={() => handleToggle(item, maxRevisions)}
+      <ListItem
+        className="search-revision-item search-revision"
+        disablePadding
       >
-        <ListItem
-          className="search-revision-item search-revision"
-          disablePadding
+        <ListItemButton
+          key={item.id}
+          onClick={() => handleToggle(item, maxRevisions)}
         >
           <ListItemIcon className="search-revision-item-icon search-revision">
             <Checkbox
@@ -51,8 +51,8 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
             primaryTypographyProps={{ noWrap: true }}
             secondaryTypographyProps={{ noWrap: true }}
           />
-        </ListItem>
-      </ListItemButton>
+        </ListItemButton>
+      </ListItem>
     </>
   );
 }
