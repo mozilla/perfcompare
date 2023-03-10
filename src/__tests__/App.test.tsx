@@ -40,6 +40,8 @@ describe('App', () => {
 
     const infoButton = screen.getByRole('button', {
       name: 'info-button',
+      
+      
     });
 
     expect(() => screen.getByTestId('feedback-alert')).toThrow('Unable to find an element');

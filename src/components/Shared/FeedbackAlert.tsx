@@ -31,6 +31,7 @@ export default function FeedbackAlert() {
         aria-label="info-button"
         color="inherit"
         onClick={handleClick}
+        title='info'
       >
         <InfoOutlinedIcon />
       </IconButton>
@@ -41,6 +42,7 @@ export default function FeedbackAlert() {
           onClose={handleClose}
           severity="info"
           variant="filled"
+          
         >
           <AlertTitle>Give us feedback!</AlertTitle>
           {userFeedbackMessage} —{' '}
