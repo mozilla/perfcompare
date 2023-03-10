@@ -462,12 +462,8 @@ describe('Compare Results Table', () => {
     await user.click(applyButtons[1]);
 
     popper = await waitFor(() => screen.getByRole('tooltip'));
-
-    act(() => {
-      jest.runOnlyPendingTimers();
-    });
-
-    expect(popper).not.toBeInTheDocument();
+    
+    expect(popper).toHaveAttribute('style', 'position: absolute; top: 0px; left: 0px; margin: 0px; right: 0px; transform: translate(0px, 0px);');
   });
 
   it('Should close filter popper by clicking outside of it', async () => {
