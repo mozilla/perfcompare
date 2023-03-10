@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import Checkbox from '@mui/material/Checkbox';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -10,7 +12,7 @@ import type { Revision } from '../../types/state';
 import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
 
 function SearchResultsListItem(props: SearchResultsListItemProps) {
-  const { index, item, view } = props;
+  const { index, item, view } = props; 
   const isChecked: boolean = useAppSelector((state) =>
     state.checkedRevisions.revisions.includes(item),
   );
@@ -20,11 +22,12 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
   const commitMessage = getLatestCommitMessage(item);
   const maxRevisions = view == 'compare-results' ? 1 : 4;
 
-  return (
+  // handleToggle(item, maxRevisions)
+  return ( 
     <>
       <ListItemButton
         key={item.id}
-        onClick={() => handleToggle(item, maxRevisions)}
+        onClick={() =>  handleToggle(item, maxRevisions)}
       >
         <ListItem
           className="search-revision-item search-revision"
@@ -61,4 +64,11 @@ interface SearchResultsListItemProps {
   view: 'search' | 'compare-results';
 }
 
-export default SearchResultsListItem;
+export default memo(SearchResultsListItem);
+
+// const handler = (event: MouseEvent<HTMLDivElement, MouseEvent>) => {
+//   event.preventDefault();
+//   handleToggle(item. maxRevision);
+// }
+
+//onClick={() => useMemo(() => handleToggle(item, maxRevisions), [item, maxRevisions])}

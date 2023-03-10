@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 
@@ -13,7 +15,7 @@ function SearchResultsList(props: SearchResultsListProps) {
       sx={{
         maxWidth: '100%',
         bgcolor: 'background.paper',
-        border: 1,
+        border: 2,
         borderColor: 'grey.500',
         borderRadius: '4px',
         '&:focus': {
@@ -43,5 +45,7 @@ interface SearchResultsListProps {
   searchResults: Revision[];
   view: 'compare-results' | 'search';
 }
+ 
 
-export default SearchResultsList;
+export default memo(SearchResultsList);
+// export default SearchResultsList;
