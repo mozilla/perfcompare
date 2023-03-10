@@ -18,7 +18,6 @@ describe('CompareResults View', () => {
     store.dispatch(setCompareResults(testCompareData));
 
     renderWithRouter(<CompareResultsTable mode="light" />);
-
     expect(document.body).toMatchSnapshot();
   });
 
@@ -92,7 +91,7 @@ describe('SelectedRevisionsTableRow', () => {
     await user.click(input);
 
     expect(
-      screen.getByText('spamspamspam - It got better...'),
+      screen.getAllByText('spamspamspam')[0],
     ).toBeInTheDocument();
 
     await user.keyboard('{Esc}');
