@@ -43,9 +43,9 @@ describe('SearchView/fetchRecentRevisions', () => {
 
     const searchInput = screen.getByRole('textbox');
     await user.click(searchInput);
-    await screen.findByText("coconut - you've got no arms left!");
+    await screen.findAllByText("you've got no arms left!");
     expect(
-      screen.getByText("spam - it's just a flesh wound"),
+      screen.getAllByText("it's just a flesh wound")[0],
     ).toBeInTheDocument();
 
     expect(spyOnFetch).toHaveBeenCalledWith(

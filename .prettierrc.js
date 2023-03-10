@@ -1,5 +1,7 @@
 module.exports = {
-  endOfLine: 'lf',
+  endOfLine: "lf",
   singleQuote: true,
-  trailingComma: 'all',
+  jsxSingleQuote: true,
+  trailingComma: "all",
+  tabWidth: 2,
 };

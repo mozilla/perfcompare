@@ -58,18 +58,18 @@ describe('Search View', () => {
 
     expect(store.getState().search.searchResults).toStrictEqual(testData);
 
-    await screen.findByText("coconut - you've got no arms left!");
+    await screen.findAllByText("you've got no arms left!");
     expect(
-      screen.getByText("spam - it's just a flesh wound"),
+      screen.getAllByText("it's just a flesh wound")[0],
     ).toBeInTheDocument();
 
     await user.click(screen.getByText('PerfCompare'));
 
     expect(
-      screen.queryByText("coconut - you've got no arms left!"),
+      screen.queryByText("you've got no arms left!"),
     ).not.toBeInTheDocument();
     expect(
-      screen.queryByText("spam - it's just a flesh wound"),
+      screen.queryByText("it's just a flesh wound"),
     ).not.toBeInTheDocument();
 
     expect(document.body).toMatchSnapshot();
@@ -96,12 +96,12 @@ describe('Search View', () => {
     const searchInput = screen.getByRole('textbox');
     await user.click(searchInput);
 
-    await screen.findByText("coconut - you've got no arms left!");
+    await screen.findAllByText("you've got no arms left!");
 
     await user.keyboard('{Escape}');
 
     expect(
-      screen.queryByText("coconut - you've got no arms left!"),
+      screen.queryByText("you've got no arms left!"),
     ).not.toBeInTheDocument();
   });
 
@@ -154,12 +154,12 @@ describe('Search View', () => {
     expect(spyOnFetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?author=terryjones@python.com',
     );
-    await screen.findByText("coconut - you've got no arms left!");
+    await screen.findAllByText("you've got no arms left!");
     expect(store.getState().search.searchResults).toStrictEqual(testData);
     await user.clear(searchInput);
     expect(store.getState().search.searchResults).toStrictEqual([]);
     expect(
-      screen.queryByText("coconut - you've got no arms left!"),
+      screen.queryByText("you've got no arms left!"),
     ).not.toBeInTheDocument();
   });
 
@@ -184,19 +184,19 @@ describe('Search View', () => {
     const searchInput = screen.getByRole('textbox');
     await user.click(searchInput);
 
-    await screen.findByText("coconut - you've got no arms left!");
+    await screen.findAllByText("you've got no arms left!");
     expect(
-      screen.getByText("spam - it's just a flesh wound"),
+      screen.getAllByText("it's just a flesh wound")[0],
     ).toBeInTheDocument();
 
-    await user.click(screen.getByText("coconut - you've got no arms left!"));
+    await user.click(screen.getAllByText("you've got no arms left!")[0]);
     await user.click(screen.getAllByTestId('CheckBoxOutlineBlankIcon')[0]);
 
     expect(
-      screen.queryByText("coconut - you've got no arms left!"),
+      screen.queryAllByText("you've got no arms left!")[0],
     ).toBeInTheDocument();
     expect(
-      screen.queryByText("spam - it's just a flesh wound"),
+      screen.queryAllByText("it's just a flesh wound")[0],
     ).toBeInTheDocument();
 
     expect(document.body).toMatchSnapshot();

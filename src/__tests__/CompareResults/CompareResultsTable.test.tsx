@@ -436,7 +436,7 @@ describe('Compare Results Table', () => {
     );
   });
 
-  it('Should close filter popover', async () => {
+  it('Should close filter popper', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
@@ -447,22 +447,51 @@ describe('Compare Results Table', () => {
 
     const filterButton = screen.getByTestId('platform-options-button');
     await user.click(filterButton);
+    let popper = await waitFor(() => screen.getByRole('tooltip'));
+    expect(popper).toBeVisible();
 
-    const windowsCheckbox = screen.getByRole('checkbox', {
+    const windowsCheckbox = await waitFor(() => screen.getByRole('checkbox', {
       name: 'windows10-64-shippable-qr',
-    });
+    }));
     expect(windowsCheckbox).toBeInTheDocument();
 
     await user.click(windowsCheckbox);
+    
+    const applyButtons = await waitFor(() => screen.getAllByRole('button', { name: 'Apply' }));
+    
+    await user.click(applyButtons[1]);
 
-    const applyButtons = screen.getAllByRole('button', { name: 'Apply' });
+    popper = await waitFor(() => screen.getByRole('tooltip'));
+    
+    expect(popper).toHaveAttribute('style', '');
+  });
 
-    await user.click(applyButtons[0]);
-    act(() => {
-      jest.runOnlyPendingTimers();
-    });
+  it('Should close filter popper by clicking outside of it', async () => {
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
 
-    expect(windowsCheckbox).not.toBeInTheDocument();
+    // set compare data
+    store.dispatch(setCompareResults(testCompareData));
+
+    render(<CompareResultsTable mode="light" />);
+
+    const filterButtonPlatform = await waitFor(() => screen.getByTestId('platform-options-button'));
+    await user.click(filterButtonPlatform);
+
+    const filterPlatfomList = screen.getByTestId('platform-options');
+    let popper = await waitFor(() => screen.getByRole('tooltip'));
+    expect(popper).toContainElement(filterPlatfomList);
+
+    const filterButtonConfidence = await waitFor(() => screen.getByTestId('confidence-options-button'));
+    expect(filterButtonConfidence).toBeInTheDocument();
+
+    await user.click(filterButtonConfidence);
+
+    const filterConfidenceList = await waitFor(() => screen.getByTestId('confidence-options'));
+
+    popper = await waitFor(() => screen.getByRole('tooltip'));
+
+    expect(popper).toContainElement(filterConfidenceList);
   });
 
   it('should reset to first table page when filtering is changed', async () => {
