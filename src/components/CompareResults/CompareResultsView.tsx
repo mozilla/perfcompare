@@ -1,10 +1,13 @@
-import { useEffect } from 'react';
+import {  useEffect } from 'react';
+
 
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import { connect } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import { Dispatch } from 'redux';
 
+import { setCheckedRevisions } from '../../actions/selectedRevisionsActions';
 import type { RootState } from '../../common/store';
 import useFetchCompareResults from '../../hooks/useFetchCompareResults';
 import { Repository, Revision } from '../../types/state';
@@ -13,7 +16,7 @@ import SelectedRevisionsTable from '../Shared/SelectedRevisionsTable';
 import CompareResultsTable from './CompareResultsTable';
 
 function CompareResultsView(props: CompareResultsViewProps) {
-  const { revisions, mode } = props;
+  const { revisions, mode, dispatchSetCheckedRevisions } = props;
 
   const location = useLocation();
   const { dispatchFetchCompareResults } = useFetchCompareResults();
@@ -24,8 +27,14 @@ function CompareResultsView(props: CompareResultsViewProps) {
     const searchParams = new URLSearchParams(location.search);
     const repos = searchParams.get('repos')?.split(',');
     const revs = searchParams.get('revs')?.split(',');
-    void dispatchFetchCompareResults(repos as Repository['name'][], revs);
-  });
+    async function fetchCompareResults() {
+      await dispatchFetchCompareResults(repos as Repository['name'][], revs);
+    }
+    void fetchCompareResults();
+  
+    // Clear the checked revisions when the revisions prop changes
+    dispatchSetCheckedRevisions([]);
+  }, [revisions, location.search, dispatchFetchCompareResults, dispatchSetCheckedRevisions]);
 
   return (
     <Container maxWidth="xl">
@@ -47,6 +56,7 @@ function CompareResultsView(props: CompareResultsViewProps) {
 interface CompareResultsViewProps {
   revisions: Revision[];
   mode: 'light' | 'dark';
+  dispatchSetCheckedRevisions: (revisions: Revision[]) => void;
 }
 
 function mapStateToProps(state: RootState) {
@@ -54,5 +64,11 @@ function mapStateToProps(state: RootState) {
     revisions: state.selectedRevisions.revisions,
   };
 }
+function mapDispatchToProps(dispatch: Dispatch) {
+  return {
+    dispatchSetCheckedRevisions: (revisions: Revision[]) => dispatch(setCheckedRevisions(revisions)),
+  };
+}
 
-export default connect(mapStateToProps)(CompareResultsView);
+
+export default connect(mapStateToProps, mapDispatchToProps)(CompareResultsView);
