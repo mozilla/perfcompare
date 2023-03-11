@@ -4,7 +4,9 @@ import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { connect } from 'react-redux';
+import { style } from 'typestyle';
 
 import { RootState } from '../../common/store';
 import { useAppDispatch } from '../../hooks/app';
@@ -16,12 +18,39 @@ import SearchDropdown from '../Search/SearchDropdown';
 import SearchInput from '../Search/SearchInput';
 import SearchResultsList from '../Search/SearchResultsList';
 
+const styles = {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
+  container: style({
+    maxWidth: '810px',
+    marginTop: '48px',
+    margin: 'auto',
+    position: 'relative',
+    justifyContent: 'center',
+    $nest: {
+      '.revision_search-dropdown': {
+        minWidth: '200px',
+      },
+      '.revision_search-input': {
+        maxWidth: '539px',
+        position: 'absolute',
+        left: '14rem',
+        width: '100%',
+      },
+      '.revision_search-input--mobile': {
+        top: '4rem',
+        left: '0',
+      },
+    },
+  }),
+};
+
 function RevisionSearch(props: RevisionSearchProps) {
   const [focused, setFocused] = useState(false);
   const { prevRevision, searchResults, setPopoverIsOpen, view } = props;
 
   const dispatch = useAppDispatch();
   const { replaceSelectedRevision } = useSelectRevision();
+  const matches = useMediaQuery('(max-width:768px)');
 
   const handleFocus = (e: MouseEvent) => {
     if (
@@ -69,45 +98,61 @@ function RevisionSearch(props: RevisionSearchProps) {
   return (
     <Grid
       container
-      alignItems="flex-start"
-      justifyContent="center"
-      id="revision-search-container"
+      alignItems='flex-start'
+      id='revision-search-container'
+      className={styles.container}
     >
-      <Grid item xs={2} id="revision-search-dropdown">
+      <Grid
+        item
+        xs={2}
+        id='revision-search-dropdown'
+        className='revision_search-dropdown'
+      >
         <SearchDropdown view={view} />
       </Grid>
-      <Grid item xs={9}>
+      <Grid
+        item
+        xs={9}
+        className={`revision_search-input ${
+          matches ? 'revision_search-input--mobile' : ''
+        }`}
+      >
         <SearchInput setFocused={setFocused} view={view} />
+        {searchResults.length > 0 && focused && (
+          <SearchResultsList searchResults={searchResults} view={view} />
+        )}
+        {view == 'search' && searchResults.length > 0 && focused && (
+          <AddRevisionButton setFocused={setFocused} />
+        )}
       </Grid>
 
-      <Grid item xs={1}>
-        {view == 'search' && <AddRevisionButton setFocused={setFocused} />}
+      <Grid item xs={9}>
         {view == 'compare-results' && setPopoverIsOpen && prevRevision && (
           <>
             {/* TODO: add functionality for buttons and improve styling */}
             <Button
-              className="edit-revision-button"
-              id="replace-revision-button"
-              data-testid="replace-revision-button"
-              size="small"
+              className='edit-revision-button'
+              id='replace-revision-button'
+              data-testid='replace-revision-button'
+              size='small'
               onClick={() => replaceSelectedRevision(prevRevision)}
             >
-              <CheckIcon className="accept" />
+              <CheckIcon className='accept' />
             </Button>
             <Button
-              className="edit-revision-button"
-              id="cancel-edit-revision-button"
-              data-testid="cancel-edit-revision-button"
-              size="small"
+              className='edit-revision-button'
+              id='cancel-edit-revision-button'
+              data-testid='cancel-edit-revision-button'
+              size='small'
               onClick={() => setPopoverIsOpen(false)}
             >
-              <CloseIcon className="cancel" />
+              <CloseIcon className='cancel' />
             </Button>
           </>
         )}
       </Grid>
 
-      <Grid item xs={12}>
+      <Grid item xs={12} display='none'>
         {searchResults.length > 0 && focused && (
           <SearchResultsList searchResults={searchResults} view={view} />
         )}
