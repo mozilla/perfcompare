@@ -10,8 +10,6 @@ function PerfCompareHeader() {
         align="center"
         gutterBottom
         className="perfcompare-header"
-        role="heading"
-        aria-level={1}
       >
         PerfCompare
       </Typography>

@@ -15,7 +15,7 @@ function SearchDropdown(props: SearchDropdownProps) {
 
   return (
     <FormControl sx={{ width: '100%' }} size={size}>
-      <InputLabel id="select-repository" color="info">
+      <InputLabel id="select-repository">
         repository
       </InputLabel>
       <Select value={repository} labelId="select-repository" label="repository">
