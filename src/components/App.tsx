@@ -28,7 +28,7 @@ function App() {
         <Alert severity="warning" sx={{ textAlign: 'center' }}>
           This is an unstable <strong>pre-release</strong> version. Some
           features may not yet be supported. Please file any bugs on the{' '}
-          <Link href="https://github.com/mozilla/perfcompare/issues">
+          <Link href="https://github.com/mozilla/perfcompare/issues" title="View Github Link">
             Github Repo
           </Link>
           .
