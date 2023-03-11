@@ -31,41 +31,41 @@ exports[`Search View should match snapshot 1`] = `
                 class="MuiTableRow-root MuiTableRow-head css-1eza0l0-MuiTableRow-root"
               >
                 <th
-                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-9l2kz1-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-11b7jlo-MuiTableCell-root"
                   scope="row"
                 />
                 <th
-                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-167o9ky-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-sievbq-MuiTableCell-root"
                   scope="col"
                 >
                   Project
                 </th>
                 <th
-                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-167o9ky-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-sievbq-MuiTableCell-root"
                   scope="col"
                 >
                   Revision
                 </th>
                 <th
-                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-167o9ky-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-sievbq-MuiTableCell-root"
                   scope="col"
                 >
                   Author
                 </th>
                 <th
-                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-167o9ky-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-sievbq-MuiTableCell-root"
                   scope="col"
                 >
                   Commit Message
                 </th>
                 <th
-                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-167o9ky-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-sievbq-MuiTableCell-root"
                   scope="col"
                 >
                   Timestamp
                 </th>
                 <th
-                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-9l2kz1-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-11b7jlo-MuiTableCell-root"
                   scope="col"
                 />
               </tr>
@@ -79,7 +79,7 @@ exports[`Search View should match snapshot 1`] = `
                 id="coconut"
               >
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-xhi5bb-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <div
                     class="dragIndicatorWrapper"
@@ -103,12 +103,12 @@ exports[`Search View should match snapshot 1`] = `
                   </div>
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-xhi5bb-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   try
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-xhi5bb-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <a
                     class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-e4zel8-MuiTypography-root-MuiLink-root"
@@ -118,7 +118,7 @@ exports[`Search View should match snapshot 1`] = `
                   </a>
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-xhi5bb-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   johncleese@python.com
                 </td>
@@ -128,15 +128,15 @@ exports[`Search View should match snapshot 1`] = `
                   you've got no arms left!
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-xhi5bb-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   03/29/51 00:00
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-xhi5bb-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <button
-                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-15u9hm3-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
                     id="close-button"
                     tabindex="0"
                     type="button"
@@ -164,7 +164,7 @@ exports[`Search View should match snapshot 1`] = `
                 id="spam"
               >
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-xhi5bb-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <div
                     class="dragIndicatorWrapper"
@@ -188,12 +188,12 @@ exports[`Search View should match snapshot 1`] = `
                   </div>
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-xhi5bb-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   mozilla-central
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-xhi5bb-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <a
                     class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-e4zel8-MuiTypography-root-MuiLink-root"
@@ -203,25 +203,25 @@ exports[`Search View should match snapshot 1`] = `
                   </a>
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-xhi5bb-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   ericidle@python.com
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium commit-message css-xhi5bb-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium commit-message css-pmplfi-MuiTableCell-root"
                 >
                   it's just a flesh wound
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-xhi5bb-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   02/22/58 00:00
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-xhi5bb-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <button
-                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-15u9hm3-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
                     id="close-button"
                     tabindex="0"
                     type="button"
@@ -249,7 +249,7 @@ exports[`Search View should match snapshot 1`] = `
                 id="spamspam"
               >
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-xhi5bb-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <div
                     class="dragIndicatorWrapper"
@@ -273,12 +273,12 @@ exports[`Search View should match snapshot 1`] = `
                   </div>
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-xhi5bb-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   try
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-xhi5bb-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <a
                     class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-e4zel8-MuiTypography-root-MuiLink-root"
@@ -288,25 +288,25 @@ exports[`Search View should match snapshot 1`] = `
                   </a>
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-xhi5bb-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   terrygilliam@python.com
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium commit-message css-xhi5bb-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium commit-message css-pmplfi-MuiTableCell-root"
                 >
                   What, ridden on a horse?
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-xhi5bb-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   07/29/87 00:00
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-xhi5bb-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <button
-                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-15u9hm3-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
                     id="close-button"
                     tabindex="0"
                     type="button"
@@ -334,7 +334,7 @@ exports[`Search View should match snapshot 1`] = `
                 id="spamspamspamandeggs"
               >
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-xhi5bb-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <div
                     class="dragIndicatorWrapper"
@@ -358,12 +358,12 @@ exports[`Search View should match snapshot 1`] = `
                   </div>
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-xhi5bb-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   autoland
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-xhi5bb-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <a
                     class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-e4zel8-MuiTypography-root-MuiLink-root"
@@ -373,25 +373,25 @@ exports[`Search View should match snapshot 1`] = `
                   </a>
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-xhi5bb-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   michaelpalin@python.com
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium commit-message css-xhi5bb-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium commit-message css-pmplfi-MuiTableCell-root"
                 >
                   You've got two empty 'alves of coconuts and you're bangin' 'em togetha!
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-xhi5bb-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   07/04/20 00:00
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-xhi5bb-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <button
-                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-15u9hm3-MuiButtonBase-root-MuiIconButton-root"
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
                     id="close-button"
                     tabindex="0"
                     type="button"
