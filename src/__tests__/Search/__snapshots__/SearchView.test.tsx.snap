@@ -124,7 +124,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-1t8rubm-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 MuiGrid-grid-sm-4 MuiGrid-grid-md-1 css-1papv54-MuiGrid-root"
         >
           <button
             aria-label="add revisions"
@@ -282,7 +282,7 @@ exports[`Search View should hide search results when clicking outside of search 
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-1t8rubm-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 MuiGrid-grid-sm-4 MuiGrid-grid-md-1 css-1papv54-MuiGrid-root"
         >
           <button
             aria-label="add revisions"
@@ -440,7 +440,7 @@ exports[`Search View should not hide search results when clicking search results
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-1t8rubm-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4 MuiGrid-grid-sm-4 MuiGrid-grid-md-1 css-1papv54-MuiGrid-root"
         >
           <button
             aria-label="add revisions"
