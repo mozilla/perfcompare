@@ -33,7 +33,10 @@ function App() {
           </Link>
           .
         </Alert>
-        <Box display="flex" justifyContent="flex-end" alignItems="flex-end">
+        <Box display="flex" justifyContent="flex-end" 
+        alignItems="flex-end"
+        
+        >
           <FeedbackAlert />
           <ToggleDarkMode
             toggleColorMode={toggleColorMode}

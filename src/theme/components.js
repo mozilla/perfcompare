@@ -223,6 +223,9 @@ const components = {
       root: {
         '&.perfcompare-body': {
           minHeight: '85vh',
+          paddingRight:'46px',
+          paddingLeft:'4px'
+          
         },
       },
     },

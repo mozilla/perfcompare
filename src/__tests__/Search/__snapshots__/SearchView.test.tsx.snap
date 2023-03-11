@@ -4,13 +4,13 @@ exports[`Search View renders correctly when there are no results 1`] = `
 <body>
   <div>
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg perfcompare-body css-1tyv3cf-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg perfcompare-body css-1w0u5qv-MuiContainer-root"
     >
       <div
         class="header-container MuiBox-root css-0"
       >
         <div
-          class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-8mdcpf-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-11ewjim-MuiTypography-root"
         >
           PerfCompare
         </div>
@@ -162,13 +162,13 @@ exports[`Search View should hide search results when clicking outside of search 
 <body>
   <div>
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg perfcompare-body css-1tyv3cf-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg perfcompare-body css-1w0u5qv-MuiContainer-root"
     >
       <div
         class="header-container MuiBox-root css-0"
       >
         <div
-          class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-8mdcpf-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-11ewjim-MuiTypography-root"
         >
           PerfCompare
         </div>
@@ -320,13 +320,13 @@ exports[`Search View should not hide search results when clicking search results
 <body>
   <div>
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg perfcompare-body css-1tyv3cf-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg perfcompare-body css-1w0u5qv-MuiContainer-root"
     >
       <div
         class="header-container MuiBox-root css-0"
       >
         <div
-          class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-8mdcpf-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-11ewjim-MuiTypography-root"
         >
           PerfCompare
         </div>
