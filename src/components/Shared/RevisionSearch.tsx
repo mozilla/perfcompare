@@ -80,7 +80,7 @@ function RevisionSearch(props: RevisionSearchProps) {
         <SearchInput setFocused={setFocused} view={view} />
       </Grid>
 
-      <Grid item xs={1}>
+      <Grid item xs={4} sm={4} md={1}>
         {view == 'search' && <AddRevisionButton setFocused={setFocused} />}
         {view == 'compare-results' && setPopoverIsOpen && prevRevision && (
           <>
