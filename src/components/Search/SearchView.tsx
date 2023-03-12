@@ -6,7 +6,7 @@ import { useSnackbar, VariantType } from 'notistack';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { repoMap, featureNotSupportedError } from '../../common/constants';
+import { repoMap, featureNotSupportedError, selectionNotSupportedError } from '../../common/constants';
 import type { RootState } from '../../common/store';
 import useFilterCompareResults from '../../hooks/useFilterCompareResults';
 import { Revision } from '../../types/state';
@@ -22,6 +22,18 @@ function SearchView(props: SearchViewProps) {
   const warningVariant: VariantType = 'warning';
 
   const goToCompareResultsPage = (selectedRevisions: Revision[]) => {
+    
+    // Create a Set to keep track of the repository IDs
+    const repositoryIds = new Set(selectedRevisions.map(rev => rev.repository_id));
+
+    // Check if there are revisions from different repositories
+    if (repositoryIds.size > 1) {
+      enqueueSnackbar(selectionNotSupportedError as string, {
+        variant: warningVariant,
+      });
+      return;
+    }
+    
     // TODO: remove this check once comparing without a base
     //  and comparing multiple revisions against a base is enabled
     if (selectedRevisions.length === 1 || selectedRevisions.length > 2) {
