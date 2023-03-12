@@ -28,14 +28,22 @@ const components = {
           '& .MuiSvgIcon-root': {
             width: 'auto',
             height: '2.4rem',
+            
             borderRadius: '5px',
             '&.accept': {
+              
+              marginLeft:'20rem',
+              marginTop:'1rem',
               color: green[500],
               '&:hover': {
                 backgroundColor: green[100],
               },
             },
             '&.cancel': {
+              marginLeft:'9rem',
+              marginTop:'1rem',
+              float: 'right',
+              position:'absolute',
               color: red[500],
               '&:hover': {
                 backgroundColor: red[100],
@@ -179,9 +187,11 @@ const components = {
       root: {
         '&.edit-revision-popover': {
           '& .MuiPaper-root': {
-            width: '100%',
+            width: '80%',
+            height: '20%',
             maxWidth: '1152px',
             padding: '6px',
+            marginLeft:'7%'
           },
         },
       },

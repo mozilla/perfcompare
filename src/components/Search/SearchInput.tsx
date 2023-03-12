@@ -26,7 +26,7 @@ function SearchInput(props: SearchInputProps) {
 				placeholder='Search By Revision ID or Author Email'
         id="search-revision-input"
         onFocus={() => setFocused(true)}
-        sx={{ width: '100%' }}
+        sx={{ width: '80%' }}
         onChange={(e) => handleChangeSearch(e)}
         size={size}
         className={`${InputStyles.default} ${Fonts.BodyDefault}`}
