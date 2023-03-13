@@ -1,6 +1,6 @@
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import CompareResultsTable from '../../components/CompareResults/CompareResultsTable';
 import CompareResultsView from '../../components/CompareResults/CompareResultsView';
@@ -14,6 +14,7 @@ import { screen } from '../utils/test-utils';
 
 jest.mock('react-router-dom', () => ({
   useNavigate: jest.fn(),
+  useLocation: jest.fn(),
 }));
 
 describe('CompareResults View', () => {

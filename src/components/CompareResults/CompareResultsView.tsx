@@ -27,7 +27,7 @@ function CompareResultsView(props: CompareResultsViewProps) {
       navigate('/');
     }
 
-    const searchParams = new URLSearchParams(location.search);
+    const searchParams = new URLSearchParams(location?.search);
     const repos = searchParams.get('repos')?.split(',');
     const revs = searchParams.get('revs')?.split(',');
     void dispatchFetchCompareResults(repos as Repository['name'][], revs);
