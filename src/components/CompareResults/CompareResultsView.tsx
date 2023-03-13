@@ -41,7 +41,7 @@ function CompareResultsView(props: CompareResultsViewProps) {
   ]);
 
   return (
-    <Container maxWidth='xl'>
+    <Container maxWidth="xl">
       <PerfCompareHeader />
       <Grid container alignItems='center' justifyContent='center'>
         <Grid item xs={10}>
