@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { Dispatch } from 'redux';
 
-import { setCheckedRevisions } from '../../actions/selectedRevisionsActions';
+import { setCheckedRevisions } from '../../actions/checkedRevisionsActions';
 import type { RootState } from '../../common/store';
 import useFetchCompareResults from '../../hooks/useFetchCompareResults';
 import { Repository, Revision } from '../../types/state';

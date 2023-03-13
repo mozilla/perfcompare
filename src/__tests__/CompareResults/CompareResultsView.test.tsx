@@ -4,6 +4,7 @@ import { act } from 'react-dom/test-utils';
 import CompareResultsTable from '../../components/CompareResults/CompareResultsTable';
 import CompareResultsView from '../../components/CompareResults/CompareResultsView';
 import SelectedRevisionsTable from '../../components/Shared/SelectedRevisionsTable';
+import { setCheckedRevisions } from '../../reducers/CheckedRevisions';
 import { setCompareResults } from '../../reducers/CompareResultsSlice';
 import { updateSearchResults } from '../../reducers/SearchSlice';
 import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
@@ -68,6 +69,24 @@ describe('CompareResults View', () => {
     expect(screen.getByTestId('ThumbUpAltIcon')).toBeInTheDocument();
     expect(screen.getByTestId('WarningIcon')).toBeInTheDocument();
   });
+
+    it('should clear checked revisions when the revisions prop changes', async () => {
+      const { testData } = getTestData();
+      const selectedRevisions = testData.slice(0, 4);
+      store.dispatch(setSelectedRevisions(selectedRevisions));
+      store.dispatch(setCheckedRevisions(selectedRevisions));
+    
+      const newRevisions = testData.slice(2, 6);
+      store.dispatch(setSelectedRevisions(newRevisions));
+      store.dispatch(setCheckedRevisions([])); // clear checked revisions
+    
+      renderWithRouter(<CompareResultsView mode="light" />);
+    
+      expect(screen.queryByText("you've got no arms left!")).toBeNull();
+      expect(store.getState().checkedRevisions.revisions).toEqual([]);
+    });
+    
+
 });
 
 describe('SelectedRevisionsTableRow', () => {
