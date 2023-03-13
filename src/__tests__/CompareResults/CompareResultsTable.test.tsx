@@ -16,6 +16,7 @@ import { render, renderWithRouter, store } from '../utils/setupTests';
 import { screen, waitFor } from '../utils/test-utils';
 
 const { testCompareData, paginationTestCompareData } = getTestData();
+const handleOnClickAway = jest.fn();
 
 describe('Compare Results Table', () => {
   it('Should match snapshot', () => {
@@ -363,6 +364,23 @@ describe('Compare Results Table', () => {
     const chip = screen.queryByLabelText('macosx1015-64-shippable-qr');
 
     expect(chip).toBeInTheDocument();
+  });
+
+  it('should call handleOnClickAway function when clicking outside the platform filter list', async () => {
+    // set results data
+    store.dispatch(setCompareResults(testCompareData));
+
+    render(<CompareResultsTable mode="light" handleOnClickAway={handleOnClickAway} />);
+
+    const user = userEvent.setup({ delay: null });
+
+    await user.click(screen.getByTestId('platform-options-button'));
+
+    expect(screen.getByTestId('platform-options')).toBeInTheDocument();
+
+    await user.click(document.body);
+
+    expect(handleOnClickAway).toHaveBeenCalled();
   });
 
   it("Should reset filter when 'clear' button is clicked", async () => {
