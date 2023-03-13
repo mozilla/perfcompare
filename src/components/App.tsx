@@ -1,6 +1,13 @@
+import React from 'react';
+
+import CloseIcon from '@mui/icons-material/Close';
+import InfoIcon from '@mui/icons-material/Info';
 import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Collapse from '@mui/material/Collapse';
 import CssBaseline from '@mui/material/CssBaseline';
+import IconButton from '@mui/material/IconButton';
 import Link from '@mui/material/Link';
 import { ThemeProvider } from '@mui/material/styles';
 import { SnackbarProvider } from 'notistack';
@@ -14,12 +21,7 @@ import SnackbarCloseButton from './Shared/SnackbarCloseButton';
 import ToggleDarkMode from './Shared/ToggleDarkModeButton';
 
 /* Newely added for Alert with close buttton */
-import IconButton from '@mui/material/IconButton';
-import Collapse from '@mui/material/Collapse';
-import Button from '@mui/material/Button';
-import CloseIcon from '@mui/icons-material/Close';
-import InfoIcon from '@mui/icons-material/Info';
-import React from 'react';
+
 
 function App() {
   const { mode, toggleColorMode, protocolTheme } = useProtocolTheme();
