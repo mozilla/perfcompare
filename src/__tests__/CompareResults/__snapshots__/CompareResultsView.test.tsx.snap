@@ -44,7 +44,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
               </button>
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-1l87mn7-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeSmall css-pmw8xp-MuiTableCell-root"
               scope="col"
             >
               Graph
@@ -77,25 +77,25 @@ exports[`CompareResults View Should match snapshot 1`] = `
               </button>
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-1l87mn7-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeSmall css-pmw8xp-MuiTableCell-root"
               scope="col"
             >
               Base
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-1l87mn7-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeSmall css-pmw8xp-MuiTableCell-root"
               scope="col"
             >
               New
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-1l87mn7-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeSmall css-pmw8xp-MuiTableCell-root"
               scope="col"
             >
               Delta
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-1l87mn7-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeSmall css-pmw8xp-MuiTableCell-root"
               scope="col"
             >
               Status
@@ -128,7 +128,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
               </button>
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall css-1l87mn7-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeSmall css-pmw8xp-MuiTableCell-root"
               scope="col"
             >
               Total Runs
@@ -144,7 +144,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
           >
             <td
               aria-label="macosx1015-64-shippable-qr"
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode osx css-6qq5hg-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode osx css-8h992v-MuiTableCell-root"
               data-mui-internal-clone-element="true"
             />
             <td
@@ -213,11 +213,11 @@ exports[`CompareResults View Should match snapshot 1`] = `
                
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon low css-6qq5hg-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon low css-8h992v-MuiTableCell-root"
               data-testid="confidence-icon"
             />
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-6qq5hg-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-u18ybd-MuiTableCell-root"
             >
               1
               /
@@ -230,7 +230,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
           >
             <td
               aria-label="linux1804-64-shippable-qr"
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode linux css-6qq5hg-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode linux css-8h992v-MuiTableCell-root"
               data-mui-internal-clone-element="true"
             />
             <td
@@ -299,11 +299,11 @@ exports[`CompareResults View Should match snapshot 1`] = `
                
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon med css-6qq5hg-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon med css-8h992v-MuiTableCell-root"
               data-testid="confidence-icon"
             />
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-6qq5hg-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-u18ybd-MuiTableCell-root"
             >
               1
               /
@@ -316,7 +316,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
           >
             <td
               aria-label="windows10-64-shippable-qr"
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode windows css-6qq5hg-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode windows css-8h992v-MuiTableCell-root"
               data-mui-internal-clone-element="true"
             />
             <td
@@ -374,11 +374,11 @@ exports[`CompareResults View Should match snapshot 1`] = `
                
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon high css-6qq5hg-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon high css-8h992v-MuiTableCell-root"
               data-testid="confidence-icon"
             />
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-6qq5hg-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-u18ybd-MuiTableCell-root"
             >
               1
               /
@@ -391,7 +391,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
           >
             <td
               aria-label="windows10-64-shippable-qr"
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode windows css-6qq5hg-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon light-mode windows css-8h992v-MuiTableCell-root"
               data-mui-internal-clone-element="true"
             />
             <td
@@ -476,7 +476,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
               </button>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-6qq5hg-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall css-u18ybd-MuiTableCell-root"
             >
               1
               /
