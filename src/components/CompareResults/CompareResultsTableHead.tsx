@@ -20,7 +20,7 @@ const tableHead: CompareResultsTableHeader[] = [
     id: 'platform',
     label: 'Platform',
     key: 'platform',
-    align: 'left',
+    align: 'center',
   },
   {
     id: 'graph',
@@ -61,7 +61,7 @@ const tableHead: CompareResultsTableHeader[] = [
     id: 'confidence',
     label: 'Confidence',
     key: 'confidence',
-    align: 'left',
+    align: 'center',
   },
   {
     id: 'total-runs',
