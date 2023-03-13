@@ -13,8 +13,17 @@ import FeedbackAlert from './Shared/FeedbackAlert';
 import SnackbarCloseButton from './Shared/SnackbarCloseButton';
 import ToggleDarkMode from './Shared/ToggleDarkModeButton';
 
+/* Newely added for Alert with close buttton */
+import IconButton from '@mui/material/IconButton';
+import Collapse from '@mui/material/Collapse';
+import Button from '@mui/material/Button';
+import CloseIcon from '@mui/icons-material/Close';
+import InfoIcon from '@mui/icons-material/Info';
+import React from 'react';
+
 function App() {
   const { mode, toggleColorMode, protocolTheme } = useProtocolTheme();
+  const [open, setOpen] = React.useState(true);
   return (
     <ThemeProvider theme={protocolTheme}>
       <SnackbarProvider
@@ -25,14 +34,53 @@ function App() {
         )}
       >
         <CssBaseline />
-        <Alert severity="warning" sx={{ textAlign: 'center' }}>
-          This is an unstable <strong>pre-release</strong> version. Some
-          features may not yet be supported. Please file any bugs on the{' '}
-          <Link href="https://github.com/mozilla/perfcompare/issues" title="View Github Link">
-            Github Repo
-          </Link>
-          .
-        </Alert>
+         
+
+         {/* Alert Box with close button*/}
+         
+        <Box sx={{ textAlign: 'center', alignContent: 'center' }}>
+          <Collapse in={open}>
+            <Alert
+              severity="warning"
+              sx={{ mb: 2 }}
+              action={
+                <IconButton
+                  aria-label="close"
+                  color="inherit"
+                  size="small"
+                  onClick={() => {
+                    setOpen(false);
+                  }}
+                >
+                  <CloseIcon fontSize="inherit" />
+                </IconButton>
+              }
+            >
+              This is an unstable <strong>pre-release</strong> version. Some
+              features may not yet be supported. Please file any bugs on the{' '}
+              <Link
+                href="https://github.com/mozilla/perfcompare/issues"
+                title="View Github Link"
+              >
+                Github Repo
+              </Link>
+            </Alert>
+          </Collapse>
+          <Button
+            disabled={open}
+            sx={{ mt: 2 }}
+            variant="contained"
+            color="info"
+            size="medium"
+            onClick={() => {
+              setOpen(true);
+            }}
+            endIcon={<InfoIcon />}
+          >
+            Warning
+          </Button>
+        </Box>
+
         <Box display="flex" justifyContent="flex-end" alignItems="flex-end">
           <FeedbackAlert />
           <ToggleDarkMode
