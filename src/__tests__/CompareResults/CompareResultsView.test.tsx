@@ -69,9 +69,11 @@ describe('CompareResults View', () => {
 	
 	// Mock the navigate function
     const navigate = jest.fn();
+    const location = jest.fn();
 
     // Mock the useNavigate hook to return the navigate function
     useNavigate.mockReturnValue(navigate);
+    useLocation.mockReturnValue(location);
 
     // Render the component with an empty array of revisions
     renderWithRouter(<CompareResultsView mode="light" revisions={[]} />);
