@@ -6,9 +6,9 @@ import { connect } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { Dispatch } from 'redux';
 
-import { setCheckedRevisions } from '../../actions/checkedRevisionsActions';
 import type { RootState } from '../../common/store';
 import useFetchCompareResults from '../../hooks/useFetchCompareResults';
+import { setCheckedRevisions } from '../../reducers/CheckedRevisions';
 import { Repository, Revision } from '../../types/state';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
 import SelectedRevisionsTable from '../Shared/SelectedRevisionsTable';
