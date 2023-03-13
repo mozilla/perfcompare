@@ -19,7 +19,7 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
     <TableRow key={index} hover data-testid={'table-row'}>
       <Tooltip title={result.platform}>
         <TableCell
-          sx={{ display: 'flex', height: '60px', width: '200px' }}
+          sx={{ display: 'flex', height: '60px', width: '160px' }}
           className={`background-icon ${mode}-mode ${setPlatformClassName(
             result.platform,
           )}`}
@@ -50,7 +50,7 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
       </TableCell>
       {result.confidence_text ? (
         <TableCell
-          sx={{ display: 'flex', height: '60px', width: '200px' }}
+          sx={{ display: 'flex', height: '60px', width: '160px' }}
           data-testid="confidence-icon"
           className={`background-icon ${setConfidenceClassName(
             result.confidence_text,
@@ -71,6 +71,8 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
 
       <TableCell
         sx={{ width: '150px' }}
+        id="total-runs"
+        align="center"
       >
         {result.base_runs.length}/{result.new_runs.length}
       </TableCell>
