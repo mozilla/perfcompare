@@ -11,12 +11,11 @@ import {
 import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
 import useFilterCompareResults from '../../hooks/useFilterCompareResults';
-import { ActiveFilters } from '../../types/types';
 
 function FilterOptionsList(props: FilterOptionsListProps) {
   const { options, column, closeOptions }: FilterOptionsListProps = props;
   const { setFilters, filterResults } = useFilterCompareResults();
-  const activeFilters: ActiveFilters = useAppSelector(
+  const activeFilters = useAppSelector(
     (state: RootState) => state.filterCompareResults.activeFilters,
   );
 
@@ -40,6 +39,7 @@ function FilterOptionsList(props: FilterOptionsListProps) {
         maxWidth: 360,
         maxHeight: 350,
         bgcolor: 'background.paper',
+        overflow: 'auto',
       }}
       data-testid={`${column}-options`}
     >
@@ -53,31 +53,32 @@ function FilterOptionsList(props: FilterOptionsListProps) {
           Apply
         </Button>
       </ListItem>
-      {options.map((value) => {
-        const labelId = `checkbox-list-label-${value}`;
-        return (
-          value && (
-            <ListItemButton
-              key={value}
-              dense
-              onClick={() => handleOnChangeOption(value)}
-            >
-              <ListItem disablePadding>
-                <ListItemIcon>
-                  <Checkbox
-                    data-testid={`${value}-checkbox`}
-                    edge="start"
-                    disableRipple
-                    inputProps={{ 'aria-labelledby': labelId, value: value }}
-                    checked={activeOptions.includes(value)}
-                  />
-                </ListItemIcon>
-                <ListItemText id={labelId} primary={value} />
-              </ListItem>
-            </ListItemButton>
-          )
-        );
-      })}
+      {options &&
+        options.map((value) => {
+          const labelId = `checkbox-list-label-${value}`;
+          return (
+            value && (
+              <ListItemButton
+                key={value}
+                dense
+                onClick={() => handleOnChangeOption(value)}
+              >
+                <ListItem disablePadding>
+                  <ListItemIcon>
+                    <Checkbox
+                      data-testid={`${value}-checkbox`}
+                      edge="start"
+                      disableRipple
+                      inputProps={{ 'aria-labelledby': labelId, value: value }}
+                      checked={activeOptions.includes(value)}
+                    />
+                  </ListItemIcon>
+                  <ListItemText id={labelId} primary={value} />
+                </ListItem>
+              </ListItemButton>
+            )
+          );
+        })}
       <ListItem>
         <Button
           data-testid="apply-filter"

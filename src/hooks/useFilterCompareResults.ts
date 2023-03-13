@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 
+import { RootState } from '../common/store';
 import {
   addFilter,
   removeFilter,
@@ -13,11 +14,11 @@ import { useAppSelector } from './app';
 const useFilterCompareResults = () => {
   const dispatch = useDispatch();
   const activeFilters: ActiveFilters = useAppSelector(
-    (state) => state.filterCompareResults.activeFilters,
+    (state: RootState) => state.filterCompareResults.activeFilters,
   );
 
   const compareResults: CompareResultsItem[] = useAppSelector(
-    (state) => state.compareResults.data,
+    (state: RootState) => state.compareResults.data,
   );
 
   const setFilters = (value: string, checked: boolean, name: string) => {

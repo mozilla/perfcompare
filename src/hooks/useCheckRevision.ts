@@ -1,5 +1,6 @@
 import { useSnackbar, VariantType } from 'notistack';
 
+import { RootState } from '../common/store';
 import { setCheckedRevisions } from '../reducers/CheckedRevisions';
 import { Revision } from '../types/state';
 import { useAppDispatch, useAppSelector } from './app';
@@ -8,8 +9,8 @@ const useCheckRevision = () => {
   const { enqueueSnackbar } = useSnackbar();
   const dispatch = useAppDispatch();
 
-  const checkedRevisions: Revision[] = useAppSelector(
-    (state) => state.checkedRevisions.revisions,
+  const checkedRevisions = useAppSelector(
+    (state: RootState) => state.checkedRevisions.revisions,
   );
 
   const handleToggle = (revision: Revision, maxRevisions: number) => {
