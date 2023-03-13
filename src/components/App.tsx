@@ -10,6 +10,7 @@ import useProtocolTheme from '../theme/protocolTheme';
 import CompareResultsView from './CompareResults/CompareResultsView';
 import SearchView from './Search/SearchView';
 import FeedbackAlert from './Shared/FeedbackAlert';
+import GoToTop from './Shared/GoToTop';
 import SnackbarCloseButton from './Shared/SnackbarCloseButton';
 import ToggleDarkMode from './Shared/ToggleDarkModeButton';
 
@@ -17,6 +18,7 @@ function App() {
   const { mode, toggleColorMode, protocolTheme } = useProtocolTheme();
   return (
     <ThemeProvider theme={protocolTheme}>
+      
       <SnackbarProvider
         maxSnack={3}
         autoHideDuration={6000}
@@ -50,6 +52,7 @@ function App() {
           </Routes>
         </Router>
       </SnackbarProvider>
+      <GoToTop/>
     </ThemeProvider>
   );
 }
