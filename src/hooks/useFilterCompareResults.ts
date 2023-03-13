@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
-import { RootState } from '../common/store';
 
+import { RootState } from '../common/store';
 import {
   addFilter,
   removeFilter,
@@ -8,7 +8,6 @@ import {
   resetFilters,
 } from '../reducers/FilterCompareResultsSlice';
 import { CompareResultsItem } from '../types/state';
-
 import { ActiveFilters, FilteredResults, FilterValue } from '../types/types';
 import { useAppSelector } from './app';
 

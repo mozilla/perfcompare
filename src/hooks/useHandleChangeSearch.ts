@@ -1,19 +1,17 @@
 import { FormEvent } from 'react';
-import { RootState } from '../common/store';
 
+import { RootState } from '../common/store';
 import {
   updateSearchValue,
   updateSearchResults,
   setInputError,
   clearInputError,
 } from '../reducers/SearchSlice';
-
 import {
   fetchRecentRevisions,
   fetchRevisionByID,
   fetchRevisionsByAuthor,
 } from '../thunks/searchThunk';
-
 import type { Repository } from '../types/state';
 import { useAppDispatch, useAppSelector } from './app';
 

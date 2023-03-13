@@ -1,8 +1,8 @@
 import { useSnackbar, VariantType } from 'notistack';
+
 import { RootState } from '../common/store';
 import { setCheckedRevisions } from '../reducers/CheckedRevisions';
 import { Revision } from '../types/state';
-
 import { useAppDispatch, useAppSelector } from './app';
 
 const useCheckRevision = () => {

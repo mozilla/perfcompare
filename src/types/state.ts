@@ -99,9 +99,9 @@ export type CompareResultsState = {
   error: string | undefined;
 };
 
-export type RootStateType ={
+export type RootStateType = {
   search: SearchState;
   checkedRevisions: CheckedRevisionsState;
   selectedRevisions: SelectedRevisionsState;
   compareResults: CompareResultsState;
-}
+};
