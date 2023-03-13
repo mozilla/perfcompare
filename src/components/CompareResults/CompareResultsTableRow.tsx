@@ -13,13 +13,13 @@ import {
   setPlatformClassName,
   setConfidenceClassName,
 } from '../../utils/helpers';
-
 function CompareResultsTableRow(props: ResultsTableRowProps) {
   const { result, index, mode } = props;
   return (
     <TableRow key={index} hover data-testid={'table-row'}>
       <Tooltip title={result.platform}>
         <TableCell
+          sx={{ display: 'flex', height: '60px', width: '200px' }}
           className={`background-icon ${mode}-mode ${setPlatformClassName(
             result.platform,
           )}`}
@@ -50,6 +50,7 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
       </TableCell>
       {result.confidence_text ? (
         <TableCell
+          sx={{ display: 'flex', height: '60px', width: '200px' }}
           data-testid="confidence-icon"
           className={`background-icon ${setConfidenceClassName(
             result.confidence_text,
@@ -68,7 +69,9 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
         </TableCell>
       )}
 
-      <TableCell>
+      <TableCell
+        sx={{ width: '150px' }}
+      >
         {result.base_runs.length}/{result.new_runs.length}
       </TableCell>
     </TableRow>
