@@ -14,7 +14,6 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 
 import { useAppSelector } from '../../hooks/app';
-import { CompareResultsItem } from '../../types/state';
 import {
   CompareResultsTableHeader,
   ConfidenceText,
