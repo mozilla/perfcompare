@@ -43,7 +43,7 @@ function CompareResultsView(props: CompareResultsViewProps) {
   return (
     <Container maxWidth="xl">
       <PerfCompareHeader />
-      <Grid container alignItems="center"justifyContent="center">
+      <Grid container alignItems="center" justifyContent="center">
         <Grid item xs={10}>
           {revisions.length > 0 && (
             <SelectedRevisionsTable view="compare-results" />
