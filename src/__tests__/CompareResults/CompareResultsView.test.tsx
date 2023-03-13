@@ -10,6 +10,11 @@ import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
+import { useNavigate } from 'react-router-dom';
+
+jest.mock('react-router-dom', () => ({
+  useNavigate: jest.fn(),
+}));
 
 describe('CompareResults View', () => {
   it('Should match snapshot', () => {
@@ -57,6 +62,21 @@ describe('CompareResults View', () => {
         name: 'Search By Revision ID or Author Email',
       }),
     ).toBeInTheDocument();
+  });
+  
+  it('should redirect to the root URL when there are no revisions', () => {
+	
+	// Mock the navigate function
+    const navigate = jest.fn();
+
+    // Mock the useNavigate hook to return the navigate function
+    useNavigate.mockReturnValue(navigate);
+
+    // Render the component with an empty array of revisions
+    renderWithRouter(<CompareResultsView mode="light" revisions={[]} />);
+
+    // Check that navigate was called with the root URL
+    expect(navigate).toHaveBeenCalledWith('/');
   });
 
   it('should show correct icon for improvements and regressions', () => {

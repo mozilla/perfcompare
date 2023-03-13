@@ -22,6 +22,7 @@ function CompareResultsView(props: CompareResultsViewProps) {
   // TODO: if the revisions in the URL parameters are different from
   // currently selected revisions, set selected revisions to those parameters
   useEffect(() => {
+	// redirect to the root URL when there are no revisions
     if (revisions.length == 0) {
       navigate('/');
     }
