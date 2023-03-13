@@ -1,5 +1,6 @@
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
+import { useNavigate } from 'react-router-dom';
 
 import CompareResultsTable from '../../components/CompareResults/CompareResultsTable';
 import CompareResultsView from '../../components/CompareResults/CompareResultsView';
@@ -10,7 +11,6 @@ import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
-import { useNavigate } from 'react-router-dom';
 
 jest.mock('react-router-dom', () => ({
   useNavigate: jest.fn(),
