@@ -18,6 +18,7 @@ import SearchResultsList from '../Search/SearchResultsList';
 
 function RevisionSearch(props: RevisionSearchProps) {
   const [focused, setFocused] = useState(false);
+  const [displayList, setDisplayList] = useState(false);
   const { prevRevision, searchResults, setPopoverIsOpen, view } = props;
 
   const dispatch = useAppDispatch();
@@ -38,9 +39,11 @@ function RevisionSearch(props: RevisionSearchProps) {
       )
     ) {
       setFocused(true);
+      setDisplayList(true);
       return;
     } else {
       setFocused(false);
+      setDisplayList(false);
       dispatch(clearCheckedRevisions());
     }
   };
@@ -48,6 +51,7 @@ function RevisionSearch(props: RevisionSearchProps) {
   const handleEscKeypress = (e: KeyboardEvent) => {
     if (e.key === 'Escape') {
       setFocused(false);
+      setDisplayList(false);
       dispatch(clearCheckedRevisions());
     }
   };
@@ -74,8 +78,51 @@ function RevisionSearch(props: RevisionSearchProps) {
       id="revision-search-container"
     >
       <Grid item xs={2} id="revision-search-dropdown">
-        <SearchDropdown view={view} />
+        <SearchDropdown view={view} displayList={setDisplayList} />
       </Grid>
+      {displayList ? (
+        <Grid>
+          <Grid item xs={9}>
+        <SearchInput setFocused={setFocused} view={view} />
+        </Grid>
+
+        <Grid item xs={1}>
+        {view == 'search' && <AddRevisionButton setFocused={setFocused} />}
+        {view == 'compare-results' && setPopoverIsOpen && prevRevision && (
+          <>
+            {/* TODO: add functionality for buttons and improve styling */}
+            <Button
+              className="edit-revision-button"
+              id="replace-revision-button"
+              data-testid="replace-revision-button"
+              size="small"
+              onClick={() => replaceSelectedRevision(prevRevision)}
+            >
+              <CheckIcon className="accept" />
+            </Button>
+            <Button
+              className="edit-revision-button"
+              id="cancel-edit-revision-button"
+              data-testid="cancel-edit-revision-button"
+              size="small"
+              onClick={() => setPopoverIsOpen(false)}
+            >
+              <CloseIcon className="cancel" />
+            </Button>
+          </>
+        )}
+      </Grid>
+
+      <Grid item xs={12}>
+        {searchResults.length > 0 && focused && (
+          <SearchResultsList searchResults={searchResults} view={view} />
+        )}
+      </Grid>
+
+          </Grid>
+        
+      ) : null}
+
       <Grid item xs={9}>
         <SearchInput setFocused={setFocused} view={view} />
       </Grid>
