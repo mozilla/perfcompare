@@ -50,7 +50,7 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
       </TableCell>
       {result.confidence_text ? (
         <TableCell
-          sx={{ display: 'flex', height: '60px', width: '160px' }}
+          sx={{ display: 'flex', height: '60px', width: '180px' }}
           data-testid="confidence-icon"
           className={`background-icon ${setConfidenceClassName(
             result.confidence_text,
