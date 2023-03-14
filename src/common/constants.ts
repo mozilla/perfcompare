@@ -8,6 +8,9 @@ export const treeherderBaseURL = 'https://treeherder.mozilla.org';
 export const maxRevisionsError = 'Maximum 4 revision(s).';
 export const featureNotSupportedError =
   'This feature is not supported yet. Please compare two revisions only.';
+  
+export const selectionNotSupportedError = 
+  'Please select items from the same repository.';
 
 export const userFeedbackMessage =
   'For any kind of suggestions please contact us at ';
