@@ -64,10 +64,13 @@ const StyledDiv = styled('div')({
 function GoToTop() {
 
   const [isVisible, setIsVisible] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
 
   
 
-      const goToBtn = () => {
+      const btnHandler = () => {
+
+        setIsClicked(true);
           window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
       };
 
@@ -80,6 +83,7 @@ function GoToTop() {
           setIsVisible(true);
         } else {
           setIsVisible(false);
+          setIsClicked(false);
         }
       };
 
@@ -90,9 +94,9 @@ function GoToTop() {
     return (
 
 <StyledDiv>
-        {isVisible && (
+        {isVisible && !isClicked && (
           <Tooltip title="Scroll to top" placement="top">
-      <ButtonToTop className='topBtn' onClick={goToBtn}>
+      <ButtonToTop className='topBtn' onClick={btnHandler}>
         <ArrowUpwardIcon className="topBtn--icon"/>
         </ButtonToTop>
         </Tooltip>
