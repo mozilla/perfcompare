@@ -69,6 +69,7 @@ const useSelectRevision = () => {
       newSelected[newSelected.indexOf(prev)] = newRevision;
     }
     dispatch(setSelectedRevisions(newSelected));
+    dispatch(clearCheckedRevisions());
   };
 
   return { addSelectedRevisions, replaceSelectedRevision };

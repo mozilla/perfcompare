@@ -7,6 +7,8 @@ import SelectedRevisionsTable from '../../components/Shared/SelectedRevisionsTab
 import { setCompareResults } from '../../reducers/CompareResultsSlice';
 import { updateSearchResults } from '../../reducers/SearchSlice';
 import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
+import { clearCheckedRevisions } from '../../reducers/CheckedRevisions';
+import { setCheckedRevisions } from '../../reducers/CheckedRevisions';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
@@ -145,4 +147,19 @@ describe('CompareResultsTable', () => {
     expect(icons[2]).toHaveClass('high');
     expect(icons[3]).toHaveClass('unknown-confidence');
   });
+  it('should clear checked revisions when selected revisions changes', async () => {
+    const { testData } = getTestData();
+    const selectedRevisions = testData.slice(0, 2);
+    store.dispatch(setSelectedRevisions(selectedRevisions));
+    store.dispatch(setCheckedRevisions(selectedRevisions));
+
+    const newRevisions = testData.slice(2,4);
+    store.dispatch(setSelectedRevisions(newRevisions));
+    store.dispatch(clearCheckedRevisions()); 
+
+    renderWithRouter(<SelectedRevisionsTable view="compare-results" />);
+
+    expect(store.getState().checkedRevisions.revisions).toEqual([]);
+  });
+
 });
