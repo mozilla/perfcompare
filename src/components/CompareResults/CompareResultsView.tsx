@@ -11,6 +11,7 @@ import { Repository, Revision } from '../../types/state';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
 import SelectedRevisionsTable from '../Shared/SelectedRevisionsTable';
 import CompareResultsTable from './CompareResultsTable';
+import ScrollToTopButton from './ScrollToTopButton';
 
 function CompareResultsView(props: CompareResultsViewProps) {
   const { revisions, mode } = props;
@@ -40,6 +41,7 @@ function CompareResultsView(props: CompareResultsViewProps) {
           <CompareResultsTable mode={mode} />
         </Grid>
       </Grid>
+      <ScrollToTopButton></ScrollToTopButton>
     </Container>
   );
 }
