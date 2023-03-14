@@ -19,7 +19,7 @@ const { testCompareData, paginationTestCompareData } = getTestData();
 
 describe('Compare Results Table', () => {
   it('Should match snapshot', () => {
-    render(<CompareResultsTable mode="light" />);
+    render(<CompareResultsTable mode='light' />);
 
     expect(document.body).toMatchSnapshot();
   });
@@ -28,7 +28,7 @@ describe('Compare Results Table', () => {
     // set results data
     store.dispatch(setCompareResults(testCompareData));
 
-    render(<CompareResultsTable mode="light" />);
+    render(<CompareResultsTable mode='light' />);
 
     const platformOptionsList = screen.queryByTestId('platform-options');
 
@@ -39,7 +39,7 @@ describe('Compare Results Table', () => {
     // set results data
     store.dispatch(setCompareResults(testCompareData));
 
-    render(<CompareResultsTable mode="light" />);
+    render(<CompareResultsTable mode='light' />);
 
     const user = userEvent.setup({ delay: null });
 
@@ -54,7 +54,7 @@ describe('Compare Results Table', () => {
     // set results data
     store.dispatch(setCompareResults(testCompareData));
 
-    const { rerender } = render(<CompareResultsTable mode="light" />);
+    const { rerender } = render(<CompareResultsTable mode='light' />);
     const rows = screen.getAllByTestId('table-row');
 
     expect(rows).not.toBeNull();
@@ -81,7 +81,7 @@ describe('Compare Results Table', () => {
     });
 
     act(() => {
-      rerender(<CompareResultsTable mode="light" />);
+      rerender(<CompareResultsTable mode='light' />);
     });
 
     const filteredRows = screen.getAllByTestId('table-row');
@@ -98,7 +98,7 @@ describe('Compare Results Table', () => {
     // set results data
     store.dispatch(setCompareResults(testCompareData));
 
-    const { rerender } = render(<CompareResultsTable mode="light" />);
+    const { rerender } = render(<CompareResultsTable mode='light' />);
     const rows = screen.getAllByTestId('table-row');
 
     expect(rows).not.toBeNull();
@@ -123,7 +123,7 @@ describe('Compare Results Table', () => {
     });
 
     act(() => {
-      rerender(<CompareResultsTable mode="light" />);
+      rerender(<CompareResultsTable mode='light' />);
     });
 
     const filteredRows = screen.getAllByTestId('table-row');
@@ -140,7 +140,7 @@ describe('Compare Results Table', () => {
     // set results data
     store.dispatch(setCompareResults(testCompareData));
 
-    render(<CompareResultsTable mode="light" />);
+    render(<CompareResultsTable mode='light' />);
     const user = userEvent.setup({ delay: null });
 
     await user.click(screen.getByTestId('confidence-options-button'));
@@ -164,7 +164,7 @@ describe('Compare Results Table', () => {
     // set results data
     store.dispatch(setCompareResults(testCompareData));
 
-    render(<CompareResultsTable mode="light" />);
+    render(<CompareResultsTable mode='light' />);
     const user = userEvent.setup({ delay: null });
 
     await user.click(screen.getByTestId('confidence-options-button'));
@@ -185,7 +185,7 @@ describe('Compare Results Table', () => {
     // set results data
     store.dispatch(setCompareResults(testCompareData));
 
-    render(<CompareResultsTable mode="light" />);
+    render(<CompareResultsTable mode='light' />);
     const user = userEvent.setup({ delay: null });
 
     await user.click(screen.getByTestId('confidence-options-button'));
@@ -203,7 +203,7 @@ describe('Compare Results Table', () => {
     // set results data
     store.dispatch(setCompareResults(testCompareData));
 
-    render(<CompareResultsTable mode="light" />);
+    render(<CompareResultsTable mode='light' />);
 
     act(() => {
       store.dispatch(
@@ -256,7 +256,7 @@ describe('Compare Results Table', () => {
     // set results data
     store.dispatch(setCompareResults(testCompareData));
 
-    const { rerender } = render(<CompareResultsTable mode="light" />);
+    const { rerender } = render(<CompareResultsTable mode='light' />);
 
     const activeFilters: ActiveFilters = {
       platform: ['macosx1015-64-shippable-qr'],
@@ -274,7 +274,7 @@ describe('Compare Results Table', () => {
     });
 
     act(() => {
-      rerender(<CompareResultsTable mode="light" />);
+      rerender(<CompareResultsTable mode='light' />);
     });
 
     const message = screen.queryByText('Filters have been applied.');
@@ -286,7 +286,7 @@ describe('Compare Results Table', () => {
     // set results data
     store.dispatch(setCompareResults(testCompareData));
 
-    const { rerender } = render(<CompareResultsTable mode="light" />);
+    const { rerender } = render(<CompareResultsTable mode='light' />);
 
     const activeFilters: ActiveFilters = {
       platform: ['macosx1015-64-shippable-qr'],
@@ -304,7 +304,7 @@ describe('Compare Results Table', () => {
     });
 
     act(() => {
-      rerender(<CompareResultsTable mode="light" />);
+      rerender(<CompareResultsTable mode='light' />);
     });
 
     const message = screen.queryByText('No data for this combination.');
@@ -316,7 +316,7 @@ describe('Compare Results Table', () => {
     // set results data
     store.dispatch(setCompareResults(testCompareData));
 
-    const { rerender } = render(<CompareResultsTable mode="light" />);
+    const { rerender } = render(<CompareResultsTable mode='light' />);
 
     act(() => {
       store.dispatch(
@@ -325,7 +325,7 @@ describe('Compare Results Table', () => {
     });
 
     act(() => {
-      rerender(<CompareResultsTable mode="light" />);
+      rerender(<CompareResultsTable mode='light' />);
     });
 
     const message = screen.queryByText(
@@ -339,7 +339,7 @@ describe('Compare Results Table', () => {
     // set compare data
     store.dispatch(setCompareResults(testCompareData));
 
-    const { rerender } = render(<CompareResultsTable mode="light" />);
+    const { rerender } = render(<CompareResultsTable mode='light' />);
 
     const activeFilters: ActiveFilters = {
       platform: ['macosx1015-64-shippable-qr'],
@@ -357,7 +357,7 @@ describe('Compare Results Table', () => {
     });
 
     act(() => {
-      rerender(<CompareResultsTable mode="light" />);
+      rerender(<CompareResultsTable mode='light' />);
     });
 
     const chip = screen.queryByLabelText('macosx1015-64-shippable-qr');
@@ -369,7 +369,7 @@ describe('Compare Results Table', () => {
     // set results data
     store.dispatch(setCompareResults(testCompareData));
 
-    render(<CompareResultsTable mode="light" />);
+    render(<CompareResultsTable mode='light' />);
     const user = userEvent.setup({ delay: null });
 
     const rows = await waitFor(() => screen.getAllByTestId('table-row'));
@@ -443,27 +443,35 @@ describe('Compare Results Table', () => {
     // set compare data
     store.dispatch(setCompareResults(testCompareData));
 
-    render(<CompareResultsTable mode="light" />);
+    render(<CompareResultsTable mode='light' />);
 
     const filterButton = screen.getByTestId('platform-options-button');
     await user.click(filterButton);
     let popper = await waitFor(() => screen.getByRole('tooltip'));
     expect(popper).toBeVisible();
 
-    const windowsCheckbox = await waitFor(() => screen.getByRole('checkbox', {
-      name: 'windows10-64-shippable-qr',
-    }));
+    const windowsCheckbox = await waitFor(() =>
+      screen.getByRole('checkbox', {
+        name: 'windows10-64-shippable-qr',
+      }),
+    );
     expect(windowsCheckbox).toBeInTheDocument();
 
     await user.click(windowsCheckbox);
-    
-    const applyButtons = await waitFor(() => screen.getAllByRole('button', { name: 'Apply' }));
-    
+
+    const applyButtons = await waitFor(() =>
+      screen.getAllByRole('button', { name: 'Apply' }),
+    );
+
     await user.click(applyButtons[1]);
 
     popper = await waitFor(() => screen.getByRole('tooltip'));
-    
-    expect(popper).toHaveAttribute('style', 'position: absolute; top: 0px; left: 0px; margin: 0px; right: 0px; transform: translate(0px, 0px);');
+
+    act(() => {
+      jest.runOnlyPendingTimers();
+    });
+
+    expect(popper).not.toBeInTheDocument();
   });
 
   it('Should close filter popper by clicking outside of it', async () => {
@@ -473,21 +481,27 @@ describe('Compare Results Table', () => {
     // set compare data
     store.dispatch(setCompareResults(testCompareData));
 
-    render(<CompareResultsTable mode="light" />);
+    render(<CompareResultsTable mode='light' />);
 
-    const filterButtonPlatform = await waitFor(() => screen.getByTestId('platform-options-button'));
+    const filterButtonPlatform = await waitFor(() =>
+      screen.getByTestId('platform-options-button'),
+    );
     await user.click(filterButtonPlatform);
 
     const filterPlatfomList = screen.getByTestId('platform-options');
     let popper = await waitFor(() => screen.getByRole('tooltip'));
     expect(popper).toContainElement(filterPlatfomList);
 
-    const filterButtonConfidence = await waitFor(() => screen.getByTestId('confidence-options-button'));
+    const filterButtonConfidence = await waitFor(() =>
+      screen.getByTestId('confidence-options-button'),
+    );
     expect(filterButtonConfidence).toBeInTheDocument();
 
     await user.click(filterButtonConfidence);
 
-    const filterConfidenceList = await waitFor(() => screen.getByTestId('confidence-options'));
+    const filterConfidenceList = await waitFor(() =>
+      screen.getByTestId('confidence-options'),
+    );
 
     popper = await waitFor(() => screen.getByRole('tooltip'));
 
@@ -514,7 +528,7 @@ describe('Compare Results Table', () => {
       store.dispatch(setFilteredResults(filteredResults));
     });
 
-    render(<CompareResultsTable mode="light" />);
+    render(<CompareResultsTable mode='light' />);
 
     let firstPageButton = await waitFor(() =>
       screen.getByLabelText('first page'),
