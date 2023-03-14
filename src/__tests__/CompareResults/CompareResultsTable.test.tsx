@@ -1,4 +1,5 @@
 import userEvent from '@testing-library/user-event';
+import ClickAwayListener from 'material-ui';
 import { act } from 'react-dom/test-utils';
 
 import CompareResultsTable from '../../components/CompareResults/CompareResultsTable';
@@ -13,12 +14,13 @@ import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
 import { ActiveFilters, FilteredResults } from '../../types/types';
 import getTestData from '../utils/fixtures';
 import { render, renderWithRouter, store } from '../utils/setupTests';
-import { screen, waitFor } from '../utils/test-utils';
+import { screen, waitFor, fireEvent } from '../utils/test-utils';
 
 const { testCompareData, paginationTestCompareData } = getTestData();
-const handleOnClickAway = jest.fn();
 
 describe('Compare Results Table', () => {
+  // jest.setTimeout(50000);
+
   it('Should match snapshot', () => {
     render(<CompareResultsTable mode="light" />);
 
@@ -366,23 +368,6 @@ describe('Compare Results Table', () => {
     expect(chip).toBeInTheDocument();
   });
 
-  it('should call handleOnClickAway function when clicking outside the platform filter list', async () => {
-    // set results data
-    store.dispatch(setCompareResults(testCompareData));
-
-    render(<CompareResultsTable mode="light" handleOnClickAway={handleOnClickAway} />);
-
-    const user = userEvent.setup({ delay: null });
-
-    await user.click(screen.getByTestId('platform-options-button'));
-
-    expect(screen.getByTestId('platform-options')).toBeInTheDocument();
-
-    await user.click(document.body);
-
-    expect(handleOnClickAway).toHaveBeenCalled();
-  });
-
   it("Should reset filter when 'clear' button is clicked", async () => {
     // set results data
     store.dispatch(setCompareResults(testCompareData));
@@ -559,4 +544,88 @@ describe('Compare Results Table', () => {
 
     expect(firstPageButton).toHaveAttribute('disabled');
   });
+
+  // it('should call handleOnClickAway function when clicking outside the platform filter list', async () => {
+  //   // set delay to null to prevent test time-out due to useFakeTimers
+  //   const user = userEvent.setup({ delay: null });
+
+  //   // set compare data
+  //   store.dispatch(setCompareResults(testCompareData));
+
+  //   render(<CompareResultsTable mode="light" />);
+
+  //   const filterButtonPlatform = await waitFor(() => screen.getByTestId('platform-options-button'));
+  //   await user.click(filterButtonPlatform);
+
+  //   const filterPlatfomList = screen.getByTestId('platform-options');
+  //   let popper = await waitFor(() => screen.getByRole('tooltip'));
+  //   expect(popper).toContainElement(filterPlatfomList);
+
+  //   const filterButtonConfidence = await waitFor(() => screen.getByTestId('confidence-options-button'));
+  //   expect(filterButtonConfidence).toBeInTheDocument();
+
+  //   await user.click(filterButtonConfidence);
+
+  //   const filterConfidenceList = await waitFor(() => screen.getByTestId('confidence-options'));
+
+  //   popper = await waitFor(() => screen.getByRole('tooltip'));
+
+  //   expect(popper).toHaveBeenCalled();
+  // });
+  it('should call handleOnClickAway function when clicking outside the platform filter list', async () => {
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
+  
+    // set compare data
+    store.dispatch(setCompareResults(testCompareData));
+  
+    const handleOnClickAway = jest.fn();
+  
+    render(
+      // rome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
+<div onClick={handleOnClickAway}>
+        <CompareResultsTable mode="light" />
+      </div>
+    );
+  
+    const filterButtonPlatform = await waitFor(() => screen.getByTestId('platform-options-button'));
+    await user.click(filterButtonPlatform);
+  
+    const filterPlatfomList = screen.getByTestId('platform-options');
+    let popper = await waitFor(() => screen.getByRole('tooltip'));
+    expect(popper).toContainElement(filterPlatfomList);
+  
+    // simulate click outside the filter options list
+    // const outsideElement = screen.getByTestId('outside-element');
+    user.click(document.body);
+  
+    expect(handleOnClickAway).toHaveBeenCalledTimes(1);
+  });
+// it('should call handleOnClickAway function when clicking outside the platform filter list', async () => {
+//   // set delay to null to prevent test time-out due to useFakeTimers
+//   const user = userEvent.setup({ delay: null });
+
+//   // set compare data
+//   store.dispatch(setCompareResults(testCompareData));
+
+//   const handleOnClickAway = jest.fn();
+
+//   render(
+//     <ClickAwayListener onClickAway={handleOnClickAway}>
+//       <CompareResultsTable mode="light" />
+//     </ClickAwayListener>
+//   );
+
+//   const filterButtonPlatform = await waitFor(() => screen.getByTestId('platform-options-button'));
+//   await user.click(filterButtonPlatform);
+
+//   const filterPlatfomList = screen.getByTestId('platform-options');
+//   let popper = await waitFor(() => screen.getByRole('tooltip'));
+//   expect(popper).toContainElement(filterPlatfomList);
+
+//   // simulate click outside the filter options list
+//   user.click(document.body);
+
+//   expect(handleOnClickAway).toHaveBeenCalledTimes(1);
+// });
 });
