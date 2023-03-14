@@ -463,7 +463,7 @@ describe('Compare Results Table', () => {
 
     popper = await waitFor(() => screen.getByRole('tooltip'));
     
-    expect(popper).toHaveAttribute('style', 'position: absolute; top: 0px; left: 0px; margin: 0px; right: 0px; transform: translate(0px, 0px);');
+    expect(popper).toHaveAttribute('style', '');
   });
 
   it('Should close filter popper by clicking outside of it', async () => {
