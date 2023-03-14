@@ -46,6 +46,7 @@ const styles = {
 
 function RevisionSearch(props: RevisionSearchProps) {
   const [focused, setFocused] = useState(false);
+  const [displayList, setDisplayList] = useState(false);
   const { prevRevision, searchResults, setPopoverIsOpen, view } = props;
 
   const dispatch = useAppDispatch();
@@ -67,9 +68,11 @@ function RevisionSearch(props: RevisionSearchProps) {
       )
     ) {
       setFocused(true);
+       setDisplayList(true);
       return;
     } else {
       setFocused(false);
+      setDisplayList(false);
       dispatch(clearCheckedRevisions());
     }
   };
@@ -77,6 +80,7 @@ function RevisionSearch(props: RevisionSearchProps) {
   const handleEscKeypress = (e: KeyboardEvent) => {
     if (e.key === 'Escape') {
       setFocused(false);
+      setDisplayList(false);
       dispatch(clearCheckedRevisions());
     }
   };
@@ -108,8 +112,25 @@ function RevisionSearch(props: RevisionSearchProps) {
         id='revision-search-dropdown'
         className='revision_search-dropdown'
       >
-        <SearchDropdown view={view} />
+        <SearchDropdown view={view} displayList={setDisplayList} />
       </Grid>
+
+      {displayList ? ( <Grid
+        item
+        xs={9}
+        className={`revision_search-input ${
+          matches ? 'revision_search-input--mobile' : ''
+        }`}
+      >
+        <SearchInput setFocused={setFocused} view={view} />
+        {searchResults.length > 0 && (
+          <SearchResultsList searchResults={searchResults} view={view} />
+        )}
+        {view == 'search' && searchResults.length > 0 && focused && (
+          <AddRevisionButton setFocused={setFocused} />
+        )}
+      </Grid>) : null}
+
       <Grid
         item
         xs={9}
@@ -118,7 +139,7 @@ function RevisionSearch(props: RevisionSearchProps) {
         }`}
       >
         <SearchInput setFocused={setFocused} view={view} />
-        {searchResults.length > 0 && focused && (
+        {searchResults.length > 0 && focused &&  (
           <SearchResultsList searchResults={searchResults} view={view} />
         )}
         {view == 'search' && searchResults.length > 0 && focused && (

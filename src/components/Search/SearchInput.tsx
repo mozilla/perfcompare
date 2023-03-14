@@ -17,6 +17,9 @@ function SearchInput(props: SearchInputProps) {
   const { setFocused, inputError, inputHelperText, view } = props;
   const { handleChangeSearch } = useHandleChangeSearch();
   const size = view == 'compare-results' ? 'small' : undefined;
+
+  // const setFocuseDispatch = () => setFocused(true);
+
   return (
     <FormControl variant="outlined" fullWidth>
       <TextField
@@ -27,7 +30,7 @@ function SearchInput(props: SearchInputProps) {
         id="search-revision-input"
         onFocus={() => setFocused(true)}
         sx={{ width: '100%' }}
-        onChange={(e) => handleChangeSearch(e)}
+         onChange={(e) => handleChangeSearch(e)}
         size={size}
         className={`${InputStyles.default} ${Fonts.BodyDefault}`}
         InputProps={{
