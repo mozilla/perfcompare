@@ -9,14 +9,14 @@ import { useAppDispatch } from './app';
 function useHandleChangeDropdown() {
   const dispatch = useAppDispatch();
 
-  const handleChangeDropdown = async (e: React.MouseEvent<HTMLLIElement>, displayList: Dispatch<SetStateAction<boolean>>) => {
+  const handleChangeDropdown = async (e: React.MouseEvent<HTMLLIElement>, displayLists: Dispatch<SetStateAction<boolean>>) => {
     const repository = e.currentTarget.id;
 
     dispatch(updateRepository(repository as Repository['name']));
 
     // Fetch 10 most recent revisions when repository changes
     await dispatch(fetchRecentRevisions(repository as Repository['name']));
-    displayList(true);
+    displayLists(true);
   };
   return { handleChangeDropdown };
 }

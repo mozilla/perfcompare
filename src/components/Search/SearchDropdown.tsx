@@ -12,7 +12,7 @@ import type { RootState } from '../../common/store';
 import useHandleChangeDropdown from '../../hooks/useHandleChangeDropdown';
 
 function SearchDropdown(props: SearchDropdownProps) {
-  const { displayList, repository, view } = props;
+  const { displayLists, repository, view } = props;
   const { handleChangeDropdown } = useHandleChangeDropdown();
   const size = view == 'compare-results' ? 'small' : undefined;
 
@@ -25,7 +25,7 @@ function SearchDropdown(props: SearchDropdownProps) {
             id={repoMap[key]}
             value={repoMap[key]}
             key={repoMap[key]}
-            onClick={(e) => void handleChangeDropdown(e, displayList)}
+            onClick={(e) => void handleChangeDropdown(e, displayLists)}
           >
             {repoMap[key]}
           </MenuItem>
@@ -36,7 +36,7 @@ function SearchDropdown(props: SearchDropdownProps) {
 }
 
 interface SearchDropdownProps {
-  displayList:Dispatch<SetStateAction<boolean>>
+  displayLists:Dispatch<SetStateAction<boolean>>
   repository: string;
   view: 'compare-results' | 'search';
 }
