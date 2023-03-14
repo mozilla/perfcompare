@@ -47,8 +47,8 @@ const ButtonToTop = styled(Button)({
       },
     },
     '@media (max-width: 500px)': {
-        right: '0',
-        left: '40%',
+        left: '50%',
+        transform: 'translateX(-50%)',
     },
   },
 
@@ -95,7 +95,7 @@ function GoToTop() {
 
 <StyledDiv>
         {isVisible && !isClicked && (
-          <Tooltip title="Scroll to top" placement="top">
+          <Tooltip title="Scroll To Top" placement="top">
       <ButtonToTop className='topBtn' onClick={btnHandler}>
         <ArrowUpwardIcon className="topBtn--icon"/>
         </ButtonToTop>
