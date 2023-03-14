@@ -5,7 +5,7 @@ import PerfCompareHeader from '../../Shared/PerfCompareHeader';
 
 function CompareResultsViewBeta() {
   return (
-    <Container maxWidth='xl'>
+    <Container maxWidth='xl' data-testid='beta-version-compare-results'>
       <PerfCompareHeader />
       <Grid container alignItems='center' justifyContent='center'>
         <Grid item xs={10}>
