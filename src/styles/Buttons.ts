@@ -6,93 +6,90 @@ import { Colors } from './Colors';
 
 const dropDownPadding = '6px 12px 6px 16px';
 
-//PRIMARY BUTTON LIGHT
-export const PrimaryButton = style({
-  color: Colors.InvertedText,
-  backgroundColor: Colors.PrimaryDefault,
-  $nest: {
+//BUTTONS LIGHT
+export const ButtonsLightRaw = {
+  Primary: {
+    color: Colors.InvertedText,
+    backgroundColor: Colors.PrimaryDefault,
     '&:hover': {
       backgroundColor: Colors.PrimaryHover,
     },
-		'&:active': {
+    '&:active': {
       backgroundColor: Colors.PrimaryActive,
     },
   },
-});
+  Secondary: {
+    color: Colors.PrimaryText,
+    backgroundColor: Colors.SecondaryDefault,
+    '&:hover': {
+      backgroundColor: Colors.SecondaryHover,
+    },
+    '&:active': {
+      backgroundColor: Colors.SecondaryActive,
+    },
+  },
+  Dropdown: {
+    backgroundColor: Colors.SecondaryDefault,
+    padding: dropDownPadding,
+    height: '32px',
+    '& .MuiSelect-select': {
+      color: Colors.PrimaryText,
+    },
+    '&:hover': {
+      backgroundColor: Colors.SecondaryHover,
+    },
+    '&:active': {
+      backgroundColor: Colors.SecondaryActive,
+    },
+  },
+};
 
-//PRIMARY BUTTON DARK
-export const PrimaryDarkButton = style({
-  color: Colors.InvertedTextDark,
-  backgroundColor: Colors.PrimaryDark,
-  $nest: {
+export const ButtonsLight = {
+  Primary: style(ButtonsLightRaw.Primary),
+  Secondary: style(ButtonsLightRaw.Secondary),
+  Dropdown: style(ButtonsLightRaw.Dropdown),
+};
+
+//BUTTONS DARK
+
+export const ButtonsDarkRaw = {
+  Primary: {
+    color: Colors.InvertedTextDark,
+    backgroundColor: Colors.PrimaryDark,
     '&:hover': {
       backgroundColor: Colors.PrimaryHoverDark,
     },
-		'&:active': {
+    '&:active': {
       backgroundColor: Colors.PrimaryActiveDark,
     },
   },
-});
-
-//SECONDARY BUTTON LIGHT
-export const SecondaryButton = style({
-  color: Colors.PrimaryText,
-  backgroundColor: Colors.SecondaryDefault,
-  $nest: {
-    '&:hover': {
-      backgroundColor: Colors.SecondaryHover,
-    },
-		'&:active': {
-      backgroundColor: Colors.SecondaryActive,
-    },
-  },
-});
-
-//SECONDARY BUTTON DARK
-export const SecondaryButtonDark = style({
-  color: Colors.PrimaryTextDark,
-  backgroundColor: Colors.SecondaryDark,
-  $nest: {
+  Secondary: {
+    color: Colors.PrimaryTextDark,
+    backgroundColor: Colors.SecondaryDark,
     '&:hover': {
       backgroundColor: Colors.SecondaryHoverDark,
     },
-		'&:active': {
+    '&:active': {
       backgroundColor: Colors.SecondaryActiveDark,
     },
   },
-});
-
-//DROPDOWN BUTTON LIGHT 
-export const DefaultDropDownButton = style({
-  backgroundColor: Colors.SecondaryDefault,
-	padding: dropDownPadding,
-	height: '32px',
-  $nest: {
-		'.MuiSelect-select': {
-			color: Colors.PrimaryText,
-		},
-    '&:hover': {
-      backgroundColor: Colors.SecondaryHover,
+  Dropdown: {
+    backgroundColor: Colors.SecondaryDark,
+    padding: dropDownPadding,
+    '& .MuiSelect-select': {
+      color: Colors.PrimaryTextDark,
     },
-		'&:active': {
-      backgroundColor: Colors.SecondaryActive,
-    },
-  },
-});
-
-//DROPDOWN BUTTON DARK 
-export const DefaultDropDownButtonDark = style({
-  backgroundColor: Colors.SecondaryDark,
-	padding: dropDownPadding,
-  $nest: {
-		'.MuiSelect-select': {
-			color: Colors.PrimaryTextDark,
-		},
     '&:hover': {
       backgroundColor: Colors.SecondaryHoverDark,
     },
-		'&:active': {
+    '&:active': {
       backgroundColor: Colors.SecondaryActiveDark,
     },
   },
-});
+};
+
+export const ButtonsDark = {
+  Primary: style(ButtonsDarkRaw.Primary),
+  Secondary: style(ButtonsDarkRaw.Secondary),
+  Dropdown: style(ButtonsDarkRaw.Dropdown),
+};

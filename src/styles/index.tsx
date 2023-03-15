@@ -8,3 +8,4 @@ export * from './Spacing';
 export * from './Input';
 export * from './DropDownStyles';
 export * from './SelectList';
+export * from './Switch';

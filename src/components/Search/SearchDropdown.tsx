@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import { repoMap } from '../../common/constants';
 import type { RootState } from '../../common/store';
 import useHandleChangeDropdown from '../../hooks/useHandleChangeDropdown';
-import { DefaultDropDownButton } from '../../styles/Buttons';
+import { ButtonsLight } from '../../styles/Buttons';
 import { Fonts  } from '../../styles/Fonts';
 import { InputStyles } from '../../styles/Input';
 
@@ -24,13 +24,13 @@ function SearchDropdown(props: SearchDropdownProps) {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       className={`${InputStyles.dropDown} ${Fonts.BodyDefault}`}
     >
-      <InputLabel id="select-repository-label">repository</InputLabel>
+      <InputLabel id='select-repository-label'>repository</InputLabel>
       <Select
         value={repository}
-        labelId="select-repository-label"
-        label="repository"
-				// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-				className={DefaultDropDownButton}
+        labelId='select-repository-label'
+        label='repository'
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        className={ButtonsLight.Dropdown}
       >
         {Object.keys(repoMap).map((key) => (
           <MenuItem

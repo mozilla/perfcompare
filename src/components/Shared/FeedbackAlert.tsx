@@ -26,26 +26,26 @@ export default function FeedbackAlert() {
   };
 
   return (
-    <Box>
+    <Box display='none'>
       <IconButton
-        aria-label="info-button"
-        color="inherit"
+        aria-label='info-button'
+        color='inherit'
         onClick={handleClick}
       >
         <InfoOutlinedIcon />
       </IconButton>
       <Snackbar open={open} autoHideDuration={10000} onClose={handleClose}>
         <Alert
-          className="feedback-alert"
-          data-testid="feedback-alert"
+          className='feedback-alert'
+          data-testid='feedback-alert'
           onClose={handleClose}
-          severity="info"
-          variant="filled"
+          severity='info'
+          variant='filled'
         >
           <AlertTitle>Give us feedback!</AlertTitle>
           {userFeedbackMessage} —{' '}
           <strong>
-            <a href="mailto:perfcompare-user-feedback@mozilla.com">
+            <a href='mailto:perfcompare-user-feedback@mozilla.com'>
               {perfCompareEmail}
             </a>
           </strong>
