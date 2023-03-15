@@ -7,6 +7,7 @@ import { SnackbarProvider } from 'notistack';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 
 import useProtocolTheme from '../theme/protocolTheme';
+import CompareResultsViewBeta from './CompareResults/beta/CompareResultsView';
 import CompareResultsView from './CompareResults/CompareResultsView';
 import SearchView from './Search/beta/SearchView';
 import FeedbackAlert from './Shared/FeedbackAlert';
@@ -47,6 +48,7 @@ function App() {
               path='/compare-results'
               element={<CompareResultsView mode={mode} />}
             />
+            <Route path='/beta/compare-results' element={<CompareResultsViewBeta />} />
           </Routes>
         </Router>
       </SnackbarProvider>
