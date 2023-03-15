@@ -17,72 +17,80 @@ const sharedFontStylesDark = {
  //fontFamily: 'SF Pro',
 export const FontsRaw = {
   HeadingDefault: {
+    ...sharedFontStyles,
     lineHeight: '22px',
-		fontWeight: '600',
-		fontSize: '17px',
+    fontWeight: '600',
+    fontSize: '17px',
   },
 
-	//fontFamily: 'Metropolis',
-	HeadingXS: {
-		lineHeight: '28px',
-		fontWeight: '700',
-		fontSize: '24px',
-	},
+  //fontFamily: 'Metropolis',
+  HeadingXS: {
+    ...sharedFontStyles,
+    lineHeight: '28px',
+    fontWeight: '700',
+    fontSize: '24px',
+  },
 
-	//fontFamily: 'SF Pro',
+  //fontFamily: 'SF Pro',
   BodyDefault: {
-		lineHeight: '16px',
-		fontWeight: '400',
-		fontSize: '14px',
+    ...sharedFontStyles,
+    lineHeight: '16px',
+    fontWeight: '400',
+    fontSize: '14px',
   },
 
-	//fontFamily: 'SF Pro',
+  //fontFamily: 'SF Pro',
   BodySmall: {
+    ...sharedFontStyles,
     lineHeight: '14px',
-		fontWeight: '400',
-		fontSize: '12px',
+    fontWeight: '400',
+    fontSize: '12px',
   },
 
-	//fontFamily: 'SF Pro'
-	HeadingDefaultDark: {
+  //DARK MODE FONTS
+
+  //fontFamily: 'SF Pro'
+  HeadingDefaultDark: {
+    ...sharedFontStylesDark,
     lineHeight: '22px',
-		fontWeight: '600',
-		fontSize: '17px',
+    fontWeight: '600',
+    fontSize: '17px',
   },
 
-	//fontFamily: 'Metropolis',
-	HeadingXSDark: {
-		lineHeight: '28px',
-		fontWeight: '700',
-		fontSize: '24px',
-	
-	},
+  //fontFamily: 'Metropolis',
+  HeadingXSDark: {
+    ...sharedFontStylesDark,
+    lineHeight: '28px',
+    fontWeight: '700',
+    fontSize: '24px',
+  },
 
-	//fontFamily: 'SF Pro',
+  //fontFamily: 'SF Pro',
   BodyDefaultDark: {
-		lineHeight: '16px',
-		fontWeight: '400',
-		fontSize: '14px',
-		
+    ...sharedFontStylesDark,
+    lineHeight: '16px',
+    fontWeight: '400',
+    fontSize: '14px',
   },
 
-	//fontFamily: 'SF Pro',
+  //fontFamily: 'SF Pro',
   BodySmallDark: {
+    ...sharedFontStylesDark,
     lineHeight: '14px',
-		fontWeight: '400',
-		fontSize: '12px',
+    fontWeight: '400',
+    fontSize: '12px',
   },
 };
 
 export const Fonts = {
-  HeadingDefault: style(FontsRaw.HeadingDefault, sharedFontStyles),
-  HeadingXS: style(FontsRaw.HeadingXS, sharedFontStyles),
-  BodyDefault: style(FontsRaw.BodyDefault, sharedFontStyles),
-	BodySmall: style(FontsRaw.BodySmall, sharedFontStyles),
-	HeadingDefaultDark: style(FontsRaw.HeadingDefaultDark, sharedFontStylesDark),
-  HeadingXSDark: style(FontsRaw.HeadingXSDark, sharedFontStylesDark),
-  BodyDefaultDark: style(FontsRaw.BodyDefaultDark, sharedFontStylesDark),
-	BodySmallDark: style(FontsRaw.BodySmallDark, sharedFontStylesDark),
+  HeadingDefault: style(FontsRaw.HeadingDefault),
+  HeadingXS: style(FontsRaw.HeadingXS),
+  BodyDefault: style(FontsRaw.BodyDefault),
+  BodySmall: style(FontsRaw.BodySmall),
+  HeadingDefaultDark: style(FontsRaw.HeadingDefaultDark),
+  HeadingXSDark: style(FontsRaw.HeadingXSDark),
+  BodyDefaultDark: style(FontsRaw.BodyDefaultDark),
+  BodySmallDark: style(FontsRaw.BodySmallDark),
 };
 
 export const FontSizeRaw = {
