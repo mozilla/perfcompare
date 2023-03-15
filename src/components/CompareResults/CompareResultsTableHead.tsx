@@ -139,6 +139,7 @@ const CompareResultsTableHead = () => {
                     <IconButton
                       data-testid={`${headerId}-options-button`}
                       onClick={(e) => handleOpenOptions(e, headerId)}
+                      aria-label={`filter by ${headerId}`}
                     >
                       <MoreVertIcon />
                     </IconButton>
