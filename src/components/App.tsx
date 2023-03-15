@@ -15,7 +15,7 @@ import FeedbackAlert from './Shared/FeedbackAlert';
 import SnackbarCloseButton from './Shared/SnackbarCloseButton';
 
 function App() {
-  const { mode, toggleColorMode, protocolTheme } = useProtocolTheme();
+  const { mode, protocolTheme } = useProtocolTheme();
   return (
     <ThemeProvider theme={protocolTheme}>
       <SnackbarProvider
