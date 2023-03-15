@@ -467,6 +467,8 @@ describe('Compare Results Table', () => {
 
   it('should reset to first table page when filtering is changed', async () => {
     // set results data
+    window.scrollTo = jest.fn();
+
     store.dispatch(setCompareResults(paginationTestCompareData));
 
     const activeFilters: ActiveFilters = {

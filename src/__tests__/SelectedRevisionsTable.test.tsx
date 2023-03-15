@@ -213,9 +213,14 @@ describe('Search View', () => {
     const { testData } = getTestData();
     const selectedRevisions = testData.slice(0, 4);
     store.dispatch(setSelectedRevisions(selectedRevisions));
-    renderWithRouter(<SearchView />);
+
+    await act(async () => {
+      renderWithRouter(<SearchView />);
+    });
+
     const rowEls = screen.getAllByRole('row');
     const bodyRows = rowEls.slice(1);
+
     bodyRows.forEach((row) => {
       expect(row).toHaveAttribute('draggable');
     });
