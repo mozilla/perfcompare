@@ -1,8 +1,10 @@
+import { render, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
 import CompareResultsTable from '../../components/CompareResults/CompareResultsTable';
 import CompareResultsView from '../../components/CompareResults/CompareResultsView';
+import GoToTop from '../../components/Shared/GoToTop';
 import SelectedRevisionsTable from '../../components/Shared/SelectedRevisionsTable';
 import { setCompareResults } from '../../reducers/CompareResultsSlice';
 import { updateSearchResults } from '../../reducers/SearchSlice';
@@ -20,6 +22,20 @@ describe('CompareResults View', () => {
     renderWithRouter(<CompareResultsTable mode="light" />);
 
     expect(document.body).toMatchSnapshot();
+  });
+
+  it('Should scroll to the top when the scroll-to-top button is clicked', () => {
+    const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation(() => {});
+
+    const { getByTestId } = render(<GoToTop visible = {true} />);
+
+    fireEvent.click(getByTestId('scroll-to-top'));
+
+    // Verify if window.scrollTo was called with the right arguments.
+    expect(scrollToSpy).toHaveBeenCalledWith({ top: 0, left: 0, behavior: 'smooth' });
+       
+    // Clean up the mock
+    scrollToSpy.mockRestore();
   });
 
   it('should display SelectedRevisionsTable if there are selected revisions', async () => {
@@ -146,3 +162,5 @@ describe('CompareResultsTable', () => {
     expect(icons[3]).toHaveClass('unknown-confidence');
   });
 });
+
+
