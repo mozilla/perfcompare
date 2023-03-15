@@ -13,7 +13,6 @@ import SearchViewBeta from './Search/beta/SearchView';
 import SearchView from './Search/SearchView';
 import FeedbackAlert from './Shared/FeedbackAlert';
 import SnackbarCloseButton from './Shared/SnackbarCloseButton';
-import ToggleDarkMode from './Shared/ToggleDarkModeButton';
 
 function App() {
   const { mode, toggleColorMode, protocolTheme } = useProtocolTheme();
