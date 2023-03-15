@@ -61,10 +61,14 @@ const StyledDiv = styled('div')({
   position: 'relative',
 });
 
-function GoToTop() {
+type MyComponentProps = {
+  visible: boolean;
+};
 
-  const [isVisible, setIsVisible] = useState(false);
-  const [isClicked, setIsClicked] = useState(false);
+function GoToTop(props: MyComponentProps = { visible: false }) {
+
+  const [isVisible, setIsVisible] = useState( props.visible || false);
+  const [isClicked, setIsClicked] = useState( false);
 
   
 
@@ -96,7 +100,10 @@ function GoToTop() {
 <StyledDiv>
         {isVisible && !isClicked && (
           <Tooltip title="Scroll To Top" placement="top">
-      <ButtonToTop className='topBtn' onClick={btnHandler}>
+      <ButtonToTop
+      data-testid = 'scroll-to-top'
+      aria-label = 'scroll-to-top'
+      className='topBtn' onClick={btnHandler}>
         <ArrowUpwardIcon className="topBtn--icon"/>
         </ButtonToTop>
         </Tooltip>
@@ -106,6 +113,10 @@ function GoToTop() {
 
     );
   }
+
+  GoToTop.defaultProps = {
+    visible: false,
+  };
 
 
 export default GoToTop;
