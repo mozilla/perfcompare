@@ -4,11 +4,11 @@ import { act } from 'react-dom/test-utils';
 import CompareResultsTable from '../../components/CompareResults/CompareResultsTable';
 import CompareResultsView from '../../components/CompareResults/CompareResultsView';
 import SelectedRevisionsTable from '../../components/Shared/SelectedRevisionsTable';
+import { clearCheckedRevisions } from '../../reducers/CheckedRevisions';
+import { setCheckedRevisions } from '../../reducers/CheckedRevisions';
 import { setCompareResults } from '../../reducers/CompareResultsSlice';
 import { updateSearchResults } from '../../reducers/SearchSlice';
 import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
-import { clearCheckedRevisions } from '../../reducers/CheckedRevisions';
-import { setCheckedRevisions } from '../../reducers/CheckedRevisions';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
@@ -153,7 +153,7 @@ describe('CompareResultsTable', () => {
     store.dispatch(setSelectedRevisions(selectedRevisions));
     store.dispatch(setCheckedRevisions(selectedRevisions));
 
-    const newRevisions = testData.slice(2,4);
+    const newRevisions = testData.slice(2, 4);
     store.dispatch(setSelectedRevisions(newRevisions));
     store.dispatch(clearCheckedRevisions()); 
 

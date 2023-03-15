@@ -11,7 +11,6 @@ import { Repository, Revision } from '../../types/state';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
 import SelectedRevisionsTable from '../Shared/SelectedRevisionsTable';
 import CompareResultsTable from './CompareResultsTable';
-import {clearCheckedRevisions} from '../../reducers/CheckedRevisions'
 
 function CompareResultsView(props: CompareResultsViewProps) {
   const { revisions, mode } = props;
