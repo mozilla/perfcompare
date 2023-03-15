@@ -8,7 +8,7 @@ import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 
 import useProtocolTheme from '../theme/protocolTheme';
 import CompareResultsView from './CompareResults/CompareResultsView';
-import SearchView from './Search/beta/SearchView';
+import SearchView from './Search/SearchView';
 import FeedbackAlert from './Shared/FeedbackAlert';
 import SnackbarCloseButton from './Shared/SnackbarCloseButton';
 import ToggleDarkMode from './Shared/ToggleDarkModeButton';

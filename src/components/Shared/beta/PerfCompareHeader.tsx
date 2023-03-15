@@ -38,6 +38,8 @@ const styles = {
         marginBottom: `${Spacing.layoutLarge + 14}px`,
         maxWidth: '104px',
         alignSelf: 'center',
+      },
+      '.leanmore-btn': {
         //hidden until purpose is determined
         visibility: 'hidden',
       },

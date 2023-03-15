@@ -156,6 +156,9 @@ const CompareResultsTableHead = () => {
             anchorEl={anchorEl}
             placement={placement}
             transition
+            nonce={undefined}
+            onResize={undefined}
+            onResizeCapture={undefined}
           >
             {({ TransitionProps }) => (
               <Fade {...TransitionProps}>
