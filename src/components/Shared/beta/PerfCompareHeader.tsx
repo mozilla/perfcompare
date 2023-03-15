@@ -39,7 +39,7 @@ const styles = {
         maxWidth: '104px',
         alignSelf: 'center',
       },
-      '.leanmore-btn': {
+      '.learn-more-btn': {
         //hidden until purpose is determined
         visibility: 'hidden',
       },
