@@ -36,10 +36,6 @@ function App() {
         </Alert>
         <Box display='flex' justifyContent='flex-end' alignItems='flex-end'>
           <FeedbackAlert />
-          <ToggleDarkMode
-            toggleColorMode={toggleColorMode}
-            theme={protocolTheme}
-          />
         </Box>
         <Router>
           <Routes>
