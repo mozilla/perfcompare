@@ -25,17 +25,17 @@ describe('CompareResults View', () => {
   });
 
   it('Should scroll to the top when the scroll-to-top button is clicked', () => {
-    const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation(() => {});
+    const scrollToTopSpy = jest.spyOn(window, 'scrollTo').mockImplementation(() => {});
 
     const { getByTestId } = render(<GoToTop visible = {true} />);
 
     fireEvent.click(getByTestId('scroll-to-top'));
 
     // Verify if window.scrollTo was called with the right arguments.
-    expect(scrollToSpy).toHaveBeenCalledWith({ top: 0, left: 0, behavior: 'smooth' });
+    expect(scrollToTopSpy).toHaveBeenCalledWith({ top: 0, left: 0, behavior: 'smooth' });
        
     // Clean up the mock
-    scrollToSpy.mockRestore();
+    scrollToTopSpy.mockRestore();
   });
 
   it('should display SelectedRevisionsTable if there are selected revisions', async () => {
