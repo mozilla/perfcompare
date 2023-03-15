@@ -26,7 +26,7 @@ export default function FeedbackAlert() {
   };
 
   return (
-    <Box>
+    <Box display='none'>
       <IconButton
         aria-label='info-button'
         color='inherit'
