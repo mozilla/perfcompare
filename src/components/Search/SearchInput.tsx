@@ -2,9 +2,11 @@ import type { Dispatch, SetStateAction } from 'react';
 
 import TextField from '@mui/material/TextField';
 import { connect } from 'react-redux';
+import AddIcon from '@mui/icons-material/Add';
 
 import type { RootState } from '../../common/store';
 import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
+import { Button, InputAdornment } from '@mui/material';
 
 function SearchInput(props: SearchInputProps) {
   const { setFocused, inputError, inputHelperText, view } = props;
@@ -21,6 +23,7 @@ function SearchInput(props: SearchInputProps) {
       sx={{ width: '100%' }}
       onChange={(e) => handleChangeSearch(e)}
       size={size}
+      
     />
   );
 }
