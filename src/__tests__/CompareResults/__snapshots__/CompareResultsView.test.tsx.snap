@@ -457,7 +457,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
             >
               <button
                 aria-label="Confidence not available"
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium missing-confidence-button css-yrc3zf-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium missing-confidence-button css-11cqn39-MuiButtonBase-root-MuiIconButton-root"
                 data-mui-internal-clone-element="true"
                 tabindex="0"
                 type="button"
