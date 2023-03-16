@@ -157,13 +157,13 @@ exports[`SearchResultsList should match snapshot 1`] = `
             id="search-results-list"
           >
             <ul
-              class="MuiList-root MuiList-padding css-1fc0pkb-MuiList-root"
+              class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
             >
               <li
                 class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
               >
                 <div
-                  class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters f1ht8qkz css-1gopsaf-MuiButtonBase-root-MuiListItemButton-root"
+                  class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
                   role="group"
                   tabindex="0"
                 >
@@ -175,6 +175,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       data-testid="checkbox-0"
                     >
                       <input
+                        aria-label="'you've got no arms left!' by 'johncleese@python.com'"
                         class="PrivateSwitchBase-input css-1m9pwf3"
                         data-indeterminate="false"
                         tabindex="-1"
@@ -213,7 +214,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
               >
                 <div
-                  class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters f1ht8qkz css-1gopsaf-MuiButtonBase-root-MuiListItemButton-root"
+                  class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
                   role="group"
                   tabindex="0"
                 >
@@ -225,6 +226,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       data-testid="checkbox-1"
                     >
                       <input
+                        aria-label="'it's just a flesh wound' by 'ericidle@python.com'"
                         class="PrivateSwitchBase-input css-1m9pwf3"
                         data-indeterminate="false"
                         tabindex="-1"
@@ -263,7 +265,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
               >
                 <div
-                  class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters f1ht8qkz css-1gopsaf-MuiButtonBase-root-MuiListItemButton-root"
+                  class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
                   role="group"
                   tabindex="0"
                 >
@@ -275,6 +277,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       data-testid="checkbox-2"
                     >
                       <input
+                        aria-label="'What, ridden on a horse?' by 'terrygilliam@python.com'"
                         class="PrivateSwitchBase-input css-1m9pwf3"
                         data-indeterminate="false"
                         tabindex="-1"
@@ -313,7 +316,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
               >
                 <div
-                  class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters f1ht8qkz css-1gopsaf-MuiButtonBase-root-MuiListItemButton-root"
+                  class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
                   role="group"
                   tabindex="0"
                 >
@@ -325,6 +328,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       data-testid="checkbox-3"
                     >
                       <input
+                        aria-label="'You've got two empty 'alves of coconuts and you're bangin' 'em togetha!' by 'michaelpalin@python.com'"
                         class="PrivateSwitchBase-input css-1m9pwf3"
                         data-indeterminate="false"
                         tabindex="-1"
@@ -363,7 +367,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
               >
                 <div
-                  class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters f1ht8qkz css-1gopsaf-MuiButtonBase-root-MuiListItemButton-root"
+                  class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
                   role="group"
                   tabindex="0"
                 >
@@ -375,6 +379,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       data-testid="checkbox-4"
                     >
                       <input
+                        aria-label="'It got better...' by 'grahamchapman@python.com'"
                         class="PrivateSwitchBase-input css-1m9pwf3"
                         data-indeterminate="false"
                         tabindex="-1"
