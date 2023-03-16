@@ -1,5 +1,4 @@
 import { green, red, lightBlue } from '@mui/material/colors';
-import { lineHeight } from '@mui/system';
 
 import android from './img/android.svg';
 import high from './img/high.svg';
@@ -22,14 +21,14 @@ const components = {
           padding: '16px 14px',
 
           '@media (max-width: 992px)': {
-            padding: '16px 5px'
+            padding: '16px 5px',
           },
 
           '@media (max-width: 830px)': {
             padding: '16px 0px',
             fontSize: '1rem',
             lineHeight: '0rem',
-          }
+          },
         },
         '&.edit-revision-button': {
           width: '50%',

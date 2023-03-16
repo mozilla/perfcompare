@@ -22,113 +22,121 @@ exports[`SearchResultsList should match snapshot 1`] = `
         class="MuiGrid-root MuiGrid-item compare-button-section css-j8gwlw-MuiGrid-root"
       />
       <div
-        class="MuiGrid-root MuiGrid-container css-vgf0yt-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container css-1rrov1h-MuiGrid-root"
         id="revision-search-container"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 css-1awobkc-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-2 MuiGrid-grid-lg-2 css-1bi2eer-MuiGrid-root"
           id="revision-search-dropdown"
         >
           <div
-            class="MuiFormControl-root css-q8hpuo-MuiFormControl-root"
+            class="MuiBox-root css-0"
           >
-            <label
-              class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-mru796-MuiFormLabel-root-MuiInputLabel-root"
-              data-shrink="true"
-              id="select-repository"
-            >
-              repository
-            </label>
             <div
-              class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-11q0f3f-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+              class="MuiFormControl-root css-q8hpuo-MuiFormControl-root"
             >
+              <label
+                class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-mru796-MuiFormLabel-root-MuiInputLabel-root"
+                data-shrink="true"
+                id="select-repository"
+              >
+                repository
+              </label>
               <div
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-labelledby="select-repository"
-                class="MuiSelect-select MuiSelect-outlined MuiOutlinedInput-input MuiInputBase-input css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
-                role="button"
-                tabindex="0"
+                class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-11q0f3f-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
               >
-                try
-              </div>
-              <input
-                aria-hidden="true"
-                class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                tabindex="-1"
-                value="try"
-              />
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-1pxapms-MuiSvgIcon-root-MuiSelect-icon"
-                data-testid="ArrowDropDownIcon"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M7 10l5 5 5-5z"
-                />
-              </svg>
-              <fieldset
-                aria-hidden="true"
-                class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
-              >
-                <legend
-                  class="css-1in441m"
+                <div
+                  aria-expanded="false"
+                  aria-haspopup="listbox"
+                  aria-labelledby="select-repository"
+                  class="MuiSelect-select MuiSelect-outlined MuiOutlinedInput-input MuiInputBase-input css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                  role="button"
+                  tabindex="0"
                 >
-                  <span>
-                    repository
-                  </span>
-                </legend>
-              </fieldset>
+                  try
+                </div>
+                <input
+                  aria-hidden="true"
+                  class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                  tabindex="-1"
+                  value="try"
+                />
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-1pxapms-MuiSvgIcon-root-MuiSelect-icon"
+                  data-testid="ArrowDropDownIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M7 10l5 5 5-5z"
+                  />
+                </svg>
+                <fieldset
+                  aria-hidden="true"
+                  class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+                >
+                  <legend
+                    class="css-1in441m"
+                  >
+                    <span>
+                      repository
+                    </span>
+                  </legend>
+                </fieldset>
+              </div>
             </div>
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-9 css-124ajok-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-9 MuiGrid-grid-md-9 MuiGrid-grid-lg-9 css-18szp39-MuiGrid-root"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root css-136h9lv-MuiFormControl-root-MuiTextField-root"
+            class="MuiBox-root css-0"
           >
-            <label
-              class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary Mui-focused css-mru796-MuiFormLabel-root-MuiInputLabel-root"
-              data-shrink="true"
-              for="search-revision-input"
-              id="search-revision-input-label"
-            >
-              Search By Revision ID or Author Email
-            </label>
             <div
-              class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary Mui-focused MuiInputBase-formControl css-1cg28ds-MuiInputBase-root-MuiOutlinedInput-root"
+              class="MuiFormControl-root MuiTextField-root css-136h9lv-MuiFormControl-root-MuiTextField-root"
             >
-              <input
-                aria-invalid="false"
-                class="MuiOutlinedInput-input MuiInputBase-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
-                id="search-revision-input"
-                type="text"
-                value=""
-              />
-              <fieldset
-                aria-hidden="true"
-                class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+              <label
+                class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary Mui-focused css-mru796-MuiFormLabel-root-MuiInputLabel-root"
+                data-shrink="true"
+                for="search-revision-input"
+                id="search-revision-input-label"
               >
-                <legend
-                  class="css-1in441m"
+                Search By Revision ID or Author Email
+              </label>
+              <div
+                class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary Mui-focused MuiInputBase-formControl css-1cg28ds-MuiInputBase-root-MuiOutlinedInput-root"
+              >
+                <input
+                  aria-invalid="false"
+                  class="MuiOutlinedInput-input MuiInputBase-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                  id="search-revision-input"
+                  type="text"
+                  value=""
+                />
+                <fieldset
+                  aria-hidden="true"
+                  class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
                 >
-                  <span>
-                    Search By Revision ID or Author Email
-                  </span>
-                </legend>
-              </fieldset>
+                  <legend
+                    class="css-1in441m"
+                  >
+                    <span>
+                      Search By Revision ID or Author Email
+                    </span>
+                  </legend>
+                </fieldset>
+              </div>
             </div>
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-1t8rubm-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 MuiGrid-grid-md-1 MuiGrid-grid-lg-1 css-f361cx-MuiGrid-root"
         >
           <button
             aria-label="add revisions"
-            class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root add-revision-button css-6yg5eq-MuiButtonBase-root-MuiButton-root"
+            class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root add-revision-button css-ocrrrr-MuiButtonBase-root-MuiButton-root"
             id="add-revision-button"
             tabindex="0"
             type="button"
