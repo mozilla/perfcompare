@@ -71,11 +71,8 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
           <Tooltip title="Confidence not available">
             <IconButton className="missing-confidence-button" 
               sx={{
-                width: 'inherit',
-                height: 'inherit',
                 position: 'relative',
                 top: '50%',
-                fontSize: '.1rem',
                 transform: 'translateY(-50%)',
               }}
               
