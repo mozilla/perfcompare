@@ -9,7 +9,13 @@ function ToggleDarkMode(props: ToggleDarkModeProps) {
   return (
     <Box className="toggle-dark-mode">
       <IconButton
-        sx={{ ml: 1 }}
+        sx={{
+          ml: 1,
+          position: 'fixed',
+          top: '4px',
+          right: '15px',
+          zIndex: '4',
+        }}
         onClick={toggleColorMode}
         color="inherit"
         aria-label="toggle-dark-mode"
