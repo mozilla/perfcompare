@@ -42,7 +42,7 @@ function SearchView(props: SearchViewProps) {
   const { selectedRevisions } = props;
 
   return (
-    <Container maxWidth="lg" className='perfcompare-body'>
+    <Container maxWidth="lg" className='perfcompare-body' sx={{ marginTop: '250px' }}>
       {/* Component to fetch recent revisions on mount */}
       <SearchViewInit />
       <PerfCompareHeader />
