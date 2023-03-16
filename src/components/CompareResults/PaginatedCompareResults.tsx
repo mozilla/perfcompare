@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import FirstPageIcon from '@mui/icons-material/FirstPage';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
@@ -128,12 +128,6 @@ function PaginatedCompareResults(props: PaginatedCompareResultsProps) {
 
   const shouldResetPage = updatedOptions && page > 0;
 
-  useEffect(() => {
-    if (shouldResetPage) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      setPage(0);
-    }
-  });
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
