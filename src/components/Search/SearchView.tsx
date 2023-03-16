@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { repoMap, featureNotSupportedError } from '../../common/constants';
 import type { RootState } from '../../common/store';
-import useFilterCompareResults from '../../hooks/useFilterCompareResults';
+import useFilterCompareResults from '../../hooks/CompareResults/useFilterCompareResults';
 import { Revision } from '../../types/state';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
 import RevisionSearch from '../Shared/RevisionSearch';
@@ -25,10 +25,10 @@ function SearchView(props: SearchViewProps) {
     // TODO: remove this check once comparing without a base
     //  and comparing multiple revisions against a base is enabled
     if (selectedRevisions.length === 1 || selectedRevisions.length > 2) {
-    enqueueSnackbar(featureNotSupportedError as string, {
+      enqueueSnackbar(featureNotSupportedError as string, {
         variant: warningVariant,
-    });
-    return;
+      });
+      return;
     }
     const revs = selectedRevisions.map((rev) => rev.revision);
     const repos = selectedRevisions.map((rev) => repoMap[rev.repository_id]);
@@ -42,7 +42,7 @@ function SearchView(props: SearchViewProps) {
   const { selectedRevisions } = props;
 
   return (
-    <Container maxWidth="lg" className='perfcompare-body'>
+    <Container maxWidth="lg" className="perfcompare-body">
       {/* Component to fetch recent revisions on mount */}
       <SearchViewInit />
       <PerfCompareHeader />

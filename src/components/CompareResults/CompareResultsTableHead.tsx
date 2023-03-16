@@ -6,7 +6,7 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 
-import { useAppSelector } from '../../hooks/app';
+import { useAppSelector } from '../../hooks/utils/app';
 import { CompareResultsItem } from '../../types/state';
 import {
   CompareResultsTableHeader,
@@ -52,7 +52,8 @@ const tableHead: CompareResultsTableHeader[] = [
     key: 'delta',
     align: 'center',
   },
-  { id: 'status', 
+  { 
+    id: 'status',
     label: 'Status',
     key: 'status',
     align: 'center',
@@ -80,7 +81,12 @@ interface FilterOptions {
 const filterOptions: FilterOptions = {
   platform: new Set([]),
   test: new Set([]),
-  confidence: new Set(['low', 'med', 'high', 'not available'] as ConfidenceText[]),
+  confidence: new Set([
+    'low',
+    'med',
+    'high',
+    'not available',
+  ] as ConfidenceText[]),
 };
 
 const filterKeys = Object.keys(filterOptions);

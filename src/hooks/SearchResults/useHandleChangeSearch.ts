@@ -1,24 +1,27 @@
 import { FormEvent } from 'react';
 
+import { RootState } from '../../common/store';
 import {
   updateSearchValue,
   updateSearchResults,
   setInputError,
   clearInputError,
-} from '../reducers/SearchSlice';
+} from '../../reducers/SearchSlice';
 import {
   fetchRecentRevisions,
   fetchRevisionByID,
   fetchRevisionsByAuthor,
-} from '../thunks/searchThunk';
-import type { Repository } from '../types/state';
-import { useAppDispatch, useAppSelector } from './app';
+} from '../../thunks/searchThunk';
+import type { Repository } from '../../types/state';
+import { useAppDispatch, useAppSelector } from '../utils/app';
 
 let timeout: null | ReturnType<typeof setTimeout> = null;
 
 const useHandleChangeSearch = () => {
   const dispatch = useAppDispatch();
-  const getRepository = useAppSelector((state) => state.search.repository);
+  const getRepository = useAppSelector(
+    (state: RootState) => state.search.repository,
+  );
 
   const searchByRevisionOrEmail = async (
     repository: Repository['name'],

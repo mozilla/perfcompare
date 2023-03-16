@@ -1,7 +1,7 @@
-import { updateRepository } from '../reducers/SearchSlice';
-import { fetchRecentRevisions } from '../thunks/searchThunk';
-import type { Repository } from '../types/state';
-import { useAppDispatch } from './app';
+import { updateRepository } from '../../reducers/SearchSlice';
+import { fetchRecentRevisions } from '../../thunks/searchThunk';
+import type { Repository } from '../../types/state';
+import { useAppDispatch } from '../utils/app';
 
 function useHandleChangeDropdown() {
   const dispatch = useAppDispatch();

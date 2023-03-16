@@ -1,8 +1,8 @@
 import { Alert, Button } from '@mui/material';
 
 import { RootState } from '../../common/store';
-import { useAppSelector } from '../../hooks/app';
-import useFilterCompareResults from '../../hooks/useFilterCompareResults';
+import useFilterCompareResults from '../../hooks/CompareResults/useFilterCompareResults';
+import { useAppSelector } from '../../hooks/utils/app';
 import FilterStatusChip from './FilterStatusChip';
 
 const CompareTableStatus = () => {

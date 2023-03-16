@@ -1,22 +1,23 @@
 import { useSnackbar, VariantType } from 'notistack';
 
-import { maxRevisionsError } from '../common/constants';
-import { clearCheckedRevisions } from '../reducers/CheckedRevisions';
-import { setSelectedRevisions } from '../reducers/SelectedRevisions';
-import { Revision } from '../types/state';
-import { truncateHash } from '../utils/helpers';
-import { useAppDispatch, useAppSelector } from './app';
+import { maxRevisionsError } from '../../common/constants';
+import { RootState } from '../../common/store';
+import { clearCheckedRevisions } from '../../reducers/CheckedRevisions';
+import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
+import { Revision } from '../../types/state';
+import { truncateHash } from '../../utils/helpers';
+import { useAppDispatch, useAppSelector } from '../utils/app';
 
 const useSelectRevision = () => {
   const dispatch = useAppDispatch();
   const { enqueueSnackbar } = useSnackbar();
 
   const checkedRevisions = useAppSelector(
-    (state) => state.checkedRevisions.revisions,
+    (state: RootState) => state.checkedRevisions.revisions,
   );
 
   const selectedRevisions = useAppSelector(
-    (state) => state.selectedRevisions.revisions,
+    (state: RootState) => state.selectedRevisions.revisions,
   );
 
   const warningVariant: VariantType = 'warning';
@@ -37,7 +38,8 @@ const useSelectRevision = () => {
     const newSelected = [...selectedRevisions];
 
     // Do not allow more then four total revisions (total, including the ones to be added)
-    const exceededMaxRevisions = (selectedRevisions.length + checkedRevisions.length) > 4;
+    const exceededMaxRevisions =
+      selectedRevisions.length + checkedRevisions.length > 4;
     if (exceededMaxRevisions) {
       enqueueSnackbar(maxRevisionsError as string, {
         variant: warningVariant,

@@ -2,7 +2,7 @@ import { FormEvent } from 'react';
 
 import { renderHook } from '@testing-library/react';
 
-import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
+import useHandleChangeSearch from '../../hooks/SearchResults/useHandleChangeSearch';
 import { setInputError, updateSearchResults } from '../../reducers/SearchSlice';
 import getTestData from '../utils/fixtures';
 import { store, StoreProvider } from '../utils/setupTests';

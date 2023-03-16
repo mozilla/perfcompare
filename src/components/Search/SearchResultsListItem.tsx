@@ -4,8 +4,8 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 
-import { useAppSelector } from '../../hooks/app';
-import useCheckRevision from '../../hooks/useCheckRevision';
+import useCheckRevision from '../../hooks/Revisions/useCheckRevision';
+import { useAppSelector } from '../../hooks/utils/app';
 import type { Revision } from '../../types/state';
 import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
 

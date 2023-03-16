@@ -1,23 +1,24 @@
 import { useDispatch } from 'react-redux';
 
+import { RootState } from '../../common/store';
 import {
   addFilter,
   removeFilter,
   setFilteredResults,
   resetFilters,
-} from '../reducers/FilterCompareResultsSlice';
-import { CompareResultsItem } from '../types/state';
-import { ActiveFilters, FilteredResults, FilterValue } from '../types/types';
-import { useAppSelector } from './app';
+} from '../../reducers/FilterCompareResultsSlice';
+import { CompareResultsItem } from '../../types/state';
+import { ActiveFilters, FilteredResults, FilterValue } from '../../types/types';
+import { useAppSelector } from '../utils/app';
 
 const useFilterCompareResults = () => {
   const dispatch = useDispatch();
   const activeFilters: ActiveFilters = useAppSelector(
-    (state) => state.filterCompareResults.activeFilters,
+    (state: RootState) => state.filterCompareResults.activeFilters,
   );
 
   const compareResults: CompareResultsItem[] = useAppSelector(
-    (state) => state.compareResults.data,
+    (state: RootState) => state.compareResults.data,
   );
 
   const setFilters = (value: string, checked: boolean, name: string) => {
