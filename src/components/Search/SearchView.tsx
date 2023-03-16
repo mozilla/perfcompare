@@ -25,9 +25,9 @@ function SearchView(props: SearchViewProps) {
     // TODO: remove this check once comparing without a base
     //  and comparing multiple revisions against a base is enabled
     if (selectedRevisions.length === 1 || selectedRevisions.length > 2) {
-    enqueueSnackbar(featureNotSupportedError as string, {
+      enqueueSnackbar(featureNotSupportedError as string, {
         variant: warningVariant,
-    });
+      });
     return;
     }
     const revs = selectedRevisions.map((rev) => rev.revision);
