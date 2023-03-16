@@ -20,13 +20,13 @@ const tableHead: CompareResultsTableHeader[] = [
     id: 'platform',
     label: 'Platform',
     key: 'platform',
-    align: 'center',
+    align: 'right',
   },
   {
     id: 'graph',
     label: 'Graph',
     key: 'graph',
-    align: 'center',
+    align: 'left',
   },
   {
     id: 'test-name',
@@ -38,30 +38,30 @@ const tableHead: CompareResultsTableHeader[] = [
     id: 'base-value',
     label: 'Base',
     key: 'base',
-    align: 'center',
+    align: 'left',
   },
   {
     id: 'new-value',
     label: 'New',
     key: 'new',
-    align: 'center',
+    align: 'left',
   },
   {
     id: 'delta-percent',
     label: 'Delta',
     key: 'delta',
-    align: 'center',
+    align: 'left',
   },
   { id: 'status', 
     label: 'Status',
     key: 'status',
-    align: 'center',
+    align: 'left',
   },
   {
     id: 'confidence',
     label: 'Confidence',
     key: 'confidence',
-    align: 'center',
+    align: 'right',
   },
   {
     id: 'total-runs',
@@ -119,7 +119,7 @@ const CompareResultsTableHead = () => {
   };
 
   return (
-    <TableHead>
+    <TableHead sx={{ borderBottom: '1px solid rgba(224, 224, 224, 1)' }}>
       <TableRow>
         {tableHead.map(
           ({ label, key, align }: CompareResultsTableHeader, index) => {
@@ -132,7 +132,7 @@ const CompareResultsTableHead = () => {
             }
 
             return (
-              <TableCell key={index} align={align}>
+              <TableCell key={index} align={align} sx={{ border: 'none' }} >
                 {label}
                 {filterKeys.includes(headerId) && (
                   <React.Fragment>
