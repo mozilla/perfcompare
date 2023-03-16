@@ -75,7 +75,6 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
                 top: '50%',
                 transform: 'translateY(-50%)',
               }}
-              
             >
               <QuestionMarkIcon className="missing-confidence-icon" />
             </IconButton>
