@@ -13,19 +13,21 @@ import {
   setPlatformClassName,
   setConfidenceClassName,
 } from '../../utils/helpers';
-
 function CompareResultsTableRow(props: ResultsTableRowProps) {
   const { result, index, mode } = props;
   return (
-    <TableRow key={index} hover data-testid={'table-row'}>
+    <TableRow key={index} hover data-testid={'table-row'} 
+      sx={{ minHeight: '60px', borderBottom: '1px solid rgba(224, 224, 224, 1)' }}
+    >
       <Tooltip title={result.platform}>
         <TableCell
+          sx={{ display: 'flex', height: '60px', width: '160px', border: 'none' }}
           className={`background-icon ${mode}-mode ${setPlatformClassName(
             result.platform,
           )}`}
         ></TableCell>
       </Tooltip>
-      <TableCell>
+      <TableCell sx={{ border: 'none' }}>
         <Link
           href={result.graphs_link}
           className={`background-icon ${mode}-mode graph-icon-color`}
@@ -36,39 +38,59 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
           <TimelineIcon />
         </Link>
       </TableCell>
-      <TableCell>{result.header_name}</TableCell>
-      <TableCell>
+      <TableCell sx={{ border: 'none' }}>
+        {result.header_name}
+      </TableCell>
+      <TableCell sx={{ border: 'none' }}>
         {result.base_median_value} {result.base_measurement_unit}
       </TableCell>
-      <TableCell>
+      <TableCell sx={{ border: 'none' }}>
         {result.new_median_value} {result.new_measurement_unit}
       </TableCell>
-      <TableCell>{result.delta_percentage}%</TableCell>
-      <TableCell>
+      <TableCell sx={{ border: 'none' }}>
+        {result.delta_percentage}%
+      </TableCell>
+      <TableCell sx={{ border: 'none' }}>
         {result.is_improvement && <ThumbUpAltIcon color="success" />}{' '}
         {result.is_regression && <WarningIcon color="error" />}{' '}
       </TableCell>
       {result.confidence_text ? (
         <TableCell
+          sx={{ display: 'flex', height: '60px', width: '180px', border: 'none' }}
           data-testid="confidence-icon"
           className={`background-icon ${setConfidenceClassName(
             result.confidence_text,
           )}`}
         ></TableCell>
-      ) : (
+        ) : (
         <TableCell
           data-testid="confidence-icon"
           className={`${setConfidenceClassName(result.confidence_text)}`}
+          sx={{ width: '180px', border: 'none' }}
         >
           <Tooltip title="Confidence not available">
-            <IconButton className="missing-confidence-button">
+            <IconButton className="missing-confidence-button" 
+              sx={{
+                width: 'inherit',
+                height: 'inherit',
+                position: 'relative',
+                top: '50%',
+                fontSize: '.1rem',
+                transform: 'translateY(-50%)',
+              }}
+              
+            >
               <QuestionMarkIcon className="missing-confidence-icon" />
             </IconButton>
           </Tooltip>
         </TableCell>
       )}
 
-      <TableCell>
+      <TableCell
+        sx={{ width: '150px', border: 'none' }}
+        id="total-runs"
+        align="center"
+      >
         {result.base_runs.length}/{result.new_runs.length}
       </TableCell>
     </TableRow>
