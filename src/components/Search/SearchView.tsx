@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { repoMap, featureNotSupportedError } from '../../common/constants';
 import type { RootState } from '../../common/store';
-import useFilterCompareResults from '../../hooks/CompareResults/useFilterCompareResults';
+import { useFilterCompareResults } from '../../hooks/CompareResults';
 import { Revision } from '../../types/state';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
 import RevisionSearch from '../Shared/RevisionSearch';

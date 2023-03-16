@@ -7,8 +7,8 @@ import Grid from '@mui/material/Grid';
 import { connect } from 'react-redux';
 
 import { RootState } from '../../common/store';
-import useSelectRevision from '../../hooks/Revisions/useSelectRevision';
-import { useAppDispatch } from '../../hooks/utils/app';
+import { useAppDispatch } from '../../hooks/app';
+import { useSelectRevision } from '../../hooks/Revisions';
 import { clearCheckedRevisions } from '../../reducers/CheckedRevisions';
 import type { Revision } from '../../types/state';
 import AddRevisionButton from '../Search/AddRevisionButton';

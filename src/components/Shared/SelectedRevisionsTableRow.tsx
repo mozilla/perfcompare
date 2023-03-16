@@ -6,7 +6,7 @@ import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 
 import { repoMap } from '../../common/constants';
-import { useAppDispatch } from '../../hooks/utils/app';
+import { useAppDispatch } from '../../hooks/app';
 import { deleteRevision } from '../../reducers/SelectedRevisions';
 import { Repository, Revision } from '../../types/state';
 import {

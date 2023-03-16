@@ -14,7 +14,7 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 
 import { RootState } from '../../common/store';
-import { useAppSelector } from '../../hooks/utils/app';
+import { useAppSelector } from '../../hooks/app';
 import type {
   CompareResultsItem,
   CompareResultsState,

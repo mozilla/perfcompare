@@ -3,7 +3,7 @@ import type { Dispatch, SetStateAction } from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import Button from '@mui/material/Button';
 
-import useSelectRevision from '../../hooks/Revisions/useSelectRevision';
+import { useSelectRevision } from '../../hooks/Revisions';
 
 export default function AddRevisionButton(props: AddRevisionButtonProps) {
   const { setFocused } = props;

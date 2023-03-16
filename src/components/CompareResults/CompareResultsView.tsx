@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
 import type { RootState } from '../../common/store';
-import useFetchCompareResults from '../../hooks/CompareResults/useFetchCompareResults';
+import { useFetchCompareResults } from '../../hooks/CompareResults';
 import { Repository, Revision } from '../../types/state';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
 import SelectedRevisionsTable from '../Shared/SelectedRevisionsTable';

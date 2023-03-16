@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react';
 
-import useFetchCompareResults from '../../hooks/CompareResults/useFetchCompareResults';
+import { useFetchCompareResults } from '../../hooks/CompareResults';
 import getTestData from '../utils/fixtures';
 import { StoreProvider } from '../utils/setupTests';
 

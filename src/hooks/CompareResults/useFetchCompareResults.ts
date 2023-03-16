@@ -1,6 +1,6 @@
 import { fetchCompareResults } from '../../thunks/compareResultsThunk';
 import type { Repository } from '../../types/state';
-import { useAppDispatch } from '../utils/app';
+import { useAppDispatch } from '../app';
 
 function useFetchCompareResults() {
   const dispatch = useAppDispatch();

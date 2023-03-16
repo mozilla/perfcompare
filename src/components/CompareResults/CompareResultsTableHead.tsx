@@ -6,7 +6,7 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 
-import { useAppSelector } from '../../hooks/utils/app';
+import { useAppSelector } from '../../hooks/app';
 import { CompareResultsItem } from '../../types/state';
 import {
   CompareResultsTableHeader,
@@ -52,7 +52,7 @@ const tableHead: CompareResultsTableHeader[] = [
     key: 'delta',
     align: 'center',
   },
-  { 
+  {
     id: 'status',
     label: 'Status',
     key: 'status',

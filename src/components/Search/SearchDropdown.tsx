@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 import { repoMap } from '../../common/constants';
 import type { RootState } from '../../common/store';
-import useHandleChangeDropdown from '../../hooks/SearchResults/useHandleChangeDropdown';
+import { useHandleChangeDropdown } from '../../hooks/SearchResults';
 
 function SearchDropdown(props: SearchDropdownProps) {
   const { repository, view } = props;

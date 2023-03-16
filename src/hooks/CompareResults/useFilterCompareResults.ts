@@ -9,7 +9,7 @@ import {
 } from '../../reducers/FilterCompareResultsSlice';
 import { CompareResultsItem } from '../../types/state';
 import { ActiveFilters, FilteredResults, FilterValue } from '../../types/types';
-import { useAppSelector } from '../utils/app';
+import { useAppSelector } from '../app';
 
 const useFilterCompareResults = () => {
   const dispatch = useDispatch();

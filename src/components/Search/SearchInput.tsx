@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import { connect } from 'react-redux';
 
 import type { RootState } from '../../common/store';
-import useHandleChangeSearch from '../../hooks/SearchResults/useHandleChangeSearch';
+import { useHandleChangeSearch } from '../../hooks/SearchResults';
 
 function SearchInput(props: SearchInputProps) {
   const { setFocused, inputError, inputHelperText, view } = props;

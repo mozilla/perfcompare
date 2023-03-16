@@ -6,7 +6,7 @@ import { clearCheckedRevisions } from '../../reducers/CheckedRevisions';
 import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
 import { Revision } from '../../types/state';
 import { truncateHash } from '../../utils/helpers';
-import { useAppDispatch, useAppSelector } from '../utils/app';
+import { useAppDispatch, useAppSelector } from '../app';
 
 const useSelectRevision = () => {
   const dispatch = useAppDispatch();

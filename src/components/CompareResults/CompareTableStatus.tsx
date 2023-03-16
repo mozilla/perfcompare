@@ -1,8 +1,8 @@
 import { Alert, Button } from '@mui/material';
 
 import { RootState } from '../../common/store';
-import useFilterCompareResults from '../../hooks/CompareResults/useFilterCompareResults';
-import { useAppSelector } from '../../hooks/utils/app';
+import { useAppSelector } from '../../hooks/app';
+import { useFilterCompareResults } from '../../hooks/CompareResults';
 import FilterStatusChip from './FilterStatusChip';
 
 const CompareTableStatus = () => {
@@ -19,7 +19,7 @@ const CompareTableStatus = () => {
 
   if (updatedOptions) {
     return (
-      <Alert severity="warning" className='filter-status'>
+      <Alert severity="warning" className="filter-status">
         Filter options have changed. Apply the new changes.
         <Button
           data-testid="apply-filter-status"
@@ -38,7 +38,7 @@ const CompareTableStatus = () => {
   if (isFiltered) {
     return (
       <>
-        <Alert className='filter-status'>
+        <Alert className="filter-status">
           <span>Filters have been applied.</span>
           <Button
             data-testid="clear-filter"

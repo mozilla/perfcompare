@@ -13,7 +13,7 @@ import {
   fetchRevisionsByAuthor,
 } from '../../thunks/searchThunk';
 import type { Repository } from '../../types/state';
-import { useAppDispatch, useAppSelector } from '../utils/app';
+import { useAppDispatch, useAppSelector } from '../app';
 
 let timeout: null | ReturnType<typeof setTimeout> = null;
 
