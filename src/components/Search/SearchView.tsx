@@ -10,7 +10,9 @@ import { repoMap, featureNotSupportedError } from '../../common/constants';
 import type { RootState } from '../../common/store';
 import useFilterCompareResults from '../../hooks/useFilterCompareResults';
 import { Revision } from '../../types/state';
+import LearnMoreButton from '../Shared/LearnMoreButton';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
+import PerfCompareHeaderDescription from '../Shared/PerfCompareHeaderDescription';
 import RevisionSearch from '../Shared/RevisionSearch';
 import SelectedRevisionsTable from '../Shared/SelectedRevisionsTable';
 import SearchViewInit from './SearchViewInit';
@@ -46,6 +48,8 @@ function SearchView(props: SearchViewProps) {
       {/* Component to fetch recent revisions on mount */}
       <SearchViewInit />
       <PerfCompareHeader />
+      <PerfCompareHeaderDescription />
+      <LearnMoreButton />
       <Grid item xs={12}>
         {selectedRevisions.length > 0 && (
           <SelectedRevisionsTable view="search" />

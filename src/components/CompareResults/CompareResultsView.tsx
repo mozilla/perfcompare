@@ -9,6 +9,7 @@ import type { RootState } from '../../common/store';
 import useFetchCompareResults from '../../hooks/useFetchCompareResults';
 import { Repository, Revision } from '../../types/state';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
+import PerfCompareHeaderDescription from '../Shared/PerfCompareHeaderDescription';
 import SelectedRevisionsTable from '../Shared/SelectedRevisionsTable';
 import CompareResultsTable from './CompareResultsTable';
 
@@ -30,6 +31,7 @@ function CompareResultsView(props: CompareResultsViewProps) {
   return (
     <Container maxWidth="xl">
       <PerfCompareHeader />
+      <PerfCompareHeaderDescription />
       <Grid container alignItems="center" justifyContent="center">
         <Grid item xs={10}>
           {revisions.length > 0 && (

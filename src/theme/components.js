@@ -6,6 +6,7 @@ import linux from './img/linux.svg';
 import low from './img/low.svg';
 import med from './img/med.svg';
 import osx from './img/osx.svg';
+import perfCompareBackground from './img/perfCompareBackground.png';
 import windows from './img/windows.svg';
 import zap from './img/zap-10.svg';
 
@@ -155,13 +156,13 @@ const components = {
         '&.perfcompare-header': {
           '&:after': {
             backgroundImage: `url(${zap})`,
-            backgroundPosition: '55%',
+            backgroundPosition: '53%',
             backgroundRepeat: 'no-repeat',
-            backgroundSize: '290px',
+            backgroundSize: '196px',
             content: '""',
             display: 'block',
             height: '0.3em',
-            marginTop: '-5px',
+            marginTop: '-3px',
           },
         },
       },
@@ -210,7 +211,7 @@ const components = {
         '&.missing-confidence-button': {
           borderRadius: '0',
           paddingBottom: '0',
-
+          
           '&:hover': {
             backgroundColor: 'transparent',
           },
@@ -223,6 +224,51 @@ const components = {
       root: {
         '&.perfcompare-body': {
           minHeight: '85vh',
+        },
+        '&.background-container': {
+          backgroundImage: `url(${perfCompareBackground})`,
+          backgroundPosition: 'top center',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'contain',          
+        },
+      },
+    },
+  },
+  MuiFormControlLabel: {
+    styleOverrides: {
+      root: {
+        '& .MuiSwitch-track': {
+          backgroundColor: '#696969',
+          borderRadius: 20 / 2,
+          width: 40,
+          height: 18,
+          position: 'absolute',
+          border: '2px solid #000000',
+        },
+        '& .MuiSwitch-thumb': {
+          width: 16,
+          height: 16,
+          margin: 4,
+        },
+        '& .MuiSwitch-switchBase.Mui-checked': {
+          color: '#696969',
+        },
+        '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
+          backgroundColor: '#c7c7c7',
+        },
+      },
+    },
+  },
+  MuiFormControl: {
+    styleOverrides: {
+      root: {
+        '& .MuiOutlinedInput-root': {
+          '& fieldset': {
+            borderColor: 'silver',
+          },
+        },
+        '& .MuiSvgIcon-root': {
+          color: '#808080',
         },
       },
     },

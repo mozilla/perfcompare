@@ -20,19 +20,16 @@ describe('App', () => {
     const user = userEvent.setup({ delay: null });
 
     render(<App />);
-
-    const darkModeButton = screen.getByRole('button', {
-      name: 'toggle-dark-mode',
+ 
+    const darkModeButton = screen.getByRole('checkbox', {
+      name: 'Dark Mode',
     });
-
+  
     await user.click(darkModeButton);
-    expect(screen.queryByTestId('Brightness7Icon')).toBeInTheDocument();
-
-    await user.click(darkModeButton);
-    expect(screen.queryByTestId('Brightness4Icon')).toBeInTheDocument();
+    expect(screen.getByTestId('switch-button')).not.toBeChecked();
   });
 
-    test('Clicking on the info icon an alert should be displayed', async () => {
+  test('Clicking on the info icon an alert should be displayed', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
@@ -45,5 +42,5 @@ describe('App', () => {
     expect(() => screen.getByTestId('feedback-alert')).toThrow('Unable to find an element');
     await user.click(infoButton);
     expect(screen.getByTestId('feedback-alert')).toBeInTheDocument();
-  });
+  }); 
 });

@@ -23,7 +23,7 @@ const config: Config.InitialOptions = {
         },
       },
     ],
-    '^.+\\.svg$': '<rootDir>/src/__tests__/utils/fileTransformer.js',
+    '^.+\\.(svg|png)$': '<rootDir>/src/__tests__/utils/fileTransformer.js',
   },
   transformIgnorePatterns: [
     '[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$',

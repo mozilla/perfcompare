@@ -8,7 +8,7 @@ exports[`Compare Results Table Should match snapshot 1`] = `
     >
       <table
         aria-label="a dense table"
-        class="MuiTable-root css-d8sagy-MuiTable-root"
+        class="MuiTable-root css-e1d5ss-MuiTable-root"
       />
     </div>
   </div>
