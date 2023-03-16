@@ -13,6 +13,7 @@ function ToggleDarkMode(props: ToggleDarkModeProps) {
         onClick={toggleColorMode}
         color="inherit"
         aria-label="toggle-dark-mode"
+        title="light/dark mode"
       >
         {theme.palette.mode === 'dark' ? (
           <Brightness7Icon />
