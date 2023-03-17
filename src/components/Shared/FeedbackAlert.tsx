@@ -36,6 +36,7 @@ export default function FeedbackAlert() {
           position: 'fixed',
           top: '60px',
           right: '70px',
+          zIndex: '4',
           '@media (max-width: 890px)': { // Tablet screen size
             top: '90px',
             right: '80px',

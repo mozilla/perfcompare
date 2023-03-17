@@ -14,6 +14,7 @@ function ToggleDarkMode(props: ToggleDarkModeProps) {
           position: 'fixed',
           top: '60px',
           right: '20px',
+          zIndex: '4',
           '@media (max-width: 890px)': { // Tablet screen size
             top: '90px',
             right: '20px',
