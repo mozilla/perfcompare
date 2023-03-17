@@ -1,3 +1,4 @@
+
 import { axe, toHaveNoViolations } from 'jest-axe';
 import { act } from 'react-dom/test-utils';
 
@@ -44,7 +45,11 @@ describe('Accessibility', () => {
     const { testData } = getTestData();
     store.dispatch(updateSearchResults(testData));
 
-    const { container } = renderWithRouter(<SearchDropdown view="search" />);
+    const { container } = renderWithRouter(<SearchDropdown view="search" displayLists={function (): void {
+      throw new Error('Function not implemented.');
+      
+
+    } } />);
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
@@ -73,7 +78,6 @@ describe('Accessibility', () => {
 
   // TO DO: resolve 'Axe is already running' issue and re-enable test
   // https://github.com/mozilla/perfcompare/issues/222
-  // it('CompareResultsView should have no violations in dark mode', async () => {
   //   const { testData } = getTestData();
   //   const selectedRevisions = testData.slice(0, 4);
   //   store.dispatch(setSelectedRevisions(selectedRevisions));

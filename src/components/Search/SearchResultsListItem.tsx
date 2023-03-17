@@ -66,9 +66,3 @@ interface SearchResultsListItemProps {
 
 export default memo(SearchResultsListItem);
 
-// const handler = (event: MouseEvent<HTMLDivElement, MouseEvent>) => {
-//   event.preventDefault();
-//   handleToggle(item. maxRevision);
-// }
-
-//onClick={() => useMemo(() => handleToggle(item, maxRevisions), [item, maxRevisions])}
