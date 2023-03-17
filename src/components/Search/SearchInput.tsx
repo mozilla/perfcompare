@@ -1,8 +1,8 @@
 import type { Dispatch, SetStateAction } from 'react';
 
 import TextField from '@mui/material/TextField';
-import { connect } from 'react-redux';
 
+import { connect } from 'react-redux';
 import type { RootState } from '../../common/store';
 import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
 
@@ -15,6 +15,7 @@ function SearchInput(props: SearchInputProps) {
       error={inputError}
       helperText={inputHelperText}
       label="Search By Revision ID or Author Email"
+      placeholder="Search By Revision ID or Author Email"
       id="search-revision-input"
       onFocus={() => setFocused(true)}
       variant="outlined"
