@@ -1,6 +1,6 @@
 import { render, fireEvent } from '@testing-library/react';
 
-import ScrollToTopButton from '../components/CompareResults/ScrollToTopButton';
+import ScrollToTopButton from '../../components/CompareResults/ScrollToTopButton';
 
 describe('ScrollToTopButton', () => {
   it('shows the button when the page is scrolled down', () => {
