@@ -23,9 +23,13 @@ function CompareResultsTable(props: CompareResultsProps) {
       {!compareResults.loading && (
         <>
           <CompareTableStatus />
-          <TableContainer component={Paper}>
+          <TableContainer component={Paper}               
+            sx={{ 
+              minWidth: 650, 
+              marginTop: '140px', 
+            }}
+          >
             <Table
-              sx={{ minWidth: 650 }}
               size="small"
               aria-label="a dense table"
             >
