@@ -34,9 +34,16 @@ export default function FeedbackAlert() {
         sx={{
           ml: 1,
           position: 'fixed',
-          top: '4px',
-          right: '60px',
-          zIndex: '4',
+          top: '60px',
+          right: '70px',
+          '@media (max-width: 890px)': { // Tablet screen size
+            top: '90px',
+            right: '80px',
+          },
+          '@media (max-width: 500px)': { // Mobile screen size
+            top: '105px',
+            right: '60px',
+          },
         }}
       >
         <InfoOutlinedIcon />

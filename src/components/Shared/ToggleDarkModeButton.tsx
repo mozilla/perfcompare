@@ -12,9 +12,16 @@ function ToggleDarkMode(props: ToggleDarkModeProps) {
         sx={{
           ml: 1,
           position: 'fixed',
-          top: '4px',
-          right: '15px',
-          zIndex: '4',
+          top: '60px',
+          right: '20px',
+          '@media (max-width: 890px)': { // Tablet screen size
+            top: '90px',
+            right: '20px',
+          },
+          '@media (max-width: 500px)': { // Mobile screen size
+            top: '105px',
+            right: '10px',
+          },
         }}
         onClick={toggleColorMode}
         color="inherit"
