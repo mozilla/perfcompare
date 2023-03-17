@@ -11,7 +11,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
         class="MuiTable-root css-d8sagy-MuiTable-root"
       >
         <thead
-          class="MuiTableHead-root css-15wwp11-MuiTableHead-root"
+          class="MuiTableHead-root css-1gmc9k3-MuiTableHead-root"
         >
           <tr
             class="MuiTableRow-root MuiTableRow-head css-1eza0l0-MuiTableRow-root"
@@ -139,7 +139,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
           class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
         >
           <tr
-            class="MuiTableRow-root MuiTableRow-hover css-1eza0l0-MuiTableRow-root"
+            class="MuiTableRow-root MuiTableRow-hover css-1kkptgx-MuiTableRow-root"
             data-testid="table-row"
           >
             <td
@@ -226,7 +226,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
             </td>
           </tr>
           <tr
-            class="MuiTableRow-root MuiTableRow-hover css-1eza0l0-MuiTableRow-root"
+            class="MuiTableRow-root MuiTableRow-hover css-1kkptgx-MuiTableRow-root"
             data-testid="table-row"
           >
             <td
@@ -313,7 +313,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
             </td>
           </tr>
           <tr
-            class="MuiTableRow-root MuiTableRow-hover css-1eza0l0-MuiTableRow-root"
+            class="MuiTableRow-root MuiTableRow-hover css-1kkptgx-MuiTableRow-root"
             data-testid="table-row"
           >
             <td
@@ -389,7 +389,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
             </td>
           </tr>
           <tr
-            class="MuiTableRow-root MuiTableRow-hover css-1eza0l0-MuiTableRow-root"
+            class="MuiTableRow-root MuiTableRow-hover css-1kkptgx-MuiTableRow-root"
             data-testid="table-row"
           >
             <td
