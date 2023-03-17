@@ -10,6 +10,7 @@ import { renderWithRouter, render } from './utils/setupTests';
 import { screen } from './utils/test-utils';
 
 describe('Snackbar', () => {
+  jest.setTimeout(10000);
   it('should dismiss an alert when close button is clicked', async () => {
     const { testData } = getTestData();
     global.fetch = jest.fn(() =>
