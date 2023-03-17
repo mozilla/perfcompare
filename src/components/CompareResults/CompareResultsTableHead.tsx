@@ -119,8 +119,13 @@ const CompareResultsTableHead = () => {
   };
 
   return (
-    <TableHead>
-      <TableRow>
+    <TableHead 
+      sx={{ 
+        backgroundColor: '#ffffff', 
+        position: 'fixed', 
+        top: '155px', 
+      }}>
+      <TableRow sx={{  }}>
         {tableHead.map(
           ({ label, key, align }: CompareResultsTableHeader, index) => {
             let options: string[] | ConfidenceText[] = [];
