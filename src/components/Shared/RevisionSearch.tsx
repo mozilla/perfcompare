@@ -38,7 +38,7 @@ function RevisionSearch(props: RevisionSearchProps) {
         #cancel-edit-revision-button *`,
       )
     ) {
-      setShowList(true);
+      setShowList(true); //change
       setFocused(true);
 
       return;
