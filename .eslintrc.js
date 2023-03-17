@@ -4,13 +4,19 @@ module.exports = {
     browser: true,
     node: true,
   },
-  plugins: ['import', 'react'],
+  plugins: [
+    'import',
+    'react',
+    'jsx-a11y'
+  ],
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
     'plugin:jest/recommended',
     'prettier',
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jsx-a11y/recommended"
   ],
   settings: {
     'import/resolver': {
@@ -42,6 +48,36 @@ module.exports = {
         },
       },
     ],
+    "@typescript-eslint/no-var-requires": "off",
+    'jsx-a11y/accessible-emoji': 1,
+    'jsx-a11y/alt-text': 1,
+    'jsx-a11y/anchor-has-content': 1,
+    'jsx-a11y/aria-role': 1,
+    'jsx-a11y/anchor-is-valid': 1,
+    'jsx-a11y/aria-activedescendant-has-tabindex': 1,
+    'jsx-a11y/img-redundant-alt': 1,
+    'jsx-a11y/tabindex-no-positive': 1,
+    "jsx-a11y/aria-props": 1,
+    "jsx-a11y/aria-proptypes": 1,
+    "jsx-a11y/aria-unsupported-elements": 1,
+    "jsx-a11y/heading-has-content": 1,
+    "jsx-a11y/mouse-events-have-key-events": 1,
+    "jsx-a11y/no-access-key": 1,
+    "jsx-a11y/no-autofocus": 1,
+    "jsx-a11y/no-distracting-elements": 1,
+    "jsx-a11y/no-interactive-element-to-noninteractive-role": 1,
+    "jsx-a11y/no-noninteractive-element-interactions": 1,
+    "jsx-a11y/no-noninteractive-element-to-interactive-role": 1,
+    "jsx-a11y/no-noninteractive-tabindex": 1,
+    "jsx-a11y/no-onchange": 1,
+    "jsx-a11y/no-redundant-roles": 1,
+    "jsx-a11y/no-static-element-interactions": 1,
+    "jsx-a11y/role-has-required-aria-props": 1,
+    "jsx-a11y/role-supports-aria-props": 1,
+    "jsx-a11y/label-has-associated-control": [1, {
+      "controlComponents": ["Input"]
+    }]
+
   },
   overrides: [
     {
@@ -52,7 +88,11 @@ module.exports = {
         tsconfigRootDir: __dirname,
         project: ['./tsconfig.json'],
       },
-      plugins: ['@typescript-eslint'],
+      plugins: [
+        '@typescript-eslint',
+        "jsx-a11y",
+        "@typescript-eslint/eslint-plugin"
+      ],
       extends: [
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
@@ -95,4 +135,4 @@ module.exports = {
       },
     },
   ],
-};
+}
