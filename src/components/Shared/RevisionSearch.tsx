@@ -18,6 +18,7 @@ import SearchResultsList from '../Search/SearchResultsList';
 
 function RevisionSearch(props: RevisionSearchProps) {
   const [focused, setFocused] = useState(false);
+  const [showList, setShowList] = useState(false);
   const { prevRevision, searchResults, setPopoverIsOpen, view } = props;
 
   const dispatch = useAppDispatch();
@@ -37,10 +38,13 @@ function RevisionSearch(props: RevisionSearchProps) {
         #cancel-edit-revision-button *`,
       )
     ) {
+      setShowList(true);
       setFocused(true);
+
       return;
     } else {
       setFocused(false);
+      setShowList(false);
       dispatch(clearCheckedRevisions());
     }
   };
@@ -48,6 +52,7 @@ function RevisionSearch(props: RevisionSearchProps) {
   const handleEscKeypress = (e: KeyboardEvent) => {
     if (e.key === 'Escape') {
       setFocused(false);
+      setShowList(false);
       dispatch(clearCheckedRevisions());
     }
   };
@@ -73,9 +78,15 @@ function RevisionSearch(props: RevisionSearchProps) {
       justifyContent="center"
       id="revision-search-container"
     >
-      <Grid item xs={2} id="revision-search-dropdown">
-        <SearchDropdown view={view} />
+      <Grid
+        item
+        xs={2}
+        id="revision-search-dropdown"
+        className="revision_search-dropdown"
+      >
+        <SearchDropdown view={view} showList={setShowList} />
       </Grid>
+
       <Grid item xs={9}>
         <SearchInput setFocused={setFocused} view={view} />
       </Grid>
@@ -84,7 +95,6 @@ function RevisionSearch(props: RevisionSearchProps) {
         {view == 'search' && <AddRevisionButton setFocused={setFocused} />}
         {view == 'compare-results' && setPopoverIsOpen && prevRevision && (
           <>
-            {/* TODO: add functionality for buttons and improve styling */}
             <Button
               className="edit-revision-button"
               id="replace-revision-button"
@@ -94,6 +104,7 @@ function RevisionSearch(props: RevisionSearchProps) {
             >
               <CheckIcon className="accept" />
             </Button>
+
             <Button
               className="edit-revision-button"
               id="cancel-edit-revision-button"
@@ -107,11 +118,11 @@ function RevisionSearch(props: RevisionSearchProps) {
         )}
       </Grid>
 
-      <Grid item xs={12}>
-        {searchResults.length > 0 && focused && (
+      {showList && (
+        <Grid xs={12} sx={{ width: '100%', marginBottom: '20px' }}>
           <SearchResultsList searchResults={searchResults} view={view} />
-        )}
-      </Grid>
+        </Grid>
+      )}
     </Grid>
   );
 }
