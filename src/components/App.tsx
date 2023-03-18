@@ -1,6 +1,10 @@
+import { useState } from 'react';
+
+import CloseIcon from '@mui/icons-material/Close';
 import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
+import IconButton from '@mui/material/IconButton';
 import Link from '@mui/material/Link';
 import { ThemeProvider } from '@mui/material/styles';
 import { SnackbarProvider } from 'notistack';
@@ -15,6 +19,8 @@ import ToggleDarkMode from './Shared/ToggleDarkModeButton';
 
 function App() {
   const { mode, toggleColorMode, protocolTheme } = useProtocolTheme();
+  const [alertOpen, setAlertOpen] = useState(true);
+
   return (
     <ThemeProvider theme={protocolTheme}>
       <SnackbarProvider
@@ -25,14 +31,29 @@ function App() {
         )}
       >
         <CssBaseline />
-        <Alert severity="warning" sx={{ textAlign: 'center' }}>
-          This is an unstable <strong>pre-release</strong> version. Some
-          features may not yet be supported. Please file any bugs on the{' '}
-          <Link href="https://github.com/mozilla/perfcompare/issues">
-            Github Repo
-          </Link>
-          .
-        </Alert>
+        {alertOpen && (
+          <Alert
+            severity="warning"
+            action={
+              <IconButton
+                aria-label="close"
+                color="inherit"
+                size="small"
+                onClick={() => {
+                  setAlertOpen(false);
+                }}
+              >
+                <CloseIcon fontSize="inherit" />
+              </IconButton>
+            }
+          >
+            This is an unstable <strong>pre-release</strong> version. Some features may not yet be supported. Please file any bugs on the{' '}
+            <Link href="https://github.com/mozilla/perfcompare/issues">
+              Github Repo
+            </Link>
+            .
+          </Alert>
+        )}
         <Box display="flex" justifyContent="flex-end" alignItems="flex-end">
           <FeedbackAlert />
           <ToggleDarkMode
