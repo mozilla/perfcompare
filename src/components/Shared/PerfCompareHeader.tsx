@@ -9,12 +9,7 @@ function PerfCompareHeader() {
         component="div"
         align="center"
         gutterBottom
-        className="perfcompare-header"
-        sx={{  
-          margin: '10px 0 40px 0',
-          padding: '15px 0',
-        }}        
-      >
+        className="perfcompare-header">
         PerfCompare
       </Typography>
     </Box>
