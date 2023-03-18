@@ -11,18 +11,7 @@ function ToggleDarkMode(props: ToggleDarkModeProps) {
       <IconButton
         sx={{
           ml: 1,
-          position: 'fixed',
-          top: '60px',
-          right: '20px',
-          zIndex: '4',
-          '@media (max-width: 890px)': { // Tablet screen size
-            top: '90px',
-            right: '20px',
-          },
-          '@media (max-width: 500px)': { // Mobile screen size
-            top: '105px',
-            right: '10px',
-          },
+          margin: '10px',
         }}
         onClick={toggleColorMode}
         color="inherit"

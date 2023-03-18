@@ -33,18 +33,7 @@ export default function FeedbackAlert() {
         onClick={handleClick}
         sx={{
           ml: 1,
-          position: 'fixed',
-          top: '60px',
-          right: '70px',
-          zIndex: '4',
-          '@media (max-width: 890px)': { // Tablet screen size
-            top: '90px',
-            right: '80px',
-          },
-          '@media (max-width: 500px)': { // Mobile screen size
-            top: '105px',
-            right: '60px',
-          },
+          margin: '10px',
         }}
       >
         <InfoOutlinedIcon />
