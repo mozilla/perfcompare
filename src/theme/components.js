@@ -163,25 +163,6 @@ const components = {
             height: '0.3em',
             marginTop: '-5px',
           },
-          '@media (max-width: 980px)': { 
-            fontSize: '2.4rem',
-            '&:after': {
-              backgroundSize: '24%',
-              backgroundPosition: '50%',
-            },
-          },
-          '@media (max-width: 760px)': { 
-            fontSize: '2.2rem',
-            '&:after': {
-              backgroundSize: '28%',
-            },
-          },
-          '@media (max-width: 670px)': {
-            fontSize: '2rem',
-            '&:after': {
-              backgroundSize: '28%',
-            },
-          },
         },
       },
     },
