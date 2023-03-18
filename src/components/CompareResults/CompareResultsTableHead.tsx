@@ -121,9 +121,14 @@ const CompareResultsTableHead = () => {
   return (
     <TableHead 
       sx={{ 
-        backgroundColor: '#ffffff', 
-        position: 'fixed', 
-        top: '155px', 
+        backgroundColor: '#ffffff',
+        position: 'sticky',
+        top: '0px',
+        right: '0',
+        left: '0',
+        width: '100%',
+        height: '70px',
+        zIndex: 1,
       }}>
       <TableRow sx={{  }}>
         {tableHead.map(
