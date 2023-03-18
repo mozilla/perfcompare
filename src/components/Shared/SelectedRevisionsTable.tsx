@@ -36,7 +36,7 @@ export function SelectedRevisionsTable(props: SelectedRevisionsProps) {
     setDraggedRow(-1);
   };
   return (
-    <TableContainer className="layout" sx={{ marginTop: '110px' }}>
+    <TableContainer className="layout">
       <Table className={`${view}-selected-table`} size={size}>
         <TableHead>
           <TableRow>
