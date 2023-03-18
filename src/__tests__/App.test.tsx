@@ -6,7 +6,7 @@ import { render } from './utils/setupTests';
 import { screen } from './utils/test-utils';
 
 describe('App', () => {
-  test('Should render search view on default route', async () => {
+  test('should render search view on default route', async () => {
     render(<App />);
     await act(async () => void jest.runOnlyPendingTimers());
 
@@ -15,7 +15,7 @@ describe('App', () => {
     ).toBeInTheDocument();
   });
 
-  test('Should switch between dark mode and light mode on toggle', async () => {
+  test('should switch between dark mode and light mode on toggle', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
@@ -32,7 +32,7 @@ describe('App', () => {
     expect(screen.queryByTestId('Brightness4Icon')).toBeInTheDocument();
   });
 
-    test('Clicking on the info icon an alert should be displayed', async () => {
+  test('clicking on the info icon should display an alert', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
@@ -43,7 +43,13 @@ describe('App', () => {
     });
 
     expect(() => screen.getByTestId('feedback-alert')).toThrow('Unable to find an element');
+
     await user.click(infoButton);
-    expect(screen.getByTestId('feedback-alert')).toBeInTheDocument();
+
+    expect(screen.getByText('This is an unstable pre-release version. Some features may not yet be supported. Please file any bugs on the Github Repo.')).toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: 'close' }));
+
+    expect(() => screen.getByTestId('feedback-alert')).toThrow('Unable to find an element');
   });
 });
