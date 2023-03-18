@@ -11,9 +11,20 @@ import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
 
 function SearchResultsListItem(props: SearchResultsListItemProps) {
   const { index, item, view } = props;
-  const isChecked: boolean = useAppSelector((state) =>
-    state.checkedRevisions.revisions.includes(item),
+  
+  const checkedRevisions: Revision[] = useAppSelector(
+    (state) => state.checkedRevisions.revisions,
   );
+
+  let isChecked = false;
+
+  checkedRevisions?.map((result: Revision) => {
+    if (result.id === item.id) {
+      isChecked = true;
+      return;
+    }
+  });
+
   const { handleToggle } = useCheckRevision();
 
   const revisionHash = truncateHash(item.revision);

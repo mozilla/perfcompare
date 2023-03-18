@@ -13,7 +13,15 @@ const useCheckRevision = () => {
   );
 
   const handleToggle = (revision: Revision, maxRevisions: number) => {
-    const isChecked = checkedRevisions.includes(revision);
+    let isChecked = false;
+
+    checkedRevisions?.map((result: Revision) => {
+      if (result.id === revision.id) {
+        isChecked = true;
+        return;
+      }
+    });
+
     const newChecked = [...checkedRevisions];
 
     // if item is not already checked, add to checked
