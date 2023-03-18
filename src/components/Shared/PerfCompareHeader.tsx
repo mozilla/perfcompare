@@ -10,18 +10,10 @@ function PerfCompareHeader() {
         align="center"
         gutterBottom
         className="perfcompare-header"
-        sx={{ 
-          backgroundColor: '#ffffff', 
-          position: 'fixed', 
-          width: '100%',
-          top: '48px', 
-          left: '50%',
-          zIndex: '2',
-          paddingTop: '10px',
-          paddingBottom: '20px',
-          transform: 'translateX(-50%)',
-          boxShadow: '0px 1px 4px rgba(0, 0, 0, 0.10)',
-        }}
+        sx={{  
+          margin: '10px 0 40px 0',
+          padding: '15px 0',
+        }}        
       >
         PerfCompare
       </Typography>
