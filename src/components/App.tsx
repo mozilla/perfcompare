@@ -33,37 +33,39 @@ function App() {
         <CssBaseline />
         {alertOpen && (
           <Alert
-          sx={{ paddingRight: '38px' }}
+            sx={{ paddingRight: '38px' }}
             severity="warning"
             action={
               <IconButton
                 aria-label="close"
                 color="inherit"
                 size="small"
-                sx={{ 
-                  color: 'grey', 
-                  border: '2px solid grey', 
+                sx={{
+                  color: 'grey',
+                  border: '2px solid grey',
                   borderRadius: '50px',
                   '&:hover': {
-                    color: '#FFA116', 
+                    color: '#FFA116',
                     backgroundColor: '#ffffff',
-                    border: '2px solid #FFA116', 
+                    border: '2px solid #FFA116',
                   },
                   '&:active': {
-                    color: '#000000', 
+                    color: '#000000',
                     backgroundColor: '#ffffff',
-                    border: '2px solid #000000', 
+                    border: '2px solid #000000',
                   },
                 }}
                 onClick={() => {
                   setAlertOpen(false);
                 }}
+                title="Close"
               >
                 <CloseIcon fontSize="inherit" />
               </IconButton>
             }
           >
-            This is an unstable <strong>pre-release</strong> version. Some features may not yet be supported. Please file any bugs on the{' '}
+            This is an unstable <strong>pre-release</strong> version. Some
+            features may not yet be supported. Please file any bugs on the{' '}
             <Link href="https://github.com/mozilla/perfcompare/issues">
               Github Repo
             </Link>
