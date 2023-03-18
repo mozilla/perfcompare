@@ -1,12 +1,10 @@
-import React from 'react';
+import type { Dispatch, SetStateAction } from 'react';
+
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-
 import Select from '@mui/material/Select';
-
 import { connect } from 'react-redux';
-import type { Dispatch, SetStateAction } from 'react';
 
 import { repoMap } from '../../common/constants';
 import type { RootState } from '../../common/store';

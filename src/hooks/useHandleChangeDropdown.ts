@@ -1,10 +1,9 @@
 import React from 'react';
+import type { Dispatch, SetStateAction } from 'react';
+
 import { updateRepository } from '../reducers/SearchSlice';
 import { fetchRecentRevisions } from '../thunks/searchThunk';
 import type { Repository } from '../types/state';
-
-import type { Dispatch, SetStateAction } from 'react';
-
 import { useAppDispatch } from './app';
 
 function useHandleChangeDropdown() {

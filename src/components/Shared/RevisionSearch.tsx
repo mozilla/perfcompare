@@ -63,7 +63,7 @@ function RevisionSearch(props: RevisionSearchProps) {
       document.removeEventListener('mousedown', handleFocus);
     };
   }, []);
-
+  console.log(focused);
   useEffect(() => {
     document.addEventListener('keydown', handleEscKeypress);
     return () => {

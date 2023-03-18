@@ -1,8 +1,8 @@
 import type { Dispatch, SetStateAction } from 'react';
 
 import TextField from '@mui/material/TextField';
-
 import { connect } from 'react-redux';
+
 import type { RootState } from '../../common/store';
 import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
 
