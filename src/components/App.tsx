@@ -33,12 +33,14 @@ function App() {
         <CssBaseline />
         {alertOpen && (
           <Alert
+          sx={{ paddingRight: '40px' }}
             severity="warning"
             action={
               <IconButton
                 aria-label="close"
                 color="inherit"
                 size="small"
+                sx={{ color: 'grey', border: '1px solid grey', borderRadius: '50px' }}
                 onClick={() => {
                   setAlertOpen(false);
                 }}
