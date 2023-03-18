@@ -4,14 +4,14 @@ exports[`CompareResults View Should match snapshot 1`] = `
 <body>
   <div>
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root css-w09ozj-MuiPaper-root-MuiTableContainer-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root css-1wmlnfb-MuiPaper-root-MuiTableContainer-root"
     >
       <table
         aria-label="a dense table"
-        class="MuiTable-root css-d8sagy-MuiTable-root"
+        class="MuiTable-root css-qfwgoj-MuiTable-root"
       >
         <thead
-          class="MuiTableHead-root css-1gmc9k3-MuiTableHead-root"
+          class="MuiTableHead-root css-1lovvwx-MuiTableHead-root"
         >
           <tr
             class="MuiTableRow-root MuiTableRow-head css-1eza0l0-MuiTableRow-root"
@@ -139,7 +139,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
           class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
         >
           <tr
-            class="MuiTableRow-root MuiTableRow-hover css-1kkptgx-MuiTableRow-root"
+            class="MuiTableRow-root MuiTableRow-hover css-1eza0l0-MuiTableRow-root"
             data-testid="table-row"
           >
             <td
@@ -152,7 +152,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
             >
               <a
                 aria-label="Graph link"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-e4zel8-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1dfrthe-MuiTypography-root-MuiLink-root"
                 href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000"
                 rel="noopener"
                 target="_blank"
@@ -226,7 +226,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
             </td>
           </tr>
           <tr
-            class="MuiTableRow-root MuiTableRow-hover css-1kkptgx-MuiTableRow-root"
+            class="MuiTableRow-root MuiTableRow-hover css-1eza0l0-MuiTableRow-root"
             data-testid="table-row"
           >
             <td
@@ -239,7 +239,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
             >
               <a
                 aria-label="Graph link"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-e4zel8-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1dfrthe-MuiTypography-root-MuiLink-root"
                 href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2Cedcc6311f15bdf7924ef3f0ccfd8b47ce1892212%2C1%2C1&timerange=5184000"
                 rel="noopener"
                 target="_blank"
@@ -313,7 +313,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
             </td>
           </tr>
           <tr
-            class="MuiTableRow-root MuiTableRow-hover css-1kkptgx-MuiTableRow-root"
+            class="MuiTableRow-root MuiTableRow-hover css-1eza0l0-MuiTableRow-root"
             data-testid="table-row"
           >
             <td
@@ -326,7 +326,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
             >
               <a
                 aria-label="Graph link"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-e4zel8-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1dfrthe-MuiTypography-root-MuiLink-root"
                 href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C3a6d4b6178678c3113c980b378bb83b2629926a0%2C1%2C1&timerange=5184000"
                 rel="noopener"
                 target="_blank"
@@ -389,7 +389,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
             </td>
           </tr>
           <tr
-            class="MuiTableRow-root MuiTableRow-hover css-1kkptgx-MuiTableRow-root"
+            class="MuiTableRow-root MuiTableRow-hover css-1eza0l0-MuiTableRow-root"
             data-testid="table-row"
           >
             <td
@@ -402,7 +402,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
             >
               <a
                 aria-label="Graph link"
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-e4zel8-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways background-icon light-mode graph-icon-color css-1dfrthe-MuiTypography-root-MuiLink-root"
                 href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C3a6d4b6178678c3113c980b378bb83b2629926a0%2C1%2C1&timerange=5184000"
                 rel="noopener"
                 target="_blank"

@@ -4,13 +4,13 @@ exports[`Search View should match snapshot 1`] = `
 <body>
   <div>
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg perfcompare-body css-1fevnuu-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg perfcompare-body css-1tyv3cf-MuiContainer-root"
     >
       <div
         class="header-container MuiBox-root css-0"
       >
         <div
-          class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-s7s749-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-1fxxc2y-MuiTypography-root"
         >
           PerfCompare
         </div>
@@ -19,7 +19,7 @@ exports[`Search View should match snapshot 1`] = `
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-13eijkh-MuiGrid-root"
       >
         <div
-          class="MuiTableContainer-root layout css-16hdy0e-MuiTableContainer-root"
+          class="MuiTableContainer-root layout css-10mitjm-MuiTableContainer-root"
         >
           <table
             class="MuiTable-root search-selected-table css-qfwgoj-MuiTable-root"
@@ -111,7 +111,7 @@ exports[`Search View should match snapshot 1`] = `
                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-e4zel8-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1dfrthe-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
                   >
                     coconut
@@ -196,7 +196,7 @@ exports[`Search View should match snapshot 1`] = `
                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-e4zel8-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1dfrthe-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
                   >
                     spam
@@ -281,7 +281,7 @@ exports[`Search View should match snapshot 1`] = `
                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-e4zel8-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1dfrthe-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=try&revision=spamspam"
                   >
                     spamspam
@@ -366,7 +366,7 @@ exports[`Search View should match snapshot 1`] = `
                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-e4zel8-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1dfrthe-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/jobs?repo=autoland&revision=spamspamspamandeggs"
                   >
                     spamspamspam
