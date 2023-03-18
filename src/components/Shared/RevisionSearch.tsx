@@ -77,7 +77,7 @@ function RevisionSearch(props: RevisionSearchProps) {
         <SearchDropdown view={view} />
       </Grid>
       <Grid item xs={9}>
-        <SearchInput setFocused={setFocused} view={view} />
+        <SearchInput focused={focused} setFocused={setFocused} view={view} />
       </Grid>
 
       <Grid item xs={1}>
