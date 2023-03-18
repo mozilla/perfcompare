@@ -33,7 +33,7 @@ function App() {
         <CssBaseline />
         {alertOpen && (
           <Alert
-          sx={{ paddingRight: '40px' }}
+          sx={{ paddingRight: '38px' }}
             severity="warning"
             action={
               <IconButton
