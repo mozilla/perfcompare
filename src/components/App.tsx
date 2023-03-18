@@ -40,7 +40,21 @@ function App() {
                 aria-label="close"
                 color="inherit"
                 size="small"
-                sx={{ color: 'grey', border: '1px solid grey', borderRadius: '50px' }}
+                sx={{ 
+                  color: 'grey', 
+                  border: '2px solid grey', 
+                  borderRadius: '50px',
+                  '&:hover': {
+                    color: '#FFA116', 
+                    backgroundColor: '#ffffff',
+                    border: '2px solid #FFA116', 
+                  },
+                  '&:active': {
+                    color: '#000000', 
+                    backgroundColor: '#ffffff',
+                    border: '2px solid #000000', 
+                  },
+                }}
                 onClick={() => {
                   setAlertOpen(false);
                 }}
