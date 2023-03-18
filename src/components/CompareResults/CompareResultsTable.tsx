@@ -26,7 +26,7 @@ function CompareResultsTable(props: CompareResultsProps) {
           <TableContainer component={Paper}               
             sx={{ 
               minWidth: 650, 
-              marginTop: '160px', 
+              marginTop: '40px', 
             }}
           >
             <Table
