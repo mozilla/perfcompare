@@ -26,7 +26,6 @@ const CompareTableStatus = () => {
           variant="outlined"
           color="inherit"
           size="small"
-          sx={{ margin: '5px 2px 10px 2px' }}
           onClick={() => filterResults()}
         >
           Apply
