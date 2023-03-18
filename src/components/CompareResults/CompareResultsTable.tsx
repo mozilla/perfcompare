@@ -26,7 +26,25 @@ function CompareResultsTable(props: CompareResultsProps) {
           <TableContainer component={Paper}               
             sx={{ 
               minWidth: 650, 
-              marginTop: '40px', 
+              position: 'sticky', 
+              top: '200px',
+              height: '70vh',
+              overflowY: 'scroll',
+              zIndex: '4',
+              '&::-webkit-scrollbar': {
+                width: '10px',
+              },
+              '&::-webkit-scrollbar-track': {
+                backgroundColor: '#f1f1f1',
+              },
+              '&::-webkit-scrollbar-thumb': {
+                backgroundColor: '#888',
+                borderRadius: '5px',
+              },
+              '&::-webkit-scrollbar-thumb:hover': {
+                backgroundColor: '#555',
+                cursor: 'pointer',
+              },
             }}
           >
             <Table
