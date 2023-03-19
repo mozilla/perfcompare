@@ -88,7 +88,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-9 css-124ajok-MuiGrid-root"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root css-136h9lv-MuiFormControl-root-MuiTextField-root"
+            class="MuiFormControl-root MuiTextField-root css-1yvpvuy-MuiFormControl-root-MuiTextField-root"
           >
             <label
               class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary Mui-focused css-mru796-MuiFormLabel-root-MuiInputLabel-root"
@@ -153,7 +153,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-z2teic-MuiGrid-root"
         >
           <div
-            class="MuiBox-root css-l1oafp"
+            class="MuiBox-root css-axxdwh"
             id="search-results-list"
           >
             <ul
