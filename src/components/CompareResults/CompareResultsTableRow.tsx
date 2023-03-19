@@ -51,6 +51,7 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
       {result.confidence_text ? (
         <TableCell
           data-testid="confidence-icon"
+          aria-label={`confidence ${result.confidence_text}`}
           className={`background-icon ${setConfidenceClassName(
             result.confidence_text,
           )}`}
@@ -58,6 +59,7 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
       ) : (
         <TableCell
           data-testid="confidence-icon"
+          aria-label="confidence not available"
           className={`${setConfidenceClassName(result.confidence_text)}`}
         >
           <Tooltip title="Confidence not available">
