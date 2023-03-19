@@ -27,7 +27,7 @@ function CompareResultsTable(props: CompareResultsProps) {
             <Table
               sx={{ minWidth: 650 }}
               size="small"
-              aria-label="a dense table"
+              aria-label="a dense table comparing performance results"
             >
               <PaginatedCompareResults mode={mode} />
             </Table>
