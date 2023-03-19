@@ -14,7 +14,7 @@ function ToggleDarkMode(props: ToggleDarkModeProps) {
         color="inherit"
         aria-label="toggle-dark-mode"
         title="Toggle dark mode"
-        data-testid="dark-mode-toggle-button"
+        data-testid="dark-mode-toggle"
       >
         {theme.palette.mode === 'dark' ? (
           <Brightness7Icon alt="Toggle dark mode - Light mode" />
