@@ -29,6 +29,7 @@ function CompareResultsTable(props: CompareResultsProps) {
               size="small"
               aria-label="a dense table"
             >
+              <caption>Performance Results Comparison Table</caption>
               <PaginatedCompareResults mode={mode} />
             </Table>
           </TableContainer>
