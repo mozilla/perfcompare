@@ -19,8 +19,8 @@ function SearchInput(props: SearchInputProps) {
       onFocus={() => setFocused(true)}
       variant="outlined"
       sx={{ 
-        width: '90%', 
-        marginLeft: '40px',
+        width: '93.7%', 
+        marginLeft: '3%',
       }}
       onChange={(e) => handleChangeSearch(e)}
       size={size}
