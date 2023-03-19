@@ -14,7 +14,7 @@ function SearchResultsList(props: SearchResultsListProps) {
         maxWidth: '67.9%',
         maxHeight: '60vh',
         overflowY: 'scroll',
-        margin: '5px 0 0 20%',
+        margin: '5px 0 0 20.2%',
         bgcolor: 'background.paper',
         border: '1px solid grey',
         borderRadius: '4px',
