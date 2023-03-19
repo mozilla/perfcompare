@@ -136,6 +136,7 @@ exports[`Search View should match snapshot 1`] = `
                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <button
+                    aria-label="delete revision"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
                     id="close-button"
                     tabindex="0"
@@ -221,6 +222,7 @@ exports[`Search View should match snapshot 1`] = `
                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <button
+                    aria-label="delete revision"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
                     id="close-button"
                     tabindex="0"
@@ -306,6 +308,7 @@ exports[`Search View should match snapshot 1`] = `
                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <button
+                    aria-label="delete revision"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
                     id="close-button"
                     tabindex="0"
@@ -391,6 +394,7 @@ exports[`Search View should match snapshot 1`] = `
                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <button
+                    aria-label="delete revision"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
                     id="close-button"
                     tabindex="0"
