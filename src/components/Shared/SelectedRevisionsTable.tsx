@@ -37,7 +37,7 @@ export function SelectedRevisionsTable(props: SelectedRevisionsProps) {
   };
   return (
     <TableContainer className="layout">
-      <Table className={`${view}-selected-table`} size={size}>
+      <Table className={`${view}-selected-table`} size={size} aria-label="table showing selected revisions" >
         <TableHead>
           <TableRow>
             <TableCell component="th" scope="row" />
