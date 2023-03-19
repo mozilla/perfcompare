@@ -11,10 +11,12 @@ function SearchResultsList(props: SearchResultsListProps) {
     <Box
       id="search-results-list"
       sx={{
-        maxWidth: '100%',
+        maxWidth: '67.9%',
+        maxHeight: '60vh',
+        overflowY: 'scroll',
+        margin: '5px 0 0 20%',
         bgcolor: 'background.paper',
-        border: 1,
-        borderColor: 'grey.500',
+        border: '1px solid grey',
         borderRadius: '4px',
         '&:focus': {
           borderColor: 'primary.main',
