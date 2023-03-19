@@ -18,7 +18,10 @@ function SearchInput(props: SearchInputProps) {
       id="search-revision-input"
       onFocus={() => setFocused(true)}
       variant="outlined"
-      sx={{ width: '100%' }}
+      sx={{ 
+        width: '90%', 
+        marginLeft: '40px',
+      }}
       onChange={(e) => handleChangeSearch(e)}
       size={size}
     />
