@@ -47,7 +47,7 @@ function App() {
             />
             <Route
               path='/beta/compare-results'
-              element={<ResultsView />}
+              element={<CompareResultsViewBeta />}
             />
           </Routes>
         </Router>
