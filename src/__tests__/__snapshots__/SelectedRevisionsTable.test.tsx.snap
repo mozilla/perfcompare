@@ -421,7 +421,9 @@ exports[`Search View should match snapshot 1`] = `
         class="MuiGrid-root MuiGrid-item compare-button-section css-j8gwlw-MuiGrid-root"
       >
         <button
+          aria-label="Compare selected revisions"
           class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root compare-button css-6yg5eq-MuiButtonBase-root-MuiButton-root"
+          data-mui-internal-clone-element="true"
           tabindex="0"
           type="button"
         >
