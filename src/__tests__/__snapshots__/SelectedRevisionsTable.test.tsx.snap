@@ -136,7 +136,9 @@ exports[`Search View should match snapshot 1`] = `
                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <button
+                    aria-label="Close revision"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
+                    data-mui-internal-clone-element="true"
                     id="close-button"
                     tabindex="0"
                     type="button"
@@ -221,7 +223,9 @@ exports[`Search View should match snapshot 1`] = `
                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <button
+                    aria-label="Close revision"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
+                    data-mui-internal-clone-element="true"
                     id="close-button"
                     tabindex="0"
                     type="button"
@@ -306,7 +310,9 @@ exports[`Search View should match snapshot 1`] = `
                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <button
+                    aria-label="Close revision"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
+                    data-mui-internal-clone-element="true"
                     id="close-button"
                     tabindex="0"
                     type="button"
@@ -391,7 +397,9 @@ exports[`Search View should match snapshot 1`] = `
                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <button
+                    aria-label="Close revision"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
+                    data-mui-internal-clone-element="true"
                     id="close-button"
                     tabindex="0"
                     type="button"
