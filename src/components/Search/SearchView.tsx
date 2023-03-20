@@ -2,6 +2,7 @@ import ArrowForward from '@mui/icons-material/ArrowForward';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
+import Tooltip from '@mui/material/Tooltip';
 import { useSnackbar, VariantType } from 'notistack';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -53,14 +54,16 @@ function SearchView(props: SearchViewProps) {
       </Grid>
       <Grid item className="compare-button-section">
         {selectedRevisions.length > 0 && (
-          <Button
-            className="compare-button"
-            variant="contained"
-            onClick={() => goToCompareResultsPage(selectedRevisions)}
-          >
-            compare
-            <ArrowForward className="compare-icon" />
-          </Button>
+          <Tooltip title="Compare selected revisions" placement="top">
+            <Button
+              className="compare-button"
+              variant="contained"
+              onClick={() => goToCompareResultsPage(selectedRevisions)}
+            >
+              compare
+              <ArrowForward className="compare-icon" />
+            </Button>
+          </Tooltip>
         )}
       </Grid>
       <RevisionSearch view="search" />
