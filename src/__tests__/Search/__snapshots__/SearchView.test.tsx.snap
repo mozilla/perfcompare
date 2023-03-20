@@ -469,7 +469,7 @@ exports[`Search View should not hide search results when clicking search results
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-z2teic-MuiGrid-root"
         >
           <div
-            class="MuiBox-root css-axxdwh"
+            class="MuiBox-root css-op4ubg"
             id="search-results-list"
           >
             <ul
