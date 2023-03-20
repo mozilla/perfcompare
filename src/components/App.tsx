@@ -9,6 +9,7 @@ import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import useProtocolTheme from '../theme/protocolTheme';
 import CompareResultsViewBeta from './CompareResults/beta/CompareResultsView';
 import CompareResultsView from './CompareResults/CompareResultsView';
+import SearchViewBeta from './Search/beta/SearchView';
 import SearchView from './Search/SearchView';
 import FeedbackAlert from './Shared/FeedbackAlert';
 import SnackbarCloseButton from './Shared/SnackbarCloseButton';
@@ -44,6 +45,7 @@ function App() {
         <Router>
           <Routes>
             <Route path='/' element={<SearchView />} />
+            <Route path='/search-beta' element={<SearchViewBeta />} />
             <Route
               path='/compare-results'
               element={<CompareResultsView mode={mode} />}
