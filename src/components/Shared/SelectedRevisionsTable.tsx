@@ -61,6 +61,7 @@ export function SelectedRevisionsTable(props: SelectedRevisionsProps) {
               setDraggedRow={setDraggedRow}
               setDropRow={setDropRow}
               view={view}
+              
             />
           ))}
         </TableBody>
