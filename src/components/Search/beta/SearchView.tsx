@@ -1,3 +1,5 @@
+
+
 import PerfCompareHeader from '../../Shared/beta/PerfCompareHeader';
 
 function SearchViewBeta() {
