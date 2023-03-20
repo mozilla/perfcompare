@@ -45,12 +45,15 @@ function App() {
         <Router>
           <Routes>
             <Route path='/' element={<SearchView />} />
-            <Route path='/search-beta' element={<SearchViewBeta />} />
+            <Route path='/beta' element={<SearchViewBeta />} />
             <Route
               path='/compare-results'
               element={<CompareResultsView mode={mode} />}
             />
-            <Route path='/beta/compare-results' element={<CompareResultsViewBeta />} />
+            <Route
+              path='/beta/compare-results'
+              element={<CompareResultsViewBeta />}
+            />
           </Routes>
         </Router>
       </SnackbarProvider>
