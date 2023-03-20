@@ -23,7 +23,11 @@ function CompareResultsTable(props: CompareResultsProps) {
       {!compareResults.loading && (
         <>
           <CompareTableStatus />
-          <TableContainer component={Paper}>
+          <TableContainer component={Paper} 
+            sx={{ 
+              marginBottom: '70px', 
+            }}
+          >
             <Table
               sx={{ minWidth: 650 }}
               size="small"
