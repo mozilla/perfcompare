@@ -4,6 +4,7 @@ import IconButton from '@mui/material/IconButton';
 import Link from '@mui/material/Link';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
+import Tooltip from '@mui/material/Tooltip';
 
 import { repoMap } from '../../common/constants';
 import { useAppDispatch } from '../../hooks/app';
@@ -66,12 +67,14 @@ export function SelectedRevisionsTableRow(props: SelectedRevisionsRowProps) {
       <TableCell>{date}</TableCell>
       <TableCell>
         {view == 'search' && (
-          <IconButton
-            id="close-button"
-            onClick={() => dispatch(deleteRevision(row.id))}
-          >
-            <Close />
-          </IconButton>
+          <Tooltip title="Close revision" placement="bottom">
+            <IconButton
+              id="close-button"
+              onClick={() => dispatch(deleteRevision(row.id))}
+            >
+              <Close />
+            </IconButton>
+          </Tooltip>
         )}
         {view == 'compare-results' && (
           <EditRevisionButton index={index} item={row} />
