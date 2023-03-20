@@ -2,6 +2,7 @@ import type { Dispatch, SetStateAction } from 'react';
 
 import AddIcon from '@mui/icons-material/Add';
 import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
 
 import useSelectRevision from '../../hooks/useSelectRevision';
 
@@ -14,15 +15,17 @@ export default function AddRevisionButton(props: AddRevisionButtonProps) {
   };
 
   return (
-    <Button
-      id="add-revision-button"
-      variant="contained"
-      className="add-revision-button"
-      aria-label="add revisions"
-      onClick={handleAddRevision}
-    >
-      <AddIcon />
-    </Button>
+    <Tooltip title="Add Revisions">
+      <Button
+        id="add-revision-button"
+        variant="contained"
+        className="add-revision-button"
+        aria-label="add revisions"
+        onClick={handleAddRevision}
+      >
+        <AddIcon />
+      </Button>
+    </Tooltip>
   );
 }
 
