@@ -469,8 +469,9 @@ exports[`Search View should not hide search results when clicking search results
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-z2teic-MuiGrid-root"
         >
           <div
-            class="MuiBox-root css-l1oafp"
+            class="MuiBox-root css-1yllr58"
             id="search-results-list"
+            style="max-height: 756px;"
           >
             <ul
               class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
