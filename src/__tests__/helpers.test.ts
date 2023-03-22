@@ -33,7 +33,7 @@ describe('formateDate Helper', () => {
   it('correctly formats date', () => {
     const timestamp = 1649883600;
     const date = formatDate(timestamp);
-    expect(date).toStrictEqual("04/14/22 00:00");
+    expect(date).toStrictEqual('04/14/22 00:00');
   });
 });
 
