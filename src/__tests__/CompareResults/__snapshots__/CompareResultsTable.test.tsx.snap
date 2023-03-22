@@ -7,7 +7,7 @@ exports[`Compare Results Table Should match snapshot 1`] = `
       class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root css-w09ozj-MuiPaper-root-MuiTableContainer-root"
     >
       <table
-        aria-label="a dense table comparing performance results"
+        aria-label="performance results comparison"
         class="MuiTable-root css-d8sagy-MuiTable-root"
       />
     </div>
