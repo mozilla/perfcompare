@@ -10,6 +10,9 @@ exports[`CompareResults View Should match snapshot 1`] = `
         aria-label="a dense table"
         class="MuiTable-root css-d8sagy-MuiTable-root"
       >
+        <caption>
+          Performance Results Comparison Table
+        </caption>
         <thead
           class="MuiTableHead-root css-15wwp11-MuiTableHead-root"
         >

@@ -24,6 +24,9 @@ exports[`Search View should match snapshot 1`] = `
           <table
             class="MuiTable-root search-selected-table css-qfwgoj-MuiTable-root"
           >
+            <caption>
+              Selected Revisions Table
+            </caption>
             <thead
               class="MuiTableHead-root css-15wwp11-MuiTableHead-root"
             >
