@@ -213,6 +213,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                
             </td>
             <td
+              aria-label="confidence low"
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon low css-6qq5hg-MuiTableCell-root"
               data-testid="confidence-icon"
             />
@@ -299,6 +300,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                
             </td>
             <td
+              aria-label="confidence med"
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon med css-6qq5hg-MuiTableCell-root"
               data-testid="confidence-icon"
             />
@@ -374,6 +376,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                
             </td>
             <td
+              aria-label="confidence high"
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall background-icon high css-6qq5hg-MuiTableCell-root"
               data-testid="confidence-icon"
             />
@@ -449,6 +452,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
                
             </td>
             <td
+              aria-label="confidence not available"
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall unknown-confidence css-6qq5hg-MuiTableCell-root"
               data-testid="confidence-icon"
             >
