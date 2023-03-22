@@ -2,6 +2,7 @@ import Grid from '@mui/material/Grid';
 import { Container } from '@mui/system';
 
 import PerfCompareHeader from '../../Shared/PerfCompareHeader';
+import SearchInput from './SearchInput';
 
 function CompareResultsViewBeta() {
   return (
@@ -12,7 +13,9 @@ function CompareResultsViewBeta() {
           {/* TODO PCF-223 */}
           Beta version
         </Grid>
-        <Grid item xs={12} />
+        <Grid item xs={12}>
+          <SearchInput />
+        </Grid>
       </Grid>
     </Container>
   );
