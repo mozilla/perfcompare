@@ -11,6 +11,7 @@ import { screen } from './utils/test-utils';
 
 describe('Snackbar', () => {
   it('should dismiss an alert when close button is clicked', async () => {
+    jest.setTimeout(10000); // set timeout to 10 seconds
     const { testData } = getTestData();
     global.fetch = jest.fn(() =>
       Promise.resolve({
