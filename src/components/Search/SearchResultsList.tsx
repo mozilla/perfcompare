@@ -12,6 +12,7 @@ function SearchResultsList(props: SearchResultsListProps) {
       id="search-results-list"
       sx={{
         maxWidth: '100%',
+        margin: '0 auto',
         height: '23rem',
         overflow: 'auto',
         bgcolor: 'background.paper',
