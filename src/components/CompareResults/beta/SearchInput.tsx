@@ -7,14 +7,14 @@ import { ButtonsLightRaw, Spacing } from '../../../styles';
 
 const styles = {
   container: style({
-    maxWidth: '950px',
-    margin: 0,
     display: 'flex',
     $nest: {
       '.form-container': {
         maxWidth: '447px',
       },
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       '.MuiButtonBase-root': {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         ...ButtonsLightRaw.Secondary,
         marginLeft: Spacing.Small,
       },
