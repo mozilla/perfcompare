@@ -13,7 +13,7 @@ function SearchResultsList(props: SearchResultsListProps) {
       sx={{
         maxWidth: '100%',
         height: '23rem',
-        overflowY: 'auto',
+        overflow: 'auto',
         bgcolor: 'background.paper',
         border: 1,
         borderColor: 'grey.500',
