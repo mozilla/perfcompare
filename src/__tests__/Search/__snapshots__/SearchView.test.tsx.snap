@@ -32,7 +32,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
         class="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter css-1coehxf-MuiTypography-root"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall learn-button css-91ccpv-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall learn-button css-9z72u9-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >
@@ -217,7 +217,7 @@ exports[`Search View should hide search results when clicking outside of search 
         class="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter css-1coehxf-MuiTypography-root"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall learn-button css-91ccpv-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall learn-button css-9z72u9-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >
@@ -402,7 +402,7 @@ exports[`Search View should not hide search results when clicking search results
         class="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter css-1coehxf-MuiTypography-root"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall learn-button css-91ccpv-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall learn-button css-9z72u9-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >

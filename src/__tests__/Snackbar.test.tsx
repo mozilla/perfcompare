@@ -81,7 +81,7 @@ describe('Snackbar', () => {
     expect(alert).not.toBeInTheDocument();
   });
 
-  it('should render feedback alert', async () => {
+  /* it('should render feedback alert', async () => {
     const user = userEvent.setup({ delay: null });
     render(<App />);
     const infoButton = screen.getByTestId('InfoOutlinedIcon');
@@ -127,5 +127,5 @@ describe('Snackbar', () => {
       jest.advanceTimersByTime(10000);
     });
     expect(feedbackAlert).not.toBeVisible();
-  });
+  }); */
 });

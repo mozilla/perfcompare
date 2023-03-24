@@ -13,8 +13,8 @@ function LearnMoreButton() {
                 fontSize: '0.75rem',
                 color: 'black',
                 backgroundColor: '#e5e5e5',
-                px: '15px',
-                mb: '30px',
+                px: 3,
+                mb: 15,
               }
             }
       >

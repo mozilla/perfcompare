@@ -32,7 +32,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
         class="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter css-1coehxf-MuiTypography-root"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall learn-button css-91ccpv-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall learn-button css-9z72u9-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >
