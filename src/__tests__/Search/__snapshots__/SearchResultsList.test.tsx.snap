@@ -204,7 +204,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     <p
                       class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-3a763r-MuiTypography-root"
                     >
-                      johncleese@python.com - Thu Mar 29 1951 00:00:00 GMT+0000 (Coordinated Universal Time)
+                      johncleese@python.com - Thu Mar 29 1951 00:00:00 GMT+0000 (hora universal coordinada)
                     </p>
                   </div>
                 </li>
@@ -254,7 +254,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     <p
                       class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-3a763r-MuiTypography-root"
                     >
-                      ericidle@python.com - Sat Feb 22 1958 00:00:00 GMT+0000 (Coordinated Universal Time)
+                      ericidle@python.com - Sat Feb 22 1958 00:00:00 GMT+0000 (hora universal coordinada)
                     </p>
                   </div>
                 </li>
@@ -304,7 +304,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     <p
                       class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-3a763r-MuiTypography-root"
                     >
-                      terrygilliam@python.com - Wed Jul 29 1987 00:00:00 GMT+0000 (Coordinated Universal Time)
+                      terrygilliam@python.com - Wed Jul 29 1987 00:00:00 GMT+0000 (hora universal coordinada)
                     </p>
                   </div>
                 </li>
@@ -354,7 +354,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     <p
                       class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-3a763r-MuiTypography-root"
                     >
-                      michaelpalin@python.com - Sat Jul 04 2020 00:00:00 GMT+0000 (Coordinated Universal Time)
+                      michaelpalin@python.com - Sat Jul 04 2020 00:00:00 GMT+0000 (hora universal coordinada)
                     </p>
                   </div>
                 </li>
@@ -404,7 +404,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     <p
                       class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-3a763r-MuiTypography-root"
                     >
-                      grahamchapman@python.com - Wed Apr 13 2022 00:00:00 GMT+0000 (Coordinated Universal Time)
+                      grahamchapman@python.com - Wed Apr 13 2022 00:00:00 GMT+0000 (hora universal coordinada)
                     </p>
                   </div>
                 </li>
