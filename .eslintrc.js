@@ -3,8 +3,9 @@ module.exports = {
   env: {
     browser: true,
     node: true,
+    "jest/globals": true
   },
-  plugins: ['import', 'react'],
+  plugins: ['import', 'react','jest'],
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
