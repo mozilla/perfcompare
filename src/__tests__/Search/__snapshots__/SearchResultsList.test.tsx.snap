@@ -30,7 +30,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
           id="revision-search-dropdown"
         >
           <div
-            class="MuiFormControl-root css-q8hpuo-MuiFormControl-root"
+            class="MuiFormControl-root css-tf6ang-MuiFormControl-root"
           >
             <label
               class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-mru796-MuiFormLabel-root-MuiInputLabel-root"
@@ -88,7 +88,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-9 css-124ajok-MuiGrid-root"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root css-136h9lv-MuiFormControl-root-MuiTextField-root"
+            class="MuiFormControl-root MuiTextField-root css-vsjfgt-MuiFormControl-root-MuiTextField-root"
           >
             <label
               class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary Mui-focused css-mru796-MuiFormLabel-root-MuiInputLabel-root"
@@ -128,7 +128,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
         >
           <button
             aria-label="add revisions"
-            class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root add-revision-button css-6yg5eq-MuiButtonBase-root-MuiButton-root"
+            class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root add-revision-button css-1rt5yeb-MuiButtonBase-root-MuiButton-root"
             id="add-revision-button"
             tabindex="0"
             type="button"

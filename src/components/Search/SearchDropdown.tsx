@@ -14,7 +14,7 @@ function SearchDropdown(props: SearchDropdownProps) {
   const size = view == 'compare-results' ? 'small' : undefined;
 
   return (
-    <FormControl sx={{ width: '100%' }} size={size}>
+    <FormControl sx={{ width: '98%' }} size={size}>
       <InputLabel id="select-repository">repository</InputLabel>
       <Select value={repository} labelId="select-repository" label="repository">
         {Object.keys(repoMap).map((key) => (

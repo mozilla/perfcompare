@@ -18,7 +18,7 @@ const components = {
           height: 'auto',
           width: '100%',
           lineHeight: '1.4375em',
-          padding: '16.5px 14px',
+          padding: '15.5px 14px',
         },
         '&.edit-revision-button': {
           width: '50%',
