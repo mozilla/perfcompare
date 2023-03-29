@@ -475,13 +475,13 @@ exports[`Search View should not hide search results when clicking search results
             <ul
               class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
             >
-              <div
-                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
-                role="button"
-                tabindex="0"
+              <li
+                class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
               >
-                <li
-                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
+                <div
+                  class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
+                  role="group"
+                  tabindex="0"
                 >
                   <div
                     class="MuiListItemIcon-root search-revision-item-icon search-revision css-cveggr-MuiListItemIcon-root"
@@ -491,6 +491,7 @@ exports[`Search View should not hide search results when clicking search results
                       data-testid="checkbox-0"
                     >
                       <input
+                        aria-label="'you've got no arms left!' by 'johncleese@python.com'"
                         class="PrivateSwitchBase-input css-1m9pwf3"
                         data-indeterminate="false"
                         tabindex="-1"
@@ -523,27 +524,27 @@ exports[`Search View should not hide search results when clicking search results
                       johncleese@python.com - Thu Mar 29 1951 00:00:00 GMT+0000 (Coordinated Universal Time)
                     </p>
                   </div>
-                </li>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                >
                   <span
-                    class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
-                    style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   >
                     <span
-                      class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
-                    />
+                      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+                      style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+                    >
+                      <span
+                        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+                      />
+                    </span>
                   </span>
-                </span>
-              </div>
-              <div
-                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
-                role="button"
-                tabindex="0"
+                </div>
+              </li>
+              <li
+                class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
               >
-                <li
-                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
+                <div
+                  class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
+                  role="group"
+                  tabindex="0"
                 >
                   <div
                     class="MuiListItemIcon-root search-revision-item-icon search-revision css-cveggr-MuiListItemIcon-root"
@@ -553,6 +554,7 @@ exports[`Search View should not hide search results when clicking search results
                       data-testid="checkbox-1"
                     >
                       <input
+                        aria-label="'it's just a flesh wound' by 'ericidle@python.com'"
                         class="PrivateSwitchBase-input css-1m9pwf3"
                         data-indeterminate="false"
                         tabindex="-1"
@@ -585,27 +587,27 @@ exports[`Search View should not hide search results when clicking search results
                       ericidle@python.com - Sat Feb 22 1958 00:00:00 GMT+0000 (Coordinated Universal Time)
                     </p>
                   </div>
-                </li>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                >
                   <span
-                    class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
-                    style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   >
                     <span
-                      class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
-                    />
+                      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+                      style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+                    >
+                      <span
+                        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+                      />
+                    </span>
                   </span>
-                </span>
-              </div>
-              <div
-                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
-                role="button"
-                tabindex="0"
+                </div>
+              </li>
+              <li
+                class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
               >
-                <li
-                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
+                <div
+                  class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
+                  role="group"
+                  tabindex="0"
                 >
                   <div
                     class="MuiListItemIcon-root search-revision-item-icon search-revision css-cveggr-MuiListItemIcon-root"
@@ -615,6 +617,7 @@ exports[`Search View should not hide search results when clicking search results
                       data-testid="checkbox-2"
                     >
                       <input
+                        aria-label="'What, ridden on a horse?' by 'terrygilliam@python.com'"
                         class="PrivateSwitchBase-input css-1m9pwf3"
                         data-indeterminate="false"
                         tabindex="-1"
@@ -647,18 +650,18 @@ exports[`Search View should not hide search results when clicking search results
                       terrygilliam@python.com - Wed Jul 29 1987 00:00:00 GMT+0000 (Coordinated Universal Time)
                     </p>
                   </div>
-                </li>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </div>
-              <div
-                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
-                role="button"
-                tabindex="0"
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+              </li>
+              <li
+                class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
               >
-                <li
-                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
+                <div
+                  class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
+                  role="group"
+                  tabindex="0"
                 >
                   <div
                     class="MuiListItemIcon-root search-revision-item-icon search-revision css-cveggr-MuiListItemIcon-root"
@@ -668,6 +671,7 @@ exports[`Search View should not hide search results when clicking search results
                       data-testid="checkbox-3"
                     >
                       <input
+                        aria-label="'You've got two empty 'alves of coconuts and you're bangin' 'em togetha!' by 'michaelpalin@python.com'"
                         class="PrivateSwitchBase-input css-1m9pwf3"
                         data-indeterminate="false"
                         tabindex="-1"
@@ -700,18 +704,18 @@ exports[`Search View should not hide search results when clicking search results
                       michaelpalin@python.com - Sat Jul 04 2020 00:00:00 GMT+0000 (Coordinated Universal Time)
                     </p>
                   </div>
-                </li>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </div>
-              <div
-                class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
-                role="button"
-                tabindex="0"
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+              </li>
+              <li
+                class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
               >
-                <li
-                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-1nxmd3h-MuiListItem-root"
+                <div
+                  class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
+                  role="group"
+                  tabindex="0"
                 >
                   <div
                     class="MuiListItemIcon-root search-revision-item-icon search-revision css-cveggr-MuiListItemIcon-root"
@@ -721,6 +725,7 @@ exports[`Search View should not hide search results when clicking search results
                       data-testid="checkbox-4"
                     >
                       <input
+                        aria-label="'It got better...' by 'grahamchapman@python.com'"
                         class="PrivateSwitchBase-input css-1m9pwf3"
                         data-indeterminate="false"
                         tabindex="-1"
@@ -753,11 +758,11 @@ exports[`Search View should not hide search results when clicking search results
                       grahamchapman@python.com - Wed Apr 13 2022 00:00:00 GMT+0000 (Coordinated Universal Time)
                     </p>
                   </div>
-                </li>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </div>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+              </li>
             </ul>
           </div>
         </div>
