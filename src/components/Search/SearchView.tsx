@@ -3,10 +3,11 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import { useSnackbar, VariantType } from 'notistack';
+import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { repoMap, featureNotSupportedError } from '../../common/constants';
+import { repoMap, featureNotSupportedError,repoNotEqualWarning } from '../../common/constants';
 import type { RootState } from '../../common/store';
 import useFilterCompareResults from '../../hooks/useFilterCompareResults';
 import { Revision } from '../../types/state';
@@ -40,6 +41,16 @@ function SearchView(props: SearchViewProps) {
   };
 
   const { selectedRevisions } = props;
+  const repos = selectedRevisions.map((rev) => rev.repository_id);
+  const isRepoIdEquals = repos.every((repo) => repo === repos[0]);
+
+  useEffect(() => {
+    if (repos.length > 1 && !isRepoIdEquals) {
+      enqueueSnackbar(repoNotEqualWarning as string, {
+        variant: warningVariant,
+      });
+    }
+  })
 
   return (
     <Container maxWidth="lg" className='perfcompare-body'>
