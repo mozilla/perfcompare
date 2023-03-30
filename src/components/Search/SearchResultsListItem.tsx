@@ -30,16 +30,18 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
   const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);
   const maxRevisions = view == 'compare-results' ? 1 : 4;
+  const label = { inputProps: { 'aria-label': `'${commitMessage}' by '${item.author}'` } };
 
   return (
     <>
-      <ListItemButton
-        key={item.id}
-        onClick={() => handleToggle(item, maxRevisions)}
+      <ListItem
+        className="search-revision-item search-revision"
+        disablePadding
       >
-        <ListItem
-          className="search-revision-item search-revision"
-          disablePadding
+        <ListItemButton
+          key={item.id}
+          onClick={() => handleToggle(item, maxRevisions)}
+          role="group"
         >
           <ListItemIcon className="search-revision-item-icon search-revision">
             <Checkbox
@@ -49,6 +51,7 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
               disableRipple
               data-testid={`checkbox-${index}`}
               checked={isChecked}
+              {...label}
             />
           </ListItemIcon>
           <ListItemText
@@ -60,8 +63,8 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
             primaryTypographyProps={{ noWrap: true }}
             secondaryTypographyProps={{ noWrap: true }}
           />
-        </ListItem>
-      </ListItemButton>
+        </ListItemButton>
+      </ListItem>
     </>
   );
 }
