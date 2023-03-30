@@ -14,11 +14,11 @@ import { renderWithRouter, store } from '../utils/setupTests';
 expect.extend(toHaveNoViolations);
 
 describe('Accessibility', () => {
-  beforeEach(() => {
+  beforeAll(() => {
     jest.useRealTimers();
   });
 
-  afterEach(() => {
+  afterAll(() => {
     jest.useFakeTimers();
   });
 
@@ -71,15 +71,16 @@ describe('Accessibility', () => {
     expect(results).toHaveNoViolations();
   });
 
-  // TO DO: resolve 'Axe is already running' issue and re-enable test
-  // https://github.com/mozilla/perfcompare/issues/222
-  // it('CompareResultsView should have no violations in dark mode', async () => {
-  //   const { testData } = getTestData();
-  //   const selectedRevisions = testData.slice(0, 4);
-  //   store.dispatch(setSelectedRevisions(selectedRevisions));
+  it('CompareResultsView should have no violations in dark mode', async () => {
+    const { testData } = getTestData();
+    const selectedRevisions = testData.slice(0, 4);
+    store.dispatch(setSelectedRevisions(selectedRevisions));
 
-  //   const { container } = renderWithRouter(<CompareResultsView mode="dark" />);
-  //   const results = await axe(container);
-  //   expect(results).toHaveNoViolations();
-  // });
+    await act(async () => {
+      const { container } = renderWithRouter(<CompareResultsView mode="dark" />);
+      const results = await axe(container);
+      expect(results).toHaveNoViolations();
+    });
+  });
 });
+
