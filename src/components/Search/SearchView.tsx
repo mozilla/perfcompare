@@ -11,7 +11,6 @@ import type { RootState } from '../../common/store';
 import useFilterCompareResults from '../../hooks/useFilterCompareResults';
 import { Strings } from '../../resources/Strings';
 import { Revision } from '../../types/state';
-import PerfCompareHeader from '../Shared/PerfCompareHeader';
 import RevisionSearch from '../Shared/RevisionSearch';
 import SelectedRevisionsTable from '../Shared/SelectedRevisionsTable';
 import SearchViewInit from './SearchViewInit';
@@ -28,10 +27,10 @@ function SearchView(props: SearchViewProps) {
     // TODO: remove this check once comparing without a base
     //  and comparing multiple revisions against a base is enabled
     if (selectedRevisions.length === 1 || selectedRevisions.length > 2) {
-    enqueueSnackbar(featureNotSupportedError as string, {
+      enqueueSnackbar(featureNotSupportedError as string, {
         variant: warningVariant,
-    });
-    return;
+      });
+      return;
     }
     const revs = selectedRevisions.map((rev) => rev.revision);
     const repos = selectedRevisions.map((rev) => repoMap[rev.repository_id]);
@@ -45,28 +44,27 @@ function SearchView(props: SearchViewProps) {
   const { selectedRevisions } = props;
 
   return (
-    <Container className="perfcompare-body" maxWidth="lg">
+    <Container className='perfcompare-body' maxWidth='lg'>
       {/* Component to fetch recent revisions on mount */}
       <SearchViewInit />
-      <PerfCompareHeader />
       <Grid item xs={12}>
         {selectedRevisions.length > 0 && (
-          <SelectedRevisionsTable view="search" />
+          <SelectedRevisionsTable view='search' />
         )}
       </Grid>
-      <Grid item className="compare-button-section">
+      <Grid item className='compare-button-section'>
         {selectedRevisions.length > 0 && (
           <Button
-            className="compare-button"
-            variant="contained"
+            className='compare-button'
+            variant='contained'
             onClick={() => goToCompareResultsPage(selectedRevisions)}
           >
             {strings.button}
-            <ArrowForward className="compare-icon" />
+            <ArrowForward className='compare-icon' />
           </Button>
         )}
       </Grid>
-      <RevisionSearch view="search" />
+      <RevisionSearch view='search' />
     </Container>
   );
 }

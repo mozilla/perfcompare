@@ -21,15 +21,15 @@ describe('App', () => {
 
     render(<App />);
 
-    const darkModeButton = screen.getByRole('button', {
+    const darkModeButton = screen.getByRole('input', {
       name: 'toggle-dark-mode',
     });
 
     await user.click(darkModeButton);
-    expect(screen.queryByTestId('Brightness7Icon')).toBeInTheDocument();
+    expect(screen.queryByLabelText('Light Mode')).toBeInTheDocument();
 
     await user.click(darkModeButton);
-    expect(screen.queryByTestId('Brightness4Icon')).toBeInTheDocument();
+    expect(screen.queryByLabelText('Dark Mode')).toBeInTheDocument();
   });
 
     test('Clicking on the info icon an alert should be displayed', async () => {
