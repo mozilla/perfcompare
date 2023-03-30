@@ -1,6 +1,9 @@
 # PerfCompare
 
-[![CircleCI](https://circleci.com/gh/mozilla/perfcompare/tree/master.svg?style=shield)](https://circleci.com/gh/mozilla/perfcompare/tree/master)
+**[Outreachy contributor information](https://docs.google.com/document/d/1NLKAR5B2Rc80lRUYWzU2ISrQCQhR4VsW5Qkz1hxE5n8/edit?usp=sharing)**
+_____
+
+[![CircleCI](https://circleci.com/gh/mozilla/perfcompare/tree/master.svg?style=shield)](https://circleci.com/gh/mozilla/perfcompare/tree/beta)
 [![codecov](https://codecov.io/gh/mozilla/perfcompare/branch/master/graph/badge.svg?token=XHP440JFDQ)](https://codecov.io/gh/mozilla/perfcompare)
 ![GitHub issues](https://img.shields.io/github/issues/mozilla/perfcompare)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/mozilla/perfcompare)
@@ -22,7 +25,7 @@ PerfCompare is hosted on heroku, and is updated every time commits are pushed to
 ## Setup
 
 ### Requirements
-
+- [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - [nodejs](https://nodejs.org/en/download/)
 
 ### Installation
