@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react';
-
 import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -54,7 +52,7 @@ function App() {
             />
             <Route
               path='/beta/compare-results'
-              element={<CompareResultsViewBeta />}
+              element={<CompareResultsView mode={mode} />}
             />
           </Routes>
         </Router>
