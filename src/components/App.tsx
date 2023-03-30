@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -11,12 +13,18 @@ import CompareResultsViewBeta from './CompareResults/beta/CompareResultsView';
 import CompareResultsView from './CompareResults/CompareResultsView';
 import SearchViewBeta from './Search/beta/SearchView';
 import SearchView from './Search/SearchView';
+import PerfCompareHeader from './Shared/beta/PerfCompareHeader';
 import FeedbackAlert from './Shared/FeedbackAlert';
 import SnackbarCloseButton from './Shared/SnackbarCloseButton';
-import ToggleDarkMode from './Shared/ToggleDarkModeButton';
 
 function App() {
-  const { mode, toggleColorMode, protocolTheme } = useProtocolTheme();
+  const { mode, protocolTheme, toggleColorMode } = useProtocolTheme();
+  const [isBeta, setBeta] = useState(false);
+
+  useEffect(() => {
+    const checkUrl = window.location.hash.includes('beta') ?? true;
+    setBeta(checkUrl);
+  }, [isBeta]);
   return (
     <ThemeProvider theme={protocolTheme}>
       <SnackbarProvider
@@ -35,13 +43,14 @@ function App() {
           </Link>
           .
         </Alert>
-        <Box display='flex' justifyContent='flex-end' alignItems='flex-end'>
+        {/* What would we like to do with this feedback box ?*/}
+        <Box display={'none'} justifyContent='flex-end' alignItems='flex-end'>
           <FeedbackAlert />
-          <ToggleDarkMode
-            toggleColorMode={toggleColorMode}
-            theme={protocolTheme}
-          />
         </Box>
+        <PerfCompareHeader
+          theme={protocolTheme}
+          toggleColorMode={toggleColorMode}
+        />
         <Router>
           <Routes>
             <Route path='/' element={<SearchView />} />

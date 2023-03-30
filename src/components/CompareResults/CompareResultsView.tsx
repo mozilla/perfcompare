@@ -8,7 +8,6 @@ import { useLocation } from 'react-router-dom';
 import type { RootState } from '../../common/store';
 import useFetchCompareResults from '../../hooks/useFetchCompareResults';
 import { Repository, Revision } from '../../types/state';
-import PerfCompareHeader from '../Shared/PerfCompareHeader';
 import SelectedRevisionsTable from '../Shared/SelectedRevisionsTable';
 import CompareResultsTable from './CompareResultsTable';
 
@@ -28,12 +27,11 @@ function CompareResultsView(props: CompareResultsViewProps) {
   });
 
   return (
-    <Container maxWidth="xl">
-      <PerfCompareHeader />
-      <Grid container alignItems="center" justifyContent="center">
+    <Container maxWidth='xl'>
+      <Grid container alignItems='center' justifyContent='center'>
         <Grid item xs={10}>
           {revisions.length > 0 && (
-            <SelectedRevisionsTable view="compare-results" />
+            <SelectedRevisionsTable view='compare-results' />
           )}
         </Grid>
         <Grid item xs={12}>

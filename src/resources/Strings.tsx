@@ -7,6 +7,7 @@ export const Strings = {
       bgLink:
         'url(https://user-images.githubusercontent.com/18633586/223226187-83621473-af10-4f7b-a7b9-564378b55c9e.png)',
       darkMode: 'Dark mode',
+      lightMode: 'Light mode',
       learnMore: 'Learn more',
     },
     compareDefault: {

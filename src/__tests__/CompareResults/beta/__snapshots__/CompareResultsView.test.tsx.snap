@@ -11,7 +11,7 @@ exports[`CompareResults View Should match snapshot 1`] = `
         class="header-container MuiBox-root css-0"
       >
         <div
-          class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-8mdcpf-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-160ox9e-MuiTypography-root"
         >
           PerfCompare
         </div>

@@ -1,20 +1,18 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { style } from 'typestyle';
 
 import { Colors } from './Colors';
 
 const sharedFontStyles = {
- fontStyle: 'normal',
- color: Colors.PrimaryText,
+  fontStyle: 'normal',
+  color: Colors.PrimaryText,
 };
 
 const sharedFontStylesDark = {
-	fontStyle: 'normal',
-	color: Colors.ColorWhite,
- };
+  fontStyle: 'normal',
+  color: Colors.PrimaryTextDark,
+};
 
- //fontFamily: 'SF Pro',
+//fontFamily: 'SF Pro',
 export const FontsRaw = {
   HeadingDefault: {
     ...sharedFontStyles,
