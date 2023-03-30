@@ -1,9 +1,7 @@
-import PerfCompareHeader from '../../Shared/beta/PerfCompareHeader';
-
 function SearchViewBeta() {
   return (
     <section className='perfcompare-body'>
-      <PerfCompareHeader />
+      <div>Search View Beta Content</div>
     </section>
   );
 }
