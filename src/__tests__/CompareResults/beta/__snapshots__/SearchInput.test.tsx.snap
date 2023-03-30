@@ -21,12 +21,20 @@ exports[`Search by title/test name Should match snapshot 1`] = `
       >
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 css-1kdp64o-MuiGrid-root"
-        >
-          Beta version
-        </div>
+        />
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-z2teic-MuiGrid-root"
         >
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthLg css-1tyv3cf-MuiContainer-root"
+            data-testid="inputs-replacement"
+          >
+            <div
+              class="MuiBox-root css-7zdlkd"
+            >
+              Replacement for "Compare with a base" / "Compare over time" components.
+            </div>
+          </div>
           <div
             class="MuiContainer-root MuiContainer-maxWidthLg f1ctei50 css-1tyv3cf-MuiContainer-root"
             data-testid="results-main"
