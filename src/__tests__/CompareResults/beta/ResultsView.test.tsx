@@ -1,10 +1,10 @@
-import CompareResultsViewBeta from '../../../components/CompareResults/beta/CompareResultsView';
+import ResultsView from '../../../components/CompareResults/beta/ResultsView';
 import { renderWithRouter } from '../../utils/setupTests';
 import { screen } from '../../utils/test-utils';
 
-describe('CompareResults View', () => {
+describe('Results View', () => {
   it('Should match snapshot', () => {
-    renderWithRouter(<CompareResultsViewBeta />);
+    renderWithRouter(<ResultsView />);
 
     expect(screen.getByTestId('beta-version-compare-results')).toBeInTheDocument();
     expect(document.body).toMatchSnapshot();
