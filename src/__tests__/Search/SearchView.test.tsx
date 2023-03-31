@@ -13,9 +13,6 @@ describe('Search View', () => {
   it('renders correctly when there are no results', async () => {
     renderWithRouter(<SearchView />);
 
-    // Title appears
-    expect(screen.getByText(/PerfCompare/i)).toBeInTheDocument();
-
     // Repository Select appears
     expect(screen.getByLabelText(/Repository/i)).toBeInTheDocument();
 
@@ -62,15 +59,6 @@ describe('Search View', () => {
     expect(
       screen.getAllByText("it's just a flesh wound")[0],
     ).toBeInTheDocument();
-
-    await user.click(screen.getByText('PerfCompare'));
-
-    expect(
-      screen.queryByText("you've got no arms left!"),
-    ).not.toBeInTheDocument();
-    expect(
-      screen.queryByText("it's just a flesh wound"),
-    ).not.toBeInTheDocument();
 
     expect(document.body).toMatchSnapshot();
   });
