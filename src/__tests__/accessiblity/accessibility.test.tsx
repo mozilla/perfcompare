@@ -1,3 +1,4 @@
+import { renderHook } from '@testing-library/react';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import { act } from 'react-dom/test-utils';
 
@@ -15,7 +16,8 @@ import { renderWithRouter, store } from '../utils/setupTests';
 expect.extend(toHaveNoViolations);
 
 describe('Accessibility', () => {
-  const { protocolTheme } = useProtocolTheme();
+  const protocolTheme = renderHook(() => useProtocolTheme()).result.current
+    .protocolTheme;
 
   beforeEach(() => {
     jest.useRealTimers();
