@@ -31,6 +31,7 @@ function PerfCompareHeader(props: PerfCompareHeaderProps) {
       backgroundImage: strings.bgLink,
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
+      backgroundPositionY: 'top',
       $nest: {
         '.header-text': {
           display: 'flex',
