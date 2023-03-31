@@ -35,7 +35,7 @@ function App() {
           .
         </Alert>
         {/* What would we like to do with this feedback box ?*/}
-        <Box display='none' justifyContent='flex-end' alignItems='flex-end'>
+        <Box display='flex' justifyContent='flex-end' alignItems='flex-end'>
           <FeedbackAlert />
         </Box>
         <PerfCompareHeader
