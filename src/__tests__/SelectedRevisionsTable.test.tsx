@@ -8,7 +8,7 @@ import SearchView from '../components/Search/SearchView';
 import { SelectedRevisionsTable } from '../components/Shared/SelectedRevisionsTable';
 import { updateSearchResults } from '../reducers/SearchSlice';
 import { setSelectedRevisions } from '../reducers/SelectedRevisions';
-import useProtocolTheme from '../theme/ProtocolTheme';
+import useProtocolTheme from '../theme/protocolTheme';
 import { Revision } from '../types/state';
 import { swapArrayElements } from '../utils/helpers';
 import getTestData from './utils/fixtures';

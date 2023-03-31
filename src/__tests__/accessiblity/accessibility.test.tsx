@@ -9,7 +9,7 @@ import SearchView from '../../components/Search/SearchView';
 import SelectedRevisionsTable from '../../components/Shared/SelectedRevisionsTable';
 import { updateSearchResults } from '../../reducers/SearchSlice';
 import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
-import useProtocolTheme from '../../theme/ProtocolTheme';
+import useProtocolTheme from '../../theme/protocolTheme';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 
