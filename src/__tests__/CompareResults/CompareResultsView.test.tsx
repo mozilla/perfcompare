@@ -8,7 +8,7 @@ import SelectedRevisionsTable from '../../components/Shared/SelectedRevisionsTab
 import { setCompareResults } from '../../reducers/CompareResultsSlice';
 import { updateSearchResults } from '../../reducers/SearchSlice';
 import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
-import useProtocolTheme from '../../theme/ProtocolTheme';
+import useProtocolTheme from '../../theme/protocolTheme';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
@@ -16,6 +16,7 @@ import { screen } from '../utils/test-utils';
 describe('CompareResults View', () => {
   const protocolTheme = renderHook(() => useProtocolTheme()).result.current
     .protocolTheme;
+
   const themeMode = protocolTheme.palette.mode;
 
   it('Should match snapshot', () => {
