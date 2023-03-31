@@ -4,6 +4,7 @@ function LearnMoreButton() {
   return (
     <Typography align='center'>
       <Button
+        href='#'
         className="learn-button"
         variant="text"
         size='small'

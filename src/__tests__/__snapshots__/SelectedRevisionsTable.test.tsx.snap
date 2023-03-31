@@ -4,7 +4,7 @@ exports[`Search View should match snapshot 1`] = `
 <body>
   <div>
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg perfcompare-body css-18prh63-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg perfcompare-body css-1e5xh9-MuiContainer-root"
     >
       <div
         class="header-container MuiBox-root css-0"
@@ -31,16 +31,16 @@ exports[`Search View should match snapshot 1`] = `
       <p
         class="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter css-1coehxf-MuiTypography-root"
       >
-        <button
+        <a
           class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall learn-button css-9z72u9-MuiButtonBase-root-MuiButton-root"
+          href="#"
           tabindex="0"
-          type="button"
         >
           Learn More
           <span
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
-        </button>
+        </a>
       </p>
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-13eijkh-MuiGrid-root"

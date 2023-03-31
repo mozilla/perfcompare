@@ -225,7 +225,7 @@ const components = {
         '&.perfcompare-body': {
           minHeight: '85vh',
         },
-        '&.background-container': {
+        '&.header-container': {
           backgroundImage: `url(${perfCompareBackground})`,
           backgroundPosition: 'top center',
           backgroundRepeat: 'no-repeat',

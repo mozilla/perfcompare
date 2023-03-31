@@ -15,7 +15,7 @@ function App() {
   const { mode, toggleColorMode, protocolTheme } = useProtocolTheme();
   return (
     <ThemeProvider theme={protocolTheme}>
-      <Container maxWidth="lg" className="background-container">
+      <Container maxWidth="lg" className="header-container">
         <SnackbarProvider
           maxSnack={3}
           autoHideDuration={6000}
