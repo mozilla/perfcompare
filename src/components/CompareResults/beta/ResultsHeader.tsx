@@ -2,6 +2,7 @@ import { style } from 'typestyle';
 
 import { Spacing } from '../../../styles';
 import DownloadButton from './DownloadButton';
+import RevisionSelect from './RevisionSelect';
 import SearchInput from './SearchInput';
 
 const styles = {
@@ -22,8 +23,8 @@ function ResultsHeader() {
       <div className={styles.content}>
         <SearchInput />
         <DownloadButton />
+        <RevisionSelect />
       </div>
-      {/* TODO PCF-224 */}
     </header>
   );
 }
