@@ -8,7 +8,7 @@ exports[`Inputs replacement Should match snapshot 1`] = `
       data-testid="inputs-replacement"
     >
       <div
-        class="MuiBox-root css-7zdlkd"
+        class="MuiBox-root css-1yt1khz"
       >
         Replacement for "Compare with a base" / "Compare over time" components.
       </div>

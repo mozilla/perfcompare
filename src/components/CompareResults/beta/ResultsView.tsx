@@ -11,10 +11,9 @@ function ResultsView() {
       <PerfCompareHeader />
       <Grid container alignItems='center' justifyContent='center'>
         <Grid item xs={10}>
-          {/* TODO PCF-223 */}
+          <InputsReplacement />
         </Grid>
         <Grid item xs={12}>
-          <InputsReplacement />
           <ResultsMain />
         </Grid>
       </Grid>
