@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 
+import type { Theme } from '@mui/material';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import { connect } from 'react-redux';
@@ -12,10 +13,11 @@ import SelectedRevisionsTable from '../Shared/SelectedRevisionsTable';
 import CompareResultsTable from './CompareResultsTable';
 
 function CompareResultsView(props: CompareResultsViewProps) {
-  const { revisions, mode } = props;
+  const { revisions, theme } = props;
 
   const location = useLocation();
   const { dispatchFetchCompareResults } = useFetchCompareResults();
+  const themeMode = theme.palette.mode;
 
   // TODO: if the revisions in the URL parameters are different from
   // currently selected revisions, set selected revisions to those parameters
@@ -35,7 +37,7 @@ function CompareResultsView(props: CompareResultsViewProps) {
           )}
         </Grid>
         <Grid item xs={12}>
-          <CompareResultsTable mode={mode} />
+          <CompareResultsTable theme={themeMode} />
         </Grid>
       </Grid>
     </Container>
@@ -44,7 +46,7 @@ function CompareResultsView(props: CompareResultsViewProps) {
 
 interface CompareResultsViewProps {
   revisions: Revision[];
-  mode: 'light' | 'dark';
+  theme: Theme;
 }
 
 function mapStateToProps(state: RootState) {

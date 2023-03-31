@@ -1,3 +1,4 @@
+import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
@@ -7,6 +8,7 @@ import SearchView from '../components/Search/SearchView';
 import { SelectedRevisionsTable } from '../components/Shared/SelectedRevisionsTable';
 import { updateSearchResults } from '../reducers/SearchSlice';
 import { setSelectedRevisions } from '../reducers/SelectedRevisions';
+import useProtocolTheme from '../theme/ProtocolTheme';
 import { Revision } from '../types/state';
 import { swapArrayElements } from '../utils/helpers';
 import getTestData from './utils/fixtures';
@@ -14,6 +16,9 @@ import { renderWithRouter, store } from './utils/setupTests';
 import { fireEvent, screen } from './utils/test-utils';
 
 describe('Search View', () => {
+  const protocolTheme = renderHook(() => useProtocolTheme()).result.current
+    .protocolTheme;
+
   it('should match snapshot', async () => {
     const { testData } = getTestData();
     global.fetch = jest.fn(() =>
@@ -51,9 +56,7 @@ describe('Search View', () => {
     const searchInput = screen.getByRole('textbox');
     await user.click(searchInput);
 
-    const fleshWound = await screen.findAllByText(
-      "it's just a flesh wound",
-    );
+    const fleshWound = await screen.findAllByText("it's just a flesh wound");
 
     await user.click(fleshWound[0]);
     const addRevision = screen.getByRole('button', { name: 'add revisions' });
@@ -158,7 +161,7 @@ describe('Search View', () => {
     const selectedRevisions = testData.slice(0, 1);
     store.dispatch(setSelectedRevisions(selectedRevisions));
 
-    renderWithRouter(<CompareResultsView mode="light" />);
+    renderWithRouter(<CompareResultsView theme={protocolTheme} />);
     const prevRevision = screen.getByText("you've got no arms left!");
     const editRevisionButton = screen.getByRole('button', {
       name: 'edit-revision-1',
@@ -189,7 +192,7 @@ describe('Search View', () => {
     const selectedRevisions = testData.slice(0, 1);
     store.dispatch(setSelectedRevisions(selectedRevisions));
 
-    renderWithRouter(<CompareResultsView mode="light" />);
+    renderWithRouter(<CompareResultsView theme={protocolTheme} />);
     const editRevisionButton = screen.getByRole('button', {
       name: 'edit-revision-1',
     });

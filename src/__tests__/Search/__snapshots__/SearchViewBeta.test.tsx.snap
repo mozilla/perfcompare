@@ -6,64 +6,8 @@ exports[`Search View renders correctly when there are no results 1`] = `
     <section
       class="perfcompare-body"
     >
-      <div
-        class="header-container f7qotpz"
-      >
-        <div
-          class="toggle-dark-mode f1vchea6 MuiBox-root css-0"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-body1 MuiTypography-alignLeft toggle-text css-7idqxi-MuiTypography-root"
-          >
-            Dark mode
-          </div>
-          <span
-            class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch css-julti5-MuiSwitch-root"
-          >
-            <span
-              class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase"
-            >
-              <input
-                aria-label="Dark mode switch"
-                class="PrivateSwitchBase-input MuiSwitch-input css-1m9pwf3"
-                type="checkbox"
-              />
-              <span
-                class="MuiSwitch-thumb css-jsexje-MuiSwitch-thumb"
-              />
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </span>
-            <span
-              class="MuiSwitch-track css-1yjjitx-MuiSwitch-track"
-            />
-          </span>
-        </div>
-        <div
-          class="header-text MuiBox-root css-0"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-8mdcpf-MuiTypography-root"
-          >
-            PerfCompare
-          </div>
-          <div
-            class="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-tagline css-1crpcdz-MuiTypography-root"
-          >
-            Analyze results of performance tests to detect regressions and identify opportunities for improvement.
-          </div>
-          <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium learn-more-btn css-13bs7uq-MuiButtonBase-root-MuiButton-root"
-            tabindex="0"
-            type="button"
-          >
-            Learn more
-            <span
-              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-            />
-          </button>
-        </div>
+      <div>
+        Search View Beta Content
       </div>
     </section>
   </div>

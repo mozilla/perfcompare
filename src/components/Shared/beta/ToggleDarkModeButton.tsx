@@ -53,6 +53,7 @@ function ToggleDarkMode(props: ToggleDarkModeProps) {
               checked={themeMode == 'dark' ?? true}
               onChange={toggleColorMode}
               className='toggle-switch toggle-dark-mode'
+              name='toggle-dark-mode'
               {...label}
               id={themeMode == 'light' ? strings.darkMode : strings.lightMode}
             />

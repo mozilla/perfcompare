@@ -8,12 +8,15 @@ import SearchView from '../../components/Search/SearchView';
 import SelectedRevisionsTable from '../../components/Shared/SelectedRevisionsTable';
 import { updateSearchResults } from '../../reducers/SearchSlice';
 import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
+import useProtocolTheme from '../../theme/ProtocolTheme';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 
 expect.extend(toHaveNoViolations);
 
 describe('Accessibility', () => {
+  const { protocolTheme } = useProtocolTheme();
+
   beforeEach(() => {
     jest.useRealTimers();
   });
@@ -34,7 +37,7 @@ describe('Accessibility', () => {
     const { testData } = getTestData();
 
     const { container } = renderWithRouter(
-      <SearchResultsList view="search" searchResults={testData} />,
+      <SearchResultsList view='search' searchResults={testData} />,
     );
     const results = await axe(container);
     expect(results).toHaveNoViolations();
@@ -44,7 +47,7 @@ describe('Accessibility', () => {
     const { testData } = getTestData();
     store.dispatch(updateSearchResults(testData));
 
-    const { container } = renderWithRouter(<SearchDropdown view="search" />);
+    const { container } = renderWithRouter(<SearchDropdown view='search' />);
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
@@ -55,7 +58,7 @@ describe('Accessibility', () => {
     store.dispatch(setSelectedRevisions(selectedRevisions));
 
     const { container } = renderWithRouter(
-      <SelectedRevisionsTable view="search" />,
+      <SelectedRevisionsTable view='search' />,
     );
     const results = await axe(container);
     expect(results).toHaveNoViolations();
@@ -66,7 +69,9 @@ describe('Accessibility', () => {
     const selectedRevisions = testData.slice(0, 4);
     store.dispatch(setSelectedRevisions(selectedRevisions));
 
-    const { container } = renderWithRouter(<CompareResultsView mode="light" />);
+    const { container } = renderWithRouter(
+      <CompareResultsView theme={protocolTheme} />,
+    );
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });

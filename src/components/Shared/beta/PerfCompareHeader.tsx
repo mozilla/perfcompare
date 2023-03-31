@@ -18,18 +18,16 @@ const strings = Strings.components.header;
 
 function PerfCompareHeader(props: PerfCompareHeaderProps) {
   const { theme, toggleColorMode } = props;
-  const isLightMode = theme.palette.mode;
+  const themeMode = theme.palette.mode;
 
   const styles = {
     container: style({
-      margin: 0,
+      marginBottom: `${Spacing.layoutLarge + 20}px`,
       padding: 0,
       width: '100%',
       minHeight: '357px',
       backgroundColor:
-        isLightMode == 'light'
-          ? Colors.Background200
-          : Colors.Background200Dark,
+        themeMode == 'light' ? Colors.Background200 : Colors.Background200Dark,
       backgroundImage: strings.bgLink,
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
@@ -51,7 +49,7 @@ function PerfCompareHeader(props: PerfCompareHeaderProps) {
           marginBottom: `${Spacing.layoutLarge + 14}px`,
           maxWidth: '104px',
           alignSelf: 'center',
-          ...(isLightMode == 'light'
+          ...(themeMode == 'light'
             ? ButtonsLightRaw.Secondary
             : ButtonsDarkRaw.Secondary),
         },

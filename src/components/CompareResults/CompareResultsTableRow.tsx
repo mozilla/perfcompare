@@ -15,12 +15,13 @@ import {
 } from '../../utils/helpers';
 
 function CompareResultsTableRow(props: ResultsTableRowProps) {
-  const { result, index, mode } = props;
+  const { result, index, theme } = props;
+
   return (
     <TableRow key={index} hover data-testid={'table-row'}>
       <Tooltip title={result.platform}>
         <TableCell
-          className={`background-icon ${mode}-mode ${setPlatformClassName(
+          className={`background-icon ${theme}-mode ${setPlatformClassName(
             result.platform,
           )}`}
         ></TableCell>
@@ -28,10 +29,10 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
       <TableCell>
         <Link
           href={result.graphs_link}
-          className={`background-icon ${mode}-mode graph-icon-color`}
-          aria-label="Graph link"
-          target="_blank"
-          rel="noopener"
+          className={`background-icon ${theme}-mode graph-icon-color`}
+          aria-label='Graph link'
+          target='_blank'
+          rel='noopener'
         >
           <TimelineIcon />
         </Link>
@@ -45,24 +46,24 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
       </TableCell>
       <TableCell>{result.delta_percentage}%</TableCell>
       <TableCell>
-        {result.is_improvement && <ThumbUpAltIcon color="success" />}{' '}
-        {result.is_regression && <WarningIcon color="error" />}{' '}
+        {result.is_improvement && <ThumbUpAltIcon color='success' />}{' '}
+        {result.is_regression && <WarningIcon color='error' />}{' '}
       </TableCell>
       {result.confidence_text ? (
         <TableCell
-          data-testid="confidence-icon"
+          data-testid='confidence-icon'
           className={`background-icon ${setConfidenceClassName(
             result.confidence_text,
           )}`}
         ></TableCell>
       ) : (
         <TableCell
-          data-testid="confidence-icon"
+          data-testid='confidence-icon'
           className={`${setConfidenceClassName(result.confidence_text)}`}
         >
-          <Tooltip title="Confidence not available">
-            <IconButton className="missing-confidence-button">
-              <QuestionMarkIcon className="missing-confidence-icon" />
+          <Tooltip title='Confidence not available'>
+            <IconButton className='missing-confidence-button'>
+              <QuestionMarkIcon className='missing-confidence-icon' />
             </IconButton>
           </Tooltip>
         </TableCell>
@@ -78,7 +79,7 @@ function CompareResultsTableRow(props: ResultsTableRowProps) {
 interface ResultsTableRowProps {
   result: CompareResultsItem;
   index: number;
-  mode: 'light' | 'dark';
+  theme: string;
 }
 
 export default CompareResultsTableRow;

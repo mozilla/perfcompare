@@ -24,20 +24,20 @@ exports[`SearchResultsList should match snapshot 1`] = `
             class="MuiFormControl-root f12tflng f17k9m91 css-1anm9we-MuiFormControl-root"
           >
             <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-8jybhx-MuiFormLabel-root-MuiInputLabel-root"
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
               data-shrink="true"
               id="select-repository-label"
             >
               repository
             </label>
             <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl fdhjf9z css-16rpij-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl fdhjf9z css-1od5rak-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
             >
               <div
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="select-repository-label"
-                class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-nhnjdr-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-1hqsff3-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
                 role="button"
                 tabindex="0"
               >
@@ -51,7 +51,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
               />
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-1nh6rea-MuiSvgIcon-root-MuiSelect-icon"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-z44uxh-MuiSvgIcon-root-MuiSelect-icon"
                 data-testid="ArrowDropDownIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -62,7 +62,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
               </svg>
               <fieldset
                 aria-hidden="true"
-                class="MuiOutlinedInput-notchedOutline css-9425fu-MuiOutlinedInput-notchedOutline"
+                class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
               >
                 <legend
                   class="css-14lo706"
@@ -85,7 +85,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
               class="MuiFormControl-root MuiTextField-root f19ofdku f17k9m91 css-136h9lv-MuiFormControl-root-MuiTextField-root"
             >
               <label
-                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-focused MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-8jybhx-MuiFormLabel-root-MuiInputLabel-root"
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-focused MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
                 data-shrink="true"
                 for="search-revision-input"
                 id="search-revision-input-label"
@@ -93,10 +93,10 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 Search By Revision ID or Author Email
               </label>
               <div
-                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-focused MuiInputBase-formControl MuiInputBase-adornedStart css-134xaty-MuiInputBase-root-MuiOutlinedInput-root"
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-focused MuiInputBase-formControl MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
               >
                 <div
-                  class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-zn4ba7-MuiInputAdornment-root"
+                  class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-yzzuft-MuiInputAdornment-root"
                 >
                   <svg
                     aria-hidden="true"
@@ -112,7 +112,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 </div>
                 <input
                   aria-invalid="false"
-                  class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1okqeeu-MuiInputBase-input-MuiOutlinedInput-input"
+                  class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-revision-input"
                   placeholder="Search By Revision ID or Author Email"
                   type="text"
@@ -120,7 +120,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-9425fu-MuiOutlinedInput-notchedOutline"
+                  class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
                 >
                   <legend
                     class="css-14lo706"
@@ -134,25 +134,25 @@ exports[`SearchResultsList should match snapshot 1`] = `
             </div>
           </div>
           <div
-            class="MuiBox-root css-h95ah4"
+            class="MuiBox-root css-1rcjqv9"
             id="search-results-list"
           >
             <ul
               class="MuiList-root MuiList-padding css-1fc0pkb-MuiList-root"
             >
               <div
-                class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters f1ht8qkz css-191fwnr-MuiButtonBase-root-MuiListItemButton-root"
+                class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters f1ht8qkz css-aef1pa-MuiButtonBase-root-MuiListItemButton-root"
                 role="button"
                 tabindex="0"
               >
                 <li
-                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-fcftol-MuiListItem-root"
+                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-314c9k-MuiListItem-root"
                 >
                   <div
-                    class="MuiListItemIcon-root search-revision-item-icon search-revision css-96ompu-MuiListItemIcon-root"
+                    class="MuiListItemIcon-root search-revision-item-icon search-revision css-tamlkj-MuiListItemIcon-root"
                   >
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-1a7try3-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-c9gmeh-MuiButtonBase-root-MuiCheckbox-root"
                       data-testid="checkbox-0"
                     >
                       <input
@@ -181,7 +181,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-hrbm3k-MuiTypography-root"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-body2 revision-hash css-xrj7d3-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
                       >
                         coconut
                       </span>
@@ -225,7 +225,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       </div>
                     </span>
                     <p
-                      class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-1d3hcrt-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
                     >
                       you've got no arms left! 
                     </p>
@@ -233,18 +233,18 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 </li>
               </div>
               <div
-                class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters f1ht8qkz css-191fwnr-MuiButtonBase-root-MuiListItemButton-root"
+                class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters f1ht8qkz css-aef1pa-MuiButtonBase-root-MuiListItemButton-root"
                 role="button"
                 tabindex="0"
               >
                 <li
-                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-fcftol-MuiListItem-root"
+                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-314c9k-MuiListItem-root"
                 >
                   <div
-                    class="MuiListItemIcon-root search-revision-item-icon search-revision css-96ompu-MuiListItemIcon-root"
+                    class="MuiListItemIcon-root search-revision-item-icon search-revision css-tamlkj-MuiListItemIcon-root"
                   >
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-1a7try3-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-c9gmeh-MuiButtonBase-root-MuiCheckbox-root"
                       data-testid="checkbox-1"
                     >
                       <input
@@ -273,7 +273,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-hrbm3k-MuiTypography-root"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-body2 revision-hash css-xrj7d3-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
                       >
                         spam
                       </span>
@@ -317,7 +317,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       </div>
                     </span>
                     <p
-                      class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-1d3hcrt-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
                     >
                       it's just a flesh wound 
                     </p>
@@ -325,18 +325,18 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 </li>
               </div>
               <div
-                class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters f1ht8qkz css-191fwnr-MuiButtonBase-root-MuiListItemButton-root"
+                class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters f1ht8qkz css-aef1pa-MuiButtonBase-root-MuiListItemButton-root"
                 role="button"
                 tabindex="0"
               >
                 <li
-                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-fcftol-MuiListItem-root"
+                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-314c9k-MuiListItem-root"
                 >
                   <div
-                    class="MuiListItemIcon-root search-revision-item-icon search-revision css-96ompu-MuiListItemIcon-root"
+                    class="MuiListItemIcon-root search-revision-item-icon search-revision css-tamlkj-MuiListItemIcon-root"
                   >
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-1a7try3-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-c9gmeh-MuiButtonBase-root-MuiCheckbox-root"
                       data-testid="checkbox-2"
                     >
                       <input
@@ -365,7 +365,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-hrbm3k-MuiTypography-root"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-body2 revision-hash css-xrj7d3-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
                       >
                         spamspam
                       </span>
@@ -409,7 +409,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       </div>
                     </span>
                     <p
-                      class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-1d3hcrt-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
                     >
                       What, ridden on a horse? 
                     </p>
@@ -417,18 +417,18 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 </li>
               </div>
               <div
-                class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters f1ht8qkz css-191fwnr-MuiButtonBase-root-MuiListItemButton-root"
+                class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters f1ht8qkz css-aef1pa-MuiButtonBase-root-MuiListItemButton-root"
                 role="button"
                 tabindex="0"
               >
                 <li
-                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-fcftol-MuiListItem-root"
+                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-314c9k-MuiListItem-root"
                 >
                   <div
-                    class="MuiListItemIcon-root search-revision-item-icon search-revision css-96ompu-MuiListItemIcon-root"
+                    class="MuiListItemIcon-root search-revision-item-icon search-revision css-tamlkj-MuiListItemIcon-root"
                   >
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-1a7try3-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-c9gmeh-MuiButtonBase-root-MuiCheckbox-root"
                       data-testid="checkbox-3"
                     >
                       <input
@@ -457,7 +457,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-hrbm3k-MuiTypography-root"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-body2 revision-hash css-xrj7d3-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
                       >
                         spamspamspam
                       </span>
@@ -501,7 +501,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       </div>
                     </span>
                     <p
-                      class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-1d3hcrt-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
                     >
                       You've got two empty 'alves of coconuts and you're bangin' 'em togetha! 
                     </p>
@@ -509,18 +509,18 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 </li>
               </div>
               <div
-                class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters f1ht8qkz css-191fwnr-MuiButtonBase-root-MuiListItemButton-root"
+                class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters f1ht8qkz css-aef1pa-MuiButtonBase-root-MuiListItemButton-root"
                 role="button"
                 tabindex="0"
               >
                 <li
-                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-fcftol-MuiListItem-root"
+                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-314c9k-MuiListItem-root"
                 >
                   <div
-                    class="MuiListItemIcon-root search-revision-item-icon search-revision css-96ompu-MuiListItemIcon-root"
+                    class="MuiListItemIcon-root search-revision-item-icon search-revision css-tamlkj-MuiListItemIcon-root"
                   >
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-1a7try3-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-c9gmeh-MuiButtonBase-root-MuiCheckbox-root"
                       data-testid="checkbox-4"
                     >
                       <input
@@ -549,7 +549,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-hrbm3k-MuiTypography-root"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-body2 revision-hash css-xrj7d3-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
                       >
                         spamspamspam
                       </span>
@@ -593,7 +593,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       </div>
                     </span>
                     <p
-                      class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-1d3hcrt-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
                     >
                       It got better... 
                     </p>
@@ -604,7 +604,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
           </div>
           <button
             aria-label="add revisions"
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-fullWidth MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-fullWidth add-revision-button css-13laygb-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-fullWidth MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-fullWidth add-revision-button css-1tb8prp-MuiButtonBase-root-MuiButton-root"
             id="add-revision-button"
             tabindex="0"
             type="button"
@@ -619,25 +619,25 @@ exports[`SearchResultsList should match snapshot 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1wy3zaw-MuiGrid-root"
         >
           <div
-            class="MuiBox-root css-h95ah4"
+            class="MuiBox-root css-1rcjqv9"
             id="search-results-list"
           >
             <ul
               class="MuiList-root MuiList-padding css-1fc0pkb-MuiList-root"
             >
               <div
-                class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters f1ht8qkz css-191fwnr-MuiButtonBase-root-MuiListItemButton-root"
+                class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters f1ht8qkz css-aef1pa-MuiButtonBase-root-MuiListItemButton-root"
                 role="button"
                 tabindex="0"
               >
                 <li
-                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-fcftol-MuiListItem-root"
+                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-314c9k-MuiListItem-root"
                 >
                   <div
-                    class="MuiListItemIcon-root search-revision-item-icon search-revision css-96ompu-MuiListItemIcon-root"
+                    class="MuiListItemIcon-root search-revision-item-icon search-revision css-tamlkj-MuiListItemIcon-root"
                   >
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-1a7try3-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-c9gmeh-MuiButtonBase-root-MuiCheckbox-root"
                       data-testid="checkbox-0"
                     >
                       <input
@@ -666,7 +666,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-hrbm3k-MuiTypography-root"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-body2 revision-hash css-xrj7d3-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
                       >
                         coconut
                       </span>
@@ -710,7 +710,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       </div>
                     </span>
                     <p
-                      class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-1d3hcrt-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
                     >
                       you've got no arms left! 
                     </p>
@@ -718,18 +718,18 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 </li>
               </div>
               <div
-                class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters f1ht8qkz css-191fwnr-MuiButtonBase-root-MuiListItemButton-root"
+                class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters f1ht8qkz css-aef1pa-MuiButtonBase-root-MuiListItemButton-root"
                 role="button"
                 tabindex="0"
               >
                 <li
-                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-fcftol-MuiListItem-root"
+                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-314c9k-MuiListItem-root"
                 >
                   <div
-                    class="MuiListItemIcon-root search-revision-item-icon search-revision css-96ompu-MuiListItemIcon-root"
+                    class="MuiListItemIcon-root search-revision-item-icon search-revision css-tamlkj-MuiListItemIcon-root"
                   >
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-1a7try3-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-c9gmeh-MuiButtonBase-root-MuiCheckbox-root"
                       data-testid="checkbox-1"
                     >
                       <input
@@ -758,7 +758,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-hrbm3k-MuiTypography-root"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-body2 revision-hash css-xrj7d3-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
                       >
                         spam
                       </span>
@@ -802,7 +802,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       </div>
                     </span>
                     <p
-                      class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-1d3hcrt-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
                     >
                       it's just a flesh wound 
                     </p>
@@ -810,18 +810,18 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 </li>
               </div>
               <div
-                class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters f1ht8qkz css-191fwnr-MuiButtonBase-root-MuiListItemButton-root"
+                class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters f1ht8qkz css-aef1pa-MuiButtonBase-root-MuiListItemButton-root"
                 role="button"
                 tabindex="0"
               >
                 <li
-                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-fcftol-MuiListItem-root"
+                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-314c9k-MuiListItem-root"
                 >
                   <div
-                    class="MuiListItemIcon-root search-revision-item-icon search-revision css-96ompu-MuiListItemIcon-root"
+                    class="MuiListItemIcon-root search-revision-item-icon search-revision css-tamlkj-MuiListItemIcon-root"
                   >
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-1a7try3-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-c9gmeh-MuiButtonBase-root-MuiCheckbox-root"
                       data-testid="checkbox-2"
                     >
                       <input
@@ -850,7 +850,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-hrbm3k-MuiTypography-root"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-body2 revision-hash css-xrj7d3-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
                       >
                         spamspam
                       </span>
@@ -894,7 +894,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       </div>
                     </span>
                     <p
-                      class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-1d3hcrt-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
                     >
                       What, ridden on a horse? 
                     </p>
@@ -902,18 +902,18 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 </li>
               </div>
               <div
-                class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters f1ht8qkz css-191fwnr-MuiButtonBase-root-MuiListItemButton-root"
+                class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters f1ht8qkz css-aef1pa-MuiButtonBase-root-MuiListItemButton-root"
                 role="button"
                 tabindex="0"
               >
                 <li
-                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-fcftol-MuiListItem-root"
+                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-314c9k-MuiListItem-root"
                 >
                   <div
-                    class="MuiListItemIcon-root search-revision-item-icon search-revision css-96ompu-MuiListItemIcon-root"
+                    class="MuiListItemIcon-root search-revision-item-icon search-revision css-tamlkj-MuiListItemIcon-root"
                   >
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-1a7try3-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-c9gmeh-MuiButtonBase-root-MuiCheckbox-root"
                       data-testid="checkbox-3"
                     >
                       <input
@@ -942,7 +942,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-hrbm3k-MuiTypography-root"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-body2 revision-hash css-xrj7d3-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
                       >
                         spamspamspam
                       </span>
@@ -986,7 +986,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       </div>
                     </span>
                     <p
-                      class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-1d3hcrt-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
                     >
                       You've got two empty 'alves of coconuts and you're bangin' 'em togetha! 
                     </p>
@@ -994,18 +994,18 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 </li>
               </div>
               <div
-                class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters f1ht8qkz css-191fwnr-MuiButtonBase-root-MuiListItemButton-root"
+                class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters f1ht8qkz css-aef1pa-MuiButtonBase-root-MuiListItemButton-root"
                 role="button"
                 tabindex="0"
               >
                 <li
-                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-fcftol-MuiListItem-root"
+                  class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-314c9k-MuiListItem-root"
                 >
                   <div
-                    class="MuiListItemIcon-root search-revision-item-icon search-revision css-96ompu-MuiListItemIcon-root"
+                    class="MuiListItemIcon-root search-revision-item-icon search-revision css-tamlkj-MuiListItemIcon-root"
                   >
                     <span
-                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-1a7try3-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-c9gmeh-MuiButtonBase-root-MuiCheckbox-root"
                       data-testid="checkbox-4"
                     >
                       <input
@@ -1034,7 +1034,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-hrbm3k-MuiTypography-root"
                     >
                       <span
-                        class="MuiTypography-root MuiTypography-body2 revision-hash css-xrj7d3-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
                       >
                         spamspamspam
                       </span>
@@ -1078,7 +1078,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       </div>
                     </span>
                     <p
-                      class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-1d3hcrt-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
                     >
                       It got better... 
                     </p>
