@@ -1,3 +1,4 @@
+import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
@@ -10,6 +11,7 @@ import {
   removeFilter,
 } from '../../reducers/FilterCompareResultsSlice';
 import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
+import useProtocolTheme from '../../theme/protocolTheme';
 import { ActiveFilters, FilteredResults } from '../../types/types';
 import getTestData from '../utils/fixtures';
 import { render, renderWithRouter, store } from '../utils/setupTests';
@@ -18,8 +20,10 @@ import { screen, waitFor } from '../utils/test-utils';
 const { testCompareData, paginationTestCompareData } = getTestData();
 
 describe('Compare Results Table', () => {
+  const protocolTheme = renderHook(() => useProtocolTheme()).result.current
+    .protocolTheme;
 
-  const themeMode = 'light';
+  const themeMode = protocolTheme.palette.mode;
 
   it('Should match snapshot', () => {
     render(<CompareResultsTable theme={themeMode} />);
