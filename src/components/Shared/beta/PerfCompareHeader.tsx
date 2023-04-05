@@ -1,4 +1,3 @@
-import type { Theme } from '@mui/material';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
@@ -17,8 +16,7 @@ import ToggleDarkMode from './ToggleDarkModeButton';
 const strings = Strings.components.header;
 
 function PerfCompareHeader(props: PerfCompareHeaderProps) {
-  const { theme, toggleColorMode } = props;
-  const themeMode = theme.palette.mode;
+  const { themeMode, toggleColorMode } = props;
 
   const styles = {
     container: style({
@@ -63,7 +61,7 @@ function PerfCompareHeader(props: PerfCompareHeaderProps) {
   };
   return (
     <Grid className={`header-container ${styles.container}`}>
-      <ToggleDarkMode theme={theme} toggleColorMode={toggleColorMode} />
+      <ToggleDarkMode theme={themeMode} toggleColorMode={toggleColorMode} />
       <Box className='header-text'>
         <Typography
           variant='h1'
@@ -89,7 +87,7 @@ function PerfCompareHeader(props: PerfCompareHeaderProps) {
 }
 
 interface PerfCompareHeaderProps {
-  theme: Theme;
+  themeMode: 'light' | 'dark';
   toggleColorMode: () => void;
 }
 

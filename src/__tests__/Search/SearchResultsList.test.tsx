@@ -1,13 +1,20 @@
+import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { maxRevisionsError } from '../../common/constants';
 import SearchResultsList from '../../components/Search/SearchResultsList';
 import SearchView from '../../components/Search/SearchView';
+import useProtocolTheme from '../../theme/protocolTheme';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
 
 describe('SearchResultsList', () => {
+  const protocolTheme = renderHook(() => useProtocolTheme()).result.current
+    .protocolTheme;
+
+  const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
+    .toggleColorMode;
   it('should match snapshot', async () => {
     const { testData } = getTestData();
     global.fetch = jest.fn(() =>
@@ -21,7 +28,12 @@ describe('SearchResultsList', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(<SearchView />);
+    renderWithRouter(
+      <SearchView
+        toggleColorMode={toggleColorMode}
+        protocolTheme={protocolTheme}
+      />,
+    );
     // focus input to show results
     const searchInput = screen.getByRole('textbox');
     await user.click(searchInput);
@@ -41,14 +53,17 @@ describe('SearchResultsList', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(<SearchView />);
+    renderWithRouter(
+      <SearchView
+        toggleColorMode={toggleColorMode}
+        protocolTheme={protocolTheme}
+      />,
+    );
     // focus input to show results
     const searchInput = screen.getByRole('textbox');
     await user.click(searchInput);
 
-    const fleshWound = await screen.findAllByText(
-      "it's just a flesh wound",
-    );
+    const fleshWound = await screen.findAllByText("it's just a flesh wound");
 
     await user.click(fleshWound[0]);
     expect(
@@ -69,14 +84,17 @@ describe('SearchResultsList', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(<SearchView />);
+    renderWithRouter(
+      <SearchView
+        toggleColorMode={toggleColorMode}
+        protocolTheme={protocolTheme}
+      />,
+    );
     // focus input to show results
     const searchInput = screen.getByRole('textbox');
     await user.click(searchInput);
 
-    const fleshWound = await screen.findAllByText(
-      "it's just a flesh wound",
-    );
+    const fleshWound = await screen.findAllByText("it's just a flesh wound");
 
     await user.click(fleshWound[0]);
     expect(store.getState().checkedRevisions.revisions[0]).toBe(testData[1]);
@@ -97,7 +115,12 @@ describe('SearchResultsList', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(<SearchView />);
+    renderWithRouter(
+      <SearchView
+        toggleColorMode={toggleColorMode}
+        protocolTheme={protocolTheme}
+      />,
+    );
     // focus input to show results
     const searchInput = screen.getByRole('textbox');
     await user.click(searchInput);
@@ -130,7 +153,7 @@ describe('SearchResultsList', () => {
     const user = userEvent.setup({ delay: null });
 
     renderWithRouter(
-      <SearchResultsList searchResults={testData} view="compare-results" />,
+      <SearchResultsList searchResults={testData} view='compare-results' />,
     );
 
     await user.click(screen.getByTestId('checkbox-0'));

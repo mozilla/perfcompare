@@ -29,7 +29,12 @@ describe('Accessibility', () => {
 
   it('SearchInput should have no violations', async () => {
     await act(async () => {
-      const { container } = renderWithRouter(<SearchView />);
+      const { container } = renderWithRouter(
+        <SearchView
+          toggleColorMode={toggleColorMode}
+          protocolTheme={protocolTheme}
+        />,
+      );
       const results = await axe(container);
       expect(results).toHaveNoViolations();
     });

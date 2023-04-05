@@ -1,5 +1,10 @@
 export const Strings = {
   components: {
+    topBanner: {
+      text: 'This is an unstable pre-release version. Some features may not yet be supported. Please file any bugs on the Github Repo.',
+      linkText: 'Github Repo',
+      href: 'https://github.com/mozilla/perfcompare/issues',
+    },
     header: {
       title: 'PerfCompare',
       tagline:
