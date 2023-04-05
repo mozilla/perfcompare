@@ -18,6 +18,8 @@ expect.extend(toHaveNoViolations);
 describe('Accessibility', () => {
   const protocolTheme = renderHook(() => useProtocolTheme()).result.current
     .protocolTheme;
+  const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
+    .toggleColorMode;
 
   beforeEach(() => {
     jest.useRealTimers();
