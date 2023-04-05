@@ -205,7 +205,7 @@ function PaginatedCompareResults(props: PaginatedCompareResultsProps) {
 }
 
 interface PaginatedCompareResultsProps {
-  theme: string;
+  theme: 'light' | 'dark';
 }
 
 export default PaginatedCompareResults;

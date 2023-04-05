@@ -2,7 +2,78 @@
 
 exports[`SearchResultsList should match snapshot 1`] = `
 <body>
+  <div />
+  <div />
   <div>
+    <div
+      class="MuiGrid-root header-container f1ljnsh8 css-plh9qo-MuiGrid-root"
+    >
+      <div
+        class="toggle-dark-mode f15msy8l MuiBox-root css-0"
+      >
+        <div
+          class="MuiFormGroup-root css-dmmspl-MuiFormGroup-root"
+        >
+          <label
+            class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-z8chs3-MuiFormControlLabel-root"
+          >
+            <span
+              class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-julti5-MuiSwitch-root"
+            >
+              <span
+                class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1yg1ubd-MuiButtonBase-root-MuiSwitch-switchBase"
+              >
+                <input
+                  aria-label="Dark mode switch"
+                  class="PrivateSwitchBase-input MuiSwitch-input css-1m9pwf3"
+                  id="Dark mode"
+                  name="toggle-dark-mode"
+                  type="checkbox"
+                />
+                <span
+                  class="MuiSwitch-thumb css-jsexje-MuiSwitch-thumb"
+                />
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </span>
+              <span
+                class="MuiSwitch-track css-1yjjitx-MuiSwitch-track"
+              />
+            </span>
+            <span
+              class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1giq4eh-MuiTypography-root"
+            >
+              Dark mode
+            </span>
+          </label>
+        </div>
+      </div>
+      <div
+        class="header-text MuiBox-root css-0"
+      >
+        <div
+          class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-160ox9e-MuiTypography-root"
+        >
+          PerfCompare
+        </div>
+        <div
+          class="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-tagline css-1jlyab0-MuiTypography-root"
+        >
+          Analyze results of performance tests to detect regressions and identify opportunities for improvement.
+        </div>
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium learn-more-btn css-1gikv27-MuiButtonBase-root-MuiButton-root"
+          tabindex="0"
+          type="button"
+        >
+          Learn more
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </div>
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg perfcompare-body css-1tyv3cf-MuiContainer-root"
     >

@@ -55,7 +55,7 @@ function CompareResultsTable(props: CompareResultsProps) {
 }
 
 interface CompareResultsProps {
-  theme: string;
+  theme: 'light' | 'dark';
 }
 
 export default CompareResultsTable;
