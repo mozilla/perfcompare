@@ -65,14 +65,14 @@ export function TablePaginationActions(props: TablePaginationActionsProps) {
       <IconButton
         onClick={handleFirstPageButtonClick}
         disabled={page === 0}
-        aria-label="first page"
+        aria-label='first page'
       >
         {theme.direction === 'rtl' ? <LastPageIcon /> : <FirstPageIcon />}
       </IconButton>
       <IconButton
         onClick={handleBackButtonClick}
         disabled={page === 0}
-        aria-label="previous page"
+        aria-label='previous page'
       >
         {theme.direction === 'rtl' ? (
           <KeyboardArrowRight />
@@ -83,7 +83,7 @@ export function TablePaginationActions(props: TablePaginationActionsProps) {
       <IconButton
         onClick={handleNextButtonClick}
         disabled={page >= Math.ceil(count / rowsPerPage) - 1}
-        aria-label="next page"
+        aria-label='next page'
       >
         {theme.direction === 'rtl' ? (
           <KeyboardArrowLeft />
@@ -94,7 +94,7 @@ export function TablePaginationActions(props: TablePaginationActionsProps) {
       <IconButton
         onClick={handleLastPageButtonClick}
         disabled={page >= Math.ceil(count / rowsPerPage) - 1}
-        aria-label="last page"
+        aria-label='last page'
       >
         {theme.direction === 'rtl' ? <FirstPageIcon /> : <LastPageIcon />}
       </IconButton>
@@ -103,7 +103,7 @@ export function TablePaginationActions(props: TablePaginationActionsProps) {
 }
 
 function PaginatedCompareResults(props: PaginatedCompareResultsProps) {
-  const { mode } = props;
+  const { theme } = props;
   const compareResults: CompareResultsState = useAppSelector(
     (state: RootState) => state.compareResults,
   );
@@ -169,7 +169,7 @@ function PaginatedCompareResults(props: PaginatedCompareResultsProps) {
                 key={index}
                 result={result}
                 index={index}
-                mode={mode}
+                theme={theme}
               />
             ))}
             {emptyRows > 0 && (
@@ -205,7 +205,7 @@ function PaginatedCompareResults(props: PaginatedCompareResultsProps) {
 }
 
 interface PaginatedCompareResultsProps {
-  mode: 'light' | 'dark';
+  theme: 'light' | 'dark';
 }
 
 export default PaginatedCompareResults;

@@ -14,5 +14,6 @@
     "strictNullChecks": true, // enable strict null checks as a best practice
     "target": "es5" // specify ECMAScript target version
   },
-  "include": ["./src/"]
+  "include": ["./src/"],
+  "exclude": ["node_modules"]
 }

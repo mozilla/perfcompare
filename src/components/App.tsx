@@ -6,17 +6,22 @@ import { ThemeProvider } from '@mui/material/styles';
 import { SnackbarProvider } from 'notistack';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 
+import { Strings } from '../resources/Strings';
+import { Banner } from '../styles/Banner';
 import useProtocolTheme from '../theme/protocolTheme';
-import ResultsView from './CompareResults/beta/ResultsView';
 import CompareResultsView from './CompareResults/CompareResultsView';
 import SearchViewBeta from './Search/beta/SearchView';
 import SearchView from './Search/SearchView';
 import FeedbackAlert from './Shared/FeedbackAlert';
 import SnackbarCloseButton from './Shared/SnackbarCloseButton';
-import ToggleDarkMode from './Shared/ToggleDarkModeButton';
 
+const strings: BannerStrings = {
+  text: Strings.components.topBanner.text,
+  linkText: Strings.components.topBanner.linkText,
+  href: Strings.components.topBanner.href,
+};
 function App() {
-  const { mode, toggleColorMode, protocolTheme } = useProtocolTheme();
+  const { protocolTheme, toggleColorMode } = useProtocolTheme();
   return (
     <ThemeProvider theme={protocolTheme}>
       <SnackbarProvider
@@ -27,38 +32,54 @@ function App() {
         )}
       >
         <CssBaseline />
-        <Alert severity='warning' sx={{ textAlign: 'center' }}>
-          This is an unstable <strong>pre-release</strong> version. Some
-          features may not yet be supported. Please file any bugs on the{' '}
-          <Link href='https://github.com/mozilla/perfcompare/issues'>
-            Github Repo
-          </Link>
-          .
+        <Alert className={Banner} severity='warning'>
+          <div className='banner-text'>
+            {strings.text} <Link href={strings.href}>{strings.linkText}</Link>
+          </div>
+          <Box display='flex' justifyContent='flex-end' alignItems='flex-end'>
+            <FeedbackAlert />
+          </Box>
         </Alert>
-        <Box display='flex' justifyContent='flex-end' alignItems='flex-end'>
-          <FeedbackAlert />
-          <ToggleDarkMode
-            toggleColorMode={toggleColorMode}
-            theme={protocolTheme}
-          />
-        </Box>
+
         <Router>
           <Routes>
-            <Route path='/' element={<SearchView />} />
-            <Route path='/beta' element={<SearchViewBeta />} />
+            <Route
+              path='/'
+              element={
+                <SearchView
+                  toggleColorMode={toggleColorMode}
+                  protocolTheme={protocolTheme}
+                />
+              }
+            />
+            <Route
+              path='/beta'
+              element={
+                <SearchViewBeta
+                  toggleColorMode={toggleColorMode}
+                  protocolTheme={protocolTheme}
+                />
+              }
+            />
             <Route
               path='/compare-results'
-              element={<CompareResultsView mode={mode} />}
+              element={<CompareResultsView theme={protocolTheme} />}
             />
             <Route
               path='/beta/compare-results'
-              element={<ResultsView />}
+              element={<CompareResultsView theme={protocolTheme} />}
             />
           </Routes>
         </Router>
       </SnackbarProvider>
     </ThemeProvider>
   );
+}
+
+interface BannerStrings {
+  text: string;
+  linkText: string;
+  href: string;
 }
 
 export default App;

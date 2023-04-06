@@ -1,3 +1,4 @@
+import { renderHook } from '@testing-library/react';
 import { waitForElementToBeRemoved } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
@@ -5,11 +6,16 @@ import { act } from 'react-dom/test-utils';
 import { maxRevisionsError } from '../common/constants';
 import App from '../components/App';
 import SearchView from '../components/Search/SearchView';
+import useProtocolTheme from '../theme/protocolTheme';
 import getTestData from './utils/fixtures';
 import { renderWithRouter, render } from './utils/setupTests';
 import { screen } from './utils/test-utils';
 
 describe('Snackbar', () => {
+  const protocolTheme = renderHook(() => useProtocolTheme()).result.current
+    .protocolTheme;
+  const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
+    .toggleColorMode;
   it('should dismiss an alert when close button is clicked', async () => {
     const { testData } = getTestData();
     global.fetch = jest.fn(() =>
@@ -56,7 +62,12 @@ describe('Snackbar', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(<SearchView />);
+    renderWithRouter(
+      <SearchView
+        toggleColorMode={toggleColorMode}
+        protocolTheme={protocolTheme}
+      />,
+    );
 
     // focus input to show results
     const searchInput = screen.getByRole('textbox');

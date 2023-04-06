@@ -1,12 +1,19 @@
+import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
 import SearchView from '../../components/Search/SearchView';
+import useProtocolTheme from '../../theme/protocolTheme';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
 
 describe('SearchView/fetchRecentRevisions', () => {
+  const protocolTheme = renderHook(() => useProtocolTheme()).result.current
+    .protocolTheme;
+
+  const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
+    .toggleColorMode;
   it('should fetch and display recent results when repository is selected', async () => {
     const { testData } = getTestData();
     global.fetch = jest.fn(() =>
@@ -20,7 +27,12 @@ describe('SearchView/fetchRecentRevisions', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(<SearchView />);
+    renderWithRouter(
+      <SearchView
+        toggleColorMode={toggleColorMode}
+        protocolTheme={protocolTheme}
+      />,
+    );
 
     await screen.findByRole('button', { name: 'repository' });
     await user.click(screen.getByRole('button', { name: 'repository' }));
@@ -63,7 +75,12 @@ describe('SearchView/fetchRecentRevisions', () => {
     ) as jest.Mock;
     const spyOnFetch = jest.spyOn(global, 'fetch');
 
-    renderWithRouter(<SearchView />);
+    renderWithRouter(
+      <SearchView
+        toggleColorMode={toggleColorMode}
+        protocolTheme={protocolTheme}
+      />,
+    );
     await act(async () => void jest.runOnlyPendingTimers());
     await screen.findByRole('button', { name: 'repository' });
 
@@ -81,7 +98,12 @@ describe('SearchView/fetchRecentRevisions', () => {
     ) as jest.Mock;
     const spyOnFetch = jest.spyOn(global, 'fetch');
 
-    renderWithRouter(<SearchView />);
+    renderWithRouter(
+      <SearchView
+        toggleColorMode={toggleColorMode}
+        protocolTheme={protocolTheme}
+      />,
+    );
     await act(async () => void jest.runOnlyPendingTimers());
     await screen.findByRole('button', { name: 'repository' });
 
