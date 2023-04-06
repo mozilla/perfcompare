@@ -1,12 +1,18 @@
+import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
 import SearchView from '../../components/Search/SearchView';
+import useProtocolTheme from '../../theme/protocolTheme';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
 
 describe('SearchView/fetchRevisionByID', () => {
+  const protocolTheme = renderHook(() => useProtocolTheme()).result.current
+    .protocolTheme;
+  const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
+    .toggleColorMode;
   it('should fetch revisions by ID if searchValue is a 12 or 40 character hash', async () => {
     const { testData } = getTestData();
     global.fetch = jest.fn(() =>
@@ -20,7 +26,12 @@ describe('SearchView/fetchRevisionByID', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(<SearchView />);
+    renderWithRouter(
+      <SearchView
+        toggleColorMode={toggleColorMode}
+        protocolTheme={protocolTheme}
+      />,
+    );
 
     await screen.findByRole('button', { name: 'repository' });
     expect(screen.getByText('try')).toBeInTheDocument();
@@ -58,7 +69,12 @@ describe('SearchView/fetchRevisionByID', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(<SearchView />);
+    renderWithRouter(
+      <SearchView
+        toggleColorMode={toggleColorMode}
+        protocolTheme={protocolTheme}
+      />,
+    );
 
     await screen.findByRole('button', { name: 'repository' });
     expect(screen.getByText('try')).toBeInTheDocument();
@@ -88,7 +104,12 @@ describe('SearchView/fetchRevisionByID', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(<SearchView />);
+    renderWithRouter(
+      <SearchView
+        toggleColorMode={toggleColorMode}
+        protocolTheme={protocolTheme}
+      />,
+    );
 
     await screen.findByRole('button', { name: 'repository' });
 
@@ -112,7 +133,12 @@ describe('SearchView/fetchRevisionByID', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(<SearchView />);
+    renderWithRouter(
+      <SearchView
+        toggleColorMode={toggleColorMode}
+        protocolTheme={protocolTheme}
+      />,
+    );
 
     await screen.findByRole('button', { name: 'repository' });
 

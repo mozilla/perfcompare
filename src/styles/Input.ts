@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { style } from 'typestyle';
 
 import { FontSizeRaw, FontsRaw } from './Fonts';
@@ -12,18 +10,18 @@ export const InputStyles = {
   default: style({
     $nest: {
       label: {
-				...FontSizeRaw.Small,
+        ...FontSizeRaw.Small,
         top,
       },
       input: {
-				...FontsRaw.BodyDefault,
+        ...FontsRaw.BodyDefault,
         padding,
-				height: 'auto',
+        height: 'auto',
       },
     },
   }),
   dropDown: style({
-		height: '32px',
+    height: '32px',
     $nest: {
       '.MuiSelect-select': {
         padding,

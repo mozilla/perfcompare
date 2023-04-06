@@ -1,20 +1,28 @@
+import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
 import { featureNotSupportedError } from '../../common/constants';
 import SearchView from '../../components/Search/SearchView';
 import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
+import useProtocolTheme from '../../theme/protocolTheme';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
 
-
 describe('Search View', () => {
-  it('renders correctly when there are no results', async () => {
-    renderWithRouter(<SearchView />);
+  const protocolTheme = renderHook(() => useProtocolTheme()).result.current
+    .protocolTheme;
 
-    // Title appears
-    expect(screen.getByText(/PerfCompare/i)).toBeInTheDocument();
+  const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
+    .toggleColorMode;
+  it('renders correctly when there are no results', async () => {
+    renderWithRouter(
+      <SearchView
+        toggleColorMode={toggleColorMode}
+        protocolTheme={protocolTheme}
+      />,
+    );
 
     // Repository Select appears
     expect(screen.getByLabelText(/Repository/i)).toBeInTheDocument();
@@ -48,7 +56,12 @@ describe('Search View', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(<SearchView />);
+    renderWithRouter(
+      <SearchView
+        toggleColorMode={toggleColorMode}
+        protocolTheme={protocolTheme}
+      />,
+    );
 
     await screen.findByRole('button', { name: 'repository' });
 
@@ -62,15 +75,6 @@ describe('Search View', () => {
     expect(
       screen.getAllByText("it's just a flesh wound")[0],
     ).toBeInTheDocument();
-
-    await user.click(screen.getByText('PerfCompare'));
-
-    expect(
-      screen.queryByText("you've got no arms left!"),
-    ).not.toBeInTheDocument();
-    expect(
-      screen.queryByText("it's just a flesh wound"),
-    ).not.toBeInTheDocument();
 
     expect(document.body).toMatchSnapshot();
   });
@@ -88,7 +92,12 @@ describe('Search View', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(<SearchView />);
+    renderWithRouter(
+      <SearchView
+        toggleColorMode={toggleColorMode}
+        protocolTheme={protocolTheme}
+      />,
+    );
 
     await screen.findByRole('button', { name: 'repository' });
 
@@ -110,7 +119,12 @@ describe('Search View', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(<SearchView />);
+    renderWithRouter(
+      <SearchView
+        toggleColorMode={toggleColorMode}
+        protocolTheme={protocolTheme}
+      />,
+    );
 
     const searchInput = screen.getByRole('textbox');
 
@@ -143,7 +157,12 @@ describe('Search View', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(<SearchView />);
+    renderWithRouter(
+      <SearchView
+        toggleColorMode={toggleColorMode}
+        protocolTheme={protocolTheme}
+      />,
+    );
 
     await screen.findByRole('button', { name: 'repository' });
 
@@ -176,7 +195,12 @@ describe('Search View', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(<SearchView />);
+    renderWithRouter(
+      <SearchView
+        toggleColorMode={toggleColorMode}
+        protocolTheme={protocolTheme}
+      />,
+    );
 
     await screen.findByRole('button', { name: 'repository' });
 
@@ -206,7 +230,12 @@ describe('Search View', () => {
     global.fetch = jest.fn(() => Promise.reject(new Error())) as jest.Mock;
     const spyOnFetch = jest.spyOn(global, 'fetch');
 
-    renderWithRouter(<SearchView />);
+    renderWithRouter(
+      <SearchView
+        toggleColorMode={toggleColorMode}
+        protocolTheme={protocolTheme}
+      />,
+    );
 
     await act(async () => void jest.runOnlyPendingTimers());
 
@@ -223,7 +252,12 @@ describe('Search View', () => {
   it('should have compare button and once clicked should redirect to results page with the right query params', async () => {
     const { testData } = getTestData();
     store.dispatch(setSelectedRevisions(testData.slice(0, 2)));
-    const { history } = renderWithRouter(<SearchView />);
+    const { history } = renderWithRouter(
+      <SearchView
+        toggleColorMode={toggleColorMode}
+        protocolTheme={protocolTheme}
+      />,
+    );
     expect(history.location.pathname).toEqual('/');
 
     const user = userEvent.setup({ delay: null });
@@ -237,10 +271,15 @@ describe('Search View', () => {
     );
   });
 
-    it('disable comparing without a base revision', async () => {
+  it('disable comparing without a base revision', async () => {
     const { testData } = getTestData();
     store.dispatch(setSelectedRevisions(testData.slice(0, 1)));
-    const { history } = renderWithRouter(<SearchView />);
+    const { history } = renderWithRouter(
+      <SearchView
+        toggleColorMode={toggleColorMode}
+        protocolTheme={protocolTheme}
+      />,
+    );
     expect(history.location.pathname).toEqual('/');
 
     const user = userEvent.setup({ delay: null });
@@ -252,10 +291,15 @@ describe('Search View', () => {
     expect(history.location.pathname).toEqual('/');
   });
 
-        it('disable comparing more than two revisions', async () => {
+  it('disable comparing more than two revisions', async () => {
     const { testData } = getTestData();
     store.dispatch(setSelectedRevisions(testData.slice(0, 3)));
-    const { history } = renderWithRouter(<SearchView />);
+    const { history } = renderWithRouter(
+      <SearchView
+        toggleColorMode={toggleColorMode}
+        protocolTheme={protocolTheme}
+      />,
+    );
     expect(history.location.pathname).toEqual('/');
 
     const user = userEvent.setup({ delay: null });

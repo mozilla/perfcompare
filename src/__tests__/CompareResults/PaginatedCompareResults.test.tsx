@@ -12,6 +12,8 @@ import getTestData from '../utils/fixtures';
 import { render, store } from '../utils/setupTests';
 
 describe('Tests PaginatedCompareResults', () => {
+  const themeMode = 'light';
+
   const { testCompareData } = getTestData();
   const compareResults = Array(100)
     .fill(testCompareData)
@@ -129,7 +131,7 @@ describe('Tests PaginatedCompareResults', () => {
 
   it('should change rendered 25 rows by default', () => {
     store.dispatch(setCompareResults(compareResults));
-    const { container } = render(<CompareResultsTable mode="light" />);
+    const { container } = render(<CompareResultsTable theme={themeMode} />);
     const select = container.querySelector('tfoot select') as HTMLSelectElement;
     const rows = screen.getAllByRole('row');
     expect(select.value).toBe('25');
@@ -139,7 +141,7 @@ describe('Tests PaginatedCompareResults', () => {
 
   it('should change rendered rows count on select value change', async () => {
     store.dispatch(setCompareResults(compareResults));
-    const { container } = render(<CompareResultsTable mode="light" />);
+    const { container } = render(<CompareResultsTable theme={themeMode} />);
     const selectEl = container.querySelector(
       'tfoot select',
     ) as HTMLSelectElement;
@@ -152,7 +154,7 @@ describe('Tests PaginatedCompareResults', () => {
 
   it('should render all rows', async () => {
     store.dispatch(setCompareResults(compareResults));
-    const { container } = render(<CompareResultsTable mode="light" />);
+    const { container } = render(<CompareResultsTable theme={themeMode} />);
     const selectEl = container.querySelector(
       'tfoot select',
     ) as HTMLSelectElement;
@@ -167,7 +169,7 @@ describe('Tests PaginatedCompareResults', () => {
     const headerName1 = 'a11yr dhtml.html opt e10s fission stylo webrender1';
     const headerName26 = 'a11yr dhtml.html opt e10s fission stylo webrender26';
     store.dispatch(setCompareResults(compareResults));
-    const { container } = render(<CompareResultsTable mode="light" />);
+    const { container } = render(<CompareResultsTable theme={themeMode} />);
     const nextButton = container.querySelector(
       '[aria-label="next page"]',
     ) as HTMLSelectElement;

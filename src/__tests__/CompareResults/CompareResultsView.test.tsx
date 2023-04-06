@@ -1,3 +1,4 @@
+import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
@@ -7,17 +8,23 @@ import SelectedRevisionsTable from '../../components/Shared/SelectedRevisionsTab
 import { setCompareResults } from '../../reducers/CompareResultsSlice';
 import { updateSearchResults } from '../../reducers/SearchSlice';
 import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
+import useProtocolTheme from '../../theme/protocolTheme';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
 
 describe('CompareResults View', () => {
+  const protocolTheme = renderHook(() => useProtocolTheme()).result.current
+    .protocolTheme;
+
+  const themeMode = protocolTheme.palette.mode;
+
   it('Should match snapshot', () => {
     const { testCompareData } = getTestData();
     // set results data
     store.dispatch(setCompareResults(testCompareData));
 
-    renderWithRouter(<CompareResultsTable mode="light" />);
+    renderWithRouter(<CompareResultsTable theme={themeMode} />);
     expect(document.body).toMatchSnapshot();
   });
 
@@ -28,7 +35,7 @@ describe('CompareResults View', () => {
     const selectedRevisions = testData.slice(0, 4);
     store.dispatch(setSelectedRevisions(selectedRevisions));
 
-    renderWithRouter(<CompareResultsView mode="light" />);
+    renderWithRouter(<CompareResultsView theme={protocolTheme} />);
 
     expect(screen.getByText("you've got no arms left!")).toBeInTheDocument();
   });
@@ -42,7 +49,7 @@ describe('CompareResults View', () => {
     const selectedRevisions = testData.slice(0, 4);
     store.dispatch(setSelectedRevisions(selectedRevisions));
 
-    renderWithRouter(<CompareResultsView mode="light" />);
+    renderWithRouter(<CompareResultsView theme={protocolTheme} />);
 
     const editButton = screen.getByRole('button', {
       name: 'edit-revision-1',
@@ -63,7 +70,7 @@ describe('CompareResults View', () => {
     // set results data
     store.dispatch(setCompareResults(testCompareData));
 
-    renderWithRouter(<CompareResultsTable mode="light" />);
+    renderWithRouter(<CompareResultsTable theme={themeMode} />);
 
     expect(screen.getByTestId('ThumbUpAltIcon')).toBeInTheDocument();
     expect(screen.getByTestId('WarningIcon')).toBeInTheDocument();
@@ -71,6 +78,9 @@ describe('CompareResults View', () => {
 });
 
 describe('SelectedRevisionsTableRow', () => {
+  const protocolTheme = renderHook(() => useProtocolTheme()).result.current
+    .protocolTheme;
+
   it('should close popover on close', async () => {
     const { testData } = getTestData();
     // set delay to null to prevent test time-out due to useFakeTimers
@@ -81,7 +91,7 @@ describe('SelectedRevisionsTableRow', () => {
     store.dispatch(setSelectedRevisions(selectedRevisions));
     store.dispatch(updateSearchResults(testData));
 
-    renderWithRouter(<SelectedRevisionsTable view="compare-results" />);
+    renderWithRouter(<SelectedRevisionsTable view='compare-results' />);
 
     await user.click(screen.getByRole('button', { name: 'edit-revision-1' }));
 
@@ -90,9 +100,7 @@ describe('SelectedRevisionsTableRow', () => {
     });
     await user.click(input);
 
-    expect(
-      screen.getAllByText('spamspamspam')[0],
-    ).toBeInTheDocument();
+    expect(screen.getAllByText('spamspamspam')[0]).toBeInTheDocument();
 
     await user.keyboard('{Esc}');
     act(() => void jest.runOnlyPendingTimers());
@@ -110,7 +118,7 @@ describe('SelectedRevisionsTableRow', () => {
     const selectedRevisions = testData.slice(0, 1);
     store.dispatch(setSelectedRevisions(selectedRevisions));
 
-    renderWithRouter(<CompareResultsView mode="light" />);
+    renderWithRouter(<CompareResultsView theme={protocolTheme} />);
     const editRevisionButton = screen.getByRole('button', {
       name: 'edit-revision-1',
     });
@@ -131,12 +139,16 @@ describe('SelectedRevisionsTableRow', () => {
 });
 
 describe('CompareResultsTable', () => {
+  const protocolTheme = renderHook(() => useProtocolTheme()).result.current
+    .protocolTheme;
+  const themeMode = protocolTheme.palette.mode;
+
   it('Should display correct confidence icon', async () => {
     const { testCompareData } = getTestData();
     // set results data
     store.dispatch(setCompareResults(testCompareData));
 
-    renderWithRouter(<CompareResultsTable mode="light" />);
+    renderWithRouter(<CompareResultsTable theme={themeMode} />);
 
     const icons = screen.getAllByTestId('confidence-icon');
     expect(icons[0]).toHaveClass('low');
