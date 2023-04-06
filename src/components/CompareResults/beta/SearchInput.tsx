@@ -47,7 +47,7 @@ function SearchInput() {
           />
         </FormControl>
       </div>
-      <Button className='apply-button' disabled>
+      <Button disabled>
         Apply
       </Button>
     </div>
