@@ -26,36 +26,36 @@ function CompareResultsTable(props: CompareResultsProps) {
           <TableContainer component={Paper}>
             <Table
               sx={{ minWidth: 650 }}
-              size="small"
-              aria-label="a dense table"
+              size='small'
+              aria-label='a dense table'
             >
               <colgroup>
-      <col style={{ width:'10%' }}/>
-      <col style={{ width:'10%' }}/>
-      <col style={{ width:'20%' }}/>
-      <col style={{ width:'10%' }}/>
-      <col style={{ width:'10%' }}/>
-      <col style={{ width:'10%' }}/>
-      <col style={{ width:'10%' }}/>
-      <col style={{ width:'12%' }}/>
-      <col style={{ width:'8%' }}/>
-   </colgroup>
+                <col style={{ width: '10%' }} />
+                <col style={{ width: '10%' }} />
+                <col style={{ width: '20%' }} />
+                <col style={{ width: '10%' }} />
+                <col style={{ width: '10%' }} />
+                <col style={{ width: '10%' }} />
+                <col style={{ width: '10%' }} />
+                <col style={{ width: '12%' }} />
+                <col style={{ width: '8%' }} />
+              </colgroup>
               <PaginatedCompareResults theme={theme} />
             </Table>
           </TableContainer>
         </>
       )}
       {compareResults.loading && (
-        <Box display="flex" justifyContent="center">
-          <Grid item xs={1} className="compare-results-error">
+        <Box display='flex' justifyContent='center'>
+          <Grid item xs={1} className='compare-results-error'>
             <CircularProgress />
           </Grid>
         </Box>
       )}
       {compareResults.error && (
-        <Box display="flex" justifyContent="center">
-          <Grid item xs={6} className="compare-results-error">
-            <Alert severity="error" sx={{ textAlign: 'center' }}>
+        <Box display='flex' justifyContent='center'>
+          <Grid item xs={6} className='compare-results-error'>
+            <Alert severity='error' sx={{ textAlign: 'center' }}>
               Error: {compareResults.error}
             </Alert>
           </Grid>
