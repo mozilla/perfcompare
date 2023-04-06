@@ -67,8 +67,9 @@ export function SelectedRevisionsTableRow(props: SelectedRevisionsRowProps) {
       <TableCell>
         {view == 'search' && (
           <IconButton
-            id="close-button"
+            id={`close-button-${row.id}`}
             onClick={() => dispatch(deleteRevision(row.id))}
+            aria-label="Close"
           >
             <Close />
           </IconButton>

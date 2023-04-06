@@ -136,8 +136,9 @@ exports[`Search View should match snapshot 1`] = `
                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <button
+                    aria-label="Close"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
-                    id="close-button"
+                    id="close-button-1"
                     tabindex="0"
                     type="button"
                   >
@@ -221,8 +222,9 @@ exports[`Search View should match snapshot 1`] = `
                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <button
+                    aria-label="Close"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
-                    id="close-button"
+                    id="close-button-2"
                     tabindex="0"
                     type="button"
                   >
@@ -306,8 +308,9 @@ exports[`Search View should match snapshot 1`] = `
                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <button
+                    aria-label="Close"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
-                    id="close-button"
+                    id="close-button-3"
                     tabindex="0"
                     type="button"
                   >
@@ -391,8 +394,9 @@ exports[`Search View should match snapshot 1`] = `
                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-pmplfi-MuiTableCell-root"
                 >
                   <button
+                    aria-label="Close"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
-                    id="close-button"
+                    id="close-button-4"
                     tabindex="0"
                     type="button"
                   >
