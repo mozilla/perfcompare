@@ -9,7 +9,37 @@ exports[`Compare Results Table Should match snapshot 1`] = `
       <table
         aria-label="a dense table"
         class="MuiTable-root css-d8sagy-MuiTable-root"
-      />
+      >
+        <colgroup>
+          <col
+            style="width: 10%;"
+          />
+          <col
+            style="width: 10%;"
+          />
+          <col
+            style="width: 20%;"
+          />
+          <col
+            style="width: 10%;"
+          />
+          <col
+            style="width: 10%;"
+          />
+          <col
+            style="width: 10%;"
+          />
+          <col
+            style="width: 10%;"
+          />
+          <col
+            style="width: 12%;"
+          />
+          <col
+            style="width: 8%;"
+          />
+        </colgroup>
+      </table>
     </div>
   </div>
 </body>
