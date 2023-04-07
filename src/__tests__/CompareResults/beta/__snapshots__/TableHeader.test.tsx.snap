@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table Header Should match snapshot 1`] = `
+<body>
+  <div>
+    <thead
+      class="MuiTableHead-root f1wbvtga css-15wwp11-MuiTableHead-root"
+      data-testid="table-header"
+    >
+      <tr
+        class="MuiTableRow-root MuiTableRow-head css-1yt2i5z-MuiTableRow-root"
+      >
+        <th
+          class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium filter css-hwty3m-MuiTableCell-root"
+          scope="col"
+        >
+          Platform
+        </th>
+        <th
+          class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-hwty3m-MuiTableCell-root"
+          scope="col"
+        >
+          Base
+        </th>
+        <th
+          class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-hwty3m-MuiTableCell-root"
+          scope="col"
+        >
+          New
+        </th>
+        <th
+          class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium filter css-hwty3m-MuiTableCell-root"
+          scope="col"
+        >
+          Status
+        </th>
+        <th
+          class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-hwty3m-MuiTableCell-root"
+          scope="col"
+        >
+          Delta(%)
+        </th>
+        <th
+          class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium filter css-hwty3m-MuiTableCell-root"
+          scope="col"
+        >
+          Confidence
+        </th>
+        <th
+          class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-hwty3m-MuiTableCell-root"
+          scope="col"
+        >
+          Total Runs
+        </th>
+      </tr>
+    </thead>
+  </div>
+</body>
+`;
