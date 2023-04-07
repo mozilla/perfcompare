@@ -150,6 +150,67 @@ exports[`Results View Should match snapshot 1`] = `
                 </div>
               </div>
             </header>
+            <div
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root f1otqxop css-pfrgnn-MuiPaper-root-MuiTableContainer-root"
+              data-testid="results-table"
+            >
+              <table
+                aria-label="collapsible table"
+                class="MuiTable-root css-yso468-MuiTable-root"
+              >
+                <thead
+                  class="MuiTableHead-root f1wbvtga css-15wwp11-MuiTableHead-root"
+                  data-testid="table-header"
+                >
+                  <tr
+                    class="MuiTableRow-root MuiTableRow-head css-1yt2i5z-MuiTableRow-root"
+                  >
+                    <th
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium filter css-hwty3m-MuiTableCell-root"
+                      scope="col"
+                    >
+                      Platform
+                    </th>
+                    <th
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-hwty3m-MuiTableCell-root"
+                      scope="col"
+                    >
+                      Base
+                    </th>
+                    <th
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-hwty3m-MuiTableCell-root"
+                      scope="col"
+                    >
+                      New
+                    </th>
+                    <th
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium filter css-hwty3m-MuiTableCell-root"
+                      scope="col"
+                    >
+                      Status
+                    </th>
+                    <th
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-hwty3m-MuiTableCell-root"
+                      scope="col"
+                    >
+                      Delta(%)
+                    </th>
+                    <th
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium filter css-hwty3m-MuiTableCell-root"
+                      scope="col"
+                    >
+                      Confidence
+                    </th>
+                    <th
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-hwty3m-MuiTableCell-root"
+                      scope="col"
+                    >
+                      Total Runs
+                    </th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
           </div>
         </div>
       </div>
