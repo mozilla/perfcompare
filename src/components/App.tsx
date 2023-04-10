@@ -9,6 +9,7 @@ import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import { Strings } from '../resources/Strings';
 import { Banner } from '../styles/Banner';
 import useProtocolTheme from '../theme/protocolTheme';
+import ResultsView from './CompareResults/beta/ResultsView';
 import CompareResultsView from './CompareResults/CompareResultsView';
 import SearchViewBeta from './Search/beta/SearchView';
 import SearchView from './Search/SearchView';
@@ -67,7 +68,7 @@ function App() {
             />
             <Route
               path='/beta/compare-results'
-              element={<CompareResultsView theme={protocolTheme} />}
+              element={<ResultsView />}
             />
           </Routes>
         </Router>
