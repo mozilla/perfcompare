@@ -12,7 +12,7 @@ function SearchViewBeta(props: SearchViewProps) {
         themeMode={themeMode}
         toggleColorMode={toggleColorMode}
       />
-      <div>Search View Beta Content</div>
+      <div>Search View Beta Content Testing</div>
     </section>
   );
 }

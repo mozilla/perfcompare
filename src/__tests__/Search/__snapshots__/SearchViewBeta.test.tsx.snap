@@ -78,7 +78,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
         </div>
       </div>
       <div>
-        Search View Beta Content
+        Search View Beta Content Testing
       </div>
     </section>
   </div>
