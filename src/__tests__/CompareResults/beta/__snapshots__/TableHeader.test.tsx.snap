@@ -4,53 +4,161 @@ exports[`Table Header Should match snapshot 1`] = `
 <body>
   <div>
     <thead
-      class="MuiTableHead-root f1wbvtga css-15wwp11-MuiTableHead-root"
+      class="MuiTableHead-root css-15wwp11-MuiTableHead-root"
       data-testid="table-header"
     >
       <tr
-        class="MuiTableRow-root MuiTableRow-head css-1yt2i5z-MuiTableRow-root"
+        class="MuiTableRow-root MuiTableRow-head f81wnp2 css-1yt2i5z-MuiTableRow-root"
       >
         <th
-          class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium filter css-hwty3m-MuiTableCell-root"
+          class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-hwty3m-MuiTableCell-root"
           scope="col"
         >
-          Platform
+          <div
+            class="f1076rq5"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+              data-testid="SortIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
+              />
+            </svg>
+            <span>
+              Platform
+            </span>
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+              data-testid="ExpandMoreIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </div>
         </th>
         <th
           class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-hwty3m-MuiTableCell-root"
           scope="col"
         >
-          Base
+          <div
+            class=""
+          >
+            <span>
+              Base
+            </span>
+          </div>
         </th>
         <th
           class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-hwty3m-MuiTableCell-root"
           scope="col"
         >
-          New
-        </th>
-        <th
-          class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium filter css-hwty3m-MuiTableCell-root"
-          scope="col"
-        >
-          Status
-        </th>
-        <th
-          class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-hwty3m-MuiTableCell-root"
-          scope="col"
-        >
-          Delta(%)
-        </th>
-        <th
-          class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium filter css-hwty3m-MuiTableCell-root"
-          scope="col"
-        >
-          Confidence
+          <div
+            class=""
+          >
+            <span>
+              New
+            </span>
+          </div>
         </th>
         <th
           class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-hwty3m-MuiTableCell-root"
           scope="col"
         >
-          Total Runs
+          <div
+            class="f1076rq5"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+              data-testid="SortIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
+              />
+            </svg>
+            <span>
+              Status
+            </span>
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+              data-testid="ExpandMoreIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </div>
+        </th>
+        <th
+          class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-hwty3m-MuiTableCell-root"
+          scope="col"
+        >
+          <div
+            class=""
+          >
+            <span>
+              Delta(%)
+            </span>
+          </div>
+        </th>
+        <th
+          class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-hwty3m-MuiTableCell-root"
+          scope="col"
+        >
+          <div
+            class="f1076rq5"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+              data-testid="SortIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
+              />
+            </svg>
+            <span>
+              Confidence
+            </span>
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+              data-testid="ExpandMoreIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </div>
+        </th>
+        <th
+          class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-hwty3m-MuiTableCell-root"
+          scope="col"
+        >
+          <div
+            class=""
+          >
+            <span>
+              Total Runs
+            </span>
+          </div>
         </th>
       </tr>
     </thead>

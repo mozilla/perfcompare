@@ -1,3 +1,5 @@
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import SortIcon from '@mui/icons-material/Sort';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
@@ -6,8 +8,7 @@ import { style } from 'typestyle';
 import { Colors, Spacing } from '../../../styles';
 
 const styles = {
-  tableHeader: style({
-    alignItems: 'center',
+  headerRow: style({
     background: Colors.Background100,
     borderRadius: '4px',
     display: 'flex',
@@ -18,6 +19,10 @@ const styles = {
   filter: style({
     background: Colors.Background200,
     borderRadius: '4px',
+    cursor: 'not-allowed',
+    display: 'flex',
+    gap: Spacing.Small,
+    padding: `${Spacing.Small}px ${Spacing.Medium}px`,
   }),
 };
 function TableHeader() {
@@ -50,10 +55,18 @@ function TableHeader() {
     { name: 'Total Runs' },
   ];
   return (
-    <TableHead className={styles.tableHeader} data-testid='table-header'>
-      <TableRow>
+    <TableHead data-testid='table-header'>
+      <TableRow className={styles.headerRow}>
         {headerCells.map((header) => (
-          <TableCell key={header.name + 'header'} className={header.filter ? 'filter' : ''}>{header.name}</TableCell>
+          <TableCell
+            key={header.name + 'Header'}
+          >
+            <div className={header.filter ? styles.filter : ''}>
+              {header.sort ? <SortIcon /> : null}
+              <span>{header.name}</span>
+              {header.filter ? <ExpandMoreIcon /> : null}
+            </div>
+          </TableCell>
         ))}
       </TableRow>
     </TableHead>
