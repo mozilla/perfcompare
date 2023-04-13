@@ -4,6 +4,7 @@ import TableContainer from '@mui/material/TableContainer';
 import { style } from 'typestyle';
 
 import { Spacing } from '../../../styles';
+import TableContent from './TableContent';
 import TableHeader from './TableHeader';
 
 const styles = {
@@ -17,14 +18,14 @@ function ResultsTable(props: ResultsTableProps) {
   
   return (
     <TableContainer component={Paper} className={styles.tableContainer} data-testid='results-table'>
-      <Table aria-label="collapsible table">
+      <Table>
         <TableHeader themeMode={themeMode} />
         {/* TODO: Add table body */}
+        <TableContent />
       </Table>
     </TableContainer>
   );
 }
-
 interface ResultsTableProps {
   themeMode: 'light' | 'dark';
 }
