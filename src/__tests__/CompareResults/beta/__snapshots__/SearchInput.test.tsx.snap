@@ -2,6 +2,7 @@
 
 exports[`Search by title/test name Should match snapshot 1`] = `
 <body>
+  <div />
   <div>
     <div
       class="MuiContainer-root MuiContainer-maxWidthXl css-bnm5sm-MuiContainer-root"

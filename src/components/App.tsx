@@ -68,7 +68,7 @@ function App() {
             />
             <Route
               path='/beta/compare-results'
-              element={<ResultsView />}
+              element={<ResultsView protocolTheme={protocolTheme} />}
             />
           </Routes>
         </Router>

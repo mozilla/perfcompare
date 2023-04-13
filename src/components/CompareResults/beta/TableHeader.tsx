@@ -7,25 +7,29 @@ import { style } from 'typestyle';
 
 import { Colors, Spacing } from '../../../styles';
 
-const styles = {
-  headerRow: style({
-    background: Colors.Background100,
-    borderRadius: '4px',
-    display: 'flex',
-    flexDirection: 'row',
-    maxWidth: '950px',
-    padding: Spacing.Small,
-  }),
-  filter: style({
-    background: Colors.Background200,
-    borderRadius: '4px',
-    cursor: 'not-allowed',
-    display: 'flex',
-    gap: Spacing.Small,
-    padding: `${Spacing.Small}px ${Spacing.Medium}px`,
-  }),
-};
-function TableHeader() {
+function TableHeader(props: TableHeaderProps) {
+  const { themeMode } = props;
+  const styles = {
+    headerRow: style({
+      background:
+        themeMode == 'light' ? Colors.Background100 : Colors.Background300Dark,
+      borderRadius: '4px',
+      display: 'flex',
+      flexDirection: 'row',
+      maxWidth: '950px',
+      padding: Spacing.Small,
+    }),
+    filter: style({
+      background:
+        themeMode == 'light' ? Colors.Background200 : Colors.Background200Dark,
+      borderRadius: '4px',
+      cursor: 'not-allowed',
+      display: 'flex',
+      gap: Spacing.Small,
+      padding: `${Spacing.Small}px ${Spacing.Medium}px`,
+    }),
+  };
+
   const headerCells = [
     {
       name: 'Platform',
@@ -58,9 +62,7 @@ function TableHeader() {
     <TableHead data-testid='table-header'>
       <TableRow className={styles.headerRow}>
         {headerCells.map((header) => (
-          <TableCell
-            key={header.name + 'Header'}
-          >
+          <TableCell key={header.name + 'Header'}>
             <div className={header.filter ? styles.filter : ''}>
               {header.sort ? <SortIcon /> : null}
               <span>{header.name}</span>
@@ -71,6 +73,10 @@ function TableHeader() {
       </TableRow>
     </TableHead>
   );
+}
+
+interface TableHeaderProps {
+  themeMode: 'light' | 'dark';
 }
 
 export default TableHeader;

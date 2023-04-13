@@ -2,6 +2,7 @@
 
 exports[`Table Header Should match snapshot 1`] = `
 <body>
+  <div />
   <div>
     <thead
       class="MuiTableHead-root css-15wwp11-MuiTableHead-root"
