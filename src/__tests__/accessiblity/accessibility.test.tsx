@@ -14,11 +14,11 @@ import { renderWithRouter, store } from '../utils/setupTests';
 expect.extend(toHaveNoViolations);
 
 describe('Accessibility', () => {
-  beforeAll(() => {
+  beforeEach(() => {
     jest.useRealTimers();
   });
 
-  afterAll(() => {
+  afterEach(() => {
     jest.useFakeTimers();
   });
 
