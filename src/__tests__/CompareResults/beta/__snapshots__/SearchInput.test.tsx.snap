@@ -153,7 +153,7 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                   data-testid="revision-select"
                 >
                   <div
-                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-sizeSmall  css-1jud5sf-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-sizeSmall fiy3v8i css-1od5rak-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
                   >
                     <div
                       aria-disabled="true"
@@ -163,7 +163,7 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                       role="button"
                     >
                       <div
-                        class="MuiBox-root css-1i27l4i"
+                        class="fbc330 MuiBox-root css-0"
                       >
                         <svg
                           aria-hidden="true"
