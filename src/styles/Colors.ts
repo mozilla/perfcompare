@@ -69,9 +69,12 @@ export enum Colors {
   ShadowDark = '0px 2px 6px #15141A',
 
   ColorTransparent = 'transparent',
-  ColorWhite = '#ffffff',
   ColorBlack = '#000000',
 
   //banner color
   BannerBG = 'rgb(255, 244, 229)',
 }
+
+export const background = (mode: string) => {
+  return mode === 'light' ? Colors.Background300 : Colors.Background100Dark;
+};

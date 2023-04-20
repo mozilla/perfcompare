@@ -3,18 +3,26 @@ import { style } from 'typestyle';
 import { Colors } from './Colors';
 import { Spacing } from './Spacing';
 
-export const Cards = {
-	sharedAll: style({
-		borderRadius: Spacing.Small,
-	}),
 
-	sharedLight: style({
-		boxShadow: Colors.ShadowLight,
-		backgroundColor: Colors.Background300,
-	}),
+export const CardsLightRaw = {
+  boxShadow: Colors.ShadowLight,
+  backgroundColor: Colors.Background300,
+  borderRadius: Spacing.Small,
+};
 
-	sharedDark: style({
-		boxShadow: Colors.ShadowDark,
-		backgroundColor: Colors.Background300Dark,
-	}),
- };
+export const CardsDarkRaw = {
+  boxShadow: Colors.ShadowDark,
+  backgroundColor: Colors.Background300Dark,
+  borderRadius: Spacing.Small,
+};
+
+export const SearchCardsRawShared = {
+  display: 'flex',
+  flexDirection: 'row',
+  cursor: 'pointer',
+  justifyContent: 'space-between',
+  width: '100%',
+};
+
+export const CardsLight = style(CardsLightRaw);
+export const CardsDark = style(CardsDarkRaw);

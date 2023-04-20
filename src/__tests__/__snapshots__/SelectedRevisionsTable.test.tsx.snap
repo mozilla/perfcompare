@@ -6,10 +6,10 @@ exports[`Search View should match snapshot 1`] = `
   <div />
   <div>
     <div
-      class="MuiGrid-root header-container f1ljnsh8 css-plh9qo-MuiGrid-root"
+      class="MuiGrid-root header-container fyhxtyt css-plh9qo-MuiGrid-root"
     >
       <div
-        class="toggle-dark-mode f15msy8l MuiBox-root css-0"
+        class="toggle-dark-mode f4zotac MuiBox-root css-0"
       >
         <div
           class="MuiFormGroup-root css-dmmspl-MuiFormGroup-root"
@@ -63,7 +63,7 @@ exports[`Search View should match snapshot 1`] = `
           Analyze results of performance tests to detect regressions and identify opportunities for improvement.
         </div>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium learn-more-btn css-1gikv27-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium learn-more-btn css-t42cd1-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >
@@ -483,7 +483,7 @@ exports[`Search View should match snapshot 1`] = `
         class="MuiGrid-root MuiGrid-item compare-button-section css-j8gwlw-MuiGrid-root"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button css-tp5w65-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button css-hkf0n7-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >
@@ -513,7 +513,7 @@ exports[`Search View should match snapshot 1`] = `
           id="revision-search-dropdown"
         >
           <div
-            class="MuiFormControl-root f12tflng f17k9m91 css-1anm9we-MuiFormControl-root"
+            class="MuiFormControl-root f12tflng f168mohg css-1anm9we-MuiFormControl-root"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
@@ -574,7 +574,7 @@ exports[`Search View should match snapshot 1`] = `
             class="MuiFormControl-root MuiFormControl-fullWidth css-q8hpuo-MuiFormControl-root"
           >
             <div
-              class="MuiFormControl-root MuiTextField-root f19ofdku f17k9m91 css-136h9lv-MuiFormControl-root-MuiTextField-root"
+              class="MuiFormControl-root MuiTextField-root fyypsdr f168mohg css-136h9lv-MuiFormControl-root-MuiTextField-root"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
