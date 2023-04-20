@@ -5,14 +5,14 @@ exports[`Search View renders correctly when there are no results 1`] = `
   <div />
   <div />
   <div>
-    <section
-      class="perfcompare-body"
+    <div
+      class="fcndgf6"
     >
       <div
-        class="MuiGrid-root header-container f1ljnsh8 css-plh9qo-MuiGrid-root"
+        class="MuiGrid-root header-container fyhxtyt css-plh9qo-MuiGrid-root"
       >
         <div
-          class="toggle-dark-mode f15msy8l MuiBox-root css-0"
+          class="toggle-dark-mode f4zotac MuiBox-root css-0"
         >
           <div
             class="MuiFormGroup-root css-dmmspl-MuiFormGroup-root"
@@ -66,7 +66,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
             Analyze results of performance tests to detect regressions and identify opportunities for improvement.
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium learn-more-btn css-1gikv27-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium learn-more-btn css-t42cd1-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
@@ -77,10 +77,60 @@ exports[`Search View renders correctly when there are no results 1`] = `
           </button>
         </div>
       </div>
-      <div>
-        Search View Beta Content
-      </div>
-    </section>
+      <section
+        class="f19vmf77"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body1 search-default-title css-1giq4eh-MuiTypography-root"
+        >
+          Compare with a base or over time
+        </p>
+        <div
+          class="compare-card-container"
+        >
+          <div
+            class="compare-card-text"
+          >
+            <div
+              class="compare-card-title"
+            >
+              Compare with a base
+            </div>
+            <div
+              class="compare-card-tagline"
+            >
+              Analyze differences between specific revisions.
+            </div>
+          </div>
+          <div
+            aria-label="two overlapping circles"
+            class="compare-card-img compare-card-img--base"
+          />
+        </div>
+        <div
+          class="compare-card-container compare-card-container--time"
+        >
+          <div
+            class="compare-card-text"
+          >
+            <div
+              class="compare-card-title"
+            >
+              Compare over time
+            </div>
+            <div
+              class="compare-card-tagline"
+            >
+              Analyze differences between revisions within a specific time range.
+            </div>
+          </div>
+          <div
+            aria-label="a clock"
+            class="compare-card-img compare-card-img--time"
+          />
+        </div>
+      </section>
+    </div>
   </div>
 </body>
 `;

@@ -20,7 +20,6 @@ function PerfCompareHeader(props: PerfCompareHeaderProps) {
 
   const styles = {
     container: style({
-      marginBottom: `${Spacing.layoutLarge + 20}px`,
       padding: 0,
       width: '100%',
       minHeight: '357px',
