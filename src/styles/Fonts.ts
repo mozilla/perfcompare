@@ -1,6 +1,16 @@
-import { style } from 'typestyle';
+import { style, fontFace } from 'typestyle';
 
 import { Colors } from './Colors';
+
+fontFace({
+  fontFamily: 'Metropolis',
+  src: 'url("fonts/Metropolis-Bold.woff2") format("woff2")',
+});
+
+fontFace({
+  fontFamily: 'SF Pro',
+  src: 'url("fonts/sf-pro-text-regular.woff") format("woff")',
+});
 
 const sharedFontStyles = {
   fontStyle: 'normal',
@@ -12,71 +22,69 @@ const sharedFontStylesDark = {
   color: Colors.PrimaryTextDark,
 };
 
-//fontFamily: 'SF Pro',
 export const FontsRaw = {
   HeadingDefault: {
     ...sharedFontStyles,
     lineHeight: '22px',
     fontWeight: '600',
     fontSize: '17px',
+    fontFamily: 'SF Pro',
   },
 
-  //fontFamily: 'Metropolis',
   HeadingXS: {
     ...sharedFontStyles,
     lineHeight: '28px',
-    fontWeight: '700',
     fontSize: '24px',
+    fontFamily: 'Metropolis',
   },
 
-  //fontFamily: 'SF Pro',
   BodyDefault: {
     ...sharedFontStyles,
     lineHeight: '16px',
     fontWeight: '400',
     fontSize: '14px',
+    fontFamily: 'SF Pro',
   },
 
-  //fontFamily: 'SF Pro',
   BodySmall: {
     ...sharedFontStyles,
     lineHeight: '14px',
     fontWeight: '400',
     fontSize: '12px',
+    fontFamily: 'SF Pro',
   },
 
   //DARK MODE FONTS
 
-  //fontFamily: 'SF Pro'
   HeadingDefaultDark: {
     ...sharedFontStylesDark,
     lineHeight: '22px',
     fontWeight: '600',
     fontSize: '17px',
+    fontFamily: 'SF Pro',
   },
 
-  //fontFamily: 'Metropolis',
   HeadingXSDark: {
     ...sharedFontStylesDark,
     lineHeight: '28px',
-    fontWeight: '700',
     fontSize: '24px',
+    fontFamily: 'Metropolis',
   },
 
-  //fontFamily: 'SF Pro',
   BodyDefaultDark: {
     ...sharedFontStylesDark,
     lineHeight: '16px',
     fontWeight: '400',
     fontSize: '14px',
+    fontFamily: 'SF Pro',
   },
 
-  //fontFamily: 'SF Pro',
   BodySmallDark: {
     ...sharedFontStylesDark,
     lineHeight: '14px',
     fontWeight: '400',
     fontSize: '12px',
+    fontFamily: 'SF Pro',
   },
 };
 
