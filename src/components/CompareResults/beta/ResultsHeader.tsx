@@ -12,7 +12,6 @@ const styles = {
   }),
   content: style({
     display: 'flex',
-    justifyContent: 'space-between',
   }),
 };
 
@@ -22,8 +21,8 @@ function ResultsHeader() {
       <div className={styles.title}>Results</div>
       <div className={styles.content}>
         <SearchInput />
-        <DownloadButton />
         <RevisionSelect />
+        <DownloadButton />
       </div>
     </header>
   );

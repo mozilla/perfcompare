@@ -47,10 +47,10 @@ exports[`Results View Should match snapshot 1`] = `
                 Results
               </div>
               <div
-                class="f1ubk0hm"
+                class="f1f1ygnm"
               >
                 <div
-                  class="f62ucbu"
+                  class="f1wnc453"
                   data-testid="search-by-title-test-name"
                 >
                   <div
@@ -137,18 +137,6 @@ exports[`Results View Should match snapshot 1`] = `
                   </button>
                 </div>
                 <div
-                  class="fnyxjzg"
-                >
-                  <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-t42cd1-MuiButtonBase-root-MuiButton-root"
-                    disabled=""
-                    tabindex="-1"
-                    type="button"
-                  >
-                    Download JSON
-                  </button>
-                </div>
-                <div
                   class="MuiBox-root css-0"
                   data-testid="revision-select"
                 >
@@ -218,6 +206,18 @@ exports[`Results View Should match snapshot 1`] = `
                       </legend>
                     </fieldset>
                   </div>
+                </div>
+                <div
+                  class="fnyxjzg"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-t42cd1-MuiButtonBase-root-MuiButton-root"
+                    disabled=""
+                    tabindex="-1"
+                    type="button"
+                  >
+                    Download JSON
+                  </button>
                 </div>
               </div>
             </header>
