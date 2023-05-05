@@ -12,7 +12,7 @@ export const CardsLightRaw = {
 
 export const CardsDarkRaw = {
   boxShadow: Colors.ShadowDark,
-  backgroundColor: Colors.Background300Dark,
+  backgroundColor: Colors.Background200Dark,
   borderRadius: Spacing.Small,
 };
 

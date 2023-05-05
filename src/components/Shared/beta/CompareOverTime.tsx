@@ -1,11 +1,16 @@
 import { Strings } from '../../../resources/Strings';
+import { CompareCardsStyles } from '../../../styles';
 
 const strings = Strings.components.searchDefault;
 
-function CompareOverTime() {
+function CompareOverTime(props: CompareOverTimeProps) {
+  const { mode } = props;
+  const styles = CompareCardsStyles(mode);
   return (
-    <div className='compare-card-container compare-card-container--time'>
-      <div className='compare-card-text'>
+    <div
+      className={`compare-card-container compare-card-container--time ${styles.container}`}
+    >
+      <div className={`compare-card-text ${styles.cardText}`}>
         <div className='compare-card-title'>{strings.overTime.title}</div>
         <div className='compare-card-tagline'>{strings.overTime.tagline}</div>
       </div>
@@ -15,6 +20,10 @@ function CompareOverTime() {
       />
     </div>
   );
+}
+
+interface CompareOverTimeProps {
+  mode: 'light' | 'dark';
 }
 
 export default CompareOverTime;
