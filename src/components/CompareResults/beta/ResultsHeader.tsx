@@ -2,6 +2,7 @@ import { style } from 'typestyle';
 
 import { Spacing } from '../../../styles';
 import DownloadButton from './DownloadButton';
+import RevisionSelect from './RevisionSelect';
 import SearchInput from './SearchInput';
 
 const styles = {
@@ -11,7 +12,6 @@ const styles = {
   }),
   content: style({
     display: 'flex',
-    justifyContent: 'space-between',
   }),
 };
 
@@ -21,9 +21,9 @@ function ResultsHeader() {
       <div className={styles.title}>Results</div>
       <div className={styles.content}>
         <SearchInput />
+        <RevisionSelect />
         <DownloadButton />
       </div>
-      {/* TODO PCF-224 */}
     </header>
   );
 }
