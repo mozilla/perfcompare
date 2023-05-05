@@ -50,7 +50,7 @@ function RevisionSearch(props: RevisionSearchProps) {
 
   const dispatch = useAppDispatch();
   const { replaceSelectedRevision } = useSelectRevision();
-  const matches = useMediaQuery('(max-width:768px)');
+  const matchesQuery = useMediaQuery('(max-width:768px)');
 
   const handleFocus = (e: MouseEvent) => {
     if (
@@ -114,7 +114,7 @@ function RevisionSearch(props: RevisionSearchProps) {
         item
         xs={9}
         className={`revision_search-input ${
-          matches ? 'revision_search-input--mobile' : ''
+          matchesQuery ? 'revision_search-input--mobile' : ''
         }`}
       >
         <SearchInput setFocused={setFocused} view={view} />

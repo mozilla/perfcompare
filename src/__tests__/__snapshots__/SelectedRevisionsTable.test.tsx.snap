@@ -513,7 +513,7 @@ exports[`Search View should match snapshot 1`] = `
           id="revision-search-dropdown"
         >
           <div
-            class="MuiFormControl-root f12tflng f168mohg css-1anm9we-MuiFormControl-root"
+            class="MuiFormControl-root f1no547h f168mohg css-1anm9we-MuiFormControl-root"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
@@ -523,7 +523,7 @@ exports[`Search View should match snapshot 1`] = `
               repository
             </label>
             <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl fdhjf9z css-1od5rak-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl fzedhiy css-1od5rak-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
             >
               <div
                 aria-expanded="false"
@@ -574,7 +574,7 @@ exports[`Search View should match snapshot 1`] = `
             class="MuiFormControl-root MuiFormControl-fullWidth css-q8hpuo-MuiFormControl-root"
           >
             <div
-              class="MuiFormControl-root MuiTextField-root fyypsdr f168mohg css-136h9lv-MuiFormControl-root-MuiTextField-root"
+              class="MuiFormControl-root MuiTextField-root f2gjzje f168mohg css-136h9lv-MuiFormControl-root-MuiTextField-root"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
