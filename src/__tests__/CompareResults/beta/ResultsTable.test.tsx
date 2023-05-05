@@ -1,16 +1,17 @@
-import ResultsView from '../../../components/CompareResults/beta/ResultsView';
+import ResultsTable from '../../../components/CompareResults/beta/ResultsTable';
 import useProtocolTheme from '../../../theme/protocolTheme';
 import { renderWithRouter } from '../../utils/setupTests';
 import { renderHook, screen } from '../../utils/test-utils';
 
-describe('Search by title/test name', () => {
+describe('Results Table', () => {
   const protocolTheme = renderHook(() => useProtocolTheme()).result.current
   .protocolTheme;
+  const themeMode = protocolTheme.palette.mode;
 
   it('Should match snapshot', () => {
-    renderWithRouter(<ResultsView protocolTheme={protocolTheme}/>);
+    renderWithRouter(<ResultsTable themeMode={themeMode} />);
 
-    expect(screen.getByTestId('search-by-title-test-name')).toBeInTheDocument();
+    expect(screen.getByTestId('results-table')).toBeInTheDocument();
     expect(document.body).toMatchSnapshot();
   });
 });
