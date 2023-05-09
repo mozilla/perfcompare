@@ -9,7 +9,7 @@ function SearchResultsList(props: SearchResultsListProps) {
 
   return (
     <Box
-      id="search-results-list"
+      id='search-results-list'
       sx={{
         maxWidth: '100%',
         bgcolor: 'background.paper',
@@ -27,7 +27,7 @@ function SearchResultsList(props: SearchResultsListProps) {
           borderColor: 'text.primary',
         },
       }}
-      alignItems="flex-end"
+      alignItems='flex-end'
     >
       <List dense={view == 'compare-results'} sx={{ paddingTop: '0' }}>
         {searchResults.map((item, index) => (

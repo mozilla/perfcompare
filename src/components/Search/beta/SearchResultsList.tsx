@@ -6,7 +6,7 @@ import type { Revision } from '../../../types/state';
 import SearchResultsListItem from './SearchResultsListItem';
 
 function SearchResultsList(props: SearchResultsListProps) {
-  const { searchResults, view, mode } = props;
+  const { searchResults, view, mode, base } = props;
 
   return (
     <Box
@@ -21,6 +21,7 @@ function SearchResultsList(props: SearchResultsListProps) {
             index={index}
             item={item}
             view={view}
+            base={base}
           />
         ))}
       </List>
@@ -32,6 +33,7 @@ interface SearchResultsListProps {
   searchResults: Revision[];
   view: 'compare-results' | 'search';
   mode: 'light' | 'dark';
+  base: 'base' | 'new';
 }
 
 export default SearchResultsList;

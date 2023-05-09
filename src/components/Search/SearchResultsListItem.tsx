@@ -69,6 +69,7 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
   const isChecked: boolean = useAppSelector((state) =>
     state.checkedRevisions.revisions.includes(item),
   );
+
   const { handleToggle } = useCheckRevision();
 
   const revisionHash = truncateHash(item.revision);
@@ -85,13 +86,13 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
         sx={{ paddingTop: '0' }}
       >
         <ListItem
-          className="search-revision-item search-revision"
+          className='search-revision-item search-revision'
           disablePadding
         >
-          <ListItemIcon className="search-revision-item-icon search-revision">
+          <ListItemIcon className='search-revision-item-icon search-revision'>
             <Checkbox
-              className="search-revision-item-checkbox"
-              edge="start"
+              className='search-revision-item-checkbox'
+              edge='start'
               tabIndex={-1}
               disableRipple
               data-testid={`checkbox-${index}`}
@@ -99,34 +100,34 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
             />
           </ListItemIcon>
           <ListItemText
-            className="search-revision-item-text"
+            className='search-revision-item-text'
             primary={
               <React.Fragment>
                 <Typography
                   sx={{ display: 'inline' }}
-                  component="span"
-                  variant="body2"
-                  color="text.primary"
-                  alignItems="center"
-                  className="revision-hash"
+                  component='span'
+                  variant='body2'
+                  color='text.primary'
+                  alignItems='center'
+                  className='revision-hash'
                 >
                   {revisionHash}
                 </Typography>
 
-                <div className="info-caption">
-                  <div className="info-caption-item item-author">
+                <div className='info-caption'>
+                  <div className='info-caption-item item-author'>
                     {' '}
                     <MailOutlineOutlinedIcon
-                      className="mail-icon"
-                      fontSize="small"
+                      className='mail-icon'
+                      fontSize='small'
                     />{' '}
                     {item.author}
                   </div>
 
-                  <div className="info-caption-item item-time">
+                  <div className='info-caption-item item-time'>
                     <AccessTimeOutlinedIcon
-                      className="time-icon"
-                      fontSize="small"
+                      className='time-icon'
+                      fontSize='small'
                     />
                     {String(dayjs(itemDate).format('MM/DD/YY HH:mm'))}
                   </div>

@@ -106,6 +106,7 @@ function BaseSearch(props: BaseSearchProps) {
             mode={mode}
             searchResults={searchResults}
             view={view}
+            base='base'
           />
         )}
       </Grid>
