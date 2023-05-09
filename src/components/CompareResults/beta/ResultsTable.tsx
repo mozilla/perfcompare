@@ -15,13 +15,16 @@ const styles = {
 
 function ResultsTable(props: ResultsTableProps) {
   const { themeMode } = props;
-  
+
   return (
-    <TableContainer component={Paper} className={styles.tableContainer} data-testid='results-table'>
+    <TableContainer
+      component={Paper}
+      className={styles.tableContainer}
+      data-testid='results-table'
+    >
       <Table>
         <TableHeader themeMode={themeMode} />
-        {/* TODO: Add table body */}
-        <TableContent />
+        <TableContent themeMode={themeMode} />
       </Table>
     </TableContainer>
   );
