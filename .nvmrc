@@ -1,0 +1,3 @@
+16
+# This is used automatically by nvm. Nvm is used in netlify to define the node
+# version they automatically install and use to run our build scripts.
