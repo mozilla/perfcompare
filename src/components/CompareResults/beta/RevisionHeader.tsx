@@ -40,7 +40,7 @@ function RevisionHeader() {
   return (
     <TableRow className='revision-header'>
       <TableCell colSpan={8}>
-        Metric 1 <Link href='#'>0f9ef9ff3ea</Link>
+        <strong>Metric 1</strong> <Link href='#'>0f9ef9ff3ea</Link>
       </TableCell>
       <TableCell colSpan={4}>
         <div className={styles.tagsOptions}>
