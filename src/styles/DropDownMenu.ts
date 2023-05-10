@@ -64,7 +64,7 @@ export const DropDownItemRaw = {
       },
       '&:focus': {
         backgroundColor: Colors.SecondaryDark,
-        border: `${Spacing.xSmall - 2}px solid ${Colors.PrimaryDark}`,
+        border: `${Spacing.xSmall / 2}px solid ${Colors.PrimaryDark}`,
       },
     },
   },

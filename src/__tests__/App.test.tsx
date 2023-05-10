@@ -13,10 +13,9 @@ describe('App', () => {
     expect(screen.getByText(/PerfCompare/i)).toBeInTheDocument();
 
     await act(async () => void jest.runOnlyPendingTimers());
+    const homeText = screen.getByText('Compare with a base or over time');
 
-    expect(
-      screen.getByLabelText('Search By Revision ID or Author Email'),
-    ).toBeInTheDocument();
+    expect(homeText).toBeInTheDocument();
   });
 
   test('Should switch between dark mode and light mode on toggle', async () => {

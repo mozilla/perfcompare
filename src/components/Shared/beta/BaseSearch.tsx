@@ -1,4 +1,10 @@
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import {
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useState,
+  createRef,
+} from 'react';
 
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
@@ -26,15 +32,15 @@ function BaseSearch(props: BaseSearchProps) {
   const dispatch = useAppDispatch();
   const { replaceSelectedRevision } = useSelectRevision();
   const matchesQuery = useMediaQuery('(max-width:768px)');
+  const containerRef = createRef<HTMLDivElement>();
+  const searchDropdown = createRef<HTMLDivElement>();
 
   const styles = SearchStyles(mode);
 
   const handleFocus = (e: MouseEvent) => {
     if (
-      (e.target as HTMLElement).matches(
-        `#base-search-container, 
-        #base-search-container *`,
-      ) &&
+      (e.target as HTMLElement).matches(`#base-search-container, 
+      #base-search-container *`) &&
       // do not open search results when dropdown or cancel button is clicked
       !(e.target as HTMLElement).matches(
         `#base_search-dropdown,
@@ -47,28 +53,32 @@ function BaseSearch(props: BaseSearchProps) {
       return;
     } else {
       setFocused(false);
-      dispatch(clearCheckedRevisions());
     }
   };
 
   const handleEscKeypress = (e: KeyboardEvent) => {
     if (e.key === 'Escape') {
       setFocused(false);
-      dispatch(clearCheckedRevisions());
     }
   };
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleFocus);
+    if (focused == false) {
+      dispatch(clearCheckedRevisions());
+    }
+  }, [focused]);
+
+  useEffect(() => {
+    containerRef.current?.addEventListener('mousedown', handleFocus);
     return () => {
-      document.removeEventListener('mousedown', handleFocus);
+      containerRef.current?.removeEventListener('mousedown', handleFocus);
     };
   }, []);
 
   useEffect(() => {
-    document.addEventListener('keydown', handleEscKeypress);
+    containerRef.current?.addEventListener('keydown', handleEscKeypress);
     return () => {
-      document.removeEventListener('keydown', handleEscKeypress);
+      containerRef.current?.removeEventListener('keydown', handleEscKeypress);
     };
   });
 
@@ -78,12 +88,14 @@ function BaseSearch(props: BaseSearchProps) {
       alignItems='flex-start'
       id='base-search-container'
       className={styles.container}
+      ref={containerRef}
     >
       <Grid
         item
         xs={2}
         id='base_search-dropdown'
         className={`base-search-dropdown ${styles.dropDown} ${styles.baseSearchDropdown}`}
+        ref={searchDropdown}
       >
         <SearchDropdown
           view={view}

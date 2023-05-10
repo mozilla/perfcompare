@@ -5,7 +5,7 @@ import { act } from 'react-dom/test-utils';
 
 import { maxRevisionsError } from '../common/constants';
 import App from '../components/App';
-import SearchView from '../components/Search/SearchView';
+import SearchView from '../components/Search/beta/SearchView';
 import useProtocolTheme from '../theme/protocolTheme';
 import getTestData from './utils/fixtures';
 import { renderWithRouter, render } from './utils/setupTests';
@@ -36,9 +36,9 @@ describe('Snackbar', () => {
 
     await user.click(screen.getAllByTestId('checkbox-0')[0]);
     await user.click(screen.getAllByTestId('checkbox-1')[0]);
-    await user.click(screen.getAllByTestId('checkbox-2')[0]);
-    await user.click(screen.getAllByTestId('checkbox-3')[0]);
-    await user.click(screen.getAllByTestId('checkbox-4')[0]);
+    // await user.click(screen.getAllByTestId('checkbox-2')[0]);
+    // await user.click(screen.getAllByTestId('checkbox-3')[0]);
+    // await user.click(screen.getAllByTestId('checkbox-4')[0]);
 
     const alert = screen.getByText(maxRevisionsError);
 
@@ -75,9 +75,9 @@ describe('Snackbar', () => {
 
     await user.click(screen.getAllByTestId('checkbox-0')[0]);
     await user.click(screen.getAllByTestId('checkbox-1')[0]);
-    await user.click(screen.getAllByTestId('checkbox-2')[0]);
-    await user.click(screen.getAllByTestId('checkbox-3')[0]);
-    await user.click(screen.getAllByTestId('checkbox-4')[0]);
+    // await user.click(screen.getAllByTestId('checkbox-2')[0]);
+    // await user.click(screen.getAllByTestId('checkbox-3')[0]);
+    // await user.click(screen.getAllByTestId('checkbox-4')[0]);
 
     const alert = screen.getByText(maxRevisionsError);
 
@@ -95,7 +95,7 @@ describe('Snackbar', () => {
   it('should render feedback alert', async () => {
     const user = userEvent.setup({ delay: null });
     render(<App />);
-    const infoButton = screen.getByTestId('InfoOutlinedIcon');
+    const infoButton = screen.getAllByTestId('InfoOutlinedIcon')[0];
     await user.click(infoButton);
     const feedbackAlert = screen.getByTestId('feedback-alert');
     expect(feedbackAlert).toBeInTheDocument();
@@ -104,7 +104,7 @@ describe('Snackbar', () => {
   it('should close feedback alert on clicking the close button', async () => {
     const user = userEvent.setup({ delay: null });
     render(<App />);
-    const infoButton = screen.getByTestId('InfoOutlinedIcon');
+    const infoButton = screen.getAllByTestId('InfoOutlinedIcon')[0];
     await user.click(infoButton);
     const feedbackAlert = screen.getByTestId('feedback-alert');
     expect(feedbackAlert).toBeVisible();
@@ -116,7 +116,7 @@ describe('Snackbar', () => {
   it('should not close feedback alert on blur', async () => {
     const user = userEvent.setup({ delay: null });
     render(<App />);
-    const infoButton = screen.getByTestId('InfoOutlinedIcon');
+    const infoButton = screen.getAllByTestId('InfoOutlinedIcon')[0];
     await user.click(infoButton);
     const feedbackAlert = screen.getByTestId('feedback-alert');
     expect(feedbackAlert).toBeVisible();
@@ -130,7 +130,7 @@ describe('Snackbar', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
     render(<App />);
-    const infoButton = screen.getByTestId('InfoOutlinedIcon');
+    const infoButton = screen.getAllByTestId('InfoOutlinedIcon')[0];
     await user.click(infoButton);
     const feedbackAlert = screen.getByTestId('feedback-alert');
     expect(feedbackAlert).toBeVisible();

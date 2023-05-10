@@ -124,7 +124,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                 id="base-search-container"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fe6sm baseSearchDropdown_fe6sm css-1awobkc-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_ffz7cf5 baseSearchDropdown_fe6sm css-1awobkc-MuiGrid-root"
                   id="base_search-dropdown"
                 >
                   <div>
@@ -190,7 +190,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                   id="base_search-input"
                 >
                   <div
-                    class="MuiFormControl-root MuiFormControl-fullWidth fj0l9jr css-q8hpuo-MuiFormControl-root"
+                    class="MuiFormControl-root MuiFormControl-fullWidth fv98i7o css-q8hpuo-MuiFormControl-root"
                   >
                     <div
                       class="hide"

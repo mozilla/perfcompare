@@ -11,6 +11,14 @@ import {
 
 const strings = Strings.components.searchDefault;
 
+const textLightMode = {
+  color: `${Colors.PrimaryText} !important`,
+};
+
+const textDarkMode = {
+  color: `${Colors.PrimaryTextDark} !important`,
+};
+
 export const CompareCardsStyles = (mode: string) => {
   const isTrueLight = mode == 'light' ? true : false;
 
@@ -129,6 +137,7 @@ export const SearchStyles = (mode: string) => {
           alignItems: 'center',
           transform: 'unset',
           position: 'relative',
+          ...(isTrueLight ? textLightMode : textDarkMode),
         },
         '.dropdown-info-icon': {
           marginLeft: `${Spacing.xSmall}px`,

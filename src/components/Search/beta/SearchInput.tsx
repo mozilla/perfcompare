@@ -10,7 +10,7 @@ import { style } from 'typestyle';
 import type { RootState } from '../../../common/store';
 import useHandleChangeSearch from '../../../hooks/useHandleChangeSearch';
 import { Strings } from '../../../resources/Strings';
-import { InputStylesRaw } from '../../../styles';
+import { InputStylesRaw, Spacing } from '../../../styles';
 
 const strings = Strings.components.searchDefault.base.collapedBase;
 
@@ -27,6 +27,7 @@ function SearchInput(props: SearchInputProps) {
         },
         '.search-text-field': {
           width: '100%',
+          marginTop: `${Spacing.xSmall / 2}px`,
         },
         '.MuiInputBase-root': {
           ...(mode == 'light' ? InputStylesRaw.Light : InputStylesRaw.Dark),
