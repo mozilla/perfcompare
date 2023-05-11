@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import AppleIcon from '@mui/icons-material/Apple';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -6,11 +8,32 @@ import TimelineIcon from '@mui/icons-material/Timeline';
 import { IconButton, TableRow, TableCell } from '@mui/material';
 import { style } from 'typestyle';
 
+import { ExpandableRowStyles } from '../../../styles';
 import { Colors, Spacing } from '../../../styles';
+import RevisionRowExpandable from './RevisionRowExpandable';
+
+interface Expanded {
+  expanded: boolean;
+  class: string;
+}
+
 
 function RevisionRow(props: RevisionRowProps) {
   const { themeMode } = props;
-  console.log(themeMode);
+
+  const [row, setExpanded] = useState<Expanded>({
+    expanded: false,
+    class: 'default',
+  });
+
+  const toggleIsExpanded = () => {
+    setExpanded({
+      expanded: !row.expanded,
+      class: row.expanded ? 'default' : 'expanded',
+    });
+  };
+
+  const stylesCard = ExpandableRowStyles(themeMode);
 
   const themeColor200 =
     themeMode == 'light' ? Colors.Background200 : Colors.Background200Dark;
@@ -84,6 +107,7 @@ function RevisionRow(props: RevisionRowProps) {
     }),
   };
   return (
+    <>
     <TableRow className={`revisionRow ${styles.revisionRow}`}>
       <TableCell className='platform'>
         <div className='platform-container'>
@@ -126,7 +150,7 @@ function RevisionRow(props: RevisionRowProps) {
         </div>
       </TableCell>
       <TableCell className='cell-button expand-button'>
-        <div className='expand-button-container'>
+        <div className='expand-button-container' onClick={toggleIsExpanded}>
           <IconButton
             aria-label='expand row'
             size='small'
@@ -136,6 +160,20 @@ function RevisionRow(props: RevisionRowProps) {
         </div>
       </TableCell>
     </TableRow>
+    <TableRow>
+      <TableCell colSpan={12}>
+        <RevisionRowExpandable themeMode={themeMode}/>
+      </TableCell>
+    </TableRow>
+
+    <div className={`content-row content-row--${row.class} ${stylesCard.container} `}>
+    <TableRow>
+      <TableCell colSpan={12}>
+        <RevisionRowExpandable themeMode={themeMode}/>
+      </TableCell>
+    </TableRow>
+    </div>
+    </>
   );
 }
 

@@ -424,194 +424,127 @@ exports[`Results Table Should match snapshot 1`] = `
             </td>
           </tr>
           <tr
-            class="MuiTableRow-root revisionRow fju3wsp css-1yt2i5z-MuiTableRow-root"
+            class="MuiTableRow-root css-1yt2i5z-MuiTableRow-root"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium platform css-15mfgc5-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
+              colspan="12"
             >
               <div
-                class="platform-container"
+                class="ftz6u0k"
               >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                  data-testid="AppleIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
+                <div
+                  class="f1fbhazh"
                 >
-                  <path
-                    d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"
-                  />
-                </svg>
-                <span>
-                  Apple
-                </span>
-              </div>
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium base-value css-15mfgc5-MuiTableCell-root"
-            >
-              <div
-                class="base-container"
-              >
-                771.39ms
-              </div>
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
-            >
-              &gt;
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
-            >
-              771.39ms
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium status css-15mfgc5-MuiTableCell-root"
-            >
-              Improvement
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
-            >
-              2.5%
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
-            >
-              High
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
-            >
-              <span>
-                B:
-              </span>
-              <strong>
-                23
-              </strong>
-               
-              <span>
-                N:
-              </span>
-              <strong>
-                27
-              </strong>
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium cell-button graph css-15mfgc5-MuiTableCell-root"
-            >
-              <div
-                class="graph-link-button-container"
-              >
-                <button
-                  aria-label="graph link"
-                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
-                  tabindex="0"
-                  type="button"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                    data-testid="TimelineIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
+                  <div
+                    class="fc8wfj0"
                   >
-                    <path
-                      d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2z"
-                    />
-                  </svg>
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </button>
-              </div>
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium cell-button download css-15mfgc5-MuiTableCell-root"
-            >
-              <div
-                class="download-button-container"
-              >
-                <button
-                  aria-label="download"
-                  class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
-                  disabled=""
-                  tabindex="-1"
-                  type="button"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                    data-testid="FileDownloadOutlinedIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
+                    macosx1015-64-shippable-qr 
+                    <br />
+                  </div>
+                  <div
+                    class="fc8wfj0"
                   >
-                    <path
-                      d="M18 15v3H6v-3H4v3c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-3h-2zm-1-4-1.41-1.41L13 12.17V4h-2v8.17L8.41 9.59 7 11l5 5 5-5z"
+                    <hr
+                      class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
                     />
-                  </svg>
-                </button>
-              </div>
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium cell-button retrigger-button css-15mfgc5-MuiTableCell-root"
-            >
-              <div
-                class="runs-button-container"
-              >
-                <button
-                  aria-label="retrigger button"
-                  class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
-                  disabled=""
-                  tabindex="-1"
-                  type="button"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                    data-testid="RefreshOutlinedIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
+                     
+                  </div>
+                  <div
+                    class="fc8wfj0"
                   >
-                    <path
-                      d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium cell-button expand-button css-15mfgc5-MuiTableCell-root"
-            >
-              <div
-                class="expand-button-container"
-              >
-                <button
-                  aria-label="expand row"
-                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
-                  tabindex="0"
-                  type="button"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                    data-testid="KeyboardArrowDownIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
+                    Only one run (consider more runs for greater confidence).
+                  </div>
+                  <div
+                    class="fc8wfj0"
                   >
-                    <path
-                      d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-                    />
-                  </svg>
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </button>
+                    <b>
+                      Mean Difference
+                    </b>
+                    : 2.5% worse (1,394,293,93)
+                  </div>
+                  <div>
+                    <b>
+                      Confidence
+                    </b>
+                    : High
+                  </div>
+                  <div
+                    class="fl597bh"
+                  >
+                    <b>
+                      **NOTE
+                    </b>
+                    : 
+                    THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                  </div>
+                </div>
               </div>
             </td>
           </tr>
+          <div
+            class="content-row content-row--default container_f7k7qe1 "
+          >
+            <tr
+              class="MuiTableRow-root css-1yt2i5z-MuiTableRow-root"
+            >
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
+                colspan="12"
+              >
+                <div
+                  class="ftz6u0k"
+                >
+                  <div
+                    class="f1fbhazh"
+                  >
+                    <div
+                      class="fc8wfj0"
+                    >
+                      macosx1015-64-shippable-qr 
+                      <br />
+                    </div>
+                    <div
+                      class="fc8wfj0"
+                    >
+                      <hr
+                        class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+                      />
+                       
+                    </div>
+                    <div
+                      class="fc8wfj0"
+                    >
+                      Only one run (consider more runs for greater confidence).
+                    </div>
+                    <div
+                      class="fc8wfj0"
+                    >
+                      <b>
+                        Mean Difference
+                      </b>
+                      : 2.5% worse (1,394,293,93)
+                    </div>
+                    <div>
+                      <b>
+                        Confidence
+                      </b>
+                      : High
+                    </div>
+                    <div
+                      class="fl597bh"
+                    >
+                      <b>
+                        **NOTE
+                      </b>
+                      : 
+                      THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </div>
           <tr
             class="MuiTableRow-root revisionRow fju3wsp css-1yt2i5z-MuiTableRow-root"
           >
@@ -801,6 +734,439 @@ exports[`Results Table Should match snapshot 1`] = `
               </div>
             </td>
           </tr>
+          <tr
+            class="MuiTableRow-root css-1yt2i5z-MuiTableRow-root"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
+              colspan="12"
+            >
+              <div
+                class="ftz6u0k"
+              >
+                <div
+                  class="f1fbhazh"
+                >
+                  <div
+                    class="fc8wfj0"
+                  >
+                    macosx1015-64-shippable-qr 
+                    <br />
+                  </div>
+                  <div
+                    class="fc8wfj0"
+                  >
+                    <hr
+                      class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+                    />
+                     
+                  </div>
+                  <div
+                    class="fc8wfj0"
+                  >
+                    Only one run (consider more runs for greater confidence).
+                  </div>
+                  <div
+                    class="fc8wfj0"
+                  >
+                    <b>
+                      Mean Difference
+                    </b>
+                    : 2.5% worse (1,394,293,93)
+                  </div>
+                  <div>
+                    <b>
+                      Confidence
+                    </b>
+                    : High
+                  </div>
+                  <div
+                    class="fl597bh"
+                  >
+                    <b>
+                      **NOTE
+                    </b>
+                    : 
+                    THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <div
+            class="content-row content-row--default container_f7k7qe1 "
+          >
+            <tr
+              class="MuiTableRow-root css-1yt2i5z-MuiTableRow-root"
+            >
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
+                colspan="12"
+              >
+                <div
+                  class="ftz6u0k"
+                >
+                  <div
+                    class="f1fbhazh"
+                  >
+                    <div
+                      class="fc8wfj0"
+                    >
+                      macosx1015-64-shippable-qr 
+                      <br />
+                    </div>
+                    <div
+                      class="fc8wfj0"
+                    >
+                      <hr
+                        class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+                      />
+                       
+                    </div>
+                    <div
+                      class="fc8wfj0"
+                    >
+                      Only one run (consider more runs for greater confidence).
+                    </div>
+                    <div
+                      class="fc8wfj0"
+                    >
+                      <b>
+                        Mean Difference
+                      </b>
+                      : 2.5% worse (1,394,293,93)
+                    </div>
+                    <div>
+                      <b>
+                        Confidence
+                      </b>
+                      : High
+                    </div>
+                    <div
+                      class="fl597bh"
+                    >
+                      <b>
+                        **NOTE
+                      </b>
+                      : 
+                      THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </div>
+          <tr
+            class="MuiTableRow-root revisionRow fju3wsp css-1yt2i5z-MuiTableRow-root"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium platform css-15mfgc5-MuiTableCell-root"
+            >
+              <div
+                class="platform-container"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                  data-testid="AppleIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"
+                  />
+                </svg>
+                <span>
+                  Apple
+                </span>
+              </div>
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium base-value css-15mfgc5-MuiTableCell-root"
+            >
+              <div
+                class="base-container"
+              >
+                771.39ms
+              </div>
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
+            >
+              &gt;
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
+            >
+              771.39ms
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium status css-15mfgc5-MuiTableCell-root"
+            >
+              Improvement
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
+            >
+              2.5%
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
+            >
+              High
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
+            >
+              <span>
+                B:
+              </span>
+              <strong>
+                23
+              </strong>
+               
+              <span>
+                N:
+              </span>
+              <strong>
+                27
+              </strong>
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium cell-button graph css-15mfgc5-MuiTableCell-root"
+            >
+              <div
+                class="graph-link-button-container"
+              >
+                <button
+                  aria-label="graph link"
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+                  tabindex="0"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                    data-testid="TimelineIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2z"
+                    />
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </button>
+              </div>
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium cell-button download css-15mfgc5-MuiTableCell-root"
+            >
+              <div
+                class="download-button-container"
+              >
+                <button
+                  aria-label="download"
+                  class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+                  disabled=""
+                  tabindex="-1"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                    data-testid="FileDownloadOutlinedIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M18 15v3H6v-3H4v3c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-3h-2zm-1-4-1.41-1.41L13 12.17V4h-2v8.17L8.41 9.59 7 11l5 5 5-5z"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium cell-button retrigger-button css-15mfgc5-MuiTableCell-root"
+            >
+              <div
+                class="runs-button-container"
+              >
+                <button
+                  aria-label="retrigger button"
+                  class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+                  disabled=""
+                  tabindex="-1"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                    data-testid="RefreshOutlinedIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium cell-button expand-button css-15mfgc5-MuiTableCell-root"
+            >
+              <div
+                class="expand-button-container"
+              >
+                <button
+                  aria-label="expand row"
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+                  tabindex="0"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                    data-testid="KeyboardArrowDownIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                    />
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </button>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root css-1yt2i5z-MuiTableRow-root"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
+              colspan="12"
+            >
+              <div
+                class="ftz6u0k"
+              >
+                <div
+                  class="f1fbhazh"
+                >
+                  <div
+                    class="fc8wfj0"
+                  >
+                    macosx1015-64-shippable-qr 
+                    <br />
+                  </div>
+                  <div
+                    class="fc8wfj0"
+                  >
+                    <hr
+                      class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+                    />
+                     
+                  </div>
+                  <div
+                    class="fc8wfj0"
+                  >
+                    Only one run (consider more runs for greater confidence).
+                  </div>
+                  <div
+                    class="fc8wfj0"
+                  >
+                    <b>
+                      Mean Difference
+                    </b>
+                    : 2.5% worse (1,394,293,93)
+                  </div>
+                  <div>
+                    <b>
+                      Confidence
+                    </b>
+                    : High
+                  </div>
+                  <div
+                    class="fl597bh"
+                  >
+                    <b>
+                      **NOTE
+                    </b>
+                    : 
+                    THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <div
+            class="content-row content-row--default container_f7k7qe1 "
+          >
+            <tr
+              class="MuiTableRow-root css-1yt2i5z-MuiTableRow-root"
+            >
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
+                colspan="12"
+              >
+                <div
+                  class="ftz6u0k"
+                >
+                  <div
+                    class="f1fbhazh"
+                  >
+                    <div
+                      class="fc8wfj0"
+                    >
+                      macosx1015-64-shippable-qr 
+                      <br />
+                    </div>
+                    <div
+                      class="fc8wfj0"
+                    >
+                      <hr
+                        class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+                      />
+                       
+                    </div>
+                    <div
+                      class="fc8wfj0"
+                    >
+                      Only one run (consider more runs for greater confidence).
+                    </div>
+                    <div
+                      class="fc8wfj0"
+                    >
+                      <b>
+                        Mean Difference
+                      </b>
+                      : 2.5% worse (1,394,293,93)
+                    </div>
+                    <div>
+                      <b>
+                        Confidence
+                      </b>
+                      : High
+                    </div>
+                    <div
+                      class="fl597bh"
+                    >
+                      <b>
+                        **NOTE
+                      </b>
+                      : 
+                      THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </div>
         </tbody>
       </table>
     </div>
