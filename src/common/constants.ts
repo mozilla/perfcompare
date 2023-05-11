@@ -5,7 +5,7 @@ import { Framework, Platform } from '../types/types';
 
 export const treeherderBaseURL = 'https://treeherder.mozilla.org';
 
-export const maxRevisionsError = 'Maximum 4 revision(s).';
+export const maxRevisionsError = 'Maximum 1 revision(s).';
 export const featureNotSupportedError =
   'This feature is not supported yet. Please compare two revisions only.';
 

@@ -45,7 +45,7 @@ function App() {
         <Router>
           <Routes>
             <Route
-              path='/'
+              path='/old'
               element={
                 <SearchView
                   toggleColorMode={toggleColorMode}
@@ -54,7 +54,7 @@ function App() {
               }
             />
             <Route
-              path='/beta'
+              path='/'
               element={
                 <SearchViewBeta
                   toggleColorMode={toggleColorMode}

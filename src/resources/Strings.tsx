@@ -20,12 +20,10 @@ export const Strings = {
       sharedCollasped: {
         revisions: {
           selectLabel: 'Revisions',
-          selectIcon: '',
-          inputLabel: 'Search revision by ID number or author email',
+          placeholder: 'Search base by ID number or author email',
         },
         framkework: {
           selectLabel: 'Framework',
-          selectIcon: '',
         },
         button: 'Compare',
       },
@@ -37,8 +35,9 @@ export const Strings = {
           'https://user-images.githubusercontent.com/88336547/233250674-004d071a-7c23-40f4-b348-0687a3fef6e3.png',
         collapedBase: {
           selectLabel: 'Base',
-          selectIcon: '',
-          inputLabel: 'Search base by ID number or author email',
+          inputPlaceholder: 'Search base by ID number or author email',
+          tooltip:
+            'The baseline revision (no changes) your revision will be compared against.',
         },
       },
       overTime: {

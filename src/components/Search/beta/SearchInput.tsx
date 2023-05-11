@@ -5,29 +5,50 @@ import FormControl from '@mui/material/FormControl';
 import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
 import { connect } from 'react-redux';
+import { style } from 'typestyle';
 
-import type { RootState } from '../../common/store';
-import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
-import { Fonts } from '../../styles/Fonts';
-import { InputStyles } from '../../styles/Input';
+import type { RootState } from '../../../common/store';
+import useHandleChangeSearch from '../../../hooks/useHandleChangeSearch';
+import { Strings } from '../../../resources/Strings';
+import { InputStylesRaw, Spacing } from '../../../styles';
+
+const strings = Strings.components.searchDefault.base.collapedBase;
 
 function SearchInput(props: SearchInputProps) {
-  const { setFocused, inputError, inputHelperText, view } = props;
+  const { setFocused, inputError, inputHelperText, view, mode } = props;
   const { handleChangeSearch } = useHandleChangeSearch();
   const size = view == 'compare-results' ? 'small' : undefined;
+
+  const styles = {
+    container: style({
+      $nest: {
+        '.hide': {
+          visibility: 'hidden',
+        },
+        '.search-text-field': {
+          width: '100%',
+          marginTop: `${Spacing.xSmall / 2}px`,
+        },
+        '.MuiInputBase-root': {
+          ...(mode == 'light' ? InputStylesRaw.Light : InputStylesRaw.Dark),
+          flexDirection: 'row',
+        },
+      },
+    }),
+  };
   return (
-    <FormControl variant='outlined' fullWidth>
+    <FormControl className={styles.container} fullWidth>
+      <div className='hide'>Block</div>
       <TextField
         error={inputError}
         helperText={inputHelperText}
-        label='Search By Revision ID or Author Email'
-        placeholder='Search By Revision ID or Author Email'
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        placeholder={strings.inputPlaceholder}
         id='search-revision-input'
         onFocus={() => setFocused(true)}
-        sx={{ width: '100%' }}
         onChange={(e) => handleChangeSearch(e)}
         size={size}
-        className={`${InputStyles.default} ${Fonts.BodyDefault}`}
+        className='search-text-field'
         InputProps={{
           startAdornment: (
             <InputAdornment position='end'>
@@ -45,6 +66,7 @@ interface SearchInputProps {
   inputError: boolean;
   inputHelperText: string;
   view: 'compare-results' | 'search';
+  mode: 'light' | 'dark';
 }
 
 function mapStateToProps(state: RootState) {

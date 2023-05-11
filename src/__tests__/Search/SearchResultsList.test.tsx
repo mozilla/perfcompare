@@ -138,7 +138,7 @@ describe('SearchResultsList', () => {
       screen.getAllByTestId('checkbox-4')[0].classList.contains('Mui-checked'),
     ).toBe(false);
 
-    expect(screen.getByText(maxRevisionsError)).toBeInTheDocument();
+    expect(screen.getByText('Maximum 4 revision(s).')).toBeInTheDocument();
 
     // Should allow unchecking revisions even after four have been selected
     await user.click(screen.getAllByTestId('checkbox-1')[0]);
@@ -166,6 +166,6 @@ describe('SearchResultsList', () => {
       screen.getByTestId('checkbox-1').classList.contains('Mui-checked'),
     ).toBe(false);
 
-    expect(screen.getByText('Maximum 1 revision(s).')).toBeInTheDocument();
+    expect(screen.getByText(maxRevisionsError)).toBeInTheDocument();
   });
 });

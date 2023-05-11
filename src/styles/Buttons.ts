@@ -1,8 +1,16 @@
 import { style } from 'typestyle';
 
 import { Colors } from './Colors';
+import { Spacing } from './Spacing';
 
-const dropDownPadding = '6px 12px 6px 16px';
+const sharedDropDownBtnStyles = {
+  padding: `${Spacing.xSmall + 2}px ${Spacing.Small + 4}px ${
+    Spacing.xSmall + 2
+  }px ${Spacing.Medium}px`,
+  maxHeight: '32px',
+  borderRadius: `${Spacing.xSmall}px`,
+  marginTop: '0',
+};
 
 //BUTTONS LIGHT
 export const ButtonsLightRaw = {
@@ -27,17 +35,52 @@ export const ButtonsLightRaw = {
     },
   },
   Dropdown: {
+    ...sharedDropDownBtnStyles,
     backgroundColor: Colors.SecondaryDefault,
-    padding: dropDownPadding,
-    height: '32px',
-    '& .MuiSelect-select': {
-      color: Colors.PrimaryText,
-    },
-    '&:hover': {
-      backgroundColor: Colors.SecondaryHover,
-    },
-    '&:active': {
-      backgroundColor: Colors.SecondaryActive,
+    borderColor: Colors.SecondaryDefault,
+
+    $nest: {
+      '&:hover': {
+        backgroundColor: Colors.SecondaryHover,
+      },
+      '.MuiSelect-select': {
+        color: Colors.PrimaryText,
+        backgroundColor: 'transparent',
+        '&:hover': {
+          textDecoration: 'none !important',
+          borderBottom: 'none !important',
+          '&:before': {
+            borderBottom: 'none',
+          },
+          '&:after': {
+            borderBottom: 'none',
+          },
+        },
+        '&:before': {
+          borderBottom: 'none',
+          backgroundColor: Colors.SecondaryDefault,
+        },
+        '&:after': {
+          borderBottom: 'none',
+          backgroundColor: Colors.SecondaryDefault,
+        },
+      },
+
+      '&:active': {
+        backgroundColor: Colors.SecondaryActive,
+      },
+      '&:before': {
+        borderRadius: `${Spacing.xSmall}px`,
+        borderBottom: 'none',
+      },
+      '&:after': {
+        borderBottom: 'none',
+        borderRadius: `${Spacing.xSmall}px`,
+        backgroundColor: Colors.SecondaryDefault,
+        '&:hover': {
+          borderBottom: 'none',
+        },
+      },
     },
   },
 };
@@ -48,7 +91,7 @@ export const ButtonsLight = {
   Dropdown: style(ButtonsLightRaw.Dropdown),
 };
 
-//BUTTONS DARK
+////////////////////BUTTONS DARK///////////////////////
 
 export const ButtonsDarkRaw = {
   Primary: {
@@ -72,16 +115,37 @@ export const ButtonsDarkRaw = {
     },
   },
   Dropdown: {
-    backgroundColor: Colors.SecondaryDark,
-    padding: dropDownPadding,
-    '& .MuiSelect-select': {
-      color: Colors.PrimaryTextDark,
-    },
-    '&:hover': {
-      backgroundColor: Colors.SecondaryHoverDark,
-    },
-    '&:active': {
-      backgroundColor: Colors.SecondaryActiveDark,
+    ...sharedDropDownBtnStyles,
+    backgroundColor: Colors.Background300Dark,
+    $nest: {
+      '.MuiSelect-select': {
+        color: Colors.PrimaryTextDark,
+      },
+      '&:hover': {
+        backgroundColor: Colors.SecondaryHoverDark,
+        $nest: {
+          '&:before': {
+            borderBottom: 'none',
+            borderBottomColor: 'transparent',
+          },
+          '&:after': {
+            borderBottom: 'none',
+            borderBottomColor: 'transparent',
+          },
+        },
+      },
+      '&:active': {
+        backgroundColor: Colors.SecondaryActiveDark,
+      },
+      '&:before': {
+        borderBottom: 'none',
+        borderRadius: `${Spacing.xSmall}px`,
+      },
+      '&:after': {
+        borderBottom: 'none',
+        borderRadius: `${Spacing.xSmall}px`,
+        backgroundColor: Colors.SecondaryDark,
+      },
     },
   },
 };
