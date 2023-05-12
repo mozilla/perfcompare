@@ -39,9 +39,16 @@ function TableHeader(props: TableHeaderProps) {
           textAlign: 'left',
         },
         '.MuiTableCell-root': {
+          borderBottom: 'none',
           padding: 0,
           margin: 0,
           textAlign: 'center',
+        },
+        '.MuiTableCell-root:first-child': {
+          borderRadius: '4px 0 0 4px',
+        },
+        '.MuiTableCell-root:last-child': {
+          borderRadius: '0 4px 4px 0',
         },
       },
     }),

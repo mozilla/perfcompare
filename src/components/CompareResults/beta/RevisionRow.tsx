@@ -11,10 +11,10 @@ import { Colors, Spacing } from '../../../styles';
 function RevisionRow(props: RevisionRowProps) {
   const { themeMode } = props;
 
+  const expandButtonColor =
+    themeMode == 'light' ? Colors.Background300 : Colors.Background100Dark;
   const themeColor200 =
     themeMode == 'light' ? Colors.Background200 : Colors.Background200Dark;
-  const themeColor300 =
-    themeMode == 'light' ? Colors.Background300 : Colors.Background300Dark;
 
   const styles = {
     revisionRow: style({
@@ -69,14 +69,17 @@ function RevisionRow(props: RevisionRowProps) {
           cursor: 'not-allowed',
         },
         '.expand-button': {
-          backgroundColor: themeColor300,
+          backgroundColor: expandButtonColor,
+        },
+        '.MuiTableCell-root': {
+          borderBottom: 'none',
         },
         '.MuiTableCell-root:first-child': {
-          borderRadius: '10px 0 0 10px',
+          borderRadius: '4px 0 0 4px',
           backgroundColor: themeColor200,
         },
         '.MuiTableCell-root:nth-last-child(2)': {
-          borderRadius: '0 10px 10px 0',
+          borderRadius: '0 4px 4px 0',
           backgroundColor: themeColor200,
         },
       },

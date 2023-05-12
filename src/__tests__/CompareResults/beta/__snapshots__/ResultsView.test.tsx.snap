@@ -38,7 +38,7 @@ exports[`Results View Should match snapshot 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-z2teic-MuiGrid-root"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthLg f1ctei50 css-1tyv3cf-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthLg f3atc20 css-1tyv3cf-MuiContainer-root"
             data-testid="results-main"
           >
             <header>
@@ -223,7 +223,7 @@ exports[`Results View Should match snapshot 1`] = `
               </div>
             </header>
             <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root f1otqxop css-pfrgnn-MuiPaper-root-MuiTableContainer-root"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root f1cqtmh css-1inhs6f-MuiPaper-root-MuiTableContainer-root"
               data-testid="results-table"
             >
               <table
@@ -234,7 +234,7 @@ exports[`Results View Should match snapshot 1`] = `
                   data-testid="table-header"
                 >
                   <tr
-                    class="MuiTableRow-root MuiTableRow-head f1frk9dl css-1yt2i5z-MuiTableRow-root"
+                    class="MuiTableRow-root MuiTableRow-head f1ctvkx8 css-1yt2i5z-MuiTableRow-root"
                   >
                     <th
                       class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium platform-header css-hwty3m-MuiTableCell-root"
@@ -410,7 +410,7 @@ exports[`Results View Should match snapshot 1`] = `
                   </tr>
                 </thead>
                 <tbody
-                  class="MuiTableBody-root f15luk9e css-apqrd9-MuiTableBody-root"
+                  class="MuiTableBody-root f5w6em2 css-apqrd9-MuiTableBody-root"
                 >
                   <tr
                     class="MuiTableRow-root revision-header css-1yt2i5z-MuiTableRow-root"
@@ -456,7 +456,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="MuiTableRow-root revisionRow fju3wsp css-1yt2i5z-MuiTableRow-root"
+                    class="MuiTableRow-root revisionRow f131cxob css-1yt2i5z-MuiTableRow-root"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium platform css-15mfgc5-MuiTableCell-root"
@@ -645,7 +645,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="MuiTableRow-root revisionRow fju3wsp css-1yt2i5z-MuiTableRow-root"
+                    class="MuiTableRow-root revisionRow f131cxob css-1yt2i5z-MuiTableRow-root"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium platform css-15mfgc5-MuiTableCell-root"
@@ -834,7 +834,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="MuiTableRow-root revisionRow fju3wsp css-1yt2i5z-MuiTableRow-root"
+                    class="MuiTableRow-root revisionRow f131cxob css-1yt2i5z-MuiTableRow-root"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium platform css-15mfgc5-MuiTableCell-root"

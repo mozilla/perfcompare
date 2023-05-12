@@ -8,13 +8,9 @@ import RevisionRow from './RevisionRow';
 function TableContent(props: TableContentProps) {
   const { themeMode } = props;
 
-  const themeColor300 =
-    themeMode == 'light' ? Colors.Background300 : Colors.Background300Dark;
-
   const styles = {
     tableBody: style({
       marginTop: Spacing.Large,
-      borderSpacing: '0px 4px',
       $nest: {
         '.MuiTableCell-root': {
           padding: 0,
@@ -28,9 +24,8 @@ function TableContent(props: TableContentProps) {
           paddingLeft: Spacing.xLarge,
         },
         '.revisionRow': {
-          borderBottom: `${Spacing.Small}px solid ${themeColor300}`,
           backgroundColor: Colors.Background200,
-          margin: '4px 0px',
+          margin: `${Spacing.Small}px 0px`,
         },
       },
     }),

@@ -9,7 +9,7 @@ exports[`Table Header Should match snapshot 1`] = `
       data-testid="table-header"
     >
       <tr
-        class="MuiTableRow-root MuiTableRow-head f1frk9dl css-1yt2i5z-MuiTableRow-root"
+        class="MuiTableRow-root MuiTableRow-head f1ctvkx8 css-1yt2i5z-MuiTableRow-root"
       >
         <th
           class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium platform-header css-hwty3m-MuiTableCell-root"
