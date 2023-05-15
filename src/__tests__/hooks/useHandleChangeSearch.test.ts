@@ -3,11 +3,7 @@ import { FormEvent } from 'react';
 import { renderHook } from '@testing-library/react';
 
 import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
-import {
-  setInputErrorBase,
-  setInputErrorNew,
-  updateSearchResults,
-} from '../../reducers/SearchSlice';
+import { setInputError, updateSearchResults } from '../../reducers/SearchSlice';
 import getTestData from '../utils/fixtures';
 import { store, StoreProvider } from '../utils/setupTests';
 
@@ -100,7 +96,7 @@ describe('Tests useHandleSearchHook', () => {
     const { result } = renderHook(() => useHandleChangeSearch(), {
       wrapper: StoreProvider,
     });
-    const { baseRepository, newRepository } = store.getState().search;
+    const { repository } = store.getState().search;
     result.current.handleChangeSearch(createEvent(testInput));
     jest.runAllTimers();
     expect(spyOnFetch).toHaveBeenCalledWith(
