@@ -3,47 +3,28 @@ import Table from '@mui/material/Table';
 import TableContainer from '@mui/material/TableContainer';
 import { style } from 'typestyle';
 
-import { Colors, Spacing } from '../../../styles';
-import TableContent from './TableContent';
+import { Spacing } from '../../../styles';
 import TableHeader from './TableHeader';
 
-
-const customStyles = {
-  boxShadow: 'none',
+const styles = {
+  tableContainer: style({
+    marginTop: Spacing.Large,
+  }),
 };
 
 function ResultsTable(props: ResultsTableProps) {
   const { themeMode } = props;
-
-  const themeColor100 = themeMode === 'light' ? Colors.Background100 : Colors.Background100Dark;
-
-  const styles = {
-    tableContainer: style({
-      backgroundColor: themeColor100,
-      marginTop: Spacing.Large,
-      $nest: {
-        '.MuiTable-root': {
-          borderSpacing: `0 ${Spacing.Small}px`,
-          borderCollapse: 'separate',
-        },
-      },
-    }),
-  };
-
+  
   return (
-    <TableContainer
-      component={Paper}
-      className={styles.tableContainer}
-      data-testid='results-table'
-      sx={customStyles}
-    >
-      <Table>
+    <TableContainer component={Paper} className={styles.tableContainer} data-testid='results-table'>
+      <Table aria-label="collapsible table">
         <TableHeader themeMode={themeMode} />
-        <TableContent themeMode={themeMode} />
+        {/* TODO: Add table body */}
       </Table>
     </TableContainer>
   );
 }
+
 interface ResultsTableProps {
   themeMode: 'light' | 'dark';
 }
