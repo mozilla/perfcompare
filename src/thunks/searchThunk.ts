@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { treeherderBaseURL } from '../common/constants';
@@ -6,32 +7,35 @@ import type { Repository, Revision } from '../types/state';
 
 export const fetchRecentRevisions = createAsyncThunk<
   Revision[],
-  Repository['name'],
+  { repository: Repository['name']; searchType: string },
   { rejectValue: string }
->('search/fetchRecentRevisions', async (repository, { rejectWithValue }) => {
-  let response;
-  try {
-    response = await fetch(
-      `${treeherderBaseURL}/api/project/${repository}/push/?hide_reviewbot_pushes=true`,
-    );
-  } catch (err) {
-    return rejectWithValue((err as Error).message);
-  }
-  const json = (await response.json()) as APIPushResponse;
-  if (json.results.length > 0) {
-    return json.results;
-  }
+>(
+  'search/fetchRecentRevisions',
+  async ({ repository, searchType }, { rejectWithValue }) => {
+    let response;
+    try {
+      response = await fetch(
+        `${treeherderBaseURL}/api/project/${repository}/push/?hide_reviewbot_pushes=true`,
+      );
+    } catch (err) {
+      return rejectWithValue((err as Error).message);
+    }
+    const json = (await response.json()) as APIPushResponse;
+    if (json.results.length > 0) {
+      return json.results;
+    }
 
-  return rejectWithValue('No results found');
-});
+    return rejectWithValue('No results found');
+  },
+);
 
 export const fetchRevisionByID = createAsyncThunk<
   Revision[],
-  { repository: Repository['name']; search: string },
+  { repository: Repository['name']; search: string; searchType: string },
   { rejectValue: string }
 >(
   'search/fetchRevisionByID',
-  async ({ repository, search }, { rejectWithValue }) => {
+  async ({ repository, search, searchType }, { rejectWithValue }) => {
     let response;
     try {
       response = await fetch(
@@ -51,11 +55,11 @@ export const fetchRevisionByID = createAsyncThunk<
 
 export const fetchRevisionsByAuthor = createAsyncThunk<
   Revision[],
-  { repository: Repository['name']; search: string },
+  { repository: Repository['name']; search: string; searchType: string },
   { rejectValue: string }
 >(
   'search/fetchRevisionsByAuthor',
-  async ({ repository, search }, { rejectWithValue }) => {
+  async ({ repository, search, searchType }, { rejectWithValue }) => {
     let response;
     try {
       response = await fetch(

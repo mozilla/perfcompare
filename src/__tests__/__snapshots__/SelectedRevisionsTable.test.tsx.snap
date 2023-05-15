@@ -516,8 +516,8 @@ exports[`Search View should match snapshot 1`] = `
             class="MuiFormControl-root f1no547h f168mohg css-1anm9we-MuiFormControl-root"
           >
             <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
-              data-shrink="true"
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-vav7hz-MuiFormLabel-root-MuiInputLabel-root"
+              data-shrink="false"
               id="select-repository-label"
             >
               repository
@@ -533,13 +533,17 @@ exports[`Search View should match snapshot 1`] = `
                 role="button"
                 tabindex="0"
               >
-                try
+                <span
+                  class="notranslate"
+                >
+                  ​
+                </span>
               </div>
               <input
                 aria-hidden="true"
                 class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
                 tabindex="-1"
-                value="try"
+                value=""
               />
               <svg
                 aria-hidden="true"
@@ -557,7 +561,7 @@ exports[`Search View should match snapshot 1`] = `
                 class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="css-14lo706"
+                  class="css-yjsfm1"
                 >
                   <span>
                     repository
