@@ -619,6 +619,7 @@ exports[`Results View Should match snapshot 1`] = `
                     >
                       <div
                         class="expand-button-container"
+                        data-testid="expand-revision-button"
                       >
                         <button
                           aria-label="expand row"
@@ -641,6 +642,70 @@ exports[`Results View Should match snapshot 1`] = `
                             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                           />
                         </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="MuiTableRow-root revisionRow f131cxob css-1yt2i5z-MuiTableRow-root"
+                  >
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
+                      colspan="11"
+                    >
+                      <div
+                        class="content-row content-row--default container_f1nmcl0i "
+                        data-testid="expanded-row-content"
+                      >
+                        <div
+                          class="f120wds7"
+                        >
+                          <div
+                            class="f19s1n7z"
+                          >
+                            <div
+                              class="fc8wfj0"
+                            >
+                              macosx1015-64-shippable-qr 
+                              <br />
+                            </div>
+                            <div
+                              class="fc8wfj0"
+                            >
+                              <hr
+                                class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+                              />
+                               
+                            </div>
+                            <div
+                              class="fc8wfj0"
+                            >
+                              Only one run (consider more runs for greater confidence).
+                            </div>
+                            <div
+                              class="fc8wfj0"
+                            >
+                              <b>
+                                Mean Difference
+                              </b>
+                              : 2.5% worse (1,394,293,93)
+                            </div>
+                            <div>
+                              <b>
+                                Confidence
+                              </b>
+                              : High
+                            </div>
+                            <div
+                              class="fl597bh"
+                            >
+                              <b>
+                                **NOTE
+                              </b>
+                              : 
+                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </td>
                   </tr>
@@ -808,6 +873,7 @@ exports[`Results View Should match snapshot 1`] = `
                     >
                       <div
                         class="expand-button-container"
+                        data-testid="expand-revision-button"
                       >
                         <button
                           aria-label="expand row"
@@ -830,6 +896,70 @@ exports[`Results View Should match snapshot 1`] = `
                             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                           />
                         </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="MuiTableRow-root revisionRow f131cxob css-1yt2i5z-MuiTableRow-root"
+                  >
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
+                      colspan="11"
+                    >
+                      <div
+                        class="content-row content-row--default container_f1nmcl0i "
+                        data-testid="expanded-row-content"
+                      >
+                        <div
+                          class="f120wds7"
+                        >
+                          <div
+                            class="f19s1n7z"
+                          >
+                            <div
+                              class="fc8wfj0"
+                            >
+                              macosx1015-64-shippable-qr 
+                              <br />
+                            </div>
+                            <div
+                              class="fc8wfj0"
+                            >
+                              <hr
+                                class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+                              />
+                               
+                            </div>
+                            <div
+                              class="fc8wfj0"
+                            >
+                              Only one run (consider more runs for greater confidence).
+                            </div>
+                            <div
+                              class="fc8wfj0"
+                            >
+                              <b>
+                                Mean Difference
+                              </b>
+                              : 2.5% worse (1,394,293,93)
+                            </div>
+                            <div>
+                              <b>
+                                Confidence
+                              </b>
+                              : High
+                            </div>
+                            <div
+                              class="fl597bh"
+                            >
+                              <b>
+                                **NOTE
+                              </b>
+                              : 
+                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </td>
                   </tr>
@@ -997,6 +1127,7 @@ exports[`Results View Should match snapshot 1`] = `
                     >
                       <div
                         class="expand-button-container"
+                        data-testid="expand-revision-button"
                       >
                         <button
                           aria-label="expand row"
@@ -1019,6 +1150,70 @@ exports[`Results View Should match snapshot 1`] = `
                             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                           />
                         </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="MuiTableRow-root revisionRow f131cxob css-1yt2i5z-MuiTableRow-root"
+                  >
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
+                      colspan="11"
+                    >
+                      <div
+                        class="content-row content-row--default container_f1nmcl0i "
+                        data-testid="expanded-row-content"
+                      >
+                        <div
+                          class="f120wds7"
+                        >
+                          <div
+                            class="f19s1n7z"
+                          >
+                            <div
+                              class="fc8wfj0"
+                            >
+                              macosx1015-64-shippable-qr 
+                              <br />
+                            </div>
+                            <div
+                              class="fc8wfj0"
+                            >
+                              <hr
+                                class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+                              />
+                               
+                            </div>
+                            <div
+                              class="fc8wfj0"
+                            >
+                              Only one run (consider more runs for greater confidence).
+                            </div>
+                            <div
+                              class="fc8wfj0"
+                            >
+                              <b>
+                                Mean Difference
+                              </b>
+                              : 2.5% worse (1,394,293,93)
+                            </div>
+                            <div>
+                              <b>
+                                Confidence
+                              </b>
+                              : High
+                            </div>
+                            <div
+                              class="fl597bh"
+                            >
+                              <b>
+                                **NOTE
+                              </b>
+                              : 
+                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </td>
                   </tr>

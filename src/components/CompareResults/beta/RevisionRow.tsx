@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import AppleIcon from '@mui/icons-material/Apple';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -7,9 +9,30 @@ import { IconButton, TableRow, TableCell } from '@mui/material';
 import { style } from 'typestyle';
 
 import { Colors, Spacing } from '../../../styles';
+import { ExpandableRowStyles } from '../../../styles';
+import RevisionRowExpandable from './RevisionRowExpandable';
+
+interface Expanded {
+  expanded: boolean;
+  class: string;
+}
 
 function RevisionRow(props: RevisionRowProps) {
   const { themeMode } = props;
+
+  const [row, setExpanded] = useState<Expanded>({
+    expanded: false,
+    class: 'default',
+  });
+
+  const toggleIsExpanded = () => {
+    setExpanded({
+      expanded: !row.expanded,
+      class: row.expanded ? 'default' : 'expanded',
+    });
+  };
+
+  const stylesCard = ExpandableRowStyles();
 
   const expandButtonColor =
     themeMode == 'light' ? Colors.Background300 : Colors.Background100Dark;
@@ -86,6 +109,7 @@ function RevisionRow(props: RevisionRowProps) {
     }),
   };
   return (
+    <>
     <TableRow className={`revisionRow ${styles.revisionRow}`}>
       <TableCell className='platform'>
         <div className='platform-container'>
@@ -128,7 +152,10 @@ function RevisionRow(props: RevisionRowProps) {
         </div>
       </TableCell>
       <TableCell className='cell-button expand-button'>
-        <div className='expand-button-container'>
+        <div className='expand-button-container' 
+             onClick={toggleIsExpanded}
+             data-testid='expand-revision-button'
+        >
           <IconButton
             aria-label='expand row'
             size='small'
@@ -138,6 +165,19 @@ function RevisionRow(props: RevisionRowProps) {
         </div>
       </TableCell>
     </TableRow>
+    
+    <TableRow className={`revisionRow ${styles.revisionRow}`}>
+      <TableCell colSpan={11}>
+      <div 
+          className={`content-row content-row--${row.class} ${stylesCard.container} `}
+          data-testid='expanded-row-content'
+      >
+        <RevisionRowExpandable themeMode={themeMode}/>
+      </div>
+      </TableCell>
+    </TableRow>
+    
+    </>
   );
 }
 
