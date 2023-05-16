@@ -2,9 +2,10 @@ import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
-import { featureNotSupportedError } from '../../common/constants';
-import SearchView from '../../components/Search/SearchView';
-import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
+//import { featureNotSupportedError } from '../../common/constants';
+import SearchInput from '../../components/CompareResults/beta/SearchInput';
+import SearchView from '../../components/Search/beta/SearchView';
+//import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
 import useProtocolTheme from '../../theme/protocolTheme';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
@@ -24,16 +25,20 @@ describe('Search View', () => {
       />,
     );
 
-    // Repository Select appears
-    expect(screen.getByLabelText(/Repository/i)).toBeInTheDocument();
+    renderWithRouter(<SearchInput />);
+
+    // Base Select appears
+    expect(screen.getAllByLabelText(/Base/i)[0]).toBeInTheDocument();
 
     // 'try' is selected by default and dropdown is not visible
     expect(screen.queryByText(/try/i)).toBeInTheDocument();
     expect(screen.queryByText(/autoland/i)).not.toBeInTheDocument();
-    expect(screen.queryByText(/mozilla-central/i)).not.toBeInTheDocument();
+    expect(
+      screen.queryAllByText(/mozilla-central/i)[0],
+    ).not.toBeInTheDocument();
     // Search input appears
     expect(
-      screen.getByLabelText(/Search By Revision ID or Author Email/i),
+      screen.getByLabelText(/Search base by ID number or author email/i),
     ).toBeInTheDocument();
 
     // No list items should appear
@@ -63,13 +68,13 @@ describe('Search View', () => {
       />,
     );
 
-    await screen.findByRole('button', { name: 'repository' });
+    await screen.findAllByRole('button', { name: 'Base' });
 
     // focus input to show results
-    const searchInput = screen.getByRole('textbox');
+    const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
 
-    expect(store.getState().search.searchResults).toStrictEqual(testData);
+    expect(store.getState().search.baseSearchResults).toStrictEqual(testData);
 
     await screen.findAllByText("you've got no arms left!");
     expect(
@@ -99,10 +104,10 @@ describe('Search View', () => {
       />,
     );
 
-    await screen.findByRole('button', { name: 'repository' });
+    await screen.findAllByRole('button', { name: 'Base' });
 
     // focus input to show results
-    const searchInput = screen.getByRole('textbox');
+    const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
 
     await screen.findAllByText("you've got no arms left!");
@@ -126,7 +131,7 @@ describe('Search View', () => {
       />,
     );
 
-    const searchInput = screen.getByRole('textbox');
+    const searchInput = screen.getAllByRole('textbox')[0];
 
     await user.type(searchInput, 'coconut');
     await user.clear(searchInput);
@@ -164,9 +169,9 @@ describe('Search View', () => {
       />,
     );
 
-    await screen.findByRole('button', { name: 'repository' });
+    await screen.findAllByRole('button', { name: 'Base' });
 
-    const searchInput = screen.getByRole('textbox');
+    const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'terryjones@python.com');
     jest.runOnlyPendingTimers();
 
@@ -174,9 +179,9 @@ describe('Search View', () => {
       'https://treeherder.mozilla.org/api/project/try/push/?author=terryjones@python.com',
     );
     await screen.findAllByText("you've got no arms left!");
-    expect(store.getState().search.searchResults).toStrictEqual(testData);
+    expect(store.getState().search.baseSearchResults).toStrictEqual(testData);
     await user.clear(searchInput);
-    expect(store.getState().search.searchResults).toStrictEqual([]);
+    expect(store.getState().search.baseSearchResults).toStrictEqual([]);
     expect(
       screen.queryByText("you've got no arms left!"),
     ).not.toBeInTheDocument();
@@ -202,10 +207,10 @@ describe('Search View', () => {
       />,
     );
 
-    await screen.findByRole('button', { name: 'repository' });
+    await screen.findAllByRole('button', { name: 'Base' });
 
     // focus input to show results
-    const searchInput = screen.getByRole('textbox');
+    const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
 
     await screen.findAllByText("you've got no arms left!");
@@ -242,12 +247,16 @@ describe('Search View', () => {
     expect(spyOnFetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true',
     );
-    expect(store.getState().search.searchResults).toStrictEqual([]);
-    expect(store.getState().search.inputError).toBe(true);
+    expect(store.getState().search.baseSearchResults).toStrictEqual([]);
+    expect(store.getState().search.inputErrorBase).toBe(true);
     expect(store.getState().search.inputHelperText).toBe(
       'An error has occurred',
     );
   });
+
+  //disabling these tests until feature is implemented
+  // eslint-disable-next-line jest/no-commented-out-tests
+  /*
 
   it('should have compare button and once clicked should redirect to results page with the right query params', async () => {
     const { testData } = getTestData();
@@ -310,4 +319,6 @@ describe('Search View', () => {
     expect(screen.getByText(featureNotSupportedError)).toBeInTheDocument();
     expect(history.location.pathname).toEqual('/');
   });
+
+  */
 });

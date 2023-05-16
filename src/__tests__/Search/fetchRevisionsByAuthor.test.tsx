@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import SearchView from '../../components/Search/SearchView';
+import SearchView from '../../components/Search/beta/SearchView';
 import useProtocolTheme from '../../theme/protocolTheme';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
@@ -33,9 +33,9 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
       />,
     );
 
-    await screen.findByRole('button', { name: 'repository' });
+    await screen.findAllByRole('button', { name: 'Base' });
 
-    const searchInput = screen.getByRole('textbox');
+    const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'johncleese@python.com');
     jest.runOnlyPendingTimers();
 
@@ -68,9 +68,9 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
       />,
     );
 
-    await screen.findByRole('button', { name: 'repository' });
+    await screen.findAllByRole('button', { name: 'Base' });
 
-    const searchInput = screen.getByRole('textbox');
+    const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'ericidle@python.com');
     jest.runOnlyPendingTimers();
 
@@ -78,8 +78,8 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
       'https://treeherder.mozilla.org/api/project/try/push/?author=ericidle@python.com',
     );
 
-    await screen.findByText('No results found');
-    expect(store.getState().search.inputError).toBe(true);
+    await screen.findAllByText('No results found');
+    expect(store.getState().search.inputErrorBase).toBe(true);
     expect(store.getState().search.inputHelperText).toBe('No results found');
   });
 
@@ -98,9 +98,9 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
       />,
     );
 
-    await screen.findByRole('button', { name: 'repository' });
+    await screen.findAllByRole('button', { name: 'Base' });
 
-    const searchInput = screen.getByRole('textbox');
+    const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'grahamchapman@python.com');
     jest.runOnlyPendingTimers();
 
@@ -108,8 +108,8 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
       'https://treeherder.mozilla.org/api/project/try/push/?author=grahamchapman@python.com',
     );
 
-    await screen.findByText('She turned me into a newt!');
-    expect(store.getState().search.inputError).toBe(true);
+    await screen.findAllByText('She turned me into a newt!');
+    expect(store.getState().search.inputErrorBase).toBe(true);
     expect(store.getState().search.inputHelperText).toBe(
       'She turned me into a newt!',
     );
@@ -128,9 +128,9 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
       />,
     );
 
-    await screen.findByRole('button', { name: 'repository' });
+    await screen.findAllByRole('button', { name: 'Base' });
 
-    const searchInput = screen.getByRole('textbox');
+    const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'grahamchapman@python.com');
     jest.runOnlyPendingTimers();
 
@@ -138,8 +138,8 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
       'https://treeherder.mozilla.org/api/project/try/push/?author=grahamchapman@python.com',
     );
 
-    await screen.findByText('An error has occurred');
-    expect(store.getState().search.inputError).toBe(true);
+    await screen.findAllByText('An error has occurred');
+    expect(store.getState().search.inputErrorBase).toBe(true);
     expect(store.getState().search.inputHelperText).toBe(
       'An error has occurred',
     );
