@@ -90,6 +90,7 @@ function SearchDropdown(props: SearchDropdownProps) {
           </Tooltip>
         </InputLabel>
         <Select
+        data-testid = "dropdown-select"
           label={selectLabel}
           value={repository}
           labelId='select-repository-label'
