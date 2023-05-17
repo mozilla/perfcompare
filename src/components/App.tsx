@@ -63,11 +63,11 @@ function App() {
               }
             />
             <Route
-              path='/compare-results'
+              path='/old/compare-results'
               element={<CompareResultsView theme={protocolTheme} />}
             />
             <Route
-              path='/beta/compare-results'
+              path='/compare-results'
               element={<ResultsView protocolTheme={protocolTheme} />}
             />
           </Routes>

@@ -6,7 +6,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
   <div />
   <div>
     <div
-      class="MuiGrid-root header-container fyhxtyt css-plh9qo-MuiGrid-root"
+      class="MuiGrid-root header-container f38ku8z css-plh9qo-MuiGrid-root"
     >
       <div
         class="toggle-dark-mode f4zotac MuiBox-root css-0"
@@ -221,7 +221,7 @@ exports[`Search View should hide search results when clicking outside of search 
 <body>
   <div>
     <div
-      class="MuiGrid-root header-container fyhxtyt css-plh9qo-MuiGrid-root"
+      class="MuiGrid-root header-container f38ku8z css-plh9qo-MuiGrid-root"
     >
       <div
         class="toggle-dark-mode f4zotac MuiBox-root css-0"
@@ -1417,7 +1417,7 @@ exports[`Search View should not hide search results when clicking search results
 <body>
   <div>
     <div
-      class="MuiGrid-root header-container fyhxtyt css-plh9qo-MuiGrid-root"
+      class="MuiGrid-root header-container f38ku8z css-plh9qo-MuiGrid-root"
     >
       <div
         class="toggle-dark-mode f4zotac MuiBox-root css-0"

@@ -53,7 +53,7 @@ function PerfCompareHeader(props: PerfCompareHeaderProps) {
         },
         '.learn-more-btn': {
           //hidden until purpose is determined
-          //visibility: 'hidden',
+          visibility: 'hidden',
         },
       },
     }),
