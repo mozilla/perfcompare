@@ -6,7 +6,7 @@ exports[`Search View should match snapshot 1`] = `
   <div />
   <div>
     <div
-      class="MuiGrid-root header-container fyhxtyt css-plh9qo-MuiGrid-root"
+      class="MuiGrid-root header-container f38ku8z css-plh9qo-MuiGrid-root"
     >
       <div
         class="toggle-dark-mode f4zotac MuiBox-root css-0"
