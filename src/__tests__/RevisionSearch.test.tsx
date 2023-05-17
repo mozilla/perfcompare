@@ -12,7 +12,9 @@ describe('RevisionSearch', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    store.dispatch(updateSearchResults(testData));
+    store.dispatch(
+      updateSearchResults({ payload: testData, searchType: 'base' }),
+    );
 
     render(<RevisionSearch view="compare-results" />);
 

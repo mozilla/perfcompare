@@ -3,13 +3,17 @@ import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
 //import { featureNotSupportedError } from '../../common/constants';
-import SearchInput from '../../components/CompareResults/beta/SearchInput';
+import SearchInput from '../../components/Search/beta/SearchInput';
 import SearchView from '../../components/Search/beta/SearchView';
+import SearchComponent from '../../components/Shared/beta/SearchComponent';
+import { Strings } from '../../resources/Strings';
 //import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
 import useProtocolTheme from '../../theme/protocolTheme';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
+
+const stringsBase = Strings.components.searchDefault.base.collaped.base;
 
 describe('Search View', () => {
   const protocolTheme = renderHook(() => useProtocolTheme()).result.current
@@ -18,6 +22,9 @@ describe('Search View', () => {
   const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
     .toggleColorMode;
   it('renders correctly when there are no results', async () => {
+    const baseRepo = store.getState().search.baseRepository;
+    const inputErrorBase = store.getState().search.inputErrorBase;
+
     renderWithRouter(
       <SearchView
         toggleColorMode={toggleColorMode}
@@ -25,20 +32,40 @@ describe('Search View', () => {
       />,
     );
 
-    renderWithRouter(<SearchInput />);
+    renderWithRouter(
+      <SearchComponent
+        {...stringsBase}
+        view='search'
+        mode='light'
+        base='base'
+        repository={baseRepo}
+      />,
+    );
+
+    renderWithRouter(
+      <SearchInput
+        mode='light'
+        setFocused={() => {}}
+        view='search'
+        inputPlaceholder='Search base by ID number or author email'
+        base='base'
+        inputError={inputErrorBase}
+        inputHelperText='error'
+      />,
+    );
 
     // Base Select appears
     expect(screen.getAllByLabelText(/Base/i)[0]).toBeInTheDocument();
 
     // 'try' is selected by default and dropdown is not visible
-    expect(screen.queryByText(/try/i)).toBeInTheDocument();
+    expect(screen.queryAllByText(/try/i)[0]).toBeInTheDocument();
     expect(screen.queryByText(/autoland/i)).not.toBeInTheDocument();
-    expect(
-      screen.queryAllByText(/mozilla-central/i)[0],
-    ).not.toBeInTheDocument();
+    expect(screen.queryByText(/mozilla-central/i)).not.toBeInTheDocument();
     // Search input appears
     expect(
-      screen.getByLabelText(/Search base by ID number or author email/i),
+      screen.getAllByPlaceholderText(
+        /Search base by ID number or author email/i,
+      )[0],
     ).toBeInTheDocument();
 
     // No list items should appear
@@ -123,11 +150,22 @@ describe('Search View', () => {
     const spyOnFetch = jest.spyOn(global, 'fetch');
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
+    const baseRepo = store.getState().search.baseRepository;
 
     renderWithRouter(
       <SearchView
         toggleColorMode={toggleColorMode}
         protocolTheme={protocolTheme}
+      />,
+    );
+
+    renderWithRouter(
+      <SearchComponent
+        {...stringsBase}
+        view='search'
+        mode='light'
+        base='base'
+        repository={baseRepo}
       />,
     );
 
@@ -141,12 +179,13 @@ describe('Search View', () => {
     await user.clear(searchInput);
     await user.type(searchInput, 'iamalmostlongenoughtobeahashbutnotquite');
 
-    await screen.findByText(
+    await screen.findAllByText(
       'Search must be a 12- or 40-character hash, or email address',
     );
 
     // fetch should only be called on initial load
-    expect(spyOnFetch).toHaveBeenCalledTimes(1);
+    // it's two now because we have to calls for both base and revision
+    expect(spyOnFetch).toHaveBeenCalledTimes(2);
   });
 
   it('should clear searchResults if searchValue is cleared', async () => {

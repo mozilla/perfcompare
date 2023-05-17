@@ -30,6 +30,7 @@ function SearchDropdown(props: SearchDropdownProps) {
   const [repoSelect, setRepoSelect] = useState({
     baseRepository: '',
     newRepository: '',
+    searchType: base,
   });
 
   useEffect(() => {

@@ -35,7 +35,7 @@ describe('SearchResultsList', () => {
       />,
     );
     // focus input to show results
-    const searchInput = screen.getByRole('textbox');
+    const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
     expect(document.body).toMatchSnapshot();
   });
@@ -60,7 +60,7 @@ describe('SearchResultsList', () => {
       />,
     );
     // focus input to show results
-    const searchInput = screen.getByRole('textbox');
+    const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
 
     const fleshWound = await screen.findAllByText("it's just a flesh wound");
@@ -91,7 +91,7 @@ describe('SearchResultsList', () => {
       />,
     );
     // focus input to show results
-    const searchInput = screen.getByRole('textbox');
+    const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
 
     const fleshWound = await screen.findAllByText("it's just a flesh wound");
@@ -122,14 +122,14 @@ describe('SearchResultsList', () => {
       />,
     );
     // focus input to show results
-    const searchInput = screen.getByRole('textbox');
+    const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
 
     await user.click(screen.getAllByTestId('checkbox-0')[0]);
     await user.click(screen.getAllByTestId('checkbox-1')[0]);
 
     expect(
-      screen.getAllByTestId('checkbox-1')[0].classList.contains('Mui-checked'),
+      screen.getAllByTestId('checkbox-0')[0].classList.contains('Mui-checked'),
     ).toBe(true);
     expect(
       screen.getAllByTestId('checkbox-1')[0].classList.contains('Mui-checked'),
@@ -144,7 +144,7 @@ describe('SearchResultsList', () => {
     ).toBe(false);
   });
 
-  it('should not allow selecting more than four revisions on Search View', async () => {
+  it('revision should not allow selecting more than 3 revisions on Search View', async () => {
     const { testData } = getTestData();
     global.fetch = jest.fn(() =>
       Promise.resolve({
@@ -164,23 +164,22 @@ describe('SearchResultsList', () => {
       />,
     );
     // focus input to show results
-    const searchInput = screen.getByRole('textbox');
+    const searchInput = screen.getAllByRole('textbox')[1];
     await user.click(searchInput);
 
     await user.click(screen.getAllByTestId('checkbox-0')[0]);
     await user.click(screen.getAllByTestId('checkbox-1')[0]);
     await user.click(screen.getAllByTestId('checkbox-2')[0]);
     await user.click(screen.getAllByTestId('checkbox-3')[0]);
-    await user.click(screen.getAllByTestId('checkbox-4')[0]);
 
     expect(
-      screen.getAllByTestId('checkbox-1')[0].classList.contains('Mui-checked'),
+      screen.getAllByTestId('checkbox-0')[0].classList.contains('Mui-checked'),
     ).toBe(true);
     expect(
-      screen.getAllByTestId('checkbox-4')[0].classList.contains('Mui-checked'),
+      screen.getAllByTestId('checkbox-3')[0].classList.contains('Mui-checked'),
     ).toBe(false);
 
-    expect(screen.getByText('Maximum 4 revision(s).')).toBeInTheDocument();
+    expect(screen.getByText('Maximum 3 revision(s).')).toBeInTheDocument();
 
     // Should allow unchecking revisions even after four have been selected
     await user.click(screen.getAllByTestId('checkbox-1')[0]);

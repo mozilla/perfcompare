@@ -12,18 +12,18 @@ function useHandleChangeDropdown() {
   const handleChangeDropdown = async ({
     baseRepository,
     newRepository,
+    searchType,
   }: DropdownProps) => {
     const repository =
-      baseRepository !== ''
+      searchType == 'base'
         ? (baseRepository as Repository['name'])
         : (newRepository as Repository['name']);
-    const searchType = baseRepository !== '' ? 'base' : 'new';
 
-    if (baseRepository !== '') {
+    if (searchType == 'base') {
       dispatch(updateBaseRepository(repository));
     }
 
-    if (newRepository !== '') {
+    if (searchType == 'new') {
       dispatch(updateNewRepository(repository));
     }
 
@@ -36,6 +36,7 @@ function useHandleChangeDropdown() {
 interface DropdownProps {
   baseRepository: string;
   newRepository: string;
+  searchType: 'base' | 'new';
 }
 
 export default useHandleChangeDropdown;

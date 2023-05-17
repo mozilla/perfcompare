@@ -35,9 +35,26 @@ const search = createSlice({
     updateSearchValue(state, action: PayloadAction<string>) {
       state.searchValue = action.payload;
     },
-    updateSearchResults(state, action: PayloadAction<Revision[]>) {
-      state.searchResults = action.payload;
+    updateSearchResults(
+      state,
+      action: PayloadAction<{
+        payload: Revision[];
+        searchType: 'base' | 'new';
+      }>,
+    ) {
+      state.searchResults = action.payload.payload;
+
+      state.baseSearchResults =
+        action.payload.searchType == 'base'
+          ? action.payload.payload
+          : state.baseSearchResults;
+
+      state.newSearchResults =
+        action.payload.searchType == 'new'
+          ? action.payload.payload
+          : state.newSearchResults;
     },
+
     updateBaseRepository(state, action: PayloadAction<Repository['name']>) {
       state.baseRepository = action.payload;
     },

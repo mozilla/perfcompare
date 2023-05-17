@@ -23,6 +23,7 @@ function SearchInput(props: SearchInputProps) {
   const [searchState, setState] = useState({
     baseSearch: '',
     newSearch: '',
+    searchType: base,
   });
 
   const size = view == 'compare-results' ? 'small' : undefined;

@@ -63,19 +63,23 @@ const useHandleChangeSearch = () => {
     await handleFetch(search, repository, searchType);
   };
 
-  const handleChangeSearch = ({ baseSearch, newSearch }: SearchProps) => {
-    const search = baseSearch.length > 0 ? baseSearch : newSearch;
+  const handleChangeSearch = ({
+    baseSearch,
+    newSearch,
+    searchType,
+  }: SearchProps) => {
+    const search = searchType == 'base' ? baseSearch : newSearch;
     const repository =
-      baseSearch.length > 0 ? getBaseRepository : getNewRepository;
-    const searchType = baseSearch.length > 0 ? 'base' : 'new';
+      searchType == 'base' ? getBaseRepository : getNewRepository;
 
     dispatch(updateSearchValue(search));
-    dispatch(updateSearchResults([]));
-    if (baseSearch.length > 0) {
+    dispatch(updateSearchResults({ payload: [], searchType }));
+
+    if (searchType == 'base') {
       dispatch(clearInputErrorBase());
     }
 
-    if (newSearch.length > 0) {
+    if (searchType == 'new') {
       dispatch(clearInputErrorNew());
     }
 
@@ -95,6 +99,7 @@ const useHandleChangeSearch = () => {
 interface SearchProps {
   baseSearch: string;
   newSearch: string;
+  searchType: 'base' | 'new';
 }
 
 export default useHandleChangeSearch;
