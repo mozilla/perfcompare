@@ -89,7 +89,7 @@ const search = createSlice({
         state.inputError = true;
         state.inputHelperText = action.payload
           ? action.payload
-          : 'An error has occurred';
+          : 'An error has occurred!';
       });
   },
 });
