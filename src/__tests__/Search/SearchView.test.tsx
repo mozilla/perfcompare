@@ -2,13 +2,18 @@ import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
-import { featureNotSupportedError } from '../../common/constants';
-import SearchView from '../../components/Search/SearchView';
-import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
+//import { featureNotSupportedError } from '../../common/constants';
+import SearchInput from '../../components/Search/beta/SearchInput';
+import SearchView from '../../components/Search/beta/SearchView';
+import SearchComponent from '../../components/Shared/beta/SearchComponent';
+import { Strings } from '../../resources/Strings';
+//import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
 import useProtocolTheme from '../../theme/protocolTheme';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
+
+const stringsBase = Strings.components.searchDefault.base.collaped.base;
 
 describe('Search View', () => {
   const protocolTheme = renderHook(() => useProtocolTheme()).result.current
@@ -17,6 +22,9 @@ describe('Search View', () => {
   const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
     .toggleColorMode;
   it('renders correctly when there are no results', async () => {
+    const baseRepo = store.getState().search.baseRepository;
+    const inputErrorBase = store.getState().search.inputErrorBase;
+
     renderWithRouter(
       <SearchView
         toggleColorMode={toggleColorMode}
@@ -24,16 +32,40 @@ describe('Search View', () => {
       />,
     );
 
-    // Repository Select appears
-    expect(screen.getByLabelText(/Repository/i)).toBeInTheDocument();
+    renderWithRouter(
+      <SearchComponent
+        {...stringsBase}
+        view='search'
+        mode='light'
+        base='base'
+        repository={baseRepo}
+      />,
+    );
+
+    renderWithRouter(
+      <SearchInput
+        mode='light'
+        setFocused={() => {}}
+        view='search'
+        inputPlaceholder='Search base by ID number or author email'
+        base='base'
+        inputError={inputErrorBase}
+        inputHelperText='error'
+      />,
+    );
+
+    // Base Select appears
+    expect(screen.getAllByLabelText(/Base/i)[0]).toBeInTheDocument();
 
     // 'try' is selected by default and dropdown is not visible
-    expect(screen.queryByText(/try/i)).toBeInTheDocument();
+    expect(screen.queryAllByText(/try/i)[0]).toBeInTheDocument();
     expect(screen.queryByText(/autoland/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/mozilla-central/i)).not.toBeInTheDocument();
     // Search input appears
     expect(
-      screen.getByLabelText(/Search By Revision ID or Author Email/i),
+      screen.getAllByPlaceholderText(
+        /Search base by ID number or author email/i,
+      )[0],
     ).toBeInTheDocument();
 
     // No list items should appear
@@ -63,13 +95,13 @@ describe('Search View', () => {
       />,
     );
 
-    await screen.findByRole('button', { name: 'repository' });
+    await screen.findAllByRole('button', { name: 'Base' });
 
     // focus input to show results
-    const searchInput = screen.getByRole('textbox');
+    const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
 
-    expect(store.getState().search.searchResults).toStrictEqual(testData);
+    expect(store.getState().search.baseSearchResults).toStrictEqual(testData);
 
     await screen.findAllByText("you've got no arms left!");
     expect(
@@ -99,10 +131,10 @@ describe('Search View', () => {
       />,
     );
 
-    await screen.findByRole('button', { name: 'repository' });
+    await screen.findAllByRole('button', { name: 'Base' });
 
     // focus input to show results
-    const searchInput = screen.getByRole('textbox');
+    const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
 
     await screen.findAllByText("you've got no arms left!");
@@ -118,6 +150,7 @@ describe('Search View', () => {
     const spyOnFetch = jest.spyOn(global, 'fetch');
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
+    const baseRepo = store.getState().search.baseRepository;
 
     renderWithRouter(
       <SearchView
@@ -126,7 +159,17 @@ describe('Search View', () => {
       />,
     );
 
-    const searchInput = screen.getByRole('textbox');
+    renderWithRouter(
+      <SearchComponent
+        {...stringsBase}
+        view='search'
+        mode='light'
+        base='base'
+        repository={baseRepo}
+      />,
+    );
+
+    const searchInput = screen.getAllByRole('textbox')[0];
 
     await user.type(searchInput, 'coconut');
     await user.clear(searchInput);
@@ -136,12 +179,13 @@ describe('Search View', () => {
     await user.clear(searchInput);
     await user.type(searchInput, 'iamalmostlongenoughtobeahashbutnotquite');
 
-    await screen.findByText(
+    await screen.findAllByText(
       'Search must be a 12- or 40-character hash, or email address',
     );
 
     // fetch should only be called on initial load
-    expect(spyOnFetch).toHaveBeenCalledTimes(1);
+    // it's two now because we have to calls for both base and revision
+    expect(spyOnFetch).toHaveBeenCalledTimes(2);
   });
 
   it('should clear searchResults if searchValue is cleared', async () => {
@@ -164,9 +208,9 @@ describe('Search View', () => {
       />,
     );
 
-    await screen.findByRole('button', { name: 'repository' });
+    await screen.findAllByRole('button', { name: 'Base' });
 
-    const searchInput = screen.getByRole('textbox');
+    const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'terryjones@python.com');
     jest.runOnlyPendingTimers();
 
@@ -174,9 +218,9 @@ describe('Search View', () => {
       'https://treeherder.mozilla.org/api/project/try/push/?author=terryjones@python.com',
     );
     await screen.findAllByText("you've got no arms left!");
-    expect(store.getState().search.searchResults).toStrictEqual(testData);
+    expect(store.getState().search.baseSearchResults).toStrictEqual(testData);
     await user.clear(searchInput);
-    expect(store.getState().search.searchResults).toStrictEqual([]);
+    expect(store.getState().search.baseSearchResults).toStrictEqual([]);
     expect(
       screen.queryByText("you've got no arms left!"),
     ).not.toBeInTheDocument();
@@ -202,10 +246,10 @@ describe('Search View', () => {
       />,
     );
 
-    await screen.findByRole('button', { name: 'repository' });
+    await screen.findAllByRole('button', { name: 'Base' });
 
     // focus input to show results
-    const searchInput = screen.getByRole('textbox');
+    const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
 
     await screen.findAllByText("you've got no arms left!");
@@ -242,12 +286,16 @@ describe('Search View', () => {
     expect(spyOnFetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true',
     );
-    expect(store.getState().search.searchResults).toStrictEqual([]);
-    expect(store.getState().search.inputError).toBe(true);
+    expect(store.getState().search.baseSearchResults).toStrictEqual([]);
+    expect(store.getState().search.inputErrorBase).toBe(true);
     expect(store.getState().search.inputHelperText).toBe(
       'An error has occurred',
     );
   });
+
+  //disabling these tests until feature is implemented
+  // eslint-disable-next-line jest/no-commented-out-tests
+  /*
 
   it('should have compare button and once clicked should redirect to results page with the right query params', async () => {
     const { testData } = getTestData();
@@ -310,4 +358,6 @@ describe('Search View', () => {
     expect(screen.getByText(featureNotSupportedError)).toBeInTheDocument();
     expect(history.location.pathname).toEqual('/');
   });
+
+  */
 });

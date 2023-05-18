@@ -12,7 +12,24 @@ import useHandleChangeSearch from '../../../hooks/useHandleChangeSearch';
 import { Strings } from '../../../resources/Strings';
 import { InputStylesRaw, Spacing } from '../../../styles';
 
-const strings = Strings.components.searchDefault.base.collapedBase;
+function SearchInput(props: SearchInputProps) {
+  const {
+    setFocused,
+    view,
+    mode,
+    inputPlaceholder,
+    base,
+    inputError,
+    inputHelperText,
+  } = props;
+  const { handleChangeSearch } = useHandleChangeSearch();
+
+  //searchType is to distinguish between base and new search inputs for handleChangeSearch hook
+  const [searchState, setState] = useState({
+    baseSearch: '',
+    newSearch: '',
+    searchType: base,
+  });
 
 function SearchInput(props: SearchInputProps) {
   const { setFocused, inputError, inputHelperText, view, mode } = props;

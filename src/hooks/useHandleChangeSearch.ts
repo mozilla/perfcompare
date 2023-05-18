@@ -42,14 +42,26 @@ const useHandleChangeSearch = () => {
     }
   };
 
-  const handleChangeSearch = (
-    event: FormEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    const search = event.currentTarget.value;
+  const handleChangeSearch = ({
+    baseSearch,
+    newSearch,
+    searchType,
+  }: SearchProps) => {
+    const search = searchType == 'base' ? baseSearch : newSearch;
+    const repository =
+      searchType == 'base' ? getBaseRepository : getNewRepository;
 
     dispatch(updateSearchValue(search));
-    dispatch(updateSearchResults([]));
-    dispatch(clearInputError());
+    dispatch(updateSearchResults({ payload: [], searchType }));
+
+    if (searchType == 'base') {
+      dispatch(clearInputErrorBase());
+    }
+
+    if (searchType == 'new') {
+      dispatch(clearInputErrorNew());
+    }
+
     const idleTime = 500;
     const onTimeout = () => {
       void searchByRevisionOrEmail(getRepository, search);
@@ -62,5 +74,11 @@ const useHandleChangeSearch = () => {
   };
   return { handleChangeSearch };
 };
+
+interface SearchProps {
+  baseSearch: string;
+  newSearch: string;
+  searchType: 'base' | 'new';
+}
 
 export default useHandleChangeSearch;

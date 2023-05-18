@@ -17,6 +17,7 @@ import RevisionSearch from '../Shared/RevisionSearch';
 import SelectedRevisionsTable from '../Shared/SelectedRevisionsTable';
 import SearchViewInit from './SearchViewInit';
 
+
 const strings = Strings.components.searchDefault.sharedCollasped;
 
 function SearchView(props: SearchViewProps) {

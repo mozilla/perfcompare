@@ -26,6 +26,19 @@ function SearchDropdown(props: SearchDropdownProps) {
   const size = view == 'compare-results' ? 'small' : undefined;
   const { handleChangeDropdown } = useHandleChangeDropdown();
 
+  //searchType is to distinguish between base and new search dropdowns for handleChangeDropdown hook
+  const [repoSelect, setRepoSelect] = useState({
+    baseRepository: '',
+    newRepository: '',
+    searchType: base,
+  });
+
+  useEffect(() => {
+    if (repoSelect.baseRepository !== '' || repoSelect.newRepository !== '') {
+      void handleChangeDropdown(repoSelect);
+    }
+  }, [repoSelect]);
+
   cssRule('.MuiTooltip-popper', {
     ...(mode === 'light' ? TooltipRaw.Light : TooltipRaw.Dark),
     $nest: {
