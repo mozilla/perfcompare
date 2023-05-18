@@ -1,23 +1,46 @@
-import type { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
 import SearchIcon from '@mui/icons-material/Search';
 import FormControl from '@mui/material/FormControl';
 import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
-import { connect } from 'react-redux';
 import { style } from 'typestyle';
 
-import type { RootState } from '../../../common/store';
 import useHandleChangeSearch from '../../../hooks/useHandleChangeSearch';
-import { Strings } from '../../../resources/Strings';
 import { InputStylesRaw, Spacing } from '../../../styles';
 
-const strings = Strings.components.searchDefault.base.collapedBase;
-
 function SearchInput(props: SearchInputProps) {
-  const { setFocused, inputError, inputHelperText, view, mode } = props;
+  const {
+    setFocused,
+    view,
+    mode,
+    inputPlaceholder,
+    base,
+    inputError,
+    inputHelperText,
+  } = props;
   const { handleChangeSearch } = useHandleChangeSearch();
+  //searchType is to distinguish between base and new search inputs for handleChangeSearch hook
+  const [searchState, setState] = useState({
+    baseSearch: '',
+    newSearch: '',
+    searchType: base,
+  });
   const size = view == 'compare-results' ? 'small' : undefined;
+
+  useEffect(() => {
+    handleChangeSearch(searchState);
+  }, [searchState]);
+
+  const updateSearchState = (
+    e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = e.currentTarget;
+    setState((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
 
   const styles = {
     container: style({
@@ -36,19 +59,20 @@ function SearchInput(props: SearchInputProps) {
       },
     }),
   };
+
   return (
     <FormControl className={styles.container} fullWidth>
       <div className='hide'>Block</div>
       <TextField
         error={inputError}
-        helperText={inputHelperText}
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        placeholder={strings.inputPlaceholder}
+        helperText={inputError && inputHelperText}
+        placeholder={inputPlaceholder}
         id='search-revision-input'
         onFocus={() => setFocused(true)}
-        onChange={(e) => handleChangeSearch(e)}
+        onChange={(e) => updateSearchState(e)}
         size={size}
-        className='search-text-field'
+        name={`${base}Search`}
+        className={`search-text-field ${base}`}
         InputProps={{
           startAdornment: (
             <InputAdornment position='end'>
@@ -63,18 +87,12 @@ function SearchInput(props: SearchInputProps) {
 
 interface SearchInputProps {
   setFocused: Dispatch<SetStateAction<boolean>>;
-  inputError: boolean;
   inputHelperText: string;
+  inputPlaceholder: string;
   view: 'compare-results' | 'search';
   mode: 'light' | 'dark';
+  inputError: boolean;
+  base: 'base' | 'new';
 }
 
-function mapStateToProps(state: RootState) {
-  return {
-    inputError: state.search.inputError,
-    inputHelperText: state.search.inputHelperText,
-    searchResults: state.search.searchResults,
-  };
-}
-
-export default connect(mapStateToProps)(SearchInput);
+export default SearchInput;

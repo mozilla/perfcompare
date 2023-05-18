@@ -33,11 +33,19 @@ export const Strings = {
         img: 'https://user-images.githubusercontent.com/88336547/233237125-1534220b-c343-421a-9133-ce8f151cb979.png',
         imgDark:
           'https://user-images.githubusercontent.com/88336547/233250674-004d071a-7c23-40f4-b348-0687a3fef6e3.png',
-        collapedBase: {
-          selectLabel: 'Base',
-          inputPlaceholder: 'Search base by ID number or author email',
-          tooltip:
-            'The baseline revision (no changes) your revision will be compared against.',
+        collaped: {
+          base: {
+            selectLabel: 'Base',
+            inputPlaceholder: 'Search base by ID number or author email',
+            tooltip:
+              'The baseline revision (no changes) your revision will be compared against.',
+          },
+          revision: {
+            selectLabel: 'Revisions',
+            inputPlaceholder: 'Search revision by ID number or author email',
+            tooltip:
+              'Revisions (typically including your changes) to compare against the selected base revision.',
+          },
         },
       },
       overTime: {

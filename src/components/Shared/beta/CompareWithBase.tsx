@@ -2,10 +2,15 @@ import { useState } from 'react';
 
 import Divider from '@mui/material/Divider';
 
+import { RootState } from '../../../common/store';
+import { useAppSelector } from '../../../hooks/app';
 import { Strings } from '../../../resources/Strings';
 import { CompareCardsStyles } from '../../../styles';
-import BaseSearch from './BaseSearch';
+import SearchComponent from './SearchComponent';
+
 const strings = Strings.components.searchDefault;
+const stringsBase = Strings.components.searchDefault.base.collaped.base;
+const stringsRevision = Strings.components.searchDefault.base.collaped.revision;
 
 interface Expanded {
   expanded: boolean;
@@ -14,6 +19,12 @@ interface Expanded {
 
 function CompareWithBase(props: CompareWithBaseProps) {
   const { mode } = props;
+  const baseRepo = useAppSelector(
+    (state: RootState) => state.search.baseRepository,
+  );
+  const newRepo = useAppSelector(
+    (state: RootState) => state.search.newRepository,
+  );
   const [base, setExpanded] = useState<Expanded>({
     expanded: true,
     class: 'expanded',
@@ -49,8 +60,20 @@ function CompareWithBase(props: CompareWithBaseProps) {
       >
         <Divider className='divider' />
         <div className='form-wrapper'>
-          <BaseSearch view='search' mode={mode} />
-          <div className='revision-search'></div>
+          <SearchComponent
+            {...stringsBase}
+            view='search'
+            mode={mode}
+            base='base'
+            repository={baseRepo}
+          />
+          <SearchComponent
+            {...stringsRevision}
+            view='search'
+            mode={mode}
+            base='new'
+            repository={newRepo}
+          />
           <div className='framework'></div>
         </div>
       </div>
