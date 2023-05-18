@@ -27,6 +27,7 @@ function SearchDropdown(props: SearchDropdownProps) {
   const size = view == 'compare-results' ? 'small' : undefined;
   const { handleChangeDropdown } = useHandleChangeDropdown();
 
+  //searchType is to distinguish between base and new search dropdowns for handleChangeDropdown hook
   const [repoSelect, setRepoSelect] = useState({
     baseRepository: '',
     newRepository: '',

@@ -20,6 +20,8 @@ function SearchInput(props: SearchInputProps) {
     inputHelperText,
   } = props;
   const { handleChangeSearch } = useHandleChangeSearch();
+
+  //searchType is to distinguish between base and new search inputs for handleChangeSearch hook
   const [searchState, setState] = useState({
     baseSearch: '',
     newSearch: '',
