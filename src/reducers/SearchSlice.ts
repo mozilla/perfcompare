@@ -136,7 +136,7 @@ const search = createSlice({
         state.inputErrorNew = true;
         state.inputHelperText = action.payload
           ? action.payload
-          : 'An error has occurred';
+          : 'An error has occurred!';
       });
   },
 });
