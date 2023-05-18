@@ -153,6 +153,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                       </label>
                       <div
                         class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                        data-testid="dropdown-select"
                       >
                         <div
                           aria-expanded="false"
