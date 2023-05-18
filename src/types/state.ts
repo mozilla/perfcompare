@@ -76,14 +76,10 @@ export type CompareResultsItem = {
 };
 
 export type SearchState = {
-  baseRepository: Repository['name'];
-  newRepository: Repository['name'];
+  repository: Repository['name'];
   searchResults: Revision[];
-  baseSearchResults: Revision[];
-  newSearchResults: Revision[];
   searchValue: string;
-  inputErrorBase: boolean;
-  inputErrorNew: boolean;
+  inputError: boolean;
   inputHelperText: string;
 };
 

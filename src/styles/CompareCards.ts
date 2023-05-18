@@ -85,7 +85,7 @@ export const CompareCardsStyles = (mode: string) => {
                   borderRadius: `0px ${Spacing.Small}px 0px 0px`,
                 },
               },
-              minHeight: '400px',
+              minHeight: '317px',
             },
             '.form-wrapper': {
               padding: `${Spacing.xxLarge}px ${Spacing.xxLarge + 2}px`,
@@ -124,8 +124,6 @@ export const SearchStyles = (mode: string) => {
       maxWidth: '810px',
       margin: 'auto',
       justifyContent: 'space-between',
-      marginBottom: `${Spacing.xLarge}px`,
-      position: 'relative',
     },
 
     dropDown: {
@@ -176,14 +174,10 @@ export const SearchStyles = (mode: string) => {
     baseSearchInput: {
       minWidth: '490px',
       width: '100%',
-      position: 'absolute',
-      left: '220px',
       $nest: {
-        '&.base-search-input--mobile, &.new-search-input--mobile': {
-          position: 'unset',
-        },
-        '&.base-search-input': {
-          zIndex: '100',
+        '.base-search-input--mobile': {
+          top: '4rem',
+          left: '0',
         },
       },
     },

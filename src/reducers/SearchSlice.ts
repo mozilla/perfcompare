@@ -8,22 +8,14 @@ import {
 import type { Repository, Revision, SearchState } from '../types/state';
 
 const initialState: SearchState = {
-  // base repository to search, string
-  baseRepository: 'try',
-  // base repository to search, string
-  newRepository: 'try',
+  // repository to search, string
+  repository: 'try',
   // results of search, array of revisions
   searchResults: [],
-  // results of base search, array of revisions
-  baseSearchResults: [],
-  // results of new search, array of revisions
-  newSearchResults: [],
   // search value, string, 12- or 40- hash, or author email
   searchValue: '',
   // error if search input returns error, or no results found
-  inputErrorBase: false,
-  // helper text for search input
-  inputErrorNew: false,
+  inputError: false,
   // helper text for search input
   inputHelperText: '',
 };
@@ -58,23 +50,12 @@ const search = createSlice({
     updateBaseRepository(state, action: PayloadAction<Repository['name']>) {
       state.baseRepository = action.payload;
     },
-    updateNewRepository(state, action: PayloadAction<Repository['name']>) {
-      state.newRepository = action.payload;
-    },
-    setInputErrorBase(state, action: PayloadAction<string>) {
-      state.inputErrorBase = true;
+    setInputError(state, action: PayloadAction<string>) {
+      state.inputError = true;
       state.inputHelperText = action.payload;
     },
-    setInputErrorNew(state, action: PayloadAction<string>) {
-      state.inputErrorNew = true;
-      state.inputHelperText = action.payload;
-    },
-    clearInputErrorBase(state) {
-      state.inputErrorBase = false;
-      state.inputHelperText = '';
-    },
-    clearInputErrorNew(state) {
-      state.inputErrorNew = false;
+    clearInputError(state) {
+      state.inputError = false;
       state.inputHelperText = '';
     },
   },
@@ -82,20 +63,10 @@ const search = createSlice({
     builder
       // fetchRecentRevisions
       .addCase(fetchRecentRevisions.fulfilled, (state, action) => {
-        //how to set type on an action
         state.searchResults = action.payload;
-        state.baseSearchResults =
-          action.meta.arg.searchType == 'base'
-            ? action.payload
-            : state.baseSearchResults;
-        state.newSearchResults =
-          action.meta.arg.searchType == 'new'
-            ? action.payload
-            : state.newSearchResults;
       })
       .addCase(fetchRecentRevisions.rejected, (state, action) => {
-        state.inputErrorBase = true;
-        state.inputErrorNew = true;
+        state.inputError = true;
         state.inputHelperText = action.payload
           ? action.payload
           : 'An error has occurred';
@@ -103,18 +74,9 @@ const search = createSlice({
       // fetchRevisionByID
       .addCase(fetchRevisionByID.fulfilled, (state, action) => {
         state.searchResults = action.payload;
-        state.baseSearchResults =
-          action.meta.arg.searchType == 'base'
-            ? action.payload
-            : state.baseSearchResults;
-        state.newSearchResults =
-          action.meta.arg.searchType == 'new'
-            ? action.payload
-            : state.newSearchResults;
       })
       .addCase(fetchRevisionByID.rejected, (state, action) => {
-        state.inputErrorBase = true;
-        state.inputErrorNew = true;
+        state.inputError = true;
         state.inputHelperText = action.payload
           ? action.payload
           : 'An error has occurred';
@@ -122,18 +84,9 @@ const search = createSlice({
       // fetchRevisionsByAuthor
       .addCase(fetchRevisionsByAuthor.fulfilled, (state, action) => {
         state.searchResults = action.payload;
-        state.baseSearchResults =
-          action.meta.arg.searchType == 'base'
-            ? action.payload
-            : state.baseSearchResults;
-        state.newSearchResults =
-          action.meta.arg.searchType == 'new'
-            ? action.payload
-            : state.newSearchResults;
       })
       .addCase(fetchRevisionsByAuthor.rejected, (state, action) => {
-        state.inputErrorBase = true;
-        state.inputErrorNew = true;
+        state.inputError = true;
         state.inputHelperText = action.payload
           ? action.payload
           : 'An error has occurred';
@@ -144,11 +97,8 @@ const search = createSlice({
 export const {
   updateSearchValue,
   updateSearchResults,
-  updateBaseRepository,
-  updateNewRepository,
-  setInputErrorBase,
-  setInputErrorNew,
-  clearInputErrorNew,
-  clearInputErrorBase,
+  updateRepository,
+  setInputError,
+  clearInputError,
 } = search.actions;
 export default search.reducer;

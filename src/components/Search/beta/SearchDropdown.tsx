@@ -1,14 +1,14 @@
-import { useEffect, useState } from 'react';
-
 import InfoIcon from '@mui/icons-material/InfoOutlined';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import Tooltip from '@mui/material/Tooltip';
+import { connect } from 'react-redux';
 import { style, cssRule } from 'typestyle';
 
 import { repoMap } from '../../../common/constants';
+import type { RootState } from '../../../common/store';
 import useHandleChangeDropdown from '../../../hooks/useHandleChangeDropdown';
 import {
   Spacing,
@@ -20,10 +20,9 @@ import {
   DropDownMenuRaw,
   DropDownItemRaw,
 } from '../../../styles';
-import type { Repository } from '../../../types/state';
 
 function SearchDropdown(props: SearchDropdownProps) {
-  const { view, selectLabel, tooltipText, mode, base, repository } = props;
+  const { repository, view, selectLabel, tooltipText, mode } = props;
   const size = view == 'compare-results' ? 'small' : undefined;
   const { handleChangeDropdown } = useHandleChangeDropdown();
 
@@ -88,22 +87,6 @@ function SearchDropdown(props: SearchDropdownProps) {
     }),
   };
 
-  const handleRepoSelect = (e: React.MouseEvent<HTMLLIElement>) => {
-    const { classList, id } = e.currentTarget;
-    let name = '';
-    classList.forEach((item) => {
-      if (item.includes('Repository')) {
-        name = item;
-        return;
-      }
-    });
-
-    setRepoSelect((prevState) => ({
-      ...prevState,
-      [name]: id,
-    }));
-  };
-
   return (
     <div>
       <FormControl
@@ -120,6 +103,7 @@ function SearchDropdown(props: SearchDropdownProps) {
           </Tooltip>
         </InputLabel>
         <Select
+        data-testid = "dropdown-select"
           label={selectLabel}
           value={repository}
           labelId='select-repository-label'
@@ -131,8 +115,7 @@ function SearchDropdown(props: SearchDropdownProps) {
               id={repoMap[key]}
               value={repoMap[key]}
               key={repoMap[key]}
-              onClick={(e) => handleRepoSelect(e)}
-              className={`${base}Repository`}
+              onClick={(e) => void handleChangeDropdown(e)}
             >
               {repoMap[key]}
             </MenuItem>
@@ -144,12 +127,17 @@ function SearchDropdown(props: SearchDropdownProps) {
 }
 
 interface SearchDropdownProps {
+  repository: string;
   view: 'compare-results' | 'search';
   selectLabel: string;
   tooltipText: string;
   mode: 'light' | 'dark';
-  base: 'base' | 'new';
-  repository: Repository['name'];
 }
 
-export default SearchDropdown;
+function mapStateToProps(state: RootState) {
+  return {
+    repository: state.search.repository,
+  };
+}
+
+export default connect(mapStateToProps)(SearchDropdown);
