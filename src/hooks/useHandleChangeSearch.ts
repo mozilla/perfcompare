@@ -80,8 +80,6 @@ const useHandleChangeSearch = () => {
       dispatch(clearInputErrorNew());
     }
 
-    debugger;
-
     const idleTime = 500;
     const onTimeout = () => {
       void searchByRevisionOrEmail(repository, search, searchType);
