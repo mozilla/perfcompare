@@ -11,63 +11,42 @@ import CloseIcon from '@mui/icons-material/Close';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { connect } from 'react-redux';
 
+import { RootState } from '../../../common/store';
 import { useAppDispatch } from '../../../hooks/app';
 import useSelectRevision from '../../../hooks/useSelectRevision';
 import { clearCheckedRevisions } from '../../../reducers/CheckedRevisions';
+import { Strings } from '../../../resources/Strings';
 import { SearchStyles } from '../../../styles';
 import type { Revision } from '../../../types/state';
-import type { Repository } from '../../../types/state';
 import SearchDropdown from '../../Search/beta/SearchDropdown';
 import SearchInput from '../../Search/beta/SearchInput';
 import SearchResultsList from '../../Search/beta/SearchResultsList';
 
-interface BaseSearchProps {
-  mode: 'light' | 'dark';
-  view: 'compare-results' | 'search';
-  setPopoverIsOpen?: Dispatch<SetStateAction<boolean>>;
-  prevRevision?: Revision;
-  selectLabel: string;
-  tooltip: string;
-  inputPlaceholder: string;
-  base: 'base' | 'new';
-  repository: Repository['name'];
-  inputError: boolean;
-  inputHelperText: string;
-  searchResults: Revision[];
-}
+const strings = Strings.components.searchDefault.base.collapedBase;
 
-function SearchComponent({
-  mode,
-  view,
-  setPopoverIsOpen,
-  prevRevision,
-  selectLabel,
-  tooltip,
-  base,
-  inputPlaceholder,
-  repository,
-  inputError,
-  inputHelperText,
-  searchResults,
-}: BaseSearchProps) {
-  const styles = SearchStyles(mode);
+function BaseSearch(props: BaseSearchProps) {
   const [focused, setFocused] = useState(false);
+  const { mode, searchResults, setPopoverIsOpen, view, prevRevision } = props;
   const dispatch = useAppDispatch();
   const { replaceSelectedRevision } = useSelectRevision();
   const matchesQuery = useMediaQuery('(max-width:768px)');
   const containerRef = createRef<HTMLDivElement>();
+  const searchDropdown = createRef<HTMLDivElement>();
+
+  const styles = SearchStyles(mode);
 
   const handleFocus = (e: MouseEvent) => {
     if (
-      (e.target as HTMLElement).matches(`#${base}-search-container, 
-      #${base}-search-container *`) &&
+      (e.target as HTMLElement).matches(`#base-search-container, 
+      #base-search-container *`) &&
       // do not open search results when dropdown or cancel button is clicked
       !(e.target as HTMLElement).matches(
-        `#${base}_search-dropdown,
-        #${base}_search-dropdown *,
-        #cancel-edit-${base}-button, 
-        #cancel-edit-${base}-button *`,
+        `#base_search-dropdown,
+        #base_search-dropdown *,
+        #cancel-edit-base-button, 
+        #cancel-edit-base-button *`,
       )
     ) {
       setFocused(true);
@@ -90,16 +69,16 @@ function SearchComponent({
   }, [focused]);
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleFocus);
+    containerRef.current?.addEventListener('mousedown', handleFocus);
     return () => {
-      document.removeEventListener('mousedown', handleFocus);
+      containerRef.current?.removeEventListener('mousedown', handleFocus);
     };
   }, []);
 
   useEffect(() => {
-    document.addEventListener('keydown', handleEscKeypress);
+    containerRef.current?.addEventListener('keydown', handleEscKeypress);
     return () => {
-      document.removeEventListener('keydown', handleEscKeypress);
+      containerRef.current?.removeEventListener('keydown', handleEscKeypress);
     };
   });
 
@@ -107,48 +86,39 @@ function SearchComponent({
     <Grid
       container
       alignItems='flex-start'
-      id={`${base}-search-container`}
+      id='base-search-container'
       className={styles.container}
       ref={containerRef}
     >
       <Grid
         item
         xs={2}
-        id={`${base}_search-dropdown`}
-        className={`${base}-search-dropdown ${styles.dropDown} ${styles.baseSearchDropdown}`}
+        id='base_search-dropdown'
+        className={`base-search-dropdown ${styles.dropDown} ${styles.baseSearchDropdown}`}
+        ref={searchDropdown}
       >
         <SearchDropdown
           view={view}
-          selectLabel={selectLabel}
-          tooltipText={tooltip}
+          selectLabel={strings.selectLabel}
+          tooltipText={strings.tooltip}
           mode={mode}
-          base={base}
-          repository={repository}
         />
       </Grid>
       <Grid
         item
         xs={7}
-        id={`${base}_search-input`}
-        className={`${base}-search-input ${
-          matchesQuery ? `${base}-search-input--mobile` : ''
+        id='base_search-input'
+        className={`base-search-input ${
+          matchesQuery ? 'base-search-input--mobile' : ''
         } ${styles.baseSearchInput}`}
       >
-        <SearchInput
-          mode={mode}
-          setFocused={setFocused}
-          view={view}
-          inputPlaceholder={inputPlaceholder}
-          base={base}
-          inputError={inputError}
-          inputHelperText={inputHelperText}
-        />
+        <SearchInput mode={mode} setFocused={setFocused} view={view} />
         {searchResults.length > 0 && focused && (
           <SearchResultsList
             mode={mode}
             searchResults={searchResults}
             view={view}
-            base={base}
+            base='base'
           />
         )}
       </Grid>
@@ -158,17 +128,17 @@ function SearchComponent({
           <>
             <Button
               className='edit-base-button'
-              id={`replace-${base}-button`}
-              data-testid={`replace-${base}-button`}
+              id='replace-base-button'
+              data-testid='replace-base-button'
               size='small'
               onClick={() => replaceSelectedRevision(prevRevision)}
             >
               <CheckIcon className='accept' />
             </Button>
             <Button
-              className={`edit-${base}-button`}
-              id={`cancel-edit-${base}-button`}
-              data-testid={`cancel-edit-${base}-button`}
+              className='edit-base-button'
+              id='cancel-edit-base-button'
+              data-testid='cancel-base-revision-button'
               size='small'
               onClick={() => setPopoverIsOpen(false)}
             >
@@ -181,4 +151,18 @@ function SearchComponent({
   );
 }
 
-export default SearchComponent;
+interface BaseSearchProps {
+  searchResults: Revision[];
+  mode: 'light' | 'dark';
+  view: 'compare-results' | 'search';
+  setPopoverIsOpen?: Dispatch<SetStateAction<boolean>>;
+  prevRevision?: Revision;
+}
+
+function mapStateToProps(state: RootState) {
+  return {
+    searchResults: state.search.searchResults,
+  };
+}
+
+export default connect(mapStateToProps)(BaseSearch);

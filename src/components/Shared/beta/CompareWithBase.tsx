@@ -12,25 +12,54 @@ const strings = Strings.components.searchDefault;
 const stringsBase = Strings.components.searchDefault.base.collaped.base;
 const stringsRevision = Strings.components.searchDefault.base.collaped.revision;
 
+interface CompareWithBaseProps {
+  mode: 'light' | 'dark';
+}
+
 interface Expanded {
   expanded: boolean;
   class: string;
 }
 
-function CompareWithBase(props: CompareWithBaseProps) {
-  const { mode } = props;
-  const baseRepo = useAppSelector(
-    (state: RootState) => state.search.baseRepository,
-  );
-  const newRepo = useAppSelector(
-    (state: RootState) => state.search.newRepository,
-  );
+function CompareWithBase({ mode }: CompareWithBaseProps) {
+  const styles = CompareCardsStyles(mode);
+  const searchState = useAppSelector((state: RootState) => state.search);
+  const {
+    inputErrorBase,
+    inputErrorNew,
+    inputHelperText,
+    baseRepository,
+    newRepository,
+    baseSearchResults,
+    newSearchResults,
+  } = searchState;
+
+  const SearchPropsBase = {
+    ...stringsBase,
+    view: 'search' as 'search' | 'compare-results',
+    mode,
+    base: 'base' as 'new' | 'base',
+    repository: baseRepository,
+    inputError: inputErrorBase,
+    inputHelperText: inputHelperText,
+    searchResults: baseSearchResults,
+  };
+
+  const SearchPropsNew = {
+    ...stringsRevision,
+    view: 'search' as 'search' | 'compare-results',
+    mode,
+    base: 'new' as 'new' | 'base',
+    repository: newRepository,
+    inputError: inputErrorNew,
+    inputHelperText: inputHelperText,
+    searchResults: newSearchResults,
+  };
+
   const [base, setExpanded] = useState<Expanded>({
     expanded: true,
     class: 'expanded',
   });
-
-  const styles = CompareCardsStyles(mode);
 
   const toggleIsExpanded = () => {
     setExpanded({
@@ -60,29 +89,13 @@ function CompareWithBase(props: CompareWithBaseProps) {
       >
         <Divider className='divider' />
         <div className='form-wrapper'>
-          <SearchComponent
-            {...stringsBase}
-            view='search'
-            mode={mode}
-            base='base'
-            repository={baseRepo}
-          />
-          <SearchComponent
-            {...stringsRevision}
-            view='search'
-            mode={mode}
-            base='new'
-            repository={newRepo}
-          />
+          <SearchComponent {...SearchPropsBase} />
+          <SearchComponent {...SearchPropsNew} />
           <div className='framework'></div>
         </div>
       </div>
     </div>
   );
-}
-
-interface CompareWithBaseProps {
-  mode: 'light' | 'dark';
 }
 
 export default CompareWithBase;

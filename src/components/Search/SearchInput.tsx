@@ -15,17 +15,22 @@ function SearchInput(props: SearchInputProps) {
   const { setFocused, inputError, inputHelperText, view } = props;
   const { handleChangeSearch } = useHandleChangeSearch();
   const size = view == 'compare-results' ? 'small' : undefined;
+  const searchState = {
+    baseSearch: '',
+    newSearch: '',
+    searchType: 'base' as 'base' | 'new',
+  };
   return (
     <FormControl variant='outlined' fullWidth>
       <TextField
         error={inputError}
-        helperText={inputHelperText}
+        helperText={inputError && inputHelperText}
         label='Search By Revision ID or Author Email'
         placeholder='Search By Revision ID or Author Email'
         id='search-revision-input'
         onFocus={() => setFocused(true)}
         sx={{ width: '100%' }}
-        onChange={(e) => handleChangeSearch(e)}
+        onChange={() => handleChangeSearch(searchState)}
         size={size}
         className={`${InputStyles.default} ${Fonts.BodyDefault}`}
         InputProps={{
@@ -49,7 +54,7 @@ interface SearchInputProps {
 
 function mapStateToProps(state: RootState) {
   return {
-    inputError: state.search.inputError,
+    inputError: state.search.inputErrorBase,
     inputHelperText: state.search.inputHelperText,
     searchResults: state.search.searchResults,
   };

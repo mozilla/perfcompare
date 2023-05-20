@@ -89,7 +89,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
           class="wrapper"
         >
           <div
-            class="compare-card-container compare-card-container--expanded container_f1c7clq7"
+            class="compare-card-container compare-card-container--expanded container_f2fpoji"
           >
             <div
               class="compare-card-text cardText_f10ud7bq"
@@ -111,7 +111,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
             />
           </div>
           <div
-            class="compare-card-container content-base content-base--expanded container_f1c7clq7 "
+            class="compare-card-container content-base content-base--expanded container_f2fpoji "
           >
             <hr
               class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
@@ -120,7 +120,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
               class="form-wrapper"
             >
               <div
-                class="MuiGrid-root MuiGrid-container container_f1gq1ui1 css-1ljzhs0-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-container container_ftulh01 css-1ljzhs0-MuiGrid-root"
                 id="base-search-container"
               >
                 <div
@@ -187,7 +187,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f1f48df2 css-17gmabg-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_fim9qh9 css-17gmabg-MuiGrid-root"
                   id="base_search-input"
                 >
                   <div
@@ -222,7 +222,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                         <input
                           aria-invalid="false"
                           class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
-                          id="search-revision-input"
+                          id="search-base-input"
                           name="baseSearch"
                           placeholder="Search base by ID number or author email"
                           type="text"
@@ -251,7 +251,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                 />
               </div>
               <div
-                class="MuiGrid-root MuiGrid-container container_f1gq1ui1 css-1ljzhs0-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-container container_ftulh01 css-1ljzhs0-MuiGrid-root"
                 id="new-search-container"
               >
                 <div
@@ -318,7 +318,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f1f48df2 css-17gmabg-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_fim9qh9 css-17gmabg-MuiGrid-root"
                   id="new_search-input"
                 >
                   <div
@@ -353,7 +353,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                         <input
                           aria-invalid="false"
                           class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
-                          id="search-revision-input"
+                          id="search-new-input"
                           name="newSearch"
                           placeholder="Search revision by ID number or author email"
                           type="text"
@@ -388,7 +388,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
           </div>
         </div>
         <div
-          class="compare-card-container compare-card-container--time container_f1c7clq7"
+          class="compare-card-container compare-card-container--time container_f2fpoji"
         >
           <div
             class="compare-card-text cardText_f10ud7bq"

@@ -7,6 +7,7 @@ import {
 } from '../thunks/searchThunk';
 import type { Repository, Revision, SearchState } from '../types/state';
 
+
 const initialState: SearchState = {
   // base repository to search, string
   baseRepository: 'try',
@@ -35,6 +36,7 @@ const search = createSlice({
     updateSearchValue(state, action: PayloadAction<string>) {
       state.searchValue = action.payload;
     },
+
     updateSearchResults(
       state,
       action: PayloadAction<{
@@ -42,15 +44,16 @@ const search = createSlice({
         searchType: 'base' | 'new';
       }>,
     ) {
+      //keeping the old searchResults until searchview beta is complete
       state.searchResults = action.payload.payload;
       //depending on the repository selected on dropdown, searchType, update the search results for that repository, base or new
       state.baseSearchResults =
-        action.payload.searchType == 'base'
+        action.payload.searchType === 'base'
           ? action.payload.payload
           : state.baseSearchResults;
 
       state.newSearchResults =
-        action.payload.searchType == 'new'
+        action.payload.searchType === 'new'
           ? action.payload.payload
           : state.newSearchResults;
     },
@@ -87,7 +90,6 @@ const search = createSlice({
       // fetchRecentRevisions
       .addCase(fetchRecentRevisions.fulfilled, (state, action) => {
         state.searchResults = action.payload;
-        state.searchResults = action.payload;
         state.baseSearchResults =
           action.meta.arg.searchType == 'base'
             ? action.payload
@@ -98,10 +100,11 @@ const search = createSlice({
             : state.newSearchResults;
       })
       .addCase(fetchRecentRevisions.rejected, (state, action) => {
-        state.inputErrorBase = true;
-        state.inputErrorNew = true;
-        state.inputHelperText = action.payload
-          ? action.payload
+        state.inputErrorBase = action.payload?.searchType == 'base' ?? true;
+        state.inputErrorNew = action.payload?.searchType == 'new' ?? true;
+
+        state.inputHelperText = action.payload?.error
+          ? action.payload?.error
           : 'An error has occurred';
       })
       // fetchRevisionByID
@@ -117,21 +120,29 @@ const search = createSlice({
             : state.newSearchResults;
       })
       .addCase(fetchRevisionByID.rejected, (state, action) => {
-        state.inputErrorBase = true;
-        state.inputErrorNew = true;
-        state.inputHelperText = action.payload
-          ? action.payload
+        state.inputErrorBase = action.payload?.searchType == 'base' ?? true;
+        state.inputErrorNew = action.payload?.searchType == 'new' ?? true;
+        state.inputHelperText = action.payload?.error
+          ? action.payload?.error
           : 'An error has occurred';
       })
       // fetchRevisionsByAuthor
       .addCase(fetchRevisionsByAuthor.fulfilled, (state, action) => {
         state.searchResults = action.payload;
+        state.baseSearchResults =
+          action.meta.arg.searchType == 'base'
+            ? action.payload
+            : state.baseSearchResults;
+        state.newSearchResults =
+          action.meta.arg.searchType == 'new'
+            ? action.payload
+            : state.newSearchResults;
       })
       .addCase(fetchRevisionsByAuthor.rejected, (state, action) => {
-        state.inputErrorBase = true;
-        state.inputErrorNew = true;
-        state.inputHelperText = action.payload
-          ? action.payload
+        state.inputErrorBase = action.payload?.searchType == 'base' ?? true;
+        state.inputErrorNew = action.payload?.searchType == 'new' ?? true;
+        state.inputHelperText = action.payload?.error
+          ? action.payload?.error
           : 'An error has occurred';
       });
   },

@@ -22,22 +22,26 @@ import {
 } from '../../../styles';
 import type { Repository } from '../../../types/state';
 
-function SearchDropdown(props: SearchDropdownProps) {
-  const { repository, view, selectLabel, tooltipText, mode, base } = props;
+function SearchDropdown({
+  repository,
+  view,
+  selectLabel,
+  tooltipText,
+  mode,
+  base,
+}: SearchDropdownProps) {
   const size = view == 'compare-results' ? 'small' : undefined;
   const { handleChangeDropdown } = useHandleChangeDropdown();
 
   //searchType is to distinguish between base and new search dropdowns for handleChangeDropdown hook
   const [repoSelect, setRepoSelect] = useState({
-    baseRepository: '',
-    newRepository: '',
+    baseRepository: 'try',
+    newRepository: 'try',
     searchType: base,
   });
 
   useEffect(() => {
-    if (repoSelect.baseRepository !== '' || repoSelect.newRepository !== '') {
-      void handleChangeDropdown(repoSelect);
-    }
+    void handleChangeDropdown(repoSelect);
   }, [repoSelect]);
 
   const handleRepoSelect = (e: React.MouseEvent<HTMLLIElement>) => {
@@ -133,6 +137,7 @@ function SearchDropdown(props: SearchDropdownProps) {
               value={repoMap[key]}
               key={repoMap[key]}
               onClick={(e) => handleRepoSelect(e)}
+              className={`${base}Repository`}
             >
               {repoMap[key]}
             </MenuItem>

@@ -58,7 +58,7 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
 
   const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);
-  const maxRevisions = view == 'compare-results' ? 1 : 4;
+  const maxRevisions = view == 'compare-results' ? 1 : 3;
   const isBase = base == 'base' ? 1 : maxRevisions;
 
   const itemDate = new Date(item.push_timestamp * 1000);

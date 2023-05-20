@@ -9,16 +9,15 @@ import { style } from 'typestyle';
 import useHandleChangeSearch from '../../../hooks/useHandleChangeSearch';
 import { InputStylesRaw, Spacing } from '../../../styles';
 
-function SearchInput(props: SearchInputProps) {
-  const {
-    setFocused,
-    view,
-    mode,
-    inputPlaceholder,
-    base,
-    inputError,
-    inputHelperText,
-  } = props;
+function SearchInput({
+  setFocused,
+  view,
+  mode,
+  inputPlaceholder,
+  base,
+  inputError,
+  inputHelperText,
+}: SearchInputProps) {
   const { handleChangeSearch } = useHandleChangeSearch();
   //searchType is to distinguish between base and new search inputs for handleChangeSearch hook
   const [searchState, setState] = useState({
@@ -67,7 +66,7 @@ function SearchInput(props: SearchInputProps) {
         error={inputError}
         helperText={inputError && inputHelperText}
         placeholder={inputPlaceholder}
-        id='search-revision-input'
+        id={`search-${base}-input`}
         onFocus={() => setFocused(true)}
         onChange={(e) => updateSearchState(e)}
         size={size}

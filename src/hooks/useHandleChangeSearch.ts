@@ -18,12 +18,8 @@ let timeout: null | ReturnType<typeof setTimeout> = null;
 
 const useHandleChangeSearch = () => {
   const dispatch = useAppDispatch();
-  const getBaseRepository = useAppSelector(
-    (state) => state.search.baseRepository,
-  );
-  const getNewRepository = useAppSelector(
-    (state) => state.search.newRepository,
-  );
+  const baseRepository = useAppSelector((state) => state.search.baseRepository);
+  const newRepository = useAppSelector((state) => state.search.newRepository);
 
   const warningText =
     'Search must be a 12- or 40-character hash, or email address';
@@ -37,7 +33,7 @@ const useHandleChangeSearch = () => {
     const longHashMatch = /\b[a-f0-9]{40}\b/;
     const shortHashMatch = /\b[a-f0-9]{12}\b/;
 
-    if (!search) {
+    if (search === '') {
       await dispatch(fetchRecentRevisions({ repository, searchType }));
     } else if (emailMatch.test(search)) {
       await dispatch(
@@ -46,13 +42,12 @@ const useHandleChangeSearch = () => {
     } else if (longHashMatch.test(search) || shortHashMatch.test(search)) {
       await dispatch(fetchRevisionByID({ repository, search, searchType }));
     } else {
-      if (searchType === 'base') {
-        dispatch(setInputErrorBase(warningText));
-      }
+      const isError =
+        searchType === 'base'
+          ? dispatch(setInputErrorBase(warningText))
+          : dispatch(setInputErrorNew(warningText));
 
-      if (searchType === 'new') {
-        dispatch(setInputErrorNew(warningText));
-      }
+      return isError;
     }
   };
 
@@ -71,20 +66,21 @@ const useHandleChangeSearch = () => {
   }: SearchProps) => {
     const search = searchType == 'base' ? baseSearch : newSearch;
 
-    //set rep based on whether base or new search
-    const repository =
-      searchType == 'base' ? getBaseRepository : getNewRepository;
+    //set repo based on whether base or new search
+    const repository = searchType === 'base' ? baseRepository : newRepository;
 
     dispatch(updateSearchValue(search));
     dispatch(updateSearchResults({ payload: [], searchType }));
 
-    if (searchType == 'base') {
+    if (search == '' && searchType == 'base') {
       dispatch(clearInputErrorBase());
     }
 
-    if (searchType == 'new') {
+    if (searchType === 'new') {
       dispatch(clearInputErrorNew());
     }
+
+    debugger;
 
     const idleTime = 500;
     const onTimeout = () => {

@@ -516,8 +516,8 @@ exports[`Search View should match snapshot 1`] = `
             class="MuiFormControl-root f1no547h f168mohg css-1anm9we-MuiFormControl-root"
           >
             <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-vav7hz-MuiFormLabel-root-MuiInputLabel-root"
-              data-shrink="false"
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
+              data-shrink="true"
               id="select-repository-label"
             >
               repository
@@ -533,17 +533,13 @@ exports[`Search View should match snapshot 1`] = `
                 role="button"
                 tabindex="0"
               >
-                <span
-                  class="notranslate"
-                >
-                  ​
-                </span>
+                try
               </div>
               <input
                 aria-hidden="true"
                 class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
                 tabindex="-1"
-                value=""
+                value="try"
               />
               <svg
                 aria-hidden="true"
@@ -561,7 +557,7 @@ exports[`Search View should match snapshot 1`] = `
                 class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="css-yjsfm1"
+                  class="css-14lo706"
                 >
                   <span>
                     repository
@@ -581,7 +577,7 @@ exports[`Search View should match snapshot 1`] = `
               class="MuiFormControl-root MuiTextField-root f2gjzje f168mohg css-136h9lv-MuiFormControl-root-MuiTextField-root"
             >
               <label
-                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-error MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
                 data-shrink="true"
                 for="search-revision-input"
                 id="search-revision-input-label"
@@ -589,7 +585,7 @@ exports[`Search View should match snapshot 1`] = `
                 Search By Revision ID or Author Email
               </label>
               <div
-                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-error MuiInputBase-formControl MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
               >
                 <div
                   class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-yzzuft-MuiInputAdornment-root"
@@ -608,7 +604,7 @@ exports[`Search View should match snapshot 1`] = `
                 </div>
                 <input
                   aria-describedby="search-revision-input-helper-text"
-                  aria-invalid="false"
+                  aria-invalid="true"
                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-revision-input"
                   placeholder="Search By Revision ID or Author Email"
@@ -629,7 +625,7 @@ exports[`Search View should match snapshot 1`] = `
                 </fieldset>
               </div>
               <p
-                class="MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1ut8mn8-MuiFormHelperText-root"
+                class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1ut8mn8-MuiFormHelperText-root"
                 id="search-revision-input-helper-text"
               >
                 An error has occurred

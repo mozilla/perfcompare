@@ -16,6 +16,11 @@ function SearchDropdown(props: SearchDropdownProps) {
   const { repository, view } = props;
   const { handleChangeDropdown } = useHandleChangeDropdown();
   const size = view == 'compare-results' ? 'small' : undefined;
+  const repoSelect = {
+    baseRepository: '',
+    newRepository: '',
+    searchType: 'base' as 'base' | 'new',
+  };
 
   return (
     <FormControl
@@ -37,7 +42,7 @@ function SearchDropdown(props: SearchDropdownProps) {
             id={repoMap[key]}
             value={repoMap[key]}
             key={repoMap[key]}
-            onClick={(e) => void handleChangeDropdown(e)}
+            onClick={() => void handleChangeDropdown(repoSelect)}
           >
             {repoMap[key]}
           </MenuItem>
@@ -54,7 +59,7 @@ interface SearchDropdownProps {
 
 function mapStateToProps(state: RootState) {
   return {
-    repository: state.search.repository,
+    repository: state.search.baseRepository,
   };
 }
 
