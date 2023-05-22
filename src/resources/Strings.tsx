@@ -58,5 +58,14 @@ export const Strings = {
         collapedSelectLabel: 'Time range',
       },
     },
+    expandableRow: {
+      singleRun: 'Only one run (consider more runs for greater confidence).',
+      lowConfidence: 'A value of \'low\' suggests less confidence that there is a sustained, significant change between the two revisions.',
+      mediumConfidence: 'A value of \'med\' indicates uncertainty that there is a significant change. If you haven\'t already, consider retriggering the job to be more sure.',
+      highConfidence: 'A value of \'high\' indicates more confidence that there is a significant change, however you should check the historical record for the test by looking at the graph to be more sure (some noisy tests can provide inconsistent results).',
+      note: 'THOUGH THIS IS A SIGNIFICANT CHANGE,\
+       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT \
+       ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).',
+    },
   },
-}; 
+};
