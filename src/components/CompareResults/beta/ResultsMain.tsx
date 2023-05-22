@@ -16,6 +16,7 @@ function ResultsMain(props: ResultsMainProps) {
       backgroundColor: themeColor100,
       maxWidth: '950px',
       margin: '0 auto',
+      marginBottom: '80px',
     }),
   };
 

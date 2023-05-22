@@ -1,8 +1,9 @@
 import { useState } from 'react';
 
 import AppleIcon from '@mui/icons-material/Apple';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import { IconButton, TableRow, TableCell } from '@mui/material';
@@ -139,14 +140,14 @@ function RevisionRow(props: RevisionRowProps) {
       </TableCell>
       <TableCell className='cell-button download'>
         <div className='download-button-container'>
-          <IconButton aria-label='download' size='small' disabled>
+          <IconButton aria-label='download' size='small'>
             <FileDownloadOutlinedIcon />
           </IconButton>
         </div>
       </TableCell>
       <TableCell className='cell-button retrigger-button'>
         <div className='runs-button-container'>
-          <IconButton aria-label='retrigger button' size='small' disabled>
+          <IconButton aria-label='retrigger button' size='small'>
             <RefreshOutlinedIcon />
           </IconButton>
         </div>
@@ -160,7 +161,11 @@ function RevisionRow(props: RevisionRowProps) {
             aria-label='expand row'
             size='small'
           >
-            <KeyboardArrowDownIcon />
+            {
+              row.expanded ?
+              <ExpandLessIcon /> :
+              <ExpandMoreIcon />
+            }
           </IconButton>
         </div>
       </TableCell>
