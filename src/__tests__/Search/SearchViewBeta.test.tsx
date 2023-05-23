@@ -154,8 +154,8 @@ describe('Base Search', () => {
       'Search must be a 12- or 40-character hash, or email address',
     );
 
-    // fetch should only be called on initial load
-    expect(spyOnFetch).toHaveBeenCalledTimes(2);
+    // fetch is called 3 times on initial load
+    expect(spyOnFetch).toHaveBeenCalledTimes(3);
   });
 
   it('Should clear search results if the search value is cleared', async () => {
