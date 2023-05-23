@@ -350,9 +350,8 @@ exports[`Results Table Should match snapshot 1`] = `
               >
                 <button
                   aria-label="download"
-                  class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
-                  disabled=""
-                  tabindex="-1"
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+                  tabindex="0"
                   type="button"
                 >
                   <svg
@@ -366,6 +365,9 @@ exports[`Results Table Should match snapshot 1`] = `
                       d="M18 15v3H6v-3H4v3c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-3h-2zm-1-4-1.41-1.41L13 12.17V4h-2v8.17L8.41 9.59 7 11l5 5 5-5z"
                     />
                   </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
                 </button>
               </div>
             </td>
@@ -377,9 +379,8 @@ exports[`Results Table Should match snapshot 1`] = `
               >
                 <button
                   aria-label="retrigger button"
-                  class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
-                  disabled=""
-                  tabindex="-1"
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+                  tabindex="0"
                   type="button"
                 >
                   <svg
@@ -393,6 +394,9 @@ exports[`Results Table Should match snapshot 1`] = `
                       d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
                     />
                   </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
                 </button>
               </div>
             </td>
@@ -401,6 +405,7 @@ exports[`Results Table Should match snapshot 1`] = `
             >
               <div
                 class="expand-button-container"
+                data-testid="expand-revision-button"
               >
                 <button
                   aria-label="expand row"
@@ -411,18 +416,82 @@ exports[`Results Table Should match snapshot 1`] = `
                   <svg
                     aria-hidden="true"
                     class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                    data-testid="KeyboardArrowDownIcon"
+                    data-testid="ExpandMoreIcon"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >
                     <path
-                      d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                      d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
                     />
                   </svg>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </button>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root revisionRow f131cxob css-1yt2i5z-MuiTableRow-root"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
+              colspan="11"
+            >
+              <div
+                class="content-row content-row--default container_f1nmcl0i "
+                data-testid="expanded-row-content"
+              >
+                <div
+                  class="f120wds7"
+                >
+                  <div
+                    class="f19s1n7z"
+                  >
+                    <div
+                      class="fc8wfj0"
+                    >
+                      macosx1015-64-shippable-qr 
+                      <br />
+                    </div>
+                    <div
+                      class="fc8wfj0"
+                    >
+                      <hr
+                        class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+                      />
+                       
+                    </div>
+                    <div
+                      class="fc8wfj0"
+                    >
+                      Only one run (consider more runs for greater confidence).
+                    </div>
+                    <div
+                      class="fc8wfj0"
+                    >
+                      <b>
+                        Mean Difference
+                      </b>
+                      : 2.5% worse (1,394,293,93)
+                    </div>
+                    <div>
+                      <b>
+                        Confidence
+                      </b>
+                      : High
+                    </div>
+                    <div
+                      class="fl597bh"
+                    >
+                      <b>
+                        **NOTE
+                      </b>
+                      : 
+                      THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                    </div>
+                  </div>
+                </div>
               </div>
             </td>
           </tr>
@@ -539,9 +608,8 @@ exports[`Results Table Should match snapshot 1`] = `
               >
                 <button
                   aria-label="download"
-                  class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
-                  disabled=""
-                  tabindex="-1"
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+                  tabindex="0"
                   type="button"
                 >
                   <svg
@@ -555,6 +623,9 @@ exports[`Results Table Should match snapshot 1`] = `
                       d="M18 15v3H6v-3H4v3c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-3h-2zm-1-4-1.41-1.41L13 12.17V4h-2v8.17L8.41 9.59 7 11l5 5 5-5z"
                     />
                   </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
                 </button>
               </div>
             </td>
@@ -566,9 +637,8 @@ exports[`Results Table Should match snapshot 1`] = `
               >
                 <button
                   aria-label="retrigger button"
-                  class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
-                  disabled=""
-                  tabindex="-1"
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+                  tabindex="0"
                   type="button"
                 >
                   <svg
@@ -582,6 +652,9 @@ exports[`Results Table Should match snapshot 1`] = `
                       d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
                     />
                   </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
                 </button>
               </div>
             </td>
@@ -590,6 +663,7 @@ exports[`Results Table Should match snapshot 1`] = `
             >
               <div
                 class="expand-button-container"
+                data-testid="expand-revision-button"
               >
                 <button
                   aria-label="expand row"
@@ -600,18 +674,82 @@ exports[`Results Table Should match snapshot 1`] = `
                   <svg
                     aria-hidden="true"
                     class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                    data-testid="KeyboardArrowDownIcon"
+                    data-testid="ExpandMoreIcon"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >
                     <path
-                      d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                      d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
                     />
                   </svg>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </button>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root revisionRow f131cxob css-1yt2i5z-MuiTableRow-root"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
+              colspan="11"
+            >
+              <div
+                class="content-row content-row--default container_f1nmcl0i "
+                data-testid="expanded-row-content"
+              >
+                <div
+                  class="f120wds7"
+                >
+                  <div
+                    class="f19s1n7z"
+                  >
+                    <div
+                      class="fc8wfj0"
+                    >
+                      macosx1015-64-shippable-qr 
+                      <br />
+                    </div>
+                    <div
+                      class="fc8wfj0"
+                    >
+                      <hr
+                        class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+                      />
+                       
+                    </div>
+                    <div
+                      class="fc8wfj0"
+                    >
+                      Only one run (consider more runs for greater confidence).
+                    </div>
+                    <div
+                      class="fc8wfj0"
+                    >
+                      <b>
+                        Mean Difference
+                      </b>
+                      : 2.5% worse (1,394,293,93)
+                    </div>
+                    <div>
+                      <b>
+                        Confidence
+                      </b>
+                      : High
+                    </div>
+                    <div
+                      class="fl597bh"
+                    >
+                      <b>
+                        **NOTE
+                      </b>
+                      : 
+                      THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                    </div>
+                  </div>
+                </div>
               </div>
             </td>
           </tr>
@@ -728,9 +866,8 @@ exports[`Results Table Should match snapshot 1`] = `
               >
                 <button
                   aria-label="download"
-                  class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
-                  disabled=""
-                  tabindex="-1"
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+                  tabindex="0"
                   type="button"
                 >
                   <svg
@@ -744,6 +881,9 @@ exports[`Results Table Should match snapshot 1`] = `
                       d="M18 15v3H6v-3H4v3c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-3h-2zm-1-4-1.41-1.41L13 12.17V4h-2v8.17L8.41 9.59 7 11l5 5 5-5z"
                     />
                   </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
                 </button>
               </div>
             </td>
@@ -755,9 +895,8 @@ exports[`Results Table Should match snapshot 1`] = `
               >
                 <button
                   aria-label="retrigger button"
-                  class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
-                  disabled=""
-                  tabindex="-1"
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+                  tabindex="0"
                   type="button"
                 >
                   <svg
@@ -771,6 +910,9 @@ exports[`Results Table Should match snapshot 1`] = `
                       d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
                     />
                   </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
                 </button>
               </div>
             </td>
@@ -779,6 +921,7 @@ exports[`Results Table Should match snapshot 1`] = `
             >
               <div
                 class="expand-button-container"
+                data-testid="expand-revision-button"
               >
                 <button
                   aria-label="expand row"
@@ -789,18 +932,82 @@ exports[`Results Table Should match snapshot 1`] = `
                   <svg
                     aria-hidden="true"
                     class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                    data-testid="KeyboardArrowDownIcon"
+                    data-testid="ExpandMoreIcon"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >
                     <path
-                      d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                      d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
                     />
                   </svg>
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </button>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root revisionRow f131cxob css-1yt2i5z-MuiTableRow-root"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
+              colspan="11"
+            >
+              <div
+                class="content-row content-row--default container_f1nmcl0i "
+                data-testid="expanded-row-content"
+              >
+                <div
+                  class="f120wds7"
+                >
+                  <div
+                    class="f19s1n7z"
+                  >
+                    <div
+                      class="fc8wfj0"
+                    >
+                      macosx1015-64-shippable-qr 
+                      <br />
+                    </div>
+                    <div
+                      class="fc8wfj0"
+                    >
+                      <hr
+                        class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+                      />
+                       
+                    </div>
+                    <div
+                      class="fc8wfj0"
+                    >
+                      Only one run (consider more runs for greater confidence).
+                    </div>
+                    <div
+                      class="fc8wfj0"
+                    >
+                      <b>
+                        Mean Difference
+                      </b>
+                      : 2.5% worse (1,394,293,93)
+                    </div>
+                    <div>
+                      <b>
+                        Confidence
+                      </b>
+                      : High
+                    </div>
+                    <div
+                      class="fl597bh"
+                    >
+                      <b>
+                        **NOTE
+                      </b>
+                      : 
+                      THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                    </div>
+                  </div>
+                </div>
               </div>
             </td>
           </tr>

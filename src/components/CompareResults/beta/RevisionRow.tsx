@@ -1,15 +1,39 @@
+import { useState } from 'react';
+
 import AppleIcon from '@mui/icons-material/Apple';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import { IconButton, TableRow, TableCell } from '@mui/material';
 import { style } from 'typestyle';
 
 import { Colors, Spacing } from '../../../styles';
+import { ExpandableRowStyles } from '../../../styles';
+import RevisionRowExpandable from './RevisionRowExpandable';
+
+interface Expanded {
+  expanded: boolean;
+  class: string;
+}
 
 function RevisionRow(props: RevisionRowProps) {
   const { themeMode } = props;
+
+  const [row, setExpanded] = useState<Expanded>({
+    expanded: false,
+    class: 'default',
+  });
+
+  const toggleIsExpanded = () => {
+    setExpanded({
+      expanded: !row.expanded,
+      class: row.expanded ? 'default' : 'expanded',
+    });
+  };
+
+  const stylesCard = ExpandableRowStyles();
 
   const expandButtonColor =
     themeMode == 'light' ? Colors.Background300 : Colors.Background100Dark;
@@ -86,6 +110,7 @@ function RevisionRow(props: RevisionRowProps) {
     }),
   };
   return (
+    <>
     <TableRow className={`revisionRow ${styles.revisionRow}`}>
       <TableCell className='platform'>
         <div className='platform-container'>
@@ -115,29 +140,49 @@ function RevisionRow(props: RevisionRowProps) {
       </TableCell>
       <TableCell className='cell-button download'>
         <div className='download-button-container'>
-          <IconButton aria-label='download' size='small' disabled>
+          <IconButton aria-label='download' size='small'>
             <FileDownloadOutlinedIcon />
           </IconButton>
         </div>
       </TableCell>
       <TableCell className='cell-button retrigger-button'>
         <div className='runs-button-container'>
-          <IconButton aria-label='retrigger button' size='small' disabled>
+          <IconButton aria-label='retrigger button' size='small'>
             <RefreshOutlinedIcon />
           </IconButton>
         </div>
       </TableCell>
       <TableCell className='cell-button expand-button'>
-        <div className='expand-button-container'>
+        <div className='expand-button-container' 
+             onClick={toggleIsExpanded}
+             data-testid='expand-revision-button'
+        >
           <IconButton
             aria-label='expand row'
             size='small'
           >
-            <KeyboardArrowDownIcon />
+            {
+              row.expanded ?
+              <ExpandLessIcon /> :
+              <ExpandMoreIcon />
+            }
           </IconButton>
         </div>
       </TableCell>
     </TableRow>
+    
+    <TableRow className={`revisionRow ${styles.revisionRow}`}>
+      <TableCell colSpan={11}>
+      <div 
+          className={`content-row content-row--${row.class} ${stylesCard.container} `}
+          data-testid='expanded-row-content'
+      >
+        <RevisionRowExpandable themeMode={themeMode}/>
+      </div>
+      </TableCell>
+    </TableRow>
+    
+    </>
   );
 }
 
