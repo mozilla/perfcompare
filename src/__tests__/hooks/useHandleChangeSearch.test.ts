@@ -1,9 +1,10 @@
-import { FormEvent } from 'react';
-
 import { renderHook } from '@testing-library/react';
 
 import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
-import { setInputError, updateSearchResults } from '../../reducers/SearchSlice';
+import {
+  setInputErrorBase,
+  updateSearchResults,
+} from '../../reducers/SearchSlice';
 import getTestData from '../utils/fixtures';
 import { store, StoreProvider } from '../utils/setupTests';
 
@@ -11,8 +12,6 @@ jest.useFakeTimers();
 
 describe('Tests useHandleSearchHook', () => {
   const { testData } = getTestData();
-  const createEvent = (search = '') =>
-    ({ currentTarget: { value: search } } as FormEvent<HTMLInputElement>);
 
   beforeEach(() => {
     global.fetch = jest.fn(() =>
@@ -25,50 +24,71 @@ describe('Tests useHandleSearchHook', () => {
   });
 
   it('should update the searchValue', () => {
-    const testInput = 'test input';
+    const searchState = {
+      baseSearch: 'test input',
+      newSearch: '',
+      searchType: 'base' as 'base' | 'new',
+    };
     const { result } = renderHook(() => useHandleChangeSearch(), {
       wrapper: StoreProvider,
     });
-    result.current.handleChangeSearch(createEvent(testInput));
+    result.current.handleChangeSearch(searchState);
 
     const { search: searchSlice } = store.getState();
     expect(searchSlice.searchValue).toBe('test input');
   });
 
   it('should set search results to []', () => {
-    const testInput = 'test input';
+    const searchState = {
+      baseSearch: 'test input',
+      newSearch: '',
+      searchType: 'base' as 'base' | 'new',
+    };
+    const searchResults = {
+      payload: testData,
+      searchType: 'base' as 'base' | 'new',
+    };
     const { result } = renderHook(() => useHandleChangeSearch(), {
       wrapper: StoreProvider,
     });
-    store.dispatch(updateSearchResults(testData));
+    store.dispatch(updateSearchResults(searchResults));
     const { search: searchSlice } = store.getState();
     expect(searchSlice.searchResults).toEqual(testData);
-    result.current.handleChangeSearch(createEvent(testInput));
+    result.current.handleChangeSearch(searchState);
     const { search: updatedSearchSlice } = store.getState();
     expect(updatedSearchSlice.searchResults).not.toEqual(testData);
     expect(updatedSearchSlice.searchResults).toEqual([]);
   });
 
   it('should set inputHelperText to empty string', () => {
-    const testInput = 'test input';
+    const searchState = {
+      baseSearch: 'test input',
+      newSearch: '',
+      searchType: 'base' as 'base' | 'new',
+    };
+
     const testError = 'test error';
     const { result } = renderHook(() => useHandleChangeSearch(), {
       wrapper: StoreProvider,
     });
-    store.dispatch(setInputError(testError));
+    store.dispatch(setInputErrorBase(testError));
     const { search: searchSlice } = store.getState();
     expect(searchSlice.inputHelperText).toBe('test error');
-    result.current.handleChangeSearch(createEvent(testInput));
+    result.current.handleChangeSearch(searchState);
     const { search: updatedSearchSlice } = store.getState();
     expect(updatedSearchSlice.inputHelperText).toBe('');
   });
 
   it('should update inputHelperText to contain an error if search text does not match email or hash', () => {
-    const testInput = 'test input';
+    const searchState = {
+      baseSearch: 'test input',
+      newSearch: '',
+      searchType: 'base' as 'base' | 'new',
+    };
     const { result } = renderHook(() => useHandleChangeSearch(), {
       wrapper: StoreProvider,
     });
-    result.current.handleChangeSearch(createEvent(testInput));
+    result.current.handleChangeSearch(searchState);
     jest.runAllTimers();
     const { search: updatedSearchSlice } = store.getState();
     expect(updatedSearchSlice.inputHelperText).toBe(
@@ -78,12 +98,16 @@ describe('Tests useHandleSearchHook', () => {
 
   it('should fetch recent revisions if search is empty string', () => {
     const spyOnFetch = jest.spyOn(global, 'fetch');
-    const testInput = '';
+    const searchState = {
+      baseSearch: '',
+      newSearch: '',
+      searchType: 'base' as 'base' | 'new',
+    };
     const { result } = renderHook(() => useHandleChangeSearch(), {
       wrapper: StoreProvider,
     });
-    const { repository } = store.getState().search;
-    result.current.handleChangeSearch(createEvent(testInput));
+    const repository = store.getState().search.baseRepository;
+    result.current.handleChangeSearch(searchState);
     jest.runAllTimers();
     expect(spyOnFetch).toHaveBeenCalledWith(
       `https://treeherder.mozilla.org/api/project/${repository}/push/?hide_reviewbot_pushes=true`,
@@ -92,12 +116,16 @@ describe('Tests useHandleSearchHook', () => {
 
   it('should fetch revisions by email', () => {
     const spyOnFetch = jest.spyOn(global, 'fetch');
-    const testInput = 'some@email.com';
+    const searchState = {
+      baseSearch: 'some@email.com',
+      newSearch: '',
+      searchType: 'base' as 'base' | 'new',
+    };
     const { result } = renderHook(() => useHandleChangeSearch(), {
       wrapper: StoreProvider,
     });
-    const { repository } = store.getState().search;
-    result.current.handleChangeSearch(createEvent(testInput));
+    const repository = store.getState().search.baseRepository;
+    result.current.handleChangeSearch(searchState);
     jest.runAllTimers();
     expect(spyOnFetch).toHaveBeenCalledWith(
       `https://treeherder.mozilla.org/api/project/${repository}/push/?author=some@email.com`,
@@ -106,19 +134,26 @@ describe('Tests useHandleSearchHook', () => {
 
   it('should fetch revisions by hash', () => {
     const spyOnFetch = jest.spyOn(global, 'fetch');
-    const hashInput = 'abcdef123456';
-    const hashInputLong = 'abcdef1234567890abcdef1234567890abcdef12';
-    const { repository } = store.getState().search;
+    const searchState1 = {
+      baseSearch: 'abcdef123456',
+      newSearch: '',
+      searchType: 'base' as 'base' | 'new',
+    };
+    const searchState2 = {
+      ...searchState1,
+      baseSearch: 'abcdef1234567890abcdef1234567890abcdef12',
+    };
+    const repository = store.getState().search.baseRepository;
     const { result } = renderHook(() => useHandleChangeSearch(), {
       wrapper: StoreProvider,
     });
-    result.current.handleChangeSearch(createEvent(hashInput));
+    result.current.handleChangeSearch(searchState1);
     jest.runAllTimers();
     expect(spyOnFetch).toHaveBeenCalledWith(
       `https://treeherder.mozilla.org/api/project/${repository}/push/?revision=abcdef123456`,
     );
 
-    result.current.handleChangeSearch(createEvent(hashInputLong));
+    result.current.handleChangeSearch(searchState2);
     jest.runAllTimers();
     expect(spyOnFetch).toHaveBeenCalledWith(
       `https://treeherder.mozilla.org/api/project/${repository}/push/?revision=abcdef1234567890abcdef1234567890abcdef12`,
@@ -127,13 +162,17 @@ describe('Tests useHandleSearchHook', () => {
 
   it('should be debounced', () => {
     const spyOnFetch = jest.spyOn(global, 'fetch');
-    const testInput = '';
+    const searchState = {
+      baseSearch: '',
+      newSearch: '',
+      searchType: 'base' as 'base' | 'new',
+    };
     const { result } = renderHook(() => useHandleChangeSearch(), {
       wrapper: StoreProvider,
     });
-    result.current.handleChangeSearch(createEvent(testInput));
-    result.current.handleChangeSearch(createEvent(testInput));
-    result.current.handleChangeSearch(createEvent(testInput));
+    result.current.handleChangeSearch(searchState);
+    result.current.handleChangeSearch(searchState);
+    result.current.handleChangeSearch(searchState);
     jest.runAllTimers();
     expect(spyOnFetch).toBeCalledTimes(1);
   });

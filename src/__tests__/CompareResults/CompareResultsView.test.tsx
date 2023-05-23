@@ -85,11 +85,15 @@ describe('SelectedRevisionsTableRow', () => {
     const { testData } = getTestData();
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
+    const searchResults = {
+      payload: testData,
+      searchType: 'base' as 'base' | 'new',
+    };
 
     // start with four selected revisions
     const selectedRevisions = testData.slice(0, 4);
     store.dispatch(setSelectedRevisions(selectedRevisions));
-    store.dispatch(updateSearchResults(testData));
+    store.dispatch(updateSearchResults(searchResults));
 
     renderWithRouter(<SelectedRevisionsTable view='compare-results' />);
 
@@ -110,7 +114,11 @@ describe('SelectedRevisionsTableRow', () => {
 
   it('should close popover when close button is clicked', async () => {
     const { testData } = getTestData();
-    store.dispatch(updateSearchResults(testData));
+    const searchResults = {
+      payload: testData,
+      searchType: 'base' as 'base' | 'new',
+    };
+    store.dispatch(updateSearchResults(searchResults));
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 

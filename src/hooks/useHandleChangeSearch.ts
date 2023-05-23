@@ -33,7 +33,7 @@ const useHandleChangeSearch = () => {
     const longHashMatch = /\b[a-f0-9]{40}\b/;
     const shortHashMatch = /\b[a-f0-9]{12}\b/;
 
-    if (search === '') {
+    if (!search) {
       await dispatch(fetchRecentRevisions({ repository, searchType }));
     } else if (emailMatch.test(search)) {
       await dispatch(
@@ -64,15 +64,16 @@ const useHandleChangeSearch = () => {
     newSearch,
     searchType,
   }: SearchProps) => {
-    const search = searchType == 'base' ? baseSearch : newSearch;
+    const search = searchType === 'base' ? baseSearch : newSearch;
 
     //set repo based on whether base or new search
     const repository = searchType === 'base' ? baseRepository : newRepository;
 
     dispatch(updateSearchValue(search));
+
     dispatch(updateSearchResults({ payload: [], searchType }));
 
-    if (search == '' && searchType == 'base') {
+    if (searchType === 'base') {
       dispatch(clearInputErrorBase());
     }
 

@@ -2,9 +2,9 @@ import { fireEvent, screen } from '@testing-library/react';
 
 import SelectedRevisionsTableRow, {
   SelectedRevisionsRowProps,
-} from '../components/Shared/SelectedRevisionsTableRow';
-import getTestData from './utils/fixtures';
-import { render } from './utils/setupTests';
+} from '../../components/Shared/SelectedRevisionsTableRow';
+import getTestData from '../utils/fixtures';
+import { render } from '../utils/setupTests';
 
 describe('SelectedRevisionsTableRow', () => {
   const generateProps = (overwrite: Partial<SelectedRevisionsRowProps> = {}) =>

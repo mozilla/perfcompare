@@ -243,7 +243,7 @@ describe('Search View', () => {
       'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true',
     );
     expect(store.getState().search.searchResults).toStrictEqual([]);
-    expect(store.getState().search.inputError).toBe(true);
+    expect(store.getState().search.inputErrorBase).toBe(true);
     expect(store.getState().search.inputHelperText).toBe(
       'An error has occurred',
     );
