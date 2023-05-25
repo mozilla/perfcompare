@@ -3,6 +3,7 @@ import { style } from 'typestyle';
 
 import { Strings } from '../../../resources/Strings';
 import { Colors, Spacing } from '../../../styles';
+import Distribution from './Distribution';
 const strings = Strings.components.expandableRow;
 
 
@@ -36,7 +37,9 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   return (
     <div className={`${styles.expandedRow}`}>
       <div className={`${styles.content}`}>
-        <div className={`${styles.bottomSpace}`}>macosx1015-64-shippable-qr <br /></div>
+        <div className={`${styles.bottomSpace}`}><b>macosx1015-64-shippable-qr</b> <br /></div>
+        <div className={`${styles.bottomSpace}`}><Divider /> </div>
+        <Distribution />
         <div className={`${styles.bottomSpace}`}><Divider /> </div>
         <div className={`${styles.bottomSpace}`}>{strings.singleRun}</div>
         <div className={`${styles.bottomSpace}`}><b>Mean Difference</b>: 2.5% worse (1,394,293,93)</div>
