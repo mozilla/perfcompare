@@ -1,6 +1,7 @@
 import { style } from 'typestyle';
 
 import { Spacing } from '../../../styles';
+import GraphDistribution from './GraphDistribution';
 
 const styles = {
   container: style({
@@ -28,7 +29,9 @@ function RunValues(props: RunValuesProps) {
       <div>
         <b>{name}:</b> {mean}ms
       </div>
-      <div>heatbar for these values</div>
+      <div>
+        <GraphDistribution />
+      </div>
       <div>
         <div className={styles.values}>
           {values.map((v, index) => (

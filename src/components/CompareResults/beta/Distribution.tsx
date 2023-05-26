@@ -31,12 +31,11 @@ const styles = {
 function Distribution() {
   return (
     <div className={styles.container}>
-      <RunValues revisionRuns={baseRuns}/>
-      <RunValues revisionRuns={newRuns}/>
+      <RunValues revisionRuns={baseRuns} />
+      <RunValues revisionRuns={newRuns} />
       <div>Graph</div>
     </div>
   );
 }
-
 
 export default Distribution;
