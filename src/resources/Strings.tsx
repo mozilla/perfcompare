@@ -59,5 +59,9 @@ export const Strings = {
        PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT \
        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).',
     },
+    noResultsFound: {
+      mainMessage: 'No results found',
+      note: 'For the selected revision(s), no results when compared to the base revision.',
+    },
   },
 };
