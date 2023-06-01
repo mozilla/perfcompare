@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import * as React from 'react';
 
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
@@ -14,22 +13,20 @@ import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
 import useCheckRevision from '../../hooks/useCheckRevision';
-import type { Revision } from '../../types/state';
+import { Spacing } from '../../styles';
+import type { RevisionsList } from '../../types/state';
+import { InputType } from '../../types/state';
 import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
 
 const styles = {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
   listItemButton: style({
+    paddingTop: 0,
     $nest: {
       '.MuiListItem-root': {
         alignItems: 'flex-start',
       },
       '.search-revision-item-icon': {
         minWidth: '0',
-      },
-      '.revision-hash': {
-        fontWeight: 600,
-        marginRight: '8px',
       },
 
       '.MuiListItemText-primary': {
@@ -38,25 +35,14 @@ const styles = {
         flexWrap: 'wrap',
       },
       '.info-caption': {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        fontSize: '.75rem',
         flexWrap: 'wrap',
-        background: '#F0F0F4',
-        borderRadius: '8px',
-        padding: '2px 8px',
         $nest: {
           svg: {
-            marginRight: '4px',
+            marginRight: `${Spacing.xSmall}px`,
             fontSize: '1rem',
           },
-          '.info-caption-item': {
-            display: 'flex',
-            alignItems: 'center',
-          },
           '.item-author': {
-            marginRight: '5px',
+            marginRight: `${Spacing.xSmall + 1}px`,
           },
         },
       },
@@ -65,25 +51,27 @@ const styles = {
 };
 
 function SearchResultsListItem(props: SearchResultsListItemProps) {
-  const { index, item, view } = props;
+  const { index, item, view, searchType } = props;
   const isChecked: boolean = useAppSelector((state) =>
     state.checkedRevisions.revisions.includes(item),
   );
-
   const { handleToggle } = useCheckRevision();
 
-  const revisionHash = truncateHash(item.revision);
-  const commitMessage = getLatestCommitMessage(item);
-  const maxRevisions = view == 'compare-results' ? 1 : 4;
+  const revisionHash = truncateHash(item.revision) as string;
+  const commitMessage = getLatestCommitMessage(item) as string;
+  const maxRevisions = view == 'compare-results' ? 1 : 3;
+  const isBase = searchType == 'base' ? 1 : maxRevisions;
+
   const itemDate = new Date(item.push_timestamp * 1000);
 
   return (
     <>
       <ListItemButton
         key={item.id}
-        onClick={() => handleToggle(item, maxRevisions)}
-        className={styles.listItemButton}
-        sx={{ paddingTop: '0' }}
+        onClick={() => handleToggle(item, isBase)}
+        className={`${styles.listItemButton} ${
+          isChecked ? 'item-selected' : ''
+        }`}
       >
         <ListItem
           className='search-revision-item search-revision'
@@ -146,8 +134,9 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
 
 interface SearchResultsListItemProps {
   index: number;
-  item: Revision;
+  item: RevisionsList;
   view: 'search' | 'compare-results';
+  searchType: InputType;
 }
 
 export default SearchResultsListItem;

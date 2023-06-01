@@ -87,7 +87,7 @@ describe('SelectedRevisionsTableRow', () => {
     const user = userEvent.setup({ delay: null });
     const searchResults = {
       payload: testData,
-      searchType: 'base' as 'base' | 'new',
+      searchType: 'base' as InputType,
     };
 
     // start with four selected revisions
@@ -116,7 +116,7 @@ describe('SelectedRevisionsTableRow', () => {
     const { testData } = getTestData();
     const searchResults = {
       payload: testData,
-      searchType: 'base' as 'base' | 'new',
+      searchType: 'base' as InputType,
     };
     store.dispatch(updateSearchResults(searchResults));
     // set delay to null to prevent test time-out due to useFakeTimers

@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { CheckedRevisionsState } from '../types/state';
-import type { Revision } from '../types/state';
+import type { RevisionsList } from '../types/state';
 
 const initialState: CheckedRevisionsState = {
   revisions: [],
@@ -14,7 +14,7 @@ const checkedRevisions = createSlice({
     clearCheckedRevisions(state) {
       state.revisions = initialState.revisions;
     },
-    setCheckedRevisions(state, action: PayloadAction<Revision[]>) {
+    setCheckedRevisions(state, action: PayloadAction<RevisionsList[]>) {
       state.revisions = action.payload;
     },
   },

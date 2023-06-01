@@ -2,8 +2,8 @@ import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
-import SearchViewBeta from '../../components/Search/beta/SearchView';
-import SearchComponent from '../../components/Shared/beta/SearchComponent';
+import SearchViewBeta from '../../components/Search/SearchView';
+import SearchComponent from '../../components/Shared/SearchComponent';
 import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
 import { Revision } from '../../types/state';
@@ -11,7 +11,7 @@ import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
 
-const stringsBase = Strings.components.searchDefault.base.collaped.base;
+const stringsBase = Strings.components.searchDefault.base.collapsed.base;
 
 const protocolTheme = renderHook(() => useProtocolTheme()).result.current
   .protocolTheme;

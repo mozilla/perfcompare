@@ -33,7 +33,7 @@ export const Strings = {
         img: 'https://user-images.githubusercontent.com/88336547/233237125-1534220b-c343-421a-9133-ce8f151cb979.png',
         imgDark:
           'https://user-images.githubusercontent.com/88336547/233250674-004d071a-7c23-40f4-b348-0687a3fef6e3.png',
-        collaped: {
+        collapsed: {
           base: {
             selectLabel: 'Base',
             inputPlaceholder: 'Search base by ID number or author email',
@@ -60,12 +60,18 @@ export const Strings = {
     },
     expandableRow: {
       singleRun: 'Only one run (consider more runs for greater confidence).',
-      lowConfidence: 'A value of \'low\' suggests less confidence that there is a sustained, significant change between the two revisions.',
-      mediumConfidence: 'A value of \'med\' indicates uncertainty that there is a significant change. If you haven\'t already, consider retriggering the job to be more sure.',
-      highConfidence: 'A value of \'high\' indicates more confidence that there is a significant change, however you should check the historical record for the test by looking at the graph to be more sure (some noisy tests can provide inconsistent results).',
+      lowConfidence:
+        "A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
+      mediumConfidence:
+        "A value of 'med' indicates uncertainty that there is a significant change. If you haven't already, consider retriggering the job to be more sure.",
+      highConfidence:
+        "A value of 'high' indicates more confidence that there is a significant change, however you should check the historical record for the test by looking at the graph to be more sure (some noisy tests can provide inconsistent results).",
       note: 'THOUGH THIS IS A SIGNIFICANT CHANGE,\
        PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT \
        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).',
     },
+  },
+  errors: {
+    warningText: 'Search must be a 12- or 40-character hash, or email address',
   },
 };

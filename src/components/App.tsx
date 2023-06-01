@@ -11,7 +11,6 @@ import { Banner } from '../styles/Banner';
 import useProtocolTheme from '../theme/protocolTheme';
 import ResultsView from './CompareResults/beta/ResultsView';
 import CompareResultsView from './CompareResults/CompareResultsView';
-import SearchViewBeta from './Search/beta/SearchView';
 import SearchView from './Search/SearchView';
 import FeedbackAlert from './Shared/FeedbackAlert';
 import SnackbarCloseButton from './Shared/SnackbarCloseButton';
@@ -45,18 +44,9 @@ function App() {
         <Router>
           <Routes>
             <Route
-              path='/old'
-              element={
-                <SearchView
-                  toggleColorMode={toggleColorMode}
-                  protocolTheme={protocolTheme}
-                />
-              }
-            />
-            <Route
               path='/'
               element={
-                <SearchViewBeta
+                <SearchView
                   toggleColorMode={toggleColorMode}
                   protocolTheme={protocolTheme}
                 />
@@ -68,7 +58,12 @@ function App() {
             />
             <Route
               path='/compare-results'
-              element={<ResultsView protocolTheme={protocolTheme} />}
+              element={
+                <ResultsView
+                  toggleColorMode={toggleColorMode}
+                  protocolTheme={protocolTheme}
+                />
+              }
             />
           </Routes>
         </Router>

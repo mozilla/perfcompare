@@ -1,10 +1,10 @@
 import Typography from '@mui/material/Typography';
 import { style } from 'typestyle';
 
-import { Strings } from '../../../resources/Strings';
-import { FontsRaw, Spacing } from '../../../styles';
-import CompareOverTime from '../../Shared/beta/CompareOverTime';
-import CompareWithBase from '../../Shared/beta/CompareWithBase';
+import { Strings } from '../../resources/Strings';
+import { FontsRaw, Spacing } from '../../styles';
+import CompareOverTime from '../Shared/CompareOverTime';
+import CompareWithBase from '../Shared/CompareWithBase';
 
 const strings = Strings.components.searchDefault;
 

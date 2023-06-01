@@ -2,15 +2,15 @@ import { useState } from 'react';
 
 import Divider from '@mui/material/Divider';
 
-import { RootState } from '../../../common/store';
-import { useAppSelector } from '../../../hooks/app';
-import { Strings } from '../../../resources/Strings';
-import { CompareCardsStyles } from '../../../styles';
+import { Strings } from '../../resources/Strings';
+import { CompareCardsStyles } from '../../styles';
+import { InputType } from '../../types/state';
 import SearchComponent from './SearchComponent';
 
 const strings = Strings.components.searchDefault;
-const stringsBase = Strings.components.searchDefault.base.collaped.base;
-const stringsRevision = Strings.components.searchDefault.base.collaped.revision;
+const stringsBase = Strings.components.searchDefault.base.collapsed.base;
+const stringsRevision =
+  Strings.components.searchDefault.base.collapsed.revision;
 
 interface CompareWithBaseProps {
   mode: 'light' | 'dark';
@@ -23,38 +23,6 @@ interface Expanded {
 
 function CompareWithBase({ mode }: CompareWithBaseProps) {
   const styles = CompareCardsStyles(mode);
-  const searchState = useAppSelector((state: RootState) => state.search);
-  const {
-    inputErrorBase,
-    inputErrorNew,
-    inputHelperText,
-    baseRepository,
-    newRepository,
-    baseSearchResults,
-    newSearchResults,
-  } = searchState;
-
-  const SearchPropsBase = {
-    ...stringsBase,
-    view: 'search' as 'search' | 'compare-results',
-    mode,
-    base: 'base' as 'new' | 'base',
-    repository: baseRepository,
-    inputError: inputErrorBase,
-    inputHelperText: inputHelperText,
-    searchResults: baseSearchResults,
-  };
-
-  const SearchPropsNew = {
-    ...stringsRevision,
-    view: 'search' as 'search' | 'compare-results',
-    mode,
-    base: 'new' as 'new' | 'base',
-    repository: newRepository,
-    inputError: inputErrorNew,
-    inputHelperText: inputHelperText,
-    searchResults: newSearchResults,
-  };
 
   const [base, setExpanded] = useState<Expanded>({
     expanded: true,
@@ -89,8 +57,18 @@ function CompareWithBase({ mode }: CompareWithBaseProps) {
       >
         <Divider className='divider' />
         <div className='form-wrapper'>
-          <SearchComponent {...SearchPropsBase} />
-          <SearchComponent {...SearchPropsNew} />
+          <SearchComponent
+            searchType={'base' as InputType}
+            mode={mode}
+            view='search'
+            {...stringsBase}
+          />
+          <SearchComponent
+            searchType={'new' as InputType}
+            mode={mode}
+            view='search'
+            {...stringsRevision}
+          />
           <div className='framework'></div>
         </div>
       </div>

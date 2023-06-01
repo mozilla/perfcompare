@@ -7,16 +7,34 @@ import { fetchRecentRevisions } from '../../thunks/searchThunk';
 // component to fetch recent revisions when search view is loaded
 function SearchViewInit() {
   const dispatch = useAppDispatch();
-  const repository = useAppSelector((state) => state.search.baseRepository);
+  const repositoryBase = useAppSelector(
+    (state) => state.search.base.repository,
+  );
+  const repositoryNew = useAppSelector((state) => state.search.new.repository);
+
   useEffect(() => {
+    const repository = repositoryBase;
     void dispatch(
       fetchRecentRevisions({
         repository,
-        searchType: 'base' as 'base' | 'new',
+        searchType: 'base' as InputType,
       }),
     );
   }, []);
+
+  useEffect(() => {
+    const repository = repositoryNew;
+    void dispatch(
+      fetchRecentRevisions({
+        repository,
+        searchType: 'base' as InputType,
+      }),
+    );
+  }, []);
+
   return null;
 }
+
+
 
 export default SearchViewInit;

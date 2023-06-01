@@ -1,7 +1,7 @@
-import type { CompareResultsItem, Revision } from '../../types/state';
+import type { CompareResultsItem, RevisionsList } from '../../types/state';
 
 const getTestData = () => {
-  const testData: Revision[] = [
+  const testData: RevisionsList[] = [
     {
       id: 1,
       revision: 'coconut',

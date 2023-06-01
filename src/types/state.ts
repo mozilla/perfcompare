@@ -21,7 +21,7 @@ export type SubRevision = {
   comments: string;
 };
 
-export type Revision = {
+export type RevisionsList = {
   id: number;
   revision: string;
   author: string;
@@ -75,26 +75,27 @@ export type CompareResultsItem = {
   more_runs_are_needed: boolean;
 };
 
-export type SearchState = {
-  baseRepository: Repository['name'];
-  newRepository: Repository['name'];
-  searchResults: Revision[];
-  baseSearchResults: Revision[];
-  newSearchResults: Revision[];
+type SearchStateForInput = {
+  repository: Repository['name'];
+  searchResults: RevisionsList[];
   searchValue: string;
-  inputErrorBase: boolean;
-  inputErrorNew: boolean;
+  inputError: boolean;
   inputHelperText: string;
 };
+
+//TODO: import this type in all components later
+export type InputType = 'base' | 'new';
+
+export type SearchState = Record<InputType, SearchStateForInput>;
 
 // contains the indices of currently checked revisions
 // in searchResults state
 export type CheckedRevisionsState = {
-  revisions: Revision[];
+  revisions: RevisionsList[];
 };
 
 export type SelectedRevisionsState = {
-  revisions: Revision[];
+  revisions: RevisionsList[];
 };
 
 export type CompareResultsState = {

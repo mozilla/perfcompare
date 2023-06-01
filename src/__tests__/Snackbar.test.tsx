@@ -5,7 +5,7 @@ import { act } from 'react-dom/test-utils';
 
 import { maxRevisionsError } from '../common/constants';
 import App from '../components/App';
-import SearchView from '../components/Search/beta/SearchView';
+import SearchView from '../components/Search/SearchView';
 import useProtocolTheme from '../theme/protocolTheme';
 import getTestData from './utils/fixtures';
 import { renderWithRouter, render } from './utils/setupTests';

@@ -1,42 +1,33 @@
-import {
-  updateBaseRepository,
-  updateNewRepository,
-} from '../reducers/SearchSlice';
+import { updateRepository } from '../reducers/SearchSlice';
 import { fetchRecentRevisions } from '../thunks/searchThunk';
-import type { Repository } from '../types/state';
+import type { Repository, InputType } from '../types/state';
 import { useAppDispatch } from './app';
+
+interface DropdownProps {
+  searchType: InputType;
+  selectedRepository: string;
+}
 
 function useHandleChangeDropdown() {
   const dispatch = useAppDispatch();
 
   const handleChangeDropdown = async ({
-    baseRepository,
-    newRepository,
+    selectedRepository,
     searchType,
   }: DropdownProps) => {
-    const repository =
-      searchType == 'base'
-        ? (baseRepository as Repository['name'])
-        : (newRepository as Repository['name']);
+    const repository = selectedRepository as Repository['name'];
 
-    if (searchType == 'base') {
-      dispatch(updateBaseRepository(repository));
-    }
-
-    if (searchType == 'new') {
-      dispatch(updateNewRepository(repository));
-    }
+    dispatch(
+      updateRepository({
+        repository,
+        searchType,
+      }),
+    );
 
     // Fetch 10 most recent revisions when repository changes
     await dispatch(fetchRecentRevisions({ repository, searchType }));
   };
   return { handleChangeDropdown };
-}
-
-interface DropdownProps {
-  baseRepository: string;
-  newRepository: string;
-  searchType: 'base' | 'new';
 }
 
 export default useHandleChangeDropdown;

@@ -1,10 +1,10 @@
 import { act } from 'react-dom/test-utils';
 
-import SearchComponent from '../../components/Shared/beta/SearchComponent';
+import SearchComponent from '../../components/Shared/SearchComponent';
 import { Strings } from '../../resources/Strings';
 import { renderWithRouter, store } from '../utils/setupTests';
 
-const stringsBase = Strings.components.searchDefault.base.collaped.base;
+const stringsBase = Strings.components.searchDefault.base.collapsed.base;
 
 describe('Search View', () => {
   it('renders correctly when there are no results', async () => {

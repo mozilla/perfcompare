@@ -27,7 +27,7 @@ describe('Tests useHandleSearchHook', () => {
     const searchState = {
       baseSearch: 'test input',
       newSearch: '',
-      searchType: 'base' as 'base' | 'new',
+      searchType: 'base' as InputType,
     };
     const { result } = renderHook(() => useHandleChangeSearch(), {
       wrapper: StoreProvider,
@@ -42,11 +42,11 @@ describe('Tests useHandleSearchHook', () => {
     const searchState = {
       baseSearch: 'test input',
       newSearch: '',
-      searchType: 'base' as 'base' | 'new',
+      searchType: 'base' as InputType,
     };
     const searchResults = {
       payload: testData,
-      searchType: 'base' as 'base' | 'new',
+      searchType: 'base' as InputType,
     };
     const { result } = renderHook(() => useHandleChangeSearch(), {
       wrapper: StoreProvider,
@@ -64,7 +64,7 @@ describe('Tests useHandleSearchHook', () => {
     const searchState = {
       baseSearch: 'test input',
       newSearch: '',
-      searchType: 'base' as 'base' | 'new',
+      searchType: 'base' as InputType,
     };
 
     const testError = 'test error';
@@ -83,7 +83,7 @@ describe('Tests useHandleSearchHook', () => {
     const searchState = {
       baseSearch: 'test input',
       newSearch: '',
-      searchType: 'base' as 'base' | 'new',
+      searchType: 'base' as InputType,
     };
     const { result } = renderHook(() => useHandleChangeSearch(), {
       wrapper: StoreProvider,
@@ -101,7 +101,7 @@ describe('Tests useHandleSearchHook', () => {
     const searchState = {
       baseSearch: '',
       newSearch: '',
-      searchType: 'base' as 'base' | 'new',
+      searchType: 'base' as InputType,
     };
     const { result } = renderHook(() => useHandleChangeSearch(), {
       wrapper: StoreProvider,
@@ -119,7 +119,7 @@ describe('Tests useHandleSearchHook', () => {
     const searchState = {
       baseSearch: 'some@email.com',
       newSearch: '',
-      searchType: 'base' as 'base' | 'new',
+      searchType: 'base' as InputType,
     };
     const { result } = renderHook(() => useHandleChangeSearch(), {
       wrapper: StoreProvider,
@@ -137,7 +137,7 @@ describe('Tests useHandleSearchHook', () => {
     const searchState1 = {
       baseSearch: 'abcdef123456',
       newSearch: '',
-      searchType: 'base' as 'base' | 'new',
+      searchType: 'base' as InputType,
     };
     const searchState2 = {
       ...searchState1,
@@ -165,7 +165,7 @@ describe('Tests useHandleSearchHook', () => {
     const searchState = {
       baseSearch: '',
       newSearch: '',
-      searchType: 'base' as 'base' | 'new',
+      searchType: 'base' as InputType,
     };
     const { result } = renderHook(() => useHandleChangeSearch(), {
       wrapper: StoreProvider,

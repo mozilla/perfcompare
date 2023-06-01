@@ -182,7 +182,7 @@ describe('Search View', () => {
     const { testData } = getTestData();
     const searchResults = {
       payload: testData,
-      searchType: 'base' as 'base' | 'new',
+      searchType: 'base' as InputType,
     };
     store.dispatch(updateSearchResults(searchResults));
     // set delay to null to prevent test time-out due to useFakeTimers
@@ -217,7 +217,7 @@ describe('Search View', () => {
     const { testData } = getTestData();
     const searchResults = {
       payload: testData,
-      searchType: 'base' as 'base' | 'new',
+      searchType: 'base' as InputType,
     };
     store.dispatch(updateSearchResults(searchResults));
     // set delay to null to prevent test time-out due to useFakeTimers

@@ -7,12 +7,15 @@ import InputsReplacement from './InputsReplacement';
 import ResultsMain from './ResultsMain';
 
 function ResultsView(props: ResultsViewProps) {
-  const { protocolTheme } = props;
+  const { protocolTheme, toggleColorMode } = props;
   const themeMode = protocolTheme.palette.mode;
 
   return (
     <Container maxWidth='xl' data-testid='beta-version-compare-results'>
-      <PerfCompareHeader />
+      <PerfCompareHeader
+        themeMode={themeMode}
+        toggleColorMode={toggleColorMode}
+      />
       <Grid container alignItems='center' justifyContent='center'>
         <Grid item xs={10}>
           <InputsReplacement />
@@ -27,6 +30,7 @@ function ResultsView(props: ResultsViewProps) {
 
 interface ResultsViewProps {
   protocolTheme: Theme;
+  toggleColorMode: () => void;
 }
 
 export default ResultsView;

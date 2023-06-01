@@ -1,33 +1,40 @@
+import { FormEvent, useState } from 'react';
+
 import {
   updateSearchValue,
   updateSearchResults,
-  setInputErrorBase,
-  setInputErrorNew,
-  clearInputErrorBase,
-  clearInputErrorNew,
+  setInputError,
 } from '../reducers/SearchSlice';
+import { Strings } from '../resources/Strings';
 import {
   fetchRecentRevisions,
   fetchRevisionByID,
   fetchRevisionsByAuthor,
 } from '../thunks/searchThunk';
-import type { Repository } from '../types/state';
+import type { Repository, InputType } from '../types/state';
 import { useAppDispatch, useAppSelector } from './app';
+
+interface HandleChangeProps {
+  e: FormEvent<HTMLInputElement | HTMLTextAreaElement>;
+  searchType: InputType;
+}
+
+const strings = Strings.errors;
 
 let timeout: null | ReturnType<typeof setTimeout> = null;
 
 const useHandleChangeSearch = () => {
-  const dispatch = useAppDispatch();
-  const baseRepository = useAppSelector((state) => state.search.baseRepository);
-  const newRepository = useAppSelector((state) => state.search.newRepository);
+  const [searchTypeValue, setSearchTypeValue] = useState<InputType>('base');
 
-  const warningText =
-    'Search must be a 12- or 40-character hash, or email address';
+  const searchState = useAppSelector((state) => state.search[searchTypeValue]);
+  const currentRepository = searchState.repository;
+
+  const dispatch = useAppDispatch();
 
   const handleFetch = async (
-    search: string,
     repository: Repository['name'],
-    searchType: 'base' | 'new',
+    search: string,
+    searchType: InputType,
   ) => {
     const emailMatch = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const longHashMatch = /\b[a-f0-9]{40}\b/;
@@ -42,11 +49,12 @@ const useHandleChangeSearch = () => {
     } else if (longHashMatch.test(search) || shortHashMatch.test(search)) {
       await dispatch(fetchRevisionByID({ repository, search, searchType }));
     } else {
-      const isError =
-        searchType === 'base'
-          ? dispatch(setInputErrorBase(warningText))
-          : dispatch(setInputErrorNew(warningText));
-
+      const isError = dispatch(
+        setInputError({
+          errorMessage: strings.warningText,
+          searchType,
+        }),
+      );
       return isError;
     }
   };
@@ -54,32 +62,23 @@ const useHandleChangeSearch = () => {
   const searchByRevisionOrEmail = async (
     repository: Repository['name'],
     search: string,
-    searchType: 'base' | 'new',
+    searchType: InputType,
   ) => {
-    await handleFetch(search, repository, searchType);
+    await handleFetch(repository, search, searchType);
   };
 
-  const handleChangeSearch = ({
-    baseSearch,
-    newSearch,
-    searchType,
-  }: SearchProps) => {
-    const search = searchType === 'base' ? baseSearch : newSearch;
+  const handleChangeSearch = ({ e, searchType }: HandleChangeProps) => {
+    setSearchTypeValue(searchType);
+    const search = e.currentTarget.value;
+    const repository = currentRepository;
+    dispatch(
+      updateSearchValue({
+        search,
+        searchType,
+      }),
+    );
 
-    //set repo based on whether base or new search
-    const repository = searchType === 'base' ? baseRepository : newRepository;
-
-    dispatch(updateSearchValue(search));
-
-    dispatch(updateSearchResults({ payload: [], searchType }));
-
-    if (searchType === 'base') {
-      dispatch(clearInputErrorBase());
-    }
-
-    if (searchType === 'new') {
-      dispatch(clearInputErrorNew());
-    }
+    dispatch(updateSearchResults({ results: [], searchType }));
 
     const idleTime = 500;
     const onTimeout = () => {
@@ -93,11 +92,5 @@ const useHandleChangeSearch = () => {
   };
   return { handleChangeSearch };
 };
-
-interface SearchProps {
-  baseSearch: string;
-  newSearch: string;
-  searchType: 'base' | 'new';
-}
 
 export default useHandleChangeSearch;

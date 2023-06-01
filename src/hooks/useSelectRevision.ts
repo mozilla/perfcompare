@@ -3,7 +3,7 @@ import { useSnackbar, VariantType } from 'notistack';
 import { maxRevisionsError } from '../common/constants';
 import { clearCheckedRevisions } from '../reducers/CheckedRevisions';
 import { setSelectedRevisions } from '../reducers/SelectedRevisions';
-import { Revision } from '../types/state';
+import { RevisionsList } from '../types/state';
 import { truncateHash } from '../utils/helpers';
 import { useAppDispatch, useAppSelector } from './app';
 
@@ -22,11 +22,11 @@ const useSelectRevision = () => {
   const warningVariant: VariantType = 'warning';
 
   const enqueueAlreadySelectedAlert = (
-    item: Revision,
+    item: RevisionsList,
     variant: VariantType,
   ) => {
     enqueueSnackbar(
-      `Revision ${truncateHash(item.revision)} is already selected.`,
+      `Revision ${truncateHash(item.revision) } is already selected.`,
       {
         variant,
       },
@@ -37,7 +37,8 @@ const useSelectRevision = () => {
     const newSelected = [...selectedRevisions];
 
     // Do not allow more then four total revisions (total, including the ones to be added)
-    const exceededMaxRevisions = (selectedRevisions.length + checkedRevisions.length) > 4;
+    const exceededMaxRevisions =
+      selectedRevisions.length + checkedRevisions.length > 4;
     if (exceededMaxRevisions) {
       enqueueSnackbar(maxRevisionsError as string, {
         variant: warningVariant,
@@ -60,7 +61,7 @@ const useSelectRevision = () => {
     dispatch(clearCheckedRevisions());
   };
 
-  const replaceSelectedRevision = (prev: Revision) => {
+  const replaceSelectedRevision = (prev: RevisionsList) => {
     const newSelected = [...selectedRevisions];
     const newRevision = checkedRevisions[0];
     if (newSelected.includes(newRevision)) {

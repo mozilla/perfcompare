@@ -2,8 +2,8 @@ import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { maxRevisionsError } from '../../common/constants';
-import SearchResultsList from '../../components/Search/beta/SearchResultsList';
-import SearchView from '../../components/Search/beta/SearchView';
+import SearchResultsList from '../../components/Search/SearchResultsList';
+import SearchView from '../../components/Search/SearchView';
 import useProtocolTheme from '../../theme/protocolTheme';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';

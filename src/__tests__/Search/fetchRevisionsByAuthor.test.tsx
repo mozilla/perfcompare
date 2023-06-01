@@ -1,15 +1,15 @@
 import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import SearchView from '../../components/Search/beta/SearchView';
-import SearchComponent from '../../components/Shared/beta/SearchComponent';
+import SearchView from '../../components/Search/SearchView';
+import SearchComponent from '../../components/Shared/SearchComponent';
 import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
 
-const stringsBase = Strings.components.searchDefault.base.collaped.base;
+const stringsBase = Strings.components.searchDefault.base.collapsed.base;
 
 describe('SearchView/fetchRevisionsByAuthor', () => {
   const protocolTheme = renderHook(() => useProtocolTheme()).result.current

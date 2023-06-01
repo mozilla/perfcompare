@@ -1,5 +1,5 @@
-import { Strings } from '../../../resources/Strings';
-import { CompareCardsStyles } from '../../../styles';
+import { Strings } from '../../resources/Strings';
+import { CompareCardsStyles } from '../../styles';
 
 const strings = Strings.components.searchDefault;
 
