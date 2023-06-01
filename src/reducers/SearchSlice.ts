@@ -83,26 +83,15 @@ const search = createSlice({
       state[type].inputError = true;
       state[type].inputHelperText = action.payload.errorMessage;
     },
-
-    // clearInputError(
-    //   state,
-    //   action: PayloadAction<{
-    //     searchType: InputType;
-    //   }>,
-    // ) {
-    //   const type = action.payload.searchType;
-    //   state[type].inputError = false;
-    //   state[type].inputHelperText = '';
-    // },
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchRecentRevisions.fulfilled, (state, action) => {
-        const type = action.meta.arg.searchType ;
+        const type = action.meta.arg.searchType;
         state[type].searchResults = action.payload;
       })
       .addCase(fetchRecentRevisions.rejected, (state, action) => {
-        const type = action.meta.arg.searchType ;
+        const type = action.meta.arg.searchType;
         state[type].inputError = true;
 
         state[type].inputHelperText = action.payload?.error
@@ -111,11 +100,11 @@ const search = createSlice({
       })
       // fetchRevisionByID
       .addCase(fetchRevisionByID.fulfilled, (state, action) => {
-        const type = action.meta.arg.searchType ;
+        const type = action.meta.arg.searchType;
         state[type].searchResults = action.payload;
       })
       .addCase(fetchRevisionByID.rejected, (state, action) => {
-        const type = action.meta.arg.searchType ;
+        const type = action.meta.arg.searchType;
         state[type].inputError = true;
         state[type].inputHelperText = action.payload?.error
           ? action.payload.error
@@ -123,11 +112,11 @@ const search = createSlice({
       })
       // fetchRevisionsByAuthor
       .addCase(fetchRevisionsByAuthor.fulfilled, (state, action) => {
-        const type = action.meta.arg.searchType ;
+        const type = action.meta.arg.searchType;
         state[type].searchResults = action.payload;
       })
       .addCase(fetchRevisionsByAuthor.rejected, (state, action) => {
-        const type = action.meta.arg.searchType ;
+        const type = action.meta.arg.searchType;
         state[type].inputError = true;
         state[type].inputHelperText = action.payload?.error
           ? action.payload.error
