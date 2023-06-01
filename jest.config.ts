@@ -34,6 +34,9 @@ const config: Config.InitialOptions = {
     '^react-native$': 'react-native-web',
     '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
     '\\.(css)$': 'identity-obj-proxy',
+    '\\.(woff|woff2|ttf)$': '<rootDir>/src/mockData/mockedFonts/Metropolis-Bold.woff2',
+  
+
   },
   moduleFileExtensions: [
     'js',
