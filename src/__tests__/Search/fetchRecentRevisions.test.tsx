@@ -6,6 +6,7 @@ import SearchView from '../../components/Search/SearchView';
 import SearchComponent from '../../components/Shared/SearchComponent';
 import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
+import { InputType } from '../../types/state';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
@@ -21,6 +22,7 @@ describe('SearchView/fetchRecentRevisions', () => {
 
   it('should fetch and display recent results when repository is selected', async () => {
     const { testData } = getTestData();
+    const searchType = 'base' as InputType;
 
     global.fetch = jest.fn(() =>
       Promise.resolve({
@@ -59,7 +61,9 @@ describe('SearchView/fetchRecentRevisions', () => {
     act(() => void jest.runOnlyPendingTimers());
     expect(screen.queryByText('mozilla-central')).not.toBeInTheDocument();
 
-    expect(store.getState().search.baseSearchResults).toStrictEqual(testData);
+    expect(store.getState().search[searchType].searchResults).toStrictEqual(
+      testData,
+    );
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
@@ -81,22 +85,13 @@ describe('SearchView/fetchRecentRevisions', () => {
         }),
       }),
     ) as jest.Mock;
+    const searchType = 'base' as InputType;
     const spyOnFetch = jest.spyOn(global, 'fetch');
-    const search = store.getState().search;
-    const mode = 'light' as 'light' | 'dark';
-    const repository = search.baseRepository;
-    const inputError = search.inputErrorBase;
-    const searchResults = search.baseSearchResults;
-    const inputHelperText = search.inputHelperText;
     const SearchPropsBase = {
-      ...stringsBase,
+      searchType,
+      mode: 'light' as 'light' | 'dark',
       view: 'search' as 'search' | 'compare-results',
-      mode,
-      base: 'base' as 'new' | 'base',
-      repository,
-      inputError,
-      inputHelperText,
-      searchResults,
+      ...stringsBase,
     };
 
     renderWithRouter(
@@ -112,31 +107,24 @@ describe('SearchView/fetchRecentRevisions', () => {
     expect(spyOnFetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true',
     );
-    expect(store.getState().search.baseSearchResults).toStrictEqual([]);
-    expect(store.getState().search.inputErrorBase).toBe(true);
-    expect(store.getState().search.inputHelperText).toBe('No results found');
+    expect(store.getState().search[searchType].searchResults).toStrictEqual([]);
+    expect(store.getState().search[searchType].inputError).toBe(true);
+    expect(store.getState().search[searchType].inputHelperText).toBe(
+      'No results found',
+    );
   });
 
   it('should update error state if fetchRecentRevisions returns an error', async () => {
     global.fetch = jest.fn(() =>
       Promise.reject(new Error('What, ridden on a horse?')),
     ) as jest.Mock;
+    const searchType = 'base' as InputType;
     const spyOnFetch = jest.spyOn(global, 'fetch');
-    const search = store.getState().search;
-    const mode = 'light' as 'light' | 'dark';
-    const repository = search.baseRepository;
-    const inputError = search.inputErrorBase;
-    const searchResults = search.baseSearchResults;
-    const inputHelperText = search.inputHelperText;
     const SearchPropsBase = {
-      ...stringsBase,
+      searchType,
+      mode: 'light' as 'light' | 'dark',
       view: 'search' as 'search' | 'compare-results',
-      mode,
-      base: 'base' as 'new' | 'base',
-      repository,
-      inputError,
-      inputHelperText,
-      searchResults,
+      ...stringsBase,
     };
 
     renderWithRouter(
@@ -152,9 +140,9 @@ describe('SearchView/fetchRecentRevisions', () => {
     expect(spyOnFetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true',
     );
-    expect(store.getState().search.baseSearchResults).toStrictEqual([]);
-    expect(store.getState().search.inputErrorBase).toBe(true);
-    expect(store.getState().search.inputHelperText).toBe(
+    expect(store.getState().search[searchType].searchResults).toStrictEqual([]);
+    expect(store.getState().search[searchType].inputError).toBe(true);
+    expect(store.getState().search[searchType].inputHelperText).toBe(
       'What, ridden on a horse?',
     );
   });

@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useAppDispatch } from '../../hooks/app';
 import { useAppSelector } from '../../hooks/app';
 import { fetchRecentRevisions } from '../../thunks/searchThunk';
+import { InputType } from '../../types/state';
 
 // component to fetch recent revisions when search view is loaded
 function SearchViewInit() {
@@ -27,7 +28,7 @@ function SearchViewInit() {
     void dispatch(
       fetchRecentRevisions({
         repository,
-        searchType: 'base' as InputType,
+        searchType: 'new' as InputType,
       }),
     );
   }, []);

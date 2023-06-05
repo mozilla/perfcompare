@@ -2,15 +2,14 @@ import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
+import SearchDropdown from '../../components/Search/SearchDropdown';
+import SearchInput from '../../components/Search/SearchInput';
 import SearchView from '../../components/Search/SearchView';
-import SearchComponent from '../../components/Shared/SearchComponent';
-import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
+import { InputType } from '../../types/state';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
-
-const stringsBase = Strings.components.searchDefault.base.collapsed.base;
 
 describe('SearchView/fetchRevisionByID', () => {
   const protocolTheme = renderHook(() => useProtocolTheme()).result.current
@@ -32,12 +31,14 @@ describe('SearchView/fetchRevisionByID', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(
-      <SearchView
-        toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
-      />,
-    );
+    await act(async () => {
+      renderWithRouter(
+        <SearchView
+          toggleColorMode={toggleColorMode}
+          protocolTheme={protocolTheme}
+        />,
+      );
+    });
 
     await screen.findAllByRole('button', { name: 'Base' });
     expect(screen.getAllByText('try')[0]).toBeInTheDocument();
@@ -56,7 +57,6 @@ describe('SearchView/fetchRevisionByID', () => {
     expect(spyOnFetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?revision=abcdef1234567890abcdef1234567890abcdef12',
     );
-
     await screen.findByText("you've got no arms left!");
     expect(
       screen.getAllByText("it's just a flesh wound")[0],
@@ -71,31 +71,58 @@ describe('SearchView/fetchRevisionByID', () => {
         }),
       }),
     ) as jest.Mock;
+    const searchType = 'base' as InputType;
+    const view = 'search' as 'search' | 'compare-results';
+    const mode = 'light' as 'light' | 'dark';
     const spyOnFetch = jest.spyOn(global, 'fetch');
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(
-      <SearchView
-        toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
-      />,
-    );
+    const searchInputProps = {
+      searchType,
+      mode,
+      view,
+      inputPlaceholder: 'Search by ID',
+      setFocused: jest.fn(),
+    };
+    const searchDropdownProps = {
+      searchType,
+      mode,
+      view,
+      selectLabel: 'Select a repository',
+      tooltipText: 'Select a repository',
+    };
+
+    await act(async () => {
+      renderWithRouter(
+        <>
+          <SearchView
+            toggleColorMode={toggleColorMode}
+            protocolTheme={protocolTheme}
+          />
+          <SearchInput {...searchInputProps} />
+          <SearchDropdown {...searchDropdownProps} />{' '}
+        </>,
+      );
+    });
 
     await screen.findAllByRole('button', { name: 'Base' });
     expect(screen.getAllByText('try')[0]).toBeInTheDocument();
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'abcdef1234567890abcdef1234567890abcdef12');
-    jest.runOnlyPendingTimers();
+    await act(async () => void jest.runOnlyPendingTimers());
 
     expect(spyOnFetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?revision=abcdef1234567890abcdef1234567890abcdef12',
     );
 
-    await screen.findByText('No results found');
-    expect(store.getState().search.inputErrorBase).toBe(true);
-    expect(store.getState().search.inputHelperText).toBe('No results found');
+    await screen.findAllByText('No results found');
+    expect(store.getState().search[searchType].searchResults).toStrictEqual([]);
+    expect(store.getState().search[searchType].inputError).toBe(true);
+    expect(store.getState().search[searchType].inputHelperText).toBe(
+      'No results found',
+    );
   });
 
   it('should update error state if fetchRevisionsByID returns an error', async () => {
@@ -106,29 +133,51 @@ describe('SearchView/fetchRevisionByID', () => {
         ),
       ),
     ) as jest.Mock;
-    jest.spyOn(global, 'fetch');
+    const searchType = 'base' as InputType;
+    const view = 'search' as 'search' | 'compare-results';
+    const mode = 'light' as 'light' | 'dark';
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(
-      <SearchView
-        toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
-      />,
-    );
+    const searchInputProps = {
+      searchType,
+      mode,
+      view,
+      inputPlaceholder: 'Search by ID',
+      setFocused: jest.fn(),
+    };
+    const searchDropdownProps = {
+      searchType,
+      mode,
+      view,
+      selectLabel: 'Select a repository',
+      tooltipText: 'Select a repository',
+    };
+
+    await act(async () => {
+      renderWithRouter(
+        <>
+          <SearchView
+            toggleColorMode={toggleColorMode}
+            protocolTheme={protocolTheme}
+          />
+          <SearchInput {...searchInputProps} />
+          <SearchDropdown {...searchDropdownProps} />{' '}
+        </>,
+      );
+    });
 
     await screen.findAllByRole('button', { name: 'Base' });
-
     const searchInput = screen.getAllByRole('textbox')[0];
 
     await user.type(searchInput, 'abcdef1234567890abcdef1234567890abcdef12');
-    jest.runOnlyPendingTimers();
-
-    await screen.findByText(
+    await act(async () => void jest.runOnlyPendingTimers());
+    await screen.findAllByText(
       "You've got two empty 'alves of coconuts and you're bangin' 'em togetha!",
     );
-    expect(store.getState().search.inputErrorBase).toBe(true);
-    expect(store.getState().search.inputHelperText).toBe(
+    expect(store.getState().search[searchType].searchResults).toStrictEqual([]);
+    expect(store.getState().search[searchType].inputError).toBe(true);
+    expect(store.getState().search[searchType].inputHelperText).toBe(
       "You've got two empty 'alves of coconuts and you're bangin' 'em togetha!",
     );
   });
@@ -136,47 +185,55 @@ describe('SearchView/fetchRevisionByID', () => {
   it('should update error state with generic message if fetch error message is undefined', async () => {
     global.fetch = jest.fn(() => Promise.reject(new Error())) as jest.Mock;
     const spyOnFetch = jest.spyOn(global, 'fetch');
+    const searchType = 'base' as InputType;
+    const view = 'search' as 'search' | 'compare-results';
+    const mode = 'light' as 'light' | 'dark';
+
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
-    const search = store.getState().search;
-    const mode = 'light' as 'light' | 'dark';
-    const repository = search.baseRepository;
-    const inputError = search.inputErrorBase;
-    const searchResults = search.baseSearchResults;
-    const inputHelperText = search.inputHelperText;
-    const SearchPropsBase = {
-      ...stringsBase,
-      view: 'search' as 'search' | 'compare-results',
+
+    const searchInputProps = {
+      searchType,
       mode,
-      base: 'base' as 'new' | 'base',
-      repository,
-      inputError,
-      inputHelperText,
-      searchResults,
+      view,
+      inputPlaceholder: 'Search by ID',
+      setFocused: jest.fn(),
+    };
+    const searchDropdownProps = {
+      searchType,
+      mode,
+      view,
+      selectLabel: 'Select a repository',
+      tooltipText: 'Select a repository',
     };
 
-    renderWithRouter(
-      <SearchView
-        toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
-      />,
-    );
+    await act(async () => {
+      renderWithRouter(
+        <>
+          <SearchView
+            toggleColorMode={toggleColorMode}
+            protocolTheme={protocolTheme}
+          />
+          <SearchInput {...searchInputProps} />
+          <SearchDropdown {...searchDropdownProps} />{' '}
+        </>,
+      );
+    });
 
-    renderWithRouter(<SearchComponent {...SearchPropsBase} />);
-
+    await act(async () => void jest.runOnlyPendingTimers());
     await screen.findAllByRole('button', { name: 'Base' });
-
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'abcdef123456');
-    jest.runOnlyPendingTimers();
+    await act(async () => void jest.runOnlyPendingTimers());
 
     expect(spyOnFetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?revision=abcdef123456',
     );
 
-    await screen.findByText('An error has occurred');
-    expect(store.getState().search.inputErrorBase).toBe(true);
-    expect(store.getState().search.inputHelperText).toBe(
+    await screen.findAllByText('An error has occurred');
+    expect(store.getState().search[searchType].searchResults).toStrictEqual([]);
+    expect(store.getState().search[searchType].inputError).toBe(true);
+    expect(store.getState().search[searchType].inputHelperText).toBe(
       'An error has occurred',
     );
   });

@@ -9,6 +9,7 @@ import { setCompareResults } from '../../reducers/CompareResultsSlice';
 import { updateSearchResults } from '../../reducers/SearchSlice';
 import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
 import useProtocolTheme from '../../theme/protocolTheme';
+import { InputType } from '../../types/state';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
@@ -86,7 +87,7 @@ describe('SelectedRevisionsTableRow', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
     const searchResults = {
-      payload: testData,
+      results: testData,
       searchType: 'base' as InputType,
     };
 
@@ -115,7 +116,7 @@ describe('SelectedRevisionsTableRow', () => {
   it('should close popover when close button is clicked', async () => {
     const { testData } = getTestData();
     const searchResults = {
-      payload: testData,
+      results: testData,
       searchType: 'base' as InputType,
     };
     store.dispatch(updateSearchResults(searchResults));

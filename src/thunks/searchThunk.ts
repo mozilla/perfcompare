@@ -16,15 +16,10 @@ interface FetchDataArgsIDEmail {
   searchType: InputType;
 }
 
-interface FetchDataMeta {
-  error: string;
-  searchType: InputType;
-}
-
 export const fetchRecentRevisions = createAsyncThunk<
   RevisionsList[],
   FetchDataArgs,
-  { rejectValue: FetchDataMeta }
+  { rejectValue: string }
 >(
   'search/fetchRecentRevisions',
   async ({ repository, searchType }, { rejectWithValue }) => {
@@ -36,21 +31,20 @@ export const fetchRecentRevisions = createAsyncThunk<
       );
     } catch (err) {
       const error = (err as Error).message;
-      return rejectWithValue({ error, searchType });
+      return rejectWithValue(error);
     }
     const json = (await response.json()) as APIPushResponse;
     if (json.results.length > 0) {
       return json.results;
     }
-
-    return rejectWithValue({ error: 'No results found', searchType });
+    return rejectWithValue('No results found');
   },
 );
 
 export const fetchRevisionByID = createAsyncThunk<
   RevisionsList[],
   FetchDataArgsIDEmail,
-  { rejectValue: FetchDataMeta }
+  { rejectValue: string }
 >(
   'search/fetchRevisionByID',
   async ({ repository, search, searchType }, { rejectWithValue }) => {
@@ -61,21 +55,20 @@ export const fetchRevisionByID = createAsyncThunk<
       );
     } catch (err) {
       const error = (err as Error).message;
-      return rejectWithValue({ error, searchType });
+      return rejectWithValue(error);
     }
     const json = (await response.json()) as APIPushResponse;
     if (json.results.length > 0) {
       return json.results;
     }
-
-    return rejectWithValue({ error: 'No results found', searchType });
+    return rejectWithValue('No results found');
   },
 );
 
 export const fetchRevisionsByAuthor = createAsyncThunk<
   RevisionsList[],
   FetchDataArgsIDEmail,
-  { rejectValue: FetchDataMeta }
+  { rejectValue: string }
 >(
   'search/fetchRevisionsByAuthor',
   async ({ repository, search, searchType }, { rejectWithValue }) => {
@@ -86,14 +79,13 @@ export const fetchRevisionsByAuthor = createAsyncThunk<
       );
     } catch (err) {
       const error = (err as Error).message;
-      return rejectWithValue({ error, searchType });
+      return rejectWithValue(error);
     }
     const json = (await response.json()) as APIPushResponse;
     if (json.results.length > 0) {
       return json.results;
     }
-
-    return rejectWithValue({ error: 'No results found', searchType });
+    return rejectWithValue('No results found');
   },
 );
 

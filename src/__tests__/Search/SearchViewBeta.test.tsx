@@ -6,7 +6,7 @@ import SearchViewBeta from '../../components/Search/SearchView';
 import SearchComponent from '../../components/Shared/SearchComponent';
 import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
-import { Revision } from '../../types/state';
+import { RevisionsList, InputType } from '../../types/state';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
@@ -27,7 +27,7 @@ function renderComponent() {
   );
 }
 
-function fetchTestData(data: Revision[]) {
+function fetchTestData(data: RevisionsList[]) {
   global.fetch = jest.fn(() =>
     Promise.resolve({
       json: () => ({
@@ -90,6 +90,7 @@ describe('Base Search', () => {
     const { testData } = getTestData();
     fetchTestData(testData);
     // set delay to null to prevent test time-out due to useFakeTimers
+    const searchType = 'base' as InputType;
     const user = userEvent.setup({ delay: null });
     renderComponent();
 
@@ -98,7 +99,9 @@ describe('Base Search', () => {
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
 
-    expect(store.getState().search.baseSearchResults).toStrictEqual(testData);
+    expect(store.getState().search[searchType].searchResults).toStrictEqual(
+      testData,
+    );
 
     const comment = await screen.findAllByText("you've got no arms left!");
     expect(comment[0]).toBeInTheDocument();
@@ -112,6 +115,7 @@ describe('Base Search', () => {
 
   it('Should hide the search results when Escape key is pressed', async () => {
     const { testData } = getTestData();
+    const searchType = 'base' as InputType;
     fetchTestData(testData);
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
@@ -122,7 +126,9 @@ describe('Base Search', () => {
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
 
-    expect(store.getState().search.baseSearchResults).toStrictEqual(testData);
+    expect(store.getState().search[searchType].searchResults).toStrictEqual(
+      testData,
+    );
 
     const comment = await screen.findAllByText("you've got no arms left!");
     expect(comment[0]).toBeInTheDocument();
@@ -154,13 +160,14 @@ describe('Base Search', () => {
       'Search must be a 12- or 40-character hash, or email address',
     );
 
-    // fetch is called 3 times on initial load
-    expect(spyOnFetch).toHaveBeenCalledTimes(3);
+    // fetch is called 2 times on initial load
+    expect(spyOnFetch).toHaveBeenCalledTimes(2);
   });
 
   it('Should clear search results if the search value is cleared', async () => {
     const { testData } = getTestData();
     fetchTestData(testData);
+    const searchType = 'base' as InputType;
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
     renderComponent();
@@ -177,9 +184,11 @@ describe('Base Search', () => {
     );
 
     await screen.findAllByText("you've got no arms left!");
-    expect(store.getState().search.baseSearchResults).toStrictEqual(testData);
+    expect(store.getState().search[searchType].searchResults).toStrictEqual(
+      testData,
+    );
     await user.clear(searchInput);
-    expect(store.getState().search.baseSearchResults).toStrictEqual([]);
+    expect(store.getState().search[searchType].searchResults).toStrictEqual([]);
     expect(
       screen.queryByText("you've got no arms left!"),
     ).not.toBeInTheDocument();
@@ -213,22 +222,13 @@ describe('Base Search', () => {
 
   it('should update error state with generic message if fetch error is undefined', async () => {
     global.fetch = jest.fn(() => Promise.reject(new Error())) as jest.Mock;
+    const searchType = 'base' as InputType;
     const spyOnFetch = jest.spyOn(global, 'fetch');
-    const search = store.getState().search;
-    const mode = 'light' as 'light' | 'dark';
-    const repository = search.baseRepository;
-    const inputError = search.inputErrorBase;
-    const searchResults = search.baseSearchResults;
-    const inputHelperText = search.inputHelperText;
     const SearchPropsBase = {
-      ...stringsBase,
+      searchType,
+      mode: 'light' as 'light' | 'dark',
       view: 'search' as 'search' | 'compare-results',
-      mode,
-      base: 'base' as 'new' | 'base',
-      repository,
-      inputError,
-      inputHelperText,
-      searchResults,
+      ...stringsBase,
     };
     renderComponent();
 
@@ -239,9 +239,9 @@ describe('Base Search', () => {
     expect(spyOnFetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true',
     );
-    expect(store.getState().search.baseSearchResults).toStrictEqual([]);
-    expect(store.getState().search.inputErrorBase).toBe(true);
-    expect(store.getState().search.inputHelperText).toBe(
+    expect(store.getState().search[searchType].searchResults).toStrictEqual([]);
+    expect(store.getState().search[searchType].inputError).toBe(true);
+    expect(store.getState().search[searchType].inputHelperText).toBe(
       'An error has occurred',
     );
   });

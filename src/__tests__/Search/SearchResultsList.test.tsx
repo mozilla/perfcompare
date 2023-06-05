@@ -1,8 +1,6 @@
 import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { maxRevisionsError } from '../../common/constants';
-import SearchResultsList from '../../components/Search/SearchResultsList';
 import SearchView from '../../components/Search/SearchView';
 import useProtocolTheme from '../../theme/protocolTheme';
 import getTestData from '../utils/fixtures';
@@ -142,35 +140,5 @@ describe('SearchResultsList', () => {
     expect(
       screen.getAllByTestId('checkbox-1')[0].classList.contains('Mui-checked'),
     ).toBe(false);
-  });
-
-  it('should not allow checking more than one revision on Compare Results View', async () => {
-    const { testData } = getTestData();
-    // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
-    const base = 'base';
-    const mode = 'light';
-    const view = 'search';
-
-    renderWithRouter(
-      <SearchResultsList
-        mode={mode}
-        searchResults={testData}
-        view={view}
-        base={base}
-      />,
-    );
-
-    await user.click(screen.getByTestId('checkbox-0'));
-    await user.click(screen.getByTestId('checkbox-1'));
-
-    expect(
-      screen.getByTestId('checkbox-0').classList.contains('Mui-checked'),
-    ).toBe(true);
-    expect(
-      screen.getByTestId('checkbox-1').classList.contains('Mui-checked'),
-    ).toBe(false);
-
-    expect(screen.getByText(maxRevisionsError)).toBeInTheDocument();
   });
 });

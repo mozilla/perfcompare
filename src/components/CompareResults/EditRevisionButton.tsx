@@ -4,13 +4,14 @@ import EditIcon from '@mui/icons-material/Edit';
 import IconButton from '@mui/material/IconButton';
 import Popover from '@mui/material/Popover';
 
-import { Revision } from '../../types/state';
-import RevisionSearch from '../Shared/RevisionSearch';
+import { RevisionsList } from '../../types/state';
+import CompareWithBase from '../Shared/CompareWithBase';
 
 function EditRevisionButton(props: EditRevisionButtonProps) {
   const { index, item } = props;
   const [popoverIsOpen, setPopoverIsOpen] = useState(false);
   const anchorEl = document.getElementById(item.revision);
+  const themeMode = 'light';
 
   const handleClick = () => {
     setPopoverIsOpen(true);
@@ -27,7 +28,7 @@ function EditRevisionButton(props: EditRevisionButtonProps) {
       </IconButton>
 
       <Popover
-        className="edit-revision-popover"
+        className='edit-revision-popover'
         open={popoverIsOpen}
         anchorEl={anchorEl}
         onClose={() => setPopoverIsOpen(false)}
@@ -36,11 +37,7 @@ function EditRevisionButton(props: EditRevisionButtonProps) {
           horizontal: 'left',
         }}
       >
-        <RevisionSearch
-          view="compare-results"
-          prevRevision={item}
-          setPopoverIsOpen={setPopoverIsOpen}
-        />
+        <CompareWithBase mode={themeMode} />
       </Popover>
     </>
   );
@@ -48,7 +45,7 @@ function EditRevisionButton(props: EditRevisionButtonProps) {
 
 interface EditRevisionButtonProps {
   index: number;
-  item: Revision;
+  item: RevisionsList;
 }
 
 export default EditRevisionButton;

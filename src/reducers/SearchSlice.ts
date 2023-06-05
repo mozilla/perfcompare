@@ -94,8 +94,8 @@ const search = createSlice({
         const type = action.meta.arg.searchType;
         state[type].inputError = true;
 
-        state[type].inputHelperText = action.payload?.error
-          ? action.payload.error
+        state[type].inputHelperText = action.payload
+          ? action.payload
           : 'An error has occurred';
       })
       // fetchRevisionByID
@@ -106,8 +106,8 @@ const search = createSlice({
       .addCase(fetchRevisionByID.rejected, (state, action) => {
         const type = action.meta.arg.searchType;
         state[type].inputError = true;
-        state[type].inputHelperText = action.payload?.error
-          ? action.payload.error
+        state[type].inputHelperText = action.payload
+          ? action.payload
           : 'An error has occurred';
       })
       // fetchRevisionsByAuthor
@@ -118,8 +118,8 @@ const search = createSlice({
       .addCase(fetchRevisionsByAuthor.rejected, (state, action) => {
         const type = action.meta.arg.searchType;
         state[type].inputError = true;
-        state[type].inputHelperText = action.payload?.error
-          ? action.payload.error
+        state[type].inputHelperText = action.payload
+          ? action.payload
           : 'An error has occurred';
       });
   },
