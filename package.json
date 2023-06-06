@@ -31,7 +31,7 @@
     "lint:fix": "npm run lint -- --fix",
     "format": "prettier --write \"src/**/*.{js,jsx,css,html,md,json,yaml,yml}\" --jsx-single-quote --config ./.prettierrc.js",
     "format:check": "prettier --check \"src/**/*.{js,jsx,css,html,md,json,yaml,yml}\" --config ./.prettierrc.js",
-    "test": "jest --testPathIgnorePatterns=accessibility --testPathIgnorePatterns=utils --testPathIgnorePatterns=CompareResults",
+    "test": "jest --testPathIgnorePatterns=accessibility --testPathIgnorePatterns=utils",
     "test:a11y": "jest --testPathPattern=accessibility",
     "test:coverage": "npm test -- --coverage",
     "test:watch": "npm test -- --watch",

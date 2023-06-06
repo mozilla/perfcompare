@@ -130,9 +130,6 @@ exports[`Search View renders correctly when there are no results 1`] = `
           </div>
         </div>
       </div>
-      <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 compare-result-view css-17gmabg-MuiGrid-root"
-      />
     </div>
   </div>
 </body>

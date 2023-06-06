@@ -10,7 +10,6 @@ import { Strings } from '../resources/Strings';
 import { Banner } from '../styles/Banner';
 import useProtocolTheme from '../theme/protocolTheme';
 import ResultsView from './CompareResults/beta/ResultsView';
-import CompareResultsView from './CompareResults/CompareResultsView';
 import SearchView from './Search/SearchView';
 import FeedbackAlert from './Shared/FeedbackAlert';
 import SnackbarCloseButton from './Shared/SnackbarCloseButton';
@@ -52,10 +51,7 @@ function App() {
                 />
               }
             />
-            <Route
-              path='/old/compare-results'
-              element={<CompareResultsView theme={protocolTheme} />}
-            />
+
             <Route
               path='/compare-results'
               element={

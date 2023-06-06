@@ -32,7 +32,7 @@ function CompareWithBase({ mode }: CompareWithBaseProps) {
   const toggleIsExpanded = () => {
     setExpanded({
       expanded: !base.expanded,
-      class: base.expanded ? 'default' : 'expanded',
+      class: base.expanded ? 'hidden' : 'expanded',
     });
   };
 
@@ -42,7 +42,12 @@ function CompareWithBase({ mode }: CompareWithBaseProps) {
         className={`compare-card-container compare-card-container--${base.class} ${styles.container}`}
         onClick={toggleIsExpanded}
       >
-        <div className={`compare-card-text ${styles.cardText}`}>
+        <div
+          data-testid={
+            base.class === 'expanded' ? 'base-expanded' : 'base-hidden'
+          }
+          className={`compare-card-text ${styles.cardText}`}
+        >
           <div className='compare-card-title'>{strings.base.title}</div>
           <div className='compare-card-tagline'>{strings.base.tagline}</div>
         </div>

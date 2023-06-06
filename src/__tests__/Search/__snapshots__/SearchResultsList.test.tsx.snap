@@ -93,6 +93,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
           >
             <div
               class="compare-card-text cardText_f10ud7bq"
+              data-testid="base-expanded"
             >
               <div
                 class="compare-card-title"
@@ -715,9 +716,6 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     </ul>
                   </div>
                 </div>
-                <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 compare-result-view css-17gmabg-MuiGrid-root"
-                />
               </div>
               <div
                 class="MuiGrid-root MuiGrid-container container_ftulh01 css-1ljzhs0-MuiGrid-root"
@@ -846,9 +844,6 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     </div>
                   </div>
                 </div>
-                <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 compare-result-view css-17gmabg-MuiGrid-root"
-                />
               </div>
               <div
                 class="framework"

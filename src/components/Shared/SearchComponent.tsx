@@ -6,16 +6,12 @@ import {
   createRef,
 } from 'react';
 
-import CheckIcon from '@mui/icons-material/Check';
-import CloseIcon from '@mui/icons-material/Close';
-import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 import { RootState } from '../../common/store';
 import { useAppDispatch } from '../../hooks/app';
 import { useAppSelector } from '../../hooks/app';
-import useSelectRevision from '../../hooks/useSelectRevision';
 import { clearCheckedRevisions } from '../../reducers/CheckedRevisions';
 import { SearchStyles } from '../../styles';
 import type { RevisionsList, InputType } from '../../types/state';
@@ -37,8 +33,6 @@ interface SearchProps {
 function SearchComponent({
   mode,
   view,
-  setPopoverIsOpen,
-  prevRevision,
   selectLabel,
   tooltip,
   inputPlaceholder,
@@ -51,7 +45,6 @@ function SearchComponent({
   const { searchResults } = searchState;
   const [focused, setFocused] = useState(false);
   const dispatch = useAppDispatch();
-  const { replaceSelectedRevision } = useSelectRevision();
   const matchesQuery = useMediaQuery('(max-width:768px)');
   const containerRef = createRef<HTMLDivElement>();
 
@@ -139,31 +132,6 @@ function SearchComponent({
         />
         {searchResults.length > 0 && focused && (
           <SearchResultsList mode={mode} view={view} searchType={searchType} />
-        )}
-      </Grid>
-
-      <Grid item xs={7} className='compare-result-view'>
-        {view == 'compare-results' && setPopoverIsOpen && prevRevision && (
-          <>
-            <Button
-              className='edit-searchType-button'
-              id={`replace-${searchType}-button`}
-              data-testid={`replace-${searchType}-button`}
-              size='small'
-              onClick={() => replaceSelectedRevision(prevRevision)}
-            >
-              <CheckIcon className='accept' />
-            </Button>
-            <Button
-              className={`edit-${searchType}-button`}
-              id={`cancel-edit-${searchType}-button`}
-              data-testid={`cancel-edit-${searchType}-button`}
-              size='small'
-              onClick={() => setPopoverIsOpen(false)}
-            >
-              <CloseIcon className='cancel' />
-            </Button>
-          </>
         )}
       </Grid>
     </Grid>
