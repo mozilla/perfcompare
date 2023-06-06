@@ -5,14 +5,14 @@ import CloseIcon from '@mui/icons-material/Close';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { connect } from 'react-redux';
 import { style } from 'typestyle';
 
 import { RootState } from '../../common/store';
 import { useAppDispatch } from '../../hooks/app';
+import { useAppSelector } from '../../hooks/app';
 import useSelectRevision from '../../hooks/useSelectRevision';
 import { clearCheckedRevisions } from '../../reducers/CheckedRevisions';
-import type { Revision } from '../../types/state';
+import { RevisionsList, InputType } from '../../types/state';
 import AddRevisionButton from '../Search/AddRevisionButton';
 import SearchDropdown from '../Search/SearchDropdown';
 import SearchInput from '../Search/SearchInput';
@@ -44,10 +44,21 @@ const styles = {
   }),
 };
 
-function RevisionSearch(props: RevisionSearchProps) {
-  const [focused, setFocused] = useState(false);
-  const { prevRevision, searchResults, setPopoverIsOpen, view } = props;
+interface RevisionSearchProps {
+  searchResults: RevisionsList[];
+  view: 'compare-results' | 'search';
+  setPopoverIsOpen?: Dispatch<SetStateAction<boolean>>;
+  prevRevision?: RevisionsList;
+}
 
+function RevisionSearch(props: RevisionSearchProps) {
+  const searchType = 'base' as InputType;
+  const [focused, setFocused] = useState(false);
+  const { prevRevision, setPopoverIsOpen, view } = props;
+  const searchState = useAppSelector(
+    (state: RootState) => state.search[searchType],
+  );
+  const { searchResults } = searchState;
   const dispatch = useAppDispatch();
   const { replaceSelectedRevision } = useSelectRevision();
   const matchesQuery = useMediaQuery('(max-width:768px)');
@@ -108,7 +119,13 @@ function RevisionSearch(props: RevisionSearchProps) {
         id='revision-search-dropdown'
         className='revision_search-dropdown'
       >
-        <SearchDropdown view={view} />
+        <SearchDropdown
+          view={view}
+          selectLabel='Select Base Revision'
+          tooltipText='tooltipText'
+          mode='light'
+          searchType={searchType}
+        />
       </Grid>
       <Grid
         item
@@ -117,9 +134,15 @@ function RevisionSearch(props: RevisionSearchProps) {
           matchesQuery ? 'revision_search-input--mobile' : ''
         }`}
       >
-        <SearchInput setFocused={setFocused} view={view} />
+        <SearchInput
+          inputPlaceholder=''
+          searchType={searchType}
+          setFocused={setFocused}
+          view={view}
+          mode='light'
+        />
         {searchResults.length > 0 && focused && (
-          <SearchResultsList searchResults={searchResults} view={view} />
+          <SearchResultsList mode='light' view={view} searchType={searchType} />
         )}
         {view == 'search' && searchResults.length > 0 && focused && (
           <AddRevisionButton setFocused={setFocused} />
@@ -154,24 +177,11 @@ function RevisionSearch(props: RevisionSearchProps) {
 
       <Grid item xs={12} display='none'>
         {searchResults.length > 0 && focused && (
-          <SearchResultsList searchResults={searchResults} view={view} />
+          <SearchResultsList mode='light' view={view} searchType={searchType} />
         )}
       </Grid>
     </Grid>
   );
 }
 
-interface RevisionSearchProps {
-  searchResults: Revision[];
-  view: 'compare-results' | 'search';
-  setPopoverIsOpen?: Dispatch<SetStateAction<boolean>>;
-  prevRevision?: Revision;
-}
-
-function mapStateToProps(state: RootState) {
-  return {
-    searchResults: state.search.searchResults,
-  };
-}
-
-export default connect(mapStateToProps)(RevisionSearch);
+export default RevisionSearch;
