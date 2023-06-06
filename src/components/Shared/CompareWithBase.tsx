@@ -41,11 +41,9 @@ function CompareWithBase({ mode }: CompareWithBaseProps) {
       <div
         className={`compare-card-container compare-card-container--${base.class} ${styles.container}`}
         onClick={toggleIsExpanded}
+        data-testid='base-state'
       >
-        <div
-          data-testid={`base-${base.class}`}
-          className={`compare-card-text ${styles.cardText}`}
-        >
+        <div className={`compare-card-text ${styles.cardText}`}>
           <div className='compare-card-title'>{strings.base.title}</div>
           <div className='compare-card-tagline'>{strings.base.tagline}</div>
         </div>

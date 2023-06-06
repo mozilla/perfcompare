@@ -22,9 +22,12 @@ function SearchResultsList(props: SearchResultsListProps) {
 
   return (
     <Box
-      className={mode == 'light' ? SelectListLight : SelectListDark}
+      className={`${
+        mode == 'light' ? SelectListLight : SelectListDark
+      } results-list-${mode}`}
       id='search-results-list'
       alignItems='flex-end'
+      data-testid='list-mode'
     >
       <List dense={view == 'compare-results'} sx={{ paddingTop: '0' }}>
         {searchResults.map((item, index) => (

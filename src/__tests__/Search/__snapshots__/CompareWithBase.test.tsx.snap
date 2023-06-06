@@ -9,10 +9,10 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
     >
       <div
         class="compare-card-container compare-card-container--expanded container_f2fpoji"
+        data-testid="base-state"
       >
         <div
           class="compare-card-text cardText_f10ud7bq"
-          data-testid="base-expanded"
         >
           <div
             class="compare-card-title"

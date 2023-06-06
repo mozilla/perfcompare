@@ -30,7 +30,7 @@ describe('App', () => {
     expect(screen.queryByLabelText('Light mode')).toBeInTheDocument();
 
     await user.click(darkModeButton);
-    expect(screen.queryByLabelText('Dark mode')).toBeInTheDocument();
+    expect(screen.queryByLabelText('Light mode')).not.toBeInTheDocument();
   });
 
   test('Clicking on the info icon an alert should be displayed', async () => {

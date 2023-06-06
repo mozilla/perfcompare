@@ -26,20 +26,29 @@ describe('Compare With Base', () => {
     renderComponent();
 
     const user = userEvent.setup({ delay: null });
-    const testHiddenID = 'base-hidden';
-    const testExpandedID = 'base-expanded';
-    const hiddenID = screen.queryByTestId(testHiddenID);
+    const testExpandedID = 'base-state';
     const headerContent = screen.getByTestId(testExpandedID);
 
     //make sure it's in collapsed state first
-    expect(hiddenID).toBeNull();
+    expect(
+      screen
+        .getAllByTestId('base-state')[0]
+        .classList.contains('compare-card-container--expanded'),
+    ).toBe(true);
 
     //make sure it's hidden when user clicks on title component
     await user.click(headerContent);
-    const expandedID = screen.queryByTestId(testExpandedID);
-    expect(expandedID).toBeNull();
+    expect(
+      screen
+        .getAllByTestId('base-state')[0]
+        .classList.contains('compare-card-container--expanded'),
+    ).toBe(false);
 
     await user.click(headerContent);
-    expect(hiddenID).toBeNull();
+    expect(
+      screen
+        .getAllByTestId('base-state')[0]
+        .classList.contains('compare-card-container--expanded'),
+    ).toBe(true);
   });
 });

@@ -90,10 +90,10 @@ exports[`SearchResultsList should match snapshot 1`] = `
         >
           <div
             class="compare-card-container compare-card-container--expanded container_f2fpoji"
+            data-testid="base-state"
           >
             <div
               class="compare-card-text cardText_f10ud7bq"
-              data-testid="base-expanded"
             >
               <div
                 class="compare-card-title"
@@ -247,7 +247,8 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="f1av9ozc MuiBox-root css-y1kcm0"
+                    class="f1av9ozc results-list-light MuiBox-root css-y1kcm0"
+                    data-testid="list-mode"
                     id="search-results-list"
                   >
                     <ul
