@@ -57,8 +57,8 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
   );
   const { handleToggle } = useCheckRevision();
 
-  const revisionHash = truncateHash(item.revision) as string;
-  const commitMessage = getLatestCommitMessage(item) as string;
+  const revisionHash = truncateHash(item.revision);
+  const commitMessage = getLatestCommitMessage(item);
   const maxRevisions = view == 'compare-results' ? 1 : 3;
   const isBase = searchType == 'base' ? 1 : maxRevisions;
 

@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 
 import type { AppDispatch, RootState } from '../../common/store';
 import { setSelectedRevisions } from '../../reducers/SelectedRevisions';
-import type { Revision } from '../../types/state';
+import type { RevisionsList } from '../../types/state';
 import type { SelectedRevisionsTableHeaders } from '../../types/types';
 import { swapArrayElements } from '../../utils/helpers';
 import SelectedRevisionsTableRow from './SelectedRevisionsTableRow';
@@ -36,11 +36,11 @@ export function SelectedRevisionsTable(props: SelectedRevisionsProps) {
     setDraggedRow(-1);
   };
   return (
-    <TableContainer className="layout">
+    <TableContainer className='layout'>
       <Table className={`${view}-selected-table`} size={size}>
         <TableHead>
           <TableRow>
-            <TableCell component="th" scope="row" />
+            <TableCell component='th' scope='row' />
             {tableHeaderDetails.map((header: SelectedRevisionsTableHeaders) => (
               <TableCell key={header} sx={{ fontWeight: 600 }}>
                 {header}
@@ -50,7 +50,7 @@ export function SelectedRevisionsTable(props: SelectedRevisionsProps) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {revisions.map((row: Revision, index: number) => (
+          {revisions.map((row: RevisionsList, index: number) => (
             <SelectedRevisionsTableRow
               dropRow={dropRow}
               draggedRow={draggedRow}
@@ -70,9 +70,9 @@ export function SelectedRevisionsTable(props: SelectedRevisionsProps) {
 }
 
 interface SelectedRevisionsProps {
-  revisions: Revision[];
+  revisions: RevisionsList[];
   view: 'search' | 'compare-results';
-  dispatchSelectedRevisions: (revisions: Revision[]) => void;
+  dispatchSelectedRevisions: (revisions: RevisionsList[]) => void;
 }
 
 function mapStateToProps(state: RootState) {
@@ -83,7 +83,7 @@ function mapStateToProps(state: RootState) {
 
 function mapDispatchToProps(dispatch: AppDispatch) {
   return {
-    dispatchSelectedRevisions: (revisions: Revision[]) =>
+    dispatchSelectedRevisions: (revisions: RevisionsList[]) =>
       dispatch(setSelectedRevisions(revisions)),
   };
 }

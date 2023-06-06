@@ -8,7 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import { repoMap } from '../../common/constants';
 import { useAppDispatch } from '../../hooks/app';
 import { deleteRevision } from '../../reducers/SelectedRevisions';
-import { Repository, Revision } from '../../types/state';
+import { Repository, RevisionsList } from '../../types/state';
 import {
   formatDate,
   getLatestCommitMessage,
@@ -52,9 +52,9 @@ export function SelectedRevisionsTableRow(props: SelectedRevisionsRowProps) {
       onDragStart={() => setDraggedRow(index)}
     >
       <TableCell>
-        <div className="dragIndicatorWrapper">
+        <div className='dragIndicatorWrapper'>
           <DragIndicatorIcon />
-          <div className="cellStyle">{index === 0 ? 'BASE' : 'NEW'}</div>
+          <div className='cellStyle'>{index === 0 ? 'BASE' : 'NEW'}</div>
         </div>
       </TableCell>
       <TableCell>{repository}</TableCell>
@@ -62,12 +62,12 @@ export function SelectedRevisionsTableRow(props: SelectedRevisionsRowProps) {
         <Link href={treeherderURL}>{hash}</Link>
       </TableCell>
       <TableCell>{row.author}</TableCell>
-      <TableCell className="commit-message">{commitMessage}</TableCell>
+      <TableCell className='commit-message'>{commitMessage}</TableCell>
       <TableCell>{date}</TableCell>
       <TableCell>
         {view == 'search' && (
           <IconButton
-            id="close-button"
+            id='close-button'
             onClick={() => dispatch(deleteRevision(row.id))}
           >
             <Close />
@@ -86,7 +86,7 @@ export interface SelectedRevisionsRowProps {
   draggedRow: number;
   handleDragEnd: () => void;
   index: number;
-  row: Revision;
+  row: RevisionsList;
   setDraggedRow: (index: number) => void;
   setDropRow: (index: number) => void;
   view: 'search' | 'compare-results';
