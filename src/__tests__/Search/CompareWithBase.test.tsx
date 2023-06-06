@@ -22,8 +22,9 @@ describe('Compare With Base', () => {
     await act(async () => void jest.runOnlyPendingTimers());
   });
 
-  it('hides expanded content when clicked', async () => {
+  it('toggles component open and closed on click', async () => {
     renderComponent();
+
     const user = userEvent.setup({ delay: null });
     const testHiddenID = 'base-hidden';
     const testExpandedID = 'base-expanded';
@@ -36,7 +37,9 @@ describe('Compare With Base', () => {
     //make sure it's hidden when user clicks on title component
     await user.click(headerContent);
     const expandedID = screen.queryByTestId(testExpandedID);
-    await act(async () => renderComponent());
     expect(expandedID).toBeNull();
+
+    await user.click(headerContent);
+    expect(hiddenID).toBeNull();
   });
 });

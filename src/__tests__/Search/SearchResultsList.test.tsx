@@ -7,12 +7,20 @@ import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
 
-describe('SearchResultsList', () => {
-  const protocolTheme = renderHook(() => useProtocolTheme()).result.current
-    .protocolTheme;
+const protocolTheme = renderHook(() => useProtocolTheme()).result.current
+  .protocolTheme;
+const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
+  .toggleColorMode;
+function renderComponent() {
+  renderWithRouter(
+    <SearchView
+      toggleColorMode={toggleColorMode}
+      protocolTheme={protocolTheme}
+    />,
+  );
+}
 
-  const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
-    .toggleColorMode;
+describe('SearchResultsList', () => {
   it('should match snapshot', async () => {
     const { testData } = getTestData();
     global.fetch = jest.fn(() =>
@@ -26,12 +34,7 @@ describe('SearchResultsList', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(
-      <SearchView
-        toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
-      />,
-    );
+    renderComponent();
     // focus input to show results
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
@@ -51,12 +54,7 @@ describe('SearchResultsList', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(
-      <SearchView
-        toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
-      />,
-    );
+    renderComponent();
     // focus input to show results
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
@@ -82,12 +80,7 @@ describe('SearchResultsList', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(
-      <SearchView
-        toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
-      />,
-    );
+    renderComponent();
     // focus input to show results
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
@@ -113,12 +106,44 @@ describe('SearchResultsList', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(
-      <SearchView
-        toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
-      />,
-    );
+    renderComponent();
+    // focus input to show results
+    const searchInput = screen.getAllByRole('textbox')[0];
+    await user.click(searchInput);
+
+    await user.click(screen.getAllByTestId('checkbox-0')[0]);
+    await user.click(screen.getAllByTestId('checkbox-1')[0]);
+
+    expect(
+      screen.getAllByTestId('checkbox-0')[0].classList.contains('Mui-checked'),
+    ).toBe(true);
+    expect(
+      screen.getAllByTestId('checkbox-1')[0].classList.contains('Mui-checked'),
+    ).toBe(false);
+
+    expect(screen.getByText('Maximum 1 revision(s).')).toBeInTheDocument();
+
+    // Should allow unchecking revisions even after four have been selected
+    await user.click(screen.getAllByTestId('checkbox-1')[0]);
+    expect(
+      screen.getAllByTestId('checkbox-1')[0].classList.contains('Mui-checked'),
+    ).toBe(false);
+  });
+
+  it('should toggle dark and light mode', async () => {
+    const { testData } = getTestData();
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () => ({
+          results: testData,
+        }),
+      }),
+    ) as jest.Mock;
+    jest.spyOn(global, 'fetch');
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
+
+    renderComponent();
     // focus input to show results
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
