@@ -3,10 +3,15 @@ import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
 import SearchView from '../../components/Search/SearchView';
+import SearchComponent from '../../components/Shared/SearchComponent';
+import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
+import { InputType } from '../../types/state';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
+
+const stringsBase = Strings.components.searchDefault.base.collapsed.base;
 
 describe('SearchView/fetchRecentRevisions', () => {
   const protocolTheme = renderHook(() => useProtocolTheme()).result.current
@@ -14,8 +19,11 @@ describe('SearchView/fetchRecentRevisions', () => {
 
   const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
     .toggleColorMode;
+
   it('should fetch and display recent results when repository is selected', async () => {
     const { testData } = getTestData();
+    const searchType = 'base' as InputType;
+
     global.fetch = jest.fn(() =>
       Promise.resolve({
         json: () => ({
@@ -34,26 +42,30 @@ describe('SearchView/fetchRecentRevisions', () => {
       />,
     );
 
-    await screen.findByRole('button', { name: 'repository' });
-    await user.click(screen.getByRole('button', { name: 'repository' }));
+    await screen.findAllByRole('button', { name: 'Base' });
+    await user.click(screen.getAllByRole('button', { name: 'Base' })[0]);
 
     // Menu items should be visible
     expect(
-      screen.getByRole('option', { name: 'autoland' }),
+      screen.getAllByRole('option', { name: 'autoland' })[0],
     ).toBeInTheDocument();
-    expect(screen.getByRole('option', { name: 'try' })).toBeInTheDocument();
     expect(
-      screen.getByRole('option', { name: 'mozilla-central' }),
+      screen.getAllByRole('option', { name: 'try' })[0],
+    ).toBeInTheDocument();
+    expect(
+      screen.getAllByRole('option', { name: 'mozilla-central' })[0],
     ).toBeInTheDocument();
 
-    await user.click(screen.getByRole('option', { name: 'autoland' }));
+    await user.click(screen.getAllByRole('option', { name: 'autoland' })[0]);
 
     act(() => void jest.runOnlyPendingTimers());
-    expect(screen.queryByText('try')).not.toBeInTheDocument();
+    expect(screen.queryByText('mozilla-central')).not.toBeInTheDocument();
 
-    expect(store.getState().search.searchResults).toStrictEqual(testData);
+    expect(store.getState().search[searchType].searchResults).toStrictEqual(
+      testData,
+    );
 
-    const searchInput = screen.getByRole('textbox');
+    const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
     await screen.findAllByText("you've got no arms left!");
     expect(
@@ -73,7 +85,14 @@ describe('SearchView/fetchRecentRevisions', () => {
         }),
       }),
     ) as jest.Mock;
+    const searchType = 'base' as InputType;
     const spyOnFetch = jest.spyOn(global, 'fetch');
+    const SearchPropsBase = {
+      searchType,
+      mode: 'light' as 'light' | 'dark',
+      view: 'search' as 'search' | 'compare-results',
+      ...stringsBase,
+    };
 
     renderWithRouter(
       <SearchView
@@ -81,22 +100,32 @@ describe('SearchView/fetchRecentRevisions', () => {
         protocolTheme={protocolTheme}
       />,
     );
+    renderWithRouter(<SearchComponent {...SearchPropsBase} />);
     await act(async () => void jest.runOnlyPendingTimers());
-    await screen.findByRole('button', { name: 'repository' });
+    await screen.findAllByRole('button', { name: 'Base' });
 
     expect(spyOnFetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true',
     );
-    expect(store.getState().search.searchResults).toStrictEqual([]);
-    expect(store.getState().search.inputError).toBe(true);
-    expect(store.getState().search.inputHelperText).toBe('No results found');
+    expect(store.getState().search[searchType].searchResults).toStrictEqual([]);
+    expect(store.getState().search[searchType].inputError).toBe(true);
+    expect(store.getState().search[searchType].inputHelperText).toBe(
+      'No results found',
+    );
   });
 
   it('should update error state if fetchRecentRevisions returns an error', async () => {
     global.fetch = jest.fn(() =>
       Promise.reject(new Error('What, ridden on a horse?')),
     ) as jest.Mock;
+    const searchType = 'base' as InputType;
     const spyOnFetch = jest.spyOn(global, 'fetch');
+    const SearchPropsBase = {
+      searchType,
+      mode: 'light' as 'light' | 'dark',
+      view: 'search' as 'search' | 'compare-results',
+      ...stringsBase,
+    };
 
     renderWithRouter(
       <SearchView
@@ -104,15 +133,16 @@ describe('SearchView/fetchRecentRevisions', () => {
         protocolTheme={protocolTheme}
       />,
     );
+    renderWithRouter(<SearchComponent {...SearchPropsBase} />);
     await act(async () => void jest.runOnlyPendingTimers());
-    await screen.findByRole('button', { name: 'repository' });
+    await screen.findAllByRole('button', { name: 'Base' });
 
     expect(spyOnFetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true',
     );
-    expect(store.getState().search.searchResults).toStrictEqual([]);
-    expect(store.getState().search.inputError).toBe(true);
-    expect(store.getState().search.inputHelperText).toBe(
+    expect(store.getState().search[searchType].searchResults).toStrictEqual([]);
+    expect(store.getState().search[searchType].inputError).toBe(true);
+    expect(store.getState().search[searchType].inputHelperText).toBe(
       'What, ridden on a horse?',
     );
   });

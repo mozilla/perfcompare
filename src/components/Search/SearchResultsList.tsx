@@ -1,33 +1,33 @@
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 
-import type { Revision } from '../../types/state';
+import { RootState } from '../../common/store';
+import { useAppSelector } from '../../hooks/app';
+import { SelectListLight, SelectListDark } from '../../styles';
+import { InputType } from '../../types/state';
 import SearchResultsListItem from './SearchResultsListItem';
 
+interface SearchResultsListProps {
+  view: 'compare-results' | 'search';
+  mode: 'light' | 'dark';
+  searchType: InputType;
+}
+
 function SearchResultsList(props: SearchResultsListProps) {
-  const { searchResults, view } = props;
+  const { view, mode, searchType } = props;
+  const searchState = useAppSelector(
+    (state: RootState) => state.search[searchType],
+  );
+  const { searchResults } = searchState;
 
   return (
     <Box
+      className={`${
+        mode == 'light' ? SelectListLight : SelectListDark
+      } results-list-${mode}`}
       id='search-results-list'
-      sx={{
-        maxWidth: '100%',
-        bgcolor: 'background.paper',
-        border: 1,
-        borderColor: 'grey.500',
-        borderRadius: '4px',
-        padding: '8px',
-        marginTop: '4px',
-        height: '210px',
-        overflow: 'auto',
-        '&:focus': {
-          borderColor: 'primary.main',
-        },
-        '&:hover': {
-          borderColor: 'text.primary',
-        },
-      }}
       alignItems='flex-end'
+      data-testid='list-mode'
     >
       <List dense={view == 'compare-results'} sx={{ paddingTop: '0' }}>
         {searchResults.map((item, index) => (
@@ -36,16 +36,12 @@ function SearchResultsList(props: SearchResultsListProps) {
             index={index}
             item={item}
             view={view}
+            searchType={searchType}
           />
         ))}
       </List>
     </Box>
   );
-}
-
-interface SearchResultsListProps {
-  searchResults: Revision[];
-  view: 'compare-results' | 'search';
 }
 
 export default SearchResultsList;

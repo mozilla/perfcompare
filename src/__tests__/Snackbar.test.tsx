@@ -5,7 +5,7 @@ import { act } from 'react-dom/test-utils';
 
 import { maxRevisionsError } from '../common/constants';
 import App from '../components/App';
-import SearchView from '../components/Search/beta/SearchView';
+import SearchView from '../components/Search/SearchView';
 import useProtocolTheme from '../theme/protocolTheme';
 import getTestData from './utils/fixtures';
 import { renderWithRouter, render } from './utils/setupTests';
@@ -31,14 +31,11 @@ describe('Snackbar', () => {
     render(<App />);
 
     // focus input to show results
-    const searchInput = screen.getByRole('textbox');
+    const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
 
     await user.click(screen.getAllByTestId('checkbox-0')[0]);
     await user.click(screen.getAllByTestId('checkbox-1')[0]);
-    // await user.click(screen.getAllByTestId('checkbox-2')[0]);
-    // await user.click(screen.getAllByTestId('checkbox-3')[0]);
-    // await user.click(screen.getAllByTestId('checkbox-4')[0]);
 
     const alert = screen.getByText(maxRevisionsError);
 
@@ -70,14 +67,11 @@ describe('Snackbar', () => {
     );
 
     // focus input to show results
-    const searchInput = screen.getByRole('textbox');
+    const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
 
     await user.click(screen.getAllByTestId('checkbox-0')[0]);
     await user.click(screen.getAllByTestId('checkbox-1')[0]);
-    // await user.click(screen.getAllByTestId('checkbox-2')[0]);
-    // await user.click(screen.getAllByTestId('checkbox-3')[0]);
-    // await user.click(screen.getAllByTestId('checkbox-4')[0]);
 
     const alert = screen.getByText(maxRevisionsError);
 
@@ -120,7 +114,7 @@ describe('Snackbar', () => {
     await user.click(infoButton);
     const feedbackAlert = screen.getByTestId('feedback-alert');
     expect(feedbackAlert).toBeVisible();
-    const searchInput = screen.getByRole('textbox');
+    const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
     expect(feedbackAlert).toBeVisible();
   });

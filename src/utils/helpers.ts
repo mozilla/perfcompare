@@ -1,10 +1,11 @@
-import type { Repository, Revision } from '../types/state';
+import type { Repository, RevisionsList } from '../types/state';
 
-const truncateHash = (revision: Revision['revision']) => revision.slice(0, 12);
+const truncateHash = (revision: RevisionsList['revision']) =>
+  revision.slice(0, 12);
 
 // return only most recent commit message
 // first commit is usually 'try_task_config'
-const getLatestCommitMessage = (item: Revision) =>
+const getLatestCommitMessage = (item: RevisionsList) =>
   item.revisions[item.revisions.length - 1].comments;
 
 // ensure all numbers display two digits
@@ -28,7 +29,7 @@ const formatDate = (timestamp: number): string => {
 };
 
 const getTreeherderURL = (
-  revision: Revision['revision'],
+  revision: RevisionsList['revision'],
   repository: Repository['name'],
 ) =>
   `https://treeherder.mozilla.org/jobs?repo=${repository}&revision=${revision}`;

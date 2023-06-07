@@ -5,8 +5,8 @@ import Box from '@mui/material/Box';
 import Switch from '@mui/material/Switch';
 import { style } from 'typestyle';
 
-import { Strings } from '../../../resources/Strings';
-import { Spacing, FontsRaw, SwitchRaw } from '../../../styles';
+import { Strings } from '../../resources/Strings';
+import { Spacing, FontsRaw, SwitchRaw } from '../../styles';
 
 const strings = Strings.components.header;
 const label = { inputProps: { 'aria-label': 'Dark mode switch' } };

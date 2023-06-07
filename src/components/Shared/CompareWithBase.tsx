@@ -2,29 +2,37 @@ import { useState } from 'react';
 
 import Divider from '@mui/material/Divider';
 
-import { Strings } from '../../../resources/Strings';
-import { CompareCardsStyles } from '../../../styles';
-import BaseSearch from './BaseSearch';
+import { Strings } from '../../resources/Strings';
+import { CompareCardsStyles } from '../../styles';
+import { InputType } from '../../types/state';
+import SearchComponent from './SearchComponent';
+
 const strings = Strings.components.searchDefault;
+const stringsBase = Strings.components.searchDefault.base.collapsed.base;
+const stringsRevision =
+  Strings.components.searchDefault.base.collapsed.revision;
+
+interface CompareWithBaseProps {
+  mode: 'light' | 'dark';
+}
 
 interface Expanded {
   expanded: boolean;
   class: string;
 }
 
-function CompareWithBase(props: CompareWithBaseProps) {
-  const { mode } = props;
+function CompareWithBase({ mode }: CompareWithBaseProps) {
+  const styles = CompareCardsStyles(mode);
+
   const [base, setExpanded] = useState<Expanded>({
     expanded: true,
     class: 'expanded',
   });
 
-  const styles = CompareCardsStyles(mode);
-
   const toggleIsExpanded = () => {
     setExpanded({
       expanded: !base.expanded,
-      class: base.expanded ? 'default' : 'expanded',
+      class: base.expanded ? 'hidden' : 'expanded',
     });
   };
 
@@ -33,6 +41,7 @@ function CompareWithBase(props: CompareWithBaseProps) {
       <div
         className={`compare-card-container compare-card-container--${base.class} ${styles.container}`}
         onClick={toggleIsExpanded}
+        data-testid='base-state'
       >
         <div className={`compare-card-text ${styles.cardText}`}>
           <div className='compare-card-title'>{strings.base.title}</div>
@@ -49,17 +58,23 @@ function CompareWithBase(props: CompareWithBaseProps) {
       >
         <Divider className='divider' />
         <div className='form-wrapper'>
-          <BaseSearch view='search' mode={mode} />
-          <div className='revision-search'></div>
+          <SearchComponent
+            searchType={'base' as InputType}
+            mode={mode}
+            view='search'
+            {...stringsBase}
+          />
+          <SearchComponent
+            searchType={'new' as InputType}
+            mode={mode}
+            view='search'
+            {...stringsRevision}
+          />
           <div className='framework'></div>
         </div>
       </div>
     </div>
   );
-}
-
-interface CompareWithBaseProps {
-  mode: 'light' | 'dark';
 }
 
 export default CompareWithBase;
