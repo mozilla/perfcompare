@@ -191,6 +191,7 @@ exports[`Results Table Should match snapshot 1`] = `
             </th>
           </tr>
         </thead>
+<<<<<<< HEAD
         <tbody
           class="MuiTableBody-root f5w6em2 css-apqrd9-MuiTableBody-root"
         >
@@ -1849,6 +1850,8 @@ exports[`Results Table Should match snapshot 1`] = `
             </td>
           </tr>
         </tbody>
+=======
+>>>>>>> 24156dfd6 (Results: Add ‘?fakedata’ UI route to switch data in case of bad network)
       </table>
     </div>
   </div>

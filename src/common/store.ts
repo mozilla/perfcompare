@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 
+import compareResults from '../reducers/CompareResults';
 import search from '../reducers/SearchSlice';
 
 const reducer = combineReducers({
   search,
+  compareResults,
 });
 
 export const store = configureStore({

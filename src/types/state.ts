@@ -31,6 +31,20 @@ export type RevisionsList = {
   repository_id: Repository['id'];
 };
 
+export type RevisionsData = {
+  suite: string;
+  test: string;
+  option_name: string;
+  extra_options: string;
+};
+
+export type RevisionsHeader = {
+  suite: string;
+  test: string;
+  option_name: string;
+  extra_options: string;
+};
+
 export type CompareResultsItem = {
   header_name: string;
   base_retriggerable_job_ids: number[];

@@ -1,16 +1,20 @@
 import { useState } from 'react';
 
+import AndroidIcon from '@mui/icons-material/Android';
 import AppleIcon from '@mui/icons-material/Apple';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
+import QuestionMarkTwoToneIcon from '@mui/icons-material/QuestionMarkTwoTone';
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import { IconButton, TableRow, TableCell } from '@mui/material';
+import Link from '@mui/material/Link';
 import { style } from 'typestyle';
 
 import { Colors, Spacing } from '../../../styles';
 import { ExpandableRowStyles } from '../../../styles';
+import type { CompareResultsItem } from '../../../types/state';
 import RevisionRowExpandable from './RevisionRowExpandable';
 
 interface Expanded {
@@ -18,8 +22,54 @@ interface Expanded {
   class: string;
 }
 
+function capitalizeFirstLetter(text: string | null) {
+  if (text != null) {
+    return text.charAt(0).toUpperCase() + text.slice(1);
+  }
+  return null;
+}
+
+function determineStatus(result: CompareResultsItem) {
+  if (result.is_improvement) return 'Improvement';
+  if (result.is_regression) return 'Regression';
+  return '-';
+}
+
+export const platformsIconsMap = {
+  linux: QuestionMarkTwoToneIcon, //TODO: Add the proper icon
+  macos: AppleIcon,
+  windows: QuestionMarkTwoToneIcon, // TODO: Add the proper icon
+  android: AndroidIcon,
+};
+
+function platformMapping(platform: string) {
+  
+  if (platform.includes('linux')) {
+    return {
+      name: 'Linux',
+      icon: platformsIconsMap.linux,
+    };
+  } else if (platform.includes('mac') || platform.includes('osx')) {
+    return {
+      name: 'Apple',
+      icon: platformsIconsMap.macos,
+    };
+  } else if (platform.includes('win')) {
+    return {
+      name: 'Windows',
+      icon: platformsIconsMap.windows,
+    };
+  } else if (platform.includes('android')) {
+    return {
+      name: 'Android',
+      icon: platformsIconsMap.android,
+    };
+  }
+}
+
 function RevisionRow(props: RevisionRowProps) {
-  const { themeMode } = props;
+  const { themeMode, result } = props;
+  const platform = platformMapping(result.platform);
 
   const [row, setExpanded] = useState<Expanded>({
     expanded: false,
@@ -115,26 +165,29 @@ function RevisionRow(props: RevisionRowProps) {
       <TableCell className='platform'>
         <div className='platform-container'>
           <AppleIcon />
-          <span>Apple</span>
+          <span>{platform?.name}</span>
         </div>
       </TableCell>
       <TableCell className='base-value'>
-        <div className='base-container'>771.39ms</div>
+        <div className='base-container'> {result.base_median_value} {result.base_measurement_unit} </div>
       </TableCell>
+      {/* TODO: Add logic for comparison sign */}
       <TableCell className='comparison-sign'>&gt;</TableCell>
-      <TableCell className='new-value'>771.39ms</TableCell>
-      <TableCell className='status'>Improvement</TableCell>
-      <TableCell className='delta'>2.5%</TableCell>
-      <TableCell className='confidence'>High</TableCell>
+      <TableCell className='new-value'>{result.new_median_value}</TableCell>
+      <TableCell className='status'> {determineStatus(result)} </TableCell> 
+      <TableCell className='delta'>{result.delta_percentage}%</TableCell>
+      <TableCell className='confidence'>{capitalizeFirstLetter(result.confidence_text)}</TableCell>
       <TableCell className='total-runs'>
         <span>B:</span>
-        <strong>23</strong> <span>N:</span>
-        <strong>27</strong>
+        <strong>{result.base_runs.length}</strong> <span>N:</span>
+        <strong>{result.new_runs.length}</strong>
       </TableCell>
       <TableCell className='cell-button graph'>
         <div className='graph-link-button-container'>
           <IconButton aria-label='graph link' size='small'>
-            <TimelineIcon />
+            <Link href={result.graphs_link} target="_blank" >
+              <TimelineIcon />
+            </Link>
           </IconButton>
         </div>
       </TableCell>
@@ -177,7 +230,10 @@ function RevisionRow(props: RevisionRowProps) {
           className={`content-row content-row--${row.class} ${stylesCard.container} `}
           data-testid='expanded-row-content'
       >
-        <RevisionRowExpandable themeMode={themeMode}/>
+        <RevisionRowExpandable 
+        themeMode={themeMode} 
+        result={result}
+        />
       </div>
       </TableCell>
     </TableRow>
@@ -188,6 +244,7 @@ function RevisionRow(props: RevisionRowProps) {
 
 interface RevisionRowProps {
   themeMode: 'light' | 'dark';
+  result: CompareResultsItem;
 }
 
 export default RevisionRow;
