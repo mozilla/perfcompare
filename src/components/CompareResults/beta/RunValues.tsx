@@ -30,7 +30,7 @@ function RunValues(props: RunValuesProps) {
         <b>{name}:</b> {mean}ms
       </div>
       <div>
-        <GraphDistribution />
+        <GraphDistribution name={name} values={values} />
       </div>
       <div>
         <div className={styles.values}>
