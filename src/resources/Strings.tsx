@@ -34,6 +34,10 @@ export const Strings = {
         imgDark:
           'https://user-images.githubusercontent.com/88336547/233250674-004d071a-7c23-40f4-b348-0687a3fef6e3.png',
         collapsed: {
+          warnings: {
+            comparison:
+              'Comparing “try” repository and “mozilla-central” repository is not recommended.',
+          },
           base: {
             selectLabel: 'Base',
             inputPlaceholder: 'Search base by ID number or author email',

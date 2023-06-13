@@ -1,11 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 
-import checkedRevisions from '../reducers/CheckedRevisions';
 import search from '../reducers/SearchSlice';
 
 const reducer = combineReducers({
-  checkedRevisions,
   search,
 });
 

@@ -19,7 +19,7 @@ const textDarkMode = {
   color: `${Colors.PrimaryTextDark} !important`,
 };
 
-export const CompareCardsStyles = (mode: string) => {
+export const CompareCardsStyles = (mode: string, height: number) => {
   const isTrueLight = mode == 'light' ? true : false;
 
   const compareCardsCSS = stylesheet({
@@ -70,7 +70,7 @@ export const CompareCardsStyles = (mode: string) => {
           height: '0',
           flexWrap: 'nowrap',
           overflow: 'hidden',
-          transition: 'min-height 0.4s ease-in-out',
+          transition: 'min-height 0.5s ease-in-out',
           flexDirection: 'column',
           borderRadius: `0px 0px ${Spacing.Small}px ${Spacing.Small}px`,
           cursor: 'default',
@@ -85,7 +85,8 @@ export const CompareCardsStyles = (mode: string) => {
                   borderRadius: `0px ${Spacing.Small}px 0px 0px`,
                 },
               },
-              minHeight: '400px',
+              height: 'auto',
+              minHeight: height > 400 ? `${height + 96}px` : '400px',
             },
             '.form-wrapper': {
               padding: `${Spacing.xxLarge}px ${Spacing.xxLarge + 2}px`,
@@ -120,11 +121,13 @@ export const SearchStyles = (mode: string) => {
   const isTrueLight = mode == 'light' ? true : false;
 
   const searchCSS = stylesheet({
+    component: {
+      marginBottom: `${Spacing.xLarge}px`,
+    },
     container: {
       maxWidth: '810px',
       margin: 'auto',
       justifyContent: 'space-between',
-      marginBottom: `${Spacing.xLarge}px`,
       position: 'relative',
     },
 
@@ -140,28 +143,6 @@ export const SearchStyles = (mode: string) => {
           transform: 'unset',
           position: 'relative',
           ...(isTrueLight ? textLightMode : textDarkMode),
-        },
-        '.dropdown-info-icon': {
-          marginLeft: `${Spacing.xSmall}px`,
-          cursor: 'pointer',
-        },
-        '.MuiSvgIcon-root': {
-          color: isTrueLight ? Colors.IconLight : Colors.IconDark,
-        },
-      },
-    },
-
-    baseSearchDropdown: {
-      minWidth: '200px',
-      $nest: {
-        '& .dropdown-select-label': {
-          ...(isTrueLight ? FontsRaw.BodyDefault : FontsRaw.BodyDefaultDark),
-          fontWeight: '600',
-          marginBottom: `${Spacing.xSmall + 2}px`,
-          display: 'flex',
-          alignItems: 'center',
-          transform: 'unset',
-          position: 'relative',
         },
         '.dropdown-info-icon': {
           marginLeft: `${Spacing.xSmall}px`,

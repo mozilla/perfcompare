@@ -2,7 +2,7 @@ import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
-import CompareWithBase from '../../components/Shared/CompareWithBase';
+import CompareWithBase from '../../components/Search/CompareWithBase';
 import useProtocolTheme from '../../theme/protocolTheme';
 import { renderWithRouter } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, createRef, useEffect } from 'react';
 
 import Divider from '@mui/material/Divider';
 
@@ -22,12 +22,18 @@ interface Expanded {
 }
 
 function CompareWithBase({ mode }: CompareWithBaseProps) {
-  const styles = CompareCardsStyles(mode);
-
+  const formWrapperRef = createRef<HTMLDivElement>();
   const [base, setExpanded] = useState<Expanded>({
     expanded: true,
     class: 'expanded',
   });
+
+  const [formHeight, setFormHeight] = useState<number>(400);
+  const styles = CompareCardsStyles(mode, formHeight);
+
+  useEffect(() => {
+    setFormHeight(formWrapperRef.current?.clientHeight || formHeight);
+  }, [formHeight]);
 
   const toggleIsExpanded = () => {
     setExpanded({
@@ -57,7 +63,7 @@ function CompareWithBase({ mode }: CompareWithBaseProps) {
         className={`compare-card-container content-base content-base--${base.class} ${styles.container} `}
       >
         <Divider className='divider' />
-        <div className='form-wrapper'>
+        <div ref={formWrapperRef} className='form-wrapper'>
           <SearchComponent
             searchType={'base' as InputType}
             mode={mode}
