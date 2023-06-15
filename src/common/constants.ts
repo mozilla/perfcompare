@@ -13,6 +13,7 @@ export const userFeedbackMessage =
   'For any kind of suggestions please contact us at ';
 export const perfCompareEmail = 'perfcompare-user-feedback@mozilla.com';
 
+//NOTE: This will eventually have to be replaced/removed/updated since the IDs in the db are different
 export const repoMap: Dictionary<Repository['name']> = {
   1: 'mozilla-central',
   2: 'mozilla-beta',

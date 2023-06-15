@@ -10,14 +10,13 @@ import Grid from '@mui/material/Grid';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 import { RootState } from '../../common/store';
-import { useAppDispatch } from '../../hooks/app';
 import { useAppSelector } from '../../hooks/app';
-import { clearCheckedRevisions } from '../../reducers/CheckedRevisions';
 import { SearchStyles } from '../../styles';
 import type { RevisionsList, InputType } from '../../types/state';
-import SearchDropdown from '../Search/SearchDropdown';
-import SearchInput from '../Search/SearchInput';
-import SearchResultsList from '../Search/SearchResultsList';
+import SearchDropdown from './SearchDropdown';
+import SearchInput from './SearchInput';
+import SearchResultsList from './SearchResultsList';
+import SelectedRevisions from './SelectedRevisions';
 
 interface SearchProps {
   mode: 'light' | 'dark';
@@ -39,12 +38,14 @@ function SearchComponent({
   searchType,
 }: SearchProps) {
   const styles = SearchStyles(mode);
+  const checkedRevisionsList = useAppSelector(
+    (state: RootState) => state.search[searchType].checkedRevisions,
+  );
   const searchState = useAppSelector(
     (state: RootState) => state.search[searchType],
   );
   const { searchResults } = searchState;
   const [focused, setFocused] = useState(false);
-  const dispatch = useAppDispatch();
   const matchesQuery = useMediaQuery('(max-width:768px)');
   const containerRef = createRef<HTMLDivElement>();
 
@@ -74,12 +75,6 @@ function SearchComponent({
   };
 
   useEffect(() => {
-    if (focused == false) {
-      dispatch(clearCheckedRevisions());
-    }
-  }, [focused]);
-
-  useEffect(() => {
     document.addEventListener('mousedown', handleFocus);
     return () => {
       document.removeEventListener('mousedown', handleFocus);
@@ -94,46 +89,57 @@ function SearchComponent({
   });
 
   return (
-    <Grid
-      container
-      alignItems='flex-start'
-      id={`${searchType}-search-container`}
-      className={styles.container}
-      ref={containerRef}
-    >
+    <Grid className={styles.component}>
       <Grid
-        item
-        xs={2}
-        id={`${searchType}_search-dropdown`}
-        className={`${searchType}-search-dropdown ${styles.dropDown} ${styles.baseSearchDropdown}`}
+        container
+        alignItems='flex-start'
+        id={`${searchType}-search-container`}
+        className={styles.container}
+        ref={containerRef}
       >
-        <SearchDropdown
-          view={view}
-          selectLabel={selectLabel}
-          tooltipText={tooltip}
-          mode={mode}
-          searchType={searchType}
-        />
+        <Grid
+          item
+          xs={2}
+          id={`${searchType}_search-dropdown`}
+          className={`${searchType}-search-dropdown ${styles.dropDown}`}
+        >
+          <SearchDropdown
+            view={view}
+            selectLabel={selectLabel}
+            tooltipText={tooltip}
+            mode={mode}
+            searchType={searchType}
+          />
+        </Grid>
+        <Grid
+          item
+          xs={7}
+          id={`${searchType}_search-input`}
+          className={`${searchType}-search-input ${
+            matchesQuery ? `${searchType}-search-input--mobile` : ''
+          } ${styles.baseSearchInput}`}
+        >
+          <SearchInput
+            mode={mode}
+            setFocused={setFocused}
+            view={view}
+            inputPlaceholder={inputPlaceholder}
+            searchType={searchType}
+          />
+          {searchResults.length > 0 && focused && (
+            <SearchResultsList
+              mode={mode}
+              view={view}
+              searchType={searchType}
+            />
+          )}
+        </Grid>
       </Grid>
-      <Grid
-        item
-        xs={7}
-        id={`${searchType}_search-input`}
-        className={`${searchType}-search-input ${
-          matchesQuery ? `${searchType}-search-input--mobile` : ''
-        } ${styles.baseSearchInput}`}
-      >
-        <SearchInput
-          mode={mode}
-          setFocused={setFocused}
-          view={view}
-          inputPlaceholder={inputPlaceholder}
-          searchType={searchType}
-        />
-        {searchResults.length > 0 && focused && (
-          <SearchResultsList mode={mode} view={view} searchType={searchType} />
-        )}
-      </Grid>
+      {checkedRevisionsList.length > 0 && (
+        <Grid>
+          <SelectedRevisions searchType={searchType} mode={mode} />
+        </Grid>
+      )}
     </Grid>
   );
 }

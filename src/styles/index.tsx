@@ -14,3 +14,4 @@ export * from './Document';
 export * from './Tooltips';
 export * from './CompareCards';
 export * from './ExpandableRow';
+export * from './SelectedRevsStyle'; 

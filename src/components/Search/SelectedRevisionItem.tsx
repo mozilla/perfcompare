@@ -1,96 +1,48 @@
 import * as React from 'react';
 
+import { CloseOutlined } from '@mui/icons-material';
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
-import Checkbox from '@mui/material/Checkbox';
+import Button from '@mui/material/Button';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
 import dayjs from 'dayjs';
-import { style } from 'typestyle';
 
-import { useAppSelector } from '../../hooks/app';
 import useCheckRevision from '../../hooks/useCheckRevision';
-import { Spacing } from '../../styles';
+import { SelectRevsStyles } from '../../styles';
 import type { RevisionsList } from '../../types/state';
 import { InputType } from '../../types/state';
 import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
 
-const styles = {
-  listItemButton: style({
-    paddingTop: 0,
-    $nest: {
-      '.MuiListItem-root': {
-        alignItems: 'flex-start',
-      },
-      '.search-revision-item-icon': {
-        minWidth: '0',
-      },
+interface SelectedRevisionItemProps {
+  index: number;
+  item: RevisionsList;
+  mode: 'light' | 'dark';
+  repository: string | undefined;
+  searchType: InputType;
+}
 
-      '.MuiListItemText-primary': {
-        display: 'flex',
-        justifyContent: 'space-between',
-        flexWrap: 'wrap',
-      },
-      '.info-caption': {
-        flexWrap: 'wrap',
-        $nest: {
-          svg: {
-            marginRight: `${Spacing.xSmall}px`,
-            fontSize: '1rem',
-          },
-          '.item-author': {
-            marginRight: `${Spacing.xSmall + 1}px`,
-          },
-        },
-      },
-    },
-  }),
-};
-
-function SearchResultsListItem({
+function SelectedRevisionItem({
   index,
   item,
-  view,
+  mode,
+  repository,
   searchType,
-}: SearchResultsListItemProps) {
-  const isChecked: boolean = useAppSelector((state) =>
-    state.search[searchType].checkedRevisions.includes(item),
-  );
-
-  const { handleToggle } = useCheckRevision(searchType);
+}: SelectedRevisionItemProps) {
+  const styles = SelectRevsStyles(mode);
   const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);
-  const maxRevisions = view == 'compare-results' ? 1 : 3;
-  const isBase = searchType == 'base' ? 1 : maxRevisions;
-
   const itemDate = new Date(item.push_timestamp * 1000);
+  const { handleRemoveRevision } = useCheckRevision(searchType);
 
   return (
-    <>
-      <ListItemButton
-        key={item.id}
-        onClick={() => handleToggle(item, isBase)}
-        className={`${styles.listItemButton} ${
-          isChecked ? 'item-selected' : ''
-        }`}
-      >
-        <ListItem
-          className='search-revision-item search-revision'
-          disablePadding
-        >
-          <ListItemIcon className='search-revision-item-icon search-revision'>
-            <Checkbox
-              className='search-revision-item-checkbox'
-              edge='start'
-              tabIndex={-1}
-              disableRipple
-              data-testid={`checkbox-${index}`}
-              checked={isChecked}
-            />
-          </ListItemIcon>
+    <div className='item-container' data-testid='selected-rev-item'>
+      <div className={styles.repo}>{repository || 'unknown'}</div>
+      <ListItemButton className={styles.listItemButton} key={index}>
+        <ListItem>
           <ListItemText
             className='search-revision-item-text'
             primary={
@@ -130,17 +82,20 @@ function SearchResultsListItem({
             primaryTypographyProps={{ noWrap: true }}
             secondaryTypographyProps={{ noWrap: true }}
           />
+          <ListItemIcon className='search-revision-item-icon search-revision'>
+            <Button
+              role='button'
+              name='close-button'
+              aria-label='close-button'
+              onClick={() => handleRemoveRevision(item)}
+            >
+              <CloseOutlined className='close-icon' fontSize='small' />
+            </Button>
+          </ListItemIcon>
         </ListItem>
       </ListItemButton>
-    </>
+    </div>
   );
 }
 
-interface SearchResultsListItemProps {
-  index: number;
-  item: RevisionsList;
-  view: 'search' | 'compare-results';
-  searchType: InputType;
-}
-
-export default SearchResultsListItem;
+export default SelectedRevisionItem;

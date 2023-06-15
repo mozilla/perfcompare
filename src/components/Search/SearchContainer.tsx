@@ -3,8 +3,8 @@ import { style } from 'typestyle';
 
 import { Strings } from '../../resources/Strings';
 import { FontsRaw, Spacing } from '../../styles';
-import CompareOverTime from '../Shared/CompareOverTime';
-import CompareWithBase from '../Shared/CompareWithBase';
+import CompareOverTime from './CompareOverTime';
+import CompareWithBase from './CompareWithBase';
 
 const strings = Strings.components.searchDefault;
 

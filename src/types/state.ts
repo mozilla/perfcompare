@@ -75,12 +75,13 @@ export type CompareResultsItem = {
   more_runs_are_needed: boolean;
 };
 
-type SearchStateForInput = {
+export type SearchStateForInput = {
   repository: Repository['name'];
   searchResults: RevisionsList[];
   searchValue: string;
   inputError: boolean;
   inputHelperText: string;
+  checkedRevisions: RevisionsList[];
 };
 
 //TODO: import this type in all components later

@@ -2,8 +2,8 @@ import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
+import SearchComponent from '../../components/Search/SearchComponent';
 import SearchViewBeta from '../../components/Search/SearchView';
-import SearchComponent from '../../components/Shared/SearchComponent';
 import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
 import { RevisionsList, InputType } from '../../types/state';
@@ -172,8 +172,6 @@ describe('Base Search', () => {
     const user = userEvent.setup({ delay: null });
     renderComponent();
 
-    // await screen.findByRole('button', { name: 'repository' })
-
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'terryjones@python.com');
     jest.runOnlyPendingTimers();
@@ -244,30 +242,5 @@ describe('Base Search', () => {
     expect(store.getState().search[searchType].inputHelperText).toBe(
       'An error has occurred',
     );
-  });
-
-  it('disable adding more than one revision for the base search', async () => {
-    const { testData } = getTestData();
-    fetchTestData(testData);
-    // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
-    renderComponent();
-
-    // focus input to show results
-    const searchInput = screen.getAllByRole('textbox')[0];
-    await user.click(searchInput);
-
-    await screen.findAllByText("you've got no arms left!");
-    expect(
-      screen.getAllByText("it's just a flesh wound")[0],
-    ).toBeInTheDocument();
-    await user.click(screen.getAllByText("you've got no arms left!")[0]);
-    await user.click(screen.getAllByText("it's just a flesh wound")[0]);
-
-    const error = screen.getByText(/maximum 1 revision\(s\)\./i);
-
-    expect(error).toBeInTheDocument();
-    expect(screen.queryByText("you've got no arms left!")).toBeInTheDocument();
-    expect(screen.queryByText("it's just a flesh wound")).toBeInTheDocument();
   });
 });

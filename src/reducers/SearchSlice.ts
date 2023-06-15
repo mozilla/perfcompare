@@ -9,28 +9,22 @@ import type {
   Repository,
   RevisionsList,
   SearchState,
+  SearchStateForInput,
   InputType,
 } from '../types/state';
 
+const DEFAULT_VALUES: SearchStateForInput = {
+  repository: 'try',
+  searchResults: [],
+  searchValue: '',
+  inputError: false,
+  inputHelperText: '',
+  checkedRevisions: [],
+};
+
 const initialState: SearchState = {
-  base: {
-    // repository to search, string
-    repository: 'try',
-    // results of base search, array of revisions
-    searchResults: [],
-    // search value, string, 12- or 40- hash, or author email
-    searchValue: '',
-    // error if search input returns error, or no results found
-    inputError: false,
-    inputHelperText: '',
-  },
-  new: {
-    repository: 'try',
-    searchResults: [],
-    searchValue: '',
-    inputError: false,
-    inputHelperText: '',
-  },
+  base: DEFAULT_VALUES,
+  new: DEFAULT_VALUES,
 };
 
 const search = createSlice({
@@ -70,6 +64,17 @@ const search = createSlice({
     ) {
       const type = action.payload.searchType;
       state[type].repository = action.payload.repository;
+    },
+
+    updateCheckedRevisions(
+      state,
+      action: PayloadAction<{
+        newChecked: RevisionsList[];
+        searchType: InputType;
+      }>,
+    ) {
+      const type = action.payload.searchType;
+      state[type].checkedRevisions = action.payload.newChecked;
     },
 
     setInputError(
@@ -129,6 +134,7 @@ export const {
   updateSearchValue,
   updateSearchResults,
   updateRepository,
+  updateCheckedRevisions,
   setInputError,
 } = search.actions;
 export default search.reducer;
