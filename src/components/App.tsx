@@ -31,7 +31,7 @@ const AlertContainer = React.forwardRef<HTMLDivElement>((props, ref) => (
 AlertContainer.displayName = 'AlertContainer';
 
 function App() {
-  const [alertContainer, setAlertContainer] = useState<HTMLDivElement | null>(null)
+  const [alertContainer, setAlertContainer] = useState<HTMLDivElement | null>(null);
   const { protocolTheme, toggleColorMode } = useProtocolTheme();
   return (
     <ThemeProvider theme={protocolTheme}>
