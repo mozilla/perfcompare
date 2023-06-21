@@ -2,7 +2,6 @@ import { style } from 'typestyle';
 
 import { Spacing } from '../../../styles';
 import RunValues from './RunValues';
-import CommonGraphDistribution from './CommonGraphDistribution';
 
 const baseRuns = {
   name: 'Base',
@@ -37,9 +36,6 @@ function Distribution() {
     <div className={styles.container}>
       <RunValues revisionRuns={baseRuns} />
       <RunValues revisionRuns={newRuns} />
-      <div className={styles.commonGraph}>
-        <CommonGraphDistribution />
-      </div>
     </div>
   );
 }

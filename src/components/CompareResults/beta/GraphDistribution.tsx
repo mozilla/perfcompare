@@ -27,9 +27,8 @@ function GraphDistribution(props: GraphDistributionProps) {
       tooltip: {
         callbacks: {
           label: (context) => {
-            console.log(context);
             return `${context.raw.x} ms`;
-          }
+          },
         },
       },
     },
