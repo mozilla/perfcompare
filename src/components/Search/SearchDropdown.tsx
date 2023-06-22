@@ -113,7 +113,7 @@ function SearchDropdown({
           </Tooltip>
         </InputLabel>
         <Select
-          data-testid='dropdown-select'
+          data-testid={`dropdown-select-${searchType}`}
           label={selectLabel}
           value={repository}
           labelId='select-repository-label'

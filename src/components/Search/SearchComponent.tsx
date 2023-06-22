@@ -27,6 +27,7 @@ interface SearchProps {
   tooltip: string;
   inputPlaceholder: string;
   searchType: InputType;
+  isWarning?: boolean;
 }
 
 function SearchComponent({
@@ -36,6 +37,7 @@ function SearchComponent({
   tooltip,
   inputPlaceholder,
   searchType,
+  isWarning,
 }: SearchProps) {
   const styles = SearchStyles(mode);
   const checkedRevisionsList = useAppSelector(
@@ -137,7 +139,11 @@ function SearchComponent({
       </Grid>
       {checkedRevisionsList.length > 0 && (
         <Grid>
-          <SelectedRevisions searchType={searchType} mode={mode} />
+          <SelectedRevisions
+            searchType={searchType}
+            mode={mode}
+            isWarning={isWarning}
+          />
         </Grid>
       )}
     </Grid>

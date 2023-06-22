@@ -8,7 +8,12 @@ import { SelectRevsStyles } from '../../styles';
 import { InputType } from '../../types/state';
 import SelectedRevisionItem from './SelectedRevisionItem';
 
-function SelectedRevisions({ mode, searchType }: SelectedRevisionsProps) {
+
+function SelectedRevisions({
+  mode,
+  searchType,
+  isWarning,
+}: SelectedRevisionsProps) {
   const styles = SelectRevsStyles(mode);
   const checkedRevisionsList = useAppSelector(
     (state: RootState) => state.search[searchType].checkedRevisions,
@@ -30,6 +35,7 @@ function SelectedRevisions({ mode, searchType }: SelectedRevisionsProps) {
             mode={mode}
             repository={repository[index]}
             searchType={searchType}
+            isWarning={isWarning}
           />
         ))}
       </List>
@@ -40,6 +46,7 @@ function SelectedRevisions({ mode, searchType }: SelectedRevisionsProps) {
 interface SelectedRevisionsProps {
   mode: 'light' | 'dark';
   searchType: InputType;
+  isWarning: boolean;
 }
 
 export default SelectedRevisions;

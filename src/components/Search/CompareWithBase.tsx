@@ -32,6 +32,7 @@ function CompareWithBase({ mode }: CompareWithBaseProps) {
     expanded: true,
     class: 'expanded',
   });
+  const [isWarning, setWarning] = useState<boolean>(false);
   const [formHeight, setFormHeight] = useState<number>(400);
   const styles = CompareCardsStyles(mode, formHeight);
   const baseRepository = search.base.repository;
@@ -43,11 +44,15 @@ function CompareWithBase({ mode }: CompareWithBaseProps) {
   }, [formHeight]);
 
   useEffect(() => {
+    //show warning if try is being compared to a non-try repo or vice versa
     if (
-      (baseRepository === 'try' && newRepository === 'mozilla-central') ||
-      (baseRepository === 'mozilla-central' && newRepository === 'try')
+      (baseRepository === 'try' && newRepository !== 'try') ||
+      (baseRepository !== 'try' && newRepository === 'try')
     ) {
       enqueueSnackbar(warning, { variant });
+      setWarning(true);
+    } else {
+      setWarning(false);
     }
   }, [baseRepository, newRepository]);
 
@@ -85,12 +90,14 @@ function CompareWithBase({ mode }: CompareWithBaseProps) {
             mode={mode}
             view='search'
             {...stringsBase}
+            isWarning={isWarning}
           />
           <SearchComponent
             searchType={'new' as InputType}
             mode={mode}
             view='search'
             {...stringsRevision}
+            isWarning={isWarning}
           />
           <div className='framework'></div>
         </div>
