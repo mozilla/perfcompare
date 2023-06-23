@@ -134,3 +134,8 @@ export const SelectListDark = style({
   position: 'relative',
   ...SelectListRaw.Dark,
 });
+
+export const SelectListStyles = (mode: string) => {
+  const themeMode = mode as 'light' | 'dark';
+  return themeMode === 'light' ? SelectListLight : SelectListDark;
+};

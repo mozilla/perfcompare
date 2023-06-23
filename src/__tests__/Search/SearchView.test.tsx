@@ -58,7 +58,7 @@ describe('Search Container', () => {
     const baseInput = screen.getByPlaceholderText(
       'Search base by ID number or author email',
     );
-    const repoDropdown = screen.getAllByTestId('dropdown-select')[0];
+    const repoDropdown = screen.getAllByTestId('dropdown-select-base')[0];
 
     expect(title).toBeInTheDocument();
     expect(baseInput).toBeInTheDocument();
@@ -226,6 +226,7 @@ describe('Base Search', () => {
       searchType,
       mode: 'light' as 'light' | 'dark',
       view: 'search' as 'search' | 'compare-results',
+      isWarning: false,
       ...stringsBase,
     };
     renderComponent();

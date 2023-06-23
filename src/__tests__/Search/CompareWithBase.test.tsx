@@ -3,9 +3,13 @@ import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
 import CompareWithBase from '../../components/Search/CompareWithBase';
+import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
 import { renderWithRouter } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
+
+const warning =
+  Strings.components.searchDefault.base.collapsed.warnings.comparison;
 
 const protocolTheme = renderHook(() => useProtocolTheme()).result.current
   .protocolTheme;
@@ -50,5 +54,26 @@ describe('Compare With Base', () => {
         .getAllByTestId('base-state')[0]
         .classList.contains('compare-card-container--expanded'),
     ).toBe(true);
+  });
+
+  it('shows comparison warning when try repository is compared with a non try repository', async () => {
+    renderComponent();
+
+    const user = userEvent.setup({ delay: null });
+    const baseDropdown = screen.getAllByRole('button', { name: 'Base' })[0];
+    const newDropdown = screen.getByTestId('dropdown-select-new');
+
+    await user.click(baseDropdown);
+
+    expect(screen.getAllByText('try')[0]).toBeInTheDocument();
+    await user.click(newDropdown);
+    const mozRepoItem = screen.getAllByRole('option', {
+      name: 'mozilla-central',
+    })[0];
+
+    expect(screen.getAllByText('mozilla-central')[0]).toBeInTheDocument();
+    await user.click(mozRepoItem);
+    const comparisonAlert = screen.getByText(warning);
+    expect(comparisonAlert).toBeInTheDocument();
   });
 });

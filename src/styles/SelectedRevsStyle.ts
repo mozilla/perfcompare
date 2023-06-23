@@ -36,6 +36,12 @@ export const SelectRevsStyles = (mode: string) => {
 
     repo: {
       minWidth: '191px',
+      display: 'flex',
+      $nest: {
+        '.warning-icon': {
+          marginLeft: `${Spacing.Large}px`,
+        },
+      },
     },
 
     listItemButton: {

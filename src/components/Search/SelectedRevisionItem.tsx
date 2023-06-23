@@ -3,19 +3,25 @@ import * as React from 'react';
 import { CloseOutlined } from '@mui/icons-material';
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
+import WarningIcon from '@mui/icons-material/Warning';
 import Button from '@mui/material/Button';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import dayjs from 'dayjs';
 
 import useCheckRevision from '../../hooks/useCheckRevision';
+import { Strings } from '../../resources/Strings';
 import { SelectRevsStyles } from '../../styles';
 import type { RevisionsList } from '../../types/state';
 import { InputType } from '../../types/state';
 import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
+
+const warning =
+  Strings.components.searchDefault.base.collapsed.warnings.comparison;
 
 interface SelectedRevisionItemProps {
   index: number;
@@ -23,6 +29,7 @@ interface SelectedRevisionItemProps {
   mode: 'light' | 'dark';
   repository: string | undefined;
   searchType: InputType;
+  isWarning?: boolean;
 }
 
 function SelectedRevisionItem({
@@ -31,6 +38,7 @@ function SelectedRevisionItem({
   mode,
   repository,
   searchType,
+  isWarning,
 }: SelectedRevisionItemProps) {
   const styles = SelectRevsStyles(mode);
   const revisionHash = truncateHash(item.revision);
@@ -40,7 +48,17 @@ function SelectedRevisionItem({
 
   return (
     <div className='item-container' data-testid='selected-rev-item'>
-      <div className={styles.repo}>{repository || 'unknown'}</div>
+      <div className={styles.repo}>
+        <div>{repository || 'unknown'}</div>
+        {isWarning && repository === 'try' && (
+          <div className='warning-icon'>
+            <Tooltip placement='top' title={warning}>
+              <WarningIcon fontSize='small' color='warning' />
+            </Tooltip>
+          </div>
+        )}
+      </div>
+
       <ListItemButton className={styles.listItemButton} key={index}>
         <ListItem>
           <ListItemText
