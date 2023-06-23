@@ -3,7 +3,7 @@ import List from '@mui/material/List';
 
 import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
-import { SelectListLight, SelectListDark } from '../../styles';
+import { SelectListStyles } from '../../styles';
 import { InputType } from '../../types/state';
 import SearchResultsListItem from './SearchResultsListItem';
 
@@ -19,12 +19,11 @@ function SearchResultsList(props: SearchResultsListProps) {
     (state: RootState) => state.search[searchType],
   );
   const { searchResults } = searchState;
+  const styles = SelectListStyles(mode);
 
   return (
     <Box
-      className={`${
-        mode == 'light' ? SelectListLight : SelectListDark
-      } results-list-${mode}`}
+      className={`${styles} results-list-${mode}`}
       id='search-results-list'
       alignItems='flex-end'
       data-testid='list-mode'

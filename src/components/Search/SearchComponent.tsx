@@ -27,7 +27,7 @@ interface SearchProps {
   tooltip: string;
   inputPlaceholder: string;
   searchType: InputType;
-  isWarning?: boolean;
+  isWarning: boolean;
 }
 
 function SearchComponent({

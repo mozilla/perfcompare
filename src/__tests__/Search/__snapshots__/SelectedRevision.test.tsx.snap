@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SearchResultsList should match snapshot 1`] = `
+exports[`SelectedRevision should show the selected revision once a result checkbox is clicked 1`] = `
 <body>
   <div />
   <div />
@@ -206,7 +206,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                         class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
                       >
                         <div
-                          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-focused MuiInputBase-formControl MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
+                          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
                         >
                           <div
                             class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-yzzuft-MuiInputAdornment-root"
@@ -258,7 +258,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                         class="MuiList-root MuiList-padding css-1fc0pkb-MuiList-root"
                       >
                         <div
-                          class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk  css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
+                          class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk item-selected css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
                           role="button"
                           tabindex="0"
                         >
@@ -269,7 +269,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                               class="MuiListItemIcon-root search-revision-item-icon search-revision css-tamlkj-MuiListItemIcon-root"
                             >
                               <span
-                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-c9gmeh-MuiButtonBase-root-MuiCheckbox-root"
+                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-checked PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-c9gmeh-MuiButtonBase-root-MuiCheckbox-root"
                                 data-testid="checkbox-0"
                               >
                                 <input
@@ -281,12 +281,12 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                 <svg
                                   aria-hidden="true"
                                   class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                                  data-testid="CheckBoxOutlineBlankIcon"
+                                  data-testid="CheckBoxIcon"
                                   focusable="false"
                                   viewBox="0 0 24 24"
                                 >
                                   <path
-                                    d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                                    d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
                                   />
                                 </svg>
                               </span>
@@ -348,6 +348,9 @@ exports[`SearchResultsList should match snapshot 1`] = `
                               </p>
                             </div>
                           </li>
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
                         </div>
                         <div
                           class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk  css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
@@ -440,6 +443,9 @@ exports[`SearchResultsList should match snapshot 1`] = `
                               </p>
                             </div>
                           </li>
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
                         </div>
                         <div
                           class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk  css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
@@ -532,6 +538,9 @@ exports[`SearchResultsList should match snapshot 1`] = `
                               </p>
                             </div>
                           </li>
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
                         </div>
                         <div
                           class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk  css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
@@ -624,6 +633,9 @@ exports[`SearchResultsList should match snapshot 1`] = `
                               </p>
                             </div>
                           </li>
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
                         </div>
                         <div
                           class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk  css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
@@ -716,9 +728,133 @@ exports[`SearchResultsList should match snapshot 1`] = `
                               </p>
                             </div>
                           </li>
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
                         </div>
                       </ul>
                     </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiGrid-root css-plh9qo-MuiGrid-root"
+                >
+                  <div
+                    class="box_fx6x5a2 MuiBox-root css-0"
+                    data-testid="selected-revs"
+                  >
+                    <ul
+                      class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
+                    >
+                      <div
+                        class="item-container"
+                        data-testid="selected-rev-item"
+                      >
+                        <div
+                          class="repo_f1bx8by5"
+                        >
+                          <div>
+                            try
+                          </div>
+                        </div>
+                        <div
+                          class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_ftlrhjh css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
+                          role="button"
+                          tabindex="0"
+                        >
+                          <li
+                            class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-vtiz8x-MuiListItem-root"
+                          >
+                            <div
+                              class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
+                            >
+                              <span
+                                class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-hrbm3k-MuiTypography-root"
+                              >
+                                <span
+                                  class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
+                                >
+                                  coconut
+                                </span>
+                                <div
+                                  class="info-caption"
+                                >
+                                  <div
+                                    class="info-caption-item item-author"
+                                  >
+                                     
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
+                                      data-testid="MailOutlineOutlinedIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
+                                      />
+                                    </svg>
+                                     
+                                    johncleese@python.com
+                                  </div>
+                                  <div
+                                    class="info-caption-item item-time"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall time-icon css-1mecf1h-MuiSvgIcon-root"
+                                      data-testid="AccessTimeOutlinedIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
+                                      />
+                                    </svg>
+                                    03/29/51 00:00
+                                  </div>
+                                </div>
+                              </span>
+                              <p
+                                class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
+                              >
+                                you've got no arms left! 
+                              </p>
+                            </div>
+                            <div
+                              class="MuiListItemIcon-root search-revision-item-icon search-revision css-tamlkj-MuiListItemIcon-root"
+                            >
+                              <button
+                                aria-label="close-button"
+                                class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-t42cd1-MuiButtonBase-root-MuiButton-root"
+                                name="close-button"
+                                role="button"
+                                tabindex="0"
+                                type="button"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall close-icon css-1mecf1h-MuiSvgIcon-root"
+                                  data-testid="CloseOutlinedIcon"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
+                                  />
+                                </svg>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                          </li>
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
+                        </div>
+                      </div>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -883,6 +1019,125 @@ exports[`SearchResultsList should match snapshot 1`] = `
           />
         </div>
       </section>
+    </div>
+  </div>
+  <div>
+    <div
+      class="box_fx6x5a2 MuiBox-root css-0"
+      data-testid="selected-revs"
+    >
+      <ul
+        class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
+      >
+        <div
+          class="item-container"
+          data-testid="selected-rev-item"
+        >
+          <div
+            class="repo_f1bx8by5"
+          >
+            <div>
+              try
+            </div>
+          </div>
+          <div
+            class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_ftlrhjh css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
+            role="button"
+            tabindex="0"
+          >
+            <li
+              class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-vtiz8x-MuiListItem-root"
+            >
+              <div
+                class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
+              >
+                <span
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-hrbm3k-MuiTypography-root"
+                >
+                  <span
+                    class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
+                  >
+                    coconut
+                  </span>
+                  <div
+                    class="info-caption"
+                  >
+                    <div
+                      class="info-caption-item item-author"
+                    >
+                       
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
+                        data-testid="MailOutlineOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
+                        />
+                      </svg>
+                       
+                      johncleese@python.com
+                    </div>
+                    <div
+                      class="info-caption-item item-time"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall time-icon css-1mecf1h-MuiSvgIcon-root"
+                        data-testid="AccessTimeOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
+                        />
+                      </svg>
+                      03/29/51 00:00
+                    </div>
+                  </div>
+                </span>
+                <p
+                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
+                >
+                  you've got no arms left! 
+                </p>
+              </div>
+              <div
+                class="MuiListItemIcon-root search-revision-item-icon search-revision css-tamlkj-MuiListItemIcon-root"
+              >
+                <button
+                  aria-label="close-button"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-t42cd1-MuiButtonBase-root-MuiButton-root"
+                  name="close-button"
+                  role="button"
+                  tabindex="0"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall close-icon css-1mecf1h-MuiSvgIcon-root"
+                    data-testid="CloseOutlinedIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
+                    />
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </button>
+              </div>
+            </li>
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </div>
+        </div>
+      </ul>
     </div>
   </div>
 </body>

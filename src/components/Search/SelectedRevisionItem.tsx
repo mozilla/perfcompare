@@ -29,7 +29,7 @@ interface SelectedRevisionItemProps {
   mode: 'light' | 'dark';
   repository: string | undefined;
   searchType: InputType;
-  isWarning: boolean;
+  isWarning?: boolean;
 }
 
 function SelectedRevisionItem({
