@@ -1,3 +1,5 @@
+import React, { useState } from 'react';
+
 import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -19,11 +21,25 @@ const strings: BannerStrings = {
   linkText: Strings.components.topBanner.linkText,
   href: Strings.components.topBanner.href,
 };
+
+const AlertContainer = React.forwardRef<HTMLDivElement>((props, ref) => (
+  <div ref={ref}  className="alert-container" role='alert' aria-live={'assertive'}>
+      {props.children}
+  </div>
+));
+
+AlertContainer.displayName = 'AlertContainer';
+
 function App() {
+  const [alertContainer, setAlertContainer] = useState<HTMLDivElement | null>(null);
   const { protocolTheme, toggleColorMode } = useProtocolTheme();
   return (
     <ThemeProvider theme={protocolTheme}>
+      
+      <AlertContainer ref={setAlertContainer}/>
+      {alertContainer ?
       <SnackbarProvider
+        domRoot={alertContainer}
         maxSnack={3}
         autoHideDuration={6000}
         action={(snackbarKey) => (
@@ -64,6 +80,7 @@ function App() {
           </Routes>
         </Router>
       </SnackbarProvider>
+      : null }
     </ThemeProvider>
   );
 }

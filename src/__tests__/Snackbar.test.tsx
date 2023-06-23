@@ -46,6 +46,31 @@ describe('Snackbar', () => {
     expect(alert).not.toBeInTheDocument();
   });
 
+  it('should have aria-live attribute', async () => {
+    const { testData } = getTestData();
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () => ({
+          results: testData,
+        }),
+      }),
+    ) as jest.Mock;
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
+
+    render(<App />);
+
+    // focus input to show results
+    const searchInput = screen.getAllByRole('textbox')[0];
+    await user.click(searchInput);
+
+    await user.click(screen.getAllByTestId('checkbox-0')[0]);
+    await user.click(screen.getAllByTestId('checkbox-1')[0]);
+
+    const alert = screen.getAllByRole('alert')[0];
+    expect(alert).toHaveAttribute('aria-live');
+  });
+
   it('should dismiss an alert after 6 seconds', async () => {
     const { testData } = getTestData();
     global.fetch = jest.fn(() =>
