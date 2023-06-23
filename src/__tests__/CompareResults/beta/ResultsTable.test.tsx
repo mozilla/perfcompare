@@ -9,6 +9,9 @@ describe('Results Table', () => {
   const protocolTheme = renderHook(() => useProtocolTheme()).result.current
   .protocolTheme;
   const themeMode = protocolTheme.palette.mode;
+  jest.mock('react-chartjs-2', () => ({
+    Bubble: () => null,
+  }));
 
   it('Should match snapshot', () => {
     renderWithRouter(<ResultsTable themeMode={themeMode} />);
