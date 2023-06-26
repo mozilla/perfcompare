@@ -760,11 +760,7 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                                   ms
                                 </div>
                                 <div>
-                                  <canvas
-                                    height="150"
-                                    role="img"
-                                    width="300"
-                                  />
+                                  chartjs-bubble
                                 </div>
                                 <div>
                                   <div
@@ -896,11 +892,7 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                                   ms
                                 </div>
                                 <div>
-                                  <canvas
-                                    height="150"
-                                    role="img"
-                                    width="300"
-                                  />
+                                  chartjs-bubble
                                 </div>
                                 <div>
                                   <div
@@ -1305,11 +1297,7 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                                   ms
                                 </div>
                                 <div>
-                                  <canvas
-                                    height="150"
-                                    role="img"
-                                    width="300"
-                                  />
+                                  chartjs-bubble
                                 </div>
                                 <div>
                                   <div
@@ -1441,11 +1429,7 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                                   ms
                                 </div>
                                 <div>
-                                  <canvas
-                                    height="150"
-                                    role="img"
-                                    width="300"
-                                  />
+                                  chartjs-bubble
                                 </div>
                                 <div>
                                   <div
@@ -1850,11 +1834,7 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                                   ms
                                 </div>
                                 <div>
-                                  <canvas
-                                    height="150"
-                                    role="img"
-                                    width="300"
-                                  />
+                                  chartjs-bubble
                                 </div>
                                 <div>
                                   <div
@@ -1986,11 +1966,7 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                                   ms
                                 </div>
                                 <div>
-                                  <canvas
-                                    height="150"
-                                    role="img"
-                                    width="300"
-                                  />
+                                  chartjs-bubble
                                 </div>
                                 <div>
                                   <div
