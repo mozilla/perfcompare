@@ -29,6 +29,17 @@ describe('Results Table', () => {
       screen.getAllByTestId('expanded-row-content'),
     );
     expect(expandedContent[0]).toBeVisible();
+  });
+
+  it('Should display Base graph and New graph', async () => {
+    const user = userEvent.setup({ delay: null });
+
+    renderWithRouter(<ResultsTable themeMode={themeMode} />);
+
+    const expandButtons = screen.getAllByTestId('expand-revision-button');
+    await user.click(expandButtons[0]);
+    await waitFor(() => screen.getAllByTestId('expanded-row-content'));
+
     const bubbleProps = Bubble.mock.calls.map((call) => call[0]);
     expect(bubbleProps[0].data.datasets[0].label).toBe('Base');
     expect(bubbleProps[1].data.datasets[0].label).toBe('New');
