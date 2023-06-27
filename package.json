@@ -34,7 +34,8 @@
     "test": "jest --testPathIgnorePatterns=utils",
     "test:coverage": "npm test -- --coverage",
     "test:watch": "npm test -- --watch",
-    "commit": "npm run format && npm run lint && npm test -- -u && npm run test:coverage"
+    "commit": "npm run format && npm run lint && npm test -- -u && npm run test:coverage",
+    "tsc": "tsc"
   },
   "eslintConfig": {
     "extends": "react-app"
