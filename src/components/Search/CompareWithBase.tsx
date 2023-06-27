@@ -1,7 +1,9 @@
 import { useState, createRef, useEffect } from 'react';
 
 import Divider from '@mui/material/Divider';
+import { useSnackbar, VariantType } from 'notistack';
 
+import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles } from '../../styles';
 import { InputType } from '../../types/state';
@@ -11,6 +13,7 @@ const strings = Strings.components.searchDefault;
 const stringsBase = Strings.components.searchDefault.base.collapsed.base;
 const stringsRevision =
   Strings.components.searchDefault.base.collapsed.revision;
+const warning = strings.base.collapsed.warnings.comparison;
 
 interface CompareWithBaseProps {
   mode: 'light' | 'dark';
@@ -23,17 +26,35 @@ interface Expanded {
 
 function CompareWithBase({ mode }: CompareWithBaseProps) {
   const formWrapperRef = createRef<HTMLDivElement>();
+  const { enqueueSnackbar } = useSnackbar();
+  const { search } = useAppSelector((state) => state);
   const [base, setExpanded] = useState<Expanded>({
     expanded: true,
     class: 'expanded',
   });
-
+  const [isWarning, setWarning] = useState<boolean>(false);
   const [formHeight, setFormHeight] = useState<number>(400);
   const styles = CompareCardsStyles(mode, formHeight);
+  const baseRepository = search.base.repository;
+  const newRepository = search.new.repository;
+  const variant: VariantType = 'warning';
 
   useEffect(() => {
     setFormHeight(formWrapperRef.current?.clientHeight || formHeight);
   }, [formHeight]);
+
+  useEffect(() => {
+    //show warning if try is being compared to a non-try repo or vice versa
+    if (
+      (baseRepository === 'try' && newRepository !== 'try') ||
+      (baseRepository !== 'try' && newRepository === 'try')
+    ) {
+      enqueueSnackbar(warning, { variant });
+      setWarning(true);
+    } else {
+      setWarning(false);
+    }
+  }, [baseRepository, newRepository]);
 
   const toggleIsExpanded = () => {
     setExpanded({
@@ -69,12 +90,14 @@ function CompareWithBase({ mode }: CompareWithBaseProps) {
             mode={mode}
             view='search'
             {...stringsBase}
+            isWarning={isWarning}
           />
           <SearchComponent
             searchType={'new' as InputType}
             mode={mode}
             view='search'
             {...stringsRevision}
+            isWarning={isWarning}
           />
           <div className='framework'></div>
         </div>
