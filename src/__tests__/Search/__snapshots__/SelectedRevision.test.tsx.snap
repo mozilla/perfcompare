@@ -8,6 +8,13 @@ exports[`SelectedRevision should show the selected revision once a result checkb
     <div
       class="fcndgf6"
     >
+      <button
+        class="f1n6xkvn"
+        role="link"
+        tabindex="1"
+      >
+        Skip to search
+      </button>
       <div
         class="MuiGrid-root header-container f38ku8z css-plh9qo-MuiGrid-root"
       >
@@ -79,6 +86,7 @@ exports[`SelectedRevision should show the selected revision once a result checkb
       </div>
       <section
         class="f1hlgueb"
+        data-testid="search-section"
       >
         <p
           class="MuiTypography-root MuiTypography-body1 search-default-title css-1giq4eh-MuiTypography-root"
