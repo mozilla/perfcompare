@@ -1,5 +1,5 @@
 import userEvent from '@testing-library/user-event';
-import { Bubble } from 'react-chartjs-2';
+import { Bubble, ChartProps } from 'react-chartjs-2';
 
 import ResultsTable from '../../../components/CompareResults/beta/ResultsTable';
 import useProtocolTheme from '../../../theme/protocolTheme';
@@ -40,7 +40,9 @@ describe('Results Table', () => {
     await user.click(expandButtons[0]);
     await waitFor(() => screen.getAllByTestId('expanded-row-content'));
 
-    const bubbleProps = Bubble.mock.calls.map((call) => call[0]);
+    const MockedBubble = Bubble as jest.Mock;
+
+    const bubbleProps = MockedBubble.mock.calls.map((call) => call[0] as ChartProps);
     expect(bubbleProps[0].data.datasets[0].label).toBe('Base');
     expect(bubbleProps[1].data.datasets[0].label).toBe('New');
   });

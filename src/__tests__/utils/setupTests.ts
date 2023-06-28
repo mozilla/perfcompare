@@ -27,11 +27,12 @@ let StoreProvider: React.FC<{ children: JSX.Element }>;
 jest.mock('react-chartjs-2', () => ({
   Bubble: jest.fn(),
 }));
+const MockedBubble = Bubble as jest.Mock;
 
 beforeEach(() => {
   // After every test jest resets the mock implementation, so we need to define
   // it again for each test.
-  Bubble.mockImplementation(() => 'chartjs-bubble');
+  MockedBubble.mockImplementation(() => 'chartjs-bubble');
 });
 
 beforeAll(() => {
