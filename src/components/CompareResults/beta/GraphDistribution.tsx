@@ -5,6 +5,7 @@ import {
   LineElement,
   Tooltip,
   Legend,
+  TooltipItem,
 } from 'chart.js';
 import { Bubble } from 'react-chartjs-2';
 
@@ -26,7 +27,7 @@ function GraphDistribution(props: GraphDistributionProps) {
       },
       tooltip: {
         callbacks: {
-          label: (context) => {
+          label: (context: TooltipItem<'bubble'>) => {
             return `${context.raw.x} ms`;
           },
         },
