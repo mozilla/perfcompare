@@ -3,6 +3,7 @@
 exports[`Results View Should match snapshot 1`] = `
 <body>
   <div />
+  <div />
   <div>
     <div
       class="MuiContainer-root MuiContainer-maxWidthXl css-bnm5sm-MuiContainer-root"
