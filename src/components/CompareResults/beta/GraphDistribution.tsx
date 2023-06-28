@@ -11,6 +11,12 @@ import { Bubble } from 'react-chartjs-2';
 
 ChartJS.register(LinearScale, PointElement, LineElement, Tooltip, Legend);
 
+interface GraphContextRaw {
+  x: number,
+  y: number,
+  r: number
+}
+
 function GraphDistribution(props: GraphDistributionProps) {
 
   const { name, values } = props;
@@ -28,7 +34,7 @@ function GraphDistribution(props: GraphDistributionProps) {
       tooltip: {
         callbacks: {
           label: (context: TooltipItem<'bubble'>) => {
-            return `${context.raw.x} ms`;
+            return `${(context.raw as GraphContextRaw).x} ms`;
           },
         },
       },
