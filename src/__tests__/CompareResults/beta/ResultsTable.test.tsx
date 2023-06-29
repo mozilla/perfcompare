@@ -42,7 +42,9 @@ describe('Results Table', () => {
 
     const MockedBubble = Bubble as jest.Mock;
 
-    const bubbleProps = MockedBubble.mock.calls.map((call) => call[0] as ChartProps);
+    const bubbleProps = MockedBubble.mock.calls.map(
+      (call) => call[0] as ChartProps,
+    );
     expect(bubbleProps[0].data.datasets[0].label).toBe('Base');
     expect(bubbleProps[1].data.datasets[0].label).toBe('New');
   });
@@ -56,8 +58,11 @@ describe('Results Table', () => {
     await user.click(expandButtons[0]);
 
     const MockedBubble = Bubble as jest.Mock;
-    const bubbleProps = MockedBubble.mock.calls.map((call) => call[0] as ChartProps);
-    const labelFunction = bubbleProps[0].options?.plugins?.tooltip?.callbacks?.label;
+    const bubbleProps = MockedBubble.mock.calls.map(
+      (call) => call[0] as ChartProps,
+    );
+    const labelFunction =
+      bubbleProps[0].options?.plugins?.tooltip?.callbacks?.label;
     if (!labelFunction) {
       // eslint-disable-next-line @typescript-eslint/no-throw-literal
       throw Error;
