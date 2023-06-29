@@ -22,7 +22,9 @@ const strings: BannerStrings = {
   href: Strings.components.topBanner.href,
 };
 
-const AlertContainer = React.forwardRef<HTMLDivElement>((props, ref) => (
+type DivProps = React.HTMLProps<HTMLDivElement>;
+
+const AlertContainer = React.forwardRef<HTMLDivElement, DivProps>((props, ref) => (
   <div ref={ref}  className="alert-container" role='alert' aria-live={'assertive'}>
       {props.children}
   </div>

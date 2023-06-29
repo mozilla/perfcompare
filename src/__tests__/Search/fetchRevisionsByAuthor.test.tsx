@@ -183,6 +183,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
       searchType,
       mode: 'light' as 'light' | 'dark',
       view: 'search' as 'search' | 'compare-results',
+      isWarning: false,
       ...stringsBase,
     };
 
