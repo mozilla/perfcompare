@@ -26,6 +26,11 @@ function SelectedRevisions({
     return selectedRep;
   });
 
+  const selectedRevRepo = selectedRevisions?.map((item) => {
+    const selectedRep = repoMap[item.repository_id];
+    return selectedRep;
+  });
+
   return (
     <Box className={styles.box} data-testid='selected-revs'>
       <List>
@@ -48,7 +53,7 @@ function SelectedRevisions({
               index={index}
               item={item}
               mode={mode}
-              repository={repository[index]}
+              repository={selectedRevRepo && selectedRevRepo[index]}
               searchType={searchType}
               isWarning={isWarning}
             />
