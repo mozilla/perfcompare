@@ -1,11 +1,9 @@
 import { useState } from 'react';
 
-import AndroidIcon from '@mui/icons-material/Android';
 import AppleIcon from '@mui/icons-material/Apple';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
-import QuestionMarkTwoToneIcon from '@mui/icons-material/QuestionMarkTwoTone';
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import { IconButton, TableRow, TableCell } from '@mui/material';
@@ -35,35 +33,15 @@ function determineStatus(result: CompareResultsItem) {
   return '-';
 }
 
-export const platformsIconsMap = {
-  linux: QuestionMarkTwoToneIcon, //TODO: Add the proper icon
-  macos: AppleIcon,
-  windows: QuestionMarkTwoToneIcon, // TODO: Add the proper icon
-  android: AndroidIcon,
-};
-
 function platformMapping(platform: string) {
-  
   if (platform.includes('linux')) {
-    return {
-      name: 'Linux',
-      icon: platformsIconsMap.linux,
-    };
+    return 'Linux';
   } else if (platform.includes('mac') || platform.includes('osx')) {
-    return {
-      name: 'Apple',
-      icon: platformsIconsMap.macos,
-    };
+    return 'Apple';
   } else if (platform.includes('win')) {
-    return {
-      name: 'Windows',
-      icon: platformsIconsMap.windows,
-    };
+    return 'Windows';
   } else if (platform.includes('android')) {
-    return {
-      name: 'Android',
-      icon: platformsIconsMap.android,
-    };
+    return 'Android';
   }
 }
 
@@ -165,7 +143,7 @@ function RevisionRow(props: RevisionRowProps) {
       <TableCell className='platform'>
         <div className='platform-container'>
           <AppleIcon />
-          <span>{platform?.name}</span>
+          <span>{platform}</span>
         </div>
       </TableCell>
       <TableCell className='base-value'>
