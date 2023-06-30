@@ -4,7 +4,7 @@ import { Bubble, ChartProps } from 'react-chartjs-2';
 import ResultsTable from '../../../components/CompareResults/beta/ResultsTable';
 import useProtocolTheme from '../../../theme/protocolTheme';
 import { renderWithRouter } from '../../utils/setupTests';
-import { renderHook, screen, waitFor } from '../../utils/test-utils';
+import { renderHook, screen } from '../../utils/test-utils';
 
 describe('Results Table', () => {
   const protocolTheme = renderHook(() => useProtocolTheme()).result.current

@@ -1,8 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { comparisonResults } from '../mockData/3c72ca1b13e1';
+import { comparisonResults as firstRevisionResults } from '../mockData/3c72ca1b13e1';
+import { comparisonResults as secondRevisionResults } from '../mockData/b4b491b3ca96';
+import { comparisonResults as thirdRevisionResults } from '../mockData/d0df2e2dd962';
 import type { CompareResultsState } from '../types/state';
 
+const comparisonResults = firstRevisionResults.concat(secondRevisionResults, thirdRevisionResults);
 
 const initialState: CompareResultsState = {
   data: [],
