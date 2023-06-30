@@ -46,8 +46,14 @@ function SearchComponent({
   const searchState = useAppSelector(
     (state: RootState) => state.search[searchType],
   );
+
+  const selectedRevisions = useAppSelector(
+    (state: RootState) => state.selectedRevisions.revisions,
+  );
+
   const { searchResults } = searchState;
   const [focused, setFocused] = useState(false);
+
   const matchesQuery = useMediaQuery('(max-width:768px)');
   const containerRef = createRef<HTMLDivElement>();
 
@@ -137,12 +143,19 @@ function SearchComponent({
           )}
         </Grid>
       </Grid>
-      {checkedRevisionsList.length > 0 && (
+
+      {(checkedRevisionsList.length > 0 ||
+        (selectedRevisions && selectedRevisions.length > 1)) && (
         <Grid>
           <SelectedRevisions
             searchType={searchType}
             mode={mode}
             isWarning={isWarning}
+            selectedRevisions={
+              searchType == 'base'
+                ? selectedRevisions.filter((_, index) => index === 0)
+                : selectedRevisions
+            }
           />
         </Grid>
       )}

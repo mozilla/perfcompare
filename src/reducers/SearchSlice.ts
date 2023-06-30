@@ -77,6 +77,11 @@ const search = createSlice({
       state[type].checkedRevisions = action.payload.newChecked;
     },
 
+    clearCheckedRevisions(state) {
+      state.base.checkedRevisions = initialState.base.checkedRevisions;
+      state.new.checkedRevisions = initialState.new.checkedRevisions;
+    },
+
     setInputError(
       state,
       action: PayloadAction<{
@@ -135,6 +140,7 @@ export const {
   updateSearchResults,
   updateRepository,
   updateCheckedRevisions,
+  clearCheckedRevisions,
   setInputError,
 } = search.actions;
 export default search.reducer;

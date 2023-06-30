@@ -10,8 +10,11 @@ export type Repository =
   | { id: 2; name: 'mozilla-beta' }
   | { id: 3; name: 'mozilla-release' }
   | { id: 4; name: 'try' }
+  | { id: 6; name: 'mozilla-beta' }
+  | { id: 7; name: 'mozilla-release' }
   | { id: 30; name: 'fenix' }
-  | { id: 77; name: 'autoland' };
+  | { id: 77; name: 'autoland' }
+  | { id: 108; name: 'fenix' };
 
 export type SubRevision = {
   result_set_id: number;
@@ -84,16 +87,9 @@ export type SearchStateForInput = {
   checkedRevisions: RevisionsList[];
 };
 
-//TODO: import this type in all components later
 export type InputType = 'base' | 'new';
 
 export type SearchState = Record<InputType, SearchStateForInput>;
-
-// contains the indices of currently checked revisions
-// in searchResults state
-export type CheckedRevisionsState = {
-  revisions: RevisionsList[];
-};
 
 export type SelectedRevisionsState = {
   revisions: RevisionsList[];

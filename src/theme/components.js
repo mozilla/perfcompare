@@ -207,8 +207,8 @@ const components = {
   MuiContainer: {
     styleOverrides: {
       root: {
-        '&.perfcompare-body': {
-          minHeight: '85vh',
+        '&.perf-body': {
+          backgroundColor: '#ffffff !important',
         },
       },
     },

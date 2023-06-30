@@ -1,12 +1,18 @@
 import { useState, createRef, useEffect } from 'react';
 
 import Divider from '@mui/material/Divider';
+import Grid from '@mui/material/Grid';
 import { useSnackbar, VariantType } from 'notistack';
+import { style } from 'typestyle';
 
+import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles } from '../../styles';
+import { SearchStyles } from '../../styles';
 import { InputType } from '../../types/state';
+import CompareButton from './CompareButton';
+import FrameworkDropdown from './FrameworkDropdown';
 import SearchComponent from './SearchComponent';
 
 const strings = Strings.components.searchDefault;
@@ -17,6 +23,7 @@ const warning = strings.base.collapsed.warnings.comparison;
 
 interface CompareWithBaseProps {
   mode: 'light' | 'dark';
+  view: 'search' | 'compare-results';
 }
 
 interface Expanded {
@@ -24,7 +31,7 @@ interface Expanded {
   class: string;
 }
 
-function CompareWithBase({ mode }: CompareWithBaseProps) {
+function CompareWithBase({ mode, view }: CompareWithBaseProps) {
   const formWrapperRef = createRef<HTMLDivElement>();
   const { enqueueSnackbar } = useSnackbar();
   const { search } = useAppSelector((state) => state);
@@ -35,6 +42,7 @@ function CompareWithBase({ mode }: CompareWithBaseProps) {
   const [isWarning, setWarning] = useState<boolean>(false);
   const [formHeight, setFormHeight] = useState<number>(400);
   const styles = CompareCardsStyles(mode, formHeight);
+  const dropDownStyles = SearchStyles(mode);
   const baseRepository = search.base.repository;
   const newRepository = search.new.repository;
   const variant: VariantType = 'warning';
@@ -63,8 +71,16 @@ function CompareWithBase({ mode }: CompareWithBaseProps) {
     });
   };
 
+  const bottomStyles = {
+    container: style({
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'flex-end',
+    }),
+  };
+
   return (
-    <div className='wrapper'>
+    <Grid className='wrapper'>
       <div
         className={`compare-card-container compare-card-container--${base.class} ${styles.container}`}
         onClick={toggleIsExpanded}
@@ -88,21 +104,28 @@ function CompareWithBase({ mode }: CompareWithBaseProps) {
           <SearchComponent
             searchType={'base' as InputType}
             mode={mode}
-            view='search'
+            view={view}
             {...stringsBase}
             isWarning={isWarning}
           />
           <SearchComponent
             searchType={'new' as InputType}
             mode={mode}
-            view='search'
+            view={view}
             {...stringsRevision}
             isWarning={isWarning}
           />
-          <div className='framework'></div>
+          <Grid
+            item
+            xs={2}
+            className={`${dropDownStyles.dropDown} ${bottomStyles.container}`}
+          >
+            <FrameworkDropdown mode={mode} view={view} />
+            <CompareButton mode={mode} view={view} />
+          </Grid>
         </div>
       </div>
-    </div>
+    </Grid>
   );
 }
 

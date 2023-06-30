@@ -4,7 +4,7 @@ exports[`Inputs replacement Should match snapshot 1`] = `
 <body>
   <div>
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg css-1tyv3cf-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg css-1kcf06b-MuiContainer-root"
       data-testid="inputs-replacement"
     >
       <div
