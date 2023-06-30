@@ -23,7 +23,7 @@ const useSelectRevision = () => {
     newSelected.push(...baseCheckedRevisions, ...newCheckedRevisions);
 
     dispatch(setSelectedRevisions(newSelected));
-    // dispatch(clearCheckedRevisions());
+    dispatch(clearCheckedRevisions());
   };
 
   return { addSelectedRevisions };
