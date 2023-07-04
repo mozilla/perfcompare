@@ -70,6 +70,7 @@ export type FilteredResults = {
   isFiltered: boolean;
 };
 
+// TODO: Needs review: as new platforms are available the type will need updates 
 export type Platform =
   | 'linux32'
   | 'linux-shippable'

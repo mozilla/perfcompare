@@ -7,10 +7,12 @@ import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import { IconButton, TableRow, TableCell } from '@mui/material';
+import Link from '@mui/material/Link';
 import { style } from 'typestyle';
 
 import { Colors, Spacing } from '../../../styles';
 import { ExpandableRowStyles } from '../../../styles';
+import type { CompareResultsItem } from '../../../types/state';
 import RevisionRowExpandable from './RevisionRowExpandable';
 
 interface Expanded {
@@ -18,8 +20,35 @@ interface Expanded {
   class: string;
 }
 
+function capitalizeFirstLetter(text: string | null) {
+  if (text != null) {
+    return text.charAt(0).toUpperCase() + text.slice(1);
+  }
+  return null;
+}
+
+function determineStatus(improvement: boolean, regression: boolean) {
+  if (improvement) return 'Improvement';
+  if (regression) return 'Regression';
+  return '-';
+}
+
+function platformMapping(platform: string) {
+  if (platform.includes('linux')) {
+    return 'Linux';
+  } else if (platform.includes('mac') || platform.includes('osx')) {
+    return 'Apple';
+  } else if (platform.includes('win')) {
+    return 'Windows';
+  } else if (platform.includes('android')) {
+    return 'Android';
+  }
+}
+
 function RevisionRow(props: RevisionRowProps) {
-  const { themeMode } = props;
+  const { themeMode, result } = props;
+  const { platform, base_median_value: baseMedianValue, base_measurement_unit: baseUnit, new_median_value: newMedianValue, new_measurement_unit: newUnit, is_improvement: improvement, is_regression: regression, delta_percentage: deltaPercent, confidence_text: confidenceText, base_runs: baseRuns, new_runs: newRuns, graphs_link: graphLink } = result;
+  const shortPlatform = platformMapping(platform);
 
   const [row, setExpanded] = useState<Expanded>({
     expanded: false,
@@ -115,26 +144,29 @@ function RevisionRow(props: RevisionRowProps) {
       <TableCell className='platform'>
         <div className='platform-container'>
           <AppleIcon />
-          <span>Apple</span>
+          <span>{shortPlatform}</span>
         </div>
       </TableCell>
       <TableCell className='base-value'>
-        <div className='base-container'>771.39ms</div>
+        <div className='base-container'> {baseMedianValue} {baseUnit} </div>
       </TableCell>
+      {/* TODO: Add logic for comparison sign */}
       <TableCell className='comparison-sign'>&gt;</TableCell>
-      <TableCell className='new-value'>771.39ms</TableCell>
-      <TableCell className='status'>Improvement</TableCell>
-      <TableCell className='delta'>2.5%</TableCell>
-      <TableCell className='confidence'>High</TableCell>
+      <TableCell className='new-value'>{newMedianValue} {newUnit}</TableCell>
+      <TableCell className='status'> {determineStatus(improvement, regression)} </TableCell> 
+      <TableCell className='delta'>{deltaPercent}%</TableCell>
+      <TableCell className='confidence'>{capitalizeFirstLetter(confidenceText)}</TableCell>
       <TableCell className='total-runs'>
         <span>B:</span>
-        <strong>23</strong> <span>N:</span>
-        <strong>27</strong>
+        <strong>{baseRuns.length}</strong> <span>N:</span>
+        <strong>{newRuns.length}</strong>
       </TableCell>
       <TableCell className='cell-button graph'>
         <div className='graph-link-button-container'>
           <IconButton aria-label='graph link' size='small'>
-            <TimelineIcon />
+            <Link href={graphLink} target="_blank" >
+              <TimelineIcon />
+            </Link>
           </IconButton>
         </div>
       </TableCell>
@@ -177,7 +209,10 @@ function RevisionRow(props: RevisionRowProps) {
           className={`content-row content-row--${row.class} ${stylesCard.container} `}
           data-testid='expanded-row-content'
       >
-        <RevisionRowExpandable themeMode={themeMode}/>
+        <RevisionRowExpandable 
+        themeMode={themeMode} 
+        result={result}
+        />
       </div>
       </TableCell>
     </TableRow>
@@ -188,6 +223,7 @@ function RevisionRow(props: RevisionRowProps) {
 
 interface RevisionRowProps {
   themeMode: 'light' | 'dark';
+  result: CompareResultsItem;
 }
 
 export default RevisionRow;
