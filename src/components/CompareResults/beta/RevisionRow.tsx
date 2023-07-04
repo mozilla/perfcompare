@@ -27,9 +27,9 @@ function capitalizeFirstLetter(text: string | null) {
   return null;
 }
 
-function determineStatus(result: CompareResultsItem) {
-  if (result.is_improvement) return 'Improvement';
-  if (result.is_regression) return 'Regression';
+function determineStatus(improvement: boolean, regression: boolean) {
+  if (improvement) return 'Improvement';
+  if (regression) return 'Regression';
   return '-';
 }
 
@@ -47,7 +47,8 @@ function platformMapping(platform: string) {
 
 function RevisionRow(props: RevisionRowProps) {
   const { themeMode, result } = props;
-  const platform = platformMapping(result.platform);
+  const { platform, base_median_value: baseMedianValue, base_measurement_unit: baseUnit, new_median_value: newMedianValue, new_measurement_unit: newUnit, is_improvement: improvement, is_regression: regression, delta_percentage: deltaPercent, confidence_text: confidenceText, base_runs: baseRuns, new_runs: newRuns, graphs_link: graphLink } = result;
+  const shortPlatform = platformMapping(platform);
 
   const [row, setExpanded] = useState<Expanded>({
     expanded: false,
@@ -143,27 +144,27 @@ function RevisionRow(props: RevisionRowProps) {
       <TableCell className='platform'>
         <div className='platform-container'>
           <AppleIcon />
-          <span>{platform}</span>
+          <span>{shortPlatform}</span>
         </div>
       </TableCell>
       <TableCell className='base-value'>
-        <div className='base-container'> {result.base_median_value} {result.base_measurement_unit} </div>
+        <div className='base-container'> {baseMedianValue} {baseUnit} </div>
       </TableCell>
       {/* TODO: Add logic for comparison sign */}
       <TableCell className='comparison-sign'>&gt;</TableCell>
-      <TableCell className='new-value'>{result.new_median_value}</TableCell>
-      <TableCell className='status'> {determineStatus(result)} </TableCell> 
-      <TableCell className='delta'>{result.delta_percentage}%</TableCell>
-      <TableCell className='confidence'>{capitalizeFirstLetter(result.confidence_text)}</TableCell>
+      <TableCell className='new-value'>{newMedianValue} {newUnit}</TableCell>
+      <TableCell className='status'> {determineStatus(improvement, regression)} </TableCell> 
+      <TableCell className='delta'>{deltaPercent}%</TableCell>
+      <TableCell className='confidence'>{capitalizeFirstLetter(confidenceText)}</TableCell>
       <TableCell className='total-runs'>
         <span>B:</span>
-        <strong>{result.base_runs.length}</strong> <span>N:</span>
-        <strong>{result.new_runs.length}</strong>
+        <strong>{baseRuns.length}</strong> <span>N:</span>
+        <strong>{newRuns.length}</strong>
       </TableCell>
       <TableCell className='cell-button graph'>
         <div className='graph-link-button-container'>
           <IconButton aria-label='graph link' size='small'>
-            <Link href={result.graphs_link} target="_blank" >
+            <Link href={graphLink} target="_blank" >
               <TimelineIcon />
             </Link>
           </IconButton>
