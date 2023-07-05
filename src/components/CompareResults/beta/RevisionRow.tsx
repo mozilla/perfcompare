@@ -20,13 +20,6 @@ interface Expanded {
   class: string;
 }
 
-function capitalizeFirstLetter(text: string | null) {
-  if (text != null) {
-    return text.charAt(0).toUpperCase() + text.slice(1);
-  }
-  return null;
-}
-
 function determineStatus(improvement: boolean, regression: boolean) {
   if (improvement) return 'Improvement';
   if (regression) return 'Regression';
@@ -155,7 +148,7 @@ function RevisionRow(props: RevisionRowProps) {
       <TableCell className='new-value'>{newMedianValue} {newUnit}</TableCell>
       <TableCell className='status'> {determineStatus(improvement, regression)} </TableCell> 
       <TableCell className='delta'>{deltaPercent}%</TableCell>
-      <TableCell className='confidence'>{capitalizeFirstLetter(confidenceText)}</TableCell>
+      <TableCell className='confidence'>{confidenceText}</TableCell>
       <TableCell className='total-runs'>
         <span>B:</span>
         <strong>{baseRuns.length}</strong> <span>N:</span>
