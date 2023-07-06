@@ -1,25 +1,8 @@
 import { style } from 'typestyle';
 
 import { Spacing } from '../../../styles';
+import type { CompareResultsItem } from '../../../types/state';
 import RunValues from './RunValues';
-
-const baseRuns = {
-  name: 'Base',
-  mean: 771.39,
-  runValues: [
-    305.5, 381, 383.5, 384.5, 384.5, 385.5, 387, 388, 391, 392, 398.5, 402,
-    403.5, 406, 408, 422.5, 427, 433, 437, 438, 445,
-  ],
-};
-
-const newRuns = {
-  name: 'New',
-  mean: 284.92,
-  runValues: [
-    200, 200, 204.5, 205.5, 255.5, 258, 267, 283.5, 284.5, 291, 292, 298.5, 302,
-    303.5, 306, 308, 322, 327, 337, 338, 400,
-  ],
-};
 
 const styles = {
   container: style({
@@ -31,13 +14,37 @@ const styles = {
   }),
 };
 
-function Distribution() {
+
+function Distribution(props: DistributionProps) {
+  const { result } = props;
+  const { base_runs: baseRuns, new_runs: newRuns, base_median_value: baseMedian, new_median_value: newMedian, base_stddev: baseStddev, new_stddev: newStddev, base_stddev_pct: baseStddevPercent, new_stddev_pct: newStddevPercent  } = result;
+
+  const baseRevisionRuns = {
+    name: 'Base',
+    median: baseMedian,
+    values: baseRuns,
+    stddev: baseStddev,
+    stddevPercent: baseStddevPercent,
+  };
+
+  const newRevisionRuns = {
+    name: 'New',
+    median: newMedian,
+    values: newRuns,
+    stddev: newStddev,
+    stddevPercent: newStddevPercent,
+  };
+
   return (
     <div className={styles.container}>
-      <RunValues revisionRuns={baseRuns} />
-      <RunValues revisionRuns={newRuns} />
+      <RunValues revisionRuns={baseRevisionRuns}/>
+      <RunValues revisionRuns={newRevisionRuns}/>
     </div>
   );
+}
+
+interface DistributionProps {
+  result: CompareResultsItem;
 }
 
 export default Distribution;
