@@ -9,7 +9,7 @@ import Distribution from './Distribution';
 const strings = Strings.components.expandableRow;
 const { singleRun, note } = strings;
 
-function displayGraphDistribution(baseRuns: Array<number>, newRuns: Array<number>): boolean {
+function shouldDisplayGraphDistribution(baseRuns: Array<number>, newRuns: Array<number>): boolean {
   if (baseRuns.length > 1 || newRuns.length > 1)
     return true;
   return false;
@@ -19,7 +19,7 @@ function displayGraphDistribution(baseRuns: Array<number>, newRuns: Array<number
 function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   const { themeMode, result } = props;
   const { platform, delta_percentage: deltaPercent, delta_value: deltaVal, confidence_text: confidenceText, base_runs: baseRuns, new_runs: newRuns } = result;
-  const displayGraph = displayGraphDistribution(baseRuns, newRuns);
+  const shouldDisplayGraph = shouldDisplayGraphDistribution(baseRuns, newRuns);
 
   const themeColor200 =
     themeMode == 'light' ? Colors.Background200 : Colors.Background200Dark;
@@ -50,14 +50,14 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
       <div className={`${styles.content}`}>
         <div className={`${styles.bottomSpace}`}><b>{platform}</b> <br /></div>
         {
-          displayGraph &&
+          shouldDisplayGraph &&
             <div>
               <div className={`${styles.bottomSpace}`}><Divider /> </div>
               <Distribution result={result}/>
             </div>
         }
         <div className={`${styles.bottomSpace}`}><Divider /> </div>
-        {!displayGraph && <div className={`${styles.bottomSpace}`}>{singleRun}</div> }
+        {!shouldDisplayGraph && <div className={`${styles.bottomSpace}`}>{singleRun}</div> }
         {/* TODO: Add logic for better / worse */}
         <div className={`${styles.bottomSpace}`}><b>Mean Difference</b>: {deltaPercent}% worse ({deltaVal})</div>
         <div><b>Confidence</b>: {confidenceText} </div>

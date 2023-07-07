@@ -35,7 +35,7 @@ function RunValues(props: RunValuesProps) {
       <div>
         <div className={styles.values}>
           {values.map((value, index) => (
-            <div key={`${value}-${index}`} className={styles.value}>
+            <div key={`${index}`} className={styles.value}>
               {value}
             </div>
           ))}
