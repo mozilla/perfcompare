@@ -99,6 +99,8 @@ const getTestData = () => {
 
   const testCompareData: CompareResultsItem[] = [
     {
+      base_rev: 'coconut',
+      new_rev: 'spam',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -125,11 +127,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
@@ -144,6 +142,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconut',
+      new_rev: 'spam',
       framework_id: 1,
       platform: 'linux1804-64-shippable-qr',
       suite: 'a11yr',
@@ -170,11 +170,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.09,
-      confidence_text: 'med',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Medium',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2Cedcc6311f15bdf7924ef3f0ccfd8b47ce1892212%2C1%2C1&timerange=5184000',
       delta_value: 14.37,
@@ -189,6 +185,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconut',
+      new_rev: 'spam',
       framework_id: 1,
       platform: 'windows10-64-shippable-qr',
       suite: 'a11yr',
@@ -215,11 +213,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.11,
-      confidence_text: 'high',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'High',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C3a6d4b6178678c3113c980b378bb83b2629926a0%2C1%2C1&timerange=5184000',
       delta_value: -15.46,
@@ -234,6 +228,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconut',
+      new_rev: 'spam',
       framework_id: 1,
       platform: 'windows10-64-shippable-qr',
       suite: 'a11yr',
@@ -261,10 +257,6 @@ const getTestData = () => {
       new_stddev_pct: 0.0,
       confidence: 0.11,
       confidence_text: null,
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C3a6d4b6178678c3113c980b378bb83b2629926a0%2C1%2C1&timerange=5184000',
       delta_value: -15.46,
@@ -282,6 +274,8 @@ const getTestData = () => {
 
   const paginationTestCompareData: CompareResultsItem[] = [
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'windows10-64-shippable-qr',
       suite: 'cpstartup',
@@ -309,11 +303,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 71.6,
@@ -328,6 +318,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -354,11 +346,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
@@ -373,6 +361,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -399,11 +389,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
@@ -418,6 +404,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -444,11 +432,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
@@ -463,6 +447,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -489,11 +475,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
@@ -508,6 +490,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -534,11 +518,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
@@ -553,6 +533,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -579,11 +561,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
@@ -598,6 +576,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -624,11 +604,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
@@ -643,6 +619,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -669,11 +647,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
@@ -688,6 +662,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -714,11 +690,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
@@ -733,6 +705,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -759,11 +733,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
@@ -778,6 +748,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -804,11 +776,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
@@ -823,6 +791,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -849,11 +819,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
@@ -868,6 +834,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -894,11 +862,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
@@ -913,6 +877,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -939,11 +905,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
@@ -958,6 +920,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -984,11 +948,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
@@ -1003,6 +963,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -1029,11 +991,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
@@ -1048,6 +1006,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -1074,11 +1034,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
@@ -1093,6 +1049,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -1119,11 +1077,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
@@ -1138,6 +1092,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -1164,11 +1120,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
@@ -1183,6 +1135,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -1209,11 +1163,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
@@ -1228,6 +1178,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -1254,11 +1206,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
@@ -1273,6 +1221,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -1299,11 +1249,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
@@ -1318,6 +1264,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -1344,11 +1292,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
@@ -1363,6 +1307,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -1389,11 +1335,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
@@ -1408,6 +1350,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -1434,11 +1378,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
@@ -1453,6 +1393,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -1479,11 +1421,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
@@ -1498,6 +1436,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -1524,11 +1464,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
@@ -1543,6 +1479,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -1569,11 +1507,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
@@ -1588,6 +1522,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -1614,11 +1550,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
@@ -1633,6 +1565,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -1659,11 +1593,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
@@ -1678,6 +1608,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -1704,11 +1636,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'low',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
@@ -1723,6 +1651,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'linux1804-64-shippable-qr',
       suite: 'a11yr',
@@ -1749,11 +1679,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.09,
-      confidence_text: 'med',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'Medium',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2Cedcc6311f15bdf7924ef3f0ccfd8b47ce1892212%2C1%2C1&timerange=5184000',
       delta_value: 14.37,
@@ -1768,6 +1694,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'windows10-64-shippable-qr',
       suite: 'a11yr',
@@ -1794,11 +1722,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.11,
-      confidence_text: 'high',
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
+      confidence_text: 'High',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C3a6d4b6178678c3113c980b378bb83b2629926a0%2C1%2C1&timerange=5184000',
       delta_value: -15.46,
@@ -1813,6 +1737,8 @@ const getTestData = () => {
       is_meaningful: true,
     },
     {
+      base_rev: 'coconuts',
+      new_rev: 'spamspam',
       framework_id: 1,
       platform: 'windows10-64-shippable-qr',
       suite: 'a11yr',
@@ -1840,10 +1766,6 @@ const getTestData = () => {
       new_stddev_pct: 0.0,
       confidence: 0.11,
       confidence_text: null,
-      confidence_text_long:
-        "Result of running t-test on base versus new result distribution: A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      t_value_confidence: 5,
-      t_value_care_min: 3,
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C3a6d4b6178678c3113c980b378bb83b2629926a0%2C1%2C1&timerange=5184000',
       delta_value: -15.46,

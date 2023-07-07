@@ -24,10 +24,12 @@ type Results = {
 function processResults(results: CompareResultsItem[]) {
   const processedResults: Map<string, CompareResultsItem[]> = new Map<string, CompareResultsItem[]>();
   results.forEach(result => {
-      if (processedResults.has(result.header_name)) {
-        (processedResults.get(result.header_name) as CompareResultsItem[]).push(result);
+      const { new_rev: newRevision, header_name: header } = result;
+      const rowIdentifier = header.concat(' ', newRevision);
+      if (processedResults.has(rowIdentifier)) {
+        (processedResults.get(rowIdentifier) as CompareResultsItem[]).push(result);
       } else {
-        processedResults.set(result.header_name, [result]);
+        processedResults.set(rowIdentifier, [result]);
       }
     });
     const restructuredResults: Results[] = Array.from(processedResults, function (entry) {
