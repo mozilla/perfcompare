@@ -23,24 +23,24 @@ const styles = {
 };
 
 function RunValues(props: RunValuesProps) {
-  const { name, mean, runValues: values } = props.revisionRuns;
+  const { name, median, values, stddev, stddevPercent } = props.revisionRuns;
   return (
     <div className={styles.container}>
       <div>
-        <b>{name}:</b> {mean}ms
+        <b>{name}:</b> {median} ms
       </div>
       <div>
         <GraphDistribution name={name} values={values} />
       </div>
       <div>
         <div className={styles.values}>
-          {values.map((v, index) => (
-            <div key={`${v}-${index}`} className={styles.value}>
-              {v}
+          {values.map((value, index) => (
+            <div key={`${index}`} className={styles.value}>
+              {value}
             </div>
           ))}
         </div>
-        <div className={styles.deviation}>21.27=5.27% standard deviation</div>
+        <div className={styles.deviation}>{stddev} = {stddevPercent}% standard deviation</div>
       </div>
     </div>
   );
@@ -48,9 +48,11 @@ function RunValues(props: RunValuesProps) {
 interface RunValuesProps {
   revisionRuns: {
     name: string;
-    mean: number;
-    runValues: number[];
-  };
+    median: number;
+    values: number[];
+    stddev: number;
+    stddevPercent: number;
+  }
 }
 
 export default RunValues;
