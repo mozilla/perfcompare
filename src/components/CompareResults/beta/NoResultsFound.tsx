@@ -16,7 +16,7 @@ function NoResultsFound() {
   }; 
 
   return (
-    <Container>
+    <Container data-testid='no-results-found-msg'>
       <Grid container alignItems='center' justifyContent='center'>
         <div className={`${styles.text}`}>
             <div><SearchIcon fontSize="large" /><br /></div>

@@ -7,6 +7,7 @@ import { RootState } from '../../../common/store';
 import { useAppSelector } from '../../../hooks/app';
 import { Colors, Spacing } from '../../../styles';
 import type { CompareResultsItem, RevisionsHeader } from '../../../types/state';
+import NoResultsFound from './NoResultsFound';
 import TableContent from './TableContent';
 import TableHeader from './TableHeader';
 
@@ -87,6 +88,7 @@ function ResultsTable(props: ResultsTableProps) {
             <TableContent themeMode={themeMode} key={index} header={res.revisionHeader} results={res.value} />
       ))}
       </Table>
+      {processedResults.length == 0 && <NoResultsFound/>}
     </TableContainer>
   );
 }
