@@ -46,6 +46,7 @@ const setPlatformClassName = (platformName: string) => {
   else return '';
 };
 
+// TO DO: Review if this method is still needed
 const setConfidenceClassName = (confidenceText: string | null) => {
   return confidenceText || 'unknown-confidence';
 };

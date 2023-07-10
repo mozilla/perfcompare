@@ -7,7 +7,7 @@ import type { CompareResultsItem } from '../../../types/state';
 import Distribution from './Distribution';
 
 const strings = Strings.components.expandableRow;
-const { singleRun, note } = strings;
+const { singleRun } = strings;
 
 function shouldDisplayGraphDistribution(baseRuns: Array<number>, newRuns: Array<number>): boolean {
   if (baseRuns.length > 1 || newRuns.length > 1)
@@ -59,8 +59,16 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
         <div className={`${styles.bottomSpace}`}><Divider /> </div>
         {!shouldDisplayGraph && <div className={`${styles.bottomSpace}`}>{singleRun}</div> }
         <div className={`${styles.bottomSpace}`}><b>Mean Difference</b>: {deltaPercent}% {newIsBetter ? 'better' : 'worse'} ({delta})</div>
-        <div><b>Confidence</b>: {confidenceText} </div>
-        <div className={`${styles.note}`}><b>**NOTE</b>: {note}</div>
+        {
+          confidenceText ?
+            <div>
+                <div><b>Confidence</b>: {confidenceText} </div>
+              <div className={`${styles.note}`}><b>**NOTE</b>: {strings[confidenceText]}</div>
+            </div> :
+            <div>
+                <div><b>Confidence</b>: Not available </div>
+            </div>
+        }
       </div>
     </div>
   );

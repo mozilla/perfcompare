@@ -1148,21 +1148,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -1438,21 +1440,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -1728,21 +1732,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -2082,21 +2088,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -2374,21 +2382,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              High
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                High
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES A SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.         PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THE RESULT         (NOISY TESTS MAY RETURN INCONSISTENT RESULTS).
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -2666,21 +2676,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -2958,21 +2970,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -3305,21 +3319,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -3659,21 +3675,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -3951,21 +3969,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              High
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                High
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES A SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.         PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THE RESULT         (NOISY TESTS MAY RETURN INCONSISTENT RESULTS).
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -4243,21 +4263,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -4535,21 +4557,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -4882,21 +4906,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -5172,21 +5198,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -5462,21 +5490,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -5809,21 +5839,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -6158,21 +6190,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -6450,21 +6484,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -6742,21 +6778,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -7091,21 +7129,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -7438,21 +7478,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -7842,21 +7884,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -8132,21 +8176,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -8481,21 +8527,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -8772,20 +8820,12 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : Not available 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -9063,21 +9103,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Medium
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Medium
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES UNCERTAINTY THAT THERE IS A SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.          CONSIDER RETRIGGERING THE JOB TO INCREASE THE CONFIDENCE.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -9355,21 +9397,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -9761,21 +9805,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -10053,21 +10099,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -10407,21 +10455,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              High
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                High
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES A SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.         PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THE RESULT         (NOISY TESTS MAY RETURN INCONSISTENT RESULTS).
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -10699,21 +10749,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -10991,21 +11043,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -11283,21 +11337,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -11575,21 +11631,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              High
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                High
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES A SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.         PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THE RESULT         (NOISY TESTS MAY RETURN INCONSISTENT RESULTS).
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -11867,21 +11925,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -12159,21 +12219,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -12451,21 +12513,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -12798,21 +12862,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -13145,21 +13211,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -13435,21 +13503,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -13725,21 +13795,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -14079,21 +14151,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              High
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                High
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES A SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.         PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THE RESULT         (NOISY TESTS MAY RETURN INCONSISTENT RESULTS).
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -14371,21 +14445,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -14663,21 +14739,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -14955,21 +15033,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -15304,21 +15384,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -15710,21 +15792,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -16002,21 +16086,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -16349,21 +16435,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -16639,21 +16727,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -16929,21 +17019,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -17276,21 +17368,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -17566,21 +17660,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -17856,21 +17952,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -18205,21 +18303,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -18497,21 +18597,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -18789,21 +18891,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -19143,21 +19247,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -19435,21 +19541,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              High
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                High
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES A SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.         PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THE RESULT         (NOISY TESTS MAY RETURN INCONSISTENT RESULTS).
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -19727,21 +19835,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -20019,21 +20129,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -20368,21 +20480,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -20660,21 +20774,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -20952,21 +21068,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -21299,21 +21417,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -21589,21 +21709,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -21879,21 +22001,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -22233,21 +22357,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -22525,21 +22651,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              High
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                High
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES A SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.         PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THE RESULT         (NOISY TESTS MAY RETURN INCONSISTENT RESULTS).
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -22817,21 +22945,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -23109,21 +23239,23 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fl597bh"
+                              >
+                                <b>
+                                  **NOTE
+                                </b>
+                                : 
+                                INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.
+                              </div>
                             </div>
                           </div>
                         </div>
