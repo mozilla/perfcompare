@@ -67,14 +67,11 @@ export const Strings = {
     expandableRow: {
       singleRun: 'Only one run (consider more runs for greater confidence).',
       Low:
-        "INDICATES THAT THERE ISN'T A SUSTAINED, SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS.",
+        "A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
       Medium:
-        'INDICATES UNCERTAINTY THAT THERE IS A SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS. \
-         CONSIDER RETRIGGERING THE JOB TO INCREASE THE CONFIDENCE.',
+        "A value of 'med' indicates uncertainty that there is a significant change. If you haven't already, consider retriggering the job to be more sure.",
       High:
-        'INDICATES A SIGNIFICANT CHANGE BETWEEN THE TWO REVISIONS. \
-        PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THE RESULT \
-        (NOISY TESTS MAY RETURN INCONSISTENT RESULTS).',
+        "A value of 'high' indicates more confidence that there is a significant change, however you should check the historical record for the test by looking at the graph to be more sure (some noisy tests can provide inconsistent results).",
     },
     noResultsFound: {
       mainMessage: 'No results found',
