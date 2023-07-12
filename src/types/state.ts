@@ -31,7 +31,23 @@ export type RevisionsList = {
   repository_id: Repository['id'];
 };
 
+export type RevisionsData = {
+  suite: string;
+  test: string;
+  option_name: string;
+  extra_options: string;
+};
+
+export type RevisionsHeader = {
+  suite: string;
+  test: string;
+  option_name: string;
+  extra_options: string;
+};
+
 export type CompareResultsItem = {
+  base_rev: string;
+  new_rev: string;
   header_name: string;
   base_retriggerable_job_ids: number[];
   new_retriggerable_job_ids: number[];
@@ -56,9 +72,6 @@ export type CompareResultsItem = {
   new_is_better: boolean;
   confidence: number | null;
   confidence_text: ConfidenceText | null;
-  confidence_text_long: string | null;
-  t_value_confidence: number;
-  t_value_care_min: number;
   delta_value: number;
   delta_percentage: number;
   magnitude: number;

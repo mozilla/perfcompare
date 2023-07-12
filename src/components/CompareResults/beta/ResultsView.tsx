@@ -3,12 +3,14 @@ import { useEffect } from 'react';
 import type { Theme } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { useLocation } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { compareView } from '../../../common/constants';
 import { useAppDispatch } from '../../../hooks/app';
 import useFetchCompareResults from '../../../hooks/useFetchCompareResults';
 import useHandleChangeSearch from '../../../hooks/useHandleChangeSearch';
+import { switchToFakeData } from '../../../reducers/CompareResults';
 import { clearSelectedRevisions } from '../../../reducers/SelectedRevisionsSlice';
 import { SearchContainerStyles } from '../../../styles';
 import { background } from '../../../styles';
@@ -21,7 +23,6 @@ interface ResultsViewProps {
   protocolTheme: Theme;
   toggleColorMode: () => void;
 }
-
 function ResultsView(props: ResultsViewProps) {
   const dispatch = useAppDispatch();
   const { protocolTheme, toggleColorMode } = props;
@@ -32,6 +33,16 @@ function ResultsView(props: ResultsViewProps) {
       backgroundColor: background(themeMode),
     }),
   };
+  const [searchParams] = useSearchParams();
+  const fakeDataParam: string | null = searchParams.get('fakedata');
+
+
+// TODO: Populate store with real data or fake data pased on URL params
+  useEffect(() => {
+    if (fakeDataParam === 'true') {
+        dispatch(switchToFakeData());
+    }
+  }, [fakeDataParam]);
 
   const sectionStyles = SearchContainerStyles(themeMode, view);
 
@@ -40,9 +51,9 @@ function ResultsView(props: ResultsViewProps) {
   const { searchByRevisionOrEmail } = useHandleChangeSearch();
 
   useEffect(() => {
-    const searchParams = new URLSearchParams(location.search);
-    const repos = searchParams.get('repos')?.split(',');
-    const revs = searchParams.get('revs')?.split(',');
+    const urlSearchParams = new URLSearchParams(location.search);
+    const repos = urlSearchParams.get('repos')?.split(',');
+    const revs = urlSearchParams.get('revs')?.split(',');
 
     if (revs && repos) {
       dispatch(clearSelectedRevisions());

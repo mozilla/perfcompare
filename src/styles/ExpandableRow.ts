@@ -27,6 +27,7 @@ export const ExpandableRowStyles = () => {
               borderRadius: `0px 0px ${Spacing.Small}px ${Spacing.Small}px`,
               display: 'flex',
               minHeight: '200px',
+              height: '100%',
             },
           },
         },
