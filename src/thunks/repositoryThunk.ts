@@ -20,10 +20,11 @@ export const fetchRecentRevisions = createAsyncThunk<
     let response;
 
     try {
-      response = await fetch(`${treeherderBaseURL}/api/perfcompare/results/?`);
+      response = await fetch(`${treeherderBaseURL}/api/perfcompare/result/?`);
     } catch (err) {
-      const error = (err as Error).message;
-      return rejectWithValue(error);
+      const error = err as Error;
+      console.log('FetchRecentRevisions ERROR: ', error);
+      return rejectWithValue(error.message);
     }
     const json = (await response.json()) as APIPushResponse;
     if (json.results.length > 0) {

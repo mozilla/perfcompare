@@ -13,15 +13,16 @@ export const userFeedbackMessage =
   'For any kind of suggestions please contact us at ';
 export const perfCompareEmail = 'perfcompare-user-feedback@mozilla.com';
 
+export const compareView = 'compare-results';
+
+export const searchView = 'search';
+
 //NOTE: Hardcoded the other IDs for now, but we should probably query the API for this
 export const repoMap: Dictionary<Repository['name']> = {
   1: 'mozilla-central',
-  2: 'mozilla-beta',
-  3: 'mozilla-release',
   4: 'try',
   6: 'mozilla-beta',
   7: 'mozilla-release',
-  30: 'fenix',
   77: 'autoland',
   108: 'fenix',
 };

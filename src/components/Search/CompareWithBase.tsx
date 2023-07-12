@@ -5,7 +5,6 @@ import Grid from '@mui/material/Grid';
 import { useSnackbar, VariantType } from 'notistack';
 import { style } from 'typestyle';
 
-import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles } from '../../styles';
@@ -32,6 +31,7 @@ interface Expanded {
 }
 
 function CompareWithBase({ mode, view }: CompareWithBaseProps) {
+  const defaultHeight = 400;
   const formWrapperRef = createRef<HTMLDivElement>();
   const { enqueueSnackbar } = useSnackbar();
   const { search } = useAppSelector((state) => state);
@@ -40,12 +40,18 @@ function CompareWithBase({ mode, view }: CompareWithBaseProps) {
     class: 'expanded',
   });
   const [isWarning, setWarning] = useState<boolean>(false);
-  const [formHeight, setFormHeight] = useState<number>(400);
+  const [formHeight, setFormHeight] = useState<number>(defaultHeight);
+
   const styles = CompareCardsStyles(mode, formHeight);
   const dropDownStyles = SearchStyles(mode);
   const baseRepository = search.base.repository;
   const newRepository = search.new.repository;
   const variant: VariantType = 'warning';
+  const searchCompCommonProps = {
+    mode,
+    view,
+    isWarning,
+  };
 
   useEffect(() => {
     setFormHeight(formWrapperRef.current?.clientHeight || formHeight);
@@ -103,17 +109,13 @@ function CompareWithBase({ mode, view }: CompareWithBaseProps) {
         <div ref={formWrapperRef} className='form-wrapper'>
           <SearchComponent
             searchType={'base' as InputType}
-            mode={mode}
-            view={view}
             {...stringsBase}
-            isWarning={isWarning}
+            {...searchCompCommonProps}
           />
           <SearchComponent
             searchType={'new' as InputType}
-            mode={mode}
-            view={view}
             {...stringsRevision}
-            isWarning={isWarning}
+            {...searchCompCommonProps}
           />
           <Grid
             item

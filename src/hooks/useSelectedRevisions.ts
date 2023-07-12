@@ -1,4 +1,3 @@
-import { clearCheckedRevisions } from '../reducers/SearchSlice';
 import { setSelectedRevisions } from '../reducers/SelectedRevisionsSlice';
 import { RevisionsList } from '../types/state';
 import { useAppDispatch, useAppSelector } from './app';
@@ -21,9 +20,12 @@ const useSelectRevision = () => {
   const addSelectedRevisions = () => {
     const newSelected = [...selectedRevisions];
     newSelected.push(...baseCheckedRevisions, ...newCheckedRevisions);
+    const filteredSelected = newSelected.filter(
+      (revision, index, self) =>
+        self.findIndex((r) => r.id === revision.id) === index,
+    );
 
-    dispatch(setSelectedRevisions(newSelected));
-    dispatch(clearCheckedRevisions());
+    dispatch(setSelectedRevisions({ selectedRevisions: filteredSelected }));
   };
 
   return { addSelectedRevisions };

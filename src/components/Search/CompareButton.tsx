@@ -12,15 +12,17 @@ interface CompareButtonProps {
 
 const strings = Strings.components.searchDefault.sharedCollasped;
 
-export default function CompareButton({ mode, view }: CompareButtonProps) {
-  // const { setFocused } = props;
-
+export default function CompareButton({ mode }: CompareButtonProps) {
   const { addSelectedRevisions } = useSelectRevision();
 
   const btnStyles = ButtonStyles(mode);
 
   const styles = {
     button: style({ ...btnStyles.Primary }),
+  };
+
+  const handleAddSelectedRevisions = () => {
+    addSelectedRevisions();
   };
 
   return (
@@ -30,7 +32,7 @@ export default function CompareButton({ mode, view }: CompareButtonProps) {
       className={`compare-button${styles.button}`}
       aria-label='compare revisions'
       sx={{ textTransform: 'none !important' }}
-      onClick={() => addSelectedRevisions()}
+      onClick={handleAddSelectedRevisions}
     >
       {strings.button}
     </Button>

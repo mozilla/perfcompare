@@ -23,11 +23,7 @@ function PerfCompareHeader({
   const styles = HeaderStyles(themeMode, view);
 
   return (
-    <Grid
-      className={`header-container ${styles.container} ${
-        view == 'compare-results' ? styles.compareStyles : ''
-      }`}
-    >
+    <Grid className={`header-container ${styles.container}`}>
       <ToggleDarkMode theme={themeMode} toggleColorMode={toggleColorMode} />
       <Box className='header-text'>
         <Typography
@@ -40,17 +36,17 @@ function PerfCompareHeader({
           {strings.title}
         </Typography>
         {view === 'search' && (
-          <Typography
-            component='div'
-            align='center'
-            gutterBottom
-            className='perfcompare-tagline'
-          >
-            {strings.tagline}
-          </Typography>
-        )}
-        {view == 'search' && (
-          <Button className='learn-more-btn'>{strings.learnMore}</Button>
+          <>
+            <Typography
+              component='div'
+              align='center'
+              gutterBottom
+              className='perfcompare-tagline'
+            >
+              {strings.tagline}
+            </Typography>
+            <Button className='learn-more-btn'>{strings.learnMore}</Button>
+          </>
         )}
       </Box>
     </Grid>

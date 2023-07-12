@@ -5,8 +5,11 @@ import Grid from '@mui/material/Grid';
 import { useLocation } from 'react-router-dom';
 import { style } from 'typestyle';
 
+import { compareView } from '../../../common/constants';
+import { useAppDispatch } from '../../../hooks/app';
 import useFetchCompareResults from '../../../hooks/useFetchCompareResults';
 import useHandleChangeSearch from '../../../hooks/useHandleChangeSearch';
+import { clearSelectedRevisions } from '../../../reducers/SelectedRevisionsSlice';
 import { SearchContainerStyles } from '../../../styles';
 import { background } from '../../../styles';
 import { Repository } from '../../../types/state';
@@ -20,9 +23,10 @@ interface ResultsViewProps {
 }
 
 function ResultsView(props: ResultsViewProps) {
+  const dispatch = useAppDispatch();
   const { protocolTheme, toggleColorMode } = props;
   const themeMode = protocolTheme.palette.mode;
-  const view = 'compare-results';
+  const view = compareView;
   const styles = {
     container: style({
       backgroundColor: background(themeMode),
@@ -39,9 +43,13 @@ function ResultsView(props: ResultsViewProps) {
     const searchParams = new URLSearchParams(location.search);
     const repos = searchParams.get('repos')?.split(',');
     const revs = searchParams.get('revs')?.split(',');
-    void dispatchFetchCompareResults(repos as Repository['name'][], revs);
 
     if (revs && repos) {
+      dispatch(clearSelectedRevisions());
+
+      void dispatchFetchCompareResults(repos as Repository['name'][], revs);
+
+      //On component mount, use the repos and revs in hash to search for the base and new revisions. Store the results in state via the SelectedRevisionsSlice: see extra reducer, fetchRevisionsByID. Now can always display the selected revisions despite page refresh or copying and pasting url
       revs.forEach((rev, index) => {
         void searchByRevisionOrEmail(
           repos[index] as Repository['name'],
@@ -65,7 +73,7 @@ function ResultsView(props: ResultsViewProps) {
       <PerfCompareHeader
         themeMode={themeMode}
         toggleColorMode={toggleColorMode}
-        view='compare-results'
+        view={view}
       />
       <section className={sectionStyles.container}>
         <CompareWithBase mode={themeMode} view={view} />

@@ -97,14 +97,6 @@ function SearchDropdown({
     }),
   };
 
-  const repoKeys = Object.keys(repoMap);
-  const filteredRepoList = repoKeys
-    .map((key) => repoMap[key])
-    .filter((repo, index, self) => {
-      return self.indexOf(repo) === index;
-    });
-
-  // debugger;
 
   return (
     <div>
@@ -130,14 +122,14 @@ function SearchDropdown({
           variant='standard'
           onChange={(e) => void handleRepoSelect(e)}
         >
-          {filteredRepoList.map((key) => (
+          {Object.keys(repoMap).map((key) => (
             <MenuItem
-              id={key}
-              value={key}
-              key={key}
+              id={repoMap[key]}
+              value={repoMap[key]}
+              key={repoMap[key]}
               className={`${searchType}Repository`}
             >
-              {key}
+              {repoMap[key]}
             </MenuItem>
           ))}
         </Select>

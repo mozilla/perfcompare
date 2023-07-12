@@ -1,22 +1,39 @@
+import { useEffect } from 'react';
+
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 
 import { repoMap } from '../../common/constants';
 import { RootState } from '../../common/store';
-import { useAppSelector } from '../../hooks/app';
+import { useAppSelector, useAppDispatch } from '../../hooks/app';
+import { clearCheckedRevisions } from '../../reducers/SearchSlice';
 import { SelectRevsStyles } from '../../styles';
-import { InputType, RevisionsList } from '../../types/state';
+import { InputType } from '../../types/state';
 import SelectedRevisionItem from './SelectedRevisionItem';
+
+interface SelectedRevisionsProps {
+  mode: 'light' | 'dark';
+  searchType: InputType;
+  isWarning: boolean;
+}
 
 function SelectedRevisions({
   mode,
   searchType,
   isWarning,
-  selectedRevisions,
 }: SelectedRevisionsProps) {
+  const dispatch = useAppDispatch();
   const styles = SelectRevsStyles(mode);
   const checkedRevisionsList = useAppSelector(
     (state: RootState) => state.search[searchType].checkedRevisions,
+  );
+
+  const selectedRevisions = useAppSelector(
+    (state: RootState) => state.selectedRevisions.revisions,
+  );
+
+  const displayedSelectedRevisions = useAppSelector(
+    (state: RootState) => state.selectedRevisions[searchType],
   );
 
   const repository = checkedRevisionsList.map((item) => {
@@ -29,23 +46,30 @@ function SelectedRevisions({
     return selectedRep;
   });
 
+  useEffect(() => {
+    if (selectedRevisions?.length) {
+      dispatch(clearCheckedRevisions());
+    }
+  }, [dispatch]);
+
   return (
     <Box className={styles.box} data-testid='selected-revs'>
       <List>
-        {checkedRevisionsList.map((item, index) => (
-          <SelectedRevisionItem
-            key={item.id}
-            index={index}
-            item={item}
-            mode={mode}
-            repository={repository[index]}
-            searchType={searchType}
-            isWarning={isWarning}
-          />
-        ))}
+        {checkedRevisionsList.length > 0 &&
+          checkedRevisionsList.map((item, index) => (
+            <SelectedRevisionItem
+              key={item.id}
+              index={index}
+              item={item}
+              mode={mode}
+              repository={repository[index]}
+              searchType={searchType}
+              isWarning={isWarning}
+            />
+          ))}
 
-        {selectedRevisions &&
-          selectedRevisions.map((item, index) => (
+        {displayedSelectedRevisions.length > 0 &&
+          displayedSelectedRevisions.map((item, index) => (
             <SelectedRevisionItem
               key={item.id}
               index={index}
@@ -59,13 +83,6 @@ function SelectedRevisions({
       </List>
     </Box>
   );
-}
-
-interface SelectedRevisionsProps {
-  mode: 'light' | 'dark';
-  searchType: InputType;
-  isWarning: boolean;
-  selectedRevisions?: RevisionsList[];
 }
 
 export default SelectedRevisions;

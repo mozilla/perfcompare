@@ -7,12 +7,9 @@ import type {
 
 export type Repository =
   | { id: 1; name: 'mozilla-central' }
-  | { id: 2; name: 'mozilla-beta' }
-  | { id: 3; name: 'mozilla-release' }
   | { id: 4; name: 'try' }
   | { id: 6; name: 'mozilla-beta' }
   | { id: 7; name: 'mozilla-release' }
-  | { id: 30; name: 'fenix' }
   | { id: 77; name: 'autoland' }
   | { id: 108; name: 'fenix' };
 
@@ -93,6 +90,8 @@ export type SearchState = Record<InputType, SearchStateForInput>;
 
 export type SelectedRevisionsState = {
   revisions: RevisionsList[];
+  base: RevisionsList[];
+  new: RevisionsList[];
 };
 
 export type CompareResultsState = {
