@@ -2,6 +2,7 @@ import { TableRow, TableCell, Link } from '@mui/material';
 import { style } from 'typestyle';
 
 import { Colors, Spacing } from '../../../styles';
+import type { RevisionsHeader } from '../../../types/state';
 
 const styles = {
   tagsOptions: style({
@@ -36,21 +37,36 @@ const styles = {
   }),
 };
 
-function RevisionHeader() {
+function createTitle(header: RevisionsHeader) {
+  return header.test === '' || header.suite === header.test ? header.suite : `${header.suite} ${header.test}`;
+}
+
+function getExtraOptions(extraOptions: string) {
+  return extraOptions.split(' ');
+}
+
+function RevisionHeader(props: RevisionHeaderProps) {
+  const { header } = props;
+  const extraOptions = getExtraOptions(header.extra_options);
   return (
     <TableRow className='revision-header'>
       <TableCell colSpan={8}>
-        <strong>Metric 1</strong> <Link href='#'>0f9ef9ff3ea</Link>
+        <strong>{createTitle(header)}</strong> <Link href='#'>0f9ef9ff3ea</Link>
       </TableCell>
       <TableCell colSpan={4}>
         <div className={styles.tagsOptions}>
-          <span className={styles.chip}>e10s</span>
-          <span className={styles.chip}>stylo</span>
-          <span className={styles.chip}>fission</span>
+          <span className={styles.chip}>{header.option_name}</span>
+          {extraOptions.map((option, index) => (
+            <span className={styles.chip} key={index}>{option}</span>
+          ))}
         </div>
       </TableCell>
     </TableRow>
   );
+}
+
+interface RevisionHeaderProps {
+  header: RevisionsHeader;
 }
 
 export default RevisionHeader;
