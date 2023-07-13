@@ -41,6 +41,8 @@ function processResults(results: CompareResultsItem[]) {
          test: entry[1][0].test,
          option_name: entry[1][0].option_name,
          extra_options: entry[1][0].extra_options,
+         new_rev: entry[1][0].new_rev,
+         new_repo: entry[1][0].new_repository_name,
         },
       };
     });
@@ -80,7 +82,7 @@ function ResultsTable(props: ResultsTableProps) {
       sx={customStyles}
     >
       <Table>
-        <TableHeader data-testid='table-header' themeMode={themeMode} />
+        <TableHeader themeMode={themeMode} />
         {processedResults.map((res, index) => (
             <TableContent themeMode={themeMode} key={index} header={res.revisionHeader} results={res.value} />
       ))}

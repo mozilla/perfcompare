@@ -43,6 +43,8 @@ export type RevisionsHeader = {
   test: string;
   option_name: string;
   extra_options: string;
+  new_rev: string,
+  new_repo: Repository['name'],
 };
 
 export type CompareResultsItem = {
