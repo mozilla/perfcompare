@@ -20,7 +20,7 @@ export const fetchRecentRevisions = createAsyncThunk<
     let response;
 
     try {
-      response = await fetch(`${treeherderBaseURL}/api/perfcompare/result/?`);
+      response = await fetch(`${treeherderBaseURL}/api/perfcompare/results/?`);
     } catch (err) {
       const error = err as Error;
       console.log('FetchRecentRevisions ERROR: ', error);
