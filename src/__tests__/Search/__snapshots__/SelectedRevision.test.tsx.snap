@@ -9,7 +9,7 @@ exports[`SelectedRevision should show the selected revision once a result checkb
       class="fcndgf6"
     >
       <div
-        class="MuiGrid-root header-container container_f38ku8z  css-plh9qo-MuiGrid-root"
+        class="MuiGrid-root header-container container_f38ku8z css-plh9qo-MuiGrid-root"
       >
         <div
           class="toggle-dark-mode f4zotac MuiBox-root css-0"

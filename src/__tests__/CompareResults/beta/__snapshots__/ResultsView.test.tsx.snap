@@ -10,7 +10,7 @@ exports[`Results View Should match snapshot 1`] = `
       data-testid="beta-version-compare-results"
     >
       <div
-        class="MuiGrid-root header-container container_flkg2b4 undefined css-plh9qo-MuiGrid-root"
+        class="MuiGrid-root header-container container_flkg2b4 css-plh9qo-MuiGrid-root"
       >
         <div
           class="toggle-dark-mode f4zotac MuiBox-root css-0"

@@ -9,7 +9,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
       class="fcndgf6"
     >
       <div
-        class="MuiGrid-root header-container container_f38ku8z  css-plh9qo-MuiGrid-root"
+        class="MuiGrid-root header-container container_f38ku8z css-plh9qo-MuiGrid-root"
       >
         <div
           class="toggle-dark-mode f4zotac MuiBox-root css-0"

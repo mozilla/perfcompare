@@ -58,9 +58,7 @@ describe('SearchView/fetchRevisionByID', () => {
       'https://treeherder.mozilla.org/api/project/try/push/?revision=abcdef1234567890abcdef1234567890abcdef12',
     );
     await screen.findByText("you've got no arms left!");
-    expect(
-      screen.getAllByText("it's just a flesh wound")[0],
-    ).toBeInTheDocument();
+    await screen.findByText('What, ridden on a horse?');
   });
 
   it('should reject fetchRevisionsByID if fetch returns no results', async () => {
