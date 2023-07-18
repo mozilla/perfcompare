@@ -839,9 +839,9 @@ exports[`Results View Should match snapshot 1`] = `
                        
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                        href="#"
+                        href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=bb6a5e451dace3b9c7be42d24c9272738d73e6db"
                       >
-                        0f9ef9ff3ea
+                        bb6a5e451dac
                       </a>
                     </td>
                     <td
@@ -924,6 +924,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       626.88
                        
                     </td>
@@ -937,13 +938,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -0.34
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -952,14 +956,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -1133,7 +1141,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -0.34
-                              % worse (
+                              % 
+                              better
+                               (
                               -2.14
                               )
                             </div>
@@ -1204,6 +1214,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       368.13
                        
                     </td>
@@ -1217,13 +1228,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -0.49
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -1232,14 +1246,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -1413,7 +1431,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -0.49
-                              % worse (
+                              % 
+                              better
+                               (
                               -1.81
                               )
                             </div>
@@ -1484,6 +1504,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       413.28
                        
                     </td>
@@ -1497,13 +1518,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -0.07
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -1512,14 +1536,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -1693,7 +1721,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -0.07
-                              % worse (
+                              % 
+                              better
+                               (
                               -0.27
                               )
                             </div>
@@ -1736,9 +1766,9 @@ exports[`Results View Should match snapshot 1`] = `
                        
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                        href="#"
+                        href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=bb6a5e451dace3b9c7be42d24c9272738d73e6db"
                       >
-                        0f9ef9ff3ea
+                        bb6a5e451dac
                       </a>
                     </td>
                     <td
@@ -1822,11 +1852,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       20.94
                        
                       ms
@@ -1841,13 +1872,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       1.68
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -1856,14 +1890,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -2037,7 +2075,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               1.68
-                              % worse (
+                              % 
+                              worse
+                               (
                               0.35
                               )
                             </div>
@@ -2109,6 +2149,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       4.46
                        
                       ms
@@ -2123,13 +2164,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -80.68
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       High
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -2138,14 +2182,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -2319,7 +2367,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -80.68
-                              % worse (
+                              % 
+                              better
+                               (
                               -18.63
                               )
                             </div>
@@ -2391,6 +2441,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       15.41
                        
                       ms
@@ -2405,13 +2456,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -2.57
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -2420,14 +2474,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -2601,7 +2659,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -2.57
-                              % worse (
+                              % 
+                              better
+                               (
                               -0.41
                               )
                             </div>
@@ -2668,11 +2728,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       4.3
                        
                       ms
@@ -2687,13 +2748,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       0.78
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -2702,14 +2766,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -2883,7 +2951,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               0.78
-                              % worse (
+                              % 
+                              worse
+                               (
                               0.03
                               )
                             </div>
@@ -2926,9 +2996,9 @@ exports[`Results View Should match snapshot 1`] = `
                        
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                        href="#"
+                        href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=bb6a5e451dace3b9c7be42d24c9272738d73e6db"
                       >
-                        0f9ef9ff3ea
+                        bb6a5e451dac
                       </a>
                     </td>
                     <td
@@ -3011,6 +3081,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       300139
                        
                     </td>
@@ -3024,13 +3095,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -12.01
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -3039,14 +3113,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -3220,7 +3298,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -12.01
-                              % worse (
+                              % 
+                              better
+                               (
                               -40960
                               )
                             </div>
@@ -3263,9 +3343,9 @@ exports[`Results View Should match snapshot 1`] = `
                        
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                        href="#"
+                        href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=bb6a5e451dace3b9c7be42d24c9272738d73e6db"
                       >
-                        0f9ef9ff3ea
+                        bb6a5e451dac
                       </a>
                     </td>
                     <td
@@ -3349,11 +3429,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       6.38
                        
                       fps
@@ -3368,13 +3449,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       1.8
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -3383,14 +3467,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -3564,7 +3652,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               1.8
-                              % worse (
+                              % 
+                              better
+                               (
                               0.11
                               )
                             </div>
@@ -3631,11 +3721,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       8.65
                        
                       fps
@@ -3650,13 +3741,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       355.78
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       High
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -3665,14 +3759,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -3846,7 +3944,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               355.78
-                              % worse (
+                              % 
+                              better
+                               (
                               6.75
                               )
                             </div>
@@ -3918,6 +4018,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       13.45
                        
                       fps
@@ -3932,13 +4033,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -8.11
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -3947,14 +4051,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -4128,7 +4236,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -8.11
-                              % worse (
+                              % 
+                              worse
+                               (
                               -1.19
                               )
                             </div>
@@ -4195,11 +4305,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       12.25
                        
                       fps
@@ -4214,13 +4325,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       0.58
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -4229,14 +4343,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -4410,7 +4528,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               0.58
-                              % worse (
+                              % 
+                              better
+                               (
                               0.07
                               )
                             </div>
@@ -4453,9 +4573,9 @@ exports[`Results View Should match snapshot 1`] = `
                        
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                        href="#"
+                        href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=bb6a5e451dace3b9c7be42d24c9272738d73e6db"
                       >
-                        0f9ef9ff3ea
+                        bb6a5e451dac
                       </a>
                     </td>
                     <td
@@ -4533,11 +4653,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       3060.29
                        
                     </td>
@@ -4551,13 +4672,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       3.84
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -4566,14 +4690,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -4747,7 +4875,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               3.84
-                              % worse (
+                              % 
+                              worse
+                               (
                               113.05
                               )
                             </div>
@@ -4813,11 +4943,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       1900.57
                        
                     </td>
@@ -4831,13 +4962,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       7.44
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -4846,14 +4980,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -5027,7 +5165,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               7.44
-                              % worse (
+                              % 
+                              worse
+                               (
                               131.67
                               )
                             </div>
@@ -5093,11 +5233,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       2379.35
                        
                     </td>
@@ -5111,13 +5252,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       2.35
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -5126,14 +5270,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -5307,7 +5455,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               2.35
-                              % worse (
+                              % 
+                              worse
+                               (
                               54.63
                               )
                             </div>
@@ -5350,9 +5500,9 @@ exports[`Results View Should match snapshot 1`] = `
                        
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                        href="#"
+                        href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=bb6a5e451dace3b9c7be42d24c9272738d73e6db"
                       >
-                        0f9ef9ff3ea
+                        bb6a5e451dac
                       </a>
                     </td>
                     <td
@@ -5430,11 +5580,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       2901.25
                        
                     </td>
@@ -5448,13 +5599,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       2.73
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -5463,14 +5617,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -5644,7 +5802,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               2.73
-                              % worse (
+                              % 
+                              better
+                               (
                               77.15
                               )
                             </div>
@@ -5687,9 +5847,9 @@ exports[`Results View Should match snapshot 1`] = `
                        
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                        href="#"
+                        href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=bb6a5e451dace3b9c7be42d24c9272738d73e6db"
                       >
-                        0f9ef9ff3ea
+                        bb6a5e451dac
                       </a>
                     </td>
                     <td
@@ -5768,11 +5928,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       20.08
                        
                       ms
@@ -5787,13 +5948,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       0.21
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -5802,14 +5966,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -5983,7 +6151,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               0.21
-                              % worse (
+                              % 
+                              worse
+                               (
                               0.04
                               )
                             </div>
@@ -6055,6 +6225,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       27.44
                        
                       ms
@@ -6069,13 +6240,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -0.74
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -6084,14 +6258,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -6265,7 +6443,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -0.74
-                              % worse (
+                              % 
+                              better
+                               (
                               -0.21
                               )
                             </div>
@@ -6332,11 +6512,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       4.31
                        
                       ms
@@ -6351,13 +6532,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       2.15
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -6366,14 +6550,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -6547,7 +6735,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               2.15
-                              % worse (
+                              % 
+                              worse
+                               (
                               0.09
                               )
                             </div>
@@ -6590,9 +6780,9 @@ exports[`Results View Should match snapshot 1`] = `
                        
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                        href="#"
+                        href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=bb6a5e451dace3b9c7be42d24c9272738d73e6db"
                       >
-                        0f9ef9ff3ea
+                        bb6a5e451dac
                       </a>
                     </td>
                     <td
@@ -6671,11 +6861,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       4.31
                        
                       ms
@@ -6690,13 +6881,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       2.15
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -6705,14 +6899,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -6886,7 +7084,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               2.15
-                              % worse (
+                              % 
+                              worse
+                               (
                               0.09
                               )
                             </div>
@@ -6929,9 +7129,9 @@ exports[`Results View Should match snapshot 1`] = `
                        
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                        href="#"
+                        href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=9d50665254899d8431813bdc04178e6006ce6d59"
                       >
-                        0f9ef9ff3ea
+                        9d5066525489
                       </a>
                     </td>
                     <td
@@ -7014,6 +7214,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       348.19
                        
                     </td>
@@ -7027,13 +7228,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -1.7
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -7042,14 +7246,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -7223,7 +7431,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -1.7
-                              % worse (
+                              % 
+                              better
+                               (
                               -6.04
                               )
                             </div>
@@ -7289,11 +7499,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       605.61
                        
                     </td>
@@ -7307,13 +7518,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       1.7
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -7322,14 +7536,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         4
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         5
+                         
                       </strong>
                     </td>
                     <td
@@ -7617,7 +7835,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               1.7
-                              % worse (
+                              % 
+                              worse
+                               (
                               10.1
                               )
                             </div>
@@ -7688,6 +7908,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       402.82
                        
                     </td>
@@ -7701,13 +7922,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -2.81
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -7716,14 +7940,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -7897,7 +8125,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -2.81
-                              % worse (
+                              % 
+                              better
+                               (
                               -11.64
                               )
                             </div>
@@ -7940,9 +8170,9 @@ exports[`Results View Should match snapshot 1`] = `
                        
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                        href="#"
+                        href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=9d50665254899d8431813bdc04178e6006ce6d59"
                       >
-                        0f9ef9ff3ea
+                        9d5066525489
                       </a>
                     </td>
                     <td
@@ -8021,11 +8251,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       280.76
                        
                       ms
@@ -8040,13 +8271,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       0.15
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -8055,14 +8289,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -8236,7 +8474,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               0.15
-                              % worse (
+                              % 
+                              worse
+                               (
                               0.42
                               )
                             </div>
@@ -8308,6 +8548,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       0
                        
                       ms
@@ -8322,12 +8563,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -100
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
-                    />
+                    >
+                       
+                       
+                    </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
                     >
@@ -8335,14 +8580,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         0
+                         
                       </strong>
                     </td>
                     <td
@@ -8516,7 +8765,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -100
-                              % worse (
+                              % 
+                              better
+                               (
                               -290.4
                               )
                             </div>
@@ -8582,11 +8833,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       393.94
                        
                       ms
@@ -8601,13 +8853,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       104.96
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Medium
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -8616,14 +8871,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -8797,7 +9056,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               104.96
-                              % worse (
+                              % 
+                              worse
+                               (
                               201.74
                               )
                             </div>
@@ -8864,11 +9125,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       386.6
                        
                       ms
@@ -8883,13 +9145,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       91.35
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -8898,14 +9163,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -9079,7 +9348,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               91.35
-                              % worse (
+                              % 
+                              worse
+                               (
                               184.56
                               )
                             </div>
@@ -9146,11 +9417,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       294.84
                        
                       ms
@@ -9165,13 +9437,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       2.4
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -9180,14 +9455,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         4
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         5
+                         
                       </strong>
                     </td>
                     <td
@@ -9475,7 +9754,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               2.4
-                              % worse (
+                              % 
+                              worse
+                               (
                               7
                               )
                             </div>
@@ -9547,6 +9828,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       281.5
                        
                       ms
@@ -9561,13 +9843,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -0.69
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -9576,14 +9861,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -9757,7 +10046,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -0.69
-                              % worse (
+                              % 
+                              better
+                               (
                               -1.96
                               )
                             </div>
@@ -9800,9 +10091,9 @@ exports[`Results View Should match snapshot 1`] = `
                        
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                        href="#"
+                        href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=9d50665254899d8431813bdc04178e6006ce6d59"
                       >
-                        0f9ef9ff3ea
+                        9d5066525489
                       </a>
                     </td>
                     <td
@@ -9886,11 +10177,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       24.09
                        
                       ms
@@ -9905,13 +10197,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       436.18
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       High
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -9920,14 +10215,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -10101,7 +10400,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               436.18
-                              % worse (
+                              % 
+                              worse
+                               (
                               19.6
                               )
                             </div>
@@ -10173,6 +10474,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       4.27
                        
                       ms
@@ -10187,13 +10489,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -1.73
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -10202,14 +10507,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -10383,7 +10692,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -1.73
-                              % worse (
+                              % 
+                              better
+                               (
                               -0.07
                               )
                             </div>
@@ -10455,6 +10766,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       20.02
                        
                       ms
@@ -10469,13 +10781,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -4.82
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -10484,14 +10799,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -10665,7 +10984,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -4.82
-                              % worse (
+                              % 
+                              better
+                               (
                               -1.01
                               )
                             </div>
@@ -10732,11 +11053,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       15.42
                        
                       ms
@@ -10751,13 +11073,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       1.66
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -10766,14 +11091,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -10947,7 +11276,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               1.66
-                              % worse (
+                              % 
+                              worse
+                               (
                               0.25
                               )
                             </div>
@@ -11019,6 +11350,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       4.52
                        
                       ms
@@ -11033,13 +11365,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -80.69
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       High
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -11048,14 +11383,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -11229,7 +11568,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -80.69
-                              % worse (
+                              % 
+                              better
+                               (
                               -18.89
                               )
                             </div>
@@ -11296,11 +11637,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       4.31
                        
                       ms
@@ -11315,13 +11657,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       1.14
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -11330,14 +11675,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -11511,7 +11860,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               1.14
-                              % worse (
+                              % 
+                              worse
+                               (
                               0.05
                               )
                             </div>
@@ -11578,11 +11929,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       20.44
                        
                       ms
@@ -11597,13 +11949,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       2.05
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -11612,14 +11967,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -11793,7 +12152,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               2.05
-                              % worse (
+                              % 
+                              worse
+                               (
                               0.41
                               )
                             </div>
@@ -11865,6 +12226,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       27.53
                        
                       ms
@@ -11879,13 +12241,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -2.6
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -11894,14 +12259,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -12075,7 +12444,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -2.6
-                              % worse (
+                              % 
+                              better
+                               (
                               -0.74
                               )
                             </div>
@@ -12118,9 +12489,9 @@ exports[`Results View Should match snapshot 1`] = `
                        
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                        href="#"
+                        href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=9d50665254899d8431813bdc04178e6006ce6d59"
                       >
-                        0f9ef9ff3ea
+                        9d5066525489
                       </a>
                     </td>
                     <td
@@ -12198,11 +12569,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       2651940.26
                        
                     </td>
@@ -12216,13 +12588,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       0
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -12231,14 +12606,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -12412,7 +12791,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               0
-                              % worse (
+                              % 
+                              worse
+                               (
                               5.93
                               )
                             </div>
@@ -12455,9 +12836,9 @@ exports[`Results View Should match snapshot 1`] = `
                        
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                        href="#"
+                        href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=9d50665254899d8431813bdc04178e6006ce6d59"
                       >
-                        0f9ef9ff3ea
+                        9d5066525489
                       </a>
                     </td>
                     <td
@@ -12535,11 +12916,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       1.6
                        
                     </td>
@@ -12553,13 +12935,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       17.37
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -12568,14 +12953,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -12749,7 +13138,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               17.37
-                              % worse (
+                              % 
+                              worse
+                               (
                               0.24
                               )
                             </div>
@@ -12815,11 +13206,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       2.11
                        
                     </td>
@@ -12833,13 +13225,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       1.69
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -12848,14 +13243,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -13029,7 +13428,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               1.69
-                              % worse (
+                              % 
+                              worse
+                               (
                               0.04
                               )
                             </div>
@@ -13100,6 +13501,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       1.75
                        
                     </td>
@@ -13113,13 +13515,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -0.7
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -13128,14 +13533,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -13309,7 +13718,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -0.7
-                              % worse (
+                              % 
+                              better
+                               (
                               -0.01
                               )
                             </div>
@@ -13352,9 +13763,9 @@ exports[`Results View Should match snapshot 1`] = `
                        
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                        href="#"
+                        href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=9d50665254899d8431813bdc04178e6006ce6d59"
                       >
-                        0f9ef9ff3ea
+                        9d5066525489
                       </a>
                     </td>
                     <td
@@ -13438,11 +13849,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       8.31
                        
                       fps
@@ -13457,13 +13869,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       346.79
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       High
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -13472,14 +13887,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -13653,7 +14072,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               346.79
-                              % worse (
+                              % 
+                              better
+                               (
                               6.45
                               )
                             </div>
@@ -13720,11 +14141,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       12.52
                        
                       fps
@@ -13739,13 +14161,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       3.34
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -13754,14 +14179,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -13935,7 +14364,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               3.34
-                              % worse (
+                              % 
+                              better
+                               (
                               0.4
                               )
                             </div>
@@ -14002,11 +14433,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       5.78
                        
                       fps
@@ -14021,13 +14453,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       5.17
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -14036,14 +14471,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -14217,7 +14656,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               5.17
-                              % worse (
+                              % 
+                              better
+                               (
                               0.28
                               )
                             </div>
@@ -14289,6 +14730,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       15.35
                        
                       fps
@@ -14303,13 +14745,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -8.29
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -14318,14 +14763,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -14499,7 +14948,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -8.29
-                              % worse (
+                              % 
+                              worse
+                               (
                               -1.39
                               )
                             </div>
@@ -14542,9 +14993,9 @@ exports[`Results View Should match snapshot 1`] = `
                        
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                        href="#"
+                        href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=9d50665254899d8431813bdc04178e6006ce6d59"
                       >
-                        0f9ef9ff3ea
+                        9d5066525489
                       </a>
                     </td>
                     <td
@@ -14623,11 +15074,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       103
                        
                       ms
@@ -14642,13 +15094,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       3
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -14657,14 +15112,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -14838,7 +15297,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               3
-                              % worse (
+                              % 
+                              worse
+                               (
                               3
                               )
                             </div>
@@ -14910,6 +15371,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       83
                        
                       ms
@@ -14924,13 +15386,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -1.65
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -14939,14 +15404,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         4
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         5
+                         
                       </strong>
                     </td>
                     <td
@@ -15234,7 +15703,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -1.65
-                              % worse (
+                              % 
+                              better
+                               (
                               -1.4
                               )
                             </div>
@@ -15306,6 +15777,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       60
                        
                       ms
@@ -15320,13 +15792,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -3.23
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -15335,14 +15810,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -15516,7 +15995,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -3.23
-                              % worse (
+                              % 
+                              better
+                               (
                               -2
                               )
                             </div>
@@ -15559,9 +16040,9 @@ exports[`Results View Should match snapshot 1`] = `
                        
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                        href="#"
+                        href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=a998c42399a8fcea623690bf65bef49de20535b4"
                       >
-                        0f9ef9ff3ea
+                        a998c42399a8
                       </a>
                     </td>
                     <td
@@ -15644,6 +16125,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       307.02
                        
                     </td>
@@ -15657,13 +16139,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -14.48
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -15672,14 +16157,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -15853,7 +16342,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -14.48
-                              % worse (
+                              % 
+                              better
+                               (
                               -51.99
                               )
                             </div>
@@ -15919,11 +16410,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       624.95
                        
                     </td>
@@ -15937,13 +16429,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       1.23
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -15952,14 +16447,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -16133,7 +16632,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               1.23
-                              % worse (
+                              % 
+                              worse
+                               (
                               7.61
                               )
                             </div>
@@ -16199,11 +16700,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       413.06
                        
                     </td>
@@ -16217,13 +16719,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       0.15
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -16232,14 +16737,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -16413,7 +16922,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               0.15
-                              % worse (
+                              % 
+                              worse
+                               (
                               0.61
                               )
                             </div>
@@ -16456,9 +16967,9 @@ exports[`Results View Should match snapshot 1`] = `
                        
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                        href="#"
+                        href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=a998c42399a8fcea623690bf65bef49de20535b4"
                       >
-                        0f9ef9ff3ea
+                        a998c42399a8
                       </a>
                     </td>
                     <td
@@ -16536,11 +17047,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       373.18
                        
                     </td>
@@ -16554,13 +17066,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       3.19
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -16569,14 +17084,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -16750,7 +17269,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               3.19
-                              % worse (
+                              % 
+                              worse
+                               (
                               11.54
                               )
                             </div>
@@ -16816,11 +17337,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       624.04
                        
                     </td>
@@ -16834,13 +17356,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       0.44
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -16849,14 +17374,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -17030,7 +17559,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               0.44
-                              % worse (
+                              % 
+                              worse
+                               (
                               2.75
                               )
                             </div>
@@ -17101,6 +17632,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       413.48
                        
                     </td>
@@ -17114,13 +17646,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -1.57
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -17129,14 +17664,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -17310,7 +17849,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -1.57
-                              % worse (
+                              % 
+                              better
+                               (
                               -6.6
                               )
                             </div>
@@ -17353,9 +17894,9 @@ exports[`Results View Should match snapshot 1`] = `
                        
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                        href="#"
+                        href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=a998c42399a8fcea623690bf65bef49de20535b4"
                       >
-                        0f9ef9ff3ea
+                        a998c42399a8
                       </a>
                     </td>
                     <td
@@ -17434,11 +17975,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       101
                        
                       ms
@@ -17453,13 +17995,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       2.02
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -17468,14 +18013,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -17649,7 +18198,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               2.02
-                              % worse (
+                              % 
+                              worse
+                               (
                               2
                               )
                             </div>
@@ -17716,11 +18267,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       81
                        
                       ms
@@ -17735,13 +18287,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       3.85
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -17750,14 +18305,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -17931,7 +18490,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               3.85
-                              % worse (
+                              % 
+                              worse
+                               (
                               3
                               )
                             </div>
@@ -18003,6 +18564,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       61
                        
                       ms
@@ -18017,13 +18579,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -7.58
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -18032,14 +18597,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -18213,7 +18782,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -7.58
-                              % worse (
+                              % 
+                              better
+                               (
                               -5
                               )
                             </div>
@@ -18256,9 +18827,9 @@ exports[`Results View Should match snapshot 1`] = `
                        
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                        href="#"
+                        href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=a998c42399a8fcea623690bf65bef49de20535b4"
                       >
-                        0f9ef9ff3ea
+                        a998c42399a8
                       </a>
                     </td>
                     <td
@@ -18347,6 +18918,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       27.38
                        
                       ms
@@ -18361,13 +18933,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -1.56
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -18376,14 +18951,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -18557,7 +19136,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -1.56
-                              % worse (
+                              % 
+                              better
+                               (
                               -0.43
                               )
                             </div>
@@ -18624,11 +19205,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       23.05
                        
                       ms
@@ -18643,13 +19225,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       415.37
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       High
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -18658,14 +19243,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -18839,7 +19428,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               415.37
-                              % worse (
+                              % 
+                              worse
+                               (
                               18.58
                               )
                             </div>
@@ -18911,6 +19502,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       20.02
                        
                       ms
@@ -18925,13 +19517,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -3.05
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -18940,14 +19535,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -19121,7 +19720,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -3.05
-                              % worse (
+                              % 
+                              better
+                               (
                               -0.63
                               )
                             </div>
@@ -19193,6 +19794,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       4.29
                        
                       ms
@@ -19207,13 +19809,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -0.72
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -19222,14 +19827,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -19403,7 +20012,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -0.72
-                              % worse (
+                              % 
+                              better
+                               (
                               -0.03
                               )
                             </div>
@@ -19446,9 +20057,9 @@ exports[`Results View Should match snapshot 1`] = `
                        
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                        href="#"
+                        href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=a998c42399a8fcea623690bf65bef49de20535b4"
                       >
-                        0f9ef9ff3ea
+                        a998c42399a8
                       </a>
                     </td>
                     <td
@@ -19532,6 +20143,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       15.13
                        
                       ms
@@ -19546,13 +20158,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -45.46
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -19561,14 +20176,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -19742,7 +20361,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -45.46
-                              % worse (
+                              % 
+                              better
+                               (
                               -12.62
                               )
                             </div>
@@ -19809,11 +20430,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       20.55
                        
                       ms
@@ -19828,13 +20450,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       0.77
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -19843,14 +20468,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -20024,7 +20653,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               0.77
-                              % worse (
+                              % 
+                              worse
+                               (
                               0.16
                               )
                             </div>
@@ -20096,6 +20727,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       4.27
                        
                       ms
@@ -20110,13 +20742,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -0.16
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -20125,14 +20760,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -20306,7 +20945,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -0.16
-                              % worse (
+                              % 
+                              better
+                               (
                               -0.01
                               )
                             </div>
@@ -20349,9 +20990,9 @@ exports[`Results View Should match snapshot 1`] = `
                        
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                        href="#"
+                        href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=a998c42399a8fcea623690bf65bef49de20535b4"
                       >
-                        0f9ef9ff3ea
+                        a998c42399a8
                       </a>
                     </td>
                     <td
@@ -20434,6 +21075,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       1355.9
                        
                     </td>
@@ -20447,13 +21089,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -0.56
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -20462,14 +21107,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -20643,7 +21292,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -0.56
-                              % worse (
+                              % 
+                              better
+                               (
                               -7.7
                               )
                             </div>
@@ -20709,11 +21360,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       1379.4
                        
                     </td>
@@ -20727,13 +21379,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       5.3
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -20742,14 +21397,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -20923,7 +21582,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               5.3
-                              % worse (
+                              % 
+                              worse
+                               (
                               69.4
                               )
                             </div>
@@ -20989,11 +21650,12 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium comparison-sign css-15mfgc5-MuiTableCell-root"
                     >
-                      &gt;
+                      &lt;
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       1149.7
                        
                     </td>
@@ -21007,13 +21669,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       0.38
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -21022,14 +21687,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -21203,7 +21872,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               0.38
-                              % worse (
+                              % 
+                              worse
+                               (
                               4.4
                               )
                             </div>
@@ -21246,9 +21917,9 @@ exports[`Results View Should match snapshot 1`] = `
                        
                       <a
                         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                        href="#"
+                        href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=a998c42399a8fcea623690bf65bef49de20535b4"
                       >
-                        0f9ef9ff3ea
+                        a998c42399a8
                       </a>
                     </td>
                     <td
@@ -21337,6 +22008,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       16.5
                        
                       fps
@@ -21351,13 +22023,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -3.8
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -21366,14 +22041,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -21547,7 +22226,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -3.8
-                              % worse (
+                              % 
+                              worse
+                               (
                               -0.65
                               )
                             </div>
@@ -21619,6 +22300,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       1.92
                        
                       fps
@@ -21633,13 +22315,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -77.85
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       High
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -21648,14 +22333,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -21829,7 +22518,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -77.85
-                              % worse (
+                              % 
+                              worse
+                               (
                               -6.77
                               )
                             </div>
@@ -21901,6 +22592,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       5.62
                        
                       fps
@@ -21915,13 +22607,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -9.62
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -21930,14 +22625,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -22111,7 +22810,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -9.62
-                              % worse (
+                              % 
+                              worse
+                               (
                               -0.6
                               )
                             </div>
@@ -22183,6 +22884,7 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium new-value css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       12.07
                        
                       fps
@@ -22197,13 +22899,16 @@ exports[`Results View Should match snapshot 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium delta css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       -2.59
-                      %
+                       % 
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium confidence css-15mfgc5-MuiTableCell-root"
                     >
+                       
                       Low
+                       
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium total-runs css-15mfgc5-MuiTableCell-root"
@@ -22212,14 +22917,18 @@ exports[`Results View Should match snapshot 1`] = `
                         B:
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                        
                       <span>
-                        N:
+                         N: 
                       </span>
                       <strong>
+                         
                         1
+                         
                       </strong>
                     </td>
                     <td
@@ -22393,7 +23102,9 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -2.59
-                              % worse (
+                              % 
+                              worse
+                               (
                               -0.32
                               )
                             </div>
