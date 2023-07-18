@@ -7,6 +7,7 @@ import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
 import { renderWithRouter } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
+import FrameworkDropdown from '../../components/Search/FrameworkDropdown';
 
 const warning =
   Strings.components.searchDefault.base.collapsed.warnings.comparison;
@@ -15,7 +16,7 @@ const protocolTheme = renderHook(() => useProtocolTheme()).result.current
   .protocolTheme;
 const themeMode = protocolTheme.palette.mode;
 function renderComponent() {
-  renderWithRouter(<CompareWithBase mode={themeMode} />);
+  renderWithRouter(<CompareWithBase view='search' mode={themeMode} />);
 }
 
 describe('Compare With Base', () => {
@@ -75,5 +76,25 @@ describe('Compare With Base', () => {
     await user.click(mozRepoItem);
     const comparisonAlert = screen.getByText(warning);
     expect(comparisonAlert).toBeInTheDocument();
+  });
+
+  it('selects and displays new framework when clicked', async () => {
+    renderComponent();
+    const user = userEvent.setup({ delay: null });
+    expect(screen.queryByText(/talos/i)).toBeInTheDocument();
+    expect(screen.queryByText(/build_metrics/i)).not.toBeInTheDocument();
+    const frameworkDropdown = screen.getByRole('button', {
+      name: 'Framework talos',
+    });
+
+    await user.click(frameworkDropdown);
+    const buildMetricsItem = screen.getByRole('option', {
+      name: 'build_metrics',
+    });
+
+    await user.click(buildMetricsItem);
+    const searchInput = screen.getAllByRole('textbox')[0];
+    await user.click(searchInput);
+    expect(screen.queryAllByText(/build_metrics/i)[0]).toBeInTheDocument();
   });
 });

@@ -2,8 +2,12 @@ import userEvent from '@testing-library/user-event';
 import { Bubble, ChartProps } from 'react-chartjs-2';
 
 import ResultsView from '../../../components/CompareResults/beta/ResultsView';
+import SelectedRevisions from '../../../components/Search/SelectedRevisions';
+import { setSelectedRevisions } from '../../../reducers/SelectedRevisionsSlice';
 import useProtocolTheme from '../../../theme/protocolTheme';
-import { renderWithRouter } from '../../utils/setupTests';
+import { InputType } from '../../../types/state';
+import getTestData from '../../utils/fixtures';
+import { renderWithRouter, store } from '../../utils/setupTests';
 import { renderHook, screen, waitFor } from '../../utils/test-utils';
 
 jest.mock('react-router-dom', () => ({
@@ -18,15 +22,69 @@ describe('Results View', () => {
     .toggleColorMode;
 
   it('Should match snapshot', () => {
-    renderWithRouter(<ResultsView protocolTheme={protocolTheme} toggleColorMode={toggleColorMode} />);
-
-    expect(screen.getByTestId('beta-version-compare-results')).toBeInTheDocument();
+    renderWithRouter(
+      <ResultsView
+        protocolTheme={protocolTheme}
+        toggleColorMode={toggleColorMode}
+      />,
+    );
+    expect(
+      screen.getByTestId('beta-version-compare-results'),
+    ).toBeInTheDocument();
     expect(document.body).toMatchSnapshot();
+  });
+
+  it('Should render the Compare with a Base component', () => {
+    renderWithRouter(
+      <ResultsView
+        protocolTheme={protocolTheme}
+        toggleColorMode={toggleColorMode}
+      />,
+    );
+
+    expect(screen.getByText('Compare with a base')).toBeInTheDocument();
+  });
+
+  it('Should render the selected revisions', () => {
+    const mode = 'light' as 'light' | 'dark';
+    const searchType = 'base' as InputType;
+    const { testData } = getTestData();
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () => ({
+          results: testData,
+        }),
+      }),
+    ) as jest.Mock;
+    jest.spyOn(global, 'fetch');
+
+    renderWithRouter(
+      <>
+        <ResultsView
+          protocolTheme={protocolTheme}
+          toggleColorMode={toggleColorMode}
+        />
+
+        <SelectedRevisions
+          view='search'
+          mode={mode}
+          searchType={searchType}
+          isWarning={false}
+        />
+      </>,
+    );
+
+    const selectedRevisions = testData.slice(0, 5);
+    store.dispatch(
+      setSelectedRevisions({ selectedRevisions: selectedRevisions }),
+    );
+
+    expect(screen.getByTestId('selected-revs')).toBeInTheDocument();
   });
 
   it('Should expand on click', async () => {
     const user = userEvent.setup({ delay: null });
-    
+
     const location = {
       ...window.location,
       search: '?fakedata=true',
@@ -39,7 +97,12 @@ describe('Results View', () => {
     const fakedataParam = urlParams.get('fakedata');
     expect(fakedataParam).toBe('true');
 
-    renderWithRouter(<ResultsView protocolTheme={protocolTheme} toggleColorMode={toggleColorMode} />);
+    renderWithRouter(
+      <ResultsView
+        protocolTheme={protocolTheme}
+        toggleColorMode={toggleColorMode}
+      />,
+    );
 
     const expandButtons = screen.getAllByTestId('expand-revision-button');
     await user.click(expandButtons[0]);
@@ -64,7 +127,12 @@ describe('Results View', () => {
     const fakedataParam = urlParams.get('fakedata');
     expect(fakedataParam).toBe('true');
 
-    renderWithRouter(<ResultsView protocolTheme={protocolTheme} toggleColorMode={toggleColorMode} />);
+    renderWithRouter(
+      <ResultsView
+        protocolTheme={protocolTheme}
+        toggleColorMode={toggleColorMode}
+      />,
+    );
 
     const expandButtons = screen.getAllByTestId('expand-revision-button');
     await user.click(expandButtons[0]);
@@ -94,7 +162,12 @@ describe('Results View', () => {
     const fakedataParam = urlParams.get('fakedata');
     expect(fakedataParam).toBe('true');
 
-    renderWithRouter(<ResultsView protocolTheme={protocolTheme} toggleColorMode={toggleColorMode} />);
+    renderWithRouter(
+      <ResultsView
+        protocolTheme={protocolTheme}
+        toggleColorMode={toggleColorMode}
+      />,
+    );
 
     const expandButtons = screen.getAllByTestId('expand-revision-button');
     await user.click(expandButtons[0]);
@@ -115,5 +188,4 @@ describe('Results View', () => {
     const labelResult = labelFunction({ raw: { x: 5, y: 0, r: 10 } });
     expect(labelResult).toBe('5 ms');
   });
-
 });

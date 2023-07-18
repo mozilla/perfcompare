@@ -31,7 +31,7 @@ export const fetchRecentRevisions = createAsyncThunk<
       );
     } catch (err) {
       const error = (err as Error).message;
-      console.log('FetchRecentRevisions ERROR: ', error);
+      //console.error('FetchRecentRevisions ERROR: ', error);
       return rejectWithValue(error);
     }
     const json = (await response.json()) as APIPushResponse;
@@ -56,7 +56,7 @@ export const fetchRevisionByID = createAsyncThunk<
       );
     } catch (err) {
       const error = err as Error;
-      console.log('FetchRevisionByID ERROR: ', error);
+      //console.error('FetchRevisionByID ERROR: ', error);
       return rejectWithValue(error.message);
     }
     const json = (await response.json()) as APIPushResponse;
@@ -81,7 +81,7 @@ export const fetchRevisionsByAuthor = createAsyncThunk<
       );
     } catch (err) {
       const error = err as Error;
-      console.log('FetchRevisionsByAuthor ERROR: ', error);
+      //console.error('FetchRevisionsByAuthor ERROR: ', error);
       return rejectWithValue(error.message);
     }
     const json = (await response.json()) as APIPushResponse;

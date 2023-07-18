@@ -308,12 +308,12 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
           >
             <div>
               <div
-                class="MuiFormControl-root search-dropdown fnpbx3q css-1nrlq1o-MuiFormControl-root"
+                class="MuiFormControl-root framework-dropdown fnpbx3q css-1nrlq1o-MuiFormControl-root"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
                   data-shrink="true"
-                  id="select-repository-label"
+                  id="select-framework-label"
                 >
                   Framework
                   <svg
@@ -337,8 +337,9 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
                   <div
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-labelledby="select-repository-label"
+                    aria-labelledby="select-framework-label mui-component-select-Framework"
                     class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                    id="mui-component-select-Framework"
                     role="button"
                     tabindex="0"
                   >
@@ -347,6 +348,7 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
                   <input
                     aria-hidden="true"
                     class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                    name="Framework"
                     tabindex="-1"
                     value="talos"
                   />
@@ -366,7 +368,7 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
             </div>
             <button
               aria-label="compare revisions"
-              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-buttonfnjph0f css-1pha5e5-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fnjph0f css-1pha5e5-MuiButtonBase-root-MuiButton-root"
               id="compare-button"
               tabindex="0"
               type="button"

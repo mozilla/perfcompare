@@ -29,7 +29,7 @@ export default function CompareButton({ mode }: CompareButtonProps) {
     <Button
       id='compare-button'
       variant='contained'
-      className={`compare-button${styles.button}`}
+      className={`compare-button ${styles.button}`}
       aria-label='compare revisions'
       sx={{ textTransform: 'none !important' }}
       onClick={handleAddSelectedRevisions}

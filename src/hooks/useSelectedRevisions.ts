@@ -20,6 +20,7 @@ const useSelectRevision = () => {
   const addSelectedRevisions = () => {
     const newSelected = [...selectedRevisions];
     newSelected.push(...baseCheckedRevisions, ...newCheckedRevisions);
+    //remove duplicates of the same revision
     const filteredSelected = newSelected.filter(
       (revision, index, self) =>
         self.findIndex((r) => r.id === revision.id) === index,

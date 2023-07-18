@@ -94,8 +94,6 @@ function SearchComponent({
     };
   });
 
-  useEffect(() => {});
-
   return (
     <Grid className={styles.component}>
       <Grid
@@ -151,6 +149,7 @@ function SearchComponent({
             searchType={searchType}
             mode={mode}
             isWarning={isWarning}
+            view={view}
           />
         </Grid>
       )}

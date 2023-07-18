@@ -103,10 +103,10 @@ function FrameworkDropdown({ view, mode }: FrameworkDropdownProps) {
     <div>
       <FormControl
         size={size}
-        className={`search-dropdown ${styles.container}`}
+        className={`framework-dropdown ${styles.container}`}
       >
         <InputLabel
-          id='select-repository-label'
+          id='select-framework-label'
           className='dropdown-select-label'
         >
           {strings.selectLabel}
@@ -118,10 +118,11 @@ function FrameworkDropdown({ view, mode }: FrameworkDropdownProps) {
           data-testid='dropdown-select-framework'
           label={strings.selectLabel}
           value={frameworkName}
-          labelId='select-repository-label'
+          labelId='select-framework-label'
           className='dropdown-select'
           variant='standard'
           onChange={(e) => void handleFrameworkSelect(e)}
+          name='Framework'
         >
           {Object.entries(frameworkMap).map(([id, name]) => (
             <MenuItem

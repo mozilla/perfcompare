@@ -26,7 +26,12 @@ function renderComponent() {
     />,
   );
   renderWithRouter(
-    <SelectedRevisions mode={mode} searchType={searchType} isWarning={false} />,
+    <SelectedRevisions
+      view='search'
+      mode={mode}
+      searchType={searchType}
+      isWarning={false}
+    />,
   );
 }
 

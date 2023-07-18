@@ -1,12 +1,9 @@
-import { useEffect } from 'react';
-
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 
 import { repoMap } from '../../common/constants';
 import { RootState } from '../../common/store';
-import { useAppSelector, useAppDispatch } from '../../hooks/app';
-import { clearCheckedRevisions } from '../../reducers/SearchSlice';
+import { useAppSelector } from '../../hooks/app';
 import { SelectRevsStyles } from '../../styles';
 import { InputType } from '../../types/state';
 import SelectedRevisionItem from './SelectedRevisionItem';
@@ -15,14 +12,15 @@ interface SelectedRevisionsProps {
   mode: 'light' | 'dark';
   searchType: InputType;
   isWarning: boolean;
+  view: 'compare-results' | 'search';
 }
 
 function SelectedRevisions({
   mode,
   searchType,
   isWarning,
+  view,
 }: SelectedRevisionsProps) {
-  const dispatch = useAppDispatch();
   const styles = SelectRevsStyles(mode);
   const checkedRevisionsList = useAppSelector(
     (state: RootState) => state.search[searchType].checkedRevisions,
@@ -41,21 +39,15 @@ function SelectedRevisions({
     return selectedRep;
   });
 
-  const selectedRevRepo = selectedRevisions?.map((item) => {
+  const selectedRevRepo = selectedRevisions.map((item) => {
     const selectedRep = repoMap[item.repository_id];
     return selectedRep;
   });
 
-  useEffect(() => {
-    if (selectedRevisions?.length) {
-      dispatch(clearCheckedRevisions());
-    }
-  }, [dispatch]);
-
   return (
     <Box className={styles.box} data-testid='selected-revs'>
       <List>
-        {checkedRevisionsList.length > 0 &&
+        {view == 'search' &&
           checkedRevisionsList.map((item, index) => (
             <SelectedRevisionItem
               key={item.id}
@@ -68,7 +60,7 @@ function SelectedRevisions({
             />
           ))}
 
-        {displayedSelectedRevisions.length > 0 &&
+        {view == 'compare-results' &&
           displayedSelectedRevisions.map((item, index) => (
             <SelectedRevisionItem
               key={item.id}

@@ -2,8 +2,10 @@ import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
+
 import SearchComponent from '../../components/Search/SearchComponent';
-import SearchViewBeta from '../../components/Search/SearchView';
+import SearchView from '../../components/Search/SearchView';
+import { setSelectedRevisions } from '../../reducers/SelectedRevisionsSlice';
 import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
 import { RevisionsList, InputType } from '../../types/state';
@@ -20,7 +22,7 @@ const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
   .toggleColorMode;
 function renderComponent() {
   renderWithRouter(
-    <SearchViewBeta
+    <SearchView
       toggleColorMode={toggleColorMode}
       protocolTheme={protocolTheme}
     />,
@@ -82,6 +84,16 @@ describe('Base Search', () => {
 
     // No list items should appear
     expect(screen.queryByRole('listitem')).not.toBeInTheDocument();
+
+    await act(async () => void jest.runOnlyPendingTimers());
+  });
+
+  it('renders framework dropdown in closed condition', async () => {
+    renderComponent();
+    // 'talos' is selected by default and dropdown is not visible
+    expect(screen.queryByText(/talos/i)).toBeInTheDocument();
+    expect(screen.queryByText(/build_metrics/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/awsy/i)).not.toBeInTheDocument();
 
     await act(async () => void jest.runOnlyPendingTimers());
   });
@@ -242,6 +254,31 @@ describe('Base Search', () => {
     expect(store.getState().search[searchType].inputError).toBe(true);
     expect(store.getState().search[searchType].inputHelperText).toBe(
       'An error has occurred',
+    );
+  });
+
+  it('should have compare button and once clicked should redirect to results page with the right query params', async () => {
+    const { testData } = getTestData();
+
+    const { history } = renderWithRouter(
+      <SearchView
+        toggleColorMode={toggleColorMode}
+        protocolTheme={protocolTheme}
+      />,
+    );
+    expect(history.location.pathname).toEqual('/');
+
+    const user = userEvent.setup({ delay: null });
+    store.dispatch(
+      setSelectedRevisions({ selectedRevisions: testData.slice(0, 2) }),
+    );
+
+    const compareButton = document.querySelector('.compare-button');
+    await user.click(compareButton as HTMLElement);
+
+    expect(history.location.pathname).toEqual('/compare-results');
+    expect(history.location.search).toEqual(
+      '?revs=coconut,spam&repos=try,mozilla-central',
     );
   });
 });
