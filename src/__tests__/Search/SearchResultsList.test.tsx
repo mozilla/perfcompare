@@ -1,5 +1,6 @@
 import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { act } from 'react-dom/test-utils';
 
 import SearchView from '../../components/Search/SearchView';
 import useProtocolTheme from '../../theme/protocolTheme';
@@ -92,9 +93,12 @@ describe('SearchResultsList', () => {
     const fleshWound = await screen.findAllByText("it's just a flesh wound");
 
     await user.click(fleshWound[0]);
-    expect(store.getState().search[searchType].checkedRevisions[0]).toBe(
-      testData[1],
-    );
+    act(() => {
+      expect(store.getState().search[searchType].checkedRevisions[0]).toBe(
+        testData[1],
+      );
+    });
+
     await user.click(fleshWound[0]);
     expect(fleshWound[0].classList.contains('Mui-checked')).toBe(false);
   });

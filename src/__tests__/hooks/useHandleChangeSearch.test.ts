@@ -54,7 +54,11 @@ describe('Tests useHandleSearchHook', () => {
     const { result } = renderHook(() => useHandleChangeSearch(), {
       wrapper: StoreProvider,
     });
-    store.dispatch(updateSearchResults(searchResults));
+
+    await act(async () => {
+      store.dispatch(updateSearchResults(searchResults));
+    });
+
     const { search: searchSlice } = store.getState();
     expect(searchSlice[searchType].searchResults).toEqual(testData);
     await act(async () => {
@@ -71,12 +75,15 @@ describe('Tests useHandleSearchHook', () => {
       e: createEvent('test input'),
       searchType,
     };
-
     const testError = 'test error';
     const { result } = renderHook(() => useHandleChangeSearch(), {
       wrapper: StoreProvider,
     });
-    store.dispatch(setInputError({ errorMessage: testError, searchType }));
+
+    act(() => {
+      store.dispatch(setInputError({ errorMessage: testError, searchType }));
+    });
+
     const { search: searchSlice } = store.getState();
     expect(searchSlice[searchType].inputHelperText).toBe('test error');
     await act(async () => {

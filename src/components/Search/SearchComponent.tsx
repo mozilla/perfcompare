@@ -2,8 +2,8 @@ import {
   Dispatch,
   SetStateAction,
   useEffect,
-  useState,
   createRef,
+  useState,
 } from 'react';
 
 import Grid from '@mui/material/Grid';
@@ -46,6 +46,10 @@ function SearchComponent({
   const searchState = useAppSelector(
     (state: RootState) => state.search[searchType],
   );
+  const selectedRevisions = useAppSelector(
+    (state: RootState) => state.selectedRevisions.revisions,
+  );
+
   const { searchResults } = searchState;
   const [focused, setFocused] = useState(false);
   const matchesQuery = useMediaQuery('(max-width:768px)');
@@ -65,9 +69,9 @@ function SearchComponent({
     ) {
       setFocused(true);
       return;
-    } else {
-      setFocused(false);
     }
+
+    setFocused(false);
   };
 
   const handleEscKeypress = (e: KeyboardEvent) => {
@@ -137,12 +141,15 @@ function SearchComponent({
           )}
         </Grid>
       </Grid>
-      {checkedRevisionsList.length > 0 && (
+
+      {(checkedRevisionsList.length > 0 ||
+        (selectedRevisions && selectedRevisions.length > 0)) && (
         <Grid>
           <SelectedRevisions
             searchType={searchType}
             mode={mode}
             isWarning={isWarning}
+            view={view}
           />
         </Grid>
       )}

@@ -3,7 +3,6 @@ import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
 import SearchView from '../../components/Search/SearchView';
-import SelectedRevisions from '../../components/Search/SelectedRevisions';
 import { updateCheckedRevisions } from '../../reducers/SearchSlice';
 import useProtocolTheme from '../../theme/protocolTheme';
 import { InputType } from '../../types/state';
@@ -15,7 +14,6 @@ const protocolTheme = renderHook(() => useProtocolTheme()).result.current
   .protocolTheme;
 const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
   .toggleColorMode;
-const mode = 'light' as 'light' | 'dark';
 const searchType = 'base' as InputType;
 
 function renderComponent() {
@@ -25,13 +23,10 @@ function renderComponent() {
       protocolTheme={protocolTheme}
     />,
   );
-  renderWithRouter(
-    <SelectedRevisions mode={mode} searchType={searchType} isWarning={false} />,
-  );
 }
 
 describe('SelectedRevision', () => {
-  it('should show the selected revision once a result checkbox is clicked', async () => {
+  it('should show the selected checked revisions once a result checkbox is clicked', async () => {
     const { testData } = getTestData();
     global.fetch = jest.fn(() =>
       Promise.resolve({
@@ -55,7 +50,9 @@ describe('SelectedRevision', () => {
       screen.getAllByTestId('checkbox-0')[0].classList.contains('Mui-checked'),
     ).toBe(true);
 
-    expect(screen.getAllByTestId('selected-revs')[0]).toBeInTheDocument();
+    expect(
+      screen.getAllByTestId('selected-revs-search')[0],
+    ).toBeInTheDocument();
     expect(document.body).toMatchSnapshot();
     await act(async () => void jest.runOnlyPendingTimers());
   });
@@ -72,7 +69,10 @@ describe('SelectedRevision', () => {
     jest.spyOn(global, 'fetch');
     // set delay to null to prevent test time-out due to useFakeTimers
     const newChecked = testData.slice(0, 1);
-    store.dispatch(updateCheckedRevisions({ newChecked, searchType }));
+    act(() => {
+      store.dispatch(updateCheckedRevisions({ newChecked, searchType }));
+    });
+
     const user = userEvent.setup({ delay: null });
 
     renderComponent();
@@ -85,8 +85,9 @@ describe('SelectedRevision', () => {
 
     await user.click(removeButton[0]);
 
-    expect(store.getState().search[searchType].checkedRevisions).toEqual([]);
-
+    act(() => {
+      expect(store.getState().search[searchType].checkedRevisions).toEqual([]);
+    });
     expect(screen.queryAllByTestId('selected-rev-item')[0]).toBeUndefined();
   });
 
@@ -114,7 +115,9 @@ describe('SelectedRevision', () => {
     )[0];
     await user.click(searchInput);
     await user.click(screen.getAllByTestId('checkbox-0')[0]);
-    store.dispatch(updateCheckedRevisions({ newChecked, searchType }));
+    act(() => {
+      store.dispatch(updateCheckedRevisions({ newChecked, searchType }));
+    });
 
     await user.click(newDropdown);
     const mozRepoItem = screen.getAllByRole('option', {

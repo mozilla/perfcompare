@@ -6,10 +6,11 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Tooltip from '@mui/material/Tooltip';
 import { style, cssRule } from 'typestyle';
 
-import { repoMap } from '../../common/constants';
+import { frameworkMap, frameworks } from '../../common/constants';
 import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
-import useHandleChangeDropdown from '../../hooks/useHandleChangeDropdown';
+import useHandleChangeFrameworkDropdown from '../../hooks/useHandleFrameworkDropdown';
+import { Strings } from '../../resources/Strings';
 import {
   Spacing,
   ButtonsLightRaw,
@@ -20,35 +21,15 @@ import {
   DropDownMenuRaw,
   DropDownItemRaw,
 } from '../../styles';
-import { InputType } from '../../types/state';
 
-interface SearchDropdownProps {
+interface FrameworkDropdownProps {
   view: 'compare-results' | 'search';
-  selectLabel: string;
-  tooltipText: string;
   mode: 'light' | 'dark';
-  searchType: InputType;
 }
 
-function SearchDropdown({
-  view,
-  selectLabel,
-  tooltipText,
-  mode,
-  searchType,
-}: SearchDropdownProps) {
-  const size = view == 'compare-results' ? 'small' : undefined;
-  const { handleChangeDropdown } = useHandleChangeDropdown();
-  const searchState = useAppSelector(
-    (state: RootState) => state.search[searchType],
-  );
-  const { repository } = searchState;
+const strings = Strings.components.searchDefault.sharedCollasped.framkework;
 
-  const handleRepoSelect = async (event: SelectChangeEvent) => {
-    const selectedRepository = event.target.value;
-    await handleChangeDropdown({ selectedRepository, searchType });
-  };
-
+function FrameworkDropdown({ view, mode }: FrameworkDropdownProps) {
   cssRule('.MuiTooltip-popper', {
     ...(mode === 'light' ? TooltipRaw.Light : TooltipRaw.Dark),
     $nest: {
@@ -81,11 +62,12 @@ function SearchDropdown({
       },
     },
   });
+  const size = view == 'compare-results' ? 'small' : undefined;
 
   const styles = {
     container: style({
-      width: '100%',
       marginBottom: `${Spacing.xLarge}px`,
+      minWidth: '319px !important',
 
       $nest: {
         '.MuiInputBase-root': {
@@ -97,39 +79,59 @@ function SearchDropdown({
     }),
   };
 
+  const frameworkName = useAppSelector(
+    (state: RootState) => state.framework.name,
+  );
+
+  const { handleChangeFrameworkDropdown } = useHandleChangeFrameworkDropdown();
+
+  const findIdByName = (name: string): number | undefined => {
+    const selectedFramework = frameworks.find(
+      (framework) => framework.name === name,
+    );
+    return selectedFramework?.id;
+  };
+
+  const handleFrameworkSelect = async (event: SelectChangeEvent) => {
+    const name = event.target.value;
+    const id = findIdByName(name);
+
+    await handleChangeFrameworkDropdown({ id, name });
+  };
 
   return (
     <div>
       <FormControl
         size={size}
-        className={`search-dropdown ${styles.container}`}
+        className={`framework-dropdown ${styles.container}`}
       >
         <InputLabel
-          id='select-repository-label'
+          id='select-framework-label'
           className='dropdown-select-label'
         >
-          {selectLabel}
-          <Tooltip placement='top' title={tooltipText}>
+          {strings.selectLabel}
+          <Tooltip placement='top' title={strings.tooltip}>
             <InfoIcon fontSize='small' className='dropdown-info-icon' />
           </Tooltip>
         </InputLabel>
         <Select
-          data-testid={`dropdown-select-${searchType}`}
-          label={selectLabel}
-          value={repository}
-          labelId='select-repository-label'
+          data-testid='dropdown-select-framework'
+          label={strings.selectLabel}
+          value={frameworkName}
+          labelId='select-framework-label'
           className='dropdown-select'
           variant='standard'
-          onChange={(e) => void handleRepoSelect(e)}
+          onChange={(e) => void handleFrameworkSelect(e)}
+          name='Framework'
         >
-          {Object.keys(repoMap).map((key) => (
+          {Object.entries(frameworkMap).map(([id, name]) => (
             <MenuItem
-              id={repoMap[key]}
-              value={repoMap[key]}
-              key={repoMap[key]}
-              className={`${searchType}Repository`}
+              id={id}
+              value={name}
+              key={name}
+              className='framework-dropdown-item'
             >
-              {repoMap[key]}
+              {name}
             </MenuItem>
           ))}
         </Select>
@@ -138,4 +140,4 @@ function SearchDropdown({
   );
 }
 
-export default SearchDropdown;
+export default FrameworkDropdown;

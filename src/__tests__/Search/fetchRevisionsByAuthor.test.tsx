@@ -3,8 +3,6 @@ import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
 import SearchComponent from '../../components/Search/SearchComponent';
-import SearchDropdown from '../../components/Search/SearchDropdown';
-import SearchInput from '../../components/Search/SearchInput';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
@@ -67,36 +65,16 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     ) as jest.Mock;
     const spyOnFetch = jest.spyOn(global, 'fetch');
     const searchType = 'base' as InputType;
-    const view = 'search' as 'search' | 'compare-results';
-    const mode = 'light' as 'light' | 'dark';
+
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    const searchInputProps = {
-      searchType,
-      mode,
-      view,
-      inputPlaceholder: 'Search by ID',
-      setFocused: jest.fn(),
-    };
-    const searchDropdownProps = {
-      searchType,
-      mode,
-      view,
-      selectLabel: 'Select a repository',
-      tooltipText: 'Select a repository',
-    };
-
     await act(async () => {
       renderWithRouter(
-        <>
-          <SearchView
-            toggleColorMode={toggleColorMode}
-            protocolTheme={protocolTheme}
-          />
-          <SearchInput {...searchInputProps} />
-          <SearchDropdown {...searchDropdownProps} />{' '}
-        </>,
+        <SearchView
+          toggleColorMode={toggleColorMode}
+          protocolTheme={protocolTheme}
+        />,
       );
     });
 
@@ -126,34 +104,13 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
     const searchType = 'base' as InputType;
-    const view = 'search' as 'search' | 'compare-results';
-    const mode = 'light' as 'light' | 'dark';
-
-    const searchInputProps = {
-      searchType,
-      mode,
-      view,
-      inputPlaceholder: 'Search by ID',
-      setFocused: jest.fn(),
-    };
-    const searchDropdownProps = {
-      searchType,
-      mode,
-      view,
-      selectLabel: 'Select a repository',
-      tooltipText: 'Select a repository',
-    };
 
     await act(async () => {
       renderWithRouter(
-        <>
-          <SearchView
-            toggleColorMode={toggleColorMode}
-            protocolTheme={protocolTheme}
-          />
-          <SearchInput {...searchInputProps} />
-          <SearchDropdown {...searchDropdownProps} />{' '}
-        </>,
+        <SearchView
+          toggleColorMode={toggleColorMode}
+          protocolTheme={protocolTheme}
+        />,
       );
     });
 

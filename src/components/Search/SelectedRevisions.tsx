@@ -8,15 +8,31 @@ import { SelectRevsStyles } from '../../styles';
 import { InputType } from '../../types/state';
 import SelectedRevisionItem from './SelectedRevisionItem';
 
+interface SelectedRevisionsProps {
+  mode: 'light' | 'dark';
+  searchType: InputType;
+  isWarning: boolean;
+  view: 'compare-results' | 'search';
+}
 
 function SelectedRevisions({
   mode,
   searchType,
   isWarning,
+  view,
 }: SelectedRevisionsProps) {
+
   const styles = SelectRevsStyles(mode);
   const checkedRevisionsList = useAppSelector(
     (state: RootState) => state.search[searchType].checkedRevisions,
+  );
+
+  const selectedRevisions = useAppSelector(
+    (state: RootState) => state.selectedRevisions.revisions,
+  );
+
+  const displayedSelectedRevisions = useAppSelector(
+    (state: RootState) => state.selectedRevisions[searchType],
   );
 
   const repository = checkedRevisionsList.map((item) => {
@@ -24,29 +40,44 @@ function SelectedRevisions({
     return selectedRep;
   });
 
+  const selectedRevRepo = selectedRevisions.map((item) => {
+    const selectedRep = repoMap[item.repository_id];
+    return selectedRep;
+  });
+
   return (
-    <Box className={styles.box} data-testid='selected-revs'>
+    <Box className={styles.box} data-testid={`selected-revs-${view}`}>
       <List>
-        {checkedRevisionsList.map((item, index) => (
-          <SelectedRevisionItem
-            key={item.id}
-            index={index}
-            item={item}
-            mode={mode}
-            repository={repository[index]}
-            searchType={searchType}
-            isWarning={isWarning}
-          />
-        ))}
+        {view == 'search' &&
+          checkedRevisionsList.map((item, index) => (
+            <SelectedRevisionItem
+              key={item.id}
+              index={index}
+              item={item}
+              mode={mode}
+              repository={repository[index]}
+              searchType={searchType}
+              isWarning={isWarning}
+            />
+          ))}
+
+        {view == 'compare-results' &&
+          displayedSelectedRevisions.map((item, index) => (
+            // This line will be ignored by code coverage
+            // istanbul ignore next
+            <SelectedRevisionItem
+              key={item.id}
+              index={index}
+              item={item}
+              mode={mode}
+              repository={selectedRevRepo && selectedRevRepo[index]}
+              searchType={searchType}
+              isWarning={isWarning}
+            />
+          ))}
       </List>
     </Box>
   );
-}
-
-interface SelectedRevisionsProps {
-  mode: 'light' | 'dark';
-  searchType: InputType;
-  isWarning: boolean;
 }
 
 export default SelectedRevisions;
