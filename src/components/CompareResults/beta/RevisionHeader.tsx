@@ -3,6 +3,7 @@ import { style } from 'typestyle';
 
 import { Colors, Spacing } from '../../../styles';
 import type { RevisionsHeader } from '../../../types/state';
+import { getTreeherderURL, truncateHash } from '../../../utils/helpers';
 
 const styles = {
   tagsOptions: style({
@@ -51,7 +52,7 @@ function RevisionHeader(props: RevisionHeaderProps) {
   return (
     <TableRow className='revision-header'>
       <TableCell colSpan={8}>
-        <strong>{createTitle(header)}</strong> <Link href='#'>0f9ef9ff3ea</Link>
+        <strong>{createTitle(header)}</strong> <Link href={getTreeherderURL(header.new_rev, header.new_repo)}>{truncateHash(header.new_rev)}</Link>
       </TableCell>
       <TableCell colSpan={4}>
         <div className={styles.tagsOptions}>
