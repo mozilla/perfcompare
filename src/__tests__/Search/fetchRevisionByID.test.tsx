@@ -31,14 +31,12 @@ describe('SearchView/fetchRevisionByID', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    await act(async () => {
-      renderWithRouter(
-        <SearchView
-          toggleColorMode={toggleColorMode}
-          protocolTheme={protocolTheme}
-        />,
-      );
-    });
+    renderWithRouter(
+      <SearchView
+        toggleColorMode={toggleColorMode}
+        protocolTheme={protocolTheme}
+      />,
+    );
 
     await screen.findAllByRole('button', { name: 'Base' });
     expect(screen.getAllByText('try')[0]).toBeInTheDocument();
@@ -91,18 +89,16 @@ describe('SearchView/fetchRevisionByID', () => {
       tooltipText: 'Select a repository',
     };
 
-    await act(async () => {
-      renderWithRouter(
-        <>
-          <SearchView
-            toggleColorMode={toggleColorMode}
-            protocolTheme={protocolTheme}
-          />
-          <SearchInput {...searchInputProps} />
-          <SearchDropdown {...searchDropdownProps} />{' '}
-        </>,
-      );
-    });
+    renderWithRouter(
+      <>
+        <SearchView
+          toggleColorMode={toggleColorMode}
+          protocolTheme={protocolTheme}
+        />
+        <SearchInput {...searchInputProps} />
+        <SearchDropdown {...searchDropdownProps} />{' '}
+      </>,
+    );
 
     await screen.findAllByRole('button', { name: 'Base' });
     expect(screen.getAllByText('try')[0]).toBeInTheDocument();
@@ -152,18 +148,16 @@ describe('SearchView/fetchRevisionByID', () => {
       tooltipText: 'Select a repository',
     };
 
-    await act(async () => {
-      renderWithRouter(
-        <>
-          <SearchView
-            toggleColorMode={toggleColorMode}
-            protocolTheme={protocolTheme}
-          />
-          <SearchInput {...searchInputProps} />
-          <SearchDropdown {...searchDropdownProps} />{' '}
-        </>,
-      );
-    });
+    renderWithRouter(
+      <>
+        <SearchView
+          toggleColorMode={toggleColorMode}
+          protocolTheme={protocolTheme}
+        />
+        <SearchInput {...searchInputProps} />
+        <SearchDropdown {...searchDropdownProps} />{' '}
+      </>,
+    );
 
     await screen.findAllByRole('button', { name: 'Base' });
     const searchInput = screen.getAllByRole('textbox')[0];
@@ -205,18 +199,16 @@ describe('SearchView/fetchRevisionByID', () => {
       tooltipText: 'Select a repository',
     };
 
-    await act(async () => {
-      renderWithRouter(
-        <>
-          <SearchView
-            toggleColorMode={toggleColorMode}
-            protocolTheme={protocolTheme}
-          />
-          <SearchInput {...searchInputProps} />
-          <SearchDropdown {...searchDropdownProps} />{' '}
-        </>,
-      );
-    });
+    renderWithRouter(
+      <>
+        <SearchView
+          toggleColorMode={toggleColorMode}
+          protocolTheme={protocolTheme}
+        />
+        <SearchInput {...searchInputProps} />
+        <SearchDropdown {...searchDropdownProps} />{' '}
+      </>,
+    );
 
     await act(async () => void jest.runOnlyPendingTimers());
     await screen.findAllByRole('button', { name: 'Base' });
