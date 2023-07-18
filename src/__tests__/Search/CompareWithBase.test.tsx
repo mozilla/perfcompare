@@ -7,7 +7,7 @@ import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
 import { renderWithRouter } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
-import FrameworkDropdown from '../../components/Search/FrameworkDropdown';
+
 
 const warning =
   Strings.components.searchDefault.base.collapsed.warnings.comparison;
