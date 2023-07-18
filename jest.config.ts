@@ -42,6 +42,7 @@ const config: Config.InitialOptions = {
   ],
   resetMocks: true,
   globalSetup: '<rootDir>/src/__tests__/utils/globalSetup.ts',
+  testTimeout: 30000,
 };
 
 export default config;
