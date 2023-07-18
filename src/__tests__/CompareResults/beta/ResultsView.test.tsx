@@ -2,13 +2,11 @@ import userEvent from '@testing-library/user-event';
 import { Bubble, ChartProps } from 'react-chartjs-2';
 
 import ResultsView from '../../../components/CompareResults/beta/ResultsView';
-import SelectedRevisions from '../../../components/Search/SelectedRevisions';
 import { setSelectedRevisions } from '../../../reducers/SelectedRevisionsSlice';
 import useProtocolTheme from '../../../theme/protocolTheme';
-import { InputType } from '../../../types/state';
 import getTestData from '../../utils/fixtures';
 import { renderWithRouter, store } from '../../utils/setupTests';
-import { renderHook, screen, waitFor } from '../../utils/test-utils';
+import { renderHook, screen, waitFor, act } from '../../utils/test-utils';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual<typeof import('react-router-dom')>('react-router-dom'),
@@ -45,9 +43,7 @@ describe('Results View', () => {
     expect(screen.getByText('Compare with a base')).toBeInTheDocument();
   });
 
-  it('Should render the selected revisions', () => {
-    const mode = 'light' as 'light' | 'dark';
-    const searchType = 'base' as InputType;
+  it('Should render the selected revisions', async () => {
     const { testData } = getTestData();
     global.fetch = jest.fn(() =>
       Promise.resolve({
@@ -64,22 +60,19 @@ describe('Results View', () => {
           protocolTheme={protocolTheme}
           toggleColorMode={toggleColorMode}
         />
-
-        <SelectedRevisions
-          view='search'
-          mode={mode}
-          searchType={searchType}
-          isWarning={false}
-        />
       </>,
     );
 
     const selectedRevisions = testData.slice(0, 5);
-    store.dispatch(
-      setSelectedRevisions({ selectedRevisions: selectedRevisions }),
-    );
+    await act(async () => {
+      store.dispatch(
+        setSelectedRevisions({ selectedRevisions: selectedRevisions }),
+      );
+    });
 
-    expect(screen.getByTestId('selected-revs')).toBeInTheDocument();
+    expect(
+      screen.getAllByTestId('selected-revs-compare-results')[0],
+    ).toBeInTheDocument();
   });
 
   it('Should expand on click', async () => {

@@ -2,7 +2,6 @@ import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
-
 import SearchComponent from '../../components/Search/SearchComponent';
 import SearchView from '../../components/Search/SearchView';
 import { setSelectedRevisions } from '../../reducers/SelectedRevisionsSlice';
@@ -56,7 +55,7 @@ describe('Search Container', () => {
   it('renders compare with base', async () => {
     renderComponent();
 
-    const title = screen.getByText('Compare with a base');
+    const title = screen.getAllByText('Compare with a base')[0];
     const baseInput = screen.getByPlaceholderText(
       'Search base by ID number or author email',
     );
@@ -111,9 +110,11 @@ describe('Base Search', () => {
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
 
-    expect(store.getState().search[searchType].searchResults).toStrictEqual(
-      testData,
-    );
+    await act(async () => {
+      expect(store.getState().search[searchType].searchResults).toStrictEqual(
+        testData,
+      );
+    });
 
     const comment = await screen.findAllByText("you've got no arms left!");
     expect(comment[0]).toBeInTheDocument();
@@ -138,9 +139,11 @@ describe('Base Search', () => {
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
 
-    expect(store.getState().search[searchType].searchResults).toStrictEqual(
-      testData,
-    );
+    await act(async () => {
+      expect(store.getState().search[searchType].searchResults).toStrictEqual(
+        testData,
+      );
+    });
 
     const comment = await screen.findAllByText("you've got no arms left!");
     expect(comment[0]).toBeInTheDocument();
@@ -194,11 +197,19 @@ describe('Base Search', () => {
     );
 
     await screen.findAllByText("you've got no arms left!");
-    expect(store.getState().search[searchType].searchResults).toStrictEqual(
-      testData,
-    );
+    act(() => {
+      expect(store.getState().search[searchType].searchResults).toStrictEqual(
+        testData,
+      );
+    });
+
     await user.clear(searchInput);
-    expect(store.getState().search[searchType].searchResults).toStrictEqual([]);
+    act(() => {
+      expect(store.getState().search[searchType].searchResults).toStrictEqual(
+        [],
+      );
+    });
+
     expect(
       screen.queryByText("you've got no arms left!"),
     ).not.toBeInTheDocument();
@@ -250,11 +261,20 @@ describe('Base Search', () => {
     expect(spyOnFetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true',
     );
-    expect(store.getState().search[searchType].searchResults).toStrictEqual([]);
-    expect(store.getState().search[searchType].inputError).toBe(true);
-    expect(store.getState().search[searchType].inputHelperText).toBe(
-      'An error has occurred',
-    );
+    act(() => {
+      expect(store.getState().search[searchType].searchResults).toStrictEqual(
+        [],
+      );
+    });
+    act(() => {
+      expect(store.getState().search[searchType].inputError).toBe(true);
+    });
+
+    act(() => {
+      expect(store.getState().search[searchType].inputHelperText).toBe(
+        'An error has occurred',
+      );
+    });
   });
 
   it('should have compare button and once clicked should redirect to results page with the right query params', async () => {
@@ -269,9 +289,11 @@ describe('Base Search', () => {
     expect(history.location.pathname).toEqual('/');
 
     const user = userEvent.setup({ delay: null });
-    store.dispatch(
-      setSelectedRevisions({ selectedRevisions: testData.slice(0, 2) }),
-    );
+    act(() => {
+      store.dispatch(
+        setSelectedRevisions({ selectedRevisions: testData.slice(0, 2) }),
+      );
+    });
 
     const compareButton = document.querySelector('.compare-button');
     await user.click(compareButton as HTMLElement);

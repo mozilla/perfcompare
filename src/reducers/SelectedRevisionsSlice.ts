@@ -32,10 +32,12 @@ const selectedRevisions = createSlice({
         ),
       };
     },
+
     clearSelectedRevisions() {
       return initialState;
     },
   },
+
   extraReducers: (builder) => {
     builder.addCase(fetchRevisionByID.fulfilled, (state, action) => {
       const fetchedRevisions = state.revisions

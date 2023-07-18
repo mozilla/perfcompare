@@ -21,6 +21,7 @@ function SelectedRevisions({
   isWarning,
   view,
 }: SelectedRevisionsProps) {
+
   const styles = SelectRevsStyles(mode);
   const checkedRevisionsList = useAppSelector(
     (state: RootState) => state.search[searchType].checkedRevisions,
@@ -45,7 +46,7 @@ function SelectedRevisions({
   });
 
   return (
-    <Box className={styles.box} data-testid='selected-revs'>
+    <Box className={styles.box} data-testid={`selected-revs-${view}`}>
       <List>
         {view == 'search' &&
           checkedRevisionsList.map((item, index) => (
@@ -62,6 +63,8 @@ function SelectedRevisions({
 
         {view == 'compare-results' &&
           displayedSelectedRevisions.map((item, index) => (
+            // This line will be ignored by code coverage
+            // istanbul ignore next
             <SelectedRevisionItem
               key={item.id}
               index={index}

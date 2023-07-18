@@ -3,6 +3,7 @@
 exports[`Compare With Base renders correctly when there are no results 1`] = `
 <body>
   <div />
+  <div />
   <div>
     <div
       class="MuiGrid-root wrapper css-plh9qo-MuiGrid-root"

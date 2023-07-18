@@ -61,9 +61,12 @@ describe('SearchView/fetchRecentRevisions', () => {
     act(() => void jest.runOnlyPendingTimers());
     expect(screen.queryByText('mozilla-central')).not.toBeInTheDocument();
 
-    expect(store.getState().search[searchType].searchResults).toStrictEqual(
-      testData,
-    );
+    act(() => {
+      expect(store.getState().search[searchType].searchResults).toStrictEqual(
+        testData,
+      );
+    });
+
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
