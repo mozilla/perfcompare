@@ -16,7 +16,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
         Skip to search
       </button>
       <div
-        class="MuiGrid-root header-container f38ku8z css-plh9qo-MuiGrid-root"
+        class="MuiGrid-root header-container container_f38ku8z css-plh9qo-MuiGrid-root"
       >
         <div
           class="toggle-dark-mode f4zotac MuiBox-root css-0"
@@ -85,7 +85,8 @@ exports[`SearchResultsList should match snapshot 1`] = `
         </div>
       </div>
       <section
-        class="f1hlgueb"
+
+        class="container_f1m49pie"
         data-testid="search-section"
       >
         <p
@@ -94,10 +95,10 @@ exports[`SearchResultsList should match snapshot 1`] = `
           Compare with a base or over time
         </p>
         <div
-          class="wrapper"
+          class="MuiGrid-root wrapper css-plh9qo-MuiGrid-root"
         >
           <div
-            class="compare-card-container compare-card-container--expanded container_f1ww8thq"
+            class="compare-card-container compare-card-container--expanded container_fabrhot"
             data-testid="base-state"
           >
             <div
@@ -120,7 +121,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
             />
           </div>
           <div
-            class="compare-card-container content-base content-base--expanded container_f1ww8thq "
+            class="compare-card-container content-base content-base--expanded container_fabrhot "
           >
             <hr
               class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
@@ -132,7 +133,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container container_fy4mgyt css-1ljzhs0-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container container_f790aiy css-1ljzhs0-MuiGrid-root"
                   id="base-search-container"
                 >
                   <div
@@ -734,7 +735,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container container_fy4mgyt css-1ljzhs0-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container container_f790aiy css-1ljzhs0-MuiGrid-root"
                   id="new-search-container"
                 >
                   <div
@@ -863,13 +864,86 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="framework"
-              />
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_ffz7cf5 fjuaqdk css-13eijkh-MuiGrid-root"
+              >
+                <div>
+                  <div
+                    class="MuiFormControl-root framework-dropdown fnpbx3q css-1nrlq1o-MuiFormControl-root"
+                  >
+                    <label
+                      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
+                      data-shrink="true"
+                      id="select-framework-label"
+                    >
+                      Framework
+                      <svg
+                        aria-hidden="true"
+                        aria-label="The framework or test harness containing the test you want to examine."
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+                        data-mui-internal-clone-element="true"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                        />
+                      </svg>
+                    </label>
+                    <div
+                      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                      data-testid="dropdown-select-framework"
+                    >
+                      <div
+                        aria-expanded="false"
+                        aria-haspopup="listbox"
+                        aria-labelledby="select-framework-label mui-component-select-Framework"
+                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                        id="mui-component-select-Framework"
+                        role="button"
+                        tabindex="0"
+                      >
+                        talos
+                      </div>
+                      <input
+                        aria-hidden="true"
+                        class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                        name="Framework"
+                        tabindex="-1"
+                        value="talos"
+                      />
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+                        data-testid="ArrowDropDownIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M7 10l5 5 5-5z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  aria-label="compare revisions"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fnjph0f css-1pha5e5-MuiButtonBase-root-MuiButton-root"
+                  id="compare-button"
+                  tabindex="0"
+                  type="button"
+                >
+                  Compare
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </button>
+              </div>
             </div>
           </div>
         </div>
         <div
-          class="compare-card-container compare-card-container--time container_f3mv627"
+          class="compare-card-container compare-card-container--time container_f1c958w6"
         >
           <div
             class="compare-card-text cardText_f10ud7bq"

@@ -86,7 +86,7 @@ export const CompareCardsStyles = (mode: string, height: number) => {
                 },
               },
               height: 'auto',
-              minHeight: height > 400 ? `${height + 96}px` : '400px',
+              minHeight: height > 400 ? `${height + 10}px` : '315px',
             },
             '.form-wrapper': {
               padding: `${Spacing.xxLarge}px ${Spacing.xxLarge + 2}px`,
@@ -125,7 +125,6 @@ export const SearchStyles = (mode: string) => {
       marginBottom: `${Spacing.xLarge}px`,
     },
     container: {
-      maxWidth: '810px',
       margin: 'auto',
       justifyContent: 'space-between',
       position: 'relative',

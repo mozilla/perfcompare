@@ -2,9 +2,11 @@ import userEvent from '@testing-library/user-event';
 import { Bubble, ChartProps } from 'react-chartjs-2';
 
 import ResultsView from '../../../components/CompareResults/beta/ResultsView';
+import { setSelectedRevisions } from '../../../reducers/SelectedRevisionsSlice';
 import useProtocolTheme from '../../../theme/protocolTheme';
-import { renderWithRouter } from '../../utils/setupTests';
-import { renderHook, screen, waitFor } from '../../utils/test-utils';
+import getTestData from '../../utils/fixtures';
+import { renderWithRouter, store } from '../../utils/setupTests';
+import { renderHook, screen, waitFor, act } from '../../utils/test-utils';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual<typeof import('react-router-dom')>('react-router-dom'),
@@ -18,15 +20,64 @@ describe('Results View', () => {
     .toggleColorMode;
 
   it('Should match snapshot', () => {
-    renderWithRouter(<ResultsView protocolTheme={protocolTheme} toggleColorMode={toggleColorMode} />);
-
-    expect(screen.getByTestId('beta-version-compare-results')).toBeInTheDocument();
+    renderWithRouter(
+      <ResultsView
+        protocolTheme={protocolTheme}
+        toggleColorMode={toggleColorMode}
+      />,
+    );
+    expect(
+      screen.getByTestId('beta-version-compare-results'),
+    ).toBeInTheDocument();
     expect(document.body).toMatchSnapshot();
+  });
+
+  it('Should render the Compare with a Base component', () => {
+    renderWithRouter(
+      <ResultsView
+        protocolTheme={protocolTheme}
+        toggleColorMode={toggleColorMode}
+      />,
+    );
+
+    expect(screen.getByText('Compare with a base')).toBeInTheDocument();
+  });
+
+  it('Should render the selected revisions', async () => {
+    const { testData } = getTestData();
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () => ({
+          results: testData,
+        }),
+      }),
+    ) as jest.Mock;
+    jest.spyOn(global, 'fetch');
+
+    renderWithRouter(
+      <>
+        <ResultsView
+          protocolTheme={protocolTheme}
+          toggleColorMode={toggleColorMode}
+        />
+      </>,
+    );
+
+    const selectedRevisions = testData.slice(0, 5);
+    await act(async () => {
+      store.dispatch(
+        setSelectedRevisions({ selectedRevisions: selectedRevisions }),
+      );
+    });
+
+    expect(
+      screen.getAllByTestId('selected-revs-compare-results')[0],
+    ).toBeInTheDocument();
   });
 
   it('Should expand on click', async () => {
     const user = userEvent.setup({ delay: null });
-    
+
     const location = {
       ...window.location,
       search: '?fakedata=true',
@@ -39,7 +90,12 @@ describe('Results View', () => {
     const fakedataParam = urlParams.get('fakedata');
     expect(fakedataParam).toBe('true');
 
-    renderWithRouter(<ResultsView protocolTheme={protocolTheme} toggleColorMode={toggleColorMode} />);
+    renderWithRouter(
+      <ResultsView
+        protocolTheme={protocolTheme}
+        toggleColorMode={toggleColorMode}
+      />,
+    );
 
     const expandButtons = screen.getAllByTestId('expand-revision-button');
     await user.click(expandButtons[0]);
@@ -64,7 +120,12 @@ describe('Results View', () => {
     const fakedataParam = urlParams.get('fakedata');
     expect(fakedataParam).toBe('true');
 
-    renderWithRouter(<ResultsView protocolTheme={protocolTheme} toggleColorMode={toggleColorMode} />);
+    renderWithRouter(
+      <ResultsView
+        protocolTheme={protocolTheme}
+        toggleColorMode={toggleColorMode}
+      />,
+    );
 
     const expandButtons = screen.getAllByTestId('expand-revision-button');
     await user.click(expandButtons[0]);
@@ -94,7 +155,12 @@ describe('Results View', () => {
     const fakedataParam = urlParams.get('fakedata');
     expect(fakedataParam).toBe('true');
 
-    renderWithRouter(<ResultsView protocolTheme={protocolTheme} toggleColorMode={toggleColorMode} />);
+    renderWithRouter(
+      <ResultsView
+        protocolTheme={protocolTheme}
+        toggleColorMode={toggleColorMode}
+      />,
+    );
 
     const expandButtons = screen.getAllByTestId('expand-revision-button');
     await user.click(expandButtons[0]);
@@ -115,5 +181,4 @@ describe('Results View', () => {
     const labelResult = labelFunction({ raw: { x: 5, y: 0, r: 10 } });
     expect(labelResult).toBe('5 ms');
   });
-
 });

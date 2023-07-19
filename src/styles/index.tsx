@@ -16,3 +16,5 @@ export * from './CompareCards';
 export * from './ExpandableRow';
 export * from './SelectedRevsStyle'; 
 export * from './AccessibilityComponents';
+export * from './Header';
+export * from './SearchContainerStyles';

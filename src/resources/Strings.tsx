@@ -24,6 +24,8 @@ export const Strings = {
         },
         framkework: {
           selectLabel: 'Framework',
+          tooltip:
+            'The framework or test harness containing the test you want to examine.',
         },
         button: 'Compare',
       },

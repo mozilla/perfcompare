@@ -31,6 +31,7 @@ export const fetchRecentRevisions = createAsyncThunk<
       );
     } catch (err) {
       const error = (err as Error).message;
+      console.error('FetchRecentRevisions ERROR: ', error);
       return rejectWithValue(error);
     }
     const json = (await response.json()) as APIPushResponse;
@@ -54,8 +55,9 @@ export const fetchRevisionByID = createAsyncThunk<
         `${treeherderBaseURL}/api/project/${repository}/push/?revision=${search}`,
       );
     } catch (err) {
-      const error = (err as Error).message;
-      return rejectWithValue(error);
+      const error = err as Error;
+      console.error('FetchRevisionByID ERROR: ', error);
+      return rejectWithValue(error.message);
     }
     const json = (await response.json()) as APIPushResponse;
     if (json.results.length > 0) {
@@ -78,8 +80,9 @@ export const fetchRevisionsByAuthor = createAsyncThunk<
         `${treeherderBaseURL}/api/project/${repository}/push/?author=${search}`,
       );
     } catch (err) {
-      const error = (err as Error).message;
-      return rejectWithValue(error);
+      const error = err as Error;
+      console.error('FetchRevisionsByAuthor ERROR: ', error);
+      return rejectWithValue(error.message);
     }
     const json = (await response.json()) as APIPushResponse;
     if (json.results.length > 0) {

@@ -7,7 +7,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
       class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-container container_fy4mgyt css-1ljzhs0-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container container_f790aiy css-1ljzhs0-MuiGrid-root"
         id="base-search-container"
       >
         <div

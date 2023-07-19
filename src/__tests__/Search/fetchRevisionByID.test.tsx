@@ -2,8 +2,6 @@ import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
-import SearchDropdown from '../../components/Search/SearchDropdown';
-import SearchInput from '../../components/Search/SearchInput';
 import SearchView from '../../components/Search/SearchView';
 import useProtocolTheme from '../../theme/protocolTheme';
 import { InputType } from '../../types/state';
@@ -31,14 +29,12 @@ describe('SearchView/fetchRevisionByID', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    await act(async () => {
-      renderWithRouter(
-        <SearchView
-          toggleColorMode={toggleColorMode}
-          protocolTheme={protocolTheme}
-        />,
-      );
-    });
+    renderWithRouter(
+      <SearchView
+        toggleColorMode={toggleColorMode}
+        protocolTheme={protocolTheme}
+      />,
+    );
 
     await screen.findAllByRole('button', { name: 'Base' });
     expect(screen.getAllByText('try')[0]).toBeInTheDocument();
@@ -58,9 +54,7 @@ describe('SearchView/fetchRevisionByID', () => {
       'https://treeherder.mozilla.org/api/project/try/push/?revision=abcdef1234567890abcdef1234567890abcdef12',
     );
     await screen.findByText("you've got no arms left!");
-    expect(
-      screen.getAllByText("it's just a flesh wound")[0],
-    ).toBeInTheDocument();
+    await screen.findByText('What, ridden on a horse?');
   });
 
   it('should reject fetchRevisionsByID if fetch returns no results', async () => {
@@ -72,39 +66,17 @@ describe('SearchView/fetchRevisionByID', () => {
       }),
     ) as jest.Mock;
     const searchType = 'base' as InputType;
-    const view = 'search' as 'search' | 'compare-results';
-    const mode = 'light' as 'light' | 'dark';
+
     const spyOnFetch = jest.spyOn(global, 'fetch');
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    const searchInputProps = {
-      searchType,
-      mode,
-      view,
-      inputPlaceholder: 'Search by ID',
-      setFocused: jest.fn(),
-    };
-    const searchDropdownProps = {
-      searchType,
-      mode,
-      view,
-      selectLabel: 'Select a repository',
-      tooltipText: 'Select a repository',
-    };
-
-    await act(async () => {
-      renderWithRouter(
-        <>
-          <SearchView
-            toggleColorMode={toggleColorMode}
-            protocolTheme={protocolTheme}
-          />
-          <SearchInput {...searchInputProps} />
-          <SearchDropdown {...searchDropdownProps} />{' '}
-        </>,
-      );
-    });
+    renderWithRouter(
+      <SearchView
+        toggleColorMode={toggleColorMode}
+        protocolTheme={protocolTheme}
+      />,
+    );
 
     await screen.findAllByRole('button', { name: 'Base' });
     expect(screen.getAllByText('try')[0]).toBeInTheDocument();
@@ -134,38 +106,18 @@ describe('SearchView/fetchRevisionByID', () => {
       ),
     ) as jest.Mock;
     const searchType = 'base' as InputType;
-    const view = 'search' as 'search' | 'compare-results';
-    const mode = 'light' as 'light' | 'dark';
+
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    const searchInputProps = {
-      searchType,
-      mode,
-      view,
-      inputPlaceholder: 'Search by ID',
-      setFocused: jest.fn(),
-    };
-    const searchDropdownProps = {
-      searchType,
-      mode,
-      view,
-      selectLabel: 'Select a repository',
-      tooltipText: 'Select a repository',
-    };
-
-    await act(async () => {
-      renderWithRouter(
-        <>
-          <SearchView
-            toggleColorMode={toggleColorMode}
-            protocolTheme={protocolTheme}
-          />
-          <SearchInput {...searchInputProps} />
-          <SearchDropdown {...searchDropdownProps} />{' '}
-        </>,
-      );
-    });
+    renderWithRouter(
+      <>
+        <SearchView
+          toggleColorMode={toggleColorMode}
+          protocolTheme={protocolTheme}
+        />
+      </>,
+    );
 
     await screen.findAllByRole('button', { name: 'Base' });
     const searchInput = screen.getAllByRole('textbox')[0];
@@ -186,39 +138,16 @@ describe('SearchView/fetchRevisionByID', () => {
     global.fetch = jest.fn(() => Promise.reject(new Error())) as jest.Mock;
     const spyOnFetch = jest.spyOn(global, 'fetch');
     const searchType = 'base' as InputType;
-    const view = 'search' as 'search' | 'compare-results';
-    const mode = 'light' as 'light' | 'dark';
 
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    const searchInputProps = {
-      searchType,
-      mode,
-      view,
-      inputPlaceholder: 'Search by ID',
-      setFocused: jest.fn(),
-    };
-    const searchDropdownProps = {
-      searchType,
-      mode,
-      view,
-      selectLabel: 'Select a repository',
-      tooltipText: 'Select a repository',
-    };
-
-    await act(async () => {
-      renderWithRouter(
-        <>
-          <SearchView
-            toggleColorMode={toggleColorMode}
-            protocolTheme={protocolTheme}
-          />
-          <SearchInput {...searchInputProps} />
-          <SearchDropdown {...searchDropdownProps} />{' '}
-        </>,
-      );
-    });
+    renderWithRouter(
+      <SearchView
+        toggleColorMode={toggleColorMode}
+        protocolTheme={protocolTheme}
+      />,
+    );
 
     await act(async () => void jest.runOnlyPendingTimers());
     await screen.findAllByRole('button', { name: 'Base' });

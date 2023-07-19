@@ -38,6 +38,12 @@ function platformMapping(platform: string) {
   }
 }
 
+function determineSign(baseMedianValue: number, newMedianValue: number) {
+  if (baseMedianValue > newMedianValue) return '>';
+  if (baseMedianValue < newMedianValue) return '<';
+  return '';
+}
+
 function RevisionRow(props: RevisionRowProps) {
   const { themeMode, result } = props;
   const { platform, base_median_value: baseMedianValue, base_measurement_unit: baseUnit, new_median_value: newMedianValue, new_measurement_unit: newUnit, is_improvement: improvement, is_regression: regression, delta_percentage: deltaPercent, confidence_text: confidenceText, base_runs: baseRuns, new_runs: newRuns, graphs_link: graphLink } = result;
@@ -144,15 +150,15 @@ function RevisionRow(props: RevisionRowProps) {
         <div className='base-container'> {baseMedianValue} {baseUnit} </div>
       </TableCell>
       {/* TODO: Add logic for comparison sign */}
-      <TableCell className='comparison-sign'>&gt;</TableCell>
-      <TableCell className='new-value'>{newMedianValue} {newUnit}</TableCell>
+      <TableCell className='comparison-sign'>{determineSign(baseMedianValue, newMedianValue)}</TableCell>
+      <TableCell className='new-value'> {newMedianValue} {newUnit}</TableCell>
       <TableCell className='status'> {determineStatus(improvement, regression)} </TableCell> 
-      <TableCell className='delta'>{deltaPercent}%</TableCell>
-      <TableCell className='confidence'>{confidenceText}</TableCell>
+      <TableCell className='delta'> {deltaPercent} % </TableCell>
+      <TableCell className='confidence'> {confidenceText} </TableCell>
       <TableCell className='total-runs'>
         <span>B:</span>
-        <strong>{baseRuns.length}</strong> <span>N:</span>
-        <strong>{newRuns.length}</strong>
+        <strong> {baseRuns.length} </strong> <span> N: </span>
+        <strong> {newRuns.length} </strong>
       </TableCell>
       <TableCell className='cell-button graph'>
         <div className='graph-link-button-container'>

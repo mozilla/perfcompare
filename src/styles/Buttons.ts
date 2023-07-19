@@ -12,16 +12,25 @@ const sharedDropDownBtnStyles = {
   marginTop: '0',
 };
 
+const sharedButtonStyles = {
+  padding: `${Spacing.xSmall}px ${Spacing.Medium}px !important}`,
+  height: `${Spacing.xLarge}px`,
+  margin: '0 !important',
+};
+
 //BUTTONS LIGHT
 export const ButtonsLightRaw = {
   Primary: {
+    ...sharedButtonStyles,
     color: Colors.InvertedText,
     backgroundColor: Colors.PrimaryDefault,
-    '&:hover': {
-      backgroundColor: Colors.PrimaryHover,
-    },
-    '&:active': {
-      backgroundColor: Colors.PrimaryActive,
+    $nest: {
+      '&:hover': {
+        backgroundColor: Colors.PrimaryHover,
+      },
+      '&:active': {
+        backgroundColor: Colors.PrimaryActive,
+      },
     },
   },
   Secondary: {
@@ -95,6 +104,7 @@ export const ButtonsLight = {
 
 export const ButtonsDarkRaw = {
   Primary: {
+    ...sharedButtonStyles,
     color: Colors.InvertedTextDark,
     backgroundColor: Colors.PrimaryDark,
     '&:hover': {
@@ -154,4 +164,10 @@ export const ButtonsDark = {
   Primary: style(ButtonsDarkRaw.Primary),
   Secondary: style(ButtonsDarkRaw.Secondary),
   Dropdown: style(ButtonsDarkRaw.Dropdown),
+};
+
+export const ButtonStyles = (mode: string) => {
+  const isTrueLight = mode == 'light' ? true : false;
+
+  return isTrueLight ? ButtonsLightRaw : ButtonsDarkRaw;
 };

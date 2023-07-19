@@ -2,52 +2,97 @@ import { useEffect } from 'react';
 
 import type { Theme } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import { Container } from '@mui/system';
+import { useLocation } from 'react-router-dom';
 import { useSearchParams } from 'react-router-dom';
+import { style } from 'typestyle';
 
+import { compareView } from '../../../common/constants';
 import { useAppDispatch } from '../../../hooks/app';
+import useFetchCompareResults from '../../../hooks/useFetchCompareResults';
+import useHandleChangeSearch from '../../../hooks/useHandleChangeSearch';
 import { switchToFakeData } from '../../../reducers/CompareResults';
+import { SearchContainerStyles } from '../../../styles';
+import { background } from '../../../styles';
+import { Repository } from '../../../types/state';
+import CompareWithBase from '../../Search/CompareWithBase';
 import PerfCompareHeader from '../../Shared/PerfCompareHeader';
-import InputsReplacement from './InputsReplacement';
 import ResultsMain from './ResultsMain';
-
-
-function ResultsView(props: ResultsViewProps) {
-  const { protocolTheme, toggleColorMode } = props;
-  const themeMode = protocolTheme.palette.mode;
-  const [searchParams] = useSearchParams();
-  const fakeDataParam: string | null = searchParams.get('fakedata');
-  const dispatch = useAppDispatch();
-
-// TODO: Populate store with real data or fake data pased on URL params
-  useEffect(() => {
-    if (fakeDataParam === 'true') {
-        dispatch(switchToFakeData());
-    }
-  }, [fakeDataParam]);
-  
-
-  return (
-    <Container maxWidth='xl' data-testid='beta-version-compare-results'>
-      <PerfCompareHeader
-        themeMode={themeMode}
-        toggleColorMode={toggleColorMode}
-      />
-      <Grid container alignItems='center' justifyContent='center'>
-        <Grid item xs={10}>
-          <InputsReplacement />
-        </Grid>
-        <Grid item xs={12}>
-          <ResultsMain themeMode={themeMode} />
-        </Grid>
-      </Grid>
-    </Container>
-  );
-}
 
 interface ResultsViewProps {
   protocolTheme: Theme;
   toggleColorMode: () => void;
+}
+function ResultsView(props: ResultsViewProps) {
+  const dispatch = useAppDispatch();
+  const { protocolTheme, toggleColorMode } = props;
+  const themeMode = protocolTheme.palette.mode;
+  const styles = {
+    container: style({
+      backgroundColor: background(themeMode),
+    }),
+  };
+  const [searchParams] = useSearchParams();
+  const fakeDataParam: string | null = searchParams.get('fakedata');
+
+  // TODO: Populate store with real data or fake data pased on URL params
+  useEffect(() => {
+    if (fakeDataParam === 'true') {
+      dispatch(switchToFakeData());
+    }
+  }, [fakeDataParam]);
+
+  const sectionStyles = SearchContainerStyles(themeMode, compareView);
+
+  const location = useLocation();
+  const { dispatchFetchCompareResults } = useFetchCompareResults();
+  const { searchByRevisionOrEmail } = useHandleChangeSearch();
+
+  useEffect(() => {
+    const urlSearchParams = new URLSearchParams(location.search);
+    const repos = urlSearchParams.get('repos')?.split(',');
+    const revs = urlSearchParams.get('revs')?.split(',');
+
+    if (revs && repos) {
+      void dispatchFetchCompareResults(repos as Repository['name'][], revs);
+
+      /*
+      On component mount, use the repos and revs in hash to search for the base and new revisions. Store the results in state via the SelectedRevisionsSlice: see extra reducer, fetchRevisionsByID. Now can always display the selected revisions despite page refresh or copying and pasting url
+      */
+      revs.forEach((rev, index) => {
+        void searchByRevisionOrEmail(
+          repos[index] as Repository['name'],
+          rev,
+          'base',
+        );
+        void searchByRevisionOrEmail(
+          repos[index] as Repository['name'],
+          rev,
+          'new',
+        );
+      });
+    }
+  }, []);
+
+  return (
+    <div
+      className={styles.container}
+      data-testid='beta-version-compare-results'
+    >
+      <PerfCompareHeader
+        themeMode={themeMode}
+        toggleColorMode={toggleColorMode}
+        view={compareView}
+      />
+      <section className={sectionStyles.container}>
+        <CompareWithBase mode={themeMode} view={compareView} />
+      </section>
+      <Grid container alignItems='center' justifyContent='center'>
+        <Grid item xs={12}>
+          <ResultsMain themeMode={themeMode} />
+        </Grid>
+      </Grid>
+    </div>
+  );
 }
 
 export default ResultsView;

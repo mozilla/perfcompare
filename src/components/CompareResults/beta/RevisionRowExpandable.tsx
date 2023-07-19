@@ -18,7 +18,7 @@ function shouldDisplayGraphDistribution(baseRuns: Array<number>, newRuns: Array<
 
 function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   const { themeMode, result } = props;
-  const { platform, delta_percentage: deltaPercent, delta_value: deltaVal, confidence_text: confidenceText, base_runs: baseRuns, new_runs: newRuns } = result;
+  const { platform, delta_percentage: deltaPercent, delta_value: delta, confidence_text: confidenceText, base_runs: baseRuns, new_runs: newRuns, new_is_better: newIsBetter } = result;
   const shouldDisplayGraph = shouldDisplayGraphDistribution(baseRuns, newRuns);
 
   const themeColor200 =
@@ -58,8 +58,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
         }
         <div className={`${styles.bottomSpace}`}><Divider /> </div>
         {!shouldDisplayGraph && <div className={`${styles.bottomSpace}`}>{singleRun}</div> }
-        {/* TODO: Add logic for better / worse */}
-        <div className={`${styles.bottomSpace}`}><b>Mean Difference</b>: {deltaPercent}% worse ({deltaVal})</div>
+        <div className={`${styles.bottomSpace}`}><b>Mean Difference</b>: {deltaPercent}% {newIsBetter ? 'better' : 'worse'} ({delta})</div>
         <div><b>Confidence</b>: {confidenceText} </div>
         <div className={`${styles.note}`}><b>**NOTE</b>: {note}</div>
       </div>

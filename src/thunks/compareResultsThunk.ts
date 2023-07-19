@@ -17,9 +17,7 @@ export const fetchCompareResults = createAsyncThunk<
   async ({ baseRepo, baseRev, newRepo, newRev }, { rejectWithValue }) => {
     let response;
     try {
-      // TODO: currently this only fetches results for the talos framework
-      // Once we have a dropdown to select test framework, remove the
-      // hard-coded framework parameter
+      //Note: We can now select and add the framework in the url
       response = await fetch(
         `${treeherderBaseURL}/api/perfcompare/results/?base_repository=${baseRepo}&base_revision=${baseRev}&new_repository=${newRepo}&new_revision=${newRev}&framework=1&interval=86400&no_subtests=true`,
       );
