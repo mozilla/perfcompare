@@ -85,7 +85,6 @@ exports[`SearchResultsList should match snapshot 1`] = `
         </div>
       </div>
       <section
-
         class="container_f1m49pie"
         data-testid="search-section"
       >
