@@ -21,6 +21,7 @@ import {
   DropDownMenuRaw,
   DropDownItemRaw,
 } from '../../styles';
+import type { ModeType } from '../../types/state';
 
 interface FrameworkDropdownProps {
   view: 'compare-results' | 'search';

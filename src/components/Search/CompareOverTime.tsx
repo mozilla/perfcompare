@@ -1,5 +1,6 @@
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles } from '../../styles';
+import type { ModeType } from '../../types/state';
 
 const strings = Strings.components.searchDefault;
 
