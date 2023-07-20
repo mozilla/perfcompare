@@ -6,7 +6,11 @@ import { style } from 'typestyle';
 import { RootState } from '../../../common/store';
 import { useAppSelector } from '../../../hooks/app';
 import { Colors, Spacing } from '../../../styles';
-import type { CompareResultsItem, RevisionsHeader } from '../../../types/state';
+import type {
+  CompareResultsItem,
+  RevisionsHeader,
+  ModeType,
+} from '../../../types/state';
 import NoResultsFound from './NoResultsFound';
 import TableContent from './TableContent';
 import TableHeader from './TableHeader';
@@ -94,7 +98,7 @@ function ResultsTable(props: ResultsTableProps) {
   );
 }
 interface ResultsTableProps {
-  themeMode: 'light' | 'dark';
+  themeMode: ModeType;
 }
 
 export default ResultsTable;

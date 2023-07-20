@@ -8,7 +8,7 @@ import { HeaderStyles } from '../../styles';
 import ToggleDarkMode from './ToggleDarkModeButton';
 
 interface PerfCompareHeaderProps {
-  themeMode: 'light' | 'dark';
+  themeMode: ModeType;
   toggleColorMode: () => void;
   view: 'search' | 'compare-results';
 }

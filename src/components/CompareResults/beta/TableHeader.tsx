@@ -4,6 +4,7 @@ import { TableRow, TableCell, TableHead } from '@mui/material';
 import { style } from 'typestyle';
 
 import { Colors, Spacing } from '../../../styles';
+import type { ModeType } from '../../../types/state';
 
 function TableHeader(props: TableHeaderProps) {
   const { themeMode } = props;
@@ -123,7 +124,7 @@ function TableHeader(props: TableHeaderProps) {
 }
 
 interface TableHeaderProps {
-  themeMode: 'light' | 'dark';
+  themeMode: ModeType;
 }
 
 export default TableHeader;

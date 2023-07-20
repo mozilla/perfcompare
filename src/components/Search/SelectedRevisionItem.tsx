@@ -17,7 +17,7 @@ import useCheckRevision from '../../hooks/useCheckRevision';
 import { Strings } from '../../resources/Strings';
 import { SelectRevsStyles } from '../../styles';
 import type { RevisionsList } from '../../types/state';
-import { InputType } from '../../types/state';
+import { InputType, ModeType } from '../../types/state';
 import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
 
 const warning =
@@ -26,10 +26,11 @@ const warning =
 interface SelectedRevisionItemProps {
   index: number;
   item: RevisionsList;
-  mode: 'light' | 'dark';
+  mode: ModeType;
   repository: string | undefined;
   searchType: InputType;
   isWarning?: boolean;
+  view: 'compare-results' | 'search';
 }
 
 function SelectedRevisionItem({
@@ -39,6 +40,7 @@ function SelectedRevisionItem({
   repository,
   searchType,
   isWarning,
+  view,
 }: SelectedRevisionItemProps) {
   const styles = SelectRevsStyles(mode);
   const revisionHash = truncateHash(item.revision);
@@ -100,6 +102,7 @@ function SelectedRevisionItem({
             primaryTypographyProps={{ noWrap: true }}
             secondaryTypographyProps={{ noWrap: true }}
           />
+
           <ListItemIcon className='search-revision-item-icon search-revision'>
             <Button
               role='button'
@@ -107,7 +110,9 @@ function SelectedRevisionItem({
               aria-label='close-button'
               onClick={() => handleRemoveRevision(item)}
             >
-              <CloseOutlined className='close-icon' fontSize='small' />
+              {view === 'compare-results' && searchType == 'new' && (
+                <CloseOutlined className='close-icon' fontSize='small' />
+              )}
             </Button>
           </ListItemIcon>
         </ListItem>

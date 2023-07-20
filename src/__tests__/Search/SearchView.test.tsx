@@ -7,7 +7,7 @@ import SearchView from '../../components/Search/SearchView';
 import { setSelectedRevisions } from '../../reducers/SelectedRevisionsSlice';
 import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
-import { RevisionsList, InputType } from '../../types/state';
+import { RevisionsList, InputType, ModeType } from '../../types/state';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen, waitFor } from '../utils/test-utils';
@@ -52,14 +52,16 @@ describe('Search View', () => {
 
   it('renders skip to search link correctly', async () => {
     renderComponent();
-    expect(screen.getByRole('link', { name: /skip to search/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole('link', { name: /skip to search/i }),
+    ).toBeInTheDocument();
   });
 
-  it('renders a skip link that sends the focus directly to search container', async ()=>{
+  it('renders a skip link that sends the focus directly to search container', async () => {
     renderComponent();
-    await waitFor(()=> userEvent.tab() ); 
-   await waitFor(()=> userEvent.keyboard('{Enter}'));
-   expect(screen.queryByTestId('search-section')).toHaveFocus();    
+    await waitFor(() => userEvent.tab());
+    await waitFor(() => userEvent.keyboard('{Enter}'));
+    expect(screen.queryByTestId('search-section')).toHaveFocus();
   });
 });
 
@@ -259,7 +261,7 @@ describe('Base Search', () => {
     const spyOnFetch = jest.spyOn(global, 'fetch');
     const SearchPropsBase = {
       searchType,
-      mode: 'light' as 'light' | 'dark',
+      mode: 'light' as ModeType,
       view: 'search' as 'search' | 'compare-results',
       isWarning: false,
       ...stringsBase,

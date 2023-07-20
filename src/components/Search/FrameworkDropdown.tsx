@@ -24,7 +24,7 @@ import {
 
 interface FrameworkDropdownProps {
   view: 'compare-results' | 'search';
-  mode: 'light' | 'dark';
+  mode: ModeType;
 }
 
 const strings = Strings.components.searchDefault.sharedCollasped.framkework;

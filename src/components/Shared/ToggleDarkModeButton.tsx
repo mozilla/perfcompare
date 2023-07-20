@@ -7,6 +7,7 @@ import { style } from 'typestyle';
 
 import { Strings } from '../../resources/Strings';
 import { Spacing, FontsRaw, SwitchRaw } from '../../styles';
+import type { ModeType } from '../../types/state';
 
 const strings = Strings.components.header;
 const label = { inputProps: { 'aria-label': 'Dark mode switch' } };
@@ -65,7 +66,7 @@ function ToggleDarkMode(props: ToggleDarkModeProps) {
   );
 }
 interface ToggleDarkModeProps {
-  theme: 'light' | 'dark';
+  theme: ModeType;
   toggleColorMode: () => void;
 }
 

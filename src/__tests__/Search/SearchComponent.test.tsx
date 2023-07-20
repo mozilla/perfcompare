@@ -2,7 +2,7 @@ import { act } from 'react-dom/test-utils';
 
 import SearchComponent from '../../components/Search/SearchComponent';
 import { Strings } from '../../resources/Strings';
-import { InputType } from '../../types/state';
+import { InputType, ModeType } from '../../types/state';
 import { renderWithRouter } from '../utils/setupTests';
 
 const stringsBase = Strings.components.searchDefault.base.collapsed.base;
@@ -11,7 +11,7 @@ describe('Search View', () => {
   it('renders correctly when there are no results', async () => {
     const SearchPropsBase = {
       searchType: 'base' as InputType,
-      mode: 'light' as 'light' | 'dark',
+      mode: 'light' as ModeType,
       view: 'search' as 'search' | 'compare-results',
       isWarning: false,
       ...stringsBase,

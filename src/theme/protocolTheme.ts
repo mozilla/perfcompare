@@ -5,6 +5,7 @@ import { useMemo, useState, useEffect } from 'react';
 import { createTheme, Theme } from '@mui/material/styles';
 
 import { Colors } from '../styles';
+import type { ModeType } from '../types/state';
 import components from './components';
 import typography from './typography';
 
@@ -52,7 +53,7 @@ const darkMode = {
   },
 };
 
-const getDesignTokens = (modeVal: 'light' | 'dark') => ({
+const getDesignTokens = (modeVal: ModeType) => ({
   palette: {
     mode: modeVal,
     ...(modeVal === 'light' ? lightMode : darkMode),
@@ -61,7 +62,7 @@ const getDesignTokens = (modeVal: 'light' | 'dark') => ({
 
 const useProtocolTheme = () => {
   const storedMode = localStorage.getItem('theme') || 'light';
-  const [mode, setMode] = useState((storedMode as 'light' | 'dark') || 'light');
+  const [mode, setMode] = useState((storedMode as ModeType) || 'light');
 
   useEffect(() => {
     localStorage.setItem('theme', mode);

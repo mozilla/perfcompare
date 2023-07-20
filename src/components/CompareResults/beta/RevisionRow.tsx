@@ -12,7 +12,7 @@ import { style } from 'typestyle';
 
 import { Colors, Spacing } from '../../../styles';
 import { ExpandableRowStyles } from '../../../styles';
-import type { CompareResultsItem } from '../../../types/state';
+import type { CompareResultsItem, ModeType } from '../../../types/state';
 import RevisionRowExpandable from './RevisionRowExpandable';
 
 interface Expanded {
@@ -46,7 +46,20 @@ function determineSign(baseMedianValue: number, newMedianValue: number) {
 
 function RevisionRow(props: RevisionRowProps) {
   const { themeMode, result } = props;
-  const { platform, base_median_value: baseMedianValue, base_measurement_unit: baseUnit, new_median_value: newMedianValue, new_measurement_unit: newUnit, is_improvement: improvement, is_regression: regression, delta_percentage: deltaPercent, confidence_text: confidenceText, base_runs: baseRuns, new_runs: newRuns, graphs_link: graphLink } = result;
+  const {
+    platform,
+    base_median_value: baseMedianValue,
+    base_measurement_unit: baseUnit,
+    new_median_value: newMedianValue,
+    new_measurement_unit: newUnit,
+    is_improvement: improvement,
+    is_regression: regression,
+    delta_percentage: deltaPercent,
+    confidence_text: confidenceText,
+    base_runs: baseRuns,
+    new_runs: newRuns,
+    graphs_link: graphLink,
+  } = result;
   const shortPlatform = platformMapping(platform);
 
   const [row, setExpanded] = useState<Expanded>({
@@ -139,89 +152,90 @@ function RevisionRow(props: RevisionRowProps) {
   };
   return (
     <>
-    <TableRow className={`revisionRow ${styles.revisionRow}`}>
-      <TableCell className='platform'>
-        <div className='platform-container'>
-          <AppleIcon />
-          <span>{shortPlatform}</span>
-        </div>
-      </TableCell>
-      <TableCell className='base-value'>
-        <div className='base-container'> {baseMedianValue} {baseUnit} </div>
-      </TableCell>
-      {/* TODO: Add logic for comparison sign */}
-      <TableCell className='comparison-sign'>{determineSign(baseMedianValue, newMedianValue)}</TableCell>
-      <TableCell className='new-value'> {newMedianValue} {newUnit}</TableCell>
-      <TableCell className='status'> {determineStatus(improvement, regression)} </TableCell> 
-      <TableCell className='delta'> {deltaPercent} % </TableCell>
-      <TableCell className='confidence'> {confidenceText} </TableCell>
-      <TableCell className='total-runs'>
-        <span>B:</span>
-        <strong> {baseRuns.length} </strong> <span> N: </span>
-        <strong> {newRuns.length} </strong>
-      </TableCell>
-      <TableCell className='cell-button graph'>
-        <div className='graph-link-button-container'>
-          <IconButton aria-label='graph link' size='small'>
-            <Link href={graphLink} target="_blank" >
-              <TimelineIcon />
-            </Link>
-          </IconButton>
-        </div>
-      </TableCell>
-      <TableCell className='cell-button download'>
-        <div className='download-button-container'>
-          <IconButton aria-label='download' size='small'>
-            <FileDownloadOutlinedIcon />
-          </IconButton>
-        </div>
-      </TableCell>
-      <TableCell className='cell-button retrigger-button'>
-        <div className='runs-button-container'>
-          <IconButton aria-label='retrigger button' size='small'>
-            <RefreshOutlinedIcon />
-          </IconButton>
-        </div>
-      </TableCell>
-      <TableCell className='cell-button expand-button'>
-        <div className='expand-button-container' 
-             onClick={toggleIsExpanded}
-             data-testid='expand-revision-button'
-        >
-          <IconButton
-            aria-label='expand row'
-            size='small'
+      <TableRow className={`revisionRow ${styles.revisionRow}`}>
+        <TableCell className='platform'>
+          <div className='platform-container'>
+            <AppleIcon />
+            <span>{shortPlatform}</span>
+          </div>
+        </TableCell>
+        <TableCell className='base-value'>
+          <div className='base-container'>
+            {' '}
+            {baseMedianValue} {baseUnit}{' '}
+          </div>
+        </TableCell>
+        {/* TODO: Add logic for comparison sign */}
+        <TableCell className='comparison-sign'>
+          {determineSign(baseMedianValue, newMedianValue)}
+        </TableCell>
+        <TableCell className='new-value'>
+          {' '}
+          {newMedianValue} {newUnit}
+        </TableCell>
+        <TableCell className='status'>
+          {' '}
+          {determineStatus(improvement, regression)}{' '}
+        </TableCell>
+        <TableCell className='delta'> {deltaPercent} % </TableCell>
+        <TableCell className='confidence'> {confidenceText} </TableCell>
+        <TableCell className='total-runs'>
+          <span>B:</span>
+          <strong> {baseRuns.length} </strong> <span> N: </span>
+          <strong> {newRuns.length} </strong>
+        </TableCell>
+        <TableCell className='cell-button graph'>
+          <div className='graph-link-button-container'>
+            <IconButton aria-label='graph link' size='small'>
+              <Link href={graphLink} target='_blank'>
+                <TimelineIcon />
+              </Link>
+            </IconButton>
+          </div>
+        </TableCell>
+        <TableCell className='cell-button download'>
+          <div className='download-button-container'>
+            <IconButton aria-label='download' size='small'>
+              <FileDownloadOutlinedIcon />
+            </IconButton>
+          </div>
+        </TableCell>
+        <TableCell className='cell-button retrigger-button'>
+          <div className='runs-button-container'>
+            <IconButton aria-label='retrigger button' size='small'>
+              <RefreshOutlinedIcon />
+            </IconButton>
+          </div>
+        </TableCell>
+        <TableCell className='cell-button expand-button'>
+          <div
+            className='expand-button-container'
+            onClick={toggleIsExpanded}
+            data-testid='expand-revision-button'
           >
-            {
-              row.expanded ?
-              <ExpandLessIcon /> :
-              <ExpandMoreIcon />
-            }
-          </IconButton>
-        </div>
-      </TableCell>
-    </TableRow>
-    
-    <TableRow className={`revisionRow ${styles.revisionRow}`}>
-      <TableCell colSpan={11}>
-      <div 
-          className={`content-row content-row--${row.class} ${stylesCard.container} `}
-          data-testid='expanded-row-content'
-      >
-        <RevisionRowExpandable 
-        themeMode={themeMode} 
-        result={result}
-        />
-      </div>
-      </TableCell>
-    </TableRow>
-    
+            <IconButton aria-label='expand row' size='small'>
+              {row.expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+            </IconButton>
+          </div>
+        </TableCell>
+      </TableRow>
+
+      <TableRow className={`revisionRow ${styles.revisionRow}`}>
+        <TableCell colSpan={11}>
+          <div
+            className={`content-row content-row--${row.class} ${stylesCard.container} `}
+            data-testid='expanded-row-content'
+          >
+            <RevisionRowExpandable themeMode={themeMode} result={result} />
+          </div>
+        </TableCell>
+      </TableRow>
     </>
   );
 }
 
 interface RevisionRowProps {
-  themeMode: 'light' | 'dark';
+  themeMode: ModeType;
   result: CompareResultsItem;
 }
 

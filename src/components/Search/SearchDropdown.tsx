@@ -7,6 +7,7 @@ import Tooltip from '@mui/material/Tooltip';
 import { style, cssRule } from 'typestyle';
 
 import { repoMap } from '../../common/constants';
+import { compareView } from '../../common/constants';
 import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
 import useHandleChangeDropdown from '../../hooks/useHandleChangeDropdown';
@@ -17,16 +18,14 @@ import {
   TooltipRaw,
   FontsRaw,
   Colors,
-  DropDownMenuRaw,
-  DropDownItemRaw,
 } from '../../styles';
-import { InputType } from '../../types/state';
+import { InputType, ModeType } from '../../types/state';
 
 interface SearchDropdownProps {
   view: 'compare-results' | 'search';
   selectLabel: string;
   tooltipText: string;
-  mode: 'light' | 'dark';
+  mode: ModeType;
   searchType: InputType;
 }
 
@@ -37,7 +36,7 @@ function SearchDropdown({
   mode,
   searchType,
 }: SearchDropdownProps) {
-  const size = view == 'compare-results' ? 'small' : undefined;
+  const size = view == compareView ? 'small' : undefined;
   const { handleChangeDropdown } = useHandleChangeDropdown();
   const searchState = useAppSelector(
     (state: RootState) => state.search[searchType],
@@ -61,27 +60,6 @@ function SearchDropdown({
     },
   });
 
-  cssRule('.MuiPopover-root', {
-    $nest: {
-      '.MuiPaper-root': {
-        flexDirection: 'column',
-        ...(mode === 'light' ? DropDownMenuRaw.Light : DropDownMenuRaw.Dark),
-        $nest: {
-          '.MuiList-root': {
-            padding: `${Spacing.Small}px ${Spacing.xSmall}px`,
-            $nest: {
-              '.MuiMenuItem-root': {
-                ...(mode === 'light'
-                  ? DropDownItemRaw.Light
-                  : DropDownItemRaw.Dark),
-              },
-            },
-          },
-        },
-      },
-    },
-  });
-
   const styles = {
     container: style({
       width: '100%',
@@ -96,7 +74,6 @@ function SearchDropdown({
       },
     }),
   };
-
 
   return (
     <div>

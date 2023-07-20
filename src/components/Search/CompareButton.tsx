@@ -4,9 +4,10 @@ import { style } from 'typestyle';
 import useSelectRevision from '../../hooks/useSelectedRevisions';
 import { Strings } from '../../resources/Strings';
 import { ButtonStyles } from '../../styles';
+import type { ModeType } from '../../types/state';
 
 interface CompareButtonProps {
-  mode: 'light' | 'dark';
+  mode: ModeType;
   view: 'search' | 'compare-results';
 }
 

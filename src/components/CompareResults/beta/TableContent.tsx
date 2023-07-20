@@ -2,7 +2,11 @@ import { TableBody } from '@mui/material';
 import { style } from 'typestyle';
 
 import { Colors, Spacing } from '../../../styles';
-import type { CompareResultsItem, RevisionsHeader } from '../../../types/state';
+import type {
+  CompareResultsItem,
+  RevisionsHeader,
+  ModeType,
+} from '../../../types/state';
 import RevisionHeader from './RevisionHeader';
 import RevisionRow from './RevisionRow';
 
@@ -48,10 +52,9 @@ function TableContent(props: TableContentProps) {
 }
 
 interface TableContentProps {
-  themeMode: 'light' | 'dark';
+  themeMode: ModeType;
   results: CompareResultsItem[];
   header: RevisionsHeader;
-
 }
 
 export default TableContent;

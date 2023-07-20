@@ -10,13 +10,13 @@ import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
 import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
 import { InputStylesRaw, Spacing } from '../../styles';
-import { InputType } from '../../types/state';
+import { InputType, ModeType } from '../../types/state';
 
 interface SearchInputProps {
   setFocused: Dispatch<SetStateAction<boolean>>;
   inputPlaceholder: string;
   view: 'compare-results' | 'search';
-  mode: 'light' | 'dark';
+  mode: ModeType;
   searchType: InputType;
 }
 

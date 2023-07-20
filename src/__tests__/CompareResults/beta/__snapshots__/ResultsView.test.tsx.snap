@@ -105,264 +105,56 @@ exports[`Results View Should match snapshot 1`] = `
                 class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container container_f790aiy css-1ljzhs0-MuiGrid-root"
-                  id="base-search-container"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_ffz7cf5 css-13eijkh-MuiGrid-root"
+                  id="base_search-dropdown"
                 >
-                  <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_ffz7cf5 css-1awobkc-MuiGrid-root"
-                    id="base_search-dropdown"
+                  <label
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
+                    id="select-repository-label"
                   >
-                    <div>
-                      <div
-                        class="MuiFormControl-root search-dropdown fzaj1pt css-1nrlq1o-MuiFormControl-root"
-                      >
-                        <label
-                          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeSmall MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeSmall MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
-                          data-shrink="true"
-                          id="select-repository-label"
-                        >
-                          Base
-                          <svg
-                            aria-hidden="true"
-                            aria-label="The baseline revision (no changes) your revision will be compared against."
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
-                            data-mui-internal-clone-element="true"
-                            data-testid="InfoOutlinedIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-                            />
-                          </svg>
-                        </label>
-                        <div
-                          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-                          data-testid="dropdown-select-base"
-                        >
-                          <div
-                            aria-expanded="false"
-                            aria-haspopup="listbox"
-                            aria-labelledby="select-repository-label"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1co7s6p-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                            role="button"
-                            tabindex="0"
-                          >
-                            try
-                          </div>
-                          <input
-                            aria-hidden="true"
-                            class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                            tabindex="-1"
-                            value="try"
-                          />
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
-                            data-testid="ArrowDropDownIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M7 10l5 5 5-5z"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_fim9qh9 css-17gmabg-MuiGrid-root"
-                    id="base_search-input"
-                  >
-                    <div
-                      class="MuiFormControl-root MuiFormControl-fullWidth fv98i7o css-q8hpuo-MuiFormControl-root"
+                    Base
+                    <svg
+                      aria-hidden="true"
+                      aria-label="The baseline revision (no changes) your revision will be compared against."
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+                      data-mui-internal-clone-element="true"
+                      data-testid="InfoOutlinedIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
                     >
-                      <div
-                        class="hide"
-                      >
-                        Block
-                      </div>
-                      <div
-                        class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
-                      >
-                        <div
-                          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
-                        >
-                          <div
-                            class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-yzzuft-MuiInputAdornment-root"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                              data-testid="SearchIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-                              />
-                            </svg>
-                          </div>
-                          <input
-                            aria-invalid="false"
-                            class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-jrmsot-MuiInputBase-input-MuiOutlinedInput-input"
-                            id="search-base-input"
-                            name="baseSearch"
-                            placeholder="Search base by ID number or author email"
-                            type="text"
-                            value=""
-                          />
-                          <fieldset
-                            aria-hidden="true"
-                            class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
-                          >
-                            <legend
-                              class="css-ihdtdm"
-                            >
-                              <span
-                                class="notranslate"
-                              >
-                                ​
-                              </span>
-                            </legend>
-                          </fieldset>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                      <path
+                        d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                      />
+                    </svg>
+                  </label>
                 </div>
               </div>
               <div
                 class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container container_f790aiy css-1ljzhs0-MuiGrid-root"
-                  id="new-search-container"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_ffz7cf5 css-13eijkh-MuiGrid-root"
+                  id="new_search-dropdown"
                 >
-                  <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_ffz7cf5 css-1awobkc-MuiGrid-root"
-                    id="new_search-dropdown"
+                  <label
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
+                    id="select-repository-label"
                   >
-                    <div>
-                      <div
-                        class="MuiFormControl-root search-dropdown fzaj1pt css-1nrlq1o-MuiFormControl-root"
-                      >
-                        <label
-                          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeSmall MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeSmall MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
-                          data-shrink="true"
-                          id="select-repository-label"
-                        >
-                          Revisions
-                          <svg
-                            aria-hidden="true"
-                            aria-label="Revisions (typically including your changes) to compare against the selected base revision."
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
-                            data-mui-internal-clone-element="true"
-                            data-testid="InfoOutlinedIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-                            />
-                          </svg>
-                        </label>
-                        <div
-                          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-                          data-testid="dropdown-select-new"
-                        >
-                          <div
-                            aria-expanded="false"
-                            aria-haspopup="listbox"
-                            aria-labelledby="select-repository-label"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1co7s6p-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                            role="button"
-                            tabindex="0"
-                          >
-                            try
-                          </div>
-                          <input
-                            aria-hidden="true"
-                            class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                            tabindex="-1"
-                            value="try"
-                          />
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
-                            data-testid="ArrowDropDownIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M7 10l5 5 5-5z"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_fim9qh9 css-17gmabg-MuiGrid-root"
-                    id="new_search-input"
-                  >
-                    <div
-                      class="MuiFormControl-root MuiFormControl-fullWidth fv98i7o css-q8hpuo-MuiFormControl-root"
+                    Revisions
+                    <svg
+                      aria-hidden="true"
+                      aria-label="Revisions (typically including your changes) to compare against the selected base revision."
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+                      data-mui-internal-clone-element="true"
+                      data-testid="InfoOutlinedIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
                     >
-                      <div
-                        class="hide"
-                      >
-                        Block
-                      </div>
-                      <div
-                        class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
-                      >
-                        <div
-                          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
-                        >
-                          <div
-                            class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-yzzuft-MuiInputAdornment-root"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                              data-testid="SearchIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-                              />
-                            </svg>
-                          </div>
-                          <input
-                            aria-invalid="false"
-                            class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-jrmsot-MuiInputBase-input-MuiOutlinedInput-input"
-                            id="search-new-input"
-                            name="newSearch"
-                            placeholder="Search revision by ID number or author email"
-                            type="text"
-                            value=""
-                          />
-                          <fieldset
-                            aria-hidden="true"
-                            class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
-                          >
-                            <legend
-                              class="css-ihdtdm"
-                            >
-                              <span
-                                class="notranslate"
-                              >
-                                ​
-                              </span>
-                            </legend>
-                          </fieldset>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                      <path
+                        d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                      />
+                    </svg>
+                  </label>
                 </div>
               </div>
               <div
@@ -1141,7 +933,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -0.34
-                              % 
+                              %
+                               
                               better
                                (
                               -2.14
@@ -1434,7 +1227,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -0.49
-                              % 
+                              %
+                               
                               better
                                (
                               -1.81
@@ -1727,7 +1521,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -0.07
-                              % 
+                              %
+                               
                               better
                                (
                               -0.27
@@ -2084,7 +1879,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               1.68
-                              % 
+                              %
+                               
                               worse
                                (
                               0.35
@@ -2379,7 +2175,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -80.68
-                              % 
+                              %
+                               
                               better
                                (
                               -18.63
@@ -2674,7 +2471,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -2.57
-                              % 
+                              %
+                               
                               better
                                (
                               -0.41
@@ -2969,7 +2767,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               0.78
-                              % 
+                              %
+                               
                               worse
                                (
                               0.03
@@ -3319,7 +3118,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -12.01
-                              % 
+                              %
+                               
                               better
                                (
                               -40960
@@ -3676,7 +3476,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               1.8
-                              % 
+                              %
+                               
                               better
                                (
                               0.11
@@ -3971,7 +3772,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               355.78
-                              % 
+                              %
+                               
                               better
                                (
                               6.75
@@ -4266,7 +4068,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -8.11
-                              % 
+                              %
+                               
                               worse
                                (
                               -1.19
@@ -4561,7 +4364,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               0.58
-                              % 
+                              %
+                               
                               better
                                (
                               0.07
@@ -4911,7 +4715,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               3.84
-                              % 
+                              %
+                               
                               worse
                                (
                               113.05
@@ -5204,7 +5009,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               7.44
-                              % 
+                              %
+                               
                               worse
                                (
                               131.67
@@ -5497,7 +5303,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               2.35
-                              % 
+                              %
+                               
                               worse
                                (
                               54.63
@@ -5847,7 +5654,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               2.73
-                              % 
+                              %
+                               
                               better
                                (
                               77.15
@@ -6199,7 +6007,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               0.21
-                              % 
+                              %
+                               
                               worse
                                (
                               0.04
@@ -6494,7 +6303,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -0.74
-                              % 
+                              %
+                               
                               better
                                (
                               -0.21
@@ -6789,7 +6599,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               2.15
-                              % 
+                              %
+                               
                               worse
                                (
                               0.09
@@ -7141,7 +6952,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               2.15
-                              % 
+                              %
+                               
                               worse
                                (
                               0.09
@@ -7491,7 +7303,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -1.7
-                              % 
+                              %
+                               
                               better
                                (
                               -6.04
@@ -7898,7 +7711,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               1.7
-                              % 
+                              %
+                               
                               worse
                                (
                               10.1
@@ -8191,7 +8005,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -2.81
-                              % 
+                              %
+                               
                               better
                                (
                               -11.64
@@ -8543,7 +8358,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               0.15
-                              % 
+                              %
+                               
                               worse
                                (
                               0.42
@@ -8837,7 +8653,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -100
-                              % 
+                              %
+                               
                               better
                                (
                               -290.4
@@ -8848,7 +8665,8 @@ exports[`Results View Should match snapshot 1`] = `
                                 <b>
                                   Confidence
                                 </b>
-                                : Not available 
+                                : Not available
+                                 
                               </div>
                             </div>
                           </div>
@@ -9120,7 +8938,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               104.96
-                              % 
+                              %
+                               
                               worse
                                (
                               201.74
@@ -9415,7 +9234,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               91.35
-                              % 
+                              %
+                               
                               worse
                                (
                               184.56
@@ -9824,7 +9644,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               2.4
-                              % 
+                              %
+                               
                               worse
                                (
                               7
@@ -10119,7 +9940,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -0.69
-                              % 
+                              %
+                               
                               better
                                (
                               -1.96
@@ -10476,7 +10298,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               436.18
-                              % 
+                              %
+                               
                               worse
                                (
                               19.6
@@ -10771,7 +10594,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -1.73
-                              % 
+                              %
+                               
                               better
                                (
                               -0.07
@@ -11066,7 +10890,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -4.82
-                              % 
+                              %
+                               
                               better
                                (
                               -1.01
@@ -11361,7 +11186,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               1.66
-                              % 
+                              %
+                               
                               worse
                                (
                               0.25
@@ -11656,7 +11482,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -80.69
-                              % 
+                              %
+                               
                               better
                                (
                               -18.89
@@ -11951,7 +11778,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               1.14
-                              % 
+                              %
+                               
                               worse
                                (
                               0.05
@@ -12246,7 +12074,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               2.05
-                              % 
+                              %
+                               
                               worse
                                (
                               0.41
@@ -12541,7 +12370,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -2.6
-                              % 
+                              %
+                               
                               better
                                (
                               -0.74
@@ -12891,7 +12721,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               0
-                              % 
+                              %
+                               
                               worse
                                (
                               5.93
@@ -13241,7 +13072,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               17.37
-                              % 
+                              %
+                               
                               worse
                                (
                               0.24
@@ -13534,7 +13366,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               1.69
-                              % 
+                              %
+                               
                               worse
                                (
                               0.04
@@ -13827,7 +13660,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -0.7
-                              % 
+                              %
+                               
                               better
                                (
                               -0.01
@@ -14184,7 +14018,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               346.79
-                              % 
+                              %
+                               
                               better
                                (
                               6.45
@@ -14479,7 +14314,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               3.34
-                              % 
+                              %
+                               
                               better
                                (
                               0.4
@@ -14774,7 +14610,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               5.17
-                              % 
+                              %
+                               
                               better
                                (
                               0.28
@@ -15069,7 +14906,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -8.29
-                              % 
+                              %
+                               
                               worse
                                (
                               -1.39
@@ -15421,7 +15259,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               3
-                              % 
+                              %
+                               
                               worse
                                (
                               3
@@ -15830,7 +15669,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -1.65
-                              % 
+                              %
+                               
                               better
                                (
                               -1.4
@@ -16125,7 +15965,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -3.23
-                              % 
+                              %
+                               
                               better
                                (
                               -2
@@ -16475,7 +16316,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -14.48
-                              % 
+                              %
+                               
                               better
                                (
                               -51.99
@@ -16768,7 +16610,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               1.23
-                              % 
+                              %
+                               
                               worse
                                (
                               7.61
@@ -17061,7 +16904,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               0.15
-                              % 
+                              %
+                               
                               worse
                                (
                               0.61
@@ -17411,7 +17255,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               3.19
-                              % 
+                              %
+                               
                               worse
                                (
                               11.54
@@ -17704,7 +17549,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               0.44
-                              % 
+                              %
+                               
                               worse
                                (
                               2.75
@@ -17997,7 +17843,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -1.57
-                              % 
+                              %
+                               
                               better
                                (
                               -6.6
@@ -18349,7 +18196,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               2.02
-                              % 
+                              %
+                               
                               worse
                                (
                               2
@@ -18644,7 +18492,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               3.85
-                              % 
+                              %
+                               
                               worse
                                (
                               3
@@ -18939,7 +18788,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -7.58
-                              % 
+                              %
+                               
                               better
                                (
                               -5
@@ -19296,7 +19146,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -1.56
-                              % 
+                              %
+                               
                               better
                                (
                               -0.43
@@ -19591,7 +19442,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               415.37
-                              % 
+                              %
+                               
                               worse
                                (
                               18.58
@@ -19886,7 +19738,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -3.05
-                              % 
+                              %
+                               
                               better
                                (
                               -0.63
@@ -20181,7 +20034,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -0.72
-                              % 
+                              %
+                               
                               better
                                (
                               -0.03
@@ -20533,7 +20387,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -45.46
-                              % 
+                              %
+                               
                               better
                                (
                               -12.62
@@ -20828,7 +20683,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               0.77
-                              % 
+                              %
+                               
                               worse
                                (
                               0.16
@@ -21123,7 +20979,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -0.16
-                              % 
+                              %
+                               
                               better
                                (
                               -0.01
@@ -21473,7 +21330,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -0.56
-                              % 
+                              %
+                               
                               better
                                (
                               -7.7
@@ -21766,7 +21624,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               5.3
-                              % 
+                              %
+                               
                               worse
                                (
                               69.4
@@ -22059,7 +21918,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               0.38
-                              % 
+                              %
+                               
                               worse
                                (
                               4.4
@@ -22416,7 +22276,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -3.8
-                              % 
+                              %
+                               
                               worse
                                (
                               -0.65
@@ -22711,7 +22572,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -77.85
-                              % 
+                              %
+                               
                               worse
                                (
                               -6.77
@@ -23006,7 +22868,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -9.62
-                              % 
+                              %
+                               
                               worse
                                (
                               -0.6
@@ -23301,7 +23164,8 @@ exports[`Results View Should match snapshot 1`] = `
                               </b>
                               : 
                               -2.59
-                              % 
+                              %
+                               
                               worse
                                (
                               -0.32

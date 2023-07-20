@@ -23,7 +23,7 @@ function CompareOverTime(props: CompareOverTimeProps) {
 }
 
 interface CompareOverTimeProps {
-  mode: 'light' | 'dark';
+  mode: ModeType;
 }
 
 export default CompareOverTime;
