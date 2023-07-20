@@ -1148,21 +1148,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -1438,21 +1441,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -1728,21 +1734,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -2082,21 +2091,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -2374,21 +2386,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              High
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                High
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'high' indicates more confidence that there is a significant change, however you should check the historical record for the test by looking at the graph to be more sure (some noisy tests can provide inconsistent results).
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -2666,21 +2681,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -2958,21 +2976,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -3305,21 +3326,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -3659,21 +3683,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -3951,21 +3978,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              High
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                High
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'high' indicates more confidence that there is a significant change, however you should check the historical record for the test by looking at the graph to be more sure (some noisy tests can provide inconsistent results).
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -4243,21 +4273,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -4535,21 +4568,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -4882,21 +4918,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -5172,21 +5211,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -5462,21 +5504,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -5809,21 +5854,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -6158,21 +6206,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -6450,21 +6501,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -6742,21 +6796,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -7091,21 +7148,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -7438,21 +7498,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -7842,21 +7905,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -8132,21 +8198,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -8481,21 +8550,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -8772,20 +8844,12 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : Not available 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -9063,21 +9127,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Medium
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Medium
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'med' indicates uncertainty that there is a significant change. If you haven't already, consider retriggering the job to be more sure.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -9355,21 +9422,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -9761,21 +9831,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -10053,21 +10126,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -10407,21 +10483,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              High
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                High
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'high' indicates more confidence that there is a significant change, however you should check the historical record for the test by looking at the graph to be more sure (some noisy tests can provide inconsistent results).
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -10699,21 +10778,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -10991,21 +11073,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -11283,21 +11368,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -11575,21 +11663,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              High
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                High
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'high' indicates more confidence that there is a significant change, however you should check the historical record for the test by looking at the graph to be more sure (some noisy tests can provide inconsistent results).
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -11867,21 +11958,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -12159,21 +12253,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -12451,21 +12548,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -12798,21 +12898,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -13145,21 +13248,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -13435,21 +13541,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -13725,21 +13834,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -14079,21 +14191,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              High
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                High
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'high' indicates more confidence that there is a significant change, however you should check the historical record for the test by looking at the graph to be more sure (some noisy tests can provide inconsistent results).
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -14371,21 +14486,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -14663,21 +14781,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -14955,21 +15076,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -15304,21 +15428,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -15710,21 +15837,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -16002,21 +16132,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -16349,21 +16482,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -16639,21 +16775,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -16929,21 +17068,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -17276,21 +17418,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -17566,21 +17711,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -17856,21 +18004,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -18205,21 +18356,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -18497,21 +18651,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -18789,21 +18946,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -19143,21 +19303,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -19435,21 +19598,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              High
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                High
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'high' indicates more confidence that there is a significant change, however you should check the historical record for the test by looking at the graph to be more sure (some noisy tests can provide inconsistent results).
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -19727,21 +19893,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -20019,21 +20188,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -20368,21 +20540,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -20660,21 +20835,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -20952,21 +21130,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -21299,21 +21480,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -21589,21 +21773,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -21879,21 +22066,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -22233,21 +22423,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -22525,21 +22718,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              High
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                High
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'high' indicates more confidence that there is a significant change, however you should check the historical record for the test by looking at the graph to be more sure (some noisy tests can provide inconsistent results).
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -22817,21 +23013,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -23109,21 +23308,24 @@ exports[`Results View Should match snapshot 1`] = `
                               )
                             </div>
                             <div>
-                              <b>
-                                Confidence
-                              </b>
-                              : 
-                              Low
-                               
-                            </div>
-                            <div
-                              class="fl597bh"
-                            >
-                              <b>
-                                **NOTE
-                              </b>
-                              : 
-                              THOUGH THIS IS A SIGNIFICANT CHANGE,       PLEASE CHECK THE HISTORICAL GRAPH ABOVE TO VALIDATE THIS RESULT        ("NOISY" TESTS MAY RETURN INCONSISTENT RESULTS).
+                              <div>
+                                <b>
+                                  Confidence
+                                </b>
+                                : 
+                                Low
+                                 
+                              </div>
+                              <div
+                                class="fj8mg7a"
+                              >
+                                <b>
+                                  **Note
+                                </b>
+                                : 
+                                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+                                 
+                              </div>
                             </div>
                           </div>
                         </div>

@@ -26,7 +26,7 @@ export type CompareResultsTableHeaderName =
   | 'Confidence'
   | 'Total Runs';
 
-export type ConfidenceText = 'High' | 'Medium' | 'Low' | 'not available';
+export type ConfidenceText = 'High' | 'Medium' | 'Low';
 
 export type MeasurementUnit =
   | 'W'
