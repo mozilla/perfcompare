@@ -1160,7 +1160,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -1453,7 +1453,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -1746,7 +1746,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -2103,7 +2103,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -2398,7 +2398,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'high' indicates more confidence that there is a significant change, however you should check the historical record for the test by looking at the graph to be more sure (some noisy tests can provide inconsistent results).
@@ -2693,7 +2693,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -2988,7 +2988,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -3338,7 +3338,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -3695,7 +3695,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -3990,7 +3990,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'high' indicates more confidence that there is a significant change, however you should check the historical record for the test by looking at the graph to be more sure (some noisy tests can provide inconsistent results).
@@ -4285,7 +4285,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -4580,7 +4580,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -4930,7 +4930,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -5223,7 +5223,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -5516,7 +5516,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -5866,7 +5866,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -6218,7 +6218,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -6513,7 +6513,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -6808,7 +6808,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -7160,7 +7160,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -7510,7 +7510,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -7917,7 +7917,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -8210,7 +8210,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -8562,7 +8562,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -9139,7 +9139,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'med' indicates uncertainty that there is a significant change. If you haven't already, consider retriggering the job to be more sure.
@@ -9434,7 +9434,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -9843,7 +9843,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -10138,7 +10138,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -10495,7 +10495,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'high' indicates more confidence that there is a significant change, however you should check the historical record for the test by looking at the graph to be more sure (some noisy tests can provide inconsistent results).
@@ -10790,7 +10790,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -11085,7 +11085,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -11380,7 +11380,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -11675,7 +11675,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'high' indicates more confidence that there is a significant change, however you should check the historical record for the test by looking at the graph to be more sure (some noisy tests can provide inconsistent results).
@@ -11970,7 +11970,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -12265,7 +12265,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -12560,7 +12560,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -12910,7 +12910,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -13260,7 +13260,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -13553,7 +13553,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -13846,7 +13846,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -14203,7 +14203,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'high' indicates more confidence that there is a significant change, however you should check the historical record for the test by looking at the graph to be more sure (some noisy tests can provide inconsistent results).
@@ -14498,7 +14498,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -14793,7 +14793,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -15088,7 +15088,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -15440,7 +15440,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -15849,7 +15849,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -16144,7 +16144,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -16494,7 +16494,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -16787,7 +16787,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -17080,7 +17080,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -17430,7 +17430,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -17723,7 +17723,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -18016,7 +18016,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -18368,7 +18368,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -18663,7 +18663,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -18958,7 +18958,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -19315,7 +19315,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -19610,7 +19610,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'high' indicates more confidence that there is a significant change, however you should check the historical record for the test by looking at the graph to be more sure (some noisy tests can provide inconsistent results).
@@ -19905,7 +19905,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -20200,7 +20200,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -20552,7 +20552,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -20847,7 +20847,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -21142,7 +21142,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -21492,7 +21492,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -21785,7 +21785,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -22078,7 +22078,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -22435,7 +22435,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -22730,7 +22730,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'high' indicates more confidence that there is a significant change, however you should check the historical record for the test by looking at the graph to be more sure (some noisy tests can provide inconsistent results).
@@ -23025,7 +23025,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
@@ -23320,7 +23320,7 @@ exports[`Results View Should match snapshot 1`] = `
                                 class="fj8mg7a"
                               >
                                 <b>
-                                  **NOTE
+                                  **Note
                                 </b>
                                 : 
                                 A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.

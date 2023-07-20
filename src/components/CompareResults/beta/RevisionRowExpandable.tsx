@@ -64,7 +64,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
           confidenceText ?
             <div>
                 <div><b>Confidence</b>: {confidenceText} </div>
-              <div className={styles.note}><b>**NOTE</b>: {strings[confidenceText]} </div>
+                <div className={styles.note}><b>**Note</b>: {strings[confidenceText]} </div>
             </div> :
             <div>
                 <div><b>Confidence</b>: Not available </div>
