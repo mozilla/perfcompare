@@ -4,6 +4,8 @@ import { Container } from '@mui/system';
 import { style } from 'typestyle';
 
 import { Strings } from '../../../resources/Strings';
+import { Spacing } from '../../../styles';
+
 
 function NoResultsFound() {
   const noResultsFound = Strings.components.noResultsFound;
@@ -12,6 +14,7 @@ function NoResultsFound() {
     text: style({
         textAlign: 'center',
         marginBottom: '80px',
+        paddingTop: Spacing.xxLarge,
     }),
   }; 
 
