@@ -1,5 +1,7 @@
 import { style } from 'typestyle';
 
+import { Colors } from './Colors';
+
 export const skipLink = style({
     left: '0%',
     top: '0%',
@@ -7,8 +9,8 @@ export const skipLink = style({
     borderRadius: '5px',
     position: 'absolute',
     border: 'none',
-    color: 'white',
-    background: '#424242',
+    color: Colors.PrimaryTextDark,
+    background: Colors.Background300Dark,
     height: '3rem',
     padding: '1rem',
 
