@@ -23,6 +23,6 @@ describe('Results Table', () => {
   it('Display message for not finding results', () => {
     renderWithRouter(<ResultsTable themeMode={themeMode} />);
 
-    expect(screen.getByTestId('no-results-found-msg')).toBeInTheDocument();
+    expect(screen.getByText(/No results found/)).toBeInTheDocument();
   });  
 });

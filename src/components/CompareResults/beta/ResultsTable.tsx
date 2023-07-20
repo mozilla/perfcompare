@@ -70,6 +70,7 @@ function ResultsTable(props: ResultsTableProps) {
         '.MuiTable-root': {
           borderSpacing: `0 ${Spacing.Small}px`,
           borderCollapse: 'separate',
+          paddingBottom: Spacing.Large,
         },
       },
     }),

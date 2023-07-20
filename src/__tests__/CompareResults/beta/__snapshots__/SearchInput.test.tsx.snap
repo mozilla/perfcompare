@@ -637,7 +637,7 @@ exports[`Search by title/test name Should match snapshot 1`] = `
               </div>
             </header>
             <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root f1cqtmh css-1inhs6f-MuiPaper-root-MuiTableContainer-root"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root f1dgii11 css-1inhs6f-MuiPaper-root-MuiTableContainer-root"
               data-testid="results-table"
             >
               <table
@@ -825,14 +825,13 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                 </thead>
               </table>
               <div
-                class="MuiContainer-root MuiContainer-maxWidthLg css-1tyv3cf-MuiContainer-root"
-                data-testid="no-results-found-msg"
+                class="MuiContainer-root MuiContainer-maxWidthLg css-1kcf06b-MuiContainer-root"
               >
                 <div
                   class="MuiGrid-root MuiGrid-container css-3s5eoc-MuiGrid-root"
                 >
                   <div
-                    class="f1awtvbo"
+                    class="foa7wva"
                   >
                     <div>
                       <svg
