@@ -1,3 +1,5 @@
+import React from 'react';
+
 import Typography from '@mui/material/Typography';
 
 
@@ -15,7 +17,7 @@ function SearchContainer(props: SearchViewProps) {
   const styles = SearchContainerStyles(themeMode, view);
 
   return (
-    <section className={styles.container}>
+    <section data-testid="search-section" ref={props.containerRef} className={styles.container}>
       <Typography className='search-default-title'>{strings.title}</Typography>
       <CompareWithBase mode={themeMode} view={view} />
       {/* hidden until post-mvp release */}
@@ -26,6 +28,7 @@ function SearchContainer(props: SearchViewProps) {
 
 interface SearchViewProps {
   themeMode: 'light' | 'dark';
+  containerRef: React.RefObject<HTMLElement>
 }
 
 export default SearchContainer;
