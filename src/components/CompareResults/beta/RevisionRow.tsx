@@ -7,8 +7,9 @@ import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import { IconButton, TableRow, TableCell } from '@mui/material';
+import Icon from '@mui/material/Icon';
 import Link from '@mui/material/Link';
-import { style } from 'typestyle';
+import { classes, style } from 'typestyle';
 
 import { Colors, Spacing } from '../../../styles';
 import { ExpandableRowStyles } from '../../../styles';
@@ -44,6 +45,8 @@ function determineSign(baseMedianValue: number, newMedianValue: number) {
   return '';
 }
 
+
+
 function RevisionRow(props: RevisionRowProps) {
   const { themeMode, result } = props;
   const { platform, base_median_value: baseMedianValue, base_measurement_unit: baseUnit, new_median_value: newMedianValue, new_measurement_unit: newUnit, is_improvement: improvement, is_regression: regression, delta_percentage: deltaPercent, confidence_text: confidenceText, base_runs: baseRuns, new_runs: newRuns, graphs_link: graphLink } = result;
@@ -71,6 +74,12 @@ function RevisionRow(props: RevisionRowProps) {
   const styles = {
     revisionRow: style({
       $nest: {
+        'imageIcon': {
+          height: '100%',
+        },
+        'iconRoot': {
+          textAlign: 'center',
+        },
         '.base-value': {
           backgroundColor: themeColor200,
         },
@@ -142,7 +151,9 @@ function RevisionRow(props: RevisionRowProps) {
     <TableRow className={`revisionRow ${styles.revisionRow}`}>
       <TableCell className='platform'>
         <div className='platform-container'>
-          <AppleIcon />
+        <Icon classes={{ root: 'iconRoot' }}>
+  <img className='imageIcon' src="/img/linux.svg"/>
+</Icon>
           <span>{shortPlatform}</span>
         </div>
       </TableCell>
