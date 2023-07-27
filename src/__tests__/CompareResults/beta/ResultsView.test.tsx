@@ -71,6 +71,7 @@ describe('Results View', () => {
     expect(
       screen.getAllByTestId('selected-revs-compare-results')[0],
     ).toBeInTheDocument();
+    expect(screen.getAllByTestId('selected-rev-item')[0]).toBeInTheDocument();
   });
 
   it('should remove the selected revision once X button is clicked', async () => {
@@ -105,16 +106,17 @@ describe('Results View', () => {
       '[aria-label="close-button"]',
     );
 
-    expect(
-      screen.getAllByTestId('selected-revs-compare-results')[0],
-    ).toBeInTheDocument();
+    const removeIcon = screen.getByTestId('close-icon');
+    expect(removeIcon).toBeInTheDocument();
+    expect(screen.getAllByTestId('selected-rev-item')[1]).toBeInTheDocument();
 
     await user.click(removeButton[0]);
 
     act(() => {
       expect(store.getState().selectedRevisions.new).toEqual([]);
     });
-    expect(screen.queryAllByTestId('selected-rev-item')[0]).toBeUndefined();
+
+    expect(screen.queryAllByTestId('selected-rev-item')[1]).toBeUndefined();
   });
 
   it('Should expand on click', async () => {

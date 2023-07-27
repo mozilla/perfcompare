@@ -755,7 +755,7 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
                       class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
                     >
                       <div
-                        class="item-container"
+                        class="item-container item-0 item-base"
                         data-testid="selected-rev-item"
                       >
                         <div
@@ -843,7 +843,7 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
                                 <svg
                                   aria-hidden="true"
                                   class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall close-icon css-1mecf1h-MuiSvgIcon-root"
-                                  data-testid="CloseOutlinedIcon"
+                                  data-testid="close-icon"
                                   focusable="false"
                                   viewBox="0 0 24 24"
                                 >

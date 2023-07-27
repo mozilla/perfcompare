@@ -82,6 +82,8 @@ describe('SelectedRevision', () => {
       '[aria-label="close-button"]',
     );
 
+    const removeIcon = screen.getByTestId('close-icon');
+    expect(removeIcon).toBeInTheDocument();
     expect(screen.getAllByTestId('selected-rev-item')[0]).toBeInTheDocument();
 
     await user.click(removeButton[0]);

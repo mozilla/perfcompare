@@ -91,7 +91,10 @@ function SelectedRevisionItem({
   };
 
   return (
-    <div className='item-container' data-testid='selected-rev-item'>
+    <div
+      className={`item-container item-${index} item-${searchType}`}
+      data-testid='selected-rev-item'
+    >
       <div className={styles.repo}>
         <div>{repository || 'unknown'}</div>
         {isWarning && repository === 'try' && (
@@ -153,11 +156,19 @@ function SelectedRevisionItem({
               onClick={handleClose}
             >
               {view == 'search' && (
-                <CloseOutlined className='close-icon' fontSize='small' />
+                <CloseOutlined
+                  className='close-icon'
+                  fontSize='small'
+                  data-testid='close-icon'
+                />
               )}
 
               {view == 'compare-results' && searchType == 'new' && (
-                <CloseOutlined className='close-icon' fontSize='small' />
+                <CloseOutlined
+                  className='icon icon-close'
+                  fontSize='small'
+                  data-testid='close-icon'
+                />
               )}
             </Button>
           </ListItemIcon>

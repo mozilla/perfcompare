@@ -20,6 +20,10 @@ const selectedRevisions = createSlice({
       }>,
     ) {
       state.revisions = action.payload.selectedRevisions;
+      state.base = [action.payload.selectedRevisions[0]];
+      state.new = action.payload.selectedRevisions.filter(
+        (_, index) => index !== 0,
+      );
     },
     deleteRevision(
       state,
