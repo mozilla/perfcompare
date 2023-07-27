@@ -9,7 +9,7 @@ import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles } from '../../styles';
 import { SearchStyles } from '../../styles';
-import { InputType } from '../../types/state';
+import type { ThemeMode, View } from '../../types/state';
 import CompareButton from './CompareButton';
 import FrameworkDropdown from './FrameworkDropdown';
 import SearchComponent from './SearchComponent';
@@ -21,8 +21,8 @@ const stringsRevision =
 const warning = strings.base.collapsed.warnings.comparison;
 
 interface CompareWithBaseProps {
-  mode: 'light' | 'dark';
-  view: 'search' | 'compare-results';
+  mode: ThemeMode;
+  view: View;
 }
 
 interface Expanded {
@@ -108,12 +108,12 @@ function CompareWithBase({ mode, view }: CompareWithBaseProps) {
         <Divider className='divider' />
         <div ref={formWrapperRef} className='form-wrapper'>
           <SearchComponent
-            searchType={'base' as InputType}
+            searchType='base'
             {...stringsBase}
             {...searchCompCommonProps}
           />
           <SearchComponent
-            searchType={'new' as InputType}
+            searchType='new'
             {...stringsRevision}
             {...searchCompCommonProps}
           />

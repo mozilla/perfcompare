@@ -2,6 +2,7 @@ import { Container } from '@mui/system';
 import { style } from 'typestyle';
 
 import { Colors } from '../../../styles';
+import type { ThemeMode } from '../../../types/state';
 import ResultsHeader from './ResultsHeader';
 import ResultsTable from './ResultsTable';
 
@@ -29,7 +30,7 @@ function ResultsMain(props: ResultsMainProps) {
 }
 
 interface ResultsMainProps {
-  themeMode: 'light' | 'dark';
+  themeMode: ThemeMode;
 }
 
 export default ResultsMain;

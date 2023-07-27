@@ -13,7 +13,7 @@ import useHandleChangeSearch from '../../../hooks/useHandleChangeSearch';
 import { switchToFakeData } from '../../../reducers/CompareResults';
 import { SearchContainerStyles } from '../../../styles';
 import { background } from '../../../styles';
-import { Repository } from '../../../types/state';
+import { Repository, View } from '../../../types/state';
 import CompareWithBase from '../../Search/CompareWithBase';
 import PerfCompareHeader from '../../Shared/PerfCompareHeader';
 import ResultsMain from './ResultsMain';
@@ -81,10 +81,10 @@ function ResultsView(props: ResultsViewProps) {
       <PerfCompareHeader
         themeMode={themeMode}
         toggleColorMode={toggleColorMode}
-        view={compareView}
+        view={compareView as View}
       />
       <section className={sectionStyles.container}>
-        <CompareWithBase mode={themeMode} view={compareView} />
+        <CompareWithBase mode={themeMode} view={compareView as View} />
       </section>
       <Grid container alignItems='center' justifyContent='center'>
         <Grid item xs={12}>
