@@ -1,6 +1,6 @@
 import { style } from 'typestyle';
 
-import { ModeType } from '../types/state';
+import { ThemeMode } from '../types/state';
 import { Colors } from './Colors';
 import { FontsRaw } from './Fonts';
 import { Spacing } from './Spacing';
@@ -137,6 +137,6 @@ export const SelectListDark = style({
 });
 
 export const SelectListStyles = (mode: string) => {
-  const themeMode = mode as ModeType;
+  const themeMode = mode as ThemeMode;
   return themeMode === 'light' ? SelectListLight : SelectListDark;
 };

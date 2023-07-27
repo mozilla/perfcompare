@@ -55,12 +55,10 @@ describe('Results View', () => {
     jest.spyOn(global, 'fetch');
 
     renderWithRouter(
-      <>
-        <ResultsView
-          protocolTheme={protocolTheme}
-          toggleColorMode={toggleColorMode}
-        />
-      </>,
+      <ResultsView
+        protocolTheme={protocolTheme}
+        toggleColorMode={toggleColorMode}
+      />,
     );
 
     const selectedRevisions = testData.slice(0, 5);
@@ -73,6 +71,50 @@ describe('Results View', () => {
     expect(
       screen.getAllByTestId('selected-revs-compare-results')[0],
     ).toBeInTheDocument();
+  });
+
+  it('should remove the selected revision once X button is clicked', async () => {
+    const { testData } = getTestData();
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () => ({
+          results: testData,
+        }),
+      }),
+    ) as jest.Mock;
+    jest.spyOn(global, 'fetch');
+
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
+
+    const selectedRevisions = testData.slice(0, 2);
+    await act(async () => {
+      store.dispatch(
+        setSelectedRevisions({ selectedRevisions: selectedRevisions }),
+      );
+    });
+
+    renderWithRouter(
+      <ResultsView
+        protocolTheme={protocolTheme}
+        toggleColorMode={toggleColorMode}
+      />,
+    );
+
+    const removeButton = document.querySelectorAll(
+      '[aria-label="close-button"]',
+    );
+
+    expect(
+      screen.getAllByTestId('selected-revs-compare-results')[0],
+    ).toBeInTheDocument();
+
+    await user.click(removeButton[0]);
+
+    act(() => {
+      expect(store.getState().selectedRevisions.new).toEqual([]);
+    });
+    expect(screen.queryAllByTestId('selected-rev-item')[0]).toBeUndefined();
   });
 
   it('Should expand on click', async () => {

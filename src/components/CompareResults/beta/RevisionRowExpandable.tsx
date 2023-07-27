@@ -3,7 +3,7 @@ import { style } from 'typestyle';
 
 import { Strings } from '../../../resources/Strings';
 import { Colors, Spacing } from '../../../styles';
-import type { CompareResultsItem, ModeType } from '../../../types/state';
+import type { CompareResultsItem, ThemeMode } from '../../../types/state';
 import Distribution from './Distribution';
 
 const strings = Strings.components.expandableRow;
@@ -101,7 +101,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
 }
 
 interface RevisionRowExpandableProps {
-  themeMode: ModeType;
+  themeMode: ThemeMode;
   result: CompareResultsItem;
 }
 

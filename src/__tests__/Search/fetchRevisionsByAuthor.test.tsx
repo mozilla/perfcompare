@@ -7,7 +7,7 @@ import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
 import { InputType } from '../../types/state';
-import type { ModeType } from '../../types/state';
+import type { ThemeMode } from '../../types/state';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
@@ -139,7 +139,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     const searchType = 'base' as InputType;
     const SearchPropsBase = {
       searchType,
-      mode: 'light' as ModeType,
+      mode: 'light' as ThemeMode,
       view: 'search' as 'search' | 'compare-results',
       isWarning: false,
       ...stringsBase,

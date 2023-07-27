@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 
 import { Strings } from '../../resources/Strings';
 import { SearchContainerStyles } from '../../styles';
-import type { ModeType } from '../../types/state';
+import type { ThemeMode, View } from '../../types/state';
 import CompareOverTime from './CompareOverTime';
 import CompareWithBase from './CompareWithBase';
 
@@ -13,7 +13,7 @@ const strings = Strings.components.searchDefault;
 
 function SearchContainer(props: SearchViewProps) {
   const { themeMode } = props;
-  const view = 'search';
+  const view = 'search' as View;
 
   const styles = SearchContainerStyles(themeMode, view);
 
@@ -32,7 +32,7 @@ function SearchContainer(props: SearchViewProps) {
 }
 
 interface SearchViewProps {
-  themeMode: ModeType;
+  themeMode: ThemeMode;
   containerRef: React.RefObject<HTMLElement>;
 }
 

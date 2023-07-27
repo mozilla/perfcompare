@@ -5,11 +5,11 @@ import Typography from '@mui/material/Typography';
 
 import { Strings } from '../../resources/Strings';
 import { HeaderStyles } from '../../styles';
-import type { ModeType } from '../../types/state';
+import type { ThemeMode } from '../../types/state';
 import ToggleDarkMode from './ToggleDarkModeButton';
 
 interface PerfCompareHeaderProps {
-  themeMode: ModeType;
+  themeMode: ThemeMode;
   toggleColorMode: () => void;
   view: 'search' | 'compare-results';
 }

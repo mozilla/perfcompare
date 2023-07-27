@@ -17,15 +17,20 @@ import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
 import { SearchStyles } from '../../styles';
 import { Spacing, DropDownMenuRaw, DropDownItemRaw } from '../../styles';
-import type { RevisionsList, InputType, ModeType } from '../../types/state';
+import type {
+  RevisionsList,
+  InputType,
+  ThemeMode,
+  View,
+} from '../../types/state';
 import SearchDropdown from './SearchDropdown';
 import SearchInput from './SearchInput';
 import SearchResultsList from './SearchResultsList';
 import SelectedRevisions from './SelectedRevisions';
 
 interface SearchProps {
-  mode: ModeType;
-  view: 'compare-results' | 'search';
+  mode: ThemeMode;
+  view: View;
   setPopoverIsOpen?: Dispatch<SetStateAction<boolean>>;
   prevRevision?: RevisionsList;
   selectLabel: string;
@@ -44,6 +49,7 @@ function SearchComponent({
   searchType,
   isWarning,
 }: SearchProps) {
+  /* These rules update the theme mode by accessing the otherwise inaccessible MUI tooltip styles*/
   cssRule('.MuiPopover-root', {
     $nest: {
       '.MuiPaper-root': {

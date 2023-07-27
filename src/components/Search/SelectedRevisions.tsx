@@ -9,18 +9,18 @@ import { useAppSelector } from '../../hooks/app';
 import { SelectRevsStyles } from '../../styles';
 import {
   InputType,
-  ViewType,
+  View,
   RevisionsList,
   Repository,
-  ModeType,
+  ThemeMode,
 } from '../../types/state';
 import SelectedRevisionItem from './SelectedRevisionItem';
 
 interface SelectedRevisionsProps {
-  mode: ModeType;
+  mode: ThemeMode;
   searchType: InputType;
   isWarning: boolean;
-  view: ViewType;
+  view: View;
 }
 
 function SelectedRevisions({

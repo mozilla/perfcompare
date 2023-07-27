@@ -103,7 +103,7 @@ describe('Compare With Base', () => {
     expect(screen.queryAllByText(/build_metrics/i)[0]).toBeInTheDocument();
   });
 
-  it('shows correct selected revisions when view is  `search` or `compare-results`', async () => {
+  it('shows correct selected revisions when view is `search` or `compare-results`', async () => {
     const { testData } = getTestData();
     const baseChecked = testData.slice(0, 1);
     const newChecked = testData.slice(1, 2);

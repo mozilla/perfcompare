@@ -101,9 +101,9 @@ export type SearchStateForInput = {
 
 export type InputType = 'base' | 'new';
 
-export type ViewType = 'compare-results' | 'search';
+export type View = 'compare-results' | 'search';
 
-export type ModeType = 'light' | 'dark'; 
+export type ThemeMode = 'light' | 'dark';
 
 export type SearchState = Record<InputType, SearchStateForInput>;
 

@@ -12,7 +12,7 @@ import { style } from 'typestyle';
 
 import { Colors, Spacing } from '../../../styles';
 import { ExpandableRowStyles } from '../../../styles';
-import type { CompareResultsItem, ModeType } from '../../../types/state';
+import type { CompareResultsItem, ThemeMode } from '../../../types/state';
 import RevisionRowExpandable from './RevisionRowExpandable';
 
 interface Expanded {
@@ -235,7 +235,7 @@ function RevisionRow(props: RevisionRowProps) {
 }
 
 interface RevisionRowProps {
-  themeMode: ModeType;
+  themeMode: ThemeMode;
   result: CompareResultsItem;
 }
 

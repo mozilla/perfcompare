@@ -4,12 +4,12 @@ import List from '@mui/material/List';
 import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
 import { SelectListStyles } from '../../styles';
-import { InputType, ModeType } from '../../types/state';
+import { InputType, ThemeMode, View } from '../../types/state';
 import SearchResultsListItem from './SearchResultsListItem';
 
 interface SearchResultsListProps {
-  view: 'compare-results' | 'search';
-  mode: ModeType;
+  view: View;
+  mode: ThemeMode;
   searchType: InputType;
 }
 

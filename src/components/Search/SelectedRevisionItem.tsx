@@ -12,12 +12,18 @@ import ListItemText from '@mui/material/ListItemText';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import dayjs from 'dayjs';
+import { useNavigate } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
+// import { useSearchParams } from 'react-router-dom';
 
+import { repoMap } from '../../common/constants';
+import { useAppSelector } from '../../hooks/app';
 import useCheckRevision from '../../hooks/useCheckRevision';
+import useSelectedRevisions from '../../hooks/useSelectedRevisions';
 import { Strings } from '../../resources/Strings';
 import { SelectRevsStyles } from '../../styles';
 import type { RevisionsList } from '../../types/state';
-import { InputType, ModeType } from '../../types/state';
+import { InputType, ThemeMode, View } from '../../types/state';
 import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
 
 const warning =
@@ -26,11 +32,11 @@ const warning =
 interface SelectedRevisionItemProps {
   index: number;
   item: RevisionsList;
-  mode: ModeType;
+  mode: ThemeMode;
   repository: string | undefined;
   searchType: InputType;
   isWarning?: boolean;
-  view: 'compare-results' | 'search';
+  view: View;
 }
 
 function SelectedRevisionItem({
@@ -47,6 +53,42 @@ function SelectedRevisionItem({
   const commitMessage = getLatestCommitMessage(item);
   const itemDate = new Date(item.push_timestamp * 1000);
   const { handleRemoveRevision } = useCheckRevision(searchType);
+  const { deleteSelectedRevisions } = useSelectedRevisions();
+  const selectedRevisions = useAppSelector(
+    (state) => state.selectedRevisions.revisions,
+  );
+  const navigate = useNavigate();
+  const prevRevRef = React.useRef<RevisionsList[]>([]);
+
+  const updateRevsInHash = () => {
+    const revs = selectedRevisions.map((rev) => rev.revision);
+    const repos = selectedRevisions.map((rev) => repoMap[rev.repository_id]);
+
+    navigate({
+      pathname: '/compare-results',
+      search: `?revs=${revs.join(',')}&repos=${repos.join(',')}`,
+    });
+  };
+
+  React.useEffect(() => {
+    if (
+      prevRevRef.current !== selectedRevisions &&
+      selectedRevisions.length > 0
+    ) {
+      updateRevsInHash();
+    }
+
+    prevRevRef.current = selectedRevisions;
+  }, [selectedRevisions]);
+
+  const handleClose = () => {
+    if (view == 'search') {
+      handleRemoveRevision(item);
+    } else {
+      deleteSelectedRevisions(item);
+    }
+    return;
+  };
 
   return (
     <div className='item-container' data-testid='selected-rev-item'>
@@ -108,9 +150,13 @@ function SelectedRevisionItem({
               role='button'
               name='close-button'
               aria-label='close-button'
-              onClick={() => handleRemoveRevision(item)}
+              onClick={handleClose}
             >
-              {view === 'compare-results' && searchType == 'new' && (
+              {view == 'search' && (
+                <CloseOutlined className='close-icon' fontSize='small' />
+              )}
+
+              {view == 'compare-results' && searchType == 'new' && (
                 <CloseOutlined className='close-icon' fontSize='small' />
               )}
             </Button>

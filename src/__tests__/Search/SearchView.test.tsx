@@ -7,7 +7,7 @@ import SearchView from '../../components/Search/SearchView';
 import { setSelectedRevisions } from '../../reducers/SelectedRevisionsSlice';
 import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
-import { RevisionsList, InputType, ModeType } from '../../types/state';
+import { RevisionsList, InputType, ThemeMode } from '../../types/state';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen, waitFor } from '../utils/test-utils';
@@ -261,7 +261,7 @@ describe('Base Search', () => {
     const spyOnFetch = jest.spyOn(global, 'fetch');
     const SearchPropsBase = {
       searchType,
-      mode: 'light' as ModeType,
+      mode: 'light' as ThemeMode,
       view: 'search' as 'search' | 'compare-results',
       isWarning: false,
       ...stringsBase,

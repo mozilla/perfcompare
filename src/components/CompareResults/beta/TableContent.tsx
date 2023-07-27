@@ -5,15 +5,14 @@ import { Colors, Spacing } from '../../../styles';
 import type {
   CompareResultsItem,
   RevisionsHeader,
-  ModeType,
+  ThemeMode,
 } from '../../../types/state';
 import RevisionHeader from './RevisionHeader';
 import RevisionRow from './RevisionRow';
 
-
 function TableContent(props: TableContentProps) {
   const { themeMode, results, header } = props;
-  
+
   const styles = {
     tableBody: style({
       marginTop: Spacing.Large,
@@ -40,19 +39,15 @@ function TableContent(props: TableContentProps) {
     <TableBody className={styles.tableBody}>
       <RevisionHeader header={header} />
       {results.length > 0 &&
-            results.map((result, index) => (
-              <RevisionRow 
-                themeMode={themeMode}  
-                key={index}
-                result={result}
-              />
-            ))}
+        results.map((result, index) => (
+          <RevisionRow themeMode={themeMode} key={index} result={result} />
+        ))}
     </TableBody>
   );
 }
 
 interface TableContentProps {
-  themeMode: ModeType;
+  themeMode: ThemeMode;
   results: CompareResultsItem[];
   header: RevisionsHeader;
 }

@@ -1,6 +1,6 @@
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles } from '../../styles';
-import type { ModeType } from '../../types/state';
+import type { ThemeMode } from '../../types/state';
 
 const strings = Strings.components.searchDefault;
 
@@ -24,7 +24,7 @@ function CompareOverTime(props: CompareOverTimeProps) {
 }
 
 interface CompareOverTimeProps {
-  mode: ModeType;
+  mode: ThemeMode;
 }
 
 export default CompareOverTime;

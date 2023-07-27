@@ -23,13 +23,14 @@ const selectedRevisions = createSlice({
     },
     deleteRevision(
       state,
-      action: PayloadAction<{ selectedRevision: RevisionsList }>,
+      action: PayloadAction<{
+        selectedRevisions: RevisionsList[];
+      }>,
     ) {
       return {
         ...state,
-        revisions: state.revisions.filter(
-          (revision) => revision.id !== action.payload.selectedRevision.id,
-        ),
+        revisions: action.payload.selectedRevisions,
+        new: action.payload.selectedRevisions.filter((_, index) => index !== 0),
       };
     },
 

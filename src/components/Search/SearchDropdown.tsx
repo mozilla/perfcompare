@@ -19,13 +19,13 @@ import {
   FontsRaw,
   Colors,
 } from '../../styles';
-import { InputType, ModeType } from '../../types/state';
+import { InputType, ThemeMode, View } from '../../types/state';
 
 interface SearchDropdownProps {
-  view: 'compare-results' | 'search';
+  view: View;
   selectLabel: string;
   tooltipText: string;
-  mode: ModeType;
+  mode: ThemeMode;
   searchType: InputType;
 }
 

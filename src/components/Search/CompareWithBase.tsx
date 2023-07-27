@@ -9,7 +9,7 @@ import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles } from '../../styles';
 import { SearchStyles } from '../../styles';
-import type { ModeType } from '../../types/state';
+import type { ThemeMode, View } from '../../types/state';
 import CompareButton from './CompareButton';
 import FrameworkDropdown from './FrameworkDropdown';
 import SearchComponent from './SearchComponent';
@@ -21,8 +21,8 @@ const stringsRevision =
 const warning = strings.base.collapsed.warnings.comparison;
 
 interface CompareWithBaseProps {
-  mode: ModeType;
-  view: 'search' | 'compare-results';
+  mode: ThemeMode;
+  view: View;
 }
 
 interface Expanded {

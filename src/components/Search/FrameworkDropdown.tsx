@@ -21,11 +21,11 @@ import {
   DropDownMenuRaw,
   DropDownItemRaw,
 } from '../../styles';
-import type { ModeType } from '../../types/state';
+import type { ThemeMode, View } from '../../types/state';
 
 interface FrameworkDropdownProps {
-  view: 'compare-results' | 'search';
-  mode: ModeType;
+  view: View;
+  mode: ThemeMode;
 }
 
 const strings = Strings.components.searchDefault.sharedCollasped.framkework;
