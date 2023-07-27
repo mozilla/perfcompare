@@ -1,0 +1,44 @@
+import { useDispatch } from 'react-redux';
+
+import { RootState } from '../common/store';
+import { comparisonResults as secondRevisionResults } from '../mockData/9d5066525489';
+import { comparisonResults as thirdRevisionResults } from '../mockData/a998c42399a8';
+import { comparisonResults as firstRevisionResults } from '../mockData/bb6a5e451dac';
+import { setCompareData } from '../reducers/CompareResults';
+import { updateComparison } from '../reducers/ComparisonSlice';
+import { truncateHash } from '../utils/helpers';
+import { useAppSelector } from './app';
+
+const useComparison = () => {
+  const dispatch = useDispatch();
+  const comparisonResults = firstRevisionResults.concat(
+    secondRevisionResults,
+    thirdRevisionResults,
+  );
+  const activeComparison: string = useAppSelector(
+    (state: RootState) => state.comparison.activeComparison,
+  );
+
+  const switchComparisonData = () => {
+    if (activeComparison === truncateHash(firstRevisionResults[0].new_rev)) {
+      dispatch(setCompareData({ data: firstRevisionResults }));
+    }
+    if (activeComparison === truncateHash(secondRevisionResults[0].new_rev)) {
+      dispatch(setCompareData({ data: secondRevisionResults }));
+    }
+    if (activeComparison === truncateHash(thirdRevisionResults[0].new_rev)) {
+      dispatch(setCompareData({ data: thirdRevisionResults }));
+    }
+    if (activeComparison === 'All revisions') {
+      dispatch(setCompareData({ data: comparisonResults }));
+    }
+  };
+
+  const handlerChangeComparison = (selectedRevision: string) => {
+    dispatch(updateComparison({ activeComparison: selectedRevision }));
+  };
+
+  return { handlerChangeComparison, switchComparisonData };
+};
+
+export default useComparison;

@@ -7,10 +7,12 @@ import { useSearchParams } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { compareView } from '../../../common/constants';
-import { useAppDispatch } from '../../../hooks/app';
+import { RootState } from '../../../common/store';
+import { useAppDispatch, useAppSelector } from '../../../hooks/app';
+import useComparison from '../../../hooks/useComparison';
 import useFetchCompareResults from '../../../hooks/useFetchCompareResults';
 import useHandleChangeSearch from '../../../hooks/useHandleChangeSearch';
-import { switchToFakeData } from '../../../reducers/CompareResults';
+import { setCompareData } from '../../../reducers/CompareResults';
 import { SearchContainerStyles } from '../../../styles';
 import { background } from '../../../styles';
 import { Repository, View } from '../../../types/state';
@@ -31,15 +33,22 @@ function ResultsView(props: ResultsViewProps) {
       backgroundColor: background(themeMode),
     }),
   };
+  const activeComparison: string = useAppSelector(
+    (state: RootState) => state.comparison.activeComparison,
+  );
+  const { switchComparisonData } = useComparison();
   const [searchParams] = useSearchParams();
   const fakeDataParam: string | null = searchParams.get('fakedata');
-
   // TODO: Populate store with real data or fake data pased on URL params
   useEffect(() => {
     if (fakeDataParam === 'true') {
-      dispatch(switchToFakeData());
+      switchComparisonData();
     }
-  }, [fakeDataParam]);
+    if (fakeDataParam === 'false' || fakeDataParam === null) {
+      // To be changed with real data
+      dispatch(setCompareData({ data: [] }));
+    }
+  }, [activeComparison, fakeDataParam]);
 
   const sectionStyles = SearchContainerStyles(themeMode, compareView);
 
