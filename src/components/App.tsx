@@ -66,6 +66,7 @@ function App() {
                 <SearchView
                   toggleColorMode={toggleColorMode}
                   protocolTheme={protocolTheme}
+                  title = 'PerfCompare - Search'
                 />
               }
             />
@@ -76,6 +77,7 @@ function App() {
                 <ResultsView
                   toggleColorMode={toggleColorMode}
                   protocolTheme={protocolTheme}
+                  title = 'PerfCompare - Results'
                 />
               }
             />
