@@ -1,6 +1,7 @@
 import { TableRow, TableCell, Link } from '@mui/material';
 import { style } from 'typestyle';
 
+import useDocsURL from '../../../hooks/useDocsURL';
 import { Colors, Spacing } from '../../../styles';
 import type { RevisionsHeader } from '../../../types/state';
 import { getTreeherderURL, truncateHash } from '../../../utils/helpers';
@@ -42,17 +43,22 @@ function createTitle(header: RevisionsHeader) {
   return header.test === '' || header.suite === header.test ? header.suite : `${header.suite} ${header.test}`;
 }
 
+function createTitleWithLink(header: RevisionsHeader, docsURL: string) {
+  return header.test === '' || header.suite === header.test ? <Link underline="hover" href ={docsURL}>{header.suite} </Link> : (<><Link underline="hover" href={docsURL}>{header.suite}</Link>&nbsp;{header.test}</>);
+}
+
 function getExtraOptions(extraOptions: string) {
   return extraOptions.split(' ');
 }
 
 function RevisionHeader(props: RevisionHeaderProps) {
   const { header } = props;
+  const { docsURL, isLinkSupported } = useDocsURL(header.suite, header.framework_id);
   const extraOptions = getExtraOptions(header.extra_options);
   return (
     <TableRow className='revision-header'>
       <TableCell colSpan={8}>
-        <strong>{createTitle(header)}</strong> <Link href={getTreeherderURL(header.new_rev, header.new_repo)}>{truncateHash(header.new_rev)}</Link>
+        <strong>{isLinkSupported ? createTitleWithLink(header, docsURL) : createTitle(header)}</strong> <Link href={getTreeherderURL(header.new_rev, header.new_repo)}>{truncateHash(header.new_rev)}</Link>
       </TableCell>
       <TableCell colSpan={4}>
         <div className={styles.tagsOptions}>
