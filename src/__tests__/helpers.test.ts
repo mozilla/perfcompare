@@ -1,7 +1,7 @@
 import {
   formatDate,
   getLatestCommitMessage,
-  setPlatformClassName,
+  getPlatformInfo,
   setConfidenceClassName,
   truncateHash,
   swapArrayElements,
@@ -37,15 +37,17 @@ describe('formateDate Helper', () => {
   });
 });
 
-describe('setPlatformClassName Helper', () => {
+describe('getPlatformInfo Helper', () => {
   it.each([
-    { platform: 'linux-shippable', className: 'linux' },
-    { platform: 'OS X 10.14 Shippable', className: 'osx' },
-    { platform: 'windows10-64-mingwclang', className: 'windows' },
-    { platform: 'Android 5.0 AArch64 Release', className: 'android' },
-    { platform: 'i am not an operating system', className: '' },
+    { platform: 'linux-shippable', shortName: 'Linux' },
+    { platform: 'OS X 10.14 Shippable', shortName: 'OSX' },
+    { platform: 'windows10-64-mingwclang', shortName: 'Windows' },
+    { platform: 'Android 5.0 AArch64 Release', shortName: 'Android' },
+    { platform: 'i am not an operating system', shortName: '' },
   ])('returns correct class name', (test) => {
-    expect(setPlatformClassName(test.platform)).toStrictEqual(test.className);
+    expect(getPlatformInfo(test.platform).shortName).toStrictEqual(
+      test.shortName,
+    );
   });
 });
 
