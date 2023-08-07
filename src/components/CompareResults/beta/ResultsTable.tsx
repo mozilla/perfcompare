@@ -49,6 +49,7 @@ function processResults(results: CompareResultsItem[]) {
         value: entry[1],
         revisionHeader: {
           suite: entry[1][0].suite,
+          framework_id: entry[1][0].framework_id,
           test: entry[1][0].test,
           option_name: entry[1][0].option_name,
           extra_options: entry[1][0].extra_options,
@@ -67,6 +68,7 @@ function ResultsTable(props: ResultsTableProps) {
   const compareResults: CompareResultsItem[] = useAppSelector(
     (state: RootState) => state.compareResults.data,
   );
+  console.log(compareResults);
   const processedResults = processResults(compareResults);
 
   const themeColor100 =
