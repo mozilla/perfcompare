@@ -39,12 +39,12 @@ const styles = {
   }),
 };
 
-function createTitle(header: RevisionsHeader) {
-  return header.test === '' || header.suite === header.test ? header.suite : `${header.suite} ${header.test}`;
-}
-
-function createTitleWithLink(header: RevisionsHeader, docsURL: string) {
-  return header.test === '' || header.suite === header.test ? <Link aria-label='link to suite documentation' underline='hover' href ={docsURL}>{header.suite} </Link> : (<><Link aria-label = 'link to suite documentation' underline='hover' href={docsURL}>{header.suite}</Link>&nbsp;{header.test}</>);
+function createTitle(header: RevisionsHeader, docsURL: string, isLinkSupported: boolean) {
+  if (isLinkSupported) {
+    return header.test === '' || header.suite === header.test ? <Link aria-label='link to suite documentation' underline='hover' href ={docsURL}>{header.suite} </Link> : (<><Link aria-label = 'link to suite documentation' underline='hover' href={docsURL}>{header.suite}</Link>&nbsp;{header.test}</>);
+  } else {
+    return header.test === '' || header.suite === header.test ? header.suite : `${header.suite} ${header.test}`;
+  }
 }
 
 function getExtraOptions(extraOptions: string) {
@@ -58,7 +58,7 @@ function RevisionHeader(props: RevisionHeaderProps) {
   return (
     <TableRow className='revision-header'>
       <TableCell colSpan={8}>
-        <strong>{isLinkSupported ? createTitleWithLink(header, docsURL) : createTitle(header)}</strong> <Link href={getTreeherderURL(header.new_rev, header.new_repo)}>{truncateHash(header.new_rev)}</Link>
+        <strong>{createTitle(header, docsURL, isLinkSupported)}</strong> <Link href={getTreeherderURL(header.new_rev, header.new_repo)}>{truncateHash(header.new_rev)}</Link>
       </TableCell>
       <TableCell colSpan={4}>
         <div className={styles.tagsOptions}>
