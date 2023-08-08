@@ -36,6 +36,4 @@ function SearchViewInit() {
   return null;
 }
 
-
-
 export default SearchViewInit;

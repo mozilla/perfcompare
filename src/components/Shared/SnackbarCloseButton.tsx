@@ -8,7 +8,7 @@ function SnackbarCloseButton(props: SnackbarCloseButtonProps) {
 
   return (
     <IconButton
-      data-testid="alert-close"
+      data-testid='alert-close'
       onClick={() => closeSnackbar(snackbarKey)}
     >
       <Close />

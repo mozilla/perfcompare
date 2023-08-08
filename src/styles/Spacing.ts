@@ -7,6 +7,6 @@ export enum Spacing {
   Large = 24,
   xLarge = 32,
   xxLarge = 48,
-	layoutLarge = 64,
-	layoutXLarge = 96,
+  layoutLarge = 64,
+  layoutXLarge = 96,
 }
