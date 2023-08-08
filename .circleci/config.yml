@@ -32,6 +32,9 @@ jobs:
       - run:
           name: test
           command: npm run test:coverage
+      - run:
+          name: prettier
+          command: npm run format:check
       - codecov/upload
 
 workflows:

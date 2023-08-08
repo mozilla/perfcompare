@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import SvgIcon from '@mui/material/SvgIcon';
-import { style } from 'typestyle'; 
+import { style } from 'typestyle';
 
 const styles = {
   box: style({
@@ -51,6 +51,5 @@ function RevisionSelect() {
     </Box>
   );
 }
-
 
 export default RevisionSelect;

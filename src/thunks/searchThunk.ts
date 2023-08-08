@@ -91,4 +91,3 @@ export const fetchRevisionsByAuthor = createAsyncThunk<
     return rejectWithValue('No results found');
   },
 );
-
