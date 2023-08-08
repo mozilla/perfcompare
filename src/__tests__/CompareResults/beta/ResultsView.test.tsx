@@ -99,9 +99,8 @@ describe('Results View', () => {
       />,
     );
     const link = screen.getByLabelText(/link to home/i);
-   expect(link).toBeInTheDocument();
+    expect(link).toBeInTheDocument();
   });
-
 
   it('should remove the selected revision once X button is clicked', async () => {
     const { testData } = getTestData();
