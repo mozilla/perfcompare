@@ -40,7 +40,9 @@ function RunValues(props: RunValuesProps) {
             </div>
           ))}
         </div>
-        <div className={styles.deviation}>{stddev} = {stddevPercent}% standard deviation</div>
+        <div className={styles.deviation}>
+          {stddev} = {stddevPercent}% standard deviation
+        </div>
       </div>
     </div>
   );
@@ -52,7 +54,7 @@ interface RunValuesProps {
     values: number[];
     stddev: number;
     stddevPercent: number;
-  }
+  };
 }
 
 export default RunValues;

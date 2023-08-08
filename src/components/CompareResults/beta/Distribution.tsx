@@ -14,10 +14,18 @@ const styles = {
   }),
 };
 
-
 function Distribution(props: DistributionProps) {
   const { result } = props;
-  const { base_runs: baseRuns, new_runs: newRuns, base_median_value: baseMedian, new_median_value: newMedian, base_stddev: baseStddev, new_stddev: newStddev, base_stddev_pct: baseStddevPercent, new_stddev_pct: newStddevPercent  } = result;
+  const {
+    base_runs: baseRuns,
+    new_runs: newRuns,
+    base_median_value: baseMedian,
+    new_median_value: newMedian,
+    base_stddev: baseStddev,
+    new_stddev: newStddev,
+    base_stddev_pct: baseStddevPercent,
+    new_stddev_pct: newStddevPercent,
+  } = result;
 
   const baseRevisionRuns = {
     name: 'Base',
@@ -37,8 +45,8 @@ function Distribution(props: DistributionProps) {
 
   return (
     <div className={styles.container}>
-      <RunValues revisionRuns={baseRevisionRuns}/>
-      <RunValues revisionRuns={newRevisionRuns}/>
+      <RunValues revisionRuns={baseRevisionRuns} />
+      <RunValues revisionRuns={newRevisionRuns} />
     </div>
   );
 }

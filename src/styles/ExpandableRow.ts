@@ -1,12 +1,8 @@
 import { stylesheet } from 'typestyle';
 
-import {
-  Spacing,
-} from '../styles';
-
+import { Spacing } from '../styles';
 
 export const ExpandableRowStyles = () => {
-
   const expandedRowCSS = stylesheet({
     container: {
       width: '100%',

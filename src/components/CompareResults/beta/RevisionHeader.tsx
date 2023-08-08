@@ -39,11 +39,36 @@ const styles = {
   }),
 };
 
-function createTitle(header: RevisionsHeader, docsURL: string, isLinkSupported: boolean) {
+function createTitle(
+  header: RevisionsHeader,
+  docsURL: string,
+  isLinkSupported: boolean,
+) {
   if (isLinkSupported) {
-    return header.test === '' || header.suite === header.test ? <Link aria-label='link to suite documentation' underline='hover' href ={docsURL}>{header.suite} </Link> : (<><Link aria-label = 'link to suite documentation' underline='hover' href={docsURL}>{header.suite}</Link>&nbsp;{header.test}</>);
+    return header.test === '' || header.suite === header.test ? (
+      <Link
+        aria-label='link to suite documentation'
+        underline='hover'
+        href={docsURL}
+      >
+        {header.suite}{' '}
+      </Link>
+    ) : (
+      <>
+        <Link
+          aria-label='link to suite documentation'
+          underline='hover'
+          href={docsURL}
+        >
+          {header.suite}
+        </Link>
+        &nbsp;{header.test}
+      </>
+    );
   } else {
-    return header.test === '' || header.suite === header.test ? header.suite : `${header.suite} ${header.test}`;
+    return header.test === '' || header.suite === header.test
+      ? header.suite
+      : `${header.suite} ${header.test}`;
   }
 }
 
@@ -53,18 +78,26 @@ function getExtraOptions(extraOptions: string) {
 
 function RevisionHeader(props: RevisionHeaderProps) {
   const { header } = props;
-  const { docsURL, isLinkSupported } = useDocsURL(header.suite, header.framework_id);
+  const { docsURL, isLinkSupported } = useDocsURL(
+    header.suite,
+    header.framework_id,
+  );
   const extraOptions = getExtraOptions(header.extra_options);
   return (
     <TableRow className='revision-header'>
       <TableCell colSpan={8}>
-        <strong>{createTitle(header, docsURL, isLinkSupported)}</strong> <Link href={getTreeherderURL(header.new_rev, header.new_repo)}>{truncateHash(header.new_rev)}</Link>
+        <strong>{createTitle(header, docsURL, isLinkSupported)}</strong>{' '}
+        <Link href={getTreeherderURL(header.new_rev, header.new_repo)}>
+          {truncateHash(header.new_rev)}
+        </Link>
       </TableCell>
       <TableCell colSpan={4}>
         <div className={styles.tagsOptions}>
           <span className={styles.chip}>{header.option_name}</span>
           {extraOptions.map((option, index) => (
-            <span className={styles.chip} key={index}>{option}</span>
+            <span className={styles.chip} key={index}>
+              {option}
+            </span>
           ))}
         </div>
       </TableCell>
