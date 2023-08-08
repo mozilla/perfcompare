@@ -39,7 +39,9 @@ const styles = {
 };
 
 function createTitle(header: RevisionsHeader) {
-  return header.test === '' || header.suite === header.test ? header.suite : `${header.suite} ${header.test}`;
+  return header.test === '' || header.suite === header.test
+    ? header.suite
+    : `${header.suite} ${header.test}`;
 }
 
 function getExtraOptions(extraOptions: string) {
@@ -52,13 +54,18 @@ function RevisionHeader(props: RevisionHeaderProps) {
   return (
     <TableRow className='revision-header'>
       <TableCell colSpan={8}>
-        <strong>{createTitle(header)}</strong> <Link href={getTreeherderURL(header.new_rev, header.new_repo)}>{truncateHash(header.new_rev)}</Link>
+        <strong>{createTitle(header)}</strong>{' '}
+        <Link href={getTreeherderURL(header.new_rev, header.new_repo)}>
+          {truncateHash(header.new_rev)}
+        </Link>
       </TableCell>
       <TableCell colSpan={4}>
         <div className={styles.tagsOptions}>
           <span className={styles.chip}>{header.option_name}</span>
           {extraOptions.map((option, index) => (
-            <span className={styles.chip} key={index}>{option}</span>
+            <span className={styles.chip} key={index}>
+              {option}
+            </span>
           ))}
         </div>
       </TableCell>

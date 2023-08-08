@@ -2,7 +2,6 @@ import React from 'react';
 
 import Typography from '@mui/material/Typography';
 
-
 import { Strings } from '../../resources/Strings';
 import { SearchContainerStyles } from '../../styles';
 import type { ThemeMode, View } from '../../types/state';

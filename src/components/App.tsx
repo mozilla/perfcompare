@@ -24,65 +24,73 @@ const strings: BannerStrings = {
 
 type DivProps = React.HTMLProps<HTMLDivElement>;
 
-const AlertContainer = React.forwardRef<HTMLDivElement, DivProps>((props, ref) => (
-  <div ref={ref}  className="alert-container" role='alert' aria-live={'assertive'}>
+const AlertContainer = React.forwardRef<HTMLDivElement, DivProps>(
+  (props, ref) => (
+    <div
+      ref={ref}
+      className='alert-container'
+      role='alert'
+      aria-live={'assertive'}
+    >
       {props.children}
-  </div>
-));
+    </div>
+  ),
+);
 
 AlertContainer.displayName = 'AlertContainer';
 
 function App() {
-  const [alertContainer, setAlertContainer] = useState<HTMLDivElement | null>(null);
+  const [alertContainer, setAlertContainer] = useState<HTMLDivElement | null>(
+    null,
+  );
   const { protocolTheme, toggleColorMode } = useProtocolTheme();
   return (
     <ThemeProvider theme={protocolTheme}>
-      
-      <AlertContainer ref={setAlertContainer}/>
-      {alertContainer ?
-      <SnackbarProvider
-        domRoot={alertContainer}
-        maxSnack={3}
-        autoHideDuration={6000}
-        action={(snackbarKey) => (
-          <SnackbarCloseButton snackbarKey={snackbarKey} />
-        )}
-      >
-        <CssBaseline />
-        <Alert className={Banner} severity='warning'>
-          <div className='banner-text'>
-            {strings.text} <Link href={strings.href}>{strings.linkText}</Link>
-          </div>
-          <Box display='flex' justifyContent='flex-end' alignItems='flex-end'>
-            <FeedbackAlert />
-          </Box>
-        </Alert>
+      <AlertContainer ref={setAlertContainer} />
+      {alertContainer ? (
+        <SnackbarProvider
+          domRoot={alertContainer}
+          maxSnack={3}
+          autoHideDuration={6000}
+          action={(snackbarKey) => (
+            <SnackbarCloseButton snackbarKey={snackbarKey} />
+          )}
+        >
+          <CssBaseline />
+          <Alert className={Banner} severity='warning'>
+            <div className='banner-text'>
+              {strings.text} <Link href={strings.href}>{strings.linkText}</Link>
+            </div>
+            <Box display='flex' justifyContent='flex-end' alignItems='flex-end'>
+              <FeedbackAlert />
+            </Box>
+          </Alert>
 
-        <Router>
-          <Routes>
-            <Route
-              path='/'
-              element={
-                <SearchView
-                  toggleColorMode={toggleColorMode}
-                  protocolTheme={protocolTheme}
-                />
-              }
-            />
+          <Router>
+            <Routes>
+              <Route
+                path='/'
+                element={
+                  <SearchView
+                    toggleColorMode={toggleColorMode}
+                    protocolTheme={protocolTheme}
+                  />
+                }
+              />
 
-            <Route
-              path='/compare-results'
-              element={
-                <ResultsView
-                  toggleColorMode={toggleColorMode}
-                  protocolTheme={protocolTheme}
-                />
-              }
-            />
-          </Routes>
-        </Router>
-      </SnackbarProvider>
-      : null }
+              <Route
+                path='/compare-results'
+                element={
+                  <ResultsView
+                    toggleColorMode={toggleColorMode}
+                    protocolTheme={protocolTheme}
+                  />
+                }
+              />
+            </Routes>
+          </Router>
+        </SnackbarProvider>
+      ) : null}
     </ThemeProvider>
   );
 }

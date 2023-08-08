@@ -26,7 +26,7 @@ const styles = {
 function SearchInput() {
   return (
     <div className={styles.container} data-testid={'search-by-title-test-name'}>
-      <div className="form-container">
+      <div className='form-container'>
         <FormControl variant='outlined'>
           <TextField
             disabled
@@ -48,9 +48,7 @@ function SearchInput() {
           />
         </FormControl>
       </div>
-      <Button disabled>
-        Apply
-      </Button>
+      <Button disabled>Apply</Button>
     </div>
   );
 }
