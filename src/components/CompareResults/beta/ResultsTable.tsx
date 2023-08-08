@@ -1,3 +1,5 @@
+import Box from '@mui/material/Box';
+import CircularProgress from '@mui/material/CircularProgress';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableContainer from '@mui/material/TableContainer';
@@ -11,7 +13,6 @@ import type {
   RevisionsHeader,
   ThemeMode,
 } from '../../../types/state';
-import { truncateHash } from '../../../utils/helpers';
 import NoResultsFound from './NoResultsFound';
 import TableContent from './TableContent';
 import TableHeader from './TableHeader';
@@ -42,6 +43,7 @@ function processResults(results: CompareResultsItem[]) {
       processedResults.set(rowIdentifier, [result]);
     }
   });
+
   const restructuredResults: Results[] = Array.from(
     processedResults,
     function (entry) {
@@ -68,17 +70,17 @@ function ResultsTable(props: ResultsTableProps) {
   const allRevisionsOption =
     Strings.components.comparisonRevisionDropdown.allRevisions;
 
+  const loading = useAppSelector((state) => state.compareResults.loading);
+
   const processedResults = useAppSelector((state) => {
     const { data } = state.compareResults;
     const { activeComparison } = state.comparison;
 
     if (activeComparison === allRevisionsOption) {
-      return processResults(data);
+      const allResults = [].concat(...Object.values(data));
+      return processResults(allResults);
     } else {
-      const results = data.filter(
-        (rev) => truncateHash(rev.new_rev) === activeComparison,
-      );
-
+      const results = data[activeComparison];
       return processResults(results);
     }
   });
@@ -107,17 +109,24 @@ function ResultsTable(props: ResultsTableProps) {
       data-testid='results-table'
       sx={customStyles}
     >
-      <Table>
-        <TableHeader themeMode={themeMode} />
-        {processedResults.map((res, index) => (
-          <TableContent
-            themeMode={themeMode}
-            key={index}
-            header={res.revisionHeader}
-            results={res.value}
-          />
-        ))}
-      </Table>
+      {loading ? (
+        <Box display='flex' justifyContent='center' alignItems='center'>
+          <CircularProgress />
+        </Box>
+      ) : (
+        <Table>
+          <TableHeader themeMode={themeMode} />
+          {processedResults.map((res, index) => (
+            <TableContent
+              themeMode={themeMode}
+              key={index}
+              header={res.revisionHeader}
+              results={res.value}
+            />
+          ))}
+          {/* )} */}
+        </Table>
+      )}
       {processedResults.length == 0 && <NoResultsFound />}
     </TableContainer>
   );

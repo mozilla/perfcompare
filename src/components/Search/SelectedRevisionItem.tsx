@@ -56,6 +56,7 @@ function SelectedRevisionItem({
   const selectedRevisions = useAppSelector(
     (state) => state.selectedRevisions.revisions,
   );
+  const selectedFramework = useAppSelector((state) => state.framework);
   const navigate = useNavigate();
   const prevRevRef = React.useRef<RevisionsList[]>([]);
 
@@ -65,7 +66,9 @@ function SelectedRevisionItem({
 
     navigate({
       pathname: '/compare-results',
-      search: `?revs=${revs.join(',')}&repos=${repos.join(',')}`,
+      search: `?revs=${revs.join(',')}&repos=${repos.join(',')}&framework=${
+        selectedFramework.id
+      }`,
     });
   };
 
