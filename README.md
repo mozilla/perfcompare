@@ -13,17 +13,18 @@ Performance Comparison Tool
 
 PerfCompare is hosted on Netlify, and is updated every time commits are pushed to the following branches:
 
-| Branch Name | URL                                               | Description                                                                                                   |
-| ----------- | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| production  | https://perf.compare/                             | Production branch, updated every 1-2 weeks.                                                                   |
-| beta        | https://beta--mozilla-perfcompare.netlify.app/    | This is the current development branch.                                                                       |
-| staging     | https://staging--mozilla-perfcompare.netlify.app/ | Staging branch before releasing to beta (it's not in use currently)                                           |
+| Branch Name | URL                                               | Description                                                         |
+| ----------- | ------------------------------------------------- | ------------------------------------------------------------------- |
+| production  | https://perf.compare/                             | Production branch, updated every 1-2 weeks.                         |
+| beta        | https://beta--mozilla-perfcompare.netlify.app/    | This is the current development branch.                             |
+| staging     | https://staging--mozilla-perfcompare.netlify.app/ | Staging branch before releasing to beta (it's not in use currently) |
 
 [More information about our deployment process](./Deployment.md)
 
 ## Setup
 
 ### Requirements
+
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - [nodejs](https://nodejs.org/en/download/)
 
@@ -54,12 +55,15 @@ After addressing the issue, ensure both tests and linting pass before submitting
 When submitting a pull request, please mention the issue number to link the pull request and issue to one another. You can do this by typing # following immediately by the issue number, i.e., `#123`
 
 ---
+
 #### Contributors
+
 > Submit your pull requests to the `staging` branch.
 
-
 #### Employees
+
 > Submit your pull requests to the `beta` branch.
+
 ---
 
 We recommend the following workflow to contribute to PerfCompare:

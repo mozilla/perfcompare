@@ -54,5 +54,4 @@ function PerfCompareHeader({
   );
 }
 
-
 export default PerfCompareHeader;
