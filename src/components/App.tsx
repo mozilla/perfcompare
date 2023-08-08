@@ -66,33 +66,33 @@ function App() {
             </Box>
           </Alert>
 
-        <Router>
-          <Routes>
-            <Route
-              path='/'
-              element={
-                <SearchView
-                  toggleColorMode={toggleColorMode}
-                  protocolTheme={protocolTheme}
-                  title = 'PerfCompare - Search'
-                />
-              }
-            />
+          <Router>
+            <Routes>
+              <Route
+                path='/'
+                element={
+                  <SearchView
+                    toggleColorMode={toggleColorMode}
+                    protocolTheme={protocolTheme}
+                    title='PerfCompare - Search'
+                  />
+                }
+              />
 
-            <Route
-              path='/compare-results'
-              element={
-                <ResultsView
-                  toggleColorMode={toggleColorMode}
-                  protocolTheme={protocolTheme}
-                  title = 'PerfCompare - Results'
-                />
-              }
-            />
-          </Routes>
-        </Router>
-      </SnackbarProvider>
-      ) : null }
+              <Route
+                path='/compare-results'
+                element={
+                  <ResultsView
+                    toggleColorMode={toggleColorMode}
+                    protocolTheme={protocolTheme}
+                    title='PerfCompare - Results'
+                  />
+                }
+              />
+            </Routes>
+          </Router>
+        </SnackbarProvider>
+      ) : null}
     </ThemeProvider>
   );
 }

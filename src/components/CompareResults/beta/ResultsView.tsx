@@ -48,7 +48,7 @@ function ResultsView(props: ResultsViewProps) {
   const { dispatchFetchCompareResults } = useFetchCompareResults();
   const { searchByRevisionOrEmail } = useHandleChangeSearch();
 
-  useEffect(()=>{
+  useEffect(() => {
     document.title = props.title;
   }, [title]);
 

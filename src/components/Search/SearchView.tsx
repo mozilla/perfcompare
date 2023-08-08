@@ -39,7 +39,7 @@ function SearchView(props: SearchViewProps) {
     });
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     document.title = props.title;
   }, [title]);
 
