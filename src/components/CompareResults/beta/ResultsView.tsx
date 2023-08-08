@@ -87,12 +87,12 @@ function ResultsView(props: ResultsViewProps) {
         view={compareView as View}
       />
       <section className={sectionStyles.container}>
-      <Link href="/" aria-label="link to home">
-        <Stack direction="row" alignItems="center">
-      <ChevronLeftIcon fontSize="small"/>
-    <p>Home</p>
-  </Stack>
-  </Link>
+        <Link href='/' aria-label='link to home'>
+          <Stack direction='row' alignItems='center'>
+            <ChevronLeftIcon fontSize='small' />
+            <p>Home</p>
+          </Stack>
+        </Link>
         <CompareWithBase mode={themeMode} view={compareView as View} />
       </section>
       <Grid container alignItems='center' justifyContent='center'>
