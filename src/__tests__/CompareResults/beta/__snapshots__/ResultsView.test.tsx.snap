@@ -6912,15 +6912,7 @@ exports[`Results View Should match snapshot 1`] = `
                       colspan="8"
                     >
                       <strong>
-                        <a
-                          aria-label="link to suite documentation"
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
-                          href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#android"
-                        >
-                          android
-                        </a>
-                         
-                         
+                        android  
                       </strong>
                        
                       <a
