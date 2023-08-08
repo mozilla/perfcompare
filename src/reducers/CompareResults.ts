@@ -5,7 +5,10 @@ import { comparisonResults as thirdRevisionResults } from '../mockData/a998c4239
 import { comparisonResults as firstRevisionResults } from '../mockData/bb6a5e451dac';
 import type { CompareResultsState } from '../types/state';
 
-const comparisonResults = firstRevisionResults.concat(secondRevisionResults, thirdRevisionResults);
+const comparisonResults = firstRevisionResults.concat(
+  secondRevisionResults,
+  thirdRevisionResults,
+);
 
 const initialState: CompareResultsState = {
   data: [],
@@ -21,7 +24,6 @@ const compareResults = createSlice({
       state.data = comparisonResults;
     },
   },
-
 });
 
 export const { switchToFakeData } = compareResults.actions;

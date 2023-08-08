@@ -43,8 +43,8 @@ export type RevisionsHeader = {
   test: string;
   option_name: string;
   extra_options: string;
-  new_rev: string,
-  new_repo: Repository['name'],
+  new_rev: string;
+  new_repo: Repository['name'];
 };
 
 export type CompareResultsItem = {
@@ -117,4 +117,9 @@ export type CompareResultsState = {
   data: CompareResultsItem[];
   loading: boolean;
   error: string | undefined;
+};
+
+export type PlatformInfo = {
+  shortName: string;
+  icon: object;
 };

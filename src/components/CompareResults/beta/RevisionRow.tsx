@@ -1,6 +1,5 @@
 import { useState } from 'react';
 
-import AppleIcon from '@mui/icons-material/Apple';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
@@ -12,7 +11,12 @@ import { style } from 'typestyle';
 
 import { Colors, Spacing } from '../../../styles';
 import { ExpandableRowStyles } from '../../../styles';
-import type { CompareResultsItem, ThemeMode } from '../../../types/state';
+import type {
+  CompareResultsItem,
+  PlatformInfo,
+  ThemeMode,
+} from '../../../types/state';
+import { getPlatformInfo } from '../../../utils/helpers';
 import RevisionRowExpandable from './RevisionRowExpandable';
 
 interface Expanded {
@@ -24,18 +28,6 @@ function determineStatus(improvement: boolean, regression: boolean) {
   if (improvement) return 'Improvement';
   if (regression) return 'Regression';
   return '-';
-}
-
-function platformMapping(platform: string) {
-  if (platform.includes('linux')) {
-    return 'Linux';
-  } else if (platform.includes('mac') || platform.includes('osx')) {
-    return 'Apple';
-  } else if (platform.includes('win')) {
-    return 'Windows';
-  } else if (platform.includes('android')) {
-    return 'Android';
-  }
 }
 
 function determineSign(baseMedianValue: number, newMedianValue: number) {
@@ -60,7 +52,9 @@ function RevisionRow(props: RevisionRowProps) {
     new_runs: newRuns,
     graphs_link: graphLink,
   } = result;
-  const shortPlatform = platformMapping(platform);
+
+  const platformInfo: PlatformInfo = getPlatformInfo(platform);
+  const PlatformIcon = platformInfo.icon as React.ElementType;
 
   const [row, setExpanded] = useState<Expanded>({
     expanded: false,
@@ -108,7 +102,7 @@ function RevisionRow(props: RevisionRowProps) {
           textAlign: 'center',
         },
         '.platform-container': {
-          alignItems: 'center',
+          alignItems: 'flex-end',
           backgroundColor: themeColor200,
           display: 'flex',
         },
@@ -155,8 +149,8 @@ function RevisionRow(props: RevisionRowProps) {
       <TableRow className={`revisionRow ${styles.revisionRow}`}>
         <TableCell className='platform'>
           <div className='platform-container'>
-            <AppleIcon />
-            <span>{shortPlatform}</span>
+            <PlatformIcon />
+            <div>{platformInfo.shortName}</div>
           </div>
         </TableCell>
         <TableCell className='base-value'>
@@ -165,7 +159,6 @@ function RevisionRow(props: RevisionRowProps) {
             {baseMedianValue} {baseUnit}{' '}
           </div>
         </TableCell>
-        {/* TODO: Add logic for comparison sign */}
         <TableCell className='comparison-sign'>
           {determineSign(baseMedianValue, newMedianValue)}
         </TableCell>
