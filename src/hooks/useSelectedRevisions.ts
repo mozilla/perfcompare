@@ -1,4 +1,7 @@
-import { setSelectedRevisions } from '../reducers/SelectedRevisionsSlice';
+import {
+  setSelectedRevisions,
+  deleteRevision,
+} from '../reducers/SelectedRevisionsSlice';
 import { RevisionsList } from '../types/state';
 import { useAppDispatch, useAppSelector } from './app';
 
@@ -29,7 +32,13 @@ const useSelectRevision = () => {
     dispatch(setSelectedRevisions({ selectedRevisions: filteredSelected }));
   };
 
-  return { addSelectedRevisions };
+  const deleteSelectedRevisions = (revision: RevisionsList) => {
+    const newSelected = [...selectedRevisions];
+    newSelected.splice(selectedRevisions.indexOf(revision), 1);
+    dispatch(deleteRevision({ selectedRevisions: newSelected }));
+  };
+
+  return { addSelectedRevisions, deleteSelectedRevisions };
 };
 
 export default useSelectRevision;

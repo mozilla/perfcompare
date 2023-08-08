@@ -43,8 +43,8 @@ export type RevisionsHeader = {
   test: string;
   option_name: string;
   extra_options: string;
-  new_rev: string,
-  new_repo: Repository['name'],
+  new_rev: string;
+  new_repo: Repository['name'];
 };
 
 export type CompareResultsItem = {
@@ -101,6 +101,10 @@ export type SearchStateForInput = {
 
 export type InputType = 'base' | 'new';
 
+export type View = 'compare-results' | 'search';
+
+export type ThemeMode = 'light' | 'dark';
+
 export type SearchState = Record<InputType, SearchStateForInput>;
 
 export type SelectedRevisionsState = {
@@ -113,4 +117,9 @@ export type CompareResultsState = {
   data: CompareResultsItem[];
   loading: boolean;
   error: string | undefined;
+};
+
+export type PlatformInfo = {
+  shortName: string;
+  icon: object;
 };

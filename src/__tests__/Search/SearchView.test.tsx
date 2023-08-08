@@ -7,10 +7,10 @@ import SearchView from '../../components/Search/SearchView';
 import { setSelectedRevisions } from '../../reducers/SelectedRevisionsSlice';
 import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
-import { RevisionsList, InputType } from '../../types/state';
+import { RevisionsList, InputType, ThemeMode } from '../../types/state';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
-import { screen } from '../utils/test-utils';
+import { screen, waitFor } from '../utils/test-utils';
 
 const stringsBase = Strings.components.searchDefault.base.collapsed.base;
 
@@ -48,6 +48,20 @@ describe('Search View', () => {
 
     expect(document.body).toMatchSnapshot();
     await act(async () => void jest.runOnlyPendingTimers());
+  });
+
+  it('renders skip to search link correctly', async () => {
+    renderComponent();
+    expect(
+      screen.getByRole('link', { name: /skip to search/i }),
+    ).toBeInTheDocument();
+  });
+
+  it('renders a skip link that sends the focus directly to search container', async () => {
+    renderComponent();
+    await waitFor(() => userEvent.tab());
+    await waitFor(() => userEvent.keyboard('{Enter}'));
+    expect(screen.queryByTestId('search-section')).toHaveFocus();
   });
 });
 
@@ -247,7 +261,7 @@ describe('Base Search', () => {
     const spyOnFetch = jest.spyOn(global, 'fetch');
     const SearchPropsBase = {
       searchType,
-      mode: 'light' as 'light' | 'dark',
+      mode: 'light' as ThemeMode,
       view: 'search' as 'search' | 'compare-results',
       isWarning: false,
       ...stringsBase,

@@ -18,5 +18,11 @@ describe('Results Table', () => {
 
     expect(screen.getByTestId('results-table')).toBeInTheDocument();
     expect(document.body).toMatchSnapshot();
-  });  
+  });
+
+  it('Display message for not finding results', () => {
+    renderWithRouter(<ResultsTable themeMode={themeMode} />);
+
+    expect(screen.getByText(/No results found/)).toBeInTheDocument();
+  });
 });

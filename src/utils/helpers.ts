@@ -1,3 +1,8 @@
+import AppleIcon from '@mui/icons-material/Apple';
+
+import AndroidIcon from '../components/Shared/Icons/AndroidIcon';
+import LinuxIcon from '../components/Shared/Icons/LinuxIcon';
+import WindowsIcon from '../components/Shared/Icons/WindowsIcon';
 import type { Repository, RevisionsList } from '../types/state';
 
 const truncateHash = (revision: RevisionsList['revision']) =>
@@ -34,18 +39,22 @@ const getTreeherderURL = (
 ) =>
   `https://treeherder.mozilla.org/jobs?repo=${repository}&revision=${revision}`;
 
-const setPlatformClassName = (platformName: string) => {
-  if (platformName.toLowerCase().includes('linux')) return 'linux';
+const getPlatformInfo = (platformName: string) => {
+  if (platformName.toLowerCase().includes('linux'))
+    return { shortName: 'Linux', icon: LinuxIcon };
   else if (
     platformName.toLowerCase().includes('osx') ||
     platformName.toLowerCase().includes('os x')
   )
-    return 'osx';
-  else if (platformName.toLowerCase().includes('windows')) return 'windows';
-  else if (platformName.toLowerCase().includes('android')) return 'android';
-  else return '';
+    return { shortName: 'OSX', icon: AppleIcon };
+  else if (platformName.toLowerCase().includes('windows'))
+    return { shortName: 'Windows', icon: WindowsIcon };
+  else if (platformName.toLowerCase().includes('android'))
+    return { shortName: 'Android', icon: AndroidIcon };
+  else return { shortName: '', icon: {} };
 };
 
+// TO DO: Review if this method is still needed
 const setConfidenceClassName = (confidenceText: string | null) => {
   return confidenceText || 'unknown-confidence';
 };
@@ -71,7 +80,7 @@ export {
   getLatestCommitMessage,
   getTreeherderURL,
   setConfidenceClassName,
-  setPlatformClassName,
+  getPlatformInfo,
   swapArrayElements,
   truncateHash,
 };

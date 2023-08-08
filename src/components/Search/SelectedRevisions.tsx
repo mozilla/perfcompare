@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 
@@ -5,14 +7,20 @@ import { repoMap } from '../../common/constants';
 import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
 import { SelectRevsStyles } from '../../styles';
-import { InputType } from '../../types/state';
+import {
+  InputType,
+  View,
+  RevisionsList,
+  Repository,
+  ThemeMode,
+} from '../../types/state';
 import SelectedRevisionItem from './SelectedRevisionItem';
 
 interface SelectedRevisionsProps {
-  mode: 'light' | 'dark';
+  mode: ThemeMode;
   searchType: InputType;
   isWarning: boolean;
-  view: 'compare-results' | 'search';
+  view: View;
 }
 
 function SelectedRevisions({
@@ -21,8 +29,9 @@ function SelectedRevisions({
   isWarning,
   view,
 }: SelectedRevisionsProps) {
-
   const styles = SelectRevsStyles(mode);
+  const [revisions, setRevisions] = useState<RevisionsList[]>([]);
+  const [repositories, setRepositories] = useState<Repository['name'][]>([]);
   const checkedRevisionsList = useAppSelector(
     (state: RootState) => state.search[searchType].checkedRevisions,
   );
@@ -35,7 +44,7 @@ function SelectedRevisions({
     (state: RootState) => state.selectedRevisions[searchType],
   );
 
-  const repository = checkedRevisionsList.map((item) => {
+  const checkedRepositories = checkedRevisionsList.map((item) => {
     const selectedRep = repoMap[item.repository_id];
     return selectedRep;
   });
@@ -45,36 +54,33 @@ function SelectedRevisions({
     return selectedRep;
   });
 
+  useEffect(() => {
+    if (view == 'search') {
+      setRevisions(checkedRevisionsList);
+      setRepositories(checkedRepositories as Repository['name'][]);
+    }
+
+    if (view == 'compare-results') {
+      setRevisions(displayedSelectedRevisions);
+      setRepositories(selectedRevRepo as Repository['name'][]);
+    }
+  }, [checkedRevisionsList, selectedRevisions]);
+
   return (
     <Box className={styles.box} data-testid={`selected-revs-${view}`}>
       <List>
-        {view == 'search' &&
-          checkedRevisionsList.map((item, index) => (
-            <SelectedRevisionItem
-              key={item.id}
-              index={index}
-              item={item}
-              mode={mode}
-              repository={repository[index]}
-              searchType={searchType}
-              isWarning={isWarning}
-            />
-          ))}
-
-        {view == 'compare-results' &&
-          displayedSelectedRevisions.map((item, index) => (
-            // This line will be ignored by code coverage
-            // istanbul ignore next
-            <SelectedRevisionItem
-              key={item.id}
-              index={index}
-              item={item}
-              mode={mode}
-              repository={selectedRevRepo && selectedRevRepo[index]}
-              searchType={searchType}
-              isWarning={isWarning}
-            />
-          ))}
+        {revisions.map((item, index) => (
+          <SelectedRevisionItem
+            key={item.id}
+            index={index}
+            item={item}
+            mode={mode}
+            repository={repositories[index]}
+            searchType={searchType}
+            isWarning={isWarning}
+            view={view}
+          />
+        ))}
       </List>
     </Box>
   );

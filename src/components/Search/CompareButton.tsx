@@ -4,10 +4,11 @@ import { style } from 'typestyle';
 import useSelectRevision from '../../hooks/useSelectedRevisions';
 import { Strings } from '../../resources/Strings';
 import { ButtonStyles } from '../../styles';
+import type { ThemeMode, View } from '../../types/state';
 
 interface CompareButtonProps {
-  mode: 'light' | 'dark';
-  view: 'search' | 'compare-results';
+  mode: ThemeMode;
+  view: View;
 }
 
 const strings = Strings.components.searchDefault.sharedCollasped;
