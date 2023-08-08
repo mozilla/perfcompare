@@ -149,6 +149,29 @@ describe('Results View', () => {
 
     expect(expandedContent[0]).toBeVisible();
   });
+  it('Should have suite linked to documentation', async () => {
+    const location = {
+      ...window.location,
+      search: '?fakedata=true',
+    };
+    Object.defineProperty(window, 'location', {
+      writable: true,
+      value: location,
+    });
+    const urlParams = new URLSearchParams(window.location.search);
+    const fakedataParam = urlParams.get('fakedata');
+    expect(fakedataParam).toBe('true');
+
+    renderWithRouter(
+      <ResultsView
+        protocolTheme={protocolTheme}
+        toggleColorMode={toggleColorMode}
+      />,
+    );
+
+    const linkToDocs = screen.getAllByLabelText('link to suite documentation');
+    expect(linkToDocs[0]).toBeInTheDocument();
+  });
 
   it('Should display Base graph and New graph', async () => {
     const user = userEvent.setup({ delay: null });

@@ -44,7 +44,7 @@ function createTitle(header: RevisionsHeader) {
 }
 
 function createTitleWithLink(header: RevisionsHeader, docsURL: string) {
-  return header.test === '' || header.suite === header.test ? <Link underline="hover" href ={docsURL}>{header.suite} </Link> : (<><Link underline="hover" href={docsURL}>{header.suite}</Link>&nbsp;{header.test}</>);
+  return header.test === '' || header.suite === header.test ? <Link aria-label='link to suite documentation' underline='hover' href ={docsURL}>{header.suite} </Link> : (<><Link aria-label = 'link to suite documentation' underline='hover' href={docsURL}>{header.suite}</Link>&nbsp;{header.test}</>);
 }
 
 function getExtraOptions(extraOptions: string) {
