@@ -92,7 +92,7 @@ function App() {
           </Routes>
         </Router>
       </SnackbarProvider>
-      : null }
+      ) : null }
     </ThemeProvider>
   );
 }
