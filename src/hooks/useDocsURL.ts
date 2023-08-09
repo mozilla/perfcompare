@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import { frameworkMap } from '../common/constants';
+import { Strings } from '../resources/Strings';
 import { Framework } from '../types/types';
 
 type SupportedPerfdocsFramework = 'talos' | 'awsy' | 'devtools';
@@ -21,15 +22,13 @@ const useDocsURL = (suite: string, framework_id: Framework['id']) => {
       supportedPerfdocsFrameworks[framework as SupportedPerfdocsFramework];
     const urlReadySuite = suite.replace(/:|\s|\.|_/g, '-').toLowerCase();
 
-    const baseURL = 'https://firefox-source-docs.mozilla.org';
-
     if (framework_id === 12 && supportedFramework) {
       setdocsURL(
-        `${baseURL}/devtools/tests/${supportedFramework}.html#${urlReadySuite}`,
+        `${Strings.urls.docs.baseURL}/devtools/tests/${supportedFramework}.html#${urlReadySuite}`,
       );
     } else if (supportedFramework) {
       setdocsURL(
-        `${baseURL}/testing/perfdocs/${supportedFramework}.html#${urlReadySuite}`,
+        `${Strings.urls.docs.baseURL}/testing/perfdocs/${supportedFramework}.html#${urlReadySuite}`,
       );
     } else {
       setIsLinkSupported(false);

@@ -44,8 +44,9 @@ function createTitle(
   docsURL: string,
   isLinkSupported: boolean,
 ) {
+  const isTestUnavailable = header.test === '' || header.suite === header.test;
   if (isLinkSupported) {
-    return header.test === '' || header.suite === header.test ? (
+    return isTestUnavailable ? (
       <Link
         aria-label='link to suite documentation'
         underline='hover'
@@ -66,9 +67,7 @@ function createTitle(
       </>
     );
   } else {
-    return header.test === '' || header.suite === header.test
-      ? header.suite
-      : `${header.suite} ${header.test}`;
+    return isTestUnavailable ? header.suite : `${header.suite} ${header.test}`;
   }
 }
 

@@ -76,6 +76,11 @@ export const Strings = {
       note: 'For the selected revision(s), no results when compared to the base revision.',
     },
   },
+  urls: {
+    docs: {
+      baseURL: 'https://firefox-source-docs.mozilla.org',
+    },
+  },
   errors: {
     warningText: 'Search must be a 12- or 40-character hash, or email address',
   },
