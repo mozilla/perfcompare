@@ -850,7 +850,7 @@ export const comparisonResults: CompareResultsItem[] = [
     new_avg_value: 4.31,
     base_median_value: 4.22,
     new_median_value: 4.31,
-    test: ' ',
+    test: '',
     option_name: 'opt',
     extra_options: 'e10s fission stylo webrender',
     base_stddev: 0.0,
