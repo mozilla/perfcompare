@@ -24,10 +24,11 @@ import ResultsMain from './ResultsMain';
 interface ResultsViewProps {
   protocolTheme: Theme;
   toggleColorMode: () => void;
+  title: string;
 }
 function ResultsView(props: ResultsViewProps) {
   const dispatch = useAppDispatch();
-  const { protocolTheme, toggleColorMode } = props;
+  const { protocolTheme, toggleColorMode, title } = props;
   const themeMode = protocolTheme.palette.mode;
   const styles = {
     container: style({
@@ -49,6 +50,10 @@ function ResultsView(props: ResultsViewProps) {
   const location = useLocation();
   const { dispatchFetchCompareResults } = useFetchCompareResults();
   const { searchByRevisionOrEmail } = useHandleChangeSearch();
+
+  useEffect(() => {
+    document.title = title;
+  }, [title]);
 
   useEffect(() => {
     const urlSearchParams = new URLSearchParams(location.search);
