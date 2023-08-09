@@ -68,7 +68,6 @@ function ResultsTable(props: ResultsTableProps) {
   const compareResults: CompareResultsItem[] = useAppSelector(
     (state: RootState) => state.compareResults.data,
   );
-  console.log(compareResults);
   const processedResults = processResults(compareResults);
 
   const themeColor100 =

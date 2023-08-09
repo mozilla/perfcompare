@@ -21875,14 +21875,7 @@ exports[`Results View Should match snapshot 1`] = `
                       colspan="8"
                     >
                       <strong>
-                        <a
-                          aria-label="link to suite documentation"
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
-                          href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#kraken"
-                        >
-                          kraken
-                           
-                        </a>
+                        idle-bg  
                       </strong>
                        
                       <a
@@ -22218,6 +22211,70 @@ exports[`Results View Should match snapshot 1`] = `
                             </div>
                           </div>
                         </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+                <tbody
+                  class="MuiTableBody-root f5w6em2 css-apqrd9-MuiTableBody-root"
+                >
+                  <tr
+                    class="MuiTableRow-root revision-header css-1yt2i5z-MuiTableRow-root"
+                  >
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
+                      colspan="8"
+                    >
+                      <strong>
+                        <a
+                          aria-label="link to suite documentation"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
+                          href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#kraken"
+                        >
+                          kraken
+                           
+                        </a>
+                      </strong>
+                       
+                      <a
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+                        href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=a998c42399a8fcea623690bf65bef49de20535b4"
+                      >
+                        a998c42399a8
+                      </a>
+                    </td>
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
+                      colspan="4"
+                    >
+                      <div
+                        class="f1oxa67k"
+                      >
+                        <span
+                          class="f1rpr1m5"
+                        >
+                          opt
+                        </span>
+                        <span
+                          class="f1rpr1m5"
+                        >
+                          e10s
+                        </span>
+                        <span
+                          class="f1rpr1m5"
+                        >
+                          fission
+                        </span>
+                        <span
+                          class="f1rpr1m5"
+                        >
+                          stylo
+                        </span>
+                        <span
+                          class="f1rpr1m5"
+                        >
+                          webrender
+                        </span>
                       </div>
                     </td>
                   </tr>
