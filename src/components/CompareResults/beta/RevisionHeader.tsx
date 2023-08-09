@@ -1,10 +1,10 @@
 import { TableRow, TableCell, Link } from '@mui/material';
 import { style } from 'typestyle';
 
-import useDocsURL from '../../../hooks/useDocsURL';
+// import useDocsURL from '../../../hooks/useDocsURL';
 import { Colors, Spacing } from '../../../styles';
 import type { RevisionsHeader } from '../../../types/state';
-import { getTreeherderURL, truncateHash } from '../../../utils/helpers';
+import { getTreeherderURL, truncateHash, getDocsURL } from '../../../utils/helpers';
 
 const styles = {
   tagsOptions: style({
@@ -77,7 +77,7 @@ function getExtraOptions(extraOptions: string) {
 
 function RevisionHeader(props: RevisionHeaderProps) {
   const { header } = props;
-  const { docsURL, isLinkSupported } = useDocsURL(
+  const { docsURL, isLinkSupported } = getDocsURL(
     header.suite,
     header.framework_id,
   );

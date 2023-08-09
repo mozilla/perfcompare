@@ -1,9 +1,12 @@
 import AppleIcon from '@mui/icons-material/Apple';
 
+import { frameworkMap } from '../common/constants';
 import AndroidIcon from '../components/Shared/Icons/AndroidIcon';
 import LinuxIcon from '../components/Shared/Icons/LinuxIcon';
 import WindowsIcon from '../components/Shared/Icons/WindowsIcon';
+import { Strings } from '../resources/Strings';
 import type { Repository, RevisionsList } from '../types/state';
+import { Framework } from '../types/types';
 
 const truncateHash = (revision: RevisionsList['revision']) =>
   revision.slice(0, 12);
@@ -54,6 +57,38 @@ const getPlatformInfo = (platformName: string) => {
   else return { shortName: '', icon: {} };
 };
 
+// DOCS HELPER FUNCTION SUMAIR
+
+type SupportedPerfdocsFramework = 'talos' | 'awsy' | 'devtools';
+const supportedPerfdocsFrameworks: Record<SupportedPerfdocsFramework, string> =
+  {
+    talos: 'talos',
+    awsy: 'awsy',
+    devtools: 'performance-tests-overview',
+  };
+
+const getDocsURL = (suite: string, framework_id: Framework['id']) => {
+  const framework = frameworkMap[framework_id];
+  const supportedFramework =
+    supportedPerfdocsFrameworks[framework as SupportedPerfdocsFramework];
+  const urlReadySuite = suite.replace(/:|\s|\.|_/g, '-').toLowerCase();
+
+  let docsURL = '';
+  let isLinkSupported = true;
+
+  const isDevToolsFramework = framework_id === 12;
+
+  if (isDevToolsFramework && supportedFramework) {
+    docsURL = `${Strings.urls.docs.baseURL}/devtools/tests/${supportedFramework}.html#${urlReadySuite}`;
+  } else if (supportedFramework) {
+    docsURL = `${Strings.urls.docs.baseURL}/testing/perfdocs/${supportedFramework}.html#${urlReadySuite}`;
+  } else {
+    isLinkSupported = false;
+  }
+
+  return { docsURL, isLinkSupported };
+};
+
 // TO DO: Review if this method is still needed
 const setConfidenceClassName = (confidenceText: string | null) => {
   return confidenceText || 'unknown-confidence';
@@ -83,4 +118,5 @@ export {
   getPlatformInfo,
   swapArrayElements,
   truncateHash,
+  getDocsURL,
 };
