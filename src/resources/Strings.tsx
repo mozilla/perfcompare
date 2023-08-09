@@ -75,6 +75,9 @@ export const Strings = {
       mainMessage: 'No results found',
       note: 'For the selected revision(s), no results when compared to the base revision.',
     },
+    comparisonRevisionDropdown: {
+      allRevisions: 'All revisions',
+    },
   },
   errors: {
     warningText: 'Search must be a 12- or 40-character hash, or email address',
