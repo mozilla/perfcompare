@@ -1,6 +1,6 @@
 export const Strings = {
   metaData: {
-    title: {
+    pageTitle: {
       search: 'PerfCompare - Search',
       results: 'PerfCompare - Results',
     },
