@@ -19,7 +19,7 @@ import SearchViewInit from './SearchViewInit';
 function SearchView(props: SearchViewProps) {
   const containerRef = useRef(null);
   const navigate = useNavigate();
-  const { toggleColorMode, protocolTheme } = props;
+  const { toggleColorMode, protocolTheme, title } = props;
   const themeMode = protocolTheme.palette.mode;
   const selectedRevisions = useAppSelector(
     (state: RootState) => state.selectedRevisions.revisions,
@@ -38,6 +38,10 @@ function SearchView(props: SearchViewProps) {
       search: `?revs=${revs.join(',')}&repos=${repos.join(',')}`,
     });
   };
+
+  useEffect(() => {
+    document.title = title;
+  }, [title]);
 
   useEffect(() => {
     if (selectedRevisions.length > 0) {
@@ -66,6 +70,7 @@ function SearchView(props: SearchViewProps) {
 interface SearchViewProps {
   toggleColorMode: () => void;
   protocolTheme: Theme;
+  title: string;
 }
 
 export default SearchView;
