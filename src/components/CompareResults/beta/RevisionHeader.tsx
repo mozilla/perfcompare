@@ -4,7 +4,11 @@ import { style } from 'typestyle';
 // import useDocsURL from '../../../hooks/useDocsURL';
 import { Colors, Spacing } from '../../../styles';
 import type { RevisionsHeader } from '../../../types/state';
-import { getTreeherderURL, truncateHash, getDocsURL } from '../../../utils/helpers';
+import {
+  getTreeherderURL,
+  truncateHash,
+  getDocsURL,
+} from '../../../utils/helpers';
 
 const styles = {
   tagsOptions: style({
