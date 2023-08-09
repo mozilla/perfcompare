@@ -1,4 +1,10 @@
 export const Strings = {
+  metaData: {
+    title: {
+      search: 'PerfCompare - Search',
+      results: 'PerfCompare - Results',
+    },
+  },
   components: {
     topBanner: {
       text: 'This is an unstable pre-release version. Some features may not yet be supported. Please file any bugs on the Github Repo.',

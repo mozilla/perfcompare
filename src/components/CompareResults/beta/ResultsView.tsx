@@ -49,7 +49,7 @@ function ResultsView(props: ResultsViewProps) {
   const { searchByRevisionOrEmail } = useHandleChangeSearch();
 
   useEffect(() => {
-    document.title = props.title;
+    document.title = title;
   }, [title]);
 
   useEffect(() => {

@@ -40,7 +40,7 @@ function SearchView(props: SearchViewProps) {
   };
 
   useEffect(() => {
-    document.title = props.title;
+    document.title = title;
   }, [title]);
 
   useEffect(() => {
