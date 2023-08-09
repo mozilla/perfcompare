@@ -12,7 +12,7 @@ describe('useDocsURL', () => {
     expect(result.current.isLinkSupported).toBe(true);
   });
 
-  it('should return the correct URL for "devtools" framwork', () => {
+  it('should return the correct URL for "devtools" framework', () => {
     const { result } = renderHook(() => useDocsURL('AnotherTestSuite', 12));
 
     expect(result.current.docsURL).toBe(
