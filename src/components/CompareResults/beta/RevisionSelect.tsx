@@ -1,11 +1,10 @@
 import SortIcon from '@mui/icons-material/Sort';
 import Box from '@mui/material/Box';
 import MenuItem from '@mui/material/MenuItem';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 import SvgIcon from '@mui/material/SvgIcon';
 import { style } from 'typestyle';
 
-import { RootState } from '../../../common/store';
 import { useAppSelector } from '../../../hooks/app';
 import useComparison from '../../../hooks/useComparison';
 
@@ -28,14 +27,7 @@ const revisionsOptions = [
 
 function RevisionSelect() {
   const { handlerChangeComparison } = useComparison();
-  const { activeComparison } = useAppSelector((state: RootState) => {
-    return state.comparison;
-  });
-
-  const onChangeHandler = (event: SelectChangeEvent<string>) => {
-    const selectedRevision = event.target.value;
-    handlerChangeComparison(selectedRevision);
-  };
+  const { activeComparison } = useAppSelector((state) => state.comparison);
 
   return (
     <Box data-testid={'revision-select'}>
@@ -54,7 +46,7 @@ function RevisionSelect() {
             </Box>
           );
         }}
-        onChange={(event) => onChangeHandler(event)}
+        onChange={(event) => handlerChangeComparison(event.target.value)}
         value={activeComparison}
       >
         {revisionsOptions.map((option) => (

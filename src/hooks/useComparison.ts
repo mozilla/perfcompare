@@ -1,6 +1,5 @@
 import { useDispatch } from 'react-redux';
 
-import { RootState } from '../common/store';
 import { comparisonResults as secondRevisionResults } from '../mockData/9d5066525489';
 import { comparisonResults as thirdRevisionResults } from '../mockData/a998c42399a8';
 import { comparisonResults as firstRevisionResults } from '../mockData/bb6a5e451dac';
@@ -12,12 +11,9 @@ import { useAppSelector } from './app';
 
 const useComparison = () => {
   const dispatch = useDispatch();
-  const comparisonResults = firstRevisionResults.concat(
-    secondRevisionResults,
-    thirdRevisionResults,
-  );
+
   const activeComparison: string = useAppSelector(
-    (state: RootState) => state.comparison.activeComparison,
+    (state) => state.comparison.activeComparison,
   );
   const allRevisions =
     Strings.components.comparisonRevisionDropdown.allRevisions;
@@ -33,6 +29,10 @@ const useComparison = () => {
       dispatch(setCompareData({ data: thirdRevisionResults }));
     }
     if (activeComparison === allRevisions) {
+      const comparisonResults = firstRevisionResults.concat(
+        secondRevisionResults,
+        thirdRevisionResults,
+      );
       dispatch(setCompareData({ data: comparisonResults }));
     }
   };

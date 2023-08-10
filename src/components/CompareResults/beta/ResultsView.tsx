@@ -7,7 +7,6 @@ import { useSearchParams } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { compareView } from '../../../common/constants';
-import { RootState } from '../../../common/store';
 import { useAppDispatch, useAppSelector } from '../../../hooks/app';
 import useComparison from '../../../hooks/useComparison';
 import useFetchCompareResults from '../../../hooks/useFetchCompareResults';
@@ -34,7 +33,7 @@ function ResultsView(props: ResultsViewProps) {
     }),
   };
   const activeComparison: string = useAppSelector(
-    (state: RootState) => state.comparison.activeComparison,
+    (state) => state.comparison.activeComparison,
   );
   const { switchComparisonData } = useComparison();
   const [searchParams] = useSearchParams();
@@ -43,8 +42,7 @@ function ResultsView(props: ResultsViewProps) {
   useEffect(() => {
     if (fakeDataParam === 'true') {
       switchComparisonData();
-    }
-    if (fakeDataParam === 'false' || fakeDataParam === null) {
+    } else {
       // To be changed with real data
       dispatch(setCompareData({ data: [] }));
     }

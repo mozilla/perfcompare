@@ -65,9 +65,7 @@ describe('Revision select', () => {
       />,
     );
 
-    let comparisonHeaders = await waitFor(() =>
-      screen.getAllByTestId(/revision-header/),
-    );
+    let comparisonHeaders = await screen.findAllByTestId(/revision-header/);
     expect(comparisonHeaders[0].textContent).toContain('bb6a5e451dac');
 
     // there are 8 results for revision bb6a5e451dac
@@ -97,9 +95,7 @@ describe('Revision select', () => {
     fireEvent.mouseDown(selectButton);
 
     // check every revision header to be for revision bb6a5e451dac
-    comparisonHeaders = await waitFor(() =>
-      screen.getAllByTestId(/revision-header/),
-    );
+    comparisonHeaders = await screen.findAllByTestId(/revision-header/);
 
     comparisonHeaders.forEach((resultHeader) =>
       expect(resultHeader.textContent).toContain('bb6a5e451dac'),
