@@ -57,8 +57,6 @@ const getPlatformInfo = (platformName: string) => {
   else return { shortName: '', icon: {} };
 };
 
-// DOCS HELPER FUNCTION SUMAIR
-
 type SupportedPerfdocsFramework = 'talos' | 'awsy' | 'devtools';
 const supportedPerfdocsFrameworks: Record<SupportedPerfdocsFramework, string> =
   {
