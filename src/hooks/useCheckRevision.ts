@@ -32,12 +32,12 @@ const useCheckRevision = (searchType: InputType) => {
     dispatch(updateCheckedRevisions({ newChecked, searchType }));
   };
 
-  const handleRemoveRevision = (revision: RevisionsList) => {
+  const removeCheckedRevision = (revision: RevisionsList) => {
     const newChecked = [...searchCheckedRevisions];
     newChecked.splice(searchCheckedRevisions.indexOf(revision), 1);
     dispatch(updateCheckedRevisions({ newChecked, searchType }));
   };
-  return { handleToggle, handleRemoveRevision };
+  return { handleToggle, removeCheckedRevision };
 };
 
 export default useCheckRevision;

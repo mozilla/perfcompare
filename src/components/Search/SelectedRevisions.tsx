@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 
-import { repoMap } from '../../common/constants';
+import { repoMap, searchView } from '../../common/constants';
 import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
 import { SelectRevsStyles } from '../../styles';
@@ -21,6 +21,7 @@ interface SelectedRevisionsProps {
   searchType: InputType;
   isWarning: boolean;
   view: View;
+  editBtnVisible?: boolean;
 }
 
 function SelectedRevisions({
@@ -28,6 +29,7 @@ function SelectedRevisions({
   searchType,
   isWarning,
   view,
+  editBtnVisible,
 }: SelectedRevisionsProps) {
   const styles = SelectRevsStyles(mode);
   const [revisions, setRevisions] = useState<RevisionsList[]>([]);
@@ -55,12 +57,10 @@ function SelectedRevisions({
   });
 
   useEffect(() => {
-    if (view == 'search') {
+    if (view === searchView || !editBtnVisible) {
       setRevisions(checkedRevisionsList);
       setRepositories(checkedRepositories as Repository['name'][]);
-    }
-
-    if (view == 'compare-results') {
+    } else {
       setRevisions(displayedSelectedRevisions);
       setRepositories(selectedRevRepo as Repository['name'][]);
     }
@@ -79,6 +79,7 @@ function SelectedRevisions({
             searchType={searchType}
             isWarning={isWarning}
             view={view}
+            editBtnVisible={editBtnVisible}
           />
         ))}
       </List>

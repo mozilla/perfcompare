@@ -10,7 +10,6 @@ import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
 import dayjs from 'dayjs';
 import { style } from 'typestyle';
-
 import { useAppSelector } from '../../hooks/app';
 import useCheckRevision from '../../hooks/useCheckRevision';
 import { Spacing } from '../../styles';
@@ -53,7 +52,6 @@ const styles = {
 function SearchResultsListItem({
   index,
   item,
-  view,
   searchType,
 }: SearchResultsListItemProps) {
   const isChecked: boolean = useAppSelector((state) =>
@@ -63,9 +61,7 @@ function SearchResultsListItem({
   const { handleToggle } = useCheckRevision(searchType);
   const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);
-  const maxRevisions = view == 'compare-results' ? 1 : 3;
-  const isBase = searchType == 'base' ? 1 : maxRevisions;
-
+  const isBase = searchType === 'base' ? 1 : 3;
   const itemDate = new Date(item.push_timestamp * 1000);
 
   return (

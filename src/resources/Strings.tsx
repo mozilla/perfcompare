@@ -41,6 +41,9 @@ export const Strings = {
         img: 'https://user-images.githubusercontent.com/88336547/233237125-1534220b-c343-421a-9133-ce8f151cb979.png',
         imgDark:
           'https://user-images.githubusercontent.com/88336547/233250674-004d071a-7c23-40f4-b348-0687a3fef6e3.png',
+        icons: {
+          editImgUrl: '/img/edit.svg',
+        },
         collapsed: {
           warnings: {
             comparison:

@@ -70,7 +70,7 @@ exports[`Search by title/test name Should match snapshot 1`] = `
           class="MuiGrid-root wrapper css-plh9qo-MuiGrid-root"
         >
           <div
-            class="compare-card-container compare-card-container--expanded container_fabrhot"
+            class="compare-card-container compare-card-container--expanded container_f1ms7w83"
             data-testid="base-state"
           >
             <div
@@ -93,7 +93,7 @@ exports[`Search by title/test name Should match snapshot 1`] = `
             />
           </div>
           <div
-            class="compare-card-container content-base content-base--expanded container_fabrhot "
+            class="compare-card-container content-base content-base--expanded container_f1ms7w83 "
           >
             <hr
               class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
@@ -105,8 +105,7 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                 class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_ffz7cf5 css-13eijkh-MuiGrid-root"
-                  id="base_search-dropdown"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fi0124t label-edit-wrapper css-13eijkh-MuiGrid-root"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -127,14 +126,30 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                       />
                     </svg>
                   </label>
+                  <button
+                    aria-label="edit button"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium edit-button  css-t42cd1-MuiButtonBase-root-MuiButton-root"
+                    name="edit-button"
+                    role="button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <img
+                      alt="edit-icon"
+                      class="icon icon-edit"
+                      src="/img/edit.svg"
+                    />
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
               </div>
               <div
                 class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_ffz7cf5 css-13eijkh-MuiGrid-root"
-                  id="new_search-dropdown"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fi0124t label-edit-wrapper css-13eijkh-MuiGrid-root"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -155,10 +170,27 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                       />
                     </svg>
                   </label>
+                  <button
+                    aria-label="edit button"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium edit-button  css-t42cd1-MuiButtonBase-root-MuiButton-root"
+                    name="edit-button"
+                    role="button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <img
+                      alt="edit-icon"
+                      class="icon icon-edit"
+                      src="/img/edit.svg"
+                    />
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_ffz7cf5 fjuaqdk css-13eijkh-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fi0124t fjuaqdk css-13eijkh-MuiGrid-root"
               >
                 <div>
                   <div

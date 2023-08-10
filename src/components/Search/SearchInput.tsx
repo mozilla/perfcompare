@@ -9,7 +9,7 @@ import { style } from 'typestyle';
 import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
 import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
-import { InputStylesRaw, Spacing } from '../../styles';
+import { InputStylesRaw } from '../../styles';
 import { InputType, ThemeMode, View } from '../../types/state';
 
 interface SearchInputProps {
@@ -43,7 +43,6 @@ function SearchInput({
         },
         '.search-text-field': {
           width: '100%',
-          marginTop: `${Spacing.xSmall / 2}px`,
         },
         '.MuiInputBase-root': {
           ...(mode == 'light' ? InputStylesRaw.Light : InputStylesRaw.Dark),
@@ -55,7 +54,6 @@ function SearchInput({
 
   return (
     <FormControl className={styles.container} fullWidth>
-      <div className='hide'>Block</div>
       <TextField
         error={inputError}
         helperText={inputError && inputHelperText}
