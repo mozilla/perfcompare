@@ -165,7 +165,7 @@ describe('Results View', () => {
 
     renderWithRouter(<RevisionHeader header={revisionHeader} />);
     const linkToSuite = screen.queryByLabelText('link to suite documentation');
-    expect(linkToSuite).not.toBeInTheDocument();
+    expect(linkToSuite).toBeInTheDocument();
   });
 
   it('Should render revision header without link to suite docs for unsupported framework', () => {
