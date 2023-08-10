@@ -2,10 +2,12 @@ import userEvent from '@testing-library/user-event';
 import { Bubble, ChartProps } from 'react-chartjs-2';
 
 import ResultsView from '../../../components/CompareResults/beta/ResultsView';
+import useFetchCompareResults from '../../../hooks/useFetchCompareResults';
 import { setSelectedRevisions } from '../../../reducers/SelectedRevisionsSlice';
 import useProtocolTheme from '../../../theme/protocolTheme';
 import getTestData from '../../utils/fixtures';
 import { renderWithRouter, store } from '../../utils/setupTests';
+import { StoreProvider } from '../../utils/setupTests';
 import { renderHook, screen, waitFor, act } from '../../utils/test-utils';
 
 jest.mock('react-router-dom', () => ({
@@ -149,21 +151,27 @@ describe('Results View', () => {
 
     expect(expandedContent[0]).toBeVisible();
   });
-  it('Should have suite linked to documentation', async () => {
-    const location = {
-      ...window.location,
-      search: '?fakedata=true',
-    };
-    Object.defineProperty(window, 'location', {
-      writable: true,
-      value: location,
-    });
-    const urlParams = new URLSearchParams(window.location.search);
-    const fakedataParam = urlParams.get('fakedata');
-    expect(fakedataParam).toBe('true');
 
+  it('Should have suite linked to documentation', async () => {
+    const { testCompareData } = getTestData();
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () => ({
+          results: testCompareData,
+        }),
+      }),
+    ) as jest.Mock;
+
+    const {
+      result: {
+        current: { dispatchFetchCompareResults },
+      },
+    } = renderHook(() => useFetchCompareResults(), { wrapper: StoreProvider });
+
+    await dispatchFetchCompareResults(['fenix'], ['testRev']);
     renderWithRouter(
       <ResultsView
+        title='Perfcompare - Results'
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
       />,

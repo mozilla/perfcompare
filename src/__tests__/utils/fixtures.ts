@@ -101,7 +101,7 @@ const getTestData = () => {
     {
       base_rev: 'coconut',
       new_rev: 'spam',
-      framework_id: 1,
+      framework_id: 10,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
       is_empty: false,
