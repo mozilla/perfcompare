@@ -144,7 +144,7 @@ const getTestData = () => {
     {
       base_rev: 'coconut',
       new_rev: 'spam',
-      framework_id: 1,
+      framework_id: 10,
       platform: 'linux1804-64-shippable-qr',
       suite: 'a11yr',
       is_empty: false,
@@ -162,7 +162,7 @@ const getTestData = () => {
       new_avg_value: 791.34,
       base_median_value: 776.97,
       new_median_value: 791.34,
-      test: 'dhtml.html',
+      test: '',
       option_name: 'opt',
       extra_options: 'e10s fission stylo webrender',
       base_stddev: 0.0,
