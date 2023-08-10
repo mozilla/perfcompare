@@ -2,12 +2,12 @@ import userEvent from '@testing-library/user-event';
 import { Bubble, ChartProps } from 'react-chartjs-2';
 
 import ResultsView from '../../../components/CompareResults/beta/ResultsView';
-import useFetchCompareResults from '../../../hooks/useFetchCompareResults';
+import RevisionHeader from '../../../components/CompareResults/beta/RevisionHeader';
 import { setSelectedRevisions } from '../../../reducers/SelectedRevisionsSlice';
 import useProtocolTheme from '../../../theme/protocolTheme';
+import { RevisionsHeader } from '../../../types/state';
 import getTestData from '../../utils/fixtures';
 import { renderWithRouter, store } from '../../utils/setupTests';
-import { StoreProvider } from '../../utils/setupTests';
 import { renderHook, screen, waitFor, act } from '../../utils/test-utils';
 
 jest.mock('react-router-dom', () => ({
@@ -152,33 +152,20 @@ describe('Results View', () => {
     expect(expandedContent[0]).toBeVisible();
   });
 
-  it('Should have suite linked to documentation', async () => {
-    const { testCompareData } = getTestData();
-    global.fetch = jest.fn(() =>
-      Promise.resolve({
-        json: () => ({
-          results: testCompareData,
-        }),
-      }),
-    ) as jest.Mock;
+  it('Should render revision header', () => {
+    const revisionHeader: RevisionsHeader = {
+      extra_options: 'e10s fission stylo webgl-ipc webrender',
+      framework_id: 10,
+      new_repo: 'mozilla-central',
+      new_rev: 'a998c42399a8fcea623690bf65bef49de20535b4',
+      option_name: 'opt',
+      suite: 'idle-bg',
+      test: '3DGraphics-WebGL',
+    };
 
-    const {
-      result: {
-        current: { dispatchFetchCompareResults },
-      },
-    } = renderHook(() => useFetchCompareResults(), { wrapper: StoreProvider });
-
-    await dispatchFetchCompareResults(['fenix'], ['testRev']);
-    renderWithRouter(
-      <ResultsView
-        title='Perfcompare - Results'
-        protocolTheme={protocolTheme}
-        toggleColorMode={toggleColorMode}
-      />,
-    );
-
-    const linkToDocs = screen.getAllByLabelText('link to suite documentation');
-    expect(linkToDocs[0]).toBeInTheDocument();
+    renderWithRouter(<RevisionHeader header={revisionHeader} />);
+    const linkToSuite = screen.queryByLabelText('link to suite documentation');
+    expect(linkToSuite).not.toBeInTheDocument();
   });
 
   it('Should display Base graph and New graph', async () => {
