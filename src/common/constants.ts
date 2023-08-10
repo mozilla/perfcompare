@@ -1,7 +1,11 @@
 import { Dictionary } from '@reduxjs/toolkit';
 
 import { Repository } from '../types/state';
-import { Framework, Platform } from '../types/types';
+import {
+  Framework,
+  Platform,
+  SupportedPerfdocsFramework,
+} from '../types/types';
 
 export const treeherderBaseURL = 'https://treeherder.mozilla.org';
 
@@ -27,6 +31,8 @@ export const repoMap: Dictionary<Repository['name']> = {
   108: 'fenix',
 };
 
+export const baseDocsURL = 'https://firefox-source-docs.mozilla.org';
+
 export const frameworkMap: Record<Framework['id'], Framework['name']> = {
   1: 'talos',
   2: 'build_metrics',
@@ -38,6 +44,15 @@ export const frameworkMap: Record<Framework['id'], Framework['name']> = {
   13: 'browsertime',
   15: 'mozperftest',
   16: 'fxrecord',
+};
+
+export const supportedPerfdocsFrameworks: Record<
+  SupportedPerfdocsFramework,
+  string
+> = {
+  talos: 'talos',
+  awsy: 'awsy',
+  devtools: 'performance-tests-overview',
 };
 
 export const frameworks: Framework[] = [
