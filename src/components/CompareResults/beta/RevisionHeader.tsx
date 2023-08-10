@@ -1,7 +1,6 @@
 import { TableRow, TableCell, Link } from '@mui/material';
 import { style } from 'typestyle';
 
-// import useDocsURL from '../../../hooks/useDocsURL';
 import { Colors, Spacing } from '../../../styles';
 import type { RevisionsHeader } from '../../../types/state';
 import {
