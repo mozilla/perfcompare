@@ -30,7 +30,7 @@ function ResultsView(props: ResultsViewProps) {
     (state) => state.search.base.repository,
   );
   const repositoryNew = useAppSelector((state) => state.search.new.repository);
-  const { protocolTheme, toggleColorMode } = props;
+  const { protocolTheme, toggleColorMode, title } = props;
   const themeMode = protocolTheme.palette.mode;
   const styles = {
     container: style({
