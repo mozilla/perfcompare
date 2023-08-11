@@ -38,7 +38,10 @@ import SearchInput from './SearchInput';
 import SearchResultsList from './SearchResultsList';
 import SelectedRevisions from './SelectedRevisions';
 
-const editImgUrl = Strings.components.searchDefault.base.icons.editImgUrl;
+const base = Strings.components.searchDefault.base;
+const editImgUrl = base.editIcon;
+const save = base.save;
+const cancel = base.cancel;
 
 interface SearchProps {
   mode: ThemeMode;
@@ -265,7 +268,7 @@ function SearchComponent({
                 variant='contained'
                 onClick={handleCancelAction}
               >
-                Cancel
+                {cancel}
               </Button>
               <Button
                 className={`cancel-save save-button ${
@@ -277,7 +280,7 @@ function SearchComponent({
                 variant='contained'
                 onClick={handleSaveAction}
               >
-                Save
+                {save}
               </Button>
             </div>
           )}
