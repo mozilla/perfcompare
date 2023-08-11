@@ -248,7 +248,7 @@ function SearchComponent({
               inputPlaceholder={inputPlaceholder}
               searchType={searchType}
             />
-            {searchResults.length > 0 && focused && focused !== undefined && (
+            {searchResults.length > 0 && focused && (
               <SearchResultsList
                 mode={mode}
                 view={view}
