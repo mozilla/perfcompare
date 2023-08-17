@@ -172,7 +172,7 @@ export const SearchStyles = (mode: string) => {
             },
           },
         },
-        '.dropdown-select-label': {
+        '.dropdown-select-label,.base_label': {
           ...(isTrueLight ? FontsRaw.BodyDefault : FontsRaw.BodyDefaultDark),
           fontWeight: '600',
           marginBottom: `${Spacing.xSmall + 2}px`,

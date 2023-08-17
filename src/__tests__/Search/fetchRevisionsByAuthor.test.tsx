@@ -37,6 +37,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
       <SearchView
         toggleColorMode={toggleColorMode}
         protocolTheme={protocolTheme}
+        title='Search'
       />,
     );
 
@@ -75,6 +76,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
         <SearchView
           toggleColorMode={toggleColorMode}
           protocolTheme={protocolTheme}
+          title='Search'
         />,
       );
     });
@@ -111,6 +113,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
         <SearchView
           toggleColorMode={toggleColorMode}
           protocolTheme={protocolTheme}
+          title='Search'
         />,
       );
     });
@@ -149,6 +152,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
       <SearchView
         toggleColorMode={toggleColorMode}
         protocolTheme={protocolTheme}
+        title='Search'
       />,
     );
 

@@ -93,7 +93,7 @@ function ResultsView(props: ResultsViewProps) {
         searchType: 'base' as InputType,
       }),
     );
-  }, []);
+  }, [repositoryBase]);
 
   useEffect(() => {
     const repository = repositoryNew;
@@ -103,7 +103,7 @@ function ResultsView(props: ResultsViewProps) {
         searchType: 'new' as InputType,
       }),
     );
-  }, []);
+  }, [repositoryNew]);
 
   return (
     <div

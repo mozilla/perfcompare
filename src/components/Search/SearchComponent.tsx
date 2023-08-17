@@ -197,7 +197,9 @@ function SearchComponent({
 
         {view == compareView && (
           <Button
-            className={`edit-button ${!editBtnVisible ? 'hidden' : ''}`}
+            className={`edit-button ${
+              !editBtnVisible ? 'hidden edit-hidden' : ''
+            } edit-button-${searchType}`}
             role='button'
             name='edit-button'
             aria-label='edit button'
@@ -222,7 +224,7 @@ function SearchComponent({
             id={`${searchType}_search-dropdown`}
             className={`${searchType}-search-dropdown ${styles.dropDown} ${
               view === compareView ? 'small' : ''
-            }`}
+            } ${view}-base-dropdown`}
           >
             <SearchDropdown
               view={view}
@@ -259,7 +261,9 @@ function SearchComponent({
           {view === compareView && (
             <div className='cancel-save-btns' id='cancel-save_btns'>
               <Button
-                className={`cancel-save cancel-button ${cancelBtn.main} ${
+                className={`cancel-save cancel-button ${
+                  cancelBtn.main
+                } cancel-button-${searchType} ${
                   editBtnVisible ? 'hidden' : ''
                 }`}
                 role='button'
@@ -271,7 +275,7 @@ function SearchComponent({
                 {cancel}
               </Button>
               <Button
-                className={`cancel-save save-button ${
+                className={`cancel-save save-button } save-button-${searchType} ${
                   editBtnVisible ? 'hidden' : ''
                 }`}
                 role='button'

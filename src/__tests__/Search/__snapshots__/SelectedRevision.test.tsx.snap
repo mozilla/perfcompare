@@ -132,7 +132,7 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
                 class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fi0124t label-edit-wrapper css-13eijkh-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fxraqjn label-edit-wrapper css-13eijkh-MuiGrid-root"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -159,7 +159,7 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
                   id="base-search-container"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fi0124t  css-1awobkc-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fxraqjn  search-base-dropdown css-1awobkc-MuiGrid-root"
                     id="base_search-dropdown"
                   >
                     <div>
@@ -764,7 +764,7 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
                           </div>
                         </div>
                         <div
-                          class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fni5v24 css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
+                          class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_f4sklcl css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
                           role="button"
                           tabindex="0"
                         >
@@ -837,7 +837,7 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
                             >
                               <svg
                                 aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall icon icon-close css-1mecf1h-MuiSvgIcon-root"
+                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall icon icon-close-show css-1mecf1h-MuiSvgIcon-root"
                                 data-testid="close-icon"
                                 focusable="false"
                                 viewBox="0 0 24 24"
@@ -864,7 +864,7 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
                 class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fi0124t label-edit-wrapper css-13eijkh-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fxraqjn label-edit-wrapper css-13eijkh-MuiGrid-root"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -891,7 +891,7 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
                   id="new-search-container"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fi0124t  css-1awobkc-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fxraqjn  search-base-dropdown css-1awobkc-MuiGrid-root"
                     id="new_search-dropdown"
                   >
                     <div>
@@ -991,7 +991,7 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
                 </div>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fi0124t fjuaqdk css-13eijkh-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fxraqjn fjuaqdk css-13eijkh-MuiGrid-root"
               >
                 <div>
                   <div

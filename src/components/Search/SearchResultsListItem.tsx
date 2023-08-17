@@ -62,14 +62,14 @@ function SearchResultsListItem({
   const { handleToggle } = useCheckRevision(searchType);
   const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);
-  const isBase = searchType === 'base' ? 1 : 3;
+  const revisionsCount = searchType === 'base' ? 1 : 3;
   const itemDate = new Date(item.push_timestamp * 1000);
 
   return (
     <>
       <ListItemButton
         key={item.id}
-        onClick={() => handleToggle(item, isBase)}
+        onClick={() => handleToggle(item, revisionsCount)}
         className={`${styles.listItemButton} ${
           isChecked ? 'item-selected' : ''
         }`}
@@ -132,7 +132,6 @@ function SearchResultsListItem({
     </>
   );
 }
-
 interface SearchResultsListItemProps {
   index: number;
   item: RevisionsList;

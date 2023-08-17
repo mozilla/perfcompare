@@ -32,7 +32,7 @@ const useSelectRevision = () => {
   };
 
   const editSelectedRevisions = (searchType: InputType) => {
-    let revisionsForEdit = [...selectedRevisions];
+    let revisionsForEdit = selectedRevisions;
     switch (searchType) {
       case 'base':
         revisionsForEdit = [revisionsForEdit[0]];
@@ -41,7 +41,7 @@ const useSelectRevision = () => {
         revisionsForEdit = revisionsForEdit.slice(1);
         break;
       default:
-        break;
+        throw new Error('Invalid search type');
     }
     dispatch(
       setCheckedRevisionsForEdit({ revisions: revisionsForEdit, searchType }),
@@ -49,8 +49,7 @@ const useSelectRevision = () => {
   };
 
   const updateSelectedRevisions = (searchType: InputType) => {
-    let updatedRevisions = [...selectedRevisions];
-
+    let updatedRevisions = selectedRevisions;
     switch (searchType) {
       case 'base':
         //remove old base revision
@@ -60,15 +59,12 @@ const useSelectRevision = () => {
         break;
       case 'new':
         //keep the base revision, add the new checked revisions
-        updatedRevisions = [
-          ...updatedRevisions.slice(0, 1),
-          ...newCheckedRevisions,
-        ];
+        updatedRevisions = [updatedRevisions[0], ...newCheckedRevisions];
         //create a new array with unique values
         updatedRevisions = [...new Set(updatedRevisions)];
         break;
       default:
-        break;
+        throw new Error('Invalid search type');
     }
 
     dispatch(setSelectedRevisions({ selectedRevisions: updatedRevisions }));

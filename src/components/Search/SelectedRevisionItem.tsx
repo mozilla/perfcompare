@@ -90,14 +90,11 @@ function SelectedRevisionItem({
   };
 
   const renderCloseIcon = () => {
-    const isSearchViewOrEditBtnVisible = view === searchView || !editBtnVisible;
-    const isBaseAndEditBtnVisible = searchType === 'base' || !editBtnVisible;
-
-    const iconClassName = isSearchViewOrEditBtnVisible
-      ? 'icon icon-close'
-      : isBaseAndEditBtnVisible
-      ? 'icon icon-close-base'
-      : 'icon icon-close results';
+    //hide the close icon for the base component in the compare results view and if edit button is visible
+    const iconClassName =
+      editBtnVisible && view !== searchView && searchType === 'base'
+        ? 'icon icon-close-base-hidden'
+        : 'icon icon-close-show';
 
     return (
       <CloseOutlined
