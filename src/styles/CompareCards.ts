@@ -19,7 +19,7 @@ const textDarkMode = {
   color: `${Colors.PrimaryTextDark} !important`,
 };
 
-export const CompareCardsStyles = (mode: string, height: number) => {
+export const CompareCardsStyles = (mode: string) => {
   const isTrueLight = mode == 'light' ? true : false;
 
   const compareCardsCSS = stylesheet({
@@ -31,6 +31,7 @@ export const CompareCardsStyles = (mode: string, height: number) => {
       flexWrap: 'wrap',
       cursor: 'pointer',
       transition: 'border-radius 0.4s ease-in-out',
+      justifyContent: 'space-between',
       $nest: {
         '.compare-card-img': {
           minWidth: '194px',
@@ -86,7 +87,6 @@ export const CompareCardsStyles = (mode: string, height: number) => {
                 },
               },
               height: 'auto',
-              minHeight: height > 400 ? `${height + 10}px` : '315px',
             },
             '.form-wrapper': {
               padding: `${Spacing.xxLarge}px ${Spacing.xxLarge + 2}px`,
@@ -128,12 +128,51 @@ export const SearchStyles = (mode: string) => {
       margin: 'auto',
       justifyContent: 'space-between',
       position: 'relative',
+
+      $nest: {
+        '.cancel-save': {
+          padding: '4px 16px',
+          maxWidth: '44px',
+          maxHeight: '32px',
+          marginLeft: `${Spacing.Small}px`,
+        },
+
+        '.cancel-button.hidden': {
+          display: 'none',
+        },
+        '.save-button.hidden': {
+          display: 'none',
+        },
+      },
     },
 
     dropDown: {
       minWidth: '200px',
       $nest: {
-        '& .dropdown-select-label': {
+        '&.small': {
+          minWidth: '175px',
+        },
+        '&.label-edit-wrapper': {
+          display: 'flex',
+          justifyContent: 'space-between',
+          $nest: {
+            '.edit-button': {
+              padding: '0px',
+              justifyContent: 'flex-end',
+              marginLeft: `${Spacing.Medium}px`,
+              bottom: `${Spacing.Small}px`,
+              $nest: {
+                '&:hover': {
+                  backgroundColor: 'transparent',
+                },
+              },
+            },
+            '.edit-button.hidden': {
+              display: 'none',
+            },
+          },
+        },
+        '.dropdown-select-label,.base_label': {
           ...(isTrueLight ? FontsRaw.BodyDefault : FontsRaw.BodyDefaultDark),
           fontWeight: '600',
           marginBottom: `${Spacing.xSmall + 2}px`,
@@ -159,6 +198,10 @@ export const SearchStyles = (mode: string) => {
       position: 'absolute',
       left: '220px',
       $nest: {
+        '&.big': {
+          left: '190px',
+          minWidth: '510px',
+        },
         '&.base-search-input--mobile, &.new-search-input--mobile': {
           position: 'unset',
         },

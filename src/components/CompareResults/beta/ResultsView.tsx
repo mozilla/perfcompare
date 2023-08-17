@@ -7,7 +7,7 @@ import { useSearchParams } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { compareView } from '../../../common/constants';
-import { useAppDispatch } from '../../../hooks/app';
+import { useAppDispatch, useAppSelector } from '../../../hooks/app';
 import useFetchCompareResults from '../../../hooks/useFetchCompareResults';
 import useHandleChangeSearch from '../../../hooks/useHandleChangeSearch';
 import { comparisonResults as secondRevisionResults } from '../../../mockData/9d5066525489';
@@ -16,7 +16,8 @@ import { comparisonResults as firstRevisionResults } from '../../../mockData/bb6
 import { setCompareData } from '../../../reducers/CompareResults';
 import { SearchContainerStyles } from '../../../styles';
 import { background } from '../../../styles';
-import { Repository, View } from '../../../types/state';
+import { fetchRecentRevisions } from '../../../thunks/searchThunk';
+import { Repository, View, InputType } from '../../../types/state';
 import CompareWithBase from '../../Search/CompareWithBase';
 import PerfCompareHeader from '../../Shared/PerfCompareHeader';
 import ResultsMain from './ResultsMain';
@@ -28,6 +29,10 @@ interface ResultsViewProps {
 }
 function ResultsView(props: ResultsViewProps) {
   const dispatch = useAppDispatch();
+  const repositoryBase = useAppSelector(
+    (state) => state.search.base.repository,
+  );
+  const repositoryNew = useAppSelector((state) => state.search.new.repository);
   const { protocolTheme, toggleColorMode, title } = props;
   const themeMode = protocolTheme.palette.mode;
   const styles = {
@@ -88,6 +93,28 @@ function ResultsView(props: ResultsViewProps) {
       });
     }
   }, []);
+
+  /* editing the revisions requires fetching the recent revisions in results view
+   */
+  useEffect(() => {
+    const repository = repositoryBase;
+    void dispatch(
+      fetchRecentRevisions({
+        repository,
+        searchType: 'base' as InputType,
+      }),
+    );
+  }, [repositoryBase]);
+
+  useEffect(() => {
+    const repository = repositoryNew;
+    void dispatch(
+      fetchRecentRevisions({
+        repository,
+        searchType: 'new' as InputType,
+      }),
+    );
+  }, [repositoryNew]);
 
   return (
     <div

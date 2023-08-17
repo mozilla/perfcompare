@@ -7,16 +7,13 @@ import WarningIcon from '@mui/icons-material/Warning';
 import Button from '@mui/material/Button';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import dayjs from 'dayjs';
 import { useNavigate } from 'react-router-dom';
-// import { useLocation } from 'react-router-dom';
-// import { useSearchParams } from 'react-router-dom';
 
-import { repoMap } from '../../common/constants';
+import { repoMap, searchView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import useCheckRevision from '../../hooks/useCheckRevision';
 import useSelectedRevisions from '../../hooks/useSelectedRevisions';
@@ -26,8 +23,8 @@ import type { RevisionsList } from '../../types/state';
 import { InputType, ThemeMode, View } from '../../types/state';
 import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
 
-const warning =
-  Strings.components.searchDefault.base.collapsed.warnings.comparison;
+const base = Strings.components.searchDefault.base;
+const warning = base.collapsed.warnings.comparison;
 
 interface SelectedRevisionItemProps {
   index: number;
@@ -37,6 +34,7 @@ interface SelectedRevisionItemProps {
   searchType: InputType;
   isWarning?: boolean;
   view: View;
+  editBtnVisible?: boolean;
 }
 
 function SelectedRevisionItem({
@@ -47,12 +45,13 @@ function SelectedRevisionItem({
   searchType,
   isWarning,
   view,
+  editBtnVisible,
 }: SelectedRevisionItemProps) {
   const styles = SelectRevsStyles(mode);
   const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);
   const itemDate = new Date(item.push_timestamp * 1000);
-  const { handleRemoveRevision } = useCheckRevision(searchType);
+  const { removeCheckedRevision } = useCheckRevision(searchType);
   const { deleteSelectedRevisions } = useSelectedRevisions();
   const selectedRevisions = useAppSelector(
     (state) => state.selectedRevisions.revisions,
@@ -82,12 +81,28 @@ function SelectedRevisionItem({
   }, [selectedRevisions]);
 
   const handleClose = () => {
-    if (view == 'search') {
-      handleRemoveRevision(item);
+    if (view == searchView || !editBtnVisible) {
+      removeCheckedRevision(item);
     } else {
       deleteSelectedRevisions(item);
     }
     return;
+  };
+
+  const renderCloseIcon = () => {
+    //hide the close icon for the base component in the compare results view and if edit button is visible
+    const iconClassName =
+      editBtnVisible && view !== searchView && searchType === 'base'
+        ? 'icon icon-close-base-hidden'
+        : 'icon icon-close-show';
+
+    return (
+      <CloseOutlined
+        className={iconClassName}
+        fontSize='small'
+        data-testid='close-icon'
+      />
+    );
   };
 
   return (
@@ -147,31 +162,15 @@ function SelectedRevisionItem({
             primaryTypographyProps={{ noWrap: true }}
             secondaryTypographyProps={{ noWrap: true }}
           />
-
-          <ListItemIcon className='search-revision-item-icon search-revision'>
-            <Button
-              role='button'
-              name='close-button'
-              aria-label='close-button'
-              onClick={handleClose}
-            >
-              {view == 'search' && (
-                <CloseOutlined
-                  className='close-icon'
-                  fontSize='small'
-                  data-testid='close-icon'
-                />
-              )}
-
-              {view == 'compare-results' && searchType == 'new' && (
-                <CloseOutlined
-                  className='icon icon-close'
-                  fontSize='small'
-                  data-testid='close-icon'
-                />
-              )}
-            </Button>
-          </ListItemIcon>
+          <Button
+            role='button'
+            name='close-button'
+            aria-label='close-button'
+            className='revision-action close-button'
+            onClick={handleClose}
+          >
+            {renderCloseIcon()}
+          </Button>
         </ListItem>
       </ListItemButton>
     </div>

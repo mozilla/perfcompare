@@ -1,9 +1,6 @@
-import InfoIcon from '@mui/icons-material/InfoOutlined';
 import FormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import Tooltip from '@mui/material/Tooltip';
 import { style, cssRule } from 'typestyle';
 
 import { repoMap } from '../../common/constants';
@@ -12,7 +9,6 @@ import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
 import useHandleChangeDropdown from '../../hooks/useHandleChangeDropdown';
 import {
-  Spacing,
   ButtonsLightRaw,
   ButtonsDarkRaw,
   TooltipRaw,
@@ -32,7 +28,6 @@ interface SearchDropdownProps {
 function SearchDropdown({
   view,
   selectLabel,
-  tooltipText,
   mode,
   searchType,
 }: SearchDropdownProps) {
@@ -63,7 +58,6 @@ function SearchDropdown({
   const styles = {
     container: style({
       width: '100%',
-      marginBottom: `${Spacing.xLarge}px`,
 
       $nest: {
         '.MuiInputBase-root': {
@@ -81,15 +75,6 @@ function SearchDropdown({
         size={size}
         className={`search-dropdown ${styles.container}`}
       >
-        <InputLabel
-          id='select-repository-label'
-          className='dropdown-select-label'
-        >
-          {selectLabel}
-          <Tooltip placement='top' title={tooltipText}>
-            <InfoIcon fontSize='small' className='dropdown-info-icon' />
-          </Tooltip>
-        </InputLabel>
         <Select
           data-testid={`dropdown-select-${searchType}`}
           label={selectLabel}
