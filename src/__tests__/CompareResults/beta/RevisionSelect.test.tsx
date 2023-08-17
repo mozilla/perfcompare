@@ -2,13 +2,7 @@ import ResultsView from '../../../components/CompareResults/beta/ResultsView';
 import RevisionSelect from '../../../components/CompareResults/beta/RevisionSelect';
 import useProtocolTheme from '../../../theme/protocolTheme';
 import { renderWithRouter } from '../../utils/setupTests';
-import {
-  fireEvent,
-  renderHook,
-  screen,
-  waitFor,
-  within,
-} from '../../utils/test-utils';
+import { fireEvent, renderHook, screen, within } from '../../utils/test-utils';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual<typeof import('react-router-dom')>('react-router-dom'),
@@ -31,17 +25,17 @@ describe('Revision select', () => {
   it("Should change 'All revisions' option to bb6a5e451dac", async () => {
     renderWithRouter(<RevisionSelect />);
 
-    let selectButton = await waitFor(() => screen.getByRole('button'));
+    let selectButton = await screen.findByRole('button');
 
     expect(selectButton).toHaveTextContent('All revisions');
 
     fireEvent.mouseDown(selectButton);
 
-    const listbox = within(screen.getByRole('listbox'));
+    const listbox = within(await screen.findByRole('listbox'));
 
-    fireEvent.click(listbox.getByText('bb6a5e451dac'));
+    fireEvent.click(await listbox.findByText('bb6a5e451dac'));
 
-    selectButton = await waitFor(() => screen.getByRole('button'));
+    selectButton = await screen.findByRole('button');
     expect(selectButton).toHaveTextContent('bb6a5e451dac');
   });
 
@@ -74,22 +68,18 @@ describe('Revision select', () => {
 
     // change comparison to revision bb6a5e451dac
     const selectRevisionDropdown = within(
-      screen.getByTestId('revision-select'),
+      await screen.findByTestId('revision-select'),
     );
-    let selectButton = await waitFor(() =>
-      selectRevisionDropdown.getByRole('button'),
-    );
+    let selectButton = await selectRevisionDropdown.findByRole('button');
     expect(selectButton).toHaveTextContent('All revisions');
 
     fireEvent.mouseDown(selectButton);
 
-    const listbox = within(screen.getByRole('listbox'));
+    const listbox = within(await screen.findByRole('listbox'));
 
-    fireEvent.click(listbox.getByText('bb6a5e451dac'));
+    fireEvent.click(await listbox.findByText('bb6a5e451dac'));
 
-    selectButton = await waitFor(() =>
-      selectRevisionDropdown.getByRole('button'),
-    );
+    selectButton = await selectRevisionDropdown.findByRole('button');
     expect(selectButton).toHaveTextContent('bb6a5e451dac');
 
     fireEvent.mouseDown(selectButton);
@@ -123,37 +113,30 @@ describe('Revision select', () => {
     );
 
     // check comparison to be for revision bb6a5e451dac
-    let firstRevisionHeader = await waitFor(
-      () => screen.getAllByTestId(/revision-header/)[0],
-    );
-    expect(firstRevisionHeader.textContent).toContain('bb6a5e451dac');
+    let firstRevisionHeader = await screen.findAllByTestId(/revision-header/);
+    expect(firstRevisionHeader[0].textContent).toContain('bb6a5e451dac');
 
     // change comparison to revision 9d5066525489
     const selectRevisionDropdown = within(
-      screen.getByTestId('revision-select'),
+      await screen.findByTestId('revision-select'),
     );
-    let selectButton = await waitFor(() =>
-      selectRevisionDropdown.getByRole('button'),
-    );
+    let selectButton = await selectRevisionDropdown.findByRole('button');
 
     fireEvent.mouseDown(selectButton);
 
-    const listbox = within(screen.getByRole('listbox'));
+    const listbox = within(await screen.findByRole('listbox'));
 
-    fireEvent.click(listbox.getByText('9d5066525489'));
+    fireEvent.click(await listbox.findByText('9d5066525489'));
 
-    selectButton = await waitFor(() =>
-      selectRevisionDropdown.getByRole('button'),
-    );
+    selectButton = await selectRevisionDropdown.findByRole('button');
     expect(selectButton).toHaveTextContent('9d5066525489');
 
     fireEvent.mouseDown(selectButton);
 
     // check if first revision header has changed to 9d5066525489
-    firstRevisionHeader = await waitFor(
-      () => screen.getAllByTestId(/revision-header/)[0],
-    );
-    expect(firstRevisionHeader.textContent).toContain('9d5066525489');
+    firstRevisionHeader = await screen.findAllByTestId(/revision-header/);
+
+    expect(firstRevisionHeader[0].textContent).toContain('9d5066525489');
   });
 
   it('Should render results for a998c42399a8', async () => {
@@ -177,36 +160,28 @@ describe('Revision select', () => {
     );
 
     // check comparison to be for revision bb6a5e451dac
-    let firstRevisionHeader = await waitFor(
-      () => screen.getAllByTestId(/revision-header/)[0],
-    );
-    expect(firstRevisionHeader.textContent).toContain('bb6a5e451dac');
+    let firstRevisionHeader = await screen.findAllByTestId(/revision-header/);
+    expect(firstRevisionHeader[0].textContent).toContain('bb6a5e451dac');
 
     // change comparison to revision a998c42399a8
     const selectRevisionDropdown = within(
-      screen.getByTestId('revision-select'),
+      await screen.findByTestId('revision-select'),
     );
-    let selectButton = await waitFor(() =>
-      selectRevisionDropdown.getByRole('button'),
-    );
+    let selectButton = await selectRevisionDropdown.findByRole('button');
 
     fireEvent.mouseDown(selectButton);
 
-    const listbox = within(screen.getByRole('listbox'));
+    const listbox = within(await screen.findByRole('listbox'));
 
-    fireEvent.click(listbox.getByText('a998c42399a8'));
+    fireEvent.click(await listbox.findByText('a998c42399a8'));
 
-    selectButton = await waitFor(() =>
-      selectRevisionDropdown.getByRole('button'),
-    );
+    selectButton = await selectRevisionDropdown.findByRole('button');
     expect(selectButton).toHaveTextContent('a998c42399a8');
 
     fireEvent.mouseDown(selectButton);
 
     // check if first revision header has changed to a998c42399a8
-    firstRevisionHeader = await waitFor(
-      () => screen.getAllByTestId(/revision-header/)[0],
-    );
-    expect(firstRevisionHeader.textContent).toContain('a998c42399a8');
+    firstRevisionHeader = await screen.findAllByTestId(/revision-header/);
+    expect(firstRevisionHeader[0].textContent).toContain('a998c42399a8');
   });
 });
