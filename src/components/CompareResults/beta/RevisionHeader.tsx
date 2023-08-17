@@ -51,12 +51,16 @@ function getExtraOptions(extraOptions: string) {
 function RevisionHeader(props: RevisionHeaderProps) {
   const { header } = props;
   const extraOptions = getExtraOptions(header.extra_options);
+  const shortHash = truncateHash(header.new_rev);
   return (
-    <TableRow className='revision-header'>
+    <TableRow
+      className='revision-header'
+      data-testid={`revision-header-${shortHash}`}
+    >
       <TableCell colSpan={8}>
         <strong>{createTitle(header)}</strong>{' '}
         <Link href={getTreeherderURL(header.new_rev, header.new_repo)}>
-          {truncateHash(header.new_rev)}
+          {shortHash}
         </Link>
       </TableCell>
       <TableCell colSpan={4}>

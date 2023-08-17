@@ -3,14 +3,15 @@ import Table from '@mui/material/Table';
 import TableContainer from '@mui/material/TableContainer';
 import { style } from 'typestyle';
 
-import { RootState } from '../../../common/store';
 import { useAppSelector } from '../../../hooks/app';
+import { Strings } from '../../../resources/Strings';
 import { Colors, Spacing } from '../../../styles';
 import type {
   CompareResultsItem,
   RevisionsHeader,
   ThemeMode,
 } from '../../../types/state';
+import { truncateHash } from '../../../utils/helpers';
 import NoResultsFound from './NoResultsFound';
 import TableContent from './TableContent';
 import TableHeader from './TableHeader';
@@ -64,10 +65,23 @@ function processResults(results: CompareResultsItem[]) {
 
 function ResultsTable(props: ResultsTableProps) {
   const { themeMode } = props;
-  const compareResults: CompareResultsItem[] = useAppSelector(
-    (state: RootState) => state.compareResults.data,
-  );
-  const processedResults = processResults(compareResults);
+  const allRevisionsOption =
+    Strings.components.comparisonRevisionDropdown.allRevisions;
+
+  const processedResults = useAppSelector((state) => {
+    const { data } = state.compareResults;
+    const { activeComparison } = state.comparison;
+
+    if (activeComparison === allRevisionsOption) {
+      return processResults(data);
+    } else {
+      const results = data.filter(
+        (rev) => truncateHash(rev.new_rev) === activeComparison,
+      );
+
+      return processResults(results);
+    }
+  });
 
   const themeColor100 =
     themeMode === 'light' ? Colors.Background100 : Colors.Background100Dark;

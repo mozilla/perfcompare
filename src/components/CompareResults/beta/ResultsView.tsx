@@ -10,7 +10,10 @@ import { compareView } from '../../../common/constants';
 import { useAppDispatch } from '../../../hooks/app';
 import useFetchCompareResults from '../../../hooks/useFetchCompareResults';
 import useHandleChangeSearch from '../../../hooks/useHandleChangeSearch';
-import { switchToFakeData } from '../../../reducers/CompareResults';
+import { comparisonResults as secondRevisionResults } from '../../../mockData/9d5066525489';
+import { comparisonResults as thirdRevisionResults } from '../../../mockData/a998c42399a8';
+import { comparisonResults as firstRevisionResults } from '../../../mockData/bb6a5e451dac';
+import { setCompareData } from '../../../reducers/CompareResults';
 import { SearchContainerStyles } from '../../../styles';
 import { background } from '../../../styles';
 import { Repository, View } from '../../../types/state';
@@ -32,13 +35,21 @@ function ResultsView(props: ResultsViewProps) {
       backgroundColor: background(themeMode),
     }),
   };
+
   const [searchParams] = useSearchParams();
   const fakeDataParam: string | null = searchParams.get('fakedata');
+
+  const comparisonResults = firstRevisionResults.concat(
+    secondRevisionResults,
+    thirdRevisionResults,
+  );
 
   // TODO: Populate store with real data or fake data pased on URL params
   useEffect(() => {
     if (fakeDataParam === 'true') {
-      dispatch(switchToFakeData());
+      dispatch(setCompareData({ data: comparisonResults }));
+    } else {
+      dispatch(setCompareData({ data: [] }));
     }
   }, [fakeDataParam]);
 

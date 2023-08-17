@@ -2,20 +2,22 @@
 
 exports[`Revision select Should match snapshot 1`] = `
 <body>
+  <div />
+  <div />
   <div>
     <div
       class="MuiBox-root css-0"
       data-testid="revision-select"
     >
       <div
-        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-sizeSmall fiy3v8i css-1od5rak-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall fiy3v8i css-1od5rak-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
       >
         <div
-          aria-disabled="true"
           aria-expanded="false"
           aria-haspopup="listbox"
-          class="MuiSelect-select MuiSelect-outlined Mui-disabled MuiInputBase-input MuiOutlinedInput-input Mui-disabled MuiInputBase-inputSizeSmall css-114a80n-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+          class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-114a80n-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
           role="button"
+          tabindex="0"
         >
           <div
             class="fbc330 MuiBox-root css-0"
@@ -38,18 +40,18 @@ exports[`Revision select Should match snapshot 1`] = `
                 />
               </svg>
             </svg>
+            All revisions
           </div>
         </div>
         <input
           aria-hidden="true"
           class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-          disabled=""
           tabindex="-1"
-          value=""
+          value="All revisions"
         />
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined Mui-disabled css-z44uxh-MuiSvgIcon-root-MuiSelect-icon"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-z44uxh-MuiSvgIcon-root-MuiSelect-icon"
           data-testid="ArrowDropDownIcon"
           focusable="false"
           viewBox="0 0 24 24"
