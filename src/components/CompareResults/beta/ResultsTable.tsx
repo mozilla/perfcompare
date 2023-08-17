@@ -68,11 +68,6 @@ function ResultsTable(props: ResultsTableProps) {
   const allRevisionsOption =
     Strings.components.comparisonRevisionDropdown.allRevisions;
 
-  // const compareResults: CompareResultsItem[] = useAppSelector(
-  //   (state) => state.compareResults.data,
-  // );
-  // const old_processedResults = processResults(compareResults);
-
   const processedResults = useAppSelector((state) => {
     const { data } = state.compareResults;
     const { activeComparison } = state.comparison;

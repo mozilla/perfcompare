@@ -37,13 +37,15 @@ function ResultsView(props: ResultsViewProps) {
 
   const [searchParams] = useSearchParams();
   const fakeDataParam: string | null = searchParams.get('fakedata');
+
+  const comparisonResults = firstRevisionResults.concat(
+    secondRevisionResults,
+    thirdRevisionResults,
+  );
+
   // TODO: Populate store with real data or fake data pased on URL params
   useEffect(() => {
     if (fakeDataParam === 'true') {
-      const comparisonResults = firstRevisionResults.concat(
-        secondRevisionResults,
-        thirdRevisionResults,
-      );
       dispatch(setCompareData({ data: comparisonResults }));
     } else {
       dispatch(setCompareData({ data: [] }));
