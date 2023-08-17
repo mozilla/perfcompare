@@ -3,6 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
 import SearchView from '../../components/Search/SearchView';
+import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
 import { InputType } from '../../types/state';
 import getTestData from '../utils/fixtures';
@@ -33,6 +34,7 @@ describe('SearchView/fetchRevisionByID', () => {
       <SearchView
         toggleColorMode={toggleColorMode}
         protocolTheme={protocolTheme}
+        title={Strings.metaData.pageTitle.search}
       />,
     );
 
@@ -75,6 +77,7 @@ describe('SearchView/fetchRevisionByID', () => {
       <SearchView
         toggleColorMode={toggleColorMode}
         protocolTheme={protocolTheme}
+        title={Strings.metaData.pageTitle.search}
       />,
     );
 
@@ -115,6 +118,7 @@ describe('SearchView/fetchRevisionByID', () => {
         <SearchView
           toggleColorMode={toggleColorMode}
           protocolTheme={protocolTheme}
+          title={Strings.metaData.pageTitle.search}
         />
       </>,
     );
@@ -146,6 +150,7 @@ describe('SearchView/fetchRevisionByID', () => {
       <SearchView
         toggleColorMode={toggleColorMode}
         protocolTheme={protocolTheme}
+        title={Strings.metaData.pageTitle.search}
       />,
     );
 

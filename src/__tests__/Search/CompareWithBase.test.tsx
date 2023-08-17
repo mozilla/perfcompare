@@ -112,6 +112,7 @@ describe('Compare With Base', () => {
       <SearchView
         toggleColorMode={toggleColorMode}
         protocolTheme={protocolTheme}
+        title={Strings.metaData.pageTitle.search}
       />,
     );
     act(() => {
@@ -146,6 +147,7 @@ describe('Compare With Base', () => {
       <ResultsView
         toggleColorMode={toggleColorMode}
         protocolTheme={protocolTheme}
+        title={Strings.metaData.pageTitle.results}
       />,
     );
 
