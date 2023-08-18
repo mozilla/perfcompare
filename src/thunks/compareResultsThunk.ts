@@ -10,7 +10,7 @@ export const fetchCompareResults = createAsyncThunk<
     baseRev: string;
     newRepo: Repository['name'];
     newRev: string;
-    framework: string;
+    framework: string; // expected values are the framework's ids (frameworks examples talos, awsy, mozperftest, browsertime, build_metrics)
   },
   { rejectValue: string }
 >(
