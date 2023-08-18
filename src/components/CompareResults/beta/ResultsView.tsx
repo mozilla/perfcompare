@@ -1,7 +1,10 @@
 import { useEffect } from 'react';
 
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import type { Theme } from '@mui/material';
 import Grid from '@mui/material/Grid';
+import Link from '@mui/material/Link';
+import Stack from '@mui/material/Stack';
 import { useLocation } from 'react-router-dom';
 import { useSearchParams } from 'react-router-dom';
 import { style } from 'typestyle';
@@ -133,6 +136,12 @@ function ResultsView(props: ResultsViewProps) {
         view={compareView as View}
       />
       <section className={sectionStyles.container}>
+        <Link href='/' aria-label='link to home'>
+          <Stack direction='row' alignItems='center'>
+            <ChevronLeftIcon fontSize='small' />
+            <p>Home</p>
+          </Stack>
+        </Link>
         <CompareWithBase mode={themeMode} view={compareView as View} />
       </section>
       <Grid container alignItems='center' justifyContent='center'>

@@ -64,6 +64,30 @@ exports[`Search View RESULTS: clicking the cancel button hides input and dropdow
       <section
         class="container_fs3wa1q"
       >
+        <a
+          aria-label="link to home"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+          href="/"
+        >
+          <div
+            class="css-1d9cypr-MuiStack-root"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1mecf1h-MuiSvgIcon-root"
+              data-testid="ChevronLeftIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+              />
+            </svg>
+            <p>
+              Home
+            </p>
+          </div>
+        </a>
         <div
           class="MuiGrid-root wrapper css-plh9qo-MuiGrid-root"
         >
@@ -1135,6 +1159,30 @@ exports[`Search View RESULTS: clicking the save button hides input and dropdown 
       <section
         class="container_fs3wa1q"
       >
+        <a
+          aria-label="link to home"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+          href="/"
+        >
+          <div
+            class="css-1d9cypr-MuiStack-root"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1mecf1h-MuiSvgIcon-root"
+              data-testid="ChevronLeftIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+              />
+            </svg>
+            <p>
+              Home
+            </p>
+          </div>
+        </a>
         <div
           class="MuiGrid-root wrapper css-plh9qo-MuiGrid-root"
         >
@@ -2206,6 +2254,30 @@ exports[`Search View RESULTS: shows dropdown and input when edit button in click
       <section
         class="container_fs3wa1q"
       >
+        <a
+          aria-label="link to home"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+          href="/"
+        >
+          <div
+            class="css-1d9cypr-MuiStack-root"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1mecf1h-MuiSvgIcon-root"
+              data-testid="ChevronLeftIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+              />
+            </svg>
+            <p>
+              Home
+            </p>
+          </div>
+        </a>
         <div
           class="MuiGrid-root wrapper css-plh9qo-MuiGrid-root"
         >

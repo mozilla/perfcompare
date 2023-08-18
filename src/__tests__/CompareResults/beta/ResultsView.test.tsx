@@ -78,6 +78,34 @@ describe('Results View', () => {
     expect(screen.getAllByTestId('selected-rev-item')[0]).toBeInTheDocument();
   });
 
+  it('should render a home link', async () => {
+    const { testData } = getTestData();
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () => ({
+          results: testData,
+        }),
+      }),
+    ) as jest.Mock;
+    jest.spyOn(global, 'fetch');
+
+    const selectedRevisions = testData.slice(0, 2);
+    await act(async () => {
+      store.dispatch(
+        setSelectedRevisions({ selectedRevisions: selectedRevisions }),
+      );
+    });
+
+    renderWithRouter(
+      <ResultsView
+        protocolTheme={protocolTheme}
+        toggleColorMode={toggleColorMode}
+      />,
+    );
+    const link = screen.getByLabelText(/link to home/i);
+    expect(link).toBeInTheDocument();
+  });
+
   it('should remove the selected revision once X button is clicked', async () => {
     const { testData } = getTestData();
     global.fetch = jest.fn(() =>
