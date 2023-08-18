@@ -4,11 +4,13 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import SvgIcon from '@mui/material/SvgIcon';
 import { useDispatch } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { useAppSelector } from '../../../hooks/app';
 import { updateComparison } from '../../../reducers/ComparisonSlice';
 import { Strings } from '../../../resources/Strings';
+import { truncateHash } from '../../../utils/helpers';
 
 const styles = {
   box: style({
@@ -23,7 +25,7 @@ const styles = {
 const allRevisionsOption =
   Strings.components.comparisonRevisionDropdown.allRevisions;
 
-const revisionsOptions = [
+const fakeRevisionsOptions = [
   allRevisionsOption,
   'bb6a5e451dac',
   '9d5066525489',
@@ -33,6 +35,20 @@ const revisionsOptions = [
 function RevisionSelect() {
   const dispatch = useDispatch();
   const { activeComparison } = useAppSelector((state) => state.comparison);
+
+  const newRevisions = useAppSelector((state) => {
+    return state.selectedRevisions.new.map((item) => item.revision);
+  });
+
+  const [searchParams] = useSearchParams();
+  const fakeDataParam: string | null = searchParams.get('fakedata');
+
+  const revisionsOptions = fakeDataParam
+    ? fakeRevisionsOptions
+    : [allRevisionsOption, ...newRevisions];
+
+  const getShortHashOption = (value: string) =>
+    value === allRevisionsOption ? allRevisionsOption : truncateHash(value);
 
   const handlerChangeComparison = (option: string) => {
     dispatch(updateComparison({ activeComparison: option }));
@@ -51,7 +67,7 @@ function RevisionSelect() {
               <SvgIcon>
                 <SortIcon />
               </SvgIcon>
-              {value}
+              {getShortHashOption(value)}
             </Box>
           );
         }}
@@ -60,7 +76,7 @@ function RevisionSelect() {
       >
         {revisionsOptions.map((option) => (
           <MenuItem key={option} value={option}>
-            {option}
+            {getShortHashOption(option)}
           </MenuItem>
         ))}
       </Select>
