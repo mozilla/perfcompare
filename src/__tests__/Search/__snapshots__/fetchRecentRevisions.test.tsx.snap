@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Search View renders correctly when there are no results 1`] = `
-<body>
-  <div />
-  <div />
+exports[`Search View/fetchRecentRevisions should reject fetchRecentRevisions if fetch returns no results 1`] = `
+<body
+  style=""
+>
   <div>
     <div
       class="fcndgf6"

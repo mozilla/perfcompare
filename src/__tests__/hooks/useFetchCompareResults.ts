@@ -25,7 +25,7 @@ describe('Tests useFetchCompareResults', () => {
       wrapper: StoreProvider,
     });
     const spyOnFetch = jest.spyOn(global, 'fetch');
-    await dispatchFetchCompareResults(['fenix'], ['testRev']);
+    await dispatchFetchCompareResults(['fenix'], ['testRev'], '1');
     expect(spyOnFetch).toBeCalledTimes(1);
   });
 });

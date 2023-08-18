@@ -24,6 +24,7 @@ function renderComponent() {
     <SearchView
       toggleColorMode={toggleColorMode}
       protocolTheme={protocolTheme}
+      title='Search'
     />,
   );
 }
@@ -298,6 +299,7 @@ describe('Base Search', () => {
       <SearchView
         toggleColorMode={toggleColorMode}
         protocolTheme={protocolTheme}
+        title='Search'
       />,
     );
     expect(history.location.pathname).toEqual('/');
@@ -314,7 +316,7 @@ describe('Base Search', () => {
 
     expect(history.location.pathname).toEqual('/compare-results');
     expect(history.location.search).toEqual(
-      '?revs=coconut,spam&repos=try,mozilla-central',
+      '?revs=coconut,spam&repos=try,mozilla-central&framework=1',
     );
   });
 });

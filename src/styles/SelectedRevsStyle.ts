@@ -62,14 +62,19 @@ export const SelectRevsStyles = (mode: string) => {
         },
         '.search-revision-item-text': {
           margin: 0,
+          minWidth: '434px',
+        },
+
+        '.revision-hash': {
+          minWidth: '147px',
         },
 
         '.MuiListItemText-primary': {
           display: 'flex',
           justifyContent: 'space-between',
-          flexWrap: 'wrap',
           marginBottom: `${Spacing.xSmall}px`,
           alignItems: 'center',
+          overflow: 'visible',
         },
         '.info-caption': {
           ...(isTrueLight ? captionStylesLight : captionStylesDark),
@@ -96,6 +101,30 @@ export const SelectRevsStyles = (mode: string) => {
         },
         button: {
           padding: 0,
+          justifyContent: 'flex-end',
+          $nest: {
+            '&.revision-action': {
+              minWidth: '14px',
+              height: '14px',
+            },
+            '&.close-button': {
+              marginLeft: `${Spacing.Large}px`,
+            },
+            '&.close-button-results': {
+              marginLeft: `${Spacing.layoutXLarge + 44}px`,
+            },
+
+            svg: {
+              width: '0.875rem',
+              height: '0.875rem',
+            },
+            '.icon-close-show': {
+              color: isTrueLight ? Colors.IconLight : Colors.IconDark,
+            },
+            '.icon-close-base-hidden': {
+              display: 'none',
+            },
+          },
         },
       },
     },

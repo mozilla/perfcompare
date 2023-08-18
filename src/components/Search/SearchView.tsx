@@ -11,6 +11,7 @@ import { useAppSelector } from '../../hooks/app';
 import { background } from '../../styles';
 import { skipLink } from '../../styles';
 import { RevisionsList, View } from '../../types/state';
+import { Framework } from '../../types/types';
 import SkipLink from '../Accessibility/SkipLink';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
 import SearchContainer from './SearchContainer';
@@ -24,18 +25,26 @@ function SearchView(props: SearchViewProps) {
   const selectedRevisions = useAppSelector(
     (state: RootState) => state.selectedRevisions.revisions,
   );
+  const framework = useAppSelector(
+    (state: RootState) => state.framework as Framework,
+  );
 
   const styles = {
     container: style({
       backgroundColor: background(themeMode),
     }),
   };
-  const goToCompareResultsPage = (selectedRevs: RevisionsList[]) => {
+  const goToCompareResultsPage = (
+    selectedRevs: RevisionsList[],
+    selectedFramework: Framework,
+  ) => {
     const revs = selectedRevs.map((rev) => rev.revision);
     const repos = selectedRevs.map((rev) => repoMap[rev.repository_id]);
     navigate({
       pathname: '/compare-results',
-      search: `?revs=${revs.join(',')}&repos=${repos.join(',')}`,
+      search: `?revs=${revs.join(',')}&repos=${repos.join(',')}&framework=${
+        selectedFramework.id
+      }`,
     });
   };
 
@@ -45,7 +54,7 @@ function SearchView(props: SearchViewProps) {
 
   useEffect(() => {
     if (selectedRevisions.length > 0) {
-      goToCompareResultsPage(selectedRevisions);
+      goToCompareResultsPage(selectedRevisions, framework);
     }
   }, [selectedRevisions]);
 

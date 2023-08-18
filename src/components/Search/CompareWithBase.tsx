@@ -31,7 +31,6 @@ interface Expanded {
 }
 
 function CompareWithBase({ mode, view }: CompareWithBaseProps) {
-  const defaultHeight = 400;
   const formWrapperRef = createRef<HTMLDivElement>();
   const { enqueueSnackbar } = useSnackbar();
   const { search } = useAppSelector((state) => state);
@@ -40,9 +39,8 @@ function CompareWithBase({ mode, view }: CompareWithBaseProps) {
     class: 'expanded',
   });
   const [isWarning, setWarning] = useState<boolean>(false);
-  const [formHeight, setFormHeight] = useState<number>(defaultHeight);
 
-  const styles = CompareCardsStyles(mode, formHeight);
+  const styles = CompareCardsStyles(mode);
   const dropDownStyles = SearchStyles(mode);
   const baseRepository = search.base.repository;
   const newRepository = search.new.repository;
@@ -52,10 +50,6 @@ function CompareWithBase({ mode, view }: CompareWithBaseProps) {
     view,
     isWarning,
   };
-
-  useEffect(() => {
-    setFormHeight(formWrapperRef.current?.clientHeight || formHeight);
-  }, [formHeight]);
 
   useEffect(() => {
     //show warning if try is being compared to a non-try repo or vice versa
