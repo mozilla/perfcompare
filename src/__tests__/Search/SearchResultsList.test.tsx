@@ -3,6 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
 import SearchView from '../../components/Search/SearchView';
+import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
 import { InputType } from '../../types/state';
 import getTestData from '../utils/fixtures';
@@ -20,7 +21,7 @@ function renderComponent() {
     <SearchView
       toggleColorMode={toggleColorMode}
       protocolTheme={protocolTheme}
-      title='Search'
+      title={Strings.metaData.pageTitle.search}
     />,
   );
 }

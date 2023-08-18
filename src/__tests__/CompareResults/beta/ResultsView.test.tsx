@@ -3,6 +3,7 @@ import { Bubble, ChartProps } from 'react-chartjs-2';
 
 import ResultsView from '../../../components/CompareResults/beta/ResultsView';
 import { setSelectedRevisions } from '../../../reducers/SelectedRevisionsSlice';
+import { Strings } from '../../../resources/Strings';
 import useProtocolTheme from '../../../theme/protocolTheme';
 import getTestData from '../../utils/fixtures';
 import { renderWithRouter, store } from '../../utils/setupTests';
@@ -24,6 +25,7 @@ describe('Results View', () => {
       <ResultsView
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
+        title={Strings.metaData.pageTitle.results}
       />,
     );
     expect(
@@ -37,6 +39,7 @@ describe('Results View', () => {
       <ResultsView
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
+        title={Strings.metaData.pageTitle.results}
       />,
     );
 
@@ -58,6 +61,7 @@ describe('Results View', () => {
       <ResultsView
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
+        title={Strings.metaData.pageTitle.results}
       />,
     );
 
@@ -127,6 +131,7 @@ describe('Results View', () => {
       <ResultsView
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
+        title={Strings.metaData.pageTitle.results}
       />,
     );
 
@@ -166,6 +171,7 @@ describe('Results View', () => {
       <ResultsView
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
+        title={Strings.metaData.pageTitle.results}
       />,
     );
 
@@ -196,6 +202,7 @@ describe('Results View', () => {
       <ResultsView
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
+        title={Strings.metaData.pageTitle.results}
       />,
     );
 
@@ -231,6 +238,7 @@ describe('Results View', () => {
       <ResultsView
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
+        title={Strings.metaData.pageTitle.results}
       />,
     );
 

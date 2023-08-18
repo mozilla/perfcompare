@@ -680,7 +680,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         a11yr
@@ -695,7 +695,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -1650,7 +1650,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         glvideo Mean tick time across 100 ticks: 
@@ -1665,7 +1665,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -2945,7 +2945,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         tp5n main_startup_fileio
@@ -2960,7 +2960,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -3315,7 +3315,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         motionmark_webgl 3DGraphics-WebGL
@@ -3330,7 +3330,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -4610,7 +4610,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         displaylist_mutate
@@ -4625,7 +4625,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -5580,7 +5580,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         dromaeo_dom
@@ -5595,7 +5595,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -5944,7 +5944,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         glvideo Mean tick time across 100 ticks: 
@@ -5959,7 +5959,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -6920,7 +6920,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         android  
@@ -6935,7 +6935,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -7292,7 +7292,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         a11yr
@@ -7307,7 +7307,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -8376,7 +8376,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         cross_origin_pageload
@@ -8391,7 +8391,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -10372,7 +10372,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         glvideo Mean tick time across 100 ticks: 
@@ -10387,7 +10387,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -12899,7 +12899,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         tp5o_webext XRes
@@ -12914,7 +12914,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -13263,7 +13263,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         tp5o_scroll
@@ -13278,7 +13278,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -14233,7 +14233,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         motionmark_webgl 3DGraphics-WebGL
@@ -14248,7 +14248,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -15528,7 +15528,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         cpstartup content-process-startup
@@ -15543,7 +15543,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -16618,7 +16618,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         a11yr
@@ -16633,7 +16633,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -17588,7 +17588,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         a11yr
@@ -17603,7 +17603,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -18558,7 +18558,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         cpstartup content-process-startup
@@ -18573,7 +18573,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -19534,7 +19534,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         glvideo Mean tick time across 100 ticks: 
@@ -19549,7 +19549,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -20829,7 +20829,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         glvideo Mean tick time across 100 ticks: 
@@ -20844,7 +20844,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -21805,7 +21805,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         kraken
@@ -21820,7 +21820,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -22775,7 +22775,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         motionmark_webgl 3DGraphics-WebGL
@@ -22790,7 +22790,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
