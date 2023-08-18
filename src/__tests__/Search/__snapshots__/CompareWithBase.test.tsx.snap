@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Compare With Base renders correctly when there are no results 1`] = `
+exports[`Compare With Base 3 renders correctly when there are no results 1`] = `
 <body>
   <div />
   <div />
@@ -9,7 +9,7 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
       class="MuiGrid-root wrapper css-plh9qo-MuiGrid-root"
     >
       <div
-        class="compare-card-container compare-card-container--expanded container_fabrhot"
+        class="compare-card-container compare-card-container--expanded container_f1ms7w83"
         data-testid="base-state"
       >
         <div
@@ -32,7 +32,7 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
         />
       </div>
       <div
-        class="compare-card-container content-base content-base--expanded container_fabrhot "
+        class="compare-card-container content-base content-base--expanded container_f1ms7w83 "
       >
         <hr
           class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
@@ -44,37 +44,40 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
             class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
           >
             <div
-              class="MuiGrid-root MuiGrid-container container_f790aiy css-1ljzhs0-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fxraqjn label-edit-wrapper css-13eijkh-MuiGrid-root"
+            >
+              <label
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
+                id="select-repository-label"
+              >
+                Base
+                <svg
+                  aria-hidden="true"
+                  aria-label="The baseline revision (no changes) your revision will be compared against."
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+                  data-mui-internal-clone-element="true"
+                  data-testid="InfoOutlinedIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                  />
+                </svg>
+              </label>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-container container_fx9j6vk css-1ljzhs0-MuiGrid-root"
               id="base-search-container"
             >
               <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_ffz7cf5 css-1awobkc-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fxraqjn  search-base-dropdown css-1awobkc-MuiGrid-root"
                 id="base_search-dropdown"
               >
                 <div>
                   <div
-                    class="MuiFormControl-root search-dropdown fzaj1pt css-1nrlq1o-MuiFormControl-root"
+                    class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
                   >
-                    <label
-                      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
-                      data-shrink="true"
-                      id="select-repository-label"
-                    >
-                      Base
-                      <svg
-                        aria-hidden="true"
-                        aria-label="The baseline revision (no changes) your revision will be compared against."
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
-                        data-mui-internal-clone-element="true"
-                        data-testid="InfoOutlinedIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-                        />
-                      </svg>
-                    </label>
                     <div
                       class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                       data-testid="dropdown-select-base"
@@ -111,17 +114,12 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
                 </div>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_fim9qh9 css-17gmabg-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_fctyy2s   css-17gmabg-MuiGrid-root"
                 id="base_search-input"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth fv98i7o css-q8hpuo-MuiFormControl-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth fj0l9jr css-q8hpuo-MuiFormControl-root"
                 >
-                  <div
-                    class="hide"
-                  >
-                    Block
-                  </div>
                   <div
                     class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
                   >
@@ -176,37 +174,40 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
             class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
           >
             <div
-              class="MuiGrid-root MuiGrid-container container_f790aiy css-1ljzhs0-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fxraqjn label-edit-wrapper css-13eijkh-MuiGrid-root"
+            >
+              <label
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
+                id="select-repository-label"
+              >
+                Revisions
+                <svg
+                  aria-hidden="true"
+                  aria-label="Revisions (typically including your changes) to compare against the selected base revision."
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+                  data-mui-internal-clone-element="true"
+                  data-testid="InfoOutlinedIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                  />
+                </svg>
+              </label>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-container container_fx9j6vk css-1ljzhs0-MuiGrid-root"
               id="new-search-container"
             >
               <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_ffz7cf5 css-1awobkc-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fxraqjn  search-base-dropdown css-1awobkc-MuiGrid-root"
                 id="new_search-dropdown"
               >
                 <div>
                   <div
-                    class="MuiFormControl-root search-dropdown fzaj1pt css-1nrlq1o-MuiFormControl-root"
+                    class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
                   >
-                    <label
-                      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
-                      data-shrink="true"
-                      id="select-repository-label"
-                    >
-                      Revisions
-                      <svg
-                        aria-hidden="true"
-                        aria-label="Revisions (typically including your changes) to compare against the selected base revision."
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
-                        data-mui-internal-clone-element="true"
-                        data-testid="InfoOutlinedIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-                        />
-                      </svg>
-                    </label>
                     <div
                       class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                       data-testid="dropdown-select-new"
@@ -243,17 +244,12 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
                 </div>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_fim9qh9 css-17gmabg-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_fctyy2s   css-17gmabg-MuiGrid-root"
                 id="new_search-input"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth fv98i7o css-q8hpuo-MuiFormControl-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth fj0l9jr css-q8hpuo-MuiFormControl-root"
                 >
-                  <div
-                    class="hide"
-                  >
-                    Block
-                  </div>
                   <div
                     class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
                   >
@@ -305,7 +301,7 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
             </div>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_ffz7cf5 fjuaqdk css-13eijkh-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fxraqjn fjuaqdk css-13eijkh-MuiGrid-root"
           >
             <div>
               <div
@@ -383,6 +379,586 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
         </div>
       </div>
     </div>
+  </div>
+</body>
+`;
+
+exports[`Compare With Base 3 shows comparison warning when try repository is compared with a non try repository 1`] = `
+<body
+  style=""
+>
+  <div>
+    <div
+      class="MuiGrid-root wrapper css-plh9qo-MuiGrid-root"
+    >
+      <div
+        class="compare-card-container compare-card-container--expanded container_f1ms7w83"
+        data-testid="base-state"
+      >
+        <div
+          class="compare-card-text cardText_f10ud7bq"
+        >
+          <div
+            class="compare-card-title"
+          >
+            Compare with a base
+          </div>
+          <div
+            class="compare-card-tagline"
+          >
+            Analyze differences between specific revisions.
+          </div>
+        </div>
+        <div
+          aria-label="two overlapping circles"
+          class="compare-card-img compare-card-img--base"
+        />
+      </div>
+      <div
+        class="compare-card-container content-base content-base--expanded container_f1ms7w83 "
+      >
+        <hr
+          class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
+        />
+        <div
+          class="form-wrapper"
+        >
+          <div
+            class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fxraqjn label-edit-wrapper css-13eijkh-MuiGrid-root"
+            >
+              <label
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
+                id="select-repository-label"
+              >
+                Base
+                <svg
+                  aria-hidden="true"
+                  aria-label="The baseline revision (no changes) your revision will be compared against."
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+                  data-mui-internal-clone-element="true"
+                  data-testid="InfoOutlinedIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                  />
+                </svg>
+              </label>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-container container_fx9j6vk css-1ljzhs0-MuiGrid-root"
+              id="base-search-container"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fxraqjn  search-base-dropdown css-1awobkc-MuiGrid-root"
+                id="base_search-dropdown"
+              >
+                <div>
+                  <div
+                    class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+                  >
+                    <div
+                      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary Mui-focused MuiInputBase-formControl dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                      data-testid="dropdown-select-base"
+                    >
+                      <div
+                        aria-expanded="false"
+                        aria-haspopup="listbox"
+                        aria-labelledby="select-repository-label"
+                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                        role="button"
+                        tabindex="0"
+                      >
+                        mozilla-central
+                      </div>
+                      <input
+                        aria-hidden="true"
+                        class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                        tabindex="-1"
+                        value="mozilla-central"
+                      />
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+                        data-testid="ArrowDropDownIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M7 10l5 5 5-5z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_fctyy2s   css-17gmabg-MuiGrid-root"
+                id="base_search-input"
+              >
+                <div
+                  class="MuiFormControl-root MuiFormControl-fullWidth fj0l9jr css-q8hpuo-MuiFormControl-root"
+                >
+                  <div
+                    class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
+                  >
+                    <div
+                      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-error MuiInputBase-formControl MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
+                    >
+                      <div
+                        class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-yzzuft-MuiInputAdornment-root"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                          data-testid="SearchIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                          />
+                        </svg>
+                      </div>
+                      <input
+                        aria-describedby="search-base-input-helper-text"
+                        aria-invalid="true"
+                        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
+                        id="search-base-input"
+                        name="baseSearch"
+                        placeholder="Search base by ID number or author email"
+                        type="text"
+                        value=""
+                      />
+                      <fieldset
+                        aria-hidden="true"
+                        class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+                      >
+                        <legend
+                          class="css-ihdtdm"
+                        >
+                          <span
+                            class="notranslate"
+                          >
+                            ​
+                          </span>
+                        </legend>
+                      </fieldset>
+                    </div>
+                    <p
+                      class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1ut8mn8-MuiFormHelperText-root"
+                      id="search-base-input-helper-text"
+                    >
+                      An error has occurred
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fxraqjn label-edit-wrapper css-13eijkh-MuiGrid-root"
+            >
+              <label
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
+                id="select-repository-label"
+              >
+                Revisions
+                <svg
+                  aria-hidden="true"
+                  aria-label="Revisions (typically including your changes) to compare against the selected base revision."
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+                  data-mui-internal-clone-element="true"
+                  data-testid="InfoOutlinedIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                  />
+                </svg>
+              </label>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-container container_fx9j6vk css-1ljzhs0-MuiGrid-root"
+              id="new-search-container"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fxraqjn  search-base-dropdown css-1awobkc-MuiGrid-root"
+                id="new_search-dropdown"
+              >
+                <div>
+                  <div
+                    class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+                  >
+                    <div
+                      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                      data-testid="dropdown-select-new"
+                    >
+                      <div
+                        aria-expanded="false"
+                        aria-haspopup="listbox"
+                        aria-labelledby="select-repository-label"
+                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                        role="button"
+                        tabindex="0"
+                      >
+                        try
+                      </div>
+                      <input
+                        aria-hidden="true"
+                        class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                        tabindex="-1"
+                        value="try"
+                      />
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+                        data-testid="ArrowDropDownIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M7 10l5 5 5-5z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_fctyy2s   css-17gmabg-MuiGrid-root"
+                id="new_search-input"
+              >
+                <div
+                  class="MuiFormControl-root MuiFormControl-fullWidth fj0l9jr css-q8hpuo-MuiFormControl-root"
+                >
+                  <div
+                    class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
+                  >
+                    <div
+                      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
+                    >
+                      <div
+                        class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-yzzuft-MuiInputAdornment-root"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                          data-testid="SearchIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                          />
+                        </svg>
+                      </div>
+                      <input
+                        aria-invalid="false"
+                        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
+                        id="search-new-input"
+                        name="newSearch"
+                        placeholder="Search revision by ID number or author email"
+                        type="text"
+                        value=""
+                      />
+                      <fieldset
+                        aria-hidden="true"
+                        class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+                      >
+                        <legend
+                          class="css-ihdtdm"
+                        >
+                          <span
+                            class="notranslate"
+                          >
+                            ​
+                          </span>
+                        </legend>
+                      </fieldset>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fxraqjn fjuaqdk css-13eijkh-MuiGrid-root"
+          >
+            <div>
+              <div
+                class="MuiFormControl-root framework-dropdown fnpbx3q css-1nrlq1o-MuiFormControl-root"
+              >
+                <label
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
+                  data-shrink="true"
+                  id="select-framework-label"
+                >
+                  Framework
+                  <svg
+                    aria-hidden="true"
+                    aria-label="The framework or test harness containing the test you want to examine."
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+                    data-mui-internal-clone-element="true"
+                    data-testid="InfoOutlinedIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                    />
+                  </svg>
+                </label>
+                <div
+                  class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                  data-testid="dropdown-select-framework"
+                >
+                  <div
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-labelledby="select-framework-label mui-component-select-Framework"
+                    class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                    id="mui-component-select-Framework"
+                    role="button"
+                    tabindex="0"
+                  >
+                    talos
+                  </div>
+                  <input
+                    aria-hidden="true"
+                    class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                    name="Framework"
+                    tabindex="-1"
+                    value="talos"
+                  />
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+                    data-testid="ArrowDropDownIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7 10l5 5 5-5z"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <button
+              aria-label="compare revisions"
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fnjph0f css-1pha5e5-MuiButtonBase-root-MuiButton-root"
+              id="compare-button"
+              tabindex="0"
+              type="button"
+            >
+              Compare
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="SnackbarContainer-bottom SnackbarContainer-left SnackbarContainer-root css-uwcd5u"
+    >
+      <div
+        class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-entered css-pwcg7p-MuiCollapse-root"
+        style="min-height: 0px;"
+      >
+        <div
+          class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
+        >
+          <div
+            class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
+          >
+            <div
+              class="SnackbarItem-wrappedRoot css-15b1wch"
+            >
+              <div
+                aria-describedby="notistack-snackbar"
+                class="SnackbarContent-root SnackbarItem-contentRoot SnackbarItem-variantWarning SnackbarItem-lessPadding css-hped4j"
+                role="alert"
+                style="webkit-transform: none; transform: none; webkit-transition: -webkit-transform 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms; transition: transform 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;"
+              >
+                <div
+                  class="SnackbarItem-message"
+                  id="notistack-snackbar"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                    focusable="false"
+                    style="font-size: 20px; margin-inline-end: 8px;"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M13,14H11V10H13M13,18H11V16H13M1,21H23L12,2L1,21Z"
+                    />
+                  </svg>
+                  Comparing “try” repository to any repository aside from "try" is not recommended.
+                </div>
+                <div
+                  class="SnackbarItem-action"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-2jtn01-MuiButtonBase-root-MuiIconButton-root"
+                    data-testid="alert-close"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                      data-testid="CloseIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                      />
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-hidden="true"
+    class="MuiPopover-root MuiMenu-root MuiModal-root css-37mu7z-MuiModal-root-MuiPopover-root-MuiMenu-root"
+    id="menu-"
+    role="presentation"
+  >
+    <div
+      aria-hidden="true"
+      class="MuiBackdrop-root MuiBackdrop-invisible MuiModal-backdrop css-g3hgs1-MuiBackdrop-root-MuiModal-backdrop"
+      style="opacity: 0; webkit-transition: opacity 195ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 195ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+    />
+    <div
+      data-testid="sentinelStart"
+      tabindex="-1"
+    />
+    <div
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiPaper-root MuiMenu-paper MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation8 MuiPopover-paper css-askb7w-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper"
+      style="opacity: 0; transform: scale(0.75, 0.5625); min-width: 0; transition: opacity 0ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 0ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; top: 16px; left: 16px; transform-origin: -16px -16px;"
+      tabindex="-1"
+    >
+      <ul
+        aria-labelledby="select-repository-label"
+        class="MuiList-root MuiList-padding MuiMenu-list css-6hp17o-MuiList-root-MuiMenu-list"
+        role="listbox"
+        tabindex="-1"
+      >
+        <li
+          aria-selected="true"
+          class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters Mui-selected MuiMenuItem-root MuiMenuItem-gutters Mui-selected baseRepository css-shx448-MuiButtonBase-root-MuiMenuItem-root"
+          data-value="mozilla-central"
+          id="mozilla-central"
+          role="option"
+          tabindex="0"
+        >
+          mozilla-central
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          >
+            <span
+              class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+              style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+            >
+              <span
+                class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+              />
+            </span>
+          </span>
+        </li>
+        <li
+          aria-selected="false"
+          class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters baseRepository css-shx448-MuiButtonBase-root-MuiMenuItem-root"
+          data-value="try"
+          id="try"
+          role="option"
+          tabindex="-1"
+        >
+          try
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </li>
+        <li
+          aria-selected="false"
+          class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters baseRepository css-shx448-MuiButtonBase-root-MuiMenuItem-root"
+          data-value="mozilla-beta"
+          id="mozilla-beta"
+          role="option"
+          tabindex="-1"
+        >
+          mozilla-beta
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </li>
+        <li
+          aria-selected="false"
+          class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters baseRepository css-shx448-MuiButtonBase-root-MuiMenuItem-root"
+          data-value="mozilla-release"
+          id="mozilla-release"
+          role="option"
+          tabindex="-1"
+        >
+          mozilla-release
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </li>
+        <li
+          aria-selected="false"
+          class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters baseRepository css-shx448-MuiButtonBase-root-MuiMenuItem-root"
+          data-value="autoland"
+          id="autoland"
+          role="option"
+          tabindex="-1"
+        >
+          autoland
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </li>
+        <li
+          aria-selected="false"
+          class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters baseRepository css-shx448-MuiButtonBase-root-MuiMenuItem-root"
+          data-value="fenix"
+          id="fenix"
+          role="option"
+          tabindex="-1"
+        >
+          fenix
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </li>
+      </ul>
+    </div>
+    <div
+      data-testid="sentinelEnd"
+      tabindex="-1"
+    />
   </div>
 </body>
 `;

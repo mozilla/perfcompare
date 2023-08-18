@@ -1,4 +1,10 @@
 export const Strings = {
+  metaData: {
+    pageTitle: {
+      search: 'PerfCompare - Search',
+      results: 'PerfCompare - Results',
+    },
+  },
   components: {
     topBanner: {
       text: 'This is an unstable pre-release version. Some features may not yet be supported. Please file any bugs on the Github Repo.',
@@ -35,6 +41,11 @@ export const Strings = {
         img: 'https://user-images.githubusercontent.com/88336547/233237125-1534220b-c343-421a-9133-ce8f151cb979.png',
         imgDark:
           'https://user-images.githubusercontent.com/88336547/233250674-004d071a-7c23-40f4-b348-0687a3fef6e3.png',
+
+        save: 'Save',
+        cancel: 'Cancel',
+        editIcon:
+          'https://user-images.githubusercontent.com/88336547/259900252-462ac221-f4ff-4b1c-bb6b-5df906e8007d.svg',
         collapsed: {
           warnings: {
             comparison:
@@ -74,6 +85,9 @@ export const Strings = {
     noResultsFound: {
       mainMessage: 'No results found',
       note: 'For the selected revision(s), no results when compared to the base revision.',
+    },
+    comparisonRevisionDropdown: {
+      allRevisions: 'All revisions',
     },
   },
   errors: {

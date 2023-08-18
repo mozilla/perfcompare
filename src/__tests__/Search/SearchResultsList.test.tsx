@@ -20,6 +20,7 @@ function renderComponent() {
     <SearchView
       toggleColorMode={toggleColorMode}
       protocolTheme={protocolTheme}
+      title='Search'
     />,
   );
 }

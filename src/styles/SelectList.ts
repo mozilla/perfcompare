@@ -93,6 +93,7 @@ export const SelectListRaw = {
     $nest: {
       '.MuiListItemButton-root': {
         padding: `${Spacing.xSmall}px ${Spacing.Small}px`,
+
         $nest: {
           '&:hover': {
             backgroundColor: Colors.SecondaryHoverDark,
