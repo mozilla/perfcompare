@@ -37,9 +37,7 @@ function RevisionSelect() {
   const { activeComparison } = useAppSelector((state) => state.comparison);
 
   const newRevisions = useAppSelector((state) => {
-    return state.selectedRevisions.new.map((item) =>
-      truncateHash(item.revision),
-    );
+    return state.selectedRevisions.new.map((item) => item.revision);
   });
 
   const [searchParams] = useSearchParams();
@@ -48,6 +46,9 @@ function RevisionSelect() {
   const revisionsOptions = fakeDataParam
     ? fakeRevisionsOptions
     : [allRevisionsOption, ...newRevisions];
+
+  const getShortHashOption = (value: string) =>
+    value === allRevisionsOption ? allRevisionsOption : truncateHash(value);
 
   const handlerChangeComparison = (option: string) => {
     dispatch(updateComparison({ activeComparison: option }));
@@ -66,7 +67,7 @@ function RevisionSelect() {
               <SvgIcon>
                 <SortIcon />
               </SvgIcon>
-              {value}
+              {getShortHashOption(value)}
             </Box>
           );
         }}
@@ -75,7 +76,7 @@ function RevisionSelect() {
       >
         {revisionsOptions.map((option) => (
           <MenuItem key={option} value={option}>
-            {option}
+            {getShortHashOption(option)}
           </MenuItem>
         ))}
       </Select>
