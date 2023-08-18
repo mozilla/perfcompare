@@ -656,7 +656,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         <a
@@ -678,7 +678,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -1633,7 +1633,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         <a
@@ -1656,7 +1656,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -2936,7 +2936,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         <a
@@ -2959,7 +2959,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -3314,7 +3314,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         <a
@@ -3337,7 +3337,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -4617,7 +4617,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         <a
@@ -4639,7 +4639,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -5594,7 +5594,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         <a
@@ -5616,7 +5616,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -5965,7 +5965,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         <a
@@ -5988,7 +5988,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -6949,7 +6949,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         <a
@@ -6972,7 +6972,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -7329,7 +7329,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         <a
@@ -7351,7 +7351,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -8420,7 +8420,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         <a
@@ -8442,7 +8442,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -10423,7 +10423,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         <a
@@ -10446,7 +10446,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -12958,7 +12958,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         <a
@@ -12981,7 +12981,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -13330,7 +13330,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         <a
@@ -13352,7 +13352,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -14307,7 +14307,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         <a
@@ -14330,7 +14330,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -15610,7 +15610,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         <a
@@ -15633,7 +15633,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -16708,7 +16708,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         <a
@@ -16730,7 +16730,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -17685,7 +17685,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         <a
@@ -17707,7 +17707,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -18662,7 +18662,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         <a
@@ -18685,7 +18685,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -19646,7 +19646,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         <a
@@ -19669,7 +19669,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -20949,7 +20949,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         <a
@@ -20972,7 +20972,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -21933,7 +21933,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         <a
@@ -21955,7 +21955,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"
@@ -22910,7 +22910,7 @@ exports[`Results View Should match snapshot 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="8"
+                      colspan="6"
                     >
                       <strong>
                         <a
@@ -22933,7 +22933,7 @@ exports[`Results View Should match snapshot 1`] = `
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
-                      colspan="4"
+                      colspan="6"
                     >
                       <div
                         class="f1oxa67k"

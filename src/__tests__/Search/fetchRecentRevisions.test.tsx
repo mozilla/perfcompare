@@ -39,7 +39,7 @@ describe('Search View/fetchRecentRevisions', () => {
       <SearchView
         toggleColorMode={toggleColorMode}
         protocolTheme={protocolTheme}
-        title='Search'
+        title={Strings.metaData.pageTitle.search}
       />,
     );
 
@@ -95,7 +95,7 @@ describe('Search View/fetchRecentRevisions', () => {
       <SearchView
         toggleColorMode={toggleColorMode}
         protocolTheme={protocolTheme}
-        title='Search'
+        title={Strings.metaData.pageTitle.search}
       />,
     );
 
@@ -131,7 +131,7 @@ describe('Search View/fetchRecentRevisions', () => {
       <SearchView
         toggleColorMode={toggleColorMode}
         protocolTheme={protocolTheme}
-        title='Search'
+        title={Strings.metaData.pageTitle.search}
       />,
     );
     renderWithRouter(<SearchComponent {...SearchPropsBase} />);

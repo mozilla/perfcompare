@@ -24,7 +24,7 @@ function renderComponent() {
     <SearchView
       toggleColorMode={toggleColorMode}
       protocolTheme={protocolTheme}
-      title='Search'
+      title={Strings.metaData.pageTitle.search}
     />,
   );
 }
@@ -299,7 +299,7 @@ describe('Base Search', () => {
       <SearchView
         toggleColorMode={toggleColorMode}
         protocolTheme={protocolTheme}
-        title='Search'
+        title={Strings.metaData.pageTitle.search}
       />,
     );
     expect(history.location.pathname).toEqual('/');
