@@ -44,17 +44,18 @@ function ResultsView(props: ResultsViewProps) {
   const [searchParams] = useSearchParams();
   const fakeDataParam: string | null = searchParams.get('fakedata');
 
-  const comparisonResults = firstRevisionResults.concat(
-    secondRevisionResults,
-    thirdRevisionResults,
-  );
+  const comparisonResults = {
+    bb6a5e451dac: firstRevisionResults,
+    '9d5066525489': secondRevisionResults,
+    a998c42399a8: thirdRevisionResults,
+  };
 
   // TODO: Populate store with real data or fake data pased on URL params
   useEffect(() => {
     if (fakeDataParam === 'true') {
       dispatch(setCompareData({ data: comparisonResults }));
     } else {
-      dispatch(setCompareData({ data: [] }));
+      dispatch(setCompareData({ data: {} }));
     }
   }, [fakeDataParam]);
 
@@ -72,9 +73,14 @@ function ResultsView(props: ResultsViewProps) {
     const urlSearchParams = new URLSearchParams(location.search);
     const repos = urlSearchParams.get('repos')?.split(',');
     const revs = urlSearchParams.get('revs')?.split(',');
+    const framework = urlSearchParams.get('framework');
 
     if (revs && repos) {
-      void dispatchFetchCompareResults(repos as Repository['name'][], revs);
+      void dispatchFetchCompareResults(
+        repos as Repository['name'][],
+        revs,
+        framework as string,
+      );
 
       /*
       On component mount, use the repos and revs in hash to search for the base and new revisions. Store the results in state via the SelectedRevisionsSlice: see extra reducer, fetchRevisionsByID. Now can always display the selected revisions despite page refresh or copying and pasting url

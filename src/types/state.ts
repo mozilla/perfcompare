@@ -113,8 +113,12 @@ export type SelectedRevisionsState = {
   new: RevisionsList[];
 };
 
+export interface ResultsHashmap {
+  [key: string]: CompareResultsItem[];
+}
+
 export type CompareResultsState = {
-  data: CompareResultsItem[];
+  data: ResultsHashmap;
   loading: boolean;
   error: string | undefined;
 };

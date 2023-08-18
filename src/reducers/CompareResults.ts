@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import type { CompareResultsItem, CompareResultsState } from '../types/state';
+import { fetchCompareResults } from '../thunks/compareResultsThunk';
+import type { CompareResultsState, ResultsHashmap } from '../types/state';
 
 const initialState: CompareResultsState = {
-  data: [],
+  data: {},
   loading: false,
   error: undefined,
 };
@@ -15,11 +16,27 @@ const compareResults = createSlice({
     setCompareData(
       state,
       action: PayloadAction<{
-        data: CompareResultsItem[];
+        data: ResultsHashmap;
       }>,
     ) {
       state.data = action.payload.data;
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchCompareResults.fulfilled, (state, action) => {
+        const revisionHash = action.payload[0].new_rev;
+        state.data[revisionHash] = action.payload;
+        state.loading = initialState.loading;
+      })
+      .addCase(fetchCompareResults.pending, (state) => {
+        state.loading = true;
+        state.error = initialState.error;
+      })
+      .addCase(fetchCompareResults.rejected, (state, action) => {
+        state.error = action.payload;
+        state.loading = initialState.loading;
+      });
   },
 });
 
