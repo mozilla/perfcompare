@@ -5,10 +5,17 @@ import { renderHook, screen } from '../../utils/test-utils';
 
 describe('Search by title/test name', () => {
   const protocolTheme = renderHook(() => useProtocolTheme()).result.current
-  .protocolTheme;
+    .protocolTheme;
+  const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
+    .toggleColorMode;
 
   it('Should match snapshot', () => {
-    renderWithRouter(<ResultsView protocolTheme={protocolTheme}/>);
+    renderWithRouter(
+      <ResultsView
+        protocolTheme={protocolTheme}
+        toggleColorMode={toggleColorMode}
+      />,
+    );
 
     expect(screen.getByTestId('search-by-title-test-name')).toBeInTheDocument();
     expect(document.body).toMatchSnapshot();

@@ -5,11 +5,10 @@ exports[`Results Table Should match snapshot 1`] = `
   <div />
   <div>
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root f1otqxop css-pfrgnn-MuiPaper-root-MuiTableContainer-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root f1dgii11 css-1inhs6f-MuiPaper-root-MuiTableContainer-root"
       data-testid="results-table"
     >
       <table
-        aria-label="collapsible table"
         class="MuiTable-root css-yso468-MuiTable-root"
       >
         <thead
@@ -17,14 +16,14 @@ exports[`Results Table Should match snapshot 1`] = `
           data-testid="table-header"
         >
           <tr
-            class="MuiTableRow-root MuiTableRow-head f81wnp2 css-1yt2i5z-MuiTableRow-root"
+            class="MuiTableRow-root MuiTableRow-head f1ctvkx8 css-1yt2i5z-MuiTableRow-root"
           >
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-hwty3m-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium platform-header css-hwty3m-MuiTableCell-root"
               scope="col"
             >
               <div
-                class="f1076rq5"
+                class="fzi2oph"
               >
                 <svg
                   aria-hidden="true"
@@ -54,7 +53,7 @@ exports[`Results Table Should match snapshot 1`] = `
               </div>
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-hwty3m-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium base-header css-hwty3m-MuiTableCell-root"
               scope="col"
             >
               <div
@@ -66,7 +65,17 @@ exports[`Results Table Should match snapshot 1`] = `
               </div>
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-hwty3m-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium comparisonSign-header css-hwty3m-MuiTableCell-root"
+              scope="col"
+            >
+              <div
+                class=""
+              >
+                <span />
+              </div>
+            </th>
+            <th
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium new-header css-hwty3m-MuiTableCell-root"
               scope="col"
             >
               <div
@@ -78,11 +87,11 @@ exports[`Results Table Should match snapshot 1`] = `
               </div>
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-hwty3m-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium status-header css-hwty3m-MuiTableCell-root"
               scope="col"
             >
               <div
-                class="f1076rq5"
+                class="fzi2oph"
               >
                 <svg
                   aria-hidden="true"
@@ -112,7 +121,7 @@ exports[`Results Table Should match snapshot 1`] = `
               </div>
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-hwty3m-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium delta-header css-hwty3m-MuiTableCell-root"
               scope="col"
             >
               <div
@@ -124,11 +133,11 @@ exports[`Results Table Should match snapshot 1`] = `
               </div>
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-hwty3m-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium confidence-header css-hwty3m-MuiTableCell-root"
               scope="col"
             >
               <div
-                class="f1076rq5"
+                class="fzi2oph"
               >
                 <svg
                   aria-hidden="true"
@@ -158,7 +167,7 @@ exports[`Results Table Should match snapshot 1`] = `
               </div>
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-hwty3m-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium runs-header css-hwty3m-MuiTableCell-root"
               scope="col"
             >
               <div
@@ -169,9 +178,52 @@ exports[`Results Table Should match snapshot 1`] = `
                 </span>
               </div>
             </th>
+            <th
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium empty-header css-hwty3m-MuiTableCell-root"
+              colspan="4"
+              scope="col"
+            >
+              <div
+                class=""
+              >
+                <span />
+              </div>
+            </th>
           </tr>
         </thead>
       </table>
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthLg css-1kcf06b-MuiContainer-root"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-container css-3s5eoc-MuiGrid-root"
+        >
+          <div
+            class="foa7wva"
+          >
+            <div>
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge css-8lii5d-MuiSvgIcon-root"
+                data-testid="SearchIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                />
+              </svg>
+              <br />
+            </div>
+            <b>
+              No results found
+            </b>
+            <br />
+            For the selected revision(s), no results when compared to the base revision.
+            <br />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </body>

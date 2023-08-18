@@ -1,33 +1,29 @@
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 
-import type { Revision } from '../../types/state';
+import { useAppSelector } from '../../hooks/app';
+import { SelectListStyles } from '../../styles';
+import { InputType, ThemeMode, View } from '../../types/state';
 import SearchResultsListItem from './SearchResultsListItem';
 
+interface SearchResultsListProps {
+  view: View;
+  mode: ThemeMode;
+  searchType: InputType;
+}
+
 function SearchResultsList(props: SearchResultsListProps) {
-  const { searchResults, view } = props;
+  const { view, mode, searchType } = props;
+  const searchState = useAppSelector((state) => state.search[searchType]);
+  const { searchResults } = searchState;
+  const styles = SelectListStyles(mode);
 
   return (
     <Box
-      id="search-results-list"
-      sx={{
-        maxWidth: '100%',
-        bgcolor: 'background.paper',
-        border: 1,
-        borderColor: 'grey.500',
-        borderRadius: '4px',
-        padding: '8px',
-        marginTop: '4px',
-        height: '210px',
-        overflow: 'auto',
-        '&:focus': {
-          borderColor: 'primary.main',
-        },
-        '&:hover': {
-          borderColor: 'text.primary',
-        },
-      }}
-      alignItems="flex-end"
+      className={`${styles} results-list-${mode}`}
+      id='search-results-list'
+      alignItems='flex-end'
+      data-testid='list-mode'
     >
       <List dense={view == 'compare-results'} sx={{ paddingTop: '0' }}>
         {searchResults.map((item, index) => (
@@ -36,16 +32,12 @@ function SearchResultsList(props: SearchResultsListProps) {
             index={index}
             item={item}
             view={view}
+            searchType={searchType}
           />
         ))}
       </List>
     </Box>
   );
-}
-
-interface SearchResultsListProps {
-  searchResults: Revision[];
-  view: 'compare-results' | 'search';
 }
 
 export default SearchResultsList;

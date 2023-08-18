@@ -8,6 +8,7 @@ function useFetchCompareResults() {
   const dispatchFetchCompareResults = async (
     repos: Repository['name'][] | null,
     revs: string[] | undefined,
+    framework: string,
   ) => {
     let baseRepo;
     let baseRev;
@@ -19,7 +20,13 @@ function useFetchCompareResults() {
         baseRepo = newRepo = repos[0];
         baseRev = newRev = revs[0];
         void dispatch(
-          fetchCompareResults({ baseRepo, baseRev, newRepo, newRev }),
+          fetchCompareResults({
+            baseRepo,
+            baseRev,
+            newRepo,
+            newRev,
+            framework,
+          }),
         );
       } else if (revs.length == 2) {
         baseRepo = repos[0];
@@ -27,10 +34,33 @@ function useFetchCompareResults() {
         newRepo = repos[1];
         newRev = revs[1];
         void dispatch(
-          fetchCompareResults({ baseRepo, baseRev, newRepo, newRev }),
+          fetchCompareResults({
+            baseRepo,
+            baseRev,
+            newRepo,
+            newRev,
+            framework,
+          }),
         );
+      } else if (revs.length > 2 && revs.length <= 4) {
+        baseRepo = repos[0];
+        baseRev = revs[0];
+        newRepo = repos[1];
+        newRev = revs[1];
+        for (let i = 1; i < revs.length; i++) {
+          newRepo = repos[i];
+          newRev = revs[i];
+          void dispatch(
+            fetchCompareResults({
+              baseRepo,
+              baseRev,
+              newRepo,
+              newRev,
+              framework,
+            }),
+          );
+        }
       }
-      // TODO: handle case for more than two selected revisions
     }
   };
   return { dispatchFetchCompareResults };

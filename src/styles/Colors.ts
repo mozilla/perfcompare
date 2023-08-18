@@ -25,6 +25,7 @@ export enum Colors {
   InvertedText = '#FBFBFE',
   LinkText = '#0060df',
   TextDisabled = '#15141a 40%',
+  Normal = '#111111',
 
   //Text colors dark theme
   PrimaryTextDark = '#FBFBFE',
@@ -73,6 +74,12 @@ export enum Colors {
 
   //banner color
   BannerBG = 'rgb(255, 244, 229)',
+
+  //icon light
+  IconLight = '#5B5B66',
+
+  //icon dark
+  IconDark = '#FBFBFE',
 }
 
 export const background = (mode: string) => {

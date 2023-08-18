@@ -5,21 +5,23 @@ import { Framework, Platform } from '../types/types';
 
 export const treeherderBaseURL = 'https://treeherder.mozilla.org';
 
-export const maxRevisionsError = 'Maximum 4 revision(s).';
+export const maxRevisionsError = 'Maximum 1 revision(s).';
 export const featureNotSupportedError =
   'This feature is not supported yet. Please compare two revisions only.';
 
 export const userFeedbackMessage =
   'For any kind of suggestions please contact us at ';
 export const perfCompareEmail = 'perfcompare-user-feedback@mozilla.com';
+export const compareView = 'compare-results';
+export const searchView = 'search';
 
 export const repoMap: Dictionary<Repository['name']> = {
   1: 'mozilla-central',
-  2: 'mozilla-beta',
-  3: 'mozilla-release',
   4: 'try',
-  30: 'fenix',
+  6: 'mozilla-beta',
+  7: 'mozilla-release',
   77: 'autoland',
+  108: 'fenix',
 };
 
 export const frameworkMap: Record<Framework['id'], Framework['name']> = {

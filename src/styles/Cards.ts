@@ -3,7 +3,6 @@ import { style } from 'typestyle';
 import { Colors } from './Colors';
 import { Spacing } from './Spacing';
 
-
 export const CardsLightRaw = {
   boxShadow: Colors.ShadowLight,
   backgroundColor: Colors.Background300,
@@ -12,7 +11,7 @@ export const CardsLightRaw = {
 
 export const CardsDarkRaw = {
   boxShadow: Colors.ShadowDark,
-  backgroundColor: Colors.Background300Dark,
+  backgroundColor: Colors.Background200Dark,
   borderRadius: Spacing.Small,
 };
 

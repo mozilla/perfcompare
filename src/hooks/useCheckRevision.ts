@@ -1,36 +1,43 @@
 import { useSnackbar, VariantType } from 'notistack';
 
-import { setCheckedRevisions } from '../reducers/CheckedRevisions';
-import { Revision } from '../types/state';
+import { updateCheckedRevisions } from '../reducers/SearchSlice';
+import { RevisionsList } from '../types/state';
+import { InputType } from '../types/state';
 import { useAppDispatch, useAppSelector } from './app';
 
-const useCheckRevision = () => {
+const useCheckRevision = (searchType: InputType) => {
   const { enqueueSnackbar } = useSnackbar();
   const dispatch = useAppDispatch();
 
-  const checkedRevisions: Revision[] = useAppSelector(
-    (state) => state.checkedRevisions.revisions,
+  const searchCheckedRevisions: RevisionsList[] = useAppSelector(
+    (state) => state.search[searchType].checkedRevisions,
   );
 
-  const handleToggle = (revision: Revision, maxRevisions: number) => {
-    const isChecked = checkedRevisions.includes(revision);
-    const newChecked = [...checkedRevisions];
+  const handleToggle = (revision: RevisionsList, maxRevisions: number) => {
+    const isChecked = searchCheckedRevisions.includes(revision);
+    const newChecked = [...searchCheckedRevisions];
 
     // if item is not already checked, add to checked
-    if (checkedRevisions.length < maxRevisions && !isChecked) {
+    if (searchCheckedRevisions.length < maxRevisions && !isChecked) {
       newChecked.push(revision);
     } else if (isChecked) {
       // if item is already checked, remove from checked
-      newChecked.splice(checkedRevisions.indexOf(revision), 1);
+      newChecked.splice(searchCheckedRevisions.indexOf(revision), 1);
     } else {
       // if there are already 4 checked revisions, print a warning
       const variant: VariantType = 'warning';
       enqueueSnackbar(`Maximum ${maxRevisions} revision(s).`, { variant });
     }
 
-    dispatch(setCheckedRevisions(newChecked));
+    dispatch(updateCheckedRevisions({ newChecked, searchType }));
   };
-  return { checkedRevisions, handleToggle };
+
+  const removeCheckedRevision = (revision: RevisionsList) => {
+    const newChecked = [...searchCheckedRevisions];
+    newChecked.splice(searchCheckedRevisions.indexOf(revision), 1);
+    dispatch(updateCheckedRevisions({ newChecked, searchType }));
+  };
+  return { handleToggle, removeCheckedRevision };
 };
 
 export default useCheckRevision;

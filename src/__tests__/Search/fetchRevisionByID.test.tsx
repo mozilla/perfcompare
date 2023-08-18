@@ -4,17 +4,20 @@ import { act } from 'react-dom/test-utils';
 
 import SearchView from '../../components/Search/SearchView';
 import useProtocolTheme from '../../theme/protocolTheme';
+import { InputType } from '../../types/state';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
 
-describe('SearchView/fetchRevisionByID', () => {
+describe('Search View/fetchRevisionByID', () => {
   const protocolTheme = renderHook(() => useProtocolTheme()).result.current
     .protocolTheme;
   const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
     .toggleColorMode;
+
   it('should fetch revisions by ID if searchValue is a 12 or 40 character hash', async () => {
     const { testData } = getTestData();
+
     global.fetch = jest.fn(() =>
       Promise.resolve({
         json: () => ({
@@ -30,13 +33,14 @@ describe('SearchView/fetchRevisionByID', () => {
       <SearchView
         toggleColorMode={toggleColorMode}
         protocolTheme={protocolTheme}
+        title='Search'
       />,
     );
 
-    await screen.findByRole('button', { name: 'repository' });
-    expect(screen.getByText('try')).toBeInTheDocument();
+    await screen.findAllByTestId('dropdown-select-base');
+    expect(screen.getAllByText('try')[0]).toBeInTheDocument();
 
-    const searchInput = screen.getByRole('textbox');
+    const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'abcdef123456');
     await act(async () => void jest.runOnlyPendingTimers());
 
@@ -50,11 +54,8 @@ describe('SearchView/fetchRevisionByID', () => {
     expect(spyOnFetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?revision=abcdef1234567890abcdef1234567890abcdef12',
     );
-
-    await screen.findAllByText("you've got no arms left!");
-    expect(
-      screen.getAllByText("it's just a flesh wound")[0],
-    ).toBeInTheDocument();
+    await screen.findByText("you've got no arms left!");
+    await screen.findByText('What, ridden on a horse?');
   });
 
   it('should reject fetchRevisionsByID if fetch returns no results', async () => {
@@ -65,6 +66,8 @@ describe('SearchView/fetchRevisionByID', () => {
         }),
       }),
     ) as jest.Mock;
+    const searchType = 'base' as InputType;
+
     const spyOnFetch = jest.spyOn(global, 'fetch');
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
@@ -73,23 +76,27 @@ describe('SearchView/fetchRevisionByID', () => {
       <SearchView
         toggleColorMode={toggleColorMode}
         protocolTheme={protocolTheme}
+        title='Search'
       />,
     );
 
-    await screen.findByRole('button', { name: 'repository' });
-    expect(screen.getByText('try')).toBeInTheDocument();
+    await screen.findAllByRole('button', { name: 'Base' });
+    expect(screen.getAllByText('try')[0]).toBeInTheDocument();
 
-    const searchInput = screen.getByRole('textbox');
+    const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'abcdef1234567890abcdef1234567890abcdef12');
-    jest.runOnlyPendingTimers();
+    await act(async () => void jest.runOnlyPendingTimers());
 
     expect(spyOnFetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?revision=abcdef1234567890abcdef1234567890abcdef12',
     );
 
-    await screen.findByText('No results found');
-    expect(store.getState().search.inputError).toBe(true);
-    expect(store.getState().search.inputHelperText).toBe('No results found');
+    await screen.findAllByText('No results found');
+    expect(store.getState().search[searchType].searchResults).toStrictEqual([]);
+    expect(store.getState().search[searchType].inputError).toBe(true);
+    expect(store.getState().search[searchType].inputHelperText).toBe(
+      'No results found',
+    );
   });
 
   it('should update error state if fetchRevisionsByID returns an error', async () => {
@@ -100,29 +107,32 @@ describe('SearchView/fetchRevisionByID', () => {
         ),
       ),
     ) as jest.Mock;
-    jest.spyOn(global, 'fetch');
+    const searchType = 'base' as InputType;
+
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
     renderWithRouter(
-      <SearchView
-        toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
-      />,
+      <>
+        <SearchView
+          toggleColorMode={toggleColorMode}
+          protocolTheme={protocolTheme}
+          title='search'
+        />
+      </>,
     );
 
-    await screen.findByRole('button', { name: 'repository' });
-
-    const searchInput = screen.getByRole('textbox');
+    await screen.findAllByRole('button', { name: 'Base' });
+    const searchInput = screen.getAllByRole('textbox')[0];
 
     await user.type(searchInput, 'abcdef1234567890abcdef1234567890abcdef12');
-    jest.runOnlyPendingTimers();
-
-    await screen.findByText(
+    await act(async () => void jest.runOnlyPendingTimers());
+    await screen.findAllByText(
       "You've got two empty 'alves of coconuts and you're bangin' 'em togetha!",
     );
-    expect(store.getState().search.inputError).toBe(true);
-    expect(store.getState().search.inputHelperText).toBe(
+    expect(store.getState().search[searchType].searchResults).toStrictEqual([]);
+    expect(store.getState().search[searchType].inputError).toBe(true);
+    expect(store.getState().search[searchType].inputHelperText).toBe(
       "You've got two empty 'alves of coconuts and you're bangin' 'em togetha!",
     );
   });
@@ -130,6 +140,8 @@ describe('SearchView/fetchRevisionByID', () => {
   it('should update error state with generic message if fetch error message is undefined', async () => {
     global.fetch = jest.fn(() => Promise.reject(new Error())) as jest.Mock;
     const spyOnFetch = jest.spyOn(global, 'fetch');
+    const searchType = 'base' as InputType;
+
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
@@ -137,22 +149,24 @@ describe('SearchView/fetchRevisionByID', () => {
       <SearchView
         toggleColorMode={toggleColorMode}
         protocolTheme={protocolTheme}
+        title='Search'
       />,
     );
 
-    await screen.findByRole('button', { name: 'repository' });
-
-    const searchInput = screen.getByRole('textbox');
+    await act(async () => void jest.runOnlyPendingTimers());
+    await screen.findAllByRole('button', { name: 'Base' });
+    const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'abcdef123456');
-    jest.runOnlyPendingTimers();
+    await act(async () => void jest.runOnlyPendingTimers());
 
     expect(spyOnFetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?revision=abcdef123456',
     );
 
-    await screen.findByText('An error has occurred');
-    expect(store.getState().search.inputError).toBe(true);
-    expect(store.getState().search.inputHelperText).toBe(
+    await screen.findAllByText('An error has occurred');
+    expect(store.getState().search[searchType].searchResults).toStrictEqual([]);
+    expect(store.getState().search[searchType].inputError).toBe(true);
+    expect(store.getState().search[searchType].inputHelperText).toBe(
       'An error has occurred',
     );
   });

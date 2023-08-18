@@ -1,19 +1,36 @@
 import { style } from 'typestyle';
 
 import { Colors } from './Colors';
+import { Spacing } from './Spacing';
 
-const dropDownPadding = '6px 12px 6px 16px';
+const sharedDropDownBtnStyles = {
+  padding: `${Spacing.xSmall + 2}px ${Spacing.Small + 4}px ${
+    Spacing.xSmall + 2
+  }px ${Spacing.Medium}px`,
+  maxHeight: '32px',
+  borderRadius: `${Spacing.xSmall}px`,
+  marginTop: '0',
+};
+
+const sharedButtonStyles = {
+  padding: `${Spacing.xSmall}px ${Spacing.Medium}px !important}`,
+  height: `${Spacing.xLarge}px`,
+  margin: '0 !important',
+};
 
 //BUTTONS LIGHT
 export const ButtonsLightRaw = {
   Primary: {
+    ...sharedButtonStyles,
     color: Colors.InvertedText,
     backgroundColor: Colors.PrimaryDefault,
-    '&:hover': {
-      backgroundColor: Colors.PrimaryHover,
-    },
-    '&:active': {
-      backgroundColor: Colors.PrimaryActive,
+    $nest: {
+      '&:hover': {
+        backgroundColor: Colors.PrimaryHover,
+      },
+      '&:active': {
+        backgroundColor: Colors.PrimaryActive,
+      },
     },
   },
   Secondary: {
@@ -27,17 +44,52 @@ export const ButtonsLightRaw = {
     },
   },
   Dropdown: {
+    ...sharedDropDownBtnStyles,
     backgroundColor: Colors.SecondaryDefault,
-    padding: dropDownPadding,
-    height: '32px',
-    '& .MuiSelect-select': {
-      color: Colors.PrimaryText,
-    },
-    '&:hover': {
-      backgroundColor: Colors.SecondaryHover,
-    },
-    '&:active': {
-      backgroundColor: Colors.SecondaryActive,
+    borderColor: Colors.SecondaryDefault,
+
+    $nest: {
+      '&:hover': {
+        backgroundColor: Colors.SecondaryHover,
+      },
+      '.MuiSelect-select': {
+        color: Colors.PrimaryText,
+        backgroundColor: 'transparent',
+        '&:hover': {
+          textDecoration: 'none !important',
+          borderBottom: 'none !important',
+          '&:before': {
+            borderBottom: 'none',
+          },
+          '&:after': {
+            borderBottom: 'none',
+          },
+        },
+        '&:before': {
+          borderBottom: 'none',
+          backgroundColor: Colors.SecondaryDefault,
+        },
+        '&:after': {
+          borderBottom: 'none',
+          backgroundColor: Colors.SecondaryDefault,
+        },
+      },
+
+      '&:active': {
+        backgroundColor: Colors.SecondaryActive,
+      },
+      '&:before': {
+        borderRadius: `${Spacing.xSmall}px`,
+        borderBottom: 'none',
+      },
+      '&:after': {
+        borderBottom: 'none',
+        borderRadius: `${Spacing.xSmall}px`,
+        backgroundColor: Colors.SecondaryDefault,
+        '&:hover': {
+          borderBottom: 'none',
+        },
+      },
     },
   },
 };
@@ -48,10 +100,11 @@ export const ButtonsLight = {
   Dropdown: style(ButtonsLightRaw.Dropdown),
 };
 
-//BUTTONS DARK
+////////////////////BUTTONS DARK///////////////////////
 
 export const ButtonsDarkRaw = {
   Primary: {
+    ...sharedButtonStyles,
     color: Colors.InvertedTextDark,
     backgroundColor: Colors.PrimaryDark,
     '&:hover': {
@@ -72,16 +125,37 @@ export const ButtonsDarkRaw = {
     },
   },
   Dropdown: {
-    backgroundColor: Colors.SecondaryDark,
-    padding: dropDownPadding,
-    '& .MuiSelect-select': {
-      color: Colors.PrimaryTextDark,
-    },
-    '&:hover': {
-      backgroundColor: Colors.SecondaryHoverDark,
-    },
-    '&:active': {
-      backgroundColor: Colors.SecondaryActiveDark,
+    ...sharedDropDownBtnStyles,
+    backgroundColor: Colors.Background300Dark,
+    $nest: {
+      '.MuiSelect-select': {
+        color: Colors.PrimaryTextDark,
+      },
+      '&:hover': {
+        backgroundColor: Colors.SecondaryHoverDark,
+        $nest: {
+          '&:before': {
+            borderBottom: 'none',
+            borderBottomColor: 'transparent',
+          },
+          '&:after': {
+            borderBottom: 'none',
+            borderBottomColor: 'transparent',
+          },
+        },
+      },
+      '&:active': {
+        backgroundColor: Colors.SecondaryActiveDark,
+      },
+      '&:before': {
+        borderBottom: 'none',
+        borderRadius: `${Spacing.xSmall}px`,
+      },
+      '&:after': {
+        borderBottom: 'none',
+        borderRadius: `${Spacing.xSmall}px`,
+        backgroundColor: Colors.SecondaryDark,
+      },
     },
   },
 };
@@ -90,4 +164,14 @@ export const ButtonsDark = {
   Primary: style(ButtonsDarkRaw.Primary),
   Secondary: style(ButtonsDarkRaw.Secondary),
   Dropdown: style(ButtonsDarkRaw.Dropdown),
+};
+
+export const ButtonStyles = (mode: string) => {
+  const isTrueLight = mode == 'light' ? true : false;
+  return isTrueLight ? ButtonsLightRaw : ButtonsDarkRaw;
+};
+
+export const ButtonStylesSecondary = (mode: string) => {
+  const isTrueLight = mode == 'light' ? true : false;
+  return isTrueLight ? ButtonsLight.Secondary : ButtonsDark.Secondary;
 };

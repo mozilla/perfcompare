@@ -26,7 +26,7 @@ export type CompareResultsTableHeaderName =
   | 'Confidence'
   | 'Total Runs';
 
-export type ConfidenceText = 'high' | 'med' | 'low' | 'not available';
+export type ConfidenceText = 'High' | 'Medium' | 'Low';
 
 export type MeasurementUnit =
   | 'W'
@@ -70,6 +70,7 @@ export type FilteredResults = {
   isFiltered: boolean;
 };
 
+// TODO: Needs review: as new platforms are available the type will need updates
 export type Platform =
   | 'linux32'
   | 'linux-shippable'

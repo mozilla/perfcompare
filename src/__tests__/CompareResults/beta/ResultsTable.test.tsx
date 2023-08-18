@@ -3,9 +3,14 @@ import useProtocolTheme from '../../../theme/protocolTheme';
 import { renderWithRouter } from '../../utils/setupTests';
 import { renderHook, screen } from '../../utils/test-utils';
 
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual<typeof import('react-router-dom')>('react-router-dom'),
+  useSearchParams: () => [new URLSearchParams({ fakedata: 'true' })],
+}));
+
 describe('Results Table', () => {
   const protocolTheme = renderHook(() => useProtocolTheme()).result.current
-  .protocolTheme;
+    .protocolTheme;
   const themeMode = protocolTheme.palette.mode;
 
   it('Should match snapshot', () => {
@@ -13,5 +18,11 @@ describe('Results Table', () => {
 
     expect(screen.getByTestId('results-table')).toBeInTheDocument();
     expect(document.body).toMatchSnapshot();
+  });
+
+  it('Display message for not finding results', () => {
+    renderWithRouter(<ResultsTable themeMode={themeMode} />);
+
+    expect(screen.getByText(/No results found/)).toBeInTheDocument();
   });
 });

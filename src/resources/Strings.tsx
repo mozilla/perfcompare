@@ -1,4 +1,10 @@
 export const Strings = {
+  metaData: {
+    pageTitle: {
+      search: 'PerfCompare - Search',
+      results: 'PerfCompare - Results',
+    },
+  },
   components: {
     topBanner: {
       text: 'This is an unstable pre-release version. Some features may not yet be supported. Please file any bugs on the Github Repo.',
@@ -20,12 +26,12 @@ export const Strings = {
       sharedCollasped: {
         revisions: {
           selectLabel: 'Revisions',
-          selectIcon: '',
-          inputLabel: 'Search revision by ID number or author email',
+          placeholder: 'Search base by ID number or author email',
         },
         framkework: {
           selectLabel: 'Framework',
-          selectIcon: '',
+          tooltip:
+            'The framework or test harness containing the test you want to examine.',
         },
         button: 'Compare',
       },
@@ -35,10 +41,28 @@ export const Strings = {
         img: 'https://user-images.githubusercontent.com/88336547/233237125-1534220b-c343-421a-9133-ce8f151cb979.png',
         imgDark:
           'https://user-images.githubusercontent.com/88336547/233250674-004d071a-7c23-40f4-b348-0687a3fef6e3.png',
-        collapedBase: {
-          selectLabel: 'Base',
-          selectIcon: '',
-          inputLabel: 'Search base by ID number or author email',
+
+        save: 'Save',
+        cancel: 'Cancel',
+        editIcon:
+          'https://user-images.githubusercontent.com/88336547/259900252-462ac221-f4ff-4b1c-bb6b-5df906e8007d.svg',
+        collapsed: {
+          warnings: {
+            comparison:
+              'Comparing “try” repository to any repository aside from "try" is not recommended.',
+          },
+          base: {
+            selectLabel: 'Base',
+            inputPlaceholder: 'Search base by ID number or author email',
+            tooltip:
+              'The baseline revision (no changes) your revision will be compared against.',
+          },
+          revision: {
+            selectLabel: 'Revisions',
+            inputPlaceholder: 'Search revision by ID number or author email',
+            tooltip:
+              'Revisions (typically including your changes) to compare against the selected base revision.',
+          },
         },
       },
       overTime: {
@@ -51,5 +75,22 @@ export const Strings = {
         collapedSelectLabel: 'Time range',
       },
     },
+    expandableRow: {
+      singleRun: 'Only one run (consider more runs for greater confidence).',
+      Low: "A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
+      Medium:
+        "A value of 'med' indicates uncertainty that there is a significant change. If you haven't already, consider retriggering the job to be more sure.",
+      High: "A value of 'high' indicates more confidence that there is a significant change, however you should check the historical record for the test by looking at the graph to be more sure (some noisy tests can provide inconsistent results).",
+    },
+    noResultsFound: {
+      mainMessage: 'No results found',
+      note: 'For the selected revision(s), no results when compared to the base revision.',
+    },
+    comparisonRevisionDropdown: {
+      allRevisions: 'All revisions',
+    },
   },
-}; 
+  errors: {
+    warningText: 'Search must be a 12- or 40-character hash, or email address',
+  },
+};

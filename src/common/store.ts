@@ -1,18 +1,18 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 
-import checkedRevisions from '../reducers/CheckedRevisions';
-import compareResults from '../reducers/CompareResultsSlice';
-import filterCompareResults from '../reducers/FilterCompareResultsSlice';
+import compareResults from '../reducers/CompareResults';
+import comparison from '../reducers/ComparisonSlice';
+import framework from '../reducers/FrameworkSlice';
 import search from '../reducers/SearchSlice';
-import selectedRevisions from '../reducers/SelectedRevisions';
+import selectedRevisions from '../reducers/SelectedRevisionsSlice';
 
 const reducer = combineReducers({
-  checkedRevisions,
-  compareResults,
   search,
+  framework,
   selectedRevisions,
-  filterCompareResults,
+  compareResults,
+  comparison,
 });
 
 export const store = configureStore({

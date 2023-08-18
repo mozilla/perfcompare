@@ -63,6 +63,7 @@ module.exports = {
       rules: {
         // https://github.com/typescript-eslint/typescript-eslint/issues/1824
         '@typescript-eslint/indent': 'off',
+        'react/prop-types': ['off'],
       },
     },
     {

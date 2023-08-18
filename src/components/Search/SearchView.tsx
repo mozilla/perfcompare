@@ -1,97 +1,85 @@
-import ArrowForward from '@mui/icons-material/ArrowForward';
-import type { Theme } from '@mui/material';
-import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import { useSnackbar, VariantType } from 'notistack';
-import { connect } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useRef, useEffect } from 'react';
 
-import { repoMap, featureNotSupportedError } from '../../common/constants';
-import type { RootState } from '../../common/store';
-import useFilterCompareResults from '../../hooks/useFilterCompareResults';
-import { Strings } from '../../resources/Strings';
-import { Revision } from '../../types/state';
-import PerfCompareHeader from '../Shared/beta/PerfCompareHeader';
-import RevisionSearch from '../Shared/RevisionSearch';
-import SelectedRevisionsTable from '../Shared/SelectedRevisionsTable';
+import type { Theme } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import { style } from 'typestyle';
+
+import { repoMap } from '../../common/constants';
+import { searchView } from '../../common/constants';
+import { RootState } from '../../common/store';
+import { useAppSelector } from '../../hooks/app';
+import { background } from '../../styles';
+import { skipLink } from '../../styles';
+import { RevisionsList, View } from '../../types/state';
+import { Framework } from '../../types/types';
+import SkipLink from '../Accessibility/SkipLink';
+import PerfCompareHeader from '../Shared/PerfCompareHeader';
+import SearchContainer from './SearchContainer';
 import SearchViewInit from './SearchViewInit';
 
-const strings = Strings.components.searchDefault.sharedCollasped;
-
 function SearchView(props: SearchViewProps) {
+  const containerRef = useRef(null);
   const navigate = useNavigate();
-  const { clearFilters } = useFilterCompareResults();
-  const { enqueueSnackbar } = useSnackbar();
-  const warningVariant: VariantType = 'warning';
-  const { toggleColorMode, protocolTheme } = props;
+  const { toggleColorMode, protocolTheme, title } = props;
   const themeMode = protocolTheme.palette.mode;
+  const selectedRevisions = useAppSelector(
+    (state: RootState) => state.selectedRevisions.revisions,
+  );
+  const framework = useAppSelector(
+    (state: RootState) => state.framework as Framework,
+  );
 
-  const goToCompareResultsPage = (selectedRevisions: Revision[]) => {
-    // TODO: remove this check once comparing without a base
-    //  and comparing multiple revisions against a base is enabled
-    if (selectedRevisions.length === 1 || selectedRevisions.length > 2) {
-      enqueueSnackbar(featureNotSupportedError as string, {
-        variant: warningVariant,
-      });
-      return;
-    }
-    const revs = selectedRevisions.map((rev) => rev.revision);
-    const repos = selectedRevisions.map((rev) => repoMap[rev.repository_id]);
-    clearFilters();
+  const styles = {
+    container: style({
+      backgroundColor: background(themeMode),
+    }),
+  };
+  const goToCompareResultsPage = (
+    selectedRevs: RevisionsList[],
+    selectedFramework: Framework,
+  ) => {
+    const revs = selectedRevs.map((rev) => rev.revision);
+    const repos = selectedRevs.map((rev) => repoMap[rev.repository_id]);
     navigate({
       pathname: '/compare-results',
-      search: `?revs=${revs.join(',')}&repos=${repos.join(',')}`,
+      search: `?revs=${revs.join(',')}&repos=${repos.join(',')}&framework=${
+        selectedFramework.id
+      }`,
     });
   };
 
-  const { selectedRevisions } = props;
+  useEffect(() => {
+    document.title = title;
+  }, [title]);
+
+  useEffect(() => {
+    if (selectedRevisions.length > 0) {
+      goToCompareResultsPage(selectedRevisions, framework);
+    }
+  }, [selectedRevisions]);
 
   return (
-    <>
+    <div className={styles.container}>
+      <SkipLink containerRef={containerRef}>
+        <button className={skipLink} role='link' tabIndex={1}>
+          Skip to search
+        </button>
+      </SkipLink>
       <PerfCompareHeader
-        toggleColorMode={toggleColorMode}
         themeMode={themeMode}
+        toggleColorMode={toggleColorMode}
+        view={searchView as View}
       />
-      <Container className='perfcompare-body' maxWidth='lg'>
-        {/* Component to fetch recent revisions on mount */}
-
-        <SearchViewInit />
-        <Grid item xs={12}>
-          {selectedRevisions.length > 0 && (
-            <SelectedRevisionsTable view='search' />
-          )}
-        </Grid>
-        <Grid item className='compare-button-section'>
-          {selectedRevisions.length > 0 && (
-            <Button
-              className='compare-button'
-              variant='contained'
-              onClick={() => goToCompareResultsPage(selectedRevisions)}
-            >
-              {strings.button}
-              <ArrowForward className='compare-icon' />
-            </Button>
-          )}
-        </Grid>
-        <RevisionSearch view='search' />
-      </Container>
-    </>
+      <SearchViewInit />
+      <SearchContainer containerRef={containerRef} themeMode={themeMode} />
+    </div>
   );
 }
 
 interface SearchViewProps {
-  searchResults: Revision[];
-  selectedRevisions: Revision[];
   toggleColorMode: () => void;
   protocolTheme: Theme;
+  title: string;
 }
 
-function mapStateToProps(state: RootState) {
-  return {
-    searchResults: state.search.searchResults,
-    selectedRevisions: state.selectedRevisions.revisions,
-  };
-}
-
-export default connect(mapStateToProps)(SearchView);
+export default SearchView;

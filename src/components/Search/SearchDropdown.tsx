@@ -1,61 +1,103 @@
-/* eslint-disable @typescript-eslint/restrict-template-expressions */
 import FormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
-import { connect } from 'react-redux';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { style, cssRule } from 'typestyle';
 
 import { repoMap } from '../../common/constants';
-import type { RootState } from '../../common/store';
+import { compareView } from '../../common/constants';
+import { RootState } from '../../common/store';
+import { useAppSelector } from '../../hooks/app';
 import useHandleChangeDropdown from '../../hooks/useHandleChangeDropdown';
-import { ButtonsLight } from '../../styles/Buttons';
-import { Fonts  } from '../../styles/Fonts';
-import { InputStyles } from '../../styles/Input';
+import {
+  ButtonsLightRaw,
+  ButtonsDarkRaw,
+  TooltipRaw,
+  FontsRaw,
+  Colors,
+} from '../../styles';
+import { InputType, ThemeMode, View } from '../../types/state';
 
-function SearchDropdown(props: SearchDropdownProps) {
-  const { repository, view } = props;
+interface SearchDropdownProps {
+  view: View;
+  selectLabel: string;
+  tooltipText: string;
+  mode: ThemeMode;
+  searchType: InputType;
+}
+
+function SearchDropdown({
+  view,
+  selectLabel,
+  mode,
+  searchType,
+}: SearchDropdownProps) {
+  const size = view == compareView ? 'small' : undefined;
   const { handleChangeDropdown } = useHandleChangeDropdown();
-  const size = view == 'compare-results' ? 'small' : undefined;
+  const searchState = useAppSelector(
+    (state: RootState) => state.search[searchType],
+  );
+  const { repository } = searchState;
+
+  const handleRepoSelect = async (event: SelectChangeEvent) => {
+    const selectedRepository = event.target.value;
+    await handleChangeDropdown({ selectedRepository, searchType });
+  };
+
+  cssRule('.MuiTooltip-popper', {
+    ...(mode === 'light' ? TooltipRaw.Light : TooltipRaw.Dark),
+    $nest: {
+      '.MuiTooltip-tooltip': {
+        ...(mode === 'light' ? FontsRaw.BodySmall : FontsRaw.BodySmallDark),
+        backgroundColor: Colors.ColorTransparent,
+        padding: '0px',
+        margin: '0px !important',
+      },
+    },
+  });
+
+  const styles = {
+    container: style({
+      width: '100%',
+
+      $nest: {
+        '.MuiInputBase-root': {
+          ...(mode === 'light'
+            ? ButtonsLightRaw.Dropdown
+            : ButtonsDarkRaw.Dropdown),
+        },
+      },
+    }),
+  };
 
   return (
-    <FormControl
-      sx={{ width: '100%', marginBottom: '8px' }}
-      size={size}
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      className={`${InputStyles.dropDown} ${Fonts.BodyDefault}`}
-    >
-      <InputLabel id='select-repository-label'>repository</InputLabel>
-      <Select
-        value={repository}
-        labelId='select-repository-label'
-        label='repository'
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        className={ButtonsLight.Dropdown}
+    <div>
+      <FormControl
+        size={size}
+        className={`search-dropdown ${styles.container}`}
       >
-        {Object.keys(repoMap).map((key) => (
-          <MenuItem
-            id={repoMap[key]}
-            value={repoMap[key]}
-            key={repoMap[key]}
-            onClick={(e) => void handleChangeDropdown(e)}
-          >
-            {repoMap[key]}
-          </MenuItem>
-        ))}
-      </Select>
-    </FormControl>
+        <Select
+          data-testid={`dropdown-select-${searchType}`}
+          label={selectLabel}
+          value={repository}
+          labelId='select-repository-label'
+          className='dropdown-select'
+          variant='standard'
+          onChange={(e) => void handleRepoSelect(e)}
+        >
+          {Object.keys(repoMap).map((key) => (
+            <MenuItem
+              id={repoMap[key]}
+              value={repoMap[key]}
+              key={repoMap[key]}
+              className={`${searchType}Repository`}
+            >
+              {repoMap[key]}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+    </div>
   );
 }
 
-interface SearchDropdownProps {
-  repository: string;
-  view: 'compare-results' | 'search';
-}
-
-function mapStateToProps(state: RootState) {
-  return {
-    repository: state.search.repository,
-  };
-}
-
-export default connect(mapStateToProps)(SearchDropdown);
+export default SearchDropdown;

@@ -1,3 +1,5 @@
+import React, { useState } from 'react';
+
 import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -10,8 +12,6 @@ import { Strings } from '../resources/Strings';
 import { Banner } from '../styles/Banner';
 import useProtocolTheme from '../theme/protocolTheme';
 import ResultsView from './CompareResults/beta/ResultsView';
-import CompareResultsView from './CompareResults/CompareResultsView';
-import SearchViewBeta from './Search/beta/SearchView';
 import SearchView from './Search/SearchView';
 import FeedbackAlert from './Shared/FeedbackAlert';
 import SnackbarCloseButton from './Shared/SnackbarCloseButton';
@@ -21,58 +21,78 @@ const strings: BannerStrings = {
   linkText: Strings.components.topBanner.linkText,
   href: Strings.components.topBanner.href,
 };
+
+type DivProps = React.HTMLProps<HTMLDivElement>;
+
+const AlertContainer = React.forwardRef<HTMLDivElement, DivProps>(
+  (props, ref) => (
+    <div
+      ref={ref}
+      className='alert-container'
+      role='alert'
+      aria-live={'assertive'}
+    >
+      {props.children}
+    </div>
+  ),
+);
+
+AlertContainer.displayName = 'AlertContainer';
+
 function App() {
+  const [alertContainer, setAlertContainer] = useState<HTMLDivElement | null>(
+    null,
+  );
   const { protocolTheme, toggleColorMode } = useProtocolTheme();
   return (
     <ThemeProvider theme={protocolTheme}>
-      <SnackbarProvider
-        maxSnack={3}
-        autoHideDuration={6000}
-        action={(snackbarKey) => (
-          <SnackbarCloseButton snackbarKey={snackbarKey} />
-        )}
-      >
-        <CssBaseline />
-        <Alert className={Banner} severity='warning'>
-          <div className='banner-text'>
-            {strings.text} <Link href={strings.href}>{strings.linkText}</Link>
-          </div>
-          <Box display='flex' justifyContent='flex-end' alignItems='flex-end'>
-            <FeedbackAlert />
-          </Box>
-        </Alert>
+      <AlertContainer ref={setAlertContainer} />
+      {alertContainer ? (
+        <SnackbarProvider
+          domRoot={alertContainer}
+          maxSnack={3}
+          autoHideDuration={6000}
+          action={(snackbarKey) => (
+            <SnackbarCloseButton snackbarKey={snackbarKey} />
+          )}
+        >
+          <CssBaseline />
+          <Alert className={Banner} severity='warning'>
+            <div className='banner-text'>
+              {strings.text} <Link href={strings.href}>{strings.linkText}</Link>
+            </div>
+            <Box display='flex' justifyContent='flex-end' alignItems='flex-end'>
+              <FeedbackAlert />
+            </Box>
+          </Alert>
 
-        <Router>
-          <Routes>
-            <Route
-              path='/'
-              element={
-                <SearchView
-                  toggleColorMode={toggleColorMode}
-                  protocolTheme={protocolTheme}
-                />
-              }
-            />
-            <Route
-              path='/beta'
-              element={
-                <SearchViewBeta
-                  toggleColorMode={toggleColorMode}
-                  protocolTheme={protocolTheme}
-                />
-              }
-            />
-            <Route
-              path='/compare-results'
-              element={<CompareResultsView theme={protocolTheme} />}
-            />
-            <Route
-              path='/beta/compare-results'
-              element={<ResultsView protocolTheme={protocolTheme} />}
-            />
-          </Routes>
-        </Router>
-      </SnackbarProvider>
+          <Router>
+            <Routes>
+              <Route
+                path='/'
+                element={
+                  <SearchView
+                    toggleColorMode={toggleColorMode}
+                    protocolTheme={protocolTheme}
+                    title={Strings.metaData.pageTitle.search}
+                  />
+                }
+              />
+
+              <Route
+                path='/compare-results'
+                element={
+                  <ResultsView
+                    toggleColorMode={toggleColorMode}
+                    protocolTheme={protocolTheme}
+                    title={Strings.metaData.pageTitle.results}
+                  />
+                }
+              />
+            </Routes>
+          </Router>
+        </SnackbarProvider>
+      ) : null}
     </ThemeProvider>
   );
 }

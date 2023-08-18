@@ -1,58 +1,88 @@
-import { FormEvent } from 'react';
+import { FormEvent, useState } from 'react';
 
 import {
   updateSearchValue,
   updateSearchResults,
   setInputError,
-  clearInputError,
 } from '../reducers/SearchSlice';
+import { Strings } from '../resources/Strings';
 import {
   fetchRecentRevisions,
   fetchRevisionByID,
   fetchRevisionsByAuthor,
 } from '../thunks/searchThunk';
-import type { Repository } from '../types/state';
+import type { Repository, InputType } from '../types/state';
 import { useAppDispatch, useAppSelector } from './app';
+
+interface HandleChangeProps {
+  e: FormEvent<HTMLInputElement | HTMLTextAreaElement>;
+  searchType: InputType;
+}
+
+const strings = Strings.errors;
 
 let timeout: null | ReturnType<typeof setTimeout> = null;
 
 const useHandleChangeSearch = () => {
-  const dispatch = useAppDispatch();
-  const getRepository = useAppSelector((state) => state.search.repository);
+  const [searchTypeValue, setSearchTypeValue] = useState<InputType>('base');
 
-  const searchByRevisionOrEmail = async (
+  const searchState = useAppSelector((state) => state.search[searchTypeValue]);
+  const currentRepository = searchState.repository;
+
+  const dispatch = useAppDispatch();
+
+  const handleFetch = async (
     repository: Repository['name'],
     search: string,
+    searchType: InputType,
   ) => {
     const emailMatch = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const longHashMatch = /\b[a-f0-9]{40}\b/;
     const shortHashMatch = /\b[a-f0-9]{12}\b/;
+
     if (!search) {
-      await dispatch(fetchRecentRevisions(repository));
+      await dispatch(fetchRecentRevisions({ repository, searchType }));
     } else if (emailMatch.test(search)) {
-      await dispatch(fetchRevisionsByAuthor({ repository, search }));
-    } else if (longHashMatch.test(search) || shortHashMatch.test(search)) {
-      await dispatch(fetchRevisionByID({ repository, search }));
-    } else {
-      dispatch(
-        setInputError(
-          'Search must be a 12- or 40-character hash, or email address',
-        ),
+      await dispatch(
+        fetchRevisionsByAuthor({ repository, search, searchType }),
       );
+    } else if (longHashMatch.test(search) || shortHashMatch.test(search)) {
+      await dispatch(fetchRevisionByID({ repository, search, searchType }));
+    } else {
+      const isError = dispatch(
+        setInputError({
+          errorMessage: strings.warningText,
+          searchType,
+        }),
+      );
+      return isError;
     }
   };
 
-  const handleChangeSearch = (
-    event: FormEvent<HTMLInputElement | HTMLTextAreaElement>,
+  const searchByRevisionOrEmail = async (
+    repository: Repository['name'],
+    search: string,
+    searchType: InputType,
   ) => {
-    const search = event.currentTarget.value;
+    await handleFetch(repository, search, searchType);
+  };
 
-    dispatch(updateSearchValue(search));
-    dispatch(updateSearchResults([]));
-    dispatch(clearInputError());
+  const handleChangeSearch = ({ e, searchType }: HandleChangeProps) => {
+    setSearchTypeValue(searchType);
+    const search = e.currentTarget.value;
+    const repository = currentRepository;
+    dispatch(
+      updateSearchValue({
+        search,
+        searchType,
+      }),
+    );
+
+    dispatch(updateSearchResults({ results: [], searchType }));
+
     const idleTime = 500;
     const onTimeout = () => {
-      void searchByRevisionOrEmail(getRepository, search);
+      void searchByRevisionOrEmail(repository, search, searchType);
     };
 
     // Clear any existing timer whenever user types
@@ -60,7 +90,7 @@ const useHandleChangeSearch = () => {
 
     timeout = setTimeout(onTimeout, idleTime);
   };
-  return { handleChangeSearch };
+  return { handleChangeSearch, searchByRevisionOrEmail };
 };
 
 export default useHandleChangeSearch;

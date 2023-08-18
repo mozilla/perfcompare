@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import * as React from 'react';
 
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
@@ -14,22 +13,20 @@ import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
 import useCheckRevision from '../../hooks/useCheckRevision';
-import type { Revision } from '../../types/state';
+import { Spacing } from '../../styles';
+import type { RevisionsList } from '../../types/state';
+import { InputType } from '../../types/state';
 import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
 
 const styles = {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
   listItemButton: style({
+    paddingTop: 0,
     $nest: {
       '.MuiListItem-root': {
         alignItems: 'flex-start',
       },
       '.search-revision-item-icon': {
         minWidth: '0',
-      },
-      '.revision-hash': {
-        fontWeight: 600,
-        marginRight: '8px',
       },
 
       '.MuiListItemText-primary': {
@@ -38,25 +35,14 @@ const styles = {
         flexWrap: 'wrap',
       },
       '.info-caption': {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        fontSize: '.75rem',
         flexWrap: 'wrap',
-        background: '#F0F0F4',
-        borderRadius: '8px',
-        padding: '2px 8px',
         $nest: {
           svg: {
-            marginRight: '4px',
+            marginRight: `${Spacing.xSmall}px`,
             fontSize: '1rem',
           },
-          '.info-caption-item': {
-            display: 'flex',
-            alignItems: 'center',
-          },
           '.item-author': {
-            marginRight: '5px',
+            marginRight: `${Spacing.xSmall + 1}px`,
           },
         },
       },
@@ -64,34 +50,38 @@ const styles = {
   }),
 };
 
-function SearchResultsListItem(props: SearchResultsListItemProps) {
-  const { index, item, view } = props;
+function SearchResultsListItem({
+  index,
+  item,
+  searchType,
+}: SearchResultsListItemProps) {
   const isChecked: boolean = useAppSelector((state) =>
-    state.checkedRevisions.revisions.includes(item),
+    state.search[searchType].checkedRevisions.includes(item),
   );
-  const { handleToggle } = useCheckRevision();
 
+  const { handleToggle } = useCheckRevision(searchType);
   const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);
-  const maxRevisions = view == 'compare-results' ? 1 : 4;
+  const revisionsCount = searchType === 'base' ? 1 : 3;
   const itemDate = new Date(item.push_timestamp * 1000);
 
   return (
     <>
       <ListItemButton
         key={item.id}
-        onClick={() => handleToggle(item, maxRevisions)}
-        className={styles.listItemButton}
-        sx={{ paddingTop: '0' }}
+        onClick={() => handleToggle(item, revisionsCount)}
+        className={`${styles.listItemButton} ${
+          isChecked ? 'item-selected' : ''
+        }`}
       >
         <ListItem
-          className="search-revision-item search-revision"
+          className='search-revision-item search-revision'
           disablePadding
         >
-          <ListItemIcon className="search-revision-item-icon search-revision">
+          <ListItemIcon className='search-revision-item-icon search-revision'>
             <Checkbox
-              className="search-revision-item-checkbox"
-              edge="start"
+              className='search-revision-item-checkbox'
+              edge='start'
               tabIndex={-1}
               disableRipple
               data-testid={`checkbox-${index}`}
@@ -99,34 +89,34 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
             />
           </ListItemIcon>
           <ListItemText
-            className="search-revision-item-text"
+            className='search-revision-item-text'
             primary={
               <React.Fragment>
                 <Typography
                   sx={{ display: 'inline' }}
-                  component="span"
-                  variant="body2"
-                  color="text.primary"
-                  alignItems="center"
-                  className="revision-hash"
+                  component='span'
+                  variant='body2'
+                  color='text.primary'
+                  alignItems='center'
+                  className='revision-hash'
                 >
                   {revisionHash}
                 </Typography>
 
-                <div className="info-caption">
-                  <div className="info-caption-item item-author">
+                <div className='info-caption'>
+                  <div className='info-caption-item item-author'>
                     {' '}
                     <MailOutlineOutlinedIcon
-                      className="mail-icon"
-                      fontSize="small"
+                      className='mail-icon'
+                      fontSize='small'
                     />{' '}
                     {item.author}
                   </div>
 
-                  <div className="info-caption-item item-time">
+                  <div className='info-caption-item item-time'>
                     <AccessTimeOutlinedIcon
-                      className="time-icon"
-                      fontSize="small"
+                      className='time-icon'
+                      fontSize='small'
                     />
                     {String(dayjs(itemDate).format('MM/DD/YY HH:mm'))}
                   </div>
@@ -142,11 +132,11 @@ function SearchResultsListItem(props: SearchResultsListItemProps) {
     </>
   );
 }
-
 interface SearchResultsListItemProps {
   index: number;
-  item: Revision;
+  item: RevisionsList;
   view: 'search' | 'compare-results';
+  searchType: InputType;
 }
 
 export default SearchResultsListItem;

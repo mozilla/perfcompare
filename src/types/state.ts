@@ -7,11 +7,11 @@ import type {
 
 export type Repository =
   | { id: 1; name: 'mozilla-central' }
-  | { id: 2; name: 'mozilla-beta' }
-  | { id: 3; name: 'mozilla-release' }
   | { id: 4; name: 'try' }
-  | { id: 30; name: 'fenix' }
-  | { id: 77; name: 'autoland' };
+  | { id: 6; name: 'mozilla-beta' }
+  | { id: 7; name: 'mozilla-release' }
+  | { id: 77; name: 'autoland' }
+  | { id: 108; name: 'fenix' };
 
 export type SubRevision = {
   result_set_id: number;
@@ -21,7 +21,7 @@ export type SubRevision = {
   comments: string;
 };
 
-export type Revision = {
+export type RevisionsList = {
   id: number;
   revision: string;
   author: string;
@@ -31,7 +31,25 @@ export type Revision = {
   repository_id: Repository['id'];
 };
 
+export type RevisionsData = {
+  suite: string;
+  test: string;
+  option_name: string;
+  extra_options: string;
+};
+
+export type RevisionsHeader = {
+  suite: string;
+  test: string;
+  option_name: string;
+  extra_options: string;
+  new_rev: string;
+  new_repo: Repository['name'];
+};
+
 export type CompareResultsItem = {
+  base_rev: string;
+  new_rev: string;
   header_name: string;
   base_retriggerable_job_ids: number[];
   new_retriggerable_job_ids: number[];
@@ -56,9 +74,6 @@ export type CompareResultsItem = {
   new_is_better: boolean;
   confidence: number | null;
   confidence_text: ConfidenceText | null;
-  confidence_text_long: string | null;
-  t_value_confidence: number;
-  t_value_care_min: number;
   delta_value: number;
   delta_percentage: number;
   magnitude: number;
@@ -75,26 +90,40 @@ export type CompareResultsItem = {
   more_runs_are_needed: boolean;
 };
 
-export type SearchState = {
+export type SearchStateForInput = {
   repository: Repository['name'];
-  searchResults: Revision[];
+  searchResults: RevisionsList[];
   searchValue: string;
   inputError: boolean;
   inputHelperText: string;
+  checkedRevisions: RevisionsList[];
 };
 
-// contains the indices of currently checked revisions
-// in searchResults state
-export type CheckedRevisionsState = {
-  revisions: Revision[];
-};
+export type InputType = 'base' | 'new';
+
+export type View = 'compare-results' | 'search';
+
+export type ThemeMode = 'light' | 'dark';
+
+export type SearchState = Record<InputType, SearchStateForInput>;
 
 export type SelectedRevisionsState = {
-  revisions: Revision[];
+  revisions: RevisionsList[];
+  base: RevisionsList[];
+  new: RevisionsList[];
 };
 
+export interface ResultsHashmap {
+  [key: string]: CompareResultsItem[];
+}
+
 export type CompareResultsState = {
-  data: CompareResultsItem[];
+  data: ResultsHashmap;
   loading: boolean;
   error: string | undefined;
+};
+
+export type PlatformInfo = {
+  shortName: string;
+  icon: object;
 };

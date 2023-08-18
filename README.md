@@ -1,9 +1,6 @@
 # PerfCompare
 
-**[Outreachy contributor information](https://docs.google.com/document/d/1NLKAR5B2Rc80lRUYWzU2ISrQCQhR4VsW5Qkz1hxE5n8/edit?usp=sharing)**
-_____
-
-[![CircleCI](https://circleci.com/gh/mozilla/perfcompare/tree/master.svg?style=shield)](https://circleci.com/gh/mozilla/perfcompare/tree/beta)
+[![CircleCI](https://circleci.com/gh/mozilla/perfcompare/tree/beta.svg?style=shield)](https://circleci.com/gh/mozilla/perfcompare/tree/beta)
 [![codecov](https://codecov.io/gh/mozilla/perfcompare/branch/master/graph/badge.svg?token=XHP440JFDQ)](https://codecov.io/gh/mozilla/perfcompare)
 ![GitHub issues](https://img.shields.io/github/issues/mozilla/perfcompare)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/mozilla/perfcompare)
@@ -14,17 +11,20 @@ Performance Comparison Tool
 
 ## Deployments
 
-PerfCompare is hosted on heroku, and is updated every time commits are pushed to the following branches:
+PerfCompare is hosted on Netlify, and is updated every time commits are pushed to the following branches:
 
-| Branch Name | URL                                        | Description                                                                                                   |
-| ----------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
-| mocking     | http://perfcompare-mocking.herokuapp.com/  | Used for "mock" features that are not fully implemented, for the purposed of All Hands demo and presentation. |
-| staging     | https://perfcompare-staging.herokuapp.com/ | Staging branch before releasing to master                                                                     |
-| master      | https://perfcompare-master.herokuapp.com/  | Most stable branch, updated every 1-2 weeks.                                                                  |
+| Branch Name | URL                                               | Description                                                         |
+| ----------- | ------------------------------------------------- | ------------------------------------------------------------------- |
+| production  | https://perf.compare/                             | Production branch, updated every 1-2 weeks.                         |
+| beta        | https://beta--mozilla-perfcompare.netlify.app/    | This is the current development branch.                             |
+| staging     | https://staging--mozilla-perfcompare.netlify.app/ | Staging branch before releasing to beta (it's not in use currently) |
+
+[More information about our deployment process](./Deployment.md)
 
 ## Setup
 
 ### Requirements
+
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - [nodejs](https://nodejs.org/en/download/)
 
@@ -55,12 +55,15 @@ After addressing the issue, ensure both tests and linting pass before submitting
 When submitting a pull request, please mention the issue number to link the pull request and issue to one another. You can do this by typing # following immediately by the issue number, i.e., `#123`
 
 ---
+
 #### Contributors
+
 > Submit your pull requests to the `staging` branch.
 
-
 #### Employees
+
 > Submit your pull requests to the `beta` branch.
+
 ---
 
 We recommend the following workflow to contribute to PerfCompare:

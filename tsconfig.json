@@ -3,7 +3,7 @@
     "allowJs": true, // allow a partial TypeScript and JavaScript codebase
     "esModuleInterop": true,
     "jsx": "react-jsx", // use typescript to transpile jsx to js
-    "module": "es6", // specify module code generation
+    "module": "es2022", // specify module code generation
     "moduleResolution": "node",
     "noEmit": true, // do not emit output files
     "outDir": "./build/", // path to output directory
@@ -12,7 +12,7 @@
     "skipLibCheck": true, // skip type checking of default library declaration files
     "strict": true,
     "strictNullChecks": true, // enable strict null checks as a best practice
-    "target": "es5" // specify ECMAScript target version
+    "target": "es2022" // specify ECMAScript target version
   },
   "include": ["./src/"],
   "exclude": ["node_modules"]
