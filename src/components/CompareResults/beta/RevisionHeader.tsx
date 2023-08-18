@@ -57,13 +57,13 @@ function RevisionHeader(props: RevisionHeaderProps) {
       className='revision-header'
       data-testid={`revision-header-${shortHash}`}
     >
-      <TableCell colSpan={8}>
+      <TableCell colSpan={6}>
         <strong>{createTitle(header)}</strong>{' '}
         <Link href={getTreeherderURL(header.new_rev, header.new_repo)}>
           {shortHash}
         </Link>
       </TableCell>
-      <TableCell colSpan={4}>
+      <TableCell colSpan={6}>
         <div className={styles.tagsOptions}>
           <span className={styles.chip}>{header.option_name}</span>
           {extraOptions.map((option, index) => (
