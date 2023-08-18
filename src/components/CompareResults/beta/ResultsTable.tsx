@@ -43,7 +43,6 @@ function processResults(results: CompareResultsItem[]) {
       processedResults.set(rowIdentifier, [result]);
     }
   });
-
   const restructuredResults: Results[] = Array.from(
     processedResults,
     function (entry) {
@@ -126,10 +125,9 @@ function ResultsTable(props: ResultsTableProps) {
               results={res.value}
             />
           ))}
-          {/* )} */}
         </Table>
       )}
-      {processedResults.length == 0 && <NoResultsFound />}
+      {!loading && processedResults.length == 0 && <NoResultsFound />}
     </TableContainer>
   );
 }
