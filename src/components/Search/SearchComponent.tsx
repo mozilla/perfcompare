@@ -7,16 +7,26 @@ import {
 } from 'react';
 
 import InfoIcon from '@mui/icons-material/InfoOutlined';
+import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import InputLabel from '@mui/material/InputLabel';
 import Tooltip from '@mui/material/Tooltip';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { cssRule } from 'typestyle';
+import { style } from 'typestyle';
 
-import { RootState } from '../../common/store';
-import { useAppSelector } from '../../hooks/app';
-import { SearchStyles } from '../../styles';
-import { Spacing, DropDownMenuRaw, DropDownItemRaw } from '../../styles';
+import { compareView } from '../../common/constants';
+import { useAppSelector, useAppDispatch } from '../../hooks/app';
+import useSelectedRevisions from '../../hooks/useSelectedRevisions';
+import { clearCheckedRevisionforType } from '../../reducers/SearchSlice';
+import { Strings } from '../../resources/Strings';
+import {
+  Spacing,
+  DropDownMenuRaw,
+  DropDownItemRaw,
+  ButtonStyles,
+  SearchStyles,
+} from '../../styles';
 import type {
   RevisionsList,
   InputType,
@@ -27,6 +37,11 @@ import SearchDropdown from './SearchDropdown';
 import SearchInput from './SearchInput';
 import SearchResultsList from './SearchResultsList';
 import SelectedRevisions from './SelectedRevisions';
+
+const base = Strings.components.searchDefault.base;
+const editImgUrl = base.editIcon;
+const save = base.save;
+const cancel = base.cancel;
 
 interface SearchProps {
   mode: ThemeMode;
@@ -49,7 +64,9 @@ function SearchComponent({
   searchType,
   isWarning,
 }: SearchProps) {
-  /* These rules update the theme mode by accessing the otherwise inaccessible MUI tooltip styles*/
+  const styles = SearchStyles(mode);
+  const btnStyles = ButtonStyles(mode);
+  /* These overriding rules update the theme mode by accessing the otherwise inaccessible MUI tooltip styles */
   cssRule('.MuiPopover-root', {
     $nest: {
       '.MuiPaper-root': {
@@ -70,19 +87,31 @@ function SearchComponent({
       },
     },
   });
-  const styles = SearchStyles(mode);
+  const cancelBtn = {
+    main: style({
+      $nest: {
+        '&.MuiButtonBase-root': {
+          ...btnStyles.Secondary,
+        },
+      },
+    }),
+  };
+
+  const dispatch = useAppDispatch();
   const checkedRevisionsList = useAppSelector(
-    (state: RootState) => state.search[searchType].checkedRevisions,
+    (state) => state.search[searchType].checkedRevisions,
   );
-  const searchState = useAppSelector(
-    (state: RootState) => state.search[searchType],
-  );
+  const searchState = useAppSelector((state) => state.search[searchType]);
   const selectedRevisions = useAppSelector(
-    (state: RootState) => state.selectedRevisions.revisions,
+    (state) => state.selectedRevisions.revisions,
   );
+  const { editSelectedRevisions, updateSelectedRevisions } =
+    useSelectedRevisions();
 
   const { searchResults } = searchState;
   const [focused, setFocused] = useState(false);
+  const [dropDownInputVisible, setDropDownInputVisible] = useState(true);
+  const [editBtnVisible, toggleEditBtnVisible] = useState(true);
   const matchesQuery = useMediaQuery('(max-width:768px)');
   const containerRef = createRef<HTMLDivElement>();
 
@@ -94,14 +123,13 @@ function SearchComponent({
       !(e.target as HTMLElement).matches(
         `#${searchType}_search-dropdown,
         #${searchType}_search-dropdown *,
-        #cancel-edit-${searchType}-button, 
-        #cancel-edit-${searchType}-button *`,
+        #cancel-save_btns, 
+        #cancel-save_btns *`,
       )
     ) {
       setFocused(true);
       return;
     }
-
     setFocused(false);
   };
 
@@ -125,9 +153,64 @@ function SearchComponent({
     };
   });
 
+  useEffect(() => {
+    if (view == compareView) {
+      setDropDownInputVisible(false);
+    }
+  }, [view]);
+
+  const handleEditAction = () => {
+    setDropDownInputVisible(true);
+    toggleEditBtnVisible(!editBtnVisible);
+    editSelectedRevisions(searchType);
+  };
+
+  const handleCancelAction = () => {
+    setDropDownInputVisible(false);
+    toggleEditBtnVisible(!editBtnVisible);
+    dispatch(clearCheckedRevisionforType({ searchType }));
+  };
+
+  const handleSaveAction = () => {
+    setDropDownInputVisible(false);
+    toggleEditBtnVisible(!editBtnVisible);
+    updateSelectedRevisions(searchType);
+    dispatch(clearCheckedRevisionforType({ searchType }));
+  };
+
   return (
     <Grid className={styles.component}>
-      {view == 'search' && (
+      <Grid
+        item
+        xs={2}
+        className={`${searchType}-search-dropdown ${styles.dropDown} label-edit-wrapper`}
+      >
+        <InputLabel
+          id='select-repository-label'
+          className='dropdown-select-label'
+        >
+          {selectLabel}
+          <Tooltip placement='top' title={tooltip}>
+            <InfoIcon fontSize='small' className='dropdown-info-icon' />
+          </Tooltip>
+        </InputLabel>
+
+        {view == compareView && (
+          <Button
+            className={`edit-button ${
+              !editBtnVisible ? 'hidden edit-hidden' : ''
+            } edit-button-${searchType}`}
+            role='button'
+            name='edit-button'
+            aria-label='edit button'
+            onClick={handleEditAction}
+          >
+            <img className='icon icon-edit' src={editImgUrl} alt='edit-icon' />
+          </Button>
+        )}
+      </Grid>
+
+      {dropDownInputVisible && (
         <Grid
           container
           alignItems='flex-start'
@@ -139,7 +222,9 @@ function SearchComponent({
             item
             xs={2}
             id={`${searchType}_search-dropdown`}
-            className={`${searchType}-search-dropdown ${styles.dropDown}`}
+            className={`${searchType}-search-dropdown ${styles.dropDown} ${
+              view === compareView ? 'small' : ''
+            } ${view}-base-dropdown`}
           >
             <SearchDropdown
               view={view}
@@ -156,7 +241,7 @@ function SearchComponent({
             id={`${searchType}_search-input`}
             className={`${searchType}-search-input ${
               matchesQuery ? `${searchType}-search-input--mobile` : ''
-            } ${styles.baseSearchInput}`}
+            } ${styles.baseSearchInput} ${view === compareView ? 'big' : ''} `}
           >
             <SearchInput
               mode={mode}
@@ -173,36 +258,48 @@ function SearchComponent({
               />
             )}
           </Grid>
-        </Grid>
-      )}
-
-      {view == 'compare-results' && (
-        <Grid
-          item
-          xs={2}
-          id={`${searchType}_search-dropdown`}
-          className={`${searchType}-search-dropdown ${styles.dropDown}`}
-        >
-          <InputLabel
-            id='select-repository-label'
-            className='dropdown-select-label'
-          >
-            {selectLabel}
-            <Tooltip placement='top' title={tooltip}>
-              <InfoIcon fontSize='small' className='dropdown-info-icon' />
-            </Tooltip>
-          </InputLabel>
+          {view === compareView && (
+            <div className='cancel-save-btns' id='cancel-save_btns'>
+              <Button
+                className={`cancel-save cancel-button ${
+                  cancelBtn.main
+                } cancel-button-${searchType} ${
+                  editBtnVisible ? 'hidden' : ''
+                }`}
+                role='button'
+                name='cancel-button'
+                aria-label='cancel button'
+                variant='contained'
+                onClick={handleCancelAction}
+              >
+                {cancel}
+              </Button>
+              <Button
+                className={`cancel-save save-button } save-button-${searchType} ${
+                  editBtnVisible ? 'hidden' : ''
+                }`}
+                role='button'
+                name='save-button'
+                aria-label='save button'
+                variant='contained'
+                onClick={handleSaveAction}
+              >
+                {save}
+              </Button>
+            </div>
+          )}
         </Grid>
       )}
 
       {(checkedRevisionsList.length > 0 ||
         (selectedRevisions && selectedRevisions.length > 0)) && (
-        <Grid>
+        <Grid className='d-flex'>
           <SelectedRevisions
             searchType={searchType}
             mode={mode}
             isWarning={isWarning}
             view={view}
+            editBtnVisible={editBtnVisible}
           />
         </Grid>
       )}

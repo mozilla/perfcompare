@@ -1,7 +1,6 @@
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 
-import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
 import { SelectListStyles } from '../../styles';
 import { InputType, ThemeMode, View } from '../../types/state';
@@ -15,9 +14,7 @@ interface SearchResultsListProps {
 
 function SearchResultsList(props: SearchResultsListProps) {
   const { view, mode, searchType } = props;
-  const searchState = useAppSelector(
-    (state: RootState) => state.search[searchType],
-  );
+  const searchState = useAppSelector((state) => state.search[searchType]);
   const { searchResults } = searchState;
   const styles = SelectListStyles(mode);
 

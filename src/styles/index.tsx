@@ -12,6 +12,8 @@ export * from './Switch';
 export * from './Banner';
 export * from './Document';
 export * from './Tooltips';
+
+//contains the SearchStyles
 export * from './CompareCards';
 export * from './ExpandableRow';
 export * from './SelectedRevsStyle';

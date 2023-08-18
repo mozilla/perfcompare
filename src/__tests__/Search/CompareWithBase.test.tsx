@@ -25,7 +25,7 @@ function renderComponent() {
   renderWithRouter(<CompareWithBase view='search' mode={themeMode} />);
 }
 
-describe('Compare With Base', () => {
+describe('Compare With Base 3', () => {
   it('renders correctly when there are no results', async () => {
     renderComponent();
 
@@ -80,6 +80,9 @@ describe('Compare With Base', () => {
 
     expect(screen.getAllByText('mozilla-central')[0]).toBeInTheDocument();
     await user.click(mozRepoItem);
+
+    expect(document.body).toMatchSnapshot();
+
     const comparisonAlert = screen.getByText(warning);
     expect(comparisonAlert).toBeInTheDocument();
   });
@@ -112,15 +115,17 @@ describe('Compare With Base', () => {
       <SearchView
         toggleColorMode={toggleColorMode}
         protocolTheme={protocolTheme}
+        title=''
       />,
     );
-    act(() => {
+
+    await act(async () => {
       store.dispatch(
         updateCheckedRevisions({ newChecked: baseChecked, searchType: 'base' }),
       );
     });
 
-    act(() => {
+    await act(async () => {
       store.dispatch(updateCheckedRevisions({ newChecked, searchType: 'new' }));
     });
 
@@ -139,13 +144,14 @@ describe('Compare With Base', () => {
     expect(history.location.pathname).toEqual('/compare-results');
 
     expect(history.location.search).toEqual(
-      '?revs=coconut,spam&repos=try,mozilla-central',
+      '?revs=coconut,spam&repos=try,mozilla-central&framework=1',
     );
 
     renderWithRouter(
       <ResultsView
         toggleColorMode={toggleColorMode}
         protocolTheme={protocolTheme}
+        title='Results'
       />,
     );
 

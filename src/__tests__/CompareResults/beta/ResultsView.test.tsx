@@ -134,7 +134,7 @@ describe('Results View', () => {
       '[aria-label="close-button"]',
     );
 
-    const removeIcon = screen.getByTestId('close-icon');
+    const removeIcon = screen.getAllByTestId('close-icon')[0];
     expect(removeIcon).toBeInTheDocument();
     expect(screen.getAllByTestId('selected-rev-item')[1]).toBeInTheDocument();
 
