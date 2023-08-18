@@ -21,9 +21,8 @@ const selectedRevisions = createSlice({
     ) {
       state.revisions = action.payload.selectedRevisions;
       state.base = [action.payload.selectedRevisions[0]];
-      state.new = action.payload.selectedRevisions.filter(
-        (_, index) => index !== 0,
-      );
+      //returns array without first element
+      state.new = action.payload.selectedRevisions.slice(1);
     },
     deleteRevision(
       state,
@@ -34,7 +33,7 @@ const selectedRevisions = createSlice({
       return {
         ...state,
         revisions: action.payload.selectedRevisions,
-        new: action.payload.selectedRevisions.filter((_, index) => index !== 0),
+        new: action.payload.selectedRevisions.slice(1),
       };
     },
 
@@ -54,7 +53,7 @@ const selectedRevisions = createSlice({
 
       state.revisions = fetchedRevisions;
       state.base = [fetchedRevisions[0]];
-      state.new = fetchedRevisions.filter((_, index) => index !== 0);
+      state.new = fetchedRevisions.slice(1);
     });
     //Need to handle error case
   },

@@ -316,7 +316,7 @@ describe('Base Search', () => {
 
     expect(history.location.pathname).toEqual('/compare-results');
     expect(history.location.search).toEqual(
-      '?revs=coconut,spam&repos=try,mozilla-central',
+      '?revs=coconut,spam&repos=try,mozilla-central&framework=1',
     );
   });
 });

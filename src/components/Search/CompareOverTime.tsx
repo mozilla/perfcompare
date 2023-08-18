@@ -6,7 +6,7 @@ const strings = Strings.components.searchDefault;
 
 function CompareOverTime(props: CompareOverTimeProps) {
   const { mode } = props;
-  const styles = CompareCardsStyles(mode, 470);
+  const styles = CompareCardsStyles(mode);
   return (
     <div
       className={`compare-card-container compare-card-container--time ${styles.container}`}

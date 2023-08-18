@@ -10,7 +10,7 @@ import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
 
-describe('SearchView/fetchRevisionByID', () => {
+describe('Search View/fetchRevisionByID', () => {
   const protocolTheme = renderHook(() => useProtocolTheme()).result.current
     .protocolTheme;
   const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
@@ -38,7 +38,7 @@ describe('SearchView/fetchRevisionByID', () => {
       />,
     );
 
-    await screen.findAllByRole('button', { name: 'Base' });
+    await screen.findAllByTestId('dropdown-select-base');
     expect(screen.getAllByText('try')[0]).toBeInTheDocument();
 
     const searchInput = screen.getAllByRole('textbox')[0];

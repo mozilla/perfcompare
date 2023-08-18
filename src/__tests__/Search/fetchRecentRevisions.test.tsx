@@ -13,7 +13,7 @@ import { screen } from '../utils/test-utils';
 
 const stringsBase = Strings.components.searchDefault.base.collapsed.base;
 
-describe('SearchView/fetchRecentRevisions', () => {
+describe('Search View/fetchRecentRevisions', () => {
   const protocolTheme = renderHook(() => useProtocolTheme()).result.current
     .protocolTheme;
 
@@ -90,13 +90,6 @@ describe('SearchView/fetchRecentRevisions', () => {
     ) as jest.Mock;
     const searchType = 'base' as InputType;
     const spyOnFetch = jest.spyOn(global, 'fetch');
-    const SearchPropsBase = {
-      searchType,
-      mode: 'light' as ThemeMode,
-      view: 'search' as 'search' | 'compare-results',
-      isWarning: false,
-      ...stringsBase,
-    };
 
     renderWithRouter(
       <SearchView
@@ -105,7 +98,8 @@ describe('SearchView/fetchRecentRevisions', () => {
         title={Strings.metaData.pageTitle.search}
       />,
     );
-    renderWithRouter(<SearchComponent {...SearchPropsBase} />);
+
+    expect(document.body).toMatchSnapshot();
     await act(async () => void jest.runOnlyPendingTimers());
     await screen.findAllByRole('button', { name: 'Base' });
 

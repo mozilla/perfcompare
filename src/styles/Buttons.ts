@@ -168,6 +168,10 @@ export const ButtonsDark = {
 
 export const ButtonStyles = (mode: string) => {
   const isTrueLight = mode == 'light' ? true : false;
-
   return isTrueLight ? ButtonsLightRaw : ButtonsDarkRaw;
+};
+
+export const ButtonStylesSecondary = (mode: string) => {
+  const isTrueLight = mode == 'light' ? true : false;
+  return isTrueLight ? ButtonsLight.Secondary : ButtonsDark.Secondary;
 };
