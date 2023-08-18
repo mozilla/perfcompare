@@ -25,7 +25,9 @@ function SearchView(props: SearchViewProps) {
   const selectedRevisions = useAppSelector(
     (state: RootState) => state.selectedRevisions.revisions,
   );
-  const framework = useAppSelector((state: RootState) => state.framework);
+  const framework = useAppSelector(
+    (state: RootState) => state.framework as Framework,
+  );
 
   const styles = {
     container: style({

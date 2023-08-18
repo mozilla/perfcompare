@@ -77,7 +77,9 @@ function ResultsTable(props: ResultsTableProps) {
     const { activeComparison } = state.comparison;
 
     if (activeComparison === allRevisionsOption) {
-      const allResults = [].concat(...Object.values(data));
+      const allResults = ([] as CompareResultsItem[]).concat(
+        ...Object.values(data),
+      );
       return processResults(allResults);
     } else {
       const results = data[activeComparison];
