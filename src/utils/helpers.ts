@@ -71,11 +71,12 @@ const getDocsURL = (suite: string, framework_id: Framework['id']) => {
   let isLinkSupported = true;
 
   const isDevToolsFramework = framework_id === 12;
+  const removedOldTestDevTools = 'total-after-gc';
 
   if (isDevToolsFramework && supportedFramework) {
     docsURL = `${baseDocsURL}/devtools/tests/${supportedFramework}.html#${urlReadySuite}`;
     if (
-      suite === 'total-after-gc' ||
+      suite === removedOldTestDevTools ||
       nonDocumentedTestsDevTools.includes(suite)
     ) {
       isLinkSupported = false;
