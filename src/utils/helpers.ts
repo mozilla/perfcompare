@@ -1,7 +1,11 @@
 import AppleIcon from '@mui/icons-material/Apple';
 
-import { frameworkMap } from '../common/constants';
-import { baseDocsURL } from '../common/constants';
+import {
+  frameworkMap,
+  baseDocsURL,
+  removedOldTestsDevTools,
+  nonDocumentedTestsDevTools,
+} from '../common/constants';
 import { supportedPerfdocsFrameworks } from '../common/constants';
 import AndroidIcon from '../components/Shared/Icons/AndroidIcon';
 import LinuxIcon from '../components/Shared/Icons/LinuxIcon';
@@ -71,6 +75,13 @@ const getDocsURL = (suite: string, framework_id: Framework['id']) => {
 
   if (isDevToolsFramework && supportedFramework) {
     docsURL = `${baseDocsURL}/devtools/tests/${supportedFramework}.html#${urlReadySuite}`;
+    if (
+      removedOldTestsDevTools.includes(suite) ||
+      nonDocumentedTestsDevTools.includes(suite)
+    ) {
+      isLinkSupported = false;
+      docsURL = '';
+    }
   } else if (supportedFramework) {
     docsURL = `${baseDocsURL}/testing/perfdocs/${supportedFramework}.html#${urlReadySuite}`;
   } else {
