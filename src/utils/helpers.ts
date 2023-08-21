@@ -3,7 +3,6 @@ import AppleIcon from '@mui/icons-material/Apple';
 import {
   frameworkMap,
   baseDocsURL,
-  removedOldTestsDevTools,
   nonDocumentedTestsDevTools,
 } from '../common/constants';
 import { supportedPerfdocsFrameworks } from '../common/constants';
@@ -76,7 +75,7 @@ const getDocsURL = (suite: string, framework_id: Framework['id']) => {
   if (isDevToolsFramework && supportedFramework) {
     docsURL = `${baseDocsURL}/devtools/tests/${supportedFramework}.html#${urlReadySuite}`;
     if (
-      removedOldTestsDevTools.includes(suite) ||
+      suite === 'total-after-gc' ||
       nonDocumentedTestsDevTools.includes(suite)
     ) {
       isLinkSupported = false;

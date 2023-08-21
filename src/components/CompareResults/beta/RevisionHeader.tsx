@@ -53,15 +53,17 @@ function createTitle(
       <Link
         aria-label='link to suite documentation'
         underline='hover'
+        target="_blank"
         href={docsURL}
       >
-        {header.suite}{' '}
+        {header.suite}
       </Link>
     ) : (
       <>
         <Link
           aria-label='link to suite documentation'
           underline='hover'
+          target="_blank"
           href={docsURL}
         >
           {header.suite}

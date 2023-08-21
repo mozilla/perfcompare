@@ -46,6 +46,21 @@ describe('getDocsURL Helper', () => {
     );
     expect(isLinkSupported).toBe(true);
   });
+  it("should not support 'total-after-gc' suite of devtools framework", () => {
+    const { docsURL, isLinkSupported } = getDocsURL('total-after-gc', 12);
+
+    expect(docsURL).toBe('');
+    expect(isLinkSupported).toBe(false);
+  });
+  it('should not support non-documented test suites of devtools framework', () => {
+    const { docsURL, isLinkSupported } = getDocsURL(
+      'reload-inspector:parent-process',
+      12,
+    );
+
+    expect(docsURL).toBe('');
+    expect(isLinkSupported).toBe(false);
+  });
 });
 
 describe('truncateHash Helper', () => {
