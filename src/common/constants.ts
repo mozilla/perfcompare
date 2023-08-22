@@ -52,6 +52,8 @@ export const supportedPerfdocsFrameworks: Record<
   devtools: 'performance-tests-overview',
 };
 
+export const removedOldTestDevTools = 'total-after-gc';
+
 // TODO: remove these once the documentation for DevTools is complete
 export const nonDocumentedTestsDevTools = [
   'reload-inspector:content-process',
