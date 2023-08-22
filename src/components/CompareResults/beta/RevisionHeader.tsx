@@ -49,16 +49,7 @@ function createTitle(
 ) {
   const isTestUnavailable = header.test === '' || header.suite === header.test;
   if (isLinkSupported) {
-    return isTestUnavailable ? (
-      <Link
-        aria-label='link to suite documentation'
-        underline='hover'
-        target='_blank'
-        href={docsURL}
-      >
-        {header.suite}
-      </Link>
-    ) : (
+    return (
       <>
         <Link
           aria-label='link to suite documentation'
@@ -68,7 +59,7 @@ function createTitle(
         >
           {header.suite}
         </Link>
-        &nbsp;{header.test}
+        {isTestUnavailable ? '' : ` ${header.test}`}
       </>
     );
   } else {

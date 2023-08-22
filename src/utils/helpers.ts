@@ -2,6 +2,7 @@ import AppleIcon from '@mui/icons-material/Apple';
 
 import {
   frameworkMap,
+  frameworks,
   baseDocsURL,
   removedOldTestDevTools,
   nonDocumentedTestsDevTools,
@@ -62,6 +63,24 @@ const getPlatformInfo = (platformName: string) => {
   else return { shortName: '', icon: {} };
 };
 
+const createDevtoolsDocsUrl = (
+  supportedFramework: string,
+  urlReadySuite: string,
+  suite: string,
+) => {
+  let linkSupported = true;
+
+  let devtoolsDocsURL = `${baseDocsURL}/devtools/tests/${supportedFramework}.html#${urlReadySuite}`;
+  if (
+    suite === removedOldTestDevTools ||
+    nonDocumentedTestsDevTools.includes(suite)
+  ) {
+    devtoolsDocsURL = '';
+    linkSupported = false;
+  }
+  return { devtoolsDocsURL, linkSupported };
+};
+
 const getDocsURL = (suite: string, framework_id: Framework['id']) => {
   const framework = frameworkMap[framework_id];
   const supportedFramework =
@@ -71,23 +90,22 @@ const getDocsURL = (suite: string, framework_id: Framework['id']) => {
   let docsURL = '';
   let isLinkSupported = true;
 
-  const isDevToolsFramework = framework_id === 12;
+  const isDevToolsFramework = framework_id === frameworks[6].id;
 
-  if (isDevToolsFramework && supportedFramework) {
-    docsURL = `${baseDocsURL}/devtools/tests/${supportedFramework}.html#${urlReadySuite}`;
-    if (
-      suite === removedOldTestDevTools ||
-      nonDocumentedTestsDevTools.includes(suite)
-    ) {
-      isLinkSupported = false;
-      docsURL = '';
-    }
+  if (isDevToolsFramework) {
+    const { devtoolsDocsURL, linkSupported } = createDevtoolsDocsUrl(
+      supportedFramework,
+      urlReadySuite,
+      suite,
+    );
+
+    isLinkSupported = linkSupported;
+    docsURL = devtoolsDocsURL;
   } else if (supportedFramework) {
     docsURL = `${baseDocsURL}/testing/perfdocs/${supportedFramework}.html#${urlReadySuite}`;
   } else {
     isLinkSupported = false;
   }
-
   return { docsURL, isLinkSupported };
 };
 

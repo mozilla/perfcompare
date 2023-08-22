@@ -1668,8 +1668,7 @@ exports[`Results View Should match snapshot 1`] = `
                         >
                           glvideo
                         </a>
-                         
-                        Mean tick time across 100 ticks: 
+                         Mean tick time across 100 ticks: 
                       </strong>
                        
                       <a
@@ -2972,8 +2971,7 @@ exports[`Results View Should match snapshot 1`] = `
                         >
                           tp5n
                         </a>
-                         
-                        main_startup_fileio
+                         main_startup_fileio
                       </strong>
                        
                       <a
@@ -3351,8 +3349,7 @@ exports[`Results View Should match snapshot 1`] = `
                         >
                           motionmark_webgl
                         </a>
-                         
-                        3DGraphics-WebGL
+                         3DGraphics-WebGL
                       </strong>
                        
                       <a
@@ -6003,8 +6000,7 @@ exports[`Results View Should match snapshot 1`] = `
                         >
                           glvideo
                         </a>
-                         
-                        Mean tick time across 100 ticks: 
+                         Mean tick time across 100 ticks: 
                       </strong>
                        
                       <a
@@ -6988,8 +6984,7 @@ exports[`Results View Should match snapshot 1`] = `
                         >
                           android
                         </a>
-                         
-                         
+                          
                       </strong>
                        
                       <a
@@ -10463,8 +10458,7 @@ exports[`Results View Should match snapshot 1`] = `
                         >
                           glvideo
                         </a>
-                         
-                        Mean tick time across 100 ticks: 
+                         Mean tick time across 100 ticks: 
                       </strong>
                        
                       <a
@@ -12999,8 +12993,7 @@ exports[`Results View Should match snapshot 1`] = `
                         >
                           tp5o_webext
                         </a>
-                         
-                        XRes
+                         XRes
                       </strong>
                        
                       <a
@@ -14349,8 +14342,7 @@ exports[`Results View Should match snapshot 1`] = `
                         >
                           motionmark_webgl
                         </a>
-                         
-                        3DGraphics-WebGL
+                         3DGraphics-WebGL
                       </strong>
                        
                       <a
@@ -15653,8 +15645,7 @@ exports[`Results View Should match snapshot 1`] = `
                         >
                           cpstartup
                         </a>
-                         
-                        content-process-startup
+                         content-process-startup
                       </strong>
                        
                       <a
@@ -18706,8 +18697,7 @@ exports[`Results View Should match snapshot 1`] = `
                         >
                           cpstartup
                         </a>
-                         
-                        content-process-startup
+                         content-process-startup
                       </strong>
                        
                       <a
@@ -19691,8 +19681,7 @@ exports[`Results View Should match snapshot 1`] = `
                         >
                           glvideo
                         </a>
-                         
-                        Mean tick time across 100 ticks: 
+                         Mean tick time across 100 ticks: 
                       </strong>
                        
                       <a
@@ -20995,8 +20984,7 @@ exports[`Results View Should match snapshot 1`] = `
                         >
                           glvideo
                         </a>
-                         
-                        Mean tick time across 100 ticks: 
+                         Mean tick time across 100 ticks: 
                       </strong>
                        
                       <a
@@ -22957,8 +22945,7 @@ exports[`Results View Should match snapshot 1`] = `
                         >
                           motionmark_webgl
                         </a>
-                         
-                        3DGraphics-WebGL
+                         3DGraphics-WebGL
                       </strong>
                        
                       <a
