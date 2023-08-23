@@ -90,9 +90,7 @@ const getDocsURL = (suite: string, framework_id: Framework['id']) => {
   let docsURL = '';
   let isLinkSupported = true;
 
-  const isDevToolsFramework = framework_id === devToolsFramework.id;
-
-  if (isDevToolsFramework) {
+  if (framework_id === devToolsFramework.id) {
     const { devtoolsDocsURL, linkSupported } = createDevtoolsDocsUrl(
       supportedFramework,
       urlReadySuite,
