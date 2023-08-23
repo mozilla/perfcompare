@@ -52,6 +52,8 @@ export const supportedPerfdocsFrameworks: Record<
   devtools: 'performance-tests-overview',
 };
 
+export const devToolsFramework: Framework = { id: 12, name: 'devtools' };
+
 export const removedOldTestDevTools = 'total-after-gc';
 
 // TODO: remove these once the documentation for DevTools is complete

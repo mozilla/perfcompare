@@ -2,7 +2,7 @@ import AppleIcon from '@mui/icons-material/Apple';
 
 import {
   frameworkMap,
-  frameworks,
+  devToolsFramework,
   baseDocsURL,
   removedOldTestDevTools,
   nonDocumentedTestsDevTools,
@@ -90,7 +90,7 @@ const getDocsURL = (suite: string, framework_id: Framework['id']) => {
   let docsURL = '';
   let isLinkSupported = true;
 
-  const isDevToolsFramework = framework_id === frameworks[6].id;
+  const isDevToolsFramework = framework_id === devToolsFramework.id;
 
   if (isDevToolsFramework) {
     const { devtoolsDocsURL, linkSupported } = createDevtoolsDocsUrl(
