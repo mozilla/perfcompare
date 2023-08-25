@@ -5,8 +5,63 @@ import {
   setConfidenceClassName,
   truncateHash,
   swapArrayElements,
+  getDocsURL,
 } from '../utils/helpers';
 import getTestData from './utils/fixtures';
+
+describe('getDocsURL Helper', () => {
+  it('should return the correct URL for a supported perfdocs framework', () => {
+    const { docsURL, isLinkSupported } = getDocsURL('TestSuite', 1);
+
+    expect(docsURL).toBe(
+      'https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#testsuite',
+    );
+    expect(isLinkSupported).toBe(true);
+  });
+
+  it('should return the correct URL for "devtools" framework', () => {
+    const { docsURL, isLinkSupported } = getDocsURL('AnotherTestSuite', 12);
+
+    expect(docsURL).toBe(
+      'https://firefox-source-docs.mozilla.org/devtools/tests/performance-tests-overview.html#anothertestsuite',
+    );
+    expect(isLinkSupported).toBe(true);
+  });
+
+  it('should return isLinkSupported as false for an unsupported framework', () => {
+    const { docsURL, isLinkSupported } = getDocsURL('UnsupportedSuite', 16);
+
+    expect(docsURL).toBe('');
+    expect(isLinkSupported).toBe(false);
+  });
+
+  it('should handle suite names with special characters correctly', () => {
+    const { docsURL, isLinkSupported } = getDocsURL(
+      'Suite With:Special.Characters',
+      12,
+    );
+
+    expect(docsURL).toBe(
+      'https://firefox-source-docs.mozilla.org/devtools/tests/performance-tests-overview.html#suite-with-special-characters',
+    );
+    expect(isLinkSupported).toBe(true);
+  });
+  it("should not support 'total-after-gc' suite of devtools framework", () => {
+    const { docsURL, isLinkSupported } = getDocsURL('total-after-gc', 12);
+
+    expect(docsURL).toBe('');
+    expect(isLinkSupported).toBe(false);
+  });
+  it('should not support non-documented test suites of devtools framework', () => {
+    const { docsURL, isLinkSupported } = getDocsURL(
+      'reload-inspector:parent-process',
+      12,
+    );
+
+    expect(docsURL).toBe('');
+    expect(isLinkSupported).toBe(false);
+  });
+});
 
 describe('truncateHash Helper', () => {
   it('correctly returns 12-character short hash', () => {

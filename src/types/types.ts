@@ -53,6 +53,8 @@ export type Framework =
   | { id: 15; name: 'mozperftest' }
   | { id: 16; name: 'fxrecord' };
 
+export type SupportedPerfdocsFramework = 'talos' | 'awsy' | 'devtools';
+
 export type FilterValue = {
   name: string;
   value: string;

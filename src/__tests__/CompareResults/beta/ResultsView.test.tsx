@@ -2,9 +2,11 @@ import userEvent from '@testing-library/user-event';
 import { Bubble, ChartProps } from 'react-chartjs-2';
 
 import ResultsView from '../../../components/CompareResults/beta/ResultsView';
+import RevisionHeader from '../../../components/CompareResults/beta/RevisionHeader';
 import { setSelectedRevisions } from '../../../reducers/SelectedRevisionsSlice';
 import { Strings } from '../../../resources/Strings';
 import useProtocolTheme from '../../../theme/protocolTheme';
+import { RevisionsHeader } from '../../../types/state';
 import getTestData from '../../utils/fixtures';
 import { renderWithRouter, store } from '../../utils/setupTests';
 import { renderHook, screen, waitFor, act } from '../../utils/test-utils';
@@ -182,6 +184,38 @@ describe('Results View', () => {
     );
 
     expect(expandedContent[0]).toBeVisible();
+  });
+
+  it('Should render revision header with link to suite docs', () => {
+    const revisionHeader: RevisionsHeader = {
+      extra_options: 'e10s fission stylo webgl-ipc webrender',
+      framework_id: 1,
+      new_repo: 'mozilla-central',
+      new_rev: 'a998c42399a8fcea623690bf65bef49de20535b4',
+      option_name: 'opt',
+      suite: 'allyr',
+      test: '3DGraphics-WebGL',
+    };
+
+    renderWithRouter(<RevisionHeader header={revisionHeader} />);
+    const linkToSuite = screen.queryByLabelText('link to suite documentation');
+    expect(linkToSuite).toBeInTheDocument();
+  });
+
+  it('Should render revision header without link to suite docs for unsupported framework', () => {
+    const revisionHeader: RevisionsHeader = {
+      extra_options: 'e10s fission stylo webgl-ipc webrender',
+      framework_id: 10,
+      new_repo: 'mozilla-central',
+      new_rev: 'a998c42399a8fcea623690bf65bef49de20535b4',
+      option_name: 'opt',
+      suite: 'idle-bg',
+      test: '3DGraphics-WebGL',
+    };
+
+    renderWithRouter(<RevisionHeader header={revisionHeader} />);
+    const linkToSuite = screen.queryByLabelText('link to suite documentation');
+    expect(linkToSuite).not.toBeInTheDocument();
   });
 
   it('Should display Base graph and New graph', async () => {

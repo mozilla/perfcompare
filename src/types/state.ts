@@ -40,6 +40,7 @@ export type RevisionsData = {
 
 export type RevisionsHeader = {
   suite: string;
+  framework_id: Framework['id'];
   test: string;
   option_name: string;
   extra_options: string;

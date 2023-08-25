@@ -3,7 +3,11 @@ import { style } from 'typestyle';
 
 import { Colors, Spacing } from '../../../styles';
 import type { RevisionsHeader } from '../../../types/state';
-import { getTreeherderURL, truncateHash } from '../../../utils/helpers';
+import {
+  getTreeherderURL,
+  truncateHash,
+  getDocsURL,
+} from '../../../utils/helpers';
 
 const styles = {
   tagsOptions: style({
@@ -38,10 +42,29 @@ const styles = {
   }),
 };
 
-function createTitle(header: RevisionsHeader) {
-  return header.test === '' || header.suite === header.test
-    ? header.suite
-    : `${header.suite} ${header.test}`;
+function createTitle(
+  header: RevisionsHeader,
+  docsURL: string,
+  isLinkSupported: boolean,
+) {
+  const isTestUnavailable = header.test === '' || header.suite === header.test;
+  if (isLinkSupported) {
+    return (
+      <>
+        <Link
+          aria-label='link to suite documentation'
+          underline='hover'
+          target='_blank'
+          href={docsURL}
+        >
+          {header.suite}
+        </Link>
+        {isTestUnavailable ? '' : ` ${header.test}`}
+      </>
+    );
+  } else {
+    return isTestUnavailable ? header.suite : `${header.suite} ${header.test}`;
+  }
 }
 
 function getExtraOptions(extraOptions: string) {
@@ -50,6 +73,10 @@ function getExtraOptions(extraOptions: string) {
 
 function RevisionHeader(props: RevisionHeaderProps) {
   const { header } = props;
+  const { docsURL, isLinkSupported } = getDocsURL(
+    header.suite,
+    header.framework_id,
+  );
   const extraOptions = getExtraOptions(header.extra_options);
   const shortHash = truncateHash(header.new_rev);
   return (
@@ -58,7 +85,7 @@ function RevisionHeader(props: RevisionHeaderProps) {
       data-testid={`revision-header-${shortHash}`}
     >
       <TableCell colSpan={6}>
-        <strong>{createTitle(header)}</strong>{' '}
+        <strong>{createTitle(header, docsURL, isLinkSupported)}</strong>{' '}
         <Link href={getTreeherderURL(header.new_rev, header.new_repo)}>
           {shortHash}
         </Link>

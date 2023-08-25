@@ -683,7 +683,14 @@ exports[`Results View Should match snapshot 1`] = `
                       colspan="6"
                     >
                       <strong>
-                        a11yr
+                        <a
+                          aria-label="link to suite documentation"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
+                          href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
+                          target="_blank"
+                        >
+                          a11yr
+                        </a>
                       </strong>
                        
                       <a
@@ -1653,7 +1660,15 @@ exports[`Results View Should match snapshot 1`] = `
                       colspan="6"
                     >
                       <strong>
-                        glvideo Mean tick time across 100 ticks: 
+                        <a
+                          aria-label="link to suite documentation"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
+                          href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#glvideo"
+                          target="_blank"
+                        >
+                          glvideo
+                        </a>
+                         Mean tick time across 100 ticks: 
                       </strong>
                        
                       <a
@@ -2948,7 +2963,15 @@ exports[`Results View Should match snapshot 1`] = `
                       colspan="6"
                     >
                       <strong>
-                        tp5n main_startup_fileio
+                        <a
+                          aria-label="link to suite documentation"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
+                          href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#tp5n"
+                          target="_blank"
+                        >
+                          tp5n
+                        </a>
+                         main_startup_fileio
                       </strong>
                        
                       <a
@@ -3318,7 +3341,15 @@ exports[`Results View Should match snapshot 1`] = `
                       colspan="6"
                     >
                       <strong>
-                        motionmark_webgl 3DGraphics-WebGL
+                        <a
+                          aria-label="link to suite documentation"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
+                          href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#motionmark-webgl"
+                          target="_blank"
+                        >
+                          motionmark_webgl
+                        </a>
+                         3DGraphics-WebGL
                       </strong>
                        
                       <a
@@ -4613,7 +4644,14 @@ exports[`Results View Should match snapshot 1`] = `
                       colspan="6"
                     >
                       <strong>
-                        displaylist_mutate
+                        <a
+                          aria-label="link to suite documentation"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
+                          href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#displaylist-mutate"
+                          target="_blank"
+                        >
+                          displaylist_mutate
+                        </a>
                       </strong>
                        
                       <a
@@ -5583,7 +5621,14 @@ exports[`Results View Should match snapshot 1`] = `
                       colspan="6"
                     >
                       <strong>
-                        dromaeo_dom
+                        <a
+                          aria-label="link to suite documentation"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
+                          href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#dromaeo-dom"
+                          target="_blank"
+                        >
+                          dromaeo_dom
+                        </a>
                       </strong>
                        
                       <a
@@ -5947,7 +5992,15 @@ exports[`Results View Should match snapshot 1`] = `
                       colspan="6"
                     >
                       <strong>
-                        glvideo Mean tick time across 100 ticks: 
+                        <a
+                          aria-label="link to suite documentation"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
+                          href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#glvideo"
+                          target="_blank"
+                        >
+                          glvideo
+                        </a>
+                         Mean tick time across 100 ticks: 
                       </strong>
                        
                       <a
@@ -6923,7 +6976,15 @@ exports[`Results View Should match snapshot 1`] = `
                       colspan="6"
                     >
                       <strong>
-                        android  
+                        <a
+                          aria-label="link to suite documentation"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
+                          href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#android"
+                          target="_blank"
+                        >
+                          android
+                        </a>
+                          
                       </strong>
                        
                       <a
@@ -7295,7 +7356,14 @@ exports[`Results View Should match snapshot 1`] = `
                       colspan="6"
                     >
                       <strong>
-                        a11yr
+                        <a
+                          aria-label="link to suite documentation"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
+                          href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
+                          target="_blank"
+                        >
+                          a11yr
+                        </a>
                       </strong>
                        
                       <a
@@ -8379,7 +8447,14 @@ exports[`Results View Should match snapshot 1`] = `
                       colspan="6"
                     >
                       <strong>
-                        cross_origin_pageload
+                        <a
+                          aria-label="link to suite documentation"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
+                          href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#cross-origin-pageload"
+                          target="_blank"
+                        >
+                          cross_origin_pageload
+                        </a>
                       </strong>
                        
                       <a
@@ -10375,7 +10450,15 @@ exports[`Results View Should match snapshot 1`] = `
                       colspan="6"
                     >
                       <strong>
-                        glvideo Mean tick time across 100 ticks: 
+                        <a
+                          aria-label="link to suite documentation"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
+                          href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#glvideo"
+                          target="_blank"
+                        >
+                          glvideo
+                        </a>
+                         Mean tick time across 100 ticks: 
                       </strong>
                        
                       <a
@@ -12902,7 +12985,15 @@ exports[`Results View Should match snapshot 1`] = `
                       colspan="6"
                     >
                       <strong>
-                        tp5o_webext XRes
+                        <a
+                          aria-label="link to suite documentation"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
+                          href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#tp5o-webext"
+                          target="_blank"
+                        >
+                          tp5o_webext
+                        </a>
+                         XRes
                       </strong>
                        
                       <a
@@ -13266,7 +13357,14 @@ exports[`Results View Should match snapshot 1`] = `
                       colspan="6"
                     >
                       <strong>
-                        tp5o_scroll
+                        <a
+                          aria-label="link to suite documentation"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
+                          href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#tp5o-scroll"
+                          target="_blank"
+                        >
+                          tp5o_scroll
+                        </a>
                       </strong>
                        
                       <a
@@ -14236,7 +14334,15 @@ exports[`Results View Should match snapshot 1`] = `
                       colspan="6"
                     >
                       <strong>
-                        motionmark_webgl 3DGraphics-WebGL
+                        <a
+                          aria-label="link to suite documentation"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
+                          href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#motionmark-webgl"
+                          target="_blank"
+                        >
+                          motionmark_webgl
+                        </a>
+                         3DGraphics-WebGL
                       </strong>
                        
                       <a
@@ -15531,7 +15637,15 @@ exports[`Results View Should match snapshot 1`] = `
                       colspan="6"
                     >
                       <strong>
-                        cpstartup content-process-startup
+                        <a
+                          aria-label="link to suite documentation"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
+                          href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#cpstartup"
+                          target="_blank"
+                        >
+                          cpstartup
+                        </a>
+                         content-process-startup
                       </strong>
                        
                       <a
@@ -16621,7 +16735,14 @@ exports[`Results View Should match snapshot 1`] = `
                       colspan="6"
                     >
                       <strong>
-                        a11yr
+                        <a
+                          aria-label="link to suite documentation"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
+                          href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
+                          target="_blank"
+                        >
+                          a11yr
+                        </a>
                       </strong>
                        
                       <a
@@ -17591,7 +17712,14 @@ exports[`Results View Should match snapshot 1`] = `
                       colspan="6"
                     >
                       <strong>
-                        a11yr
+                        <a
+                          aria-label="link to suite documentation"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
+                          href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
+                          target="_blank"
+                        >
+                          a11yr
+                        </a>
                       </strong>
                        
                       <a
@@ -18561,7 +18689,15 @@ exports[`Results View Should match snapshot 1`] = `
                       colspan="6"
                     >
                       <strong>
-                        cpstartup content-process-startup
+                        <a
+                          aria-label="link to suite documentation"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
+                          href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#cpstartup"
+                          target="_blank"
+                        >
+                          cpstartup
+                        </a>
+                         content-process-startup
                       </strong>
                        
                       <a
@@ -19537,7 +19673,15 @@ exports[`Results View Should match snapshot 1`] = `
                       colspan="6"
                     >
                       <strong>
-                        glvideo Mean tick time across 100 ticks: 
+                        <a
+                          aria-label="link to suite documentation"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
+                          href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#glvideo"
+                          target="_blank"
+                        >
+                          glvideo
+                        </a>
+                         Mean tick time across 100 ticks: 
                       </strong>
                        
                       <a
@@ -20832,7 +20976,15 @@ exports[`Results View Should match snapshot 1`] = `
                       colspan="6"
                     >
                       <strong>
-                        glvideo Mean tick time across 100 ticks: 
+                        <a
+                          aria-label="link to suite documentation"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
+                          href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#glvideo"
+                          target="_blank"
+                        >
+                          glvideo
+                        </a>
+                         Mean tick time across 100 ticks: 
                       </strong>
                        
                       <a
@@ -21808,7 +21960,14 @@ exports[`Results View Should match snapshot 1`] = `
                       colspan="6"
                     >
                       <strong>
-                        kraken
+                        <a
+                          aria-label="link to suite documentation"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
+                          href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#kraken"
+                          target="_blank"
+                        >
+                          kraken
+                        </a>
                       </strong>
                        
                       <a
@@ -22778,7 +22937,15 @@ exports[`Results View Should match snapshot 1`] = `
                       colspan="6"
                     >
                       <strong>
-                        motionmark_webgl 3DGraphics-WebGL
+                        <a
+                          aria-label="link to suite documentation"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
+                          href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#motionmark-webgl"
+                          target="_blank"
+                        >
+                          motionmark_webgl
+                        </a>
+                         3DGraphics-WebGL
                       </strong>
                        
                       <a

@@ -1,9 +1,18 @@
 import AppleIcon from '@mui/icons-material/Apple';
 
+import {
+  frameworkMap,
+  devToolsFramework,
+  baseDocsURL,
+  removedOldTestDevTools,
+  nonDocumentedTestsDevTools,
+} from '../common/constants';
+import { supportedPerfdocsFrameworks } from '../common/constants';
 import AndroidIcon from '../components/Shared/Icons/AndroidIcon';
 import LinuxIcon from '../components/Shared/Icons/LinuxIcon';
 import WindowsIcon from '../components/Shared/Icons/WindowsIcon';
 import type { Repository, RevisionsList } from '../types/state';
+import { Framework, SupportedPerfdocsFramework } from '../types/types';
 
 const truncateHash = (revision: RevisionsList['revision']) =>
   revision.slice(0, 12);
@@ -54,6 +63,50 @@ const getPlatformInfo = (platformName: string) => {
   else return { shortName: '', icon: {} };
 };
 
+const createDevtoolsDocsUrl = (
+  supportedFramework: string,
+  urlReadySuite: string,
+  suite: string,
+) => {
+  let linkSupported = true;
+
+  let devtoolsDocsURL = `${baseDocsURL}/devtools/tests/${supportedFramework}.html#${urlReadySuite}`;
+  if (
+    suite === removedOldTestDevTools ||
+    nonDocumentedTestsDevTools.includes(suite)
+  ) {
+    devtoolsDocsURL = '';
+    linkSupported = false;
+  }
+  return { devtoolsDocsURL, linkSupported };
+};
+
+const getDocsURL = (suite: string, framework_id: Framework['id']) => {
+  const framework = frameworkMap[framework_id];
+  const supportedFramework =
+    supportedPerfdocsFrameworks[framework as SupportedPerfdocsFramework];
+  const urlReadySuite = suite.replace(/:|\s|\.|_/g, '-').toLowerCase();
+
+  let docsURL = '';
+  let isLinkSupported = true;
+
+  if (framework_id === devToolsFramework.id) {
+    const { devtoolsDocsURL, linkSupported } = createDevtoolsDocsUrl(
+      supportedFramework,
+      urlReadySuite,
+      suite,
+    );
+
+    isLinkSupported = linkSupported;
+    docsURL = devtoolsDocsURL;
+  } else if (supportedFramework) {
+    docsURL = `${baseDocsURL}/testing/perfdocs/${supportedFramework}.html#${urlReadySuite}`;
+  } else {
+    isLinkSupported = false;
+  }
+  return { docsURL, isLinkSupported };
+};
+
 // TO DO: Review if this method is still needed
 const setConfidenceClassName = (confidenceText: string | null) => {
   return confidenceText || 'unknown-confidence';
@@ -83,4 +136,5 @@ export {
   getPlatformInfo,
   swapArrayElements,
   truncateHash,
+  getDocsURL,
 };
