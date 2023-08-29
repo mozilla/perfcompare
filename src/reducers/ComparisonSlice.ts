@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { RootState } from '../common/store';
 import { Strings } from '../resources/Strings';
@@ -74,20 +74,21 @@ function processResults(results: CompareResultsItem[]) {
 const allRevisionsOption =
   Strings.components.comparisonRevisionDropdown.allRevisions;
 
-export const selectProcessedResults = (state: RootState) => {
-  const { data } = state.compareResults;
-  const { activeComparison } = state.comparison;
-
-  if (activeComparison === allRevisionsOption) {
-    const allResults = ([] as CompareResultsItem[]).concat(
-      ...Object.values(data),
-    );
-    return processResults(allResults);
-  } else {
-    const results = data[activeComparison];
-    return processResults(results);
-  }
-};
+export const selectProcessedResults = createSelector(
+  (state: RootState) => state.compareResults.data,
+  (state: RootState) => state.comparison.activeComparison,
+  (data, activeComparison) => {
+    if (activeComparison === allRevisionsOption) {
+      const allResults = ([] as CompareResultsItem[]).concat(
+        ...Object.values(data),
+      );
+      return processResults(allResults);
+    } else {
+      const results = data[activeComparison];
+      return processResults(results);
+    }
+  },
+);
 
 export const { updateComparison } = comparison.actions;
 
