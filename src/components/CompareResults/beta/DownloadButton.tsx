@@ -23,10 +23,7 @@ interface ResultObject {
 }
 
 function DownloadButton() {
-  const results = useAppSelector((state) => {
-    const { data } = state.compareResults;
-    return data;
-  });
+  const results = useAppSelector((state) => state.compareResults.data);
 
   const formatDownloadData = (
     data: Record<string, ResultObject[]>,
