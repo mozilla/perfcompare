@@ -1,13 +1,13 @@
 import userEvent from '@testing-library/user-event';
 import { Bubble, ChartProps } from 'react-chartjs-2';
 
-import ResultsView from '../../../components/CompareResults/beta/ResultsView';
-import { setSelectedRevisions } from '../../../reducers/SelectedRevisionsSlice';
-import { Strings } from '../../../resources/Strings';
-import useProtocolTheme from '../../../theme/protocolTheme';
-import getTestData from '../../utils/fixtures';
-import { renderWithRouter, store } from '../../utils/setupTests';
-import { renderHook, screen, waitFor, act } from '../../utils/test-utils';
+import ResultsView from '../../components/CompareResults/ResultsView';
+import { setSelectedRevisions } from '../../reducers/SelectedRevisionsSlice';
+import { Strings } from '../../resources/Strings';
+import useProtocolTheme from '../../theme/protocolTheme';
+import getTestData from '../utils/fixtures';
+import { renderWithRouter, store } from '../utils/setupTests';
+import { renderHook, screen, waitFor, act } from '../utils/test-utils';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual<typeof import('react-router-dom')>('react-router-dom'),

@@ -7,7 +7,6 @@ import Tooltip from '@mui/material/Tooltip';
 import { style, cssRule } from 'typestyle';
 
 import { frameworkMap, frameworks } from '../../common/constants';
-import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
 import useHandleChangeFrameworkDropdown from '../../hooks/useHandleFrameworkDropdown';
 import { Strings } from '../../resources/Strings';
@@ -81,7 +80,7 @@ function FrameworkDropdown({ view, mode }: FrameworkDropdownProps) {
   };
 
   const frameworkName = useAppSelector(
-    (state: RootState) => state.framework.name,
+    (state) => state.framework.name,
   );
 
   const { handleChangeFrameworkDropdown } = useHandleChangeFrameworkDropdown();

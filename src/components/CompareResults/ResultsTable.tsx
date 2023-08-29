@@ -5,14 +5,14 @@ import Table from '@mui/material/Table';
 import TableContainer from '@mui/material/TableContainer';
 import { style } from 'typestyle';
 
-import { useAppSelector } from '../../../hooks/app';
-import { Strings } from '../../../resources/Strings';
-import { Colors, Spacing } from '../../../styles';
+import { useAppSelector } from '../../hooks/app';
+import { Strings } from '../../resources/Strings';
+import { Colors, Spacing } from '../../styles';
 import type {
   CompareResultsItem,
   RevisionsHeader,
   ThemeMode,
-} from '../../../types/state';
+} from '../../types/state';
 import NoResultsFound from './NoResultsFound';
 import TableContent from './TableContent';
 import TableHeader from './TableHeader';

@@ -3,8 +3,8 @@ import Grid from '@mui/material/Grid';
 import { Container } from '@mui/system';
 import { style } from 'typestyle';
 
-import { Strings } from '../../../resources/Strings';
-import { Spacing } from '../../../styles';
+import { Strings } from '../../resources/Strings';
+import { Spacing } from '../../styles';
 
 function NoResultsFound() {
   const noResultsFound = Strings.components.noResultsFound;

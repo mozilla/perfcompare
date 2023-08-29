@@ -2,7 +2,7 @@ import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
-import ResultsView from '../../components/CompareResults/beta/ResultsView';
+import ResultsView from '../../components/CompareResults/ResultsView';
 import SearchComponent from '../../components/Search/SearchComponent';
 import { setSelectedRevisions } from '../../reducers/SelectedRevisionsSlice';
 import { Strings } from '../../resources/Strings';

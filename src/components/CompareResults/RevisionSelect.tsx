@@ -7,10 +7,10 @@ import { useDispatch } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { style } from 'typestyle';
 
-import { useAppSelector } from '../../../hooks/app';
-import { updateComparison } from '../../../reducers/ComparisonSlice';
-import { Strings } from '../../../resources/Strings';
-import { truncateHash } from '../../../utils/helpers';
+import { useAppSelector } from '../../hooks/app';
+import { updateComparison } from '../../reducers/ComparisonSlice';
+import { Strings } from '../../resources/Strings';
+import { truncateHash } from '../../utils/helpers';
 
 const styles = {
   box: style({

@@ -3,7 +3,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { FormControl, InputAdornment, TextField, Button } from '@mui/material';
 import { style } from 'typestyle';
 
-import { ButtonsLightRaw, Spacing } from '../../../styles';
+import { ButtonsLightRaw, Spacing } from '../../styles';
 
 const styles = {
   container: style({

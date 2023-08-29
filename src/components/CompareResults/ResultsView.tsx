@@ -9,20 +9,20 @@ import { useLocation } from 'react-router-dom';
 import { useSearchParams } from 'react-router-dom';
 import { style } from 'typestyle';
 
-import { compareView } from '../../../common/constants';
-import { useAppDispatch, useAppSelector } from '../../../hooks/app';
-import useFetchCompareResults from '../../../hooks/useFetchCompareResults';
-import useHandleChangeSearch from '../../../hooks/useHandleChangeSearch';
-import { comparisonResults as secondRevisionResults } from '../../../mockData/9d5066525489';
-import { comparisonResults as thirdRevisionResults } from '../../../mockData/a998c42399a8';
-import { comparisonResults as firstRevisionResults } from '../../../mockData/bb6a5e451dac';
-import { setCompareData } from '../../../reducers/CompareResults';
-import { SearchContainerStyles } from '../../../styles';
-import { background } from '../../../styles';
-import { fetchRecentRevisions } from '../../../thunks/searchThunk';
-import { Repository, View, InputType } from '../../../types/state';
-import CompareWithBase from '../../Search/CompareWithBase';
-import PerfCompareHeader from '../../Shared/PerfCompareHeader';
+import { compareView } from '../../common/constants';
+import { useAppDispatch, useAppSelector } from '../../hooks/app';
+import useFetchCompareResults from '../../hooks/useFetchCompareResults';
+import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
+import { comparisonResults as secondRevisionResults } from '../../mockData/9d5066525489';
+import { comparisonResults as thirdRevisionResults } from '../../mockData/a998c42399a8';
+import { comparisonResults as firstRevisionResults } from '../../mockData/bb6a5e451dac';
+import { setCompareData } from '../../reducers/CompareResults';
+import { SearchContainerStyles } from '../../styles';
+import { background } from '../../styles';
+import { fetchRecentRevisions } from '../../thunks/searchThunk';
+import { Repository, View, InputType } from '../../types/state';
+import CompareWithBase from '../Search/CompareWithBase';
+import PerfCompareHeader from '../Shared/PerfCompareHeader';
 import ResultsMain from './ResultsMain';
 
 interface ResultsViewProps {

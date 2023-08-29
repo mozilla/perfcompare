@@ -5,7 +5,6 @@ import { style, cssRule } from 'typestyle';
 
 import { repoMap } from '../../common/constants';
 import { compareView } from '../../common/constants';
-import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
 import useHandleChangeDropdown from '../../hooks/useHandleChangeDropdown';
 import {
@@ -34,7 +33,7 @@ function SearchDropdown({
   const size = view == compareView ? 'small' : undefined;
   const { handleChangeDropdown } = useHandleChangeDropdown();
   const searchState = useAppSelector(
-    (state: RootState) => state.search[searchType],
+    (state) => state.search[searchType],
   );
   const { repository } = searchState;
 

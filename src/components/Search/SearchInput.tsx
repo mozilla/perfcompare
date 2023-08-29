@@ -6,7 +6,6 @@ import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
 import { style } from 'typestyle';
 
-import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
 import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
 import { InputStylesRaw } from '../../styles';
@@ -29,7 +28,7 @@ function SearchInput({
 }: SearchInputProps) {
   const { handleChangeSearch } = useHandleChangeSearch();
   const searchState = useAppSelector(
-    (state: RootState) => state.search[searchType],
+    (state) => state.search[searchType],
   );
   const { inputError, inputHelperText } = searchState;
 

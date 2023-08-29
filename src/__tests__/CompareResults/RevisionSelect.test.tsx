@@ -1,8 +1,8 @@
-import ResultsView from '../../../components/CompareResults/beta/ResultsView';
-import RevisionSelect from '../../../components/CompareResults/beta/RevisionSelect';
-import useProtocolTheme from '../../../theme/protocolTheme';
-import { renderWithRouter } from '../../utils/setupTests';
-import { fireEvent, renderHook, screen, within } from '../../utils/test-utils';
+import ResultsView from '../../components/CompareResults/ResultsView';
+import RevisionSelect from '../../components/CompareResults/RevisionSelect';
+import useProtocolTheme from '../../theme/protocolTheme';
+import { renderWithRouter } from '../utils/setupTests';
+import { fireEvent, renderHook, screen, within } from '../utils/test-utils';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual<typeof import('react-router-dom')>('react-router-dom'),

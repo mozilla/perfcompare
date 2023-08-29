@@ -1,7 +1,7 @@
 import { Button } from '@mui/material';
 import { style } from 'typestyle';
 
-import { ButtonsLightRaw } from '../../../styles';
+import { ButtonsLightRaw } from '../../styles';
 
 const styles = {
   downloadButton: style({
