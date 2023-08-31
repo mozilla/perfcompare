@@ -51,18 +51,18 @@ function processResults(results: CompareResultsItem[]) {
   });
   const restructuredResults: Results[] = Array.from(
     processedResults,
-    function (entry) {
+    function ([rowIdentifier, result]) {
       return {
-        key: entry[0],
-        value: entry[1],
+        key: rowIdentifier,
+        value: result,
         revisionHeader: {
-          suite: entry[1][0].suite,
-          framework_id: entry[1][0].framework_id,
-          test: entry[1][0].test,
-          option_name: entry[1][0].option_name,
-          extra_options: entry[1][0].extra_options,
-          new_rev: entry[1][0].new_rev,
-          new_repo: entry[1][0].new_repository_name,
+          suite: result[0].suite,
+          framework_id: result[0].framework_id,
+          test: result[0].test,
+          option_name: result[0].option_name,
+          extra_options: result[0].extra_options,
+          new_rev: result[0].new_rev,
+          new_repo: result[0].new_repository_name,
         },
       };
     },
