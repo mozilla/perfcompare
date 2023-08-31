@@ -3,6 +3,7 @@ import { style } from 'typestyle';
 
 import { useAppSelector } from '../../../hooks/app';
 import { ButtonsLightRaw } from '../../../styles';
+import { truncateHash } from '../../../utils/helpers';
 
 const styles = {
   downloadButton: style({
@@ -15,15 +16,29 @@ const styles = {
 };
 
 interface GroupedResults {
-  [key: string]: object[];
+  [key: string]: ResultObject[];
 }
 
 interface ResultObject {
   header_name: string;
+  new_rev: string;
 }
 
 function DownloadButton() {
-  const results = useAppSelector((state) => state.compareResults.data);
+  let fileName = 'perf-compare-all-revisions.json';
+  const results = useAppSelector((state) => {
+    if (state.comparison.activeComparison === 'All revisions') {
+      return state.compareResults.data;
+    } else {
+      fileName = `perf-compare-${truncateHash(
+        state.comparison.activeComparison,
+      )}.json`;
+      return {
+        [state.comparison.activeComparison]:
+          state.compareResults.data[state.comparison.activeComparison],
+      };
+    }
+  });
 
   const formatDownloadData = (
     data: Record<string, ResultObject[]>,
@@ -45,13 +60,14 @@ function DownloadButton() {
 
       const transformedGroupEntries = Object.keys(groupedResults).map(
         (header_name) => ({
-          [header_name]: groupedResults[header_name],
+          [`${header_name}${truncateHash(
+            groupedResults[header_name][0].new_rev,
+          )}`]: groupedResults[header_name],
         }),
       );
 
       transformedGroups.push(...transformedGroupEntries);
     });
-
     return transformedGroups;
   };
 
@@ -62,7 +78,7 @@ function DownloadButton() {
         href={`data:text/json;charset=utf-8,${encodeURIComponent(
           JSON.stringify(formatDownloadData(results)),
         )}`}
-        download='perf-compare.json'
+        download={fileName}
       >
         Download JSON
       </Button>
