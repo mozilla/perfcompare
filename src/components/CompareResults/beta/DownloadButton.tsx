@@ -60,7 +60,7 @@ function DownloadButton() {
 
       const transformedGroupEntries = Object.keys(groupedResults).map(
         (header_name) => ({
-          [`${header_name}${truncateHash(
+          [`${header_name} ${truncateHash(
             groupedResults[header_name][0].new_rev,
           )}`]: groupedResults[header_name],
         }),
