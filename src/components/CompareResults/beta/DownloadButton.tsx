@@ -2,6 +2,7 @@ import { Button } from '@mui/material';
 import { style } from 'typestyle';
 
 import { useAppSelector } from '../../../hooks/app';
+import { Strings } from '../../../resources/Strings';
 import { ButtonsLightRaw } from '../../../styles';
 import { truncateHash } from '../../../utils/helpers';
 
@@ -27,7 +28,10 @@ interface ResultObject {
 function DownloadButton() {
   let fileName = 'perf-compare-all-revisions.json';
   const results = useAppSelector((state) => {
-    if (state.comparison.activeComparison === 'All revisions') {
+    if (
+      state.comparison.activeComparison ===
+      Strings.components.comparisonRevisionDropdown.allRevisions
+    ) {
       return state.compareResults.data;
     } else {
       fileName = `perf-compare-${truncateHash(
