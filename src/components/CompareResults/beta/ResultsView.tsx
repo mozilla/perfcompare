@@ -5,7 +5,6 @@ import type { Theme } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
-import { useLocation } from 'react-router-dom';
 import { useSearchParams } from 'react-router-dom';
 import { style } from 'typestyle';
 
@@ -67,7 +66,6 @@ function ResultsView(props: ResultsViewProps) {
 
   const sectionStyles = SearchContainerStyles(themeMode, compareView);
 
-  const location = useLocation();
   const { dispatchFetchCompareResults } = useFetchCompareResults();
   const { searchByRevisionOrEmail } = useHandleChangeSearch();
 
@@ -75,35 +73,39 @@ function ResultsView(props: ResultsViewProps) {
     document.title = title;
   }, [title]);
 
-  useEffect(() => {
-    const urlSearchParams = new URLSearchParams(location.search);
-    const repos = urlSearchParams.get('repos')?.split(',');
-    const revs = urlSearchParams.get('revs')?.split(',');
-    const framework = urlSearchParams.get('framework');
+  const repos = searchParams.get('repos');
+  const revs = searchParams.get('revs');
+  const framework = searchParams.get('framework');
 
+  useEffect(() => {
     if (revs && repos) {
+      const revsArray = revs.split(',');
+      const reposArray = repos.split(',');
       void dispatchFetchCompareResults(
-        repos as Repository['name'][],
-        revs,
+        reposArray as Repository['name'][],
+        revsArray,
         framework as string,
       );
 
       /*
       On component mount, use the repos and revs in hash to search for the base and new revisions. Store the results in state via the SelectedRevisionsSlice: see extra reducer, fetchRevisionsByID. Now can always display the selected revisions despite page refresh or copying and pasting url
       */
-      revs.forEach((rev, index) => {
+      revsArray.forEach((rev, index) => {
         void searchByRevisionOrEmail(
-          repos[index] as Repository['name'],
+          reposArray[index] as Repository['name'],
           rev,
           'base',
         );
         void searchByRevisionOrEmail(
-          repos[index] as Repository['name'],
+          reposArray[index] as Repository['name'],
           rev,
           'new',
         );
       });
     }
+  }, [repos, revs, framework]);
+
+  useEffect(() => {
     if (framework) {
       const frameworkId = parseInt(framework);
       if (frameworkId in frameworkMap) {
@@ -116,7 +118,7 @@ function ResultsView(props: ResultsViewProps) {
         );
       }
     }
-  }, []);
+  }, [framework]);
 
   /* editing the revisions requires fetching the recent revisions in results view
    */
