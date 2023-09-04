@@ -45,8 +45,6 @@ function useFetchCompareResults() {
       } else if (revs.length > 2 && revs.length <= 4) {
         baseRepo = repos[0];
         baseRev = revs[0];
-        newRepo = repos[1];
-        newRev = revs[1];
         for (let i = 1; i < revs.length; i++) {
           newRepo = repos[i];
           newRev = revs[i];
