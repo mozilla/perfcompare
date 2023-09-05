@@ -13,10 +13,6 @@ import { frameworkMap } from '../../../common/constants';
 import { useAppDispatch, useAppSelector } from '../../../hooks/app';
 import useFetchCompareResults from '../../../hooks/useFetchCompareResults';
 import useHandleChangeSearch from '../../../hooks/useHandleChangeSearch';
-import { comparisonResults as secondRevisionResults } from '../../../mockData/9d5066525489';
-import { comparisonResults as thirdRevisionResults } from '../../../mockData/a998c42399a8';
-import { comparisonResults as firstRevisionResults } from '../../../mockData/bb6a5e451dac';
-import { setCompareData } from '../../../reducers/CompareResults';
 import { updateFramework } from '../../../reducers/FrameworkSlice';
 import { SearchContainerStyles } from '../../../styles';
 import { background } from '../../../styles';
@@ -38,6 +34,10 @@ function ResultsView(props: ResultsViewProps) {
     (state) => state.search.base.repository,
   );
   const repositoryNew = useAppSelector((state) => state.search.new.repository);
+  const { dispatchFetchCompareResults, dispatchFakeCompareResults } =
+    useFetchCompareResults();
+  const { searchByRevisionOrEmail } = useHandleChangeSearch();
+
   const { protocolTheme, toggleColorMode, title } = props;
   const themeMode = protocolTheme.palette.mode;
   const styles = {
@@ -49,25 +49,13 @@ function ResultsView(props: ResultsViewProps) {
   const [searchParams] = useSearchParams();
   const fakeDataParam: string | null = searchParams.get('fakedata');
 
-  const comparisonResults = {
-    bb6a5e451dac: firstRevisionResults,
-    '9d5066525489': secondRevisionResults,
-    a998c42399a8: thirdRevisionResults,
-  };
-
-  // TODO: Populate store with real data or fake data pased on URL params
   useEffect(() => {
     if (fakeDataParam === 'true') {
-      dispatch(setCompareData({ data: comparisonResults }));
-    } else {
-      dispatch(setCompareData({ data: {} }));
+      dispatchFakeCompareResults();
     }
   }, [fakeDataParam]);
 
   const sectionStyles = SearchContainerStyles(themeMode, compareView);
-
-  const { dispatchFetchCompareResults } = useFetchCompareResults();
-  const { searchByRevisionOrEmail } = useHandleChangeSearch();
 
   useEffect(() => {
     document.title = title;
