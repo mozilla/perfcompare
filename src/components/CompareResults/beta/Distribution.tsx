@@ -19,6 +19,8 @@ function Distribution(props: DistributionProps) {
   const {
     base_runs: baseRuns,
     new_runs: newRuns,
+    base_app: baseApplication,
+    new_app: newApplication,
     base_median_value: baseMedian,
     new_median_value: newMedian,
     base_stddev: baseStddev,
@@ -31,6 +33,7 @@ function Distribution(props: DistributionProps) {
     name: 'Base',
     median: baseMedian,
     values: baseRuns,
+    application: baseApplication,
     stddev: baseStddev,
     stddevPercent: baseStddevPercent,
   };
@@ -39,6 +42,7 @@ function Distribution(props: DistributionProps) {
     name: 'New',
     median: newMedian,
     values: newRuns,
+    application: newApplication,
     stddev: newStddev,
     stddevPercent: newStddevPercent,
   };

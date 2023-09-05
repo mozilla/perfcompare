@@ -27,6 +27,8 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
     base_runs: baseRuns,
     new_runs: newRuns,
     new_is_better: newIsBetter,
+    base_app: baseApplication,
+    new_app: newApplication,
   } = result;
   const shouldDisplayGraph = shouldDisplayGraphDistribution(baseRuns, newRuns);
 
@@ -73,7 +75,11 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
           <Divider />{' '}
         </div>
         {!shouldDisplayGraph && (
-          <div className={`${styles.bottomSpace}`}>{singleRun}</div>
+          <div className={`${styles.bottomSpace}`}>
+            {singleRun} <br />
+            <b>Base application</b>: {baseApplication} <br />
+            <b>New application</b>: {newApplication}{' '}
+          </div>
         )}
         <div className={`${styles.bottomSpace}`}>
           <b>Mean Difference</b>: {deltaPercent}%{' '}

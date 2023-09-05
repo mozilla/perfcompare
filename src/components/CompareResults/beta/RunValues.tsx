@@ -23,11 +23,12 @@ const styles = {
 };
 
 function RunValues(props: RunValuesProps) {
-  const { name, median, values, stddev, stddevPercent } = props.revisionRuns;
+  const { name, median, values, application, stddev, stddevPercent } =
+    props.revisionRuns;
   return (
     <div className={styles.container}>
       <div>
-        <b>{name}:</b> {median} ms
+        <b>{name}:</b> {median} ms ({application})
       </div>
       <div>
         <GraphDistribution name={name} values={values} />
@@ -52,6 +53,7 @@ interface RunValuesProps {
     name: string;
     median: number;
     values: number[];
+    application: string;
     stddev: number;
     stddevPercent: number;
   };
