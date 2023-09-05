@@ -80,10 +80,7 @@ function RevisionHeader(props: RevisionHeaderProps) {
   const extraOptions = getExtraOptions(header.extra_options);
   const shortHash = truncateHash(header.new_rev);
   return (
-    <TableRow
-      className='revision-header'
-      data-testid={`revision-header-${shortHash}`}
-    >
+    <TableRow className='revision-header'>
       <TableCell colSpan={6}>
         <strong>{createTitle(header, docsURL, isLinkSupported)}</strong>{' '}
         <Link href={getTreeherderURL(header.new_rev, header.new_repo)}>
