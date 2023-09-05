@@ -14,12 +14,12 @@ jest.mock('react-router-dom', () => ({
 }));
 
 describe('Results View/fetchCompareResults', () => {
-  const protocolTheme = renderHook(() => useProtocolTheme()).result.current
-    .protocolTheme;
-  const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
-    .toggleColorMode;
-
   it('Should fetch and display recent results', () => {
+    const protocolTheme = renderHook(() => useProtocolTheme()).result.current
+      .protocolTheme;
+    const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
+      .toggleColorMode;
+
     const { testCompareData } = getTestData();
     global.fetch = jest.fn(() =>
       Promise.resolve({
@@ -28,7 +28,6 @@ describe('Results View/fetchCompareResults', () => {
         }),
       }),
     ) as jest.Mock;
-    const spyOnFetch = jest.spyOn(global, 'fetch');
 
     renderWithRouter(
       <ResultsView
@@ -38,12 +37,18 @@ describe('Results View/fetchCompareResults', () => {
       />,
     );
 
-    expect(spyOnFetch).toHaveBeenCalledWith(
+    expect(global.fetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/perfcompare/results/?base_repository=mozilla-central&base_revision=6089e7f0fa57a29c6d080f135f65e146c34457d8&new_repository=mozilla-central&new_revision=1d5eb1343cc87a9be3dfe4b884822506ffdda7d3&framework=1&interval=86400&no_subtests=true',
     );
+    expect(document.body).toMatchSnapshot();
   });
 
-  it('Should reject fetchCompareResults if fetch returns no results', () => {
+  it('State does not contain data if fetch returns no results', () => {
+    const protocolTheme = renderHook(() => useProtocolTheme()).result.current
+      .protocolTheme;
+    const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
+      .toggleColorMode;
+
     global.fetch = jest.fn(() =>
       Promise.resolve({
         json: () => ({
@@ -51,7 +56,6 @@ describe('Results View/fetchCompareResults', () => {
         }),
       }),
     ) as jest.Mock;
-    const spyOnFetch = jest.spyOn(global, 'fetch');
 
     renderWithRouter(
       <ResultsView
@@ -61,9 +65,10 @@ describe('Results View/fetchCompareResults', () => {
       />,
     );
 
-    expect(spyOnFetch).toHaveBeenCalledWith(
+    expect(global.fetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/perfcompare/results/?base_repository=mozilla-central&base_revision=6089e7f0fa57a29c6d080f135f65e146c34457d8&new_repository=mozilla-central&new_revision=1d5eb1343cc87a9be3dfe4b884822506ffdda7d3&framework=1&interval=86400&no_subtests=true',
     );
     expect(store.getState().compareResults.data).toStrictEqual({});
+    expect(document.body).toMatchSnapshot();
   });
 });
