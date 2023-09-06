@@ -67,12 +67,12 @@ describe('Revision select', () => {
     });
     expect(firstRevisionHeaders.length).toBe(8);
 
-    let secondRevisionHeaders = await screen.findAllByRole('link', {
+    const secondRevisionHeaders = await screen.findAllByRole('link', {
       name: /9d5066525489/,
     });
     expect(secondRevisionHeaders.length).toBe(7);
 
-    let thirdRevisionHeaders = await screen.findAllByRole('link', {
+    const thirdRevisionHeaders = await screen.findAllByRole('link', {
       name: /a998c42399a8/,
     });
     expect(thirdRevisionHeaders.length).toBe(7);
@@ -101,15 +101,17 @@ describe('Revision select', () => {
     });
     expect(firstRevisionHeaders.length).toBe(8);
 
-    secondRevisionHeaders = await screen.findAllByRole('link', {
-      name: /9d5066525489/,
-    });
-    expect(secondRevisionHeaders.length).toBe(0);
+    expect(
+      screen.queryAllByRole('link', {
+        name: /9d5066525489/,
+      }),
+    ).toStrictEqual([]);
 
-    thirdRevisionHeaders = await screen.findAllByRole('link', {
-      name: /a998c42399a8/,
-    });
-    expect(thirdRevisionHeaders.length).toBe(0);
+    expect(
+      screen.queryAllByRole('link', {
+        name: /a998c42399a8/,
+      }),
+    ).toStrictEqual([]);
   });
 
   it('Should render results for 9d5066525489', async () => {
@@ -134,7 +136,7 @@ describe('Revision select', () => {
     );
 
     // check comparison to be for revision bb6a5e451dac
-    let firstRevisionHeaders = await screen.findAllByRole('link', {
+    const firstRevisionHeaders = await screen.findAllByRole('link', {
       name: /bb6a5e451dac/,
     });
     expect(firstRevisionHeaders.length).toBe(8);
@@ -157,20 +159,22 @@ describe('Revision select', () => {
     fireEvent.mouseDown(selectButton);
 
     // check to display results only for revision 9d5066525489
-    firstRevisionHeaders = await screen.findAllByRole('link', {
-      name: /bb6a5e451dac/,
-    });
-    expect(firstRevisionHeaders.length).toBe(0);
-
     const secondRevisionHeaders = await screen.findAllByRole('link', {
       name: /9d5066525489/,
     });
     expect(secondRevisionHeaders.length).toBe(7);
 
-    const thirdRevisionHeaders = await screen.findAllByRole('link', {
-      name: /a998c42399a8/,
-    });
-    expect(thirdRevisionHeaders.length).toBe(0);
+    expect(
+      screen.queryAllByRole('link', {
+        name: /bb6a5e451dac/,
+      }),
+    ).toStrictEqual([]);
+
+    expect(
+      screen.queryAllByRole('link', {
+        name: /a998c42399a8/,
+      }),
+    ).toStrictEqual([]);
   });
 
   it('Should render results for a998c42399a8', async () => {
@@ -195,7 +199,7 @@ describe('Revision select', () => {
     );
 
     // check comparison to be for revision bb6a5e451dac
-    let firstRevisionHeaders = await screen.findAllByRole('link', {
+    const firstRevisionHeaders = await screen.findAllByRole('link', {
       name: /bb6a5e451dac/,
     });
     expect(firstRevisionHeaders.length).toBe(8);
@@ -218,19 +222,21 @@ describe('Revision select', () => {
     fireEvent.mouseDown(selectButton);
 
     // check to display results only for revision a998c42399a8
-    firstRevisionHeaders = await screen.findAllByRole('link', {
-      name: /bb6a5e451dac/,
-    });
-    expect(firstRevisionHeaders.length).toBe(0);
-
-    const secondRevisionHeaders = await screen.findAllByRole('link', {
-      name: /9d5066525489/,
-    });
-    expect(secondRevisionHeaders.length).toBe(0);
-
     const thirdRevisionHeaders = await screen.findAllByRole('link', {
       name: /a998c42399a8/,
     });
     expect(thirdRevisionHeaders.length).toBe(7);
+
+    expect(
+      screen.queryAllByRole('link', {
+        name: /9d5066525489/,
+      }),
+    ).toStrictEqual([]);
+
+    expect(
+      screen.queryAllByRole('link', {
+        name: /bb6a5e451dac/,
+      }),
+    ).toStrictEqual([]);
   });
 });
