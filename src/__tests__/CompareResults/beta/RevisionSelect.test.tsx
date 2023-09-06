@@ -62,22 +62,19 @@ describe('Revision select', () => {
     );
 
     // check to display results for all revisions
-    let firstRevisionHeaders = await screen.findAllByText(/bb6a5e451dac/);
-    firstRevisionHeaders = firstRevisionHeaders.filter((header) =>
-      header.hasAttribute('href'),
-    );
+    let firstRevisionHeaders = await screen.findAllByRole('link', {
+      name: /bb6a5e451dac/,
+    });
     expect(firstRevisionHeaders.length).toBe(8);
 
-    let secondRevisionHeaders = await screen.findAllByText(/9d5066525489/);
-    secondRevisionHeaders = secondRevisionHeaders.filter((header) =>
-      header.hasAttribute('href'),
-    );
+    let secondRevisionHeaders = await screen.findAllByRole('link', {
+      name: /9d5066525489/,
+    });
     expect(secondRevisionHeaders.length).toBe(7);
 
-    let thirdRevisionHeaders = await screen.findAllByText(/a998c42399a8/);
-    thirdRevisionHeaders = thirdRevisionHeaders.filter((header) =>
-      header.hasAttribute('href'),
-    );
+    let thirdRevisionHeaders = await screen.findAllByRole('link', {
+      name: /a998c42399a8/,
+    });
     expect(thirdRevisionHeaders.length).toBe(7);
 
     // change comparison to revision bb6a5e451dac
@@ -99,22 +96,19 @@ describe('Revision select', () => {
     fireEvent.mouseDown(selectButton);
 
     // check to display results only for revision bb6a5e451dac
-    firstRevisionHeaders = await screen.findAllByText(/bb6a5e451dac/);
-    firstRevisionHeaders = firstRevisionHeaders.filter((header) =>
-      header.hasAttribute('href'),
-    );
+    firstRevisionHeaders = await screen.findAllByRole('link', {
+      name: /bb6a5e451dac/,
+    });
     expect(firstRevisionHeaders.length).toBe(8);
 
-    secondRevisionHeaders = await screen.findAllByText(/9d5066525489/);
-    secondRevisionHeaders = secondRevisionHeaders.filter((header) =>
-      header.hasAttribute('href'),
-    );
+    secondRevisionHeaders = await screen.findAllByRole('link', {
+      name: /9d5066525489/,
+    });
     expect(secondRevisionHeaders.length).toBe(0);
 
-    thirdRevisionHeaders = await screen.findAllByText(/a998c42399a8/);
-    thirdRevisionHeaders = thirdRevisionHeaders.filter((header) =>
-      header.hasAttribute('href'),
-    );
+    thirdRevisionHeaders = await screen.findAllByRole('link', {
+      name: /a998c42399a8/,
+    });
     expect(thirdRevisionHeaders.length).toBe(0);
   });
 
@@ -140,10 +134,9 @@ describe('Revision select', () => {
     );
 
     // check comparison to be for revision bb6a5e451dac
-    let firstRevisionHeaders = await screen.findAllByText(/bb6a5e451dac/);
-    firstRevisionHeaders = firstRevisionHeaders.filter((header) =>
-      header.hasAttribute('href'),
-    );
+    let firstRevisionHeaders = await screen.findAllByRole('link', {
+      name: /bb6a5e451dac/,
+    });
     expect(firstRevisionHeaders.length).toBe(8);
 
     // change comparison to revision 9d5066525489
@@ -164,22 +157,19 @@ describe('Revision select', () => {
     fireEvent.mouseDown(selectButton);
 
     // check to display results only for revision 9d5066525489
-    firstRevisionHeaders = await screen.findAllByText(/bb6a5e451dac/);
-    firstRevisionHeaders = firstRevisionHeaders.filter((header) =>
-      header.hasAttribute('href'),
-    );
+    firstRevisionHeaders = await screen.findAllByRole('link', {
+      name: /bb6a5e451dac/,
+    });
     expect(firstRevisionHeaders.length).toBe(0);
 
-    let secondRevisionHeaders = await screen.findAllByText(/9d5066525489/);
-    secondRevisionHeaders = secondRevisionHeaders.filter((header) =>
-      header.hasAttribute('href'),
-    );
+    const secondRevisionHeaders = await screen.findAllByRole('link', {
+      name: /9d5066525489/,
+    });
     expect(secondRevisionHeaders.length).toBe(7);
 
-    let thirdRevisionHeaders = await screen.findAllByText(/a998c42399a8/);
-    thirdRevisionHeaders = thirdRevisionHeaders.filter((header) =>
-      header.hasAttribute('href'),
-    );
+    const thirdRevisionHeaders = await screen.findAllByRole('link', {
+      name: /a998c42399a8/,
+    });
     expect(thirdRevisionHeaders.length).toBe(0);
   });
 
@@ -205,10 +195,9 @@ describe('Revision select', () => {
     );
 
     // check comparison to be for revision bb6a5e451dac
-    let firstRevisionHeaders = await screen.findAllByText(/bb6a5e451dac/);
-    firstRevisionHeaders = firstRevisionHeaders.filter((header) =>
-      header.hasAttribute('href'),
-    );
+    let firstRevisionHeaders = await screen.findAllByRole('link', {
+      name: /bb6a5e451dac/,
+    });
     expect(firstRevisionHeaders.length).toBe(8);
 
     // change comparison to revision a998c42399a8
@@ -229,22 +218,19 @@ describe('Revision select', () => {
     fireEvent.mouseDown(selectButton);
 
     // check to display results only for revision a998c42399a8
-    firstRevisionHeaders = await screen.findAllByText(/bb6a5e451dac/);
-    firstRevisionHeaders = firstRevisionHeaders.filter((header) =>
-      header.hasAttribute('href'),
-    );
+    firstRevisionHeaders = await screen.findAllByRole('link', {
+      name: /bb6a5e451dac/,
+    });
     expect(firstRevisionHeaders.length).toBe(0);
 
-    let secondRevisionHeaders = await screen.findAllByText(/9d5066525489/);
-    secondRevisionHeaders = secondRevisionHeaders.filter((header) =>
-      header.hasAttribute('href'),
-    );
+    const secondRevisionHeaders = await screen.findAllByRole('link', {
+      name: /9d5066525489/,
+    });
     expect(secondRevisionHeaders.length).toBe(0);
 
-    let thirdRevisionHeaders = await screen.findAllByText(/a998c42399a8/);
-    thirdRevisionHeaders = thirdRevisionHeaders.filter((header) =>
-      header.hasAttribute('href'),
-    );
+    const thirdRevisionHeaders = await screen.findAllByRole('link', {
+      name: /a998c42399a8/,
+    });
     expect(thirdRevisionHeaders.length).toBe(7);
   });
 });
