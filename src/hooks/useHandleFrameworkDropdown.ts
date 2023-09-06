@@ -2,7 +2,7 @@ import { updateFramework } from '../reducers/FrameworkSlice';
 import { useAppDispatch } from './app';
 
 interface DropdownProps {
-  id: number | undefined;
+  id: number;
   name: string;
 }
 

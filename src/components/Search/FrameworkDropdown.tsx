@@ -6,7 +6,7 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Tooltip from '@mui/material/Tooltip';
 import { style, cssRule } from 'typestyle';
 
-import { frameworkMap, frameworks } from '../../common/constants';
+import { frameworkMap } from '../../common/constants';
 import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
 import useHandleChangeFrameworkDropdown from '../../hooks/useHandleFrameworkDropdown';
@@ -22,6 +22,7 @@ import {
   DropDownItemRaw,
 } from '../../styles';
 import type { ThemeMode, View } from '../../types/state';
+import type { Framework } from '../../types/types';
 
 interface FrameworkDropdownProps {
   view: View;
@@ -80,22 +81,13 @@ function FrameworkDropdown({ view, mode }: FrameworkDropdownProps) {
     }),
   };
 
-  const frameworkName = useAppSelector(
-    (state: RootState) => state.framework.name,
-  );
+  const frameworkId = useAppSelector((state: RootState) => state.framework.id);
 
   const { handleChangeFrameworkDropdown } = useHandleChangeFrameworkDropdown();
 
-  const findIdByName = (name: string): number | undefined => {
-    const selectedFramework = frameworks.find(
-      (framework) => framework.name === name,
-    );
-    return selectedFramework?.id;
-  };
-
   const handleFrameworkSelect = async (event: SelectChangeEvent) => {
-    const name = event.target.value;
-    const id = findIdByName(name);
+    const id = +event.target.value as Framework['id'];
+    const name = frameworkMap[id];
 
     await handleChangeFrameworkDropdown({ id, name });
   };
@@ -118,7 +110,7 @@ function FrameworkDropdown({ view, mode }: FrameworkDropdownProps) {
         <Select
           data-testid='dropdown-select-framework'
           label={strings.selectLabel}
-          value={frameworkName}
+          value={`${frameworkId}`}
           labelId='select-framework-label'
           className='dropdown-select'
           variant='standard'
@@ -126,12 +118,7 @@ function FrameworkDropdown({ view, mode }: FrameworkDropdownProps) {
           name='Framework'
         >
           {Object.entries(frameworkMap).map(([id, name]) => (
-            <MenuItem
-              id={id}
-              value={name}
-              key={name}
-              className='framework-dropdown-item'
-            >
+            <MenuItem value={id} key={name} className='framework-dropdown-item'>
               {name}
             </MenuItem>
           ))}

@@ -260,7 +260,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                         class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
                         name="Framework"
                         tabindex="-1"
-                        value="talos"
+                        value="1"
                       />
                       <svg
                         aria-hidden="true"
@@ -473,14 +473,17 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                 <div
                   class="fnyxjzg"
                 >
-                  <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-t42cd1-MuiButtonBase-root-MuiButton-root"
-                    disabled=""
-                    tabindex="-1"
-                    type="button"
+                  <a
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-t42cd1-MuiButtonBase-root-MuiButton-root"
+                    download="perf-compare-all-revisions.json"
+                    href="data:text/json;charset=utf-8,%5B%5D"
+                    tabindex="0"
                   >
                     Download JSON
-                  </button>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </a>
                 </div>
               </div>
             </header>
@@ -780,7 +783,7 @@ exports[`Results View/fetchCompareResults State does not contain data if fetch r
                         class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
                         name="Framework"
                         tabindex="-1"
-                        value="talos"
+                        value="1"
                       />
                       <svg
                         aria-hidden="true"
@@ -993,14 +996,17 @@ exports[`Results View/fetchCompareResults State does not contain data if fetch r
                 <div
                   class="fnyxjzg"
                 >
-                  <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-t42cd1-MuiButtonBase-root-MuiButton-root"
-                    disabled=""
-                    tabindex="-1"
-                    type="button"
+                  <a
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-t42cd1-MuiButtonBase-root-MuiButton-root"
+                    download="perf-compare-all-revisions.json"
+                    href="data:text/json;charset=utf-8,%5B%5D"
+                    tabindex="0"
                   >
                     Download JSON
-                  </button>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </a>
                 </div>
               </div>
             </header>

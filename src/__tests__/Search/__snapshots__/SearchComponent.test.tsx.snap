@@ -642,7 +642,7 @@ exports[`Search View RESULTS: clicking the cancel button hides input and dropdow
                         class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
                         name="Framework"
                         tabindex="-1"
-                        value="talos"
+                        value="1"
                       />
                       <svg
                         aria-hidden="true"
@@ -1740,7 +1740,7 @@ exports[`Search View RESULTS: clicking the save button hides input and dropdown 
                         class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
                         name="Framework"
                         tabindex="-1"
-                        value="talos"
+                        value="1"
                       />
                       <svg
                         aria-hidden="true"
@@ -2838,7 +2838,7 @@ exports[`Search View RESULTS: shows dropdown and input when edit button in click
                         class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
                         name="Framework"
                         tabindex="-1"
-                        value="talos"
+                        value="1"
                       />
                       <svg
                         aria-hidden="true"
