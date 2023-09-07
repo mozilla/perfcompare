@@ -8,10 +8,11 @@ import { screen } from '../../utils/test-utils';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual<typeof import('react-router-dom')>('react-router-dom'),
-  useLocation: () => ({
-    search:
+  useSearchParams: () => [
+    new URLSearchParams(
       '?revs=6089e7f0fa57a29c6d080f135f65e146c34457d8,1d5eb1343cc87a9be3dfe4b884822506ffdda7d3&repos=mozilla-central,mozilla-central&framework=1',
-  }),
+    ),
+  ],
 }));
 
 describe('Results View/fetchCompareResults', () => {
