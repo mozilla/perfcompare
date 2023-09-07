@@ -1037,7 +1037,7 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
                         class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
                         name="Framework"
                         tabindex="-1"
-                        value="talos"
+                        value="1"
                       />
                       <svg
                         aria-hidden="true"

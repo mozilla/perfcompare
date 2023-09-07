@@ -347,7 +347,7 @@ exports[`Compare With Base 3 renders correctly when there are no results 1`] = `
                     class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
                     name="Framework"
                     tabindex="-1"
-                    value="talos"
+                    value="1"
                   />
                   <svg
                     aria-hidden="true"
@@ -737,7 +737,7 @@ exports[`Compare With Base 3 shows comparison warning when try repository is com
                     class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
                     name="Framework"
                     tabindex="-1"
-                    value="talos"
+                    value="1"
                   />
                   <svg
                     aria-hidden="true"
