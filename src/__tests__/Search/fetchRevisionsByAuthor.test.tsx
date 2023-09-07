@@ -29,7 +29,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
         }),
       }),
     ) as jest.Mock;
-    const spyOnFetch = jest.spyOn(global, 'fetch');
+
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
@@ -47,7 +47,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     await user.type(searchInput, 'johncleese@python.com');
     jest.runOnlyPendingTimers();
 
-    expect(spyOnFetch).toHaveBeenCalledWith(
+    expect(global.fetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?author=johncleese@python.com',
     );
 
@@ -65,7 +65,6 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
         }),
       }),
     ) as jest.Mock;
-    const spyOnFetch = jest.spyOn(global, 'fetch');
     const searchType = 'base' as InputType;
 
     // set delay to null to prevent test time-out due to useFakeTimers
@@ -86,7 +85,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     await user.type(searchInput, 'ericidle@python.com');
     await act(async () => void jest.runOnlyPendingTimers());
 
-    expect(spyOnFetch).toHaveBeenCalledWith(
+    expect(global.fetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?author=ericidle@python.com',
     );
 
@@ -103,7 +102,6 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
       Promise.reject(new Error('She turned me into a newt!')),
     ) as jest.Mock;
 
-    const spyOnFetch = jest.spyOn(global, 'fetch');
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
     const searchType = 'base' as InputType;
@@ -123,7 +121,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     await user.type(searchInput, 'grahamchapman@python.com');
     await act(async () => void jest.runOnlyPendingTimers());
 
-    expect(spyOnFetch).toHaveBeenCalledWith(
+    expect(global.fetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?author=grahamchapman@python.com',
     );
 
@@ -136,7 +134,6 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
 
   it('should update error state with generic message if fetch error message is undefined', async () => {
     global.fetch = jest.fn(() => Promise.reject(new Error())) as jest.Mock;
-    const spyOnFetch = jest.spyOn(global, 'fetch');
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
     const searchType = 'base' as InputType;
@@ -163,7 +160,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     await user.type(searchInput, 'grahamchapman@python.com');
     await act(async () => void jest.runOnlyPendingTimers());
 
-    expect(spyOnFetch).toHaveBeenCalledWith(
+    expect(global.fetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?author=grahamchapman@python.com',
     );
 

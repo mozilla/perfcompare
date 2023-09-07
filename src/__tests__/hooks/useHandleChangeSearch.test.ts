@@ -113,7 +113,6 @@ describe('Tests useHandleSearchHook', () => {
   });
 
   it('should fetch recent revisions if search is empty string', async () => {
-    const spyOnFetch = jest.spyOn(global, 'fetch');
     const searchType = 'base' as InputType;
     const searchState = {
       e: createEvent(''),
@@ -127,13 +126,12 @@ describe('Tests useHandleSearchHook', () => {
       result.current.handleChangeSearch(searchState);
     });
     jest.runAllTimers();
-    expect(spyOnFetch).toHaveBeenCalledWith(
+    expect(global.fetch).toHaveBeenCalledWith(
       `https://treeherder.mozilla.org/api/project/${repository}/push/?hide_reviewbot_pushes=true`,
     );
   });
 
   it('should fetch revisions by email', async () => {
-    const spyOnFetch = jest.spyOn(global, 'fetch');
     const searchType = 'base' as InputType;
     const searchState = {
       e: createEvent('some@email.com'),
@@ -147,13 +145,12 @@ describe('Tests useHandleSearchHook', () => {
       result.current.handleChangeSearch(searchState);
     });
     jest.runAllTimers();
-    expect(spyOnFetch).toHaveBeenCalledWith(
+    expect(global.fetch).toHaveBeenCalledWith(
       `https://treeherder.mozilla.org/api/project/${repository}/push/?author=some@email.com`,
     );
   });
 
   it('should fetch revisions by hash', async () => {
-    const spyOnFetch = jest.spyOn(global, 'fetch');
     const searchType = 'base' as InputType;
     const searchState = {
       e: createEvent('abcdef123456'),
@@ -171,7 +168,7 @@ describe('Tests useHandleSearchHook', () => {
       result.current.handleChangeSearch(searchState);
     });
     jest.runAllTimers();
-    expect(spyOnFetch).toHaveBeenCalledWith(
+    expect(global.fetch).toHaveBeenCalledWith(
       `https://treeherder.mozilla.org/api/project/${repository}/push/?revision=abcdef123456`,
     );
 
@@ -179,13 +176,12 @@ describe('Tests useHandleSearchHook', () => {
       result.current.handleChangeSearch(searchState2);
     });
     jest.runAllTimers();
-    expect(spyOnFetch).toHaveBeenCalledWith(
+    expect(global.fetch).toHaveBeenCalledWith(
       `https://treeherder.mozilla.org/api/project/${repository}/push/?revision=abcdef1234567890abcdef1234567890abcdef12`,
     );
   });
 
   it('should be debounced', async () => {
-    const spyOnFetch = jest.spyOn(global, 'fetch');
     const searchType = 'base' as InputType;
     const searchState = {
       e: createEvent(''),
@@ -204,6 +200,6 @@ describe('Tests useHandleSearchHook', () => {
       result.current.handleChangeSearch(searchState);
     });
     jest.runAllTimers();
-    expect(spyOnFetch).toBeCalledTimes(1);
+    expect(global.fetch).toBeCalledTimes(1);
   });
 });

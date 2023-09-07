@@ -102,6 +102,7 @@ describe('Results View', () => {
       <ResultsView
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
+        title={Strings.metaData.pageTitle.results}
       />,
     );
     const link = screen.getByLabelText(/link to home/i);

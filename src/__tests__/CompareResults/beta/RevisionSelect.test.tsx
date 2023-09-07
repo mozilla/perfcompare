@@ -1,5 +1,6 @@
 import ResultsView from '../../../components/CompareResults/beta/ResultsView';
 import RevisionSelect from '../../../components/CompareResults/beta/RevisionSelect';
+import { Strings } from '../../../resources/Strings';
 import useProtocolTheme from '../../../theme/protocolTheme';
 import { renderWithRouter } from '../../utils/setupTests';
 import { fireEvent, renderHook, screen, within } from '../../utils/test-utils';
@@ -56,6 +57,7 @@ describe('Revision select', () => {
       <ResultsView
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
+        title={Strings.metaData.pageTitle.results}
       />,
     );
 
@@ -109,6 +111,7 @@ describe('Revision select', () => {
       <ResultsView
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
+        title={Strings.metaData.pageTitle.results}
       />,
     );
 
@@ -156,6 +159,7 @@ describe('Revision select', () => {
       <ResultsView
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
+        title={Strings.metaData.pageTitle.results}
       />,
     );
 

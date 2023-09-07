@@ -31,6 +31,7 @@ describe('Tests useFetchCompareResults', () => {
     expect(searchParams.get('base_repository')).toBe('fenix');
     expect(searchParams.get('new_repository')).toBe('fenix');
   });
+
   it('Should have different base/new values if called with 2 element arrays', async () => {
     const {
       result: {
@@ -50,6 +51,7 @@ describe('Tests useFetchCompareResults', () => {
     expect(searchParams.get('base_repository')).toBe('fenix');
     expect(searchParams.get('new_repository')).toBe('try');
   });
+
   it('Should fetch if provided with 4 revs', async () => {
     const {
       result: {
@@ -64,6 +66,7 @@ describe('Tests useFetchCompareResults', () => {
     );
     expect(spyOnFetch).toBeCalledTimes(3);
   });
+
   it('Should not fetch if provided with 5 or more revs', async () => {
     const {
       result: {
