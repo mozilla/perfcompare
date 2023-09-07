@@ -8,7 +8,10 @@ import { useSearchParams } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { useAppSelector } from '../../../hooks/app';
-import { updateComparison } from '../../../reducers/ComparisonSlice';
+import {
+  selectNewRevisions,
+  updateComparison,
+} from '../../../reducers/ComparisonSlice';
 import { Strings } from '../../../resources/Strings';
 import { truncateHash } from '../../../utils/helpers';
 
@@ -36,9 +39,7 @@ function RevisionSelect() {
   const dispatch = useDispatch();
   const { activeComparison } = useAppSelector((state) => state.comparison);
 
-  const newRevisions = useAppSelector((state) => {
-    return state.selectedRevisions.new.map((item) => item.revision);
-  });
+  const newRevisions = useAppSelector(selectNewRevisions);
 
   const [searchParams] = useSearchParams();
   const fakeDataParam: string | null = searchParams.get('fakedata');
