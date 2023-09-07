@@ -9,7 +9,7 @@ import useProtocolTheme from '../../../theme/protocolTheme';
 import { RevisionsHeader } from '../../../types/state';
 import getTestData from '../../utils/fixtures';
 import { renderWithRouter, store } from '../../utils/setupTests';
-import { renderHook, screen, waitFor, act } from '../../utils/test-utils';
+import { renderHook, screen, act } from '../../utils/test-utils';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual<typeof import('react-router-dom')>('react-router-dom'),
@@ -22,7 +22,7 @@ describe('Results View', () => {
   const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
     .toggleColorMode;
 
-  it('Should match snapshot', () => {
+  it('Should match snapshot', async () => {
     renderWithRouter(
       <ResultsView
         protocolTheme={protocolTheme}
@@ -30,10 +30,7 @@ describe('Results View', () => {
         title={Strings.metaData.pageTitle.results}
       />,
     );
-    expect(
-      screen.getByTestId('beta-version-compare-results'),
-    ).toBeInTheDocument();
-    expect(document.body).toMatchSnapshot();
+    expect(await screen.findByRole('table')).toMatchSnapshot();
   });
 
   it('Should render the Compare with a Base component', () => {
@@ -178,10 +175,12 @@ describe('Results View', () => {
       />,
     );
 
-    const expandButtons = screen.getAllByTestId('expand-revision-button');
+    const expandButtons = await screen.findAllByTestId(
+      'expand-revision-button',
+    );
     await user.click(expandButtons[0]);
-    const expandedContent = await waitFor(() =>
-      screen.getAllByTestId('expanded-row-content'),
+    const expandedContent = await screen.findAllByTestId(
+      'expanded-row-content',
     );
 
     expect(expandedContent[0]).toBeVisible();
@@ -241,9 +240,11 @@ describe('Results View', () => {
       />,
     );
 
-    const expandButtons = screen.getAllByTestId('expand-revision-button');
+    const expandButtons = await screen.findAllByTestId(
+      'expand-revision-button',
+    );
     await user.click(expandButtons[0]);
-    await waitFor(() => screen.getAllByTestId('expanded-row-content'));
+    await screen.findAllByTestId('expanded-row-content');
 
     const MockedBubble = Bubble as jest.Mock;
 
@@ -277,7 +278,9 @@ describe('Results View', () => {
       />,
     );
 
-    const expandButtons = screen.getAllByTestId('expand-revision-button');
+    const expandButtons = await screen.findAllByTestId(
+      'expand-revision-button',
+    );
     await user.click(expandButtons[0]);
 
     const MockedBubble = Bubble as jest.Mock;
