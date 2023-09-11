@@ -96,6 +96,8 @@ describe('Revision select', () => {
     fireEvent.mouseDown(selectButton);
 
     // check to display results only for revision bb6a5e451dac
+    // findByRole doesn't work anymore because the root element
+    // has aria-hidden but we don't know why yet
     firstRevisionHeaders = await screen.findAllByText(/bb6a5e451dac/, {
       selector: 'a',
     });
@@ -159,6 +161,8 @@ describe('Revision select', () => {
     fireEvent.mouseDown(selectButton);
 
     // check to display results only for revision 9d5066525489
+    // findByRole doesn't work anymore because the root element
+    // has aria-hidden but we don't know why yet
     const secondRevisionHeaders = await screen.findAllByText(/9d5066525489/, {
       selector: 'a',
     });
@@ -222,6 +226,8 @@ describe('Revision select', () => {
     fireEvent.mouseDown(selectButton);
 
     // check to display results only for revision a998c42399a8
+    // findByRole doesn't work anymore because the root element
+    // has aria-hidden but we don't know why yet
     const thirdRevisionHeaders = await screen.findAllByText(/a998c42399a8/, {
       selector: 'a',
     });
