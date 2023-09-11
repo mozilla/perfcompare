@@ -855,17 +855,17 @@ exports[`Search View RESULTS: clicking the cancel button hides input and dropdow
                 <div
                   class="fnyxjzg"
                 >
-                  <a
+                  <button
                     class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-t42cd1-MuiButtonBase-root-MuiButton-root"
                     download="perf-compare-all-revisions.json"
-                    href="data:text/json;charset=utf-8,%5B%5D"
                     tabindex="0"
+                    type="button"
                   >
                     Download JSON
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </a>
+                  </button>
                 </div>
               </div>
             </header>
@@ -1953,17 +1953,17 @@ exports[`Search View RESULTS: clicking the save button hides input and dropdown 
                 <div
                   class="fnyxjzg"
                 >
-                  <a
+                  <button
                     class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-t42cd1-MuiButtonBase-root-MuiButton-root"
                     download="perf-compare-all-revisions.json"
-                    href="data:text/json;charset=utf-8,%5B%5D"
                     tabindex="0"
+                    type="button"
                   >
                     Download JSON
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </a>
+                  </button>
                 </div>
               </div>
             </header>
@@ -3051,17 +3051,17 @@ exports[`Search View RESULTS: shows dropdown and input when edit button in click
                 <div
                   class="fnyxjzg"
                 >
-                  <a
+                  <button
                     class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-t42cd1-MuiButtonBase-root-MuiButton-root"
                     download="perf-compare-all-revisions.json"
-                    href="data:text/json;charset=utf-8,%5B%5D"
                     tabindex="0"
+                    type="button"
                   >
                     Download JSON
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </a>
+                  </button>
                 </div>
               </div>
             </header>

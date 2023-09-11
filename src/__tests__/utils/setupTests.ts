@@ -27,6 +27,8 @@ let StoreProvider: React.FC<{ children: JSX.Element }>;
 jest.mock('react-chartjs-2', () => ({
   Bubble: jest.fn(),
 }));
+global.URL.createObjectURL = jest.fn();
+global.URL.revokeObjectURL = jest.fn();
 const MockedBubble = Bubble as jest.Mock;
 
 beforeEach(() => {

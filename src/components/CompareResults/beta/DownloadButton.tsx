@@ -1,6 +1,10 @@
+import React, { useState, useEffect } from 'react';
+
 import { Button } from '@mui/material';
+import { createSelector } from '@reduxjs/toolkit';
 import { style } from 'typestyle';
 
+import { RootState } from '../../../common/store';
 import { useAppSelector } from '../../../hooks/app';
 import { Strings } from '../../../resources/Strings';
 import { ButtonsLightRaw } from '../../../styles';
@@ -26,23 +30,7 @@ interface ResultObject {
 }
 
 function DownloadButton() {
-  let fileName = 'perf-compare-all-revisions.json';
-  const results = useAppSelector((state) => {
-    if (
-      state.comparison.activeComparison ===
-      Strings.components.comparisonRevisionDropdown.allRevisions
-    ) {
-      return state.compareResults.data;
-    } else {
-      fileName = `perf-compare-${truncateHash(
-        state.comparison.activeComparison,
-      )}.json`;
-      return {
-        [state.comparison.activeComparison]:
-          state.compareResults.data[state.comparison.activeComparison],
-      };
-    }
-  });
+  const [blobUrl, setBlobUrl] = useState<string | null>(null);
 
   const formatDownloadData = (
     data: Record<string, ResultObject[]>,
@@ -75,13 +63,61 @@ function DownloadButton() {
     return transformedGroups;
   };
 
+  const selectComparison = (state: RootState) =>
+    state.comparison.activeComparison;
+  const selectData = (state: RootState) => state.compareResults.data;
+
+  const resultsSelector = createSelector(
+    selectComparison,
+    selectData,
+    (activeComparison, data) => {
+      if (
+        activeComparison ===
+        Strings.components.comparisonRevisionDropdown.allRevisions
+      ) {
+        return JSON.stringify(formatDownloadData(data));
+      } else {
+        return JSON.stringify(
+          formatDownloadData({
+            [activeComparison]: data[activeComparison],
+          }),
+        );
+      }
+    },
+  );
+
+  const results = useAppSelector(resultsSelector);
+
+  const fileNameSelector = createSelector(
+    selectComparison,
+    (activeComparison) => {
+      if (
+        activeComparison ===
+        Strings.components.comparisonRevisionDropdown.allRevisions
+      ) {
+        return 'perf-compare-all-revisions.json';
+      } else {
+        return `perf-compare-${truncateHash(activeComparison)}.json`;
+      }
+    },
+  );
+  const fileName = useAppSelector(fileNameSelector);
+
+  useEffect(() => {
+    if (results) {
+      const blob = new Blob([results], { type: 'application/json' });
+      const newBlobUrl = URL.createObjectURL(blob);
+      setBlobUrl(newBlobUrl);
+    }
+    return () => {
+      URL.revokeObjectURL(blobUrl as string);
+    };
+  }, [results]);
   return (
     <div className={styles.downloadButton}>
       <Button
-        disabled={!results}
-        href={`data:text/json;charset=utf-8,${encodeURIComponent(
-          JSON.stringify(formatDownloadData(results)),
-        )}`}
+        disabled={blobUrl === null}
+        href={blobUrl as string}
         download={fileName}
       >
         Download JSON
@@ -90,4 +126,4 @@ function DownloadButton() {
   );
 }
 
-export default DownloadButton;
+export default React.memo(DownloadButton);
