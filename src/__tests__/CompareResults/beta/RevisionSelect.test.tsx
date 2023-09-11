@@ -96,20 +96,20 @@ describe('Revision select', () => {
     fireEvent.mouseDown(selectButton);
 
     // check to display results only for revision bb6a5e451dac
-    firstRevisionHeaders = await screen.findAllByRole('link', {
-      name: /bb6a5e451dac/,
+    firstRevisionHeaders = await screen.findAllByText(/bb6a5e451dac/, {
+      selector: 'a',
     });
     expect(firstRevisionHeaders.length).toBe(8);
 
     expect(
-      screen.queryAllByRole('link', {
-        name: /9d5066525489/,
+      screen.queryAllByText(/9d5066525489/, {
+        selector: 'a',
       }),
     ).toStrictEqual([]);
 
     expect(
-      screen.queryAllByRole('link', {
-        name: /a998c42399a8/,
+      screen.queryAllByText(/a998c42399a8/, {
+        selector: 'a',
       }),
     ).toStrictEqual([]);
   });
@@ -159,20 +159,20 @@ describe('Revision select', () => {
     fireEvent.mouseDown(selectButton);
 
     // check to display results only for revision 9d5066525489
-    const secondRevisionHeaders = await screen.findAllByRole('link', {
-      name: /9d5066525489/,
+    const secondRevisionHeaders = await screen.findAllByText(/9d5066525489/, {
+      selector: 'a',
     });
     expect(secondRevisionHeaders.length).toBe(7);
 
     expect(
-      screen.queryAllByRole('link', {
-        name: /bb6a5e451dac/,
+      screen.queryAllByText(/bb6a5e451dac/, {
+        selector: 'a',
       }),
     ).toStrictEqual([]);
 
     expect(
-      screen.queryAllByRole('link', {
-        name: /a998c42399a8/,
+      screen.queryAllByText(/a998c42399a8/, {
+        selector: 'a',
       }),
     ).toStrictEqual([]);
   });
@@ -222,20 +222,20 @@ describe('Revision select', () => {
     fireEvent.mouseDown(selectButton);
 
     // check to display results only for revision a998c42399a8
-    const thirdRevisionHeaders = await screen.findAllByRole('link', {
-      name: /a998c42399a8/,
+    const thirdRevisionHeaders = await screen.findAllByText(/a998c42399a8/, {
+      selector: 'a',
     });
     expect(thirdRevisionHeaders.length).toBe(7);
 
     expect(
-      screen.queryAllByRole('link', {
-        name: /9d5066525489/,
+      screen.queryAllByText(/9d5066525489/, {
+        selector: 'a',
       }),
     ).toStrictEqual([]);
 
     expect(
-      screen.queryAllByRole('link', {
-        name: /bb6a5e451dac/,
+      screen.queryAllByText(/bb6a5e451dac/, {
+        selector: 'a',
       }),
     ).toStrictEqual([]);
   });
