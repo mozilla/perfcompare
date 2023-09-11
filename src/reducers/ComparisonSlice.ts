@@ -90,6 +90,13 @@ export const selectProcessedResults = createSelector(
   },
 );
 
+export const selectNewRevisions = createSelector(
+  (state: RootState) => state.selectedRevisions.new,
+  (newSelectedRevisions) => {
+    return newSelectedRevisions.map((item) => item.revision);
+  },
+);
+
 export const { updateComparison } = comparison.actions;
 
 export default comparison.reducer;
