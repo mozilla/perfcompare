@@ -13,7 +13,7 @@ const sharedDropDownBtnStyles = {
 };
 
 const sharedButtonStyles = {
-  padding: `${Spacing.xSmall}px ${Spacing.Medium}px !important}`,
+  padding: `${Spacing.xSmall}px ${Spacing.Medium}px !important`,
   height: `${Spacing.xLarge}px`,
   margin: '0 !important',
 };
