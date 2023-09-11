@@ -679,7 +679,6 @@ exports[`Results View Should match snapshot 1`] = `
                 >
                   <tr
                     class="MuiTableRow-root revision-header css-1yt2i5z-MuiTableRow-root"
-                    data-testid="revision-header-bb6a5e451dac"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
@@ -1656,7 +1655,6 @@ exports[`Results View Should match snapshot 1`] = `
                 >
                   <tr
                     class="MuiTableRow-root revision-header css-1yt2i5z-MuiTableRow-root"
-                    data-testid="revision-header-bb6a5e451dac"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
@@ -2959,7 +2957,6 @@ exports[`Results View Should match snapshot 1`] = `
                 >
                   <tr
                     class="MuiTableRow-root revision-header css-1yt2i5z-MuiTableRow-root"
-                    data-testid="revision-header-bb6a5e451dac"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
@@ -3337,7 +3334,6 @@ exports[`Results View Should match snapshot 1`] = `
                 >
                   <tr
                     class="MuiTableRow-root revision-header css-1yt2i5z-MuiTableRow-root"
-                    data-testid="revision-header-bb6a5e451dac"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
@@ -4640,7 +4636,6 @@ exports[`Results View Should match snapshot 1`] = `
                 >
                   <tr
                     class="MuiTableRow-root revision-header css-1yt2i5z-MuiTableRow-root"
-                    data-testid="revision-header-bb6a5e451dac"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
@@ -5617,7 +5612,6 @@ exports[`Results View Should match snapshot 1`] = `
                 >
                   <tr
                     class="MuiTableRow-root revision-header css-1yt2i5z-MuiTableRow-root"
-                    data-testid="revision-header-bb6a5e451dac"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
@@ -5988,7 +5982,6 @@ exports[`Results View Should match snapshot 1`] = `
                 >
                   <tr
                     class="MuiTableRow-root revision-header css-1yt2i5z-MuiTableRow-root"
-                    data-testid="revision-header-bb6a5e451dac"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
@@ -6972,7 +6965,6 @@ exports[`Results View Should match snapshot 1`] = `
                 >
                   <tr
                     class="MuiTableRow-root revision-header css-1yt2i5z-MuiTableRow-root"
-                    data-testid="revision-header-bb6a5e451dac"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
@@ -7352,7 +7344,6 @@ exports[`Results View Should match snapshot 1`] = `
                 >
                   <tr
                     class="MuiTableRow-root revision-header css-1yt2i5z-MuiTableRow-root"
-                    data-testid="revision-header-9d5066525489"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
@@ -8443,7 +8434,6 @@ exports[`Results View Should match snapshot 1`] = `
                 >
                   <tr
                     class="MuiTableRow-root revision-header css-1yt2i5z-MuiTableRow-root"
-                    data-testid="revision-header-9d5066525489"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
@@ -10446,7 +10436,6 @@ exports[`Results View Should match snapshot 1`] = `
                 >
                   <tr
                     class="MuiTableRow-root revision-header css-1yt2i5z-MuiTableRow-root"
-                    data-testid="revision-header-9d5066525489"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
@@ -12981,7 +12970,6 @@ exports[`Results View Should match snapshot 1`] = `
                 >
                   <tr
                     class="MuiTableRow-root revision-header css-1yt2i5z-MuiTableRow-root"
-                    data-testid="revision-header-9d5066525489"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
@@ -13353,7 +13341,6 @@ exports[`Results View Should match snapshot 1`] = `
                 >
                   <tr
                     class="MuiTableRow-root revision-header css-1yt2i5z-MuiTableRow-root"
-                    data-testid="revision-header-9d5066525489"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
@@ -14330,7 +14317,6 @@ exports[`Results View Should match snapshot 1`] = `
                 >
                   <tr
                     class="MuiTableRow-root revision-header css-1yt2i5z-MuiTableRow-root"
-                    data-testid="revision-header-9d5066525489"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
@@ -15633,7 +15619,6 @@ exports[`Results View Should match snapshot 1`] = `
                 >
                   <tr
                     class="MuiTableRow-root revision-header css-1yt2i5z-MuiTableRow-root"
-                    data-testid="revision-header-9d5066525489"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
@@ -16731,7 +16716,6 @@ exports[`Results View Should match snapshot 1`] = `
                 >
                   <tr
                     class="MuiTableRow-root revision-header css-1yt2i5z-MuiTableRow-root"
-                    data-testid="revision-header-a998c42399a8"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
@@ -17708,7 +17692,6 @@ exports[`Results View Should match snapshot 1`] = `
                 >
                   <tr
                     class="MuiTableRow-root revision-header css-1yt2i5z-MuiTableRow-root"
-                    data-testid="revision-header-a998c42399a8"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
@@ -18685,7 +18668,6 @@ exports[`Results View Should match snapshot 1`] = `
                 >
                   <tr
                     class="MuiTableRow-root revision-header css-1yt2i5z-MuiTableRow-root"
-                    data-testid="revision-header-a998c42399a8"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
@@ -19669,7 +19651,6 @@ exports[`Results View Should match snapshot 1`] = `
                 >
                   <tr
                     class="MuiTableRow-root revision-header css-1yt2i5z-MuiTableRow-root"
-                    data-testid="revision-header-a998c42399a8"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
@@ -20972,7 +20953,6 @@ exports[`Results View Should match snapshot 1`] = `
                 >
                   <tr
                     class="MuiTableRow-root revision-header css-1yt2i5z-MuiTableRow-root"
-                    data-testid="revision-header-a998c42399a8"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
@@ -21956,7 +21936,6 @@ exports[`Results View Should match snapshot 1`] = `
                 >
                   <tr
                     class="MuiTableRow-root revision-header css-1yt2i5z-MuiTableRow-root"
-                    data-testid="revision-header-a998c42399a8"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"
@@ -22933,7 +22912,6 @@ exports[`Results View Should match snapshot 1`] = `
                 >
                   <tr
                     class="MuiTableRow-root revision-header css-1yt2i5z-MuiTableRow-root"
-                    data-testid="revision-header-a998c42399a8"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-15mfgc5-MuiTableCell-root"

@@ -61,12 +61,21 @@ describe('Revision select', () => {
       />,
     );
 
-    let comparisonHeaders = await screen.findAllByTestId(/revision-header/);
-    expect(comparisonHeaders[0].textContent).toContain('bb6a5e451dac');
+    // check to display results for all revisions
+    let firstRevisionHeaders = await screen.findAllByRole('link', {
+      name: /bb6a5e451dac/,
+    });
+    expect(firstRevisionHeaders.length).toBe(8);
 
-    // there are 8 results for revision bb6a5e451dac
-    // next result tabel should be for revision 9d5066525489
-    expect(comparisonHeaders[8].textContent).toContain('9d5066525489');
+    const secondRevisionHeaders = await screen.findAllByRole('link', {
+      name: /9d5066525489/,
+    });
+    expect(secondRevisionHeaders.length).toBe(7);
+
+    const thirdRevisionHeaders = await screen.findAllByRole('link', {
+      name: /a998c42399a8/,
+    });
+    expect(thirdRevisionHeaders.length).toBe(7);
 
     // change comparison to revision bb6a5e451dac
     const selectRevisionDropdown = within(
@@ -86,12 +95,25 @@ describe('Revision select', () => {
 
     fireEvent.mouseDown(selectButton);
 
-    // check every revision header to be for revision bb6a5e451dac
-    comparisonHeaders = await screen.findAllByTestId(/revision-header/);
+    // check to display results only for revision bb6a5e451dac
+    // findByRole doesn't work anymore because the root element
+    // has aria-hidden but we don't know why yet
+    firstRevisionHeaders = await screen.findAllByText(/bb6a5e451dac/, {
+      selector: 'a',
+    });
+    expect(firstRevisionHeaders.length).toBe(8);
 
-    comparisonHeaders.forEach((resultHeader) =>
-      expect(resultHeader.textContent).toContain('bb6a5e451dac'),
-    );
+    expect(
+      screen.queryAllByText(/9d5066525489/, {
+        selector: 'a',
+      }),
+    ).toStrictEqual([]);
+
+    expect(
+      screen.queryAllByText(/a998c42399a8/, {
+        selector: 'a',
+      }),
+    ).toStrictEqual([]);
   });
 
   it('Should render results for 9d5066525489', async () => {
@@ -116,8 +138,10 @@ describe('Revision select', () => {
     );
 
     // check comparison to be for revision bb6a5e451dac
-    let firstRevisionHeader = await screen.findAllByTestId(/revision-header/);
-    expect(firstRevisionHeader[0].textContent).toContain('bb6a5e451dac');
+    const firstRevisionHeaders = await screen.findAllByRole('link', {
+      name: /bb6a5e451dac/,
+    });
+    expect(firstRevisionHeaders.length).toBe(8);
 
     // change comparison to revision 9d5066525489
     const selectRevisionDropdown = within(
@@ -136,10 +160,25 @@ describe('Revision select', () => {
 
     fireEvent.mouseDown(selectButton);
 
-    // check if first revision header has changed to 9d5066525489
-    firstRevisionHeader = await screen.findAllByTestId(/revision-header/);
+    // check to display results only for revision 9d5066525489
+    // findByRole doesn't work anymore because the root element
+    // has aria-hidden but we don't know why yet
+    const secondRevisionHeaders = await screen.findAllByText(/9d5066525489/, {
+      selector: 'a',
+    });
+    expect(secondRevisionHeaders.length).toBe(7);
 
-    expect(firstRevisionHeader[0].textContent).toContain('9d5066525489');
+    expect(
+      screen.queryAllByText(/bb6a5e451dac/, {
+        selector: 'a',
+      }),
+    ).toStrictEqual([]);
+
+    expect(
+      screen.queryAllByText(/a998c42399a8/, {
+        selector: 'a',
+      }),
+    ).toStrictEqual([]);
   });
 
   it('Should render results for a998c42399a8', async () => {
@@ -164,8 +203,10 @@ describe('Revision select', () => {
     );
 
     // check comparison to be for revision bb6a5e451dac
-    let firstRevisionHeader = await screen.findAllByTestId(/revision-header/);
-    expect(firstRevisionHeader[0].textContent).toContain('bb6a5e451dac');
+    const firstRevisionHeaders = await screen.findAllByRole('link', {
+      name: /bb6a5e451dac/,
+    });
+    expect(firstRevisionHeaders.length).toBe(8);
 
     // change comparison to revision a998c42399a8
     const selectRevisionDropdown = within(
@@ -184,8 +225,24 @@ describe('Revision select', () => {
 
     fireEvent.mouseDown(selectButton);
 
-    // check if first revision header has changed to a998c42399a8
-    firstRevisionHeader = await screen.findAllByTestId(/revision-header/);
-    expect(firstRevisionHeader[0].textContent).toContain('a998c42399a8');
+    // check to display results only for revision a998c42399a8
+    // findByRole doesn't work anymore because the root element
+    // has aria-hidden but we don't know why yet
+    const thirdRevisionHeaders = await screen.findAllByText(/a998c42399a8/, {
+      selector: 'a',
+    });
+    expect(thirdRevisionHeaders.length).toBe(7);
+
+    expect(
+      screen.queryAllByText(/9d5066525489/, {
+        selector: 'a',
+      }),
+    ).toStrictEqual([]);
+
+    expect(
+      screen.queryAllByText(/bb6a5e451dac/, {
+        selector: 'a',
+      }),
+    ).toStrictEqual([]);
   });
 });
