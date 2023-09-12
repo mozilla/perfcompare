@@ -858,6 +858,7 @@ exports[`Search View RESULTS: clicking the cancel button hides input and dropdow
                   <button
                     class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-t42cd1-MuiButtonBase-root-MuiButton-root"
                     download="perf-compare-all-revisions.json"
+                    href=""
                     tabindex="0"
                     type="button"
                   >
@@ -1956,6 +1957,7 @@ exports[`Search View RESULTS: clicking the save button hides input and dropdown 
                   <button
                     class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-t42cd1-MuiButtonBase-root-MuiButton-root"
                     download="perf-compare-all-revisions.json"
+                    href=""
                     tabindex="0"
                     type="button"
                   >
@@ -3054,6 +3056,7 @@ exports[`Search View RESULTS: shows dropdown and input when edit button in click
                   <button
                     class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-t42cd1-MuiButtonBase-root-MuiButton-root"
                     download="perf-compare-all-revisions.json"
+                    href=""
                     tabindex="0"
                     type="button"
                   >

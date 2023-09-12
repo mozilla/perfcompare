@@ -476,6 +476,7 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                   <button
                     class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-t42cd1-MuiButtonBase-root-MuiButton-root"
                     download="perf-compare-all-revisions.json"
+                    href=""
                     tabindex="0"
                     type="button"
                   >
