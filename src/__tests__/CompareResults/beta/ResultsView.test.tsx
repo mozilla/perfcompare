@@ -1,3 +1,5 @@
+import type { ReactElement } from 'react';
+
 import userEvent from '@testing-library/user-event';
 import { Bubble, ChartProps } from 'react-chartjs-2';
 
@@ -11,10 +13,11 @@ import getTestData from '../../utils/fixtures';
 import { renderWithRouter, store } from '../../utils/setupTests';
 import { renderHook, screen, act } from '../../utils/test-utils';
 
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual<typeof import('react-router-dom')>('react-router-dom'),
-  useSearchParams: () => [new URLSearchParams({ fakedata: 'true' })],
-}));
+function renderWithRoute(component: ReactElement) {
+  return renderWithRouter(component, {
+    route: '/compare-results/?fakedata=true',
+  });
+}
 
 describe('Results View', () => {
   const protocolTheme = renderHook(() => useProtocolTheme()).result.current
@@ -23,7 +26,7 @@ describe('Results View', () => {
     .toggleColorMode;
 
   it('Should match snapshot', async () => {
-    renderWithRouter(
+    renderWithRoute(
       <ResultsView
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
@@ -34,7 +37,7 @@ describe('Results View', () => {
   });
 
   it('Should render the Compare with a Base component', () => {
-    renderWithRouter(
+    renderWithRoute(
       <ResultsView
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
@@ -56,7 +59,7 @@ describe('Results View', () => {
     ) as jest.Mock;
     jest.spyOn(global, 'fetch');
 
-    renderWithRouter(
+    renderWithRoute(
       <ResultsView
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
@@ -95,7 +98,7 @@ describe('Results View', () => {
       );
     });
 
-    renderWithRouter(
+    renderWithRoute(
       <ResultsView
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
@@ -127,7 +130,7 @@ describe('Results View', () => {
       );
     });
 
-    renderWithRouter(
+    renderWithRoute(
       <ResultsView
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
@@ -167,7 +170,7 @@ describe('Results View', () => {
     const fakedataParam = urlParams.get('fakedata');
     expect(fakedataParam).toBe('true');
 
-    renderWithRouter(
+    renderWithRoute(
       <ResultsView
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
@@ -197,7 +200,7 @@ describe('Results View', () => {
       test: '3DGraphics-WebGL',
     };
 
-    renderWithRouter(<RevisionHeader header={revisionHeader} />);
+    renderWithRoute(<RevisionHeader header={revisionHeader} />);
     const linkToSuite = screen.queryByLabelText('link to suite documentation');
     expect(linkToSuite).toBeInTheDocument();
   });
@@ -213,7 +216,7 @@ describe('Results View', () => {
       test: '3DGraphics-WebGL',
     };
 
-    renderWithRouter(<RevisionHeader header={revisionHeader} />);
+    renderWithRoute(<RevisionHeader header={revisionHeader} />);
     const linkToSuite = screen.queryByLabelText('link to suite documentation');
     expect(linkToSuite).not.toBeInTheDocument();
   });
@@ -232,7 +235,7 @@ describe('Results View', () => {
     const fakedataParam = urlParams.get('fakedata');
     expect(fakedataParam).toBe('true');
 
-    renderWithRouter(
+    renderWithRoute(
       <ResultsView
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
@@ -270,7 +273,7 @@ describe('Results View', () => {
     const fakedataParam = urlParams.get('fakedata');
     expect(fakedataParam).toBe('true');
 
-    renderWithRouter(
+    renderWithRoute(
       <ResultsView
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
