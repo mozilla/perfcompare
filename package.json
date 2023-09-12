@@ -36,7 +36,7 @@
     "lint:fix": "npm run lint -- --fix",
     "format": "prettier --write . --config ./.prettierrc.js",
     "format:check": "prettier --check . --config ./.prettierrc.js",
-    "test": "jest --testPathIgnorePatterns=utils",
+    "test": "jest",
     "test:coverage": "npm test -- --coverage",
     "test:watch": "npm test -- --watch",
     "test:update": "npm test -- -u",

@@ -6,7 +6,7 @@ const config: Config.InitialOptions = {
   coveragePathIgnorePatterns: ['__tests__', 'index', 'resources', 'styles'],
   setupFiles: ['react-app-polyfill/jsdom'],
   setupFilesAfterEnv: ['<rootDir>/src/__tests__/utils/setupTests.ts'],
-  testMatch: ['<rootDir>/src/**/__tests__/**/*.{ts,tsx}'],
+  testPathIgnorePatterns: ['/node_modules/', '<rootDir>/src/__tests__/utils/'],
   testEnvironment: 'jsdom',
   transform: {
     '^.+\\.(t|j)sx?$': [
