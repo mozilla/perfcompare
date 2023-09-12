@@ -1,6 +1,7 @@
 import { style } from 'typestyle';
 
 import { Spacing } from '../../../styles';
+import { MeasurementUnit } from '../../../types/types';
 import GraphDistribution from './GraphDistribution';
 
 const styles = {
@@ -23,13 +24,26 @@ const styles = {
 };
 
 function RunValues(props: RunValuesProps) {
-  const { name, median, values, application, stddev, stddevPercent } =
-    props.revisionRuns;
+  const {
+    name,
+    median,
+    values,
+    application,
+    stddev,
+    stddevPercent,
+    measurementUnit,
+  } = props.revisionRuns;
   return (
     <div className={styles.container}>
-      <div>
-        <b>{name}:</b> {median} ms ({application})
-      </div>
+      {application ? (
+        <div>
+          <b>{name}:</b> {median} {measurementUnit} ({application})
+        </div>
+      ) : (
+        <div>
+          <b>{name}:</b> {median} {measurementUnit}
+        </div>
+      )}
       <div>
         <GraphDistribution name={name} values={values} />
       </div>
@@ -56,6 +70,7 @@ interface RunValuesProps {
     application: string;
     stddev: number;
     stddevPercent: number;
+    measurementUnit: MeasurementUnit;
   };
 }
 

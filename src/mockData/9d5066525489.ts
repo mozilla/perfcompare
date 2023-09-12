@@ -1054,8 +1054,8 @@ export const comparisonResults: CompareResultsItem[] = [
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
     new_rev: '9d50665254899d8431813bdc04178e6006ce6d59',
-    base_app: 'firefox',
-    new_app: 'chrome',
+    base_app: '',
+    new_app: '',
     framework_id: 1,
     platform: 'linux1804-64-shippable-qr',
     suite: 'cpstartup',

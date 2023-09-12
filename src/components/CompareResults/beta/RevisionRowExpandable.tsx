@@ -76,9 +76,17 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
         </div>
         {!shouldDisplayGraph && (
           <div className={`${styles.bottomSpace}`}>
-            {singleRun} <br />
-            <b>Base application</b>: {baseApplication} <br />
-            <b>New application</b>: {newApplication}{' '}
+            <div>{singleRun} </div>
+            {baseApplication && (
+              <div>
+                <b>Base application</b>: {baseApplication}{' '}
+              </div>
+            )}
+            {newApplication && (
+              <div>
+                <b>New application</b>: {newApplication}{' '}
+              </div>
+            )}
           </div>
         )}
         <div className={`${styles.bottomSpace}`}>

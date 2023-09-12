@@ -27,6 +27,8 @@ function Distribution(props: DistributionProps) {
     new_stddev: newStddev,
     base_stddev_pct: baseStddevPercent,
     new_stddev_pct: newStddevPercent,
+    base_measurement_unit: baseUnit,
+    new_measurement_unit: newUnit,
   } = result;
 
   const baseRevisionRuns = {
@@ -36,6 +38,7 @@ function Distribution(props: DistributionProps) {
     application: baseApplication,
     stddev: baseStddev,
     stddevPercent: baseStddevPercent,
+    measurementUnit: baseUnit,
   };
 
   const newRevisionRuns = {
@@ -45,6 +48,7 @@ function Distribution(props: DistributionProps) {
     application: newApplication,
     stddev: newStddev,
     stddevPercent: newStddevPercent,
+    measurementUnit: newUnit,
   };
 
   return (
