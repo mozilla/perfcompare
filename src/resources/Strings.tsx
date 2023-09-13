@@ -7,9 +7,9 @@ export const Strings = {
   },
   components: {
     topBanner: {
-      text: 'This is an unstable pre-release version. Some features may not yet be supported. Please file any bugs on the Github Repo.',
-      linkText: 'Github Repo',
-      href: 'https://github.com/mozilla/perfcompare/issues',
+      text: 'This is an unstable pre-release version. Some features may not yet be supported. Please file any bugs on Bugzilla.',
+      linkText: 'File new bug',
+      href: 'https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]',
     },
     header: {
       title: 'PerfCompare',
