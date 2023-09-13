@@ -106,13 +106,15 @@ function ResultsView(props: ResultsViewProps) {
     }
     if (framework) {
       const frameworkId = parseInt(framework);
-      const frameworkName = frameworkMap[frameworkId as Framework['id']];
-      dispatch(
-        updateFramework({
-          id: frameworkId,
-          name: frameworkName,
-        }),
-      );
+      if (frameworkId in frameworkMap) {
+        const frameworkName = frameworkMap[frameworkId as Framework['id']];
+        dispatch(
+          updateFramework({
+            id: frameworkId,
+            name: frameworkName,
+          }),
+        );
+      }
     }
   }, []);
 
