@@ -1,13 +1,13 @@
 import { TableRow, TableCell, Link } from '@mui/material';
 import { style } from 'typestyle';
 
-import { Colors, Spacing } from '../../../styles';
-import type { RevisionsHeader } from '../../../types/state';
+import { Colors, Spacing } from '../../styles';
+import type { RevisionsHeader } from '../../types/state';
 import {
   getTreeherderURL,
   truncateHash,
   getDocsURL,
-} from '../../../utils/helpers';
+} from '../../utils/helpers';
 
 const styles = {
   tagsOptions: style({

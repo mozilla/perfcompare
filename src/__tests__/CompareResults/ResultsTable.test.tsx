@@ -1,7 +1,7 @@
-import ResultsTable from '../../../components/CompareResults/beta/ResultsTable';
-import useProtocolTheme from '../../../theme/protocolTheme';
-import { renderWithRouter } from '../../utils/setupTests';
-import { renderHook, screen } from '../../utils/test-utils';
+import ResultsTable from '../../components/CompareResults/ResultsTable';
+import useProtocolTheme from '../../theme/protocolTheme';
+import { renderWithRouter } from '../utils/setupTests';
+import { renderHook, screen } from '../utils/test-utils';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual<typeof import('react-router-dom')>('react-router-dom'),

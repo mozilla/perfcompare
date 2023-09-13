@@ -1,8 +1,8 @@
 import { Container } from '@mui/system';
 import { style } from 'typestyle';
 
-import { Colors } from '../../../styles';
-import type { ThemeMode } from '../../../types/state';
+import { Colors } from '../../styles';
+import type { ThemeMode } from '../../types/state';
 import ResultsHeader from './ResultsHeader';
 import ResultsTable from './ResultsTable';
 

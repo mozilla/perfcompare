@@ -3,8 +3,8 @@ import SortIcon from '@mui/icons-material/Sort';
 import { TableRow, TableCell, TableHead } from '@mui/material';
 import { style } from 'typestyle';
 
-import { Colors, Spacing } from '../../../styles';
-import type { ThemeMode } from '../../../types/state';
+import { Colors, Spacing } from '../../styles';
+import type { ThemeMode } from '../../types/state';
 
 function TableHeader(props: TableHeaderProps) {
   const { themeMode } = props;

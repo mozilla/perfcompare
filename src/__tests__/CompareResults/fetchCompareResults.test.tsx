@@ -1,10 +1,10 @@
-import ResultsView from '../../../components/CompareResults/beta/ResultsView';
-import { Strings } from '../../../resources/Strings';
-import useProtocolTheme from '../../../theme/protocolTheme';
-import getTestData from '../../utils/fixtures';
-import { renderWithRouter, store } from '../../utils/setupTests';
-import { renderHook } from '../../utils/test-utils';
-import { screen } from '../../utils/test-utils';
+import ResultsView from '../../components/CompareResults/ResultsView';
+import { Strings } from '../../resources/Strings';
+import useProtocolTheme from '../../theme/protocolTheme';
+import getTestData from '../utils/fixtures';
+import { renderWithRouter, store } from '../utils/setupTests';
+import { renderHook } from '../utils/test-utils';
+import { screen } from '../utils/test-utils';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual<typeof import('react-router-dom')>('react-router-dom'),

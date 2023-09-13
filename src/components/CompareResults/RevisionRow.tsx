@@ -9,14 +9,14 @@ import { IconButton, TableRow, TableCell } from '@mui/material';
 import Link from '@mui/material/Link';
 import { style } from 'typestyle';
 
-import { Colors, Spacing } from '../../../styles';
-import { ExpandableRowStyles } from '../../../styles';
+import { Colors, Spacing } from '../../styles';
+import { ExpandableRowStyles } from '../../styles';
 import type {
   CompareResultsItem,
   PlatformInfo,
   ThemeMode,
-} from '../../../types/state';
-import { getPlatformInfo } from '../../../utils/helpers';
+} from '../../types/state';
+import { getPlatformInfo } from '../../utils/helpers';
 import RevisionRowExpandable from './RevisionRowExpandable';
 
 interface Expanded {

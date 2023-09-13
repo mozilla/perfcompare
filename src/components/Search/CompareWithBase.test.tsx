@@ -2,16 +2,16 @@ import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
+import getTestData from '../../__tests__/utils/fixtures';
+import { renderWithRouter, store } from '../../__tests__/utils/setupTests';
+import { screen } from '../../__tests__/utils/test-utils';
 import ResultsView from '../../components/CompareResults/ResultsView';
-import CompareWithBase from '../../components/Search/CompareWithBase';
-import SearchView from '../../components/Search/SearchView';
 import { updateCheckedRevisions } from '../../reducers/SearchSlice';
 import { setSelectedRevisions } from '../../reducers/SelectedRevisionsSlice';
 import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
-import getTestData from '../utils/fixtures';
-import { renderWithRouter, store } from '../utils/setupTests';
-import { screen } from '../utils/test-utils';
+import CompareWithBase from '../Search/CompareWithBase';
+import SearchView from '../Search/SearchView';
 
 const warning =
   Strings.components.searchDefault.base.collapsed.warnings.comparison;

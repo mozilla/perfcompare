@@ -2,15 +2,15 @@ import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
+import getTestData from '../../__tests__/utils/fixtures';
+import { renderWithRouter, store } from '../../__tests__/utils/setupTests';
+import { screen } from '../../__tests__/utils/test-utils';
 import ResultsView from '../../components/CompareResults/ResultsView';
-import SearchComponent from '../../components/Search/SearchComponent';
 import { setSelectedRevisions } from '../../reducers/SelectedRevisionsSlice';
 import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
 import { InputType, ThemeMode } from '../../types/state';
-import getTestData from '../utils/fixtures';
-import { renderWithRouter, store } from '../utils/setupTests';
-import { screen } from '../utils/test-utils';
+import SearchComponent from '../Search/SearchComponent';
 
 const stringsBase = Strings.components.searchDefault.base.collapsed.base;
 
