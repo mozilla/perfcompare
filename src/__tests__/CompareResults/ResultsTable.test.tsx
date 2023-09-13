@@ -1,9 +1,9 @@
 import type { ReactElement } from 'react';
 
-import ResultsTable from '../../../components/CompareResults/beta/ResultsTable';
-import useProtocolTheme from '../../../theme/protocolTheme';
-import { renderWithRouter } from '../../utils/setupTests';
-import { renderHook, screen } from '../../utils/test-utils';
+import ResultsTable from '../../components/CompareResults/ResultsTable';
+import useProtocolTheme from '../../theme/protocolTheme';
+import { renderWithRouter } from '../utils/setupTests';
+import { renderHook, screen } from '../utils/test-utils';
 
 function renderWithRoute(component: ReactElement) {
   return renderWithRouter(component, {

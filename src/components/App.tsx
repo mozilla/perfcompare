@@ -10,7 +10,7 @@ import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import { Strings } from '../resources/Strings';
 import { Banner } from '../styles/Banner';
 import useProtocolTheme from '../theme/protocolTheme';
-import ResultsView from './CompareResults/beta/ResultsView';
+import ResultsView from './CompareResults/ResultsView';
 import SearchView from './Search/SearchView';
 import SnackbarCloseButton from './Shared/SnackbarCloseButton';
 

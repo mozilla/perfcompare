@@ -8,19 +8,19 @@ import Stack from '@mui/material/Stack';
 import { useSearchParams } from 'react-router-dom';
 import { style } from 'typestyle';
 
-import { compareView } from '../../../common/constants';
-import { frameworkMap } from '../../../common/constants';
-import { useAppDispatch, useAppSelector } from '../../../hooks/app';
-import useFetchCompareResults from '../../../hooks/useFetchCompareResults';
-import useHandleChangeSearch from '../../../hooks/useHandleChangeSearch';
-import { updateFramework } from '../../../reducers/FrameworkSlice';
-import { SearchContainerStyles } from '../../../styles';
-import { background } from '../../../styles';
-import { fetchRecentRevisions } from '../../../thunks/searchThunk';
-import { Repository, View, InputType } from '../../../types/state';
-import { Framework } from '../../../types/types';
-import CompareWithBase from '../../Search/CompareWithBase';
-import PerfCompareHeader from '../../Shared/PerfCompareHeader';
+import { compareView } from '../../common/constants';
+import { frameworkMap } from '../../common/constants';
+import { useAppDispatch, useAppSelector } from '../../hooks/app';
+import useFetchCompareResults from '../../hooks/useFetchCompareResults';
+import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
+import { updateFramework } from '../../reducers/FrameworkSlice';
+import { SearchContainerStyles } from '../../styles';
+import { background } from '../../styles';
+import { fetchRecentRevisions } from '../../thunks/searchThunk';
+import { Repository, View, InputType } from '../../types/state';
+import { Framework } from '../../types/types';
+import CompareWithBase from '../Search/CompareWithBase';
+import PerfCompareHeader from '../Shared/PerfCompareHeader';
 import ResultsMain from './ResultsMain';
 
 interface ResultsViewProps {
