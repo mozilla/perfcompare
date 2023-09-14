@@ -19,9 +19,7 @@ type Results = {
   revisionHeader: RevisionsHeader;
 };
 
-interface GroupedResults {
-  [key: string]: ResultObject[];
-}
+type ResultsGroupedByKey = Record<string, ResultObject[]>;
 
 interface ResultObject {
   header_name: string;
@@ -43,15 +41,25 @@ const comparison = createSlice({
   },
 });
 
+/*This function transforms results into an array of objects, where each object represents a array of objects 
+grouped by their header_name as key. The keys in the resulting objects are composed of header_name and a 
+truncated hash of new_rev.
+for example: [
+  {
+    "a11yr opt e10s fission stylo webrender 69d5beb77da0": [
+      {
+        "base_rev": "8f5a11c1eb0b7598d1415f6efa9c360191a423f8",
+        "new_rev": "69d5beb77da06f9eda78eff3c54463273d457e66",
+        "framework_id": 1,...}{}{}...]}{}{}...] */
 export const formatDownloadData = (
   data: Record<string, ResultObject[]>,
-): object[] => {
+): Array<ResultsGroupedByKey> => {
   const groupNames = Object.keys(data);
-  const transformedGroups: object[] = [];
+  const transformedGroups: Array<ResultsGroupedByKey> = [];
 
   groupNames.forEach((groupName) => {
     const groupedResults = data[groupName].reduce(
-      (grouped: GroupedResults, result: ResultObject) => {
+      (grouped: ResultsGroupedByKey, result: ResultObject) => {
         if (!grouped[result.header_name]) {
           grouped[result.header_name] = [];
         }
@@ -62,11 +70,16 @@ export const formatDownloadData = (
     );
 
     const transformedGroupEntries = Object.keys(groupedResults).map(
-      (header_name) => ({
-        [`${header_name} ${truncateHash(
+      (header_name) => {
+        const key = `${header_name} ${truncateHash(
           groupedResults[header_name][0].new_rev,
-        )}`]: groupedResults[header_name],
-      }),
+        )}`;
+        const value = groupedResults[header_name];
+
+        return {
+          [key]: value,
+        };
+      },
     );
 
     transformedGroups.push(...transformedGroupEntries);
@@ -82,12 +95,14 @@ export const selectStringifiedJsonResults = createSelector(
       activeComparison ===
       Strings.components.comparisonRevisionDropdown.allRevisions
     ) {
-      return JSON.stringify(formatDownloadData(data));
+      return JSON.stringify(formatDownloadData(data), null, 2);
     } else {
       return JSON.stringify(
         formatDownloadData({
           [activeComparison]: data[activeComparison],
         }),
+        null,
+        2,
       );
     }
   },

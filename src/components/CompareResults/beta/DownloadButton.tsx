@@ -41,16 +41,15 @@ function DownloadButton() {
       const blob = new Blob([results], { type: 'application/json' });
       const newBlobUrl = URL.createObjectURL(blob);
       setBlobUrl(newBlobUrl);
+
+      return () => {
+        URL.revokeObjectURL(newBlobUrl);
+      };
     }
-    return () => {
-      if (blobUrl !== null) {
-        URL.revokeObjectURL(blobUrl);
-      }
-    };
   }, [results]);
   return (
     <div className={styles.downloadButton}>
-      <Button href={blobUrl ?? ''} download={fileName}>
+      <Button href={blobUrl ?? '#'} download={fileName}>
         Download JSON
       </Button>
     </div>
