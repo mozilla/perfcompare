@@ -7,8 +7,8 @@ export const Strings = {
   },
   components: {
     topBanner: {
-      text: 'This is an unstable pre-release version. Some features may not yet be supported. Please file any bugs on Bugzilla.',
-      linkText: 'File new bug',
+      text: 'This is an unstable pre-release version. Some features may not yet be supported.',
+      linkText: 'File a bug on Bugzilla.',
       href: 'https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]',
     },
     header: {
