@@ -40,7 +40,8 @@
     "test:coverage": "npm test -- --coverage",
     "test:watch": "npm test -- --watch",
     "test:update": "npm test -- -u",
-    "commit": "npm install npm run format && npm run lint:fix && npm test -- -u && npm run test:coverage",
+    "test-all": "run-p test format:check lint tsc",
+    "fix-all": "run-p test:update format lint:fix",
     "tsc": "tsc"
   },
   "eslintConfig": {
