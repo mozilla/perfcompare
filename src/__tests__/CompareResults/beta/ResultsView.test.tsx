@@ -296,4 +296,33 @@ describe('Results View', () => {
     const labelResult = labelFunction({ raw: { x: 5, y: 0, r: 10 } });
     expect(labelResult).toBe('5 ms');
   });
+
+  it('test that we get a blobUrl eventually', async () => {
+    // Render the component
+    const { testData } = getTestData();
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () => ({
+          results: testData,
+        }),
+      }),
+    ) as jest.Mock;
+    jest.spyOn(global, 'fetch');
+
+    renderWithRouter(
+      <ResultsView
+        protocolTheme={protocolTheme}
+        toggleColorMode={toggleColorMode}
+        title={Strings.metaData.pageTitle.results}
+      />,
+    );
+
+    // Wait for the component to render and the blobUrl to become available
+    const blob = await waitFor(
+      () => screen.getByText('Download JSON', { selector: '[href^=blob:]' }),
+      { timeout: 10000 },
+    );
+
+    expect(blob).toBeInTheDocument();
+  });
 });
