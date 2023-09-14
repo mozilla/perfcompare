@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react';
-
 import { FormControlLabel, FormGroup } from '@mui/material';
 import Box from '@mui/material/Box';
 import Switch from '@mui/material/Switch';
@@ -15,12 +13,7 @@ const label = { inputProps: { 'aria-label': 'Dark mode switch' } };
 function ToggleDarkMode(props: ToggleDarkModeProps) {
   const { toggleColorMode, theme } = props;
 
-  const [light, setLight] = useState(SwitchRaw(theme));
-
-  useEffect(() => {
-    const updatedMode = theme === 'light' ? 'light' : 'dark';
-    setLight(SwitchRaw(updatedMode));
-  }, [theme]);
+  const switchStyle = SwitchRaw(theme === 'light' ? 'light' : 'dark');
 
   const styles = {
     box: style({
@@ -36,7 +29,7 @@ function ToggleDarkMode(props: ToggleDarkModeProps) {
           margin: 0,
         },
         '.toggle-switch': {
-          ...light.stylesRaw,
+          ...switchStyle.stylesRaw,
           marginLeft: `${Spacing.xxLarge}px`,
         },
       },
