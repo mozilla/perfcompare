@@ -6,7 +6,6 @@ import { style } from 'typestyle';
 
 import { repoMap } from '../../common/constants';
 import { searchView } from '../../common/constants';
-import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
 import { background } from '../../styles';
 import { skipLink } from '../../styles';
@@ -23,11 +22,9 @@ function SearchView(props: SearchViewProps) {
   const { toggleColorMode, protocolTheme, title } = props;
   const themeMode = protocolTheme.palette.mode;
   const selectedRevisions = useAppSelector(
-    (state: RootState) => state.selectedRevisions.revisions,
+    (state) => state.selectedRevisions.revisions,
   );
-  const framework = useAppSelector(
-    (state: RootState) => state.framework as Framework,
-  );
+  const framework = useAppSelector((state) => state.framework as Framework);
 
   const styles = {
     container: style({

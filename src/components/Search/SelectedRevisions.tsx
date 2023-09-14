@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 
 import { repoMap, searchView } from '../../common/constants';
-import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
 import { SelectRevsStyles } from '../../styles';
 import {
@@ -35,15 +34,15 @@ function SelectedRevisions({
   const [revisions, setRevisions] = useState<RevisionsList[]>([]);
   const [repositories, setRepositories] = useState<Repository['name'][]>([]);
   const checkedRevisionsList = useAppSelector(
-    (state: RootState) => state.search[searchType].checkedRevisions,
+    (state) => state.search[searchType].checkedRevisions,
   );
 
   const selectedRevisions = useAppSelector(
-    (state: RootState) => state.selectedRevisions.revisions,
+    (state) => state.selectedRevisions.revisions,
   );
 
   const displayedSelectedRevisions = useAppSelector(
-    (state: RootState) => state.selectedRevisions[searchType],
+    (state) => state.selectedRevisions[searchType],
   );
 
   const checkedRepositories = checkedRevisionsList.map((item) => {
