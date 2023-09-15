@@ -347,7 +347,7 @@ exports[`Compare With Base 3 renders correctly when there are no results 1`] = `
                     class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
                     name="Framework"
                     tabindex="-1"
-                    value="talos"
+                    value="1"
                   />
                   <svg
                     aria-hidden="true"
@@ -365,7 +365,7 @@ exports[`Compare With Base 3 renders correctly when there are no results 1`] = `
             </div>
             <button
               aria-label="compare revisions"
-              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fnjph0f css-1pha5e5-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1pha5e5-MuiButtonBase-root-MuiButton-root"
               id="compare-button"
               tabindex="0"
               type="button"
@@ -737,7 +737,7 @@ exports[`Compare With Base 3 shows comparison warning when try repository is com
                     class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
                     name="Framework"
                     tabindex="-1"
-                    value="talos"
+                    value="1"
                   />
                   <svg
                     aria-hidden="true"
@@ -755,7 +755,7 @@ exports[`Compare With Base 3 shows comparison warning when try repository is com
             </div>
             <button
               aria-label="compare revisions"
-              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fnjph0f css-1pha5e5-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1pha5e5-MuiButtonBase-root-MuiButton-root"
               id="compare-button"
               tabindex="0"
               type="button"

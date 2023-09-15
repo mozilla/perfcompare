@@ -1,4 +1,5 @@
 import ResultsView from '../../../components/CompareResults/beta/ResultsView';
+import { Strings } from '../../../resources/Strings';
 import useProtocolTheme from '../../../theme/protocolTheme';
 import { renderWithRouter } from '../../utils/setupTests';
 import { renderHook, screen } from '../../utils/test-utils';
@@ -14,6 +15,7 @@ describe('Search by title/test name', () => {
       <ResultsView
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
+        title={Strings.metaData.pageTitle.results}
       />,
     );
 

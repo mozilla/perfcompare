@@ -31,7 +31,6 @@ describe('Search View/fetchRecentRevisions', () => {
         }),
       }),
     ) as jest.Mock;
-    const spyOnFetch = jest.spyOn(global, 'fetch');
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
@@ -39,7 +38,7 @@ describe('Search View/fetchRecentRevisions', () => {
       <SearchView
         toggleColorMode={toggleColorMode}
         protocolTheme={protocolTheme}
-        title='Search'
+        title={Strings.metaData.pageTitle.search}
       />,
     );
 
@@ -75,7 +74,7 @@ describe('Search View/fetchRecentRevisions', () => {
       screen.getAllByText("it's just a flesh wound")[0],
     ).toBeInTheDocument();
 
-    expect(spyOnFetch).toHaveBeenCalledWith(
+    expect(global.fetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/autoland/push/?hide_reviewbot_pushes=true',
     );
   });
@@ -89,13 +88,12 @@ describe('Search View/fetchRecentRevisions', () => {
       }),
     ) as jest.Mock;
     const searchType = 'base' as InputType;
-    const spyOnFetch = jest.spyOn(global, 'fetch');
 
     renderWithRouter(
       <SearchView
         toggleColorMode={toggleColorMode}
         protocolTheme={protocolTheme}
-        title='Search'
+        title={Strings.metaData.pageTitle.search}
       />,
     );
 
@@ -103,7 +101,7 @@ describe('Search View/fetchRecentRevisions', () => {
     await act(async () => void jest.runOnlyPendingTimers());
     await screen.findAllByRole('button', { name: 'Base' });
 
-    expect(spyOnFetch).toHaveBeenCalledWith(
+    expect(global.fetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true',
     );
     expect(store.getState().search[searchType].searchResults).toStrictEqual([]);
@@ -118,7 +116,6 @@ describe('Search View/fetchRecentRevisions', () => {
       Promise.reject(new Error('What, ridden on a horse?')),
     ) as jest.Mock;
     const searchType = 'base' as InputType;
-    const spyOnFetch = jest.spyOn(global, 'fetch');
     const SearchPropsBase = {
       searchType,
       mode: 'light' as ThemeMode,
@@ -131,14 +128,14 @@ describe('Search View/fetchRecentRevisions', () => {
       <SearchView
         toggleColorMode={toggleColorMode}
         protocolTheme={protocolTheme}
-        title='Search'
+        title={Strings.metaData.pageTitle.search}
       />,
     );
     renderWithRouter(<SearchComponent {...SearchPropsBase} />);
     await act(async () => void jest.runOnlyPendingTimers());
     await screen.findAllByRole('button', { name: 'Base' });
 
-    expect(spyOnFetch).toHaveBeenCalledWith(
+    expect(global.fetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true',
     );
     expect(store.getState().search[searchType].searchResults).toStrictEqual([]);

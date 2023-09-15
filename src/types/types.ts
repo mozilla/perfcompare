@@ -53,6 +53,8 @@ export type Framework =
   | { id: 15; name: 'mozperftest' }
   | { id: 16; name: 'fxrecord' };
 
+export type SupportedPerfdocsFramework = 'talos' | 'awsy' | 'devtools';
+
 export type FilterValue = {
   name: string;
   value: string;
@@ -275,3 +277,8 @@ export type Platform =
   | 'android-hw-a51-11-0-arm7-shippable-qr'
   | 'android-hw-a51-11-0-aarch64-qr'
   | 'android-hw-a51-11-0-aarch64-shippable-qr';
+
+export type FakeCommitHash =
+  | 'bb6a5e451dace3b9c7be42d24c9272738d73e6db'
+  | '9d50665254899d8431813bdc04178e6006ce6d59'
+  | 'a998c42399a8fcea623690bf65bef49de20535b4';

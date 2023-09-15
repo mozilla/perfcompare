@@ -3,6 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
 import SearchView from '../../components/Search/SearchView';
+import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
 import { InputType } from '../../types/state';
 import getTestData from '../utils/fixtures';
@@ -25,7 +26,7 @@ describe('Search View/fetchRevisionByID', () => {
         }),
       }),
     ) as jest.Mock;
-    const spyOnFetch = jest.spyOn(global, 'fetch');
+
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
@@ -33,7 +34,7 @@ describe('Search View/fetchRevisionByID', () => {
       <SearchView
         toggleColorMode={toggleColorMode}
         protocolTheme={protocolTheme}
-        title='Search'
+        title={Strings.metaData.pageTitle.search}
       />,
     );
 
@@ -48,10 +49,10 @@ describe('Search View/fetchRevisionByID', () => {
     await user.type(searchInput, 'abcdef1234567890abcdef1234567890abcdef12');
     jest.runOnlyPendingTimers();
 
-    expect(spyOnFetch).toHaveBeenCalledWith(
+    expect(global.fetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?revision=abcdef123456',
     );
-    expect(spyOnFetch).toHaveBeenCalledWith(
+    expect(global.fetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?revision=abcdef1234567890abcdef1234567890abcdef12',
     );
     await screen.findByText("you've got no arms left!");
@@ -68,7 +69,6 @@ describe('Search View/fetchRevisionByID', () => {
     ) as jest.Mock;
     const searchType = 'base' as InputType;
 
-    const spyOnFetch = jest.spyOn(global, 'fetch');
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
@@ -76,7 +76,7 @@ describe('Search View/fetchRevisionByID', () => {
       <SearchView
         toggleColorMode={toggleColorMode}
         protocolTheme={protocolTheme}
-        title='Search'
+        title={Strings.metaData.pageTitle.search}
       />,
     );
 
@@ -87,7 +87,7 @@ describe('Search View/fetchRevisionByID', () => {
     await user.type(searchInput, 'abcdef1234567890abcdef1234567890abcdef12');
     await act(async () => void jest.runOnlyPendingTimers());
 
-    expect(spyOnFetch).toHaveBeenCalledWith(
+    expect(global.fetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?revision=abcdef1234567890abcdef1234567890abcdef12',
     );
 
@@ -117,7 +117,7 @@ describe('Search View/fetchRevisionByID', () => {
         <SearchView
           toggleColorMode={toggleColorMode}
           protocolTheme={protocolTheme}
-          title='search'
+          title={Strings.metaData.pageTitle.search}
         />
       </>,
     );
@@ -139,7 +139,6 @@ describe('Search View/fetchRevisionByID', () => {
 
   it('should update error state with generic message if fetch error message is undefined', async () => {
     global.fetch = jest.fn(() => Promise.reject(new Error())) as jest.Mock;
-    const spyOnFetch = jest.spyOn(global, 'fetch');
     const searchType = 'base' as InputType;
 
     // set delay to null to prevent test time-out due to useFakeTimers
@@ -149,7 +148,7 @@ describe('Search View/fetchRevisionByID', () => {
       <SearchView
         toggleColorMode={toggleColorMode}
         protocolTheme={protocolTheme}
-        title='Search'
+        title={Strings.metaData.pageTitle.search}
       />,
     );
 
@@ -159,7 +158,7 @@ describe('Search View/fetchRevisionByID', () => {
     await user.type(searchInput, 'abcdef123456');
     await act(async () => void jest.runOnlyPendingTimers());
 
-    expect(spyOnFetch).toHaveBeenCalledWith(
+    expect(global.fetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?revision=abcdef123456',
     );
 

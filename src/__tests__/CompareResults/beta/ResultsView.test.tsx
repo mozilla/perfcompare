@@ -1,17 +1,23 @@
+import type { ReactElement } from 'react';
+
 import userEvent from '@testing-library/user-event';
 import { Bubble, ChartProps } from 'react-chartjs-2';
 
 import ResultsView from '../../../components/CompareResults/beta/ResultsView';
+import RevisionHeader from '../../../components/CompareResults/beta/RevisionHeader';
 import { setSelectedRevisions } from '../../../reducers/SelectedRevisionsSlice';
+import { Strings } from '../../../resources/Strings';
 import useProtocolTheme from '../../../theme/protocolTheme';
+import { RevisionsHeader } from '../../../types/state';
 import getTestData from '../../utils/fixtures';
 import { renderWithRouter, store } from '../../utils/setupTests';
-import { renderHook, screen, waitFor, act } from '../../utils/test-utils';
+import { renderHook, screen, act } from '../../utils/test-utils';
 
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual<typeof import('react-router-dom')>('react-router-dom'),
-  useSearchParams: () => [new URLSearchParams({ fakedata: 'true' })],
-}));
+function renderWithRoute(component: ReactElement) {
+  return renderWithRouter(component, {
+    route: '/compare-results/?fakedata=true',
+  });
+}
 
 describe('Results View', () => {
   const protocolTheme = renderHook(() => useProtocolTheme()).result.current
@@ -19,24 +25,23 @@ describe('Results View', () => {
   const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
     .toggleColorMode;
 
-  it('Should match snapshot', () => {
-    renderWithRouter(
+  it('Should match snapshot', async () => {
+    renderWithRoute(
       <ResultsView
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
+        title={Strings.metaData.pageTitle.results}
       />,
     );
-    expect(
-      screen.getByTestId('beta-version-compare-results'),
-    ).toBeInTheDocument();
-    expect(document.body).toMatchSnapshot();
+    expect(await screen.findByRole('table')).toMatchSnapshot();
   });
 
   it('Should render the Compare with a Base component', () => {
-    renderWithRouter(
+    renderWithRoute(
       <ResultsView
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
+        title={Strings.metaData.pageTitle.results}
       />,
     );
 
@@ -54,10 +59,11 @@ describe('Results View', () => {
     ) as jest.Mock;
     jest.spyOn(global, 'fetch');
 
-    renderWithRouter(
+    renderWithRoute(
       <ResultsView
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
+        title={Strings.metaData.pageTitle.results}
       />,
     );
 
@@ -72,6 +78,35 @@ describe('Results View', () => {
       screen.getAllByTestId('selected-revs-compare-results')[0],
     ).toBeInTheDocument();
     expect(screen.getAllByTestId('selected-rev-item')[0]).toBeInTheDocument();
+  });
+
+  it('should render a home link', async () => {
+    const { testData } = getTestData();
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () => ({
+          results: testData,
+        }),
+      }),
+    ) as jest.Mock;
+    jest.spyOn(global, 'fetch');
+
+    const selectedRevisions = testData.slice(0, 2);
+    await act(async () => {
+      store.dispatch(
+        setSelectedRevisions({ selectedRevisions: selectedRevisions }),
+      );
+    });
+
+    renderWithRoute(
+      <ResultsView
+        protocolTheme={protocolTheme}
+        toggleColorMode={toggleColorMode}
+        title={Strings.metaData.pageTitle.results}
+      />,
+    );
+    const link = screen.getByLabelText(/link to home/i);
+    expect(link).toBeInTheDocument();
   });
 
   it('should remove the selected revision once X button is clicked', async () => {
@@ -95,10 +130,11 @@ describe('Results View', () => {
       );
     });
 
-    renderWithRouter(
+    renderWithRoute(
       <ResultsView
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
+        title={Strings.metaData.pageTitle.results}
       />,
     );
 
@@ -134,20 +170,55 @@ describe('Results View', () => {
     const fakedataParam = urlParams.get('fakedata');
     expect(fakedataParam).toBe('true');
 
-    renderWithRouter(
+    renderWithRoute(
       <ResultsView
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
+        title={Strings.metaData.pageTitle.results}
       />,
     );
 
-    const expandButtons = screen.getAllByTestId('expand-revision-button');
+    const expandButtons = await screen.findAllByTestId(
+      'expand-revision-button',
+    );
     await user.click(expandButtons[0]);
-    const expandedContent = await waitFor(() =>
-      screen.getAllByTestId('expanded-row-content'),
+    const expandedContent = await screen.findAllByTestId(
+      'expanded-row-content',
     );
 
     expect(expandedContent[0]).toBeVisible();
+  });
+
+  it('Should render revision header with link to suite docs', () => {
+    const revisionHeader: RevisionsHeader = {
+      extra_options: 'e10s fission stylo webgl-ipc webrender',
+      framework_id: 1,
+      new_repo: 'mozilla-central',
+      new_rev: 'a998c42399a8fcea623690bf65bef49de20535b4',
+      option_name: 'opt',
+      suite: 'allyr',
+      test: '3DGraphics-WebGL',
+    };
+
+    renderWithRoute(<RevisionHeader header={revisionHeader} />);
+    const linkToSuite = screen.queryByLabelText('link to suite documentation');
+    expect(linkToSuite).toBeInTheDocument();
+  });
+
+  it('Should render revision header without link to suite docs for unsupported framework', () => {
+    const revisionHeader: RevisionsHeader = {
+      extra_options: 'e10s fission stylo webgl-ipc webrender',
+      framework_id: 10,
+      new_repo: 'mozilla-central',
+      new_rev: 'a998c42399a8fcea623690bf65bef49de20535b4',
+      option_name: 'opt',
+      suite: 'idle-bg',
+      test: '3DGraphics-WebGL',
+    };
+
+    renderWithRoute(<RevisionHeader header={revisionHeader} />);
+    const linkToSuite = screen.queryByLabelText('link to suite documentation');
+    expect(linkToSuite).not.toBeInTheDocument();
   });
 
   it('Should display Base graph and New graph', async () => {
@@ -164,16 +235,19 @@ describe('Results View', () => {
     const fakedataParam = urlParams.get('fakedata');
     expect(fakedataParam).toBe('true');
 
-    renderWithRouter(
+    renderWithRoute(
       <ResultsView
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
+        title={Strings.metaData.pageTitle.results}
       />,
     );
 
-    const expandButtons = screen.getAllByTestId('expand-revision-button');
+    const expandButtons = await screen.findAllByTestId(
+      'expand-revision-button',
+    );
     await user.click(expandButtons[0]);
-    await waitFor(() => screen.getAllByTestId('expanded-row-content'));
+    await screen.findAllByTestId('expanded-row-content');
 
     const MockedBubble = Bubble as jest.Mock;
 
@@ -199,14 +273,17 @@ describe('Results View', () => {
     const fakedataParam = urlParams.get('fakedata');
     expect(fakedataParam).toBe('true');
 
-    renderWithRouter(
+    renderWithRoute(
       <ResultsView
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
+        title={Strings.metaData.pageTitle.results}
       />,
     );
 
-    const expandButtons = screen.getAllByTestId('expand-revision-button');
+    const expandButtons = await screen.findAllByTestId(
+      'expand-revision-button',
+    );
     await user.click(expandButtons[0]);
 
     const MockedBubble = Bubble as jest.Mock;

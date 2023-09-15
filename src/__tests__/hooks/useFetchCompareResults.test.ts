@@ -23,7 +23,7 @@ describe('Tests useFetchCompareResults', () => {
       },
     } = renderHook(() => useFetchCompareResults(), { wrapper: StoreProvider });
     const spyOnFetch = jest.spyOn(global, 'fetch');
-    await dispatchFetchCompareResults(['fenix'], ['testRev'], '1');
+    dispatchFetchCompareResults(['fenix'], ['testRev'], '1');
     const url = new URL(spyOnFetch.mock.calls[0][0] as string);
     const searchParams = new URLSearchParams(url.search);
     expect(searchParams.get('base_revision')).toBe('testRev');
@@ -31,6 +31,7 @@ describe('Tests useFetchCompareResults', () => {
     expect(searchParams.get('base_repository')).toBe('fenix');
     expect(searchParams.get('new_repository')).toBe('fenix');
   });
+
   it('Should have different base/new values if called with 2 element arrays', async () => {
     const {
       result: {
@@ -38,7 +39,7 @@ describe('Tests useFetchCompareResults', () => {
       },
     } = renderHook(() => useFetchCompareResults(), { wrapper: StoreProvider });
     const spyOnFetch = jest.spyOn(global, 'fetch');
-    await dispatchFetchCompareResults(
+    dispatchFetchCompareResults(
       ['fenix', 'try'],
       ['testRev1', 'testRev2'],
       '1',
@@ -50,6 +51,7 @@ describe('Tests useFetchCompareResults', () => {
     expect(searchParams.get('base_repository')).toBe('fenix');
     expect(searchParams.get('new_repository')).toBe('try');
   });
+
   it('Should fetch if provided with 4 revs', async () => {
     const {
       result: {
@@ -57,13 +59,14 @@ describe('Tests useFetchCompareResults', () => {
       },
     } = renderHook(() => useFetchCompareResults(), { wrapper: StoreProvider });
     const spyOnFetch = jest.spyOn(global, 'fetch');
-    await dispatchFetchCompareResults(
+    dispatchFetchCompareResults(
       ['fenix', 'try', 'mozilla-beta', 'autoland'],
       ['testRev1', 'testRev2', 'testRev3', 'testRev4'],
       '1',
     );
     expect(spyOnFetch).toBeCalledTimes(3);
   });
+
   it('Should not fetch if provided with 5 or more revs', async () => {
     const {
       result: {
@@ -71,7 +74,7 @@ describe('Tests useFetchCompareResults', () => {
       },
     } = renderHook(() => useFetchCompareResults(), { wrapper: StoreProvider });
     const spyOnFetch = jest.spyOn(global, 'fetch');
-    await dispatchFetchCompareResults(
+    dispatchFetchCompareResults(
       ['fenix', 'try', 'mozilla-beta', 'autoland', 'mozilla-central'],
       ['testRev1', 'testRev2', 'testRev3', 'testRev4', 'testRev5'],
       '1',

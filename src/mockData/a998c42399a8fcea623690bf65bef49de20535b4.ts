@@ -4,6 +4,8 @@ export const comparisonResults: CompareResultsItem[] = [
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
     new_rev: 'a998c42399a8fcea623690bf65bef49de20535b4',
+    base_app: '',
+    new_app: '',
     framework_id: 1,
     platform: 'macosx1015-64-shippable-qr',
     suite: 'a11yr',
@@ -47,6 +49,8 @@ export const comparisonResults: CompareResultsItem[] = [
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
     new_rev: 'a998c42399a8fcea623690bf65bef49de20535b4',
+    base_app: '',
+    new_app: '',
     framework_id: 1,
     platform: 'linux1804-64-shippable-qr',
     suite: 'a11yr',
@@ -90,6 +94,8 @@ export const comparisonResults: CompareResultsItem[] = [
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
     new_rev: 'a998c42399a8fcea623690bf65bef49de20535b4',
+    base_app: '',
+    new_app: '',
     framework_id: 1,
     platform: 'windows10-64-shippable-qr',
     suite: 'a11yr',
@@ -133,6 +139,8 @@ export const comparisonResults: CompareResultsItem[] = [
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
     new_rev: 'a998c42399a8fcea623690bf65bef49de20535b4',
+    base_app: '',
+    new_app: '',
     framework_id: 1,
     platform: 'macosx1015-64-shippable-qr',
     suite: 'a11yr',
@@ -176,6 +184,8 @@ export const comparisonResults: CompareResultsItem[] = [
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
     new_rev: 'a998c42399a8fcea623690bf65bef49de20535b4',
+    base_app: '',
+    new_app: '',
     framework_id: 1,
     platform: 'linux1804-64-shippable-qr',
     suite: 'a11yr',
@@ -219,6 +229,8 @@ export const comparisonResults: CompareResultsItem[] = [
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
     new_rev: 'a998c42399a8fcea623690bf65bef49de20535b4',
+    base_app: '',
+    new_app: '',
     framework_id: 1,
     platform: 'windows10-64-shippable-qr',
     suite: 'a11yr',
@@ -262,6 +274,8 @@ export const comparisonResults: CompareResultsItem[] = [
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
     new_rev: 'a998c42399a8fcea623690bf65bef49de20535b4',
+    base_app: '',
+    new_app: '',
     framework_id: 1,
     platform: 'macosx1015-64-shippable-qr',
     suite: 'cpstartup',
@@ -306,6 +320,8 @@ export const comparisonResults: CompareResultsItem[] = [
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
     new_rev: 'a998c42399a8fcea623690bf65bef49de20535b4',
+    base_app: '',
+    new_app: '',
     framework_id: 1,
     platform: 'linux1804-64-shippable-qr',
     suite: 'cpstartup',
@@ -350,6 +366,8 @@ export const comparisonResults: CompareResultsItem[] = [
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
     new_rev: 'a998c42399a8fcea623690bf65bef49de20535b4',
+    base_app: '',
+    new_app: '',
     framework_id: 1,
     platform: 'windows10-64-shippable-qr',
     suite: 'cpstartup',
@@ -394,6 +412,8 @@ export const comparisonResults: CompareResultsItem[] = [
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
     new_rev: 'a998c42399a8fcea623690bf65bef49de20535b4',
+    base_app: '',
+    new_app: '',
     framework_id: 1,
     platform: 'macosx1015-64-shippable-qr',
     suite: 'glvideo',
@@ -438,6 +458,8 @@ export const comparisonResults: CompareResultsItem[] = [
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
     new_rev: 'a998c42399a8fcea623690bf65bef49de20535b4',
+    base_app: '',
+    new_app: '',
     framework_id: 1,
     platform: 'windows10-64-ref-hw-2017-qr',
     suite: 'glvideo',
@@ -482,6 +504,8 @@ export const comparisonResults: CompareResultsItem[] = [
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
     new_rev: 'a998c42399a8fcea623690bf65bef49de20535b4',
+    base_app: '',
+    new_app: '',
     framework_id: 1,
     platform: 'linux1804-64-shippable-qr',
     suite: 'glvideo',
@@ -526,6 +550,8 @@ export const comparisonResults: CompareResultsItem[] = [
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
     new_rev: 'a998c42399a8fcea623690bf65bef49de20535b4',
+    base_app: '',
+    new_app: '',
     framework_id: 1,
     platform: 'windows10-64-shippable-qr',
     suite: 'glvideo',
@@ -570,6 +596,8 @@ export const comparisonResults: CompareResultsItem[] = [
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
     new_rev: 'a998c42399a8fcea623690bf65bef49de20535b4',
+    base_app: '',
+    new_app: '',
     framework_id: 1,
     platform: 'macosx1015-64-shippable-qr',
     suite: 'glvideo',
@@ -614,6 +642,8 @@ export const comparisonResults: CompareResultsItem[] = [
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
     new_rev: 'a998c42399a8fcea623690bf65bef49de20535b4',
+    base_app: '',
+    new_app: '',
     framework_id: 1,
     platform: 'linux1804-64-shippable-qr',
     suite: 'glvideo',
@@ -658,6 +688,8 @@ export const comparisonResults: CompareResultsItem[] = [
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
     new_rev: 'a998c42399a8fcea623690bf65bef49de20535b4',
+    base_app: '',
+    new_app: '',
     framework_id: 1,
     platform: 'windows10-64-shippable-qr',
     suite: 'glvideo',
@@ -702,6 +734,8 @@ export const comparisonResults: CompareResultsItem[] = [
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
     new_rev: 'a998c42399a8fcea623690bf65bef49de20535b4',
+    base_app: '',
+    new_app: '',
     framework_id: 1,
     platform: 'macosx1015-64-shippable-qr',
     suite: 'kraken',
@@ -745,6 +779,8 @@ export const comparisonResults: CompareResultsItem[] = [
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
     new_rev: 'a998c42399a8fcea623690bf65bef49de20535b4',
+    base_app: '',
+    new_app: '',
     framework_id: 1,
     platform: 'linux1804-64-shippable-qr',
     suite: 'kraken',
@@ -788,6 +824,8 @@ export const comparisonResults: CompareResultsItem[] = [
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
     new_rev: 'a998c42399a8fcea623690bf65bef49de20535b4',
+    base_app: '',
+    new_app: '',
     framework_id: 1,
     platform: 'windows10-64-shippable-qr',
     suite: 'kraken',
@@ -831,6 +869,8 @@ export const comparisonResults: CompareResultsItem[] = [
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
     new_rev: 'a998c42399a8fcea623690bf65bef49de20535b4',
+    base_app: '',
+    new_app: '',
     framework_id: 1,
     platform: 'macosx1015-64-shippable-qr',
     suite: 'motionmark_webgl',
@@ -875,6 +915,8 @@ export const comparisonResults: CompareResultsItem[] = [
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
     new_rev: 'a998c42399a8fcea623690bf65bef49de20535b4',
+    base_app: '',
+    new_app: '',
     framework_id: 1,
     platform: 'windows10-64-ref-hw-2017-qr',
     suite: 'motionmark_webgl',
@@ -919,6 +961,8 @@ export const comparisonResults: CompareResultsItem[] = [
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
     new_rev: 'a998c42399a8fcea623690bf65bef49de20535b4',
+    base_app: '',
+    new_app: '',
     framework_id: 1,
     platform: 'linux1804-64-shippable-qr',
     suite: 'motionmark_webgl',
@@ -963,6 +1007,8 @@ export const comparisonResults: CompareResultsItem[] = [
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
     new_rev: 'a998c42399a8fcea623690bf65bef49de20535b4',
+    base_app: '',
+    new_app: '',
     framework_id: 1,
     platform: 'windows10-64-shippable-qr',
     suite: 'motionmark_webgl',

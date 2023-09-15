@@ -1,17 +1,16 @@
 import { Dictionary } from '@reduxjs/toolkit';
 
 import { Repository } from '../types/state';
-import { Framework, Platform } from '../types/types';
+import {
+  Framework,
+  Platform,
+  SupportedPerfdocsFramework,
+} from '../types/types';
 
 export const treeherderBaseURL = 'https://treeherder.mozilla.org';
 
 export const maxRevisionsError = 'Maximum 1 revision(s).';
-export const featureNotSupportedError =
-  'This feature is not supported yet. Please compare two revisions only.';
 
-export const userFeedbackMessage =
-  'For any kind of suggestions please contact us at ';
-export const perfCompareEmail = 'perfcompare-user-feedback@mozilla.com';
 export const compareView = 'compare-results';
 export const searchView = 'search';
 
@@ -23,6 +22,8 @@ export const repoMap: Dictionary<Repository['name']> = {
   77: 'autoland',
   108: 'fenix',
 };
+
+export const baseDocsURL = 'https://firefox-source-docs.mozilla.org';
 
 export const frameworkMap: Record<Framework['id'], Framework['name']> = {
   1: 'talos',
@@ -36,6 +37,33 @@ export const frameworkMap: Record<Framework['id'], Framework['name']> = {
   15: 'mozperftest',
   16: 'fxrecord',
 };
+
+export const supportedPerfdocsFrameworks: Record<
+  SupportedPerfdocsFramework,
+  string
+> = {
+  talos: 'talos',
+  awsy: 'awsy',
+  devtools: 'performance-tests-overview',
+};
+
+export const devToolsFramework: Framework = { id: 12, name: 'devtools' };
+
+export const removedOldTestDevTools = 'total-after-gc';
+
+// TODO: remove these once the documentation for DevTools is complete
+export const nonDocumentedTestsDevTools = [
+  'reload-inspector:content-process',
+  'reload-inspector:parent-process',
+  'reload-debugger:content-process',
+  'reload-debugger:parent-process',
+  'reload-no-devtools:content-process',
+  'reload-no-devtools:parent-process',
+  'reload-netmonitor:content-process',
+  'reload-netmonitor:parent-process',
+  'reload-webconsole:parent-process',
+  'reload-webconsole:content-process',
+];
 
 export const frameworks: Framework[] = [
   { id: 1, name: 'talos' },

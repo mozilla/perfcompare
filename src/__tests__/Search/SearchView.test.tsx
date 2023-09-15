@@ -24,7 +24,7 @@ function renderComponent() {
     <SearchView
       toggleColorMode={toggleColorMode}
       protocolTheme={protocolTheme}
-      title='Search'
+      title={Strings.metaData.pageTitle.search}
     />,
   );
 }
@@ -37,7 +37,6 @@ function fetchTestData(data: RevisionsList[]) {
       }),
     }),
   ) as jest.Mock;
-  jest.spyOn(global, 'fetch');
 }
 
 describe('Search View', () => {
@@ -45,7 +44,7 @@ describe('Search View', () => {
     renderComponent();
 
     // We have to account for the dropdown position
-    //Shift focus to base search
+    // Shift focus to base search
 
     expect(document.body).toMatchSnapshot();
     await act(async () => void jest.runOnlyPendingTimers());
@@ -120,7 +119,7 @@ describe('Base Search', () => {
     const user = userEvent.setup({ delay: null });
     renderComponent();
 
-    //Click inside the input box to show search results.
+    // Click inside the input box to show search results.
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
@@ -134,7 +133,7 @@ describe('Base Search', () => {
     const comment = await screen.findAllByText("you've got no arms left!");
     expect(comment[0]).toBeInTheDocument();
 
-    //Click outside the input box to hide search results.
+    // Click outside the input box to hide search results.
 
     const label = screen.getAllByLabelText('Base')[0];
     await user.click(label);
@@ -149,7 +148,7 @@ describe('Base Search', () => {
     const user = userEvent.setup({ delay: null });
     renderComponent();
 
-    //Click inside the input box to show search results.
+    // Click inside the input box to show search results.
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
@@ -163,7 +162,7 @@ describe('Base Search', () => {
     const comment = await screen.findAllByText("you've got no arms left!");
     expect(comment[0]).toBeInTheDocument();
 
-    //Press Escape key to hide search results.
+    // Press Escape key to hide search results.
 
     await user.keyboard('{Escape}');
     expect(comment[0]).not.toBeInTheDocument();
@@ -205,9 +204,8 @@ describe('Base Search', () => {
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'terryjones@python.com');
     jest.runOnlyPendingTimers();
-    const spyOnFetch = jest.spyOn(global, 'fetch');
 
-    expect(spyOnFetch).toHaveBeenCalledWith(
+    expect(global.fetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?author=terryjones@python.com',
     );
 
@@ -259,7 +257,6 @@ describe('Base Search', () => {
   it('should update error state with generic message if fetch error is undefined', async () => {
     global.fetch = jest.fn(() => Promise.reject(new Error())) as jest.Mock;
     const searchType = 'base' as InputType;
-    const spyOnFetch = jest.spyOn(global, 'fetch');
     const SearchPropsBase = {
       searchType,
       mode: 'light' as ThemeMode,
@@ -273,7 +270,7 @@ describe('Base Search', () => {
 
     await act(async () => void jest.runOnlyPendingTimers());
 
-    expect(spyOnFetch).toHaveBeenCalledWith(
+    expect(global.fetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true',
     );
     act(() => {
@@ -299,7 +296,7 @@ describe('Base Search', () => {
       <SearchView
         toggleColorMode={toggleColorMode}
         protocolTheme={protocolTheme}
-        title='Search'
+        title={Strings.metaData.pageTitle.search}
       />,
     );
     expect(history.location.pathname).toEqual('/');
