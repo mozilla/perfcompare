@@ -78,6 +78,27 @@ git rebase upstream/master
 git push --force origin <local branch>
 ```
 
+### Running all validators and tests
+
+The following command will run nearly all the checks we have:
+
+```
+npm run test-all
+```
+
+It's handy to run before pushing your code to a pull request, so that you're
+sure that it obeys the rules we have in place.
+
+The following command:
+
+```
+npm run fix-all
+```
+
+will automatically fix some of the errors.
+
+If you want to run just specific tests, please read below.
+
 ### Validating JavaScript
 
 We run our JavaScript code in the frontend through [ESLint](https://eslint.org/) to ensure that new code has a consistent style and doesn't suffer from common errors.
@@ -95,6 +116,9 @@ npm run format:check
 # Automatically fix format issues found (where possible):
 npm run format
 ```
+
+ESLint and Prettier are usually integrated within your code editor and should
+run automatically when you edit a file.
 
 ### Running Tests
 
@@ -117,7 +141,7 @@ ensure no UI changes occur unexpectedly.
 
 After manually verifying the UI renders as intended, run the following command to update
 snapshots:
-`jest --updateSnapshot`
+`npm run test:update`
 
 Snapshot files should be included in your pull request(s).
 
