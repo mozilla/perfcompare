@@ -297,8 +297,10 @@ describe('Results View', () => {
     expect(labelResult).toBe('5 ms');
   });
 
-  it('test that we get a blobUrl eventually', async () => {
+  it('should make blobUrl available for "Download JSON" button eventually', async () => {
+    global.URL.createObjectURL = jest.fn().mockReturnValue('blob:');
     // Render the component
+
     const { testData } = getTestData();
     global.fetch = jest.fn(() =>
       Promise.resolve({
@@ -316,12 +318,10 @@ describe('Results View', () => {
         title={Strings.metaData.pageTitle.results}
       />,
     );
-
     // Wait for the component to render and the blobUrl to become available
-    const blob = await waitFor(
-      () => screen.getByText('Download JSON', { selector: '[href^=blob:]' }),
-      { timeout: 10000 },
-    );
+    const blob = await screen.findByText('Download JSON', {
+      selector: '[href^="blob:"]',
+    });
 
     expect(blob).toBeInTheDocument();
   });
