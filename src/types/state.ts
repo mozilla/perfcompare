@@ -51,6 +51,8 @@ export type RevisionsHeader = {
 export type CompareResultsItem = {
   base_rev: string;
   new_rev: string;
+  base_app: string;
+  new_app: string;
   header_name: string;
   base_retriggerable_job_ids: number[];
   new_retriggerable_job_ids: number[];
