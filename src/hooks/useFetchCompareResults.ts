@@ -1,11 +1,15 @@
-import { fetchCompareResults } from '../thunks/compareResultsThunk';
+import {
+  fetchCompareResults,
+  fetchFakeResults,
+} from '../thunks/compareResultsThunk';
 import type { Repository } from '../types/state';
+import type { FakeCommitHash } from '../types/types';
 import { useAppDispatch } from './app';
 
 function useFetchCompareResults() {
   const dispatch = useAppDispatch();
 
-  const dispatchFetchCompareResults = async (
+  const dispatchFetchCompareResults = (
     repos: Repository['name'][] | null,
     revs: string[] | undefined,
     framework: string,
@@ -45,8 +49,6 @@ function useFetchCompareResults() {
       } else if (revs.length > 2 && revs.length <= 4) {
         baseRepo = repos[0];
         baseRev = revs[0];
-        newRepo = repos[1];
-        newRev = revs[1];
         for (let i = 1; i < revs.length; i++) {
           newRepo = repos[i];
           newRev = revs[i];
@@ -63,7 +65,20 @@ function useFetchCompareResults() {
       }
     }
   };
-  return { dispatchFetchCompareResults };
+
+  const fakeCommitHashes: FakeCommitHash[] = [
+    'bb6a5e451dace3b9c7be42d24c9272738d73e6db',
+    '9d50665254899d8431813bdc04178e6006ce6d59',
+    'a998c42399a8fcea623690bf65bef49de20535b4',
+  ];
+
+  const dispatchFakeCompareResults = () => {
+    for (const commitHash of fakeCommitHashes) {
+      void dispatch(fetchFakeResults(commitHash));
+    }
+  };
+
+  return { dispatchFetchCompareResults, dispatchFakeCompareResults };
 }
 
 export default useFetchCompareResults;

@@ -30,9 +30,9 @@ const allRevisionsOption =
 
 const fakeRevisionsOptions = [
   allRevisionsOption,
-  'bb6a5e451dac',
-  '9d5066525489',
-  'a998c42399a8',
+  'bb6a5e451dace3b9c7be42d24c9272738d73e6db',
+  '9d50665254899d8431813bdc04178e6006ce6d59',
+  'a998c42399a8fcea623690bf65bef49de20535b4',
 ];
 
 function RevisionSelect() {
