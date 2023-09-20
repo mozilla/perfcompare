@@ -38,13 +38,15 @@ function CompareWithBase({ mode, view }: CompareWithBaseProps) {
     expanded: true,
     class: 'expanded',
   });
-  const [isWarning, setWarning] = useState<boolean>(false);
 
   const styles = CompareCardsStyles(mode);
   const dropDownStyles = SearchStyles(mode);
   const baseRepository = search.base.repository;
   const newRepository = search.new.repository;
   const variant: VariantType = 'warning';
+  const isWarning =
+    (baseRepository === 'try' && newRepository !== 'try') ||
+    (baseRepository !== 'try' && newRepository === 'try');
   const searchCompCommonProps = {
     mode,
     view,
@@ -53,16 +55,10 @@ function CompareWithBase({ mode, view }: CompareWithBaseProps) {
 
   useEffect(() => {
     //show warning if try is being compared to a non-try repo or vice versa
-    if (
-      (baseRepository === 'try' && newRepository !== 'try') ||
-      (baseRepository !== 'try' && newRepository === 'try')
-    ) {
+    if (isWarning) {
       enqueueSnackbar(warning, { variant });
-      setWarning(true);
-    } else {
-      setWarning(false);
     }
-  }, [baseRepository, newRepository]);
+  }, [isWarning]);
 
   const toggleIsExpanded = () => {
     setExpanded({
