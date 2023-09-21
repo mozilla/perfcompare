@@ -35,21 +35,11 @@ interface RevisionOption {
 const allRevisionsOption =
   Strings.components.comparisonRevisionDropdown.allRevisions;
 
-const fakeRevisionsOptions: RevisionOption = {
-  [allRevisionsOption.key]: allRevisionsOption,
-  bb6a5e451dace3b9c7be42d24c9272738d73e6db: {
-    key: 'bb6a5e451dace3b9c7be42d24c9272738d73e6db',
-    text: truncateHash('bb6a5e451dace3b9c7be42d24c9272738d73e6db'),
-  },
-  '9d50665254899d8431813bdc04178e6006ce6d59': {
-    key: '9d50665254899d8431813bdc04178e6006ce6d59',
-    text: truncateHash('9d50665254899d8431813bdc04178e6006ce6d59'),
-  },
-  a998c42399a8fcea623690bf65bef49de20535b4: {
-    key: 'a998c42399a8fcea623690bf65bef49de20535b4',
-    text: truncateHash('a998c42399a8fcea623690bf65bef49de20535b4'),
-  },
-};
+const fakeRevisionsOptions = [
+  'bb6a5e451dace3b9c7be42d24c9272738d73e6db',
+  '9d50665254899d8431813bdc04178e6006ce6d59',
+  'a998c42399a8fcea623690bf65bef49de20535b4',
+];
 
 const formatRevisionsOptions = (revisions: string[]) => {
   const revisionsOptions: RevisionOption = {
@@ -73,14 +63,13 @@ function RevisionSelect() {
   };
 
   const newRevisions = useAppSelector(selectNewRevisions);
-  const newRevisionsOption = formatRevisionsOptions(newRevisions);
 
   const [searchParams] = useSearchParams();
   const fakeDataParam: string | null = searchParams.get('fakedata');
 
-  const revisionsOptions = fakeDataParam
-    ? fakeRevisionsOptions
-    : newRevisionsOption;
+  const revisionsOptions = formatRevisionsOptions(
+    fakeDataParam ? fakeRevisionsOptions : newRevisions,
+  );
 
   const getShortHashOption = (value: string) => {
     return revisionsOptions[value].text;
