@@ -1,7 +1,7 @@
 import { style } from 'typestyle';
 
-import { Spacing } from '../../../styles';
-import { MeasurementUnit } from '../../../types/types';
+import { Spacing } from '../../styles';
+import { MeasurementUnit } from '../../types/types';
 import GraphDistribution from './GraphDistribution';
 
 const styles = {

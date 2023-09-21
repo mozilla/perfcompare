@@ -1,8 +1,8 @@
-import ResultsView from '../../../components/CompareResults/beta/ResultsView';
-import { Strings } from '../../../resources/Strings';
-import useProtocolTheme from '../../../theme/protocolTheme';
-import { renderWithRouter } from '../../utils/setupTests';
-import { renderHook, screen } from '../../utils/test-utils';
+import ResultsView from '../../components/CompareResults/ResultsView';
+import { Strings } from '../../resources/Strings';
+import useProtocolTheme from '../../theme/protocolTheme';
+import { renderWithRouter } from '../utils/setupTests';
+import { renderHook, screen } from '../utils/test-utils';
 
 describe('Search by title/test name', () => {
   const protocolTheme = renderHook(() => useProtocolTheme()).result.current
