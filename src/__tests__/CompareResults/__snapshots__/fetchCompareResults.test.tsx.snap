@@ -441,7 +441,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                       aria-hidden="true"
                       class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
                       tabindex="-1"
-                      value="All revisions"
+                      value="all-revisions"
                     />
                     <svg
                       aria-hidden="true"
@@ -964,7 +964,7 @@ exports[`Results View/fetchCompareResults State does not contain data if fetch r
                       aria-hidden="true"
                       class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
                       tabindex="-1"
-                      value="All revisions"
+                      value="all-revisions"
                     />
                     <svg
                       aria-hidden="true"

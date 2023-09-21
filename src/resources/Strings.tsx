@@ -87,7 +87,10 @@ export const Strings = {
       note: 'For the selected revision(s), no results when compared to the base revision.',
     },
     comparisonRevisionDropdown: {
-      allRevisions: 'All revisions',
+      allRevisions: {
+        key: 'all-revisions',
+        text: 'All revisions',
+      },
     },
   },
   errors: {
