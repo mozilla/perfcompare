@@ -354,7 +354,13 @@ exports[`Search View RESULTS: clicking the cancel button hides input and dropdow
                                 <span
                                   class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
                                 >
-                                  coconut
+                                  <a
+                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+                                    href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
+                                    target="_blank"
+                                  >
+                                    coconut
+                                  </a>
                                 </span>
                                 <div
                                   class="info-caption"
@@ -515,7 +521,13 @@ exports[`Search View RESULTS: clicking the cancel button hides input and dropdow
                                 <span
                                   class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
                                 >
-                                  spam
+                                  <a
+                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+                                    href="https://treeherder.mozilla.org/jobs?repo=try&revision=spam"
+                                    target="_blank"
+                                  >
+                                    spam
+                                  </a>
                                 </span>
                                 <div
                                   class="info-caption"
@@ -1452,7 +1464,13 @@ exports[`Search View RESULTS: clicking the save button hides input and dropdown 
                                 <span
                                   class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
                                 >
-                                  coconut
+                                  <a
+                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+                                    href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
+                                    target="_blank"
+                                  >
+                                    coconut
+                                  </a>
                                 </span>
                                 <div
                                   class="info-caption"
@@ -1613,7 +1631,13 @@ exports[`Search View RESULTS: clicking the save button hides input and dropdown 
                                 <span
                                   class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
                                 >
-                                  spam
+                                  <a
+                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+                                    href="https://treeherder.mozilla.org/jobs?repo=try&revision=spam"
+                                    target="_blank"
+                                  >
+                                    spam
+                                  </a>
                                 </span>
                                 <div
                                   class="info-caption"
@@ -2550,7 +2574,13 @@ exports[`Search View RESULTS: shows dropdown and input when edit button in click
                                 <span
                                   class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
                                 >
-                                  coconut
+                                  <a
+                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+                                    href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
+                                    target="_blank"
+                                  >
+                                    coconut
+                                  </a>
                                 </span>
                                 <div
                                   class="info-caption"
@@ -2711,7 +2741,13 @@ exports[`Search View RESULTS: shows dropdown and input when edit button in click
                                 <span
                                   class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
                                 >
-                                  spam
+                                  <a
+                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+                                    href="https://treeherder.mozilla.org/jobs?repo=try&revision=spam"
+                                    target="_blank"
+                                  >
+                                    spam
+                                  </a>
                                 </span>
                                 <div
                                   class="info-caption"

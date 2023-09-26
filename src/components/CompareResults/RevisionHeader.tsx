@@ -83,7 +83,10 @@ function RevisionHeader(props: RevisionHeaderProps) {
     <TableRow className='revision-header'>
       <TableCell colSpan={6}>
         <strong>{createTitle(header, docsURL, isLinkSupported)}</strong>{' '}
-        <Link href={getTreeherderURL(header.new_rev, header.new_repo)}>
+        <Link
+          href={getTreeherderURL(header.new_rev, header.new_repo)}
+          target='_blank'
+        >
           {shortHash}
         </Link>
       </TableCell>
