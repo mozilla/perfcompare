@@ -302,4 +302,36 @@ describe('Results View', () => {
     const labelResult = labelFunction({ raw: { x: 5, y: 0, r: 10 } });
     expect(labelResult).toBe('5 ms');
   });
+
+  it('should make blobUrl available when "Download JSON" button is clicked', async () => {
+    const user = userEvent.setup({ delay: null });
+
+    const createObjectURLMock = jest.fn().mockReturnValue('blob:');
+    global.URL.createObjectURL = createObjectURLMock;
+    const revokeObjectURLMock = jest.fn();
+    global.URL.revokeObjectURL = revokeObjectURLMock;
+    // Render the component
+
+    const { testData } = getTestData();
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () => ({
+          results: testData,
+        }),
+      }),
+    ) as jest.Mock;
+    jest.spyOn(global, 'fetch');
+
+    renderWithRouter(
+      <ResultsView
+        protocolTheme={protocolTheme}
+        toggleColorMode={toggleColorMode}
+        title={Strings.metaData.pageTitle.results}
+      />,
+    );
+    const button = await screen.findByText('Download JSON');
+    await user.click(button);
+
+    expect(createObjectURLMock).toHaveBeenCalled();
+  });
 });
