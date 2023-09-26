@@ -30,7 +30,7 @@ function DownloadButton() {
   const results = useAppSelector((state) => {
     if (
       state.comparison.activeComparison ===
-      Strings.components.comparisonRevisionDropdown.allRevisions
+      Strings.components.comparisonRevisionDropdown.allRevisions.key
     ) {
       return state.compareResults.data;
     } else {

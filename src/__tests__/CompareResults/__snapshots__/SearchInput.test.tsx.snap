@@ -441,7 +441,7 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                       aria-hidden="true"
                       class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
                       tabindex="-1"
-                      value="All revisions"
+                      value="all-revisions"
                     />
                     <svg
                       aria-hidden="true"

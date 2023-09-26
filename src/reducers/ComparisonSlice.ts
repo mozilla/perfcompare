@@ -9,7 +9,8 @@ interface InitialState {
 }
 
 const initialState: InitialState = {
-  activeComparison: 'All revisions',
+  activeComparison:
+    Strings.components.comparisonRevisionDropdown.allRevisions.key,
 };
 
 type Results = {
@@ -72,7 +73,7 @@ function processResults(results: CompareResultsItem[]) {
 }
 
 const allRevisionsOption =
-  Strings.components.comparisonRevisionDropdown.allRevisions;
+  Strings.components.comparisonRevisionDropdown.allRevisions.key;
 
 export const selectProcessedResults = createSelector(
   (state: RootState) => state.compareResults.data,
