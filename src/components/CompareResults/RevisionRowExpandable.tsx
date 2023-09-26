@@ -1,9 +1,9 @@
 import Divider from '@mui/material/Divider';
 import { style } from 'typestyle';
 
-import { Strings } from '../../../resources/Strings';
-import { Colors, Spacing } from '../../../styles';
-import type { CompareResultsItem, ThemeMode } from '../../../types/state';
+import { Strings } from '../../resources/Strings';
+import { Colors, Spacing } from '../../styles';
+import type { CompareResultsItem, ThemeMode } from '../../types/state';
 import Distribution from './Distribution';
 
 const strings = Strings.components.expandableRow;
@@ -27,6 +27,8 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
     base_runs: baseRuns,
     new_runs: newRuns,
     new_is_better: newIsBetter,
+    base_app: baseApplication,
+    new_app: newApplication,
   } = result;
   const shouldDisplayGraph = shouldDisplayGraphDistribution(baseRuns, newRuns);
 
@@ -73,7 +75,19 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
           <Divider />{' '}
         </div>
         {!shouldDisplayGraph && (
-          <div className={`${styles.bottomSpace}`}>{singleRun}</div>
+          <div className={`${styles.bottomSpace}`}>
+            <div>{singleRun} </div>
+            {baseApplication && (
+              <div>
+                <b>Base application</b>: {baseApplication}{' '}
+              </div>
+            )}
+            {newApplication && (
+              <div>
+                <b>New application</b>: {newApplication}{' '}
+              </div>
+            )}
+          </div>
         )}
         <div className={`${styles.bottomSpace}`}>
           <b>Mean Difference</b>: {deltaPercent}%{' '}

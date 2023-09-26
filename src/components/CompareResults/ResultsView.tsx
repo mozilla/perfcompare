@@ -5,24 +5,22 @@ import type { Theme } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
-import { useLocation } from 'react-router-dom';
 import { useSearchParams } from 'react-router-dom';
 import { style } from 'typestyle';
 
-import { compareView } from '../../../common/constants';
-import { useAppDispatch, useAppSelector } from '../../../hooks/app';
-import useFetchCompareResults from '../../../hooks/useFetchCompareResults';
-import useHandleChangeSearch from '../../../hooks/useHandleChangeSearch';
-import { comparisonResults as secondRevisionResults } from '../../../mockData/9d5066525489';
-import { comparisonResults as thirdRevisionResults } from '../../../mockData/a998c42399a8';
-import { comparisonResults as firstRevisionResults } from '../../../mockData/bb6a5e451dac';
-import { setCompareData } from '../../../reducers/CompareResults';
-import { SearchContainerStyles } from '../../../styles';
-import { background } from '../../../styles';
-import { fetchRecentRevisions } from '../../../thunks/searchThunk';
-import { Repository, View, InputType } from '../../../types/state';
-import CompareWithBase from '../../Search/CompareWithBase';
-import PerfCompareHeader from '../../Shared/PerfCompareHeader';
+import { compareView } from '../../common/constants';
+import { frameworkMap } from '../../common/constants';
+import { useAppDispatch, useAppSelector } from '../../hooks/app';
+import useFetchCompareResults from '../../hooks/useFetchCompareResults';
+import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
+import { updateFramework } from '../../reducers/FrameworkSlice';
+import { SearchContainerStyles } from '../../styles';
+import { background } from '../../styles';
+import { fetchRecentRevisions } from '../../thunks/searchThunk';
+import { Repository, View, InputType } from '../../types/state';
+import { Framework } from '../../types/types';
+import CompareWithBase from '../Search/CompareWithBase';
+import PerfCompareHeader from '../Shared/PerfCompareHeader';
 import ResultsMain from './ResultsMain';
 
 interface ResultsViewProps {
@@ -36,6 +34,10 @@ function ResultsView(props: ResultsViewProps) {
     (state) => state.search.base.repository,
   );
   const repositoryNew = useAppSelector((state) => state.search.new.repository);
+  const { dispatchFetchCompareResults, dispatchFakeCompareResults } =
+    useFetchCompareResults();
+  const { searchByRevisionOrEmail } = useHandleChangeSearch();
+
   const { protocolTheme, toggleColorMode, title } = props;
   const themeMode = protocolTheme.palette.mode;
   const styles = {
@@ -47,61 +49,64 @@ function ResultsView(props: ResultsViewProps) {
   const [searchParams] = useSearchParams();
   const fakeDataParam: string | null = searchParams.get('fakedata');
 
-  const comparisonResults = {
-    bb6a5e451dac: firstRevisionResults,
-    '9d5066525489': secondRevisionResults,
-    a998c42399a8: thirdRevisionResults,
-  };
-
-  // TODO: Populate store with real data or fake data pased on URL params
   useEffect(() => {
     if (fakeDataParam === 'true') {
-      dispatch(setCompareData({ data: comparisonResults }));
-    } else {
-      dispatch(setCompareData({ data: {} }));
+      dispatchFakeCompareResults();
     }
   }, [fakeDataParam]);
 
   const sectionStyles = SearchContainerStyles(themeMode, compareView);
 
-  const location = useLocation();
-  const { dispatchFetchCompareResults } = useFetchCompareResults();
-  const { searchByRevisionOrEmail } = useHandleChangeSearch();
-
   useEffect(() => {
     document.title = title;
   }, [title]);
 
-  useEffect(() => {
-    const urlSearchParams = new URLSearchParams(location.search);
-    const repos = urlSearchParams.get('repos')?.split(',');
-    const revs = urlSearchParams.get('revs')?.split(',');
-    const framework = urlSearchParams.get('framework');
+  const repos = searchParams.get('repos');
+  const revs = searchParams.get('revs');
+  const framework = searchParams.get('framework');
 
+  useEffect(() => {
     if (revs && repos) {
+      const revsArray = revs.split(',');
+      const reposArray = repos.split(',');
       void dispatchFetchCompareResults(
-        repos as Repository['name'][],
-        revs,
+        reposArray as Repository['name'][],
+        revsArray,
         framework as string,
       );
 
       /*
       On component mount, use the repos and revs in hash to search for the base and new revisions. Store the results in state via the SelectedRevisionsSlice: see extra reducer, fetchRevisionsByID. Now can always display the selected revisions despite page refresh or copying and pasting url
       */
-      revs.forEach((rev, index) => {
+      revsArray.forEach((rev, index) => {
         void searchByRevisionOrEmail(
-          repos[index] as Repository['name'],
+          reposArray[index] as Repository['name'],
           rev,
           'base',
         );
         void searchByRevisionOrEmail(
-          repos[index] as Repository['name'],
+          reposArray[index] as Repository['name'],
           rev,
           'new',
         );
       });
     }
-  }, []);
+  }, [repos, revs, framework]);
+
+  useEffect(() => {
+    if (framework) {
+      const frameworkId = parseInt(framework);
+      if (frameworkId in frameworkMap) {
+        const frameworkName = frameworkMap[frameworkId as Framework['id']];
+        dispatch(
+          updateFramework({
+            id: frameworkId,
+            name: frameworkName,
+          }),
+        );
+      }
+    }
+  }, [framework]);
 
   /* editing the revisions requires fetching the recent revisions in results view
    */

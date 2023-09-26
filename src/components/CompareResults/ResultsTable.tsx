@@ -5,10 +5,10 @@ import Table from '@mui/material/Table';
 import TableContainer from '@mui/material/TableContainer';
 import { style } from 'typestyle';
 
-import { useAppSelector } from '../../../hooks/app';
-import { selectProcessedResults } from '../../../reducers/ComparisonSlice';
-import { Colors, Spacing } from '../../../styles';
-import type { ThemeMode } from '../../../types/state';
+import { useAppSelector } from '../../hooks/app';
+import { selectProcessedResults } from '../../reducers/ComparisonSlice';
+import { Colors, Spacing } from '../../styles';
+import type { ThemeMode } from '../../types/state';
 import NoResultsFound from './NoResultsFound';
 import TableContent from './TableContent';
 import TableHeader from './TableHeader';

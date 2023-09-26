@@ -1,6 +1,6 @@
 import { style } from 'typestyle';
 
-import { Spacing } from '../../../styles';
+import { Spacing } from '../../styles';
 import DownloadButton from './DownloadButton';
 import RevisionSelect from './RevisionSelect';
 import SearchInput from './SearchInput';

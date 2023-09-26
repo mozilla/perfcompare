@@ -11,9 +11,6 @@ export const treeherderBaseURL = 'https://treeherder.mozilla.org';
 
 export const maxRevisionsError = 'Maximum 1 revision(s).';
 
-export const userFeedbackMessage =
-  'For any kind of suggestions please contact us at ';
-export const perfCompareEmail = 'perfcompare-user-feedback@mozilla.com';
 export const compareView = 'compare-results';
 export const searchView = 'search';
 

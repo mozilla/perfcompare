@@ -1,14 +1,17 @@
-import ResultsView from '../../../components/CompareResults/beta/ResultsView';
-import RevisionSelect from '../../../components/CompareResults/beta/RevisionSelect';
-import { Strings } from '../../../resources/Strings';
-import useProtocolTheme from '../../../theme/protocolTheme';
-import { renderWithRouter } from '../../utils/setupTests';
-import { fireEvent, renderHook, screen, within } from '../../utils/test-utils';
+import type { ReactElement } from 'react';
 
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual<typeof import('react-router-dom')>('react-router-dom'),
-  useSearchParams: () => [new URLSearchParams({ fakedata: 'true' })],
-}));
+import ResultsView from '../../components/CompareResults/ResultsView';
+import RevisionSelect from '../../components/CompareResults/RevisionSelect';
+import { Strings } from '../../resources/Strings';
+import useProtocolTheme from '../../theme/protocolTheme';
+import { renderWithRouter } from '../utils/setupTests';
+import { fireEvent, renderHook, screen, within } from '../utils/test-utils';
+
+function renderWithRoute(component: ReactElement) {
+  return renderWithRouter(component, {
+    route: '/compare-results/?fakedata=true',
+  });
+}
 
 describe('Revision select', () => {
   const protocolTheme = renderHook(() => useProtocolTheme()).result.current
@@ -17,14 +20,14 @@ describe('Revision select', () => {
     .toggleColorMode;
 
   it('Should match snapshot', () => {
-    renderWithRouter(<RevisionSelect />);
+    renderWithRoute(<RevisionSelect />);
 
     expect(screen.getByTestId('revision-select')).toBeInTheDocument();
     expect(document.body).toMatchSnapshot();
   });
 
   it("Should change 'All revisions' option to bb6a5e451dac", async () => {
-    renderWithRouter(<RevisionSelect />);
+    renderWithRoute(<RevisionSelect />);
 
     let selectButton = await screen.findByRole('button');
 
@@ -53,7 +56,7 @@ describe('Revision select', () => {
     const fakedataParam = urlParams.get('fakedata');
     expect(fakedataParam).toBe('true');
 
-    renderWithRouter(
+    renderWithRoute(
       <ResultsView
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
@@ -129,7 +132,7 @@ describe('Revision select', () => {
     const fakedataParam = urlParams.get('fakedata');
     expect(fakedataParam).toBe('true');
 
-    renderWithRouter(
+    renderWithRoute(
       <ResultsView
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
@@ -194,7 +197,7 @@ describe('Revision select', () => {
     const fakedataParam = urlParams.get('fakedata');
     expect(fakedataParam).toBe('true');
 
-    renderWithRouter(
+    renderWithRoute(
       <ResultsView
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}

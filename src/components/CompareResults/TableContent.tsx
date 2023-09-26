@@ -1,12 +1,12 @@
 import { TableBody } from '@mui/material';
 import { style } from 'typestyle';
 
-import { Colors, Spacing } from '../../../styles';
+import { Colors, Spacing } from '../../styles';
 import type {
   CompareResultsItem,
   RevisionsHeader,
   ThemeMode,
-} from '../../../types/state';
+} from '../../types/state';
 import RevisionHeader from './RevisionHeader';
 import RevisionRow from './RevisionRow';
 

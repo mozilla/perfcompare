@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 import Alert from '@mui/material/Alert';
-import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Link from '@mui/material/Link';
 import { ThemeProvider } from '@mui/material/styles';
@@ -11,9 +10,8 @@ import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import { Strings } from '../resources/Strings';
 import { Banner } from '../styles/Banner';
 import useProtocolTheme from '../theme/protocolTheme';
-import ResultsView from './CompareResults/beta/ResultsView';
+import ResultsView from './CompareResults/ResultsView';
 import SearchView from './Search/SearchView';
-import FeedbackAlert from './Shared/FeedbackAlert';
 import SnackbarCloseButton from './Shared/SnackbarCloseButton';
 
 const strings: BannerStrings = {
@@ -59,11 +57,11 @@ function App() {
           <CssBaseline />
           <Alert className={Banner} severity='warning'>
             <div className='banner-text'>
-              {strings.text} <Link href={strings.href}>{strings.linkText}</Link>
+              {strings.text}{' '}
+              <Link href={strings.href} target='_blank'>
+                {strings.linkText}
+              </Link>
             </div>
-            <Box display='flex' justifyContent='flex-end' alignItems='flex-end'>
-              <FeedbackAlert />
-            </Box>
           </Alert>
 
           <Router>

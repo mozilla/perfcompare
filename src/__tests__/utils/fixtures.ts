@@ -101,6 +101,8 @@ const getTestData = () => {
     {
       base_rev: 'coconut',
       new_rev: 'spam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -144,6 +146,8 @@ const getTestData = () => {
     {
       base_rev: 'coconut',
       new_rev: 'spam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'linux1804-64-shippable-qr',
       suite: 'a11yr',
@@ -187,6 +191,8 @@ const getTestData = () => {
     {
       base_rev: 'coconut',
       new_rev: 'spam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'windows10-64-shippable-qr',
       suite: 'a11yr',
@@ -230,6 +236,8 @@ const getTestData = () => {
     {
       base_rev: 'coconut',
       new_rev: 'spam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'windows10-64-shippable-qr',
       suite: 'a11yr',
@@ -276,6 +284,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'windows10-64-shippable-qr',
       suite: 'cpstartup',
@@ -320,6 +330,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -363,6 +375,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -406,6 +420,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -449,6 +465,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -492,6 +510,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -535,6 +555,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -578,6 +600,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -621,6 +645,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -664,6 +690,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -707,6 +735,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -750,6 +780,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -793,6 +825,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -836,6 +870,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -879,6 +915,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -922,6 +960,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -965,6 +1005,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -1008,6 +1050,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -1051,6 +1095,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -1094,6 +1140,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -1137,6 +1185,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -1180,6 +1230,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -1223,6 +1275,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -1266,6 +1320,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -1309,6 +1365,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -1352,6 +1410,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -1395,6 +1455,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -1438,6 +1500,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -1481,6 +1545,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -1524,6 +1590,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -1567,6 +1635,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -1610,6 +1680,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'macosx1015-64-shippable-qr',
       suite: 'a11yr',
@@ -1653,6 +1725,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'linux1804-64-shippable-qr',
       suite: 'a11yr',
@@ -1696,6 +1770,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'windows10-64-shippable-qr',
       suite: 'a11yr',
@@ -1739,6 +1815,8 @@ const getTestData = () => {
     {
       base_rev: 'coconuts',
       new_rev: 'spamspam',
+      base_app: '',
+      new_app: '',
       framework_id: 1,
       platform: 'windows10-64-shippable-qr',
       suite: 'a11yr',

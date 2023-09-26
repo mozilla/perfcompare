@@ -1,10 +1,10 @@
 import { Button } from '@mui/material';
 import { style } from 'typestyle';
 
-import { useAppSelector } from '../../../hooks/app';
-import { Strings } from '../../../resources/Strings';
-import { ButtonsLightRaw } from '../../../styles';
-import { truncateHash } from '../../../utils/helpers';
+import { useAppSelector } from '../../hooks/app';
+import { Strings } from '../../resources/Strings';
+import { ButtonsLightRaw } from '../../styles';
+import { truncateHash } from '../../utils/helpers';
 
 const styles = {
   downloadButton: style({

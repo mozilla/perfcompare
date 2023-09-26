@@ -1,18 +1,19 @@
-import ResultsView from '../../../components/CompareResults/beta/ResultsView';
-import { Strings } from '../../../resources/Strings';
-import useProtocolTheme from '../../../theme/protocolTheme';
-import getTestData from '../../utils/fixtures';
-import { renderWithRouter, store } from '../../utils/setupTests';
-import { renderHook } from '../../utils/test-utils';
-import { screen } from '../../utils/test-utils';
+import type { ReactElement } from 'react';
 
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual<typeof import('react-router-dom')>('react-router-dom'),
-  useLocation: () => ({
-    search:
-      '?revs=6089e7f0fa57a29c6d080f135f65e146c34457d8,1d5eb1343cc87a9be3dfe4b884822506ffdda7d3&repos=mozilla-central,mozilla-central&framework=1',
-  }),
-}));
+import ResultsView from '../../components/CompareResults/ResultsView';
+import { Strings } from '../../resources/Strings';
+import useProtocolTheme from '../../theme/protocolTheme';
+import getTestData from '../utils/fixtures';
+import { renderWithRouter, store } from '../utils/setupTests';
+import { renderHook } from '../utils/test-utils';
+import { screen } from '../utils/test-utils';
+
+function renderWithRoute(component: ReactElement) {
+  return renderWithRouter(component, {
+    route:
+      '/compare-results/?revs=6089e7f0fa57a29c6d080f135f65e146c34457d8,1d5eb1343cc87a9be3dfe4b884822506ffdda7d3&repos=mozilla-central,mozilla-central&framework=1',
+  });
+}
 
 describe('Results View/fetchCompareResults', () => {
   it('Should fetch and display recent results', () => {
@@ -30,7 +31,7 @@ describe('Results View/fetchCompareResults', () => {
       }),
     ) as jest.Mock;
 
-    renderWithRouter(
+    renderWithRoute(
       <ResultsView
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
@@ -59,7 +60,7 @@ describe('Results View/fetchCompareResults', () => {
       }),
     ) as jest.Mock;
 
-    renderWithRouter(
+    renderWithRoute(
       <ResultsView
         protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}

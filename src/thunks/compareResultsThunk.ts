@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { treeherderBaseURL } from '../common/constants';
 import { CompareResultsItem, Repository } from '../types/state';
+import { FakeCommitHash } from '../types/types';
 
 export const fetchCompareResults = createAsyncThunk<
   CompareResultsItem[],
@@ -42,5 +43,23 @@ export const fetchCompareResults = createAsyncThunk<
       return json;
     }
     return rejectWithValue('No results found');
+  },
+);
+
+export const fetchFakeResults = createAsyncThunk<
+  CompareResultsItem[],
+  FakeCommitHash,
+  { rejectValue: string }
+>(
+  'compareResults/fetchFakeResults',
+  async (commitHash, { rejectWithValue }) => {
+    try {
+      const module = (await import(`../mockData/${commitHash}`)) as {
+        comparisonResults: CompareResultsItem[];
+      };
+      return module.comparisonResults;
+    } catch (err) {
+      return rejectWithValue((err as Error).message);
+    }
   },
 );
