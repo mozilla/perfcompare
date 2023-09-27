@@ -1,7 +1,9 @@
 import { Button } from '@mui/material';
 import { style } from 'typestyle';
 
+import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
+import { selectStringifiedJsonResults } from '../../reducers/ComparisonSlice';
 import { Strings } from '../../resources/Strings';
 import { ButtonsLightRaw } from '../../styles';
 import { truncateHash } from '../../utils/helpers';
@@ -16,76 +18,40 @@ const styles = {
   }),
 };
 
-interface GroupedResults {
-  [key: string]: ResultObject[];
-}
-
-interface ResultObject {
-  header_name: string;
-  new_rev: string;
-}
-
 function DownloadButton() {
-  let fileName = 'perf-compare-all-revisions.json';
-  const results = useAppSelector((state) => {
+  const results = useAppSelector(selectStringifiedJsonResults);
+
+  const fileName = useAppSelector((state: RootState) => {
     if (
       state.comparison.activeComparison ===
       Strings.components.comparisonRevisionDropdown.allRevisions.key
     ) {
-      return state.compareResults.data;
+      return 'perf-compare-all-revisions.json';
     } else {
-      fileName = `perf-compare-${truncateHash(
+      return `perf-compare-${truncateHash(
         state.comparison.activeComparison,
       )}.json`;
-      return {
-        [state.comparison.activeComparison]:
-          state.compareResults.data[state.comparison.activeComparison],
-      };
     }
   });
 
-  const formatDownloadData = (
-    data: Record<string, ResultObject[]>,
-  ): object[] => {
-    const groupNames = Object.keys(data);
-    const transformedGroups: object[] = [];
+  const handleDownloadClick = () => {
+    if (results) {
+      const blob = new Blob([results], { type: 'application/json' });
+      const blobUrl = URL.createObjectURL(blob);
 
-    groupNames.forEach((groupName) => {
-      const groupedResults = data[groupName].reduce(
-        (grouped: GroupedResults, result: ResultObject) => {
-          if (!grouped[result.header_name]) {
-            grouped[result.header_name] = [];
-          }
-          grouped[result.header_name].push(result);
-          return grouped;
-        },
-        {},
-      );
+      // Trigger the download programmatically
+      const downloadLink = document.createElement('a');
+      downloadLink.href = blobUrl;
+      downloadLink.download = fileName;
+      downloadLink.click();
 
-      const transformedGroupEntries = Object.keys(groupedResults).map(
-        (header_name) => ({
-          [`${header_name} ${truncateHash(
-            groupedResults[header_name][0].new_rev,
-          )}`]: groupedResults[header_name],
-        }),
-      );
-
-      transformedGroups.push(...transformedGroupEntries);
-    });
-    return transformedGroups;
+      // Clean up the URL object
+      URL.revokeObjectURL(blobUrl);
+    }
   };
-
   return (
     <div className={styles.downloadButton}>
-      <Button
-        disabled={!results}
-        href={`data:text/json;charset=utf-8,${encodeURIComponent(
-          JSON.stringify(formatDownloadData(results)),
-        )}`}
-        download={fileName}
-      >
-        Download JSON
-      </Button>
+      <Button onClick={handleDownloadClick}>Download JSON</Button>
     </div>
   );
 }
