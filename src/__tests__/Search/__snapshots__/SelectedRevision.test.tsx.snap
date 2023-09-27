@@ -780,7 +780,13 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
                                 <span
                                   class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
                                 >
-                                  coconut
+                                  <a
+                                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+                                    href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
+                                    target="_blank"
+                                  >
+                                    coconut
+                                  </a>
                                 </span>
                                 <div
                                   class="info-caption"

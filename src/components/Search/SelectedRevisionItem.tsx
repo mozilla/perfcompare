@@ -4,6 +4,7 @@ import { CloseOutlined } from '@mui/icons-material';
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
 import WarningIcon from '@mui/icons-material/Warning';
+import { Link } from '@mui/material';
 import Button from '@mui/material/Button';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -21,7 +22,12 @@ import { Strings } from '../../resources/Strings';
 import { SelectRevsStyles } from '../../styles';
 import type { RevisionsList } from '../../types/state';
 import { InputType, ThemeMode, View } from '../../types/state';
-import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
+import { Repository } from '../../types/state';
+import {
+  truncateHash,
+  getLatestCommitMessage,
+  getTreeherderURL,
+} from '../../utils/helpers';
 
 const base = Strings.components.searchDefault.base;
 const warning = base.collapsed.warnings.comparison;
@@ -30,7 +36,7 @@ interface SelectedRevisionItemProps {
   index: number;
   item: RevisionsList;
   mode: ThemeMode;
-  repository: string | undefined;
+  repository: Repository['name'];
   searchType: InputType;
   isWarning?: boolean;
   view: View;
@@ -138,7 +144,12 @@ function SelectedRevisionItem({
                   alignItems='center'
                   className='revision-hash'
                 >
-                  {revisionHash}
+                  <Link
+                    href={getTreeherderURL(item.revision, repository)}
+                    target='_blank'
+                  >
+                    {revisionHash}
+                  </Link>
                 </Typography>
 
                 <div className='info-caption'>
