@@ -25,31 +25,55 @@ const styles = {
   }),
 };
 
+interface RevisionOption {
+  [rev: string]: {
+    key: string;
+    text: string;
+  };
+}
+
 const allRevisionsOption =
   Strings.components.comparisonRevisionDropdown.allRevisions;
 
 const fakeRevisionsOptions = [
-  allRevisionsOption,
   'bb6a5e451dace3b9c7be42d24c9272738d73e6db',
   '9d50665254899d8431813bdc04178e6006ce6d59',
   'a998c42399a8fcea623690bf65bef49de20535b4',
 ];
 
+const formatRevisionsOptions = (revisions: string[]) => {
+  const revisionsOptions: RevisionOption = {
+    [allRevisionsOption.key]: allRevisionsOption,
+  };
+  revisions.forEach((rev) => {
+    revisionsOptions[rev] = {
+      key: rev,
+      text: truncateHash(rev),
+    };
+  });
+  return revisionsOptions;
+};
+
 function RevisionSelect() {
   const dispatch = useDispatch();
   const { activeComparison } = useAppSelector((state) => state.comparison);
+  const activeComparisonOption = {
+    key: activeComparison,
+    text: truncateHash(activeComparison),
+  };
 
   const newRevisions = useAppSelector(selectNewRevisions);
 
   const [searchParams] = useSearchParams();
   const fakeDataParam: string | null = searchParams.get('fakedata');
 
-  const revisionsOptions = fakeDataParam
-    ? fakeRevisionsOptions
-    : [allRevisionsOption, ...newRevisions];
+  const revisionsOptions = formatRevisionsOptions(
+    fakeDataParam ? fakeRevisionsOptions : newRevisions,
+  );
 
-  const getShortHashOption = (value: string) =>
-    value === allRevisionsOption ? allRevisionsOption : truncateHash(value);
+  const getShortHashOption = (value: string) => {
+    return revisionsOptions[value].text;
+  };
 
   const handlerChangeComparison = (option: string) => {
     dispatch(updateComparison({ activeComparison: option }));
@@ -73,13 +97,15 @@ function RevisionSelect() {
           );
         }}
         onChange={(event) => handlerChangeComparison(event.target.value)}
-        value={activeComparison}
+        value={activeComparisonOption.key}
       >
-        {revisionsOptions.map((option) => (
-          <MenuItem key={option} value={option}>
-            {getShortHashOption(option)}
-          </MenuItem>
-        ))}
+        {Object.values(revisionsOptions).map(({ key, text }) => {
+          return (
+            <MenuItem key={key} value={key}>
+              {text}
+            </MenuItem>
+          );
+        })}
       </Select>
     </Box>
   );

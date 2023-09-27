@@ -441,7 +441,7 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                       aria-hidden="true"
                       class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
                       tabindex="-1"
-                      value="All revisions"
+                      value="all-revisions"
                     />
                     <svg
                       aria-hidden="true"
@@ -473,17 +473,16 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                 <div
                   class="fnyxjzg"
                 >
-                  <a
+                  <button
                     class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-t42cd1-MuiButtonBase-root-MuiButton-root"
-                    download="perf-compare-all-revisions.json"
-                    href="data:text/json;charset=utf-8,%5B%5D"
                     tabindex="0"
+                    type="button"
                   >
                     Download JSON
                     <span
                       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
-                  </a>
+                  </button>
                 </div>
               </div>
             </header>
