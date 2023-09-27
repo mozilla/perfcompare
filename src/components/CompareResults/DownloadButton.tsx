@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Button } from '@mui/material';
 import { style } from 'typestyle';
 
@@ -58,4 +56,4 @@ function DownloadButton() {
   );
 }
 
-export default React.memo(DownloadButton);
+export default DownloadButton;

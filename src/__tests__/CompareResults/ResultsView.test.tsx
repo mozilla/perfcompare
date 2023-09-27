@@ -333,5 +333,6 @@ describe('Results View', () => {
     await user.click(button);
 
     expect(createObjectURLMock).toHaveBeenCalled();
+    expect(revokeObjectURLMock).toHaveBeenCalledWith('blob:');
   });
 });
