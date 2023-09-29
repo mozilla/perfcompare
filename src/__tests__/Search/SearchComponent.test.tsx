@@ -7,7 +7,7 @@ import SearchComponent from '../../components/Search/SearchComponent';
 import { setSelectedRevisions } from '../../reducers/SelectedRevisionsSlice';
 import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
-import { InputType, ThemeMode } from '../../types/state';
+import { InputType, ComparisonType, ThemeMode } from '../../types/state';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
@@ -23,6 +23,7 @@ describe('Search View', () => {
   it('SEARCH: renders correctly when there are no results', async () => {
     const SearchPropsBase = {
       searchType: 'base' as InputType,
+      comparisonType: 'searchCompareWithBase' as ComparisonType,
       mode: 'light' as ThemeMode,
       view: 'search' as 'search' | 'compare-results',
       isWarning: false,

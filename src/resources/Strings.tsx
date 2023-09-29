@@ -23,12 +23,12 @@ export const Strings = {
     },
     searchDefault: {
       title: 'Compare with a base or over time',
-      sharedCollasped: {
+      sharedCollapsed: {
         revisions: {
           selectLabel: 'Revisions',
           placeholder: 'Search base by ID number or author email',
         },
-        framkework: {
+        framework: {
           selectLabel: 'Framework',
           tooltip:
             'The framework or test harness containing the test you want to examine.',
@@ -72,7 +72,7 @@ export const Strings = {
         img: 'https://user-images.githubusercontent.com/88336547/233250659-4012551b-e07a-44ce-accb-242e29d31914.png',
         imgDark:
           'https://user-images.githubusercontent.com/88336547/233250642-7fd7c217-e72b-4375-9078-7ed2f99cb0f7.png',
-        collapedSelectLabel: 'Time range',
+        collapsedSelectLabel: 'Time range',
       },
     },
     expandableRow: {

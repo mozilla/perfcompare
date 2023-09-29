@@ -6,7 +6,7 @@ import SearchComponent from '../../components/Search/SearchComponent';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
-import { InputType } from '../../types/state';
+import { InputType, ComparisonType } from '../../types/state';
 import type { ThemeMode } from '../../types/state';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
@@ -90,11 +90,15 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     );
 
     await screen.findAllByText('No results found');
-    expect(store.getState().search[searchType].searchResults).toStrictEqual([]);
-    expect(store.getState().search[searchType].inputError).toBe(true);
-    expect(store.getState().search[searchType].inputHelperText).toBe(
-      'No results found',
+    expect(
+      store.getState().searchCompareWithBase[searchType].searchResults,
+    ).toStrictEqual([]);
+    expect(store.getState().searchCompareWithBase[searchType].inputError).toBe(
+      true,
     );
+    expect(
+      store.getState().searchCompareWithBase[searchType].inputHelperText,
+    ).toBe('No results found');
   });
 
   it('should update error state if fetchRevisionsByAuthor returns an error', async () => {
@@ -126,10 +130,12 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     );
 
     await screen.findAllByText('She turned me into a newt!');
-    expect(store.getState().search[searchType].inputError).toBe(true);
-    expect(store.getState().search[searchType].inputHelperText).toBe(
-      'She turned me into a newt!',
+    expect(store.getState().searchCompareWithBase[searchType].inputError).toBe(
+      true,
     );
+    expect(
+      store.getState().searchCompareWithBase[searchType].inputHelperText,
+    ).toBe('She turned me into a newt!');
   });
 
   it('should update error state with generic message if fetch error message is undefined', async () => {
@@ -137,8 +143,10 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
     const searchType = 'base' as InputType;
+    const comparisonType = 'searchCompareWithBase' as ComparisonType;
     const SearchPropsBase = {
       searchType,
+      comparisonType,
       mode: 'light' as ThemeMode,
       view: 'search' as 'search' | 'compare-results',
       isWarning: false,
@@ -165,10 +173,14 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     );
 
     await screen.findAllByText('An error has occurred');
-    expect(store.getState().search[searchType].searchResults).toStrictEqual([]);
-    expect(store.getState().search[searchType].inputError).toBe(true);
-    expect(store.getState().search[searchType].inputHelperText).toBe(
-      'An error has occurred',
+    expect(
+      store.getState().searchCompareWithBase[searchType].searchResults,
+    ).toStrictEqual([]);
+    expect(store.getState().searchCompareWithBase[searchType].inputError).toBe(
+      true,
     );
+    expect(
+      store.getState().searchCompareWithBase[searchType].inputHelperText,
+    ).toBe('An error has occurred');
   });
 });

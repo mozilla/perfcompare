@@ -6,7 +6,7 @@ import SearchComponent from '../../components/Search/SearchComponent';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
-import { InputType, ThemeMode } from '../../types/state';
+import { InputType, ComparisonType, ThemeMode } from '../../types/state';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
@@ -62,9 +62,9 @@ describe('Search View/fetchRecentRevisions', () => {
     expect(screen.queryByText('mozilla-central')).not.toBeInTheDocument();
 
     act(() => {
-      expect(store.getState().search[searchType].searchResults).toStrictEqual(
-        testData,
-      );
+      expect(
+        store.getState().searchCompareWithBase[searchType].searchResults,
+      ).toStrictEqual(testData);
     });
 
     const searchInput = screen.getAllByRole('textbox')[0];
@@ -104,11 +104,15 @@ describe('Search View/fetchRecentRevisions', () => {
     expect(global.fetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true',
     );
-    expect(store.getState().search[searchType].searchResults).toStrictEqual([]);
-    expect(store.getState().search[searchType].inputError).toBe(true);
-    expect(store.getState().search[searchType].inputHelperText).toBe(
-      'No results found',
+    expect(
+      store.getState().searchCompareWithBase[searchType].searchResults,
+    ).toStrictEqual([]);
+    expect(store.getState().searchCompareWithBase[searchType].inputError).toBe(
+      true,
     );
+    expect(
+      store.getState().searchCompareWithBase[searchType].inputHelperText,
+    ).toBe('No results found');
   });
 
   it('should update error state if fetchRecentRevisions returns an error', async () => {
@@ -116,8 +120,10 @@ describe('Search View/fetchRecentRevisions', () => {
       Promise.reject(new Error('What, ridden on a horse?')),
     ) as jest.Mock;
     const searchType = 'base' as InputType;
+    const comparisonType = 'searchCompareWithBase' as ComparisonType;
     const SearchPropsBase = {
       searchType,
+      comparisonType,
       mode: 'light' as ThemeMode,
       view: 'search' as 'search' | 'compare-results',
       isWarning: false,
@@ -138,10 +144,14 @@ describe('Search View/fetchRecentRevisions', () => {
     expect(global.fetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true',
     );
-    expect(store.getState().search[searchType].searchResults).toStrictEqual([]);
-    expect(store.getState().search[searchType].inputError).toBe(true);
-    expect(store.getState().search[searchType].inputHelperText).toBe(
-      'What, ridden on a horse?',
+    expect(
+      store.getState().searchCompareWithBase[searchType].searchResults,
+    ).toStrictEqual([]);
+    expect(store.getState().searchCompareWithBase[searchType].inputError).toBe(
+      true,
     );
+    expect(
+      store.getState().searchCompareWithBase[searchType].inputHelperText,
+    ).toBe('What, ridden on a horse?');
   });
 });

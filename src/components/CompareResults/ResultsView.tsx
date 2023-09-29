@@ -13,12 +13,13 @@ import { frameworkMap } from '../../common/constants';
 import { useAppDispatch, useAppSelector } from '../../hooks/app';
 import useFetchCompareResults from '../../hooks/useFetchCompareResults';
 import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
-import { updateFramework } from '../../reducers/FrameworkSlice';
+import { updateFramework } from '../../reducers/SearchSlice';
 import { SearchContainerStyles } from '../../styles';
 import { background } from '../../styles';
 import { fetchRecentRevisions } from '../../thunks/searchThunk';
 import { Repository, View, InputType } from '../../types/state';
 import { Framework } from '../../types/types';
+import CompareOverTime from '../Search/CompareOverTime';
 import CompareWithBase from '../Search/CompareWithBase';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
 import ResultsMain from './ResultsMain';
@@ -31,9 +32,14 @@ interface ResultsViewProps {
 function ResultsView(props: ResultsViewProps) {
   const dispatch = useAppDispatch();
   const repositoryBase = useAppSelector(
-    (state) => state.search.base.repository,
+    (state) => state.searchCompareWithBase.base.repository,
   );
-  const repositoryNew = useAppSelector((state) => state.search.new.repository);
+  const repositoryNew = useAppSelector(
+    (state) => state.searchCompareWithBase.new.repository,
+  );
+  const repositoryCompareOverTime = useAppSelector(
+    (state) => state.searchCompareOverTime.new.repository,
+  );
   const { dispatchFetchCompareResults, dispatchFakeCompareResults } =
     useFetchCompareResults();
   const { searchByRevisionOrEmail } = useHandleChangeSearch();
@@ -130,6 +136,16 @@ function ResultsView(props: ResultsViewProps) {
     );
   }, [repositoryNew]);
 
+  useEffect(() => {
+    const repository = repositoryCompareOverTime;
+    void dispatch(
+      fetchRecentRevisions({
+        repository,
+        searchType: 'new' as InputType,
+      }),
+    );
+  }, [repositoryCompareOverTime]);
+
   return (
     <div
       className={styles.container}
@@ -148,6 +164,7 @@ function ResultsView(props: ResultsViewProps) {
           </Stack>
         </Link>
         <CompareWithBase mode={themeMode} view={compareView as View} />
+        <CompareOverTime mode={themeMode} view={compareView as View} />
       </section>
       <Grid container alignItems='center' justifyContent='center'>
         <Grid item xs={12}>

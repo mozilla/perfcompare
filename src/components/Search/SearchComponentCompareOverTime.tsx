@@ -57,7 +57,7 @@ interface SearchProps {
   isWarning: boolean;
 }
 
-function SearchComponent({
+function SearchComponentCompareOverTime({
   mode,
   view,
   selectLabel,
@@ -102,10 +102,10 @@ function SearchComponent({
 
   const dispatch = useAppDispatch();
   const checkedRevisionsList = useAppSelector(
-    (state) => state.searchCompareWithBase[searchType].checkedRevisions,
+    (state) => state.searchCompareOverTime.new.checkedRevisions,
   );
   const searchState = useAppSelector(
-    (state) => state.searchCompareWithBase[searchType],
+    (state) => state.searchCompareOverTime.new,
   );
   const selectedRevisions = useAppSelector(
     (state) => state.selectedRevisions.revisions,
@@ -122,14 +122,15 @@ function SearchComponent({
 
   const handleFocus = (e: MouseEvent) => {
     if (
-      (e.target as HTMLElement).matches(`#${searchType}-search-container, 
-      #${searchType}-search-container *`) &&
+      (e.target as HTMLElement)
+        .matches(`#${comparisonType}-${searchType}-search-container, 
+        #${comparisonType}-${searchType}-search-container *`) &&
       // do not open search results when dropdown or cancel button is clicked
       !(e.target as HTMLElement).matches(
-        `#${searchType}_search-dropdown,
-        #${searchType}_search-dropdown *,
-        #cancel-save_btns, 
-        #cancel-save_btns *`,
+        `#${comparisonType}-${searchType}_search-dropdown,
+          #${comparisonType}-${searchType}_search-dropdown *,
+          #cancel-save_btns, 
+          #cancel-save_btns *`,
       )
     ) {
       setFocused(true);
@@ -188,7 +189,7 @@ function SearchComponent({
       <Grid
         item
         xs={2}
-        className={`${searchType}-search-dropdown ${styles.dropDown} label-edit-wrapper`}
+        className={`${comparisonType}-${searchType}-search-dropdown ${styles.dropDown} label-edit-wrapper`}
       >
         <InputLabel
           id='select-repository-label'
@@ -204,7 +205,7 @@ function SearchComponent({
           <Button
             className={`edit-button ${
               !editBtnVisible ? 'hidden edit-hidden' : ''
-            } edit-button-${searchType}`}
+            } edit-button-${comparisonType}-${searchType}`}
             role='button'
             name='edit-button'
             aria-label='edit button'
@@ -219,17 +220,17 @@ function SearchComponent({
         <Grid
           container
           alignItems='flex-start'
-          id={`${searchType}-search-container`}
+          id={`${comparisonType}-${searchType}-search-container`}
           className={styles.container}
           ref={containerRef}
         >
           <Grid
             item
             xs={2}
-            id={`${searchType}_search-dropdown`}
-            className={`${searchType}-search-dropdown ${styles.dropDown} ${
-              view === compareView ? 'small' : ''
-            } ${view}-base-dropdown`}
+            id={`${comparisonType}-${searchType}_search-dropdown`}
+            className={`${comparisonType}-${searchType}-search-dropdown ${
+              styles.dropDown
+            } ${view === compareView ? 'small' : ''} ${view}-base-dropdown`}
           >
             <SearchDropdown
               view={view}
@@ -244,9 +245,11 @@ function SearchComponent({
           <Grid
             item
             xs={7}
-            id={`${searchType}_search-input`}
-            className={`${searchType}-search-input ${
-              matchesQuery ? `${searchType}-search-input--mobile` : ''
+            id={`${comparisonType}-${searchType}_search-input`}
+            className={`${comparisonType}-${searchType}-search-input ${
+              matchesQuery
+                ? `${comparisonType}-${searchType}-search-input--mobile`
+                : ''
             } ${styles.baseSearchInput} ${view === compareView ? 'big' : ''} `}
           >
             <SearchInput
@@ -269,7 +272,7 @@ function SearchComponent({
               <Button
                 className={`cancel-save cancel-button ${
                   cancelBtn.main
-                } cancel-button-${searchType} ${
+                } cancel-button-${comparisonType}-${searchType} ${
                   editBtnVisible ? 'hidden' : ''
                 }`}
                 role='button'
@@ -281,7 +284,7 @@ function SearchComponent({
                 {cancel}
               </Button>
               <Button
-                className={`cancel-save save-button } save-button-${searchType} ${
+                className={`cancel-save save-button } save-button-${comparisonType}-${searchType} ${
                   editBtnVisible ? 'hidden' : ''
                 }`}
                 role='button'
@@ -313,4 +316,4 @@ function SearchComponent({
   );
 }
 
-export default SearchComponent;
+export default SearchComponentCompareOverTime;

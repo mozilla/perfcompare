@@ -75,6 +75,7 @@ export const CompareCardsStyles = (mode: string) => {
           flexDirection: 'column',
           borderRadius: `0px 0px ${Spacing.Small}px ${Spacing.Small}px`,
           cursor: 'default',
+          marginBottom: `${Spacing.Large}px`,
           $nest: {
             '&.content-base--expanded': {
               borderRadius: `0px 0px ${Spacing.Small}px ${Spacing.Small}px`,

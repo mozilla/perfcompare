@@ -104,6 +104,8 @@ export type SearchStateForInput = {
 
 export type InputType = 'base' | 'new';
 
+export type ComparisonType = 'searchCompareWithBase' | 'searchCompareOverTime';
+
 export type View = 'compare-results' | 'search';
 
 export type ThemeMode = 'light' | 'dark';

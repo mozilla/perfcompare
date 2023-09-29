@@ -56,7 +56,7 @@ function SearchResultsListItem({
   searchType,
 }: SearchResultsListItemProps) {
   const isChecked: boolean = useAppSelector((state) =>
-    state.search[searchType].checkedRevisions.includes(item),
+    state.searchCompareWithBase[searchType].checkedRevisions.includes(item),
   );
 
   const { handleToggle } = useCheckRevision(searchType);

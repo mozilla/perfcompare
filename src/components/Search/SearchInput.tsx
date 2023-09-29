@@ -27,7 +27,9 @@ function SearchInput({
   searchType,
 }: SearchInputProps) {
   const { handleChangeSearch } = useHandleChangeSearch();
-  const searchState = useAppSelector((state) => state.search[searchType]);
+  const searchState = useAppSelector(
+    (state) => state.searchCompareWithBase[searchType],
+  );
   const { inputError, inputHelperText } = searchState;
 
   const size = view == 'compare-results' ? 'small' : undefined;

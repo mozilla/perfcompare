@@ -14,7 +14,9 @@ interface SearchResultsListProps {
 
 function SearchResultsList(props: SearchResultsListProps) {
   const { view, mode, searchType } = props;
-  const searchState = useAppSelector((state) => state.search[searchType]);
+  const searchState = useAppSelector(
+    (state) => state.searchCompareWithBase[searchType],
+  );
   const { searchResults } = searchState;
   const styles = SelectListStyles(mode);
 

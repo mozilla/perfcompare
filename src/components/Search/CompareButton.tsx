@@ -11,7 +11,7 @@ interface CompareButtonProps {
   view: View;
 }
 
-const strings = Strings.components.searchDefault.sharedCollasped;
+const strings = Strings.components.searchDefault.sharedCollapsed;
 
 export default function CompareButton({ mode }: CompareButtonProps) {
   const { addSelectedRevisions } = useSelectRevision();

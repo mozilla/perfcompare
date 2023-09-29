@@ -7,7 +7,12 @@ import SearchView from '../../components/Search/SearchView';
 import { setSelectedRevisions } from '../../reducers/SelectedRevisionsSlice';
 import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
-import { RevisionsList, InputType, ThemeMode } from '../../types/state';
+import {
+  RevisionsList,
+  InputType,
+  ComparisonType,
+  ThemeMode,
+} from '../../types/state';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen, waitFor } from '../utils/test-utils';
@@ -104,7 +109,7 @@ describe('Base Search', () => {
   it('renders framework dropdown in closed condition', async () => {
     renderComponent();
     // 'talos' is selected by default and dropdown is not visible
-    expect(screen.queryByText(/talos/i)).toBeInTheDocument();
+    expect(screen.queryAllByText(/talos/i)[0]).toBeInTheDocument();
     expect(screen.queryByText(/build_metrics/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/awsy/i)).not.toBeInTheDocument();
 
@@ -125,9 +130,9 @@ describe('Base Search', () => {
     await user.click(searchInput);
 
     await act(async () => {
-      expect(store.getState().search[searchType].searchResults).toStrictEqual(
-        testData,
-      );
+      expect(
+        store.getState().searchCompareWithBase[searchType].searchResults,
+      ).toStrictEqual(testData);
     });
 
     const comment = await screen.findAllByText("you've got no arms left!");
@@ -154,9 +159,9 @@ describe('Base Search', () => {
     await user.click(searchInput);
 
     await act(async () => {
-      expect(store.getState().search[searchType].searchResults).toStrictEqual(
-        testData,
-      );
+      expect(
+        store.getState().searchCompareWithBase[searchType].searchResults,
+      ).toStrictEqual(testData);
     });
 
     const comment = await screen.findAllByText("you've got no arms left!");
@@ -190,7 +195,7 @@ describe('Base Search', () => {
     );
 
     // fetch is called 2 times on initial load
-    expect(spyOnFetch).toHaveBeenCalledTimes(2);
+    expect(spyOnFetch).toHaveBeenCalledTimes(3);
   });
 
   it('Should clear search results if the search value is cleared', async () => {
@@ -211,16 +216,16 @@ describe('Base Search', () => {
 
     await screen.findAllByText("you've got no arms left!");
     act(() => {
-      expect(store.getState().search[searchType].searchResults).toStrictEqual(
-        testData,
-      );
+      expect(
+        store.getState().searchCompareWithBase[searchType].searchResults,
+      ).toStrictEqual(testData);
     });
 
     await user.clear(searchInput);
     act(() => {
-      expect(store.getState().search[searchType].searchResults).toStrictEqual(
-        [],
-      );
+      expect(
+        store.getState().searchCompareWithBase[searchType].searchResults,
+      ).toStrictEqual([]);
     });
 
     expect(
@@ -257,8 +262,10 @@ describe('Base Search', () => {
   it('should update error state with generic message if fetch error is undefined', async () => {
     global.fetch = jest.fn(() => Promise.reject(new Error())) as jest.Mock;
     const searchType = 'base' as InputType;
+    const comparisonType = 'searchCompareWithBase' as ComparisonType;
     const SearchPropsBase = {
       searchType,
+      comparisonType,
       mode: 'light' as ThemeMode,
       view: 'search' as 'search' | 'compare-results',
       isWarning: false,
@@ -274,18 +281,20 @@ describe('Base Search', () => {
       'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true',
     );
     act(() => {
-      expect(store.getState().search[searchType].searchResults).toStrictEqual(
-        [],
-      );
+      expect(
+        store.getState().searchCompareWithBase[searchType].searchResults,
+      ).toStrictEqual([]);
     });
     act(() => {
-      expect(store.getState().search[searchType].inputError).toBe(true);
+      expect(
+        store.getState().searchCompareWithBase[searchType].inputError,
+      ).toBe(true);
     });
 
     act(() => {
-      expect(store.getState().search[searchType].inputHelperText).toBe(
-        'An error has occurred',
-      );
+      expect(
+        store.getState().searchCompareWithBase[searchType].inputHelperText,
+      ).toBe('An error has occurred');
     });
   });
 

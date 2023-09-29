@@ -9,9 +9,14 @@ import { InputType } from '../../types/state';
 function SearchViewInit() {
   const dispatch = useAppDispatch();
   const repositoryBase = useAppSelector(
-    (state) => state.search.base.repository,
+    (state) => state.searchCompareWithBase.base.repository,
   );
-  const repositoryNew = useAppSelector((state) => state.search.new.repository);
+  const repositoryNew = useAppSelector(
+    (state) => state.searchCompareWithBase.new.repository,
+  );
+  const repositoryCompareOverTime = useAppSelector(
+    (state) => state.searchCompareOverTime.new.repository,
+  );
 
   useEffect(() => {
     const repository = repositoryBase;
@@ -25,6 +30,16 @@ function SearchViewInit() {
 
   useEffect(() => {
     const repository = repositoryNew;
+    void dispatch(
+      fetchRecentRevisions({
+        repository,
+        searchType: 'new' as InputType,
+      }),
+    );
+  }, []);
+
+  useEffect(() => {
+    const repository = repositoryCompareOverTime;
     void dispatch(
       fetchRecentRevisions({
         repository,

@@ -14,7 +14,7 @@ import {
   FontsRaw,
   Colors,
 } from '../../styles';
-import { InputType, ThemeMode, View } from '../../types/state';
+import { InputType, ThemeMode, View, ComparisonType } from '../../types/state';
 
 interface SearchDropdownProps {
   view: View;
@@ -22,6 +22,7 @@ interface SearchDropdownProps {
   tooltipText: string;
   mode: ThemeMode;
   searchType: InputType;
+  comparisonType: ComparisonType;
 }
 
 function SearchDropdown({
@@ -29,15 +30,25 @@ function SearchDropdown({
   selectLabel,
   mode,
   searchType,
+  comparisonType,
 }: SearchDropdownProps) {
   const size = view == compareView ? 'small' : undefined;
   const { handleChangeDropdown } = useHandleChangeDropdown();
-  const searchState = useAppSelector((state) => state.search[searchType]);
+  let searchState = useAppSelector(
+    (state) => state.searchCompareWithBase[searchType],
+  );
+  if (comparisonType == 'searchCompareOverTime') {
+    searchState = useAppSelector((state) => state.searchCompareOverTime.new);
+  }
   const { repository } = searchState;
 
   const handleRepoSelect = async (event: SelectChangeEvent) => {
     const selectedRepository = event.target.value;
-    await handleChangeDropdown({ selectedRepository, searchType });
+    await handleChangeDropdown({
+      selectedRepository,
+      searchType,
+      comparisonType,
+    });
   };
 
   cssRule('.MuiTooltip-popper', {

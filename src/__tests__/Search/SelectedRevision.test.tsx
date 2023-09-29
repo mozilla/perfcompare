@@ -91,7 +91,9 @@ describe('SelectedRevision', () => {
     await user.click(removeButton[0]);
 
     act(() => {
-      expect(store.getState().search[searchType].checkedRevisions).toEqual([]);
+      expect(
+        store.getState().searchCompareWithBase[searchType].checkedRevisions,
+      ).toEqual([]);
     });
     expect(screen.queryAllByTestId('selected-rev-item')[0]).toBeUndefined();
   });
@@ -114,7 +116,7 @@ describe('SelectedRevision', () => {
     const baseDropdown = screen.getAllByRole('button', { name: 'Base' })[0];
     await user.click(baseDropdown);
     expect(screen.getAllByText('try')[0]).toBeInTheDocument();
-    const newDropdown = screen.getByTestId('dropdown-select-new');
+    const newDropdown = screen.getAllByTestId('dropdown-select-new')[0];
     const searchInput = screen.getAllByPlaceholderText(
       'Search base by ID number or author email',
     )[0];

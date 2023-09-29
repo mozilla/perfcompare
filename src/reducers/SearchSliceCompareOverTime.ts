@@ -26,14 +26,19 @@ const initialStateFramework = {
   name: 'talos',
 };
 
-const initialState = {
-  base: DEFAULT_VALUES,
-  new: DEFAULT_VALUES,
-  framework: initialStateFramework,
+const initialTimeRange = {
+  seconds: 86400,
+  text: 'Last day',
 };
 
-const searchCompareWithBase = createSlice({
-  name: 'searchCompareWithBase',
+const initialState = {
+  new: DEFAULT_VALUES,
+  framework: initialStateFramework,
+  timerange: initialTimeRange,
+};
+
+const searchCompareOverTime = createSlice({
+  name: 'searchCompareOverTime',
   initialState,
   reducers: {
     updateSearchValue(
@@ -43,10 +48,9 @@ const searchCompareWithBase = createSlice({
         searchType: InputType;
       }>,
     ) {
-      const type = action.payload.searchType;
-      state[type].searchValue = action.payload.search;
+      state.new.searchValue = action.payload.search;
     },
-    //rename payload to more informative names
+    // TODO: rename payload to more informative names
     updateSearchResults(
       state,
       action: PayloadAction<{
@@ -54,10 +58,9 @@ const searchCompareWithBase = createSlice({
         searchType: InputType;
       }>,
     ) {
-      const type = action.payload.searchType;
-      state[type].searchResults = action.payload.results;
-      state[type].inputError = false;
-      state[type].inputHelperText = '';
+      state.new.searchResults = action.payload.results;
+      state.new.inputError = false;
+      state.new.inputHelperText = '';
     },
 
     updateRepository(
@@ -67,8 +70,7 @@ const searchCompareWithBase = createSlice({
         searchType: InputType;
       }>,
     ) {
-      const type = action.payload.searchType;
-      state[type].repository = action.payload.repository;
+      state.new.repository = action.payload.repository;
     },
 
     updateFramework(
@@ -82,6 +84,17 @@ const searchCompareWithBase = createSlice({
       state.framework.name = action.payload.name;
     },
 
+    updateTimeRange(
+      state,
+      action: PayloadAction<{
+        seconds: number;
+        text: string;
+      }>,
+    ) {
+      state.timerange.seconds = action.payload.seconds;
+      state.timerange.text = action.payload.text;
+    },
+
     updateCheckedRevisions(
       state,
       action: PayloadAction<{
@@ -89,23 +102,15 @@ const searchCompareWithBase = createSlice({
         searchType: InputType;
       }>,
     ) {
-      const type = action.payload.searchType;
-      state[type].checkedRevisions = action.payload.newChecked;
+      state.new.checkedRevisions = action.payload.newChecked;
     },
 
     clearCheckedRevisions(state) {
-      state.base.checkedRevisions = initialState.base.checkedRevisions;
       state.new.checkedRevisions = initialState.new.checkedRevisions;
     },
 
-    clearCheckedRevisionforType(
-      state,
-      action: PayloadAction<{
-        searchType: InputType;
-      }>,
-    ) {
-      const type = action.payload.searchType;
-      state[type].checkedRevisions = initialState[type].checkedRevisions;
+    clearCheckedRevisionforType(state) {
+      state.new.checkedRevisions = initialState.new.checkedRevisions;
     },
 
     setCheckedRevisionsForEdit(
@@ -115,8 +120,7 @@ const searchCompareWithBase = createSlice({
         searchType: InputType;
       }>,
     ) {
-      const type = action.payload.searchType;
-      state[type].checkedRevisions = action.payload.revisions;
+      state.new.checkedRevisions = action.payload.revisions;
     },
 
     setInputError(
@@ -126,46 +130,39 @@ const searchCompareWithBase = createSlice({
         searchType: InputType;
       }>,
     ) {
-      const type = action.payload.searchType;
-      state[type].inputError = true;
-      state[type].inputHelperText = action.payload.errorMessage;
+      state.new.inputError = true;
+      state.new.inputHelperText = action.payload.errorMessage;
     },
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchRecentRevisions.fulfilled, (state, action) => {
-        const type = action.meta.arg.searchType;
-        state[type].searchResults = action.payload;
+        state.new.searchResults = action.payload;
       })
       .addCase(fetchRecentRevisions.rejected, (state, action) => {
-        const type = action.meta.arg.searchType;
-        state[type].inputError = true;
+        state.new.inputError = true;
 
-        state[type].inputHelperText = action.payload
+        state.new.inputHelperText = action.payload
           ? action.payload
           : 'An error has occurred';
       })
       // fetchRevisionByID
       .addCase(fetchRevisionByID.fulfilled, (state, action) => {
-        const type = action.meta.arg.searchType;
-        state[type].searchResults = action.payload;
+        state.new.searchResults = action.payload;
       })
       .addCase(fetchRevisionByID.rejected, (state, action) => {
-        const type = action.meta.arg.searchType;
-        state[type].inputError = true;
-        state[type].inputHelperText = action.payload
+        state.new.inputError = true;
+        state.new.inputHelperText = action.payload
           ? action.payload
           : 'An error has occurred';
       })
       // fetchRevisionsByAuthor
       .addCase(fetchRevisionsByAuthor.fulfilled, (state, action) => {
-        const type = action.meta.arg.searchType;
-        state[type].searchResults = action.payload;
+        state.new.searchResults = action.payload;
       })
       .addCase(fetchRevisionsByAuthor.rejected, (state, action) => {
-        const type = action.meta.arg.searchType;
-        state[type].inputError = true;
-        state[type].inputHelperText = action.payload
+        state.new.inputError = true;
+        state.new.inputHelperText = action.payload
           ? action.payload
           : 'An error has occurred';
       });
@@ -182,5 +179,5 @@ export const {
   setInputError,
   setCheckedRevisionsForEdit,
   updateFramework,
-} = searchCompareWithBase.actions;
-export default searchCompareWithBase.reducer;
+} = searchCompareOverTime.actions;
+export default searchCompareOverTime.reducer;

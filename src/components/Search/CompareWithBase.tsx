@@ -33,7 +33,7 @@ interface Expanded {
 function CompareWithBase({ mode, view }: CompareWithBaseProps) {
   const formWrapperRef = createRef<HTMLDivElement>();
   const { enqueueSnackbar } = useSnackbar();
-  const { search } = useAppSelector((state) => state);
+  const { searchCompareWithBase } = useAppSelector((state) => state);
   const [base, setExpanded] = useState<Expanded>({
     expanded: true,
     class: 'expanded',
@@ -41,8 +41,8 @@ function CompareWithBase({ mode, view }: CompareWithBaseProps) {
 
   const styles = CompareCardsStyles(mode);
   const dropDownStyles = SearchStyles(mode);
-  const baseRepository = search.base.repository;
-  const newRepository = search.new.repository;
+  const baseRepository = searchCompareWithBase.base.repository;
+  const newRepository = searchCompareWithBase.new.repository;
   const variant: VariantType = 'warning';
   const isWarning =
     (baseRepository === 'try' && newRepository !== 'try') ||
@@ -99,11 +99,13 @@ function CompareWithBase({ mode, view }: CompareWithBaseProps) {
         <div ref={formWrapperRef} className='form-wrapper'>
           <SearchComponent
             searchType='base'
+            comparisonType='searchCompareWithBase'
             {...stringsBase}
             {...searchCompCommonProps}
           />
           <SearchComponent
             searchType='new'
+            comparisonType='searchCompareWithBase'
             {...stringsRevision}
             {...searchCompCommonProps}
           />
@@ -112,7 +114,11 @@ function CompareWithBase({ mode, view }: CompareWithBaseProps) {
             xs={2}
             className={`${dropDownStyles.dropDown} ${bottomStyles.container}`}
           >
-            <FrameworkDropdown mode={mode} view={view} />
+            <FrameworkDropdown
+              mode={mode}
+              view={view}
+              comparisonType='searchCompareWithBase'
+            />
             <CompareButton mode={mode} view={view} />
           </Grid>
         </div>

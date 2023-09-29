@@ -25,7 +25,7 @@ function SearchContainer(props: SearchViewProps) {
       <Typography className='search-default-title'>{strings.title}</Typography>
       <CompareWithBase mode={themeMode} view={view} />
       {/* hidden until post-mvp release */}
-      <CompareOverTime mode={themeMode} />
+      <CompareOverTime mode={themeMode} view={view} />
     </section>
   );
 }

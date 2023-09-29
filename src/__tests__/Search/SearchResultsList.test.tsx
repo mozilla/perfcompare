@@ -96,9 +96,9 @@ describe('SearchResultsList', () => {
 
     await user.click(fleshWound[0]);
     act(() => {
-      expect(store.getState().search[searchType].checkedRevisions[0]).toBe(
-        testData[1],
-      );
+      expect(
+        store.getState().searchCompareWithBase[searchType].checkedRevisions[0],
+      ).toBe(testData[1]);
     });
 
     await user.click(fleshWound[0]);

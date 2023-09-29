@@ -9,7 +9,7 @@ exports[`Compare With Base 3 renders correctly when there are no results 1`] = `
       class="MuiGrid-root wrapper css-plh9qo-MuiGrid-root"
     >
       <div
-        class="compare-card-container compare-card-container--expanded container_f1ms7w83"
+        class="compare-card-container compare-card-container--expanded container_f1no1svk"
         data-testid="base-state"
       >
         <div
@@ -32,7 +32,7 @@ exports[`Compare With Base 3 renders correctly when there are no results 1`] = `
         />
       </div>
       <div
-        class="compare-card-container content-base content-base--expanded container_f1ms7w83 "
+        class="compare-card-container content-base content-base--expanded container_f1no1svk "
       >
         <hr
           class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
@@ -392,7 +392,7 @@ exports[`Compare With Base 3 shows comparison warning when try repository is com
       class="MuiGrid-root wrapper css-plh9qo-MuiGrid-root"
     >
       <div
-        class="compare-card-container compare-card-container--expanded container_f1ms7w83"
+        class="compare-card-container compare-card-container--expanded container_f1no1svk"
         data-testid="base-state"
       >
         <div
@@ -415,7 +415,7 @@ exports[`Compare With Base 3 shows comparison warning when try repository is com
         />
       </div>
       <div
-        class="compare-card-container content-base content-base--expanded container_f1ms7w83 "
+        class="compare-card-container content-base content-base--expanded container_f1no1svk "
       >
         <hr
           class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"

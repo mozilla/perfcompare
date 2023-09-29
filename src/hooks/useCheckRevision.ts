@@ -10,7 +10,7 @@ const useCheckRevision = (searchType: InputType) => {
   const dispatch = useAppDispatch();
 
   const searchCheckedRevisions: RevisionsList[] = useAppSelector(
-    (state) => state.search[searchType].checkedRevisions,
+    (state) => state.searchCompareWithBase[searchType].checkedRevisions,
   );
 
   const handleToggle = (revision: RevisionsList, maxRevisions: number) => {

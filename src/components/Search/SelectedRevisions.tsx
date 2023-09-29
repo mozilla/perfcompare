@@ -34,7 +34,7 @@ function SelectedRevisions({
   const [revisions, setRevisions] = useState<RevisionsList[]>([]);
   const [repositories, setRepositories] = useState<Repository['name'][]>([]);
   const checkedRevisionsList = useAppSelector(
-    (state) => state.search[searchType].checkedRevisions,
+    (state) => state.searchCompareWithBase[searchType].checkedRevisions,
   );
 
   const selectedRevisions = useAppSelector(

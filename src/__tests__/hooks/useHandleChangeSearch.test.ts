@@ -37,7 +37,7 @@ describe('Tests useHandleSearchHook', () => {
     await act(async () => {
       result.current.handleChangeSearch(searchState);
     });
-    const { search: searchSlice } = store.getState();
+    const { searchCompareWithBase: searchSlice } = store.getState();
     expect(searchSlice[searchType].searchValue).toBe('test input');
   });
 
@@ -59,12 +59,12 @@ describe('Tests useHandleSearchHook', () => {
       store.dispatch(updateSearchResults(searchResults));
     });
 
-    const { search: searchSlice } = store.getState();
+    const { searchCompareWithBase: searchSlice } = store.getState();
     expect(searchSlice[searchType].searchResults).toEqual(testData);
     await act(async () => {
       result.current.handleChangeSearch(searchState);
     });
-    const { search: updatedSearchSlice } = store.getState();
+    const { searchCompareWithBase: updatedSearchSlice } = store.getState();
     expect(updatedSearchSlice[searchType].searchResults).not.toEqual(testData);
     expect(updatedSearchSlice[searchType].searchResults).toEqual([]);
   });
@@ -84,12 +84,12 @@ describe('Tests useHandleSearchHook', () => {
       store.dispatch(setInputError({ errorMessage: testError, searchType }));
     });
 
-    const { search: searchSlice } = store.getState();
+    const { searchCompareWithBase: searchSlice } = store.getState();
     expect(searchSlice[searchType].inputHelperText).toBe('test error');
     await act(async () => {
       result.current.handleChangeSearch(searchState);
     });
-    const { search: updatedSearchSlice } = store.getState();
+    const { searchCompareWithBase: updatedSearchSlice } = store.getState();
     expect(updatedSearchSlice[searchType].inputHelperText).toBe('');
   });
 
@@ -106,7 +106,7 @@ describe('Tests useHandleSearchHook', () => {
       result.current.handleChangeSearch(searchState);
     });
     jest.runAllTimers();
-    const { search: updatedSearchSlice } = store.getState();
+    const { searchCompareWithBase: updatedSearchSlice } = store.getState();
     expect(updatedSearchSlice[searchType].inputHelperText).toBe(
       'Search must be a 12- or 40-character hash, or email address',
     );
@@ -121,7 +121,8 @@ describe('Tests useHandleSearchHook', () => {
     const { result } = renderHook(() => useHandleChangeSearch(), {
       wrapper: StoreProvider,
     });
-    const repository = store.getState().search[searchType].repository;
+    const repository =
+      store.getState().searchCompareWithBase[searchType].repository;
     await act(async () => {
       result.current.handleChangeSearch(searchState);
     });
@@ -140,7 +141,8 @@ describe('Tests useHandleSearchHook', () => {
     const { result } = renderHook(() => useHandleChangeSearch(), {
       wrapper: StoreProvider,
     });
-    const repository = store.getState().search[searchType].repository;
+    const repository =
+      store.getState().searchCompareWithBase[searchType].repository;
     await act(async () => {
       result.current.handleChangeSearch(searchState);
     });
@@ -160,7 +162,8 @@ describe('Tests useHandleSearchHook', () => {
       e: createEvent('abcdef1234567890abcdef1234567890abcdef12'),
       searchType,
     };
-    const repository = store.getState().search[searchType].repository;
+    const repository =
+      store.getState().searchCompareWithBase[searchType].repository;
     const { result } = renderHook(() => useHandleChangeSearch(), {
       wrapper: StoreProvider,
     });

@@ -92,11 +92,15 @@ describe('Search View/fetchRevisionByID', () => {
     );
 
     await screen.findAllByText('No results found');
-    expect(store.getState().search[searchType].searchResults).toStrictEqual([]);
-    expect(store.getState().search[searchType].inputError).toBe(true);
-    expect(store.getState().search[searchType].inputHelperText).toBe(
-      'No results found',
+    expect(
+      store.getState().searchCompareWithBase[searchType].searchResults,
+    ).toStrictEqual([]);
+    expect(store.getState().searchCompareWithBase[searchType].inputError).toBe(
+      true,
     );
+    expect(
+      store.getState().searchCompareWithBase[searchType].inputHelperText,
+    ).toBe('No results found');
   });
 
   it('should update error state if fetchRevisionsByID returns an error', async () => {
@@ -130,9 +134,15 @@ describe('Search View/fetchRevisionByID', () => {
     await screen.findAllByText(
       "You've got two empty 'alves of coconuts and you're bangin' 'em togetha!",
     );
-    expect(store.getState().search[searchType].searchResults).toStrictEqual([]);
-    expect(store.getState().search[searchType].inputError).toBe(true);
-    expect(store.getState().search[searchType].inputHelperText).toBe(
+    expect(
+      store.getState().searchCompareWithBase[searchType].searchResults,
+    ).toStrictEqual([]);
+    expect(store.getState().searchCompareWithBase[searchType].inputError).toBe(
+      true,
+    );
+    expect(
+      store.getState().searchCompareWithBase[searchType].inputHelperText,
+    ).toBe(
       "You've got two empty 'alves of coconuts and you're bangin' 'em togetha!",
     );
   });
@@ -163,10 +173,14 @@ describe('Search View/fetchRevisionByID', () => {
     );
 
     await screen.findAllByText('An error has occurred');
-    expect(store.getState().search[searchType].searchResults).toStrictEqual([]);
-    expect(store.getState().search[searchType].inputError).toBe(true);
-    expect(store.getState().search[searchType].inputHelperText).toBe(
-      'An error has occurred',
+    expect(
+      store.getState().searchCompareWithBase[searchType].searchResults,
+    ).toStrictEqual([]);
+    expect(store.getState().searchCompareWithBase[searchType].inputError).toBe(
+      true,
     );
+    expect(
+      store.getState().searchCompareWithBase[searchType].inputHelperText,
+    ).toBe('An error has occurred');
   });
 });

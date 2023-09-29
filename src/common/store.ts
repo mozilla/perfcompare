@@ -3,13 +3,13 @@ import { combineReducers } from 'redux';
 
 import compareResults from '../reducers/CompareResults';
 import comparison from '../reducers/ComparisonSlice';
-import framework from '../reducers/FrameworkSlice';
-import search from '../reducers/SearchSlice';
+import searchCompareWithBase from '../reducers/SearchSlice';
+import searchCompareOverTime from '../reducers/SearchSliceCompareOverTime';
 import selectedRevisions from '../reducers/SelectedRevisionsSlice';
 
 const reducer = combineReducers({
-  search,
-  framework,
+  searchCompareWithBase,
+  searchCompareOverTime,
   selectedRevisions,
   compareResults,
   comparison,

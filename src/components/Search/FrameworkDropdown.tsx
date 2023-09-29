@@ -20,17 +20,22 @@ import {
   DropDownMenuRaw,
   DropDownItemRaw,
 } from '../../styles';
-import type { ThemeMode, View } from '../../types/state';
+import type { ThemeMode, View, ComparisonType } from '../../types/state';
 import type { Framework } from '../../types/types';
 
 interface FrameworkDropdownProps {
   view: View;
   mode: ThemeMode;
+  comparisonType: ComparisonType;
 }
 
-const strings = Strings.components.searchDefault.sharedCollasped.framkework;
+const strings = Strings.components.searchDefault.sharedCollapsed.framework;
 
-function FrameworkDropdown({ view, mode }: FrameworkDropdownProps) {
+function FrameworkDropdown({
+  view,
+  mode,
+  comparisonType,
+}: FrameworkDropdownProps) {
   cssRule('.MuiTooltip-popper', {
     ...(mode === 'light' ? TooltipRaw.Light : TooltipRaw.Dark),
     $nest: {
@@ -80,9 +85,12 @@ function FrameworkDropdown({ view, mode }: FrameworkDropdownProps) {
     }),
   };
 
-  const frameworkId = useAppSelector((state) => state.framework.id);
+  const frameworkId = useAppSelector(
+    (state) => state[comparisonType].framework.id,
+  );
 
-  const { handleChangeFrameworkDropdown } = useHandleChangeFrameworkDropdown();
+  const { handleChangeFrameworkDropdown } =
+    useHandleChangeFrameworkDropdown(comparisonType);
 
   const handleFrameworkSelect = async (event: SelectChangeEvent) => {
     const id = +event.target.value as Framework['id'];

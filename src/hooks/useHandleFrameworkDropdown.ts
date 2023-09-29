@@ -1,4 +1,6 @@
-import { updateFramework } from '../reducers/FrameworkSlice';
+import { updateFramework as updateFrameworkCompareWithBase } from '../reducers/SearchSlice';
+import { updateFramework as updateFrameworkCompareOverTime } from '../reducers/SearchSliceCompareOverTime';
+import { ComparisonType } from '../types/state';
 import { useAppDispatch } from './app';
 
 interface DropdownProps {
@@ -6,16 +8,25 @@ interface DropdownProps {
   name: string;
 }
 
-function useHandleChangeFrameworkDropdown() {
+function useHandleChangeFrameworkDropdown(comparisonType: ComparisonType) {
   const dispatch = useAppDispatch();
 
   const handleChangeFrameworkDropdown = async ({ id, name }: DropdownProps) => {
-    dispatch(
-      updateFramework({
-        id,
-        name,
-      }),
-    );
+    if (comparisonType == 'searchCompareWithBase') {
+      dispatch(
+        updateFrameworkCompareWithBase({
+          id,
+          name,
+        }),
+      );
+    } else {
+      dispatch(
+        updateFrameworkCompareOverTime({
+          id,
+          name,
+        }),
+      );
+    }
   };
   return { handleChangeFrameworkDropdown };
 }

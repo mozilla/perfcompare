@@ -62,7 +62,9 @@ function SelectedRevisionItem({
   const selectedRevisions = useAppSelector(
     (state) => state.selectedRevisions.revisions,
   );
-  const selectedFramework = useAppSelector((state) => state.framework);
+  const selectedFramework = useAppSelector(
+    (state) => state.searchCompareWithBase.framework,
+  );
   const navigate = useNavigate();
   const prevRevRef = React.useRef<RevisionsList[]>([]);
 

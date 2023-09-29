@@ -26,7 +26,9 @@ let timeout: null | ReturnType<typeof setTimeout> = null;
 const useHandleChangeSearch = () => {
   const [searchTypeValue, setSearchTypeValue] = useState<InputType>('base');
 
-  const searchState = useAppSelector((state) => state.search[searchTypeValue]);
+  const searchState = useAppSelector(
+    (state) => state.searchCompareWithBase[searchTypeValue],
+  );
   const currentRepository = searchState.repository;
 
   const dispatch = useAppDispatch();

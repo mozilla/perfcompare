@@ -11,11 +11,11 @@ const useSelectRevision = () => {
   const dispatch = useAppDispatch();
 
   const baseCheckedRevisions: RevisionsList[] = useAppSelector(
-    (state) => state.search.base.checkedRevisions,
+    (state) => state.searchCompareWithBase.base.checkedRevisions,
   );
 
   const newCheckedRevisions: RevisionsList[] = useAppSelector(
-    (state) => state.search.new.checkedRevisions,
+    (state) => state.searchCompareWithBase.new.checkedRevisions,
   );
 
   const selectedRevisions = useAppSelector(
