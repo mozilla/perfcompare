@@ -112,6 +112,7 @@ exports[`Search View RESULTS: clicking the cancel button hides input and dropdow
             <div
               aria-label="two overlapping circles"
               class="compare-card-img compare-card-img--base"
+              role="img"
             />
           </div>
           <div
@@ -131,7 +132,7 @@ exports[`Search View RESULTS: clicking the cancel button hides input and dropdow
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-                    id="select-repository-label"
+                    id="select-repository-label-base"
                   >
                     Base
                     <svg
@@ -194,7 +195,7 @@ exports[`Search View RESULTS: clicking the cancel button hides input and dropdow
                           <div
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-labelledby="select-repository-label"
+                            aria-labelledby="select-repository-label-base"
                             class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1co7s6p-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                             role="button"
                             tabindex="0"
@@ -448,7 +449,7 @@ exports[`Search View RESULTS: clicking the cancel button hides input and dropdow
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-                    id="select-repository-label"
+                    id="select-repository-label-new"
                   >
                     Revisions
                     <svg
@@ -1221,6 +1222,7 @@ exports[`Search View RESULTS: clicking the save button hides input and dropdown 
             <div
               aria-label="two overlapping circles"
               class="compare-card-img compare-card-img--base"
+              role="img"
             />
           </div>
           <div
@@ -1240,7 +1242,7 @@ exports[`Search View RESULTS: clicking the save button hides input and dropdown 
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-                    id="select-repository-label"
+                    id="select-repository-label-base"
                   >
                     Base
                     <svg
@@ -1303,7 +1305,7 @@ exports[`Search View RESULTS: clicking the save button hides input and dropdown 
                           <div
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-labelledby="select-repository-label"
+                            aria-labelledby="select-repository-label-base"
                             class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1co7s6p-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                             role="button"
                             tabindex="0"
@@ -1557,7 +1559,7 @@ exports[`Search View RESULTS: clicking the save button hides input and dropdown 
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-                    id="select-repository-label"
+                    id="select-repository-label-new"
                   >
                     Revisions
                     <svg
@@ -2330,6 +2332,7 @@ exports[`Search View RESULTS: shows dropdown and input when edit button in click
             <div
               aria-label="two overlapping circles"
               class="compare-card-img compare-card-img--base"
+              role="img"
             />
           </div>
           <div
@@ -2349,7 +2352,7 @@ exports[`Search View RESULTS: shows dropdown and input when edit button in click
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-                    id="select-repository-label"
+                    id="select-repository-label-base"
                   >
                     Base
                     <svg
@@ -2412,7 +2415,7 @@ exports[`Search View RESULTS: shows dropdown and input when edit button in click
                           <div
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-labelledby="select-repository-label"
+                            aria-labelledby="select-repository-label-base"
                             class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1co7s6p-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                             role="button"
                             tabindex="0"
@@ -2666,7 +2669,7 @@ exports[`Search View RESULTS: shows dropdown and input when edit button in click
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-                    id="select-repository-label"
+                    id="select-repository-label-new"
                   >
                     Revisions
                     <svg
@@ -3340,7 +3343,7 @@ exports[`Search View SEARCH: renders correctly when there are no results 1`] = `
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-          id="select-repository-label"
+          id="select-repository-label-base"
         >
           Base
           <svg
@@ -3377,7 +3380,7 @@ exports[`Search View SEARCH: renders correctly when there are no results 1`] = `
                 <div
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-labelledby="select-repository-label"
+                  aria-labelledby="select-repository-label-base"
                   class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                   role="button"
                   tabindex="0"

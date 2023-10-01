@@ -117,6 +117,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
             <div
               aria-label="two overlapping circles"
               class="compare-card-img compare-card-img--base"
+              role="img"
             />
           </div>
           <div
@@ -136,7 +137,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-                    id="select-repository-label"
+                    id="select-repository-label-base"
                   >
                     Base
                     <svg
@@ -173,7 +174,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                           <div
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-labelledby="select-repository-label"
+                            aria-labelledby="select-repository-label-base"
                             class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                             role="button"
                             tabindex="0"
@@ -736,7 +737,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-                    id="select-repository-label"
+                    id="select-repository-label-new"
                   >
                     Revisions
                     <svg
@@ -773,7 +774,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                           <div
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-labelledby="select-repository-label"
+                            aria-labelledby="select-repository-label-new"
                             class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                             role="button"
                             tabindex="0"

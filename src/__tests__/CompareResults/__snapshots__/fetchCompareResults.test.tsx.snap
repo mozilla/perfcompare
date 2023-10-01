@@ -114,6 +114,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
             <div
               aria-label="two overlapping circles"
               class="compare-card-img compare-card-img--base"
+              role="img"
             />
           </div>
           <div
@@ -133,7 +134,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-                    id="select-repository-label"
+                    id="select-repository-label-base"
                   >
                     Base
                     <svg
@@ -177,7 +178,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-                    id="select-repository-label"
+                    id="select-repository-label-new"
                   >
                     Revisions
                     <svg
@@ -636,6 +637,7 @@ exports[`Results View/fetchCompareResults State does not contain data if fetch r
             <div
               aria-label="two overlapping circles"
               class="compare-card-img compare-card-img--base"
+              role="img"
             />
           </div>
           <div
@@ -655,7 +657,7 @@ exports[`Results View/fetchCompareResults State does not contain data if fetch r
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-                    id="select-repository-label"
+                    id="select-repository-label-base"
                   >
                     Base
                     <svg
@@ -699,7 +701,7 @@ exports[`Results View/fetchCompareResults State does not contain data if fetch r
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-                    id="select-repository-label"
+                    id="select-repository-label-new"
                   >
                     Revisions
                     <svg

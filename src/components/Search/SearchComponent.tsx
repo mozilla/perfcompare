@@ -186,7 +186,7 @@ function SearchComponent({
         className={`${searchType}-search-dropdown ${styles.dropDown} label-edit-wrapper`}
       >
         <InputLabel
-          id='select-repository-label'
+          id={`select-repository-label-${searchType}`}
           className='dropdown-select-label'
         >
           {selectLabel}

@@ -29,6 +29,7 @@ exports[`Compare With Base 3 renders correctly when there are no results 1`] = `
         <div
           aria-label="two overlapping circles"
           class="compare-card-img compare-card-img--base"
+          role="img"
         />
       </div>
       <div
@@ -48,7 +49,7 @@ exports[`Compare With Base 3 renders correctly when there are no results 1`] = `
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-                id="select-repository-label"
+                id="select-repository-label-base"
               >
                 Base
                 <svg
@@ -85,7 +86,7 @@ exports[`Compare With Base 3 renders correctly when there are no results 1`] = `
                       <div
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        aria-labelledby="select-repository-label"
+                        aria-labelledby="select-repository-label-base"
                         class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                         role="button"
                         tabindex="0"
@@ -178,7 +179,7 @@ exports[`Compare With Base 3 renders correctly when there are no results 1`] = `
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-                id="select-repository-label"
+                id="select-repository-label-new"
               >
                 Revisions
                 <svg
@@ -215,7 +216,7 @@ exports[`Compare With Base 3 renders correctly when there are no results 1`] = `
                       <div
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        aria-labelledby="select-repository-label"
+                        aria-labelledby="select-repository-label-new"
                         class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                         role="button"
                         tabindex="0"
@@ -412,6 +413,7 @@ exports[`Compare With Base 3 shows comparison warning when try repository is com
         <div
           aria-label="two overlapping circles"
           class="compare-card-img compare-card-img--base"
+          role="img"
         />
       </div>
       <div
@@ -431,7 +433,7 @@ exports[`Compare With Base 3 shows comparison warning when try repository is com
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-                id="select-repository-label"
+                id="select-repository-label-base"
               >
                 Base
                 <svg
@@ -468,7 +470,7 @@ exports[`Compare With Base 3 shows comparison warning when try repository is com
                       <div
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        aria-labelledby="select-repository-label"
+                        aria-labelledby="select-repository-label-base"
                         class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                         role="button"
                         tabindex="0"
@@ -568,7 +570,7 @@ exports[`Compare With Base 3 shows comparison warning when try repository is com
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-                id="select-repository-label"
+                id="select-repository-label-new"
               >
                 Revisions
                 <svg
@@ -605,7 +607,7 @@ exports[`Compare With Base 3 shows comparison warning when try repository is com
                       <div
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        aria-labelledby="select-repository-label"
+                        aria-labelledby="select-repository-label-new"
                         class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                         role="button"
                         tabindex="0"
@@ -861,7 +863,7 @@ exports[`Compare With Base 3 shows comparison warning when try repository is com
       tabindex="-1"
     >
       <ul
-        aria-labelledby="select-repository-label"
+        aria-labelledby="select-repository-label-base"
         class="MuiList-root MuiList-padding MuiMenu-list css-6hp17o-MuiList-root-MuiMenu-list"
         role="listbox"
         tabindex="-1"

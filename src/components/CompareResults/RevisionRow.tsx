@@ -181,7 +181,7 @@ function RevisionRow(props: RevisionRowProps) {
           <div className='graph-link-button-container'>
             <IconButton aria-label='graph link' size='small'>
               <Link href={graphLink} target='_blank'>
-                <TimelineIcon />
+                <TimelineIcon titleAccess='link to treeherder graph' />
               </Link>
             </IconButton>
           </div>

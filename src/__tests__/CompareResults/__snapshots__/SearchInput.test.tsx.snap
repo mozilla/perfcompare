@@ -114,6 +114,7 @@ exports[`Search by title/test name Should match snapshot 1`] = `
             <div
               aria-label="two overlapping circles"
               class="compare-card-img compare-card-img--base"
+              role="img"
             />
           </div>
           <div
@@ -133,7 +134,7 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-                    id="select-repository-label"
+                    id="select-repository-label-base"
                   >
                     Base
                     <svg
@@ -177,7 +178,7 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-                    id="select-repository-label"
+                    id="select-repository-label-new"
                   >
                     Revisions
                     <svg

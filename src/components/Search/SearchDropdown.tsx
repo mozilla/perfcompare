@@ -76,7 +76,7 @@ function SearchDropdown({
           data-testid={`dropdown-select-${searchType}`}
           label={selectLabel}
           value={repository}
-          labelId='select-repository-label'
+          labelId={`select-repository-label-${searchType}`}
           className='dropdown-select'
           variant='standard'
           onChange={(e) => void handleRepoSelect(e)}
