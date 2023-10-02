@@ -14,6 +14,20 @@ import WindowsIcon from '../components/Shared/Icons/WindowsIcon';
 import type { Repository, RevisionsList } from '../types/state';
 import { Framework, SupportedPerfdocsFramework } from '../types/types';
 
+export const sortFrameworks = (
+  frameworks: Record<Framework['id'], Framework['name']>,
+) => {
+  const unsortedArray = Object.entries(frameworks);
+
+  // Sort the array based on values
+
+  const sortedArray = unsortedArray.sort((a, b) => {
+    return a[1].localeCompare(b[1]);
+  });
+
+  return sortedArray;
+};
+
 const truncateHash = (revision: RevisionsList['revision']) =>
   revision.slice(0, 12);
 

@@ -22,6 +22,7 @@ import {
 } from '../../styles';
 import type { ThemeMode } from '../../types/state';
 import type { Framework } from '../../types/types';
+import { sortFrameworks } from '../../utils/helpers';
 
 interface FrameworkDropdownProps {
   mode: ThemeMode;
@@ -115,7 +116,7 @@ function FrameworkDropdown({ mode }: FrameworkDropdownProps) {
           onChange={(e) => void handleFrameworkSelect(e)}
           name='Framework'
         >
-          {Object.entries(frameworkMap).map(([id, name]) => (
+          {sortFrameworks(frameworkMap).map(([id, name]) => (
             <MenuItem value={id} key={name} className='framework-dropdown-item'>
               {name}
             </MenuItem>
