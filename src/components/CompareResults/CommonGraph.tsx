@@ -41,24 +41,49 @@ const configGraph = () => {
   return { options };
 };
 
-const getGraphWidth = (maxValue: number, minValue: number) => {
-  // return 500;
-  return Math.round(maxValue - minValue) + 1;
+interface GraphRun {
+  from: string;
+  oxValue: number;
+  value: number;
+}
+
+const initializeGraph = (graphWidth: number) => {
+  const graph = new Array(graphWidth) as GraphRun[];
+
+  for (let index = 0; index < graphWidth; index++) {
+    const initialObject = {
+      from: '',
+      oxValue: 0,
+      value: 0,
+    };
+    graph[index] = initialObject;
+  }
+
+  return graph;
 };
 
-const formatDataset = (values: number[], maxX: number, graphWidth: number) => {
-  const addToHist = (graph: number[], X: number) => {
-    for (let x = 0; x < graphWidth; x++) {
-      graph[x] += Math.exp(-(((x - X) / 10) ** 2));
-    }
-  };
+const addToHist = (
+  graph: GraphRun[],
+  X: GraphRun,
+  index: number,
+) => {
+  graph[index].from = X.from;
+  graph[index].value += Math.exp(-(((index - X.value) / 10) ** 2));
+};
 
-  const graph = new Array(graphWidth).fill(0) as number[];
-
-  values.forEach((x) => addToHist(graph, (x * graphWidth) / maxX));
-
-  console.log('maxX', maxX);
-
+const formatDataset = (
+  values: GraphRun[],
+  maxX: number,
+  graph: GraphRun[],
+  graphWidth: number,
+) => {
+  values.forEach((x, index) => {
+    addToHist(
+      graph,
+      { from: x.from, oxValue: x.value, value: (x.value * graphWidth) / maxX },
+      index,
+    );
+  });
   return graph;
 };
 
@@ -71,26 +96,37 @@ const styles = {
 
 function CommonGraph(props: CommonGraphProps) {
   const { baseRevisionRuns, newRevisionRuns } = props;
-  console.log('baseRevisionRuns ', baseRevisionRuns.values);
-  console.log('newRevisionRuns ', newRevisionRuns.values);
 
   const { options } = configGraph();
   const allValues = [...baseRevisionRuns.values, ...newRevisionRuns.values];
+  let allResults = baseRevisionRuns.values.map((el) => ({
+    from: 'Base',
+    value: el,
+    oxValue: el,
+  }));
+  allResults = [...allResults].concat(
+    newRevisionRuns.values.map((el) => ({
+      from: 'New',
+      value: el,
+      oxValue: el,
+    })),
+  );
+
   const maxX = Math.max(...allValues);
-  // const minX = Math.min(...allValues);
-  const labels = [...allValues];
+  const labels = [...allValues].sort();
 
   // problemo
   // graphWidth = 1000 (px)
   // no pixelo
   // https://stackoverflow.com/questions/50005275/chartjs-line-chart-with-different-size-datasets
   const graphWidth = allValues.length;
+  const graph = initializeGraph(graphWidth);
 
-  const datasetBase = formatDataset(baseRevisionRuns.values, maxX, graphWidth);
-  const datasetNew = formatDataset(newRevisionRuns.values, maxX, graphWidth);
+  const datasetAll = formatDataset(allResults, maxX, graph, graphWidth);
 
-  console.log('datasetBase ', datasetBase);
-  console.log('datasetNew ', datasetNew);
+
+  const datasetBase = datasetAll.filter(el => el.from == 'Base');
+  const datasetNew = datasetAll.filter(el => el.from == 'New');
 
   const data = {
     labels: labels,
@@ -114,6 +150,7 @@ function CommonGraph(props: CommonGraphProps) {
 
   return (
     <div className={styles.container}>
+      kkt
       <Line options={options} data={data} />
     </div>
   );
