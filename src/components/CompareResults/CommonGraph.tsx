@@ -1,4 +1,4 @@
-import { Chart as ChartJS, LineElement, LinearScale } from 'chart.js';
+import { Chart as ChartJS, LineElement, LinearScale, TooltipItem } from 'chart.js';
 import 'chart.js/auto';
 import { Line } from 'react-chartjs-2';
 import { style } from 'typestyle';
@@ -7,12 +7,32 @@ import { Spacing } from '../../styles';
 
 ChartJS.register(LinearScale, LineElement);
 
+interface GraphRun {
+  from: string;
+  oxValue: number;
+  value: number;
+}
+interface GraphData {
+  x: number;
+  y: number | string;
+}
+
 const configGraph = () => {
   const options = {
     plugins: {
+      datalabels: {
+        formatter: function (value: GraphData) { return value.y || null;  },
+      },
       legend: {
         align: 'start' as const,
         position: 'top' as const,
+      },
+      tooltip: {
+        callbacks: {
+          label: (context: TooltipItem<'line'>) => {
+            return `${(context.raw as GraphData).y}`;
+          },
+        },
       },
       title: {
         display: true,
@@ -41,12 +61,6 @@ const configGraph = () => {
   return { options };
 };
 
-interface GraphRun {
-  from: string;
-  oxValue: number;
-  value: number;
-}
-
 const initializeGraph = (graphWidth: number) => {
   const graph = new Array(graphWidth) as GraphRun[];
 
@@ -62,11 +76,7 @@ const initializeGraph = (graphWidth: number) => {
   return graph;
 };
 
-const addToHist = (
-  graph: GraphRun[],
-  X: GraphRun,
-  index: number,
-) => {
+const addToHist = (graph: GraphRun[], X: GraphRun, index: number) => {
   graph[index].from = X.from;
   graph[index].value += Math.exp(-(((index - X.value) / 10) ** 2));
 };
@@ -91,6 +101,7 @@ const styles = {
   container: style({
     display: 'flex',
     marginBottom: Spacing.Medium,
+    width: '100%',
   }),
 };
 
@@ -111,9 +122,9 @@ function CommonGraph(props: CommonGraphProps) {
       oxValue: el,
     })),
   );
-
+  allResults = allResults.sort((a, b) => a.value - b.value);
   const maxX = Math.max(...allValues);
-  const labels = [...allValues].sort();
+  const labels = [...new Set(allValues)].sort();
 
   // problemo
   // graphWidth = 1000 (px)
@@ -125,8 +136,32 @@ function CommonGraph(props: CommonGraphProps) {
   const datasetAll = formatDataset(allResults, maxX, graph, graphWidth);
 
 
-  const datasetBase = datasetAll.filter(el => el.from == 'Base');
-  const datasetNew = datasetAll.filter(el => el.from == 'New');
+  const datasetBase = [] as (GraphData | number)[];
+  const datasetNew = [] as (GraphData | number)[];
+
+  console.log('datasetAll ', datasetAll);
+
+  datasetAll.forEach((el, index) => {
+    if (el.from == 'Base') {
+      datasetBase[index] = {
+        x: el.oxValue,
+        y: el.value,
+      };
+      datasetNew[index] = {
+        x: 0,
+        y: 0,
+      };
+    } else if (el.from == 'New') {
+      datasetNew[index] = {
+        x: el.oxValue,
+        y: el.value,
+      };
+      datasetBase[index] = {
+        x: 0,
+        y: 0,
+      };
+    }
+  });
 
   const data = {
     labels: labels,
@@ -150,7 +185,6 @@ function CommonGraph(props: CommonGraphProps) {
 
   return (
     <div className={styles.container}>
-      kkt
       <Line options={options} data={data} />
     </div>
   );
