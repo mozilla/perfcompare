@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { Fragment } from 'react';
 
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
@@ -10,13 +10,17 @@ import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
 import dayjs from 'dayjs';
 import { style } from 'typestyle';
-
-import { useAppSelector } from '../../hooks/app';
-import useCheckRevision from '../../hooks/useCheckRevision';
 import { Spacing } from '../../styles';
 import type { RevisionsList } from '../../types/state';
-import { InputType } from '../../types/state';
 import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
+
+interface SearchResultsListItemProps {
+  index: number;
+  item: RevisionsList;
+  revisionsCount: number;
+  isCheckedState: (item: RevisionsList) => boolean;
+  onToggle: (item: RevisionsList) => void;
+}
 
 const styles = {
   listItemButton: style({
@@ -53,23 +57,23 @@ const styles = {
 function SearchResultsListItem({
   index,
   item,
-  searchType,
+  isCheckedState,
+  onToggle,
 }: SearchResultsListItemProps) {
-  const isChecked: boolean = useAppSelector((state) =>
-    state.search[searchType].checkedRevisions.includes(item),
-  );
-
-  const { handleToggle } = useCheckRevision(searchType);
   const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);
-  const revisionsCount = searchType === 'base' ? 1 : 3;
   const itemDate = new Date(item.push_timestamp * 1000);
+  const isChecked = isCheckedState(item);
+
+  const onToggleAction = () => {
+    onToggle(item);
+  };
 
   return (
     <>
       <ListItemButton
         key={item.id}
-        onClick={() => handleToggle(item, revisionsCount)}
+        onClick={onToggleAction}
         className={`${styles.listItemButton} ${
           isChecked ? 'item-selected' : ''
         }`}
@@ -91,7 +95,7 @@ function SearchResultsListItem({
           <ListItemText
             className='search-revision-item-text'
             primary={
-              <React.Fragment>
+              <Fragment>
                 <Typography
                   sx={{ display: 'inline' }}
                   component='span'
@@ -121,7 +125,7 @@ function SearchResultsListItem({
                     {String(dayjs(itemDate).format('MM/DD/YY HH:mm'))}
                   </div>
                 </div>
-              </React.Fragment>
+              </Fragment>
             }
             secondary={`${commitMessage} `}
             primaryTypographyProps={{ noWrap: true }}
@@ -131,12 +135,6 @@ function SearchResultsListItem({
       </ListItemButton>
     </>
   );
-}
-interface SearchResultsListItemProps {
-  index: number;
-  item: RevisionsList;
-  view: 'search' | 'compare-results';
-  searchType: InputType;
 }
 
 export default SearchResultsListItem;

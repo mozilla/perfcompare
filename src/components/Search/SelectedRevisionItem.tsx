@@ -12,13 +12,9 @@ import ListItemText from '@mui/material/ListItemText';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import dayjs from 'dayjs';
-
-import useCheckRevision from '../../hooks/useCheckRevision';
-import useSelectedRevisions from '../../hooks/useSelectedRevisions';
 import { Strings } from '../../resources/Strings';
 import { SelectRevsStyles } from '../../styles';
-import type { RevisionsList } from '../../types/state';
-import { InputType, ThemeMode } from '../../types/state';
+import type { RevisionsList, ThemeMode } from '../../types/state';
 import { Repository } from '../../types/state';
 import {
   truncateHash,
@@ -32,43 +28,32 @@ const warning = base.collapsed.warnings.comparison;
 interface SelectedRevisionItemProps {
   index: number;
   item: RevisionsList;
-  mode: ThemeMode;
   repository: Repository['name'];
-  searchType: InputType;
-  isWarning?: boolean;
-  formIsDisplayed: boolean;
-  isEditable: boolean;
+  isBase: boolean;
+  mode: ThemeMode;
+  isWarning: boolean;
+  iconClassName: string;
+  removeRevision: (item: RevisionsList) => void;
 }
 
 function SelectedRevisionItem({
   index,
   item,
-  mode,
   repository,
-  searchType,
+  iconClassName,
+  isBase,
+  mode,
   isWarning,
-  formIsDisplayed,
-  isEditable,
+  removeRevision,
 }: SelectedRevisionItemProps) {
+  const searchType = isBase ? 'base' : 'new';
   const styles = SelectRevsStyles(mode);
   const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);
   const itemDate = new Date(item.push_timestamp * 1000);
-  const { removeCheckedRevision } = useCheckRevision(searchType);
-  const { deleteSelectedRevisions } = useSelectedRevisions();
-  //hide the close icon for the selected revisions in edit view
-  const iconClassName =
-    !formIsDisplayed && isEditable
-      ? 'icon icon-close-hidden'
-      : 'icon icon-close-show';
 
-  const handleClose = () => {
-    if (isEditable) {
-      deleteSelectedRevisions(item);
-      removeCheckedRevision(item);
-    } else {
-      removeCheckedRevision(item);
-    }
+  const onRemoveRevision = () => {
+    removeRevision(item);
   };
 
   return (
@@ -138,7 +123,7 @@ function SelectedRevisionItem({
           name='close-button'
           aria-label='close-button'
           className={`${iconClassName} revision-action close-button`}
-          onClick={handleClose}
+          onClick={onRemoveRevision}
         >
           <CloseOutlined fontSize='small' data-testid='close-icon' />
         </Button>
