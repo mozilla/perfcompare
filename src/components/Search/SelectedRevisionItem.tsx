@@ -13,15 +13,17 @@ import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import dayjs from 'dayjs';
 import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
-import { repoMap, searchView } from '../../common/constants';
+import { repoMap } from '../../common/constants';
+import { compareView, searchView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import useCheckRevision from '../../hooks/useCheckRevision';
 import useSelectedRevisions from '../../hooks/useSelectedRevisions';
 import { Strings } from '../../resources/Strings';
 import { SelectRevsStyles } from '../../styles';
 import type { RevisionsList } from '../../types/state';
-import { InputType, ThemeMode, View } from '../../types/state';
+import { InputType, ThemeMode } from '../../types/state';
 import { Repository } from '../../types/state';
 import {
   truncateHash,
@@ -39,8 +41,6 @@ interface SelectedRevisionItemProps {
   repository: Repository['name'];
   searchType: InputType;
   isWarning?: boolean;
-  view: View;
-  editBtnVisible?: boolean;
 }
 
 function SelectedRevisionItem({
@@ -50,8 +50,6 @@ function SelectedRevisionItem({
   repository,
   searchType,
   isWarning,
-  view,
-  editBtnVisible,
 }: SelectedRevisionItemProps) {
   const styles = SelectRevsStyles(mode);
   const revisionHash = truncateHash(item.revision);
@@ -65,6 +63,13 @@ function SelectedRevisionItem({
   const selectedFramework = useAppSelector((state) => state.framework);
   const navigate = useNavigate();
   const prevRevRef = React.useRef<RevisionsList[]>([]);
+  const location = useLocation();
+  const view = location.pathname == '/' ? searchView : compareView;
+  //hide the close icon for the base selected revision in the compare view
+  const iconClassName =
+    view !== searchView && searchType === 'base'
+      ? 'icon icon-close-base-hidden'
+      : 'icon icon-close-show';
 
   const updateRevsInHash = () => {
     const revs = selectedRevisions.map((rev) => rev.revision);
@@ -90,7 +95,7 @@ function SelectedRevisionItem({
   }, [selectedRevisions]);
 
   const handleClose = () => {
-    if (view == searchView || !editBtnVisible) {
+    if (view == searchView) {
       removeCheckedRevision(item);
     } else {
       deleteSelectedRevisions(item);
@@ -98,24 +103,8 @@ function SelectedRevisionItem({
     return;
   };
 
-  const renderCloseIcon = () => {
-    //hide the close icon for the base component in the compare results view and if edit button is visible
-    const iconClassName =
-      editBtnVisible && view !== searchView && searchType === 'base'
-        ? 'icon icon-close-base-hidden'
-        : 'icon icon-close-show';
-
-    return (
-      <CloseOutlined
-        className={iconClassName}
-        fontSize='small'
-        data-testid='close-icon'
-      />
-    );
-  };
-
   return (
-    <div
+    <ListItem
       className={`item-container item-${index} item-${searchType}`}
       data-testid='selected-rev-item'
     >
@@ -129,65 +118,64 @@ function SelectedRevisionItem({
           </div>
         )}
       </div>
-
-      <ListItemButton className={styles.listItemButton} key={index}>
-        <ListItem>
-          <ListItemText
-            className='search-revision-item-text'
-            primary={
-              <React.Fragment>
-                <Typography
-                  sx={{ display: 'inline' }}
-                  component='span'
-                  variant='body2'
-                  color='text.primary'
-                  alignItems='center'
-                  className='revision-hash'
+      <ListItemButton className={styles.listItemButton}>
+        <ListItemText
+          className='search-revision-item-text'
+          primary={
+            <React.Fragment>
+              <Typography
+                sx={{ display: 'inline' }}
+                component='span'
+                variant='body2'
+                color='text.primary'
+                alignItems='center'
+                className='revision-hash'
+              >
+                <Link
+                  href={getTreeherderURL(item.revision, repository)}
+                  target='_blank'
                 >
-                  <Link
-                    href={getTreeherderURL(item.revision, repository)}
-                    target='_blank'
-                  >
-                    {revisionHash}
-                  </Link>
-                </Typography>
-
-                <div className='info-caption'>
-                  <div className='info-caption-item item-author'>
-                    {' '}
-                    <MailOutlineOutlinedIcon
-                      className='mail-icon'
-                      fontSize='small'
-                    />{' '}
-                    {item.author}
-                  </div>
-
-                  <div className='info-caption-item item-time'>
-                    <AccessTimeOutlinedIcon
-                      className='time-icon'
-                      fontSize='small'
-                    />
-                    {String(dayjs(itemDate).format('MM/DD/YY HH:mm'))}
-                  </div>
+                  {revisionHash}
+                </Link>
+              </Typography>
+              <div className='info-caption'>
+                <div className='info-caption-item item-author'>
+                  {' '}
+                  <MailOutlineOutlinedIcon
+                    className='mail-icon'
+                    fontSize='small'
+                  />{' '}
+                  {item.author}
                 </div>
-              </React.Fragment>
-            }
-            secondary={`${commitMessage} `}
-            primaryTypographyProps={{ noWrap: true }}
-            secondaryTypographyProps={{ noWrap: true }}
+                <div className='info-caption-item item-time'>
+                  <AccessTimeOutlinedIcon
+                    className='time-icon'
+                    fontSize='small'
+                  />
+                  {String(dayjs(itemDate).format('MM/DD/YY HH:mm'))}
+                </div>
+              </div>
+            </React.Fragment>
+          }
+          secondary={`${commitMessage} `}
+          primaryTypographyProps={{ noWrap: true }}
+          secondaryTypographyProps={{ noWrap: true }}
+        />
+        <Button
+          role='button'
+          name='close-button'
+          aria-label='close-button'
+          className='revision-action close-button'
+          onClick={handleClose}
+        >
+          <CloseOutlined
+            className={iconClassName}
+            fontSize='small'
+            data-testid='close-icon'
           />
-          <Button
-            role='button'
-            name='close-button'
-            aria-label='close-button'
-            className='revision-action close-button'
-            onClick={handleClose}
-          >
-            {renderCloseIcon()}
-          </Button>
-        </ListItem>
+        </Button>
       </ListItemButton>
-    </div>
+    </ListItem>
   );
 }
 

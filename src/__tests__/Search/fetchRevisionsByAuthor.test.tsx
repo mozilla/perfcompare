@@ -2,17 +2,13 @@ import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
-import SearchComponent from '../../components/Search/SearchComponent';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
 import { InputType } from '../../types/state';
-import type { ThemeMode } from '../../types/state';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
-
-const stringsBase = Strings.components.searchDefault.base.collapsed.base;
 
 describe('SearchView/fetchRevisionsByAuthor', () => {
   const protocolTheme = renderHook(() => useProtocolTheme()).result.current
@@ -137,13 +133,6 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
     const searchType = 'base' as InputType;
-    const SearchPropsBase = {
-      searchType,
-      mode: 'light' as ThemeMode,
-      view: 'search' as 'search' | 'compare-results',
-      isWarning: false,
-      ...stringsBase,
-    };
 
     renderWithRouter(
       <SearchView
@@ -152,8 +141,6 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
         title={Strings.metaData.pageTitle.search}
       />,
     );
-
-    renderWithRouter(<SearchComponent {...SearchPropsBase} />);
 
     await screen.findAllByRole('button', { name: 'Base' });
     const searchInput = screen.getAllByRole('textbox')[0];

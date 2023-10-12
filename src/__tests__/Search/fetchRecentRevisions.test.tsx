@@ -2,16 +2,13 @@ import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
-import SearchComponent from '../../components/Search/SearchComponent';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
-import { InputType, ThemeMode } from '../../types/state';
+import { InputType } from '../../types/state';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
-
-const stringsBase = Strings.components.searchDefault.base.collapsed.base;
 
 describe('Search View/fetchRecentRevisions', () => {
   const protocolTheme = renderHook(() => useProtocolTheme()).result.current
@@ -116,22 +113,17 @@ describe('Search View/fetchRecentRevisions', () => {
       Promise.reject(new Error('What, ridden on a horse?')),
     ) as jest.Mock;
     const searchType = 'base' as InputType;
-    const SearchPropsBase = {
-      searchType,
-      mode: 'light' as ThemeMode,
-      view: 'search' as 'search' | 'compare-results',
-      isWarning: false,
-      ...stringsBase,
-    };
 
-    renderWithRouter(
-      <SearchView
-        toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
-        title={Strings.metaData.pageTitle.search}
-      />,
-    );
-    renderWithRouter(<SearchComponent {...SearchPropsBase} />);
+    act(() => {
+      renderWithRouter(
+        <SearchView
+          toggleColorMode={toggleColorMode}
+          protocolTheme={protocolTheme}
+          title={Strings.metaData.pageTitle.search}
+        />,
+      );
+    });
+
     await act(async () => void jest.runOnlyPendingTimers());
     await screen.findAllByRole('button', { name: 'Base' });
 

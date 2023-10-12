@@ -13,19 +13,16 @@ import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
 
-const warning =
-  Strings.components.searchDefault.base.collapsed.warnings.comparison;
-
 const protocolTheme = renderHook(() => useProtocolTheme()).result.current
   .protocolTheme;
 const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
   .toggleColorMode;
 const themeMode = protocolTheme.palette.mode;
 function renderComponent() {
-  renderWithRouter(<CompareWithBase view='search' mode={themeMode} />);
+  renderWithRouter(<CompareWithBase mode={themeMode} />);
 }
 
-describe('Compare With Base 3', () => {
+describe('Compare With Base', () => {
   it('renders correctly when there are no results', async () => {
     renderComponent();
 
@@ -61,30 +58,6 @@ describe('Compare With Base 3', () => {
         .getAllByTestId('base-state')[0]
         .classList.contains('compare-card-container--expanded'),
     ).toBe(true);
-  });
-
-  it('shows comparison warning when try repository is compared with a non try repository', async () => {
-    renderComponent();
-
-    const user = userEvent.setup({ delay: null });
-    const baseDropdown = screen.getAllByRole('button', { name: 'Base' })[0];
-    const newDropdown = screen.getByTestId('dropdown-select-new');
-
-    await user.click(baseDropdown);
-
-    expect(screen.getAllByText('try')[0]).toBeInTheDocument();
-    await user.click(newDropdown);
-    const mozRepoItem = screen.getAllByRole('option', {
-      name: 'mozilla-central',
-    })[0];
-
-    expect(screen.getAllByText('mozilla-central')[0]).toBeInTheDocument();
-    await user.click(mozRepoItem);
-
-    expect(document.body).toMatchSnapshot();
-
-    const comparisonAlert = screen.getByText(warning);
-    expect(comparisonAlert).toBeInTheDocument();
   });
 
   it('selects and displays new framework when clicked', async () => {
