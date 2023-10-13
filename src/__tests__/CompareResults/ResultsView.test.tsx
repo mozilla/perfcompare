@@ -82,9 +82,11 @@ describe('Results View', () => {
     expect(document.body).toMatchSnapshot();
     expect(screen.getByTestId('dropdown-select-base')).toBeInTheDocument();
     expect(screen.getAllByRole('textbox')[0]).toBeInTheDocument();
-    const hiddenEditButton = document.querySelector('.hidden') as HTMLElement;
+    const hiddenEditButton = document.querySelector(
+      '.hide-edit-btn',
+    ) as HTMLElement;
 
-    expect(hiddenEditButton).toBeInTheDocument();
+    expect(hiddenEditButton).not.toBeInTheDocument();
 
     await act(async () => void jest.runOnlyPendingTimers());
   });
@@ -130,9 +132,10 @@ describe('Results View', () => {
       await user.click(cancelButton);
     });
 
-    expect(
-      screen.queryByTestId('dropdown-select-base'),
-    ).not.toBeInTheDocument();
+    const container = document.querySelector(
+      '.base-search-container',
+    ) as HTMLElement;
+    expect(container).not.toBeInTheDocument();
 
     await act(async () => void jest.runOnlyPendingTimers());
   });
@@ -178,9 +181,10 @@ describe('Results View', () => {
       await user.click(saveButtonBase);
     });
 
-    expect(
-      screen.queryByTestId('dropdown-select-base'),
-    ).not.toBeInTheDocument();
+    const container = document.querySelector(
+      '.base-search-container',
+    ) as HTMLElement;
+    expect(container).not.toBeInTheDocument();
 
     //CHECK NEW SAVE BUTTON ACTION
     const editButtonNew = document.querySelector(
@@ -202,7 +206,7 @@ describe('Results View', () => {
       await user.click(saveButtonNew);
     });
 
-    expect(screen.queryByTestId('dropdown-select-new')).not.toBeInTheDocument();
+    expect(container).not.toBeInTheDocument();
     await act(async () => void jest.runOnlyPendingTimers());
   });
 
