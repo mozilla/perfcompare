@@ -56,7 +56,10 @@ function Distribution(props: DistributionProps) {
     <div className={styles.container}>
       <RunValues revisionRuns={baseRevisionRuns} />
       <RunValues revisionRuns={newRevisionRuns} />
-      <CommonGraph baseRevisionRuns={baseRevisionRuns} newRevisionRuns={newRevisionRuns} />
+      <CommonGraph
+        baseRevisionRuns={baseRevisionRuns}
+        newRevisionRuns={newRevisionRuns}
+      />
     </div>
   );
 }

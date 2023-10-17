@@ -52,12 +52,13 @@ function CommonGraph(props: CommonGraphProps) {
           display: false,
           offset: false,
         },
+        type: 'linear' as const,
       },
       y: {
         beginAtZero: true,
         ticks: {
-          display: true,
           beginAtZero: true,
+          display: true,
         },
         grid: {
           drawBorder: false,
@@ -70,7 +71,6 @@ function CommonGraph(props: CommonGraphProps) {
 
   //////////////////// START FAST KDE ////////////////////////
   const baseRunsDensity = Array.from(
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-argument
     kde.density1d([...baseRevisionRuns.values], {
       bandwidth: baseRevisionRuns.stddev,
       extent: [
@@ -80,7 +80,6 @@ function CommonGraph(props: CommonGraphProps) {
     }),
   );
   const newRunsDensity = Array.from(
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-argument
     kde.density1d([...newRevisionRuns.values], {
       bandwidth: newRevisionRuns.stddev,
       extent: [
@@ -92,31 +91,19 @@ function CommonGraph(props: CommonGraphProps) {
 
   //////////////////// END FAST KDE   ////////////////////////
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-  const baseRunsX = baseRunsDensity.map((point) => point.x);
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-  const newRunsX = newRunsDensity.map((point) => point.x);
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const labels = [...new Set([...baseRunsX, ...newRunsX])].sort();
-
   const data = {
-    labels: labels,
     datasets: [
       {
         label: 'Base',
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         data: baseRunsDensity,
         fill: false,
         borderColor: 'rgba(144, 89, 255, 1)',
-        tension: 0.3,
       },
       {
         label: 'New',
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         data: newRunsDensity,
         fill: false,
         borderColor: 'rgba(0, 135, 135, 1)',
-        tension: 0.3,
       },
     ],
   };
