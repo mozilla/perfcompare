@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { fetchRevisionByID } from '../thunks/searchThunk';
 import { RevisionsList, SelectedRevisionsState } from '../types/state';
 
 const initialState: SelectedRevisionsState = {
@@ -40,22 +39,6 @@ const selectedRevisions = createSlice({
     clearSelectedRevisions() {
       return initialState;
     },
-  },
-
-  extraReducers: (builder) => {
-    builder.addCase(fetchRevisionByID.fulfilled, (state, action) => {
-      const fetchedRevisions = state.revisions
-        .concat(action.payload[0])
-        .filter(
-          (revision, index, self) =>
-            self.findIndex((r) => r.id === revision.id) === index,
-        );
-
-      state.revisions = fetchedRevisions;
-      state.base = [fetchedRevisions[0]];
-      state.new = fetchedRevisions.slice(1);
-    });
-    //Need to handle error case
   },
 });
 
