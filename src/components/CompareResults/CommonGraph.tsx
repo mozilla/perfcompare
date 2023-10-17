@@ -1,5 +1,11 @@
-import { Chart as ChartJS, LineElement, LinearScale, TooltipItem } from 'chart.js';
+import {
+  Chart as ChartJS,
+  LineElement,
+  LinearScale,
+  TooltipItem,
+} from 'chart.js';
 import 'chart.js/auto';
+import * as kde from 'fast-kde';
 import { Line } from 'react-chartjs-2';
 import { style } from 'typestyle';
 
@@ -7,22 +13,24 @@ import { Spacing } from '../../styles';
 
 ChartJS.register(LinearScale, LineElement);
 
-interface GraphRun {
-  from: string;
-  oxValue: number;
-  value: number;
-}
 interface GraphData {
   x: number;
   y: number | string;
 }
 
-const configGraph = () => {
+const styles = {
+  container: style({
+    display: 'flex',
+    marginBottom: Spacing.Medium,
+    width: '100%',
+  }),
+};
+
+function CommonGraph(props: CommonGraphProps) {
+  const { baseRevisionRuns, newRevisionRuns } = props;
+
   const options = {
     plugins: {
-      datalabels: {
-        formatter: function (value: GraphData) { return value.y || null;  },
-      },
       legend: {
         align: 'start' as const,
         position: 'top' as const,
@@ -46,8 +54,9 @@ const configGraph = () => {
         },
       },
       y: {
+        beginAtZero: true,
         ticks: {
-          display: false,
+          display: true,
           beginAtZero: true,
         },
         grid: {
@@ -58,124 +67,53 @@ const configGraph = () => {
       },
     },
   };
-  return { options };
-};
 
-const initializeGraph = (graphWidth: number) => {
-  const graph = new Array(graphWidth) as GraphRun[];
-
-  for (let index = 0; index < graphWidth; index++) {
-    const initialObject = {
-      from: '',
-      oxValue: 0,
-      value: 0,
-    };
-    graph[index] = initialObject;
-  }
-
-  return graph;
-};
-
-const addToHist = (graph: GraphRun[], X: GraphRun, index: number) => {
-  graph[index].from = X.from;
-  graph[index].value += Math.exp(-(((index - X.value) / 10) ** 2));
-};
-
-const formatDataset = (
-  values: GraphRun[],
-  maxX: number,
-  graph: GraphRun[],
-  graphWidth: number,
-) => {
-  values.forEach((x, index) => {
-    addToHist(
-      graph,
-      { from: x.from, oxValue: x.value, value: (x.value * graphWidth) / maxX },
-      index,
-    );
-  });
-  return graph;
-};
-
-const styles = {
-  container: style({
-    display: 'flex',
-    marginBottom: Spacing.Medium,
-    width: '100%',
-  }),
-};
-
-function CommonGraph(props: CommonGraphProps) {
-  const { baseRevisionRuns, newRevisionRuns } = props;
-
-  const { options } = configGraph();
-  const allValues = [...baseRevisionRuns.values, ...newRevisionRuns.values];
-  let allResults = baseRevisionRuns.values.map((el) => ({
-    from: 'Base',
-    value: el,
-    oxValue: el,
-  }));
-  allResults = [...allResults].concat(
-    newRevisionRuns.values.map((el) => ({
-      from: 'New',
-      value: el,
-      oxValue: el,
-    })),
+  //////////////////// START FAST KDE ////////////////////////
+  const baseRunsDensity = Array.from(
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-argument
+    kde.density1d([...baseRevisionRuns.values], {
+      bandwidth: baseRevisionRuns.stddev,
+      extent: [
+        Math.min(...baseRevisionRuns.values),
+        Math.max(...baseRevisionRuns.values),
+      ],
+    }),
   );
-  allResults = allResults.sort((a, b) => a.value - b.value);
-  const maxX = Math.max(...allValues);
-  const labels = [...new Set(allValues)].sort();
+  const newRunsDensity = Array.from(
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-argument
+    kde.density1d([...newRevisionRuns.values], {
+      bandwidth: newRevisionRuns.stddev,
+      extent: [
+        Math.min(...newRevisionRuns.values),
+        Math.max(...newRevisionRuns.values),
+      ],
+    }),
+  );
 
-  // problemo
-  // graphWidth = 1000 (px)
-  // no pixelo
-  // https://stackoverflow.com/questions/50005275/chartjs-line-chart-with-different-size-datasets
-  const graphWidth = allValues.length;
-  const graph = initializeGraph(graphWidth);
+  //////////////////// END FAST KDE   ////////////////////////
 
-  const datasetAll = formatDataset(allResults, maxX, graph, graphWidth);
-
-
-  const datasetBase = [] as (GraphData | number)[];
-  const datasetNew = [] as (GraphData | number)[];
-
-  console.log('datasetAll ', datasetAll);
-
-  datasetAll.forEach((el, index) => {
-    if (el.from == 'Base') {
-      datasetBase[index] = {
-        x: el.oxValue,
-        y: el.value,
-      };
-      datasetNew[index] = {
-        x: 0,
-        y: 0,
-      };
-    } else if (el.from == 'New') {
-      datasetNew[index] = {
-        x: el.oxValue,
-        y: el.value,
-      };
-      datasetBase[index] = {
-        x: 0,
-        y: 0,
-      };
-    }
-  });
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+  const baseRunsX = baseRunsDensity.map((point) => point.x);
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+  const newRunsX = newRunsDensity.map((point) => point.x);
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const labels = [...new Set([...baseRunsX, ...newRunsX])].sort();
 
   const data = {
     labels: labels,
     datasets: [
       {
         label: 'Base',
-        data: datasetBase,
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+        data: baseRunsDensity,
         fill: false,
         borderColor: 'rgba(144, 89, 255, 1)',
         tension: 0.3,
       },
       {
         label: 'New',
-        data: datasetNew,
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+        data: newRunsDensity,
         fill: false,
         borderColor: 'rgba(0, 135, 135, 1)',
         tension: 0.3,
