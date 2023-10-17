@@ -1,7 +1,7 @@
 import {
   fetchCompareResults,
   fetchFakeResults,
-} from '../thunks/compareResultsThunk';
+} from '../reducers/CompareResults';
 import type { Repository } from '../types/state';
 import type { FakeCommitHash } from '../types/types';
 import { useAppDispatch } from './app';
