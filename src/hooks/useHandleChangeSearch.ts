@@ -4,13 +4,11 @@ import {
   updateSearchValue,
   updateSearchResults,
   setInputError,
-} from '../reducers/SearchSlice';
-import { Strings } from '../resources/Strings';
-import {
   fetchRecentRevisions,
   fetchRevisionByID,
   fetchRevisionsByAuthor,
-} from '../thunks/searchThunk';
+} from '../reducers/SearchSlice';
+import { Strings } from '../resources/Strings';
 import type { Repository, InputType } from '../types/state';
 import { useAppDispatch, useAppSelector } from './app';
 

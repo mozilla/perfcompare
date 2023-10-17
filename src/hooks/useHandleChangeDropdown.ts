@@ -1,5 +1,7 @@
-import { updateRepository } from '../reducers/SearchSlice';
-import { fetchRecentRevisions } from '../thunks/searchThunk';
+import {
+  updateRepository,
+  fetchRecentRevisions,
+} from '../reducers/SearchSlice';
 import type { Repository, InputType } from '../types/state';
 import { useAppDispatch } from './app';
 

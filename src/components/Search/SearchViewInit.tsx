@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 import { useAppDispatch } from '../../hooks/app';
 import { useAppSelector } from '../../hooks/app';
-import { fetchRecentRevisions } from '../../thunks/searchThunk';
+import { fetchRecentRevisions } from '../../reducers/SearchSlice';
 import { InputType } from '../../types/state';
 
 // component to fetch recent revisions when search view is loaded

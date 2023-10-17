@@ -1,10 +1,7 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 
-import {
-  fetchRecentRevisions,
-  fetchRevisionByID,
-  fetchRevisionsByAuthor,
-} from '../thunks/searchThunk';
+import { treeherderBaseURL } from '../common/constants';
+import type { APIPushResponse } from '../types/api';
 import type {
   Repository,
   RevisionsList,
@@ -12,6 +9,99 @@ import type {
   SearchStateForInput,
   InputType,
 } from '../types/state';
+
+interface FetchDataArgs {
+  repository: Repository['name'];
+  searchType: InputType;
+}
+
+interface FetchDataArgsIDEmail {
+  repository: Repository['name'];
+  search: string;
+  searchType: InputType;
+}
+
+export const fetchRecentRevisions = createAsyncThunk<
+  RevisionsList[],
+  FetchDataArgs,
+  { rejectValue: string }
+>(
+  'search/fetchRecentRevisions',
+  // searchType is used in the reducer but not in this function.
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  async ({ repository, searchType }, { rejectWithValue }) => {
+    let response;
+
+    try {
+      response = await fetch(
+        `${treeherderBaseURL}/api/project/${repository}/push/?hide_reviewbot_pushes=true`,
+      );
+    } catch (err) {
+      const error = (err as Error).message;
+      console.error('FetchRecentRevisions ERROR: ', error);
+      return rejectWithValue(error);
+    }
+    const json = (await response.json()) as APIPushResponse;
+    if (json.results.length > 0) {
+      return json.results;
+    }
+    return rejectWithValue('No results found');
+  },
+);
+
+export const fetchRevisionByID = createAsyncThunk<
+  RevisionsList[],
+  FetchDataArgsIDEmail,
+  { rejectValue: string }
+>(
+  'search/fetchRevisionByID',
+  // searchType is used in the reducer but not in this function.
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  async ({ repository, search, searchType }, { rejectWithValue }) => {
+    let response;
+    try {
+      response = await fetch(
+        `${treeherderBaseURL}/api/project/${repository}/push/?revision=${search}`,
+      );
+    } catch (err) {
+      const error = err as Error;
+      console.error('FetchRevisionByID ERROR: ', error);
+      return rejectWithValue(error.message);
+    }
+    const json = (await response.json()) as APIPushResponse;
+    if (json.results.length > 0) {
+      return json.results;
+    }
+    return rejectWithValue('No results found');
+  },
+);
+
+export const fetchRevisionsByAuthor = createAsyncThunk<
+  RevisionsList[],
+  FetchDataArgsIDEmail,
+  { rejectValue: string }
+>(
+  'search/fetchRevisionsByAuthor',
+  // searchType is used in the reducer but not in this function.
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  async ({ repository, search, searchType }, { rejectWithValue }) => {
+    let response;
+    try {
+      response = await fetch(
+        `${treeherderBaseURL}/api/project/${repository}/push/?author=${search}`,
+      );
+    } catch (err) {
+      const error = err as Error;
+      console.error('FetchRevisionsByAuthor ERROR: ', error);
+      return rejectWithValue(error.message);
+    }
+    const json = (await response.json()) as APIPushResponse;
+    if (json.results.length > 0) {
+      return json.results;
+    }
+    return rejectWithValue('No results found');
+  },
+);
 
 const DEFAULT_VALUES: SearchStateForInput = {
   repository: 'try',
