@@ -4,6 +4,7 @@ import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import { style } from 'typestyle';
 
+import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles, SearchStyles } from '../../styles';
 import type { RevisionsList, Repository } from '../../types/state';
