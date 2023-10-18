@@ -122,11 +122,11 @@ export const SelectRevsStyles = (mode: string) => {
               width: '0.875rem',
               height: '0.875rem',
             },
-            '.icon-close-show': {
+            '&.icon-close-show': {
               color: isTrueLight ? Colors.IconLight : Colors.IconDark,
             },
-            '.icon-close-base-hidden': {
-              display: 'none',
+            '&.icon-close-hidden': {
+              visibility: 'hidden',
             },
           },
         },

@@ -147,7 +147,7 @@ function ResultsView(props: ResultsViewProps) {
             <p>Home</p>
           </Stack>
         </Link>
-        <CompareWithBase mode={themeMode} />
+        <CompareWithBase mode={themeMode} isEditable={true} />
       </section>
       <Grid container alignItems='center' justifyContent='center'>
         <Grid item xs={12}>

@@ -155,7 +155,7 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
                   </label>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-container container_f1psuwcf   css-1ljzhs0-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container container_f1psuwcf show-container  css-1ljzhs0-MuiGrid-root"
                   id="base-search-container"
                 >
                   <div
@@ -764,7 +764,7 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
                           </div>
                         </div>
                         <div
-                          class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_f1r6bzbd css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
+                          class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_f5s7lzh css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
                           role="button"
                           tabindex="0"
                         >
@@ -832,7 +832,7 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
                           </div>
                           <button
                             aria-label="close-button"
-                            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium revision-action close-button css-t42cd1-MuiButtonBase-root-MuiButton-root"
+                            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon icon-close-show revision-action close-button css-t42cd1-MuiButtonBase-root-MuiButton-root"
                             name="close-button"
                             role="button"
                             tabindex="0"
@@ -840,7 +840,7 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall icon icon-close-show css-1mecf1h-MuiSvgIcon-root"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1mecf1h-MuiSvgIcon-root"
                               data-testid="close-icon"
                               focusable="false"
                               viewBox="0 0 24 24"
@@ -889,7 +889,7 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
                   </label>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-container container_f1psuwcf   css-1ljzhs0-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container container_f1psuwcf show-container  css-1ljzhs0-MuiGrid-root"
                   id="new-search-container"
                 >
                   <div

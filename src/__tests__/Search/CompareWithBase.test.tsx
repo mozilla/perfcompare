@@ -12,7 +12,7 @@ const protocolTheme = renderHook(() => useProtocolTheme()).result.current
 
 const themeMode = protocolTheme.palette.mode;
 function renderComponent() {
-  renderWithRouter(<CompareWithBase mode={themeMode} />);
+  renderWithRouter(<CompareWithBase isEditable={false} mode={themeMode} />);
 }
 
 describe('Compare With Base', () => {

@@ -150,9 +150,28 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                       />
                     </svg>
                   </label>
+                  <button
+                    aria-label="edit button"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium edit-button edit-button-base show-edit-btn css-t42cd1-MuiButtonBase-root-MuiButton-root"
+                    id="base-edit-button"
+                    name="edit-button"
+                    role="button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <img
+                      alt="edit-icon"
+                      class="icon icon-edit"
+                      id="base-edit-button-icon"
+                      src="https://user-images.githubusercontent.com/88336547/259900252-462ac221-f4ff-4b1c-bb6b-5df906e8007d.svg"
+                    />
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-container container_f1psuwcf   css-1ljzhs0-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container container_f1psuwcf hide-container  css-1ljzhs0-MuiGrid-root"
                   id="base-search-container"
                 >
                   <div
@@ -280,9 +299,28 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                       />
                     </svg>
                   </label>
+                  <button
+                    aria-label="edit button"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium edit-button edit-button-new show-edit-btn css-t42cd1-MuiButtonBase-root-MuiButton-root"
+                    id="new-edit-button"
+                    name="edit-button"
+                    role="button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <img
+                      alt="edit-icon"
+                      class="icon icon-edit"
+                      id="new-edit-button-icon"
+                      src="https://user-images.githubusercontent.com/88336547/259900252-462ac221-f4ff-4b1c-bb6b-5df906e8007d.svg"
+                    />
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-container container_f1psuwcf   css-1ljzhs0-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container container_f1psuwcf hide-container  css-1ljzhs0-MuiGrid-root"
                   id="new-search-container"
                 >
                   <div

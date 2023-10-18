@@ -4,6 +4,7 @@ import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import { style } from 'typestyle';
 
+import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles } from '../../styles';
 import { SearchStyles } from '../../styles';
@@ -19,6 +20,7 @@ const stringsRevision =
 
 interface CompareWithBaseProps {
   mode: ThemeMode;
+  isEditable: boolean;
 }
 
 interface Expanded {
@@ -26,7 +28,7 @@ interface Expanded {
   class: string;
 }
 
-function CompareWithBase({ mode }: CompareWithBaseProps) {
+function CompareWithBase({ mode, isEditable }: CompareWithBaseProps) {
   const formWrapperRef = createRef<HTMLDivElement>();
   const [base, setExpanded] = useState<Expanded>({
     expanded: true,
@@ -35,6 +37,12 @@ function CompareWithBase({ mode }: CompareWithBaseProps) {
 
   const styles = CompareCardsStyles(mode);
   const dropDownStyles = SearchStyles(mode);
+  const search = useAppSelector((state) => state.search);
+  const baseRepository = search.base.repository;
+  const newRepository = search.new.repository;
+  const isWarning =
+    (baseRepository === 'try' && newRepository !== 'try') ||
+    (baseRepository !== 'try' && newRepository === 'try');
 
   const toggleIsExpanded = () => {
     setExpanded({
@@ -73,8 +81,20 @@ function CompareWithBase({ mode }: CompareWithBaseProps) {
       >
         <Divider className='divider' />
         <div ref={formWrapperRef} className='form-wrapper'>
-          <SearchComponent searchType='base' mode={mode} {...stringsBase} />
-          <SearchComponent searchType='new' {...stringsRevision} mode={mode} />
+          <SearchComponent
+            searchType='base'
+            isEditable={isEditable}
+            isWarning={isWarning}
+            mode={mode}
+            {...stringsBase}
+          />
+          <SearchComponent
+            isEditable={isEditable}
+            searchType='new'
+            {...stringsRevision}
+            mode={mode}
+            isWarning={isWarning}
+          />
           <Grid
             item
             xs={2}

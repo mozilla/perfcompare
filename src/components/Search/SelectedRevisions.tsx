@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
@@ -18,14 +18,16 @@ interface SelectedRevisionsProps {
   mode: ThemeMode;
   searchType: InputType;
   isWarning?: boolean;
-  selectedRevisionsRef: React.RefObject<HTMLDivElement>;
+  formIsDisplayed: boolean;
+  isEditable: boolean;
 }
 
 function SelectedRevisions({
   mode,
   searchType,
   isWarning,
-  selectedRevisionsRef,
+  formIsDisplayed,
+  isEditable,
 }: SelectedRevisionsProps) {
   const styles = SelectRevsStyles(mode);
   const location = useLocation();
@@ -63,7 +65,6 @@ function SelectedRevisions({
 
   return (
     <Box
-      ref={selectedRevisionsRef}
       className={`${styles.box} ${searchType}-box`}
       data-testid={`selected-revs-${view}`}
     >
@@ -77,6 +78,8 @@ function SelectedRevisions({
             repository={repositories[index]}
             searchType={searchType}
             isWarning={isWarning}
+            formIsDisplayed={formIsDisplayed}
+            isEditable={isEditable}
           />
         ))}
       </List>

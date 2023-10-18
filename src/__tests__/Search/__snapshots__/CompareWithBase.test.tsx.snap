@@ -66,7 +66,7 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
               </label>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-container container_f1psuwcf   css-1ljzhs0-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-container container_f1psuwcf show-container  css-1ljzhs0-MuiGrid-root"
               id="base-search-container"
             >
               <div
@@ -196,7 +196,7 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
               </label>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-container container_f1psuwcf   css-1ljzhs0-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-container container_f1psuwcf show-container  css-1ljzhs0-MuiGrid-root"
               id="new-search-container"
             >
               <div

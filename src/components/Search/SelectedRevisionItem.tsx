@@ -41,6 +41,8 @@ interface SelectedRevisionItemProps {
   repository: Repository['name'];
   searchType: InputType;
   isWarning?: boolean;
+  formIsDisplayed: boolean;
+  isEditable: boolean;
 }
 
 function SelectedRevisionItem({
@@ -50,6 +52,8 @@ function SelectedRevisionItem({
   repository,
   searchType,
   isWarning,
+  formIsDisplayed,
+  isEditable,
 }: SelectedRevisionItemProps) {
   const styles = SelectRevsStyles(mode);
   const revisionHash = truncateHash(item.revision);
@@ -65,10 +69,10 @@ function SelectedRevisionItem({
   const prevRevRef = React.useRef<RevisionsList[]>([]);
   const location = useLocation();
   const view = location.pathname == '/' ? searchView : compareView;
-  //hide the close icon for the base selected revision in the compare view
+  //hide the close icon for the selected revisions in compare view
   const iconClassName =
-    view !== searchView && searchType === 'base'
-      ? 'icon icon-close-base-hidden'
+    !formIsDisplayed && view !== searchView
+      ? 'icon icon-close-hidden'
       : 'icon icon-close-show';
 
   const updateRevsInHash = () => {
@@ -95,12 +99,11 @@ function SelectedRevisionItem({
   }, [selectedRevisions]);
 
   const handleClose = () => {
-    if (view == searchView) {
-      removeCheckedRevision(item);
-    } else {
+    if (isEditable) {
       deleteSelectedRevisions(item);
+    } else {
+      removeCheckedRevision(item);
     }
-    return;
   };
 
   return (
@@ -165,14 +168,10 @@ function SelectedRevisionItem({
           role='button'
           name='close-button'
           aria-label='close-button'
-          className='revision-action close-button'
+          className={`${iconClassName} revision-action close-button`}
           onClick={handleClose}
         >
-          <CloseOutlined
-            className={iconClassName}
-            fontSize='small'
-            data-testid='close-icon'
-          />
+          <CloseOutlined fontSize='small' data-testid='close-icon' />
         </Button>
       </ListItemButton>
     </ListItem>

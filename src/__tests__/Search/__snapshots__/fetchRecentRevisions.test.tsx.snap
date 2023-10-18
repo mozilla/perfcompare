@@ -155,7 +155,7 @@ exports[`Search View/fetchRecentRevisions should reject fetchRecentRevisions if 
                   </label>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-container container_f1psuwcf   css-1ljzhs0-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container container_f1psuwcf show-container  css-1ljzhs0-MuiGrid-root"
                   id="base-search-container"
                 >
                   <div
@@ -285,7 +285,7 @@ exports[`Search View/fetchRecentRevisions should reject fetchRecentRevisions if 
                   </label>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-container container_f1psuwcf   css-1ljzhs0-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container container_f1psuwcf show-container  css-1ljzhs0-MuiGrid-root"
                   id="new-search-container"
                 >
                   <div

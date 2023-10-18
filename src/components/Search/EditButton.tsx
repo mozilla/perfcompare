@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Dispatch } from 'react';
 
 import Button from '@mui/material/Button';
 
@@ -8,9 +8,8 @@ import type { InputType } from '../../types/state';
 
 interface EditButtonProps {
   searchType: InputType;
-  editButtonRef: React.RefObject<HTMLButtonElement>;
-  containerRef: React.RefObject<HTMLDivElement>;
-  selectedRevisionsRef: React.RefObject<HTMLDivElement>;
+  setFormIsDisplayed: Dispatch<React.SetStateAction<boolean>>;
+  formIsDisplayed: boolean;
 }
 
 const base = Strings.components.searchDefault.base;
@@ -18,21 +17,14 @@ const editImgUrl = base.editIcon;
 
 export default function EditButton({
   searchType,
-  editButtonRef,
-  containerRef,
-  selectedRevisionsRef,
+  setFormIsDisplayed,
+  formIsDisplayed,
 }: EditButtonProps) {
   const { editSelectedRevisions } = useSelectedRevisions();
 
-  const handleVisibility = () => {
-    editButtonRef.current?.classList.add('hide-edit-btn');
-    containerRef.current?.classList.remove('hide-container');
-    selectedRevisionsRef.current?.classList.add('show-base-close-icon');
-  };
-
   const handleEditAction = () => {
+    setFormIsDisplayed(!formIsDisplayed);
     editSelectedRevisions(searchType);
-    handleVisibility();
   };
 
   return (
@@ -43,7 +35,6 @@ export default function EditButton({
       name='edit-button'
       aria-label='edit button'
       onClick={handleEditAction}
-      ref={editButtonRef}
     >
       <img
         id={`${searchType}-edit-button-icon`}

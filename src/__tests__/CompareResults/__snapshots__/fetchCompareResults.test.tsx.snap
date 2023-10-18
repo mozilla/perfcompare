@@ -272,38 +272,6 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                       </div>
                     </div>
                   </div>
-                  <div
-                    class="cancel-save-btns"
-                    id="cancel-save_btns"
-                  >
-                    <button
-                      aria-label="cancel button"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium cancel-save cancel-button f9oipqi cancel-button-base css-hkf0n7-MuiButtonBase-root-MuiButton-root"
-                      name="cancel-button"
-                      role="button"
-                      tabindex="0"
-                      type="button"
-                    >
-                      Cancel
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
-                    <button
-                      aria-label="save button"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium cancel-save save-button } save-button-base 
-        } css-hkf0n7-MuiButtonBase-root-MuiButton-root"
-                      name="save-button"
-                      role="button"
-                      tabindex="0"
-                      type="button"
-                    >
-                      Save
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
-                  </div>
                 </div>
               </div>
               <div
@@ -452,38 +420,6 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div
-                    class="cancel-save-btns"
-                    id="cancel-save_btns"
-                  >
-                    <button
-                      aria-label="cancel button"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium cancel-save cancel-button f9oipqi cancel-button-new css-hkf0n7-MuiButtonBase-root-MuiButton-root"
-                      name="cancel-button"
-                      role="button"
-                      tabindex="0"
-                      type="button"
-                    >
-                      Cancel
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
-                    <button
-                      aria-label="save button"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium cancel-save save-button } save-button-new 
-        } css-hkf0n7-MuiButtonBase-root-MuiButton-root"
-                      name="save-button"
-                      role="button"
-                      tabindex="0"
-                      type="button"
-                    >
-                      Save
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
                   </div>
                 </div>
               </div>
@@ -1068,38 +1004,6 @@ exports[`Results View/fetchCompareResults State does not contain data if fetch r
                       </div>
                     </div>
                   </div>
-                  <div
-                    class="cancel-save-btns"
-                    id="cancel-save_btns"
-                  >
-                    <button
-                      aria-label="cancel button"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium cancel-save cancel-button f9oipqi cancel-button-base css-hkf0n7-MuiButtonBase-root-MuiButton-root"
-                      name="cancel-button"
-                      role="button"
-                      tabindex="0"
-                      type="button"
-                    >
-                      Cancel
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
-                    <button
-                      aria-label="save button"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium cancel-save save-button } save-button-base 
-        } css-hkf0n7-MuiButtonBase-root-MuiButton-root"
-                      name="save-button"
-                      role="button"
-                      tabindex="0"
-                      type="button"
-                    >
-                      Save
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
-                  </div>
                 </div>
               </div>
               <div
@@ -1248,38 +1152,6 @@ exports[`Results View/fetchCompareResults State does not contain data if fetch r
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div
-                    class="cancel-save-btns"
-                    id="cancel-save_btns"
-                  >
-                    <button
-                      aria-label="cancel button"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium cancel-save cancel-button f9oipqi cancel-button-new css-hkf0n7-MuiButtonBase-root-MuiButton-root"
-                      name="cancel-button"
-                      role="button"
-                      tabindex="0"
-                      type="button"
-                    >
-                      Cancel
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
-                    <button
-                      aria-label="save button"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium cancel-save save-button } save-button-new 
-        } css-hkf0n7-MuiButtonBase-root-MuiButton-root"
-                      name="save-button"
-                      role="button"
-                      tabindex="0"
-                      type="button"
-                    >
-                      Save
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
                   </div>
                 </div>
               </div>

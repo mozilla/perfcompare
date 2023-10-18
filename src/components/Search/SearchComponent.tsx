@@ -1,10 +1,4 @@
-import {
-  Dispatch,
-  SetStateAction,
-  useEffect,
-  createRef,
-  useState,
-} from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
 import InfoIcon from '@mui/icons-material/InfoOutlined';
 import Grid from '@mui/material/Grid';
@@ -15,7 +9,10 @@ import { useLocation } from 'react-router-dom';
 import { cssRule } from 'typestyle';
 
 import { compareView, searchView } from '../../common/constants';
+import { useAppDispatch } from '../../hooks/app';
 import { useAppSelector } from '../../hooks/app';
+import useSelectedRevisions from '../../hooks/useSelectedRevisions';
+import { clearCheckedRevisionforType } from '../../reducers/SearchSlice';
 import {
   Spacing,
   DropDownMenuRaw,
@@ -39,6 +36,8 @@ interface SearchProps {
   tooltip: string;
   inputPlaceholder: string;
   searchType: InputType;
+  isEditable: boolean;
+  isWarning: boolean;
 }
 
 function SearchComponent({
@@ -47,6 +46,8 @@ function SearchComponent({
   tooltip,
   inputPlaceholder,
   searchType,
+  isEditable,
+  isWarning,
 }: SearchProps) {
   const styles = SearchStyles(mode);
 
@@ -72,9 +73,6 @@ function SearchComponent({
     },
   });
 
-  const { search } = useAppSelector((state) => state);
-  const baseRepository = search.base.repository;
-  const newRepository = search.new.repository;
   const checkedRevisionsList = useAppSelector(
     (state) => state.search[searchType].checkedRevisions,
   );
@@ -82,18 +80,27 @@ function SearchComponent({
     (state) => state.selectedRevisions.revisions,
   );
 
+  const dispatch = useAppDispatch();
+  const { updateSelectedRevisions } = useSelectedRevisions();
+
   const searchState = useAppSelector((state) => state.search[searchType]);
   const { searchResults } = searchState;
   const [focused, setFocused] = useState(false);
+  const [formIsDisplayed, setFormIsDisplayed] = useState(!isEditable);
+
   const location = useLocation();
   const view = location.pathname == '/' ? searchView : compareView;
   const matchesQuery = useMediaQuery('(max-width:768px)');
-  const containerRef = createRef<HTMLDivElement>();
-  const editButtonRef = createRef<HTMLButtonElement>();
-  const selectedRevisionsRef = createRef<HTMLDivElement>();
-  const isWarning =
-    (baseRepository === 'try' && newRepository !== 'try') ||
-    (baseRepository !== 'try' && newRepository === 'try');
+  const handleCancelAction = () => {
+    dispatch(clearCheckedRevisionforType({ searchType }));
+    setFormIsDisplayed(false);
+  };
+
+  const handleSaveAction = () => {
+    updateSelectedRevisions(searchType);
+    dispatch(clearCheckedRevisionforType({ searchType }));
+    setFormIsDisplayed(false);
+  };
 
   const handleFocus = (e: MouseEvent) => {
     if (
@@ -150,12 +157,11 @@ function SearchComponent({
           </Tooltip>
         </InputLabel>
         {/**** Edit Button ****/}
-        {view === compareView && (
+        {isEditable && !formIsDisplayed && (
           <EditButton
-            editButtonRef={editButtonRef}
             searchType={searchType}
-            containerRef={containerRef}
-            selectedRevisionsRef={selectedRevisionsRef}
+            setFormIsDisplayed={setFormIsDisplayed}
+            formIsDisplayed={formIsDisplayed}
           />
         )}
       </Grid>
@@ -165,9 +171,8 @@ function SearchComponent({
         alignItems='flex-start'
         id={`${searchType}-search-container`}
         className={`${styles.container} ${
-          view == compareView ? 'hide-container' : ''
+          formIsDisplayed ? 'show-container' : 'hide-container'
         } `}
-        ref={containerRef}
       >
         <Grid
           item
@@ -209,13 +214,12 @@ function SearchComponent({
           )}
         </Grid>
         {/****** Cancel Save Buttons ******/}
-        {view === compareView && (
+        {isEditable && formIsDisplayed && (
           <SaveCancelButtons
             mode={mode}
             searchType={searchType}
-            editButtonRef={editButtonRef}
-            containerRef={containerRef}
-            selectedRevisionsRef={selectedRevisionsRef}
+            onSave={handleSaveAction}
+            onCancel={handleCancelAction}
           />
         )}
       </Grid>
@@ -227,7 +231,8 @@ function SearchComponent({
             searchType={searchType}
             mode={mode}
             isWarning={isWarning}
-            selectedRevisionsRef={selectedRevisionsRef}
+            formIsDisplayed={formIsDisplayed}
+            isEditable={isEditable}
           />
         </Grid>
       )}

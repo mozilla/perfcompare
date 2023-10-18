@@ -1,34 +1,27 @@
-import React from 'react';
-
 import Button from '@mui/material/Button';
 import { style } from 'typestyle';
 
-import { useAppDispatch } from '../../hooks/app';
-import useSelectedRevisions from '../../hooks/useSelectedRevisions';
-import { clearCheckedRevisionforType } from '../../reducers/SearchSlice';
 import { Strings } from '../../resources/Strings';
 import { ButtonStyles } from '../../styles';
 import type { ThemeMode, InputType } from '../../types/state';
 
-interface CompareButtonProps {
+interface SaveCancelButtonsProps {
   mode: ThemeMode;
   searchType: InputType;
-  containerRef: React.RefObject<HTMLDivElement>;
-  editButtonRef: React.RefObject<HTMLButtonElement>;
-  selectedRevisionsRef: React.RefObject<HTMLDivElement>;
+  onSave: () => void;
+  onCancel: () => void;
 }
 
 const base = Strings.components.searchDefault.base;
 const save = base.save;
 const cancel = base.cancel;
 
-export default function CompareButton({
+export default function SaveCancelButtons({
   searchType,
   mode,
-  containerRef,
-  editButtonRef,
-  selectedRevisionsRef,
-}: CompareButtonProps) {
+  onCancel,
+  onSave,
+}: SaveCancelButtonsProps) {
   const btnStyles = ButtonStyles(mode);
   const cancelBtn = {
     main: style({
@@ -39,23 +32,6 @@ export default function CompareButton({
       },
     }),
   };
-  const dispatch = useAppDispatch();
-  const { updateSelectedRevisions } = useSelectedRevisions();
-
-  const handleCancelAction = () => {
-    dispatch(clearCheckedRevisionforType({ searchType }));
-    editButtonRef.current?.classList.remove('hide-edit-btn');
-    containerRef.current?.classList.add('hide-container');
-    selectedRevisionsRef.current?.classList.remove('show-base-close-icon');
-  };
-
-  const handleSaveAction = () => {
-    updateSelectedRevisions(searchType);
-    dispatch(clearCheckedRevisionforType({ searchType }));
-    editButtonRef.current?.classList.remove('hide-edit-btn');
-    containerRef.current?.classList.remove('hide-container');
-  };
-
   return (
     <div className='cancel-save-btns' id='cancel-save_btns'>
       <Button
@@ -64,18 +40,18 @@ export default function CompareButton({
         name='cancel-button'
         aria-label='cancel button'
         variant='contained'
-        onClick={handleCancelAction}
+        onClick={onCancel}
       >
         {cancel}
       </Button>
       <Button
-        className={`cancel-save save-button } save-button-${searchType} 
+        className={`cancel-save save-button save-button-${searchType} 
         }`}
         role='button'
         name='save-button'
         aria-label='save button'
         variant='contained'
-        onClick={handleSaveAction}
+        onClick={onSave}
       >
         {save}
       </Button>
