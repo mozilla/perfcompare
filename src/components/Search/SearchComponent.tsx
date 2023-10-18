@@ -90,6 +90,9 @@ function SearchComponent({
   const dispatch = useAppDispatch();
   const { updateSelectedRevisions } = useSelectedRevisions();
 
+  const dispatch = useAppDispatch();
+  const { updateSelectedRevisions } = useSelectedRevisions();
+
   const searchState = useAppSelector((state) => state.search[searchType]);
   const { searchResults } = searchState;
   const [displayDropdown, setDisplayDropdown] = useState(false);
