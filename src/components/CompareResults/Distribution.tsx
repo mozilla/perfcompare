@@ -10,9 +10,6 @@ const styles = {
     display: 'flex',
     marginBottom: Spacing.Medium,
   }),
-  commonGraph: style({
-    width: '100%',
-  }),
 };
 
 function Distribution(props: DistributionProps) {

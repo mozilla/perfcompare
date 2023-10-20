@@ -1,9 +1,4 @@
-import {
-  Chart as ChartJS,
-  LineElement,
-  LinearScale,
-  TooltipItem,
-} from 'chart.js';
+import { Chart as ChartJS, LineElement, LinearScale } from 'chart.js';
 import 'chart.js/auto';
 import * as kde from 'fast-kde';
 import { Line } from 'react-chartjs-2';
@@ -12,11 +7,6 @@ import { style } from 'typestyle';
 import { Spacing } from '../../styles';
 
 ChartJS.register(LinearScale, LineElement);
-
-interface GraphData {
-  x: number;
-  y: number | string;
-}
 
 const styles = {
   container: style({
@@ -33,19 +23,15 @@ function CommonGraph(props: CommonGraphProps) {
     plugins: {
       legend: {
         align: 'start' as const,
-        position: 'top' as const,
-      },
-      tooltip: {
-        callbacks: {
-          label: (context: TooltipItem<'line'>) => {
-            return `${(context.raw as GraphData).y}`;
-          },
-        },
+        position: 'bottom' as const,
       },
       title: {
+        align: 'start' as const,
         display: true,
+        text: 'Runs Density Distribution',
       },
     },
+    responsive: true,
     scales: {
       x: {
         grid: {

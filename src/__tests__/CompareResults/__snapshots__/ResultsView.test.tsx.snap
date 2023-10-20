@@ -11234,6 +11234,11 @@ exports[`Results View Should match snapshot 1`] = `
                       </div>
                     </div>
                   </div>
+                  <div
+                    class="f1w2i9df"
+                  >
+                    chartjs-line
+                  </div>
                 </div>
               </div>
               <div
@@ -13337,6 +13342,11 @@ exports[`Results View Should match snapshot 1`] = `
                         % standard deviation
                       </div>
                     </div>
+                  </div>
+                  <div
+                    class="f1w2i9df"
+                  >
+                    chartjs-line
                   </div>
                 </div>
               </div>
@@ -19966,6 +19976,11 @@ exports[`Results View Should match snapshot 1`] = `
                         % standard deviation
                       </div>
                     </div>
+                  </div>
+                  <div
+                    class="f1w2i9df"
+                  >
+                    chartjs-line
                   </div>
                 </div>
               </div>

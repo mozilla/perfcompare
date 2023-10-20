@@ -7,7 +7,8 @@ import 'regenerator-runtime/runtime';
 import '@testing-library/jest-dom';
 import React from 'react';
 
-import { Bubble } from 'react-chartjs-2';
+import { density1d } from 'fast-kde';
+import { Bubble, Line } from 'react-chartjs-2';
 
 import { createStore } from '../../common/store';
 import type { Store } from '../../common/store';
@@ -26,13 +27,22 @@ let StoreProvider: React.FC<{ children: JSX.Element }>;
 
 jest.mock('react-chartjs-2', () => ({
   Bubble: jest.fn(),
+  Line: jest.fn(),
 }));
 const MockedBubble = Bubble as jest.Mock;
+const MockedLine = Line as jest.Mock;
+
+jest.mock('fast-kde', () => ({
+  density1d: jest.fn(),
+}));
+const MockedDensity1d = density1d as jest.Mock;
 
 beforeEach(() => {
   // After every test jest resets the mock implementation, so we need to define
   // it again for each test.
   MockedBubble.mockImplementation(() => 'chartjs-bubble');
+  MockedLine.mockImplementation(() => 'chartjs-line');
+  MockedDensity1d.mockImplementation(() => 'fast-kde');
 });
 
 beforeAll(() => {
