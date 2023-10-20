@@ -39,17 +39,27 @@ function CommonGraph(props: CommonGraphProps) {
           offset: false,
         },
         type: 'linear' as const,
+        title: {
+          align: 'end' as const,
+          display: true,
+          text: 'Run Result' as const,
+        },
       },
       y: {
         beginAtZero: true,
-        ticks: {
-          beginAtZero: true,
-          display: true,
-        },
         grid: {
           drawBorder: false,
           display: false,
           offset: false,
+        },
+        ticks: {
+          beginAtZero: true,
+          display: true,
+        },
+        title: {
+          align: 'end' as const,
+          display: true,
+          text: 'Run Density' as const,
         },
       },
     },
