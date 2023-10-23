@@ -7,8 +7,8 @@ import Tooltip from '@mui/material/Tooltip';
 import { style, cssRule } from 'typestyle';
 
 import { frameworkMap } from '../../common/constants';
-import { useAppSelector } from '../../hooks/app';
-import useHandleChangeFrameworkDropdown from '../../hooks/useHandleFrameworkDropdown';
+import { useAppDispatch, useAppSelector } from '../../hooks/app';
+import { updateFramework } from '../../reducers/FrameworkSlice';
 import { Strings } from '../../resources/Strings';
 import {
   Spacing,
@@ -78,15 +78,19 @@ function FrameworkDropdown({ mode }: FrameworkDropdownProps) {
     }),
   };
 
+  const dispatch = useAppDispatch();
   const frameworkId = useAppSelector((state) => state.framework.id);
-
-  const { handleChangeFrameworkDropdown } = useHandleChangeFrameworkDropdown();
 
   const handleFrameworkSelect = async (event: SelectChangeEvent) => {
     const id = +event.target.value as Framework['id'];
     const name = frameworkMap[id];
 
-    await handleChangeFrameworkDropdown({ id, name });
+    dispatch(
+      updateFramework({
+        id,
+        name,
+      }),
+    );
   };
 
   return (
