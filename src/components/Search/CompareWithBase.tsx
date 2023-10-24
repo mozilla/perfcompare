@@ -29,7 +29,6 @@ interface Expanded {
 }
 
 function CompareWithBase({ mode, isEditable }: CompareWithBaseProps) {
-  const formWrapperRef = createRef<HTMLDivElement>();
   const [base, setExpanded] = useState<Expanded>({
     expanded: true,
     class: 'expanded',
@@ -80,7 +79,7 @@ function CompareWithBase({ mode, isEditable }: CompareWithBaseProps) {
         className={`compare-card-container content-base content-base--${base.class} ${styles.container} `}
       >
         <Divider className='divider' />
-        <div ref={formWrapperRef} className='form-wrapper'>
+        <div className='form-wrapper'>
           <SearchComponent
             searchType='base'
             isEditable={isEditable}
