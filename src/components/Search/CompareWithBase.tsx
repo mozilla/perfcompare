@@ -41,6 +41,18 @@ function CompareWithBase({
   const search = useAppSelector((state) => state.search);
   const baseRepository = search.base.repository;
   const newRepository = search.new.repository;
+  const baseSearchProps = {
+    ...stringsBase,
+    revisions: displayedRevisions.baseRevs,
+    repositories: displayedRepositories.baseRepos,
+    searchType: 'base' as InputType,
+  };
+  const newSearchProps = {
+    ...stringsNew,
+    revisions: displayedRevisions.newRevs,
+    repositories: displayedRepositories.newRepos,
+    searchType: 'new' as InputType,
+  };
   const isWarning =
     (baseRepository === 'try' && newRepository !== 'try') ||
     (baseRepository !== 'try' && newRepository === 'try');
@@ -84,7 +96,6 @@ function CompareWithBase({
         <Divider className='divider' />
         <div className='form-wrapper'>
           <SearchComponent
-            searchType='base'
             isEditable={isEditable}
             isWarning={isWarning}
             mode={mode}

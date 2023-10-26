@@ -40,19 +40,20 @@ function SelectedRevisions({
       data-testid={`selected-revs-${view}`}
     >
       <List>
-        {revisions.map((item, index) => (
-          <SelectedRevisionItem
-            key={item.id}
-            index={index}
-            item={item}
-            mode={mode}
-            repository={repositories[index]}
-            searchType={searchType}
-            isWarning={isWarning}
-            formIsDisplayed={formIsDisplayed}
-            isEditable={isEditable}
-          />
-        ))}
+        {revisions &&
+          revisions.map((item, index) => (
+            <SelectedRevisionItem
+              key={item.id}
+              index={index}
+              item={item}
+              mode={mode}
+              repository={repositories[index]}
+              searchType={searchType}
+              isWarning={isWarning}
+              formIsDisplayed={formIsDisplayed}
+              isEditable={isEditable}
+            />
+          ))}
       </List>
     </Box>
   );

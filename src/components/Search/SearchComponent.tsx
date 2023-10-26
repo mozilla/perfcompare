@@ -7,6 +7,7 @@ import {
 } from 'react';
 
 import InfoIcon from '@mui/icons-material/InfoOutlined';
+import CircularProgress from '@mui/material/CircularProgress';
 import Grid from '@mui/material/Grid';
 import InputLabel from '@mui/material/InputLabel';
 import Tooltip from '@mui/material/Tooltip';
@@ -245,6 +246,8 @@ function SearchComponent({
             repositories={repositories}
           />
         </Grid>
+      ) : (
+        <CircularProgress />
       )}
     </Grid>
   );

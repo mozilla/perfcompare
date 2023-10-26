@@ -6,7 +6,7 @@ import { repoMap, searchView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { SearchContainerStyles } from '../../styles';
-import type { ThemeMode } from '../../types/state';
+import type { ThemeMode, Repository } from '../../types/state';
 import CompareOverTime from './CompareOverTime';
 import CompareWithBase from './CompareWithBase';
 
@@ -30,6 +30,32 @@ function SearchContainer(props: SearchViewProps) {
   const checkedBaseRepos = checkedRevisionsListBase.map(
     (item) => repoMap[item.repository_id] ?? 'try',
   );
+
+  const checkedRevisionsListNew = useAppSelector(
+    (state) => state.search.new.checkedRevisions,
+  );
+  const checkedRevisionsListBase = useAppSelector(
+    (state) => state.search.base.checkedRevisions,
+  );
+  const displayedCheckedRevisions = {
+    baseRevs: checkedRevisionsListBase,
+    newRevs: checkedRevisionsListNew,
+  };
+
+  const checkedNewRepos = checkedRevisionsListNew.map((item) => {
+    const selectedRep = repoMap[item.repository_id];
+    return selectedRep;
+  });
+
+  const checkedBaseRepos = checkedRevisionsListBase.map((item) => {
+    const selectedRep = repoMap[item.repository_id];
+    return selectedRep;
+  });
+
+  const displayedRepositories = {
+    baseRepos: checkedBaseRepos as Repository['name'][],
+    newRepos: checkedNewRepos as Repository['name'][],
+  };
 
   return (
     <section

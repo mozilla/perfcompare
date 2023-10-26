@@ -50,7 +50,7 @@ function SelectedRevisionItem({
   isEditable,
 }: SelectedRevisionItemProps) {
   const styles = SelectRevsStyles(mode);
-  const revisionHash = truncateHash(item.revision);
+  const revisionHash = item ? truncateHash(item.revision) : '';
   const commitMessage = getLatestCommitMessage(item);
   const itemDate = new Date(item.push_timestamp * 1000);
   const { removeCheckedRevision } = useCheckRevision(searchType);
