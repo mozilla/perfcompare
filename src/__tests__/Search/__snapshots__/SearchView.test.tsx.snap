@@ -255,6 +255,18 @@ exports[`Search View renders correctly when there are no results 1`] = `
                     </div>
                   </div>
                 </div>
+                <div
+                  class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
+                >
+                  <div
+                    class="box_f65ycfw base-box MuiBox-root css-0"
+                    data-testid="selected-revs-search"
+                  >
+                    <ul
+                      class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
+                    />
+                  </div>
+                </div>
               </div>
               <div
                 class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
@@ -383,6 +395,18 @@ exports[`Search View renders correctly when there are no results 1`] = `
                         </div>
                       </div>
                     </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
+                >
+                  <div
+                    class="box_f65ycfw new-box MuiBox-root css-0"
+                    data-testid="selected-revs-search"
+                  >
+                    <ul
+                      class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
+                    />
                   </div>
                 </div>
               </div>
