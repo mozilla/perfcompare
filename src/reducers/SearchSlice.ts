@@ -77,11 +77,6 @@ const search = createSlice({
       state[type].checkedRevisions = action.payload.newChecked;
     },
 
-    clearCheckedRevisions(state) {
-      state.base.checkedRevisions = initialState.base.checkedRevisions;
-      state.new.checkedRevisions = initialState.new.checkedRevisions;
-    },
-
     clearCheckedRevisionforType(
       state,
       action: PayloadAction<{
@@ -161,7 +156,6 @@ export const {
   updateSearchResults,
   updateRepository,
   updateCheckedRevisions,
-  clearCheckedRevisions,
   clearCheckedRevisionforType,
   setInputError,
   setCheckedRevisionsForEdit,

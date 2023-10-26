@@ -76,8 +76,8 @@ function ResultsView(props: ResultsViewProps) {
       );
 
       /*
-      On component mount, use the repos and revs in hash to search for the base and new revisions. Store the results in state via the SelectedRevisionsSlice: see extra reducer, fetchRevisionsByID. Now can always display the selected revisions despite page refresh or copying and pasting url
-      */
+       *On component mount, use the repos and revs in hash to search for the base and new *revisions. Store the results in state via the SelectedRevisionsSlice: see extra *reducer, fetchRevisionsByID. Now can always display the selected revisions despite *page refresh or copying and pasting url
+       */
       revsArray.forEach((rev, index) => {
         void searchByRevisionOrEmail(
           reposArray[index] as Repository['name'],
@@ -108,7 +108,8 @@ function ResultsView(props: ResultsViewProps) {
     }
   }, [framework]);
 
-  /* editing the revisions requires fetching the recent revisions in results view
+  /* editing the revisions requires fetching the
+   * recent revisions in results view
    */
   useEffect(() => {
     const repository = repositoryBase;
@@ -147,7 +148,7 @@ function ResultsView(props: ResultsViewProps) {
             <p>Home</p>
           </Stack>
         </Link>
-        <CompareWithBase mode={themeMode} view={compareView as View} />
+        <CompareWithBase mode={themeMode} isEditable={true} />
       </section>
       <Grid container alignItems='center' justifyContent='center'>
         <Grid item xs={12}>

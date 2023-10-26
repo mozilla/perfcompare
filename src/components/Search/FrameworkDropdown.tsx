@@ -20,17 +20,16 @@ import {
   DropDownMenuRaw,
   DropDownItemRaw,
 } from '../../styles';
-import type { ThemeMode, View } from '../../types/state';
+import type { ThemeMode } from '../../types/state';
 import type { Framework } from '../../types/types';
 
 interface FrameworkDropdownProps {
-  view: View;
   mode: ThemeMode;
 }
 
 const strings = Strings.components.searchDefault.sharedCollasped.framkework;
 
-function FrameworkDropdown({ view, mode }: FrameworkDropdownProps) {
+function FrameworkDropdown({ mode }: FrameworkDropdownProps) {
   cssRule('.MuiTooltip-popper', {
     ...(mode === 'light' ? TooltipRaw.Light : TooltipRaw.Dark),
     $nest: {
@@ -63,7 +62,6 @@ function FrameworkDropdown({ view, mode }: FrameworkDropdownProps) {
       },
     },
   });
-  const size = view == 'compare-results' ? 'small' : undefined;
 
   const styles = {
     container: style({
@@ -93,10 +91,7 @@ function FrameworkDropdown({ view, mode }: FrameworkDropdownProps) {
 
   return (
     <div>
-      <FormControl
-        size={size}
-        className={`framework-dropdown ${styles.container}`}
-      >
+      <FormControl className={`framework-dropdown ${styles.container}`}>
         <InputLabel
           id='select-framework-label'
           className='dropdown-select-label'

@@ -130,18 +130,15 @@ export const SearchStyles = (mode: string) => {
       position: 'relative',
 
       $nest: {
+        '&.hide-container': {
+          display: 'none',
+        },
+
         '.cancel-save': {
           padding: '4px 16px',
           maxWidth: '44px',
           maxHeight: '32px',
           marginLeft: `${Spacing.Small}px`,
-        },
-
-        '.cancel-button.hidden': {
-          display: 'none',
-        },
-        '.save-button.hidden': {
-          display: 'none',
         },
       },
     },
@@ -156,6 +153,9 @@ export const SearchStyles = (mode: string) => {
           display: 'flex',
           justifyContent: 'space-between',
           $nest: {
+            '.hide-edit-btn': {
+              visibility: 'hidden',
+            },
             '.edit-button': {
               padding: '0px',
               justifyContent: 'flex-end',
@@ -166,9 +166,6 @@ export const SearchStyles = (mode: string) => {
                   backgroundColor: 'transparent',
                 },
               },
-            },
-            '.edit-button.hidden': {
-              display: 'none',
             },
           },
         },

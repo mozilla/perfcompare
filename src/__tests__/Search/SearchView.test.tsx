@@ -2,17 +2,14 @@ import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
-import SearchComponent from '../../components/Search/SearchComponent';
 import SearchView from '../../components/Search/SearchView';
 import { setSelectedRevisions } from '../../reducers/SelectedRevisionsSlice';
 import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
-import { RevisionsList, InputType, ThemeMode } from '../../types/state';
+import { RevisionsList, InputType } from '../../types/state';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen, waitFor } from '../utils/test-utils';
-
-const stringsBase = Strings.components.searchDefault.base.collapsed.base;
 
 const protocolTheme = renderHook(() => useProtocolTheme()).result.current
   .protocolTheme;
@@ -257,16 +254,7 @@ describe('Base Search', () => {
   it('should update error state with generic message if fetch error is undefined', async () => {
     global.fetch = jest.fn(() => Promise.reject(new Error())) as jest.Mock;
     const searchType = 'base' as InputType;
-    const SearchPropsBase = {
-      searchType,
-      mode: 'light' as ThemeMode,
-      view: 'search' as 'search' | 'compare-results',
-      isWarning: false,
-      ...stringsBase,
-    };
     renderComponent();
-
-    renderWithRouter(<SearchComponent {...SearchPropsBase} />);
 
     await act(async () => void jest.runOnlyPendingTimers());
 
