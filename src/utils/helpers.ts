@@ -15,7 +15,7 @@ const truncateHash = (revision: RevisionsList['revision']) =>
 // return only most recent commit message
 // first commit is usually 'try_task_config'
 const getLatestCommitMessage = (item: RevisionsList) =>
-  item.revisions[item.revisions.length - 1].comments;
+  item.revisions[0].comments;
 
 // ensure all numbers display two digits
 const formatNumber = (number: number): string => {
