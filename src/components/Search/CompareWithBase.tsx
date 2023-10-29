@@ -37,7 +37,6 @@ interface CompareWithBaseProps {
 
 interface Expanded {
   expanded: boolean;
-  class: string;
 }
 
 function CompareWithBase({
@@ -48,7 +47,6 @@ function CompareWithBase({
 }: CompareWithBaseProps) {
   const [base, setExpanded] = useState<Expanded>({
     expanded: true,
-    class: 'expanded',
   });
 
   const styles = CompareCardsStyles(mode);
@@ -88,7 +86,6 @@ function CompareWithBase({
   const toggleIsExpanded = () => {
     setExpanded({
       expanded: !base.expanded,
-      class: base.expanded ? 'hidden' : 'expanded',
     });
   };
 
@@ -103,7 +100,9 @@ function CompareWithBase({
   return (
     <Grid className='wrapper'>
       <div
-        className={`compare-card-container compare-card-container--${base.class} ${styles.container}`}
+        className={`compare-card-container compare-card-container--${
+          base.expanded ? 'expanded' : 'hidden'
+        } ${styles.container}`}
         onClick={toggleIsExpanded}
         data-testid='base-state'
       >
@@ -118,7 +117,9 @@ function CompareWithBase({
       </div>
 
       <div
-        className={`compare-card-container content-base content-base--${base.class} ${styles.container} `}
+        className={`compare-card-container content-base content-base--${
+          base.expanded ? 'expanded' : 'hidden'
+        } ${styles.container} `}
       >
         <Divider className='divider' />
         <div className='form-wrapper'>

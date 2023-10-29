@@ -21,7 +21,6 @@ import RevisionRowExpandable from './RevisionRowExpandable';
 
 interface Expanded {
   expanded: boolean;
-  class: string;
 }
 
 function determineStatus(improvement: boolean, regression: boolean) {
@@ -58,13 +57,11 @@ function RevisionRow(props: RevisionRowProps) {
 
   const [row, setExpanded] = useState<Expanded>({
     expanded: false,
-    class: 'default',
   });
 
   const toggleIsExpanded = () => {
     setExpanded({
       expanded: !row.expanded,
-      class: row.expanded ? 'default' : 'expanded',
     });
   };
 
@@ -216,7 +213,9 @@ function RevisionRow(props: RevisionRowProps) {
       <TableRow className={`revisionRow ${styles.revisionRow}`}>
         <TableCell colSpan={11}>
           <div
-            className={`content-row content-row--${row.class} ${stylesCard.container} `}
+            className={`content-row content-row--${
+              row.expanded ? 'expanded' : 'default'
+            } ${stylesCard.container} `}
             data-testid='expanded-row-content'
           >
             <RevisionRowExpandable themeMode={themeMode} result={result} />
