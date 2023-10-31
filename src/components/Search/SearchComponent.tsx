@@ -20,7 +20,12 @@ import {
   //SearchStyles can be found in CompareCards.ts
   SearchStyles,
 } from '../../styles';
-import type { RevisionsList, InputType, ThemeMode } from '../../types/state';
+import type {
+  RevisionsList,
+  InputType,
+  ThemeMode,
+  Repository,
+} from '../../types/state';
 import EditButton from './EditButton';
 import SaveCancelButtons from './SaveCancelButtons';
 import SearchDropdown from './SearchDropdown';
@@ -38,6 +43,8 @@ interface SearchProps {
   searchType: InputType;
   isEditable: boolean;
   isWarning: boolean;
+  revisions: RevisionsList[];
+  repositories: Repository['name'][];
 }
 
 function SearchComponent({
@@ -48,6 +55,8 @@ function SearchComponent({
   searchType,
   isEditable,
   isWarning,
+  revisions,
+  repositories,
 }: SearchProps) {
   const styles = SearchStyles(mode);
 
@@ -72,13 +81,6 @@ function SearchComponent({
       },
     },
   });
-
-  const checkedRevisionsList = useAppSelector(
-    (state) => state.search[searchType].checkedRevisions,
-  );
-  const selectedRevisions = useAppSelector(
-    (state) => state.selectedRevisions.revisions,
-  );
 
   const dispatch = useAppDispatch();
   const { updateSelectedRevisions } = useSelectedRevisions();
@@ -224,8 +226,7 @@ function SearchComponent({
         )}
       </Grid>
       {/***** Selected Revisions Section *****/}
-      {(checkedRevisionsList.length > 0 ||
-        (selectedRevisions && selectedRevisions.length > 0)) && (
+      {revisions && repositories && (
         <Grid className='d-flex'>
           <SelectedRevisions
             searchType={searchType}
@@ -233,6 +234,8 @@ function SearchComponent({
             isWarning={isWarning}
             formIsDisplayed={formIsDisplayed}
             isEditable={isEditable}
+            revisions={revisions}
+            repositories={repositories}
           />
         </Grid>
       )}

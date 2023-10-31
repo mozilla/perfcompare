@@ -781,9 +781,7 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
                                   class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
                                   href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
                                   target="_blank"
-                                >
-                                  coconut
-                                </a>
+                                />
                               </span>
                               <div
                                 class="info-caption"
@@ -820,14 +818,14 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
                                       d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                                     />
                                   </svg>
-                                  03/29/51 00:00
+                                  10/31/23 01:56
                                 </div>
                               </div>
                             </span>
                             <p
                               class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
                             >
-                              you've got no arms left! 
+                              undefined 
                             </p>
                           </div>
                           <button
@@ -989,6 +987,18 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
                         </div>
                       </div>
                     </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
+                >
+                  <div
+                    class="box_f65ycfw new-box MuiBox-root css-0"
+                    data-testid="selected-revs-search"
+                  >
+                    <ul
+                      class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
+                    />
                   </div>
                 </div>
               </div>

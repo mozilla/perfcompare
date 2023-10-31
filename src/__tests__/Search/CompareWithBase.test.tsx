@@ -2,8 +2,11 @@ import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
+import { repoMap } from '../../common/constants';
 import CompareWithBase from '../../components/Search/CompareWithBase';
 import useProtocolTheme from '../../theme/protocolTheme';
+import type { Repository } from '../../types/state';
+import getTestData from '../utils/fixtures';
 import { renderWithRouter } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
 
@@ -12,7 +15,37 @@ const protocolTheme = renderHook(() => useProtocolTheme()).result.current
 
 const themeMode = protocolTheme.palette.mode;
 function renderComponent() {
-  renderWithRouter(<CompareWithBase isEditable={false} mode={themeMode} />);
+  const { testData } = getTestData();
+  const selectedRevsBase = testData.slice(0, 1);
+  const selectedRevsNew = testData.slice(1, 3);
+
+  const displayedCheckedRevisions = {
+    baseRevs: selectedRevsBase,
+    newRevs: selectedRevsNew,
+  };
+
+  const baseRepos = selectedRevsBase.map((item) => {
+    const selectedRep = repoMap[item.repository_id];
+    return selectedRep;
+  });
+
+  const newRepos = selectedRevsNew.map((item) => {
+    const selectedRep = repoMap[item.repository_id];
+    return selectedRep;
+  });
+
+  const displayedRepositories = {
+    baseRepos: baseRepos as Repository['name'][],
+    newRepos: newRepos as Repository['name'][],
+  };
+  renderWithRouter(
+    <CompareWithBase
+      isEditable={false}
+      mode={themeMode}
+      displayedRevisions={displayedCheckedRevisions}
+      displayedRepositories={displayedRepositories}
+    />,
+  );
 }
 
 describe('Compare With Base', () => {
