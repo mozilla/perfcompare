@@ -1,5 +1,3 @@
-import { useMemo } from 'react';
-
 import InfoIcon from '@mui/icons-material/InfoOutlined';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
@@ -31,6 +29,8 @@ interface FrameworkDropdownProps {
 }
 
 const strings = Strings.components.searchDefault.sharedCollasped.framkework;
+
+const sortedFrameworks = sortFrameworks(frameworkMap);
 
 function FrameworkDropdown({ mode }: FrameworkDropdownProps) {
   cssRule('.MuiTooltip-popper', {
@@ -83,7 +83,6 @@ function FrameworkDropdown({ mode }: FrameworkDropdownProps) {
 
   const dispatch = useAppDispatch();
   const frameworkId = useAppSelector((state) => state.framework.id);
-  const sortedFrameworks = useMemo(() => sortFrameworks(frameworkMap), []);
 
   const handleFrameworkSelect = async (event: SelectChangeEvent) => {
     const id = +event.target.value as Framework['id'];
