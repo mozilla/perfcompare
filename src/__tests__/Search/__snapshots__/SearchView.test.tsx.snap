@@ -115,8 +115,9 @@ exports[`Search View renders correctly when there are no results 1`] = `
               </div>
             </div>
             <div
-              aria-label="two overlapping circles"
+              aria-hidden="true"
               class="compare-card-img compare-card-img--base"
+              role="img"
             />
           </div>
           <div

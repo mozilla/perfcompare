@@ -115,8 +115,9 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
               </div>
             </div>
             <div
-              aria-label="two overlapping circles"
+              aria-hidden="true"
               class="compare-card-img compare-card-img--base"
+              role="img"
             />
           </div>
           <div

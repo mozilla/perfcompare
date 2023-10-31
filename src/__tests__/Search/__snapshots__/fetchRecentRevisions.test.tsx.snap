@@ -115,8 +115,9 @@ exports[`Search View/fetchRecentRevisions should reject fetchRecentRevisions if 
               </div>
             </div>
             <div
-              aria-label="two overlapping circles"
+              aria-hidden="true"
               class="compare-card-img compare-card-img--base"
+              role="img"
             />
           </div>
           <div

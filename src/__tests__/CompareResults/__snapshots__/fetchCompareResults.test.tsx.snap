@@ -112,8 +112,9 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
               </div>
             </div>
             <div
-              aria-label="two overlapping circles"
+              aria-hidden="true"
               class="compare-card-img compare-card-img--base"
+              role="img"
             />
           </div>
           <div
@@ -844,8 +845,9 @@ exports[`Results View/fetchCompareResults State does not contain data if fetch r
               </div>
             </div>
             <div
-              aria-label="two overlapping circles"
+              aria-hidden="true"
               class="compare-card-img compare-card-img--base"
+              role="img"
             />
           </div>
           <div
