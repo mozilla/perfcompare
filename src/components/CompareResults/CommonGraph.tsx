@@ -67,7 +67,7 @@ function CommonGraph(props: CommonGraphProps) {
 
   //////////////////// START FAST KDE ////////////////////////
   const baseRunsDensity = Array.from(
-    kde.density1d([...baseRevisionRuns.values], {
+    kde.density1d(baseRevisionRuns.values, {
       bandwidth: baseRevisionRuns.stddev,
       extent: [
         Math.min(...baseRevisionRuns.values),
@@ -76,7 +76,7 @@ function CommonGraph(props: CommonGraphProps) {
     }),
   );
   const newRunsDensity = Array.from(
-    kde.density1d([...newRevisionRuns.values], {
+    kde.density1d(newRevisionRuns.values, {
       bandwidth: newRevisionRuns.stddev,
       extent: [
         Math.min(...newRevisionRuns.values),
