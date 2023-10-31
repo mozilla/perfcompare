@@ -12,6 +12,8 @@ const styles = {
   }),
   content: style({
     display: 'flex',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
   }),
 };
 
