@@ -1,3 +1,5 @@
+import { useMemo } from 'react';
+
 import InfoIcon from '@mui/icons-material/InfoOutlined';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
@@ -81,6 +83,7 @@ function FrameworkDropdown({ mode }: FrameworkDropdownProps) {
 
   const dispatch = useAppDispatch();
   const frameworkId = useAppSelector((state) => state.framework.id);
+  const sortedFrameworks = useMemo(() => sortFrameworks(frameworkMap), []);
 
   const handleFrameworkSelect = async (event: SelectChangeEvent) => {
     const id = +event.target.value as Framework['id'];
@@ -116,7 +119,7 @@ function FrameworkDropdown({ mode }: FrameworkDropdownProps) {
           onChange={(e) => void handleFrameworkSelect(e)}
           name='Framework'
         >
-          {sortFrameworks(frameworkMap).map(([id, name]) => (
+          {sortedFrameworks.map(([id, name]) => (
             <MenuItem value={id} key={name} className='framework-dropdown-item'>
               {name}
             </MenuItem>
