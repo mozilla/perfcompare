@@ -22,13 +22,26 @@ import {
 } from '../../styles';
 import type { ThemeMode } from '../../types/state';
 import type { Framework } from '../../types/types';
-import { sortFrameworks } from '../../utils/helpers';
 
 interface FrameworkDropdownProps {
   mode: ThemeMode;
 }
 
 const strings = Strings.components.searchDefault.sharedCollasped.framkework;
+
+const sortFrameworks = (
+  frameworks: Record<Framework['id'], Framework['name']>,
+) => {
+  const unsortedArray = Object.entries(frameworks);
+
+  // Sort the array based on values
+
+  const sortedArray = unsortedArray.sort((a, b) => {
+    return a[1].localeCompare(b[1]);
+  });
+
+  return sortedArray;
+};
 
 const sortedFrameworks = sortFrameworks(frameworkMap);
 
