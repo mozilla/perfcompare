@@ -1,12 +1,11 @@
 import type { ReactElement } from 'react';
 
 import ResultsView from '../../components/CompareResults/ResultsView';
-import { setSelectedRevisions } from '../../reducers/SelectedRevisionsSlice';
 import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
-import { renderHook, act } from '../utils/test-utils';
+import { renderHook } from '../utils/test-utils';
 import { screen } from '../utils/test-utils';
 
 function renderWithRoute(component: ReactElement) {
