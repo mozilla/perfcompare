@@ -63,6 +63,7 @@ describe('Compare With Base', () => {
     });
 
     await user.click(frameworkDropdown);
+    expect(screen.getByRole('listbox')).toMatchSnapshot();
     const buildMetricsItem = screen.getByRole('option', {
       name: 'build_metrics',
     });
