@@ -8,8 +8,7 @@ import Stack from '@mui/material/Stack';
 import { useSearchParams } from 'react-router-dom';
 import { style } from 'typestyle';
 
-import { compareView } from '../../common/constants';
-import { frameworkMap } from '../../common/constants';
+import { frameworkMap, compareView, repoMap } from '../../common/constants';
 import { useAppDispatch, useAppSelector } from '../../hooks/app';
 import useFetchCompareResults from '../../hooks/useFetchCompareResults';
 import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
@@ -30,10 +29,39 @@ interface ResultsViewProps {
 }
 function ResultsView(props: ResultsViewProps) {
   const dispatch = useAppDispatch();
+  const selectedRevisionsListBase = useAppSelector(
+    (state) => state.selectedRevisions.base,
+  );
+  const selectedRevisionsListNew = useAppSelector(
+    (state) => state.selectedRevisions.new,
+  );
+
+  const displayedSelectedRevisions = {
+    baseRevs: selectedRevisionsListBase,
+    newRevs: selectedRevisionsListNew,
+  };
+
+  const selectedBaseRepositories = selectedRevisionsListBase.map((item) => {
+    const selectedRep = repoMap[item.repository_id];
+    return selectedRep;
+  });
+
+  const selectedNewRepositories = selectedRevisionsListNew.map((item) => {
+    const selectedRep = repoMap[item.repository_id];
+    return selectedRep;
+  });
+
+  const displayedRepositories = {
+    baseRepos: selectedBaseRepositories as Repository['name'][],
+    newRepos: selectedNewRepositories as Repository['name'][],
+  };
+
   const repositoryBase = useAppSelector(
     (state) => state.search.base.repository,
   );
+
   const repositoryNew = useAppSelector((state) => state.search.new.repository);
+
   const { dispatchFetchCompareResults, dispatchFakeCompareResults } =
     useFetchCompareResults();
   const { searchByRevisionOrEmail } = useHandleChangeSearch();
@@ -148,7 +176,12 @@ function ResultsView(props: ResultsViewProps) {
             <p>Home</p>
           </Stack>
         </Link>
-        <CompareWithBase mode={themeMode} isEditable={true} />
+        <CompareWithBase
+        mode={themeMode}
+        isEditable={true}
+        displayedRevisions={displayedSelectedRevisions}
+        displayedRepositories={displayedRepositories}
+      />
       </section>
       <Grid container alignItems='center' justifyContent='center'>
         <Grid item xs={12}>
