@@ -180,7 +180,11 @@ function RevisionRow(props: RevisionRowProps) {
         <TableCell className='cell-button graph'>
           <div className='graph-link-button-container'>
             <IconButton role='presentation' size='small'>
-              <Link href={graphLink} aria-label='Go to Treeherder graph' target='_blank'>
+              <Link
+                href={graphLink}
+                aria-label='Go to Treeherder graph'
+                target='_blank'
+              >
                 <TimelineIcon />
               </Link>
             </IconButton>
