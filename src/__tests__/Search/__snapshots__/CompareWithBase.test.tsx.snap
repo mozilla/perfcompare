@@ -207,7 +207,9 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
                               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
                               href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
                               target="_blank"
-                            />
+                            >
+                              coconut
+                            </a>
                           </span>
                           <div
                             class="info-caption"
@@ -244,14 +246,14 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
                                   d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                                 />
                               </svg>
-                              10/31/23 01:56
+                              03/29/51 00:00
                             </div>
                           </div>
                         </span>
                         <p
                           class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
                         >
-                          undefined 
+                          you've got no arms left! 
                         </p>
                       </div>
                       <button
@@ -454,7 +456,9 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
                               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
                               href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
                               target="_blank"
-                            />
+                            >
+                              spam
+                            </a>
                           </span>
                           <div
                             class="info-caption"
@@ -491,14 +495,14 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
                                   d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                                 />
                               </svg>
-                              10/31/23 01:56
+                              02/22/58 00:00
                             </div>
                           </div>
                         </span>
                         <p
                           class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
                         >
-                          undefined 
+                          it's just a flesh wound 
                         </p>
                       </div>
                       <button
@@ -558,7 +562,9 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
                               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
                               href="https://treeherder.mozilla.org/jobs?repo=try&revision=spamspam"
                               target="_blank"
-                            />
+                            >
+                              spamspam
+                            </a>
                           </span>
                           <div
                             class="info-caption"
@@ -595,14 +601,14 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
                                   d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                                 />
                               </svg>
-                              10/31/23 01:56
+                              07/29/87 00:00
                             </div>
                           </div>
                         </span>
                         <p
                           class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
                         >
-                          undefined 
+                          What, ridden on a horse? 
                         </p>
                       </div>
                       <button
