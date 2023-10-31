@@ -6,7 +6,8 @@ import { style, cssRule } from 'typestyle';
 import { repoMap } from '../../common/constants';
 import { compareView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
-import useHandleChangeDropdown from '../../hooks/useHandleChangeDropdown';
+import { useAppDispatch } from '../../hooks/app';
+import { updateRepository } from '../../reducers/SearchSlice';
 import {
   ButtonsLightRaw,
   ButtonsDarkRaw,
@@ -14,7 +15,9 @@ import {
   FontsRaw,
   Colors,
 } from '../../styles';
+import { fetchRecentRevisions } from '../../thunks/searchThunk';
 import { InputType, ThemeMode, View } from '../../types/state';
+import type { Repository } from '../../types/state';
 
 interface SearchDropdownProps {
   view: View;
@@ -31,13 +34,27 @@ function SearchDropdown({
   searchType,
 }: SearchDropdownProps) {
   const size = view == compareView ? 'small' : undefined;
-  const { handleChangeDropdown } = useHandleChangeDropdown();
-  const searchState = useAppSelector((state) => state.search[searchType]);
-  const { repository } = searchState;
+  const repository = useAppSelector(
+    (state) => state.search[searchType].repository,
+  );
+  const dispatch = useAppDispatch();
 
   const handleRepoSelect = async (event: SelectChangeEvent) => {
-    const selectedRepository = event.target.value;
-    await handleChangeDropdown({ selectedRepository, searchType });
+    const selectedRepository = event.target.value as Repository['name'];
+    dispatch(
+      updateRepository({
+        repository: selectedRepository,
+        searchType: searchType,
+      }),
+    );
+
+    // Fetch 10 most recent revisions when repository changes
+    await dispatch(
+      fetchRecentRevisions({
+        repository: selectedRepository,
+        searchType: searchType,
+      }),
+    );
   };
 
   cssRule('.MuiTooltip-popper', {
