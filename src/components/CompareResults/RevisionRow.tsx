@@ -19,10 +19,6 @@ import type {
 import { getPlatformInfo } from '../../utils/helpers';
 import RevisionRowExpandable from './RevisionRowExpandable';
 
-interface Expanded {
-  expanded: boolean;
-}
-
 function determineStatus(improvement: boolean, regression: boolean) {
   if (improvement) return 'Improvement';
   if (regression) return 'Regression';
@@ -55,14 +51,10 @@ function RevisionRow(props: RevisionRowProps) {
   const platformInfo: PlatformInfo = getPlatformInfo(platform);
   const PlatformIcon = platformInfo.icon as React.ElementType;
 
-  const [row, setExpanded] = useState<Expanded>({
-    expanded: false,
-  });
+  const [expanded, setExpanded] = useState(false);
 
   const toggleIsExpanded = () => {
-    setExpanded({
-      expanded: !row.expanded,
-    });
+    setExpanded(!expanded);
   };
 
   const stylesCard = ExpandableRowStyles();
@@ -204,7 +196,7 @@ function RevisionRow(props: RevisionRowProps) {
             data-testid='expand-revision-button'
           >
             <IconButton aria-label='expand row' size='small'>
-              {row.expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+              {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
             </IconButton>
           </div>
         </TableCell>
@@ -214,7 +206,7 @@ function RevisionRow(props: RevisionRowProps) {
         <TableCell colSpan={11}>
           <div
             className={`content-row content-row--${
-              row.expanded ? 'expanded' : 'default'
+              expanded ? 'expanded' : 'default'
             } ${stylesCard.container} `}
             data-testid='expanded-row-content'
           >

@@ -35,19 +35,13 @@ interface CompareWithBaseProps {
   };
 }
 
-interface Expanded {
-  expanded: boolean;
-}
-
 function CompareWithBase({
   mode,
   isEditable,
   displayedRevisions,
   displayedRepositories,
 }: CompareWithBaseProps) {
-  const [base, setExpanded] = useState<Expanded>({
-    expanded: true,
-  });
+  const [expanded, setExpanded] = useState(true);
 
   const styles = CompareCardsStyles(mode);
   const dropDownStyles = SearchStyles(mode);
@@ -84,9 +78,7 @@ function CompareWithBase({
     (baseRepository !== 'try' && newRepository === 'try');
 
   const toggleIsExpanded = () => {
-    setExpanded({
-      expanded: !base.expanded,
-    });
+    setExpanded(!expanded);
   };
 
   const bottomStyles = {
@@ -101,7 +93,7 @@ function CompareWithBase({
     <Grid className='wrapper'>
       <div
         className={`compare-card-container compare-card-container--${
-          base.expanded ? 'expanded' : 'hidden'
+          expanded ? 'expanded' : 'hidden'
         } ${styles.container}`}
         onClick={toggleIsExpanded}
         data-testid='base-state'
@@ -118,7 +110,7 @@ function CompareWithBase({
 
       <div
         className={`compare-card-container content-base content-base--${
-          base.expanded ? 'expanded' : 'hidden'
+          expanded ? 'expanded' : 'hidden'
         } ${styles.container} `}
       >
         <Divider className='divider' />
