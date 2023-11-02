@@ -56,7 +56,6 @@ function SelectedRevisionItem({
   const itemDate = new Date(item.push_timestamp * 1000);
   const { removeCheckedRevision } = useCheckRevision(searchType);
   const { deleteSelectedRevisions } = useSelectedRevisions();
-
   //hide the close icon for the selected revisions in edit view
   const iconClassName =
     !formIsDisplayed && isEditable
@@ -77,7 +76,7 @@ function SelectedRevisionItem({
       data-testid='selected-rev-item'
     >
       <div className={styles.repo}>
-        <div>{repository || 'unknown'}</div>
+        <div>{repository}</div>
         {isWarning && repository === 'try' && (
           <div className='warning-icon'>
             <Tooltip placement='top' title={warning}>

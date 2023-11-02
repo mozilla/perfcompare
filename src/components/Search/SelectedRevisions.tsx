@@ -39,7 +39,7 @@ function SelectedRevisions({
       className={`${styles.box} ${searchType}-box`}
       data-testid={`selected-revs-${view}`}
     >
-      <List key={null}>
+      <List>
         {revisions.map((item, index) => (
           <SelectedRevisionItem
             key={item.id}

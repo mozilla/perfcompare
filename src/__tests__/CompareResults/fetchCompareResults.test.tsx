@@ -26,11 +26,11 @@ describe('Results View/fetchCompareResults', () => {
     const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
       .toggleColorMode;
 
-    const { testCompareData } = getTestData();
+    const { testData } = getTestData();
     global.fetch = jest.fn(() =>
       Promise.resolve({
         json: () => ({
-          results: testCompareData,
+          results: testData,
         }),
       }),
     ) as jest.Mock;
