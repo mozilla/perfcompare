@@ -991,18 +991,6 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
                     </div>
                   </div>
                 </div>
-                <div
-                  class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
-                >
-                  <div
-                    class="box_f65ycfw new-box MuiBox-root css-0"
-                    data-testid="selected-revs-search"
-                  >
-                    <ul
-                      class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
-                    />
-                  </div>
-                </div>
               </div>
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fl6uoag fjuaqdk css-13eijkh-MuiGrid-root"

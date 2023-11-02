@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
@@ -56,16 +56,29 @@ function CompareWithBase({
   const search = useAppSelector((state) => state.search);
   const baseRepository = search.base.repository;
   const newRepository = search.new.repository;
+  const revisionsAndReposBase = useMemo(() => {
+    const revsAndRepos = {
+      revisions: displayedRevisions.baseRevs,
+      repositories: displayedRepositories.baseRepos,
+    };
+    return revsAndRepos;
+  }, [displayedRevisions.baseRevs, displayedRepositories.baseRepos]);
+
+  const revisionsAndReposNew = useMemo(() => {
+    const revsAndRepos = {
+      revisions: displayedRevisions.newRevs,
+      repositories: displayedRepositories.newRepos,
+    };
+    return revsAndRepos;
+  }, [displayedRevisions.baseRevs, displayedRepositories.baseRepos]);
   const baseSearchProps = {
     ...stringsBase,
-    revisions: displayedRevisions.baseRevs,
-    repositories: displayedRepositories.baseRepos,
+    ...revisionsAndReposBase,
     searchType: 'base' as InputType,
   };
   const newSearchProps = {
     ...stringsNew,
-    revisions: displayedRevisions.newRevs,
-    repositories: displayedRepositories.newRepos,
+    ...revisionsAndReposNew,
     searchType: 'new' as InputType,
   };
   const isWarning =

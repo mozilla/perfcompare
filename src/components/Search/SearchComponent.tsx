@@ -226,7 +226,7 @@ function SearchComponent({
         )}
       </Grid>
       {/***** Selected Revisions Section *****/}
-      {revisions && repositories && (
+      {revisions && revisions.length > 0 && (
         <Grid className='d-flex'>
           <SelectedRevisions
             searchType={searchType}
