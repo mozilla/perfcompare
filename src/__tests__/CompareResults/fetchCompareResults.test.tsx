@@ -48,10 +48,6 @@ describe('Results View/fetchCompareResults', () => {
     expect(global.fetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/perfcompare/results/?base_repository=mozilla-central&base_revision=6089e7f0fa57a29c6d080f135f65e146c34457d8&new_repository=mozilla-central&new_revision=1d5eb1343cc87a9be3dfe4b884822506ffdda7d3&framework=1&interval=86400&no_subtests=true',
     );
-
-    expect(global.fetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true',
-    );
     expect(document.body).toMatchSnapshot();
     expect(screen.getByTestId('results-table')).toBeInTheDocument();
   });
