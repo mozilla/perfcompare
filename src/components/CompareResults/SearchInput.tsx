@@ -7,7 +7,8 @@ import { ButtonsLightRaw, Spacing } from '../../styles';
 
 const styles = {
   container: style({
-    display: 'flex',
+    // TODO: to be added at the implementation time
+    display: 'none',
     marginRight: 'auto',
     $nest: {
       '.form-container': {

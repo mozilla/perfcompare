@@ -5,14 +5,17 @@ import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
 import { selectStringifiedJsonResults } from '../../reducers/ComparisonSlice';
 import { Strings } from '../../resources/Strings';
-import { ButtonsLightRaw } from '../../styles';
+import { ButtonsLightRaw, Spacing } from '../../styles';
 import { truncateHash } from '../../utils/helpers';
 
 const styles = {
   downloadButton: style({
+    marginLeft: Spacing.Small,
+    height: '41px',
     $nest: {
       '.MuiButtonBase-root': {
         ...ButtonsLightRaw.Secondary,
+        height: '100%',
       },
     },
   }),

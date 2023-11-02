@@ -29,6 +29,22 @@ interface FrameworkDropdownProps {
 
 const strings = Strings.components.searchDefault.sharedCollasped.framkework;
 
+const sortFrameworks = (
+  frameworks: Record<Framework['id'], Framework['name']>,
+) => {
+  const unsortedArray = Object.entries(frameworks);
+
+  // Sort the array based on values
+
+  const sortedArray = unsortedArray.sort((a, b) => {
+    return a[1].localeCompare(b[1]);
+  });
+
+  return sortedArray;
+};
+
+const sortedFrameworks = sortFrameworks(frameworkMap);
+
 function FrameworkDropdown({ mode }: FrameworkDropdownProps) {
   cssRule('.MuiTooltip-popper', {
     ...(mode === 'light' ? TooltipRaw.Light : TooltipRaw.Dark),
@@ -115,7 +131,7 @@ function FrameworkDropdown({ mode }: FrameworkDropdownProps) {
           onChange={(e) => void handleFrameworkSelect(e)}
           name='Framework'
         >
-          {Object.entries(frameworkMap).map(([id, name]) => (
+          {sortedFrameworks.map(([id, name]) => (
             <MenuItem value={id} key={name} className='framework-dropdown-item'>
               {name}
             </MenuItem>
