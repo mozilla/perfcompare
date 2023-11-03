@@ -544,10 +544,10 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                 Results
               </div>
               <div
-                class="f1f1ygnm"
+                class="f1wpas00"
               >
                 <div
-                  class="f1wnc453"
+                  class="fq9o4yy"
                   data-testid="search-by-title-test-name"
                 >
                   <div
@@ -705,7 +705,7 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                   </div>
                 </div>
                 <div
-                  class="fnyxjzg"
+                  class="fnf1oon"
                 >
                   <button
                     class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-t42cd1-MuiButtonBase-root-MuiButton-root"

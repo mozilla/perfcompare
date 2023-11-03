@@ -1,11 +1,9 @@
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
 import InfoIcon from '@mui/icons-material/InfoOutlined';
-import CircularProgress from '@mui/material/CircularProgress';
 import Grid from '@mui/material/Grid';
 import InputLabel from '@mui/material/InputLabel';
 import Tooltip from '@mui/material/Tooltip';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import { useLocation } from 'react-router-dom';
 import { cssRule } from 'typestyle';
 
@@ -93,7 +91,7 @@ function SearchComponent({
 
   const location = useLocation();
   const view = location.pathname == '/' ? searchView : compareView;
-  const matchesQuery = useMediaQuery('(max-width:768px)');
+  // const matchesQuery = useMediaQuery('(max-width:768px)');
   const handleCancelAction = () => {
     dispatch(clearCheckedRevisionforType({ searchType }));
     setFormIsDisplayed(false);
@@ -197,9 +195,9 @@ function SearchComponent({
           item
           xs={7}
           id={`${searchType}_search-input`}
-          className={`${searchType}-search-input ${
-            matchesQuery ? `${searchType}-search-input--mobile` : ''
-          } ${styles.baseSearchInput} ${view === compareView ? 'big' : ''} `}
+          className={`${searchType}-search-input  ${styles.baseSearchInput} ${
+            view === compareView ? 'big' : ''
+          } `}
         >
           <SearchInput
             mode={mode}
@@ -227,7 +225,7 @@ function SearchComponent({
         )}
       </Grid>
       {/***** Selected Revisions Section *****/}
-      {revisions && repositories ? (
+      {revisions && revisions.length > 0 && (
         <Grid className='d-flex'>
           <SelectedRevisions
             searchType={searchType}
@@ -239,8 +237,6 @@ function SearchComponent({
             repositories={repositories}
           />
         </Grid>
-      ) : (
-        <CircularProgress />
       )}
     </Grid>
   );

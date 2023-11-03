@@ -544,10 +544,10 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                 Results
               </div>
               <div
-                class="f1f1ygnm"
+                class="f1wpas00"
               >
                 <div
-                  class="f1wnc453"
+                  class="fq9o4yy"
                   data-testid="search-by-title-test-name"
                 >
                   <div
@@ -705,7 +705,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                   </div>
                 </div>
                 <div
-                  class="fnyxjzg"
+                  class="fnf1oon"
                 >
                   <button
                     class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-t42cd1-MuiButtonBase-root-MuiButton-root"
@@ -1300,10 +1300,10 @@ exports[`Results View/fetchCompareResults State does not contain data if fetch r
                 Results
               </div>
               <div
-                class="f1f1ygnm"
+                class="f1wpas00"
               >
                 <div
-                  class="f1wnc453"
+                  class="fq9o4yy"
                   data-testid="search-by-title-test-name"
                 >
                   <div
@@ -1461,7 +1461,7 @@ exports[`Results View/fetchCompareResults State does not contain data if fetch r
                   </div>
                 </div>
                 <div
-                  class="fnyxjzg"
+                  class="fnf1oon"
                 >
                   <button
                     class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-t42cd1-MuiButtonBase-root-MuiButton-root"

@@ -122,7 +122,6 @@ describe('SearchResultsList', () => {
     // focus input to show results
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
-
     await user.click(screen.getAllByTestId('checkbox-0')[0]);
     await user.click(screen.getAllByTestId('checkbox-1')[0]);
 

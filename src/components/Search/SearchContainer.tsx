@@ -15,6 +15,31 @@ const strings = Strings.components.searchDefault;
 function SearchContainer(props: SearchViewProps) {
   const { themeMode } = props;
   const styles = SearchContainerStyles(themeMode, searchView);
+  const checkedRevisionsListNew = useAppSelector(
+    (state) => state.search.new.checkedRevisions,
+  );
+  const checkedRevisionsListBase = useAppSelector(
+    (state) => state.search.base.checkedRevisions,
+  );
+  const displayedCheckedRevisions = {
+    baseRevs: checkedRevisionsListBase,
+    newRevs: checkedRevisionsListNew,
+  };
+
+  const checkedNewRepos = checkedRevisionsListNew.map((item) => {
+    const selectedRep = repoMap[item.repository_id];
+    return selectedRep;
+  });
+
+  const checkedBaseRepos = checkedRevisionsListBase.map((item) => {
+    const selectedRep = repoMap[item.repository_id];
+    return selectedRep;
+  });
+
+  const displayedRepositories = {
+    baseRepos: checkedBaseRepos as Repository['name'][],
+    newRepos: checkedNewRepos as Repository['name'][],
+  };
 
   const checkedRevisionsListNew = useAppSelector(
     (state) => state.search.new.checkedRevisions,

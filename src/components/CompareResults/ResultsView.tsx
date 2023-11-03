@@ -8,7 +8,7 @@ import Stack from '@mui/material/Stack';
 import { useSearchParams } from 'react-router-dom';
 import { style } from 'typestyle';
 
-import { frameworkMap, compareView, repoMap } from '../../common/constants';
+import { compareView, frameworkMap, repoMap } from '../../common/constants';
 import { useAppDispatch, useAppSelector } from '../../hooks/app';
 import useFetchCompareResults from '../../hooks/useFetchCompareResults';
 import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
@@ -55,13 +55,10 @@ function ResultsView(props: ResultsViewProps) {
     baseRepos: selectedBaseRepositories as Repository['name'][],
     newRepos: selectedNewRepositories as Repository['name'][],
   };
-
   const repositoryBase = useAppSelector(
     (state) => state.search.base.repository,
   );
-
   const repositoryNew = useAppSelector((state) => state.search.new.repository);
-
   const { dispatchFetchCompareResults, dispatchFakeCompareResults } =
     useFetchCompareResults();
   const { searchByRevisionOrEmail } = useHandleChangeSearch();
@@ -176,12 +173,13 @@ function ResultsView(props: ResultsViewProps) {
             <p>Home</p>
           </Stack>
         </Link>
+
         <CompareWithBase
-        mode={themeMode}
-        isEditable={true}
-        displayedRevisions={displayedSelectedRevisions}
-        displayedRepositories={displayedRepositories}
-      />
+          mode={themeMode}
+          isEditable={true}
+          displayedRevisions={displayedSelectedRevisions}
+          displayedRepositories={displayedRepositories}
+        />
       </section>
       <Grid container alignItems='center' justifyContent='center'>
         <Grid item xs={12}>
