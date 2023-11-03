@@ -92,7 +92,7 @@ function SearchComponent({
 
   const location = useLocation();
   const view = location.pathname == '/' ? searchView : compareView;
-  const matchesQuery = useMediaQuery('(max-width:768px)');
+  // const matchesQuery = useMediaQuery('(max-width:768px)');
   const handleCancelAction = () => {
     dispatch(clearCheckedRevisionforType({ searchType }));
     setFormIsDisplayed(false);
@@ -196,9 +196,9 @@ function SearchComponent({
           item
           xs={7}
           id={`${searchType}_search-input`}
-          className={`${searchType}-search-input ${
-            matchesQuery ? `${searchType}-search-input--mobile` : ''
-          } ${styles.baseSearchInput} ${view === compareView ? 'big' : ''} `}
+          className={`${searchType}-search-input  ${styles.baseSearchInput} ${
+            view === compareView ? 'big' : ''
+          } `}
         >
           <SearchInput
             mode={mode}
