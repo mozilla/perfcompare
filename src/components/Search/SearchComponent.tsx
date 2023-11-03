@@ -4,7 +4,6 @@ import InfoIcon from '@mui/icons-material/InfoOutlined';
 import Grid from '@mui/material/Grid';
 import InputLabel from '@mui/material/InputLabel';
 import Tooltip from '@mui/material/Tooltip';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import { useLocation } from 'react-router-dom';
 import { cssRule } from 'typestyle';
 
@@ -20,7 +19,12 @@ import {
   //SearchStyles can be found in CompareCards.ts
   SearchStyles,
 } from '../../styles';
-import type { RevisionsList, InputType, ThemeMode } from '../../types/state';
+import type {
+  RevisionsList,
+  InputType,
+  ThemeMode,
+  Repository,
+} from '../../types/state';
 import EditButton from './EditButton';
 import SaveCancelButtons from './SaveCancelButtons';
 import SearchDropdown from './SearchDropdown';
@@ -38,6 +42,8 @@ interface SearchProps {
   searchType: InputType;
   isEditable: boolean;
   isWarning: boolean;
+  revisions: RevisionsList[];
+  repositories: Repository['name'][];
 }
 
 function SearchComponent({
@@ -48,6 +54,8 @@ function SearchComponent({
   searchType,
   isEditable,
   isWarning,
+  revisions,
+  repositories,
 }: SearchProps) {
   const styles = SearchStyles(mode);
 
@@ -73,13 +81,6 @@ function SearchComponent({
     },
   });
 
-  const checkedRevisionsList = useAppSelector(
-    (state) => state.search[searchType].checkedRevisions,
-  );
-  const selectedRevisions = useAppSelector(
-    (state) => state.selectedRevisions.revisions,
-  );
-
   const dispatch = useAppDispatch();
   const { updateSelectedRevisions } = useSelectedRevisions();
 
@@ -90,7 +91,7 @@ function SearchComponent({
 
   const location = useLocation();
   const view = location.pathname == '/' ? searchView : compareView;
-  const matchesQuery = useMediaQuery('(max-width:768px)');
+  // const matchesQuery = useMediaQuery('(max-width:768px)');
   const handleCancelAction = () => {
     dispatch(clearCheckedRevisionforType({ searchType }));
     setFormIsDisplayed(false);
@@ -194,9 +195,9 @@ function SearchComponent({
           item
           xs={7}
           id={`${searchType}_search-input`}
-          className={`${searchType}-search-input ${
-            matchesQuery ? `${searchType}-search-input--mobile` : ''
-          } ${styles.baseSearchInput} ${view === compareView ? 'big' : ''} `}
+          className={`${searchType}-search-input  ${styles.baseSearchInput} ${
+            view === compareView ? 'big' : ''
+          } `}
         >
           <SearchInput
             mode={mode}
@@ -224,8 +225,7 @@ function SearchComponent({
         )}
       </Grid>
       {/***** Selected Revisions Section *****/}
-      {(checkedRevisionsList.length > 0 ||
-        (selectedRevisions && selectedRevisions.length > 0)) && (
+      {revisions && revisions.length > 0 && (
         <Grid className='d-flex'>
           <SelectedRevisions
             searchType={searchType}
@@ -233,6 +233,8 @@ function SearchComponent({
             isWarning={isWarning}
             formIsDisplayed={formIsDisplayed}
             isEditable={isEditable}
+            revisions={revisions}
+            repositories={repositories}
           />
         </Grid>
       )}

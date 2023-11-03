@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
@@ -8,19 +8,31 @@ import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles } from '../../styles';
 import { SearchStyles } from '../../styles';
-import type { ThemeMode } from '../../types/state';
+import type {
+  ThemeMode,
+  RevisionsList,
+  Repository,
+  InputType,
+} from '../../types/state';
 import CompareButton from './CompareButton';
 import FrameworkDropdown from './FrameworkDropdown';
 import SearchComponent from './SearchComponent';
 
 const strings = Strings.components.searchDefault;
 const stringsBase = Strings.components.searchDefault.base.collapsed.base;
-const stringsRevision =
-  Strings.components.searchDefault.base.collapsed.revision;
+const stringsNew = Strings.components.searchDefault.base.collapsed.revision;
 
 interface CompareWithBaseProps {
   mode: ThemeMode;
   isEditable: boolean;
+  displayedRevisions: {
+    baseRevs: RevisionsList[];
+    newRevs: RevisionsList[];
+  };
+  displayedRepositories: {
+    baseRepos: Repository['name'][];
+    newRepos: Repository['name'][];
+  };
 }
 
 interface Expanded {
@@ -28,7 +40,12 @@ interface Expanded {
   class: string;
 }
 
-function CompareWithBase({ mode, isEditable }: CompareWithBaseProps) {
+function CompareWithBase({
+  mode,
+  isEditable,
+  displayedRevisions,
+  displayedRepositories,
+}: CompareWithBaseProps) {
   const [base, setExpanded] = useState<Expanded>({
     expanded: true,
     class: 'expanded',
@@ -39,6 +56,31 @@ function CompareWithBase({ mode, isEditable }: CompareWithBaseProps) {
   const search = useAppSelector((state) => state.search);
   const baseRepository = search.base.repository;
   const newRepository = search.new.repository;
+  const revisionsAndReposBase = useMemo(() => {
+    const revsAndRepos = {
+      revisions: displayedRevisions.baseRevs,
+      repositories: displayedRepositories.baseRepos,
+    };
+    return revsAndRepos;
+  }, [displayedRevisions.baseRevs, displayedRepositories.baseRepos]);
+
+  const revisionsAndReposNew = useMemo(() => {
+    const revsAndRepos = {
+      revisions: displayedRevisions.newRevs,
+      repositories: displayedRepositories.newRepos,
+    };
+    return revsAndRepos;
+  }, [displayedRevisions.baseRevs, displayedRepositories.baseRepos]);
+  const baseSearchProps = {
+    ...stringsBase,
+    ...revisionsAndReposBase,
+    searchType: 'base' as InputType,
+  };
+  const newSearchProps = {
+    ...stringsNew,
+    ...revisionsAndReposNew,
+    searchType: 'new' as InputType,
+  };
   const isWarning =
     (baseRepository === 'try' && newRepository !== 'try') ||
     (baseRepository !== 'try' && newRepository === 'try');
@@ -81,18 +123,16 @@ function CompareWithBase({ mode, isEditable }: CompareWithBaseProps) {
         <Divider className='divider' />
         <div className='form-wrapper'>
           <SearchComponent
-            searchType='base'
             isEditable={isEditable}
             isWarning={isWarning}
             mode={mode}
-            {...stringsBase}
+            {...baseSearchProps}
           />
           <SearchComponent
             isEditable={isEditable}
-            searchType='new'
-            {...stringsRevision}
             mode={mode}
             isWarning={isWarning}
+            {...newSearchProps}
           />
           <Grid
             item

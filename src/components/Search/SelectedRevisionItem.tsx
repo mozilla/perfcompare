@@ -12,12 +12,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import dayjs from 'dayjs';
-import { useNavigate } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
 
-import { repoMap } from '../../common/constants';
-import { compareView, searchView } from '../../common/constants';
-import { useAppSelector } from '../../hooks/app';
 import useCheckRevision from '../../hooks/useCheckRevision';
 import useSelectedRevisions from '../../hooks/useSelectedRevisions';
 import { Strings } from '../../resources/Strings';
@@ -61,42 +56,11 @@ function SelectedRevisionItem({
   const itemDate = new Date(item.push_timestamp * 1000);
   const { removeCheckedRevision } = useCheckRevision(searchType);
   const { deleteSelectedRevisions } = useSelectedRevisions();
-  const selectedRevisions = useAppSelector(
-    (state) => state.selectedRevisions.revisions,
-  );
-  const selectedFramework = useAppSelector((state) => state.framework);
-  const navigate = useNavigate();
-  const prevRevRef = React.useRef<RevisionsList[]>([]);
-  const location = useLocation();
-  const view = location.pathname == '/' ? searchView : compareView;
-  //hide the close icon for the selected revisions in compare view
+  //hide the close icon for the selected revisions in edit view
   const iconClassName =
-    !formIsDisplayed && view !== searchView
+    !formIsDisplayed && isEditable
       ? 'icon icon-close-hidden'
       : 'icon icon-close-show';
-
-  const updateRevsInHash = () => {
-    const revs = selectedRevisions.map((rev) => rev.revision);
-    const repos = selectedRevisions.map((rev) => repoMap[rev.repository_id]);
-
-    navigate({
-      pathname: '/compare-results',
-      search: `?revs=${revs.join(',')}&repos=${repos.join(',')}&framework=${
-        selectedFramework.id
-      }`,
-    });
-  };
-
-  React.useEffect(() => {
-    if (
-      prevRevRef.current !== selectedRevisions &&
-      selectedRevisions.length > 0
-    ) {
-      updateRevsInHash();
-    }
-
-    prevRevRef.current = selectedRevisions;
-  }, [selectedRevisions]);
 
   const handleClose = () => {
     if (isEditable) {
@@ -112,7 +76,7 @@ function SelectedRevisionItem({
       data-testid='selected-rev-item'
     >
       <div className={styles.repo}>
-        <div>{repository || 'unknown'}</div>
+        <div>{repository}</div>
         {isWarning && repository === 'try' && (
           <div className='warning-icon'>
             <Tooltip placement='top' title={warning}>
