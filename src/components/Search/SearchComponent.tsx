@@ -4,7 +4,6 @@ import InfoIcon from '@mui/icons-material/InfoOutlined';
 import Grid from '@mui/material/Grid';
 import InputLabel from '@mui/material/InputLabel';
 import Tooltip from '@mui/material/Tooltip';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import { useLocation } from 'react-router-dom';
 import { cssRule } from 'typestyle';
 
