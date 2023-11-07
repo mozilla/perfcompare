@@ -143,7 +143,7 @@ function RevisionRow(props: RevisionRowProps) {
       <div className={`revisionRow ${styles.revisionRow} ${styles.typography}`}>
         <div className='platform cell'>
           <div className='platform-container'>
-            <PlatformIcon />
+            {platformInfo.shortName ? <PlatformIcon /> : 'Unspecified'}
             <span>{platformInfo.shortName}</span>
           </div>
         </div>
