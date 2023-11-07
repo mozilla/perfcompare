@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
 
 import userEvent from '@testing-library/user-event';
-import { Bubble, ChartProps } from 'react-chartjs-2';
+import { Bubble, ChartProps, Line } from 'react-chartjs-2';
 
 import ResultsView from '../../components/CompareResults/ResultsView';
 import RevisionHeader from '../../components/CompareResults/RevisionHeader';
@@ -463,6 +463,47 @@ describe('Results View', () => {
     // consider fixing it if we change the label function in the future
     const labelResult = labelFunction({ raw: { x: 5, y: 0, r: 10 } });
     expect(labelResult).toBe('5 ms');
+  });
+
+  it('should display common graph distribution for Base and New', async () => {
+    const user = userEvent.setup({ delay: null });
+    const location = {
+      ...window.location,
+      search: '?fakedata=true',
+    };
+    Object.defineProperty(window, 'location', {
+      writable: true,
+      value: location,
+    });
+    const urlParams = new URLSearchParams(window.location.search);
+    const fakedataParam = urlParams.get('fakedata');
+    expect(fakedataParam).toBe('true');
+
+    renderWithRoute(
+      <ResultsView
+        protocolTheme={protocolTheme}
+        toggleColorMode={toggleColorMode}
+        title={Strings.metaData.pageTitle.results}
+      />,
+    );
+
+    const expandButtons = await screen.findAllByTestId(
+      'expand-revision-button',
+    );
+    await user.click(expandButtons[0]);
+    await screen.findAllByTestId('expanded-row-content');
+
+    const MockedLine = Line as jest.Mock;
+    const lineProps = MockedLine.mock.calls.map(
+      (call) => call[0] as ChartProps,
+    );
+    const graphTitle = lineProps[0].options?.plugins?.title?.text;
+
+    if (!graphTitle) {
+      // eslint-disable-next-line @typescript-eslint/no-throw-literal
+      throw Error;
+    }
+    expect(graphTitle).toBe('Runs Density Distribution');
   });
 
   it('should make blobUrl available when "Download JSON" button is clicked', async () => {

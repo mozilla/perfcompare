@@ -2,15 +2,13 @@ import { style } from 'typestyle';
 
 import { Spacing } from '../../styles';
 import type { CompareResultsItem } from '../../types/state';
+import CommonGraph from './CommonGraph';
 import RunValues from './RunValues';
 
 const styles = {
   container: style({
     display: 'flex',
     marginBottom: Spacing.Medium,
-  }),
-  commonGraph: style({
-    width: '100%',
   }),
 };
 
@@ -55,6 +53,10 @@ function Distribution(props: DistributionProps) {
     <div className={styles.container}>
       <RunValues revisionRuns={baseRevisionRuns} />
       <RunValues revisionRuns={newRevisionRuns} />
+      <CommonGraph
+        baseRevisionRuns={baseRevisionRuns}
+        newRevisionRuns={newRevisionRuns}
+      />
     </div>
   );
 }
