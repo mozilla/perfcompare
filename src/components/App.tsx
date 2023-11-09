@@ -15,6 +15,7 @@ import {
 import { Strings } from '../resources/Strings';
 import { Banner } from '../styles/Banner';
 import useProtocolTheme from '../theme/protocolTheme';
+import { loader as compareLoader } from './CompareResults/loader';
 import ResultsView from './CompareResults/ResultsView';
 import SearchView from './Search/SearchView';
 import SnackbarCloseButton from './Shared/SnackbarCloseButton';
@@ -87,6 +88,7 @@ function App() {
 
                   <Route
                     path='/compare-results'
+                    loader={compareLoader}
                     element={
                       <ResultsView
                         toggleColorMode={toggleColorMode}

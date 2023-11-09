@@ -128,6 +128,27 @@ const swapArrayElements = <T>(
   return array;
 };
 
+// This is a polyfill fo Object.groupBy. We can remove it once it's shipped more
+// broadly OR we configure core-js to provide this polyfill properly.
+// The typing comes from https://github.com/microsoft/TypeScript/issues/47171#issuecomment-1697373352
+function groupBy<Item, Key extends PropertyKey>(
+  items: Iterable<Item>,
+  keySelector: (item: Item, index: number) => Key,
+): Record<Key, Item[]> {
+  const result = Object.create(null) as Record<Key, Item[]>;
+  let i = 0;
+  for (const item of items) {
+    const key = keySelector(item, i);
+    let bucket = result[key];
+    if (bucket === undefined) {
+      bucket = result[key] = [];
+    }
+    bucket.push(item);
+    i++;
+  }
+  return result;
+}
+
 export {
   formatDate,
   getLatestCommitMessage,
@@ -137,4 +158,5 @@ export {
   swapArrayElements,
   truncateHash,
   getDocsURL,
+  groupBy,
 };
