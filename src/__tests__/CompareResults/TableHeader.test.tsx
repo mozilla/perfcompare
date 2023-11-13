@@ -9,7 +9,7 @@ describe('Table Header', () => {
   const themeMode = protocolTheme.palette.mode;
 
   it('Should match snapshot', () => {
-    renderWithRouter(<TableHeader themeMode={themeMode} />);
+    renderWithRouter(<TableHeader />);
 
     expect(screen.getByTestId('table-header')).toBeInTheDocument();
     expect(document.body).toMatchSnapshot();

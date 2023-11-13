@@ -3,15 +3,17 @@ import Box from '@mui/material/Box';
 import Switch from '@mui/material/Switch';
 import { style } from 'typestyle';
 
+import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { Spacing, FontsRaw, SwitchRaw } from '../../styles';
-import type { ThemeMode } from '../../types/state';
 
 const strings = Strings.components.header;
 const label = { inputProps: { 'aria-label': 'Dark mode switch' } };
 
 function ToggleDarkMode(props: ToggleDarkModeProps) {
-  const { toggleColorMode, theme } = props;
+  const { toggleColorMode } = props;
+  const theme = useAppSelector((state) => state.theme.mode);
+
 
   const switchStyle = SwitchRaw(theme === 'light' ? 'light' : 'dark');
 
@@ -59,7 +61,6 @@ function ToggleDarkMode(props: ToggleDarkModeProps) {
   );
 }
 interface ToggleDarkModeProps {
-  theme: ThemeMode;
   toggleColorMode: () => void;
 }
 

@@ -1,12 +1,12 @@
 import Button from '@mui/material/Button';
 import { style } from 'typestyle';
 
+import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { ButtonStyles } from '../../styles';
-import type { ThemeMode, InputType } from '../../types/state';
+import type { InputType } from '../../types/state';
 
 interface SaveCancelButtonsProps {
-  mode: ThemeMode;
   searchType: InputType;
   onSave: () => void;
   onCancel: () => void;
@@ -18,10 +18,10 @@ const cancel = base.cancel;
 
 export default function SaveCancelButtons({
   searchType,
-  mode,
   onCancel,
   onSave,
 }: SaveCancelButtonsProps) {
+  const mode = useAppSelector((state) => state.theme.mode);
   const btnStyles = ButtonStyles(mode);
   const cancelBtn = {
     main: style({

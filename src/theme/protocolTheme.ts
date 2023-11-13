@@ -1,9 +1,11 @@
 // Style overrides for typography to match Mozilla Protocol design system
 // https://protocol.mozilla.org/
-import { useMemo, useState, useEffect } from 'react';
+import { useMemo } from 'react';
 
 import { createTheme, Theme } from '@mui/material/styles';
 
+import { useAppDispatch, useAppSelector } from '../hooks/app';
+import { updateThemeMode } from '../reducers/Theme';
 import { Colors } from '../styles';
 import type { ThemeMode } from '../types/state';
 import components from './components';
@@ -61,22 +63,22 @@ const getDesignTokens = (modeVal: ThemeMode) => ({
 });
 
 const useProtocolTheme = () => {
-  const storedMode = localStorage.getItem('theme') || 'light';
-  const [mode, setMode] = useState((storedMode as ThemeMode) || 'light');
-
-  useEffect(() => {
-    localStorage.setItem('theme', mode);
-  }, [mode]);
+  const dispatch = useAppDispatch();
+  const storedMode = useAppSelector((state) => state.theme.mode);
 
   const toggleColorMode = () => {
-    setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+    dispatch(updateThemeMode(storedMode === 'light' ? 'dark' : 'light'));
   };
 
   const protocolTheme: Theme = useMemo(
-    () => createTheme(getDesignTokens(mode), { components, typography }),
-    [mode],
+    () =>
+      createTheme(getDesignTokens(storedMode as ThemeMode), {
+        components,
+        typography,
+      }),
+    [storedMode],
   );
 
-  return { mode, toggleColorMode, protocolTheme };
+  return { storedMode, toggleColorMode, protocolTheme };
 };
 export default useProtocolTheme;

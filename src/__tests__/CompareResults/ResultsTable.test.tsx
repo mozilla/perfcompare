@@ -17,14 +17,14 @@ describe('Results Table', () => {
   const themeMode = protocolTheme.palette.mode;
 
   it('Should match snapshot', () => {
-    renderWithRoute(<ResultsTable themeMode={themeMode} />);
+    renderWithRoute(<ResultsTable />);
 
     expect(screen.getByTestId('results-table')).toBeInTheDocument();
     expect(document.body).toMatchSnapshot();
   });
 
   it('Display message for not finding results', () => {
-    renderWithRoute(<ResultsTable themeMode={themeMode} />);
+    renderWithRoute(<ResultsTable />);
 
     expect(screen.getByText(/No results found/)).toBeInTheDocument();
   });

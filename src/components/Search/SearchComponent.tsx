@@ -8,8 +8,7 @@ import { useLocation } from 'react-router-dom';
 import { cssRule } from 'typestyle';
 
 import { compareView, searchView } from '../../common/constants';
-import { useAppDispatch } from '../../hooks/app';
-import { useAppSelector } from '../../hooks/app';
+import { useAppDispatch, useAppSelector } from '../../hooks/app';
 import useSelectedRevisions from '../../hooks/useSelectedRevisions';
 import { clearCheckedRevisionforType } from '../../reducers/SearchSlice';
 import {
@@ -19,12 +18,7 @@ import {
   //SearchStyles can be found in CompareCards.ts
   SearchStyles,
 } from '../../styles';
-import type {
-  RevisionsList,
-  InputType,
-  ThemeMode,
-  Repository,
-} from '../../types/state';
+import type { RevisionsList, InputType, Repository } from '../../types/state';
 import EditButton from './EditButton';
 import SaveCancelButtons from './SaveCancelButtons';
 import SearchDropdown from './SearchDropdown';
@@ -33,7 +27,6 @@ import SearchResultsList from './SearchResultsList';
 import SelectedRevisions from './SelectedRevisions';
 
 interface SearchProps {
-  mode: ThemeMode;
   setPopoverIsOpen?: Dispatch<SetStateAction<boolean>>;
   prevRevision?: RevisionsList;
   selectLabel: string;
@@ -47,7 +40,6 @@ interface SearchProps {
 }
 
 function SearchComponent({
-  mode,
   selectLabel,
   tooltip,
   inputPlaceholder,
@@ -57,6 +49,7 @@ function SearchComponent({
   revisions,
   repositories,
 }: SearchProps) {
+  const mode = useAppSelector((state) => state.theme.mode);
   const styles = SearchStyles(mode);
 
   /* These overriding rules update the theme mode by accessing the otherwise inaccessible MUI tooltip styles */
@@ -187,7 +180,6 @@ function SearchComponent({
             view={view}
             selectLabel={selectLabel}
             tooltipText={tooltip}
-            mode={mode}
             searchType={searchType}
           />
         </Grid>
@@ -200,24 +192,18 @@ function SearchComponent({
           } `}
         >
           <SearchInput
-            mode={mode}
             setFocused={setFocused}
             view={view}
             inputPlaceholder={inputPlaceholder}
             searchType={searchType}
           />
           {searchResults.length > 0 && focused && (
-            <SearchResultsList
-              mode={mode}
-              view={view}
-              searchType={searchType}
-            />
+            <SearchResultsList view={view} searchType={searchType} />
           )}
         </Grid>
         {/****** Cancel Save Buttons ******/}
         {isEditable && formIsDisplayed && (
           <SaveCancelButtons
-            mode={mode}
             searchType={searchType}
             onSave={handleSaveAction}
             onCancel={handleCancelAction}
@@ -229,7 +215,6 @@ function SearchComponent({
         <Grid className='d-flex'>
           <SelectedRevisions
             searchType={searchType}
-            mode={mode}
             isWarning={isWarning}
             formIsDisplayed={formIsDisplayed}
             isEditable={isEditable}

@@ -43,7 +43,6 @@ function renderComponent(isEditable: boolean) {
   renderWithRouter(
     <CompareWithBase
       isEditable={isEditable}
-      mode={themeMode}
       displayedRevisions={displayedCheckedRevisions}
       displayedRepositories={displayedRepositories}
     />,

@@ -1,13 +1,13 @@
 import { Container } from '@mui/system';
 import { style } from 'typestyle';
 
+import { useAppSelector } from '../../hooks/app';
 import { Colors } from '../../styles';
-import type { ThemeMode } from '../../types/state';
 import ResultsHeader from './ResultsHeader';
 import ResultsTable from './ResultsTable';
 
-function ResultsMain(props: ResultsMainProps) {
-  const { themeMode } = props;
+function ResultsMain() {
+  const themeMode = useAppSelector((state) => state.theme.mode);
 
   const themeColor100 =
     themeMode === 'light' ? Colors.Background300 : Colors.Background100Dark;
@@ -24,13 +24,9 @@ function ResultsMain(props: ResultsMainProps) {
   return (
     <Container className={styles.container} data-testid='results-main'>
       <ResultsHeader />
-      <ResultsTable themeMode={themeMode} />
+      <ResultsTable />
     </Container>
   );
-}
-
-interface ResultsMainProps {
-  themeMode: ThemeMode;
 }
 
 export default ResultsMain;

@@ -8,12 +8,7 @@ import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles } from '../../styles';
 import { SearchStyles } from '../../styles';
-import type {
-  ThemeMode,
-  RevisionsList,
-  Repository,
-  InputType,
-} from '../../types/state';
+import type { RevisionsList, Repository, InputType } from '../../types/state';
 import CompareButton from './CompareButton';
 import FrameworkDropdown from './FrameworkDropdown';
 import SearchComponent from './SearchComponent';
@@ -23,7 +18,6 @@ const stringsBase = Strings.components.searchDefault.base.collapsed.base;
 const stringsNew = Strings.components.searchDefault.base.collapsed.revision;
 
 interface CompareWithBaseProps {
-  mode: ThemeMode;
   isEditable: boolean;
   displayedRevisions: {
     baseRevs: RevisionsList[];
@@ -36,13 +30,13 @@ interface CompareWithBaseProps {
 }
 
 function CompareWithBase({
-  mode,
   isEditable,
   displayedRevisions,
   displayedRepositories,
 }: CompareWithBaseProps) {
   const [expanded, setExpanded] = useState(true);
 
+  const mode = useAppSelector((state) => state.theme.mode);
   const styles = CompareCardsStyles(mode);
   const dropDownStyles = SearchStyles(mode);
   const search = useAppSelector((state) => state.search);
@@ -118,12 +112,10 @@ function CompareWithBase({
           <SearchComponent
             isEditable={isEditable}
             isWarning={isWarning}
-            mode={mode}
             {...baseSearchProps}
           />
           <SearchComponent
             isEditable={isEditable}
-            mode={mode}
             isWarning={isWarning}
             {...newSearchProps}
           />
@@ -132,8 +124,8 @@ function CompareWithBase({
             xs={2}
             className={`${dropDownStyles.dropDown} ${bottomStyles.container}`}
           >
-            <FrameworkDropdown mode={mode} />
-            <CompareButton mode={mode} />
+            <FrameworkDropdown />
+            <CompareButton />
           </Grid>
         </div>
       </div>

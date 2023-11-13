@@ -162,7 +162,6 @@ function ResultsView(props: ResultsViewProps) {
       data-testid='beta-version-compare-results'
     >
       <PerfCompareHeader
-        themeMode={themeMode}
         toggleColorMode={toggleColorMode}
         view={compareView as View}
       />
@@ -175,7 +174,6 @@ function ResultsView(props: ResultsViewProps) {
         </Link>
 
         <CompareWithBase
-          mode={themeMode}
           isEditable={true}
           displayedRevisions={displayedSelectedRevisions}
           displayedRepositories={displayedRepositories}
@@ -183,7 +181,7 @@ function ResultsView(props: ResultsViewProps) {
       </section>
       <Grid container alignItems='center' justifyContent='center'>
         <Grid item xs={12}>
-          <ResultsMain themeMode={themeMode} />
+          <ResultsMain />
         </Grid>
       </Grid>
     </div>

@@ -5,8 +5,7 @@ import { style, cssRule } from 'typestyle';
 
 import { repoMap } from '../../common/constants';
 import { compareView } from '../../common/constants';
-import { useAppSelector } from '../../hooks/app';
-import { useAppDispatch } from '../../hooks/app';
+import { useAppSelector, useAppDispatch } from '../../hooks/app';
 import { updateRepository } from '../../reducers/SearchSlice';
 import {
   ButtonsLightRaw,
@@ -16,24 +15,23 @@ import {
   Colors,
 } from '../../styles';
 import { fetchRecentRevisions } from '../../thunks/searchThunk';
-import { InputType, ThemeMode, View } from '../../types/state';
+import { InputType, View } from '../../types/state';
 import type { Repository } from '../../types/state';
 
 interface SearchDropdownProps {
   view: View;
   selectLabel: string;
   tooltipText: string;
-  mode: ThemeMode;
   searchType: InputType;
 }
 
 function SearchDropdown({
   view,
   selectLabel,
-  mode,
   searchType,
 }: SearchDropdownProps) {
   const size = view == compareView ? 'small' : undefined;
+  const mode = useAppSelector((state) => state.theme.mode);
   const repository = useAppSelector(
     (state) => state.search[searchType].repository,
   );

@@ -6,8 +6,10 @@ import comparison from '../reducers/ComparisonSlice';
 import framework from '../reducers/FrameworkSlice';
 import search from '../reducers/SearchSlice';
 import selectedRevisions from '../reducers/SelectedRevisionsSlice';
+import theme from '../reducers/Theme';
 
 const reducer = combineReducers({
+  theme,
   search,
   framework,
   selectedRevisions,

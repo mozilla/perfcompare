@@ -9,13 +9,10 @@ import { IconButton, TableRow, TableCell } from '@mui/material';
 import Link from '@mui/material/Link';
 import { style } from 'typestyle';
 
+import { useAppSelector } from '../../hooks/app';
 import { Colors, Spacing } from '../../styles';
 import { ExpandableRowStyles } from '../../styles';
-import type {
-  CompareResultsItem,
-  PlatformInfo,
-  ThemeMode,
-} from '../../types/state';
+import type { CompareResultsItem, PlatformInfo } from '../../types/state';
 import { getPlatformInfo } from '../../utils/helpers';
 import RevisionRowExpandable from './RevisionRowExpandable';
 
@@ -32,7 +29,7 @@ function determineSign(baseMedianValue: number, newMedianValue: number) {
 }
 
 function RevisionRow(props: RevisionRowProps) {
-  const { themeMode, result } = props;
+  const { result } = props;
   const {
     platform,
     base_median_value: baseMedianValue,
@@ -59,6 +56,7 @@ function RevisionRow(props: RevisionRowProps) {
 
   const stylesCard = ExpandableRowStyles();
 
+  const themeMode = useAppSelector((state) => state.theme.mode);
   const expandButtonColor =
     themeMode == 'light' ? Colors.Background300 : Colors.Background100Dark;
   const themeColor200 =
@@ -210,7 +208,7 @@ function RevisionRow(props: RevisionRowProps) {
             } ${stylesCard.container} `}
             data-testid='expanded-row-content'
           >
-            <RevisionRowExpandable themeMode={themeMode} result={result} />
+            <RevisionRowExpandable result={result} />
           </div>
         </TableCell>
       </TableRow>
@@ -219,7 +217,6 @@ function RevisionRow(props: RevisionRowProps) {
 }
 
 interface RevisionRowProps {
-  themeMode: ThemeMode;
   result: CompareResultsItem;
 }
 

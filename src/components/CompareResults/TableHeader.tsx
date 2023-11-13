@@ -3,11 +3,11 @@ import SortIcon from '@mui/icons-material/Sort';
 import { TableRow, TableCell, TableHead } from '@mui/material';
 import { style } from 'typestyle';
 
+import { useAppSelector } from '../../hooks/app';
 import { Colors, Spacing } from '../../styles';
-import type { ThemeMode } from '../../types/state';
 
-function TableHeader(props: TableHeaderProps) {
-  const { themeMode } = props;
+function TableHeader() {
+  const themeMode = useAppSelector((state) => state.theme.mode);
   const styles = {
     headerRow: style({
       background:
@@ -121,10 +121,6 @@ function TableHeader(props: TableHeaderProps) {
       </TableRow>
     </TableHead>
   );
-}
-
-interface TableHeaderProps {
-  themeMode: ThemeMode;
 }
 
 export default TableHeader;

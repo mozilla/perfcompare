@@ -14,9 +14,7 @@ const themeMode = protocolTheme.palette.mode;
 
 function renderComponent() {
   const ref: React.RefObject<HTMLInputElement> = React.createRef();
-  renderWithRouter(
-    <SearchContainer containerRef={ref} themeMode={themeMode} />,
-  );
+  renderWithRouter(<SearchContainer containerRef={ref} />);
 }
 
 describe('Search Containter', () => {

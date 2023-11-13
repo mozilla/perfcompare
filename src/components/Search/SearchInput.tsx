@@ -9,25 +9,24 @@ import { style } from 'typestyle';
 import { useAppSelector } from '../../hooks/app';
 import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
 import { InputStylesRaw } from '../../styles';
-import { InputType, ThemeMode, View } from '../../types/state';
+import { InputType, View } from '../../types/state';
 
 interface SearchInputProps {
   setFocused: Dispatch<SetStateAction<boolean>>;
   inputPlaceholder: string;
   view: View;
-  mode: ThemeMode;
   searchType: InputType;
 }
 
 function SearchInput({
   setFocused,
   view,
-  mode,
   inputPlaceholder,
   searchType,
 }: SearchInputProps) {
   const { handleChangeSearch } = useHandleChangeSearch();
   const searchState = useAppSelector((state) => state.search[searchType]);
+  const mode = useAppSelector((state) => state.theme.mode);
   const { inputError, inputHelperText } = searchState;
 
   const size = view == 'compare-results' ? 'small' : undefined;
