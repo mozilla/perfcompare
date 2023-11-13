@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
+import { Form } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
@@ -82,7 +83,7 @@ function CompareWithBase({
         } ${styles.container} `}
       >
         <Divider className='divider' />
-        <div className='form-wrapper'>
+        <Form action='/compare-results' className='form-wrapper'>
           <SearchComponent
             searchType='base'
             isEditable={isEditable}
@@ -109,7 +110,7 @@ function CompareWithBase({
             <FrameworkDropdown mode={mode} />
             <CompareButton mode={mode} />
           </Grid>
-        </div>
+        </Form>
       </div>
     </Grid>
   );

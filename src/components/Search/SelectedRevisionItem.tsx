@@ -76,6 +76,8 @@ function SelectedRevisionItem({
       className={`item-container item-${index} item-${searchType}`}
       data-testid='selected-rev-item'
     >
+      <input type='hidden' name={searchType + 'Rev'} value={item.revision} />
+      <input type='hidden' name={searchType + 'Repo'} value={repository} />
       <div className={styles.repo}>
         <div>{repository}</div>
         {isWarning && repository === 'try' && (
