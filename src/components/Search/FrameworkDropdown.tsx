@@ -126,7 +126,7 @@ function FrameworkDropdown() {
           className='dropdown-select'
           variant='standard'
           onChange={(e) => void handleFrameworkSelect(e)}
-          name='Framework'
+          name='framework'
         >
           {sortedFrameworks.map(([id, name]) => (
             <MenuItem value={id} key={name} className='framework-dropdown-item'>

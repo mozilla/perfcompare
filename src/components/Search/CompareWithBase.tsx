@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
+import { Form } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { repoMap } from '../../common/constants';
@@ -255,8 +256,7 @@ function CompareWithBase({
         } ${styles.container} `}
       >
         <Divider className='divider' />
-
-        <div className='form-wrapper'>
+        <Form action='/compare-results' className='form-wrapper'>
           <SearchComponent
             {...stringsBase}
             isBaseComp={true}
@@ -291,7 +291,7 @@ function CompareWithBase({
             <FrameworkDropdown />
             <CompareButton />
           </Grid>
-        </div>
+        </Form>
       </div>
     </Grid>
   );
