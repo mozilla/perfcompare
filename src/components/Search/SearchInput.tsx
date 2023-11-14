@@ -1,5 +1,3 @@
-import { Dispatch, SetStateAction } from 'react';
-
 import SearchIcon from '@mui/icons-material/Search';
 import FormControl from '@mui/material/FormControl';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -12,7 +10,7 @@ import { InputStylesRaw } from '../../styles';
 import { InputType, ThemeMode, View } from '../../types/state';
 
 interface SearchInputProps {
-  setFocused: Dispatch<SetStateAction<boolean>>;
+  onFocus: () => unknown;
   inputPlaceholder: string;
   view: View;
   mode: ThemeMode;
@@ -20,7 +18,7 @@ interface SearchInputProps {
 }
 
 function SearchInput({
-  setFocused,
+  onFocus,
   view,
   mode,
   inputPlaceholder,
@@ -56,7 +54,7 @@ function SearchInput({
         helperText={inputError && inputHelperText}
         placeholder={inputPlaceholder}
         id={`search-${searchType}-input`}
-        onFocus={() => setFocused(true)}
+        onFocus={onFocus}
         onChange={(e) => handleChangeSearch({ e, searchType, repository })}
         size={size}
         name={`${searchType}Search`}

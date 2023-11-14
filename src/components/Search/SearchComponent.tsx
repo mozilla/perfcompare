@@ -1,4 +1,10 @@
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import {
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useState,
+  useCallback,
+} from 'react';
 
 import InfoIcon from '@mui/icons-material/InfoOutlined';
 import Grid from '@mui/material/Grid';
@@ -103,23 +109,22 @@ function SearchComponent({
     setFormIsDisplayed(false);
   };
 
-  const handleFocus = (e: MouseEvent) => {
-    if (
-      (e.target as HTMLElement).matches(`#${searchType}-search-container, 
-      #${searchType}-search-container *`) &&
-      // do not open search results when dropdown or cancel button is clicked
-      !(e.target as HTMLElement).matches(
-        `#${searchType}_search-dropdown,
-        #${searchType}_search-dropdown *,
-        #cancel-save_btns, 
-        #cancel-save_btns *`,
-      )
-    ) {
-      setFocused(true);
-      return;
-    }
-    setFocused(false);
-  };
+  const handleDocumentMousedown = useCallback(
+    (e: MouseEvent) => {
+      if (!focused) {
+        return;
+      }
+
+      const target = e.target as HTMLElement;
+
+      if (target.closest(`.${searchType}-search-input`) === null) {
+        // Close the dropdown only if the click is outside the search input or one
+        // of it's descendants.
+        setFocused(false);
+      }
+    },
+    [focused],
+  );
 
   const handleEscKeypress = (e: KeyboardEvent) => {
     if (e.key === 'Escape') {
@@ -128,11 +133,11 @@ function SearchComponent({
   };
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleFocus);
+    document.addEventListener('mousedown', handleDocumentMousedown);
     return () => {
-      document.removeEventListener('mousedown', handleFocus);
+      document.removeEventListener('mousedown', handleDocumentMousedown);
     };
-  }, []);
+  }, [handleDocumentMousedown]);
 
   useEffect(() => {
     document.addEventListener('keydown', handleEscKeypress);
@@ -201,7 +206,7 @@ function SearchComponent({
         >
           <SearchInput
             mode={mode}
-            setFocused={setFocused}
+            onFocus={() => setFocused(true)}
             view={view}
             inputPlaceholder={inputPlaceholder}
             searchType={searchType}
