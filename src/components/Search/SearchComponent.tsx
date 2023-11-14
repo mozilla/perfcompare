@@ -92,7 +92,7 @@ function SearchComponent({
 
   const searchState = useAppSelector((state) => state.search[searchType]);
   const { searchResults } = searchState;
-  const [focused, setFocused] = useState(false);
+  const [displayDropdown, setDisplayDropdown] = useState(false);
   const [formIsDisplayed, setFormIsDisplayed] = useState(!isEditable);
 
   const location = useLocation();
@@ -111,7 +111,7 @@ function SearchComponent({
 
   const handleDocumentMousedown = useCallback(
     (e: MouseEvent) => {
-      if (!focused) {
+      if (!displayDropdown) {
         return;
       }
 
@@ -120,15 +120,15 @@ function SearchComponent({
       if (target.closest(`.${searchType}-search-input`) === null) {
         // Close the dropdown only if the click is outside the search input or one
         // of it's descendants.
-        setFocused(false);
+        setDisplayDropdown(false);
       }
     },
-    [focused],
+    [displayDropdown],
   );
 
   const handleEscKeypress = (e: KeyboardEvent) => {
     if (e.key === 'Escape') {
-      setFocused(false);
+      setDisplayDropdown(false);
     }
   };
 
@@ -206,12 +206,12 @@ function SearchComponent({
         >
           <SearchInput
             mode={mode}
-            onFocus={() => setFocused(true)}
+            onFocus={() => setDisplayDropdown(true)}
             view={view}
             inputPlaceholder={inputPlaceholder}
             searchType={searchType}
           />
-          {searchResults.length > 0 && focused && (
+          {searchResults.length > 0 && displayDropdown && (
             <SearchResultsList
               mode={mode}
               view={view}
