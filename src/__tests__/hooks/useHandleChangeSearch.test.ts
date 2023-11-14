@@ -32,9 +32,12 @@ describe('Tests useHandleSearchHook', () => {
       searchType,
       repository: 'try' as Repository['name'],
     };
-    const { result } = renderHook(() => useHandleChangeSearch(), {
-      wrapper: StoreProvider,
-    });
+    const { result } = renderHook(
+      () => useHandleChangeSearch({ load: jest.fn() }),
+      {
+        wrapper: StoreProvider,
+      },
+    );
     await act(async () => {
       result.current.handleChangeSearch(searchState);
     });
@@ -53,9 +56,12 @@ describe('Tests useHandleSearchHook', () => {
       results: testData,
       searchType,
     };
-    const { result } = renderHook(() => useHandleChangeSearch(), {
-      wrapper: StoreProvider,
-    });
+    const { result } = renderHook(
+      () => useHandleChangeSearch({ load: jest.fn() }),
+      {
+        wrapper: StoreProvider,
+      },
+    );
 
     await act(async () => {
       store.dispatch(updateSearchResults(searchResults));
@@ -79,9 +85,12 @@ describe('Tests useHandleSearchHook', () => {
       repository: 'try' as Repository['name'],
     };
     const testError = 'test error';
-    const { result } = renderHook(() => useHandleChangeSearch(), {
-      wrapper: StoreProvider,
-    });
+    const { result } = renderHook(
+      () => useHandleChangeSearch({ load: jest.fn() }),
+      {
+        wrapper: StoreProvider,
+      },
+    );
 
     act(() => {
       store.dispatch(setInputError({ errorMessage: testError, searchType }));
@@ -103,9 +112,12 @@ describe('Tests useHandleSearchHook', () => {
       searchType,
       repository: 'try' as Repository['name'],
     };
-    const { result } = renderHook(() => useHandleChangeSearch(), {
-      wrapper: StoreProvider,
-    });
+    const { result } = renderHook(
+      () => useHandleChangeSearch({ load: jest.fn() }),
+      {
+        wrapper: StoreProvider,
+      },
+    );
     await act(async () => {
       result.current.handleChangeSearch(searchState);
     });
@@ -123,15 +135,16 @@ describe('Tests useHandleSearchHook', () => {
       searchType,
       repository: 'try' as Repository['name'],
     };
-    const { result } = renderHook(() => useHandleChangeSearch(), {
+    const fetcher = { load: jest.fn() };
+    const { result } = renderHook(() => useHandleChangeSearch(fetcher), {
       wrapper: StoreProvider,
     });
     await act(async () => {
       result.current.handleChangeSearch(searchState);
     });
     jest.runAllTimers();
-    expect(global.fetch).toHaveBeenCalledWith(
-      `https://treeherder.mozilla.org/api/project/${searchState.repository}/push/?hide_reviewbot_pushes=true`,
+    expect(fetcher.load).toHaveBeenCalledWith(
+      `/api/recent-revisions/${searchState.repository}`,
     );
   });
 
@@ -142,15 +155,16 @@ describe('Tests useHandleSearchHook', () => {
       searchType,
       repository: 'try' as Repository['name'],
     };
-    const { result } = renderHook(() => useHandleChangeSearch(), {
+    const fetcher = { load: jest.fn() };
+    const { result } = renderHook(() => useHandleChangeSearch(fetcher), {
       wrapper: StoreProvider,
     });
     await act(async () => {
       result.current.handleChangeSearch(searchState);
     });
     jest.runAllTimers();
-    expect(global.fetch).toHaveBeenCalledWith(
-      `https://treeherder.mozilla.org/api/project/${searchState.repository}/push/?author=some@email.com`,
+    expect(fetcher.load).toHaveBeenCalledWith(
+      `/api/recent-revisions/${searchState.repository}/by-author/some@email.com`,
     );
   });
 
@@ -166,23 +180,24 @@ describe('Tests useHandleSearchHook', () => {
       searchType,
       repository: 'mozilla-central' as Repository['name'],
     };
-    const { result } = renderHook(() => useHandleChangeSearch(), {
+    const fetcher = { load: jest.fn() };
+    const { result } = renderHook(() => useHandleChangeSearch(fetcher), {
       wrapper: StoreProvider,
     });
     await act(async () => {
       result.current.handleChangeSearch(searchState);
     });
     jest.runAllTimers();
-    expect(global.fetch).toHaveBeenCalledWith(
-      `https://treeherder.mozilla.org/api/project/${searchState.repository}/push/?revision=abcdef123456`,
+    expect(fetcher.load).toHaveBeenCalledWith(
+      `/api/recent-revisions/${searchState.repository}/by-hash/abcdef123456`,
     );
 
     await act(async () => {
       result.current.handleChangeSearch(searchState2);
     });
     jest.runAllTimers();
-    expect(global.fetch).toHaveBeenCalledWith(
-      `https://treeherder.mozilla.org/api/project/${searchState2.repository}/push/?revision=abcdef1234567890abcdef1234567890abcdef12`,
+    expect(fetcher.load).toHaveBeenCalledWith(
+      `/api/recent-revisions/${searchState.repository}/by-hash/abcdef1234567890abcdef1234567890abcdef12`,
     );
   });
 
@@ -193,7 +208,8 @@ describe('Tests useHandleSearchHook', () => {
       searchType,
       repository: 'autoland' as Repository['name'],
     };
-    const { result } = renderHook(() => useHandleChangeSearch(), {
+    const fetcher = { load: jest.fn() };
+    const { result } = renderHook(() => useHandleChangeSearch(fetcher), {
       wrapper: StoreProvider,
     });
     await act(async () => {
@@ -206,6 +222,6 @@ describe('Tests useHandleSearchHook', () => {
       result.current.handleChangeSearch(searchState);
     });
     jest.runAllTimers();
-    expect(global.fetch).toBeCalledTimes(1);
+    expect(fetcher.load).toBeCalledTimes(1);
   });
 });

@@ -10,12 +10,12 @@ import InfoIcon from '@mui/icons-material/InfoOutlined';
 import Grid from '@mui/material/Grid';
 import InputLabel from '@mui/material/InputLabel';
 import Tooltip from '@mui/material/Tooltip';
+import { useFetcher } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { cssRule } from 'typestyle';
 
 import { compareView, searchView } from '../../common/constants';
 import { useAppDispatch } from '../../hooks/app';
-import { useAppSelector } from '../../hooks/app';
 import useSelectedRevisions from '../../hooks/useSelectedRevisions';
 import { clearCheckedRevisionforType } from '../../reducers/SearchSlice';
 import {
@@ -88,10 +88,9 @@ function SearchComponent({
   });
 
   const dispatch = useAppDispatch();
+  const fetcher = useFetcher<RevisionsList[]>();
   const { updateSelectedRevisions } = useSelectedRevisions();
 
-  const searchState = useAppSelector((state) => state.search[searchType]);
-  const { searchResults } = searchState;
   const [displayDropdown, setDisplayDropdown] = useState(false);
   const [formIsDisplayed, setFormIsDisplayed] = useState(!isEditable);
 
@@ -210,12 +209,14 @@ function SearchComponent({
             view={view}
             inputPlaceholder={inputPlaceholder}
             searchType={searchType}
+            fetcher={fetcher}
           />
-          {searchResults.length > 0 && displayDropdown && (
+          {fetcher.data && fetcher.data.length && displayDropdown && (
             <SearchResultsList
               mode={mode}
               view={view}
               searchType={searchType}
+              searchResults={fetcher.data}
             />
           )}
         </Grid>

@@ -1,21 +1,19 @@
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 
-import { useAppSelector } from '../../hooks/app';
 import { SelectListStyles } from '../../styles';
-import { InputType, ThemeMode, View } from '../../types/state';
+import { InputType, ThemeMode, View, RevisionsList } from '../../types/state';
 import SearchResultsListItem from './SearchResultsListItem';
 
 interface SearchResultsListProps {
   view: View;
   mode: ThemeMode;
   searchType: InputType;
+  searchResults: RevisionsList[];
 }
 
 function SearchResultsList(props: SearchResultsListProps) {
-  const { view, mode, searchType } = props;
-  const searchState = useAppSelector((state) => state.search[searchType]);
-  const { searchResults } = searchState;
+  const { view, mode, searchType, searchResults } = props;
   const styles = SelectListStyles(mode);
 
   return (

@@ -11,7 +11,6 @@ import { style } from 'typestyle';
 import { compareView, frameworkMap, repoMap } from '../../common/constants';
 import { useAppDispatch, useAppSelector } from '../../hooks/app';
 import useFetchCompareResults from '../../hooks/useFetchCompareResults';
-import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
 import { updateFramework } from '../../reducers/FrameworkSlice';
 import { SearchContainerStyles } from '../../styles';
 import { background } from '../../styles';
@@ -46,7 +45,6 @@ function ResultsView(props: ResultsViewProps) {
 
   const { dispatchFetchCompareResults, dispatchFakeCompareResults } =
     useFetchCompareResults();
-  const { searchRecentRevisions } = useHandleChangeSearch();
 
   const { protocolTheme, toggleColorMode, title } = props;
   const themeMode = protocolTheme.palette.mode;
@@ -84,22 +82,6 @@ function ResultsView(props: ResultsViewProps) {
         revsArray,
         framework as string,
       );
-
-      /*
-       *On component mount, use the repos and revs in hash to search for the base and new *revisions. Store the results in state via the SelectedRevisionsSlice: see extra *reducer, fetchRevisionsByID. Now can always display the selected revisions despite *page refresh or copying and pasting url
-       */
-      revsArray.forEach((rev, index) => {
-        void searchRecentRevisions(
-          reposArray[index] as Repository['name'],
-          rev,
-          'base',
-        );
-        void searchRecentRevisions(
-          reposArray[index] as Repository['name'],
-          rev,
-          'new',
-        );
-      });
     }
   }, [repos, revs, framework]);
 
