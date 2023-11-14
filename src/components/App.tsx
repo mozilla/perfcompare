@@ -17,6 +17,7 @@ import { Banner } from '../styles/Banner';
 import useProtocolTheme from '../theme/protocolTheme';
 import { loader as compareLoader } from './CompareResults/loader';
 import ResultsView from './CompareResults/ResultsView';
+import { loader as recentRevisionsLoader } from './Search/loader';
 import SearchView from './Search/SearchView';
 import SnackbarCloseButton from './Shared/SnackbarCloseButton';
 
@@ -97,6 +98,20 @@ function App() {
                       />
                     }
                   />
+
+                  <Route
+                    path='/api/recent-revisions/:repository'
+                    loader={recentRevisionsLoader}
+                  >
+                    <Route
+                      path='by-author/:author'
+                      loader={recentRevisionsLoader}
+                    />
+                    <Route
+                      path='by-hash/:hash'
+                      loader={recentRevisionsLoader}
+                    />
+                  </Route>
                 </>,
               ),
             )}

@@ -1,4 +1,4 @@
-import { CompareResultsItem, Repository } from '../types/state';
+import { CompareResultsItem, Repository, RevisionsList } from '../types/state';
 
 // This file contains functions to request the Treeherder API
 
@@ -52,4 +52,48 @@ export async function fetchFakeCompareResults(commitHash: string) {
     comparisonResults: CompareResultsItem[];
   };
   return module.comparisonResults;
+}
+
+export type RecentRevisionsParams = {
+  repository: string;
+  hash: string | undefined;
+  author: string | undefined;
+};
+
+function computeUrlFromSearchTermAndRepository({
+  repository,
+  hash,
+  author,
+}: RecentRevisionsParams) {
+  const baseUrl = `${treeherderBaseURL}/api/project/${repository}/push/`;
+
+  if (author) {
+    return baseUrl + '?author=' + encodeURIComponent(author);
+  }
+
+  if (hash) {
+    return baseUrl + '?revision=' + hash;
+  }
+
+  return baseUrl + '?hide_reviewbot_pushes=true';
+}
+
+export async function fetchRecentRevisions(params: RecentRevisionsParams) {
+  const url = computeUrlFromSearchTermAndRepository(params);
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    if (response.status === 400) {
+      throw new Error(
+        `Error when requesting treeherder: ${await response.text()}`,
+      );
+    } else {
+      throw new Error(
+        `Error when requesting treeherder: (${response.status}) ${response.statusText}`,
+      );
+    }
+  }
+
+  const json = (await response.json()) as { results: RevisionsList[] };
+  return json.results;
 }
