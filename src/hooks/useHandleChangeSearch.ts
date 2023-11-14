@@ -27,7 +27,7 @@ let timeout: null | ReturnType<typeof setTimeout> = null;
 const useHandleChangeSearch = () => {
   const dispatch = useAppDispatch();
 
-  const searchByRevisionOrEmail = async (
+  const searchRecentRevisions = async (
     repository: Repository['name'],
     search: string,
     searchType: InputType,
@@ -71,7 +71,7 @@ const useHandleChangeSearch = () => {
 
     const idleTime = 500;
     const onTimeout = () => {
-      void searchByRevisionOrEmail(repository, search, searchType);
+      void searchRecentRevisions(repository, search, searchType);
     };
 
     // Clear any existing timer whenever user types
@@ -79,7 +79,7 @@ const useHandleChangeSearch = () => {
 
     timeout = setTimeout(onTimeout, idleTime);
   };
-  return { handleChangeSearch, searchByRevisionOrEmail };
+  return { handleChangeSearch, searchRecentRevisions };
 };
 
 export default useHandleChangeSearch;
