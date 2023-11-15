@@ -56,8 +56,8 @@ export async function fetchFakeCompareResults(commitHash: string) {
 
 export type RecentRevisionsParams = {
   repository: string;
-  hash: string | undefined;
-  author: string | undefined;
+  hash?: string | undefined;
+  author?: string | undefined;
 };
 
 function computeUrlFromSearchTermAndRepository({

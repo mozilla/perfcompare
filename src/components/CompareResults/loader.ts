@@ -2,11 +2,12 @@ import { repoMap } from '../../common/constants';
 import {
   fetchCompareResults,
   fetchFakeCompareResults,
+  fetchRecentRevisions,
 } from '../../logic/treeherder';
 import { Repository } from '../../types/state';
 import { FakeCommitHash } from '../../types/types';
 
-async function checkValuesAndFetchCompareResultsOnTreeherder({
+function checkValues({
   baseRev,
   baseRepo,
   newRevs,
@@ -18,7 +19,13 @@ async function checkValuesAndFetchCompareResultsOnTreeherder({
   newRevs: string[];
   newRepos: Repository['name'][];
   framework: string | null;
-}) {
+}): {
+  baseRev: string;
+  baseRepo: Repository['name'];
+  newRevs: string[];
+  newRepos: Repository['name'][];
+  framework: string;
+} {
   if (baseRev === null) {
     throw new Error('The parameter baseRev is missing.');
   }
@@ -40,50 +47,70 @@ async function checkValuesAndFetchCompareResultsOnTreeherder({
     throw new Error('The parameter framework is missing.');
   }
 
-  let promises;
-  if (newRevs.length) {
-    if (newRevs.length !== newRepos.length) {
-      throw new Error(
-        'There should be as many "newRepo" parameters as there are "newRev" parameters.',
-      );
-    }
-    if (!newRepos.every((newRepo) => validRepoValues.includes(newRepo))) {
-      throw new Error(
-        `Every parameter newRepo "${newRepos.join(
-          '", "',
-        )}" should be one of ${validRepoValues.join(', ')}.`,
-      );
-    }
-
-    promises = newRevs.map((newRev, i) =>
-      fetchCompareResults({
-        baseRev,
-        baseRepo,
-        newRev,
-        newRepo: newRepos[i],
-        framework,
-      }),
-    );
-    return Promise.all(promises);
-  }
-  return [
-    await fetchCompareResults({
+  if (!newRevs.length) {
+    return {
       baseRev,
       baseRepo,
-      newRev: baseRev,
-      newRepo: baseRepo,
+      newRevs: [baseRev],
+      newRepos: [baseRepo],
       framework,
-    }),
-  ];
+    };
+  }
+
+  if (newRevs.length !== newRepos.length) {
+    throw new Error(
+      'There should be as many "newRepo" parameters as there are "newRev" parameters.',
+    );
+  }
+  if (!newRepos.every((newRepo) => validRepoValues.includes(newRepo))) {
+    throw new Error(
+      `Every parameter newRepo "${newRepos.join(
+        '", "',
+      )}" should be one of ${validRepoValues.join(', ')}.`,
+    );
+  }
+
+  return {
+    baseRev,
+    baseRepo,
+    newRevs,
+    newRepos,
+    framework,
+  };
 }
 
-async function fetchAllFakeCompareResults() {
-  const fakeCommitHashes: FakeCommitHash[] = [
-    'bb6a5e451dace3b9c7be42d24c9272738d73e6db',
-    '9d50665254899d8431813bdc04178e6006ce6d59',
-    'a998c42399a8fcea623690bf65bef49de20535b4',
-  ];
+async function fetchCompareResultsOnTreeherder({
+  baseRev,
+  baseRepo,
+  newRevs,
+  newRepos,
+  framework,
+}: {
+  baseRev: string;
+  baseRepo: Repository['name'];
+  newRevs: string[];
+  newRepos: Repository['name'][];
+  framework: string;
+}) {
+  const promises = newRevs.map((newRev, i) =>
+    fetchCompareResults({
+      baseRev,
+      baseRepo,
+      newRev,
+      newRepo: newRepos[i],
+      framework,
+    }),
+  );
+  return Promise.all(promises);
+}
 
+const fakeCommitHashes: FakeCommitHash[] = [
+  'bb6a5e451dace3b9c7be42d24c9272738d73e6db',
+  '9d50665254899d8431813bdc04178e6006ce6d59',
+  'a998c42399a8fcea623690bf65bef49de20535b4',
+];
+
+async function fetchAllFakeCompareResults() {
   const promises = fakeCommitHashes.map((hash) =>
     fetchFakeCompareResults(hash),
   );
@@ -96,32 +123,72 @@ async function fetchAllFakeCompareResults() {
 export async function loader({ request }: { request: Request }) {
   const url = new URL(request.url);
   const useFakeData = url.searchParams.has('fakedata');
-  const baseRev = url.searchParams.get('baseRev');
-  const baseRepo = url.searchParams.get('baseRepo') as
-    | Repository['name']
-    | null;
-  const newRevs = url.searchParams.getAll('newRev');
-  const newRepos = url.searchParams.getAll('newRepo') as Repository['name'][];
-  const framework = url.searchParams.get('framework');
-
-  let resultsForAllRevs;
   if (useFakeData) {
-    resultsForAllRevs = await fetchAllFakeCompareResults();
-  } else {
-    resultsForAllRevs = await checkValuesAndFetchCompareResultsOnTreeherder({
-      baseRev,
-      baseRepo,
-      newRevs,
-      newRepos,
-      framework,
-    });
+    const results = await fetchAllFakeCompareResults();
+    // They're all based on the same rev
+    const baseRev = results[0][0].base_rev;
+    // And the same repository
+    const baseRepo = results[0][0].base_repository_name;
+
+    const newRevs = fakeCommitHashes;
+    const newRepos = results.map((result) => result[0].new_repository_name);
+    const framework = results[0][0].framework_id;
+
+    return { results, baseRev, baseRepo, newRevs, newRepos, framework };
   }
 
-  return {
-    results: resultsForAllRevs,
-    baseRev: baseRev as string,
-    baseRepo: baseRepo as Repository['name'],
+  const baseRevFromUrl = url.searchParams.get('baseRev');
+  const baseRepoFromUrl = url.searchParams.get('baseRepo') as
+    | Repository['name']
+    | null;
+  const newRevsFromUrl = url.searchParams.getAll('newRev');
+  const newReposFromUrl = url.searchParams.getAll(
+    'newRepo',
+  ) as Repository['name'][];
+  const frameworkFromUrl = url.searchParams.get('framework');
+
+  const { baseRev, baseRepo, newRevs, newRepos, framework } = checkValues({
+    baseRev: baseRevFromUrl,
+    baseRepo: baseRepoFromUrl,
+    newRevs: newRevsFromUrl,
+    newRepos: newReposFromUrl,
+    framework: frameworkFromUrl,
+  });
+
+  const resultsPromise = fetchCompareResultsOnTreeherder({
+    baseRev,
+    baseRepo,
     newRevs,
+    newRepos,
+    framework,
+  });
+
+  // For each of these requests, we get a list of 1 item because we request one
+  // specific hash.
+  // TODO what happens if there's no result?
+  const baseRevInfoPromise = fetchRecentRevisions({
+    repository: baseRepo,
+    hash: baseRev,
+  }).then((listOfRevisions) => listOfRevisions[0]);
+  const newRevsInfoPromises = newRevs.map((newRev, i) =>
+    fetchRecentRevisions({ repository: newRepos[i], hash: newRev }).then(
+      (listOfRevisions) => listOfRevisions[0],
+    ),
+  );
+
+  const [results, baseRevInfo, ...newRevsInfo] = await Promise.all([
+    resultsPromise,
+    baseRevInfoPromise,
+    ...newRevsInfoPromises,
+  ]);
+
+  return {
+    results,
+    baseRev,
+    baseRevInfo,
+    baseRepo,
+    newRevs,
+    newRevsInfo,
     newRepos,
     framework,
   };
