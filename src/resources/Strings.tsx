@@ -75,6 +75,9 @@ export const Strings = {
         collapedSelectLabel: 'Time range',
       },
     },
+    revisionRow: {
+      platformUndefinedText: 'Unspecified',
+    },
     expandableRow: {
       singleRun: 'Only one run (consider more runs for greater confidence).',
       Low: "A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",

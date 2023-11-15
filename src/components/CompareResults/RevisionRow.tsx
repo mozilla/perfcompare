@@ -9,6 +9,7 @@ import { IconButton } from '@mui/material';
 import Link from '@mui/material/Link';
 import { style } from 'typestyle';
 
+import { Strings } from '../../resources/Strings';
 import { Colors, Spacing } from '../../styles';
 import { ExpandableRowStyles } from '../../styles';
 import type {
@@ -143,7 +144,11 @@ function RevisionRow(props: RevisionRowProps) {
       <div className={`revisionRow ${styles.revisionRow} ${styles.typography}`}>
         <div className='platform cell'>
           <div className='platform-container'>
-            {platformInfo.shortName ? <PlatformIcon /> : 'Unspecified'}
+            {platformInfo.shortName ? (
+              <PlatformIcon />
+            ) : (
+              Strings.components.revisionRow.platformUndefinedText
+            )}
             <span>{platformInfo.shortName}</span>
           </div>
         </div>
