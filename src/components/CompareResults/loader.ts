@@ -2,6 +2,7 @@ import { repoMap, frameworks } from '../../common/constants';
 import {
   fetchCompareResults,
   fetchFakeCompareResults,
+  fetchRecentRevisions,
 } from '../../logic/treeherder';
 import { Repository } from '../../types/state';
 import { FakeCommitHash, Framework } from '../../types/types';
@@ -26,6 +27,7 @@ function checkValues({
   newRevs: string[];
   newRepos: Repository['name'][];
   frameworkId: Framework['id'];
+  frameworkName: Framework['name'];
 } {
   if (baseRev === null) {
     throw new Error('The parameter baseRev is missing.');
@@ -54,9 +56,11 @@ function checkValues({
       `The parameter framework should be a number, but it is "${framework}".`,
     );
   }
-  const frameworkEntry = frameworks.find((entry) => entry.id === frameworkId);
+  const frameworkName = frameworks.find(
+    (entry) => entry.id === frameworkId,
+  )?.name;
 
-  if (!frameworkEntry) {
+  if (!frameworkName) {
     throw new Error(
       `The parameter framework isn't a valid value: "${framework}".`,
     );
@@ -69,6 +73,7 @@ function checkValues({
       newRevs: [baseRev],
       newRepos: [baseRepo],
       frameworkId,
+      frameworkName,
     };
   }
 
@@ -91,6 +96,7 @@ function checkValues({
     newRevs,
     newRepos,
     frameworkId,
+    frameworkName,
   };
 }
 
@@ -143,7 +149,6 @@ async function fetchAllFakeCompareResults() {
 export async function loader({ request }: { request: Request }) {
   const url = new URL(request.url);
   const useFakeData = url.searchParams.has('fakedata');
-
   if (useFakeData) {
     const results = await fetchAllFakeCompareResults();
     // They're all based on the same rev
@@ -154,6 +159,8 @@ export async function loader({ request }: { request: Request }) {
     const newRevs = fakeCommitHashes;
     const newRepos = results.map((result) => result[0].new_repository_name);
     const frameworkId = results[0][0].framework_id;
+    const frameworkName =
+      frameworks.find((entry) => entry.id === frameworkId)?.name ?? '';
 
     return {
       results,
@@ -161,7 +168,8 @@ export async function loader({ request }: { request: Request }) {
       baseRepo,
       newRevs,
       newRepos,
-      framework: frameworkId,
+      frameworkId,
+      frameworkName,
     };
   }
 
@@ -175,15 +183,16 @@ export async function loader({ request }: { request: Request }) {
   ) as Repository['name'][];
   const frameworkFromUrl = url.searchParams.get('framework');
 
-  const { baseRev, baseRepo, newRevs, newRepos, frameworkId } = checkValues({
-    baseRev: baseRevFromUrl,
-    baseRepo: baseRepoFromUrl,
-    newRevs: newRevsFromUrl,
-    newRepos: newReposFromUrl,
-    framework: frameworkFromUrl,
-  });
+  const { baseRev, baseRepo, newRevs, newRepos, frameworkId, frameworkName } =
+    checkValues({
+      baseRev: baseRevFromUrl,
+      baseRepo: baseRepoFromUrl,
+      newRevs: newRevsFromUrl,
+      newRepos: newReposFromUrl,
+      framework: frameworkFromUrl,
+    });
 
-  const resultsForAllRevs = await fetchCompareResultsOnTreeherder({
+  const resultsPromise = fetchCompareResultsOnTreeherder({
     baseRev,
     baseRepo,
     newRevs,
@@ -191,13 +200,35 @@ export async function loader({ request }: { request: Request }) {
     framework: frameworkId,
   });
 
+  // For each of these requests, we get a list of 1 item because we request one
+  // specific hash.
+  // TODO what happens if there's no result?
+  const baseRevInfoPromise = fetchRecentRevisions({
+    repository: baseRepo,
+    hash: baseRev,
+  }).then((listOfRevisions) => listOfRevisions[0]);
+  const newRevsInfoPromises = newRevs.map((newRev, i) =>
+    fetchRecentRevisions({ repository: newRepos[i], hash: newRev }).then(
+      (listOfRevisions) => listOfRevisions[0],
+    ),
+  );
+
+  const [results, baseRevInfo, ...newRevsInfo] = await Promise.all([
+    resultsPromise,
+    baseRevInfoPromise,
+    ...newRevsInfoPromises,
+  ]);
+
   return {
-    results: resultsForAllRevs,
-    baseRev: baseRev,
-    baseRepo: baseRepo,
+    results,
+    baseRev,
+    baseRevInfo,
+    baseRepo,
     newRevs,
+    newRevsInfo,
     newRepos,
-    framework: frameworkId,
+    frameworkId,
+    frameworkName,
   };
 }
 
