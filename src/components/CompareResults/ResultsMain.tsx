@@ -5,6 +5,7 @@ import { Colors } from '../../styles';
 import type { ThemeMode } from '../../types/state';
 import ResultsHeader from './ResultsHeader';
 import ResultsTable from './ResultsTable';
+import ResultsTableGrid from './ResultsTableGrid';
 
 function ResultsMain(props: ResultsMainProps) {
   const { themeMode } = props;
@@ -24,7 +25,8 @@ function ResultsMain(props: ResultsMainProps) {
   return (
     <Container className={styles.container} data-testid='results-main'>
       <ResultsHeader />
-      <ResultsTable themeMode={themeMode} />
+      <ResultsTableGrid themeMode={themeMode} />
+      {/* <ResultsTable themeMode={themeMode} /> */}
     </Container>
   );
 }
