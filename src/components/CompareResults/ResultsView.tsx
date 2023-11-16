@@ -35,25 +35,14 @@ function ResultsView(props: ResultsViewProps) {
     (state) => state.selectedRevisions.new,
   );
 
-  const displayedSelectedRevisions = {
-    baseRevs: selectedRevisionsListBase,
-    newRevs: selectedRevisionsListNew,
-  };
-
-  const selectedBaseRepositories = selectedRevisionsListBase.map((item) => {
-    const selectedRep = repoMap[item.repository_id];
-    return selectedRep;
-  });
-
-  const selectedNewRepositories = selectedRevisionsListNew.map((item) => {
-    const selectedRep = repoMap[item.repository_id];
-    return selectedRep;
-  });
-
-  const displayedRepositories = {
-    baseRepos: selectedBaseRepositories as Repository['name'][],
-    newRepos: selectedNewRepositories as Repository['name'][],
-  };
+  // The "??" operations below are so that Typescript doesn't wonder about the
+  // undefined value later.
+  const selectedBaseRepositories = selectedRevisionsListBase.map(
+    (item) => repoMap[item.repository_id] ?? 'try',
+  );
+  const selectedNewRepositories = selectedRevisionsListNew.map(
+    (item) => repoMap[item.repository_id] ?? 'try',
+  );
 
   const { dispatchFetchCompareResults, dispatchFakeCompareResults } =
     useFetchCompareResults();
@@ -150,8 +139,10 @@ function ResultsView(props: ResultsViewProps) {
         <CompareWithBase
           mode={themeMode}
           isEditable={true}
-          displayedRevisions={displayedSelectedRevisions}
-          displayedRepositories={displayedRepositories}
+          baseRevs={selectedRevisionsListBase}
+          newRevs={selectedRevisionsListNew}
+          baseRepos={selectedBaseRepositories}
+          newRepos={selectedNewRepositories}
         />
       </section>
       <Grid container alignItems='center' justifyContent='center'>

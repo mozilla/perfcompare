@@ -7,7 +7,6 @@ import CompareWithBase from '../../components/Search/CompareWithBase';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
-import type { Repository } from '../../types/state';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
 import { screen } from '../utils/test-utils';
@@ -18,34 +17,24 @@ const protocolTheme = renderHook(() => useProtocolTheme()).result.current
 const themeMode = protocolTheme.palette.mode;
 function renderComponent(isEditable: boolean) {
   const { testData } = getTestData();
-  const selectedRevsBase = testData.slice(0, 1);
-  const selectedRevsNew = testData.slice(1, 3);
+  const baseRevs = testData.slice(0, 1);
+  const newRevs = testData.slice(1, 3);
 
-  const displayedCheckedRevisions = {
-    baseRevs: selectedRevsBase,
-    newRevs: selectedRevsNew,
-  };
+  // The "??" operations below are so that Typescript doesn't wonder about the
+  // undefined value later.
+  const baseRepos = baseRevs.map(
+    (item) => repoMap[item.repository_id] ?? 'try',
+  );
+  const newRepos = newRevs.map((item) => repoMap[item.repository_id] ?? 'try');
 
-  const baseRepos = selectedRevsBase.map((item) => {
-    const selectedRep = repoMap[item.repository_id];
-    return selectedRep;
-  });
-
-  const newRepos = selectedRevsNew.map((item) => {
-    const selectedRep = repoMap[item.repository_id];
-    return selectedRep;
-  });
-
-  const displayedRepositories = {
-    baseRepos: baseRepos as Repository['name'][],
-    newRepos: newRepos as Repository['name'][],
-  };
   renderWithRouter(
     <CompareWithBase
       isEditable={isEditable}
       mode={themeMode}
-      displayedRevisions={displayedCheckedRevisions}
-      displayedRepositories={displayedRepositories}
+      baseRevs={baseRevs}
+      newRevs={newRevs}
+      baseRepos={baseRepos}
+      newRepos={newRepos}
     />,
   );
 }
