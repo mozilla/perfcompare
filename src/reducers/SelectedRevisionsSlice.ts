@@ -28,8 +28,16 @@ const selectedRevisions = createSlice({
       state,
       action: PayloadAction<{
         selectedRevisions: RevisionsList[];
+        isBaseDeletion: boolean;
       }>,
     ) {
+      if (action.payload.isBaseDeletion) {
+        return {
+          ...state,
+          revisions: action.payload.selectedRevisions.slice(1),
+          base: [],
+        };
+      }
       return {
         ...state,
         revisions: action.payload.selectedRevisions,

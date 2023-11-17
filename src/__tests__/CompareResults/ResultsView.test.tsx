@@ -300,18 +300,18 @@ describe('Results View', () => {
       />,
     );
 
-    const removeButton = document.querySelectorAll(
+    const closeButton = document.querySelectorAll(
       '[aria-label="close-button"]',
     );
 
-    const removeIcon = screen.getAllByTestId('close-icon')[0];
-    expect(removeIcon).toBeInTheDocument();
+    const closeIcon = screen.getAllByTestId('close-icon')[0];
+    expect(closeIcon).toBeInTheDocument();
     expect(screen.getAllByTestId('selected-rev-item')[1]).toBeInTheDocument();
 
-    await user.click(removeButton[0]);
+    await user.click(closeButton[0]);
 
     act(() => {
-      expect(store.getState().selectedRevisions.new).toEqual([]);
+      expect(store.getState().selectedRevisions.base).toEqual([]);
     });
 
     expect(screen.queryAllByTestId('selected-rev-item')[1]).toBeUndefined();

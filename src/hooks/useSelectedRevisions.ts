@@ -18,10 +18,13 @@ const useSelectRevision = () => {
     (state) => state.search.new.checkedRevisions,
   );
 
+  const selectedRevisionsState = useAppSelector(
+    (state) => state.selectedRevisions,
+  );
+
   const selectedRevisions = useAppSelector(
     (state) => state.selectedRevisions.revisions,
   );
-
   const addSelectedRevisions = () => {
     const newSelected = [...selectedRevisions];
     newSelected.push(...baseCheckedRevisions, ...newCheckedRevisions);
@@ -35,10 +38,11 @@ const useSelectRevision = () => {
     let revisionsForEdit = selectedRevisions;
     switch (searchType) {
       case 'base':
-        revisionsForEdit = [revisionsForEdit[0]];
+        revisionsForEdit = selectedRevisionsState.base;
+
         break;
       case 'new':
-        revisionsForEdit = revisionsForEdit.slice(1);
+        revisionsForEdit = selectedRevisionsState.new;
         break;
       default:
         throw new Error('Invalid search type');
@@ -72,8 +76,20 @@ const useSelectRevision = () => {
 
   const deleteSelectedRevisions = (revision: RevisionsList) => {
     const newSelected = [...selectedRevisions];
+    if (newSelected[0].id === revision.id) {
+      //this is a base revision deletion
+      dispatch(
+        deleteRevision({
+          selectedRevisions: newSelected,
+          isBaseDeletion: true,
+        }),
+      );
+      return;
+    }
     newSelected.splice(selectedRevisions.indexOf(revision), 1);
-    dispatch(deleteRevision({ selectedRevisions: newSelected }));
+    dispatch(
+      deleteRevision({ selectedRevisions: newSelected, isBaseDeletion: false }),
+    );
   };
 
   return {
