@@ -21,9 +21,7 @@ function PerfCompareHeader({ toggleColorMode, view }: PerfCompareHeaderProps) {
 
   return (
     <Grid className={`header-container ${styles.container}`}>
-      <ToggleDarkMode
-        toggleColorMode={toggleColorMode}
-      />
+      <ToggleDarkMode toggleColorMode={toggleColorMode} />
       <Box className='header-text'>
         <Typography
           variant='h1'

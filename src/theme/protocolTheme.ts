@@ -67,7 +67,9 @@ const useProtocolTheme = () => {
   const storedMode = useAppSelector((state) => state.theme.mode);
 
   const toggleColorMode = () => {
-    dispatch(updateThemeMode(storedMode === 'light' ? 'dark' : 'light'));
+    const mode = storedMode === 'light' ? 'dark' : 'light';
+    dispatch(updateThemeMode(mode));
+    localStorage.setItem('theme', mode);
   };
 
   const protocolTheme: Theme = useMemo(

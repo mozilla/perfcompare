@@ -14,7 +14,6 @@ function ToggleDarkMode(props: ToggleDarkModeProps) {
   const { toggleColorMode } = props;
   const theme = useAppSelector((state) => state.theme.mode);
 
-
   const switchStyle = SwitchRaw(theme === 'light' ? 'light' : 'dark');
 
   const styles = {
