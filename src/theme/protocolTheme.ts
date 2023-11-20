@@ -5,7 +5,7 @@ import { useMemo } from 'react';
 import { createTheme, Theme } from '@mui/material/styles';
 
 import { useAppDispatch, useAppSelector } from '../hooks/app';
-import { updateThemeMode } from '../reducers/Theme';
+import { updateThemeMode } from '../reducers/ThemeSlice';
 import { Colors } from '../styles';
 import type { ThemeMode } from '../types/state';
 import components from './components';
