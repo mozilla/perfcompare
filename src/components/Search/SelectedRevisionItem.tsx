@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import { CloseOutlined } from '@mui/icons-material';
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
@@ -65,6 +65,7 @@ function SelectedRevisionItem({
   const handleClose = () => {
     if (isEditable) {
       deleteSelectedRevisions(item);
+      removeCheckedRevision(item);
     } else {
       removeCheckedRevision(item);
     }
