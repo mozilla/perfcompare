@@ -271,7 +271,7 @@ describe('Results View', () => {
     expect(link).toBeInTheDocument();
   });
 
-  it('should remove the selected revision once X button is clicked', async () => {
+  it('should remove the selected base revision once X button is clicked', async () => {
     const { testData } = getTestData();
     global.fetch = jest.fn(() =>
       Promise.resolve({
@@ -300,15 +300,61 @@ describe('Results View', () => {
       />,
     );
 
-    const removeButton = document.querySelectorAll(
+    const closeButton = document.querySelectorAll(
       '[aria-label="close-button"]',
     );
 
-    const removeIcon = screen.getAllByTestId('close-icon')[0];
-    expect(removeIcon).toBeInTheDocument();
+    const closeIcon = screen.getAllByTestId('close-icon')[0];
+    expect(closeIcon).toBeInTheDocument();
     expect(screen.getAllByTestId('selected-rev-item')[1]).toBeInTheDocument();
 
-    await user.click(removeButton[0]);
+    await user.click(closeButton[0]);
+
+    act(() => {
+      expect(store.getState().selectedRevisions.base).toEqual([]);
+    });
+
+    expect(screen.queryAllByTestId('selected-rev-item')[1]).toBeUndefined();
+  });
+
+  it('should remove the selected new revision once X button is clicked', async () => {
+    const { testData } = getTestData();
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () => ({
+          results: testData,
+        }),
+      }),
+    ) as jest.Mock;
+    jest.spyOn(global, 'fetch');
+
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
+
+    const selectedRevisions = testData.slice(0, 2);
+    await act(async () => {
+      store.dispatch(
+        setSelectedRevisions({ selectedRevisions: selectedRevisions }),
+      );
+    });
+
+    renderWithRoute(
+      <ResultsView
+        protocolTheme={protocolTheme}
+        toggleColorMode={toggleColorMode}
+        title={Strings.metaData.pageTitle.results}
+      />,
+    );
+
+    const closeButton = document.querySelectorAll(
+      '[aria-label="close-button"]',
+    );
+
+    const closeIcon = screen.getAllByTestId('close-icon')[1];
+    expect(closeIcon).toBeInTheDocument();
+    expect(screen.getAllByTestId('selected-rev-item')[1]).toBeInTheDocument();
+
+    await user.click(closeButton[1]);
 
     act(() => {
       expect(store.getState().selectedRevisions.new).toEqual([]);
