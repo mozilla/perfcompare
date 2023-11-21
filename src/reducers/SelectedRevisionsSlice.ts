@@ -34,7 +34,7 @@ const selectedRevisions = createSlice({
       if (action.payload.isBaseDeletion) {
         return {
           ...state,
-          revisions: action.payload.selectedRevisions.slice(1),
+          revisions: action.payload.selectedRevisions,
           base: [],
         };
       }

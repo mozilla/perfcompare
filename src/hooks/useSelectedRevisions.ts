@@ -76,16 +76,17 @@ const useSelectRevision = () => {
 
   const deleteSelectedRevisions = (revision: RevisionsList) => {
     const newSelected = [...selectedRevisions];
-    if (newSelected[0].id === revision.id) {
+    if (selectedRevisions[0].id === revision.id) {
       //this is a base revision deletion
       dispatch(
         deleteRevision({
-          selectedRevisions: newSelected,
+          selectedRevisions: selectedRevisions.slice(1),
           isBaseDeletion: true,
         }),
       );
       return;
     }
+
     newSelected.splice(selectedRevisions.indexOf(revision), 1);
     dispatch(
       deleteRevision({ selectedRevisions: newSelected, isBaseDeletion: false }),
