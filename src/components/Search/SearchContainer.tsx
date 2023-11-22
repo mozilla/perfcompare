@@ -6,7 +6,7 @@ import { repoMap, searchView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { SearchContainerStyles } from '../../styles';
-import type { ThemeMode, Repository } from '../../types/state';
+import type { ThemeMode } from '../../types/state';
 import CompareOverTime from './CompareOverTime';
 import CompareWithBase from './CompareWithBase';
 
@@ -21,25 +21,15 @@ function SearchContainer(props: SearchViewProps) {
   const checkedRevisionsListBase = useAppSelector(
     (state) => state.search.base.checkedRevisions,
   );
-  const displayedCheckedRevisions = {
-    baseRevs: checkedRevisionsListBase,
-    newRevs: checkedRevisionsListNew,
-  };
 
-  const checkedNewRepos = checkedRevisionsListNew.map((item) => {
-    const selectedRep = repoMap[item.repository_id];
-    return selectedRep;
-  });
-
-  const checkedBaseRepos = checkedRevisionsListBase.map((item) => {
-    const selectedRep = repoMap[item.repository_id];
-    return selectedRep;
-  });
-
-  const displayedRepositories = {
-    baseRepos: checkedBaseRepos as Repository['name'][],
-    newRepos: checkedNewRepos as Repository['name'][],
-  };
+  // The "??" operations below are so that Typescript doesn't wonder about the
+  // undefined value later.
+  const checkedNewRepos = checkedRevisionsListNew.map(
+    (item) => repoMap[item.repository_id] ?? 'try',
+  );
+  const checkedBaseRepos = checkedRevisionsListBase.map(
+    (item) => repoMap[item.repository_id] ?? 'try',
+  );
 
   return (
     <section
@@ -51,8 +41,10 @@ function SearchContainer(props: SearchViewProps) {
       <CompareWithBase
         mode={themeMode}
         isEditable={false}
-        displayedRevisions={displayedCheckedRevisions}
-        displayedRepositories={displayedRepositories}
+        baseRevs={checkedRevisionsListBase}
+        newRevs={checkedRevisionsListNew}
+        baseRepos={checkedBaseRepos}
+        newRepos={checkedNewRepos}
       />
       {/* hidden until post-mvp release */}
       <CompareOverTime mode={themeMode} />

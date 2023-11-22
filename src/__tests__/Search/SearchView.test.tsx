@@ -3,7 +3,6 @@ import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
 import SearchView from '../../components/Search/SearchView';
-import { setSelectedRevisions } from '../../reducers/SelectedRevisionsSlice';
 import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
 import { RevisionsList, InputType } from '../../types/state';
@@ -17,7 +16,7 @@ const protocolTheme = renderHook(() => useProtocolTheme()).result.current
 const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
   .toggleColorMode;
 function renderComponent() {
-  renderWithRouter(
+  return renderWithRouter(
     <SearchView
       toggleColorMode={toggleColorMode}
       protocolTheme={protocolTheme}
@@ -150,14 +149,12 @@ describe('Base Search', () => {
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
 
-    await act(async () => {
-      expect(store.getState().search[searchType].searchResults).toStrictEqual(
-        testData,
-      );
-    });
-
     const comment = await screen.findAllByText("you've got no arms left!");
     expect(comment[0]).toBeInTheDocument();
+
+    expect(store.getState().search[searchType].searchResults).toStrictEqual(
+      testData,
+    );
 
     // Press Escape key to hide search results.
 
@@ -279,23 +276,41 @@ describe('Base Search', () => {
 
   it('should have compare button and once clicked should redirect to results page with the right query params', async () => {
     const { testData } = getTestData();
+    fetchTestData(testData);
 
-    const { history } = renderWithRouter(
-      <SearchView
-        toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
-        title={Strings.metaData.pageTitle.search}
-      />,
-    );
+    const { history } = renderComponent();
     expect(history.location.pathname).toEqual('/');
 
     const user = userEvent.setup({ delay: null });
-    act(() => {
-      store.dispatch(
-        setSelectedRevisions({ selectedRevisions: testData.slice(0, 2) }),
-      );
-    });
 
+    // focus first input to show results
+    const inputs = screen.getAllByRole('textbox');
+    await user.click(inputs[0]);
+
+    // Select a base rev
+    let items = await screen.findAllByText("you've got no arms left!");
+    await user.click(items[0]);
+
+    // Press Escape key to hide search results.
+    await user.keyboard('{Escape}');
+    expect(items[0]).not.toBeInTheDocument();
+
+    // Check that the item has been added
+    await screen.findByText(/no arms left/);
+
+    // Now focus the second input
+    await user.click(inputs[1]);
+    // Select a new rev
+    items = await screen.findAllByText("it's just a flesh wound");
+    await user.click(items[0]);
+
+    // Press Escape key to hide search results.
+    await user.keyboard('{Escape}');
+
+    // Check that the item has been added
+    await screen.findByText(/flesh wound/);
+
+    // Press the compare button
     const compareButton = document.querySelector('.compare-button');
     await user.click(compareButton as HTMLElement);
 
