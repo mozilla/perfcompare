@@ -17,6 +17,13 @@ import { Spacing } from '../../styles';
 import type { RevisionsList } from '../../types/state';
 import { InputType } from '../../types/state';
 import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
+interface SearchResultsListItemProps {
+  index: number;
+  item: RevisionsList;
+  view: 'search' | 'compare-results';
+  searchType: InputType;
+  isEditable: boolean;
+}
 
 const styles = {
   listItemButton: style({
@@ -54,6 +61,7 @@ function SearchResultsListItem({
   index,
   item,
   searchType,
+  isEditable,
 }: SearchResultsListItemProps) {
   const isChecked: boolean = useAppSelector((state) =>
     state.search[searchType].checkedRevisions.includes(item),
@@ -69,7 +77,7 @@ function SearchResultsListItem({
     <>
       <ListItemButton
         key={item.id}
-        onClick={() => handleToggle(item, revisionsCount)}
+        onClick={() => handleToggle(item, revisionsCount, isEditable)}
         className={`${styles.listItemButton} ${
           isChecked ? 'item-selected' : ''
         }`}
@@ -131,12 +139,6 @@ function SearchResultsListItem({
       </ListItemButton>
     </>
   );
-}
-interface SearchResultsListItemProps {
-  index: number;
-  item: RevisionsList;
-  view: 'search' | 'compare-results';
-  searchType: InputType;
 }
 
 export default SearchResultsListItem;

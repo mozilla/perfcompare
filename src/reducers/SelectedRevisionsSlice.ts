@@ -7,6 +7,7 @@ const initialState: SelectedRevisionsState = {
   revisions: [],
   base: [],
   new: [],
+  editModeRevisions: [],
 };
 
 const selectedRevisions = createSlice({
@@ -23,26 +24,38 @@ const selectedRevisions = createSlice({
       state.base = [action.payload.selectedRevisions[0]];
       //returns array without first element
       state.new = action.payload.selectedRevisions.slice(1);
+      state.editModeRevisions = action.payload.selectedRevisions;
     },
-    deleteRevision(
+    saveUpdatedRevisions(
+      state,
+      action: PayloadAction<{
+        selectedRevisions: RevisionsList[];
+      }>,
+    ) {
+      state.revisions = action.payload.selectedRevisions;
+      state.base = [action.payload.selectedRevisions[0]];
+      //returns array without first element
+      state.new = action.payload.selectedRevisions.slice(1);
+      state.editModeRevisions = action.payload.selectedRevisions;
+    },
+    updateEditModeRevisions(
       state,
       action: PayloadAction<{
         selectedRevisions: RevisionsList[];
         isBaseDeletion: boolean;
+        isAddChecked: boolean;
       }>,
     ) {
       if (action.payload.isBaseDeletion) {
-        return {
-          ...state,
-          revisions: action.payload.selectedRevisions,
-          base: [],
-        };
+        state.base = [];
+        state.editModeRevisions = action.payload.selectedRevisions;
       }
-      return {
-        ...state,
-        revisions: action.payload.selectedRevisions,
-        new: action.payload.selectedRevisions.slice(1),
-      };
+
+      if (action.payload.isAddChecked || !action.payload.isBaseDeletion) {
+        state.base = [action.payload.selectedRevisions[0]];
+        state.new = action.payload.selectedRevisions.slice(1);
+        state.editModeRevisions = action.payload.selectedRevisions;
+      }
     },
 
     clearSelectedRevisions() {
@@ -62,11 +75,16 @@ const selectedRevisions = createSlice({
       state.revisions = fetchedRevisions;
       state.base = [fetchedRevisions[0]];
       state.new = fetchedRevisions.slice(1);
+      state.editModeRevisions = fetchedRevisions;
     });
     //Need to handle error case
   },
 });
 
-export const { setSelectedRevisions, deleteRevision, clearSelectedRevisions } =
-  selectedRevisions.actions;
+export const {
+  setSelectedRevisions,
+  saveUpdatedRevisions,
+  updateEditModeRevisions,
+  clearSelectedRevisions,
+} = selectedRevisions.actions;
 export default selectedRevisions.reducer;

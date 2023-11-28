@@ -1,6 +1,7 @@
 import { useSnackbar, VariantType } from 'notistack';
 
 import { updateCheckedRevisions } from '../reducers/SearchSlice';
+import { updateEditModeRevisions } from '../reducers/SelectedRevisionsSlice';
 import { RevisionsList } from '../types/state';
 import { InputType } from '../types/state';
 import { useAppDispatch, useAppSelector } from './app';
@@ -12,8 +13,15 @@ const useCheckRevision = (searchType: InputType) => {
   const searchCheckedRevisions: RevisionsList[] = useAppSelector(
     (state) => state.search[searchType].checkedRevisions,
   );
+  const editModeRevisions = useAppSelector(
+    (state) => state.selectedRevisions.editModeRevisions,
+  );
 
-  const handleToggle = (revision: RevisionsList, maxRevisions: number) => {
+  const handleToggle = (
+    revision: RevisionsList,
+    maxRevisions: number,
+    isEditMode: boolean,
+  ) => {
     const isChecked = searchCheckedRevisions.includes(revision);
     const newChecked = [...searchCheckedRevisions];
 
@@ -29,7 +37,34 @@ const useCheckRevision = (searchType: InputType) => {
       enqueueSnackbar(`Maximum ${maxRevisions} revision(s).`, { variant });
     }
 
-    dispatch(updateCheckedRevisions({ newChecked, searchType }));
+    //create a new array with unique values
+    const filteredChecked = [...new Set(newChecked)];
+
+    dispatch(
+      updateCheckedRevisions({ newChecked: filteredChecked, searchType }),
+    );
+
+    if (isEditMode) {
+      //make a copy of editModeRevisions & newChecked
+      const revisionsForUpdate = [...editModeRevisions, ...newChecked];
+
+      //handle if based checked and put at 0 index
+      if (searchType === 'base') {
+        const baseRevision = newChecked[0];
+        revisionsForUpdate.unshift(baseRevision);
+      }
+
+      //create a new array with unique values
+      const filteredUpdated = [...new Set(revisionsForUpdate)];
+
+      dispatch(
+        updateEditModeRevisions({
+          selectedRevisions: filteredUpdated,
+          isBaseDeletion: false,
+          isAddChecked: true,
+        }),
+      );
+    }
   };
 
   const removeCheckedRevision = (revision: RevisionsList) => {

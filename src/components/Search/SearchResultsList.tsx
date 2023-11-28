@@ -5,15 +5,19 @@ import { useAppSelector } from '../../hooks/app';
 import { SelectListStyles } from '../../styles';
 import { InputType, ThemeMode, View } from '../../types/state';
 import SearchResultsListItem from './SearchResultsListItem';
-
 interface SearchResultsListProps {
   view: View;
   mode: ThemeMode;
   searchType: InputType;
+  isEditable: boolean;
 }
 
-function SearchResultsList(props: SearchResultsListProps) {
-  const { view, mode, searchType } = props;
+function SearchResultsList({
+  view,
+  mode,
+  searchType,
+  isEditable,
+}: SearchResultsListProps) {
   const searchState = useAppSelector((state) => state.search[searchType]);
   const { searchResults } = searchState;
   const styles = SelectListStyles(mode);
@@ -33,6 +37,7 @@ function SearchResultsList(props: SearchResultsListProps) {
             item={item}
             view={view}
             searchType={searchType}
+            isEditable={isEditable}
           />
         ))}
       </List>
