@@ -18,6 +18,7 @@ import { background } from '../../styles';
 import { Repository, View } from '../../types/state';
 import { Framework } from '../../types/types';
 import CompareWithBase from '../Search/CompareWithBase';
+import SearchViewInit from '../Search/SearchViewInit';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
 import ResultsMain from './ResultsMain';
 
@@ -146,6 +147,7 @@ function ResultsView(props: ResultsViewProps) {
             <p>Home</p>
           </Stack>
         </Link>
+        <SearchViewInit />
 
         <CompareWithBase
           mode={themeMode}

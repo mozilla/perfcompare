@@ -10,8 +10,11 @@ import { cssRule } from 'typestyle';
 import { compareView, searchView } from '../../common/constants';
 import { useAppDispatch } from '../../hooks/app';
 import { useAppSelector } from '../../hooks/app';
-import useSelectedRevisions from '../../hooks/useSelectedRevisions';
 import { clearCheckedRevisionforType } from '../../reducers/SearchSlice';
+import {
+  saveUpdatedRevisions,
+  setSelectedRevisions,
+} from '../../reducers/SelectedRevisionsSlice';
 import {
   Spacing,
   DropDownMenuRaw,
@@ -82,25 +85,33 @@ function SearchComponent({
   });
 
   const dispatch = useAppDispatch();
-  const { updateSelectedRevisions } = useSelectedRevisions();
-
   const searchState = useAppSelector((state) => state.search[searchType]);
+  const selectedRevisions = useAppSelector(
+    (state) => state.selectedRevisions.revisions,
+  );
+  const editModeRevisions = useAppSelector(
+    (state) => state.selectedRevisions.editModeRevisions,
+  );
   const { searchResults } = searchState;
   const [focused, setFocused] = useState(false);
   const [formIsDisplayed, setFormIsDisplayed] = useState(!isEditable);
 
   const location = useLocation();
   const view = location.pathname == '/' ? searchView : compareView;
-  // const matchesQuery = useMediaQuery('(max-width:768px)');
-  const handleCancelAction = () => {
+
+  const resetToDefault = () => {
     dispatch(clearCheckedRevisionforType({ searchType }));
     setFormIsDisplayed(false);
   };
 
+  const handleCancelAction = () => {
+    dispatch(setSelectedRevisions({ selectedRevisions: selectedRevisions }));
+    resetToDefault();
+  };
+
   const handleSaveAction = () => {
-    updateSelectedRevisions(searchType);
-    dispatch(clearCheckedRevisionforType({ searchType }));
-    setFormIsDisplayed(false);
+    dispatch(saveUpdatedRevisions({ selectedRevisions: editModeRevisions }));
+    resetToDefault();
   };
 
   const handleFocus = (e: MouseEvent) => {
@@ -211,6 +222,7 @@ function SearchComponent({
               mode={mode}
               view={view}
               searchType={searchType}
+              isEditable={isEditable}
             />
           )}
         </Grid>

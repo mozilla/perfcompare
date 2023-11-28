@@ -207,7 +207,7 @@ exports[`Results View RESULTS: clicking the cancel button hides input and dropdo
                         class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
                       >
                         <div
-                          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
+                          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-error MuiInputBase-formControl MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
                         >
                           <div
                             class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-yzzuft-MuiInputAdornment-root"
@@ -225,7 +225,8 @@ exports[`Results View RESULTS: clicking the cancel button hides input and dropdo
                             </svg>
                           </div>
                           <input
-                            aria-invalid="false"
+                            aria-describedby="search-base-input-helper-text"
+                            aria-invalid="true"
                             class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                             id="search-base-input"
                             name="baseSearch"
@@ -248,6 +249,12 @@ exports[`Results View RESULTS: clicking the cancel button hides input and dropdo
                             </legend>
                           </fieldset>
                         </div>
+                        <p
+                          class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1ut8mn8-MuiFormHelperText-root"
+                          id="search-base-input-helper-text"
+                        >
+                          An error has occurred
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -507,7 +514,7 @@ exports[`Results View RESULTS: clicking the cancel button hides input and dropdo
                         class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
                       >
                         <div
-                          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
+                          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-error MuiInputBase-formControl MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
                         >
                           <div
                             class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-yzzuft-MuiInputAdornment-root"
@@ -525,7 +532,8 @@ exports[`Results View RESULTS: clicking the cancel button hides input and dropdo
                             </svg>
                           </div>
                           <input
-                            aria-invalid="false"
+                            aria-describedby="search-new-input-helper-text"
+                            aria-invalid="true"
                             class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                             id="search-new-input"
                             name="newSearch"
@@ -548,6 +556,12 @@ exports[`Results View RESULTS: clicking the cancel button hides input and dropdo
                             </legend>
                           </fieldset>
                         </div>
+                        <p
+                          class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1ut8mn8-MuiFormHelperText-root"
+                          id="search-new-input-helper-text"
+                        >
+                          An error has occurred
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -1381,7 +1395,7 @@ exports[`Results View RESULTS: clicking the save button hides input and dropdown
                         class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
                       >
                         <div
-                          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
+                          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-error MuiInputBase-formControl MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
                         >
                           <div
                             class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-yzzuft-MuiInputAdornment-root"
@@ -1399,7 +1413,8 @@ exports[`Results View RESULTS: clicking the save button hides input and dropdown
                             </svg>
                           </div>
                           <input
-                            aria-invalid="false"
+                            aria-describedby="search-base-input-helper-text"
+                            aria-invalid="true"
                             class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                             id="search-base-input"
                             name="baseSearch"
@@ -1422,6 +1437,12 @@ exports[`Results View RESULTS: clicking the save button hides input and dropdown
                             </legend>
                           </fieldset>
                         </div>
+                        <p
+                          class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1ut8mn8-MuiFormHelperText-root"
+                          id="search-base-input-helper-text"
+                        >
+                          An error has occurred
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -1681,7 +1702,7 @@ exports[`Results View RESULTS: clicking the save button hides input and dropdown
                         class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
                       >
                         <div
-                          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
+                          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-error MuiInputBase-formControl MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
                         >
                           <div
                             class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-yzzuft-MuiInputAdornment-root"
@@ -1699,7 +1720,8 @@ exports[`Results View RESULTS: clicking the save button hides input and dropdown
                             </svg>
                           </div>
                           <input
-                            aria-invalid="false"
+                            aria-describedby="search-new-input-helper-text"
+                            aria-invalid="true"
                             class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                             id="search-new-input"
                             name="newSearch"
@@ -1722,6 +1744,12 @@ exports[`Results View RESULTS: clicking the save button hides input and dropdown
                             </legend>
                           </fieldset>
                         </div>
+                        <p
+                          class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1ut8mn8-MuiFormHelperText-root"
+                          id="search-new-input-helper-text"
+                        >
+                          An error has occurred
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -2555,7 +2583,7 @@ exports[`Results View RESULTS: shows dropdown and input when edit button in clic
                         class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
                       >
                         <div
-                          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
+                          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-error MuiInputBase-formControl MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
                         >
                           <div
                             class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-yzzuft-MuiInputAdornment-root"
@@ -2573,7 +2601,8 @@ exports[`Results View RESULTS: shows dropdown and input when edit button in clic
                             </svg>
                           </div>
                           <input
-                            aria-invalid="false"
+                            aria-describedby="search-base-input-helper-text"
+                            aria-invalid="true"
                             class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                             id="search-base-input"
                             name="baseSearch"
@@ -2596,6 +2625,12 @@ exports[`Results View RESULTS: shows dropdown and input when edit button in clic
                             </legend>
                           </fieldset>
                         </div>
+                        <p
+                          class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1ut8mn8-MuiFormHelperText-root"
+                          id="search-base-input-helper-text"
+                        >
+                          An error has occurred
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -2855,7 +2890,7 @@ exports[`Results View RESULTS: shows dropdown and input when edit button in clic
                         class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
                       >
                         <div
-                          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
+                          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-error MuiInputBase-formControl MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
                         >
                           <div
                             class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-yzzuft-MuiInputAdornment-root"
@@ -2873,7 +2908,8 @@ exports[`Results View RESULTS: shows dropdown and input when edit button in clic
                             </svg>
                           </div>
                           <input
-                            aria-invalid="false"
+                            aria-describedby="search-new-input-helper-text"
+                            aria-invalid="true"
                             class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                             id="search-new-input"
                             name="newSearch"
@@ -2896,6 +2932,12 @@ exports[`Results View RESULTS: shows dropdown and input when edit button in clic
                             </legend>
                           </fieldset>
                         </div>
+                        <p
+                          class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1ut8mn8-MuiFormHelperText-root"
+                          id="search-new-input-helper-text"
+                        >
+                          An error has occurred
+                        </p>
                       </div>
                     </div>
                   </div>
