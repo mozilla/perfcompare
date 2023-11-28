@@ -5,10 +5,10 @@ import { useAppSelector } from '../../hooks/app';
 import { SelectListStyles } from '../../styles';
 import { InputType, View } from '../../types/state';
 import SearchResultsListItem from './SearchResultsListItem';
-
 interface SearchResultsListProps {
   view: View;
   searchType: InputType;
+  isEditable: boolean;
 }
 
 function SearchResultsList(props: SearchResultsListProps) {
@@ -33,6 +33,7 @@ function SearchResultsList(props: SearchResultsListProps) {
             item={item}
             view={view}
             searchType={searchType}
+            isEditable={isEditable}
           />
         ))}
       </List>

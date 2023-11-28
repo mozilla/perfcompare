@@ -114,6 +114,7 @@ export type SelectedRevisionsState = {
   revisions: RevisionsList[];
   base: RevisionsList[];
   new: RevisionsList[];
+  editModeRevisions: RevisionsList[];
 };
 
 export interface ResultsHashmap {

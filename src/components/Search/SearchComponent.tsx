@@ -19,6 +19,10 @@ import { useAppDispatch, useAppSelector } from '../../hooks/app';
 import useSelectedRevisions from '../../hooks/useSelectedRevisions';
 import { clearCheckedRevisionforType } from '../../reducers/SearchSlice';
 import {
+  saveUpdatedRevisions,
+  setSelectedRevisions,
+} from '../../reducers/SelectedRevisionsSlice';
+import {
   Spacing,
   DropDownMenuRaw,
   DropDownItemRaw,
@@ -88,22 +92,32 @@ function SearchComponent({
   const { updateSelectedRevisions } = useSelectedRevisions();
 
   const searchState = useAppSelector((state) => state.search[searchType]);
+  const selectedRevisions = useAppSelector(
+    (state) => state.selectedRevisions.revisions,
+  );
+  const editModeRevisions = useAppSelector(
+    (state) => state.selectedRevisions.editModeRevisions,
+  );
   const { searchResults } = searchState;
   const [displayDropdown, setDisplayDropdown] = useState(false);
   const [formIsDisplayed, setFormIsDisplayed] = useState(!isEditable);
 
   const location = useLocation();
   const view = location.pathname == '/' ? searchView : compareView;
-  // const matchesQuery = useMediaQuery('(max-width:768px)');
-  const handleCancelAction = () => {
+
+  const resetToDefault = () => {
     dispatch(clearCheckedRevisionforType({ searchType }));
     setFormIsDisplayed(false);
   };
 
+  const handleCancelAction = () => {
+    dispatch(setSelectedRevisions({ selectedRevisions: selectedRevisions }));
+    resetToDefault();
+  };
+
   const handleSaveAction = () => {
-    updateSelectedRevisions(searchType);
-    dispatch(clearCheckedRevisionforType({ searchType }));
-    setFormIsDisplayed(false);
+    dispatch(saveUpdatedRevisions({ selectedRevisions: editModeRevisions }));
+    resetToDefault();
   };
 
   const handleDocumentMousedown = useCallback(

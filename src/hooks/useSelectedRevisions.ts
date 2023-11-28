@@ -1,7 +1,7 @@
 import { setCheckedRevisionsForEdit } from '../reducers/SearchSlice';
 import {
   setSelectedRevisions,
-  deleteRevision,
+  updateEditModeRevisions,
 } from '../reducers/SelectedRevisionsSlice';
 import { RevisionsList } from '../types/state';
 import { InputType } from '../types/state';
@@ -25,12 +25,16 @@ const useSelectRevision = () => {
   const selectedRevisions = useAppSelector(
     (state) => state.selectedRevisions.revisions,
   );
+
+  const editModeRevisions = useAppSelector(
+    (state) => state.selectedRevisions.editModeRevisions,
+  );
+
   const addSelectedRevisions = () => {
     const newSelected = [...selectedRevisions];
     newSelected.push(...baseCheckedRevisions, ...newCheckedRevisions);
     //create a new array with unique values
     const filteredSelected = [...new Set(newSelected)];
-
     dispatch(setSelectedRevisions({ selectedRevisions: filteredSelected }));
   };
 
@@ -39,7 +43,6 @@ const useSelectRevision = () => {
     switch (searchType) {
       case 'base':
         revisionsForEdit = selectedRevisionsState.base;
-
         break;
       case 'new':
         revisionsForEdit = selectedRevisionsState.new;
@@ -52,36 +55,15 @@ const useSelectRevision = () => {
     );
   };
 
-  const updateSelectedRevisions = (searchType: InputType) => {
-    let updatedRevisions = selectedRevisions;
-    switch (searchType) {
-      case 'base':
-        //remove old base revision
-        updatedRevisions = updatedRevisions.slice(1);
-        //add new base revision
-        updatedRevisions.unshift(...baseCheckedRevisions);
-        break;
-      case 'new':
-        //keep the base revision, add the new checked revisions
-        updatedRevisions = [updatedRevisions[0], ...newCheckedRevisions];
-        //create a new array with unique values
-        updatedRevisions = [...new Set(updatedRevisions)];
-        break;
-      default:
-        throw new Error('Invalid search type');
-    }
-
-    dispatch(setSelectedRevisions({ selectedRevisions: updatedRevisions }));
-  };
-
   const deleteSelectedRevisions = (revision: RevisionsList) => {
-    const newSelected = [...selectedRevisions];
+    const newSelected = [...editModeRevisions];
     if (selectedRevisions[0].id === revision.id) {
       //this is a base revision deletion
       dispatch(
-        deleteRevision({
+        updateEditModeRevisions({
           selectedRevisions: selectedRevisions.slice(1),
           isBaseDeletion: true,
+          isAddChecked: false,
         }),
       );
       return;
@@ -89,7 +71,11 @@ const useSelectRevision = () => {
 
     newSelected.splice(selectedRevisions.indexOf(revision), 1);
     dispatch(
-      deleteRevision({ selectedRevisions: newSelected, isBaseDeletion: false }),
+      updateEditModeRevisions({
+        selectedRevisions: newSelected,
+        isBaseDeletion: false,
+        isAddChecked: false,
+      }),
     );
   };
 
@@ -97,7 +83,6 @@ const useSelectRevision = () => {
     addSelectedRevisions,
     deleteSelectedRevisions,
     editSelectedRevisions,
-    updateSelectedRevisions,
   };
 };
 
