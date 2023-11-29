@@ -5,7 +5,12 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Link from '@mui/material/Link';
 import { ThemeProvider } from '@mui/material/styles';
 import { SnackbarProvider } from 'notistack';
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import {
+  createHashRouter,
+  RouterProvider,
+  createRoutesFromElements,
+  Route,
+} from 'react-router-dom';
 
 import { Strings } from '../resources/Strings';
 import { Banner } from '../styles/Banner';
@@ -42,6 +47,7 @@ function App() {
     null,
   );
   const { protocolTheme, toggleColorMode } = useProtocolTheme();
+
   return (
     <ThemeProvider theme={protocolTheme}>
       <AlertContainer ref={setAlertContainer} />
@@ -64,31 +70,35 @@ function App() {
             </div>
           </Alert>
 
-          <Router>
-            <Routes>
-              <Route
-                path='/'
-                element={
-                  <SearchView
-                    toggleColorMode={toggleColorMode}
-                    protocolTheme={protocolTheme}
-                    title={Strings.metaData.pageTitle.search}
+          <RouterProvider
+            router={createHashRouter(
+              createRoutesFromElements(
+                <>
+                  <Route
+                    path='/'
+                    element={
+                      <SearchView
+                        toggleColorMode={toggleColorMode}
+                        protocolTheme={protocolTheme}
+                        title={Strings.metaData.pageTitle.search}
+                      />
+                    }
                   />
-                }
-              />
 
-              <Route
-                path='/compare-results'
-                element={
-                  <ResultsView
-                    toggleColorMode={toggleColorMode}
-                    protocolTheme={protocolTheme}
-                    title={Strings.metaData.pageTitle.results}
+                  <Route
+                    path='/compare-results'
+                    element={
+                      <ResultsView
+                        toggleColorMode={toggleColorMode}
+                        protocolTheme={protocolTheme}
+                        title={Strings.metaData.pageTitle.results}
+                      />
+                    }
                   />
-                }
-              />
-            </Routes>
-          </Router>
+                </>,
+              ),
+            )}
+          />
         </SnackbarProvider>
       ) : null}
     </ThemeProvider>
