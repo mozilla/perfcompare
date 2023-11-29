@@ -30,7 +30,11 @@ const useSelectRevision = () => {
     (state) => state.selectedRevisions.editModeRevisions,
   );
 
-  const addSelectedRevisions = () => {
+  const addSelectedRevisions = (isEditable: boolean) => {
+    if (isEditable) {
+      dispatch(setSelectedRevisions({ selectedRevisions: editModeRevisions }));
+      return;
+    }
     const newSelected = [...selectedRevisions];
     newSelected.push(...baseCheckedRevisions, ...newCheckedRevisions);
     //create a new array with unique values
