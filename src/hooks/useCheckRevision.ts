@@ -45,8 +45,8 @@ const useCheckRevision = (searchType: InputType) => {
     );
 
     if (isEditMode) {
-      //make a copy of editModeRevisions & newChecked
-      const revisionsForUpdate = [...editModeRevisions, ...newChecked];
+      //make a copy of editModeRevisions & filteredCheck
+      const revisionsForUpdate = [...editModeRevisions, ...filteredChecked];
 
       //handle if based checked and put at 0 index
       if (searchType === 'base') {
