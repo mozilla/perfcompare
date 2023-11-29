@@ -118,7 +118,7 @@ function CompareWithBase({
             className={`${dropDownStyles.dropDown} ${bottomStyles.container}`}
           >
             <FrameworkDropdown mode={mode} />
-            <CompareButton mode={mode} />
+            <CompareButton mode={mode} isEditable={isEditable} />
           </Grid>
         </div>
       </div>
