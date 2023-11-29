@@ -19,7 +19,7 @@ export default function CompareButton() {
   };
 
   const handleAddSelectedRevisions = () => {
-    addSelectedRevisions();
+    addSelectedRevisions(isEditable);
   };
 
   return (

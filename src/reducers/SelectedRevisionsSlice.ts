@@ -32,7 +32,6 @@ const selectedRevisions = createSlice({
         selectedRevisions: RevisionsList[];
       }>,
     ) {
-      state.revisions = action.payload.selectedRevisions;
       state.base = [action.payload.selectedRevisions[0]];
       //returns array without first element
       state.new = action.payload.selectedRevisions.slice(1);

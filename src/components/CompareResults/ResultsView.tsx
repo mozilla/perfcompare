@@ -1,10 +1,11 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import { useSearchParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { compareView, frameworkMap, repoMap } from '../../common/constants';
@@ -25,12 +26,42 @@ interface ResultsViewProps {
 }
 function ResultsView(props: ResultsViewProps) {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const selectedRevisions = useAppSelector(
+    (state) => state.selectedRevisions.revisions,
+  );
   const selectedRevisionsListBase = useAppSelector(
     (state) => state.selectedRevisions.base,
   );
   const selectedRevisionsListNew = useAppSelector(
     (state) => state.selectedRevisions.new,
   );
+
+  const currentFramework = useAppSelector(
+    (state) => state.framework as Framework,
+  );
+
+  //temporary edit fix until Julien's patch /////
+  const updateCompareResults = (
+    selectedRevs: RevisionsList[],
+    selectedFramework: Framework,
+  ) => {
+    const updatedRev = selectedRevs.map((rev) => rev.revision);
+    const updatedRepo = selectedRevs.map((rev) => repoMap[rev.repository_id]);
+    navigate({
+      pathname: '/compare-results',
+      search: `?revs=${updatedRev.join(',')}&repos=${updatedRepo.join(
+        ',',
+      )}&framework=${selectedFramework.id}`,
+    });
+  };
+
+  const [prevRevisions, setPreviousRevisions] = useState(selectedRevisions);
+  if (selectedRevisions !== prevRevisions) {
+    updateCompareResults(selectedRevisions, currentFramework);
+    setPreviousRevisions(selectedRevisions);
+  }
+  //end temporary edit fix /////
 
   // The "??" operations below are so that Typescript doesn't wonder about the
   // undefined value later.
