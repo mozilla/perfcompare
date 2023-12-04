@@ -6,11 +6,6 @@ import {
   setInputError,
 } from '../reducers/SearchSlice';
 import { Strings } from '../resources/Strings';
-import {
-  fetchRecentRevisions,
-  fetchRevisionByID,
-  fetchRevisionsByAuthor,
-} from '../thunks/searchThunk';
 import type { Repository, InputType } from '../types/state';
 import { useAppDispatch } from './app';
 
@@ -24,34 +19,34 @@ const strings = Strings.errors;
 
 let timeout: null | ReturnType<typeof setTimeout> = null;
 
-const useHandleChangeSearch = () => {
+const useHandleChangeSearch = (fetcher: { load: (url: string) => void }) => {
   const dispatch = useAppDispatch();
 
   const searchRecentRevisions = async (
     repository: Repository['name'],
-    search: string,
+    searchTerm: string,
     searchType: InputType,
   ) => {
     const emailMatch = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const longHashMatch = /\b[a-f0-9]{40}\b/;
-    const shortHashMatch = /\b[a-f0-9]{12}\b/;
+    const hashMatch = /\b[a-f0-9]+\b/;
 
-    if (!search) {
-      await dispatch(fetchRecentRevisions({ repository, searchType }));
-    } else if (emailMatch.test(search)) {
-      await dispatch(
-        fetchRevisionsByAuthor({ repository, search, searchType }),
-      );
-    } else if (longHashMatch.test(search) || shortHashMatch.test(search)) {
-      await dispatch(fetchRevisionByID({ repository, search, searchType }));
-    } else {
+    let apiUrl = `/api/recent-revisions/${repository}`;
+
+    if (emailMatch.test(searchTerm)) {
+      apiUrl += '/by-author/' + encodeURIComponent(searchTerm);
+    } else if (hashMatch.test(searchTerm)) {
+      apiUrl += '/by-hash/' + encodeURIComponent(searchTerm);
+    } else if (searchTerm) {
       dispatch(
         setInputError({
           errorMessage: strings.warningText,
           searchType,
         }),
       );
+      return;
     }
+
+    fetcher.load(apiUrl);
   };
 
   const handleChangeSearch = ({
