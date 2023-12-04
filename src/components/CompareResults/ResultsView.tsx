@@ -15,8 +15,7 @@ import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
 import { updateFramework } from '../../reducers/FrameworkSlice';
 import { SearchContainerStyles } from '../../styles';
 import { background } from '../../styles';
-import { fetchRecentRevisions } from '../../thunks/searchThunk';
-import { Repository, View, InputType } from '../../types/state';
+import { Repository, View } from '../../types/state';
 import { Framework } from '../../types/types';
 import CompareWithBase from '../Search/CompareWithBase';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
@@ -36,29 +35,15 @@ function ResultsView(props: ResultsViewProps) {
     (state) => state.selectedRevisions.new,
   );
 
-  const displayedSelectedRevisions = {
-    baseRevs: selectedRevisionsListBase,
-    newRevs: selectedRevisionsListNew,
-  };
-
-  const selectedBaseRepositories = selectedRevisionsListBase.map((item) => {
-    const selectedRep = repoMap[item.repository_id];
-    return selectedRep;
-  });
-
-  const selectedNewRepositories = selectedRevisionsListNew.map((item) => {
-    const selectedRep = repoMap[item.repository_id];
-    return selectedRep;
-  });
-
-  const displayedRepositories = {
-    baseRepos: selectedBaseRepositories as Repository['name'][],
-    newRepos: selectedNewRepositories as Repository['name'][],
-  };
-  const repositoryBase = useAppSelector(
-    (state) => state.search.base.repository,
+  // The "??" operations below are so that Typescript doesn't wonder about the
+  // undefined value later.
+  const selectedBaseRepositories = selectedRevisionsListBase.map(
+    (item) => repoMap[item.repository_id] ?? 'try',
   );
-  const repositoryNew = useAppSelector((state) => state.search.new.repository);
+  const selectedNewRepositories = selectedRevisionsListNew.map(
+    (item) => repoMap[item.repository_id] ?? 'try',
+  );
+
   const { dispatchFetchCompareResults, dispatchFakeCompareResults } =
     useFetchCompareResults();
   const { searchRecentRevisions } = useHandleChangeSearch();
@@ -133,29 +118,6 @@ function ResultsView(props: ResultsViewProps) {
     }
   }, [framework]);
 
-  /* editing the revisions requires fetching the
-   * recent revisions in results view
-   */
-  useEffect(() => {
-    const repository = repositoryBase;
-    void dispatch(
-      fetchRecentRevisions({
-        repository,
-        searchType: 'base' as InputType,
-      }),
-    );
-  }, [repositoryBase]);
-
-  useEffect(() => {
-    const repository = repositoryNew;
-    void dispatch(
-      fetchRecentRevisions({
-        repository,
-        searchType: 'new' as InputType,
-      }),
-    );
-  }, [repositoryNew]);
-
   return (
     <div
       className={styles.container}
@@ -177,8 +139,10 @@ function ResultsView(props: ResultsViewProps) {
         <CompareWithBase
           mode={themeMode}
           isEditable={true}
-          displayedRevisions={displayedSelectedRevisions}
-          displayedRepositories={displayedRepositories}
+          baseRevs={selectedRevisionsListBase}
+          newRevs={selectedRevisionsListNew}
+          baseRepos={selectedBaseRepositories}
+          newRepos={selectedNewRepositories}
         />
       </section>
       <Grid container alignItems='center' justifyContent='center'>
