@@ -28,7 +28,7 @@ function SearchInput({
 }: SearchInputProps) {
   const { handleChangeSearch } = useHandleChangeSearch();
   const searchState = useAppSelector((state) => state.search[searchType]);
-  const { inputError, inputHelperText } = searchState;
+  const { inputError, inputHelperText, repository } = searchState;
 
   const size = view == 'compare-results' ? 'small' : undefined;
 
@@ -57,7 +57,7 @@ function SearchInput({
         placeholder={inputPlaceholder}
         id={`search-${searchType}-input`}
         onFocus={() => setFocused(true)}
-        onChange={(e) => handleChangeSearch({ e, searchType })}
+        onChange={(e) => handleChangeSearch({ e, searchType, repository })}
         size={size}
         name={`${searchType}Search`}
         className={`search-text-field ${searchType}`}

@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent } from 'react';
 
 import {
   updateSearchValue,
@@ -12,11 +12,12 @@ import {
   fetchRevisionsByAuthor,
 } from '../thunks/searchThunk';
 import type { Repository, InputType } from '../types/state';
-import { useAppDispatch, useAppSelector } from './app';
+import { useAppDispatch } from './app';
 
 interface HandleChangeProps {
   e: FormEvent<HTMLInputElement | HTMLTextAreaElement>;
   searchType: InputType;
+  repository: Repository['name'];
 }
 
 const strings = Strings.errors;
@@ -24,14 +25,9 @@ const strings = Strings.errors;
 let timeout: null | ReturnType<typeof setTimeout> = null;
 
 const useHandleChangeSearch = () => {
-  const [searchTypeValue, setSearchTypeValue] = useState<InputType>('base');
-
-  const searchState = useAppSelector((state) => state.search[searchTypeValue]);
-  const currentRepository = searchState.repository;
-
   const dispatch = useAppDispatch();
 
-  const handleFetch = async (
+  const searchRecentRevisions = async (
     repository: Repository['name'],
     search: string,
     searchType: InputType,
@@ -49,28 +45,21 @@ const useHandleChangeSearch = () => {
     } else if (longHashMatch.test(search) || shortHashMatch.test(search)) {
       await dispatch(fetchRevisionByID({ repository, search, searchType }));
     } else {
-      const isError = dispatch(
+      dispatch(
         setInputError({
           errorMessage: strings.warningText,
           searchType,
         }),
       );
-      return isError;
     }
   };
 
-  const searchByRevisionOrEmail = async (
-    repository: Repository['name'],
-    search: string,
-    searchType: InputType,
-  ) => {
-    await handleFetch(repository, search, searchType);
-  };
-
-  const handleChangeSearch = ({ e, searchType }: HandleChangeProps) => {
-    setSearchTypeValue(searchType);
+  const handleChangeSearch = ({
+    e,
+    searchType,
+    repository,
+  }: HandleChangeProps) => {
     const search = e.currentTarget.value;
-    const repository = currentRepository;
     dispatch(
       updateSearchValue({
         search,
@@ -82,7 +71,7 @@ const useHandleChangeSearch = () => {
 
     const idleTime = 500;
     const onTimeout = () => {
-      void searchByRevisionOrEmail(repository, search, searchType);
+      void searchRecentRevisions(repository, search, searchType);
     };
 
     // Clear any existing timer whenever user types
@@ -90,7 +79,7 @@ const useHandleChangeSearch = () => {
 
     timeout = setTimeout(onTimeout, idleTime);
   };
-  return { handleChangeSearch, searchByRevisionOrEmail };
+  return { handleChangeSearch, searchRecentRevisions };
 };
 
 export default useHandleChangeSearch;

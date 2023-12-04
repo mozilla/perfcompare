@@ -4,7 +4,7 @@ import { renderHook, act } from '@testing-library/react';
 
 import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
 import { setInputError, updateSearchResults } from '../../reducers/SearchSlice';
-import { InputType } from '../../types/state';
+import { InputType, Repository } from '../../types/state';
 import getTestData from '../utils/fixtures';
 import { store, StoreProvider } from '../utils/setupTests';
 
@@ -30,6 +30,7 @@ describe('Tests useHandleSearchHook', () => {
     const searchState = {
       e: createEvent('test input'),
       searchType,
+      repository: 'try' as Repository['name'],
     };
     const { result } = renderHook(() => useHandleChangeSearch(), {
       wrapper: StoreProvider,
@@ -46,6 +47,7 @@ describe('Tests useHandleSearchHook', () => {
     const searchState = {
       e: createEvent('test input'),
       searchType,
+      repository: 'try' as Repository['name'],
     };
     const searchResults = {
       results: testData,
@@ -74,6 +76,7 @@ describe('Tests useHandleSearchHook', () => {
     const searchState = {
       e: createEvent('test input'),
       searchType,
+      repository: 'try' as Repository['name'],
     };
     const testError = 'test error';
     const { result } = renderHook(() => useHandleChangeSearch(), {
@@ -98,6 +101,7 @@ describe('Tests useHandleSearchHook', () => {
     const searchState = {
       e: createEvent('test input'),
       searchType,
+      repository: 'try' as Repository['name'],
     };
     const { result } = renderHook(() => useHandleChangeSearch(), {
       wrapper: StoreProvider,
@@ -117,17 +121,17 @@ describe('Tests useHandleSearchHook', () => {
     const searchState = {
       e: createEvent(''),
       searchType,
+      repository: 'try' as Repository['name'],
     };
     const { result } = renderHook(() => useHandleChangeSearch(), {
       wrapper: StoreProvider,
     });
-    const repository = store.getState().search[searchType].repository;
     await act(async () => {
       result.current.handleChangeSearch(searchState);
     });
     jest.runAllTimers();
     expect(global.fetch).toHaveBeenCalledWith(
-      `https://treeherder.mozilla.org/api/project/${repository}/push/?hide_reviewbot_pushes=true`,
+      `https://treeherder.mozilla.org/api/project/${searchState.repository}/push/?hide_reviewbot_pushes=true`,
     );
   });
 
@@ -136,17 +140,17 @@ describe('Tests useHandleSearchHook', () => {
     const searchState = {
       e: createEvent('some@email.com'),
       searchType,
+      repository: 'try' as Repository['name'],
     };
     const { result } = renderHook(() => useHandleChangeSearch(), {
       wrapper: StoreProvider,
     });
-    const repository = store.getState().search[searchType].repository;
     await act(async () => {
       result.current.handleChangeSearch(searchState);
     });
     jest.runAllTimers();
     expect(global.fetch).toHaveBeenCalledWith(
-      `https://treeherder.mozilla.org/api/project/${repository}/push/?author=some@email.com`,
+      `https://treeherder.mozilla.org/api/project/${searchState.repository}/push/?author=some@email.com`,
     );
   });
 
@@ -155,12 +159,13 @@ describe('Tests useHandleSearchHook', () => {
     const searchState = {
       e: createEvent('abcdef123456'),
       searchType,
+      repository: 'try' as Repository['name'],
     };
     const searchState2 = {
       e: createEvent('abcdef1234567890abcdef1234567890abcdef12'),
       searchType,
+      repository: 'mozilla-central' as Repository['name'],
     };
-    const repository = store.getState().search[searchType].repository;
     const { result } = renderHook(() => useHandleChangeSearch(), {
       wrapper: StoreProvider,
     });
@@ -169,7 +174,7 @@ describe('Tests useHandleSearchHook', () => {
     });
     jest.runAllTimers();
     expect(global.fetch).toHaveBeenCalledWith(
-      `https://treeherder.mozilla.org/api/project/${repository}/push/?revision=abcdef123456`,
+      `https://treeherder.mozilla.org/api/project/${searchState.repository}/push/?revision=abcdef123456`,
     );
 
     await act(async () => {
@@ -177,7 +182,7 @@ describe('Tests useHandleSearchHook', () => {
     });
     jest.runAllTimers();
     expect(global.fetch).toHaveBeenCalledWith(
-      `https://treeherder.mozilla.org/api/project/${repository}/push/?revision=abcdef1234567890abcdef1234567890abcdef12`,
+      `https://treeherder.mozilla.org/api/project/${searchState2.repository}/push/?revision=abcdef1234567890abcdef1234567890abcdef12`,
     );
   });
 
@@ -186,6 +191,7 @@ describe('Tests useHandleSearchHook', () => {
     const searchState = {
       e: createEvent(''),
       searchType,
+      repository: 'autoland' as Repository['name'],
     };
     const { result } = renderHook(() => useHandleChangeSearch(), {
       wrapper: StoreProvider,
