@@ -87,6 +87,7 @@ const search = createSlice({
       state[type].checkedRevisions = initialState[type].checkedRevisions;
     },
 
+    //when the user clicks the "Edit" button
     setCheckedRevisionsForEdit(
       state,
       action: PayloadAction<{

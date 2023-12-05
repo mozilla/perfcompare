@@ -1,7 +1,7 @@
 import { useSnackbar, VariantType } from 'notistack';
 
 import { updateCheckedRevisions } from '../reducers/SearchSlice';
-import { updateEditModeRevisions } from '../reducers/SelectedRevisionsSlice';
+import { updateEditModeRevisionsForCheckAddition } from '../reducers/SelectedRevisionsSlice';
 import { RevisionsList } from '../types/state';
 import { InputType } from '../types/state';
 import { useAppDispatch, useAppSelector } from './app';
@@ -45,8 +45,8 @@ const useCheckRevision = (searchType: InputType) => {
     );
 
     if (isEditMode) {
-      //make a copy of editModeRevisions & filteredCheck
-      const revisionsForUpdate = [...editModeRevisions, ...filteredChecked];
+      //make a copy of editModeRevisions & newChecked
+      const revisionsForUpdate = [...editModeRevisions, ...newChecked];
 
       //handle if based checked and put at 0 index
       if (searchType === 'base') {
@@ -58,10 +58,8 @@ const useCheckRevision = (searchType: InputType) => {
       const filteredUpdated = [...new Set(revisionsForUpdate)];
 
       dispatch(
-        updateEditModeRevisions({
+        updateEditModeRevisionsForCheckAddition({
           selectedRevisions: filteredUpdated,
-          isBaseDeletion: false,
-          isAddChecked: true,
         }),
       );
     }
