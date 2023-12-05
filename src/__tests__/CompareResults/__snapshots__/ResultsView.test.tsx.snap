@@ -110,8 +110,9 @@ exports[`Results View RESULTS: clicking the cancel button hides input and dropdo
               </div>
             </div>
             <div
-              aria-label="two overlapping circles"
+              aria-hidden="true"
               class="compare-card-img compare-card-img--base"
+              role="img"
             />
           </div>
           <div
@@ -1284,8 +1285,9 @@ exports[`Results View RESULTS: clicking the save button hides input and dropdown
               </div>
             </div>
             <div
-              aria-label="two overlapping circles"
+              aria-hidden="true"
               class="compare-card-img compare-card-img--base"
+              role="img"
             />
           </div>
           <div
@@ -2458,8 +2460,9 @@ exports[`Results View RESULTS: shows dropdown and input when edit button in clic
               </div>
             </div>
             <div
-              aria-label="two overlapping circles"
+              aria-hidden="true"
               class="compare-card-img compare-card-img--base"
+              role="img"
             />
           </div>
           <div
@@ -3880,12 +3883,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=302b367e400f&highlightedRevisions=3c72ca1b13e1&series=mozilla-central%2Cbb90e3cd08f31ec87726e9c68e8a2927d484419d%2C1%2C1&timerange=86400"
               target="_blank"
@@ -4177,12 +4181,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=302b367e400f&highlightedRevisions=3c72ca1b13e1&series=mozilla-central%2C8293112f8a208e3cafdb0f6cc4028375a665f353%2C1%2C1&timerange=86400"
               target="_blank"
@@ -4492,12 +4497,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=302b367e400f&highlightedRevisions=3c72ca1b13e1&series=mozilla-central%2C9947916e4942ce9796f18b787ed5262540b175e3%2C1%2C1&timerange=86400"
               target="_blank"
@@ -4874,12 +4880,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=302b367e400f&highlightedRevisions=3c72ca1b13e1&series=mozilla-central%2C2b2b61626ee5655a71de1c0828b6970295bf4525%2C1%2C1&timerange=86400"
               target="_blank"
@@ -5191,12 +5198,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=302b367e400f&highlightedRevisions=3c72ca1b13e1&series=mozilla-central%2Cf7fca283bd30e54142c85c9325e8d4cc2d65a308%2C1%2C1&timerange=86400"
               target="_blank"
@@ -5490,12 +5498,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=302b367e400f&highlightedRevisions=3c72ca1b13e1&series=mozilla-central%2C35291b654c7e7554e02f217de40597b9d13cb587%2C1%2C1&timerange=86400"
               target="_blank"
@@ -5807,12 +5816,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=302b367e400f&highlightedRevisions=3c72ca1b13e1&series=mozilla-central%2C9b9862f6bea85544fd1d72e19f7986f280115140%2C1%2C1&timerange=86400"
               target="_blank"
@@ -6188,12 +6198,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=302b367e400f&highlightedRevisions=3c72ca1b13e1&series=mozilla-central%2C16a2c6f974cf54ee2b1a9f9390eff623a12df91e%2C1%2C1&timerange=86400"
               target="_blank"
@@ -6570,12 +6581,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=302b367e400f&highlightedRevisions=3c72ca1b13e1&series=mozilla-central%2C20a9303c584b855553a7605407b9ceec0948b73c%2C1%2C1&timerange=86400"
               target="_blank"
@@ -6887,12 +6899,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=302b367e400f&highlightedRevisions=3c72ca1b13e1&series=mozilla-central%2Cd6de6fd1826d0ddf63bdff6f4da52d289f02d310%2C1%2C1&timerange=86400"
               target="_blank"
@@ -7186,12 +7199,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=302b367e400f&highlightedRevisions=3c72ca1b13e1&series=mozilla-central%2C5be46469b6395a252d9d1d9a41e45710b54aecd1%2C1%2C1&timerange=86400"
               target="_blank"
@@ -7503,12 +7517,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=302b367e400f&highlightedRevisions=3c72ca1b13e1&series=mozilla-central%2Cb8ade70538bdb3aeb44c1a0c0ef41251b161d195%2C1%2C1&timerange=86400"
               target="_blank"
@@ -7877,12 +7892,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=302b367e400f&highlightedRevisions=3c72ca1b13e1&series=mozilla-central%2C7aadd7286add32e7c111747f94ac3a9926fd9ee2%2C1%2C1&timerange=86400"
               target="_blank"
@@ -8174,12 +8190,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=302b367e400f&highlightedRevisions=3c72ca1b13e1&series=mozilla-central%2C21f7dfd3b9287b6674b7b509d552d55aa797cf40%2C1%2C1&timerange=86400"
               target="_blank"
@@ -8489,12 +8506,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=302b367e400f&highlightedRevisions=3c72ca1b13e1&series=mozilla-central%2C314f2d38565f6ef08099cbd718316d0cad373b64%2C1%2C1&timerange=86400"
               target="_blank"
@@ -8863,12 +8881,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=302b367e400f&highlightedRevisions=3c72ca1b13e1&series=mozilla-central%2C5e97fb865110c2c176569b9c77413494098cc51c%2C1%2C1&timerange=86400"
               target="_blank"
@@ -9240,12 +9259,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=302b367e400f&highlightedRevisions=3c72ca1b13e1&series=mozilla-central%2Cf7d4281d665e97bb0bb87558d64b089fbf9dab21%2C1%2C1&timerange=86400"
               target="_blank"
@@ -9539,12 +9559,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=302b367e400f&highlightedRevisions=3c72ca1b13e1&series=mozilla-central%2C7c141f1ba144c326fd8d13a2efdbe6bebb9873e6%2C1%2C1&timerange=86400"
               target="_blank"
@@ -9856,12 +9877,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=302b367e400f&highlightedRevisions=3c72ca1b13e1&series=mozilla-central%2C3470a37cfb98aedfcd29e1b5142f50c69bc281ad%2C1%2C1&timerange=86400"
               target="_blank"
@@ -10239,12 +10261,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=302b367e400f&highlightedRevisions=3c72ca1b13e1&series=mozilla-central%2C3470a37cfb98aedfcd29e1b5142f50c69bc281ad%2C1%2C1&timerange=86400"
               target="_blank"
@@ -10601,12 +10624,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=25045b498bff&highlightedRevisions=927bacde5bed&series=mozilla-central%2C8293112f8a208e3cafdb0f6cc4028375a665f353%2C1%2C1&timerange=604800"
               target="_blank"
@@ -10926,12 +10950,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=25045b498bff&highlightedRevisions=927bacde5bed&series=mozilla-central%2Cbb90e3cd08f31ec87726e9c68e8a2927d484419d%2C1%2C1&timerange=604800"
               target="_blank"
@@ -11363,12 +11388,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=25045b498bff&highlightedRevisions=927bacde5bed&series=mozilla-central%2C9947916e4942ce9796f18b787ed5262540b175e3%2C1%2C1&timerange=604800"
               target="_blank"
@@ -11761,12 +11787,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=c35b4a881395&highlightedRevisions=202e0c83904e&series=mozilla-central%2C646fad56440136830d35a9e5701b7474d3de90c9%2C1%2C1&timerange=172800"
               target="_blank"
@@ -12087,12 +12114,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=c35b4a881395&highlightedRevisions=202e0c83904e&series=mozilla-central%2C2e6fec344b6a67904205f4e7262410a7fd9b89f7%2C1%2C1&timerange=172800"
               target="_blank"
@@ -12391,12 +12419,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=c35b4a881395&highlightedRevisions=202e0c83904e&series=mozilla-central%2Cad799c0f02d49532e8a925f8503f9d4ed79d8bc6%2C1%2C1&timerange=172800"
               target="_blank"
@@ -12706,12 +12735,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=25045b498bff&highlightedRevisions=927bacde5bed&series=mozilla-central%2Cad799c0f02d49532e8a925f8503f9d4ed79d8bc6%2C1%2C1&timerange=604800"
               target="_blank"
@@ -13033,12 +13063,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=25045b498bff&highlightedRevisions=927bacde5bed&series=mozilla-central%2C2e6fec344b6a67904205f4e7262410a7fd9b89f7%2C1%2C1&timerange=604800"
               target="_blank"
@@ -13474,12 +13505,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=25045b498bff&highlightedRevisions=927bacde5bed&series=mozilla-central%2C646fad56440136830d35a9e5701b7474d3de90c9%2C1%2C1&timerange=604800"
               target="_blank"
@@ -13878,12 +13910,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=c35b4a881395&highlightedRevisions=492ab34039ea&series=mozilla-central%2Cf7fca283bd30e54142c85c9325e8d4cc2d65a308%2C1%2C1&timerange=86400"
               target="_blank"
@@ -14211,12 +14244,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=c35b4a881395&highlightedRevisions=492ab34039ea&series=mozilla-central%2C9b9862f6bea85544fd1d72e19f7986f280115140%2C1%2C1&timerange=86400"
               target="_blank"
@@ -14538,12 +14572,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=c35b4a881395&highlightedRevisions=492ab34039ea&series=mozilla-central%2C2b2b61626ee5655a71de1c0828b6970295bf4525%2C1%2C1&timerange=86400"
               target="_blank"
@@ -14853,12 +14888,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=c35b4a881395&highlightedRevisions=492ab34039ea&series=mozilla-central%2C35291b654c7e7554e02f217de40597b9d13cb587%2C1%2C1&timerange=86400"
               target="_blank"
@@ -15186,12 +15222,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=b5103e911d59&highlightedRevisions=202e0c83904e&series=mozilla-central%2Cf7fca283bd30e54142c85c9325e8d4cc2d65a308%2C1%2C1&timerange=604800"
               target="_blank"
@@ -15519,12 +15556,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=b5103e911d59&highlightedRevisions=202e0c83904e&series=mozilla-central%2C9b9862f6bea85544fd1d72e19f7986f280115140%2C1%2C1&timerange=604800"
               target="_blank"
@@ -15846,12 +15884,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=b5103e911d59&highlightedRevisions=202e0c83904e&series=mozilla-central%2C2b2b61626ee5655a71de1c0828b6970295bf4525%2C1%2C1&timerange=604800"
               target="_blank"
@@ -16161,12 +16200,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=b5103e911d59&highlightedRevisions=202e0c83904e&series=mozilla-central%2C35291b654c7e7554e02f217de40597b9d13cb587%2C1%2C1&timerange=604800"
               target="_blank"
@@ -16552,12 +16592,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=c35b4a881395&highlightedRevisions=492ab34039ea&series=mozilla-central%2C8ce7fc174678e363b807ba279fc7d34371caba3a%2C1%2C1&timerange=86400"
               target="_blank"
@@ -16930,12 +16971,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=c35b4a881395&highlightedRevisions=ba377571e5cd&series=mozilla-central%2C76dafacb9dc730982df5aa5fa7aad68ce8f2629f%2C1%2C1&timerange=172800"
               target="_blank"
@@ -17255,12 +17297,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=c35b4a881395&highlightedRevisions=ba377571e5cd&series=mozilla-central%2C40dfd5bee98a04a9ea6cc2f2632c20761876a13e%2C1%2C1&timerange=172800"
               target="_blank"
@@ -17586,12 +17629,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=c35b4a881395&highlightedRevisions=ba377571e5cd&series=mozilla-central%2C24ee41f67aea7fed970abd19e090463951c417af%2C1%2C1&timerange=172800"
               target="_blank"
@@ -17990,12 +18034,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=b5103e911d59&highlightedRevisions=202e0c83904e&series=mozilla-central%2Cd6de6fd1826d0ddf63bdff6f4da52d289f02d310%2C1%2C1&timerange=604800"
               target="_blank"
@@ -18323,12 +18368,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=b5103e911d59&highlightedRevisions=202e0c83904e&series=mozilla-central%2Cb8ade70538bdb3aeb44c1a0c0ef41251b161d195%2C1%2C1&timerange=604800"
               target="_blank"
@@ -18650,12 +18696,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=b5103e911d59&highlightedRevisions=202e0c83904e&series=mozilla-central%2C20a9303c584b855553a7605407b9ceec0948b73c%2C1%2C1&timerange=604800"
               target="_blank"
@@ -18965,12 +19012,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=b5103e911d59&highlightedRevisions=202e0c83904e&series=mozilla-central%2C5be46469b6395a252d9d1d9a41e45710b54aecd1%2C1%2C1&timerange=604800"
               target="_blank"
@@ -19346,12 +19394,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=25045b498bff&highlightedRevisions=927bacde5bed&series=mozilla-central%2Cfe72b20683638f54d66adaf464a151839425127b%2C1%2C1&timerange=604800"
               target="_blank"
@@ -19673,12 +19722,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=25045b498bff&highlightedRevisions=927bacde5bed&series=mozilla-central%2Cdd8ad8dbada5f6ae68bff8c338bd7f9f7bc1bb1a%2C1%2C1&timerange=604800"
               target="_blank"
@@ -20108,12 +20158,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=25045b498bff&highlightedRevisions=927bacde5bed&series=mozilla-central%2Ca053acf1d34cbbeab00518d352c4d0e0c123539b%2C1%2C1&timerange=604800"
               target="_blank"
@@ -20486,12 +20537,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=4d751e101e0d&highlightedRevisions=b4b491b3ca96&series=mozilla-central%2C8293112f8a208e3cafdb0f6cc4028375a665f353%2C1%2C1&timerange=604800"
               target="_blank"
@@ -20795,12 +20847,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=4d751e101e0d&highlightedRevisions=b4b491b3ca96&series=mozilla-central%2Cbb90e3cd08f31ec87726e9c68e8a2927d484419d%2C1%2C1&timerange=604800"
               target="_blank"
@@ -21110,12 +21163,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=4d751e101e0d&highlightedRevisions=b4b491b3ca96&series=mozilla-central%2C9947916e4942ce9796f18b787ed5262540b175e3%2C1%2C1&timerange=604800"
               target="_blank"
@@ -21472,12 +21526,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=4d751e101e0d&highlightedRevisions=b4b491b3ca96&series=mozilla-central%2C4c426194a4afbd3e1b6d5e04d30978f959592b24%2C1%2C1&timerange=604800"
               target="_blank"
@@ -21781,12 +21836,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=4d751e101e0d&highlightedRevisions=b4b491b3ca96&series=mozilla-central%2C619256c16be3210aeb6b87de6da5eccd5acdcb71%2C1%2C1&timerange=604800"
               target="_blank"
@@ -22096,12 +22152,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=4d751e101e0d&highlightedRevisions=b4b491b3ca96&series=mozilla-central%2C277d6f560919bb783efc3409df72a3b9339682bb%2C1%2C1&timerange=604800"
               target="_blank"
@@ -22461,12 +22518,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=4d751e101e0d&highlightedRevisions=b4b491b3ca96&series=mozilla-central%2C9e360d7c31fb932c8d68bc2d8b79b6bf3bfc965d%2C1%2C1&timerange=604800"
               target="_blank"
@@ -22772,12 +22830,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=4d751e101e0d&highlightedRevisions=b4b491b3ca96&series=mozilla-central%2C42b5823ab1256e080cb128b4910c7650bf3c54f7%2C1%2C1&timerange=604800"
               target="_blank"
@@ -23089,12 +23148,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=4d751e101e0d&highlightedRevisions=b4b491b3ca96&series=mozilla-central%2Cb7953fcbf1e488abd10bbe4bc68daad7684732d0%2C1%2C1&timerange=604800"
               target="_blank"
@@ -23459,12 +23519,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=4d751e101e0d&highlightedRevisions=b4b491b3ca96&series=mozilla-central%2C35291b654c7e7554e02f217de40597b9d13cb587%2C1%2C1&timerange=604800"
               target="_blank"
@@ -23776,12 +23837,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=4d751e101e0d&highlightedRevisions=b4b491b3ca96&series=mozilla-central%2Cf7fca283bd30e54142c85c9325e8d4cc2d65a308%2C1%2C1&timerange=604800"
               target="_blank"
@@ -24087,12 +24149,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=4d751e101e0d&highlightedRevisions=b4b491b3ca96&series=mozilla-central%2C2b2b61626ee5655a71de1c0828b6970295bf4525%2C1%2C1&timerange=604800"
               target="_blank"
@@ -24404,12 +24467,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=4d751e101e0d&highlightedRevisions=b4b491b3ca96&series=mozilla-central%2C9b9862f6bea85544fd1d72e19f7986f280115140%2C1%2C1&timerange=604800"
               target="_blank"
@@ -24769,12 +24833,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=4d751e101e0d&highlightedRevisions=b4b491b3ca96&series=mozilla-central%2C7c141f1ba144c326fd8d13a2efdbe6bebb9873e6%2C1%2C1&timerange=604800"
               target="_blank"
@@ -25080,12 +25145,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=4d751e101e0d&highlightedRevisions=b4b491b3ca96&series=mozilla-central%2Cf7d4281d665e97bb0bb87558d64b089fbf9dab21%2C1%2C1&timerange=604800"
               target="_blank"
@@ -25397,12 +25463,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=4d751e101e0d&highlightedRevisions=b4b491b3ca96&series=mozilla-central%2C3470a37cfb98aedfcd29e1b5142f50c69bc281ad%2C1%2C1&timerange=604800"
               target="_blank"
@@ -25759,12 +25826,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=4d751e101e0d&highlightedRevisions=b4b491b3ca96&series=mozilla-central%2Ca3c3b7e8eaabe54d1fc51ca2b245d81d6741a051%2C1%2C1&timerange=604800"
               target="_blank"
@@ -26068,12 +26136,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=4d751e101e0d&highlightedRevisions=b4b491b3ca96&series=mozilla-central%2C45023de368e1bcd8c39483c082e0d3f02114d4a7%2C1%2C1&timerange=604800"
               target="_blank"
@@ -26383,12 +26452,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=4d751e101e0d&highlightedRevisions=b4b491b3ca96&series=mozilla-central%2Cee25eaaa0c831b9f60b59959b90a9f697dc01111%2C1%2C1&timerange=604800"
               target="_blank"
@@ -26753,12 +26823,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=4d751e101e0d&highlightedRevisions=b4b491b3ca96&series=mozilla-central%2C5be46469b6395a252d9d1d9a41e45710b54aecd1%2C1%2C1&timerange=604800"
               target="_blank"
@@ -27070,12 +27141,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=4d751e101e0d&highlightedRevisions=b4b491b3ca96&series=mozilla-central%2Cd6de6fd1826d0ddf63bdff6f4da52d289f02d310%2C1%2C1&timerange=604800"
               target="_blank"
@@ -27381,12 +27453,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=4d751e101e0d&highlightedRevisions=b4b491b3ca96&series=mozilla-central%2C20a9303c584b855553a7605407b9ceec0948b73c%2C1%2C1&timerange=604800"
               target="_blank"
@@ -27698,12 +27771,13 @@ exports[`Results View Should match snapshot 1`] = `
           class="graph-link-button-container"
         >
           <button
-            aria-label="graph link"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+            role="presentation"
             tabindex="0"
             type="button"
           >
             <a
+              aria-label="Go to Treeherder graph"
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
               href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=4d751e101e0d&highlightedRevisions=b4b491b3ca96&series=mozilla-central%2Cb8ade70538bdb3aeb44c1a0c0ef41251b161d195%2C1%2C1&timerange=604800"
               target="_blank"

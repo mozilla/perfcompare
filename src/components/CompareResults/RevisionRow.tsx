@@ -168,8 +168,12 @@ function RevisionRow(props: RevisionRowProps) {
         </TableCell>
         <TableCell className='cell-button graph'>
           <div className='graph-link-button-container'>
-            <IconButton aria-label='graph link' size='small'>
-              <Link href={graphLink} target='_blank'>
+            <IconButton role='presentation' size='small'>
+              <Link
+                href={graphLink}
+                aria-label='Go to Treeherder graph'
+                target='_blank'
+              >
                 <TimelineIcon />
               </Link>
             </IconButton>

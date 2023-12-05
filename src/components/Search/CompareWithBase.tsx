@@ -71,8 +71,9 @@ function CompareWithBase({
           <div className='compare-card-tagline'>{strings.base.tagline}</div>
         </div>
         <div
+          role='img'
           className='compare-card-img compare-card-img--base'
-          aria-label='two overlapping circles'
+          aria-hidden='true'
         />
       </div>
 
