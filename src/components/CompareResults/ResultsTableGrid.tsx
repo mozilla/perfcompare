@@ -40,6 +40,7 @@ function ResultsTableGrid(props: ResultsTableGridProps) {
       className={styles.tableContainer}
       data-testid='results-table'
       sx={customStyles}
+      role="table"
     >
       {loading ? (
         <Box display='flex' justifyContent='center' alignItems='center'>
