@@ -1,10 +1,8 @@
 import userEvent from '@testing-library/user-event';
 
 import { repoMap } from '../../common/constants';
-import ResultsView from '../../components/CompareResults/ResultsView';
 import CompareWithBase from '../../components/Search/CompareWithBase';
 import SearchView from '../../components/Search/SearchView';
-import { setSelectedRevisions } from '../../reducers/SelectedRevisionsSlice';
 import { Strings } from '../../resources/Strings';
 import getTestData from '../utils/fixtures';
 import { store } from '../utils/setupTests';
@@ -122,130 +120,6 @@ describe('Compare With Base', () => {
     expect(document.body).toMatchSnapshot();
 
     expect(screen.queryAllByTestId('selected-rev-item')[0]).toBeUndefined();
-  });
-
-  it('should add a new revision when it is checked in the search dropdown during edit mode', async () => {
-    const { testData } = getTestData();
-    global.fetch = jest.fn(() =>
-      Promise.resolve({
-        json: () => ({
-          results: testData,
-        }),
-      }),
-    ) as jest.Mock;
-    jest.spyOn(global, 'fetch');
-    // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
-    const selectedRevs = testData.slice(0, 2);
-
-    act(() => {
-      store.dispatch(setSelectedRevisions({ selectedRevisions: selectedRevs }));
-    });
-
-    renderWithRouter(
-      <ResultsView
-        toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
-        title='Results'
-      />,
-    );
-    const editButtonNew = document.querySelector(
-      '.edit-button-new',
-    ) as HTMLElement;
-
-    expect(screen.getByTestId('dropdown-select-new')).toBeInTheDocument();
-
-    await act(async () => {
-      await user.click(editButtonNew);
-    });
-
-    const searchInput = screen.getAllByRole('textbox')[0];
-    await user.click(searchInput);
-
-    act(() => {
-      expect(store.getState().search.new.checkedRevisions.length).toEqual(1);
-    });
-    act(() => {
-      expect(store.getState().selectedRevisions.new.length).toEqual(1);
-    });
-    await user.click(screen.getAllByTestId('checkbox-4')[0]);
-    act(() => {
-      expect(store.getState().search.new.checkedRevisions.length).toEqual(2);
-    });
-    act(() => {
-      expect(store.getState().selectedRevisions.new.length).toEqual(2);
-    });
-    expect(document.body).toMatchSnapshot();
-  });
-
-  it('should update the base revision when the old one is deleted and a new one is checkedß', async () => {
-    const { testData } = getTestData();
-    global.fetch = jest.fn(() =>
-      Promise.resolve({
-        json: () => ({
-          results: testData,
-        }),
-      }),
-    ) as jest.Mock;
-    jest.spyOn(global, 'fetch');
-    // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
-    const selectedRevs = testData.slice(0, 2);
-
-    act(() => {
-      store.dispatch(setSelectedRevisions({ selectedRevisions: selectedRevs }));
-    });
-
-    renderWithRouter(
-      <ResultsView
-        toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
-        title='Results'
-      />,
-    );
-    const editButtonBase = document.querySelector(
-      '.edit-button-base',
-    ) as HTMLElement;
-
-    expect(screen.getByTestId('dropdown-select-base')).toBeInTheDocument();
-
-    await act(async () => {
-      await user.click(editButtonBase);
-    });
-
-    const removeButton = document.querySelectorAll(
-      '[aria-label="close-button"]',
-    );
-    expect(removeButton[0]).toBeInTheDocument();
-    expect(screen.getAllByTestId('selected-rev-item')[0]).toBeInTheDocument();
-
-    await user.click(removeButton[0]);
-    act(() => {
-      expect(store.getState().selectedRevisions.base).toEqual([]);
-    });
-
-    const searchInput = screen.getAllByRole('textbox')[0];
-    await user.click(searchInput);
-
-    await user.click(screen.getAllByTestId('checkbox-4')[0]);
-
-    const saveButtonBase = document.querySelector(
-      '.save-button-base',
-    ) as HTMLElement;
-    await act(async () => {
-      await user.click(saveButtonBase);
-    });
-
-    expect(screen.getAllByTestId('selected-rev-item')[0]).toBeInTheDocument();
-
-    const compareButton = document.querySelector(
-      '#compare-button',
-    ) as HTMLElement;
-    await act(async () => {
-      await user.click(compareButton);
-    });
-
-    expect(document.body).toMatchSnapshot();
   });
 
   it('hides x icon when mode is isEditable', async () => {

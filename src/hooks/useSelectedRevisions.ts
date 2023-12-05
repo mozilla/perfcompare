@@ -30,6 +30,7 @@ const useSelectRevision = () => {
     (state) => state.selectedRevisions.editModeRevisions,
   );
 
+  //when the user clicks the "Compare" button
   const addSelectedRevisions = (isEditable: boolean) => {
     if (isEditable) {
       dispatch(setSelectedRevisions({ selectedRevisions: editModeRevisions }));
@@ -42,6 +43,7 @@ const useSelectRevision = () => {
     dispatch(setSelectedRevisions({ selectedRevisions: filteredSelected }));
   };
 
+  //when the user presses the "Edit" button
   const editSelectedRevisions = (searchType: InputType) => {
     let revisionsForEdit = selectedRevisions;
     switch (searchType) {
@@ -59,6 +61,7 @@ const useSelectRevision = () => {
     );
   };
 
+  //when the user clicks the "X" button on selected revisions
   const deleteSelectedRevisions = (revision: RevisionsList) => {
     const newSelected = [...editModeRevisions];
     if (selectedRevisions[0].id === revision.id) {
@@ -67,7 +70,6 @@ const useSelectRevision = () => {
         updateEditModeRevisions({
           selectedRevisions: selectedRevisions.slice(1),
           isBaseDeletion: true,
-          isAddChecked: false,
         }),
       );
       return;
@@ -78,7 +80,6 @@ const useSelectRevision = () => {
       updateEditModeRevisions({
         selectedRevisions: newSelected,
         isBaseDeletion: false,
-        isAddChecked: false,
       }),
     );
   };
