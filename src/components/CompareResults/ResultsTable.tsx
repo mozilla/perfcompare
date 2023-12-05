@@ -1,14 +1,12 @@
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
 import Paper from '@mui/material/Paper';
-import Table from '@mui/material/Table';
-import TableContainer from '@mui/material/TableContainer';
 import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
 import { selectProcessedResults } from '../../reducers/ComparisonSlice';
 import { Colors, Spacing } from '../../styles';
-import type { ThemeMode } from '../../types/state';
+import { ThemeMode } from '../../types/state';
 import NoResultsFound from './NoResultsFound';
 import TableContent from './TableContent';
 import TableHeader from './TableHeader';
@@ -30,45 +28,44 @@ function ResultsTable(props: ResultsTableProps) {
   const styles = {
     tableContainer: style({
       backgroundColor: themeColor100,
+      borderCollapse: 'separate',
+      borderSpacing: `0 ${Spacing.Small}px`,
       marginTop: Spacing.Large,
-      $nest: {
-        '.MuiTable-root': {
-          borderSpacing: `0 ${Spacing.Small}px`,
-          borderCollapse: 'separate',
-          paddingBottom: Spacing.Large,
-        },
-      },
+      paddingBottom: Spacing.Large,
     }),
   };
 
   return (
-    <TableContainer
-      component={Paper}
+    <Paper
       className={styles.tableContainer}
       data-testid='results-table'
       sx={customStyles}
+      role='table'
     >
       {loading ? (
         <Box display='flex' justifyContent='center' alignItems='center'>
           <CircularProgress />
         </Box>
       ) : (
-        <Table>
+        <div>
           <TableHeader themeMode={themeMode} />
           {processedResults.map((res, index) => (
-            <TableContent
-              themeMode={themeMode}
-              key={index}
-              header={res.revisionHeader}
-              results={res.value}
-            />
+            <div key={index}>
+              <TableContent
+                themeMode={themeMode}
+                key={index}
+                header={res.revisionHeader}
+                results={res.value}
+              />
+            </div>
           ))}
-        </Table>
+        </div>
       )}
       {!loading && processedResults.length == 0 && <NoResultsFound />}
-    </TableContainer>
+    </Paper>
   );
 }
+
 interface ResultsTableProps {
   themeMode: ThemeMode;
 }

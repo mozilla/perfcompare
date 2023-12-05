@@ -5,7 +5,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
 import TimelineIcon from '@mui/icons-material/Timeline';
-import { IconButton, TableRow, TableCell } from '@mui/material';
+import { IconButton } from '@mui/material';
 import Link from '@mui/material/Link';
 import { style } from 'typestyle';
 
@@ -66,130 +66,135 @@ function RevisionRow(props: RevisionRowProps) {
 
   const styles = {
     revisionRow: style({
+      display: 'grid',
+      gridTemplateColumns: '2fr 1fr 0.2fr 1fr 1fr 1fr 1fr 1fr 2fr 0.2fr',
       $nest: {
         '.base-value': {
           backgroundColor: themeColor200,
         },
+        '.cell': {
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        },
         '.confidence': {
           backgroundColor: themeColor200,
-          textAlign: 'center',
         },
         '.comparison-sign': {
           backgroundColor: themeColor200,
-          textAlign: 'center',
         },
         '.delta': {
           backgroundColor: themeColor200,
-          textAlign: 'center',
-          marginBottom: Spacing.Small,
         },
         '.expand-button-container': {
-          textAlign: 'right',
+          justifyContent: 'right',
         },
         '.new-value': {
           backgroundColor: themeColor200,
-          textAlign: 'center',
+        },
+        '.platform': {
+          paddingLeft: Spacing.xLarge,
+          justifyContent: 'left',
         },
         '.platform-container': {
           alignItems: 'flex-end',
           backgroundColor: themeColor200,
           display: 'flex',
+          borderRadius: '4px 0 0 4px',
         },
         '.retrigger-button': {
           backgroundColor: themeColor200,
           cursor: 'not-allowed',
-          textAlign: 'center',
         },
         '.status': {
           backgroundColor: themeColor200,
-          textAlign: 'center',
+          justifyContent: 'center',
         },
         '.total-runs': {
           backgroundColor: themeColor200,
         },
-        '.cell-button': {
-          backgroundColor: themeColor200,
-          paddingTop: '3px',
-          textAlign: 'right',
-          width: '16px',
+
+        '.row-buttons': {
+          display: 'flex',
+          justifyContent: 'flex-end',
+          $nest: {
+            '.download': {
+              cursor: 'not-allowed',
+            },
+          },
         },
-        '.download': {
-          cursor: 'not-allowed',
-        },
+
         '.expand-button': {
           backgroundColor: expandButtonColor,
         },
-        '.MuiTableCell-root': {
-          borderBottom: 'none',
-        },
-        '.MuiTableCell-root:first-child': {
-          borderRadius: '4px 0 0 4px',
-          backgroundColor: themeColor200,
-        },
-        '.MuiTableCell-root:nth-last-child(2)': {
-          borderRadius: '0 4px 4px 0',
-          backgroundColor: themeColor200,
-        },
       },
+    }),
+    typography: style({
+      fontFamily: 'SF Pro',
+      fontStyle: 'normal',
+      fontWeight: 400,
+      fontSize: '13px',
+      lineHeight: '16px',
     }),
   };
   return (
     <>
-      <TableRow className={`revisionRow ${styles.revisionRow}`}>
-        <TableCell className='platform'>
+      <div className={`revisionRow ${styles.revisionRow} ${styles.typography}`}>
+        <div className='platform cell'>
           <div className='platform-container'>
             <PlatformIcon />
-            <div>{platformInfo.shortName}</div>
+            <span>{platformInfo.shortName}</span>
           </div>
-        </TableCell>
-        <TableCell className='base-value'>
-          <div className='base-container'>
-            {' '}
-            {baseMedianValue} {baseUnit}{' '}
-          </div>
-        </TableCell>
-        <TableCell className='comparison-sign'>
+        </div>
+        <div className='base-value cell'>
+          {' '}
+          {baseMedianValue} {baseUnit}{' '}
+        </div>
+        <div className='comparison-sign cell'>
           {determineSign(baseMedianValue, newMedianValue)}
-        </TableCell>
-        <TableCell className='new-value'>
+        </div>
+        <div className='new-value cell'>
           {' '}
           {newMedianValue} {newUnit}
-        </TableCell>
-        <TableCell className='status'>
+        </div>
+        <div className='status cell'>
           {' '}
           {determineStatus(improvement, regression)}{' '}
-        </TableCell>
-        <TableCell className='delta'> {deltaPercent} % </TableCell>
-        <TableCell className='confidence'> {confidenceText} </TableCell>
-        <TableCell className='total-runs'>
+        </div>
+        <div className='delta cell'> {deltaPercent} % </div>
+        <div className='confidence cell'> {confidenceText} </div>
+        <div className='total-runs cell'>
           <span>B:</span>
           <strong> {baseRuns.length} </strong> <span> N: </span>
           <strong> {newRuns.length} </strong>
-        </TableCell>
-        <TableCell className='cell-button graph'>
-          <div className='graph-link-button-container'>
-            <IconButton aria-label='graph link' size='small'>
-              <Link href={graphLink} target='_blank'>
-                <TimelineIcon />
-              </Link>
-            </IconButton>
+        </div>
+        <div className='row-buttons cell'>
+          <div className='graph'>
+            <div className='graph-link-button-container'>
+              <IconButton aria-label='graph link' size='small'>
+                <Link href={graphLink} target='_blank'>
+                  <TimelineIcon />
+                </Link>
+              </IconButton>
+            </div>
           </div>
-        </TableCell>
-        <TableCell className='cell-button download'>
-          <div className='download-button-container'>
-            <IconButton aria-label='download' size='small'>
-              <FileDownloadOutlinedIcon />
-            </IconButton>
+
+          <div className='download'>
+            <div className='download-button-container'>
+              <IconButton aria-label='download' size='small'>
+                <FileDownloadOutlinedIcon />
+              </IconButton>
+            </div>
           </div>
-        </TableCell>
-        <TableCell className='cell-button retrigger-button'>
-          <div className='runs-button-container'>
-            <IconButton aria-label='retrigger button' size='small'>
-              <RefreshOutlinedIcon />
-            </IconButton>
+          <div className='retrigger-button'>
+            <div className='runs-button-container'>
+              <IconButton aria-label='retrigger button' size='small'>
+                <RefreshOutlinedIcon />
+              </IconButton>
+            </div>
           </div>
-        </TableCell>
-        <TableCell className='cell-button expand-button'>
+        </div>
+        <div className='expand-button cell'>
           <div
             className='expand-button-container'
             onClick={toggleIsExpanded}
@@ -199,21 +204,17 @@ function RevisionRow(props: RevisionRowProps) {
               {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
             </IconButton>
           </div>
-        </TableCell>
-      </TableRow>
+        </div>
+      </div>
 
-      <TableRow className={`revisionRow ${styles.revisionRow}`}>
-        <TableCell colSpan={11}>
-          <div
-            className={`content-row content-row--${
-              expanded ? 'expanded' : 'default'
-            } ${stylesCard.container} `}
-            data-testid='expanded-row-content'
-          >
-            <RevisionRowExpandable themeMode={themeMode} result={result} />
-          </div>
-        </TableCell>
-      </TableRow>
+      <div
+        className={`content-row content-row--${
+          expanded ? 'expanded' : 'default'
+        } ${stylesCard.container} `}
+        data-testid='expanded-row-content'
+      >
+        <RevisionRowExpandable themeMode={themeMode} result={result} />
+      </div>
     </>
   );
 }
