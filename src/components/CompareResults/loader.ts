@@ -6,9 +6,9 @@ import {
 import { Repository } from '../../types/state';
 import { FakeCommitHash, Framework } from '../../types/types';
 
-// This function checks and sanitizes the input values, then call the treeherder
-// API using the functions from /logic/treeherder.ts with the sanitized values.
-async function checkValuesAndFetchCompareResultsOnTreeherder({
+// This function checks and sanitizes the input values, then returns values that
+// we can then use in the rest of the application.
+function checkValues({
   baseRev,
   baseRepo,
   newRevs,
@@ -20,7 +20,13 @@ async function checkValuesAndFetchCompareResultsOnTreeherder({
   newRevs: string[];
   newRepos: Repository['name'][];
   framework: string | number | null;
-}) {
+}): {
+  baseRev: string;
+  baseRepo: Repository['name'];
+  newRevs: string[];
+  newRepos: Repository['name'][];
+  frameworkId: Framework['id'];
+} {
   if (baseRev === null) {
     throw new Error('The parameter baseRev is missing.');
   }
@@ -56,41 +62,63 @@ async function checkValuesAndFetchCompareResultsOnTreeherder({
     );
   }
 
-  let promises;
-  if (newRevs.length) {
-    if (newRevs.length !== newRepos.length) {
-      throw new Error(
-        'There should be as many "newRepo" parameters as there are "newRev" parameters.',
-      );
-    }
-    if (!newRepos.every((newRepo) => validRepoValues.includes(newRepo))) {
-      throw new Error(
-        `Every parameter newRepo "${newRepos.join(
-          '", "',
-        )}" should be one of ${validRepoValues.join(', ')}.`,
-      );
-    }
-
-    promises = newRevs.map((newRev, i) =>
-      fetchCompareResults({
-        baseRev,
-        baseRepo,
-        newRev,
-        newRepo: newRepos[i],
-        framework: frameworkId,
-      }),
-    );
-    return Promise.all(promises);
-  }
-  return [
-    await fetchCompareResults({
+  if (!newRevs.length) {
+    return {
       baseRev,
       baseRepo,
-      newRev: baseRev,
-      newRepo: baseRepo,
-      framework: frameworkId,
+      newRevs: [baseRev],
+      newRepos: [baseRepo],
+      frameworkId,
+    };
+  }
+
+  if (newRevs.length !== newRepos.length) {
+    throw new Error(
+      'There should be as many "newRepo" parameters as there are "newRev" parameters.',
+    );
+  }
+  if (!newRepos.every((newRepo) => validRepoValues.includes(newRepo))) {
+    throw new Error(
+      `Every parameter newRepo "${newRepos.join(
+        '", "',
+      )}" should be one of ${validRepoValues.join(', ')}.`,
+    );
+  }
+
+  return {
+    baseRev,
+    baseRepo,
+    newRevs,
+    newRepos,
+    frameworkId,
+  };
+}
+
+// This is essentially a glue to call the related function from
+// /logic/treeherder.ts for all the revs we need results for.
+async function fetchCompareResultsOnTreeherder({
+  baseRev,
+  baseRepo,
+  newRevs,
+  newRepos,
+  framework,
+}: {
+  baseRev: string;
+  baseRepo: Repository['name'];
+  newRevs: string[];
+  newRepos: Repository['name'][];
+  framework: Framework['id'];
+}) {
+  const promises = newRevs.map((newRev, i) =>
+    fetchCompareResults({
+      baseRev,
+      baseRepo,
+      newRev,
+      newRepo: newRepos[i],
+      framework,
     }),
-  ];
+  );
+  return Promise.all(promises);
 }
 
 const fakeCommitHashes: FakeCommitHash[] = [
@@ -115,34 +143,61 @@ async function fetchAllFakeCompareResults() {
 export async function loader({ request }: { request: Request }) {
   const url = new URL(request.url);
   const useFakeData = url.searchParams.has('fakedata');
-  const baseRev = url.searchParams.get('baseRev');
-  const baseRepo = url.searchParams.get('baseRepo') as
-    | Repository['name']
-    | null;
-  const newRevs = url.searchParams.getAll('newRev');
-  const newRepos = url.searchParams.getAll('newRepo') as Repository['name'][];
-  const framework = url.searchParams.get('framework');
 
-  let resultsForAllRevs;
   if (useFakeData) {
-    resultsForAllRevs = await fetchAllFakeCompareResults();
-  } else {
-    resultsForAllRevs = await checkValuesAndFetchCompareResultsOnTreeherder({
+    const results = await fetchAllFakeCompareResults();
+    // They're all based on the same rev
+    const baseRev = results[0][0].base_rev;
+    // And the same repository
+    const baseRepo = results[0][0].base_repository_name;
+
+    const newRevs = fakeCommitHashes;
+    const newRepos = results.map((result) => result[0].new_repository_name);
+    const frameworkId = results[0][0].framework_id;
+
+    return {
+      results,
       baseRev,
       baseRepo,
       newRevs,
       newRepos,
-      framework,
-    });
+      framework: frameworkId,
+    };
   }
+
+  const baseRevFromUrl = url.searchParams.get('baseRev');
+  const baseRepoFromUrl = url.searchParams.get('baseRepo') as
+    | Repository['name']
+    | null;
+  const newRevsFromUrl = url.searchParams.getAll('newRev');
+  const newReposFromUrl = url.searchParams.getAll(
+    'newRepo',
+  ) as Repository['name'][];
+  const frameworkFromUrl = url.searchParams.get('framework');
+
+  const { baseRev, baseRepo, newRevs, newRepos, frameworkId } = checkValues({
+    baseRev: baseRevFromUrl,
+    baseRepo: baseRepoFromUrl,
+    newRevs: newRevsFromUrl,
+    newRepos: newReposFromUrl,
+    framework: frameworkFromUrl,
+  });
+
+  const resultsForAllRevs = await fetchCompareResultsOnTreeherder({
+    baseRev,
+    baseRepo,
+    newRevs,
+    newRepos,
+    framework: frameworkId,
+  });
 
   return {
     results: resultsForAllRevs,
-    baseRev: baseRev as string,
-    baseRepo: baseRepo as Repository['name'],
+    baseRev: baseRev,
+    baseRepo: baseRepo,
     newRevs,
     newRepos,
-    framework,
+    framework: frameworkId,
   };
 }
 
