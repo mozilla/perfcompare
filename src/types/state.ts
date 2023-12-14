@@ -116,16 +116,6 @@ export type SelectedRevisionsState = {
   newCommittedRevisions: RevisionsList[];
 };
 
-export interface ResultsHashmap {
-  [key: string]: CompareResultsItem[];
-}
-
-export type CompareResultsState = {
-  data: ResultsHashmap;
-  loading: boolean;
-  error: string | undefined;
-};
-
 export type PlatformInfo = {
   shortName: string;
   icon: React.ReactNode;
