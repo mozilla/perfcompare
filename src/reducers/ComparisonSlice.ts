@@ -1,6 +1,5 @@
-import { createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { RootState } from '../common/store';
 import { Strings } from '../resources/Strings';
 
 interface InitialState {
@@ -26,13 +25,6 @@ const comparison = createSlice({
     },
   },
 });
-
-export const selectNewRevisions = createSelector(
-  (state: RootState) => state.selectedRevisions.newCommittedRevisions,
-  (newSelectedRevisions) => {
-    return newSelectedRevisions.map((item) => item.revision);
-  },
-);
 
 export const { updateComparison } = comparison.actions;
 
