@@ -35,8 +35,10 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
         <hr
           class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
         />
-        <div
+        <form
+          action="/compare-results"
           class="form-wrapper"
+          method="get"
         >
           <div
             class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
@@ -143,7 +145,6 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
                         aria-invalid="false"
                         class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                         id="search-base-input"
-                        name="baseSearch"
                         placeholder="Search base by ID number or author email"
                         type="text"
                         value=""
@@ -181,6 +182,16 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
                     class="MuiListItem-root MuiListItem-gutters MuiListItem-padding item-container item-0 item-base css-vtiz8x-MuiListItem-root"
                     data-testid="selected-rev-item"
                   >
+                    <input
+                      name="baseRev"
+                      type="hidden"
+                      value="coconut"
+                    />
+                    <input
+                      name="baseRepo"
+                      type="hidden"
+                      value="try"
+                    />
                     <div
                       class="repo_f1bx8by5"
                     >
@@ -392,7 +403,6 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
                         aria-invalid="false"
                         class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                         id="search-new-input"
-                        name="newSearch"
                         placeholder="Search revision by ID number or author email"
                         type="text"
                         value=""
@@ -430,6 +440,16 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
                     class="MuiListItem-root MuiListItem-gutters MuiListItem-padding item-container item-0 item-new css-vtiz8x-MuiListItem-root"
                     data-testid="selected-rev-item"
                   >
+                    <input
+                      name="newRev"
+                      type="hidden"
+                      value="spam"
+                    />
+                    <input
+                      name="newRepo"
+                      type="hidden"
+                      value="mozilla-central"
+                    />
                     <div
                       class="repo_f1bx8by5"
                     >
@@ -536,6 +556,16 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
                     class="MuiListItem-root MuiListItem-gutters MuiListItem-padding item-container item-1 item-new css-vtiz8x-MuiListItem-root"
                     data-testid="selected-rev-item"
                   >
+                    <input
+                      name="newRev"
+                      type="hidden"
+                      value="spamspam"
+                    />
+                    <input
+                      name="newRepo"
+                      type="hidden"
+                      value="try"
+                    />
                     <div
                       class="repo_f1bx8by5"
                     >
@@ -676,9 +706,9 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
                   <div
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-labelledby="select-framework-label mui-component-select-Framework"
+                    aria-labelledby="select-framework-label mui-component-select-framework"
                     class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                    id="mui-component-select-Framework"
+                    id="mui-component-select-framework"
                     role="button"
                     tabindex="0"
                   >
@@ -687,7 +717,7 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
                   <input
                     aria-hidden="true"
                     class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                    name="Framework"
+                    name="framework"
                     tabindex="-1"
                     value="1"
                   />
@@ -710,7 +740,7 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
               class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1pha5e5-MuiButtonBase-root-MuiButton-root"
               id="compare-button"
               tabindex="0"
-              type="button"
+              type="submit"
             >
               Compare
               <span
@@ -718,7 +748,7 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
               />
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>
@@ -980,8 +1010,10 @@ exports[`Compare With Base should remove the checked revision once X button is c
             <hr
               class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
             />
-            <div
+            <form
+              action="/compare-results"
               class="form-wrapper"
+              method="get"
             >
               <div
                 class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
@@ -1088,7 +1120,6 @@ exports[`Compare With Base should remove the checked revision once X button is c
                             aria-invalid="false"
                             class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                             id="search-base-input"
-                            name="baseSearch"
                             placeholder="Search base by ID number or author email"
                             type="text"
                             value=""
@@ -1230,7 +1261,6 @@ exports[`Compare With Base should remove the checked revision once X button is c
                             aria-invalid="false"
                             class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                             id="search-new-input"
-                            name="newSearch"
                             placeholder="Search revision by ID number or author email"
                             type="text"
                             value=""
@@ -1301,9 +1331,9 @@ exports[`Compare With Base should remove the checked revision once X button is c
                       <div
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        aria-labelledby="select-framework-label mui-component-select-Framework"
+                        aria-labelledby="select-framework-label mui-component-select-framework"
                         class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                        id="mui-component-select-Framework"
+                        id="mui-component-select-framework"
                         role="button"
                         tabindex="0"
                       >
@@ -1312,7 +1342,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                       <input
                         aria-hidden="true"
                         class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                        name="Framework"
+                        name="framework"
                         tabindex="-1"
                         value="1"
                       />
@@ -1335,7 +1365,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                   class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1pha5e5-MuiButtonBase-root-MuiButton-root"
                   id="compare-button"
                   tabindex="0"
-                  type="button"
+                  type="submit"
                 >
                   Compare
                   <span
@@ -1343,7 +1373,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                   />
                 </button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
         <div

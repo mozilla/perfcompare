@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Revision select Should match snapshot 1`] = `
+exports[`Revision select Should change 'All revisions' option to bb6a5e451dac 1`] = `
 <body>
   <div>
     <div

@@ -12,6 +12,16 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
       class="MuiListItem-root MuiListItem-gutters MuiListItem-padding item-container item-0 item-base css-vtiz8x-MuiListItem-root"
       data-testid="selected-rev-item"
     >
+      <input
+        name="baseRev"
+        type="hidden"
+        value="coconut"
+      />
+      <input
+        name="baseRepo"
+        type="hidden"
+        value="try"
+      />
       <div
         class="repo_f1bx8by5"
       >
