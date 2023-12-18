@@ -67,6 +67,7 @@ function RevisionRow(props: RevisionRowProps) {
   const styles = {
     revisionRow: style({
       display: 'grid',
+      // Should be kept in sync with the gridTemplateColumns from TableHeader
       gridTemplateColumns: '2fr 1fr 0.2fr 1fr 1fr 1fr 1fr 1fr 2fr 0.2fr',
       $nest: {
         '.base-value': {

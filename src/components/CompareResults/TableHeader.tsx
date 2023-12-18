@@ -10,6 +10,7 @@ function TableHeader(props: TableHeaderProps) {
   const styles = {
     tableHeader: style({
       display: 'grid',
+      // Should be kept in sync with the gridTemplateColumns from RevisionRow
       gridTemplateColumns: '2fr 1fr 0.2fr 1fr 1fr 1fr 1fr 1fr 2fr 0.2fr',
       background:
         themeMode == 'light' ? Colors.Background100 : Colors.Background300Dark,

@@ -50,14 +50,12 @@ function ResultsTable(props: ResultsTableProps) {
         <div>
           <TableHeader themeMode={themeMode} />
           {processedResults.map((res, index) => (
-            <div key={index}>
-              <TableContent
-                themeMode={themeMode}
-                key={index}
-                header={res.revisionHeader}
-                results={res.value}
-              />
-            </div>
+            <TableContent
+              themeMode={themeMode}
+              key={index}
+              header={res.revisionHeader}
+              results={res.value}
+            />
           ))}
         </div>
       )}
