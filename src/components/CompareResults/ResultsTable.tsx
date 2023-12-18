@@ -28,8 +28,6 @@ function ResultsTable(props: ResultsTableProps) {
   const styles = {
     tableContainer: style({
       backgroundColor: themeColor100,
-      borderCollapse: 'separate',
-      borderSpacing: `0 ${Spacing.Small}px`,
       marginTop: Spacing.Large,
       paddingBottom: Spacing.Large,
     }),
