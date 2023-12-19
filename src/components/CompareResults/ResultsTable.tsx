@@ -45,7 +45,7 @@ function ResultsTable(props: ResultsTableProps) {
           <CircularProgress />
         </Box>
       ) : (
-        <div>
+        <>
           <TableHeader themeMode={themeMode} />
           {processedResults.map((res, index) => (
             <TableContent
@@ -55,7 +55,7 @@ function ResultsTable(props: ResultsTableProps) {
               results={res.value}
             />
           ))}
-        </div>
+        </>
       )}
       {!loading && processedResults.length == 0 && <NoResultsFound />}
     </Paper>
