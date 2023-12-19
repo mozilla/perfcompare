@@ -90,3 +90,4 @@ export {
   createRouterWrapper,
   createStoreProvider,
 };
+export { FetchMockSandbox } from 'fetch-mock';
