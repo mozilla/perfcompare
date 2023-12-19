@@ -42,7 +42,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
       backgroundColor: themeColor200,
       padding: Spacing.Medium,
       marginBottom: Spacing.Small,
-      width: '100%',
+      width: '97%',
     }),
     content: style({
       backgroundColor: contentThemeColor,

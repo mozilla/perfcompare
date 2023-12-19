@@ -1,4 +1,3 @@
-import { TableBody } from '@mui/material';
 import { style } from 'typestyle';
 
 import { Colors, Spacing } from '../../styles';
@@ -17,17 +16,6 @@ function TableContent(props: TableContentProps) {
     tableBody: style({
       marginTop: Spacing.Large,
       $nest: {
-        '.MuiTableCell-root': {
-          padding: 0,
-        },
-        '.revision-header .MuiTableCell-root': {
-          padding: 0,
-          paddingTop: Spacing.Large,
-          paddingBottom: Spacing.Small,
-        },
-        '.platform': {
-          paddingLeft: Spacing.xLarge,
-        },
         '.revisionRow': {
           backgroundColor: Colors.Background200,
           margin: `${Spacing.Small}px 0px`,
@@ -36,13 +24,15 @@ function TableContent(props: TableContentProps) {
     }),
   };
   return (
-    <TableBody className={styles.tableBody}>
+    <div className={styles.tableBody}>
       <RevisionHeader header={header} />
-      {results.length > 0 &&
-        results.map((result, index) => (
-          <RevisionRow themeMode={themeMode} key={index} result={result} />
-        ))}
-    </TableBody>
+      <div>
+        {results.length > 0 &&
+          results.map((result, index) => (
+            <RevisionRow themeMode={themeMode} key={index} result={result} />
+          ))}
+      </div>
+    </div>
   );
 }
 
