@@ -1,7 +1,6 @@
 import {
   formatDate,
   getLatestCommitMessage,
-  getPlatformInfo,
   setConfidenceClassName,
   truncateHash,
   swapArrayElements,
@@ -91,20 +90,6 @@ describe('formateDate Helper', () => {
     const timestamp = 1649883600;
     const date = formatDate(timestamp);
     expect(date).toStrictEqual('04/13/22 21:00');
-  });
-});
-
-describe('getPlatformInfo Helper', () => {
-  it.each([
-    { platform: 'linux-shippable', shortName: 'Linux' },
-    { platform: 'OS X 10.14 Shippable', shortName: 'OSX' },
-    { platform: 'windows10-64-mingwclang', shortName: 'Windows' },
-    { platform: 'Android 5.0 AArch64 Release', shortName: 'Android' },
-    { platform: 'i am not an operating system', shortName: '' },
-  ])('returns correct class name', (test) => {
-    expect(getPlatformInfo(test.platform).shortName).toStrictEqual(
-      test.shortName,
-    );
   });
 });
 

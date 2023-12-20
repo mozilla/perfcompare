@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import AppleIcon from '@mui/icons-material/Apple';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
@@ -17,7 +18,9 @@ import type {
   PlatformInfo,
   ThemeMode,
 } from '../../types/state';
-import { getPlatformInfo } from '../../utils/helpers';
+import AndroidIcon from '../Shared/Icons/AndroidIcon';
+import LinuxIcon from '../Shared/Icons/LinuxIcon';
+import WindowsIcon from '../Shared/Icons/WindowsIcon';
 import RevisionRowExpandable from './RevisionRowExpandable';
 
 function determineStatus(improvement: boolean, regression: boolean) {
@@ -31,6 +34,25 @@ function determineSign(baseMedianValue: number, newMedianValue: number) {
   if (baseMedianValue < newMedianValue) return '<';
   return '';
 }
+
+const getPlatformInfo = (platformName: string): PlatformInfo => {
+  if (platformName.toLowerCase().includes('linux'))
+    return { shortName: 'Linux', icon: <LinuxIcon /> };
+  else if (
+    platformName.toLowerCase().includes('osx') ||
+    platformName.toLowerCase().includes('os x')
+  )
+    return { shortName: 'OSX', icon: <AppleIcon /> };
+  else if (platformName.toLowerCase().includes('windows'))
+    return { shortName: 'Windows', icon: <WindowsIcon /> };
+  else if (platformName.toLowerCase().includes('android'))
+    return { shortName: 'Android', icon: <AndroidIcon /> };
+  else
+    return {
+      shortName: Strings.components.revisionRow.platformUndefinedText,
+      icon: '',
+    };
+};
 
 function RevisionRow(props: RevisionRowProps) {
   const { themeMode, result } = props;
@@ -49,8 +71,7 @@ function RevisionRow(props: RevisionRowProps) {
     graphs_link: graphLink,
   } = result;
 
-  const platformInfo: PlatformInfo = getPlatformInfo(platform);
-  const PlatformIcon = platformInfo.icon as React.ElementType;
+  const platformInfo = getPlatformInfo(platform);
 
   const [expanded, setExpanded] = useState(false);
 
@@ -144,11 +165,7 @@ function RevisionRow(props: RevisionRowProps) {
       <div className={`revisionRow ${styles.revisionRow} ${styles.typography}`}>
         <div className='platform cell'>
           <div className='platform-container'>
-            {platformInfo.shortName ? (
-              <PlatformIcon />
-            ) : (
-              Strings.components.revisionRow.platformUndefinedText
-            )}
+            {platformInfo.icon}
             <span>{platformInfo.shortName}</span>
           </div>
         </div>
