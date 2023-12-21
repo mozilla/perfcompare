@@ -88,7 +88,9 @@ function RevisionRow(props: RevisionRowProps) {
 
   const styles = {
     revisionRow: style({
+      borderRadius: '4px 0px 0px 4px',
       display: 'grid',
+      margin: `${Spacing.Small}px 0px`,
       // Should be kept in sync with the gridTemplateColumns from TableHeader
       gridTemplateColumns: '2fr 1fr 0.2fr 1fr 1fr 1fr 1fr 1fr 2fr 0.2fr',
       $nest: {
@@ -116,6 +118,8 @@ function RevisionRow(props: RevisionRowProps) {
           backgroundColor: themeColor200,
         },
         '.platform': {
+          backgroundColor: themeColor200,
+          borderRadius: '4px 0 0 4px',
           paddingLeft: Spacing.xLarge,
           justifyContent: 'left',
         },
@@ -123,10 +127,10 @@ function RevisionRow(props: RevisionRowProps) {
           alignItems: 'flex-end',
           backgroundColor: themeColor200,
           display: 'flex',
-          borderRadius: '4px 0 0 4px',
         },
         '.retrigger-button': {
           backgroundColor: themeColor200,
+          borderRadius: '0px 4px 4px 0px',
           cursor: 'not-allowed',
         },
         '.status': {
@@ -138,6 +142,8 @@ function RevisionRow(props: RevisionRowProps) {
         },
 
         '.row-buttons': {
+          backgroundColor: themeColor200,
+          borderRadius: '0px 4px 4px 0px',
           display: 'flex',
           justifyContent: 'flex-end',
           $nest: {
