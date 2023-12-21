@@ -1,18 +1,13 @@
-import AppleIcon from '@mui/icons-material/Apple';
-
 import {
   frameworkMap,
   devToolsFramework,
   baseDocsURL,
   removedOldTestDevTools,
   nonDocumentedTestsDevTools,
+  supportedPerfdocsFrameworks,
 } from '../common/constants';
-import { supportedPerfdocsFrameworks } from '../common/constants';
-import AndroidIcon from '../components/Shared/Icons/AndroidIcon';
-import LinuxIcon from '../components/Shared/Icons/LinuxIcon';
-import WindowsIcon from '../components/Shared/Icons/WindowsIcon';
 import type { Repository, RevisionsList } from '../types/state';
-import { Framework, SupportedPerfdocsFramework } from '../types/types';
+import type { Framework, SupportedPerfdocsFramework } from '../types/types';
 
 const truncateHash = (revision: RevisionsList['revision']) =>
   revision.slice(0, 12);
@@ -47,21 +42,6 @@ const getTreeherderURL = (
   repository: Repository['name'],
 ) =>
   `https://treeherder.mozilla.org/jobs?repo=${repository}&revision=${revision}`;
-
-const getPlatformInfo = (platformName: string) => {
-  if (platformName.toLowerCase().includes('linux'))
-    return { shortName: 'Linux', icon: LinuxIcon };
-  else if (
-    platformName.toLowerCase().includes('osx') ||
-    platformName.toLowerCase().includes('os x')
-  )
-    return { shortName: 'OSX', icon: AppleIcon };
-  else if (platformName.toLowerCase().includes('windows'))
-    return { shortName: 'Windows', icon: WindowsIcon };
-  else if (platformName.toLowerCase().includes('android'))
-    return { shortName: 'Android', icon: AndroidIcon };
-  else return { shortName: '', icon: {} };
-};
 
 const createDevtoolsDocsUrl = (
   supportedFramework: string,
@@ -133,7 +113,6 @@ export {
   getLatestCommitMessage,
   getTreeherderURL,
   setConfidenceClassName,
-  getPlatformInfo,
   swapArrayElements,
   truncateHash,
   getDocsURL,

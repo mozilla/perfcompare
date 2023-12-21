@@ -128,5 +128,5 @@ export type CompareResultsState = {
 
 export type PlatformInfo = {
   shortName: string;
-  icon: object;
+  icon: React.ReactNode;
 };
