@@ -1,6 +1,6 @@
 import { style } from 'typestyle';
 
-import { Colors, Spacing } from '../../styles';
+import { Spacing } from '../../styles';
 import type {
   CompareResultsItem,
   RevisionsHeader,
@@ -15,12 +15,6 @@ function TableContent(props: TableContentProps) {
   const styles = {
     tableBody: style({
       marginTop: Spacing.Large,
-      $nest: {
-        '.revisionRow': {
-          backgroundColor: Colors.Background200,
-          margin: `${Spacing.Small}px 0px`,
-        },
-      },
     }),
   };
   return (
