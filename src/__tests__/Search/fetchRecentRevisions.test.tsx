@@ -1,14 +1,11 @@
-import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { act } from 'react-dom/test-utils';
 
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
-import { InputType } from '../../types/state';
 import getTestData from '../utils/fixtures';
-import { renderWithRouter, store } from '../utils/setupTests';
-import { screen } from '../utils/test-utils';
+import { renderWithRouter } from '../utils/setupTests';
+import { screen, renderHook, FetchMockSandbox } from '../utils/test-utils';
 
 describe('Search View/fetchRecentRevisions', () => {
   const protocolTheme = renderHook(() => useProtocolTheme()).result.current
@@ -19,15 +16,13 @@ describe('Search View/fetchRecentRevisions', () => {
 
   it('should fetch and display recent results when repository is selected', async () => {
     const { testData } = getTestData();
-    const searchType = 'base' as InputType;
+    (global.fetch as FetchMockSandbox).get(
+      'glob:https://treeherder.mozilla.org/api/project/*/push/*',
+      {
+        results: testData,
+      },
+    );
 
-    global.fetch = jest.fn(() =>
-      Promise.resolve({
-        json: () => ({
-          results: testData,
-        }),
-      }),
-    ) as jest.Mock;
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
@@ -39,52 +34,39 @@ describe('Search View/fetchRecentRevisions', () => {
       />,
     );
 
-    await screen.findAllByRole('button', { name: 'Base' });
-    await user.click(screen.getAllByRole('button', { name: 'Base' })[0]);
+    const baseRepoSelect = screen.getAllByRole('button', { name: 'Base' })[0];
+    expect(baseRepoSelect).toHaveTextContent('try');
+    await user.click(baseRepoSelect);
 
     // Menu items should be visible
     expect(
-      screen.getAllByRole('option', { name: 'autoland' })[0],
+      screen.getByRole('option', { name: 'autoland' }),
     ).toBeInTheDocument();
+    expect(screen.getByRole('option', { name: 'try' })).toBeInTheDocument();
     expect(
-      screen.getAllByRole('option', { name: 'try' })[0],
-    ).toBeInTheDocument();
-    expect(
-      screen.getAllByRole('option', { name: 'mozilla-central' })[0],
+      screen.getByRole('option', { name: 'mozilla-central' }),
     ).toBeInTheDocument();
 
-    await user.click(screen.getAllByRole('option', { name: 'autoland' })[0]);
-
-    act(() => void jest.runOnlyPendingTimers());
-    expect(screen.queryByText('mozilla-central')).not.toBeInTheDocument();
-
-    act(() => {
-      expect(store.getState().search[searchType].searchResults).toStrictEqual(
-        testData,
-      );
-    });
+    await user.click(screen.getByRole('option', { name: 'autoland' }));
+    expect(baseRepoSelect).toHaveTextContent('autoland');
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
     await screen.findAllByText("you've got no arms left!");
-    expect(
-      screen.getAllByText("it's just a flesh wound")[0],
-    ).toBeInTheDocument();
 
     expect(global.fetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/autoland/push/?hide_reviewbot_pushes=true',
+      undefined,
     );
   });
 
   it('should reject fetchRecentRevisions if fetch returns no results', async () => {
-    global.fetch = jest.fn(() =>
-      Promise.resolve({
-        json: () => ({
-          results: [],
-        }),
-      }),
-    ) as jest.Mock;
-    const searchType = 'base' as InputType;
+    (global.fetch as FetchMockSandbox).get(
+      'glob:https://treeherder.mozilla.org/api/project/*/push/*',
+      {
+        results: [],
+      },
+    );
 
     renderWithRouter(
       <SearchView
@@ -94,46 +76,51 @@ describe('Search View/fetchRecentRevisions', () => {
       />,
     );
 
-    expect(document.body).toMatchSnapshot();
-    await act(async () => void jest.runOnlyPendingTimers());
-    await screen.findAllByRole('button', { name: 'Base' });
+    const errorMessages = await screen.findAllByText('No results found');
+    expect(errorMessages).toHaveLength(2);
 
+    const inputs = screen.getAllByRole('textbox');
+    expect(inputs[0]).toBeInvalid();
+    expect(inputs[1]).toBeInvalid();
     expect(global.fetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true',
-    );
-    expect(store.getState().search[searchType].searchResults).toStrictEqual([]);
-    expect(store.getState().search[searchType].inputError).toBe(true);
-    expect(store.getState().search[searchType].inputHelperText).toBe(
-      'No results found',
+      undefined,
     );
   });
 
   it('should update error state if fetchRecentRevisions returns an error', async () => {
-    global.fetch = jest.fn(() =>
-      Promise.reject(new Error('What, ridden on a horse?')),
-    ) as jest.Mock;
-    const searchType = 'base' as InputType;
+    const errorMessage = 'What, ridden on a horse?';
+    (global.fetch as FetchMockSandbox).get(
+      'glob:https://treeherder.mozilla.org/api/project/*/push/*',
+      {
+        throws: new Error(errorMessage),
+      },
+    );
 
-    act(() => {
-      renderWithRouter(
-        <SearchView
-          toggleColorMode={toggleColorMode}
-          protocolTheme={protocolTheme}
-          title={Strings.metaData.pageTitle.search}
-        />,
-      );
-    });
+    // This test will output an error to the console. Let's silence it.
+    jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    await act(async () => void jest.runOnlyPendingTimers());
-    await screen.findAllByRole('button', { name: 'Base' });
+    renderWithRouter(
+      <SearchView
+        toggleColorMode={toggleColorMode}
+        protocolTheme={protocolTheme}
+        title={Strings.metaData.pageTitle.search}
+      />,
+    );
 
+    const errorMessages = await screen.findAllByText(errorMessage);
+    expect(errorMessages).toHaveLength(2);
+
+    const inputs = screen.getAllByRole('textbox');
+    expect(inputs[0]).toBeInvalid();
+    expect(inputs[1]).toBeInvalid();
     expect(global.fetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true',
+      undefined,
     );
-    expect(store.getState().search[searchType].searchResults).toStrictEqual([]);
-    expect(store.getState().search[searchType].inputError).toBe(true);
-    expect(store.getState().search[searchType].inputHelperText).toBe(
-      'What, ridden on a horse?',
+    expect(console.error).toHaveBeenCalledWith(
+      'FetchRecentRevisions ERROR: ',
+      new Error(errorMessage),
     );
   });
 });
