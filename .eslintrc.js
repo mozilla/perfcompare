@@ -75,7 +75,7 @@ module.exports = {
         tsconfigRootDir: __dirname,
         project: ['./tsconfig.json'],
       },
-      plugins: ['jest'],
+      plugins: ['jest', 'jest-formatting'],
       extends: [
         'plugin:jest/recommended',
         'plugin:import/typescript',
@@ -98,6 +98,10 @@ module.exports = {
           'error',
           { includeFindQueries: false },
         ],
+
+        // Individual jest-formatting rules so that we format only test and describe blocks
+        'jest-formatting/padding-around-describe-blocks': 2,
+        'jest-formatting/padding-around-test-blocks': 2,
       },
     },
     {
