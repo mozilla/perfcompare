@@ -80,6 +80,7 @@ module.exports = {
         'plugin:jest/recommended',
         'plugin:import/typescript',
         'plugin:testing-library/react',
+        'plugin:jest-dom/recommended',
       ],
       rules: {
         // TODO: update tests to not use store directly and remove these overrides
