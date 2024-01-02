@@ -81,7 +81,11 @@ function SelectedRevisionItem({
         {isWarning && repository === 'try' && (
           <div className='warning-icon'>
             <Tooltip placement='top' title={warning}>
-              <WarningIcon fontSize='small' color='warning' />
+              <WarningIcon
+                fontSize='small'
+                color='warning'
+                titleAccess={warning}
+              />
             </Tooltip>
           </div>
         )}
