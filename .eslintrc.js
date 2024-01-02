@@ -76,7 +76,11 @@ module.exports = {
         project: ['./tsconfig.json'],
       },
       plugins: ['jest'],
-      extends: ['plugin:jest/recommended', 'plugin:import/typescript'],
+      extends: [
+        'plugin:jest/recommended',
+        'plugin:import/typescript',
+        'plugin:testing-library/react',
+      ],
       rules: {
         // TODO: update tests to not use store directly and remove these overrides
         // https://github.com/mozilla/perfcompare/issues/115
@@ -84,6 +88,9 @@ module.exports = {
         '@typescript-eslint/no-unsafe-call': 'off',
         // test dependencies should only exist in devDependencies
         'import/no-extraneous-dependencies': 'off',
+        // This disallows using direct Node properties (eg: firstChild), but we have
+        // legitimate uses:
+        'testing-library/no-node-access': 'off',
       },
     },
     {
