@@ -88,9 +88,15 @@ module.exports = {
         '@typescript-eslint/no-unsafe-call': 'off',
         // test dependencies should only exist in devDependencies
         'import/no-extraneous-dependencies': 'off',
+
         // This disallows using direct Node properties (eg: firstChild), but we have
         // legitimate uses:
         'testing-library/no-node-access': 'off',
+        // Other useful rules in testing-library
+        'testing-library/prefer-explicit-assert': [
+          'error',
+          { includeFindQueries: false },
+        ],
       },
     },
     {
