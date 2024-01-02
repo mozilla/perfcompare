@@ -58,11 +58,10 @@ module.exports = {
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
         'airbnb-typescript',
         'plugin:import/typescript',
+        'prettier',
       ],
 
       rules: {
-        // https://github.com/typescript-eslint/typescript-eslint/issues/1824
-        '@typescript-eslint/indent': 'off',
         'react/prop-types': ['off'],
       },
     },
@@ -81,6 +80,7 @@ module.exports = {
         'plugin:import/typescript',
         'plugin:testing-library/react',
         'plugin:jest-dom/recommended',
+        'prettier',
       ],
       rules: {
         // TODO: update tests to not use store directly and remove these overrides
