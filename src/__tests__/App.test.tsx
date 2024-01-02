@@ -33,7 +33,7 @@ describe('App', () => {
     const darkModeButton = screen.getByLabelText('Dark mode');
 
     await user.click(darkModeButton);
-    expect(screen.queryByLabelText('Light mode')).toBeInTheDocument();
+    expect(screen.getByLabelText('Light mode')).toBeInTheDocument();
 
     await user.click(darkModeButton);
     expect(screen.queryByLabelText('Light mode')).not.toBeInTheDocument();

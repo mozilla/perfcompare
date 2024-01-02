@@ -6,7 +6,7 @@ import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter } from '../utils/setupTests';
-import { screen, waitFor, act, FetchMockSandbox } from '../utils/test-utils';
+import { screen, act, FetchMockSandbox } from '../utils/test-utils';
 
 const protocolTheme = renderHook(() => useProtocolTheme()).result.current
   .protocolTheme;
@@ -53,9 +53,12 @@ describe('Search View', () => {
 
   it('renders a skip link that sends the focus directly to search container', async () => {
     renderComponent();
-    await waitFor(() => userEvent.tab());
-    await waitFor(() => userEvent.keyboard('{Enter}'));
-    expect(screen.queryByTestId('search-section')).toHaveFocus();
+
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
+    await user.tab();
+    await user.keyboard('{Enter}');
+    expect(screen.getByTestId('search-section')).toHaveFocus();
   });
 });
 
@@ -79,7 +82,7 @@ describe('Base Search', () => {
   it('renders repository dropdown in closed condition', async () => {
     renderComponent();
     // 'try' is selected by default and dropdown is not visible
-    expect(screen.queryAllByText(/try/i)[0]).toBeInTheDocument();
+    expect(screen.getAllByText(/try/i)[0]).toBeInTheDocument();
     expect(screen.queryByText(/autoland/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/mozilla-central/i)).not.toBeInTheDocument();
 
@@ -97,7 +100,7 @@ describe('Base Search', () => {
   it('renders framework dropdown in closed condition', async () => {
     renderComponent();
     // 'talos' is selected by default and dropdown is not visible
-    expect(screen.queryByText(/talos/i)).toBeInTheDocument();
+    expect(screen.getByText(/talos/i)).toBeInTheDocument();
     expect(screen.queryByText(/build_metrics/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/awsy/i)).not.toBeInTheDocument();
 
@@ -225,10 +228,10 @@ describe('Base Search', () => {
     await user.click(screen.getAllByTestId('CheckBoxOutlineBlankIcon')[0]);
 
     expect(
-      screen.queryAllByText("you've got no arms left!")[0],
+      screen.getAllByText("you've got no arms left!")[0],
     ).toBeInTheDocument();
     expect(
-      screen.queryAllByText("it's just a flesh wound")[0],
+      screen.getAllByText("it's just a flesh wound")[0],
     ).toBeInTheDocument();
   });
 

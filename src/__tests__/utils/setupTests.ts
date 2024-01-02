@@ -80,7 +80,10 @@ beforeEach(function () {
 beforeEach(() => {
   jest.useFakeTimers();
   store = createStore();
+  /* The plugin is confused by our naming. */
+  /* eslint-disable-next-line testing-library/no-render-in-lifecycle */
   render = createRender(store);
+  /* eslint-disable-next-line testing-library/no-render-in-lifecycle */
   renderWithRouter = createRenderWithRouter(store);
   StoreProvider = createStoreProvider(store);
 });

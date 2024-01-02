@@ -51,6 +51,8 @@ const createRenderWithRouter = (store: Store) => {
     } = {},
     theme: ThemeConfig = null,
   ) {
+    /* Eslint is confused with our naming. */
+    /* eslint-disable-next-line testing-library/render-result-naming-convention */
     const render = createRender(store);
     return {
       ...render(

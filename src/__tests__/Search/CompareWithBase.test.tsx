@@ -78,7 +78,7 @@ describe('Compare With Base', () => {
   it('selects and displays new framework when clicked', async () => {
     renderComponent(false);
     const user = userEvent.setup({ delay: null });
-    expect(screen.queryByText(/talos/i)).toBeInTheDocument();
+    expect(screen.getByText(/talos/i)).toBeInTheDocument();
     expect(screen.queryByText(/build_metrics/i)).not.toBeInTheDocument();
     const frameworkDropdown = screen.getByRole('button', {
       name: 'Framework talos',
@@ -92,7 +92,7 @@ describe('Compare With Base', () => {
 
     await user.click(buildMetricsItem);
 
-    expect(screen.queryAllByText(/build_metrics/i)[0]).toBeInTheDocument();
+    expect(screen.getAllByText(/build_metrics/i)[0]).toBeInTheDocument();
   });
 
   it('should remove the checked revision once X button is clicked', async () => {
