@@ -86,9 +86,6 @@ module.exports = {
         // TODO: update tests to not use store directly and remove these overrides
         // https://github.com/mozilla/perfcompare/issues/115
         '@typescript-eslint/no-unsafe-member-access': 'off',
-        '@typescript-eslint/no-unsafe-call': 'off',
-        // test dependencies should only exist in devDependencies
-        'import/no-extraneous-dependencies': 'off',
 
         // This disallows using direct Node properties (eg: firstChild), but we have
         // legitimate uses:
