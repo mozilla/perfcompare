@@ -87,8 +87,6 @@ describe('Results View', () => {
     ) as HTMLElement;
 
     expect(hiddenEditButton).not.toBeInTheDocument();
-
-    await act(async () => void jest.runOnlyPendingTimers());
   });
 
   it('RESULTS: clicking the cancel button hides input and dropdown', async () => {
@@ -136,8 +134,6 @@ describe('Results View', () => {
       '.base-search-container',
     ) as HTMLElement;
     expect(container).not.toBeInTheDocument();
-
-    await act(async () => void jest.runOnlyPendingTimers());
   });
 
   it('RESULTS: clicking the save button hides input and dropdown', async () => {
@@ -207,7 +203,6 @@ describe('Results View', () => {
     });
 
     expect(container).not.toBeInTheDocument();
-    await act(async () => void jest.runOnlyPendingTimers());
   });
 
   it('Should render the selected revisions', async () => {
