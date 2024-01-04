@@ -1,9 +1,7 @@
-import { screen } from '@testing-library/react';
-
 import RevisionRow from '../../components/CompareResults/RevisionRow';
 import { Platform } from '../../types/types';
 import getTestData from '../utils/fixtures';
-import { render } from '../utils/setupTests';
+import { render, screen } from '../utils/test-utils';
 
 describe('<RevisionRow>', () => {
   it.each([

@@ -10,8 +10,8 @@ import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
 import { RevisionsHeader } from '../../types/state';
 import getTestData from '../utils/fixtures';
-import { renderWithRouter, store } from '../utils/setupTests';
-import { renderHook, screen, act } from '../utils/test-utils';
+import { store } from '../utils/setupTests';
+import { renderWithRouter, renderHook, screen, act } from '../utils/test-utils';
 
 function renderWithRoute(component: ReactElement) {
   return renderWithRouter(component, {

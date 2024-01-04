@@ -6,11 +6,12 @@ import SearchView from '../components/Search/SearchView';
 import { Strings } from '../resources/Strings';
 import useProtocolTheme from '../theme/protocolTheme';
 import getTestData from './utils/fixtures';
-import { renderWithRouter, render } from './utils/setupTests';
 import {
   screen,
   act,
   renderHook,
+  renderWithRouter,
+  render,
   waitForElementToBeRemoved,
   FetchMockSandbox,
 } from './utils/test-utils';

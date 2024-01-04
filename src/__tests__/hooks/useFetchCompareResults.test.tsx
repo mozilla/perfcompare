@@ -1,6 +1,14 @@
+import { Provider } from 'react-redux';
+
 import useFetchCompareResults from '../../hooks/useFetchCompareResults';
-import { StoreProvider } from '../utils/setupTests';
+import { store } from '../utils/setupTests';
 import { renderHook, FetchMockSandbox } from '../utils/test-utils';
+
+function renderFetchCompareResultsHook() {
+  return renderHook(() => useFetchCompareResults(), {
+    wrapper: ({ children }) => <Provider store={store}>{children}</Provider>,
+  });
+}
 
 describe('Tests useFetchCompareResults', () => {
   beforeEach(() => {
@@ -15,7 +23,7 @@ describe('Tests useFetchCompareResults', () => {
       result: {
         current: { dispatchFetchCompareResults },
       },
-    } = renderHook(() => useFetchCompareResults(), { wrapper: StoreProvider });
+    } = renderFetchCompareResultsHook();
     dispatchFetchCompareResults(['fenix'], ['testRev'], '1');
     const url = (global.fetch as FetchMockSandbox).lastUrl() ?? '';
     const searchParams = new URL(url).searchParams;
@@ -30,7 +38,7 @@ describe('Tests useFetchCompareResults', () => {
       result: {
         current: { dispatchFetchCompareResults },
       },
-    } = renderHook(() => useFetchCompareResults(), { wrapper: StoreProvider });
+    } = renderFetchCompareResultsHook();
     dispatchFetchCompareResults(
       ['fenix', 'try'],
       ['testRev1', 'testRev2'],
@@ -49,7 +57,7 @@ describe('Tests useFetchCompareResults', () => {
       result: {
         current: { dispatchFetchCompareResults },
       },
-    } = renderHook(() => useFetchCompareResults(), { wrapper: StoreProvider });
+    } = renderFetchCompareResultsHook();
     dispatchFetchCompareResults(
       ['fenix', 'try', 'mozilla-beta', 'autoland'],
       ['testRev1', 'testRev2', 'testRev3', 'testRev4'],
@@ -63,7 +71,7 @@ describe('Tests useFetchCompareResults', () => {
       result: {
         current: { dispatchFetchCompareResults },
       },
-    } = renderHook(() => useFetchCompareResults(), { wrapper: StoreProvider });
+    } = renderFetchCompareResultsHook();
     dispatchFetchCompareResults(
       ['fenix', 'try', 'mozilla-beta', 'autoland', 'mozilla-central'],
       ['testRev1', 'testRev2', 'testRev3', 'testRev4', 'testRev5'],

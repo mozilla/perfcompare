@@ -1,13 +1,19 @@
 import { FormEvent } from 'react';
 
+import { Provider } from 'react-redux';
+
 import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
 import { setInputError, updateSearchResults } from '../../reducers/SearchSlice';
 import { InputType, Repository } from '../../types/state';
 import getTestData from '../utils/fixtures';
-import { store, StoreProvider } from '../utils/setupTests';
+import { store } from '../utils/setupTests';
 import { renderHook, FetchMockSandbox } from '../utils/test-utils';
 
-jest.useFakeTimers();
+function renderHandleChangeSearchHook() {
+  return renderHook(() => useHandleChangeSearch(), {
+    wrapper: ({ children }) => <Provider store={store}>{children}</Provider>,
+  });
+}
 
 describe('Tests useHandleSearchHook', () => {
   const { testData } = getTestData();
@@ -30,9 +36,7 @@ describe('Tests useHandleSearchHook', () => {
       searchType,
       repository: 'try' as Repository['name'],
     };
-    const { result } = renderHook(() => useHandleChangeSearch(), {
-      wrapper: StoreProvider,
-    });
+    const { result } = renderHandleChangeSearchHook();
     result.current.handleChangeSearch(searchState);
     const { search: searchSlice } = store.getState();
     expect(searchSlice[searchType].searchValue).toBe('test input');
@@ -49,9 +53,7 @@ describe('Tests useHandleSearchHook', () => {
       results: testData,
       searchType,
     };
-    const { result } = renderHook(() => useHandleChangeSearch(), {
-      wrapper: StoreProvider,
-    });
+    const { result } = renderHandleChangeSearchHook();
 
     store.dispatch(updateSearchResults(searchResults));
 
@@ -71,9 +73,7 @@ describe('Tests useHandleSearchHook', () => {
       repository: 'try' as Repository['name'],
     };
     const testError = 'test error';
-    const { result } = renderHook(() => useHandleChangeSearch(), {
-      wrapper: StoreProvider,
-    });
+    const { result } = renderHandleChangeSearchHook();
 
     store.dispatch(setInputError({ errorMessage: testError, searchType }));
 
@@ -91,9 +91,7 @@ describe('Tests useHandleSearchHook', () => {
       searchType,
       repository: 'try' as Repository['name'],
     };
-    const { result } = renderHook(() => useHandleChangeSearch(), {
-      wrapper: StoreProvider,
-    });
+    const { result } = renderHandleChangeSearchHook();
     result.current.handleChangeSearch(searchState);
     jest.runAllTimers();
     const { search: updatedSearchSlice } = store.getState();
@@ -109,9 +107,7 @@ describe('Tests useHandleSearchHook', () => {
       searchType,
       repository: 'try' as Repository['name'],
     };
-    const { result } = renderHook(() => useHandleChangeSearch(), {
-      wrapper: StoreProvider,
-    });
+    const { result } = renderHandleChangeSearchHook();
     result.current.handleChangeSearch(searchState);
     jest.runAllTimers();
     expect(global.fetch).toHaveBeenCalledWith(
@@ -127,9 +123,7 @@ describe('Tests useHandleSearchHook', () => {
       searchType,
       repository: 'try' as Repository['name'],
     };
-    const { result } = renderHook(() => useHandleChangeSearch(), {
-      wrapper: StoreProvider,
-    });
+    const { result } = renderHandleChangeSearchHook();
     result.current.handleChangeSearch(searchState);
     jest.runAllTimers();
     expect(global.fetch).toHaveBeenCalledWith(
@@ -150,9 +144,7 @@ describe('Tests useHandleSearchHook', () => {
       searchType,
       repository: 'mozilla-central' as Repository['name'],
     };
-    const { result } = renderHook(() => useHandleChangeSearch(), {
-      wrapper: StoreProvider,
-    });
+    const { result } = renderHandleChangeSearchHook();
     result.current.handleChangeSearch(searchState);
     jest.runAllTimers();
     expect(global.fetch).toHaveBeenCalledWith(
@@ -175,9 +167,7 @@ describe('Tests useHandleSearchHook', () => {
       searchType,
       repository: 'autoland' as Repository['name'],
     };
-    const { result } = renderHook(() => useHandleChangeSearch(), {
-      wrapper: StoreProvider,
-    });
+    const { result } = renderHandleChangeSearchHook();
     result.current.handleChangeSearch(searchState);
     result.current.handleChangeSearch(searchState);
     result.current.handleChangeSearch(searchState);

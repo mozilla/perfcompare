@@ -4,8 +4,13 @@ import ResultsView from '../../components/CompareResults/ResultsView';
 import RevisionSelect from '../../components/CompareResults/RevisionSelect';
 import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
-import { renderWithRouter } from '../utils/setupTests';
-import { fireEvent, renderHook, screen, within } from '../utils/test-utils';
+import {
+  fireEvent,
+  renderWithRouter,
+  renderHook,
+  screen,
+  within,
+} from '../utils/test-utils';
 
 function renderWithRoute(component: ReactElement) {
   return renderWithRouter(component, {

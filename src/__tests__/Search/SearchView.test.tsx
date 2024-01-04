@@ -1,12 +1,16 @@
-import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
 import getTestData from '../utils/fixtures';
-import { renderWithRouter } from '../utils/setupTests';
-import { screen, act, FetchMockSandbox } from '../utils/test-utils';
+import {
+  screen,
+  act,
+  renderWithRouter,
+  renderHook,
+  FetchMockSandbox,
+} from '../utils/test-utils';
 
 const protocolTheme = renderHook(() => useProtocolTheme()).result.current
   .protocolTheme;
