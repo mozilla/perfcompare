@@ -93,8 +93,6 @@ describe('Base Search', () => {
 
     // No list items should appear
     expect(screen.queryByRole('listitem')).not.toBeInTheDocument();
-
-    await act(async () => void jest.runOnlyPendingTimers());
   });
 
   it('renders framework dropdown in closed condition', async () => {
@@ -103,8 +101,6 @@ describe('Base Search', () => {
     expect(screen.getByText(/talos/i)).toBeInTheDocument();
     expect(screen.queryByText(/build_metrics/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/awsy/i)).not.toBeInTheDocument();
-
-    await act(async () => void jest.runOnlyPendingTimers());
   });
 
   it('should hide search results when clicking outside of search input', async () => {

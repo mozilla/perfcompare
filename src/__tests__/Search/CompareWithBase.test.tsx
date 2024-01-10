@@ -42,7 +42,6 @@ describe('Compare With Base', () => {
     renderComponent(false);
 
     expect(document.body).toMatchSnapshot();
-    await act(async () => void jest.runOnlyPendingTimers());
   });
 
   it('toggles component open and closed on click', async () => {
