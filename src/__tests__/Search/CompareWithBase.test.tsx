@@ -1,6 +1,4 @@
-import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { act } from 'react-dom/test-utils';
 
 import { repoMap } from '../../common/constants';
 import CompareWithBase from '../../components/Search/CompareWithBase';
@@ -9,7 +7,7 @@ import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, store } from '../utils/setupTests';
-import { screen } from '../utils/test-utils';
+import { act, screen, renderHook, FetchMockSandbox } from '../utils/test-utils';
 
 const protocolTheme = renderHook(() => useProtocolTheme()).result.current
   .protocolTheme;
@@ -99,14 +97,13 @@ describe('Compare With Base', () => {
 
   it('should remove the checked revision once X button is clicked', async () => {
     const { testData } = getTestData();
-    global.fetch = jest.fn(() =>
-      Promise.resolve({
-        json: () => ({
-          results: testData,
-        }),
-      }),
-    ) as jest.Mock;
-    jest.spyOn(global, 'fetch');
+    (global.fetch as FetchMockSandbox).get(
+      'begin:https://treeherder.mozilla.org/api/project/try/push/',
+      {
+        results: testData,
+      },
+    );
+
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
@@ -123,10 +120,9 @@ describe('Compare With Base', () => {
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
-    await user.click(screen.getAllByTestId('checkbox-0')[0]);
-    expect(
-      screen.getAllByTestId('checkbox-0')[0].classList.contains('Mui-checked'),
-    ).toBe(true);
+    const checkbox = (await screen.findAllByTestId('checkbox-0'))[0];
+    await user.click(checkbox);
+    expect(checkbox).toHaveClass('Mui-checked');
     const removeButton = document.querySelectorAll(
       '[aria-label="close-button"]',
     );

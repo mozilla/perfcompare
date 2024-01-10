@@ -3,18 +3,24 @@ import { act } from 'react-dom/test-utils';
 
 import App from '../components/App';
 import { render } from './utils/setupTests';
-import { screen } from './utils/test-utils';
+import { screen, FetchMockSandbox } from './utils/test-utils';
 
 describe('App', () => {
+  beforeEach(() => {
+    (global.fetch as FetchMockSandbox).get(
+      'glob:https://treeherder.mozilla.org/api/project/*/push/*',
+      { results: [] },
+    );
+  });
+
   test('Should render search view on default route', async () => {
     render(<App />);
 
     // Title appears
     expect(screen.getByText(/PerfCompare/i)).toBeInTheDocument();
 
-    await act(async () => void jest.runOnlyPendingTimers());
+    act(() => void jest.runAllTimers());
     const homeText = screen.getByText('Compare with a base or over time');
-
     expect(homeText).toBeInTheDocument();
   });
 

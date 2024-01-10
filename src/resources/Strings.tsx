@@ -49,7 +49,7 @@ export const Strings = {
         collapsed: {
           warnings: {
             comparison:
-              'Comparing “try” repository to any repository aside from "try" is not recommended.',
+              'Comparing “try” repository to any repository aside from “try” is not recommended.',
           },
           base: {
             selectLabel: 'Base',
