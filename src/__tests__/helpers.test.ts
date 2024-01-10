@@ -108,11 +108,13 @@ describe('setConfidenceClassName', () => {
 
 describe('swapArrayElements', () => {
   const array = [1, 2, 3, 4];
+
   it('should swap first and last element', () => {
     const swappedArray = swapArrayElements(array, 0, array.length - 1);
     expect(swappedArray[0]).toBe(array[array.length - 1]);
     expect(swappedArray[array.length - 1]).toEqual(array[0]);
   });
+
   it('should return initial copy of inital array', () => {
     const swappedArray = swapArrayElements(array, 5, 0);
     swappedArray.forEach((el, index) => expect(el).toEqual(array[index]));

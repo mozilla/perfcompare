@@ -51,6 +51,8 @@ const createRenderWithRouter = (store: Store) => {
     } = {},
     theme: ThemeConfig = null,
   ) {
+    /* Eslint is confused with our naming. */
+    /* eslint-disable-next-line testing-library/render-result-naming-convention */
     const render = createRender(store);
     return {
       ...render(
@@ -90,4 +92,11 @@ export {
   createRouterWrapper,
   createStoreProvider,
 };
+
+// This eslint rule wants that every requested package is specified in
+// package.json, which is usually a good thing. But in this case we actually
+// want the type as used by `fetch-mock-jest`. Ideally `fetch-mock-jest` should
+// reexport it but it doesn't. Instead let's disable the eslint rule for this
+// specific import.
+/* eslint-disable-next-line import/no-extraneous-dependencies */
 export { FetchMockSandbox } from 'fetch-mock';

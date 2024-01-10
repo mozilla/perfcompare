@@ -30,6 +30,7 @@ describe('Snackbar', () => {
       },
     );
   });
+
   it('should dismiss an alert when close button is clicked', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });

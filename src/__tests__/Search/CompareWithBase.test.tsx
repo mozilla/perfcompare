@@ -53,32 +53,26 @@ describe('Compare With Base', () => {
     const headerContent = screen.getByTestId(testExpandedID);
 
     //make sure it's in collapsed state first
-    expect(
-      screen
-        .getAllByTestId('base-state')[0]
-        .classList.contains('compare-card-container--expanded'),
-    ).toBe(true);
+    expect(screen.getAllByTestId('base-state')[0]).toHaveClass(
+      'compare-card-container--expanded',
+    );
 
     //make sure it's hidden when user clicks on title component
     await user.click(headerContent);
-    expect(
-      screen
-        .getAllByTestId('base-state')[0]
-        .classList.contains('compare-card-container--expanded'),
-    ).toBe(false);
+    expect(screen.getAllByTestId('base-state')[0]).not.toHaveClass(
+      'compare-card-container--expanded',
+    );
 
     await user.click(headerContent);
-    expect(
-      screen
-        .getAllByTestId('base-state')[0]
-        .classList.contains('compare-card-container--expanded'),
-    ).toBe(true);
+    expect(screen.getAllByTestId('base-state')[0]).toHaveClass(
+      'compare-card-container--expanded',
+    );
   });
 
   it('selects and displays new framework when clicked', async () => {
     renderComponent(false);
     const user = userEvent.setup({ delay: null });
-    expect(screen.queryByText(/talos/i)).toBeInTheDocument();
+    expect(screen.getByText(/talos/i)).toBeInTheDocument();
     expect(screen.queryByText(/build_metrics/i)).not.toBeInTheDocument();
     const frameworkDropdown = screen.getByRole('button', {
       name: 'Framework talos',
@@ -92,7 +86,7 @@ describe('Compare With Base', () => {
 
     await user.click(buildMetricsItem);
 
-    expect(screen.queryAllByText(/build_metrics/i)[0]).toBeInTheDocument();
+    expect(screen.getAllByText(/build_metrics/i)[0]).toBeInTheDocument();
   });
 
   it('should remove the checked revision once X button is clicked', async () => {
@@ -142,10 +136,8 @@ describe('Compare With Base', () => {
   it('hides x icon when mode is isEditable', async () => {
     renderComponent(true);
 
-    expect(
-      screen
-        .getAllByTestId('selected-rev-item')[0]
-        .classList.contains('icon-close-hidden'),
-    ).toBe(false);
+    expect(screen.getAllByTestId('selected-rev-item')[0]).not.toHaveClass(
+      'icon-close-hidden',
+    );
   });
 });

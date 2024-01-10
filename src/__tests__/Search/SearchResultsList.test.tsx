@@ -62,9 +62,7 @@ describe('SearchResultsList', () => {
     const fleshWound = await screen.findAllByText("it's just a flesh wound");
 
     await user.click(fleshWound[0]);
-    expect(
-      screen.getAllByTestId('checkbox-1')[0].classList.contains('Mui-checked'),
-    ).toBe(true);
+    expect(screen.getAllByTestId('checkbox-1')[0]).toHaveClass('Mui-checked');
   });
 
   it('should clear the checkbox when a checked result is clicked', async () => {
@@ -104,19 +102,17 @@ describe('SearchResultsList', () => {
     await user.click((await screen.findAllByTestId('checkbox-0'))[0]);
     await user.click(screen.getAllByTestId('checkbox-1')[0]);
 
-    expect(
-      screen.getAllByTestId('checkbox-0')[0].classList.contains('Mui-checked'),
-    ).toBe(true);
-    expect(
-      screen.getAllByTestId('checkbox-1')[0].classList.contains('Mui-checked'),
-    ).toBe(false);
+    expect(screen.getAllByTestId('checkbox-0')[0]).toHaveClass('Mui-checked');
+    expect(screen.getAllByTestId('checkbox-1')[0]).not.toHaveClass(
+      'Mui-checked',
+    );
 
     expect(screen.getByText('Maximum 1 revision(s).')).toBeInTheDocument();
 
     // Should allow unchecking revisions even after four have been selected
     await user.click(screen.getAllByTestId('checkbox-1')[0]);
-    expect(
-      screen.getAllByTestId('checkbox-1')[0].classList.contains('Mui-checked'),
-    ).toBe(false);
+    expect(screen.getAllByTestId('checkbox-1')[0]).not.toHaveClass(
+      'Mui-checked',
+    );
   });
 });
