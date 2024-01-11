@@ -1,16 +1,12 @@
 import { style } from 'typestyle';
 
 import { Spacing } from '../../styles';
-import type {
-  CompareResultsItem,
-  RevisionsHeader,
-  ThemeMode,
-} from '../../types/state';
+import type { CompareResultsItem, RevisionsHeader } from '../../types/state';
 import RevisionHeader from './RevisionHeader';
 import RevisionRow from './RevisionRow';
 
 function TableContent(props: TableContentProps) {
-  const { themeMode, results, header } = props;
+  const { results, header } = props;
 
   const styles = {
     tableBody: style({
@@ -23,7 +19,7 @@ function TableContent(props: TableContentProps) {
       <div>
         {results.length > 0 &&
           results.map((result, index) => (
-            <RevisionRow themeMode={themeMode} key={index} result={result} />
+            <RevisionRow key={index} result={result} />
           ))}
       </div>
     </div>
@@ -31,7 +27,6 @@ function TableContent(props: TableContentProps) {
 }
 
 interface TableContentProps {
-  themeMode: ThemeMode;
   results: CompareResultsItem[];
   header: RevisionsHeader;
 }

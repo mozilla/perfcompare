@@ -18,7 +18,6 @@ import {
 const protocolTheme = renderHook(() => useProtocolTheme()).result.current
   .protocolTheme;
 
-const themeMode = protocolTheme.palette.mode;
 function renderComponent(isEditable: boolean) {
   const { testData } = getTestData();
   const baseRevs = testData.slice(0, 1);
@@ -34,7 +33,6 @@ function renderComponent(isEditable: boolean) {
   renderWithRouter(
     <CompareWithBase
       isEditable={isEditable}
-      mode={themeMode}
       baseRevs={baseRevs}
       newRevs={newRevs}
       baseRepos={baseRepos}

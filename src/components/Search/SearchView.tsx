@@ -63,12 +63,11 @@ function SearchView(props: SearchViewProps) {
         </button>
       </SkipLink>
       <PerfCompareHeader
-        themeMode={themeMode}
         toggleColorMode={toggleColorMode}
         view={searchView as View}
       />
       <SearchViewInit />
-      <SearchContainer containerRef={containerRef} themeMode={themeMode} />
+      <SearchContainer containerRef={containerRef} />
     </div>
   );
 }

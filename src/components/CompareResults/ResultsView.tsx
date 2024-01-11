@@ -13,8 +13,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks/app';
 import useFetchCompareResults from '../../hooks/useFetchCompareResults';
 import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
 import { updateFramework } from '../../reducers/FrameworkSlice';
-import { SearchContainerStyles } from '../../styles';
-import { background } from '../../styles';
+import { SearchContainerStyles, background } from '../../styles';
 import { Repository, View } from '../../types/state';
 import { Framework } from '../../types/types';
 import CompareWithBase from '../Search/CompareWithBase';
@@ -124,7 +123,6 @@ function ResultsView(props: ResultsViewProps) {
       data-testid='beta-version-compare-results'
     >
       <PerfCompareHeader
-        themeMode={themeMode}
         toggleColorMode={toggleColorMode}
         view={compareView as View}
       />
@@ -137,7 +135,6 @@ function ResultsView(props: ResultsViewProps) {
         </Link>
 
         <CompareWithBase
-          mode={themeMode}
           isEditable={true}
           baseRevs={selectedRevisionsListBase}
           newRevs={selectedRevisionsListNew}
@@ -147,7 +144,7 @@ function ResultsView(props: ResultsViewProps) {
       </section>
       <Grid container alignItems='center' justifyContent='center'>
         <Grid item xs={12}>
-          <ResultsMain themeMode={themeMode} />
+          <ResultsMain />
         </Grid>
       </Grid>
     </div>
