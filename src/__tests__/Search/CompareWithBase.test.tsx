@@ -6,8 +6,14 @@ import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
 import getTestData from '../utils/fixtures';
-import { renderWithRouter, store } from '../utils/setupTests';
-import { act, screen, renderHook, FetchMockSandbox } from '../utils/test-utils';
+import { store } from '../utils/setupTests';
+import {
+  act,
+  screen,
+  renderHook,
+  renderWithRouter,
+  FetchMockSandbox,
+} from '../utils/test-utils';
 
 const protocolTheme = renderHook(() => useProtocolTheme()).result.current
   .protocolTheme;

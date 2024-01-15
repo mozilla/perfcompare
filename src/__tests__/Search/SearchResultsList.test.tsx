@@ -4,11 +4,11 @@ import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
 import getTestData from '../utils/fixtures';
-import { renderWithRouter } from '../utils/setupTests';
 import {
   screen,
   within,
   renderHook,
+  renderWithRouter,
   FetchMockSandbox,
 } from '../utils/test-utils';
 

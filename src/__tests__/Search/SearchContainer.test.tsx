@@ -1,10 +1,8 @@
 import React from 'react';
 
-import { renderHook } from '@testing-library/react';
-
 import SearchContainer from '../../components/Search/SearchContainer';
 import useProtocolTheme from '../../theme/protocolTheme';
-import { renderWithRouter } from '../utils/setupTests';
+import { renderWithRouter, renderHook } from '../utils/test-utils';
 
 const protocolTheme = renderHook(() => useProtocolTheme()).result.current
   .protocolTheme;

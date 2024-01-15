@@ -2,8 +2,7 @@ import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
 import App from '../components/App';
-import { render } from './utils/setupTests';
-import { screen, FetchMockSandbox } from './utils/test-utils';
+import { render, screen, FetchMockSandbox } from './utils/test-utils';
 
 describe('App', () => {
   beforeEach(() => {

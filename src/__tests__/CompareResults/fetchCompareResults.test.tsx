@@ -4,8 +4,12 @@ import ResultsView from '../../components/CompareResults/ResultsView';
 import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
 import getTestData from '../utils/fixtures';
-import { renderWithRouter } from '../utils/setupTests';
-import { screen, renderHook, FetchMockSandbox } from '../utils/test-utils';
+import {
+  screen,
+  renderWithRouter,
+  renderHook,
+  FetchMockSandbox,
+} from '../utils/test-utils';
 
 function renderWithRoute(component: ReactElement) {
   return renderWithRouter(component, {

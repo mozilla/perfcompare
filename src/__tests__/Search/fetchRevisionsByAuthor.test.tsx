@@ -4,8 +4,13 @@ import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
 import getTestData from '../utils/fixtures';
-import { renderWithRouter } from '../utils/setupTests';
-import { screen, act, renderHook, FetchMockSandbox } from '../utils/test-utils';
+import {
+  screen,
+  act,
+  renderHook,
+  renderWithRouter,
+  FetchMockSandbox,
+} from '../utils/test-utils';
 
 describe('SearchView/fetchRevisionsByAuthor', () => {
   const protocolTheme = renderHook(() => useProtocolTheme()).result.current

@@ -7,21 +7,15 @@ import 'regenerator-runtime/runtime';
 import '@testing-library/jest-dom';
 import { TextDecoder, TextEncoder } from 'util';
 
-import React from 'react';
-
 import { density1d } from 'fast-kde';
 // The import of fetchMock also installs jest matchers as a side effect.
+// See https://www.wheresrhys.co.uk/fetch-mock/ for more information about how
+// to use this mock.
 import fetchMock from 'fetch-mock-jest';
 import { Bubble, Line } from 'react-chartjs-2';
 
 import { createStore } from '../../common/store';
 import type { Store } from '../../common/store';
-import {
-  createRender,
-  createRenderWithRouter,
-  createStoreProvider,
-} from './test-utils';
-import type { Render, RenderWithRouter } from './test-utils';
 
 // Register TextDecoder and TextEncoder with the global scope.
 // These are now available globally in nodejs, but not when running with jsdom
@@ -39,10 +33,7 @@ if ('TextDecoder' in global) {
 global.TextDecoder = TextDecoder;
 global.TextEncoder = TextEncoder;
 
-let render: Render;
-let renderWithRouter: RenderWithRouter;
 let store: Store;
-let StoreProvider: React.FC<{ children: JSX.Element }>;
 
 jest.mock('react-chartjs-2', () => ({
   Bubble: jest.fn(),
@@ -80,12 +71,6 @@ beforeEach(function () {
 beforeEach(() => {
   jest.useFakeTimers();
   store = createStore();
-  /* The plugin is confused by our naming. */
-  /* eslint-disable-next-line testing-library/no-render-in-lifecycle */
-  render = createRender(store);
-  /* eslint-disable-next-line testing-library/no-render-in-lifecycle */
-  renderWithRouter = createRenderWithRouter(store);
-  StoreProvider = createStoreProvider(store);
 });
 
 afterEach(() => {
@@ -99,4 +84,4 @@ afterEach(() => {
   fetchMock.mockReset();
 });
 
-export { store, render, renderWithRouter, StoreProvider };
+export { store };
