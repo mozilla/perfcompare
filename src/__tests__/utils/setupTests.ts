@@ -9,6 +9,8 @@ import { TextDecoder, TextEncoder } from 'util';
 
 import { density1d } from 'fast-kde';
 // The import of fetchMock also installs jest matchers as a side effect.
+// See https://www.wheresrhys.co.uk/fetch-mock/ for more information about how
+// to use this mock.
 import fetchMock from 'fetch-mock-jest';
 import { Bubble, Line } from 'react-chartjs-2';
 

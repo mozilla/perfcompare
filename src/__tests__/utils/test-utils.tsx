@@ -60,5 +60,7 @@ export * from '@testing-library/react';
 // want the type as used by `fetch-mock-jest`. Ideally `fetch-mock-jest` should
 // reexport it but it doesn't. Instead let's disable the eslint rule for this
 // specific import.
+// See https://www.wheresrhys.co.uk/fetch-mock/ for more information about how
+// to use this package.
 /* eslint-disable-next-line import/no-extraneous-dependencies */
 export { FetchMockSandbox } from 'fetch-mock';
