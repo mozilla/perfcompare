@@ -168,37 +168,46 @@ function RevisionRow(props: RevisionRowProps) {
   };
   return (
     <>
-      <div className={`revisionRow ${styles.revisionRow} ${styles.typography}`}>
-        <div className='platform cell'>
+      <div
+        className={`revisionRow ${styles.revisionRow} ${styles.typography}`}
+        role='row'
+      >
+        <div className='platform cell' role='cell'>
           <div className='platform-container'>
             {platformInfo.icon}
             <span>{platformInfo.shortName}</span>
           </div>
         </div>
-        <div className='base-value cell'>
+        <div className='base-value cell' role='cell'>
           {' '}
           {baseMedianValue} {baseUnit}{' '}
         </div>
-        <div className='comparison-sign cell'>
+        <div className='comparison-sign cell' role='cell'>
           {determineSign(baseMedianValue, newMedianValue)}
         </div>
-        <div className='new-value cell'>
+        <div className='new-value cell' role='cell'>
           {' '}
           {newMedianValue} {newUnit}
         </div>
-        <div className='status cell'>
+        <div className='status cell' role='cell'>
           {' '}
           {determineStatus(improvement, regression)}{' '}
         </div>
-        <div className='delta cell'> {deltaPercent} % </div>
-        <div className='confidence cell'> {confidenceText} </div>
-        <div className='total-runs cell'>
+        <div className='delta cell' role='cell'>
+          {' '}
+          {deltaPercent} %{' '}
+        </div>
+        <div className='confidence cell' role='cell'>
+          {' '}
+          {confidenceText}{' '}
+        </div>
+        <div className='total-runs cell' role='cell'>
           <span>B:</span>
           <strong> {baseRuns.length} </strong> <span> N: </span>
           <strong> {newRuns.length} </strong>
         </div>
         <div className='row-buttons cell'>
-          <div className='graph'>
+          <div className='graph' role='cell'>
             <div className='graph-link-button-container'>
               <IconButton aria-label='graph link' size='small'>
                 <Link href={graphLink} target='_blank'>
@@ -208,14 +217,14 @@ function RevisionRow(props: RevisionRowProps) {
             </div>
           </div>
 
-          <div className='download'>
+          <div className='download' role='cell'>
             <div className='download-button-container'>
               <IconButton aria-label='download' size='small'>
                 <FileDownloadOutlinedIcon />
               </IconButton>
             </div>
           </div>
-          <div className='retrigger-button'>
+          <div className='retrigger-button' role='cell'>
             <div className='runs-button-container'>
               <IconButton aria-label='retrigger button' size='small'>
                 <RefreshOutlinedIcon />
@@ -223,7 +232,7 @@ function RevisionRow(props: RevisionRowProps) {
             </div>
           </div>
         </div>
-        <div className='expand-button cell'>
+        <div className='expand-button cell' role='cell'>
           <div
             className='expand-button-container'
             onClick={toggleIsExpanded}
@@ -241,6 +250,7 @@ function RevisionRow(props: RevisionRowProps) {
           expanded ? 'expanded' : 'default'
         } ${stylesCard.container} `}
         data-testid='expanded-row-content'
+        role='row'
       >
         <RevisionRowExpandable themeMode={themeMode} result={result} />
       </div>

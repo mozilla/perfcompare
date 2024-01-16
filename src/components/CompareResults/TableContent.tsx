@@ -18,7 +18,7 @@ function TableContent(props: TableContentProps) {
     }),
   };
   return (
-    <div className={styles.tableBody}>
+    <div className={styles.tableBody} role='rowgroup'>
       <RevisionHeader header={header} />
       <div>
         {results.length > 0 &&
