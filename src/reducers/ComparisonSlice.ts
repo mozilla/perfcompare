@@ -167,7 +167,7 @@ export const selectProcessedResults = createSelector(
 );
 
 export const selectNewRevisions = createSelector(
-  (state: RootState) => state.selectedRevisions.new,
+  (state: RootState) => state.selectedRevisions.newCommittedRevisions,
   (newSelectedRevisions) => {
     return newSelectedRevisions.map((item) => item.revision);
   },

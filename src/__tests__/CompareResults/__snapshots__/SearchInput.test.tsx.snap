@@ -173,7 +173,7 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                   id="base-search-container"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fl6uoag  search-base-dropdown css-1awobkc-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fl6uoag small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
                     id="base_search-dropdown"
                   >
                     <div>
@@ -181,14 +181,14 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                         class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
                       >
                         <div
-                          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                           data-testid="dropdown-select-base"
                         >
                           <div
                             aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-labelledby="select-repository-label"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1co7s6p-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                             role="button"
                             tabindex="0"
                           >
@@ -216,7 +216,7 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_fctyy2s   css-17gmabg-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_fctyy2s big  css-17gmabg-MuiGrid-root"
                     id="base_search-input"
                   >
                     <div
@@ -226,10 +226,10 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                         class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
                       >
                         <div
-                          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
+                          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
                         >
                           <div
-                            class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-yzzuft-MuiInputAdornment-root"
+                            class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-yzzuft-MuiInputAdornment-root"
                           >
                             <svg
                               aria-hidden="true"
@@ -245,7 +245,7 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                           </div>
                           <input
                             aria-invalid="false"
-                            class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
+                            class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-jrmsot-MuiInputBase-input-MuiOutlinedInput-input"
                             id="search-base-input"
                             name="baseSearch"
                             placeholder="Search base by ID number or author email"
@@ -269,18 +269,6 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div
-                  class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
-                >
-                  <div
-                    class="box_f65ycfw base-box MuiBox-root css-0"
-                    data-testid="selected-revs-search"
-                  >
-                    <ul
-                      class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
-                    />
                   </div>
                 </div>
               </div>
@@ -334,7 +322,7 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                   id="new-search-container"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fl6uoag  search-base-dropdown css-1awobkc-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fl6uoag small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
                     id="new_search-dropdown"
                   >
                     <div>
@@ -342,14 +330,14 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                         class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
                       >
                         <div
-                          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                           data-testid="dropdown-select-new"
                         >
                           <div
                             aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-labelledby="select-repository-label"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1co7s6p-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                             role="button"
                             tabindex="0"
                           >
@@ -377,7 +365,7 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_fctyy2s   css-17gmabg-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_fctyy2s big  css-17gmabg-MuiGrid-root"
                     id="new_search-input"
                   >
                     <div
@@ -387,10 +375,10 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                         class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
                       >
                         <div
-                          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
+                          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
                         >
                           <div
-                            class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-yzzuft-MuiInputAdornment-root"
+                            class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-yzzuft-MuiInputAdornment-root"
                           >
                             <svg
                               aria-hidden="true"
@@ -406,7 +394,7 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                           </div>
                           <input
                             aria-invalid="false"
-                            class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
+                            class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-jrmsot-MuiInputBase-input-MuiOutlinedInput-input"
                             id="search-new-input"
                             name="newSearch"
                             placeholder="Search revision by ID number or author email"
@@ -430,18 +418,6 @@ exports[`Search by title/test name Should match snapshot 1`] = `
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div
-                  class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
-                >
-                  <div
-                    class="box_f65ycfw new-box MuiBox-root css-0"
-                    data-testid="selected-revs-search"
-                  >
-                    <ul
-                      class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
-                    />
                   </div>
                 </div>
               </div>

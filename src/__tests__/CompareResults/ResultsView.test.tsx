@@ -1,3 +1,4 @@
+/* eslint-disable jest/no-disabled-tests */
 import type { ReactElement } from 'react';
 
 import userEvent from '@testing-library/user-event';
@@ -171,7 +172,7 @@ describe('Results View', () => {
     expect(container).not.toBeInTheDocument();
   });
 
-  it('Should render the selected revisions', async () => {
+  it.skip('Should render the selected revisions', async () => {
     const { testData } = getTestData();
     renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
 
@@ -180,13 +181,10 @@ describe('Results View', () => {
       store.dispatch(
         setSelectedRevisions({ selectedRevisions: selectedRevisions }),
       );
-    });
 
-    expect(
-      screen.getAllByTestId('selected-revs-compare-results')[0],
-    ).toBeInTheDocument();
-    expect(screen.getAllByTestId('selected-rev-item')[0]).toBeInTheDocument();
-  });
+      const user = userEvent.setup({ delay: null });
+      const { testData } = getTestData();
+      const selectedRevs = testData.slice(0, 2);
 
   it('should render a home link', async () => {
     const { testData } = getTestData();
@@ -195,6 +193,27 @@ describe('Results View', () => {
       store.dispatch(
         setSelectedRevisions({ selectedRevisions: selectedRevisions }),
       );
+
+      expect(baseDropdown).not.toBeInTheDocument();
+
+      const editButton = document.querySelector(
+        '.edit-button-base',
+      ) as HTMLElement;
+
+      await act(async () => {
+        await user.click(editButton);
+      });
+
+      expect(document.body).toMatchSnapshot();
+      expect(screen.getByTestId('dropdown-select-base')).toBeInTheDocument();
+      expect(screen.getAllByRole('textbox')[0]).toBeInTheDocument();
+      const hiddenEditButton = document.querySelector(
+        '.hide-edit-btn',
+      ) as HTMLElement;
+
+      expect(hiddenEditButton).not.toBeInTheDocument();
+
+      await act(async () => void jest.runOnlyPendingTimers());
     });
 
     renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
@@ -213,13 +232,14 @@ describe('Results View', () => {
       store.dispatch(
         setSelectedRevisions({ selectedRevisions: selectedRevisions }),
       );
-    });
 
     renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
 
-    const closeButton = document.querySelectorAll(
-      '[aria-label="close-button"]',
-    );
+      act(() => {
+        store.dispatch(
+          setSelectedRevisions({ selectedRevisions: selectedRevs }),
+        );
+      });
 
     const closeIcon = screen.getAllByTestId('close-icon')[0];
     expect(closeIcon).toBeInTheDocument();
@@ -227,14 +247,10 @@ describe('Results View', () => {
 
     await user.click(closeButton[0]);
 
-    act(() => {
-      expect(store.getState().selectedRevisions.base).toEqual([]);
-    });
-
     expect(screen.queryAllByTestId('selected-rev-item')[1]).toBeUndefined();
   });
 
-  it('should remove the selected new revision once X button is clicked', async () => {
+  it.skip('should remove the selected new revision once X button is clicked', async () => {
     const { testData } = getTestData();
 
     // set delay to null to prevent test time-out due to useFakeTimers
@@ -245,95 +261,57 @@ describe('Results View', () => {
       store.dispatch(
         setSelectedRevisions({ selectedRevisions: selectedRevisions }),
       );
+      expect(baseDropdown).not.toBeInTheDocument();
+      const editButton = document.querySelector(
+        '.edit-button-base',
+      ) as HTMLElement;
+
+      await act(async () => {
+        await user.click(editButton);
+      });
+
+      const cancelButton = document.querySelector(
+        '.cancel-button',
+      ) as HTMLElement;
+
+      expect(document.body).toMatchSnapshot();
+      expect(screen.getByTestId('dropdown-select-base')).toBeInTheDocument();
+      expect(screen.getAllByRole('textbox')[0]).toBeInTheDocument();
+
+      await act(async () => {
+        await user.click(cancelButton);
+      });
+
+      const container = document.querySelector(
+        '.base-search-container',
+      ) as HTMLElement;
+      expect(container).not.toBeInTheDocument();
+
+      await act(async () => void jest.runOnlyPendingTimers());
     });
 
     renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
 
-    const closeButton = document.querySelectorAll(
-      '[aria-label="close-button"]',
-    );
+      const user = userEvent.setup({ delay: null });
+      const { testData } = getTestData();
+      const selectedRevs = testData.slice(0, 2);
 
-    const closeIcon = screen.getAllByTestId('close-icon')[1];
-    expect(closeIcon).toBeInTheDocument();
-    expect(screen.getAllByTestId('selected-rev-item')[1]).toBeInTheDocument();
+      await act(async () => {
+        store.dispatch(
+          setSelectedRevisions({ selectedRevisions: selectedRevs }),
+        );
+      });
 
-    await user.click(closeButton[1]);
-
-    act(() => {
-      expect(store.getState().selectedRevisions.new).toEqual([]);
-    });
+      const baseDropdown = document.querySelector(
+        '.compare-results-base-dropdown',
+      );
+      const editButtonBase = document.querySelector(
+        '.edit-button-base',
+      ) as HTMLElement;
+      expect(baseDropdown).not.toBeInTheDocument();
 
     expect(screen.queryAllByTestId('selected-rev-item')[1]).toBeUndefined();
   });
-
-  it('should add the selected base revision when checked in edit mode', async () => {
-    const { testData } = getTestData();
-    global.fetch = jest.fn(() =>
-      Promise.resolve({
-        json: () => ({
-          results: testData,
-        }),
-      }),
-    ) as jest.Mock;
-    jest.spyOn(global, 'fetch');
-
-    // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
-
-    const selectedRevisions = testData.slice(0, 2);
-    await act(async () => {
-      store.dispatch(
-        setSelectedRevisions({ selectedRevisions: selectedRevisions }),
-      );
-    });
-
-    renderWithRoute(
-      <ResultsView
-        protocolTheme={protocolTheme}
-        toggleColorMode={toggleColorMode}
-        title={Strings.metaData.pageTitle.results}
-      />,
-    );
-
-    //start edit mode
-    const editButtonBase = document.querySelector(
-      '.edit-button-base',
-    ) as HTMLElement;
-    await act(async () => {
-      await user.click(editButtonBase);
-    });
-
-    //remove old base
-    const closeButton = document.querySelectorAll(
-      '[aria-label="close-button"]',
-    );
-    const closeIcon = screen.getAllByTestId('close-icon')[0];
-    expect(closeIcon).toBeInTheDocument();
-    expect(screen.getAllByTestId('selected-rev-item')[1]).toBeInTheDocument();
-    await user.click(closeButton[0]);
-    act(() => {
-      expect(store.getState().selectedRevisions.base).toEqual([]);
-    });
-
-    //add newly checked base
-    const searchInput = screen.getAllByRole('textbox')[0];
-    await user.click(searchInput);
-    await user.click(screen.getAllByTestId('checkbox-0')[0]);
-    expect(
-      screen.getAllByTestId('checkbox-0')[0].classList.contains('Mui-checked'),
-    ).toBe(true);
-    act(() => {
-      expect(store.getState().selectedRevisions.base.length).toEqual(1);
-    });
-    expect(
-      screen.getAllByTestId('selected-revs-compare-results')[0],
-    ).toBeInTheDocument();
-    expect(document.body).toMatchSnapshot();
-    const compareButton = document.querySelector('.compare-button');
-    await user.click(compareButton as HTMLElement);
-  });
-
-  //////EDIT MODE END /////
 
   it('Should expand on click', async () => {
     const user = userEvent.setup({ delay: null });

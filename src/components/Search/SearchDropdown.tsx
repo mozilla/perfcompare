@@ -17,14 +17,15 @@ import { fetchRecentRevisions } from '../../thunks/searchThunk';
 import { InputType, View, Repository } from '../../types/state';
 
 interface SearchDropdownProps {
-  view: View;
+  isEditable?: boolean;
   selectLabel: string;
   tooltipText: string;
   searchType: InputType;
 }
 
+//handle in progress repos here if necessary
 function SearchDropdown({
-  view,
+  isEditable,
   selectLabel,
   searchType,
 }: SearchDropdownProps) {

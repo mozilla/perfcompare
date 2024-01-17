@@ -1,7 +1,8 @@
+import { Dispatch, SetStateAction } from 'react';
+
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 
-import { useAppSelector } from '../../hooks/app';
 import { SelectListStyles } from '../../styles';
 import { InputType, View } from '../../types/state';
 import SearchResultsListItem from './SearchResultsListItem';
@@ -25,15 +26,16 @@ function SearchResultsList(props: SearchResultsListProps) {
       alignItems='flex-end'
       data-testid='list-mode'
     >
-      <List dense={view == 'compare-results'} sx={{ paddingTop: '0' }}>
+      <List dense={isEditable == true} sx={{ paddingTop: '0' }}>
         {searchResults.map((item, index) => (
           <SearchResultsListItem
             key={item.id}
             index={index}
             item={item}
-            view={view}
-            searchType={searchType}
             isEditable={isEditable}
+            isBase={isBase}
+            setInProgress={setInProgress}
+            inProgress={inProgress}
           />
         ))}
       </List>

@@ -14,6 +14,7 @@ interface SearchInputProps {
   inputPlaceholder: string;
   view: View;
   searchType: InputType;
+  isEditable?: boolean;
 }
 
 function SearchInput({
@@ -26,8 +27,7 @@ function SearchInput({
   const searchState = useAppSelector((state) => state.search[searchType]);
   const mode = useAppSelector((state) => state.theme.mode);
   const { inputError, inputHelperText, repository } = searchState;
-
-  const size = view == 'compare-results' ? 'small' : undefined;
+  const size = isEditable === true ? 'small' : undefined;
 
   const styles = {
     container: style({

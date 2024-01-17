@@ -19,7 +19,8 @@ export default function CompareButton() {
   };
 
   const handleAddSelectedRevisions = () => {
-    addSelectedRevisions(isEditable);
+    //update to set stage to committed in isEditable
+    addSelectedRevisions();
   };
 
   return (

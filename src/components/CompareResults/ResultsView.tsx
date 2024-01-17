@@ -10,8 +10,9 @@ import { style } from 'typestyle';
 
 import { compareView, frameworkMap, repoMap } from '../../common/constants';
 import { useAppDispatch, useAppSelector } from '../../hooks/app';
+// import useFetchCompareResults from '../../hooks/useFetchCompareResults';
+// import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
 import useFetchCompareResults from '../../hooks/useFetchCompareResults';
-import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
 import { updateFramework } from '../../reducers/FrameworkSlice';
 import { SearchContainerStyles, background } from '../../styles';
 import { Repository, View } from '../../types/state';
@@ -31,10 +32,10 @@ function ResultsView(props: ResultsViewProps) {
     (state) => state.selectedRevisions.revisions,
   );
   const selectedRevisionsListBase = useAppSelector(
-    (state) => state.selectedRevisions.base,
+    (state) => state.selectedRevisions.baseCommittedRevisions,
   );
   const selectedRevisionsListNew = useAppSelector(
-    (state) => state.selectedRevisions.new,
+    (state) => state.selectedRevisions.newCommittedRevisions,
   );
 
   const currentFramework = useAppSelector(
@@ -57,10 +58,14 @@ function ResultsView(props: ResultsViewProps) {
   };
 
   const [prevRevisions, setPreviousRevisions] = useState(selectedRevisions);
-  if (selectedRevisions !== prevRevisions) {
-    updateCompareResults(selectedRevisions, currentFramework);
-    setPreviousRevisions(selectedRevisions);
-  }
+
+  useEffect(() => {
+    if (selectedRevisions !== prevRevisions) {
+      updateCompareResults(selectedRevisions, currentFramework);
+      setPreviousRevisions(selectedRevisions);
+    }
+  }, [selectedRevisions]);
+
   //end temporary edit fix /////
 
   // The "??" operations below are so that Typescript doesn't wonder about the
@@ -74,7 +79,7 @@ function ResultsView(props: ResultsViewProps) {
 
   const { dispatchFetchCompareResults, dispatchFakeCompareResults } =
     useFetchCompareResults();
-  const { searchRecentRevisions } = useHandleChangeSearch();
+  // const { searchRecentRevisions } = useHandleChangeSearch();
 
   const { title } = props;
   const themeMode = useAppSelector((state) => state.theme.mode);
@@ -116,18 +121,18 @@ function ResultsView(props: ResultsViewProps) {
       /*
        *On component mount, use the repos and revs in hash to search for the base and new *revisions. Store the results in state via the SelectedRevisionsSlice: see extra *reducer, fetchRevisionsByID. Now can always display the selected revisions despite *page refresh or copying and pasting url
        */
-      revsArray.forEach((rev, index) => {
-        void searchRecentRevisions(
-          reposArray[index] as Repository['name'],
-          rev,
-          'base',
-        );
-        void searchRecentRevisions(
-          reposArray[index] as Repository['name'],
-          rev,
-          'new',
-        );
-      });
+      // revsArray.forEach((rev, index) => {
+      //   void searchRecentRevisions(
+      //     reposArray[index] as Repository['name'],
+      //     rev,
+      //     'base',
+      //   );
+      //   void searchRecentRevisions(
+      //     reposArray[index] as Repository['name'],
+      //     rev,
+      //     'new',
+      //   );
+      // });
     }
   }, [repos, revs, framework]);
 

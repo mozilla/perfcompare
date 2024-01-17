@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { Fragment, Dispatch, SetStateAction } from 'react';
 
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
@@ -11,18 +11,26 @@ import Typography from '@mui/material/Typography';
 import dayjs from 'dayjs';
 import { style } from 'typestyle';
 
+import { repoMap } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import useCheckRevision from '../../hooks/useCheckRevision';
 import { Spacing } from '../../styles';
 import type { RevisionsList } from '../../types/state';
-import { InputType } from '../../types/state';
+import { Repository } from '../../types/state';
 import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
+
+interface InProgressState {
+  revs: RevisionsList[];
+  repos: Repository['name'][];
+  isInProgress: boolean;
+}
 interface SearchResultsListItemProps {
   index: number;
   item: RevisionsList;
-  view: 'search' | 'compare-results';
-  searchType: InputType;
   isEditable: boolean;
+  isBase: boolean;
+  inProgress: InProgressState;
+  setInProgress: Dispatch<SetStateAction<InProgressState>>;
 }
 
 const styles = {
@@ -60,26 +68,51 @@ const styles = {
 function SearchResultsListItem({
   index,
   item,
-  searchType,
   isEditable,
+  isBase,
+  inProgress,
+  setInProgress,
 }: SearchResultsListItemProps) {
+  const searchType = isBase ? 'base' : 'new';
+  const { handleToggle } = useCheckRevision(isBase, isEditable);
+
   const isChecked: boolean = useAppSelector((state) =>
     state.search[searchType].checkedRevisions.includes(item),
   );
-
-  const { handleToggle } = useCheckRevision(searchType);
   const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);
-  const revisionsCount = searchType === 'base' ? 1 : 3;
+  const revisionsCount = isBase === true ? 1 : 3;
   const itemDate = new Date(item.push_timestamp * 1000);
+
+  //search results list item handles the checked state of in progress revs
+  //and sets the changes to the in progress state
+  const isInProgressChecked: boolean = inProgress.revs
+    .map((rev) => rev.id)
+    .includes(item.id);
+
+  const isCheckedState = isEditable ? isInProgressChecked : isChecked;
+
+  const handleToggleAction = () => {
+    const toggleArray = handleToggle(item, revisionsCount, inProgress.revs);
+    if (isEditable) {
+      const repos = toggleArray.map(
+        (rev) => repoMap[rev.repository_id] ?? 'try',
+      );
+      setInProgress({
+        revs: toggleArray || [],
+        repos,
+        isInProgress: true,
+      });
+    }
+  };
 
   return (
     <>
       <ListItemButton
         key={item.id}
-        onClick={() => handleToggle(item, revisionsCount, isEditable)}
+        onClick={handleToggleAction}
         className={`${styles.listItemButton} ${
-          isChecked ? 'item-selected' : ''
+          isCheckedState ? 'item-selected' : ''
         }`}
       >
         <ListItem
@@ -93,13 +126,13 @@ function SearchResultsListItem({
               tabIndex={-1}
               disableRipple
               data-testid={`checkbox-${index}`}
-              checked={isChecked}
+              checked={isCheckedState}
             />
           </ListItemIcon>
           <ListItemText
             className='search-revision-item-text'
             primary={
-              <React.Fragment>
+              <Fragment>
                 <Typography
                   sx={{ display: 'inline' }}
                   component='span'
@@ -129,7 +162,7 @@ function SearchResultsListItem({
                     {String(dayjs(itemDate).format('MM/DD/YY HH:mm'))}
                   </div>
                 </div>
-              </React.Fragment>
+              </Fragment>
             }
             secondary={`${commitMessage} `}
             primaryTypographyProps={{ noWrap: true }}

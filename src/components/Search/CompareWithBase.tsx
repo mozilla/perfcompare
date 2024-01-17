@@ -1,14 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import { style } from 'typestyle';
 
-import { useAppSelector } from '../../hooks/app';
+import { useAppDispatch, useAppSelector } from '../../hooks/app';
+import { clearCheckedRevisionforType } from '../../reducers/SearchSlice';
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles, SearchStyles } from '../../styles';
 import type { RevisionsList, Repository } from '../../types/state';
 import CompareButton from './CompareButton';
+import CompareBaseContext from './CompareWithBaseContext';
 import FrameworkDropdown from './FrameworkDropdown';
 import SearchComponent from './SearchComponent';
 
@@ -22,6 +24,17 @@ interface CompareWithBaseProps {
   newRevs: RevisionsList[];
   baseRepos: Repository['name'][];
   newRepos: Repository['name'][];
+}
+
+interface RevisionsState {
+  revs: RevisionsList[];
+  repos: Repository['name'][];
+}
+
+interface InProgressState {
+  revs: RevisionsList[];
+  repos: Repository['name'][];
+  isInProgress: boolean;
 }
 
 function CompareWithBase({
@@ -39,24 +52,25 @@ function CompareWithBase({
   const search = useAppSelector((state) => state.search);
   const baseRepository = search.base.repository;
   const newRepository = search.new.repository;
-  const baseSearchProps = {
-    ...stringsBase,
-    revisions: displayedRevisions.baseRevs,
-    repositories: displayedRepositories.baseRepos,
-    searchType: 'base' as InputType,
-  };
-  const newSearchProps = {
-    ...stringsNew,
-    revisions: displayedRevisions.newRevs,
-    repositories: displayedRepositories.newRepos,
-    searchType: 'new' as InputType,
-  };
+  const searchResultsBase = search.base.searchResults;
+  const searchResultsNew = search.new.searchResults;
+
   const isWarning =
     (baseRepository === 'try' && newRepository !== 'try') ||
     (baseRepository !== 'try' && newRepository === 'try');
 
-  const toggleIsExpanded = () => {
-    setExpanded(!expanded);
+  const compareBaseValues = {
+    mode,
+    isEditable,
+    isWarning,
+    baseStaging,
+    newStaging,
+    baseInProgress,
+    newInProgress,
+    setInProgressBase,
+    setInProgressNew,
+    setStagingBase,
+    setStagingNew,
   };
 
   const bottomStyles = {
@@ -65,6 +79,86 @@ function CompareWithBase({
       justifyContent: 'space-between',
       alignItems: 'flex-end',
     }),
+  };
+
+  //create search base props
+  const searchBaseProps = {
+    mode,
+    isEditable,
+    isWarning,
+    staging: baseStaging,
+    inProgress: baseInProgress,
+    isBase: true,
+    searchResults: searchResultsBase,
+    setInProgress: setInProgressBase,
+    setStaging: setStagingBase,
+  };
+
+  //create search new props
+  const searchNewProps = {
+    mode,
+    isEditable,
+    isWarning,
+    staging: newStaging,
+    inProgress: newInProgress,
+    isBase: false,
+    searchResults: searchResultsNew,
+    setInProgress: setInProgressNew,
+    setStaging: setStagingNew,
+  };
+  const revRepos = {
+    revs: [],
+    repos: [],
+  };
+
+  useEffect(() => {
+    setStagingBase({
+      revs: baseRevs,
+      repos: baseRepos,
+    });
+    setStagingNew({
+      revs: newRevs,
+      repos: newRepos,
+    });
+  }, [baseRevs, newRevs]);
+
+  const toggleIsExpanded = () => {
+    setExpanded(!expanded);
+  };
+
+  const handleCancelBase = () => {
+    setInProgressBase({ ...revRepos, isInProgress: false });
+    dispatch(clearCheckedRevisionforType({ searchType: 'base' }));
+  };
+
+  const handleCancelNew = () => {
+    setInProgressNew({ ...revRepos, isInProgress: false });
+
+    dispatch(clearCheckedRevisionforType({ searchType: 'new' }));
+  };
+
+  const handleSaveBase = () => {
+    setStagingBase(baseInProgress);
+    handleCancelBase();
+  };
+
+  const handleSaveNew = () => {
+    setStagingNew(newInProgress);
+    handleCancelNew();
+  };
+
+  const handleEditBase = () => {
+    setInProgressBase({
+      ...baseStaging,
+      isInProgress: true,
+    });
+  };
+
+  const handleEditNew = () => {
+    setInProgressNew({
+      ...newStaging,
+      isInProgress: true,
+    });
   };
 
   return (
