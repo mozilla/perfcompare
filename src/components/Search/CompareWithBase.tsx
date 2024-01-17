@@ -1,15 +1,17 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import { style } from 'typestyle';
 
-import { useAppSelector } from '../../hooks/app';
+import { useAppDispatch, useAppSelector } from '../../hooks/app';
+import { clearCheckedRevisionforType } from '../../reducers/SearchSlice';
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles } from '../../styles';
 import { SearchStyles } from '../../styles';
 import type { ThemeMode, RevisionsList, Repository } from '../../types/state';
 import CompareButton from './CompareButton';
+import CompareBaseContext from './CompareWithBaseContext';
 import FrameworkDropdown from './FrameworkDropdown';
 import SearchComponent from './SearchComponent';
 
@@ -26,6 +28,17 @@ interface CompareWithBaseProps {
   newRepos: Repository['name'][];
 }
 
+interface RevisionsState {
+  revs: RevisionsList[];
+  repos: Repository['name'][];
+}
+
+interface InProgressState {
+  revs: RevisionsList[];
+  repos: Repository['name'][];
+  isInProgress: boolean;
+}
+
 function CompareWithBase({
   mode,
   isEditable,
@@ -36,29 +49,58 @@ function CompareWithBase({
 }: CompareWithBaseProps) {
   const [expanded, setExpanded] = useState(true);
 
+  //the "committed" base and new revisions initialize the staging state
+  const [baseStaging, setStagingBase] = useState<RevisionsState>({
+    revs: baseRevs,
+    repos: baseRepos,
+  });
+
+  const [newStaging, setStagingNew] = useState<RevisionsState>({
+    revs: newRevs,
+    repos: newRepos,
+  });
+
+  //the edit button will initialize the "in progress" state
+  //and copy "stage" to "in progress" state
+  const [baseInProgress, setInProgressBase] = useState<InProgressState>({
+    revs: [],
+    repos: [],
+    isInProgress: false,
+  });
+
+  const [newInProgress, setInProgressNew] = useState<InProgressState>({
+    revs: [],
+    repos: [],
+    isInProgress: false,
+  });
+
+  //the search results will handle changes to in progress state
+
+  const dispatch = useAppDispatch();
   const styles = CompareCardsStyles(mode);
   const dropDownStyles = SearchStyles(mode);
   const search = useAppSelector((state) => state.search);
   const baseRepository = search.base.repository;
   const newRepository = search.new.repository;
-  const baseSearchProps = {
-    ...stringsBase,
-    revisions: displayedRevisions.baseRevs,
-    repositories: displayedRepositories.baseRepos,
-    searchType: 'base' as InputType,
-  };
-  const newSearchProps = {
-    ...stringsNew,
-    revisions: displayedRevisions.newRevs,
-    repositories: displayedRepositories.newRepos,
-    searchType: 'new' as InputType,
-  };
+  const searchResultsBase = search.base.searchResults;
+  const searchResultsNew = search.new.searchResults;
+
   const isWarning =
     (baseRepository === 'try' && newRepository !== 'try') ||
     (baseRepository !== 'try' && newRepository === 'try');
 
-  const toggleIsExpanded = () => {
-    setExpanded(!expanded);
+  const compareBaseValues = {
+    mode,
+    isEditable,
+    isWarning,
+    baseStaging,
+    newStaging,
+    baseInProgress,
+    newInProgress,
+    setInProgressBase,
+    setInProgressNew,
+    setStagingBase,
+    setStagingNew,
   };
 
   const bottomStyles = {
@@ -67,6 +109,86 @@ function CompareWithBase({
       justifyContent: 'space-between',
       alignItems: 'flex-end',
     }),
+  };
+
+  //create search base props
+  const searchBaseProps = {
+    mode,
+    isEditable,
+    isWarning,
+    staging: baseStaging,
+    inProgress: baseInProgress,
+    isBase: true,
+    searchResults: searchResultsBase,
+    setInProgress: setInProgressBase,
+    setStaging: setStagingBase,
+  };
+
+  //create search new props
+  const searchNewProps = {
+    mode,
+    isEditable,
+    isWarning,
+    staging: newStaging,
+    inProgress: newInProgress,
+    isBase: false,
+    searchResults: searchResultsNew,
+    setInProgress: setInProgressNew,
+    setStaging: setStagingNew,
+  };
+  const revRepos = {
+    revs: [],
+    repos: [],
+  };
+
+  useEffect(() => {
+    setStagingBase({
+      revs: baseRevs,
+      repos: baseRepos,
+    });
+    setStagingNew({
+      revs: newRevs,
+      repos: newRepos,
+    });
+  }, [baseRevs, newRevs]);
+
+  const toggleIsExpanded = () => {
+    setExpanded(!expanded);
+  };
+
+  const handleCancelBase = () => {
+    setInProgressBase({ ...revRepos, isInProgress: false });
+    dispatch(clearCheckedRevisionforType({ searchType: 'base' }));
+  };
+
+  const handleCancelNew = () => {
+    setInProgressNew({ ...revRepos, isInProgress: false });
+
+    dispatch(clearCheckedRevisionforType({ searchType: 'new' }));
+  };
+
+  const handleSaveBase = () => {
+    setStagingBase(baseInProgress);
+    handleCancelBase();
+  };
+
+  const handleSaveNew = () => {
+    setStagingNew(newInProgress);
+    handleCancelNew();
+  };
+
+  const handleEditBase = () => {
+    setInProgressBase({
+      ...baseStaging,
+      isInProgress: true,
+    });
+  };
+
+  const handleEditNew = () => {
+    setInProgressNew({
+      ...newStaging,
+      isInProgress: true,
+    });
   };
 
   return (
@@ -94,33 +216,32 @@ function CompareWithBase({
         } ${styles.container} `}
       >
         <Divider className='divider' />
-        <div className='form-wrapper'>
-          <SearchComponent
-            isEditable={isEditable}
-            isWarning={isWarning}
-            mode={mode}
-            revisions={baseRevs}
-            repositories={baseRepos}
-            {...stringsBase}
-          />
-          <SearchComponent
-            searchType='new'
-            isEditable={isEditable}
-            isWarning={isWarning}
-            mode={mode}
-            revisions={newRevs}
-            repositories={newRepos}
-            {...stringsNew}
-          />
-          <Grid
-            item
-            xs={2}
-            className={`${dropDownStyles.dropDown} ${bottomStyles.container}`}
-          >
-            <FrameworkDropdown mode={mode} />
-            <CompareButton mode={mode} isEditable={isEditable} />
-          </Grid>
-        </div>
+        <CompareBaseContext.Provider value={compareBaseValues}>
+          <div className='form-wrapper'>
+            <SearchComponent
+              {...stringsBase}
+              {...searchBaseProps}
+              handleSave={handleSaveBase}
+              handleCancel={handleCancelBase}
+              handleEdit={handleEditBase}
+            />
+            <SearchComponent
+              {...stringsNew}
+              {...searchNewProps}
+              handleSave={handleSaveNew}
+              handleCancel={handleCancelNew}
+              handleEdit={handleEditNew}
+            />
+            <Grid
+              item
+              xs={2}
+              className={`${dropDownStyles.dropDown} ${bottomStyles.container}`}
+            >
+              <FrameworkDropdown mode={mode} />
+              <CompareButton mode={mode} />
+            </Grid>
+          </div>
+        </CompareBaseContext.Provider>
       </div>
     </Grid>
   );

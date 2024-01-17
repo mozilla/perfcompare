@@ -4,7 +4,6 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { style, cssRule } from 'typestyle';
 
 import { repoMap } from '../../common/constants';
-import { compareView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { useAppDispatch } from '../../hooks/app';
 import { updateRepository } from '../../reducers/SearchSlice';
@@ -16,24 +15,25 @@ import {
   Colors,
 } from '../../styles';
 import { fetchRecentRevisions } from '../../thunks/searchThunk';
-import { InputType, ThemeMode, View } from '../../types/state';
+import { InputType, ThemeMode } from '../../types/state';
 import type { Repository } from '../../types/state';
 
 interface SearchDropdownProps {
-  view: View;
+  isEditable?: boolean;
   selectLabel: string;
   tooltipText: string;
   mode: ThemeMode;
   searchType: InputType;
 }
 
+//handle in progress repos here if necessary
 function SearchDropdown({
-  view,
+  isEditable,
   selectLabel,
   mode,
   searchType,
 }: SearchDropdownProps) {
-  const size = view == compareView ? 'small' : undefined;
+  const size = isEditable == true ? 'small' : undefined;
   const repository = useAppSelector(
     (state) => state.search[searchType].repository,
   );
