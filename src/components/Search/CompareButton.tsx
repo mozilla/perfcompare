@@ -8,15 +8,11 @@ import type { ThemeMode } from '../../types/state';
 
 interface CompareButtonProps {
   mode: ThemeMode;
-  isEditable: boolean;
 }
 
 const strings = Strings.components.searchDefault.sharedCollasped;
 
-export default function CompareButton({
-  mode,
-  isEditable,
-}: CompareButtonProps) {
+export default function CompareButton({ mode }: CompareButtonProps) {
   const { addSelectedRevisions } = useSelectRevision();
 
   const btnStyles = ButtonStyles(mode);
@@ -26,7 +22,8 @@ export default function CompareButton({
   };
 
   const handleAddSelectedRevisions = () => {
-    addSelectedRevisions(isEditable);
+    //update to set stage to committed in isEditable
+    addSelectedRevisions();
   };
 
   return (

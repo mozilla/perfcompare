@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { CloseOutlined } from '@mui/icons-material';
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
@@ -14,17 +14,17 @@ import Typography from '@mui/material/Typography';
 import dayjs from 'dayjs';
 
 import useCheckRevision from '../../hooks/useCheckRevision';
-import useSelectedRevisions from '../../hooks/useSelectedRevisions';
 import { Strings } from '../../resources/Strings';
 import { SelectRevsStyles } from '../../styles';
 import type { RevisionsList } from '../../types/state';
-import { InputType, ThemeMode } from '../../types/state';
+import { InputType } from '../../types/state';
 import { Repository } from '../../types/state';
 import {
   truncateHash,
   getLatestCommitMessage,
   getTreeherderURL,
 } from '../../utils/helpers';
+import CompareWithBaseContext from './CompareWithBaseContext';
 
 const base = Strings.components.searchDefault.base;
 const warning = base.collapsed.warnings.comparison;
@@ -32,42 +32,73 @@ const warning = base.collapsed.warnings.comparison;
 interface SelectedRevisionItemProps {
   index: number;
   item: RevisionsList;
-  mode: ThemeMode;
   repository: Repository['name'];
   searchType: InputType;
-  isWarning?: boolean;
   formIsDisplayed: boolean;
-  isEditable: boolean;
 }
 
 function SelectedRevisionItem({
   index,
   item,
-  mode,
   repository,
   searchType,
-  isWarning,
   formIsDisplayed,
-  isEditable,
 }: SelectedRevisionItemProps) {
+  const {
+    isEditable,
+    mode,
+    isWarning,
+    baseInProgress,
+    newInProgress,
+    setInProgressBase,
+    setInProgressNew,
+  } = useContext(CompareWithBaseContext);
+
+  const checkedInEmpty = {
+    baseInProgressRevs: [],
+    newInProgressRevs: [],
+  };
+
   const styles = SelectRevsStyles(mode);
   const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);
   const itemDate = new Date(item.push_timestamp * 1000);
-  const { removeCheckedRevision } = useCheckRevision(searchType);
-  const { deleteSelectedRevisions } = useSelectedRevisions();
-  //hide the close icon for the selected revisions in edit view
+  const { removeCheckedRevision } = useCheckRevision(
+    searchType,
+    false,
+    checkedInEmpty,
+  );
+
   const iconClassName =
     !formIsDisplayed && isEditable
       ? 'icon icon-close-hidden'
       : 'icon icon-close-show';
 
-  const handleClose = () => {
-    if (isEditable) {
-      deleteSelectedRevisions(item);
-      removeCheckedRevision(item);
-    } else {
-      removeCheckedRevision(item);
+  const handleRemoveRevision = () => {
+    removeCheckedRevision(item);
+  };
+
+  const handleRemoveEditViewRevision = () => {
+    const baseRevisions = [...baseInProgress.revs];
+    const newRevisions = [...newInProgress.revs];
+    switch (searchType) {
+      case 'base':
+        baseRevisions.splice(baseInProgress.revs.indexOf(item), 1);
+        setInProgressBase({
+          revs: baseRevisions,
+          repos: baseInProgress.repos,
+          isInProgress: true,
+        });
+        break;
+      case 'new':
+        newRevisions.splice(newInProgress.revs.indexOf(item), 1);
+        setInProgressNew({
+          revs: newRevisions,
+          repos: newInProgress.repos,
+          isInProgress: true,
+        });
+
+        break;
     }
   };
 
@@ -134,7 +165,9 @@ function SelectedRevisionItem({
           name='close-button'
           aria-label='close-button'
           className={`${iconClassName} revision-action close-button`}
-          onClick={handleClose}
+          onClick={
+            isEditable ? handleRemoveEditViewRevision : handleRemoveRevision
+          }
         >
           <CloseOutlined fontSize='small' data-testid='close-icon' />
         </Button>

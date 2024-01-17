@@ -1,56 +1,84 @@
+import { useState, useEffect, useContext } from 'react';
+
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
-import { useLocation } from 'react-router-dom';
 
-import { searchView, compareView } from '../../common/constants';
 import { SelectRevsStyles } from '../../styles';
-import {
-  InputType,
-  Repository,
-  ThemeMode,
-  RevisionsList,
-} from '../../types/state';
+import { InputType, Repository, RevisionsList } from '../../types/state';
+import CompareWithBaseContext from './CompareWithBaseContext';
 import SelectedRevisionItem from './SelectedRevisionItem';
 interface SelectedRevisionsProps {
-  mode: ThemeMode;
   searchType: InputType;
-  isWarning?: boolean;
   formIsDisplayed: boolean;
-  isEditable: boolean;
-  revisions: RevisionsList[];
-  repositories: Repository['name'][];
+}
+
+// you will display the staging or in progress revisions and repos depending on the mode
+interface RevisionsState {
+  revs: RevisionsList[];
+  repos: Repository['name'][];
 }
 
 function SelectedRevisions({
-  mode,
   searchType,
-  isWarning,
   formIsDisplayed,
-  isEditable,
-  revisions,
-  repositories,
 }: SelectedRevisionsProps) {
+  const {
+    isEditable,
+    mode,
+    baseStaging,
+    newStaging,
+    baseInProgress,
+    newInProgress,
+  } = useContext(CompareWithBaseContext);
+
   const styles = SelectRevsStyles(mode);
-  const location = useLocation();
-  const view = location.pathname == '/' ? searchView : compareView;
+  //Selected revisions handles the display of the staging or in progress revisions and repos depending on the state
+  const [displayedRevisions, setDisplayedRevisions] = useState<RevisionsState>({
+    revs: baseStaging.revs,
+    repos: baseStaging.repos,
+  });
+
+  useEffect(() => {
+    if (searchType === 'base' && !baseInProgress.isInProgress) {
+      setDisplayedRevisions(baseStaging);
+    }
+
+    if (searchType === 'new' && !newInProgress.isInProgress) {
+      setDisplayedRevisions(newStaging);
+    }
+
+    if (baseInProgress.isInProgress && searchType === 'base') {
+      setDisplayedRevisions(baseInProgress);
+    }
+
+    if (newInProgress.isInProgress && searchType === 'new') {
+      setDisplayedRevisions(newInProgress);
+    }
+  }, [
+    displayedRevisions,
+    baseInProgress,
+    newInProgress,
+    baseStaging,
+    newStaging,
+    searchType,
+  ]);
 
   return (
     <Box
       className={`${styles.box} ${searchType}-box`}
-      data-testid={`selected-revs-${view}`}
+      data-testid={`selected-revs-${
+        isEditable ? '--editable-revisions' : '--search-revisions'
+      }`}
     >
       <List>
-        {revisions.map((item, index) => (
+        {displayedRevisions.revs.map((item, index) => (
           <SelectedRevisionItem
             key={item.id}
             index={index}
             item={item}
-            mode={mode}
-            repository={repositories[index]}
+            repository={displayedRevisions.repos[index]}
             searchType={searchType}
-            isWarning={isWarning}
             formIsDisplayed={formIsDisplayed}
-            isEditable={isEditable}
           />
         ))}
       </List>

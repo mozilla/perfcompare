@@ -1,68 +1,68 @@
 import { useSnackbar, VariantType } from 'notistack';
 
 import { updateCheckedRevisions } from '../reducers/SearchSlice';
-import { updateEditModeRevisionsForCheckAddition } from '../reducers/SelectedRevisionsSlice';
-import { RevisionsList } from '../types/state';
-import { InputType } from '../types/state';
+import { InputType, RevisionsList } from '../types/state';
 import { useAppDispatch, useAppSelector } from './app';
 
-const useCheckRevision = (searchType: InputType) => {
+const useCheckRevision = (isBase: boolean, isEditable: boolean) => {
   const { enqueueSnackbar } = useSnackbar();
   const dispatch = useAppDispatch();
+  const searchType: InputType = isBase ? 'base' : 'new';
 
   const searchCheckedRevisions: RevisionsList[] = useAppSelector(
     (state) => state.search[searchType].checkedRevisions,
   );
-  const editModeRevisions = useAppSelector(
-    (state) => state.selectedRevisions.editModeRevisions,
-  );
 
-  const handleToggle = (
+  const setToggleState = (
     revision: RevisionsList,
     maxRevisions: number,
-    isEditMode: boolean,
+    revisionsList: RevisionsList[],
   ) => {
-    const isChecked = searchCheckedRevisions.includes(revision);
-    const newChecked = [...searchCheckedRevisions];
+    const isChecked = revisionsList.map((rev) => rev.id).includes(revision.id);
+    const newChecked = [...revisionsList];
 
     // if item is not already checked, add to checked
-    if (searchCheckedRevisions.length < maxRevisions && !isChecked) {
+    if (revisionsList.length < maxRevisions && !isChecked) {
       newChecked.push(revision);
     } else if (isChecked) {
       // if item is already checked, remove from checked
-      newChecked.splice(searchCheckedRevisions.indexOf(revision), 1);
+      newChecked.splice(revisionsList.indexOf(revision), 1);
     } else {
       // if there are already 4 checked revisions, print a warning
       const variant: VariantType = 'warning';
       enqueueSnackbar(`Maximum ${maxRevisions} revision(s).`, { variant });
     }
 
-    //create a new array with unique values
     const filteredChecked = [...new Set(newChecked)];
+    return filteredChecked;
+  };
+
+  const handleToggle = (
+    revision: RevisionsList,
+    maxRevisions: number,
+    inProgressRevisions: RevisionsList[],
+  ) => {
+    //handle the state of "in progress" revisions in results view
+    if (isEditable) {
+      const filteredChecked = setToggleState(
+        revision,
+        maxRevisions,
+        inProgressRevisions,
+      );
+      return filteredChecked;
+    }
+
+    //handle the state of "checked" revisions in search view
+    const filteredChecked = setToggleState(
+      revision,
+      maxRevisions,
+      searchCheckedRevisions,
+    );
 
     dispatch(
       updateCheckedRevisions({ newChecked: filteredChecked, searchType }),
     );
-
-    if (isEditMode) {
-      //make a copy of editModeRevisions & newChecked
-      const revisionsForUpdate = [...editModeRevisions, ...newChecked];
-
-      //handle if based checked and put at 0 index
-      if (searchType === 'base') {
-        const baseRevision = newChecked[0];
-        revisionsForUpdate.unshift(baseRevision);
-      }
-
-      //create a new array with unique values
-      const filteredUpdated = [...new Set(revisionsForUpdate)];
-
-      dispatch(
-        updateEditModeRevisionsForCheckAddition({
-          selectedRevisions: filteredUpdated,
-        }),
-      );
-    }
+    return filteredChecked;
   };
 
   const removeCheckedRevision = (revision: RevisionsList) => {

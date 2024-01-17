@@ -112,9 +112,8 @@ export type SearchState = Record<InputType, SearchStateForInput>;
 
 export type SelectedRevisionsState = {
   revisions: RevisionsList[];
-  base: RevisionsList[];
-  new: RevisionsList[];
-  editModeRevisions: RevisionsList[];
+  baseCommittedRevisions: RevisionsList[];
+  newCommittedRevisions: RevisionsList[];
 };
 
 export interface ResultsHashmap {
