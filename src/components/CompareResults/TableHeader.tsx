@@ -99,6 +99,7 @@ function TableHeader(props: TableHeaderProps) {
     <div
       className={`${styles.tableHeader} ${styles.typography}`}
       data-testid='table-header'
+      role='row'
     >
       {headerCells.map((header) => (
         <div
@@ -106,9 +107,10 @@ function TableHeader(props: TableHeaderProps) {
           className={`cell ${header.key}-header ${
             header.filter ? styles.filter : ''
           }`}
+          role='columnheader'
         >
           {header.sort ? <SortIcon /> : null}
-          <div>{header.name}</div>
+          <div role='cell'>{header.name}</div>
           {header.filter ? <ExpandMoreIcon /> : null}
         </div>
       ))}
