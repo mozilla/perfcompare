@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import { CloseOutlined } from '@mui/icons-material';
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
@@ -16,58 +16,54 @@ import dayjs from 'dayjs';
 import useCheckRevision from '../../hooks/useCheckRevision';
 import { Strings } from '../../resources/Strings';
 import { SelectRevsStyles } from '../../styles';
-import type { RevisionsList } from '../../types/state';
-import { InputType } from '../../types/state';
+import type { RevisionsList, ThemeMode } from '../../types/state';
 import { Repository } from '../../types/state';
 import {
   truncateHash,
   getLatestCommitMessage,
   getTreeherderURL,
 } from '../../utils/helpers';
-import CompareWithBaseContext from './CompareWithBaseContext';
 
 const base = Strings.components.searchDefault.base;
 const warning = base.collapsed.warnings.comparison;
+
+interface InProgressState {
+  revs: RevisionsList[];
+  repos: Repository['name'][];
+  isInProgress: boolean;
+}
 
 interface SelectedRevisionItemProps {
   index: number;
   item: RevisionsList;
   repository: Repository['name'];
-  searchType: InputType;
   formIsDisplayed: boolean;
+  isEditable: boolean;
+  isBase: boolean;
+  mode: ThemeMode;
+  inProgress: InProgressState;
+  isWarning: boolean;
+  setInProgress: React.Dispatch<React.SetStateAction<InProgressState>>;
 }
 
 function SelectedRevisionItem({
   index,
   item,
   repository,
-  searchType,
   formIsDisplayed,
+  isEditable,
+  isBase,
+  mode,
+  inProgress,
+  setInProgress,
+  isWarning,
 }: SelectedRevisionItemProps) {
-  const {
-    isEditable,
-    mode,
-    isWarning,
-    baseInProgress,
-    newInProgress,
-    setInProgressBase,
-    setInProgressNew,
-  } = useContext(CompareWithBaseContext);
-
-  const checkedInEmpty = {
-    baseInProgressRevs: [],
-    newInProgressRevs: [],
-  };
-
+  const searchType = isBase ? 'base' : 'new';
   const styles = SelectRevsStyles(mode);
   const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);
   const itemDate = new Date(item.push_timestamp * 1000);
-  const { removeCheckedRevision } = useCheckRevision(
-    searchType,
-    false,
-    checkedInEmpty,
-  );
+  const { removeCheckedRevision } = useCheckRevision(isBase, isEditable);
 
   const iconClassName =
     !formIsDisplayed && isEditable
@@ -79,27 +75,13 @@ function SelectedRevisionItem({
   };
 
   const handleRemoveEditViewRevision = () => {
-    const baseRevisions = [...baseInProgress.revs];
-    const newRevisions = [...newInProgress.revs];
-    switch (searchType) {
-      case 'base':
-        baseRevisions.splice(baseInProgress.revs.indexOf(item), 1);
-        setInProgressBase({
-          revs: baseRevisions,
-          repos: baseInProgress.repos,
-          isInProgress: true,
-        });
-        break;
-      case 'new':
-        newRevisions.splice(newInProgress.revs.indexOf(item), 1);
-        setInProgressNew({
-          revs: newRevisions,
-          repos: newInProgress.repos,
-          isInProgress: true,
-        });
-
-        break;
-    }
+    const revisions = [...inProgress.revs]; // Use the 'inProgress' variable here
+    revisions.splice(inProgress.revs.indexOf(item), 1);
+    setInProgress({
+      revs: revisions,
+      repos: inProgress.repos,
+      isInProgress: true,
+    });
   };
 
   return (

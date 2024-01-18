@@ -73,6 +73,7 @@ function SearchComponent({
   selectLabel,
   tooltip,
   inputPlaceholder,
+  isWarning,
 }: SearchProps) {
   const styles = SearchStyles(mode);
 
@@ -236,8 +237,14 @@ function SearchComponent({
       {displayRevisions && (
         <Grid className='d-flex'>
           <SelectedRevisions
-            searchType={searchType}
+            isBase={isBase}
+            isEditable={isEditable}
             formIsDisplayed={formIsDisplayed}
+            mode={mode}
+            staging={staging}
+            inProgress={inProgress}
+            isWarning={isWarning}
+            setInProgress={setInProgress}
           />
         </Grid>
       )}

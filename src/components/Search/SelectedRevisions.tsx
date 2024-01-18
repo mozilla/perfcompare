@@ -1,15 +1,26 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, Dispatch, SetStateAction } from 'react';
 
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 
 import { SelectRevsStyles } from '../../styles';
-import { InputType, Repository, RevisionsList } from '../../types/state';
-import CompareWithBaseContext from './CompareWithBaseContext';
+import { Repository, RevisionsList, ThemeMode } from '../../types/state';
 import SelectedRevisionItem from './SelectedRevisionItem';
+
+interface InProgressState {
+  revs: RevisionsList[];
+  repos: Repository['name'][];
+  isInProgress: boolean;
+}
 interface SelectedRevisionsProps {
-  searchType: InputType;
+  isBase: boolean;
   formIsDisplayed: boolean;
+  staging: RevisionsState;
+  inProgress: InProgressState;
+  isEditable: boolean;
+  mode: ThemeMode;
+  isWarning: boolean;
+  setInProgress: Dispatch<SetStateAction<InProgressState>>;
 }
 
 // you will display the staging or in progress revisions and repos depending on the mode
@@ -19,49 +30,30 @@ interface RevisionsState {
 }
 
 function SelectedRevisions({
-  searchType,
+  isBase,
   formIsDisplayed,
+  staging,
+  inProgress,
+  isEditable,
+  mode,
+  isWarning,
+  setInProgress,
 }: SelectedRevisionsProps) {
-  const {
-    isEditable,
-    mode,
-    baseStaging,
-    newStaging,
-    baseInProgress,
-    newInProgress,
-  } = useContext(CompareWithBaseContext);
-
   const styles = SelectRevsStyles(mode);
+  const searchType = isBase ? 'base' : 'new';
   //Selected revisions handles the display of the staging or in progress revisions and repos depending on the state
   const [displayedRevisions, setDisplayedRevisions] = useState<RevisionsState>({
-    revs: baseStaging.revs,
-    repos: baseStaging.repos,
+    revs: staging.revs,
+    repos: staging.repos,
   });
 
   useEffect(() => {
-    if (searchType === 'base' && !baseInProgress.isInProgress) {
-      setDisplayedRevisions(baseStaging);
+    if (inProgress.isInProgress) {
+      setDisplayedRevisions(inProgress);
+    } else {
+      setDisplayedRevisions(staging);
     }
-
-    if (searchType === 'new' && !newInProgress.isInProgress) {
-      setDisplayedRevisions(newStaging);
-    }
-
-    if (baseInProgress.isInProgress && searchType === 'base') {
-      setDisplayedRevisions(baseInProgress);
-    }
-
-    if (newInProgress.isInProgress && searchType === 'new') {
-      setDisplayedRevisions(newInProgress);
-    }
-  }, [
-    displayedRevisions,
-    baseInProgress,
-    newInProgress,
-    baseStaging,
-    newStaging,
-    searchType,
-  ]);
+  }, [inProgress, staging]);
 
   return (
     <Box
@@ -77,8 +69,13 @@ function SelectedRevisions({
             index={index}
             item={item}
             repository={displayedRevisions.repos[index]}
-            searchType={searchType}
             formIsDisplayed={formIsDisplayed}
+            isEditable={isEditable}
+            isBase={isBase}
+            mode={mode}
+            inProgress={inProgress}
+            isWarning={isWarning}
+            setInProgress={setInProgress}
           />
         ))}
       </List>
