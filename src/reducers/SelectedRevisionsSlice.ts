@@ -24,39 +24,8 @@ const selectedRevisions = createSlice({
       //returns array without first element
       state.newCommittedRevisions = action.payload.selectedRevisions.slice(1);
     },
-
-    //when the user clicks the "X" button on selected revisions
-    updateEditModeRevisions(
-      state,
-      action: PayloadAction<{
-        selectedRevisions: RevisionsList[];
-        isBaseDeletion: boolean;
-      }>,
-    ) {
-      if (action.payload.isBaseDeletion) {
-        state.baseCommittedRevisions = [];
-        return;
-      }
-
-      state.baseCommittedRevisions = [action.payload.selectedRevisions[0]];
-      state.newCommittedRevisions = action.payload.selectedRevisions.slice(1);
-    },
-    //when the user checks a revision in search dropdown in edit mode
-    updateEditModeRevisionsForCheckAddition(
-      state,
-      action: PayloadAction<{
-        selectedRevisions: RevisionsList[];
-      }>,
-    ) {
-      state.baseCommittedRevisions = [action.payload.selectedRevisions[0]];
-      state.newCommittedRevisions = action.payload.selectedRevisions.slice(1);
-    },
   },
 });
 
-export const {
-  setSelectedRevisions,
-  updateEditModeRevisions,
-  updateEditModeRevisionsForCheckAddition,
-} = selectedRevisions.actions;
+export const { setSelectedRevisions } = selectedRevisions.actions;
 export default selectedRevisions.reducer;
