@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
+import { useSnackbar } from 'notistack';
 import { Form } from 'react-router-dom';
 import { style } from 'typestyle';
 
@@ -46,6 +47,7 @@ function CompareWithBase({
   newRepos,
 }: CompareWithBaseProps) {
   const [expanded, setExpanded] = useState(true);
+  const { enqueueSnackbar } = useSnackbar();
 
   //the "committed" base and new revisions initialize the staging state
   const [baseStaging, setStagingBase] = useState<RevisionsState>({
@@ -99,6 +101,16 @@ function CompareWithBase({
   const isWarning =
     (baseRepository === 'try' && newRepository !== 'try') ||
     (baseRepository !== 'try' && newRepository === 'try');
+
+  const possiblyPreventFormSubmission = (e: React.FormEvent) => {
+    const isFormReadyToBeSubmitted = baseRevs.length > 0;
+    if (!isFormReadyToBeSubmitted) {
+      e.preventDefault();
+      enqueueSnackbar(strings.base.collapsed.errors.notEnoughRevisions, {
+        variant: 'error',
+      });
+    }
+  };
 
   const bottomStyles = {
     container: style({
@@ -256,7 +268,11 @@ function CompareWithBase({
         } ${styles.container} `}
       >
         <Divider className='divider' />
-        <Form action='/compare-results' className='form-wrapper'>
+        <Form
+          action='/compare-results'
+          className='form-wrapper'
+          onSubmit={possiblyPreventFormSubmission}
+        >
           <SearchComponent
             {...stringsBase}
             isBaseComp={true}

@@ -51,6 +51,9 @@ export const Strings = {
             comparison:
               'Comparing “try” repository to any repository aside from “try” is not recommended.',
           },
+          errors: {
+            notEnoughRevisions: 'Please select at least one base revision.',
+          },
           base: {
             selectLabel: 'Base',
             inputPlaceholder: 'Search base by ID number or author email',

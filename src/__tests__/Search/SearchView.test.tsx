@@ -266,6 +266,19 @@ describe('Base Search', () => {
 
     const user = userEvent.setup({ delay: null });
 
+    // Press the compare button -> It shouldn't work!
+    const compareButton = await screen.findByRole('button', {
+      name: /Compare/,
+    });
+    await user.click(compareButton);
+
+    // We haven't navigated.
+    expect(window.location.pathname).toEqual('/');
+    // And there should be an alert
+    expect(
+      await screen.findByText('Please select at least one base revision.'),
+    ).toBeInTheDocument();
+
     // focus first input to show results
     const inputs = screen.getAllByRole('textbox');
     await user.click(inputs[0]);
@@ -294,8 +307,7 @@ describe('Base Search', () => {
     await screen.findByText(/flesh wound/);
 
     // Press the compare button
-    const compareButton = document.querySelector('.compare-button');
-    await user.click(compareButton as HTMLElement);
+    await user.click(compareButton);
 
     expect(window.location.pathname).toEqual('/compare-results');
     const searchParams = new URLSearchParams(window.location.search);
