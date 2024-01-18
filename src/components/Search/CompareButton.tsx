@@ -22,6 +22,7 @@ export default function CompareButton({ mode }: CompareButtonProps) {
   };
 
   const handleAddSelectedRevisions = () => {
+    //update to set stage to committed in isEditable
     addSelectedRevisions();
   };
 

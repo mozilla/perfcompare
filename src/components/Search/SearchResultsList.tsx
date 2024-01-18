@@ -1,21 +1,33 @@
+import { Dispatch, SetStateAction } from 'react';
+
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 
-import { useAppSelector } from '../../hooks/app';
 import { SelectListStyles } from '../../styles';
-import { InputType, ThemeMode, View } from '../../types/state';
+import { RevisionsList, ThemeMode, Repository } from '../../types/state';
 import SearchResultsListItem from './SearchResultsListItem';
 
-interface SearchResultsListProps {
-  view: View;
-  mode: ThemeMode;
-  searchType: InputType;
+interface InProgressState {
+  revs: RevisionsList[];
+  repos: Repository['name'][];
+  isInProgress: boolean;
 }
-
-function SearchResultsList(props: SearchResultsListProps) {
-  const { view, mode, searchType } = props;
-  const searchState = useAppSelector((state) => state.search[searchType]);
-  const { searchResults } = searchState;
+interface SearchResultsListProps {
+  isEditable: boolean;
+  isBase: boolean;
+  mode: ThemeMode;
+  searchResults: RevisionsList[];
+  inProgress: InProgressState;
+  setInProgress: Dispatch<SetStateAction<InProgressState>>;
+}
+function SearchResultsList({
+  isEditable,
+  isBase,
+  mode,
+  searchResults,
+  inProgress,
+  setInProgress,
+}: SearchResultsListProps) {
   const styles = SelectListStyles(mode);
 
   return (
@@ -25,14 +37,16 @@ function SearchResultsList(props: SearchResultsListProps) {
       alignItems='flex-end'
       data-testid='list-mode'
     >
-      <List dense={view == 'compare-results'} sx={{ paddingTop: '0' }}>
+      <List dense={isEditable == true} sx={{ paddingTop: '0' }}>
         {searchResults.map((item, index) => (
           <SearchResultsListItem
             key={item.id}
             index={index}
             item={item}
-            view={view}
-            searchType={searchType}
+            isEditable={isEditable}
+            isBase={isBase}
+            setInProgress={setInProgress}
+            inProgress={inProgress}
           />
         ))}
       </List>

@@ -8,6 +8,7 @@ import type { ThemeMode, InputType } from '../../types/state';
 interface SaveCancelButtonsProps {
   mode: ThemeMode;
   searchType: InputType;
+  setFormIsDisplayed: React.Dispatch<React.SetStateAction<boolean>>;
   onSave: () => void;
   onCancel: () => void;
 }
@@ -19,6 +20,7 @@ const cancel = base.cancel;
 export default function SaveCancelButtons({
   searchType,
   mode,
+  setFormIsDisplayed,
   onCancel,
   onSave,
 }: SaveCancelButtonsProps) {
@@ -40,7 +42,10 @@ export default function SaveCancelButtons({
         name='cancel-button'
         aria-label='cancel button'
         variant='contained'
-        onClick={onCancel}
+        onClick={() => {
+          onCancel();
+          setFormIsDisplayed(false);
+        }}
       >
         {cancel}
       </Button>
@@ -51,7 +56,10 @@ export default function SaveCancelButtons({
         name='save-button'
         aria-label='save button'
         variant='contained'
-        onClick={onSave}
+        onClick={() => {
+          onSave();
+          setFormIsDisplayed(false);
+        }}
       >
         {save}
       </Button>
