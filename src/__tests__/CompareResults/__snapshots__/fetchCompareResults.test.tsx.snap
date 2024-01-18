@@ -823,9 +823,11 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
               <div
                 class="fh15yft fr2n4tx"
                 data-testid="table-header"
+                role="row"
               >
                 <div
                   class="cell platform-header fcno249"
+                  role="columnheader"
                 >
                   <svg
                     aria-hidden="true"
@@ -838,7 +840,9 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                       d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
                     />
                   </svg>
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Platform
                   </div>
                   <svg
@@ -855,25 +859,35 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                 </div>
                 <div
                   class="cell base-header "
+                  role="columnheader"
                 >
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Base
                   </div>
                 </div>
                 <div
                   class="cell comparisonSign-header "
+                  role="columnheader"
                 >
-                  <div />
+                  <div
+                    role="cell"
+                  />
                 </div>
                 <div
                   class="cell new-header "
+                  role="columnheader"
                 >
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     New
                   </div>
                 </div>
                 <div
                   class="cell status-header fcno249"
+                  role="columnheader"
                 >
                   <svg
                     aria-hidden="true"
@@ -886,7 +900,9 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                       d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
                     />
                   </svg>
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Status
                   </div>
                   <svg
@@ -903,13 +919,17 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                 </div>
                 <div
                   class="cell delta-header "
+                  role="columnheader"
                 >
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Delta(%)
                   </div>
                 </div>
                 <div
                   class="cell confidence-header fcno249"
+                  role="columnheader"
                 >
                   <svg
                     aria-hidden="true"
@@ -922,7 +942,9 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                       d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
                     />
                   </svg>
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Confidence
                   </div>
                   <svg
@@ -939,24 +961,34 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                 </div>
                 <div
                   class="cell runs-header "
+                  role="columnheader"
                 >
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Total Runs
                   </div>
                 </div>
                 <div
                   class="cell buttons-header "
+                  role="columnheader"
                 >
-                  <div />
+                  <div
+                    role="cell"
+                  />
                 </div>
                 <div
                   class="cell expand-header "
+                  role="columnheader"
                 >
-                  <div />
+                  <div
+                    role="cell"
+                  />
                 </div>
               </div>
               <div
                 class="f1otqxop"
+                role="rowgroup"
               >
                 <div
                   class="fx9q187"
@@ -1017,9 +1049,11 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                 <div>
                   <div
                     class="revisionRow f1x1c13s fp4ugv1"
+                    role="row"
                   >
                     <div
                       class="platform cell"
+                      role="cell"
                     >
                       <div
                         class="platform-container"
@@ -1042,6 +1076,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="base-value cell"
+                      role="cell"
                     >
                        
                       704.84
@@ -1051,11 +1086,13 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="comparison-sign cell"
+                      role="cell"
                     >
                       &lt;
                     </div>
                     <div
                       class="new-value cell"
+                      role="cell"
                     >
                        
                       712.44
@@ -1064,6 +1101,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="status cell"
+                      role="cell"
                     >
                        
                       Improvement
@@ -1071,13 +1109,16 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="delta cell"
+                      role="cell"
                     >
                        
                       1.08
-                       % 
+                       %
+                       
                     </div>
                     <div
                       class="confidence cell"
+                      role="cell"
                     >
                        
                       Low
@@ -1085,6 +1126,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="total-runs cell"
+                      role="cell"
                     >
                       <span>
                         B:
@@ -1109,6 +1151,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     >
                       <div
                         class="graph"
+                        role="cell"
                       >
                         <div
                           class="graph-link-button-container"
@@ -1144,6 +1187,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                       </div>
                       <div
                         class="download"
+                        role="cell"
                       >
                         <div
                           class="download-button-container"
@@ -1173,6 +1217,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                       </div>
                       <div
                         class="retrigger-button"
+                        role="cell"
                       >
                         <div
                           class="runs-button-container"
@@ -1203,6 +1248,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="expand-button cell"
+                      role="cell"
                     >
                       <div
                         class="expand-button-container"
@@ -1307,9 +1353,11 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                   </div>
                   <div
                     class="revisionRow f1x1c13s fp4ugv1"
+                    role="row"
                   >
                     <div
                       class="platform cell"
+                      role="cell"
                     >
                       <div
                         class="platform-container"
@@ -1344,6 +1392,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="base-value cell"
+                      role="cell"
                     >
                        
                       776.97
@@ -1353,11 +1402,13 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="comparison-sign cell"
+                      role="cell"
                     >
                       &lt;
                     </div>
                     <div
                       class="new-value cell"
+                      role="cell"
                     >
                        
                       791.34
@@ -1366,6 +1417,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="status cell"
+                      role="cell"
                     >
                        
                       Regression
@@ -1373,13 +1425,16 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="delta cell"
+                      role="cell"
                     >
                        
                       1.85
-                       % 
+                       %
+                       
                     </div>
                     <div
                       class="confidence cell"
+                      role="cell"
                     >
                        
                       Medium
@@ -1387,6 +1442,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="total-runs cell"
+                      role="cell"
                     >
                       <span>
                         B:
@@ -1411,6 +1467,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     >
                       <div
                         class="graph"
+                        role="cell"
                       >
                         <div
                           class="graph-link-button-container"
@@ -1446,6 +1503,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                       </div>
                       <div
                         class="download"
+                        role="cell"
                       >
                         <div
                           class="download-button-container"
@@ -1475,6 +1533,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                       </div>
                       <div
                         class="retrigger-button"
+                        role="cell"
                       >
                         <div
                           class="runs-button-container"
@@ -1505,6 +1564,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="expand-button cell"
+                      role="cell"
                     >
                       <div
                         class="expand-button-container"
@@ -1609,9 +1669,11 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                   </div>
                   <div
                     class="revisionRow f1x1c13s fp4ugv1"
+                    role="row"
                   >
                     <div
                       class="platform cell"
+                      role="cell"
                     >
                       <div
                         class="platform-container"
@@ -1652,6 +1714,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="base-value cell"
+                      role="cell"
                     >
                        
                       643.54
@@ -1661,11 +1724,13 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="comparison-sign cell"
+                      role="cell"
                     >
                       &gt;
                     </div>
                     <div
                       class="new-value cell"
+                      role="cell"
                     >
                        
                       628.09
@@ -1674,6 +1739,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="status cell"
+                      role="cell"
                     >
                        
                       -
@@ -1681,13 +1747,16 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="delta cell"
+                      role="cell"
                     >
                        
                       -2.4
-                       % 
+                       %
+                       
                     </div>
                     <div
                       class="confidence cell"
+                      role="cell"
                     >
                        
                       High
@@ -1695,6 +1764,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="total-runs cell"
+                      role="cell"
                     >
                       <span>
                         B:
@@ -1719,6 +1789,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     >
                       <div
                         class="graph"
+                        role="cell"
                       >
                         <div
                           class="graph-link-button-container"
@@ -1754,6 +1825,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                       </div>
                       <div
                         class="download"
+                        role="cell"
                       >
                         <div
                           class="download-button-container"
@@ -1783,6 +1855,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                       </div>
                       <div
                         class="retrigger-button"
+                        role="cell"
                       >
                         <div
                           class="runs-button-container"
@@ -1813,6 +1886,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="expand-button cell"
+                      role="cell"
                     >
                       <div
                         class="expand-button-container"
@@ -1917,9 +1991,11 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                   </div>
                   <div
                     class="revisionRow f1x1c13s fp4ugv1"
+                    role="row"
                   >
                     <div
                       class="platform cell"
+                      role="cell"
                     >
                       <div
                         class="platform-container"
@@ -1960,6 +2036,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="base-value cell"
+                      role="cell"
                     >
                        
                       643.54
@@ -1969,11 +2046,13 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="comparison-sign cell"
+                      role="cell"
                     >
                       &gt;
                     </div>
                     <div
                       class="new-value cell"
+                      role="cell"
                     >
                        
                       628.09
@@ -1982,6 +2061,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="status cell"
+                      role="cell"
                     >
                        
                       -
@@ -1989,19 +2069,23 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="delta cell"
+                      role="cell"
                     >
                        
                       -2.4
-                       % 
+                       %
+                       
                     </div>
                     <div
                       class="confidence cell"
+                      role="cell"
                     >
                        
                        
                     </div>
                     <div
                       class="total-runs cell"
+                      role="cell"
                     >
                       <span>
                         B:
@@ -2026,6 +2110,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     >
                       <div
                         class="graph"
+                        role="cell"
                       >
                         <div
                           class="graph-link-button-container"
@@ -2061,6 +2146,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                       </div>
                       <div
                         class="download"
+                        role="cell"
                       >
                         <div
                           class="download-button-container"
@@ -2090,6 +2176,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                       </div>
                       <div
                         class="retrigger-button"
+                        role="cell"
                       >
                         <div
                           class="runs-button-container"
@@ -2120,6 +2207,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="expand-button cell"
+                      role="cell"
                     >
                       <div
                         class="expand-button-container"
@@ -3045,9 +3133,11 @@ exports[`Results View/fetchCompareResults State does not contain data if fetch r
               <div
                 class="fh15yft fr2n4tx"
                 data-testid="table-header"
+                role="row"
               >
                 <div
                   class="cell platform-header fcno249"
+                  role="columnheader"
                 >
                   <svg
                     aria-hidden="true"
@@ -3060,7 +3150,9 @@ exports[`Results View/fetchCompareResults State does not contain data if fetch r
                       d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
                     />
                   </svg>
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Platform
                   </div>
                   <svg
@@ -3077,25 +3169,35 @@ exports[`Results View/fetchCompareResults State does not contain data if fetch r
                 </div>
                 <div
                   class="cell base-header "
+                  role="columnheader"
                 >
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Base
                   </div>
                 </div>
                 <div
                   class="cell comparisonSign-header "
+                  role="columnheader"
                 >
-                  <div />
+                  <div
+                    role="cell"
+                  />
                 </div>
                 <div
                   class="cell new-header "
+                  role="columnheader"
                 >
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     New
                   </div>
                 </div>
                 <div
                   class="cell status-header fcno249"
+                  role="columnheader"
                 >
                   <svg
                     aria-hidden="true"
@@ -3108,7 +3210,9 @@ exports[`Results View/fetchCompareResults State does not contain data if fetch r
                       d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
                     />
                   </svg>
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Status
                   </div>
                   <svg
@@ -3125,13 +3229,17 @@ exports[`Results View/fetchCompareResults State does not contain data if fetch r
                 </div>
                 <div
                   class="cell delta-header "
+                  role="columnheader"
                 >
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Delta(%)
                   </div>
                 </div>
                 <div
                   class="cell confidence-header fcno249"
+                  role="columnheader"
                 >
                   <svg
                     aria-hidden="true"
@@ -3144,7 +3252,9 @@ exports[`Results View/fetchCompareResults State does not contain data if fetch r
                       d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
                     />
                   </svg>
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Confidence
                   </div>
                   <svg
@@ -3161,20 +3271,29 @@ exports[`Results View/fetchCompareResults State does not contain data if fetch r
                 </div>
                 <div
                   class="cell runs-header "
+                  role="columnheader"
                 >
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Total Runs
                   </div>
                 </div>
                 <div
                   class="cell buttons-header "
+                  role="columnheader"
                 >
-                  <div />
+                  <div
+                    role="cell"
+                  />
                 </div>
                 <div
                   class="cell expand-header "
+                  role="columnheader"
                 >
-                  <div />
+                  <div
+                    role="cell"
+                  />
                 </div>
               </div>
               <div

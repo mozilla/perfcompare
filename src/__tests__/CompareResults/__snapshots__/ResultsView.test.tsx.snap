@@ -953,9 +953,11 @@ exports[`Results View RESULTS: clicking the cancel button hides input and dropdo
               <div
                 class="fh15yft fr2n4tx"
                 data-testid="table-header"
+                role="row"
               >
                 <div
                   class="cell platform-header fcno249"
+                  role="columnheader"
                 >
                   <svg
                     aria-hidden="true"
@@ -968,7 +970,9 @@ exports[`Results View RESULTS: clicking the cancel button hides input and dropdo
                       d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
                     />
                   </svg>
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Platform
                   </div>
                   <svg
@@ -985,25 +989,35 @@ exports[`Results View RESULTS: clicking the cancel button hides input and dropdo
                 </div>
                 <div
                   class="cell base-header "
+                  role="columnheader"
                 >
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Base
                   </div>
                 </div>
                 <div
                   class="cell comparisonSign-header "
+                  role="columnheader"
                 >
-                  <div />
+                  <div
+                    role="cell"
+                  />
                 </div>
                 <div
                   class="cell new-header "
+                  role="columnheader"
                 >
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     New
                   </div>
                 </div>
                 <div
                   class="cell status-header fcno249"
+                  role="columnheader"
                 >
                   <svg
                     aria-hidden="true"
@@ -1016,7 +1030,9 @@ exports[`Results View RESULTS: clicking the cancel button hides input and dropdo
                       d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
                     />
                   </svg>
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Status
                   </div>
                   <svg
@@ -1033,13 +1049,17 @@ exports[`Results View RESULTS: clicking the cancel button hides input and dropdo
                 </div>
                 <div
                   class="cell delta-header "
+                  role="columnheader"
                 >
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Delta(%)
                   </div>
                 </div>
                 <div
                   class="cell confidence-header fcno249"
+                  role="columnheader"
                 >
                   <svg
                     aria-hidden="true"
@@ -1052,7 +1072,9 @@ exports[`Results View RESULTS: clicking the cancel button hides input and dropdo
                       d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
                     />
                   </svg>
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Confidence
                   </div>
                   <svg
@@ -1069,20 +1091,29 @@ exports[`Results View RESULTS: clicking the cancel button hides input and dropdo
                 </div>
                 <div
                   class="cell runs-header "
+                  role="columnheader"
                 >
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Total Runs
                   </div>
                 </div>
                 <div
                   class="cell buttons-header "
+                  role="columnheader"
                 >
-                  <div />
+                  <div
+                    role="cell"
+                  />
                 </div>
                 <div
                   class="cell expand-header "
+                  role="columnheader"
                 >
-                  <div />
+                  <div
+                    role="cell"
+                  />
                 </div>
               </div>
               <div
@@ -2079,9 +2110,11 @@ exports[`Results View RESULTS: clicking the save button hides input and dropdown
               <div
                 class="fh15yft fr2n4tx"
                 data-testid="table-header"
+                role="row"
               >
                 <div
                   class="cell platform-header fcno249"
+                  role="columnheader"
                 >
                   <svg
                     aria-hidden="true"
@@ -2094,7 +2127,9 @@ exports[`Results View RESULTS: clicking the save button hides input and dropdown
                       d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
                     />
                   </svg>
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Platform
                   </div>
                   <svg
@@ -2111,25 +2146,35 @@ exports[`Results View RESULTS: clicking the save button hides input and dropdown
                 </div>
                 <div
                   class="cell base-header "
+                  role="columnheader"
                 >
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Base
                   </div>
                 </div>
                 <div
                   class="cell comparisonSign-header "
+                  role="columnheader"
                 >
-                  <div />
+                  <div
+                    role="cell"
+                  />
                 </div>
                 <div
                   class="cell new-header "
+                  role="columnheader"
                 >
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     New
                   </div>
                 </div>
                 <div
                   class="cell status-header fcno249"
+                  role="columnheader"
                 >
                   <svg
                     aria-hidden="true"
@@ -2142,7 +2187,9 @@ exports[`Results View RESULTS: clicking the save button hides input and dropdown
                       d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
                     />
                   </svg>
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Status
                   </div>
                   <svg
@@ -2159,13 +2206,17 @@ exports[`Results View RESULTS: clicking the save button hides input and dropdown
                 </div>
                 <div
                   class="cell delta-header "
+                  role="columnheader"
                 >
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Delta(%)
                   </div>
                 </div>
                 <div
                   class="cell confidence-header fcno249"
+                  role="columnheader"
                 >
                   <svg
                     aria-hidden="true"
@@ -2178,7 +2229,9 @@ exports[`Results View RESULTS: clicking the save button hides input and dropdown
                       d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
                     />
                   </svg>
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Confidence
                   </div>
                   <svg
@@ -2195,20 +2248,29 @@ exports[`Results View RESULTS: clicking the save button hides input and dropdown
                 </div>
                 <div
                   class="cell runs-header "
+                  role="columnheader"
                 >
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Total Runs
                   </div>
                 </div>
                 <div
                   class="cell buttons-header "
+                  role="columnheader"
                 >
-                  <div />
+                  <div
+                    role="cell"
+                  />
                 </div>
                 <div
                   class="cell expand-header "
+                  role="columnheader"
                 >
-                  <div />
+                  <div
+                    role="cell"
+                  />
                 </div>
               </div>
               <div
@@ -3205,9 +3267,11 @@ exports[`Results View RESULTS: shows dropdown and input when edit button in clic
               <div
                 class="fh15yft fr2n4tx"
                 data-testid="table-header"
+                role="row"
               >
                 <div
                   class="cell platform-header fcno249"
+                  role="columnheader"
                 >
                   <svg
                     aria-hidden="true"
@@ -3220,7 +3284,9 @@ exports[`Results View RESULTS: shows dropdown and input when edit button in clic
                       d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
                     />
                   </svg>
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Platform
                   </div>
                   <svg
@@ -3237,25 +3303,35 @@ exports[`Results View RESULTS: shows dropdown and input when edit button in clic
                 </div>
                 <div
                   class="cell base-header "
+                  role="columnheader"
                 >
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Base
                   </div>
                 </div>
                 <div
                   class="cell comparisonSign-header "
+                  role="columnheader"
                 >
-                  <div />
+                  <div
+                    role="cell"
+                  />
                 </div>
                 <div
                   class="cell new-header "
+                  role="columnheader"
                 >
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     New
                   </div>
                 </div>
                 <div
                   class="cell status-header fcno249"
+                  role="columnheader"
                 >
                   <svg
                     aria-hidden="true"
@@ -3268,7 +3344,9 @@ exports[`Results View RESULTS: shows dropdown and input when edit button in clic
                       d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
                     />
                   </svg>
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Status
                   </div>
                   <svg
@@ -3285,13 +3363,17 @@ exports[`Results View RESULTS: shows dropdown and input when edit button in clic
                 </div>
                 <div
                   class="cell delta-header "
+                  role="columnheader"
                 >
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Delta(%)
                   </div>
                 </div>
                 <div
                   class="cell confidence-header fcno249"
+                  role="columnheader"
                 >
                   <svg
                     aria-hidden="true"
@@ -3304,7 +3386,9 @@ exports[`Results View RESULTS: shows dropdown and input when edit button in clic
                       d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
                     />
                   </svg>
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Confidence
                   </div>
                   <svg
@@ -3321,20 +3405,29 @@ exports[`Results View RESULTS: shows dropdown and input when edit button in clic
                 </div>
                 <div
                   class="cell runs-header "
+                  role="columnheader"
                 >
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Total Runs
                   </div>
                 </div>
                 <div
                   class="cell buttons-header "
+                  role="columnheader"
                 >
-                  <div />
+                  <div
+                    role="cell"
+                  />
                 </div>
                 <div
                   class="cell expand-header "
+                  role="columnheader"
                 >
-                  <div />
+                  <div
+                    role="cell"
+                  />
                 </div>
               </div>
               <div
