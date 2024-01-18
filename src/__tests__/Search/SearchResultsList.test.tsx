@@ -1,16 +1,17 @@
-import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { act } from 'react-dom/test-utils';
 
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
-import { InputType } from '../../types/state';
 import getTestData from '../utils/fixtures';
-import { renderWithRouter, store } from '../utils/setupTests';
-import { screen } from '../utils/test-utils';
+import {
+  screen,
+  within,
+  renderHook,
+  renderWithRouter,
+  FetchMockSandbox,
+} from '../utils/test-utils';
 
-const searchType = 'base' as InputType;
 const protocolTheme = renderHook(() => useProtocolTheme()).result.current
   .protocolTheme;
 const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
@@ -27,16 +28,17 @@ function renderComponent() {
 }
 
 describe('SearchResultsList', () => {
-  it('should match snapshot', async () => {
+  beforeEach(() => {
     const { testData } = getTestData();
-    global.fetch = jest.fn(() =>
-      Promise.resolve({
-        json: () => ({
-          results: testData,
-        }),
-      }),
-    ) as jest.Mock;
-    jest.spyOn(global, 'fetch');
+    (global.fetch as FetchMockSandbox).get(
+      'begin:https://treeherder.mozilla.org/api/project/try/push/',
+      {
+        results: testData,
+      },
+    );
+  });
+
+  it('should match snapshot', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
@@ -44,19 +46,11 @@ describe('SearchResultsList', () => {
     // focus input to show results
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
+    await screen.findByText(/flesh wound/);
     expect(document.body).toMatchSnapshot();
   });
 
   it('should fill the checkbox when a result is clicked', async () => {
-    const { testData } = getTestData();
-    global.fetch = jest.fn(() =>
-      Promise.resolve({
-        json: () => ({
-          results: testData,
-        }),
-      }),
-    ) as jest.Mock;
-    jest.spyOn(global, 'fetch');
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
@@ -68,53 +62,36 @@ describe('SearchResultsList', () => {
     const fleshWound = await screen.findAllByText("it's just a flesh wound");
 
     await user.click(fleshWound[0]);
-    expect(
-      screen.getAllByTestId('checkbox-1')[0].classList.contains('Mui-checked'),
-    ).toBe(true);
+    expect(screen.getAllByTestId('checkbox-1')[0]).toHaveClass('Mui-checked');
   });
 
   it('should clear the checkbox when a checked result is clicked', async () => {
-    const { testData } = getTestData();
-    global.fetch = jest.fn(() =>
-      Promise.resolve({
-        json: () => ({
-          results: testData,
-        }),
-      }),
-    ) as jest.Mock;
-    jest.spyOn(global, 'fetch');
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
     renderComponent();
-    // focus input to show results
 
+    // focus input to show results
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
 
-    const fleshWound = await screen.findAllByText("it's just a flesh wound");
-
-    await user.click(fleshWound[0]);
-    act(() => {
-      expect(store.getState().search[searchType].checkedRevisions[0]).toBe(
-        testData[1],
-      );
+    const fleshWound = await screen.findByRole('button', {
+      name: /it's just a flesh wound/,
     });
+    const fleshWoundCheckbox = within(fleshWound).getByRole('checkbox');
 
-    await user.click(fleshWound[0]);
-    expect(fleshWound[0].classList.contains('Mui-checked')).toBe(false);
+    await user.click(fleshWound);
+    expect(fleshWound).toHaveClass('item-selected');
+    expect(fleshWoundCheckbox).toBeChecked();
+    expect(fleshWound.querySelector('.Mui-checked')).toBeInTheDocument();
+
+    await user.click(fleshWound);
+    expect(fleshWound).not.toHaveClass('item-selected');
+    expect(fleshWoundCheckbox).not.toBeChecked();
+    expect(fleshWound.querySelector('.Mui-checked')).toBeNull();
   });
 
   it('should not allow selecting more than 1 revisions on Base Search', async () => {
-    const { testData } = getTestData();
-    global.fetch = jest.fn(() =>
-      Promise.resolve({
-        json: () => ({
-          results: testData,
-        }),
-      }),
-    ) as jest.Mock;
-    jest.spyOn(global, 'fetch');
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
@@ -122,22 +99,20 @@ describe('SearchResultsList', () => {
     // focus input to show results
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
-    await user.click(screen.getAllByTestId('checkbox-0')[0]);
+    await user.click((await screen.findAllByTestId('checkbox-0'))[0]);
     await user.click(screen.getAllByTestId('checkbox-1')[0]);
 
-    expect(
-      screen.getAllByTestId('checkbox-0')[0].classList.contains('Mui-checked'),
-    ).toBe(true);
-    expect(
-      screen.getAllByTestId('checkbox-1')[0].classList.contains('Mui-checked'),
-    ).toBe(false);
+    expect(screen.getAllByTestId('checkbox-0')[0]).toHaveClass('Mui-checked');
+    expect(screen.getAllByTestId('checkbox-1')[0]).not.toHaveClass(
+      'Mui-checked',
+    );
 
     expect(screen.getByText('Maximum 1 revision(s).')).toBeInTheDocument();
 
     // Should allow unchecking revisions even after four have been selected
     await user.click(screen.getAllByTestId('checkbox-1')[0]);
-    expect(
-      screen.getAllByTestId('checkbox-1')[0].classList.contains('Mui-checked'),
-    ).toBe(false);
+    expect(screen.getAllByTestId('checkbox-1')[0]).not.toHaveClass(
+      'Mui-checked',
+    );
   });
 });

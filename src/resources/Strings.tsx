@@ -49,7 +49,7 @@ export const Strings = {
         collapsed: {
           warnings: {
             comparison:
-              'Comparing “try” repository to any repository aside from "try" is not recommended.',
+              'Comparing “try” repository to any repository aside from “try” is not recommended.',
           },
           base: {
             selectLabel: 'Base',
@@ -74,6 +74,9 @@ export const Strings = {
           'https://user-images.githubusercontent.com/88336547/233250642-7fd7c217-e72b-4375-9078-7ed2f99cb0f7.png',
         collapedSelectLabel: 'Time range',
       },
+    },
+    revisionRow: {
+      platformUndefinedText: 'Unspecified',
     },
     expandableRow: {
       singleRun: 'Only one run (consider more runs for greater confidence).',

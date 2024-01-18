@@ -1,4 +1,4 @@
-import { TableRow, TableCell, Link } from '@mui/material';
+import { Link } from '@mui/material';
 import { style } from 'typestyle';
 
 import { Colors, Spacing } from '../../styles';
@@ -10,6 +10,14 @@ import {
 } from '../../utils/helpers';
 
 const styles = {
+  revisionHeader: style({
+    borderBottom: `0.5px solid ${Colors.BorderDropdownMenu}`,
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingBottom: '12px',
+    marginBottom: '12px',
+  }),
   tagsOptions: style({
     textAlign: 'right',
     $nest: {
@@ -39,6 +47,13 @@ const styles = {
     padding: Spacing.xSmall,
     textAlign: 'center',
     textTransform: 'uppercase',
+  }),
+  typography: style({
+    fontFamily: 'SF Pro',
+    fontStyle: 'normal',
+    fontWeight: 590,
+    fontSize: '15px',
+    lineHeight: '20px',
   }),
 };
 
@@ -80,8 +95,8 @@ function RevisionHeader(props: RevisionHeaderProps) {
   const extraOptions = getExtraOptions(header.extra_options);
   const shortHash = truncateHash(header.new_rev);
   return (
-    <TableRow className='revision-header'>
-      <TableCell colSpan={6}>
+    <div className={styles.revisionHeader}>
+      <div className={styles.typography}>
         <strong>{createTitle(header, docsURL, isLinkSupported)}</strong>{' '}
         <Link
           href={getTreeherderURL(header.new_rev, header.new_repo)}
@@ -89,18 +104,16 @@ function RevisionHeader(props: RevisionHeaderProps) {
         >
           {shortHash}
         </Link>
-      </TableCell>
-      <TableCell colSpan={6}>
-        <div className={styles.tagsOptions}>
-          <span className={styles.chip}>{header.option_name}</span>
-          {extraOptions.map((option, index) => (
-            <span className={styles.chip} key={index}>
-              {option}
-            </span>
-          ))}
-        </div>
-      </TableCell>
-    </TableRow>
+      </div>
+      <div className={styles.tagsOptions}>
+        <span className={styles.chip}>{header.option_name}</span>
+        {extraOptions.map((option, index) => (
+          <span className={styles.chip} key={index}>
+            {option}
+          </span>
+        ))}
+      </div>
+    </div>
   );
 }
 

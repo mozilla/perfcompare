@@ -1,6 +1,4 @@
-import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { act } from 'react-dom/test-utils';
 
 import SearchView from '../../components/Search/SearchView';
 import { updateCheckedRevisions } from '../../reducers/SearchSlice';
@@ -8,8 +6,15 @@ import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
 import { InputType } from '../../types/state';
 import getTestData from '../utils/fixtures';
-import { renderWithRouter, store } from '../utils/setupTests';
-import { screen } from '../utils/test-utils';
+import { store } from '../utils/setupTests';
+import {
+  screen,
+  within,
+  renderHook,
+  renderWithRouter,
+  act,
+  FetchMockSandbox,
+} from '../utils/test-utils';
 
 const protocolTheme = renderHook(() => useProtocolTheme()).result.current
   .protocolTheme;
@@ -28,16 +33,18 @@ function renderComponent() {
 }
 
 describe('SelectedRevision', () => {
+  const { testData } = getTestData();
+
+  beforeEach(() => {
+    (global.fetch as FetchMockSandbox).get(
+      'glob:https://treeherder.mozilla.org/api/project/*/push/*',
+      {
+        results: testData,
+      },
+    );
+  });
+
   it('should show the selected checked revisions once a result checkbox is clicked', async () => {
-    const { testData } = getTestData();
-    global.fetch = jest.fn(() =>
-      Promise.resolve({
-        json: () => ({
-          results: testData,
-        }),
-      }),
-    ) as jest.Mock;
-    jest.spyOn(global, 'fetch');
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
@@ -46,30 +53,21 @@ describe('SelectedRevision', () => {
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
 
-    await user.click(screen.getAllByTestId('checkbox-0')[0]);
+    const noArmsLeft = await screen.findByRole('button', {
+      name: /you've got no arms left!/,
+    });
+    const noArmsLeftCheckbox = within(noArmsLeft).getByRole('checkbox');
 
-    expect(
-      screen.getAllByTestId('checkbox-0')[0].classList.contains('Mui-checked'),
-    ).toBe(true);
+    await user.click(noArmsLeft);
+    expect(noArmsLeft).toHaveClass('item-selected');
+    expect(noArmsLeftCheckbox).toBeChecked();
+    expect(noArmsLeft.querySelector('.Mui-checked')).toBeInTheDocument();
 
-    expect(
-      screen.getAllByTestId('selected-revs-search')[0],
-    ).toBeInTheDocument();
-    expect(document.body).toMatchSnapshot();
-    await act(async () => void jest.runOnlyPendingTimers());
+    const selectedRevsContainer = screen.getByTestId('selected-revs-search');
+    expect(selectedRevsContainer).toMatchSnapshot();
   });
 
   it('should remove the selected revision once X button is clicked', async () => {
-    const { testData } = getTestData();
-    global.fetch = jest.fn(() =>
-      Promise.resolve({
-        json: () => ({
-          results: testData,
-        }),
-      }),
-    ) as jest.Mock;
-    jest.spyOn(global, 'fetch');
-
     const newChecked = testData.slice(0, 1);
     act(() => {
       store.dispatch(updateCheckedRevisions({ newChecked, searchType }));
@@ -97,41 +95,33 @@ describe('SelectedRevision', () => {
   });
 
   it('should show warning icon on selected try revision when try base is compared with a non try repository', async () => {
-    const { testData } = getTestData();
-    global.fetch = jest.fn(() =>
-      Promise.resolve({
-        json: () => ({
-          results: testData,
-        }),
-      }),
-    ) as jest.Mock;
-    jest.spyOn(global, 'fetch');
-    const newChecked = testData.slice(0, 1);
     const user = userEvent.setup({ delay: null });
-
     renderComponent();
 
+    // TODO The second dropdown incorrectly also has the name "Base".
     const baseDropdown = screen.getAllByRole('button', { name: 'Base' })[0];
-    await user.click(baseDropdown);
-    expect(screen.getAllByText('try')[0]).toBeInTheDocument();
-    const newDropdown = screen.getByTestId('dropdown-select-new');
-    const searchInput = screen.getAllByPlaceholderText(
+    expect(baseDropdown).toHaveTextContent('try');
+
+    const firstSearchInput = screen.getAllByPlaceholderText(
       'Search base by ID number or author email',
     )[0];
-    await user.click(searchInput);
-    await user.click(screen.getAllByTestId('checkbox-0')[0]);
-    act(() => {
-      store.dispatch(updateCheckedRevisions({ newChecked, searchType }));
-    });
+    await user.click(firstSearchInput);
+    await user.click(
+      await screen.findByRole('button', {
+        name: /you've got no arms left!/,
+      }),
+    );
 
+    // TODO This dropdown incorrectly has the name "Base".
+    const newDropdown = screen.getAllByRole('button', { name: 'Base' })[1];
     await user.click(newDropdown);
-    const mozRepoItem = screen.getAllByRole('option', {
+    const mozRepoItem = await screen.findByRole('option', {
       name: 'mozilla-central',
-    })[0];
-
-    expect(screen.getAllByText('mozilla-central')[0]).toBeInTheDocument();
+    });
     await user.click(mozRepoItem);
-    const alertIcon = screen.getByTestId('WarningIcon');
+    const alertIcon = await screen.findByRole('img', {
+      name: 'Comparing “try” repository to any repository aside from “try” is not recommended.',
+    });
     expect(alertIcon).toBeInTheDocument();
   });
 });

@@ -5,25 +5,35 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import '@testing-library/jest-dom';
-import React from 'react';
+import { TextDecoder, TextEncoder } from 'util';
 
 import { density1d } from 'fast-kde';
+// The import of fetchMock also installs jest matchers as a side effect.
+// See https://www.wheresrhys.co.uk/fetch-mock/ for more information about how
+// to use this mock.
+import fetchMock from 'fetch-mock-jest';
 import { Bubble, Line } from 'react-chartjs-2';
 
 import { createStore } from '../../common/store';
 import type { Store } from '../../common/store';
-import {
-  createRender,
-  createRenderWithRouter,
-  createStoreProvider,
-} from './test-utils';
-import type { Render, RenderWithRouter } from './test-utils';
 
-const unmockedFetch = global.fetch;
-let render: Render;
-let renderWithRouter: RenderWithRouter;
+// Register TextDecoder and TextEncoder with the global scope.
+// These are now available globally in nodejs, but not when running with jsdom
+// in jest apparently.
+// Still let's double check that they're from the global scope as expected, so
+// that this can be removed once it's implemented in jsdom.
+if ('TextDecoder' in global) {
+  throw new Error(
+    'TextDecoder is already present in the global scope, please update setupTests.ts.',
+  );
+}
+
+// @ts-expect-error TextDecoder from node and TextDecoder from JavaScript are
+// not 100% compatible, but they're a reasonable approximation.
+global.TextDecoder = TextDecoder;
+global.TextEncoder = TextEncoder;
+
 let store: Store;
-let StoreProvider: React.FC<{ children: JSX.Element }>;
 
 jest.mock('react-chartjs-2', () => ({
   Bubble: jest.fn(),
@@ -45,28 +55,33 @@ beforeEach(() => {
   MockedDensity1d.mockImplementation(() => 'fast-kde');
 });
 
-beforeAll(() => {
-  global.fetch = jest.fn();
-});
-
-afterAll(() => {
-  global.fetch = unmockedFetch;
+beforeEach(function () {
+  // Install fetch and fetch-related objects globally.
+  // Using the sandbox ensures that parallel tests run properly.
+  const fetchSandbox = fetchMock.sandbox();
+  // Use a catch-all for requests that are not matched, so that we don't have
+  // errors when this happens. We'll still have a warning.
+  fetchSandbox.catch(404);
+  globalThis.fetch = fetchSandbox as (
+    input: RequestInfo | URL,
+    init?: RequestInit,
+  ) => Promise<Response>;
 });
 
 beforeEach(() => {
   jest.useFakeTimers();
   store = createStore();
-  render = createRender(store);
-  renderWithRouter = createRenderWithRouter(store);
-  StoreProvider = createStoreProvider(store);
 });
 
 afterEach(() => {
   jest.clearAllMocks();
   jest.resetAllMocks();
   jest.restoreAllMocks();
-  jest.runOnlyPendingTimers();
+  jest.clearAllTimers();
   jest.useRealTimers();
+
+  // Also restore the fetch mock
+  fetchMock.mockReset();
 });
 
-export { store, render, renderWithRouter, StoreProvider };
+export { store };

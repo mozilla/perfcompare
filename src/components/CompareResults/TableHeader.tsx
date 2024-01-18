@@ -1,6 +1,5 @@
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import SortIcon from '@mui/icons-material/Sort';
-import { TableRow, TableCell, TableHead } from '@mui/material';
 import { style } from 'typestyle';
 
 import { Colors, Spacing } from '../../styles';
@@ -9,21 +8,23 @@ import type { ThemeMode } from '../../types/state';
 function TableHeader(props: TableHeaderProps) {
   const { themeMode } = props;
   const styles = {
-    headerRow: style({
+    tableHeader: style({
+      display: 'grid',
+      // Should be kept in sync with the gridTemplateColumns from RevisionRow
+      gridTemplateColumns: '2fr 1fr 0.2fr 1fr 1fr 1fr 1fr 1fr 2fr 0.2fr',
       background:
         themeMode == 'light' ? Colors.Background100 : Colors.Background300Dark,
       borderRadius: '4px',
-      // To be removed
-      fontFamily: 'SF Pro',
-      fontStyle: 'normal',
-      fontWeight: 590,
-      fontSize: '13px',
-      lineHeight: '16px',
-      // End to be removed
-      flexDirection: 'row',
-      maxWidth: '950px',
       padding: Spacing.Small,
       $nest: {
+        '.cell': {
+          borderBottom: 'none',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          padding: 0,
+          margin: 0,
+        },
         '.platform-header, .confidence-header': {
           width: '120px',
         },
@@ -36,20 +37,8 @@ function TableHeader(props: TableHeaderProps) {
         '.confidence-header': {
           width: '140px',
         },
-        '.MuiTableCell-root.runs-header': {
+        '.runs-header': {
           textAlign: 'left',
-        },
-        '.MuiTableCell-root': {
-          borderBottom: 'none',
-          padding: 0,
-          margin: 0,
-          textAlign: 'center',
-        },
-        '.MuiTableCell-root:first-child': {
-          borderRadius: '4px 0 0 4px',
-        },
-        '.MuiTableCell-root:last-child': {
-          borderRadius: '0 4px 4px 0',
         },
       },
     }),
@@ -59,11 +48,14 @@ function TableHeader(props: TableHeaderProps) {
         themeMode == 'light' ? Colors.Background200 : Colors.Background200Dark,
       borderRadius: '4px',
       cursor: 'not-allowed',
-      display: 'flex',
-      gap: Spacing.Small,
-      margin: Spacing.Small,
-      padding: `${Spacing.Small}px ${Spacing.Small}px`,
-      width: 'fit-content',
+    }),
+
+    typography: style({
+      fontFamily: 'SF Pro',
+      fontStyle: 'normal',
+      fontWeight: 590,
+      fontSize: '13px',
+      lineHeight: '16px',
     }),
   };
 
@@ -100,26 +92,27 @@ function TableHeader(props: TableHeaderProps) {
       sort: true,
     },
     { name: 'Total Runs', key: 'runs' },
-    { colSpan: 4, key: 'empty' },
+    { key: 'buttons' },
+    { key: 'expand' },
   ];
   return (
-    <TableHead data-testid='table-header'>
-      <TableRow className={styles.headerRow}>
-        {headerCells.map((header) => (
-          <TableCell
-            key={`${header.key}`}
-            className={`${header.key}-header`}
-            colSpan={header.colSpan || undefined}
-          >
-            <div className={header.filter ? styles.filter : ''}>
-              {header.sort ? <SortIcon /> : null}
-              <span>{header.name}</span>
-              {header.filter ? <ExpandMoreIcon /> : null}
-            </div>
-          </TableCell>
-        ))}
-      </TableRow>
-    </TableHead>
+    <div
+      className={`${styles.tableHeader} ${styles.typography}`}
+      data-testid='table-header'
+    >
+      {headerCells.map((header) => (
+        <div
+          key={`${header.key}`}
+          className={`cell ${header.key}-header ${
+            header.filter ? styles.filter : ''
+          }`}
+        >
+          {header.sort ? <SortIcon /> : null}
+          <div>{header.name}</div>
+          {header.filter ? <ExpandMoreIcon /> : null}
+        </div>
+      ))}
+    </div>
   );
 }
 

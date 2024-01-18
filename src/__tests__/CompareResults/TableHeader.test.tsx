@@ -1,7 +1,6 @@
 import TableHeader from '../../components/CompareResults/TableHeader';
 import useProtocolTheme from '../../theme/protocolTheme';
-import { renderWithRouter } from '../utils/setupTests';
-import { renderHook, screen } from '../utils/test-utils';
+import { renderHook, renderWithRouter, screen } from '../utils/test-utils';
 
 describe('Table Header', () => {
   const protocolTheme = renderHook(() => useProtocolTheme()).result.current

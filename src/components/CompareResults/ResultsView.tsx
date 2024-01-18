@@ -35,29 +35,18 @@ function ResultsView(props: ResultsViewProps) {
     (state) => state.selectedRevisions.new,
   );
 
-  const displayedSelectedRevisions = {
-    baseRevs: selectedRevisionsListBase,
-    newRevs: selectedRevisionsListNew,
-  };
-
-  const selectedBaseRepositories = selectedRevisionsListBase.map((item) => {
-    const selectedRep = repoMap[item.repository_id];
-    return selectedRep;
-  });
-
-  const selectedNewRepositories = selectedRevisionsListNew.map((item) => {
-    const selectedRep = repoMap[item.repository_id];
-    return selectedRep;
-  });
-
-  const displayedRepositories = {
-    baseRepos: selectedBaseRepositories as Repository['name'][],
-    newRepos: selectedNewRepositories as Repository['name'][],
-  };
+  // The "??" operations below are so that Typescript doesn't wonder about the
+  // undefined value later.
+  const selectedBaseRepositories = selectedRevisionsListBase.map(
+    (item) => repoMap[item.repository_id] ?? 'try',
+  );
+  const selectedNewRepositories = selectedRevisionsListNew.map(
+    (item) => repoMap[item.repository_id] ?? 'try',
+  );
 
   const { dispatchFetchCompareResults, dispatchFakeCompareResults } =
     useFetchCompareResults();
-  const { searchByRevisionOrEmail } = useHandleChangeSearch();
+  const { searchRecentRevisions } = useHandleChangeSearch();
 
   const { protocolTheme, toggleColorMode, title } = props;
   const themeMode = protocolTheme.palette.mode;
@@ -100,12 +89,12 @@ function ResultsView(props: ResultsViewProps) {
        *On component mount, use the repos and revs in hash to search for the base and new *revisions. Store the results in state via the SelectedRevisionsSlice: see extra *reducer, fetchRevisionsByID. Now can always display the selected revisions despite *page refresh or copying and pasting url
        */
       revsArray.forEach((rev, index) => {
-        void searchByRevisionOrEmail(
+        void searchRecentRevisions(
           reposArray[index] as Repository['name'],
           rev,
           'base',
         );
-        void searchByRevisionOrEmail(
+        void searchRecentRevisions(
           reposArray[index] as Repository['name'],
           rev,
           'new',
@@ -150,8 +139,10 @@ function ResultsView(props: ResultsViewProps) {
         <CompareWithBase
           mode={themeMode}
           isEditable={true}
-          displayedRevisions={displayedSelectedRevisions}
-          displayedRepositories={displayedRepositories}
+          baseRevs={selectedRevisionsListBase}
+          newRevs={selectedRevisionsListNew}
+          baseRepos={selectedBaseRepositories}
+          newRepos={selectedNewRepositories}
         />
       </section>
       <Grid container alignItems='center' justifyContent='center'>

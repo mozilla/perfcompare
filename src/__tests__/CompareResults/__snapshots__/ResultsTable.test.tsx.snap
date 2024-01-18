@@ -5,193 +5,145 @@ exports[`Results Table Should match snapshot 1`] = `
   <div />
   <div>
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root f1dgii11 css-1inhs6f-MuiPaper-root-MuiTableContainer-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 fv9cdwb css-16rtr54-MuiPaper-root"
       data-testid="results-table"
+      role="table"
     >
-      <table
-        class="MuiTable-root css-yso468-MuiTable-root"
+      <div
+        class="fh15yft fr2n4tx"
+        data-testid="table-header"
       >
-        <thead
-          class="MuiTableHead-root css-15wwp11-MuiTableHead-root"
-          data-testid="table-header"
+        <div
+          class="cell platform-header fcno249"
         >
-          <tr
-            class="MuiTableRow-root MuiTableRow-head f1ctvkx8 css-1yt2i5z-MuiTableRow-root"
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+            data-testid="SortIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
           >
-            <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium platform-header css-hwty3m-MuiTableCell-root"
-              scope="col"
-            >
-              <div
-                class="fzi2oph"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                  data-testid="SortIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
-                  />
-                </svg>
-                <span>
-                  Platform
-                </span>
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                  data-testid="ExpandMoreIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                  />
-                </svg>
-              </div>
-            </th>
-            <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium base-header css-hwty3m-MuiTableCell-root"
-              scope="col"
-            >
-              <div
-                class=""
-              >
-                <span>
-                  Base
-                </span>
-              </div>
-            </th>
-            <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium comparisonSign-header css-hwty3m-MuiTableCell-root"
-              scope="col"
-            >
-              <div
-                class=""
-              >
-                <span />
-              </div>
-            </th>
-            <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium new-header css-hwty3m-MuiTableCell-root"
-              scope="col"
-            >
-              <div
-                class=""
-              >
-                <span>
-                  New
-                </span>
-              </div>
-            </th>
-            <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium status-header css-hwty3m-MuiTableCell-root"
-              scope="col"
-            >
-              <div
-                class="fzi2oph"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                  data-testid="SortIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
-                  />
-                </svg>
-                <span>
-                  Status
-                </span>
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                  data-testid="ExpandMoreIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                  />
-                </svg>
-              </div>
-            </th>
-            <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium delta-header css-hwty3m-MuiTableCell-root"
-              scope="col"
-            >
-              <div
-                class=""
-              >
-                <span>
-                  Delta(%)
-                </span>
-              </div>
-            </th>
-            <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium confidence-header css-hwty3m-MuiTableCell-root"
-              scope="col"
-            >
-              <div
-                class="fzi2oph"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                  data-testid="SortIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
-                  />
-                </svg>
-                <span>
-                  Confidence
-                </span>
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                  data-testid="ExpandMoreIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                  />
-                </svg>
-              </div>
-            </th>
-            <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium runs-header css-hwty3m-MuiTableCell-root"
-              scope="col"
-            >
-              <div
-                class=""
-              >
-                <span>
-                  Total Runs
-                </span>
-              </div>
-            </th>
-            <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium empty-header css-hwty3m-MuiTableCell-root"
-              colspan="4"
-              scope="col"
-            >
-              <div
-                class=""
-              >
-                <span />
-              </div>
-            </th>
-          </tr>
-        </thead>
-      </table>
+            <path
+              d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
+            />
+          </svg>
+          <div>
+            Platform
+          </div>
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+            data-testid="ExpandMoreIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+            />
+          </svg>
+        </div>
+        <div
+          class="cell base-header "
+        >
+          <div>
+            Base
+          </div>
+        </div>
+        <div
+          class="cell comparisonSign-header "
+        >
+          <div />
+        </div>
+        <div
+          class="cell new-header "
+        >
+          <div>
+            New
+          </div>
+        </div>
+        <div
+          class="cell status-header fcno249"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+            data-testid="SortIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
+            />
+          </svg>
+          <div>
+            Status
+          </div>
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+            data-testid="ExpandMoreIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+            />
+          </svg>
+        </div>
+        <div
+          class="cell delta-header "
+        >
+          <div>
+            Delta(%)
+          </div>
+        </div>
+        <div
+          class="cell confidence-header fcno249"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+            data-testid="SortIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
+            />
+          </svg>
+          <div>
+            Confidence
+          </div>
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+            data-testid="ExpandMoreIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+            />
+          </svg>
+        </div>
+        <div
+          class="cell runs-header "
+        >
+          <div>
+            Total Runs
+          </div>
+        </div>
+        <div
+          class="cell buttons-header "
+        >
+          <div />
+        </div>
+        <div
+          class="cell expand-header "
+        >
+          <div />
+        </div>
+      </div>
       <div
         class="MuiContainer-root MuiContainer-maxWidthLg css-1kcf06b-MuiContainer-root"
       >

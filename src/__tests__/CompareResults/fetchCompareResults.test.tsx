@@ -4,13 +4,12 @@ import ResultsView from '../../components/CompareResults/ResultsView';
 import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
 import getTestData from '../utils/fixtures';
-import { renderWithRouter, store } from '../utils/setupTests';
-import { renderHook } from '../utils/test-utils';
-import { screen, act } from '../utils/test-utils';
-
-// Can't pinpoint why the snapshot of this route is
-// rendering the Results View page incorrectly in the
-// snapshot, will deal with an issue
+import {
+  screen,
+  renderWithRouter,
+  renderHook,
+  FetchMockSandbox,
+} from '../utils/test-utils';
 
 function renderWithRoute(component: ReactElement) {
   return renderWithRouter(component, {
@@ -26,45 +25,16 @@ describe('Results View/fetchCompareResults', () => {
     const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
       .toggleColorMode;
 
-    const { testData } = getTestData();
-    global.fetch = jest.fn(() =>
-      Promise.resolve({
-        json: () => ({
-          results: testData,
-        }),
-      }),
-    ) as jest.Mock;
+    const expectedUrl =
+      'https://treeherder.mozilla.org/api/perfcompare/results/?base_repository=mozilla-central&base_revision=6089e7f0fa57a29c6d080f135f65e146c34457d8&new_repository=mozilla-central&new_revision=1d5eb1343cc87a9be3dfe4b884822506ffdda7d3&framework=1&interval=86400&no_subtests=true';
 
-    act(() => {
-      renderWithRoute(
-        <ResultsView
-          protocolTheme={protocolTheme}
-          toggleColorMode={toggleColorMode}
-          title={Strings.metaData.pageTitle.results}
-        />,
+    const { testCompareData, testData } = getTestData();
+    (global.fetch as FetchMockSandbox)
+      .get(expectedUrl, testCompareData)
+      .get(
+        'begin:https://treeherder.mozilla.org/api/project/mozilla-central/push/',
+        { results: testData },
       );
-    });
-
-    expect(global.fetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/perfcompare/results/?base_repository=mozilla-central&base_revision=6089e7f0fa57a29c6d080f135f65e146c34457d8&new_repository=mozilla-central&new_revision=1d5eb1343cc87a9be3dfe4b884822506ffdda7d3&framework=1&interval=86400&no_subtests=true',
-    );
-    expect(document.body).toMatchSnapshot();
-    expect(screen.getByTestId('results-table')).toBeInTheDocument();
-  });
-
-  it('State does not contain data if fetch returns no results', () => {
-    const protocolTheme = renderHook(() => useProtocolTheme()).result.current
-      .protocolTheme;
-    const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
-      .toggleColorMode;
-
-    global.fetch = jest.fn(() =>
-      Promise.resolve({
-        json: () => ({
-          results: [],
-        }),
-      }),
-    ) as jest.Mock;
 
     renderWithRoute(
       <ResultsView
@@ -74,8 +44,34 @@ describe('Results View/fetchCompareResults', () => {
       />,
     );
 
-    expect(store.getState().compareResults.data).toStrictEqual({});
+    expect(global.fetch).toHaveBeenCalledWith(expectedUrl, undefined);
+    expect(await screen.findByText('a11yr')).toBeInTheDocument();
     expect(document.body).toMatchSnapshot();
-    expect(screen.getByTestId('results-table')).toBeInTheDocument();
+  });
+
+  it('State does not contain data if fetch returns no results', async () => {
+    const protocolTheme = renderHook(() => useProtocolTheme()).result.current
+      .protocolTheme;
+    const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
+      .toggleColorMode;
+
+    // There's no performance tests, but there are revisions.
+    const { testData } = getTestData();
+    (global.fetch as FetchMockSandbox)
+      .get('begin:https://treeherder.mozilla.org/api/perfcompare/results/', [])
+      .get('begin:https://treeherder.mozilla.org/api/project/', {
+        results: testData,
+      });
+
+    renderWithRoute(
+      <ResultsView
+        protocolTheme={protocolTheme}
+        toggleColorMode={toggleColorMode}
+        title={Strings.metaData.pageTitle.results}
+      />,
+    );
+
+    expect(await screen.findByText('No results found')).toBeInTheDocument();
+    expect(document.body).toMatchSnapshot();
   });
 });

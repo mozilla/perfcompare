@@ -10,8 +10,8 @@ import { Strings } from '../../resources/Strings';
 import useProtocolTheme from '../../theme/protocolTheme';
 import { RevisionsHeader } from '../../types/state';
 import getTestData from '../utils/fixtures';
-import { renderWithRouter, store } from '../utils/setupTests';
-import { renderHook, screen, act } from '../utils/test-utils';
+import { store } from '../utils/setupTests';
+import { renderWithRouter, renderHook, screen, act } from '../utils/test-utils';
 
 function renderWithRoute(component: ReactElement) {
   return renderWithRouter(component, {
@@ -87,8 +87,6 @@ describe('Results View', () => {
     ) as HTMLElement;
 
     expect(hiddenEditButton).not.toBeInTheDocument();
-
-    await act(async () => void jest.runOnlyPendingTimers());
   });
 
   it('RESULTS: clicking the cancel button hides input and dropdown', async () => {
@@ -136,8 +134,6 @@ describe('Results View', () => {
       '.base-search-container',
     ) as HTMLElement;
     expect(container).not.toBeInTheDocument();
-
-    await act(async () => void jest.runOnlyPendingTimers());
   });
 
   it('RESULTS: clicking the save button hides input and dropdown', async () => {
@@ -207,20 +203,10 @@ describe('Results View', () => {
     });
 
     expect(container).not.toBeInTheDocument();
-    await act(async () => void jest.runOnlyPendingTimers());
   });
 
   it('Should render the selected revisions', async () => {
     const { testData } = getTestData();
-    global.fetch = jest.fn(() =>
-      Promise.resolve({
-        json: () => ({
-          results: testData,
-        }),
-      }),
-    ) as jest.Mock;
-    jest.spyOn(global, 'fetch');
-
     renderWithRoute(
       <ResultsView
         protocolTheme={protocolTheme}
@@ -244,15 +230,6 @@ describe('Results View', () => {
 
   it('should render a home link', async () => {
     const { testData } = getTestData();
-    global.fetch = jest.fn(() =>
-      Promise.resolve({
-        json: () => ({
-          results: testData,
-        }),
-      }),
-    ) as jest.Mock;
-    jest.spyOn(global, 'fetch');
-
     const selectedRevisions = testData.slice(0, 2);
     await act(async () => {
       store.dispatch(
@@ -273,14 +250,6 @@ describe('Results View', () => {
 
   it('should remove the selected base revision once X button is clicked', async () => {
     const { testData } = getTestData();
-    global.fetch = jest.fn(() =>
-      Promise.resolve({
-        json: () => ({
-          results: testData,
-        }),
-      }),
-    ) as jest.Mock;
-    jest.spyOn(global, 'fetch');
 
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
@@ -319,14 +288,6 @@ describe('Results View', () => {
 
   it('should remove the selected new revision once X button is clicked', async () => {
     const { testData } = getTestData();
-    global.fetch = jest.fn(() =>
-      Promise.resolve({
-        json: () => ({
-          results: testData,
-        }),
-      }),
-    ) as jest.Mock;
-    jest.spyOn(global, 'fetch');
 
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
@@ -560,16 +521,6 @@ describe('Results View', () => {
     const revokeObjectURLMock = jest.fn();
     global.URL.revokeObjectURL = revokeObjectURLMock;
     // Render the component
-
-    const { testData } = getTestData();
-    global.fetch = jest.fn(() =>
-      Promise.resolve({
-        json: () => ({
-          results: testData,
-        }),
-      }),
-    ) as jest.Mock;
-    jest.spyOn(global, 'fetch');
 
     renderWithRouter(
       <ResultsView

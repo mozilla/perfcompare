@@ -23,9 +23,13 @@ const config: Config.InitialOptions = {
     ],
     '^.+\\.svg$': '<rootDir>/src/__tests__/utils/fileTransformer.js',
   },
+  // This transformIgnorePatterns is better understood as a double negation: the
+  // package names below _will_ be transformed.
+  // This is needed mostly because our fetch-mock doesn't use esm, but these
+  // dependencies of fetch-mock do! Hopefully this won't be needed in the future
+  // when fetch-mock updates.
   transformIgnorePatterns: [
-    '[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$',
-    '^.+\\.module\\.(css|sass|scss)$',
+    '/node_modules/(?!(data-uri-to-buffer|fetch-blob|formdata-polyfill|node-fetch)/)',
   ],
   modulePaths: [],
   moduleNameMapper: {
@@ -40,7 +44,6 @@ const config: Config.InitialOptions = {
     'jest-watch-typeahead/filename',
     'jest-watch-typeahead/testname',
   ],
-  resetMocks: true,
   globalSetup: '<rootDir>/src/__tests__/utils/globalSetup.ts',
   testTimeout: 30000,
 };

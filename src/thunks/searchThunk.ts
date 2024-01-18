@@ -30,9 +30,9 @@ export const fetchRecentRevisions = createAsyncThunk<
         `${treeherderBaseURL}/api/project/${repository}/push/?hide_reviewbot_pushes=true`,
       );
     } catch (err) {
-      const error = (err as Error).message;
+      const error = err as Error;
       console.error('FetchRecentRevisions ERROR: ', error);
-      return rejectWithValue(error);
+      return rejectWithValue(error.message);
     }
     const json = (await response.json()) as APIPushResponse;
     if (json.results.length > 0) {
