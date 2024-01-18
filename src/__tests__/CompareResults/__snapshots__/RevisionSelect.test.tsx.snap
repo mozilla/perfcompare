@@ -2,8 +2,6 @@
 
 exports[`Revision select Should match snapshot 1`] = `
 <body>
-  <div />
-  <div />
   <div>
     <div
       class="MuiBox-root css-0"

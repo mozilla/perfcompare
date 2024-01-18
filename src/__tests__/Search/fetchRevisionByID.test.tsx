@@ -2,20 +2,15 @@ import userEvent from '@testing-library/user-event';
 
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
-import useProtocolTheme from '../../theme/protocolTheme';
 import getTestData from '../utils/fixtures';
 import {
   screen,
-  renderHook,
   renderWithRouter,
   act,
   FetchMockSandbox,
 } from '../utils/test-utils';
 
 describe('Search View/fetchRevisionByID', () => {
-  const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
-    .toggleColorMode;
-
   it('should fetch revisions by ID if searchValue is a 12 or 40 character hash', async () => {
     const { testData } = getTestData();
 
@@ -29,12 +24,7 @@ describe('Search View/fetchRevisionByID', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(
-      <SearchView
-        toggleColorMode={toggleColorMode}
-        title={Strings.metaData.pageTitle.search}
-      />,
-    );
+    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'abcdef123456');
@@ -71,12 +61,7 @@ describe('Search View/fetchRevisionByID', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(
-      <SearchView
-        toggleColorMode={toggleColorMode}
-        title={Strings.metaData.pageTitle.search}
-      />,
-    );
+    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'abcdef1234567890abcdef1234567890abcdef12');
@@ -109,12 +94,7 @@ describe('Search View/fetchRevisionByID', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(
-      <SearchView
-        toggleColorMode={toggleColorMode}
-        title={Strings.metaData.pageTitle.search}
-      />,
-    );
+    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'abcdef1234567890abcdef1234567890abcdef12');
@@ -149,12 +129,7 @@ describe('Search View/fetchRevisionByID', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(
-      <SearchView
-        toggleColorMode={toggleColorMode}
-        title={Strings.metaData.pageTitle.search}
-      />,
-    );
+    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'abcdef123456');

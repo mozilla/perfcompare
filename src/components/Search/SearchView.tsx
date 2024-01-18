@@ -18,7 +18,7 @@ import SearchViewInit from './SearchViewInit';
 function SearchView(props: SearchViewProps) {
   const containerRef = useRef(null);
   const navigate = useNavigate();
-  const { toggleColorMode, title } = props;
+  const { title } = props;
   const themeMode = useAppSelector((state) => state.theme.mode);
   const selectedRevisions = useAppSelector(
     (state) => state.selectedRevisions.revisions,
@@ -61,10 +61,7 @@ function SearchView(props: SearchViewProps) {
           Skip to search
         </button>
       </SkipLink>
-      <PerfCompareHeader
-        toggleColorMode={toggleColorMode}
-        view={searchView as View}
-      />
+      <PerfCompareHeader view={searchView as View} />
       <SearchViewInit />
       <SearchContainer containerRef={containerRef} />
     </div>
@@ -72,7 +69,6 @@ function SearchView(props: SearchViewProps) {
 }
 
 interface SearchViewProps {
-  toggleColorMode: () => void;
   title: string;
 }
 

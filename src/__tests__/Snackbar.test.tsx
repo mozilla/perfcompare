@@ -4,12 +4,10 @@ import { maxRevisionsError } from '../common/constants';
 import App from '../components/App';
 import SearchView from '../components/Search/SearchView';
 import { Strings } from '../resources/Strings';
-import useProtocolTheme from '../theme/protocolTheme';
 import getTestData from './utils/fixtures';
 import {
   screen,
   act,
-  renderHook,
   renderWithRouter,
   render,
   waitForElementToBeRemoved,
@@ -17,9 +15,6 @@ import {
 } from './utils/test-utils';
 
 describe('Snackbar', () => {
-  const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
-    .toggleColorMode;
-
   beforeEach(() => {
     const { testData } = getTestData();
     (global.fetch as FetchMockSandbox).get(
@@ -74,12 +69,7 @@ describe('Snackbar', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(
-      <SearchView
-        toggleColorMode={toggleColorMode}
-        title={Strings.metaData.pageTitle.search}
-      />,
-    );
+    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
 
     // focus input to show results
     const searchInput = screen.getAllByRole('textbox')[0];

@@ -9,19 +9,18 @@ import { HeaderStyles } from '../../styles';
 import ToggleDarkMode from './ToggleDarkModeButton';
 
 interface PerfCompareHeaderProps {
-  toggleColorMode: () => void;
   view: 'search' | 'compare-results';
 }
 
 const strings = Strings.components.header;
 
-function PerfCompareHeader({ toggleColorMode, view }: PerfCompareHeaderProps) {
+function PerfCompareHeader({ view }: PerfCompareHeaderProps) {
   const themeMode = useAppSelector((state) => state.theme.mode);
   const styles = HeaderStyles(themeMode, view);
 
   return (
     <Grid className={`header-container ${styles.container}`}>
-      <ToggleDarkMode toggleColorMode={toggleColorMode} />
+      <ToggleDarkMode />
       <Box className='header-text'>
         <Typography
           variant='h1'

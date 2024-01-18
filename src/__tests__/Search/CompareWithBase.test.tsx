@@ -4,13 +4,11 @@ import { repoMap } from '../../common/constants';
 import CompareWithBase from '../../components/Search/CompareWithBase';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
-import useProtocolTheme from '../../theme/protocolTheme';
 import getTestData from '../utils/fixtures';
 import { store } from '../utils/setupTests';
 import {
   act,
   screen,
-  renderHook,
   renderWithRouter,
   FetchMockSandbox,
 } from '../utils/test-utils';
@@ -101,15 +99,7 @@ describe('Compare With Base', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
-      .toggleColorMode;
-
-    renderWithRouter(
-      <SearchView
-        toggleColorMode={toggleColorMode}
-        title={Strings.metaData.pageTitle.search}
-      />,
-    );
+    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);

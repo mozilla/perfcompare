@@ -4,8 +4,6 @@ import { useMemo } from 'react';
 
 import { createTheme, Theme } from '@mui/material/styles';
 
-import { useAppDispatch, useAppSelector } from '../hooks/app';
-import { updateThemeMode } from '../reducers/ThemeSlice';
 import { Colors } from '../styles';
 import type { ThemeMode } from '../types/state';
 import components from './components';
@@ -62,16 +60,7 @@ const getDesignTokens = (modeVal: ThemeMode) => ({
   },
 });
 
-const useProtocolTheme = () => {
-  const dispatch = useAppDispatch();
-  const storedMode = useAppSelector((state) => state.theme.mode);
-
-  const toggleColorMode = () => {
-    const mode = storedMode === 'light' ? 'dark' : 'light';
-    dispatch(updateThemeMode(mode));
-    localStorage.setItem('theme', mode);
-  };
-
+const getProtocolTheme = (storedMode: string) => {
   const protocolTheme: Theme = useMemo(
     () =>
       createTheme(getDesignTokens(storedMode as ThemeMode), {
@@ -81,6 +70,6 @@ const useProtocolTheme = () => {
     [storedMode],
   );
 
-  return { storedMode, toggleColorMode, protocolTheme };
+  return { protocolTheme };
 };
-export default useProtocolTheme;
+export default getProtocolTheme;

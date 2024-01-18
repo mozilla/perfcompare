@@ -20,7 +20,6 @@ import PerfCompareHeader from '../Shared/PerfCompareHeader';
 import ResultsMain from './ResultsMain';
 
 interface ResultsViewProps {
-  toggleColorMode: () => void;
   title: string;
 }
 function ResultsView(props: ResultsViewProps) {
@@ -45,7 +44,7 @@ function ResultsView(props: ResultsViewProps) {
     useFetchCompareResults();
   const { searchRecentRevisions } = useHandleChangeSearch();
 
-  const { toggleColorMode, title } = props;
+  const { title } = props;
   const themeMode = useAppSelector((state) => state.theme.mode);
   const styles = {
     container: style({
@@ -120,10 +119,7 @@ function ResultsView(props: ResultsViewProps) {
       className={styles.container}
       data-testid='beta-version-compare-results'
     >
-      <PerfCompareHeader
-        toggleColorMode={toggleColorMode}
-        view={compareView as View}
-      />
+      <PerfCompareHeader view={compareView as View} />
       <section className={sectionStyles.container}>
         <Link href='/' aria-label='link to home'>
           <Stack direction='row' alignItems='center'>
