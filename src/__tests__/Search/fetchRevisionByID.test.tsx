@@ -13,8 +13,6 @@ import {
 } from '../utils/test-utils';
 
 describe('Search View/fetchRevisionByID', () => {
-  const protocolTheme = renderHook(() => useProtocolTheme()).result.current
-    .protocolTheme;
   const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
     .toggleColorMode;
 
@@ -34,7 +32,6 @@ describe('Search View/fetchRevisionByID', () => {
     renderWithRouter(
       <SearchView
         toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
         title={Strings.metaData.pageTitle.search}
       />,
     );
@@ -77,7 +74,6 @@ describe('Search View/fetchRevisionByID', () => {
     renderWithRouter(
       <SearchView
         toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
         title={Strings.metaData.pageTitle.search}
       />,
     );
@@ -116,7 +112,6 @@ describe('Search View/fetchRevisionByID', () => {
     renderWithRouter(
       <SearchView
         toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
         title={Strings.metaData.pageTitle.search}
       />,
     );
@@ -157,7 +152,6 @@ describe('Search View/fetchRevisionByID', () => {
     renderWithRouter(
       <SearchView
         toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
         title={Strings.metaData.pageTitle.search}
       />,
     );

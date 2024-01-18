@@ -79,7 +79,6 @@ function App() {
                     element={
                       <SearchView
                         toggleColorMode={toggleColorMode}
-                        protocolTheme={protocolTheme}
                         title={Strings.metaData.pageTitle.search}
                       />
                     }
@@ -90,7 +89,6 @@ function App() {
                     element={
                       <ResultsView
                         toggleColorMode={toggleColorMode}
-                        protocolTheme={protocolTheme}
                         title={Strings.metaData.pageTitle.results}
                       />
                     }

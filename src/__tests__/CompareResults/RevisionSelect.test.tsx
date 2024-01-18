@@ -19,8 +19,6 @@ function renderWithRoute(component: ReactElement) {
 }
 
 describe('Revision select', () => {
-  const protocolTheme = renderHook(() => useProtocolTheme()).result.current
-    .protocolTheme;
   const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
     .toggleColorMode;
 
@@ -63,7 +61,6 @@ describe('Revision select', () => {
 
     renderWithRoute(
       <ResultsView
-        protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
         title={Strings.metaData.pageTitle.results}
       />,
@@ -139,7 +136,6 @@ describe('Revision select', () => {
 
     renderWithRoute(
       <ResultsView
-        protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
         title={Strings.metaData.pageTitle.results}
       />,
@@ -204,7 +200,6 @@ describe('Revision select', () => {
 
     renderWithRoute(
       <ResultsView
-        protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
         title={Strings.metaData.pageTitle.results}
       />,

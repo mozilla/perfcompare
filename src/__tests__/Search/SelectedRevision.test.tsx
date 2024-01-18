@@ -16,8 +16,6 @@ import {
   FetchMockSandbox,
 } from '../utils/test-utils';
 
-const protocolTheme = renderHook(() => useProtocolTheme()).result.current
-  .protocolTheme;
 const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
   .toggleColorMode;
 const searchType = 'base' as InputType;
@@ -26,7 +24,6 @@ function renderComponent() {
   renderWithRouter(
     <SearchView
       toggleColorMode={toggleColorMode}
-      protocolTheme={protocolTheme}
       title={Strings.metaData.pageTitle.search}
     />,
   );

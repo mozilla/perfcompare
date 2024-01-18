@@ -17,8 +17,6 @@ import {
 } from './utils/test-utils';
 
 describe('Snackbar', () => {
-  const protocolTheme = renderHook(() => useProtocolTheme()).result.current
-    .protocolTheme;
   const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
     .toggleColorMode;
 
@@ -79,7 +77,6 @@ describe('Snackbar', () => {
     renderWithRouter(
       <SearchView
         toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
         title={Strings.metaData.pageTitle.search}
       />,
     );

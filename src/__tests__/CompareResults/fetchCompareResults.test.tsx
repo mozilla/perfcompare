@@ -20,8 +20,6 @@ function renderWithRoute(component: ReactElement) {
 
 describe('Results View/fetchCompareResults', () => {
   it('Should fetch and display recent results', async () => {
-    const protocolTheme = renderHook(() => useProtocolTheme()).result.current
-      .protocolTheme;
     const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
       .toggleColorMode;
 
@@ -38,7 +36,6 @@ describe('Results View/fetchCompareResults', () => {
 
     renderWithRoute(
       <ResultsView
-        protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
         title={Strings.metaData.pageTitle.results}
       />,
@@ -50,8 +47,6 @@ describe('Results View/fetchCompareResults', () => {
   });
 
   it('State does not contain data if fetch returns no results', async () => {
-    const protocolTheme = renderHook(() => useProtocolTheme()).result.current
-      .protocolTheme;
     const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
       .toggleColorMode;
 
@@ -65,7 +60,6 @@ describe('Results View/fetchCompareResults', () => {
 
     renderWithRoute(
       <ResultsView
-        protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
         title={Strings.metaData.pageTitle.results}
       />,

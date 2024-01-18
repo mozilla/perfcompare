@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import type { Theme } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
@@ -21,7 +20,6 @@ import PerfCompareHeader from '../Shared/PerfCompareHeader';
 import ResultsMain from './ResultsMain';
 
 interface ResultsViewProps {
-  protocolTheme: Theme;
   toggleColorMode: () => void;
   title: string;
 }
@@ -47,8 +45,8 @@ function ResultsView(props: ResultsViewProps) {
     useFetchCompareResults();
   const { searchRecentRevisions } = useHandleChangeSearch();
 
-  const { protocolTheme, toggleColorMode, title } = props;
-  const themeMode = protocolTheme.palette.mode;
+  const { toggleColorMode, title } = props;
+  const themeMode = useAppSelector((state) => state.theme.mode);
   const styles = {
     container: style({
       backgroundColor: background(themeMode),

@@ -20,15 +20,12 @@ function renderWithRoute(component: ReactElement) {
 }
 
 describe('Results View', () => {
-  const protocolTheme = renderHook(() => useProtocolTheme()).result.current
-    .protocolTheme;
   const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
     .toggleColorMode;
 
   it('Should match snapshot', async () => {
     renderWithRoute(
       <ResultsView
-        protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
         title={Strings.metaData.pageTitle.results}
       />,
@@ -39,7 +36,6 @@ describe('Results View', () => {
   it('Should render the Compare with a Base component', () => {
     renderWithRoute(
       <ResultsView
-        protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
         title={Strings.metaData.pageTitle.results}
       />,
@@ -50,11 +46,7 @@ describe('Results View', () => {
 
   it('RESULTS: shows dropdown and input when edit button in clicked', async () => {
     renderWithRouter(
-      <ResultsView
-        toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
-        title='Results'
-      />,
+      <ResultsView toggleColorMode={toggleColorMode} title='Results' />,
     );
 
     const user = userEvent.setup({ delay: null });
@@ -91,11 +83,7 @@ describe('Results View', () => {
 
   it('RESULTS: clicking the cancel button hides input and dropdown', async () => {
     renderWithRouter(
-      <ResultsView
-        toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
-        title='Results'
-      />,
+      <ResultsView toggleColorMode={toggleColorMode} title='Results' />,
     );
 
     const user = userEvent.setup({ delay: null });
@@ -138,11 +126,7 @@ describe('Results View', () => {
 
   it('RESULTS: clicking the save button hides input and dropdown', async () => {
     renderWithRouter(
-      <ResultsView
-        toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
-        title='Results'
-      />,
+      <ResultsView toggleColorMode={toggleColorMode} title='Results' />,
     );
 
     const user = userEvent.setup({ delay: null });
@@ -209,7 +193,6 @@ describe('Results View', () => {
     const { testData } = getTestData();
     renderWithRoute(
       <ResultsView
-        protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
         title={Strings.metaData.pageTitle.results}
       />,
@@ -239,7 +222,6 @@ describe('Results View', () => {
 
     renderWithRoute(
       <ResultsView
-        protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
         title={Strings.metaData.pageTitle.results}
       />,
@@ -263,7 +245,6 @@ describe('Results View', () => {
 
     renderWithRoute(
       <ResultsView
-        protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
         title={Strings.metaData.pageTitle.results}
       />,
@@ -301,7 +282,6 @@ describe('Results View', () => {
 
     renderWithRoute(
       <ResultsView
-        protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
         title={Strings.metaData.pageTitle.results}
       />,
@@ -341,7 +321,6 @@ describe('Results View', () => {
 
     renderWithRoute(
       <ResultsView
-        protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
         title={Strings.metaData.pageTitle.results}
       />,
@@ -406,7 +385,6 @@ describe('Results View', () => {
 
     renderWithRoute(
       <ResultsView
-        protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
         title={Strings.metaData.pageTitle.results}
       />,
@@ -444,7 +422,6 @@ describe('Results View', () => {
 
     renderWithRoute(
       <ResultsView
-        protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
         title={Strings.metaData.pageTitle.results}
       />,
@@ -488,7 +465,6 @@ describe('Results View', () => {
 
     renderWithRoute(
       <ResultsView
-        protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
         title={Strings.metaData.pageTitle.results}
       />,
@@ -524,7 +500,6 @@ describe('Results View', () => {
 
     renderWithRouter(
       <ResultsView
-        protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
         title={Strings.metaData.pageTitle.results}
       />,

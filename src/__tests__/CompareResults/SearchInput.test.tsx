@@ -4,15 +4,12 @@ import useProtocolTheme from '../../theme/protocolTheme';
 import { renderHook, renderWithRouter, screen } from '../utils/test-utils';
 
 describe('Search by title/test name', () => {
-  const protocolTheme = renderHook(() => useProtocolTheme()).result.current
-    .protocolTheme;
   const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
     .toggleColorMode;
 
   it('Should match snapshot', () => {
     renderWithRouter(
       <ResultsView
-        protocolTheme={protocolTheme}
         toggleColorMode={toggleColorMode}
         title={Strings.metaData.pageTitle.results}
       />,

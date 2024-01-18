@@ -15,9 +15,6 @@ import {
   FetchMockSandbox,
 } from '../utils/test-utils';
 
-const protocolTheme = renderHook(() => useProtocolTheme()).result.current
-  .protocolTheme;
-
 function renderComponent(isEditable: boolean) {
   const { testData } = getTestData();
   const baseRevs = testData.slice(0, 1);
@@ -110,7 +107,6 @@ describe('Compare With Base', () => {
     renderWithRouter(
       <SearchView
         toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
         title={Strings.metaData.pageTitle.search}
       />,
     );
