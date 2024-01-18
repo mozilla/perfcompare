@@ -1,0 +1,9 @@
+ignore:
+  - 'src/components/Search/CompareWithBase'
+  - 'src/components/CompareResults/ResultsView.tsx'
+  - 'src/components/Search/SaveCancelButtons.tsx'
+  - 'src/components/Search/SearchResultsListItem.tsx'
+  - 'src/components/Search/CompareWithBaseContext.tsx'
+  - 'src/components/Search/EditButton.tsx'
+  - 'src/hooks/useCheckRevision.ts'
+  - 'src/components/Search/SearchComponent.tsx'
