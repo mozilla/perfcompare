@@ -250,7 +250,6 @@ function RevisionRow(props: RevisionRowProps) {
           expanded ? 'expanded' : 'default'
         } ${stylesCard.container} `}
         data-testid='expanded-row-content'
-        role='row'
       >
         <RevisionRowExpandable themeMode={themeMode} result={result} />
       </div>

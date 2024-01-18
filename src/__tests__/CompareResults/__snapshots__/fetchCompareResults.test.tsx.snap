@@ -1281,7 +1281,6 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                   <div
                     class="content-row content-row--default container_f1tn6fhk "
                     data-testid="expanded-row-content"
-                    role="row"
                   >
                     <div
                       class="ff20o48"
@@ -1598,7 +1597,6 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                   <div
                     class="content-row content-row--default container_f1tn6fhk "
                     data-testid="expanded-row-content"
-                    role="row"
                   >
                     <div
                       class="ff20o48"
@@ -1921,7 +1919,6 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                   <div
                     class="content-row content-row--default container_f1tn6fhk "
                     data-testid="expanded-row-content"
-                    role="row"
                   >
                     <div
                       class="ff20o48"
@@ -2243,7 +2240,6 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                   <div
                     class="content-row content-row--default container_f1tn6fhk "
                     data-testid="expanded-row-content"
-                    role="row"
                   >
                     <div
                       class="ff20o48"
