@@ -3,17 +3,17 @@ import List from '@mui/material/List';
 
 import { useAppSelector } from '../../hooks/app';
 import { SelectListStyles } from '../../styles';
-import { InputType, ThemeMode, View } from '../../types/state';
+import { InputType, View } from '../../types/state';
 import SearchResultsListItem from './SearchResultsListItem';
 
 interface SearchResultsListProps {
   view: View;
-  mode: ThemeMode;
   searchType: InputType;
 }
 
 function SearchResultsList(props: SearchResultsListProps) {
-  const { view, mode, searchType } = props;
+  const { view, searchType } = props;
+  const mode = useAppSelector((state) => state.theme.mode);
   const searchState = useAppSelector((state) => state.search[searchType]);
   const { searchResults } = searchState;
   const styles = SelectListStyles(mode);

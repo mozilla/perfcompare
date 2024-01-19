@@ -1,8 +1,7 @@
 import type { ReactElement } from 'react';
 
 import ResultsTable from '../../components/CompareResults/ResultsTable';
-import useProtocolTheme from '../../theme/protocolTheme';
-import { renderWithRouter, renderHook, screen } from '../utils/test-utils';
+import { renderWithRouter, screen } from '../utils/test-utils';
 
 function renderWithRoute(component: ReactElement) {
   return renderWithRouter(component, {
@@ -11,19 +10,15 @@ function renderWithRoute(component: ReactElement) {
 }
 
 describe('Results Table', () => {
-  const protocolTheme = renderHook(() => useProtocolTheme()).result.current
-    .protocolTheme;
-  const themeMode = protocolTheme.palette.mode;
-
   it('Should match snapshot', () => {
-    renderWithRoute(<ResultsTable themeMode={themeMode} />);
+    renderWithRoute(<ResultsTable />);
 
     expect(screen.getByTestId('results-table')).toBeInTheDocument();
     expect(document.body).toMatchSnapshot();
   });
 
   it('Display message for not finding results', () => {
-    renderWithRoute(<ResultsTable themeMode={themeMode} />);
+    renderWithRoute(<ResultsTable />);
 
     expect(screen.getByText(/No results found/)).toBeInTheDocument();
   });

@@ -13,13 +13,12 @@ import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import dayjs from 'dayjs';
 
+import { useAppSelector } from '../../hooks/app';
 import useCheckRevision from '../../hooks/useCheckRevision';
 import useSelectedRevisions from '../../hooks/useSelectedRevisions';
 import { Strings } from '../../resources/Strings';
 import { SelectRevsStyles } from '../../styles';
-import type { RevisionsList } from '../../types/state';
-import { InputType, ThemeMode } from '../../types/state';
-import { Repository } from '../../types/state';
+import { InputType, Repository, RevisionsList } from '../../types/state';
 import {
   truncateHash,
   getLatestCommitMessage,
@@ -32,7 +31,6 @@ const warning = base.collapsed.warnings.comparison;
 interface SelectedRevisionItemProps {
   index: number;
   item: RevisionsList;
-  mode: ThemeMode;
   repository: Repository['name'];
   searchType: InputType;
   isWarning?: boolean;
@@ -43,13 +41,13 @@ interface SelectedRevisionItemProps {
 function SelectedRevisionItem({
   index,
   item,
-  mode,
   repository,
   searchType,
   isWarning,
   formIsDisplayed,
   isEditable,
 }: SelectedRevisionItemProps) {
+  const mode = useAppSelector((state) => state.theme.mode);
   const styles = SelectRevsStyles(mode);
   const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);

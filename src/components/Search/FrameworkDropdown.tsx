@@ -20,12 +20,7 @@ import {
   DropDownMenuRaw,
   DropDownItemRaw,
 } from '../../styles';
-import type { ThemeMode } from '../../types/state';
 import type { Framework } from '../../types/types';
-
-interface FrameworkDropdownProps {
-  mode: ThemeMode;
-}
 
 const strings = Strings.components.searchDefault.sharedCollasped.framkework;
 
@@ -45,7 +40,9 @@ const sortFrameworks = (
 
 const sortedFrameworks = sortFrameworks(frameworkMap);
 
-function FrameworkDropdown({ mode }: FrameworkDropdownProps) {
+function FrameworkDropdown() {
+  const mode = useAppSelector((state) => state.theme.mode);
+
   cssRule('.MuiTooltip-popper', {
     ...(mode === 'light' ? TooltipRaw.Light : TooltipRaw.Dark),
     $nest: {

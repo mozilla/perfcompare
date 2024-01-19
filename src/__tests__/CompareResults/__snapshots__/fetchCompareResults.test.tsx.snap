@@ -2,8 +2,6 @@
 
 exports[`Results View/fetchCompareResults Should fetch and display recent results 1`] = `
 <body>
-  <div />
-  <div />
   <div>
     <div
       class="fcndgf6"
@@ -2312,8 +2310,6 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
 
 exports[`Results View/fetchCompareResults State does not contain data if fetch returns no results 1`] = `
 <body>
-  <div />
-  <div />
   <div>
     <div
       class="fcndgf6"

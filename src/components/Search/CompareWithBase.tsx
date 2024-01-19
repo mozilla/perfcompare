@@ -6,9 +6,8 @@ import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
-import { CompareCardsStyles } from '../../styles';
-import { SearchStyles } from '../../styles';
-import type { ThemeMode, RevisionsList, Repository } from '../../types/state';
+import { CompareCardsStyles, SearchStyles } from '../../styles';
+import type { RevisionsList, Repository } from '../../types/state';
 import CompareButton from './CompareButton';
 import FrameworkDropdown from './FrameworkDropdown';
 import SearchComponent from './SearchComponent';
@@ -18,7 +17,6 @@ const stringsBase = Strings.components.searchDefault.base.collapsed.base;
 const stringsNew = Strings.components.searchDefault.base.collapsed.revision;
 
 interface CompareWithBaseProps {
-  mode: ThemeMode;
   isEditable: boolean;
   baseRevs: RevisionsList[];
   newRevs: RevisionsList[];
@@ -27,7 +25,6 @@ interface CompareWithBaseProps {
 }
 
 function CompareWithBase({
-  mode,
   isEditable,
   baseRevs,
   newRevs,
@@ -36,6 +33,7 @@ function CompareWithBase({
 }: CompareWithBaseProps) {
   const [expanded, setExpanded] = useState(true);
 
+  const mode = useAppSelector((state) => state.theme.mode);
   const styles = CompareCardsStyles(mode);
   const dropDownStyles = SearchStyles(mode);
   const search = useAppSelector((state) => state.search);
@@ -87,7 +85,6 @@ function CompareWithBase({
             searchType='base'
             isEditable={isEditable}
             isWarning={isWarning}
-            mode={mode}
             revisions={baseRevs}
             repositories={baseRepos}
             {...stringsBase}
@@ -96,7 +93,6 @@ function CompareWithBase({
             searchType='new'
             isEditable={isEditable}
             isWarning={isWarning}
-            mode={mode}
             revisions={newRevs}
             repositories={newRepos}
             {...stringsNew}
@@ -106,8 +102,8 @@ function CompareWithBase({
             xs={2}
             className={`${dropDownStyles.dropDown} ${bottomStyles.container}`}
           >
-            <FrameworkDropdown mode={mode} />
-            <CompareButton mode={mode} />
+            <FrameworkDropdown />
+            <CompareButton />
           </Grid>
         </div>
       </div>

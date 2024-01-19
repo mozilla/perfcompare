@@ -1,19 +1,11 @@
 import React from 'react';
 
 import SearchContainer from '../../components/Search/SearchContainer';
-import useProtocolTheme from '../../theme/protocolTheme';
-import { renderWithRouter, renderHook } from '../utils/test-utils';
-
-const protocolTheme = renderHook(() => useProtocolTheme()).result.current
-  .protocolTheme;
-
-const themeMode = protocolTheme.palette.mode;
+import { renderWithRouter } from '../utils/test-utils';
 
 function renderComponent() {
   const ref: React.RefObject<HTMLInputElement> = React.createRef();
-  renderWithRouter(
-    <SearchContainer containerRef={ref} themeMode={themeMode} />,
-  );
+  renderWithRouter(<SearchContainer containerRef={ref} />);
 }
 
 describe('Search Containter', () => {
