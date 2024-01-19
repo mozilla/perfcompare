@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 
-import compareResults from '../reducers/CompareResults';
+import compareResults from '../reducers/CompareResultsSlice';
 import comparison from '../reducers/ComparisonSlice';
 import framework from '../reducers/FrameworkSlice';
 import search from '../reducers/SearchSlice';
