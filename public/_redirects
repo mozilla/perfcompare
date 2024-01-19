@@ -1,0 +1,2 @@
+# Redirect everything to index.html, and allow React Router to decide what to show.
+/*    /index.html   200

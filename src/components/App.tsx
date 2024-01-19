@@ -6,7 +6,7 @@ import Link from '@mui/material/Link';
 import { ThemeProvider } from '@mui/material/styles';
 import { SnackbarProvider } from 'notistack';
 import {
-  createHashRouter,
+  createBrowserRouter,
   RouterProvider,
   createRoutesFromElements,
   Route,
@@ -46,7 +46,7 @@ AlertContainer.displayName = 'AlertContainer';
 
 // The router should be statically defined outside of the React tree.
 // See https://reactrouter.com/en/main/routers/router-provider for more information.
-const router = createHashRouter(
+const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route
