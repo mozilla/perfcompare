@@ -7,6 +7,7 @@ import { useAppSelector, useAppDispatch } from '../../hooks/app';
 import { updateThemeMode } from '../../reducers/ThemeSlice';
 import { Strings } from '../../resources/Strings';
 import { Spacing, FontsRaw, SwitchRaw } from '../../styles';
+import { ThemeMode } from '../../types/state';
 
 const strings = Strings.components.header;
 const label = { inputProps: { 'aria-label': 'Dark mode switch' } };
@@ -18,7 +19,9 @@ function ToggleDarkMode() {
   const switchStyle = SwitchRaw(theme === 'light' ? 'light' : 'dark');
 
   const toggleColorMode = () => {
-    dispatch(updateThemeMode(theme));
+    const themeMode = theme === 'light' ? 'dark' : 'light';
+    dispatch(updateThemeMode(themeMode as ThemeMode));
+    localStorage.setItem('theme', themeMode);
   };
 
   const styles = {

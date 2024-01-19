@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 
 import Alert from '@mui/material/Alert';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -48,7 +48,10 @@ function App() {
     null,
   );
   const storedMode = useAppSelector((state) => state.theme.mode);
-  const { protocolTheme } = getProtocolTheme(storedMode);
+  const { protocolTheme } = useMemo(
+    () => getProtocolTheme(storedMode),
+    [storedMode],
+  );
 
   return (
     <ThemeProvider theme={protocolTheme}>
