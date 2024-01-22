@@ -814,7 +814,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
               </div>
             </header>
             <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 fv9cdwb css-16rtr54-MuiPaper-root"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 fv9cdwb css-1qr77tn-MuiPaper-root"
               data-testid="results-table"
               role="table"
             >
@@ -3122,7 +3122,7 @@ exports[`Results View/fetchCompareResults State does not contain data if fetch r
               </div>
             </header>
             <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 fv9cdwb css-16rtr54-MuiPaper-root"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 fv9cdwb css-1qr77tn-MuiPaper-root"
               data-testid="results-table"
               role="table"
             >

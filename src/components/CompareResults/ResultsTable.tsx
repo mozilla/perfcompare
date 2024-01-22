@@ -12,6 +12,8 @@ import TableHeader from './TableHeader';
 
 const customStyles = {
   boxShadow: 'none',
+  backgroundImage: 'none',
+  backgroundColor: 'transparent',
 };
 
 function ResultsTable() {
