@@ -946,7 +946,7 @@ exports[`Results View RESULTS: clicking the cancel button hides input and dropdo
               </div>
             </header>
             <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 fv9cdwb css-1qr77tn-MuiPaper-root"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 fv9cdwb css-13yod79-MuiPaper-root"
               data-testid="results-table"
               role="table"
             >
@@ -2103,7 +2103,7 @@ exports[`Results View RESULTS: clicking the save button hides input and dropdown
               </div>
             </header>
             <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 fv9cdwb css-1qr77tn-MuiPaper-root"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 fv9cdwb css-13yod79-MuiPaper-root"
               data-testid="results-table"
               role="table"
             >
@@ -3260,7 +3260,7 @@ exports[`Results View RESULTS: shows dropdown and input when edit button in clic
               </div>
             </header>
             <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 fv9cdwb css-1qr77tn-MuiPaper-root"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 fv9cdwb css-13yod79-MuiPaper-root"
               data-testid="results-table"
               role="table"
             >
@@ -3473,7 +3473,7 @@ exports[`Results View RESULTS: shows dropdown and input when edit button in clic
 
 exports[`Results View Should match snapshot 1`] = `
 <div
-  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 fv9cdwb css-1qr77tn-MuiPaper-root"
+  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 fv9cdwb css-13yod79-MuiPaper-root"
   data-testid="results-table"
   role="table"
 >
