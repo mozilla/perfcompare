@@ -47,7 +47,9 @@ AlertContainer.displayName = 'AlertContainer';
 
 // The router should be statically defined outside of the React tree.
 // See https://reactrouter.com/en/main/routers/router-provider for more information.
-const router = createBrowserRouter(
+// It's exported so that we can control it in tests. Do not use it directly in
+// application code!
+export const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route
