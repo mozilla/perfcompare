@@ -7,22 +7,18 @@ import { Spacing } from './Spacing';
 
 const strings = Strings.components.header;
 
-export const HeaderStyles = (
-  mode: string,
-  view: 'search' | 'compare-results',
-) => {
-  const isTrueLight = mode == 'light' ? true : false;
-  const isSearch = view == 'search' ? true : false;
-  const lightBg = isSearch ? Colors.Background200 : '#ffffff';
-  const darkBg = isSearch ? Colors.Background200Dark : Colors.Background100Dark;
+export const HeaderStyles = (mode: string, isHome: boolean) => {
+  const isTrueLight = mode == 'light';
+  const lightBg = isHome ? Colors.Background200 : '#ffffff';
+  const darkBg = isHome ? Colors.Background200Dark : Colors.Background100Dark;
 
   const styles = stylesheet({
     container: {
       padding: 0,
       width: '100%',
-      minHeight: view == 'search' ? '357px' : '130px',
+      minHeight: isHome ? '357px' : '130px',
       backgroundColor: isTrueLight ? lightBg : darkBg,
-      backgroundImage: isSearch ? strings.bgLink : 'none',
+      backgroundImage: isHome ? strings.bgLink : 'none',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
       backgroundPositionY: 'top',
@@ -35,7 +31,7 @@ export const HeaderStyles = (
           margin: '0 auto',
         },
         '.perfcompare-header': {
-          marginBottom: isSearch
+          marginBottom: isHome
             ? `${Spacing.Large}px`
             : `${Spacing.xxLarge - 6}px`,
         },

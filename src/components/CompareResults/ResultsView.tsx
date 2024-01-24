@@ -7,11 +7,9 @@ import Stack from '@mui/material/Stack';
 import { useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
 
-import { compareView } from '../../common/constants';
 import { useAppDispatch, useAppSelector } from '../../hooks/app';
 import { updateFramework } from '../../reducers/FrameworkSlice';
 import { SearchContainerStyles, background } from '../../styles';
-import { View } from '../../types/state';
 import CompareWithBase from '../Search/CompareWithBase';
 import SearchViewInit from '../Search/SearchViewInit';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
@@ -48,7 +46,7 @@ function ResultsView(props: ResultsViewProps) {
     }),
   };
 
-  const sectionStyles = SearchContainerStyles(themeMode, compareView);
+  const sectionStyles = SearchContainerStyles(themeMode, /* isHome */ false);
 
   useEffect(() => {
     document.title = title;
@@ -70,7 +68,7 @@ function ResultsView(props: ResultsViewProps) {
       className={styles.container}
       data-testid='beta-version-compare-results'
     >
-      <PerfCompareHeader view={compareView as View} />
+      <PerfCompareHeader />
       <section className={sectionStyles.container}>
         <Link href='/' aria-label='link to home'>
           <Stack direction='row' alignItems='center'>
