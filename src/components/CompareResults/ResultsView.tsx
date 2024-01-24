@@ -1,9 +1,6 @@
 import { useEffect, useMemo } from 'react';
 
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import Grid from '@mui/material/Grid';
-import Link from '@mui/material/Link';
-import Stack from '@mui/material/Stack';
 import { useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
 
@@ -12,6 +9,7 @@ import { updateFramework } from '../../reducers/FrameworkSlice';
 import { SearchContainerStyles, background } from '../../styles';
 import CompareWithBase from '../Search/CompareWithBase';
 import SearchViewInit from '../Search/SearchViewInit';
+import { LinkToHome } from '../Shared/LinkToHome';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
 import type { LoaderReturnValue } from './loader';
 import ResultsMain from './ResultsMain';
@@ -70,12 +68,7 @@ function ResultsView(props: ResultsViewProps) {
     >
       <PerfCompareHeader />
       <section className={sectionStyles.container}>
-        <Link href='/' aria-label='link to home'>
-          <Stack direction='row' alignItems='center'>
-            <ChevronLeftIcon fontSize='small' />
-            <p>Home</p>
-          </Stack>
-        </Link>
+        <LinkToHome />
         <SearchViewInit />
 
         <CompareWithBase
