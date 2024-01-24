@@ -19,6 +19,7 @@ import getProtocolTheme from '../theme/protocolTheme';
 import { loader as compareLoader } from './CompareResults/loader';
 import ResultsView from './CompareResults/ResultsView';
 import SearchView from './Search/SearchView';
+import { PageError } from './Shared/PageError';
 import SnackbarCloseButton from './Shared/SnackbarCloseButton';
 
 const strings: BannerStrings = {
@@ -58,6 +59,7 @@ const router = createBrowserRouter(
         path='/compare-results'
         loader={compareLoader}
         element={<ResultsView title={Strings.metaData.pageTitle.results} />}
+        errorElement={<PageError title={Strings.metaData.pageTitle.results} />}
       />
     </>,
   ),
