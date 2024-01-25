@@ -3,20 +3,14 @@ import Button from '@mui/material/Button';
 import { Strings } from '../../resources/Strings';
 
 interface EditButtonProps {
-  formIsDisplayed: boolean;
   isBase: boolean;
-  setFormIsDisplayed: React.Dispatch<React.SetStateAction<boolean>>;
-  onEdit: () => void;
+  onEditAction: () => void;
 }
 
 const baseComp = Strings.components.searchDefault.base;
 const editImgUrl = baseComp.editIcon;
 
-export default function EditButton({
-  isBase,
-  setFormIsDisplayed,
-  onEdit,
-}: EditButtonProps) {
+export default function EditButton({ isBase, onEditAction }: EditButtonProps) {
   const searchType = isBase ? 'base' : 'new';
 
   return (
@@ -26,10 +20,7 @@ export default function EditButton({
       role='button'
       name='edit-button'
       aria-label='edit button'
-      onClick={() => {
-        onEdit();
-        setFormIsDisplayed(true);
-      }}
+      onClick={onEditAction}
     >
       <img
         id={`${searchType}-edit-button-icon`}

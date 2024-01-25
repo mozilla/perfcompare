@@ -10,8 +10,6 @@ import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
 import dayjs from 'dayjs';
 import { style } from 'typestyle';
-
-import { repoMap } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import useCheckRevision from '../../hooks/useCheckRevision';
 import { Spacing } from '../../styles';
@@ -19,18 +17,17 @@ import type { RevisionsList } from '../../types/state';
 import { Repository } from '../../types/state';
 import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
 
-interface InProgressState {
+interface RevisionsState {
   revs: RevisionsList[];
   repos: Repository['name'][];
-  isInProgress: boolean;
 }
 interface SearchResultsListItemProps {
   index: number;
   item: RevisionsList;
   isEditable: boolean;
   isBase: boolean;
-  inProgress: InProgressState;
-  setInProgress: Dispatch<SetStateAction<InProgressState>>;
+  displayedRevisions: RevisionsState;
+  onEditToggle: (toggleArray: RevisionsList[]) => void;
 }
 
 const styles = {
@@ -70,8 +67,8 @@ function SearchResultsListItem({
   item,
   isEditable,
   isBase,
-  inProgress,
-  setInProgress,
+  displayedRevisions,
+  onEditToggle,
 }: SearchResultsListItemProps) {
   const searchType = isBase ? 'base' : 'new';
   const { handleToggle } = useCheckRevision(isBase, isEditable);
@@ -84,25 +81,21 @@ function SearchResultsListItem({
   const revisionsCount = isBase === true ? 1 : 3;
   const itemDate = new Date(item.push_timestamp * 1000);
 
-  //search results list item handles the checked state of in progress revs
-  //and sets the changes to the in progress state
-  const isInProgressChecked: boolean = inProgress.revs
+  const isInProgressChecked: boolean = displayedRevisions.revs
     .map((rev) => rev.id)
     .includes(item.id);
 
   const isCheckedState = isEditable ? isInProgressChecked : isChecked;
 
   const handleToggleAction = () => {
-    const toggleArray = handleToggle(item, revisionsCount, inProgress.revs);
+    const toggleArray = handleToggle(
+      item,
+      revisionsCount,
+      displayedRevisions.revs,
+    );
+
     if (isEditable) {
-      const repos = toggleArray.map(
-        (rev) => repoMap[rev.repository_id] ?? 'try',
-      );
-      setInProgress({
-        revs: toggleArray || [],
-        repos,
-        isInProgress: true,
-      });
+      onEditToggle(toggleArray);
     }
   };
 

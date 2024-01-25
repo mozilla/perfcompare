@@ -1,22 +1,30 @@
-import { Dispatch, SetStateAction } from 'react';
-
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 
 import { SelectListStyles } from '../../styles';
 import { InputType, View } from '../../types/state';
 import SearchResultsListItem from './SearchResultsListItem';
+
+interface RevisionsState {
+  revs: RevisionsList[];
+  repos: Repository['name'][];
+}
 interface SearchResultsListProps {
   view: View;
   searchType: InputType;
   isEditable: boolean;
+  isBase: boolean;
+  searchResults: RevisionsList[];
+  displayedRevisions: RevisionsState;
+  onEditToggle: (toggleArray: RevisionsList[]) => void;
 }
-
-function SearchResultsList(props: SearchResultsListProps) {
-  const { view, searchType } = props;
-  const mode = useAppSelector((state) => state.theme.mode);
-  const searchState = useAppSelector((state) => state.search[searchType]);
-  const { searchResults } = searchState;
+function SearchResultsList({
+  isEditable,
+  isBase,
+  searchResults,
+  displayedRevisions,
+  onEditToggle,
+}: SearchResultsListProps) {
   const styles = SelectListStyles(mode);
 
   return (
@@ -34,8 +42,8 @@ function SearchResultsList(props: SearchResultsListProps) {
             item={item}
             isEditable={isEditable}
             isBase={isBase}
-            setInProgress={setInProgress}
-            inProgress={inProgress}
+            displayedRevisions={displayedRevisions}
+            onEditToggle={onEditToggle}
           />
         ))}
       </List>

@@ -10,9 +10,9 @@ import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles, SearchStyles } from '../../styles';
 import type { RevisionsList, Repository } from '../../types/state';
 import CompareButton from './CompareButton';
-import CompareBaseContext from './CompareWithBaseContext';
 import FrameworkDropdown from './FrameworkDropdown';
 import SearchComponent from './SearchComponent';
+import { repoMap } from '../../common/constants';
 
 const strings = Strings.components.searchDefault;
 const stringsBase = Strings.components.searchDefault.base.collapsed.base;
@@ -47,6 +47,44 @@ function CompareWithBase({
   const [expanded, setExpanded] = useState(true);
 
   const mode = useAppSelector((state) => state.theme.mode);
+  //the "committed" base and new revisions initialize the staging state
+  const [baseStaging, setStagingBase] = useState<RevisionsState>({
+    revs: baseRevs,
+    repos: baseRepos,
+  });
+
+  const [newStaging, setStagingNew] = useState<RevisionsState>({
+    revs: newRevs,
+    repos: newRepos,
+  });
+
+  //the edit button will initialize the "in progress" state
+  //and copy "stage" to "in progress" state
+  const [baseInProgress, setInProgressBase] = useState<InProgressState>({
+    revs: [],
+    repos: [],
+    isInProgress: false,
+  });
+
+  const [newInProgress, setInProgressNew] = useState<InProgressState>({
+    revs: [],
+    repos: [],
+    isInProgress: false,
+  });
+
+  const [displayedRevisionsBase, setDisplayedRevisionsBase] =
+    useState<RevisionsState>({
+      revs: baseRevs,
+      repos: baseRepos,
+    });
+
+  const [displayedRevisionsNew, setDisplayedRevisionsNew] =
+    useState<RevisionsState>({
+      revs: newRevs,
+      repos: newRepos,
+    });
+
+  const dispatch = useAppDispatch();
   const styles = CompareCardsStyles(mode);
   const dropDownStyles = SearchStyles(mode);
   const search = useAppSelector((state) => state.search);
@@ -59,20 +97,6 @@ function CompareWithBase({
     (baseRepository === 'try' && newRepository !== 'try') ||
     (baseRepository !== 'try' && newRepository === 'try');
 
-  const compareBaseValues = {
-    mode,
-    isEditable,
-    isWarning,
-    baseStaging,
-    newStaging,
-    baseInProgress,
-    newInProgress,
-    setInProgressBase,
-    setInProgressNew,
-    setStagingBase,
-    setStagingNew,
-  };
-
   const bottomStyles = {
     container: style({
       display: 'flex',
@@ -81,31 +105,6 @@ function CompareWithBase({
     }),
   };
 
-  //create search base props
-  const searchBaseProps = {
-    mode,
-    isEditable,
-    isWarning,
-    staging: baseStaging,
-    inProgress: baseInProgress,
-    isBase: true,
-    searchResults: searchResultsBase,
-    setInProgress: setInProgressBase,
-    setStaging: setStagingBase,
-  };
-
-  //create search new props
-  const searchNewProps = {
-    mode,
-    isEditable,
-    isWarning,
-    staging: newStaging,
-    inProgress: newInProgress,
-    isBase: false,
-    searchResults: searchResultsNew,
-    setInProgress: setInProgressNew,
-    setStaging: setStagingNew,
-  };
   const revRepos = {
     revs: [],
     repos: [],
@@ -122,43 +121,130 @@ function CompareWithBase({
     });
   }, [baseRevs, newRevs]);
 
+  useEffect(() => {
+    if (newInProgress.isInProgress) {
+      setDisplayedRevisionsNew(newInProgress);
+    } else {
+      setDisplayedRevisionsNew(newStaging);
+    }
+
+    if (baseInProgress.isInProgress) {
+      setDisplayedRevisionsBase(baseInProgress);
+    } else {
+      setDisplayedRevisionsBase(baseStaging);
+    }
+  }, [newInProgress, newStaging, baseInProgress, baseStaging]);
+
   const toggleIsExpanded = () => {
     setExpanded(!expanded);
   };
 
-  const handleCancelBase = () => {
-    setInProgressBase({ ...revRepos, isInProgress: false });
-    dispatch(clearCheckedRevisionforType({ searchType: 'base' }));
+  const handleCancel = (isBase: boolean) => {
+    if (isBase) {
+      setInProgressBase({ ...revRepos, isInProgress: false });
+      dispatch(clearCheckedRevisionforType({ searchType: 'base' }));
+    }
+
+    if (!isBase) {
+      setInProgressNew({ ...revRepos, isInProgress: false });
+      dispatch(clearCheckedRevisionforType({ searchType: 'new' }));
+    }
   };
 
-  const handleCancelNew = () => {
-    setInProgressNew({ ...revRepos, isInProgress: false });
+  const handleSave = (isBase: boolean) => {
+    if (isBase) {
+      setStagingBase(baseInProgress);
+      handleCancel(true);
+    }
 
-    dispatch(clearCheckedRevisionforType({ searchType: 'new' }));
+    if (!isBase) {
+      setStagingNew(newInProgress);
+      handleCancel(false);
+    }
   };
 
-  const handleSaveBase = () => {
-    setStagingBase(baseInProgress);
-    handleCancelBase();
+  const handleEdit = (isBase: boolean) => {
+    if (isBase) {
+      setInProgressBase({
+        ...baseStaging,
+        isInProgress: true,
+      });
+      handleDisplayedRevisions(true);
+    }
+
+    if (!isBase) {
+      setInProgressNew({
+        ...newStaging,
+        isInProgress: true,
+      });
+      handleDisplayedRevisions(true);
+    }
   };
 
-  const handleSaveNew = () => {
-    setStagingNew(newInProgress);
-    handleCancelNew();
+  const handleDisplayedRevisions = (isBase: boolean) => {
+    if (isBase) {
+      if (baseInProgress.isInProgress) {
+        setDisplayedRevisionsBase(baseInProgress);
+      } else {
+        setDisplayedRevisionsBase(baseStaging);
+      }
+    }
+    if (!isBase) {
+      if (newInProgress.isInProgress) {
+        setDisplayedRevisionsNew(newInProgress);
+      } else {
+        setDisplayedRevisionsNew(newStaging);
+      }
+    }
   };
 
-  const handleEditBase = () => {
-    setInProgressBase({
-      ...baseStaging,
-      isInProgress: true,
-    });
+  const handleRemoveEditViewRevision = (
+    isBase: boolean,
+    item: RevisionsList,
+  ) => {
+    const revisionsBase = [...baseInProgress.revs];
+    const revisionsNew = [...newInProgress.revs];
+
+    if (isBase) {
+      revisionsBase.splice(baseInProgress.revs.indexOf(item), 1);
+      setInProgressBase({
+        revs: revisionsBase,
+        repos: baseInProgress.repos,
+        isInProgress: true,
+      });
+    }
+
+    if (!isBase) {
+      revisionsNew.splice(newInProgress.revs.indexOf(item), 1);
+      setInProgressNew({
+        revs: revisionsNew,
+        repos: newInProgress.repos,
+        isInProgress: true,
+      });
+    }
   };
 
-  const handleEditNew = () => {
-    setInProgressNew({
-      ...newStaging,
-      isInProgress: true,
-    });
+  const handleSearchResultsEditToggle = (
+    isBase: boolean,
+    toggleArray: RevisionsList[],
+  ) => {
+    const repos = toggleArray.map((rev) => repoMap[rev.repository_id] ?? 'try');
+
+    if (isBase) {
+      setInProgressBase({
+        revs: toggleArray || [],
+        repos,
+        isInProgress: true,
+      });
+    }
+
+    if (!isBase) {
+      setInProgressNew({
+        revs: toggleArray || [],
+        repos,
+        isInProgress: true,
+      });
+    }
   };
 
   return (
@@ -186,21 +272,35 @@ function CompareWithBase({
         } ${styles.container} `}
       >
         <Divider className='divider' />
+
         <div className='form-wrapper'>
           <SearchComponent
-            isEditable={isEditable}
-            isWarning={isWarning}
-            revisions={baseRevs}
-            repositories={baseRepos}
             {...stringsBase}
+           
+            isBaseComp={true}
+            isWarning={isWarning}
+            isEditable={isEditable}
+            searchResults={searchResultsBase}
+            handleSave={handleSave}
+            handleCancel={handleCancel}
+            handleEdit={handleEdit}
+            handleSearchResultsEditToggle={handleSearchResultsEditToggle}
+            handleRemoveEditViewRevision={handleRemoveEditViewRevision}
+            displayedRevisions={displayedRevisionsBase}
           />
           <SearchComponent
-            searchType='new'
+            {...stringsNew}
+            isBaseComp={false}
             isEditable={isEditable}
             isWarning={isWarning}
-            revisions={newRevs}
-            repositories={newRepos}
-            {...stringsNew}
+            searchResults={searchResultsNew}
+         
+            handleSave={handleSave}
+            handleCancel={handleCancel}
+            handleEdit={handleEdit}
+            handleSearchResultsEditToggle={handleSearchResultsEditToggle}
+            handleRemoveEditViewRevision={handleRemoveEditViewRevision}
+            displayedRevisions={displayedRevisionsNew}
           />
           <Grid
             item

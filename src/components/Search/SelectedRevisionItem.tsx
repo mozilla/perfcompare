@@ -27,12 +27,6 @@ import {
 const base = Strings.components.searchDefault.base;
 const warning = base.collapsed.warnings.comparison;
 
-interface InProgressState {
-  revs: RevisionsList[];
-  repos: Repository['name'][];
-  isInProgress: boolean;
-}
-
 interface SelectedRevisionItemProps {
   index: number;
   item: RevisionsList;
@@ -41,9 +35,8 @@ interface SelectedRevisionItemProps {
   isEditable: boolean;
   isBase: boolean;
   mode: ThemeMode;
-  inProgress: InProgressState;
   isWarning: boolean;
-  setInProgress: React.Dispatch<React.SetStateAction<InProgressState>>;
+  onEditRemove: (isBase: boolean, item: RevisionsList) => void;
 }
 
 function SelectedRevisionItem({
@@ -54,13 +47,12 @@ function SelectedRevisionItem({
   isEditable,
   isBase,
   mode,
-  inProgress,
-  setInProgress,
   isWarning,
+  onEditRemove,
 }: SelectedRevisionItemProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = SelectRevsStyles(mode);
-  const revisionHash = item ? truncateHash(item.revision) : '';
+  const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);
   const itemDate = new Date(item.push_timestamp * 1000);
   const { removeCheckedRevision } = useCheckRevision(isBase, isEditable);
@@ -75,13 +67,7 @@ function SelectedRevisionItem({
   };
 
   const handleRemoveEditViewRevision = () => {
-    const revisions = [...inProgress.revs]; // Use the 'inProgress' variable here
-    revisions.splice(inProgress.revs.indexOf(item), 1);
-    setInProgress({
-      revs: revisions,
-      repos: inProgress.repos,
-      isInProgress: true,
-    });
+    onEditRemove(isBase, item);
   };
 
   return (
