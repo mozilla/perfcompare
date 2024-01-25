@@ -1,5 +1,3 @@
-import { Dispatch, SetStateAction } from 'react';
-
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 
@@ -7,26 +5,25 @@ import { SelectListStyles } from '../../styles';
 import { RevisionsList, ThemeMode, Repository } from '../../types/state';
 import SearchResultsListItem from './SearchResultsListItem';
 
-interface InProgressState {
+interface RevisionsState {
   revs: RevisionsList[];
   repos: Repository['name'][];
-  isInProgress: boolean;
 }
 interface SearchResultsListProps {
   isEditable: boolean;
   isBase: boolean;
   mode: ThemeMode;
   searchResults: RevisionsList[];
-  inProgress: InProgressState;
-  setInProgress: Dispatch<SetStateAction<InProgressState>>;
+  displayedRevisions: RevisionsState;
+  onEditToggle: (toggleArray: RevisionsList[]) => void;
 }
 function SearchResultsList({
   isEditable,
   isBase,
   mode,
   searchResults,
-  inProgress,
-  setInProgress,
+  displayedRevisions,
+  onEditToggle,
 }: SearchResultsListProps) {
   const styles = SelectListStyles(mode);
 
@@ -45,8 +42,8 @@ function SearchResultsList({
             item={item}
             isEditable={isEditable}
             isBase={isBase}
-            setInProgress={setInProgress}
-            inProgress={inProgress}
+            displayedRevisions={displayedRevisions}
+            onEditToggle={onEditToggle}
           />
         ))}
       </List>

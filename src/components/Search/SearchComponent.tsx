@@ -13,7 +13,6 @@ import Tooltip from '@mui/material/Tooltip';
 import { cssRule } from 'typestyle';
 
 import { compareView } from '../../common/constants';
-//import { clearCheckedRevisionforType } from '../../reducers/SearchSlice';
 import {
   Spacing,
   DropDownMenuRaw,
@@ -35,24 +34,22 @@ interface RevisionsState {
   repos: Repository['name'][];
 }
 
-interface InProgressState {
-  revs: RevisionsList[];
-  repos: Repository['name'][];
-  isInProgress: boolean;
-}
 interface SearchProps {
   mode: ThemeMode;
   isEditable: boolean;
   isWarning: boolean;
-  staging: RevisionsState;
-  inProgress: InProgressState;
-  isBase: boolean;
+  isBaseComp: boolean;
   searchResults: RevisionsList[];
-  setInProgress: Dispatch<SetStateAction<InProgressState>>;
+  displayedRevisions: RevisionsState;
   setPopoverIsOpen?: Dispatch<SetStateAction<boolean>>;
-  handleSave: () => void;
-  handleCancel: () => void;
-  handleEdit: () => void;
+  handleSave: (isBase: boolean) => void;
+  handleCancel: (isBase: boolean) => void;
+  handleEdit: (isBase: boolean) => void;
+  handleSearchResultsEditToggle: (
+    isBase: boolean,
+    toggleArray: RevisionsList[],
+  ) => void;
+  handleRemoveEditViewRevision: (isBase: boolean, item: RevisionsList) => void;
   prevRevision?: RevisionsList;
   selectLabel: string;
   tooltip: string;
@@ -62,14 +59,14 @@ interface SearchProps {
 function SearchComponent({
   mode,
   isEditable,
-  staging,
-  inProgress,
-  isBase,
+  isBaseComp,
   searchResults,
-  setInProgress,
+  displayedRevisions,
   handleCancel,
   handleSave,
   handleEdit,
+  handleSearchResultsEditToggle,
+  handleRemoveEditViewRevision,
   selectLabel,
   tooltip,
   inputPlaceholder,
@@ -103,10 +100,7 @@ function SearchComponent({
 
   const [formIsDisplayed, setFormIsDisplayed] = useState(!isEditable);
 
-  const displayRevisions =
-    staging.revs.length > 0 || inProgress.revs.length > 0;
-
-  const searchType = isBase ? 'base' : 'new';
+  const searchType = isBaseComp ? 'base' : 'new';
 
   const handleDocumentMousedown = useCallback(
     (e: MouseEvent) => {
@@ -129,6 +123,28 @@ function SearchComponent({
     }
   };
 
+  const onCancel = () => {
+    isBaseComp ? handleCancel(true) : handleCancel(false);
+    setFormIsDisplayed(false);
+  };
+
+  const onSave = () => {
+    isBaseComp ? handleSave(true) : handleSave(false);
+    setFormIsDisplayed(false);
+  };
+
+  const onEdit = () => {
+    isBaseComp ? handleEdit(true) : handleEdit(false);
+    setFormIsDisplayed(true);
+  };
+
+  const onResultsListEditToggle = (toggleArray: RevisionsList[]) => {
+    console.log('do something');
+    isBaseComp
+      ? handleSearchResultsEditToggle(true, toggleArray)
+      : handleSearchResultsEditToggle(false, toggleArray);
+  };
+
   useEffect(() => {
     document.addEventListener('mousedown', handleDocumentMousedown);
     return () => {
@@ -148,7 +164,7 @@ function SearchComponent({
       <Grid
         item
         xs={2}
-        className={`${isBase ? 'base' : 'new'}-search-dropdown ${
+        className={`${isBaseComp ? 'base' : 'new'}-search-dropdown ${
           styles.dropDown
         } label-edit-wrapper`}
       >
@@ -163,12 +179,7 @@ function SearchComponent({
         </InputLabel>
         {/**** Edit Button ****/}
         {isEditable && !formIsDisplayed && (
-          <EditButton
-            formIsDisplayed={formIsDisplayed}
-            setFormIsDisplayed={setFormIsDisplayed}
-            isBase={isBase}
-            onEdit={handleEdit || (() => {})}
-          />
+          <EditButton isBase={isBaseComp} onEditAction={onEdit} />
         )}
       </Grid>
       {/**** Search - DropDown Section ****/}
@@ -215,10 +226,10 @@ function SearchComponent({
             <SearchResultsList
               mode={mode}
               isEditable={isEditable}
-              isBase={isBase}
+              isBase={isBaseComp}
               searchResults={searchResults}
-              setInProgress={setInProgress}
-              inProgress={inProgress}
+              displayedRevisions={displayedRevisions}
+              onEditToggle={onResultsListEditToggle}
             />
           )}
         </Grid>
@@ -227,24 +238,22 @@ function SearchComponent({
           <SaveCancelButtons
             mode={mode}
             searchType={searchType}
-            onSave={handleSave || (() => {})}
-            onCancel={handleCancel}
-            setFormIsDisplayed={setFormIsDisplayed}
+            onSave={onSave}
+            onCancel={onCancel}
           />
         )}
       </Grid>
       {/***** Selected Revisions Section *****/}
-      {displayRevisions && (
+      {displayedRevisions && (
         <Grid className='d-flex'>
           <SelectedRevisions
-            isBase={isBase}
+            isBase={isBaseComp}
             isEditable={isEditable}
             formIsDisplayed={formIsDisplayed}
             mode={mode}
-            staging={staging}
-            inProgress={inProgress}
             isWarning={isWarning}
-            setInProgress={setInProgress}
+            displayedRevisions={displayedRevisions}
+            handleRemoveEditViewRevision={handleRemoveEditViewRevision}
           />
         </Grid>
       )}
