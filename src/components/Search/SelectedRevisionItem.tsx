@@ -12,8 +12,6 @@ import ListItemText from '@mui/material/ListItemText';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import dayjs from 'dayjs';
-
-import useCheckRevision from '../../hooks/useCheckRevision';
 import { Strings } from '../../resources/Strings';
 import { SelectRevsStyles } from '../../styles';
 import type { RevisionsList, ThemeMode } from '../../types/state';
@@ -31,43 +29,31 @@ interface SelectedRevisionItemProps {
   index: number;
   item: RevisionsList;
   repository: Repository['name'];
-  formIsDisplayed: boolean;
-  isEditable: boolean;
   isBase: boolean;
   mode: ThemeMode;
   isWarning: boolean;
-  onEditRemove: (isBase: boolean, item: RevisionsList) => void;
+  iconClassName: string;
+  removeRevision: (item: RevisionsList) => void;
 }
 
 function SelectedRevisionItem({
   index,
   item,
   repository,
-  formIsDisplayed,
-  isEditable,
+  iconClassName,
   isBase,
   mode,
   isWarning,
-  onEditRemove,
+  removeRevision,
 }: SelectedRevisionItemProps) {
   const searchType = isBase ? 'base' : 'new';
   const styles = SelectRevsStyles(mode);
   const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);
   const itemDate = new Date(item.push_timestamp * 1000);
-  const { removeCheckedRevision } = useCheckRevision(isBase, isEditable);
 
-  const iconClassName =
-    !formIsDisplayed && isEditable
-      ? 'icon icon-close-hidden'
-      : 'icon icon-close-show';
-
-  const handleRemoveRevision = () => {
-    removeCheckedRevision(item);
-  };
-
-  const handleRemoveEditViewRevision = () => {
-    onEditRemove(isBase, item);
+  const onRemoveRevision = () => {
+    removeRevision(item);
   };
 
   return (
@@ -137,9 +123,7 @@ function SelectedRevisionItem({
           name='close-button'
           aria-label='close-button'
           className={`${iconClassName} revision-action close-button`}
-          onClick={
-            isEditable ? handleRemoveEditViewRevision : handleRemoveRevision
-          }
+          onClick={onRemoveRevision}
         >
           <CloseOutlined fontSize='small' data-testid='close-icon' />
         </Button>

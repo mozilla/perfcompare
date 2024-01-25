@@ -4,6 +4,7 @@ import List from '@mui/material/List';
 import { SelectRevsStyles } from '../../styles';
 import { Repository, RevisionsList, ThemeMode } from '../../types/state';
 import SelectedRevisionItem from './SelectedRevisionItem';
+import useCheckRevision from '../../hooks/useCheckRevision';
 
 interface SelectedRevisionsProps {
   isBase: boolean;
@@ -12,7 +13,7 @@ interface SelectedRevisionsProps {
   mode: ThemeMode;
   isWarning: boolean;
   displayedRevisions: RevisionsState;
-  handleRemoveEditViewRevision: (isBase: boolean, item: RevisionsList) => void;
+  onEditRemove: (item: RevisionsList) => void;
 }
 
 interface RevisionsState {
@@ -27,10 +28,32 @@ function SelectedRevisions({
   mode,
   isWarning,
   displayedRevisions,
-  handleRemoveEditViewRevision,
+  onEditRemove,
 }: SelectedRevisionsProps) {
   const styles = SelectRevsStyles(mode);
   const searchType = isBase ? 'base' : 'new';
+
+  const onEditRemoveAction = (item: RevisionsList) => {
+    onEditRemove(item);
+  };
+
+  const { removeCheckedRevision } = useCheckRevision(isBase, isEditable);
+
+  const handleRemoveRevision = (item: RevisionsList) => {
+    removeCheckedRevision(item);
+  };
+  const removeRevision = (item: RevisionsList) => {
+    if (isEditable) {
+      onEditRemoveAction(item);
+    } else {
+      handleRemoveRevision(item);
+    }
+  };
+
+  const iconClassName =
+    !formIsDisplayed && isEditable
+      ? 'icon icon-close-hidden'
+      : 'icon icon-close-show';
 
   return (
     <Box
@@ -46,12 +69,11 @@ function SelectedRevisions({
             index={index}
             item={item}
             repository={displayedRevisions.repos[index]}
-            formIsDisplayed={formIsDisplayed}
-            isEditable={isEditable}
             isBase={isBase}
             mode={mode}
             isWarning={isWarning}
-            onEditRemove={handleRemoveEditViewRevision}
+            removeRevision={removeRevision}
+            iconClassName={iconClassName}
           />
         ))}
       </List>
