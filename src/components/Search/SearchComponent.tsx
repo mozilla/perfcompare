@@ -143,6 +143,12 @@ function SearchComponent({
       : handleSearchResultsEditToggle(false, toggleArray);
   };
 
+  const onEditRemove = (item: RevisionsList) => {
+    isBaseComp
+      ? handleRemoveEditViewRevision(true, item)
+      : handleRemoveEditViewRevision(false, item);
+  };
+
   useEffect(() => {
     document.addEventListener('mousedown', handleDocumentMousedown);
     return () => {
@@ -250,7 +256,7 @@ function SearchComponent({
           
             isWarning={isWarning}
             displayedRevisions={displayedRevisions}
-            handleRemoveEditViewRevision={handleRemoveEditViewRevision}
+            onEditRemove={onEditRemove}
           />
         </Grid>
       )}

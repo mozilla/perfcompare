@@ -12,7 +12,7 @@ const selectedRevisions = createSlice({
   name: 'selectedRevisions',
   initialState,
   reducers: {
-    //when the user presses the "Compare" or "Cancel" (in edit mode) buttons
+    //when the user presses the "Compare"
     setSelectedRevisions(
       state,
       action: PayloadAction<{

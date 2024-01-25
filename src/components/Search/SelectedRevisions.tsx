@@ -1,21 +1,20 @@
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 
-import { searchView, compareView } from '../../common/constants';
+
 import { useAppSelector } from '../../hooks/app';
 import { SelectRevsStyles } from '../../styles';
 import { InputType, Repository, RevisionsList } from '../../types/state';
 import SelectedRevisionItem from './SelectedRevisionItem';
+import useCheckRevision from '../../hooks/useCheckRevision';
 
 interface SelectedRevisionsProps {
   searchType: InputType;
   isWarning?: boolean;
   formIsDisplayed: boolean;
   isEditable: boolean;
-  mode: ThemeMode;
-  isWarning: boolean;
   displayedRevisions: RevisionsState;
-  handleRemoveEditViewRevision: (isBase: boolean, item: RevisionsList) => void;
+  onEditRemove: (item: RevisionsList) => void;
 }
 
 interface RevisionsState {
@@ -24,18 +23,37 @@ interface RevisionsState {
 }
 
 function SelectedRevisions({
-  searchType,
   isWarning,
   formIsDisplayed,
   isEditable,
-  mode,
-  isWarning,
   displayedRevisions,
-  handleRemoveEditViewRevision,
+  onEditRemove,
 }: SelectedRevisionsProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = SelectRevsStyles(mode);
   const searchType = isBase ? 'base' : 'new';
+
+  const onEditRemoveAction = (item: RevisionsList) => {
+    onEditRemove(item);
+  };
+
+  const { removeCheckedRevision } = useCheckRevision(isBase, isEditable);
+
+  const handleRemoveRevision = (item: RevisionsList) => {
+    removeCheckedRevision(item);
+  };
+  const removeRevision = (item: RevisionsList) => {
+    if (isEditable) {
+      onEditRemoveAction(item);
+    } else {
+      handleRemoveRevision(item);
+    }
+  };
+
+  const iconClassName =
+    !formIsDisplayed && isEditable
+      ? 'icon icon-close-hidden'
+      : 'icon icon-close-show';
 
   return (
     <Box
@@ -50,13 +68,11 @@ function SelectedRevisions({
             key={item.id}
             index={index}
             item={item}
-            repository={repositories[index]}
-            searchType={searchType}
-            isWarning={isWarning}
-            formIsDisplayed={formIsDisplayed}
-            isEditable={isEditable}
+            repository={displayedRevisions.repos[index]}
             isBase={isBase}
-            onEditRemove={handleRemoveEditViewRevision}
+            isWarning={isWarning}
+            removeRevision={removeRevision}
+            iconClassName={iconClassName}
           />
         ))}
       </List>

@@ -1,4 +1,4 @@
-import { Fragment, Dispatch, SetStateAction } from 'react';
+import { Fragment } from 'react';
 
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
@@ -10,24 +10,16 @@ import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
 import dayjs from 'dayjs';
 import { style } from 'typestyle';
-import { useAppSelector } from '../../hooks/app';
-import useCheckRevision from '../../hooks/useCheckRevision';
 import { Spacing } from '../../styles';
 import type { RevisionsList } from '../../types/state';
-import { Repository } from '../../types/state';
 import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
 
-interface RevisionsState {
-  revs: RevisionsList[];
-  repos: Repository['name'][];
-}
 interface SearchResultsListItemProps {
   index: number;
   item: RevisionsList;
-  isEditable: boolean;
-  isBase: boolean;
-  displayedRevisions: RevisionsState;
-  onEditToggle: (toggleArray: RevisionsList[]) => void;
+  revisionsCount: number;
+  isCheckedState: (item: RevisionsList) => boolean;
+  onToggle: (item: RevisionsList) => void;
 }
 
 const styles = {
@@ -65,47 +57,25 @@ const styles = {
 function SearchResultsListItem({
   index,
   item,
-  isEditable,
-  isBase,
-  displayedRevisions,
-  onEditToggle,
+  isCheckedState,
+  onToggle,
 }: SearchResultsListItemProps) {
-  const searchType = isBase ? 'base' : 'new';
-  const { handleToggle } = useCheckRevision(isBase, isEditable);
-
-  const isChecked: boolean = useAppSelector((state) =>
-    state.search[searchType].checkedRevisions.includes(item),
-  );
   const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);
-  const revisionsCount = isBase === true ? 1 : 3;
   const itemDate = new Date(item.push_timestamp * 1000);
+  const isChecked = isCheckedState(item);
 
-  const isInProgressChecked: boolean = displayedRevisions.revs
-    .map((rev) => rev.id)
-    .includes(item.id);
-
-  const isCheckedState = isEditable ? isInProgressChecked : isChecked;
-
-  const handleToggleAction = () => {
-    const toggleArray = handleToggle(
-      item,
-      revisionsCount,
-      displayedRevisions.revs,
-    );
-
-    if (isEditable) {
-      onEditToggle(toggleArray);
-    }
+  const onToggleAction = () => {
+    onToggle(item);
   };
 
   return (
     <>
       <ListItemButton
         key={item.id}
-        onClick={handleToggleAction}
+        onClick={onToggleAction}
         className={`${styles.listItemButton} ${
-          isCheckedState ? 'item-selected' : ''
+          isChecked ? 'item-selected' : ''
         }`}
       >
         <ListItem
@@ -119,7 +89,7 @@ function SearchResultsListItem({
               tabIndex={-1}
               disableRipple
               data-testid={`checkbox-${index}`}
-              checked={isCheckedState}
+              checked={isChecked}
             />
           </ListItemIcon>
           <ListItemText
