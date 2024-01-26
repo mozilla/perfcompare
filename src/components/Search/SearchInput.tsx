@@ -12,14 +12,13 @@ import { InputType, View } from '../../types/state';
 interface SearchInputProps {
   onFocus: () => unknown;
   inputPlaceholder: string;
-  view: View;
   searchType: InputType;
   isEditable?: boolean;
 }
 
 function SearchInput({
   onFocus,
-  view,
+  isEditable,
   inputPlaceholder,
   searchType,
 }: SearchInputProps) {

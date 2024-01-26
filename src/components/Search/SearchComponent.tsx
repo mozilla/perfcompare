@@ -11,7 +11,7 @@ import Grid from '@mui/material/Grid';
 import InputLabel from '@mui/material/InputLabel';
 import Tooltip from '@mui/material/Tooltip';
 import { cssRule } from 'typestyle';
-import {  useAppSelector } from '../../hooks/app';
+import { useAppSelector } from '../../hooks/app';
 import { compareView } from '../../common/constants';
 import {
   Spacing,
@@ -20,7 +20,7 @@ import {
   //SearchStyles can be found in CompareCards.ts
   SearchStyles,
 } from '../../styles';
-import type { RevisionsList,  Repository } from '../../types/state';
+import type { RevisionsList, Repository } from '../../types/state';
 import EditButton from './EditButton';
 import SaveCancelButtons from './SaveCancelButtons';
 import SearchDropdown from './SearchDropdown';
@@ -247,14 +247,10 @@ function SearchComponent({
       {displayedRevisions && (
         <Grid className='d-flex'>
           <SelectedRevisions
-            searchType={searchType}
             isWarning={isWarning}
             formIsDisplayed={formIsDisplayed}
             isBase={isBaseComp}
             isEditable={isEditable}
-            formIsDisplayed={formIsDisplayed}
-          
-            isWarning={isWarning}
             displayedRevisions={displayedRevisions}
             onEditRemove={onEditRemove}
           />

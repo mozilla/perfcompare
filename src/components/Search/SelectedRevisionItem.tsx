@@ -47,6 +47,7 @@ function SelectedRevisionItem({
 }: SelectedRevisionItemProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = SelectRevsStyles(mode);
+  const searchType = isBase ? 'base' : 'new';
   const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);
   const itemDate = new Date(item.push_timestamp * 1000);

@@ -15,7 +15,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks/app';
 import useFetchCompareResults from '../../hooks/useFetchCompareResults';
 import { updateFramework } from '../../reducers/FrameworkSlice';
 import { SearchContainerStyles, background } from '../../styles';
-import { Repository, View } from '../../types/state';
+import { Repository, RevisionsList, View } from '../../types/state';
 import { Framework } from '../../types/types';
 import CompareWithBase from '../Search/CompareWithBase';
 import SearchViewInit from '../Search/SearchViewInit';

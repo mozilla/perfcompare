@@ -3,7 +3,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { style, cssRule } from 'typestyle';
 
-import { repoMap, compareView } from '../../common/constants';
+import { repoMap } from '../../common/constants';
 import { useAppSelector, useAppDispatch } from '../../hooks/app';
 import { updateRepository } from '../../reducers/SearchSlice';
 import {
@@ -14,7 +14,7 @@ import {
   Colors,
 } from '../../styles';
 import { fetchRecentRevisions } from '../../thunks/searchThunk';
-import { InputType, View, Repository } from '../../types/state';
+import { InputType, Repository } from '../../types/state';
 
 interface SearchDropdownProps {
   isEditable?: boolean;
@@ -29,7 +29,7 @@ function SearchDropdown({
   selectLabel,
   searchType,
 }: SearchDropdownProps) {
-  const size = view == compareView ? 'small' : undefined;
+  const size = isEditable == true ? 'small' : undefined;
   const mode = useAppSelector((state) => state.theme.mode);
   const repository = useAppSelector(
     (state) => state.search[searchType].repository,

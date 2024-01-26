@@ -276,7 +276,6 @@ function CompareWithBase({
         <div className='form-wrapper'>
           <SearchComponent
             {...stringsBase}
-           
             isBaseComp={true}
             isWarning={isWarning}
             isEditable={isEditable}
@@ -294,7 +293,6 @@ function CompareWithBase({
             isEditable={isEditable}
             isWarning={isWarning}
             searchResults={searchResultsNew}
-         
             handleSave={handleSave}
             handleCancel={handleCancel}
             handleEdit={handleEdit}
