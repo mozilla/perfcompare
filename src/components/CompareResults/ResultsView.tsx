@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import type { Theme } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
@@ -15,9 +14,10 @@ import { useAppDispatch, useAppSelector } from '../../hooks/app';
 // import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
 import useFetchCompareResults from '../../hooks/useFetchCompareResults';
 import { updateFramework } from '../../reducers/FrameworkSlice';
-import { SearchContainerStyles } from '../../styles';
-import { background } from '../../styles';
-import { View, RevisionsList, Repository } from '../../types/state';
+
+import { SearchContainerStyles, background } from '../../styles';
+import { Repository, View, RevisionsList } from '../../types/state';
+
 import { Framework } from '../../types/types';
 import CompareWithBase from '../Search/CompareWithBase';
 import SearchViewInit from '../Search/SearchViewInit';
@@ -25,8 +25,6 @@ import PerfCompareHeader from '../Shared/PerfCompareHeader';
 import ResultsMain from './ResultsMain';
 
 interface ResultsViewProps {
-  protocolTheme: Theme;
-  toggleColorMode: () => void;
   title: string;
 }
 function ResultsView(props: ResultsViewProps) {
@@ -85,8 +83,8 @@ function ResultsView(props: ResultsViewProps) {
     useFetchCompareResults();
   // const { searchRecentRevisions } = useHandleChangeSearch();
 
-  const { protocolTheme, toggleColorMode, title } = props;
-  const themeMode = protocolTheme.palette.mode;
+  const { title } = props;
+  const themeMode = useAppSelector((state) => state.theme.mode);
   const styles = {
     container: style({
       backgroundColor: background(themeMode),
@@ -160,11 +158,7 @@ function ResultsView(props: ResultsViewProps) {
       className={styles.container}
       data-testid='beta-version-compare-results'
     >
-      <PerfCompareHeader
-        themeMode={themeMode}
-        toggleColorMode={toggleColorMode}
-        view={compareView as View}
-      />
+      <PerfCompareHeader view={compareView as View} />
       <section className={sectionStyles.container}>
         <Link href='/' aria-label='link to home'>
           <Stack direction='row' alignItems='center'>
@@ -175,7 +169,6 @@ function ResultsView(props: ResultsViewProps) {
         <SearchViewInit />
 
         <CompareWithBase
-          mode={themeMode}
           isEditable={true}
           baseRevs={selectedRevisionsListBase}
           newRevs={selectedRevisionsListNew}
@@ -185,7 +178,7 @@ function ResultsView(props: ResultsViewProps) {
       </section>
       <Grid container alignItems='center' justifyContent='center'>
         <Grid item xs={12}>
-          <ResultsMain themeMode={themeMode} />
+          <ResultsMain />
         </Grid>
       </Grid>
     </div>

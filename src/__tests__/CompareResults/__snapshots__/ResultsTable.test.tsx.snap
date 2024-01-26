@@ -2,10 +2,9 @@
 
 exports[`Results Table Should match snapshot 1`] = `
 <body>
-  <div />
   <div>
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 fv9cdwb css-16rtr54-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 fv9cdwb css-13yod79-MuiPaper-root"
       data-testid="results-table"
       role="table"
     >

@@ -7,9 +7,8 @@ import { style } from 'typestyle';
 import { useAppDispatch, useAppSelector } from '../../hooks/app';
 import { clearCheckedRevisionforType } from '../../reducers/SearchSlice';
 import { Strings } from '../../resources/Strings';
-import { CompareCardsStyles } from '../../styles';
-import { SearchStyles } from '../../styles';
-import type { ThemeMode, RevisionsList, Repository } from '../../types/state';
+import { CompareCardsStyles, SearchStyles } from '../../styles';
+import type { RevisionsList, Repository } from '../../types/state';
 import CompareButton from './CompareButton';
 import FrameworkDropdown from './FrameworkDropdown';
 import SearchComponent from './SearchComponent';
@@ -20,7 +19,6 @@ const stringsBase = Strings.components.searchDefault.base.collapsed.base;
 const stringsNew = Strings.components.searchDefault.base.collapsed.revision;
 
 interface CompareWithBaseProps {
-  mode: ThemeMode;
   isEditable: boolean;
   baseRevs: RevisionsList[];
   newRevs: RevisionsList[];
@@ -40,7 +38,6 @@ interface InProgressState {
 }
 
 function CompareWithBase({
-  mode,
   isEditable,
   baseRevs,
   newRevs,
@@ -87,6 +84,9 @@ function CompareWithBase({
     });
 
   const dispatch = useAppDispatch();
+
+  const mode = useAppSelector((state) => state.theme.mode);
+
   const styles = CompareCardsStyles(mode);
   const dropDownStyles = SearchStyles(mode);
   const search = useAppSelector((state) => state.search);
@@ -278,7 +278,6 @@ function CompareWithBase({
         <div className='form-wrapper'>
           <SearchComponent
             {...stringsBase}
-            mode={mode}
             isBaseComp={true}
             isWarning={isWarning}
             isEditable={isEditable}
@@ -296,7 +295,6 @@ function CompareWithBase({
             isEditable={isEditable}
             isWarning={isWarning}
             searchResults={searchResultsNew}
-            mode={mode}
             handleSave={handleSave}
             handleCancel={handleCancel}
             handleEdit={handleEdit}
@@ -309,8 +307,8 @@ function CompareWithBase({
             xs={2}
             className={`${dropDownStyles.dropDown} ${bottomStyles.container}`}
           >
-            <FrameworkDropdown mode={mode} />
-            <CompareButton mode={mode} />
+            <FrameworkDropdown />
+            <CompareButton />
           </Grid>
         </div>
       </div>

@@ -3,9 +3,10 @@ import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { style, cssRule } from 'typestyle';
 
+
 import { repoMap } from '../../common/constants';
-import { useAppSelector } from '../../hooks/app';
-import { useAppDispatch } from '../../hooks/app';
+import { useAppSelector, useAppDispatch } from '../../hooks/app';
+
 import { updateRepository } from '../../reducers/SearchSlice';
 import {
   ButtonsLightRaw,
@@ -15,14 +16,13 @@ import {
   Colors,
 } from '../../styles';
 import { fetchRecentRevisions } from '../../thunks/searchThunk';
-import { InputType, ThemeMode } from '../../types/state';
-import type { Repository } from '../../types/state';
+import { InputType, View, Repository } from '../../types/state';
+
 
 interface SearchDropdownProps {
   isEditable?: boolean;
   selectLabel: string;
   tooltipText: string;
-  mode: ThemeMode;
   searchType: InputType;
 }
 
@@ -30,10 +30,11 @@ interface SearchDropdownProps {
 function SearchDropdown({
   isEditable,
   selectLabel,
-  mode,
   searchType,
 }: SearchDropdownProps) {
+
   const size = isEditable == true ? 'small' : undefined;
+  const mode = useAppSelector((state) => state.theme.mode);
   const repository = useAppSelector(
     (state) => state.search[searchType].repository,
   );

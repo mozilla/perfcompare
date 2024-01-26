@@ -11,22 +11,24 @@ interface RevisionsState {
   revs: RevisionsList[];
   repos: Repository['name'][];
 }
+  
 interface SearchResultsListProps {
   isEditable: boolean;
   isBase: boolean;
-  mode: ThemeMode;
   searchResults: RevisionsList[];
   displayedRevisions: RevisionsState;
   onEditToggle: (toggleArray: RevisionsList[]) => void;
 }
+  
 function SearchResultsList({
   isEditable,
   isBase,
-  mode,
   searchResults,
   displayedRevisions,
   onEditToggle,
 }: SearchResultsListProps) {
+
+  const mode = useAppSelector((state) => state.theme.mode);
   const styles = SelectListStyles(mode);
   const { handleToggle } = useCheckRevision(isBase, isEditable);
   const searchType = isBase ? 'base' : 'new';

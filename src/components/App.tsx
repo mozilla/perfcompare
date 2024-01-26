@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 
 import Alert from '@mui/material/Alert';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -12,9 +12,10 @@ import {
   Route,
 } from 'react-router-dom';
 
+import { useAppSelector } from '../hooks/app';
 import { Strings } from '../resources/Strings';
 import { Banner } from '../styles/Banner';
-import useProtocolTheme from '../theme/protocolTheme';
+import getProtocolTheme from '../theme/protocolTheme';
 import ResultsView from './CompareResults/ResultsView';
 import SearchView from './Search/SearchView';
 import SnackbarCloseButton from './Shared/SnackbarCloseButton';
@@ -46,7 +47,11 @@ function App() {
   const [alertContainer, setAlertContainer] = useState<HTMLDivElement | null>(
     null,
   );
-  const { protocolTheme, toggleColorMode } = useProtocolTheme();
+  const storedMode = useAppSelector((state) => state.theme.mode);
+  const { protocolTheme } = useMemo(
+    () => getProtocolTheme(storedMode),
+    [storedMode],
+  );
 
   return (
     <ThemeProvider theme={protocolTheme}>
@@ -77,22 +82,14 @@ function App() {
                   <Route
                     path='/'
                     element={
-                      <SearchView
-                        toggleColorMode={toggleColorMode}
-                        protocolTheme={protocolTheme}
-                        title={Strings.metaData.pageTitle.search}
-                      />
+                      <SearchView title={Strings.metaData.pageTitle.search} />
                     }
                   />
 
                   <Route
                     path='/compare-results'
                     element={
-                      <ResultsView
-                        toggleColorMode={toggleColorMode}
-                        protocolTheme={protocolTheme}
-                        title={Strings.metaData.pageTitle.results}
-                      />
+                      <ResultsView title={Strings.metaData.pageTitle.results} />
                     }
                   />
                 </>,

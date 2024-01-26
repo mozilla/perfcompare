@@ -4,33 +4,21 @@ import userEvent from '@testing-library/user-event';
 import SearchView from '../../components/Search/SearchView';
 import { updateCheckedRevisions } from '../../reducers/SearchSlice';
 import { Strings } from '../../resources/Strings';
-import useProtocolTheme from '../../theme/protocolTheme';
 import { InputType } from '../../types/state';
 import getTestData from '../utils/fixtures';
 import { store } from '../utils/setupTests';
 import {
   screen,
   within,
-  renderHook,
   renderWithRouter,
   act,
   FetchMockSandbox,
 } from '../utils/test-utils';
 
-const protocolTheme = renderHook(() => useProtocolTheme()).result.current
-  .protocolTheme;
-const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
-  .toggleColorMode;
 const searchType = 'base' as InputType;
 
 function renderComponent() {
-  renderWithRouter(
-    <SearchView
-      toggleColorMode={toggleColorMode}
-      protocolTheme={protocolTheme}
-      title={Strings.metaData.pageTitle.search}
-    />,
-  );
+  renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
 }
 
 describe('SelectedRevision', () => {

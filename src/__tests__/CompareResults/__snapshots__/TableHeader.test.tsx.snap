@@ -2,7 +2,6 @@
 
 exports[`Table Header Should match snapshot 1`] = `
 <body>
-  <div />
   <div>
     <div
       class="fh15yft fr2n4tx"

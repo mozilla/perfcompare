@@ -1,9 +1,10 @@
 import Divider from '@mui/material/Divider';
 import { style } from 'typestyle';
 
+import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { Colors, Spacing } from '../../styles';
-import type { CompareResultsItem, ThemeMode } from '../../types/state';
+import type { CompareResultsItem } from '../../types/state';
 import Distribution from './Distribution';
 
 const strings = Strings.components.expandableRow;
@@ -18,7 +19,7 @@ function shouldDisplayGraphDistribution(
 }
 
 function RevisionRowExpandable(props: RevisionRowExpandableProps) {
-  const { themeMode, result } = props;
+  const { result } = props;
   const {
     platform,
     delta_percentage: deltaPercent,
@@ -32,6 +33,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   } = result;
   const shouldDisplayGraph = shouldDisplayGraphDistribution(baseRuns, newRuns);
 
+  const themeMode = useAppSelector((state) => state.theme.mode);
   const themeColor200 =
     themeMode == 'light' ? Colors.Background200 : Colors.Background200Dark;
   const contentThemeColor =
@@ -115,7 +117,6 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
 }
 
 interface RevisionRowExpandableProps {
-  themeMode: ThemeMode;
   result: CompareResultsItem;
 }
 

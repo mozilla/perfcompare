@@ -2,7 +2,6 @@
 
 exports[`Search Containter should match snapshot 1`] = `
 <body>
-  <div />
   <div>
     <section
       class="container_f1m49pie"

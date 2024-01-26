@@ -12,7 +12,11 @@ import InputLabel from '@mui/material/InputLabel';
 import Tooltip from '@mui/material/Tooltip';
 import { cssRule } from 'typestyle';
 
-import { compareView } from '../../common/constants';
+
+import { compareView, searchView } from '../../common/constants';
+import { useAppDispatch, useAppSelector } from '../../hooks/app';
+import useSelectedRevisions from '../../hooks/useSelectedRevisions';
+import { clearCheckedRevisionforType } from '../../reducers/SearchSlice';
 import {
   Spacing,
   DropDownMenuRaw,
@@ -20,8 +24,8 @@ import {
   //SearchStyles can be found in CompareCards.ts
   SearchStyles,
 } from '../../styles';
-import type { RevisionsList, ThemeMode, Repository } from '../../types/state';
-// import CompareWithBaseContext from './CompareWithBaseContext';
+
+import type { RevisionsList, InputType, Repository } from '../../types/state';
 import EditButton from './EditButton';
 import SaveCancelButtons from './SaveCancelButtons';
 import SearchDropdown from './SearchDropdown';
@@ -35,7 +39,6 @@ interface RevisionsState {
 }
 
 interface SearchProps {
-  mode: ThemeMode;
   isEditable: boolean;
   isWarning: boolean;
   isBaseComp: boolean;
@@ -57,7 +60,6 @@ interface SearchProps {
 }
 
 function SearchComponent({
-  mode,
   isEditable,
   isBaseComp,
   searchResults,
@@ -72,6 +74,7 @@ function SearchComponent({
   inputPlaceholder,
   isWarning,
 }: SearchProps) {
+  const mode = useAppSelector((state) => state.theme.mode);
   const styles = SearchStyles(mode);
 
   /* These overriding rules update the theme mode by accessing the otherwise inaccessible MUI tooltip styles */
@@ -209,7 +212,6 @@ function SearchComponent({
             isEditable={isEditable}
             selectLabel={selectLabel}
             tooltipText={tooltip}
-            mode={mode}
             searchType={searchType}
           />
         </Grid>
@@ -222,7 +224,6 @@ function SearchComponent({
           } `}
         >
           <SearchInput
-            mode={mode}
             onFocus={() => setDisplayDropdown(true)}
             isEditable={isEditable}
             inputPlaceholder={inputPlaceholder}
@@ -230,19 +231,18 @@ function SearchComponent({
           />
           {searchResults.length > 0 && displayDropdown && (
             <SearchResultsList
-              mode={mode}
               isEditable={isEditable}
               isBase={isBaseComp}
               searchResults={searchResults}
               displayedRevisions={displayedRevisions}
               onEditToggle={onResultsListEditToggle}
             />
+
           )}
         </Grid>
         {/****** Cancel Save Buttons ******/}
         {isEditable && formIsDisplayed && (
           <SaveCancelButtons
-            mode={mode}
             searchType={searchType}
             onSave={onSave}
             onCancel={onCancel}
@@ -256,7 +256,6 @@ function SearchComponent({
             isBase={isBaseComp}
             isEditable={isEditable}
             formIsDisplayed={formIsDisplayed}
-            mode={mode}
             isWarning={isWarning}
             displayedRevisions={displayedRevisions}
             onEditRemove={onEditRemove}

@@ -1,8 +1,9 @@
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 
+import { useAppSelector } from '../../hooks/app';
 import { SelectRevsStyles } from '../../styles';
-import { Repository, RevisionsList, ThemeMode } from '../../types/state';
+import { Repository, RevisionsList } from '../../types/state';
 import SelectedRevisionItem from './SelectedRevisionItem';
 import useCheckRevision from '../../hooks/useCheckRevision';
 
@@ -30,6 +31,7 @@ function SelectedRevisions({
   displayedRevisions,
   onEditRemove,
 }: SelectedRevisionsProps) {
+  const mode = useAppSelector((state) => state.theme.mode);
   const styles = SelectRevsStyles(mode);
   const searchType = isBase ? 'base' : 'new';
 
@@ -70,7 +72,6 @@ function SelectedRevisions({
             item={item}
             repository={displayedRevisions.repos[index]}
             isBase={isBase}
-            mode={mode}
             isWarning={isWarning}
             removeRevision={removeRevision}
             iconClassName={iconClassName}

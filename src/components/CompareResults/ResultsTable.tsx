@@ -6,17 +6,17 @@ import { style } from 'typestyle';
 import { useAppSelector } from '../../hooks/app';
 import { selectProcessedResults } from '../../reducers/ComparisonSlice';
 import { Colors, Spacing } from '../../styles';
-import { ThemeMode } from '../../types/state';
 import NoResultsFound from './NoResultsFound';
 import TableContent from './TableContent';
 import TableHeader from './TableHeader';
 
 const customStyles = {
   boxShadow: 'none',
+  background: 'none',
 };
 
-function ResultsTable(props: ResultsTableProps) {
-  const { themeMode } = props;
+function ResultsTable() {
+  const themeMode = useAppSelector((state) => state.theme.mode);
 
   const loading = useAppSelector((state) => state.compareResults.loading);
 
@@ -46,10 +46,9 @@ function ResultsTable(props: ResultsTableProps) {
         </Box>
       ) : (
         <>
-          <TableHeader themeMode={themeMode} />
+          <TableHeader />
           {processedResults.map((res, index) => (
             <TableContent
-              themeMode={themeMode}
               key={index}
               header={res.revisionHeader}
               results={res.value}
@@ -60,10 +59,6 @@ function ResultsTable(props: ResultsTableProps) {
       {!loading && processedResults.length == 0 && <NoResultsFound />}
     </Paper>
   );
-}
-
-interface ResultsTableProps {
-  themeMode: ThemeMode;
 }
 
 export default ResultsTable;

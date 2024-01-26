@@ -12,10 +12,11 @@ import ListItemText from '@mui/material/ListItemText';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import dayjs from 'dayjs';
+import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { SelectRevsStyles } from '../../styles';
-import type { RevisionsList, ThemeMode } from '../../types/state';
-import { Repository } from '../../types/state';
+import { Repository, RevisionsList } from '../../types/state';
+
 import {
   truncateHash,
   getLatestCommitMessage,
@@ -46,7 +47,9 @@ function SelectedRevisionItem({
   isWarning,
   removeRevision,
 }: SelectedRevisionItemProps) {
+
   const searchType = isBase ? 'base' : 'new';
+  const mode = useAppSelector((state) => state.theme.mode);
   const styles = SelectRevsStyles(mode);
   const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);
