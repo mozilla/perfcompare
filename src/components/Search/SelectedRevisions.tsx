@@ -2,16 +2,15 @@ import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 
 import { useAppSelector } from '../../hooks/app';
+import useCheckRevision from '../../hooks/useCheckRevision';
 import { SelectRevsStyles } from '../../styles';
 import { Repository, RevisionsList } from '../../types/state';
 import SelectedRevisionItem from './SelectedRevisionItem';
-import useCheckRevision from '../../hooks/useCheckRevision';
 
 interface SelectedRevisionsProps {
   isBase: boolean;
   formIsDisplayed: boolean;
   isEditable: boolean;
-  mode: ThemeMode;
   isWarning: boolean;
   displayedRevisions: RevisionsState;
   onEditRemove: (item: RevisionsList) => void;
@@ -26,7 +25,6 @@ function SelectedRevisions({
   isBase,
   formIsDisplayed,
   isEditable,
-  mode,
   isWarning,
   displayedRevisions,
   onEditRemove,

@@ -1,17 +1,17 @@
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 
-import { SelectListStyles } from '../../styles';
-import { RevisionsList, ThemeMode, Repository } from '../../types/state';
-import SearchResultsListItem from './SearchResultsListItem';
 import { useAppSelector } from '../../hooks/app';
 import useCheckRevision from '../../hooks/useCheckRevision';
+import { SelectListStyles } from '../../styles';
+import { RevisionsList, Repository } from '../../types/state';
+import SearchResultsListItem from './SearchResultsListItem';
 
 interface RevisionsState {
   revs: RevisionsList[];
   repos: Repository['name'][];
 }
-  
+
 interface SearchResultsListProps {
   isEditable: boolean;
   isBase: boolean;
@@ -19,7 +19,7 @@ interface SearchResultsListProps {
   displayedRevisions: RevisionsState;
   onEditToggle: (toggleArray: RevisionsList[]) => void;
 }
-  
+
 function SearchResultsList({
   isEditable,
   isBase,
@@ -27,7 +27,6 @@ function SearchResultsList({
   displayedRevisions,
   onEditToggle,
 }: SearchResultsListProps) {
-
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = SelectListStyles(mode);
   const { handleToggle } = useCheckRevision(isBase, isEditable);

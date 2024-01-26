@@ -7,19 +7,20 @@ import { style } from 'typestyle';
 import { useAppSelector } from '../../hooks/app';
 import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
 import { InputStylesRaw } from '../../styles';
-import { InputType, View } from '../../types/state';
-
+import { InputType } from '../../types/state';
 
 interface SearchInputProps {
   onFocus: () => unknown;
   inputPlaceholder: string;
   isEditable?: boolean;
+  searchType: InputType;
 }
 
 function SearchInput({
   onFocus,
   isEditable,
   inputPlaceholder,
+  searchType,
 }: SearchInputProps) {
   const { handleChangeSearch } = useHandleChangeSearch();
   const searchState = useAppSelector((state) => state.search[searchType]);

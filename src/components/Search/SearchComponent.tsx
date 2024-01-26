@@ -12,11 +12,8 @@ import InputLabel from '@mui/material/InputLabel';
 import Tooltip from '@mui/material/Tooltip';
 import { cssRule } from 'typestyle';
 
-
-import { compareView, searchView } from '../../common/constants';
-import { useAppDispatch, useAppSelector } from '../../hooks/app';
-import useSelectedRevisions from '../../hooks/useSelectedRevisions';
-import { clearCheckedRevisionforType } from '../../reducers/SearchSlice';
+import { compareView } from '../../common/constants';
+import { useAppSelector } from '../../hooks/app';
 import {
   Spacing,
   DropDownMenuRaw,
@@ -24,7 +21,6 @@ import {
   //SearchStyles can be found in CompareCards.ts
   SearchStyles,
 } from '../../styles';
-
 import type { RevisionsList, InputType, Repository } from '../../types/state';
 import EditButton from './EditButton';
 import SaveCancelButtons from './SaveCancelButtons';
@@ -76,6 +72,7 @@ function SearchComponent({
 }: SearchProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = SearchStyles(mode);
+  const searchType: InputType = isBaseComp ? 'base' : 'new';
 
   /* These overriding rules update the theme mode by accessing the otherwise inaccessible MUI tooltip styles */
   cssRule('.MuiPopover-root', {
@@ -100,10 +97,7 @@ function SearchComponent({
   });
 
   const [displayDropdown, setDisplayDropdown] = useState(false);
-
   const [formIsDisplayed, setFormIsDisplayed] = useState(!isEditable);
-
-  const searchType = isBaseComp ? 'base' : 'new';
 
   const handleDocumentMousedown = useCallback(
     (e: MouseEvent) => {
@@ -127,31 +121,31 @@ function SearchComponent({
   };
 
   const onCancel = () => {
-    isBaseComp ? handleCancel(true) : handleCancel(false);
+    if (isBaseComp) handleCancel(true);
+    if (!isBaseComp) handleCancel(false);
     setFormIsDisplayed(false);
   };
 
   const onSave = () => {
-    isBaseComp ? handleSave(true) : handleSave(false);
+    if (isBaseComp) handleSave(true);
+    if (!isBaseComp) handleSave(false);
     setFormIsDisplayed(false);
   };
 
   const onEdit = () => {
-    isBaseComp ? handleEdit(true) : handleEdit(false);
+    if (isBaseComp) handleEdit(true);
+    if (!isBaseComp) handleEdit(false);
     setFormIsDisplayed(true);
   };
 
   const onResultsListEditToggle = (toggleArray: RevisionsList[]) => {
-    console.log('do something');
-    isBaseComp
-      ? handleSearchResultsEditToggle(true, toggleArray)
-      : handleSearchResultsEditToggle(false, toggleArray);
+    if (isBaseComp) handleSearchResultsEditToggle(true, toggleArray);
+    if (!isBaseComp) handleSearchResultsEditToggle(false, toggleArray);
   };
 
   const onEditRemove = (item: RevisionsList) => {
-    isBaseComp
-      ? handleRemoveEditViewRevision(true, item)
-      : handleRemoveEditViewRevision(false, item);
+    if (isBaseComp) handleRemoveEditViewRevision(true, item);
+    if (!isBaseComp) handleRemoveEditViewRevision(false, item);
   };
 
   useEffect(() => {
@@ -237,7 +231,6 @@ function SearchComponent({
               displayedRevisions={displayedRevisions}
               onEditToggle={onResultsListEditToggle}
             />
-
           )}
         </Grid>
         {/****** Cancel Save Buttons ******/}

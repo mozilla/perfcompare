@@ -10,14 +10,10 @@ import { style } from 'typestyle';
 
 import { compareView, frameworkMap, repoMap } from '../../common/constants';
 import { useAppDispatch, useAppSelector } from '../../hooks/app';
-// import useFetchCompareResults from '../../hooks/useFetchCompareResults';
-// import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
 import useFetchCompareResults from '../../hooks/useFetchCompareResults';
 import { updateFramework } from '../../reducers/FrameworkSlice';
-
 import { SearchContainerStyles, background } from '../../styles';
 import { Repository, View, RevisionsList } from '../../types/state';
-
 import { Framework } from '../../types/types';
 import CompareWithBase from '../Search/CompareWithBase';
 import SearchViewInit from '../Search/SearchViewInit';

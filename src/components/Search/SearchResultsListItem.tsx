@@ -10,6 +10,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
 import dayjs from 'dayjs';
 import { style } from 'typestyle';
+
 import { Spacing } from '../../styles';
 import type { RevisionsList } from '../../types/state';
 import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';

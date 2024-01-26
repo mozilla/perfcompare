@@ -4,6 +4,7 @@ import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import { style } from 'typestyle';
 
+import { repoMap } from '../../common/constants';
 import { useAppDispatch, useAppSelector } from '../../hooks/app';
 import { clearCheckedRevisionforType } from '../../reducers/SearchSlice';
 import { Strings } from '../../resources/Strings';
@@ -12,7 +13,6 @@ import type { RevisionsList, Repository } from '../../types/state';
 import CompareButton from './CompareButton';
 import FrameworkDropdown from './FrameworkDropdown';
 import SearchComponent from './SearchComponent';
-import { repoMap } from '../../common/constants';
 
 const strings = Strings.components.searchDefault;
 const stringsBase = Strings.components.searchDefault.base.collapsed.base;
@@ -164,6 +164,22 @@ function CompareWithBase({
       handleCancel(false);
     }
   };
+  const handleDisplayedRevisions = (isBase: boolean) => {
+    if (isBase) {
+      if (baseInProgress.isInProgress) {
+        setDisplayedRevisionsBase(baseInProgress);
+      } else {
+        setDisplayedRevisionsBase(baseStaging);
+      }
+    }
+    if (!isBase) {
+      if (newInProgress.isInProgress) {
+        setDisplayedRevisionsNew(newInProgress);
+      } else {
+        setDisplayedRevisionsNew(newStaging);
+      }
+    }
+  };
 
   const handleEdit = (isBase: boolean) => {
     if (isBase) {
@@ -180,23 +196,6 @@ function CompareWithBase({
         isInProgress: true,
       });
       handleDisplayedRevisions(true);
-    }
-  };
-
-  const handleDisplayedRevisions = (isBase: boolean) => {
-    if (isBase) {
-      if (baseInProgress.isInProgress) {
-        setDisplayedRevisionsBase(baseInProgress);
-      } else {
-        setDisplayedRevisionsBase(baseStaging);
-      }
-    }
-    if (!isBase) {
-      if (newInProgress.isInProgress) {
-        setDisplayedRevisionsNew(newInProgress);
-      } else {
-        setDisplayedRevisionsNew(newStaging);
-      }
     }
   };
 
