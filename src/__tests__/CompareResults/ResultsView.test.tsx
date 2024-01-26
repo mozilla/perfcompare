@@ -31,8 +31,6 @@ describe('Results View', () => {
     expect(screen.getByText('Compare with a base')).toBeInTheDocument();
   });
 
-  //////EDIT MODE START /////
-
   it('RESULTS: shows dropdown and input when edit button in clicked', async () => {
     renderWithRouter(<ResultsView title='Results' />);
 

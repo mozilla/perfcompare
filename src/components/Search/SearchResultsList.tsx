@@ -2,7 +2,7 @@ import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 
 import { SelectListStyles } from '../../styles';
-import { InputType, Repository, RevisionsList, View } from '../../types/state';
+import {  Repository, RevisionsList, } from '../../types/state';
 import SearchResultsListItem from './SearchResultsListItem';
 import { useAppSelector } from '../../hooks/app';
 import useCheckRevision from '../../hooks/useCheckRevision';
