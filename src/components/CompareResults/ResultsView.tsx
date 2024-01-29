@@ -1,21 +1,22 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import { useSearchParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { compareView, frameworkMap, repoMap } from '../../common/constants';
 import { useAppDispatch, useAppSelector } from '../../hooks/app';
 import useFetchCompareResults from '../../hooks/useFetchCompareResults';
-import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
 import { updateFramework } from '../../reducers/FrameworkSlice';
 import { SearchContainerStyles, background } from '../../styles';
-import { Repository, View } from '../../types/state';
+import { Repository, View, RevisionsList } from '../../types/state';
 import { Framework } from '../../types/types';
 import CompareWithBase from '../Search/CompareWithBase';
+import SearchViewInit from '../Search/SearchViewInit';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
 import ResultsMain from './ResultsMain';
 
@@ -24,12 +25,43 @@ interface ResultsViewProps {
 }
 function ResultsView(props: ResultsViewProps) {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const selectedRevisions = useAppSelector(
+    (state) => state.selectedRevisions.revisions,
+  );
   const selectedRevisionsListBase = useAppSelector(
-    (state) => state.selectedRevisions.base,
+    (state) => state.selectedRevisions.baseCommittedRevisions,
   );
   const selectedRevisionsListNew = useAppSelector(
-    (state) => state.selectedRevisions.new,
+    (state) => state.selectedRevisions.newCommittedRevisions,
   );
+
+  const currentFramework = useAppSelector(
+    (state) => state.framework as Framework,
+  );
+
+  const updateCompareResults = (
+    selectedRevs: RevisionsList[],
+    selectedFramework: Framework,
+  ) => {
+    const updatedRev = selectedRevs.map((rev) => rev.revision);
+    const updatedRepo = selectedRevs.map((rev) => repoMap[rev.repository_id]);
+    navigate({
+      pathname: '/compare-results',
+      search: `?revs=${updatedRev.join(',')}&repos=${updatedRepo.join(
+        ',',
+      )}&framework=${selectedFramework.id}`,
+    });
+  };
+
+  const [prevRevisions, setPreviousRevisions] = useState(selectedRevisions);
+
+  useEffect(() => {
+    if (selectedRevisions !== prevRevisions) {
+      updateCompareResults(selectedRevisions, currentFramework);
+      setPreviousRevisions(selectedRevisions);
+    }
+  }, [selectedRevisions]);
 
   // The "??" operations below are so that Typescript doesn't wonder about the
   // undefined value later.
@@ -42,7 +74,6 @@ function ResultsView(props: ResultsViewProps) {
 
   const { dispatchFetchCompareResults, dispatchFakeCompareResults } =
     useFetchCompareResults();
-  const { searchRecentRevisions } = useHandleChangeSearch();
 
   const { title } = props;
   const themeMode = useAppSelector((state) => state.theme.mode);
@@ -80,22 +111,6 @@ function ResultsView(props: ResultsViewProps) {
         revsArray,
         framework as string,
       );
-
-      /*
-       *On component mount, use the repos and revs in hash to search for the base and new *revisions. Store the results in state via the SelectedRevisionsSlice: see extra *reducer, fetchRevisionsByID. Now can always display the selected revisions despite *page refresh or copying and pasting url
-       */
-      revsArray.forEach((rev, index) => {
-        void searchRecentRevisions(
-          reposArray[index] as Repository['name'],
-          rev,
-          'base',
-        );
-        void searchRecentRevisions(
-          reposArray[index] as Repository['name'],
-          rev,
-          'new',
-        );
-      });
     }
   }, [repos, revs, framework]);
 
@@ -127,6 +142,7 @@ function ResultsView(props: ResultsViewProps) {
             <p>Home</p>
           </Stack>
         </Link>
+        <SearchViewInit />
 
         <CompareWithBase
           isEditable={true}

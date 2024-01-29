@@ -14,11 +14,9 @@ import Typography from '@mui/material/Typography';
 import dayjs from 'dayjs';
 
 import { useAppSelector } from '../../hooks/app';
-import useCheckRevision from '../../hooks/useCheckRevision';
-import useSelectedRevisions from '../../hooks/useSelectedRevisions';
 import { Strings } from '../../resources/Strings';
 import { SelectRevsStyles } from '../../styles';
-import { InputType, Repository, RevisionsList } from '../../types/state';
+import { Repository, RevisionsList } from '../../types/state';
 import {
   truncateHash,
   getLatestCommitMessage,
@@ -32,41 +30,30 @@ interface SelectedRevisionItemProps {
   index: number;
   item: RevisionsList;
   repository: Repository['name'];
-  searchType: InputType;
-  isWarning?: boolean;
-  formIsDisplayed: boolean;
-  isEditable: boolean;
+  isBase: boolean;
+  isWarning: boolean;
+  iconClassName: string;
+  removeRevision: (item: RevisionsList) => void;
 }
 
 function SelectedRevisionItem({
   index,
   item,
   repository,
-  searchType,
+  iconClassName,
+  isBase,
   isWarning,
-  formIsDisplayed,
-  isEditable,
+  removeRevision,
 }: SelectedRevisionItemProps) {
+  const searchType = isBase ? 'base' : 'new';
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = SelectRevsStyles(mode);
   const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);
   const itemDate = new Date(item.push_timestamp * 1000);
-  const { removeCheckedRevision } = useCheckRevision(searchType);
-  const { deleteSelectedRevisions } = useSelectedRevisions();
-  //hide the close icon for the selected revisions in edit view
-  const iconClassName =
-    !formIsDisplayed && isEditable
-      ? 'icon icon-close-hidden'
-      : 'icon icon-close-show';
 
-  const handleClose = () => {
-    if (isEditable) {
-      deleteSelectedRevisions(item);
-      removeCheckedRevision(item);
-    } else {
-      removeCheckedRevision(item);
-    }
+  const onRemoveRevision = () => {
+    removeRevision(item);
   };
 
   return (
@@ -136,7 +123,7 @@ function SelectedRevisionItem({
           name='close-button'
           aria-label='close-button'
           className={`${iconClassName} revision-action close-button`}
-          onClick={handleClose}
+          onClick={onRemoveRevision}
         >
           <CloseOutlined fontSize='small' data-testid='close-icon' />
         </Button>
