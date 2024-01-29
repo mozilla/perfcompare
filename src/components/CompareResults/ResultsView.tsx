@@ -40,7 +40,6 @@ function ResultsView(props: ResultsViewProps) {
     (state) => state.framework as Framework,
   );
 
-  //temporary edit fix until Julien's patch /////
   const updateCompareResults = (
     selectedRevs: RevisionsList[],
     selectedFramework: Framework,
@@ -64,8 +63,6 @@ function ResultsView(props: ResultsViewProps) {
     }
   }, [selectedRevisions]);
 
-  //end temporary edit fix /////
-
   // The "??" operations below are so that Typescript doesn't wonder about the
   // undefined value later.
   const selectedBaseRepositories = selectedRevisionsListBase.map(
@@ -77,7 +74,6 @@ function ResultsView(props: ResultsViewProps) {
 
   const { dispatchFetchCompareResults, dispatchFakeCompareResults } =
     useFetchCompareResults();
-  // const { searchRecentRevisions } = useHandleChangeSearch();
 
   const { title } = props;
   const themeMode = useAppSelector((state) => state.theme.mode);
@@ -115,22 +111,6 @@ function ResultsView(props: ResultsViewProps) {
         revsArray,
         framework as string,
       );
-
-      /*
-       *On component mount, use the repos and revs in hash to search for the base and new *revisions. Store the results in state via the SelectedRevisionsSlice: see extra *reducer, fetchRevisionsByID. Now can always display the selected revisions despite *page refresh or copying and pasting url
-       */
-      // revsArray.forEach((rev, index) => {
-      //   void searchRecentRevisions(
-      //     reposArray[index] as Repository['name'],
-      //     rev,
-      //     'base',
-      //   );
-      //   void searchRecentRevisions(
-      //     reposArray[index] as Repository['name'],
-      //     rev,
-      //     'new',
-      //   );
-      // });
     }
   }, [repos, revs, framework]);
 
