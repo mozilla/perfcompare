@@ -1,9 +1,9 @@
 import { ThemeProvider, createTheme, Theme } from '@mui/material/styles';
 import { render as rtlRender } from '@testing-library/react';
-import { createMemoryHistory } from 'history';
 import { SnackbarProvider } from 'notistack';
 import { Provider } from 'react-redux';
-import { Router } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import type { LoaderFunction } from 'react-router-dom';
 
 import SnackbarCloseButton from '../../components/Shared/SnackbarCloseButton';
 import getProtocolTheme from '../../theme/protocolTheme';
@@ -37,18 +37,22 @@ export function renderWithRouter(
   ui: React.ReactElement,
   {
     route = '/',
-    history = createMemoryHistory({ initialEntries: [route] }),
+    search = '',
+    loader = undefined as undefined | LoaderFunction,
   } = {},
   theme: ThemeConfig = null,
 ) {
+  // jsdom doesn't like that we assign to location or location.href directly,
+  // because this is a navigation. Instead we use `replaceState` that isn't a
+  // navigation and works also for us.
+  window.history.replaceState(null, '', route + search);
   return {
     ...render(
-      <Router location={history.location} navigator={history}>
-        {ui}
-      </Router>,
+      <RouterProvider
+        router={createBrowserRouter([{ path: route, element: ui, loader }])}
+      />,
       theme,
     ),
-    history,
   };
 }
 

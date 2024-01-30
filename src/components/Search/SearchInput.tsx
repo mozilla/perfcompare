@@ -55,7 +55,6 @@ function SearchInput({
         onFocus={onFocus}
         onChange={(e) => handleChangeSearch({ e, searchType, repository })}
         size={size}
-        name={`${searchType}Search`}
         className={`search-text-field ${searchType}`}
         InputProps={{
           startAdornment: (

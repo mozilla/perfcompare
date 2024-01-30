@@ -1,4 +1,5 @@
 import userEvent from '@testing-library/user-event';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
@@ -6,6 +7,7 @@ import getTestData from '../utils/fixtures';
 import {
   screen,
   act,
+  render,
   renderWithRouter,
   FetchMockSandbox,
 } from '../utils/test-utils';
@@ -246,10 +248,36 @@ describe('Base Search', () => {
   });
 
   it('should have compare button and once clicked should redirect to results page with the right query params', async () => {
-    const { history } = renderComponent();
-    expect(history.location.pathname).toEqual('/');
+    // In this test, we need to define both / and /compare-results routes, so
+    // we'll do that directly without renderComponent.
+
+    setupTestData();
+    const router = createBrowserRouter([
+      {
+        path: '/',
+        element: <SearchView title={Strings.metaData.pageTitle.search} />,
+      },
+      { path: '/compare-results', element: <div /> },
+    ]);
+
+    render(<RouterProvider router={router} />);
+
+    expect(window.location.pathname).toEqual('/');
 
     const user = userEvent.setup({ delay: null });
+
+    // Press the compare button -> It shouldn't work!
+    const compareButton = await screen.findByRole('button', {
+      name: /Compare/,
+    });
+    await user.click(compareButton);
+
+    // We haven't navigated.
+    expect(window.location.pathname).toEqual('/');
+    // And there should be an alert
+    expect(
+      await screen.findByText('Please select at least one base revision.'),
+    ).toBeInTheDocument();
 
     // focus first input to show results
     const inputs = screen.getAllByRole('textbox');
@@ -279,12 +307,13 @@ describe('Base Search', () => {
     await screen.findByText(/flesh wound/);
 
     // Press the compare button
-    const compareButton = document.querySelector('.compare-button');
-    await user.click(compareButton as HTMLElement);
+    await user.click(compareButton);
 
-    expect(history.location.pathname).toEqual('/compare-results');
-    expect(history.location.search).toEqual(
-      '?revs=coconut,spam&repos=try,mozilla-central&framework=1',
+    expect(window.location.pathname).toEqual('/compare-results');
+    const searchParams = new URLSearchParams(window.location.search);
+    searchParams.sort();
+    expect(searchParams.toString()).toEqual(
+      'baseRepo=try&baseRev=coconut&framework=1&newRepo=mozilla-central&newRev=spam',
     );
   });
 });

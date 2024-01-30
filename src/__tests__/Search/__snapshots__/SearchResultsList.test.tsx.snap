@@ -123,8 +123,10 @@ exports[`SearchResultsList should match snapshot 1`] = `
             <hr
               class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
             />
-            <div
+            <form
+              action="/compare-results"
               class="form-wrapper"
+              method="get"
             >
               <div
                 class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
@@ -231,7 +233,6 @@ exports[`SearchResultsList should match snapshot 1`] = `
                             aria-invalid="false"
                             class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                             id="search-base-input"
-                            name="baseSearch"
                             placeholder="Search base by ID number or author email"
                             type="text"
                             value=""
@@ -858,7 +859,6 @@ exports[`SearchResultsList should match snapshot 1`] = `
                             aria-invalid="false"
                             class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                             id="search-new-input"
-                            name="newSearch"
                             placeholder="Search revision by ID number or author email"
                             type="text"
                             value=""
@@ -929,9 +929,9 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       <div
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        aria-labelledby="select-framework-label mui-component-select-Framework"
+                        aria-labelledby="select-framework-label mui-component-select-framework"
                         class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                        id="mui-component-select-Framework"
+                        id="mui-component-select-framework"
                         role="button"
                         tabindex="0"
                       >
@@ -940,7 +940,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       <input
                         aria-hidden="true"
                         class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                        name="Framework"
+                        name="framework"
                         tabindex="-1"
                         value="1"
                       />
@@ -959,11 +959,10 @@ exports[`SearchResultsList should match snapshot 1`] = `
                   </div>
                 </div>
                 <button
-                  aria-label="compare revisions"
                   class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1pha5e5-MuiButtonBase-root-MuiButton-root"
                   id="compare-button"
                   tabindex="0"
-                  type="button"
+                  type="submit"
                 >
                   Compare
                   <span
@@ -971,7 +970,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                   />
                 </button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
         <div

@@ -16,6 +16,7 @@ import { useAppSelector } from '../hooks/app';
 import { Strings } from '../resources/Strings';
 import { Banner } from '../styles/Banner';
 import getProtocolTheme from '../theme/protocolTheme';
+import { loader as compareLoader } from './CompareResults/loader';
 import ResultsView from './CompareResults/ResultsView';
 import SearchView from './Search/SearchView';
 import SnackbarCloseButton from './Shared/SnackbarCloseButton';
@@ -88,6 +89,7 @@ function App() {
 
                   <Route
                     path='/compare-results'
+                    loader={compareLoader}
                     element={
                       <ResultsView title={Strings.metaData.pageTitle.results} />
                     }
