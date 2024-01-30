@@ -41,14 +41,11 @@ interface SearchProps {
   searchResults: RevisionsList[];
   displayedRevisions: RevisionsState;
   setPopoverIsOpen?: Dispatch<SetStateAction<boolean>>;
-  handleSave: (isBase: boolean) => void;
-  handleCancel: (isBase: boolean) => void;
-  handleEdit: (isBase: boolean) => void;
-  handleSearchResultsEditToggle: (
-    isBase: boolean,
-    toggleArray: RevisionsList[],
-  ) => void;
-  handleRemoveEditViewRevision: (isBase: boolean, item: RevisionsList) => void;
+  handleSave: () => void;
+  handleCancel: () => void;
+  handleEdit: () => void;
+  handleSearchResultsEditToggle: (toggleArray: RevisionsList[]) => void;
+  handleRemoveEditViewRevision: (item: RevisionsList) => void;
   prevRevision?: RevisionsList;
   selectLabel: string;
   tooltip: string;
@@ -120,34 +117,6 @@ function SearchComponent({
     }
   };
 
-  const onCancel = () => {
-    if (isBaseComp) handleCancel(true);
-    if (!isBaseComp) handleCancel(false);
-    setFormIsDisplayed(false);
-  };
-
-  const onSave = () => {
-    if (isBaseComp) handleSave(true);
-    if (!isBaseComp) handleSave(false);
-    setFormIsDisplayed(false);
-  };
-
-  const onEdit = () => {
-    if (isBaseComp) handleEdit(true);
-    if (!isBaseComp) handleEdit(false);
-    setFormIsDisplayed(true);
-  };
-
-  const onResultsListEditToggle = (toggleArray: RevisionsList[]) => {
-    if (isBaseComp) handleSearchResultsEditToggle(true, toggleArray);
-    if (!isBaseComp) handleSearchResultsEditToggle(false, toggleArray);
-  };
-
-  const onEditRemove = (item: RevisionsList) => {
-    if (isBaseComp) handleRemoveEditViewRevision(true, item);
-    if (!isBaseComp) handleRemoveEditViewRevision(false, item);
-  };
-
   useEffect(() => {
     document.addEventListener('mousedown', handleDocumentMousedown);
     return () => {
@@ -182,7 +151,13 @@ function SearchComponent({
         </InputLabel>
         {/**** Edit Button ****/}
         {isEditable && !formIsDisplayed && (
-          <EditButton isBase={isBaseComp} onEditAction={onEdit} />
+          <EditButton
+            isBase={isBaseComp}
+            onEditAction={() => {
+              handleEdit();
+              setFormIsDisplayed(true);
+            }}
+          />
         )}
       </Grid>
       {/**** Search - DropDown Section ****/}
@@ -229,7 +204,7 @@ function SearchComponent({
               isBase={isBaseComp}
               searchResults={searchResults}
               displayedRevisions={displayedRevisions}
-              onEditToggle={onResultsListEditToggle}
+              onEditToggle={handleSearchResultsEditToggle}
             />
           )}
         </Grid>
@@ -237,8 +212,14 @@ function SearchComponent({
         {isEditable && formIsDisplayed && (
           <SaveCancelButtons
             searchType={searchType}
-            onSave={onSave}
-            onCancel={onCancel}
+            onSave={() => {
+              handleSave();
+              setFormIsDisplayed(false);
+            }}
+            onCancel={() => {
+              handleCancel();
+              setFormIsDisplayed(false);
+            }}
           />
         )}
       </Grid>
@@ -251,7 +232,7 @@ function SearchComponent({
             formIsDisplayed={formIsDisplayed}
             isWarning={isWarning}
             displayedRevisions={displayedRevisions}
-            onEditRemove={onEditRemove}
+            onEditRemove={handleRemoveEditViewRevision}
           />
         </Grid>
       )}

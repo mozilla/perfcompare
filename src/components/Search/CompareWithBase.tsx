@@ -140,112 +140,94 @@ function CompareWithBase({
   const toggleIsExpanded = () => {
     setExpanded(!expanded);
   };
+  const handleCancelBase = () => {
+    setInProgressBase({ ...revRepos, isInProgress: false });
+    dispatch(clearCheckedRevisionforType({ searchType: 'base' }));
+  };
 
-  const handleCancel = (isBase: boolean) => {
-    if (isBase) {
-      setInProgressBase({ ...revRepos, isInProgress: false });
-      dispatch(clearCheckedRevisionforType({ searchType: 'base' }));
-    }
+  const handleCancelNew = () => {
+    setInProgressNew({ ...revRepos, isInProgress: false });
+    dispatch(clearCheckedRevisionforType({ searchType: 'new' }));
+  };
 
-    if (!isBase) {
-      setInProgressNew({ ...revRepos, isInProgress: false });
-      dispatch(clearCheckedRevisionforType({ searchType: 'new' }));
+  const handleSaveBase = () => {
+    setStagingBase(baseInProgress);
+    handleCancelBase();
+  };
+
+  const handleSaveNew = () => {
+    setStagingNew(newInProgress);
+    handleCancelNew();
+  };
+
+  const handleDisplayedRevisionsBase = () => {
+    if (baseInProgress.isInProgress) {
+      setDisplayedRevisionsBase(baseInProgress);
+    } else {
+      setDisplayedRevisionsBase(baseStaging);
     }
   };
 
-  const handleSave = (isBase: boolean) => {
-    if (isBase) {
-      setStagingBase(baseInProgress);
-      handleCancel(true);
-    }
-
-    if (!isBase) {
-      setStagingNew(newInProgress);
-      handleCancel(false);
-    }
-  };
-  const handleDisplayedRevisions = (isBase: boolean) => {
-    if (isBase) {
-      if (baseInProgress.isInProgress) {
-        setDisplayedRevisionsBase(baseInProgress);
-      } else {
-        setDisplayedRevisionsBase(baseStaging);
-      }
-    }
-    if (!isBase) {
-      if (newInProgress.isInProgress) {
-        setDisplayedRevisionsNew(newInProgress);
-      } else {
-        setDisplayedRevisionsNew(newStaging);
-      }
+  const handleDisplayedRevisionsNew = () => {
+    if (newInProgress.isInProgress) {
+      setDisplayedRevisionsNew(newInProgress);
+    } else {
+      setDisplayedRevisionsNew(newStaging);
     }
   };
 
-  const handleEdit = (isBase: boolean) => {
-    if (isBase) {
-      setInProgressBase({
-        ...baseStaging,
-        isInProgress: true,
-      });
-      handleDisplayedRevisions(true);
-    }
-
-    if (!isBase) {
-      setInProgressNew({
-        ...newStaging,
-        isInProgress: true,
-      });
-      handleDisplayedRevisions(true);
-    }
+  const handleEditBase = () => {
+    setInProgressBase({
+      ...baseStaging,
+      isInProgress: true,
+    });
+    handleDisplayedRevisionsBase();
   };
 
-  const handleRemoveEditViewRevision = (
-    isBase: boolean,
-    item: RevisionsList,
-  ) => {
+  const handleEditNew = () => {
+    setInProgressNew({
+      ...newStaging,
+      isInProgress: true,
+    });
+    handleDisplayedRevisionsNew();
+  };
+
+  const handleRemoveEditViewRevisionBase = (item: RevisionsList) => {
     const revisionsBase = [...baseInProgress.revs];
-    const revisionsNew = [...newInProgress.revs];
-
-    if (isBase) {
-      revisionsBase.splice(baseInProgress.revs.indexOf(item), 1);
-      setInProgressBase({
-        revs: revisionsBase,
-        repos: baseInProgress.repos,
-        isInProgress: true,
-      });
-    }
-
-    if (!isBase) {
-      revisionsNew.splice(newInProgress.revs.indexOf(item), 1);
-      setInProgressNew({
-        revs: revisionsNew,
-        repos: newInProgress.repos,
-        isInProgress: true,
-      });
-    }
+    revisionsBase.splice(baseInProgress.revs.indexOf(item), 1);
+    setInProgressBase({
+      revs: revisionsBase,
+      repos: baseInProgress.repos,
+      isInProgress: true,
+    });
   };
 
-  const handleSearchResultsEditToggle = (
-    isBase: boolean,
-    toggleArray: RevisionsList[],
-  ) => {
+  const handleRemoveEditViewRevisionNew = (item: RevisionsList) => {
+    const revisionsNew = [...newInProgress.revs];
+    revisionsNew.splice(newInProgress.revs.indexOf(item), 1);
+    setInProgressNew({
+      revs: revisionsNew,
+      repos: newInProgress.repos,
+      isInProgress: true,
+    });
+  };
+
+  const handleSearchResultsEditToggleBase = (toggleArray: RevisionsList[]) => {
     const repos = toggleArray.map((rev) => repoMap[rev.repository_id] ?? 'try');
+    setInProgressBase({
+      revs: toggleArray || [],
+      repos,
+      isInProgress: true,
+    });
+  };
 
-    if (isBase) {
-      setInProgressBase({
-        revs: toggleArray || [],
-        repos,
-        isInProgress: true,
-      });
-    }
-
-    if (!isBase) {
-      setInProgressNew({
-        revs: toggleArray || [],
-        repos,
-        isInProgress: true,
-      });
-    }
+  const handleSearchResultsEditToggleNew = (toggleArray: RevisionsList[]) => {
+    const repos = toggleArray.map((rev) => repoMap[rev.repository_id] ?? 'try');
+    setInProgressNew({
+      revs: toggleArray || [],
+      repos,
+      isInProgress: true,
+    });
   };
 
   return (
@@ -281,12 +263,12 @@ function CompareWithBase({
             isWarning={isWarning}
             isEditable={isEditable}
             searchResults={searchResultsBase}
-            handleSave={handleSave}
-            handleCancel={handleCancel}
-            handleEdit={handleEdit}
-            handleSearchResultsEditToggle={handleSearchResultsEditToggle}
-            handleRemoveEditViewRevision={handleRemoveEditViewRevision}
             displayedRevisions={displayedRevisionsBase}
+            handleSave={handleSaveBase}
+            handleCancel={handleCancelBase}
+            handleEdit={handleEditBase}
+            handleSearchResultsEditToggle={handleSearchResultsEditToggleBase}
+            handleRemoveEditViewRevision={handleRemoveEditViewRevisionBase}
           />
           <SearchComponent
             {...stringsNew}
@@ -294,12 +276,12 @@ function CompareWithBase({
             isEditable={isEditable}
             isWarning={isWarning}
             searchResults={searchResultsNew}
-            handleSave={handleSave}
-            handleCancel={handleCancel}
-            handleEdit={handleEdit}
-            handleSearchResultsEditToggle={handleSearchResultsEditToggle}
-            handleRemoveEditViewRevision={handleRemoveEditViewRevision}
             displayedRevisions={displayedRevisionsNew}
+            handleSave={handleSaveNew}
+            handleCancel={handleCancelNew}
+            handleEdit={handleEditNew}
+            handleSearchResultsEditToggle={handleSearchResultsEditToggleNew}
+            handleRemoveEditViewRevision={handleRemoveEditViewRevisionNew}
           />
           <Grid
             item
