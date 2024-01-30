@@ -6,7 +6,7 @@ import Link from '@mui/material/Link';
 import { ThemeProvider } from '@mui/material/styles';
 import { SnackbarProvider } from 'notistack';
 import {
-  createHashRouter,
+  createBrowserRouter,
   RouterProvider,
   createRoutesFromElements,
   Route,
@@ -44,6 +44,25 @@ const AlertContainer = React.forwardRef<HTMLDivElement, DivProps>(
 
 AlertContainer.displayName = 'AlertContainer';
 
+// The router should be statically defined outside of the React tree.
+// See https://reactrouter.com/en/main/routers/router-provider for more information.
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <>
+      <Route
+        path='/'
+        element={<SearchView title={Strings.metaData.pageTitle.search} />}
+      />
+
+      <Route
+        path='/compare-results'
+        loader={compareLoader}
+        element={<ResultsView title={Strings.metaData.pageTitle.results} />}
+      />
+    </>,
+  ),
+);
+
 function App() {
   const [alertContainer, setAlertContainer] = useState<HTMLDivElement | null>(
     null,
@@ -76,28 +95,7 @@ function App() {
             </div>
           </Alert>
 
-          <RouterProvider
-            router={createHashRouter(
-              createRoutesFromElements(
-                <>
-                  <Route
-                    path='/'
-                    element={
-                      <SearchView title={Strings.metaData.pageTitle.search} />
-                    }
-                  />
-
-                  <Route
-                    path='/compare-results'
-                    loader={compareLoader}
-                    element={
-                      <ResultsView title={Strings.metaData.pageTitle.results} />
-                    }
-                  />
-                </>,
-              ),
-            )}
-          />
+          <RouterProvider router={router} />
         </SnackbarProvider>
       ) : null}
     </ThemeProvider>
