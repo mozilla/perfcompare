@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
 
 import SnackbarCloseButton from '../../components/Shared/SnackbarCloseButton';
-import useProtocolTheme from '../../theme/protocolTheme';
+import getProtocolTheme from '../../theme/protocolTheme';
 import { store } from './setupTests';
 
 type ChildrenProps = { children: React.ReactElement };
@@ -14,7 +14,7 @@ type ChildrenProps = { children: React.ReactElement };
 type ThemeConfig = Partial<Theme> | null;
 export function render(ui: React.ReactElement, themeConfig?: ThemeConfig) {
   function Wrapper({ children }: ChildrenProps) {
-    const { protocolTheme } = useProtocolTheme();
+    const { protocolTheme } = getProtocolTheme('light');
     const theme = themeConfig ? createTheme(themeConfig) : protocolTheme;
     return (
       <ThemeProvider theme={theme}>

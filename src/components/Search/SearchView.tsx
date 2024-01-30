@@ -1,6 +1,5 @@
 import { useRef, useEffect } from 'react';
 
-import type { Theme } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { style } from 'typestyle';
 
@@ -19,8 +18,8 @@ import SearchViewInit from './SearchViewInit';
 function SearchView(props: SearchViewProps) {
   const containerRef = useRef(null);
   const navigate = useNavigate();
-  const { toggleColorMode, protocolTheme, title } = props;
-  const themeMode = protocolTheme.palette.mode;
+  const { title } = props;
+  const themeMode = useAppSelector((state) => state.theme.mode);
   const selectedRevisions = useAppSelector(
     (state) => state.selectedRevisions.revisions,
   );
@@ -62,20 +61,14 @@ function SearchView(props: SearchViewProps) {
           Skip to search
         </button>
       </SkipLink>
-      <PerfCompareHeader
-        themeMode={themeMode}
-        toggleColorMode={toggleColorMode}
-        view={searchView as View}
-      />
+      <PerfCompareHeader view={searchView as View} />
       <SearchViewInit />
-      <SearchContainer containerRef={containerRef} themeMode={themeMode} />
+      <SearchContainer containerRef={containerRef} />
     </div>
   );
 }
 
 interface SearchViewProps {
-  toggleColorMode: () => void;
-  protocolTheme: Theme;
   title: string;
 }
 

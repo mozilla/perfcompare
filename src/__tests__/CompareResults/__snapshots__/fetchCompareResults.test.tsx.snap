@@ -2,8 +2,6 @@
 
 exports[`Results View/fetchCompareResults Should fetch and display recent results 1`] = `
 <body>
-  <div />
-  <div />
   <div>
     <div
       class="fcndgf6"
@@ -228,7 +226,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                         class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
                       >
                         <div
-                          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
+                          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-error MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
                         >
                           <div
                             class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-yzzuft-MuiInputAdornment-root"
@@ -246,7 +244,8 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                             </svg>
                           </div>
                           <input
-                            aria-invalid="false"
+                            aria-describedby="search-base-input-helper-text"
+                            aria-invalid="true"
                             class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-jrmsot-MuiInputBase-input-MuiOutlinedInput-input"
                             id="search-base-input"
                             name="baseSearch"
@@ -269,6 +268,12 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                             </legend>
                           </fieldset>
                         </div>
+                        <p
+                          class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeSmall MuiFormHelperText-contained css-9102mo-MuiFormHelperText-root"
+                          id="search-base-input-helper-text"
+                        >
+                          An error has occurred
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -278,118 +283,11 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                 >
                   <div
                     class="box_f65ycfw base-box MuiBox-root css-0"
-                    data-testid="selected-revs-compare-results"
+                    data-testid="selected-revs---editable-revisions"
                   >
                     <ul
                       class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
-                    >
-                      <li
-                        class="MuiListItem-root MuiListItem-gutters MuiListItem-padding item-container item-0 item-base css-vtiz8x-MuiListItem-root"
-                        data-testid="selected-rev-item"
-                      >
-                        <div
-                          class="repo_f1bx8by5"
-                        >
-                          <div>
-                            try
-                          </div>
-                        </div>
-                        <div
-                          class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_f5s7lzh css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
-                          role="button"
-                          tabindex="0"
-                        >
-                          <div
-                            class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
-                          >
-                            <span
-                              class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-hrbm3k-MuiTypography-root"
-                            >
-                              <span
-                                class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
-                              >
-                                <a
-                                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                                  href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
-                                  target="_blank"
-                                >
-                                  coconut
-                                </a>
-                              </span>
-                              <div
-                                class="info-caption"
-                              >
-                                <div
-                                  class="info-caption-item item-author"
-                                >
-                                   
-                                  <svg
-                                    aria-hidden="true"
-                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
-                                    data-testid="MailOutlineOutlinedIcon"
-                                    focusable="false"
-                                    viewBox="0 0 24 24"
-                                  >
-                                    <path
-                                      d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
-                                    />
-                                  </svg>
-                                   
-                                  johncleese@python.com
-                                </div>
-                                <div
-                                  class="info-caption-item item-time"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall time-icon css-1mecf1h-MuiSvgIcon-root"
-                                    data-testid="AccessTimeOutlinedIcon"
-                                    focusable="false"
-                                    viewBox="0 0 24 24"
-                                  >
-                                    <path
-                                      d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
-                                    />
-                                  </svg>
-                                  03/29/51 00:00
-                                </div>
-                              </div>
-                            </span>
-                            <p
-                              class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
-                            >
-                              you've got no arms left! 
-                            </p>
-                          </div>
-                          <button
-                            aria-label="close-button"
-                            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon icon-close-hidden revision-action close-button css-t42cd1-MuiButtonBase-root-MuiButton-root"
-                            name="close-button"
-                            role="button"
-                            tabindex="0"
-                            type="button"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1mecf1h-MuiSvgIcon-root"
-                              data-testid="close-icon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
-                              />
-                            </svg>
-                            <span
-                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                            />
-                          </button>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
-                        </div>
-                      </li>
-                    </ul>
+                    />
                   </div>
                 </div>
               </div>
@@ -496,7 +394,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                         class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
                       >
                         <div
-                          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
+                          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-error MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
                         >
                           <div
                             class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-yzzuft-MuiInputAdornment-root"
@@ -514,7 +412,8 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                             </svg>
                           </div>
                           <input
-                            aria-invalid="false"
+                            aria-describedby="search-new-input-helper-text"
+                            aria-invalid="true"
                             class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-jrmsot-MuiInputBase-input-MuiOutlinedInput-input"
                             id="search-new-input"
                             name="newSearch"
@@ -537,8 +436,26 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                             </legend>
                           </fieldset>
                         </div>
+                        <p
+                          class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeSmall MuiFormHelperText-contained css-9102mo-MuiFormHelperText-root"
+                          id="search-new-input-helper-text"
+                        >
+                          An error has occurred
+                        </p>
                       </div>
                     </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
+                >
+                  <div
+                    class="box_f65ycfw new-box MuiBox-root css-0"
+                    data-testid="selected-revs---editable-revisions"
+                  >
+                    <ul
+                      class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
+                    />
                   </div>
                 </div>
               </div>
@@ -816,16 +733,18 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
               </div>
             </header>
             <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 fv9cdwb css-16rtr54-MuiPaper-root"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 fv9cdwb css-13yod79-MuiPaper-root"
               data-testid="results-table"
               role="table"
             >
               <div
                 class="fh15yft fr2n4tx"
                 data-testid="table-header"
+                role="row"
               >
                 <div
                   class="cell platform-header fcno249"
+                  role="columnheader"
                 >
                   <svg
                     aria-hidden="true"
@@ -838,7 +757,9 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                       d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
                     />
                   </svg>
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Platform
                   </div>
                   <svg
@@ -855,25 +776,35 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                 </div>
                 <div
                   class="cell base-header "
+                  role="columnheader"
                 >
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Base
                   </div>
                 </div>
                 <div
                   class="cell comparisonSign-header "
+                  role="columnheader"
                 >
-                  <div />
+                  <div
+                    role="cell"
+                  />
                 </div>
                 <div
                   class="cell new-header "
+                  role="columnheader"
                 >
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     New
                   </div>
                 </div>
                 <div
                   class="cell status-header fcno249"
+                  role="columnheader"
                 >
                   <svg
                     aria-hidden="true"
@@ -886,7 +817,9 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                       d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
                     />
                   </svg>
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Status
                   </div>
                   <svg
@@ -903,13 +836,17 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                 </div>
                 <div
                   class="cell delta-header "
+                  role="columnheader"
                 >
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Delta(%)
                   </div>
                 </div>
                 <div
                   class="cell confidence-header fcno249"
+                  role="columnheader"
                 >
                   <svg
                     aria-hidden="true"
@@ -922,7 +859,9 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                       d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
                     />
                   </svg>
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Confidence
                   </div>
                   <svg
@@ -939,24 +878,34 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                 </div>
                 <div
                   class="cell runs-header "
+                  role="columnheader"
                 >
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Total Runs
                   </div>
                 </div>
                 <div
                   class="cell buttons-header "
+                  role="columnheader"
                 >
-                  <div />
+                  <div
+                    role="cell"
+                  />
                 </div>
                 <div
                   class="cell expand-header "
+                  role="columnheader"
                 >
-                  <div />
+                  <div
+                    role="cell"
+                  />
                 </div>
               </div>
               <div
                 class="f1otqxop"
+                role="rowgroup"
               >
                 <div
                   class="fx9q187"
@@ -1017,9 +966,11 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                 <div>
                   <div
                     class="revisionRow f1x1c13s fp4ugv1"
+                    role="row"
                   >
                     <div
                       class="platform cell"
+                      role="cell"
                     >
                       <div
                         class="platform-container"
@@ -1042,6 +993,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="base-value cell"
+                      role="cell"
                     >
                        
                       704.84
@@ -1051,11 +1003,13 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="comparison-sign cell"
+                      role="cell"
                     >
                       &lt;
                     </div>
                     <div
                       class="new-value cell"
+                      role="cell"
                     >
                        
                       712.44
@@ -1064,6 +1018,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="status cell"
+                      role="cell"
                     >
                        
                       Improvement
@@ -1071,13 +1026,16 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="delta cell"
+                      role="cell"
                     >
                        
                       1.08
-                       % 
+                       %
+                       
                     </div>
                     <div
                       class="confidence cell"
+                      role="cell"
                     >
                        
                       Low
@@ -1085,6 +1043,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="total-runs cell"
+                      role="cell"
                     >
                       <span>
                         B:
@@ -1109,6 +1068,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     >
                       <div
                         class="graph"
+                        role="cell"
                       >
                         <div
                           class="graph-link-button-container"
@@ -1144,6 +1104,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                       </div>
                       <div
                         class="download"
+                        role="cell"
                       >
                         <div
                           class="download-button-container"
@@ -1173,6 +1134,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                       </div>
                       <div
                         class="retrigger-button"
+                        role="cell"
                       >
                         <div
                           class="runs-button-container"
@@ -1203,6 +1165,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="expand-button cell"
+                      role="cell"
                     >
                       <div
                         class="expand-button-container"
@@ -1307,9 +1270,11 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                   </div>
                   <div
                     class="revisionRow f1x1c13s fp4ugv1"
+                    role="row"
                   >
                     <div
                       class="platform cell"
+                      role="cell"
                     >
                       <div
                         class="platform-container"
@@ -1344,6 +1309,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="base-value cell"
+                      role="cell"
                     >
                        
                       776.97
@@ -1353,11 +1319,13 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="comparison-sign cell"
+                      role="cell"
                     >
                       &lt;
                     </div>
                     <div
                       class="new-value cell"
+                      role="cell"
                     >
                        
                       791.34
@@ -1366,6 +1334,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="status cell"
+                      role="cell"
                     >
                        
                       Regression
@@ -1373,13 +1342,16 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="delta cell"
+                      role="cell"
                     >
                        
                       1.85
-                       % 
+                       %
+                       
                     </div>
                     <div
                       class="confidence cell"
+                      role="cell"
                     >
                        
                       Medium
@@ -1387,6 +1359,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="total-runs cell"
+                      role="cell"
                     >
                       <span>
                         B:
@@ -1411,6 +1384,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     >
                       <div
                         class="graph"
+                        role="cell"
                       >
                         <div
                           class="graph-link-button-container"
@@ -1446,6 +1420,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                       </div>
                       <div
                         class="download"
+                        role="cell"
                       >
                         <div
                           class="download-button-container"
@@ -1475,6 +1450,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                       </div>
                       <div
                         class="retrigger-button"
+                        role="cell"
                       >
                         <div
                           class="runs-button-container"
@@ -1505,6 +1481,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="expand-button cell"
+                      role="cell"
                     >
                       <div
                         class="expand-button-container"
@@ -1609,9 +1586,11 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                   </div>
                   <div
                     class="revisionRow f1x1c13s fp4ugv1"
+                    role="row"
                   >
                     <div
                       class="platform cell"
+                      role="cell"
                     >
                       <div
                         class="platform-container"
@@ -1652,6 +1631,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="base-value cell"
+                      role="cell"
                     >
                        
                       643.54
@@ -1661,11 +1641,13 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="comparison-sign cell"
+                      role="cell"
                     >
                       &gt;
                     </div>
                     <div
                       class="new-value cell"
+                      role="cell"
                     >
                        
                       628.09
@@ -1674,6 +1656,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="status cell"
+                      role="cell"
                     >
                        
                       -
@@ -1681,13 +1664,16 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="delta cell"
+                      role="cell"
                     >
                        
                       -2.4
-                       % 
+                       %
+                       
                     </div>
                     <div
                       class="confidence cell"
+                      role="cell"
                     >
                        
                       High
@@ -1695,6 +1681,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="total-runs cell"
+                      role="cell"
                     >
                       <span>
                         B:
@@ -1719,6 +1706,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     >
                       <div
                         class="graph"
+                        role="cell"
                       >
                         <div
                           class="graph-link-button-container"
@@ -1754,6 +1742,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                       </div>
                       <div
                         class="download"
+                        role="cell"
                       >
                         <div
                           class="download-button-container"
@@ -1783,6 +1772,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                       </div>
                       <div
                         class="retrigger-button"
+                        role="cell"
                       >
                         <div
                           class="runs-button-container"
@@ -1813,6 +1803,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="expand-button cell"
+                      role="cell"
                     >
                       <div
                         class="expand-button-container"
@@ -1917,9 +1908,11 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                   </div>
                   <div
                     class="revisionRow f1x1c13s fp4ugv1"
+                    role="row"
                   >
                     <div
                       class="platform cell"
+                      role="cell"
                     >
                       <div
                         class="platform-container"
@@ -1960,6 +1953,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="base-value cell"
+                      role="cell"
                     >
                        
                       643.54
@@ -1969,11 +1963,13 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="comparison-sign cell"
+                      role="cell"
                     >
                       &gt;
                     </div>
                     <div
                       class="new-value cell"
+                      role="cell"
                     >
                        
                       628.09
@@ -1982,6 +1978,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="status cell"
+                      role="cell"
                     >
                        
                       -
@@ -1989,19 +1986,23 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="delta cell"
+                      role="cell"
                     >
                        
                       -2.4
-                       % 
+                       %
+                       
                     </div>
                     <div
                       class="confidence cell"
+                      role="cell"
                     >
                        
                        
                     </div>
                     <div
                       class="total-runs cell"
+                      role="cell"
                     >
                       <span>
                         B:
@@ -2026,6 +2027,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     >
                       <div
                         class="graph"
+                        role="cell"
                       >
                         <div
                           class="graph-link-button-container"
@@ -2061,6 +2063,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                       </div>
                       <div
                         class="download"
+                        role="cell"
                       >
                         <div
                           class="download-button-container"
@@ -2090,6 +2093,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                       </div>
                       <div
                         class="retrigger-button"
+                        role="cell"
                       >
                         <div
                           class="runs-button-container"
@@ -2120,6 +2124,7 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
                     </div>
                     <div
                       class="expand-button cell"
+                      role="cell"
                     >
                       <div
                         class="expand-button-container"
@@ -2224,8 +2229,6 @@ exports[`Results View/fetchCompareResults Should fetch and display recent result
 
 exports[`Results View/fetchCompareResults State does not contain data if fetch returns no results 1`] = `
 <body>
-  <div />
-  <div />
   <div>
     <div
       class="fcndgf6"
@@ -2500,118 +2503,11 @@ exports[`Results View/fetchCompareResults State does not contain data if fetch r
                 >
                   <div
                     class="box_f65ycfw base-box MuiBox-root css-0"
-                    data-testid="selected-revs-compare-results"
+                    data-testid="selected-revs---editable-revisions"
                   >
                     <ul
                       class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
-                    >
-                      <li
-                        class="MuiListItem-root MuiListItem-gutters MuiListItem-padding item-container item-0 item-base css-vtiz8x-MuiListItem-root"
-                        data-testid="selected-rev-item"
-                      >
-                        <div
-                          class="repo_f1bx8by5"
-                        >
-                          <div>
-                            try
-                          </div>
-                        </div>
-                        <div
-                          class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_f5s7lzh css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
-                          role="button"
-                          tabindex="0"
-                        >
-                          <div
-                            class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
-                          >
-                            <span
-                              class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-hrbm3k-MuiTypography-root"
-                            >
-                              <span
-                                class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
-                              >
-                                <a
-                                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                                  href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
-                                  target="_blank"
-                                >
-                                  coconut
-                                </a>
-                              </span>
-                              <div
-                                class="info-caption"
-                              >
-                                <div
-                                  class="info-caption-item item-author"
-                                >
-                                   
-                                  <svg
-                                    aria-hidden="true"
-                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
-                                    data-testid="MailOutlineOutlinedIcon"
-                                    focusable="false"
-                                    viewBox="0 0 24 24"
-                                  >
-                                    <path
-                                      d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
-                                    />
-                                  </svg>
-                                   
-                                  johncleese@python.com
-                                </div>
-                                <div
-                                  class="info-caption-item item-time"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall time-icon css-1mecf1h-MuiSvgIcon-root"
-                                    data-testid="AccessTimeOutlinedIcon"
-                                    focusable="false"
-                                    viewBox="0 0 24 24"
-                                  >
-                                    <path
-                                      d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
-                                    />
-                                  </svg>
-                                  03/29/51 00:00
-                                </div>
-                              </div>
-                            </span>
-                            <p
-                              class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
-                            >
-                              you've got no arms left! 
-                            </p>
-                          </div>
-                          <button
-                            aria-label="close-button"
-                            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon icon-close-hidden revision-action close-button css-t42cd1-MuiButtonBase-root-MuiButton-root"
-                            name="close-button"
-                            role="button"
-                            tabindex="0"
-                            type="button"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1mecf1h-MuiSvgIcon-root"
-                              data-testid="close-icon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
-                              />
-                            </svg>
-                            <span
-                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                            />
-                          </button>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
-                        </div>
-                      </li>
-                    </ul>
+                    />
                   </div>
                 </div>
               </div>
@@ -2761,6 +2657,18 @@ exports[`Results View/fetchCompareResults State does not contain data if fetch r
                         </div>
                       </div>
                     </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
+                >
+                  <div
+                    class="box_f65ycfw new-box MuiBox-root css-0"
+                    data-testid="selected-revs---editable-revisions"
+                  >
+                    <ul
+                      class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
+                    />
                   </div>
                 </div>
               </div>
@@ -3038,16 +2946,18 @@ exports[`Results View/fetchCompareResults State does not contain data if fetch r
               </div>
             </header>
             <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 fv9cdwb css-16rtr54-MuiPaper-root"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 fv9cdwb css-13yod79-MuiPaper-root"
               data-testid="results-table"
               role="table"
             >
               <div
                 class="fh15yft fr2n4tx"
                 data-testid="table-header"
+                role="row"
               >
                 <div
                   class="cell platform-header fcno249"
+                  role="columnheader"
                 >
                   <svg
                     aria-hidden="true"
@@ -3060,7 +2970,9 @@ exports[`Results View/fetchCompareResults State does not contain data if fetch r
                       d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
                     />
                   </svg>
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Platform
                   </div>
                   <svg
@@ -3077,25 +2989,35 @@ exports[`Results View/fetchCompareResults State does not contain data if fetch r
                 </div>
                 <div
                   class="cell base-header "
+                  role="columnheader"
                 >
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Base
                   </div>
                 </div>
                 <div
                   class="cell comparisonSign-header "
+                  role="columnheader"
                 >
-                  <div />
+                  <div
+                    role="cell"
+                  />
                 </div>
                 <div
                   class="cell new-header "
+                  role="columnheader"
                 >
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     New
                   </div>
                 </div>
                 <div
                   class="cell status-header fcno249"
+                  role="columnheader"
                 >
                   <svg
                     aria-hidden="true"
@@ -3108,7 +3030,9 @@ exports[`Results View/fetchCompareResults State does not contain data if fetch r
                       d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
                     />
                   </svg>
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Status
                   </div>
                   <svg
@@ -3125,13 +3049,17 @@ exports[`Results View/fetchCompareResults State does not contain data if fetch r
                 </div>
                 <div
                   class="cell delta-header "
+                  role="columnheader"
                 >
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Delta(%)
                   </div>
                 </div>
                 <div
                   class="cell confidence-header fcno249"
+                  role="columnheader"
                 >
                   <svg
                     aria-hidden="true"
@@ -3144,7 +3072,9 @@ exports[`Results View/fetchCompareResults State does not contain data if fetch r
                       d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
                     />
                   </svg>
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Confidence
                   </div>
                   <svg
@@ -3161,20 +3091,29 @@ exports[`Results View/fetchCompareResults State does not contain data if fetch r
                 </div>
                 <div
                   class="cell runs-header "
+                  role="columnheader"
                 >
-                  <div>
+                  <div
+                    role="cell"
+                  >
                     Total Runs
                   </div>
                 </div>
                 <div
                   class="cell buttons-header "
+                  role="columnheader"
                 >
-                  <div />
+                  <div
+                    role="cell"
+                  />
                 </div>
                 <div
                   class="cell expand-header "
+                  role="columnheader"
                 >
-                  <div />
+                  <div
+                    role="cell"
+                  />
                 </div>
               </div>
               <div

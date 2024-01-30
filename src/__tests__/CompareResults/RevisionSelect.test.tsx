@@ -3,11 +3,9 @@ import type { ReactElement } from 'react';
 import ResultsView from '../../components/CompareResults/ResultsView';
 import RevisionSelect from '../../components/CompareResults/RevisionSelect';
 import { Strings } from '../../resources/Strings';
-import useProtocolTheme from '../../theme/protocolTheme';
 import {
   fireEvent,
   renderWithRouter,
-  renderHook,
   screen,
   within,
 } from '../utils/test-utils';
@@ -19,11 +17,6 @@ function renderWithRoute(component: ReactElement) {
 }
 
 describe('Revision select', () => {
-  const protocolTheme = renderHook(() => useProtocolTheme()).result.current
-    .protocolTheme;
-  const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
-    .toggleColorMode;
-
   it('Should match snapshot', () => {
     renderWithRoute(<RevisionSelect />);
 
@@ -61,13 +54,7 @@ describe('Revision select', () => {
     const fakedataParam = urlParams.get('fakedata');
     expect(fakedataParam).toBe('true');
 
-    renderWithRoute(
-      <ResultsView
-        protocolTheme={protocolTheme}
-        toggleColorMode={toggleColorMode}
-        title={Strings.metaData.pageTitle.results}
-      />,
-    );
+    renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
 
     // check to display results for all revisions
     let firstRevisionHeaders = await screen.findAllByRole('link', {
@@ -137,13 +124,7 @@ describe('Revision select', () => {
     const fakedataParam = urlParams.get('fakedata');
     expect(fakedataParam).toBe('true');
 
-    renderWithRoute(
-      <ResultsView
-        protocolTheme={protocolTheme}
-        toggleColorMode={toggleColorMode}
-        title={Strings.metaData.pageTitle.results}
-      />,
-    );
+    renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
 
     // check comparison to be for revision bb6a5e451dac
     const firstRevisionHeaders = await screen.findAllByRole('link', {
@@ -202,13 +183,7 @@ describe('Revision select', () => {
     const fakedataParam = urlParams.get('fakedata');
     expect(fakedataParam).toBe('true');
 
-    renderWithRoute(
-      <ResultsView
-        protocolTheme={protocolTheme}
-        toggleColorMode={toggleColorMode}
-        title={Strings.metaData.pageTitle.results}
-      />,
-    );
+    renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
 
     // check comparison to be for revision bb6a5e451dac
     const firstRevisionHeaders = await screen.findAllByRole('link', {

@@ -1,14 +1,15 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import { style } from 'typestyle';
 
-import { useAppSelector } from '../../hooks/app';
+import { repoMap } from '../../common/constants';
+import { useAppDispatch, useAppSelector } from '../../hooks/app';
+import { clearCheckedRevisionforType } from '../../reducers/SearchSlice';
 import { Strings } from '../../resources/Strings';
-import { CompareCardsStyles } from '../../styles';
-import { SearchStyles } from '../../styles';
-import type { ThemeMode, RevisionsList, Repository } from '../../types/state';
+import { CompareCardsStyles, SearchStyles } from '../../styles';
+import type { RevisionsList, Repository } from '../../types/state';
 import CompareButton from './CompareButton';
 import FrameworkDropdown from './FrameworkDropdown';
 import SearchComponent from './SearchComponent';
@@ -18,7 +19,6 @@ const stringsBase = Strings.components.searchDefault.base.collapsed.base;
 const stringsNew = Strings.components.searchDefault.base.collapsed.revision;
 
 interface CompareWithBaseProps {
-  mode: ThemeMode;
   isEditable: boolean;
   baseRevs: RevisionsList[];
   newRevs: RevisionsList[];
@@ -26,8 +26,18 @@ interface CompareWithBaseProps {
   newRepos: Repository['name'][];
 }
 
+interface RevisionsState {
+  revs: RevisionsList[];
+  repos: Repository['name'][];
+}
+
+interface InProgressState {
+  revs: RevisionsList[];
+  repos: Repository['name'][];
+  isInProgress: boolean;
+}
+
 function CompareWithBase({
-  mode,
   isEditable,
   baseRevs,
   newRevs,
@@ -36,18 +46,58 @@ function CompareWithBase({
 }: CompareWithBaseProps) {
   const [expanded, setExpanded] = useState(true);
 
+  //the "committed" base and new revisions initialize the staging state
+  const [baseStaging, setStagingBase] = useState<RevisionsState>({
+    revs: baseRevs,
+    repos: baseRepos,
+  });
+
+  const [newStaging, setStagingNew] = useState<RevisionsState>({
+    revs: newRevs,
+    repos: newRepos,
+  });
+
+  //the edit button will initialize the "in progress" state
+  //and copy "stage" to "in progress" state
+  const [baseInProgress, setInProgressBase] = useState<InProgressState>({
+    revs: [],
+    repos: [],
+    isInProgress: false,
+  });
+
+  const [newInProgress, setInProgressNew] = useState<InProgressState>({
+    revs: [],
+    repos: [],
+    isInProgress: false,
+  });
+
+  const [displayedRevisionsBase, setDisplayedRevisionsBase] =
+    useState<RevisionsState>({
+      revs: baseRevs,
+      repos: baseRepos,
+    });
+
+  const [displayedRevisionsNew, setDisplayedRevisionsNew] =
+    useState<RevisionsState>({
+      revs: newRevs,
+      repos: newRepos,
+    });
+
+  const dispatch = useAppDispatch();
+
+  const mode = useAppSelector((state) => state.theme.mode);
+
   const styles = CompareCardsStyles(mode);
   const dropDownStyles = SearchStyles(mode);
   const search = useAppSelector((state) => state.search);
   const baseRepository = search.base.repository;
   const newRepository = search.new.repository;
+  const searchResultsBase = search.base.searchResults;
+  const searchResultsNew = search.new.searchResults;
+
   const isWarning =
     (baseRepository === 'try' && newRepository !== 'try') ||
     (baseRepository !== 'try' && newRepository === 'try');
-
-  const toggleIsExpanded = () => {
-    setExpanded(!expanded);
-  };
 
   const bottomStyles = {
     container: style({
@@ -55,6 +105,147 @@ function CompareWithBase({
       justifyContent: 'space-between',
       alignItems: 'flex-end',
     }),
+  };
+
+  const revRepos = {
+    revs: [],
+    repos: [],
+  };
+
+  useEffect(() => {
+    setStagingBase({
+      revs: baseRevs,
+      repos: baseRepos,
+    });
+    setStagingNew({
+      revs: newRevs,
+      repos: newRepos,
+    });
+  }, [baseRevs, newRevs]);
+
+  useEffect(() => {
+    if (newInProgress.isInProgress) {
+      setDisplayedRevisionsNew(newInProgress);
+    } else {
+      setDisplayedRevisionsNew(newStaging);
+    }
+
+    if (baseInProgress.isInProgress) {
+      setDisplayedRevisionsBase(baseInProgress);
+    } else {
+      setDisplayedRevisionsBase(baseStaging);
+    }
+  }, [newInProgress, newStaging, baseInProgress, baseStaging]);
+
+  const toggleIsExpanded = () => {
+    setExpanded(!expanded);
+  };
+
+  const handleCancel = (isBase: boolean) => {
+    if (isBase) {
+      setInProgressBase({ ...revRepos, isInProgress: false });
+      dispatch(clearCheckedRevisionforType({ searchType: 'base' }));
+    }
+
+    if (!isBase) {
+      setInProgressNew({ ...revRepos, isInProgress: false });
+      dispatch(clearCheckedRevisionforType({ searchType: 'new' }));
+    }
+  };
+
+  const handleSave = (isBase: boolean) => {
+    if (isBase) {
+      setStagingBase(baseInProgress);
+      handleCancel(true);
+    }
+
+    if (!isBase) {
+      setStagingNew(newInProgress);
+      handleCancel(false);
+    }
+  };
+  const handleDisplayedRevisions = (isBase: boolean) => {
+    if (isBase) {
+      if (baseInProgress.isInProgress) {
+        setDisplayedRevisionsBase(baseInProgress);
+      } else {
+        setDisplayedRevisionsBase(baseStaging);
+      }
+    }
+    if (!isBase) {
+      if (newInProgress.isInProgress) {
+        setDisplayedRevisionsNew(newInProgress);
+      } else {
+        setDisplayedRevisionsNew(newStaging);
+      }
+    }
+  };
+
+  const handleEdit = (isBase: boolean) => {
+    if (isBase) {
+      setInProgressBase({
+        ...baseStaging,
+        isInProgress: true,
+      });
+      handleDisplayedRevisions(true);
+    }
+
+    if (!isBase) {
+      setInProgressNew({
+        ...newStaging,
+        isInProgress: true,
+      });
+      handleDisplayedRevisions(true);
+    }
+  };
+
+  const handleRemoveEditViewRevision = (
+    isBase: boolean,
+    item: RevisionsList,
+  ) => {
+    const revisionsBase = [...baseInProgress.revs];
+    const revisionsNew = [...newInProgress.revs];
+
+    if (isBase) {
+      revisionsBase.splice(baseInProgress.revs.indexOf(item), 1);
+      setInProgressBase({
+        revs: revisionsBase,
+        repos: baseInProgress.repos,
+        isInProgress: true,
+      });
+    }
+
+    if (!isBase) {
+      revisionsNew.splice(newInProgress.revs.indexOf(item), 1);
+      setInProgressNew({
+        revs: revisionsNew,
+        repos: newInProgress.repos,
+        isInProgress: true,
+      });
+    }
+  };
+
+  const handleSearchResultsEditToggle = (
+    isBase: boolean,
+    toggleArray: RevisionsList[],
+  ) => {
+    const repos = toggleArray.map((rev) => repoMap[rev.repository_id] ?? 'try');
+
+    if (isBase) {
+      setInProgressBase({
+        revs: toggleArray || [],
+        repos,
+        isInProgress: true,
+      });
+    }
+
+    if (!isBase) {
+      setInProgressNew({
+        revs: toggleArray || [],
+        repos,
+        isInProgress: true,
+      });
+    }
   };
 
   return (
@@ -82,32 +273,41 @@ function CompareWithBase({
         } ${styles.container} `}
       >
         <Divider className='divider' />
+
         <div className='form-wrapper'>
           <SearchComponent
-            searchType='base'
-            isEditable={isEditable}
-            isWarning={isWarning}
-            mode={mode}
-            revisions={baseRevs}
-            repositories={baseRepos}
             {...stringsBase}
+            isBaseComp={true}
+            isWarning={isWarning}
+            isEditable={isEditable}
+            searchResults={searchResultsBase}
+            handleSave={handleSave}
+            handleCancel={handleCancel}
+            handleEdit={handleEdit}
+            handleSearchResultsEditToggle={handleSearchResultsEditToggle}
+            handleRemoveEditViewRevision={handleRemoveEditViewRevision}
+            displayedRevisions={displayedRevisionsBase}
           />
           <SearchComponent
-            searchType='new'
+            {...stringsNew}
+            isBaseComp={false}
             isEditable={isEditable}
             isWarning={isWarning}
-            mode={mode}
-            revisions={newRevs}
-            repositories={newRepos}
-            {...stringsNew}
+            searchResults={searchResultsNew}
+            handleSave={handleSave}
+            handleCancel={handleCancel}
+            handleEdit={handleEdit}
+            handleSearchResultsEditToggle={handleSearchResultsEditToggle}
+            handleRemoveEditViewRevision={handleRemoveEditViewRevision}
+            displayedRevisions={displayedRevisionsNew}
           />
           <Grid
             item
             xs={2}
             className={`${dropDownStyles.dropDown} ${bottomStyles.container}`}
           >
-            <FrameworkDropdown mode={mode} />
-            <CompareButton mode={mode} />
+            <FrameworkDropdown />
+            <CompareButton />
           </Grid>
         </div>
       </div>

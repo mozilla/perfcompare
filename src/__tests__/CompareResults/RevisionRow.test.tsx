@@ -38,7 +38,7 @@ describe('<RevisionRow>', () => {
       } = getTestData();
 
       rowData.platform = platform as Platform;
-      render(<RevisionRow themeMode='light' result={rowData} />);
+      render(<RevisionRow result={rowData} />);
       const shortNameNode = screen.getByText(shortName);
       expect(shortNameNode).toBeInTheDocument();
       const previousNode = shortNameNode.previousSibling;

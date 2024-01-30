@@ -2,20 +2,13 @@ import userEvent from '@testing-library/user-event';
 
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
-import useProtocolTheme from '../../theme/protocolTheme';
 import getTestData from '../utils/fixtures';
 import {
   screen,
   act,
   renderWithRouter,
-  renderHook,
   FetchMockSandbox,
 } from '../utils/test-utils';
-
-const protocolTheme = renderHook(() => useProtocolTheme()).result.current
-  .protocolTheme;
-const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
-  .toggleColorMode;
 
 function setupTestData() {
   const { testData } = getTestData();
@@ -30,11 +23,7 @@ function setupTestData() {
 function renderComponent() {
   setupTestData();
   return renderWithRouter(
-    <SearchView
-      toggleColorMode={toggleColorMode}
-      protocolTheme={protocolTheme}
-      title={Strings.metaData.pageTitle.search}
-    />,
+    <SearchView title={Strings.metaData.pageTitle.search} />,
   );
 }
 

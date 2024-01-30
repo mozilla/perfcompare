@@ -2,22 +2,15 @@ import userEvent from '@testing-library/user-event';
 
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
-import useProtocolTheme from '../../theme/protocolTheme';
 import getTestData from '../utils/fixtures';
 import {
   screen,
   act,
-  renderHook,
   renderWithRouter,
   FetchMockSandbox,
 } from '../utils/test-utils';
 
 describe('SearchView/fetchRevisionsByAuthor', () => {
-  const protocolTheme = renderHook(() => useProtocolTheme()).result.current
-    .protocolTheme;
-  const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
-    .toggleColorMode;
-
   it('should fetch revisions by author if searchValue is an email address', async () => {
     const { testData } = getTestData();
     (global.fetch as FetchMockSandbox).get(
@@ -30,13 +23,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(
-      <SearchView
-        toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
-        title={Strings.metaData.pageTitle.search}
-      />,
-    );
+    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
 
     expect(screen.getAllByText('try')[0]).toBeInTheDocument();
     const searchInput = screen.getAllByRole('textbox')[0];
@@ -65,13 +52,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(
-      <SearchView
-        toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
-        title={Strings.metaData.pageTitle.search}
-      />,
-    );
+    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'ericidle@python.com');
@@ -104,13 +85,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(
-      <SearchView
-        toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
-        title={Strings.metaData.pageTitle.search}
-      />,
-    );
+    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'grahamchapman@python.com');
@@ -145,13 +120,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(
-      <SearchView
-        toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
-        title={Strings.metaData.pageTitle.search}
-      />,
-    );
+    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'grahamchapman@python.com');

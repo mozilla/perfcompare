@@ -1,18 +1,15 @@
 import Button from '@mui/material/Button';
 import { style } from 'typestyle';
 
+import { useAppSelector } from '../../hooks/app';
 import useSelectRevision from '../../hooks/useSelectedRevisions';
 import { Strings } from '../../resources/Strings';
 import { ButtonStyles } from '../../styles';
-import type { ThemeMode } from '../../types/state';
-
-interface CompareButtonProps {
-  mode: ThemeMode;
-}
 
 const strings = Strings.components.searchDefault.sharedCollasped;
 
-export default function CompareButton({ mode }: CompareButtonProps) {
+export default function CompareButton() {
+  const mode = useAppSelector((state) => state.theme.mode);
   const { addSelectedRevisions } = useSelectRevision();
 
   const btnStyles = ButtonStyles(mode);
@@ -22,6 +19,7 @@ export default function CompareButton({ mode }: CompareButtonProps) {
   };
 
   const handleAddSelectedRevisions = () => {
+    //update to set stage to committed in isEditable
     addSelectedRevisions();
   };
 

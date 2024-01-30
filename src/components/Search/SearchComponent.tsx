@@ -10,14 +10,10 @@ import InfoIcon from '@mui/icons-material/InfoOutlined';
 import Grid from '@mui/material/Grid';
 import InputLabel from '@mui/material/InputLabel';
 import Tooltip from '@mui/material/Tooltip';
-import { useLocation } from 'react-router-dom';
 import { cssRule } from 'typestyle';
 
-import { compareView, searchView } from '../../common/constants';
-import { useAppDispatch } from '../../hooks/app';
+import { compareView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
-import useSelectedRevisions from '../../hooks/useSelectedRevisions';
-import { clearCheckedRevisionforType } from '../../reducers/SearchSlice';
 import {
   Spacing,
   DropDownMenuRaw,
@@ -25,12 +21,7 @@ import {
   //SearchStyles can be found in CompareCards.ts
   SearchStyles,
 } from '../../styles';
-import type {
-  RevisionsList,
-  InputType,
-  ThemeMode,
-  Repository,
-} from '../../types/state';
+import type { RevisionsList, InputType, Repository } from '../../types/state';
 import EditButton from './EditButton';
 import SaveCancelButtons from './SaveCancelButtons';
 import SearchDropdown from './SearchDropdown';
@@ -38,32 +29,50 @@ import SearchInput from './SearchInput';
 import SearchResultsList from './SearchResultsList';
 import SelectedRevisions from './SelectedRevisions';
 
+interface RevisionsState {
+  revs: RevisionsList[];
+  repos: Repository['name'][];
+}
+
 interface SearchProps {
-  mode: ThemeMode;
+  isEditable: boolean;
+  isWarning: boolean;
+  isBaseComp: boolean;
+  searchResults: RevisionsList[];
+  displayedRevisions: RevisionsState;
   setPopoverIsOpen?: Dispatch<SetStateAction<boolean>>;
+  handleSave: (isBase: boolean) => void;
+  handleCancel: (isBase: boolean) => void;
+  handleEdit: (isBase: boolean) => void;
+  handleSearchResultsEditToggle: (
+    isBase: boolean,
+    toggleArray: RevisionsList[],
+  ) => void;
+  handleRemoveEditViewRevision: (isBase: boolean, item: RevisionsList) => void;
   prevRevision?: RevisionsList;
   selectLabel: string;
   tooltip: string;
   inputPlaceholder: string;
-  searchType: InputType;
-  isEditable: boolean;
-  isWarning: boolean;
-  revisions: RevisionsList[];
-  repositories: Repository['name'][];
 }
 
 function SearchComponent({
-  mode,
+  isEditable,
+  isBaseComp,
+  searchResults,
+  displayedRevisions,
+  handleCancel,
+  handleSave,
+  handleEdit,
+  handleSearchResultsEditToggle,
+  handleRemoveEditViewRevision,
   selectLabel,
   tooltip,
   inputPlaceholder,
-  searchType,
-  isEditable,
   isWarning,
-  revisions,
-  repositories,
 }: SearchProps) {
+  const mode = useAppSelector((state) => state.theme.mode);
   const styles = SearchStyles(mode);
+  const searchType: InputType = isBaseComp ? 'base' : 'new';
 
   /* These overriding rules update the theme mode by accessing the otherwise inaccessible MUI tooltip styles */
   cssRule('.MuiPopover-root', {
@@ -87,36 +96,15 @@ function SearchComponent({
     },
   });
 
-  const dispatch = useAppDispatch();
-  const { updateSelectedRevisions } = useSelectedRevisions();
-
-  const searchState = useAppSelector((state) => state.search[searchType]);
-  const { searchResults } = searchState;
   const [displayDropdown, setDisplayDropdown] = useState(false);
   const [formIsDisplayed, setFormIsDisplayed] = useState(!isEditable);
-
-  const location = useLocation();
-  const view = location.pathname == '/' ? searchView : compareView;
-  // const matchesQuery = useMediaQuery('(max-width:768px)');
-  const handleCancelAction = () => {
-    dispatch(clearCheckedRevisionforType({ searchType }));
-    setFormIsDisplayed(false);
-  };
-
-  const handleSaveAction = () => {
-    updateSelectedRevisions(searchType);
-    dispatch(clearCheckedRevisionforType({ searchType }));
-    setFormIsDisplayed(false);
-  };
 
   const handleDocumentMousedown = useCallback(
     (e: MouseEvent) => {
       if (!displayDropdown) {
         return;
       }
-
       const target = e.target as HTMLElement;
-
       if (target.closest(`.${searchType}-search-input`) === null) {
         // Close the dropdown only if the click is outside the search input or one
         // of it's descendants.
@@ -130,6 +118,34 @@ function SearchComponent({
     if (e.key === 'Escape') {
       setDisplayDropdown(false);
     }
+  };
+
+  const onCancel = () => {
+    if (isBaseComp) handleCancel(true);
+    if (!isBaseComp) handleCancel(false);
+    setFormIsDisplayed(false);
+  };
+
+  const onSave = () => {
+    if (isBaseComp) handleSave(true);
+    if (!isBaseComp) handleSave(false);
+    setFormIsDisplayed(false);
+  };
+
+  const onEdit = () => {
+    if (isBaseComp) handleEdit(true);
+    if (!isBaseComp) handleEdit(false);
+    setFormIsDisplayed(true);
+  };
+
+  const onResultsListEditToggle = (toggleArray: RevisionsList[]) => {
+    if (isBaseComp) handleSearchResultsEditToggle(true, toggleArray);
+    if (!isBaseComp) handleSearchResultsEditToggle(false, toggleArray);
+  };
+
+  const onEditRemove = (item: RevisionsList) => {
+    if (isBaseComp) handleRemoveEditViewRevision(true, item);
+    if (!isBaseComp) handleRemoveEditViewRevision(false, item);
   };
 
   useEffect(() => {
@@ -151,7 +167,9 @@ function SearchComponent({
       <Grid
         item
         xs={2}
-        className={`${searchType}-search-dropdown ${styles.dropDown} label-edit-wrapper`}
+        className={`${isBaseComp ? 'base' : 'new'}-search-dropdown ${
+          styles.dropDown
+        } label-edit-wrapper`}
       >
         <InputLabel
           id='select-repository-label'
@@ -164,11 +182,7 @@ function SearchComponent({
         </InputLabel>
         {/**** Edit Button ****/}
         {isEditable && !formIsDisplayed && (
-          <EditButton
-            searchType={searchType}
-            setFormIsDisplayed={setFormIsDisplayed}
-            formIsDisplayed={formIsDisplayed}
-          />
+          <EditButton isBase={isBaseComp} onEditAction={onEdit} />
         )}
       </Grid>
       {/**** Search - DropDown Section ****/}
@@ -185,14 +199,13 @@ function SearchComponent({
           xs={2}
           id={`${searchType}_search-dropdown`}
           className={`${searchType}-search-dropdown ${styles.dropDown} ${
-            view == compareView ? 'small' : ''
-          } ${view}-base-dropdown`}
+            isEditable ? 'small' : ''
+          } ${isEditable ? compareView : ''}-base-dropdown`}
         >
           <SearchDropdown
-            view={view}
+            isEditable={isEditable}
             selectLabel={selectLabel}
             tooltipText={tooltip}
-            mode={mode}
             searchType={searchType}
           />
         </Grid>
@@ -201,45 +214,44 @@ function SearchComponent({
           xs={7}
           id={`${searchType}_search-input`}
           className={`${searchType}-search-input  ${styles.baseSearchInput} ${
-            view === compareView ? 'big' : ''
+            isEditable ? 'big' : ''
           } `}
         >
           <SearchInput
-            mode={mode}
             onFocus={() => setDisplayDropdown(true)}
-            view={view}
+            isEditable={isEditable}
             inputPlaceholder={inputPlaceholder}
             searchType={searchType}
           />
           {searchResults.length > 0 && displayDropdown && (
             <SearchResultsList
-              mode={mode}
-              view={view}
-              searchType={searchType}
+              isEditable={isEditable}
+              isBase={isBaseComp}
+              searchResults={searchResults}
+              displayedRevisions={displayedRevisions}
+              onEditToggle={onResultsListEditToggle}
             />
           )}
         </Grid>
         {/****** Cancel Save Buttons ******/}
         {isEditable && formIsDisplayed && (
           <SaveCancelButtons
-            mode={mode}
             searchType={searchType}
-            onSave={handleSaveAction}
-            onCancel={handleCancelAction}
+            onSave={onSave}
+            onCancel={onCancel}
           />
         )}
       </Grid>
       {/***** Selected Revisions Section *****/}
-      {revisions && revisions.length > 0 && (
+      {displayedRevisions && (
         <Grid className='d-flex'>
           <SelectedRevisions
-            searchType={searchType}
-            mode={mode}
-            isWarning={isWarning}
-            formIsDisplayed={formIsDisplayed}
+            isBase={isBaseComp}
             isEditable={isEditable}
-            revisions={revisions}
-            repositories={repositories}
+            formIsDisplayed={formIsDisplayed}
+            isWarning={isWarning}
+            displayedRevisions={displayedRevisions}
+            onEditRemove={onEditRemove}
           />
         </Grid>
       )}

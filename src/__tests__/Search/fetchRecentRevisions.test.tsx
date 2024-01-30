@@ -2,22 +2,14 @@ import userEvent from '@testing-library/user-event';
 
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
-import useProtocolTheme from '../../theme/protocolTheme';
 import getTestData from '../utils/fixtures';
 import {
   screen,
-  renderHook,
   renderWithRouter,
   FetchMockSandbox,
 } from '../utils/test-utils';
 
 describe('Search View/fetchRecentRevisions', () => {
-  const protocolTheme = renderHook(() => useProtocolTheme()).result.current
-    .protocolTheme;
-
-  const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
-    .toggleColorMode;
-
   it('should fetch and display recent results when repository is selected', async () => {
     const { testData } = getTestData();
     (global.fetch as FetchMockSandbox).get(
@@ -30,13 +22,7 @@ describe('Search View/fetchRecentRevisions', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(
-      <SearchView
-        toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
-        title={Strings.metaData.pageTitle.search}
-      />,
-    );
+    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
 
     const baseRepoSelect = screen.getAllByRole('button', { name: 'Base' })[0];
     expect(baseRepoSelect).toHaveTextContent('try');
@@ -72,13 +58,7 @@ describe('Search View/fetchRecentRevisions', () => {
       },
     );
 
-    renderWithRouter(
-      <SearchView
-        toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
-        title={Strings.metaData.pageTitle.search}
-      />,
-    );
+    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
 
     const errorMessages = await screen.findAllByText('No results found');
     expect(errorMessages).toHaveLength(2);
@@ -104,13 +84,7 @@ describe('Search View/fetchRecentRevisions', () => {
     // This test will output an error to the console. Let's silence it.
     jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    renderWithRouter(
-      <SearchView
-        toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
-        title={Strings.metaData.pageTitle.search}
-      />,
-    );
+    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
 
     const errorMessages = await screen.findAllByText(errorMessage);
     expect(errorMessages).toHaveLength(2);

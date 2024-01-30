@@ -87,17 +87,6 @@ const search = createSlice({
       state[type].checkedRevisions = initialState[type].checkedRevisions;
     },
 
-    setCheckedRevisionsForEdit(
-      state,
-      action: PayloadAction<{
-        revisions: RevisionsList[];
-        searchType: InputType;
-      }>,
-    ) {
-      const type = action.payload.searchType;
-      state[type].checkedRevisions = action.payload.revisions;
-    },
-
     setInputError(
       state,
       action: PayloadAction<{
@@ -158,6 +147,5 @@ export const {
   updateCheckedRevisions,
   clearCheckedRevisionforType,
   setInputError,
-  setCheckedRevisionsForEdit,
 } = search.actions;
 export default search.reducer;

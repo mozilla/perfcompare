@@ -6,14 +6,13 @@ import { repoMap, searchView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { SearchContainerStyles } from '../../styles';
-import type { ThemeMode } from '../../types/state';
 import CompareOverTime from './CompareOverTime';
 import CompareWithBase from './CompareWithBase';
 
 const strings = Strings.components.searchDefault;
 
 function SearchContainer(props: SearchViewProps) {
-  const { themeMode } = props;
+  const themeMode = useAppSelector((state) => state.theme.mode);
   const styles = SearchContainerStyles(themeMode, searchView);
   const checkedRevisionsListNew = useAppSelector(
     (state) => state.search.new.checkedRevisions,
@@ -65,7 +64,6 @@ function SearchContainer(props: SearchViewProps) {
     >
       <Typography className='search-default-title'>{strings.title}</Typography>
       <CompareWithBase
-        mode={themeMode}
         isEditable={false}
         baseRevs={checkedRevisionsListBase}
         newRevs={checkedRevisionsListNew}
@@ -73,13 +71,12 @@ function SearchContainer(props: SearchViewProps) {
         newRepos={checkedNewRepos}
       />
       {/* hidden until post-mvp release */}
-      <CompareOverTime mode={themeMode} />
+      <CompareOverTime />
     </section>
   );
 }
 
 interface SearchViewProps {
-  themeMode: ThemeMode;
   containerRef: React.RefObject<HTMLElement>;
 }
 

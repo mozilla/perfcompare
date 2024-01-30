@@ -4,21 +4,15 @@ import { repoMap } from '../../common/constants';
 import CompareWithBase from '../../components/Search/CompareWithBase';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
-import useProtocolTheme from '../../theme/protocolTheme';
 import getTestData from '../utils/fixtures';
 import { store } from '../utils/setupTests';
 import {
   act,
   screen,
-  renderHook,
   renderWithRouter,
   FetchMockSandbox,
 } from '../utils/test-utils';
 
-const protocolTheme = renderHook(() => useProtocolTheme()).result.current
-  .protocolTheme;
-
-const themeMode = protocolTheme.palette.mode;
 function renderComponent(isEditable: boolean) {
   const { testData } = getTestData();
   const baseRevs = testData.slice(0, 1);
@@ -34,7 +28,6 @@ function renderComponent(isEditable: boolean) {
   renderWithRouter(
     <CompareWithBase
       isEditable={isEditable}
-      mode={themeMode}
       baseRevs={baseRevs}
       newRevs={newRevs}
       baseRepos={baseRepos}
@@ -106,16 +99,7 @@ describe('Compare With Base', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
-      .toggleColorMode;
-
-    renderWithRouter(
-      <SearchView
-        toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
-        title={Strings.metaData.pageTitle.search}
-      />,
-    );
+    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
