@@ -2,11 +2,9 @@ import { useRef, useEffect } from 'react';
 
 import { style } from 'typestyle';
 
-import { searchView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { background } from '../../styles';
 import { skipLink } from '../../styles';
-import { View } from '../../types/state';
 import SkipLink from '../Accessibility/SkipLink';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
 import SearchContainer from './SearchContainer';
@@ -34,7 +32,7 @@ function SearchView(props: SearchViewProps) {
           Skip to search
         </button>
       </SkipLink>
-      <PerfCompareHeader view={searchView as View} />
+      <PerfCompareHeader isHome />
       <SearchViewInit />
       <SearchContainer containerRef={containerRef} />
     </div>

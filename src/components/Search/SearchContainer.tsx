@@ -2,7 +2,7 @@ import React from 'react';
 
 import Typography from '@mui/material/Typography';
 
-import { repoMap, searchView } from '../../common/constants';
+import { repoMap } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { SearchContainerStyles } from '../../styles';
@@ -13,7 +13,7 @@ const strings = Strings.components.searchDefault;
 
 function SearchContainer(props: SearchViewProps) {
   const themeMode = useAppSelector((state) => state.theme.mode);
-  const styles = SearchContainerStyles(themeMode, searchView);
+  const styles = SearchContainerStyles(themeMode, /* isHome */ true);
   const checkedRevisionsListNew = useAppSelector(
     (state) => state.search.new.checkedRevisions,
   );

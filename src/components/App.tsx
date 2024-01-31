@@ -19,6 +19,7 @@ import getProtocolTheme from '../theme/protocolTheme';
 import { loader as compareLoader } from './CompareResults/loader';
 import ResultsView from './CompareResults/ResultsView';
 import SearchView from './Search/SearchView';
+import { PageError } from './Shared/PageError';
 import SnackbarCloseButton from './Shared/SnackbarCloseButton';
 
 const strings: BannerStrings = {
@@ -46,7 +47,9 @@ AlertContainer.displayName = 'AlertContainer';
 
 // The router should be statically defined outside of the React tree.
 // See https://reactrouter.com/en/main/routers/router-provider for more information.
-const router = createBrowserRouter(
+// It's exported so that we can control it in tests. Do not use it directly in
+// application code!
+export const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route
@@ -58,6 +61,7 @@ const router = createBrowserRouter(
         path='/compare-results'
         loader={compareLoader}
         element={<ResultsView title={Strings.metaData.pageTitle.results} />}
+        errorElement={<PageError title={Strings.metaData.pageTitle.results} />}
       />
     </>,
   ),
