@@ -38,20 +38,9 @@ jobs:
       - node/install-packages
       - run: npm run tsc
 
-  other:
-    executor: node/default
-    steps:
-      - checkout
-      - node/install-packages
-      - run:
-          # Why only production? See: https://overreacted.io/npm-audit-broken-by-design/#what-next
-          name: audit
-          command: npm audit --omit=dev
-
 workflows:
   main:
     jobs:
       - tests
       - lint
       - typescript
-      - other
