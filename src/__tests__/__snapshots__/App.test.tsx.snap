@@ -91,6 +91,17 @@ exports[`App CompareResults loader Should render an error page when the treeherd
           >
             File a bug on Bugzilla.
           </a>
+           
+          Find us at
+           
+          <a
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+            href="https://matrix.to/#/#perfcompare:mozilla.org"
+            target="_blank"
+          >
+            #perfcompare:mozilla.org on Matrix
+          </a>
+          .
         </div>
       </div>
     </div>
@@ -233,6 +244,17 @@ exports[`App CompareResults loader Should render an error page when the treeherd
           >
             File a bug on Bugzilla.
           </a>
+           
+          Find us at
+           
+          <a
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+            href="https://matrix.to/#/#perfcompare:mozilla.org"
+            target="_blank"
+          >
+            #perfcompare:mozilla.org on Matrix
+          </a>
+          .
         </div>
       </div>
     </div>

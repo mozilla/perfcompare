@@ -21,11 +21,24 @@ describe('App', () => {
     render(<App />);
 
     // Title appears
-    expect(screen.getByText(/PerfCompare/i)).toBeInTheDocument();
+    const title = screen.getAllByText(/PerfCompare/i)[1];
+    expect(title).toBeInTheDocument();
 
     act(() => void jest.runAllTimers());
     const homeText = screen.getByText('Compare with a base or over time');
     expect(homeText).toBeInTheDocument();
+  });
+
+  test('Should display PerfCompare Matrix channel link', async () => {
+    render(<App />);
+
+    const link = await screen.findByRole('link', {
+      name: '#perfcompare:mozilla.org on Matrix',
+    });
+    expect(link).toHaveAttribute(
+      'href',
+      'https://matrix.to/#/#perfcompare:mozilla.org',
+    );
   });
 
   test('Should switch between dark mode and light mode on toggle', async () => {
