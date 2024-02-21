@@ -11,6 +11,11 @@ export const Strings = {
       linkText: 'File a bug on Bugzilla.',
       href: 'https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]',
     },
+    contact: {
+      text: 'Find us at',
+      linkText: '#perfcompare:mozilla.org on Matrix',
+      href: 'https://matrix.to/#/#perfcompare:mozilla.org',
+    },
     header: {
       title: 'PerfCompare',
       tagline:

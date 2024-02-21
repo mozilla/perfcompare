@@ -22,10 +22,16 @@ import SearchView from './Search/SearchView';
 import { PageError } from './Shared/PageError';
 import SnackbarCloseButton from './Shared/SnackbarCloseButton';
 
-const strings: BannerStrings = {
+const strings: InfoStrings = {
   text: Strings.components.topBanner.text,
   linkText: Strings.components.topBanner.linkText,
   href: Strings.components.topBanner.href,
+};
+
+const contact: InfoStrings = {
+  text: Strings.components.contact.text,
+  linkText: Strings.components.contact.linkText,
+  href: Strings.components.contact.href,
 };
 
 type DivProps = React.HTMLProps<HTMLDivElement>;
@@ -95,10 +101,14 @@ function App() {
               {strings.text}{' '}
               <Link href={strings.href} target='_blank'>
                 {strings.linkText}
+              </Link>{' '}
+              {contact.text}{' '}
+              <Link href={contact.href} target='_blank'>
+                {contact.linkText}
               </Link>
+              .
             </div>
           </Alert>
-
           <RouterProvider router={router} />
         </SnackbarProvider>
       ) : null}
@@ -106,7 +116,7 @@ function App() {
   );
 }
 
-interface BannerStrings {
+interface InfoStrings {
   text: string;
   linkText: string;
   href: string;
