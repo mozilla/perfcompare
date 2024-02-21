@@ -58,11 +58,10 @@ module.exports = {
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
         'airbnb-typescript',
         'plugin:import/typescript',
+        'prettier',
       ],
 
       rules: {
-        // https://github.com/typescript-eslint/typescript-eslint/issues/1824
-        '@typescript-eslint/indent': 'off',
         'react/prop-types': ['off'],
       },
     },
@@ -75,15 +74,31 @@ module.exports = {
         tsconfigRootDir: __dirname,
         project: ['./tsconfig.json'],
       },
-      plugins: ['jest'],
-      extends: ['plugin:jest/recommended', 'plugin:import/typescript'],
+      plugins: ['jest', 'jest-formatting'],
+      extends: [
+        'plugin:jest/recommended',
+        'plugin:import/typescript',
+        'plugin:testing-library/react',
+        'plugin:jest-dom/recommended',
+        'prettier',
+      ],
       rules: {
         // TODO: update tests to not use store directly and remove these overrides
         // https://github.com/mozilla/perfcompare/issues/115
         '@typescript-eslint/no-unsafe-member-access': 'off',
-        '@typescript-eslint/no-unsafe-call': 'off',
-        // test dependencies should only exist in devDependencies
-        'import/no-extraneous-dependencies': 'off',
+
+        // This disallows using direct Node properties (eg: firstChild), but we have
+        // legitimate uses:
+        'testing-library/no-node-access': 'off',
+        // Other useful rules in testing-library
+        'testing-library/prefer-explicit-assert': [
+          'error',
+          { includeFindQueries: false },
+        ],
+
+        // Individual jest-formatting rules so that we format only test and describe blocks
+        'jest-formatting/padding-around-describe-blocks': 2,
+        'jest-formatting/padding-around-test-blocks': 2,
       },
     },
     {

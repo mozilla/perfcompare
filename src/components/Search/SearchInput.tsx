@@ -1,5 +1,3 @@
-import { Dispatch, SetStateAction } from 'react';
-
 import SearchIcon from '@mui/icons-material/Search';
 import FormControl from '@mui/material/FormControl';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -9,28 +7,26 @@ import { style } from 'typestyle';
 import { useAppSelector } from '../../hooks/app';
 import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
 import { InputStylesRaw } from '../../styles';
-import { InputType, ThemeMode, View } from '../../types/state';
+import { InputType } from '../../types/state';
 
 interface SearchInputProps {
-  setFocused: Dispatch<SetStateAction<boolean>>;
+  onFocus: () => unknown;
   inputPlaceholder: string;
-  view: View;
-  mode: ThemeMode;
+  isEditable?: boolean;
   searchType: InputType;
 }
 
 function SearchInput({
-  setFocused,
-  view,
-  mode,
+  onFocus,
+  isEditable,
   inputPlaceholder,
   searchType,
 }: SearchInputProps) {
   const { handleChangeSearch } = useHandleChangeSearch();
   const searchState = useAppSelector((state) => state.search[searchType]);
-  const { inputError, inputHelperText } = searchState;
-
-  const size = view == 'compare-results' ? 'small' : undefined;
+  const mode = useAppSelector((state) => state.theme.mode);
+  const { inputError, inputHelperText, repository } = searchState;
+  const size = isEditable === true ? 'small' : undefined;
 
   const styles = {
     container: style({
@@ -56,10 +52,9 @@ function SearchInput({
         helperText={inputError && inputHelperText}
         placeholder={inputPlaceholder}
         id={`search-${searchType}-input`}
-        onFocus={() => setFocused(true)}
-        onChange={(e) => handleChangeSearch({ e, searchType })}
+        onFocus={onFocus}
+        onChange={(e) => handleChangeSearch({ e, searchType, repository })}
         size={size}
-        name={`${searchType}Search`}
         className={`search-text-field ${searchType}`}
         InputProps={{
           startAdornment: (

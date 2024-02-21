@@ -1,7 +1,5 @@
 // Style overrides for typography to match Mozilla Protocol design system
 // https://protocol.mozilla.org/
-import { useMemo, useState, useEffect } from 'react';
-
 import { createTheme, Theme } from '@mui/material/styles';
 
 import { Colors } from '../styles';
@@ -60,23 +58,15 @@ const getDesignTokens = (modeVal: ThemeMode) => ({
   },
 });
 
-const useProtocolTheme = () => {
-  const storedMode = localStorage.getItem('theme') || 'light';
-  const [mode, setMode] = useState((storedMode as ThemeMode) || 'light');
-
-  useEffect(() => {
-    localStorage.setItem('theme', mode);
-  }, [mode]);
-
-  const toggleColorMode = () => {
-    setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
-  };
-
-  const protocolTheme: Theme = useMemo(
-    () => createTheme(getDesignTokens(mode), { components, typography }),
-    [mode],
+const getProtocolTheme = (storedMode: string) => {
+  const protocolTheme: Theme = createTheme(
+    getDesignTokens(storedMode as ThemeMode),
+    {
+      components,
+      typography,
+    },
   );
 
-  return { mode, toggleColorMode, protocolTheme };
+  return { protocolTheme };
 };
-export default useProtocolTheme;
+export default getProtocolTheme;

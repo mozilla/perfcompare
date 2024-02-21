@@ -2,21 +2,57 @@ import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 
 import { useAppSelector } from '../../hooks/app';
+import useCheckRevision from '../../hooks/useCheckRevision';
 import { SelectListStyles } from '../../styles';
-import { InputType, ThemeMode, View } from '../../types/state';
+import { RevisionsList, Repository } from '../../types/state';
 import SearchResultsListItem from './SearchResultsListItem';
 
-interface SearchResultsListProps {
-  view: View;
-  mode: ThemeMode;
-  searchType: InputType;
+interface RevisionsState {
+  revs: RevisionsList[];
+  repos: Repository['name'][];
 }
 
-function SearchResultsList(props: SearchResultsListProps) {
-  const { view, mode, searchType } = props;
-  const searchState = useAppSelector((state) => state.search[searchType]);
-  const { searchResults } = searchState;
+interface SearchResultsListProps {
+  isEditable: boolean;
+  isBase: boolean;
+  searchResults: RevisionsList[];
+  displayedRevisions: RevisionsState;
+  onEditToggle: (toggleArray: RevisionsList[]) => void;
+}
+
+function SearchResultsList({
+  isEditable,
+  isBase,
+  searchResults,
+  displayedRevisions,
+  onEditToggle,
+}: SearchResultsListProps) {
+  const mode = useAppSelector((state) => state.theme.mode);
   const styles = SelectListStyles(mode);
+  const { handleToggle } = useCheckRevision(isBase, isEditable);
+  const searchType = isBase ? 'base' : 'new';
+  const revisionsCount = isBase === true ? 1 : 3;
+  const isCommittedChecked = (item: RevisionsList) => {
+    return useAppSelector((state) =>
+      state.search[searchType].checkedRevisions.includes(item),
+    );
+  };
+  const isInProgressChecked = (item: RevisionsList) => {
+    return displayedRevisions.revs.map((rev) => rev.id).includes(item.id);
+  };
+  const isCheckedState = isEditable ? isInProgressChecked : isCommittedChecked;
+
+  const handleToggleAction = (item: RevisionsList) => {
+    const toggleArray = handleToggle(
+      item,
+      revisionsCount,
+      displayedRevisions.revs,
+    );
+
+    if (isEditable) {
+      onEditToggle(toggleArray);
+    }
+  };
 
   return (
     <Box
@@ -25,14 +61,15 @@ function SearchResultsList(props: SearchResultsListProps) {
       alignItems='flex-end'
       data-testid='list-mode'
     >
-      <List dense={view == 'compare-results'} sx={{ paddingTop: '0' }}>
+      <List dense={isEditable == true} sx={{ paddingTop: '0' }}>
         {searchResults.map((item, index) => (
           <SearchResultsListItem
             key={item.id}
             index={index}
             item={item}
-            view={view}
-            searchType={searchType}
+            revisionsCount={revisionsCount}
+            isCheckedState={isCheckedState}
+            onToggle={handleToggleAction}
           />
         ))}
       </List>

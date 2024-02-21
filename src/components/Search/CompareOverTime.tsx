@@ -1,11 +1,11 @@
+import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles } from '../../styles';
-import type { ThemeMode } from '../../types/state';
 
 const strings = Strings.components.searchDefault;
 
-function CompareOverTime(props: CompareOverTimeProps) {
-  const { mode } = props;
+function CompareOverTime() {
+  const mode = useAppSelector((state) => state.theme.mode);
   const styles = CompareCardsStyles(mode);
   return (
     <div
@@ -21,10 +21,6 @@ function CompareOverTime(props: CompareOverTimeProps) {
       />
     </div>
   );
-}
-
-interface CompareOverTimeProps {
-  mode: ThemeMode;
 }
 
 export default CompareOverTime;

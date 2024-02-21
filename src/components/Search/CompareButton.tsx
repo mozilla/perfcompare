@@ -1,29 +1,18 @@
 import Button from '@mui/material/Button';
 import { style } from 'typestyle';
 
-import useSelectRevision from '../../hooks/useSelectedRevisions';
+import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { ButtonStyles } from '../../styles';
-import type { ThemeMode, View } from '../../types/state';
-
-interface CompareButtonProps {
-  mode: ThemeMode;
-  view: View;
-}
 
 const strings = Strings.components.searchDefault.sharedCollasped;
 
-export default function CompareButton({ mode }: CompareButtonProps) {
-  const { addSelectedRevisions } = useSelectRevision();
-
+export default function CompareButton() {
+  const mode = useAppSelector((state) => state.theme.mode);
   const btnStyles = ButtonStyles(mode);
 
   const styles = {
     button: style({ ...btnStyles.Primary }),
-  };
-
-  const handleAddSelectedRevisions = () => {
-    addSelectedRevisions();
   };
 
   return (
@@ -31,9 +20,8 @@ export default function CompareButton({ mode }: CompareButtonProps) {
       id='compare-button'
       variant='contained'
       className={`compare-button ${styles.button}`}
-      aria-label='compare revisions'
       sx={{ textTransform: 'none !important' }}
-      onClick={handleAddSelectedRevisions}
+      type='submit'
     >
       {strings.button}
     </Button>

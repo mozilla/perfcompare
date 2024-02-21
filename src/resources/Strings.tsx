@@ -11,6 +11,11 @@ export const Strings = {
       linkText: 'File a bug on Bugzilla.',
       href: 'https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]',
     },
+    contact: {
+      text: 'Find us at',
+      linkText: '#perfcompare:mozilla.org on Matrix',
+      href: 'https://matrix.to/#/#perfcompare:mozilla.org',
+    },
     header: {
       title: 'PerfCompare',
       tagline:
@@ -49,7 +54,10 @@ export const Strings = {
         collapsed: {
           warnings: {
             comparison:
-              'Comparing “try” repository to any repository aside from "try" is not recommended.',
+              'Comparing “try” repository to any repository aside from “try” is not recommended.',
+          },
+          errors: {
+            notEnoughRevisions: 'Please select at least one base revision.',
           },
           base: {
             selectLabel: 'Base',
@@ -75,6 +83,9 @@ export const Strings = {
         collapedSelectLabel: 'Time range',
       },
     },
+    revisionRow: {
+      platformUndefinedText: 'Unspecified',
+    },
     expandableRow: {
       singleRun: 'Only one run (consider more runs for greater confidence).',
       Low: "A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
@@ -87,7 +98,10 @@ export const Strings = {
       note: 'For the selected revision(s), no results when compared to the base revision.',
     },
     comparisonRevisionDropdown: {
-      allRevisions: 'All revisions',
+      allRevisions: {
+        key: 'all-revisions',
+        text: 'All revisions',
+      },
     },
   },
   errors: {

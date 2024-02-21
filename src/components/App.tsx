@@ -1,23 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 
 import Alert from '@mui/material/Alert';
 import CssBaseline from '@mui/material/CssBaseline';
 import Link from '@mui/material/Link';
 import { ThemeProvider } from '@mui/material/styles';
 import { SnackbarProvider } from 'notistack';
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  RouterProvider,
+  createRoutesFromElements,
+  Route,
+} from 'react-router-dom';
 
+import { useAppSelector } from '../hooks/app';
 import { Strings } from '../resources/Strings';
 import { Banner } from '../styles/Banner';
-import useProtocolTheme from '../theme/protocolTheme';
-import ResultsView from './CompareResults/beta/ResultsView';
+import getProtocolTheme from '../theme/protocolTheme';
+import { loader as compareLoader } from './CompareResults/loader';
+import ResultsView from './CompareResults/ResultsView';
 import SearchView from './Search/SearchView';
+import { PageError } from './Shared/PageError';
 import SnackbarCloseButton from './Shared/SnackbarCloseButton';
 
-const strings: BannerStrings = {
+const strings: InfoStrings = {
   text: Strings.components.topBanner.text,
   linkText: Strings.components.topBanner.linkText,
   href: Strings.components.topBanner.href,
+};
+
+const contact: InfoStrings = {
+  text: Strings.components.contact.text,
+  linkText: Strings.components.contact.linkText,
+  href: Strings.components.contact.href,
 };
 
 type DivProps = React.HTMLProps<HTMLDivElement>;
@@ -37,11 +51,38 @@ const AlertContainer = React.forwardRef<HTMLDivElement, DivProps>(
 
 AlertContainer.displayName = 'AlertContainer';
 
+// The router should be statically defined outside of the React tree.
+// See https://reactrouter.com/en/main/routers/router-provider for more information.
+// It's exported so that we can control it in tests. Do not use it directly in
+// application code!
+export const router = createBrowserRouter(
+  createRoutesFromElements(
+    <>
+      <Route
+        path='/'
+        element={<SearchView title={Strings.metaData.pageTitle.search} />}
+      />
+
+      <Route
+        path='/compare-results'
+        loader={compareLoader}
+        element={<ResultsView title={Strings.metaData.pageTitle.results} />}
+        errorElement={<PageError title={Strings.metaData.pageTitle.results} />}
+      />
+    </>,
+  ),
+);
+
 function App() {
   const [alertContainer, setAlertContainer] = useState<HTMLDivElement | null>(
     null,
   );
-  const { protocolTheme, toggleColorMode } = useProtocolTheme();
+  const storedMode = useAppSelector((state) => state.theme.mode);
+  const { protocolTheme } = useMemo(
+    () => getProtocolTheme(storedMode),
+    [storedMode],
+  );
+
   return (
     <ThemeProvider theme={protocolTheme}>
       <AlertContainer ref={setAlertContainer} />
@@ -60,42 +101,22 @@ function App() {
               {strings.text}{' '}
               <Link href={strings.href} target='_blank'>
                 {strings.linkText}
+              </Link>{' '}
+              {contact.text}{' '}
+              <Link href={contact.href} target='_blank'>
+                {contact.linkText}
               </Link>
+              .
             </div>
           </Alert>
-
-          <Router>
-            <Routes>
-              <Route
-                path='/'
-                element={
-                  <SearchView
-                    toggleColorMode={toggleColorMode}
-                    protocolTheme={protocolTheme}
-                    title={Strings.metaData.pageTitle.search}
-                  />
-                }
-              />
-
-              <Route
-                path='/compare-results'
-                element={
-                  <ResultsView
-                    toggleColorMode={toggleColorMode}
-                    protocolTheme={protocolTheme}
-                    title={Strings.metaData.pageTitle.results}
-                  />
-                }
-              />
-            </Routes>
-          </Router>
+          <RouterProvider router={router} />
         </SnackbarProvider>
       ) : null}
     </ThemeProvider>
   );
 }
 
-interface BannerStrings {
+interface InfoStrings {
   text: string;
   linkText: string;
   href: string;

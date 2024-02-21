@@ -147,4 +147,4 @@ Snapshot files should be included in your pull request(s).
 
 ## Feedback
 
-You can submit feedback to perfcompare-user-feedback@mozilla.com, or find us on the [#perftest](https://matrix.to/#/#perftest:mozilla.org) or [#perfcompare-user-research](https://matrix.to/#/#perfcompare-user-research:mozilla.org) Matrix channels, as well as the [#perfcompare](https://join.slack.com/share/enQtNDEwODYxNzEwMTE3MC1hZWM0NzkwZjZmYjkyNTBhNDRlYTIxNWMxNDMzNjQ1OWEwYmVhMDBmYjM4OWVlZDg4NjE5NWJhMmQ5NGFjMDll) Slack channel.
+You can submit feedback by [filing a bug on Bugzilla, on the component Testing::PerfCompare](https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]). You can also find us on Element (ex-Matrix) on the [#perfcompare](https://matrix.to/#/#perfcompare:mozilla.org) or [#perfcompare-user-research](https://matrix.to/#/#perfcompare-user-research:mozilla.org) channels, as well as on Slack on the [#perfcompare](https://join.slack.com/share/enQtNDEwODYxNzEwMTE3MC1hZWM0NzkwZjZmYjkyNTBhNDRlYTIxNWMxNDMzNjQ1OWEwYmVhMDBmYjM4OWVlZDg4NjE5NWJhMmQ5NGFjMDll) channel.

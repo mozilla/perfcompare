@@ -1,42 +1,32 @@
-import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { act } from 'react-dom/test-utils';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-import SearchComponent from '../../components/Search/SearchComponent';
 import SearchView from '../../components/Search/SearchView';
-import { setSelectedRevisions } from '../../reducers/SelectedRevisionsSlice';
 import { Strings } from '../../resources/Strings';
-import useProtocolTheme from '../../theme/protocolTheme';
-import { RevisionsList, InputType, ThemeMode } from '../../types/state';
 import getTestData from '../utils/fixtures';
-import { renderWithRouter, store } from '../utils/setupTests';
-import { screen, waitFor } from '../utils/test-utils';
+import {
+  screen,
+  act,
+  render,
+  renderWithRouter,
+  FetchMockSandbox,
+} from '../utils/test-utils';
 
-const stringsBase = Strings.components.searchDefault.base.collapsed.base;
-
-const protocolTheme = renderHook(() => useProtocolTheme()).result.current
-  .protocolTheme;
-
-const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
-  .toggleColorMode;
-function renderComponent() {
-  renderWithRouter(
-    <SearchView
-      toggleColorMode={toggleColorMode}
-      protocolTheme={protocolTheme}
-      title={Strings.metaData.pageTitle.search}
-    />,
+function setupTestData() {
+  const { testData } = getTestData();
+  (global.fetch as FetchMockSandbox).get(
+    'begin:https://treeherder.mozilla.org/api/project/try/push/',
+    {
+      results: testData,
+    },
   );
 }
 
-function fetchTestData(data: RevisionsList[]) {
-  global.fetch = jest.fn(() =>
-    Promise.resolve({
-      json: () => ({
-        results: data,
-      }),
-    }),
-  ) as jest.Mock;
+function renderComponent() {
+  setupTestData();
+  return renderWithRouter(
+    <SearchView title={Strings.metaData.pageTitle.search} />,
+  );
 }
 
 describe('Search View', () => {
@@ -47,7 +37,6 @@ describe('Search View', () => {
     // Shift focus to base search
 
     expect(document.body).toMatchSnapshot();
-    await act(async () => void jest.runOnlyPendingTimers());
   });
 
   it('renders skip to search link correctly', async () => {
@@ -59,9 +48,12 @@ describe('Search View', () => {
 
   it('renders a skip link that sends the focus directly to search container', async () => {
     renderComponent();
-    await waitFor(() => userEvent.tab());
-    await waitFor(() => userEvent.keyboard('{Enter}'));
-    expect(screen.queryByTestId('search-section')).toHaveFocus();
+
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
+    await user.tab();
+    await user.keyboard('{Enter}');
+    expect(screen.getByTestId('search-section')).toHaveFocus();
   });
 });
 
@@ -78,7 +70,6 @@ describe('Search Container', () => {
     expect(title).toBeInTheDocument();
     expect(baseInput).toBeInTheDocument();
     expect(repoDropdown).toBeInTheDocument();
-    screen.debug();
   });
 });
 
@@ -86,7 +77,7 @@ describe('Base Search', () => {
   it('renders repository dropdown in closed condition', async () => {
     renderComponent();
     // 'try' is selected by default and dropdown is not visible
-    expect(screen.queryAllByText(/try/i)[0]).toBeInTheDocument();
+    expect(screen.getAllByText(/try/i)[0]).toBeInTheDocument();
     expect(screen.queryByText(/autoland/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/mozilla-central/i)).not.toBeInTheDocument();
 
@@ -97,25 +88,18 @@ describe('Base Search', () => {
 
     // No list items should appear
     expect(screen.queryByRole('listitem')).not.toBeInTheDocument();
-
-    await act(async () => void jest.runOnlyPendingTimers());
   });
 
   it('renders framework dropdown in closed condition', async () => {
     renderComponent();
     // 'talos' is selected by default and dropdown is not visible
-    expect(screen.queryByText(/talos/i)).toBeInTheDocument();
+    expect(screen.getByText(/talos/i)).toBeInTheDocument();
     expect(screen.queryByText(/build_metrics/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/awsy/i)).not.toBeInTheDocument();
-
-    await act(async () => void jest.runOnlyPendingTimers());
   });
 
   it('should hide search results when clicking outside of search input', async () => {
-    const { testData } = getTestData();
-    fetchTestData(testData);
     // set delay to null to prevent test time-out due to useFakeTimers
-    const searchType = 'base' as InputType;
     const user = userEvent.setup({ delay: null });
     renderComponent();
 
@@ -123,12 +107,6 @@ describe('Base Search', () => {
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
-
-    await act(async () => {
-      expect(store.getState().search[searchType].searchResults).toStrictEqual(
-        testData,
-      );
-    });
 
     const comment = await screen.findAllByText("you've got no arms left!");
     expect(comment[0]).toBeInTheDocument();
@@ -141,9 +119,6 @@ describe('Base Search', () => {
   });
 
   it('Should hide the search results when Escape key is pressed', async () => {
-    const { testData } = getTestData();
-    const searchType = 'base' as InputType;
-    fetchTestData(testData);
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
     renderComponent();
@@ -152,12 +127,6 @@ describe('Base Search', () => {
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
-
-    await act(async () => {
-      expect(store.getState().search[searchType].searchResults).toStrictEqual(
-        testData,
-      );
-    });
 
     const comment = await screen.findAllByText("you've got no arms left!");
     expect(comment[0]).toBeInTheDocument();
@@ -169,59 +138,64 @@ describe('Base Search', () => {
   });
 
   it('Should not call fetch if search value is not a hash or email', async () => {
-    const spyOnFetch = jest.spyOn(global, 'fetch');
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
     renderComponent();
 
     const searchInput = screen.getAllByRole('textbox')[0];
 
+    // We're running fake timers after each user action, because the input
+    // normally waits 500ms before doing requests. Because we want to test the
+    // requests, we have to run the timers to properly assess the result.
+    // They're all wrapped in "act" because they might also trigger state
+    // changes and rerenders.
     await user.type(searchInput, 'coconut');
+    act(() => void jest.runAllTimers());
     await user.clear(searchInput);
+    act(() => void jest.runAllTimers());
 
     await user.type(searchInput, 'spam@eggs');
+    act(() => void jest.runAllTimers());
     await user.clear(searchInput);
+    act(() => void jest.runAllTimers());
+
     await user.type(searchInput, 'spamspamspamand@eggs.');
+    act(() => void jest.runAllTimers());
     await user.clear(searchInput);
+    act(() => void jest.runAllTimers());
+
     await user.type(searchInput, 'iamalmostlongenoughtobeahashbutnotquite');
+    act(() => void jest.runAllTimers());
 
-    await screen.findByText(
-      'Search must be a 12- or 40-character hash, or email address',
-    );
+    expect(
+      await screen.findByText(
+        'Search must be a 12- or 40-character hash, or email address',
+      ),
+    ).toBeInTheDocument();
 
-    // fetch is called 2 times on initial load
-    expect(spyOnFetch).toHaveBeenCalledTimes(2);
+    // fetch is called 5 times:
+    // - 2 times on initial load
+    // - 1 time for each "clear"
+    expect(global.fetch).toHaveBeenCalledTimes(5);
   });
 
   it('Should clear search results if the search value is cleared', async () => {
-    const { testData } = getTestData();
-    fetchTestData(testData);
-    const searchType = 'base' as InputType;
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
     renderComponent();
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'terryjones@python.com');
-    jest.runOnlyPendingTimers();
+    act(() => void jest.runAllTimers());
 
     expect(global.fetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?author=terryjones@python.com',
+      undefined,
     );
 
     await screen.findAllByText("you've got no arms left!");
-    act(() => {
-      expect(store.getState().search[searchType].searchResults).toStrictEqual(
-        testData,
-      );
-    });
 
     await user.clear(searchInput);
-    act(() => {
-      expect(store.getState().search[searchType].searchResults).toStrictEqual(
-        [],
-      );
-    });
 
     expect(
       screen.queryByText("you've got no arms left!"),
@@ -229,8 +203,6 @@ describe('Base Search', () => {
   });
 
   it('should not hide search results when clicking search results', async () => {
-    const { testData } = getTestData();
-    fetchTestData(testData);
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
     renderComponent();
@@ -247,73 +219,101 @@ describe('Base Search', () => {
     await user.click(screen.getAllByTestId('CheckBoxOutlineBlankIcon')[0]);
 
     expect(
-      screen.queryAllByText("you've got no arms left!")[0],
+      screen.getAllByText("you've got no arms left!")[0],
     ).toBeInTheDocument();
     expect(
-      screen.queryAllByText("it's just a flesh wound")[0],
+      screen.getAllByText("it's just a flesh wound")[0],
     ).toBeInTheDocument();
   });
 
   it('should update error state with generic message if fetch error is undefined', async () => {
-    global.fetch = jest.fn(() => Promise.reject(new Error())) as jest.Mock;
-    const searchType = 'base' as InputType;
-    const SearchPropsBase = {
-      searchType,
-      mode: 'light' as ThemeMode,
-      view: 'search' as 'search' | 'compare-results',
-      isWarning: false,
-      ...stringsBase,
-    };
+    (global.fetch as FetchMockSandbox).mock('*', { throws: new Error() });
+    // This test will output an error to the console. Let's silence it.
+    jest.spyOn(console, 'error').mockImplementation(() => {});
     renderComponent();
-
-    renderWithRouter(<SearchComponent {...SearchPropsBase} />);
-
-    await act(async () => void jest.runOnlyPendingTimers());
+    act(() => void jest.runAllTimers());
 
     expect(global.fetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true',
+      undefined,
     );
-    act(() => {
-      expect(store.getState().search[searchType].searchResults).toStrictEqual(
-        [],
-      );
-    });
-    act(() => {
-      expect(store.getState().search[searchType].inputError).toBe(true);
-    });
-
-    act(() => {
-      expect(store.getState().search[searchType].inputHelperText).toBe(
-        'An error has occurred',
-      );
-    });
+    const errorElements = await screen.findAllByText('An error has occurred');
+    expect(errorElements[0]).toBeInTheDocument();
+    expect(errorElements[1]).toBeInTheDocument();
+    expect(console.error).toHaveBeenCalledWith(
+      'FetchRecentRevisions ERROR: ',
+      new Error(),
+    );
+    expect(console.error).toHaveBeenCalledTimes(2);
   });
 
   it('should have compare button and once clicked should redirect to results page with the right query params', async () => {
-    const { testData } = getTestData();
+    // In this test, we need to define both / and /compare-results routes, so
+    // we'll do that directly without renderComponent.
 
-    const { history } = renderWithRouter(
-      <SearchView
-        toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
-        title={Strings.metaData.pageTitle.search}
-      />,
-    );
-    expect(history.location.pathname).toEqual('/');
+    setupTestData();
+    const router = createBrowserRouter([
+      {
+        path: '/',
+        element: <SearchView title={Strings.metaData.pageTitle.search} />,
+      },
+      { path: '/compare-results', element: <div /> },
+    ]);
+
+    render(<RouterProvider router={router} />);
+
+    expect(window.location.pathname).toEqual('/');
 
     const user = userEvent.setup({ delay: null });
-    act(() => {
-      store.dispatch(
-        setSelectedRevisions({ selectedRevisions: testData.slice(0, 2) }),
-      );
+
+    // Press the compare button -> It shouldn't work!
+    const compareButton = await screen.findByRole('button', {
+      name: /Compare/,
     });
+    await user.click(compareButton);
 
-    const compareButton = document.querySelector('.compare-button');
-    await user.click(compareButton as HTMLElement);
+    // We haven't navigated.
+    expect(window.location.pathname).toEqual('/');
+    // And there should be an alert
+    expect(
+      await screen.findByText('Please select at least one base revision.'),
+    ).toBeInTheDocument();
 
-    expect(history.location.pathname).toEqual('/compare-results');
-    expect(history.location.search).toEqual(
-      '?revs=coconut,spam&repos=try,mozilla-central&framework=1',
+    // focus first input to show results
+    const inputs = screen.getAllByRole('textbox');
+    await user.click(inputs[0]);
+
+    // Select a base rev
+    let items = await screen.findAllByText("you've got no arms left!");
+    await user.click(items[0]);
+
+    // Press Escape key to hide search results.
+    await user.keyboard('{Escape}');
+    expect(items[0]).not.toBeInTheDocument();
+
+    // Check that the item has been added
+    await screen.findByText(/no arms left/);
+
+    // Now focus the second input
+    await user.click(inputs[1]);
+    // Select a new rev
+    items = await screen.findAllByText("it's just a flesh wound");
+    await user.click(items[0]);
+
+    // Press Escape key to hide search results.
+    await user.keyboard('{Escape}');
+
+    // Check that the item has been added
+    await screen.findByText(/flesh wound/);
+
+    // Press the compare button
+    await user.click(compareButton);
+
+    expect(window.location.pathname).toEqual('/compare-results');
+    const searchParams = new URLSearchParams(window.location.search);
+    searchParams.sort();
+    expect(searchParams.toString()).toEqual(
+      'baseRepo=try&baseRev=coconut&framework=1&newRepo=mozilla-central&newRev=spam',
     );
   });
 });

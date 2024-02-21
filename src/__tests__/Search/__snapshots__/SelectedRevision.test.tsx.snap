@@ -1,1098 +1,129 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SelectedRevision should show the selected checked revisions once a result checkbox is clicked 1`] = `
-<body>
-  <div />
-  <div />
-  <div>
-    <div
-      class="fcndgf6"
+<div
+  class="box_f65ycfw base-box MuiBox-root css-0"
+  data-testid="selected-revs-search"
+>
+  <ul
+    class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
+  >
+    <li
+      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding item-container item-0 item-base css-vtiz8x-MuiListItem-root"
+      data-testid="selected-rev-item"
     >
-      <button
-        class="f1szgo9t"
-        role="link"
-        tabindex="1"
-      >
-        Skip to search
-      </button>
+      <input
+        name="baseRev"
+        type="hidden"
+        value="coconut"
+      />
+      <input
+        name="baseRepo"
+        type="hidden"
+        value="try"
+      />
       <div
-        class="MuiGrid-root header-container container_f38ku8z css-plh9qo-MuiGrid-root"
+        class="repo_f1bx8by5"
       >
-        <div
-          class="toggle-dark-mode f4zotac MuiBox-root css-0"
-        >
-          <div
-            class="MuiFormGroup-root css-dmmspl-MuiFormGroup-root"
-          >
-            <label
-              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-z8chs3-MuiFormControlLabel-root"
-            >
-              <span
-                class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-julti5-MuiSwitch-root"
-              >
-                <span
-                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1yg1ubd-MuiButtonBase-root-MuiSwitch-switchBase"
-                >
-                  <input
-                    aria-label="Dark mode switch"
-                    class="PrivateSwitchBase-input MuiSwitch-input css-1m9pwf3"
-                    id="Dark mode"
-                    name="toggle-dark-mode"
-                    type="checkbox"
-                  />
-                  <span
-                    class="MuiSwitch-thumb css-jsexje-MuiSwitch-thumb"
-                  />
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </span>
-                <span
-                  class="MuiSwitch-track css-1yjjitx-MuiSwitch-track"
-                />
-              </span>
-              <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1giq4eh-MuiTypography-root"
-              >
-                Dark mode
-              </span>
-            </label>
-          </div>
-        </div>
-        <div
-          class="header-text MuiBox-root css-0"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-160ox9e-MuiTypography-root"
-          >
-            PerfCompare
-          </div>
-          <div
-            class="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-tagline css-1jlyab0-MuiTypography-root"
-          >
-            Analyze results of performance tests to detect regressions and identify opportunities for improvement.
-          </div>
-          <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium learn-more-btn css-t42cd1-MuiButtonBase-root-MuiButton-root"
-            tabindex="0"
-            type="button"
-          >
-            Learn more
-            <span
-              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-            />
-          </button>
+        <div>
+          try
         </div>
       </div>
-      <section
-        class="container_f1m49pie"
-        data-testid="search-section"
+      <div
+        class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_f5s7lzh css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
+        role="button"
+        tabindex="0"
       >
-        <p
-          class="MuiTypography-root MuiTypography-body1 search-default-title css-1giq4eh-MuiTypography-root"
-        >
-          Compare with a base or over time
-        </p>
         <div
-          class="MuiGrid-root wrapper css-plh9qo-MuiGrid-root"
+          class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
         >
-          <div
-            class="compare-card-container compare-card-container--expanded container_f1ms7w83"
-            data-testid="base-state"
+          <span
+            class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-hrbm3k-MuiTypography-root"
           >
+            <span
+              class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
+            >
+              <a
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+                href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
+                target="_blank"
+              >
+                coconut
+              </a>
+            </span>
             <div
-              class="compare-card-text cardText_f10ud7bq"
+              class="info-caption"
             >
               <div
-                class="compare-card-title"
+                class="info-caption-item item-author"
               >
-                Compare with a base
-              </div>
-              <div
-                class="compare-card-tagline"
-              >
-                Analyze differences between specific revisions.
-              </div>
-            </div>
-            <div
-              aria-label="two overlapping circles"
-              class="compare-card-img compare-card-img--base"
-            />
-          </div>
-          <div
-            class="compare-card-container content-base content-base--expanded container_f1ms7w83 "
-          >
-            <hr
-              class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
-            />
-            <div
-              class="form-wrapper"
-            >
-              <div
-                class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
-              >
-                <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fxraqjn label-edit-wrapper css-13eijkh-MuiGrid-root"
+                 
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
+                  data-testid="MailOutlineOutlinedIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
                 >
-                  <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-                    id="select-repository-label"
-                  >
-                    Base
-                    <svg
-                      aria-hidden="true"
-                      aria-label="The baseline revision (no changes) your revision will be compared against."
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
-                      data-mui-internal-clone-element="true"
-                      data-testid="InfoOutlinedIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-                      />
-                    </svg>
-                  </label>
-                </div>
-                <div
-                  class="MuiGrid-root MuiGrid-container container_fx9j6vk css-1ljzhs0-MuiGrid-root"
-                  id="base-search-container"
-                >
-                  <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fxraqjn  search-base-dropdown css-1awobkc-MuiGrid-root"
-                    id="base_search-dropdown"
-                  >
-                    <div>
-                      <div
-                        class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
-                      >
-                        <div
-                          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-                          data-testid="dropdown-select-base"
-                        >
-                          <div
-                            aria-expanded="false"
-                            aria-haspopup="listbox"
-                            aria-labelledby="select-repository-label"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                            role="button"
-                            tabindex="0"
-                          >
-                            try
-                          </div>
-                          <input
-                            aria-hidden="true"
-                            class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                            tabindex="-1"
-                            value="try"
-                          />
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
-                            data-testid="ArrowDropDownIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M7 10l5 5 5-5z"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_fctyy2s   css-17gmabg-MuiGrid-root"
-                    id="base_search-input"
-                  >
-                    <div
-                      class="MuiFormControl-root MuiFormControl-fullWidth fj0l9jr css-q8hpuo-MuiFormControl-root"
-                    >
-                      <div
-                        class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
-                      >
-                        <div
-                          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
-                        >
-                          <div
-                            class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-yzzuft-MuiInputAdornment-root"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                              data-testid="SearchIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-                              />
-                            </svg>
-                          </div>
-                          <input
-                            aria-invalid="false"
-                            class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
-                            id="search-base-input"
-                            name="baseSearch"
-                            placeholder="Search base by ID number or author email"
-                            type="text"
-                            value=""
-                          />
-                          <fieldset
-                            aria-hidden="true"
-                            class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
-                          >
-                            <legend
-                              class="css-ihdtdm"
-                            >
-                              <span
-                                class="notranslate"
-                              >
-                                ​
-                              </span>
-                            </legend>
-                          </fieldset>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="f13jj75o results-list-light MuiBox-root css-y1kcm0"
-                      data-testid="list-mode"
-                      id="search-results-list"
-                    >
-                      <ul
-                        class="MuiList-root MuiList-padding css-1fc0pkb-MuiList-root"
-                      >
-                        <div
-                          class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk item-selected css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
-                          role="button"
-                          tabindex="0"
-                        >
-                          <li
-                            class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-314c9k-MuiListItem-root"
-                          >
-                            <div
-                              class="MuiListItemIcon-root search-revision-item-icon search-revision css-tamlkj-MuiListItemIcon-root"
-                            >
-                              <span
-                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-checked PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-c9gmeh-MuiButtonBase-root-MuiCheckbox-root"
-                                data-testid="checkbox-0"
-                              >
-                                <input
-                                  class="PrivateSwitchBase-input css-1m9pwf3"
-                                  data-indeterminate="false"
-                                  tabindex="-1"
-                                  type="checkbox"
-                                />
-                                <svg
-                                  aria-hidden="true"
-                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                                  data-testid="CheckBoxIcon"
-                                  focusable="false"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-                                  />
-                                </svg>
-                              </span>
-                            </div>
-                            <div
-                              class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
-                            >
-                              <span
-                                class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-hrbm3k-MuiTypography-root"
-                              >
-                                <span
-                                  class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
-                                >
-                                  coconut
-                                </span>
-                                <div
-                                  class="info-caption"
-                                >
-                                  <div
-                                    class="info-caption-item item-author"
-                                  >
-                                     
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
-                                      data-testid="MailOutlineOutlinedIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
-                                      />
-                                    </svg>
-                                     
-                                    johncleese@python.com
-                                  </div>
-                                  <div
-                                    class="info-caption-item item-time"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall time-icon css-1mecf1h-MuiSvgIcon-root"
-                                      data-testid="AccessTimeOutlinedIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
-                                      />
-                                    </svg>
-                                    03/29/51 00:00
-                                  </div>
-                                </div>
-                              </span>
-                              <p
-                                class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
-                              >
-                                you've got no arms left! 
-                              </p>
-                            </div>
-                          </li>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
-                        </div>
-                        <div
-                          class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk  css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
-                          role="button"
-                          tabindex="0"
-                        >
-                          <li
-                            class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-314c9k-MuiListItem-root"
-                          >
-                            <div
-                              class="MuiListItemIcon-root search-revision-item-icon search-revision css-tamlkj-MuiListItemIcon-root"
-                            >
-                              <span
-                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-c9gmeh-MuiButtonBase-root-MuiCheckbox-root"
-                                data-testid="checkbox-1"
-                              >
-                                <input
-                                  class="PrivateSwitchBase-input css-1m9pwf3"
-                                  data-indeterminate="false"
-                                  tabindex="-1"
-                                  type="checkbox"
-                                />
-                                <svg
-                                  aria-hidden="true"
-                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                                  data-testid="CheckBoxOutlineBlankIcon"
-                                  focusable="false"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                                  />
-                                </svg>
-                              </span>
-                            </div>
-                            <div
-                              class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
-                            >
-                              <span
-                                class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-hrbm3k-MuiTypography-root"
-                              >
-                                <span
-                                  class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
-                                >
-                                  spam
-                                </span>
-                                <div
-                                  class="info-caption"
-                                >
-                                  <div
-                                    class="info-caption-item item-author"
-                                  >
-                                     
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
-                                      data-testid="MailOutlineOutlinedIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
-                                      />
-                                    </svg>
-                                     
-                                    ericidle@python.com
-                                  </div>
-                                  <div
-                                    class="info-caption-item item-time"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall time-icon css-1mecf1h-MuiSvgIcon-root"
-                                      data-testid="AccessTimeOutlinedIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
-                                      />
-                                    </svg>
-                                    02/22/58 00:00
-                                  </div>
-                                </div>
-                              </span>
-                              <p
-                                class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
-                              >
-                                it's just a flesh wound 
-                              </p>
-                            </div>
-                          </li>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
-                        </div>
-                        <div
-                          class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk  css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
-                          role="button"
-                          tabindex="0"
-                        >
-                          <li
-                            class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-314c9k-MuiListItem-root"
-                          >
-                            <div
-                              class="MuiListItemIcon-root search-revision-item-icon search-revision css-tamlkj-MuiListItemIcon-root"
-                            >
-                              <span
-                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-c9gmeh-MuiButtonBase-root-MuiCheckbox-root"
-                                data-testid="checkbox-2"
-                              >
-                                <input
-                                  class="PrivateSwitchBase-input css-1m9pwf3"
-                                  data-indeterminate="false"
-                                  tabindex="-1"
-                                  type="checkbox"
-                                />
-                                <svg
-                                  aria-hidden="true"
-                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                                  data-testid="CheckBoxOutlineBlankIcon"
-                                  focusable="false"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                                  />
-                                </svg>
-                              </span>
-                            </div>
-                            <div
-                              class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
-                            >
-                              <span
-                                class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-hrbm3k-MuiTypography-root"
-                              >
-                                <span
-                                  class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
-                                >
-                                  spamspam
-                                </span>
-                                <div
-                                  class="info-caption"
-                                >
-                                  <div
-                                    class="info-caption-item item-author"
-                                  >
-                                     
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
-                                      data-testid="MailOutlineOutlinedIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
-                                      />
-                                    </svg>
-                                     
-                                    terrygilliam@python.com
-                                  </div>
-                                  <div
-                                    class="info-caption-item item-time"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall time-icon css-1mecf1h-MuiSvgIcon-root"
-                                      data-testid="AccessTimeOutlinedIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
-                                      />
-                                    </svg>
-                                    07/29/87 00:00
-                                  </div>
-                                </div>
-                              </span>
-                              <p
-                                class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
-                              >
-                                What, ridden on a horse? 
-                              </p>
-                            </div>
-                          </li>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
-                        </div>
-                        <div
-                          class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk  css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
-                          role="button"
-                          tabindex="0"
-                        >
-                          <li
-                            class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-314c9k-MuiListItem-root"
-                          >
-                            <div
-                              class="MuiListItemIcon-root search-revision-item-icon search-revision css-tamlkj-MuiListItemIcon-root"
-                            >
-                              <span
-                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-c9gmeh-MuiButtonBase-root-MuiCheckbox-root"
-                                data-testid="checkbox-3"
-                              >
-                                <input
-                                  class="PrivateSwitchBase-input css-1m9pwf3"
-                                  data-indeterminate="false"
-                                  tabindex="-1"
-                                  type="checkbox"
-                                />
-                                <svg
-                                  aria-hidden="true"
-                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                                  data-testid="CheckBoxOutlineBlankIcon"
-                                  focusable="false"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                                  />
-                                </svg>
-                              </span>
-                            </div>
-                            <div
-                              class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
-                            >
-                              <span
-                                class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-hrbm3k-MuiTypography-root"
-                              >
-                                <span
-                                  class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
-                                >
-                                  spamspamspam
-                                </span>
-                                <div
-                                  class="info-caption"
-                                >
-                                  <div
-                                    class="info-caption-item item-author"
-                                  >
-                                     
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
-                                      data-testid="MailOutlineOutlinedIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
-                                      />
-                                    </svg>
-                                     
-                                    michaelpalin@python.com
-                                  </div>
-                                  <div
-                                    class="info-caption-item item-time"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall time-icon css-1mecf1h-MuiSvgIcon-root"
-                                      data-testid="AccessTimeOutlinedIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
-                                      />
-                                    </svg>
-                                    07/04/20 00:00
-                                  </div>
-                                </div>
-                              </span>
-                              <p
-                                class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
-                              >
-                                You've got two empty 'alves of coconuts and you're bangin' 'em togetha! 
-                              </p>
-                            </div>
-                          </li>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
-                        </div>
-                        <div
-                          class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk  css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
-                          role="button"
-                          tabindex="0"
-                        >
-                          <li
-                            class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-314c9k-MuiListItem-root"
-                          >
-                            <div
-                              class="MuiListItemIcon-root search-revision-item-icon search-revision css-tamlkj-MuiListItemIcon-root"
-                            >
-                              <span
-                                class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-c9gmeh-MuiButtonBase-root-MuiCheckbox-root"
-                                data-testid="checkbox-4"
-                              >
-                                <input
-                                  class="PrivateSwitchBase-input css-1m9pwf3"
-                                  data-indeterminate="false"
-                                  tabindex="-1"
-                                  type="checkbox"
-                                />
-                                <svg
-                                  aria-hidden="true"
-                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                                  data-testid="CheckBoxOutlineBlankIcon"
-                                  focusable="false"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                                  />
-                                </svg>
-                              </span>
-                            </div>
-                            <div
-                              class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
-                            >
-                              <span
-                                class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-hrbm3k-MuiTypography-root"
-                              >
-                                <span
-                                  class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
-                                >
-                                  spamspamspam
-                                </span>
-                                <div
-                                  class="info-caption"
-                                >
-                                  <div
-                                    class="info-caption-item item-author"
-                                  >
-                                     
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
-                                      data-testid="MailOutlineOutlinedIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
-                                      />
-                                    </svg>
-                                     
-                                    grahamchapman@python.com
-                                  </div>
-                                  <div
-                                    class="info-caption-item item-time"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall time-icon css-1mecf1h-MuiSvgIcon-root"
-                                      data-testid="AccessTimeOutlinedIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
-                                      />
-                                    </svg>
-                                    04/13/22 00:00
-                                  </div>
-                                </div>
-                              </span>
-                              <p
-                                class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
-                              >
-                                It got better... 
-                              </p>
-                            </div>
-                          </li>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
-                        </div>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
-                >
-                  <div
-                    class="box_fx6x5a2 MuiBox-root css-0"
-                    data-testid="selected-revs-search"
-                  >
-                    <ul
-                      class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
-                    >
-                      <div
-                        class="item-container item-0 item-base"
-                        data-testid="selected-rev-item"
-                      >
-                        <div
-                          class="repo_f1bx8by5"
-                        >
-                          <div>
-                            try
-                          </div>
-                        </div>
-                        <div
-                          class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_f4sklcl css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
-                          role="button"
-                          tabindex="0"
-                        >
-                          <li
-                            class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-vtiz8x-MuiListItem-root"
-                          >
-                            <div
-                              class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
-                            >
-                              <span
-                                class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-hrbm3k-MuiTypography-root"
-                              >
-                                <span
-                                  class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
-                                >
-                                  coconut
-                                </span>
-                                <div
-                                  class="info-caption"
-                                >
-                                  <div
-                                    class="info-caption-item item-author"
-                                  >
-                                     
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
-                                      data-testid="MailOutlineOutlinedIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
-                                      />
-                                    </svg>
-                                     
-                                    johncleese@python.com
-                                  </div>
-                                  <div
-                                    class="info-caption-item item-time"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall time-icon css-1mecf1h-MuiSvgIcon-root"
-                                      data-testid="AccessTimeOutlinedIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
-                                      />
-                                    </svg>
-                                    03/29/51 00:00
-                                  </div>
-                                </div>
-                              </span>
-                              <p
-                                class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
-                              >
-                                you've got no arms left! 
-                              </p>
-                            </div>
-                            <button
-                              aria-label="close-button"
-                              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium revision-action close-button css-t42cd1-MuiButtonBase-root-MuiButton-root"
-                              name="close-button"
-                              role="button"
-                              tabindex="0"
-                              type="button"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall icon icon-close-show css-1mecf1h-MuiSvgIcon-root"
-                                data-testid="close-icon"
-                                focusable="false"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
-                                />
-                              </svg>
-                              <span
-                                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                              />
-                            </button>
-                          </li>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
-                        </div>
-                      </div>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
-              >
-                <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fxraqjn label-edit-wrapper css-13eijkh-MuiGrid-root"
-                >
-                  <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-                    id="select-repository-label"
-                  >
-                    Revisions
-                    <svg
-                      aria-hidden="true"
-                      aria-label="Revisions (typically including your changes) to compare against the selected base revision."
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
-                      data-mui-internal-clone-element="true"
-                      data-testid="InfoOutlinedIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-                      />
-                    </svg>
-                  </label>
-                </div>
-                <div
-                  class="MuiGrid-root MuiGrid-container container_fx9j6vk css-1ljzhs0-MuiGrid-root"
-                  id="new-search-container"
-                >
-                  <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fxraqjn  search-base-dropdown css-1awobkc-MuiGrid-root"
-                    id="new_search-dropdown"
-                  >
-                    <div>
-                      <div
-                        class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
-                      >
-                        <div
-                          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-                          data-testid="dropdown-select-new"
-                        >
-                          <div
-                            aria-expanded="false"
-                            aria-haspopup="listbox"
-                            aria-labelledby="select-repository-label"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                            role="button"
-                            tabindex="0"
-                          >
-                            try
-                          </div>
-                          <input
-                            aria-hidden="true"
-                            class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                            tabindex="-1"
-                            value="try"
-                          />
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
-                            data-testid="ArrowDropDownIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M7 10l5 5 5-5z"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_fctyy2s   css-17gmabg-MuiGrid-root"
-                    id="new_search-input"
-                  >
-                    <div
-                      class="MuiFormControl-root MuiFormControl-fullWidth fj0l9jr css-q8hpuo-MuiFormControl-root"
-                    >
-                      <div
-                        class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
-                      >
-                        <div
-                          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
-                        >
-                          <div
-                            class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-yzzuft-MuiInputAdornment-root"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                              data-testid="SearchIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-                              />
-                            </svg>
-                          </div>
-                          <input
-                            aria-invalid="false"
-                            class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
-                            id="search-new-input"
-                            name="newSearch"
-                            placeholder="Search revision by ID number or author email"
-                            type="text"
-                            value=""
-                          />
-                          <fieldset
-                            aria-hidden="true"
-                            class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
-                          >
-                            <legend
-                              class="css-ihdtdm"
-                            >
-                              <span
-                                class="notranslate"
-                              >
-                                ​
-                              </span>
-                            </legend>
-                          </fieldset>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fxraqjn fjuaqdk css-13eijkh-MuiGrid-root"
-              >
-                <div>
-                  <div
-                    class="MuiFormControl-root framework-dropdown fnpbx3q css-1nrlq1o-MuiFormControl-root"
-                  >
-                    <label
-                      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
-                      data-shrink="true"
-                      id="select-framework-label"
-                    >
-                      Framework
-                      <svg
-                        aria-hidden="true"
-                        aria-label="The framework or test harness containing the test you want to examine."
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
-                        data-mui-internal-clone-element="true"
-                        data-testid="InfoOutlinedIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-                        />
-                      </svg>
-                    </label>
-                    <div
-                      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-                      data-testid="dropdown-select-framework"
-                    >
-                      <div
-                        aria-expanded="false"
-                        aria-haspopup="listbox"
-                        aria-labelledby="select-framework-label mui-component-select-Framework"
-                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                        id="mui-component-select-Framework"
-                        role="button"
-                        tabindex="0"
-                      >
-                        talos
-                      </div>
-                      <input
-                        aria-hidden="true"
-                        class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                        name="Framework"
-                        tabindex="-1"
-                        value="1"
-                      />
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
-                        data-testid="ArrowDropDownIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M7 10l5 5 5-5z"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-                <button
-                  aria-label="compare revisions"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1pha5e5-MuiButtonBase-root-MuiButton-root"
-                  id="compare-button"
-                  tabindex="0"
-                  type="button"
-                >
-                  Compare
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  <path
+                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
                   />
-                </button>
+                </svg>
+                 
+                johncleese@python.com
+              </div>
+              <div
+                class="info-caption-item item-time"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall time-icon css-1mecf1h-MuiSvgIcon-root"
+                  data-testid="AccessTimeOutlinedIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
+                  />
+                </svg>
+                03/29/51 00:00
               </div>
             </div>
-          </div>
-        </div>
-        <div
-          class="compare-card-container compare-card-container--time container_f1ms7w83"
-        >
-          <div
-            class="compare-card-text cardText_f10ud7bq"
+          </span>
+          <p
+            class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
           >
-            <div
-              class="compare-card-title"
-            >
-              Compare over time
-            </div>
-            <div
-              class="compare-card-tagline"
-            >
-              Analyze differences between revisions within a specific time range.
-            </div>
-          </div>
-          <div
-            aria-label="a clock"
-            class="compare-card-img compare-card-img--time"
-          />
+            you've got no arms left! 
+          </p>
         </div>
-      </section>
-    </div>
-  </div>
-</body>
+        <button
+          aria-label="close-button"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon icon-close-show revision-action close-button css-t42cd1-MuiButtonBase-root-MuiButton-root"
+          name="close-button"
+          role="button"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1mecf1h-MuiSvgIcon-root"
+            data-testid="close-icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
+            />
+          </svg>
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </div>
+    </li>
+  </ul>
+</div>
 `;

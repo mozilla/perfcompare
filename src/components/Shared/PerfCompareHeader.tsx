@@ -3,29 +3,24 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
+import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { HeaderStyles } from '../../styles';
-import type { ThemeMode } from '../../types/state';
 import ToggleDarkMode from './ToggleDarkModeButton';
 
 interface PerfCompareHeaderProps {
-  themeMode: ThemeMode;
-  toggleColorMode: () => void;
-  view: 'search' | 'compare-results';
+  isHome?: boolean;
 }
 
 const strings = Strings.components.header;
 
-function PerfCompareHeader({
-  themeMode,
-  toggleColorMode,
-  view,
-}: PerfCompareHeaderProps) {
-  const styles = HeaderStyles(themeMode, view);
+function PerfCompareHeader({ isHome }: PerfCompareHeaderProps) {
+  const themeMode = useAppSelector((state) => state.theme.mode);
+  const styles = HeaderStyles(themeMode, isHome ?? false);
 
   return (
     <Grid className={`header-container ${styles.container}`}>
-      <ToggleDarkMode theme={themeMode} toggleColorMode={toggleColorMode} />
+      <ToggleDarkMode />
       <Box className='header-text'>
         <Typography
           variant='h1'
@@ -36,7 +31,7 @@ function PerfCompareHeader({
         >
           {strings.title}
         </Typography>
-        {view === 'search' && (
+        {isHome ? (
           <>
             <Typography
               component='div'
@@ -48,7 +43,7 @@ function PerfCompareHeader({
             </Typography>
             <Button className='learn-more-btn'>{strings.learnMore}</Button>
           </>
-        )}
+        ) : null}
       </Box>
     </Grid>
   );

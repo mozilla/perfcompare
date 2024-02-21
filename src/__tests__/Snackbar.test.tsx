@@ -1,31 +1,31 @@
-import { renderHook } from '@testing-library/react';
-import { waitForElementToBeRemoved } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { act } from 'react-dom/test-utils';
 
 import { maxRevisionsError } from '../common/constants';
 import App from '../components/App';
 import SearchView from '../components/Search/SearchView';
 import { Strings } from '../resources/Strings';
-import useProtocolTheme from '../theme/protocolTheme';
 import getTestData from './utils/fixtures';
-import { renderWithRouter, render } from './utils/setupTests';
-import { screen } from './utils/test-utils';
+import {
+  screen,
+  act,
+  renderWithRouter,
+  render,
+  waitForElementToBeRemoved,
+  FetchMockSandbox,
+} from './utils/test-utils';
 
 describe('Snackbar', () => {
-  const protocolTheme = renderHook(() => useProtocolTheme()).result.current
-    .protocolTheme;
-  const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
-    .toggleColorMode;
-  it('should dismiss an alert when close button is clicked', async () => {
+  beforeEach(() => {
     const { testData } = getTestData();
-    global.fetch = jest.fn(() =>
-      Promise.resolve({
-        json: () => ({
-          results: testData,
-        }),
-      }),
-    ) as jest.Mock;
+    (global.fetch as FetchMockSandbox).get(
+      'begin:https://treeherder.mozilla.org/api/project/try/push/',
+      {
+        results: testData,
+      },
+    );
+  });
+
+  it('should dismiss an alert when close button is clicked', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
@@ -35,7 +35,7 @@ describe('Snackbar', () => {
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
 
-    await user.click(screen.getAllByTestId('checkbox-0')[0]);
+    await user.click((await screen.findAllByTestId('checkbox-0'))[0]);
     await user.click(screen.getAllByTestId('checkbox-1')[0]);
 
     const alert = screen.getByText(maxRevisionsError);
@@ -48,14 +48,6 @@ describe('Snackbar', () => {
   });
 
   it('should have aria-live attribute', async () => {
-    const { testData } = getTestData();
-    global.fetch = jest.fn(() =>
-      Promise.resolve({
-        json: () => ({
-          results: testData,
-        }),
-      }),
-    ) as jest.Mock;
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
@@ -65,7 +57,7 @@ describe('Snackbar', () => {
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
 
-    await user.click(screen.getAllByTestId('checkbox-0')[0]);
+    await user.click((await screen.findAllByTestId('checkbox-0'))[0]);
     await user.click(screen.getAllByTestId('checkbox-1')[0]);
 
     const alert = screen.getAllByRole('alert')[0];
@@ -73,31 +65,17 @@ describe('Snackbar', () => {
   });
 
   it('should dismiss an alert after 6 seconds', async () => {
-    const { testData } = getTestData();
-    global.fetch = jest.fn(() =>
-      Promise.resolve({
-        json: () => ({
-          results: testData,
-        }),
-      }),
-    ) as jest.Mock;
     jest.spyOn(global, 'setTimeout');
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(
-      <SearchView
-        toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
-        title={Strings.metaData.pageTitle.search}
-      />,
-    );
+    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
 
     // focus input to show results
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
 
-    await user.click(screen.getAllByTestId('checkbox-0')[0]);
+    await user.click((await screen.findAllByTestId('checkbox-0'))[0]);
     await user.click(screen.getAllByTestId('checkbox-1')[0]);
 
     const alert = screen.getByText(maxRevisionsError);

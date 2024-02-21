@@ -2,19 +2,33 @@ import React from 'react';
 
 import Typography from '@mui/material/Typography';
 
+import { repoMap } from '../../common/constants';
+import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { SearchContainerStyles } from '../../styles';
-import type { ThemeMode, View } from '../../types/state';
 import CompareOverTime from './CompareOverTime';
 import CompareWithBase from './CompareWithBase';
 
 const strings = Strings.components.searchDefault;
 
 function SearchContainer(props: SearchViewProps) {
-  const { themeMode } = props;
-  const view = 'search' as View;
+  const themeMode = useAppSelector((state) => state.theme.mode);
+  const styles = SearchContainerStyles(themeMode, /* isHome */ true);
+  const checkedRevisionsListNew = useAppSelector(
+    (state) => state.search.new.checkedRevisions,
+  );
+  const checkedRevisionsListBase = useAppSelector(
+    (state) => state.search.base.checkedRevisions,
+  );
 
-  const styles = SearchContainerStyles(themeMode, view);
+  // The "??" operations below are so that Typescript doesn't wonder about the
+  // undefined value later.
+  const checkedNewRepos = checkedRevisionsListNew.map(
+    (item) => repoMap[item.repository_id] ?? 'try',
+  );
+  const checkedBaseRepos = checkedRevisionsListBase.map(
+    (item) => repoMap[item.repository_id] ?? 'try',
+  );
 
   return (
     <section
@@ -23,15 +37,20 @@ function SearchContainer(props: SearchViewProps) {
       className={styles.container}
     >
       <Typography className='search-default-title'>{strings.title}</Typography>
-      <CompareWithBase mode={themeMode} view={view} />
+      <CompareWithBase
+        isEditable={false}
+        baseRevs={checkedRevisionsListBase}
+        newRevs={checkedRevisionsListNew}
+        baseRepos={checkedBaseRepos}
+        newRepos={checkedNewRepos}
+      />
       {/* hidden until post-mvp release */}
-      <CompareOverTime mode={themeMode} />
+      <CompareOverTime />
     </section>
   );
 }
 
 interface SearchViewProps {
-  themeMode: ThemeMode;
   containerRef: React.RefObject<HTMLElement>;
 }
 

@@ -1,26 +1,28 @@
-import { useEffect, useState } from 'react';
-
 import { FormControlLabel, FormGroup } from '@mui/material';
 import Box from '@mui/material/Box';
 import Switch from '@mui/material/Switch';
 import { style } from 'typestyle';
 
+import { useAppSelector, useAppDispatch } from '../../hooks/app';
+import { updateThemeMode } from '../../reducers/ThemeSlice';
 import { Strings } from '../../resources/Strings';
 import { Spacing, FontsRaw, SwitchRaw } from '../../styles';
-import type { ThemeMode } from '../../types/state';
+import { ThemeMode } from '../../types/state';
 
 const strings = Strings.components.header;
 const label = { inputProps: { 'aria-label': 'Dark mode switch' } };
 
-function ToggleDarkMode(props: ToggleDarkModeProps) {
-  const { toggleColorMode, theme } = props;
+function ToggleDarkMode() {
+  const dispatch = useAppDispatch();
+  const theme = useAppSelector((state) => state.theme.mode);
 
-  const [light, setLight] = useState(SwitchRaw(theme));
+  const switchStyle = SwitchRaw(theme === 'light' ? 'light' : 'dark');
 
-  useEffect(() => {
-    const updatedMode = theme === 'light' ? 'light' : 'dark';
-    setLight(SwitchRaw(updatedMode));
-  }, [theme]);
+  const toggleColorMode = () => {
+    const themeMode = theme === 'light' ? 'dark' : 'light';
+    dispatch(updateThemeMode(themeMode as ThemeMode));
+    localStorage.setItem('theme', themeMode);
+  };
 
   const styles = {
     box: style({
@@ -36,7 +38,7 @@ function ToggleDarkMode(props: ToggleDarkModeProps) {
           margin: 0,
         },
         '.toggle-switch': {
-          ...light.stylesRaw,
+          ...switchStyle.stylesRaw,
           marginLeft: `${Spacing.xxLarge}px`,
         },
       },
@@ -64,10 +66,6 @@ function ToggleDarkMode(props: ToggleDarkModeProps) {
       </FormGroup>
     </Box>
   );
-}
-interface ToggleDarkModeProps {
-  theme: ThemeMode;
-  toggleColorMode: () => void;
 }
 
 export default ToggleDarkMode;

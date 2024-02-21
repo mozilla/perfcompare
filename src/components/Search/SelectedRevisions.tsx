@@ -1,84 +1,78 @@
-import { useEffect, useState } from 'react';
-
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 
-import { repoMap, searchView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
+import useCheckRevision from '../../hooks/useCheckRevision';
 import { SelectRevsStyles } from '../../styles';
-import {
-  InputType,
-  View,
-  RevisionsList,
-  Repository,
-  ThemeMode,
-} from '../../types/state';
+import { Repository, RevisionsList } from '../../types/state';
 import SelectedRevisionItem from './SelectedRevisionItem';
 
 interface SelectedRevisionsProps {
-  mode: ThemeMode;
-  searchType: InputType;
+  isBase: boolean;
+  formIsDisplayed: boolean;
+  isEditable: boolean;
   isWarning: boolean;
-  view: View;
-  editBtnVisible?: boolean;
+  displayedRevisions: RevisionsState;
+  onEditRemove: (item: RevisionsList) => void;
+}
+
+interface RevisionsState {
+  revs: RevisionsList[];
+  repos: Repository['name'][];
 }
 
 function SelectedRevisions({
-  mode,
-  searchType,
+  isBase,
+  formIsDisplayed,
+  isEditable,
   isWarning,
-  view,
-  editBtnVisible,
+  displayedRevisions,
+  onEditRemove,
 }: SelectedRevisionsProps) {
+  const mode = useAppSelector((state) => state.theme.mode);
   const styles = SelectRevsStyles(mode);
-  const [revisions, setRevisions] = useState<RevisionsList[]>([]);
-  const [repositories, setRepositories] = useState<Repository['name'][]>([]);
-  const checkedRevisionsList = useAppSelector(
-    (state) => state.search[searchType].checkedRevisions,
-  );
+  const searchType = isBase ? 'base' : 'new';
 
-  const selectedRevisions = useAppSelector(
-    (state) => state.selectedRevisions.revisions,
-  );
+  const onEditRemoveAction = (item: RevisionsList) => {
+    onEditRemove(item);
+  };
 
-  const displayedSelectedRevisions = useAppSelector(
-    (state) => state.selectedRevisions[searchType],
-  );
+  const { removeCheckedRevision } = useCheckRevision(isBase, isEditable);
 
-  const checkedRepositories = checkedRevisionsList.map((item) => {
-    const selectedRep = repoMap[item.repository_id];
-    return selectedRep;
-  });
-
-  const selectedRevRepo = selectedRevisions.map((item) => {
-    const selectedRep = repoMap[item.repository_id];
-    return selectedRep;
-  });
-
-  useEffect(() => {
-    if (view === searchView || !editBtnVisible) {
-      setRevisions(checkedRevisionsList);
-      setRepositories(checkedRepositories as Repository['name'][]);
+  const handleRemoveRevision = (item: RevisionsList) => {
+    removeCheckedRevision(item);
+  };
+  const removeRevision = (item: RevisionsList) => {
+    if (isEditable) {
+      onEditRemoveAction(item);
     } else {
-      setRevisions(displayedSelectedRevisions);
-      setRepositories(selectedRevRepo as Repository['name'][]);
+      handleRemoveRevision(item);
     }
-  }, [checkedRevisionsList, selectedRevisions]);
+  };
+
+  const iconClassName =
+    !formIsDisplayed && isEditable
+      ? 'icon icon-close-hidden'
+      : 'icon icon-close-show';
 
   return (
-    <Box className={styles.box} data-testid={`selected-revs-${view}`}>
+    <Box
+      className={`${styles.box} ${searchType}-box`}
+      data-testid={`selected-revs-${
+        isEditable ? '--editable-revisions' : '--search-revisions'
+      }`}
+    >
       <List>
-        {revisions.map((item, index) => (
+        {displayedRevisions.revs.map((item, index) => (
           <SelectedRevisionItem
             key={item.id}
             index={index}
             item={item}
-            mode={mode}
-            repository={repositories[index]}
-            searchType={searchType}
+            repository={displayedRevisions.repos[index]}
+            isBase={isBase}
             isWarning={isWarning}
-            view={view}
-            editBtnVisible={editBtnVisible}
+            removeRevision={removeRevision}
+            iconClassName={iconClassName}
           />
         ))}
       </List>

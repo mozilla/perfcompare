@@ -19,6 +19,13 @@ export const SelectRevsStyles = (mode: string) => {
       padding: 0,
 
       $nest: {
+        '&.show-base-close-icon': {
+          $nest: {
+            '.icon-close-base-hidden': {
+              display: 'block',
+            },
+          },
+        },
         '.item-container': {
           ...(isTrueLight ? FontsRaw.BodyDefault : FontsRaw.BodyDefaultDark),
           backgroundColor: isTrueLight
@@ -45,15 +52,12 @@ export const SelectRevsStyles = (mode: string) => {
     },
 
     listItemButton: {
+      cursor: 'auto !important',
       padding: '0 !important',
+      alignItems: 'flex-start !important',
       $nest: {
         '&:hover': {
           backgroundColor: 'transparent !important',
-        },
-
-        '.MuiListItem-root': {
-          alignItems: 'flex-start',
-          padding: 0,
         },
 
         '.search-revision-item-icon': {
@@ -118,11 +122,11 @@ export const SelectRevsStyles = (mode: string) => {
               width: '0.875rem',
               height: '0.875rem',
             },
-            '.icon-close-show': {
+            '&.icon-close-show': {
               color: isTrueLight ? Colors.IconLight : Colors.IconDark,
             },
-            '.icon-close-base-hidden': {
-              display: 'none',
+            '&.icon-close-hidden': {
+              visibility: 'hidden',
             },
           },
         },

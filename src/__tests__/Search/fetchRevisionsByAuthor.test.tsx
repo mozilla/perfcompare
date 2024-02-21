@@ -1,54 +1,38 @@
-import { renderHook } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { act } from 'react-dom/test-utils';
 
-import SearchComponent from '../../components/Search/SearchComponent';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
-import useProtocolTheme from '../../theme/protocolTheme';
-import { InputType } from '../../types/state';
-import type { ThemeMode } from '../../types/state';
 import getTestData from '../utils/fixtures';
-import { renderWithRouter, store } from '../utils/setupTests';
-import { screen } from '../utils/test-utils';
-
-const stringsBase = Strings.components.searchDefault.base.collapsed.base;
+import {
+  screen,
+  act,
+  renderWithRouter,
+  FetchMockSandbox,
+} from '../utils/test-utils';
 
 describe('SearchView/fetchRevisionsByAuthor', () => {
-  const protocolTheme = renderHook(() => useProtocolTheme()).result.current
-    .protocolTheme;
-
-  const toggleColorMode = renderHook(() => useProtocolTheme()).result.current
-    .toggleColorMode;
   it('should fetch revisions by author if searchValue is an email address', async () => {
     const { testData } = getTestData();
-    global.fetch = jest.fn(() =>
-      Promise.resolve({
-        json: () => ({
-          results: testData,
-        }),
-      }),
-    ) as jest.Mock;
+    (global.fetch as FetchMockSandbox).get(
+      'glob:https://treeherder.mozilla.org/api/project/*/push/*',
+      {
+        results: testData,
+      },
+    );
 
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(
-      <SearchView
-        toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
-        title={Strings.metaData.pageTitle.search}
-      />,
-    );
+    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
 
-    await screen.findAllByRole('button', { name: 'Base' });
     expect(screen.getAllByText('try')[0]).toBeInTheDocument();
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'johncleese@python.com');
-    jest.runOnlyPendingTimers();
+    act(() => void jest.runAllTimers());
 
     expect(global.fetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?author=johncleese@python.com',
+      undefined,
     );
 
     await screen.findAllByText("you've got no arms left!");
@@ -58,117 +42,101 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
   });
 
   it('should reject fetchRevisionsByAuthor if fetch returns no results', async () => {
-    global.fetch = jest.fn(() =>
-      Promise.resolve({
-        json: () => ({
-          results: [],
-        }),
+    (global.fetch as FetchMockSandbox).get(
+      'glob:https://treeherder.mozilla.org/api/project/*/push/*',
+      (url) => ({
+        results: url.includes('?author') ? [] : getTestData().testData,
       }),
-    ) as jest.Mock;
-    const searchType = 'base' as InputType;
+    );
 
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    await act(async () => {
-      renderWithRouter(
-        <SearchView
-          toggleColorMode={toggleColorMode}
-          protocolTheme={protocolTheme}
-          title={Strings.metaData.pageTitle.search}
-        />,
-      );
-    });
+    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
 
-    await screen.findAllByRole('button', { name: 'Base' });
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'ericidle@python.com');
-    await act(async () => void jest.runOnlyPendingTimers());
+    act(() => void jest.runAllTimers());
 
     expect(global.fetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?author=ericidle@python.com',
+      undefined,
     );
 
-    await screen.findAllByText('No results found');
-    expect(store.getState().search[searchType].searchResults).toStrictEqual([]);
-    expect(store.getState().search[searchType].inputError).toBe(true);
-    expect(store.getState().search[searchType].inputHelperText).toBe(
-      'No results found',
-    );
+    expect(await screen.findByText('No results found')).toBeInTheDocument();
+    expect(searchInput).toBeInvalid();
   });
 
   it('should update error state if fetchRevisionsByAuthor returns an error', async () => {
-    global.fetch = jest.fn(() =>
-      Promise.reject(new Error('She turned me into a newt!')),
-    ) as jest.Mock;
+    const errorMessage = 'She turned me into a newt!';
+    (global.fetch as FetchMockSandbox).get(
+      'glob:https://treeherder.mozilla.org/api/project/*/push/*',
+      (url) =>
+        url.includes('?author')
+          ? {
+              throws: new Error(errorMessage),
+            }
+          : { results: getTestData().testData },
+    );
+
+    // This test will output an error to the console. Let's silence it.
+    jest.spyOn(console, 'error').mockImplementation(() => {});
 
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
-    const searchType = 'base' as InputType;
 
-    await act(async () => {
-      renderWithRouter(
-        <SearchView
-          toggleColorMode={toggleColorMode}
-          protocolTheme={protocolTheme}
-          title={Strings.metaData.pageTitle.search}
-        />,
-      );
-    });
+    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
 
-    await screen.findAllByRole('button', { name: 'Base' });
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'grahamchapman@python.com');
-    await act(async () => void jest.runOnlyPendingTimers());
+    act(() => void jest.runAllTimers());
 
     expect(global.fetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?author=grahamchapman@python.com',
+      undefined,
     );
-
-    await screen.findAllByText('She turned me into a newt!');
-    expect(store.getState().search[searchType].inputError).toBe(true);
-    expect(store.getState().search[searchType].inputHelperText).toBe(
-      'She turned me into a newt!',
+    expect(await screen.findByText(errorMessage)).toBeInTheDocument();
+    expect(searchInput).toBeInvalid();
+    expect(console.error).toHaveBeenCalledWith(
+      'FetchRevisionsByAuthor ERROR: ',
+      new Error(errorMessage),
     );
   });
 
   it('should update error state with generic message if fetch error message is undefined', async () => {
-    global.fetch = jest.fn(() => Promise.reject(new Error())) as jest.Mock;
-    // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
-    const searchType = 'base' as InputType;
-    const SearchPropsBase = {
-      searchType,
-      mode: 'light' as ThemeMode,
-      view: 'search' as 'search' | 'compare-results',
-      isWarning: false,
-      ...stringsBase,
-    };
-
-    renderWithRouter(
-      <SearchView
-        toggleColorMode={toggleColorMode}
-        protocolTheme={protocolTheme}
-        title={Strings.metaData.pageTitle.search}
-      />,
+    (global.fetch as FetchMockSandbox).get(
+      'glob:https://treeherder.mozilla.org/api/project/*/push/*',
+      (url) =>
+        url.includes('?author')
+          ? {
+              throws: new Error(),
+            }
+          : { results: getTestData().testData },
     );
 
-    renderWithRouter(<SearchComponent {...SearchPropsBase} />);
+    // This test will output an error to the console. Let's silence it.
+    jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    await screen.findAllByRole('button', { name: 'Base' });
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
+
+    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
+
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'grahamchapman@python.com');
-    await act(async () => void jest.runOnlyPendingTimers());
+    act(() => void jest.runAllTimers());
 
     expect(global.fetch).toHaveBeenCalledWith(
       'https://treeherder.mozilla.org/api/project/try/push/?author=grahamchapman@python.com',
+      undefined,
     );
-
-    await screen.findAllByText('An error has occurred');
-    expect(store.getState().search[searchType].searchResults).toStrictEqual([]);
-    expect(store.getState().search[searchType].inputError).toBe(true);
-    expect(store.getState().search[searchType].inputHelperText).toBe(
-      'An error has occurred',
+    expect(
+      await screen.findByText('An error has occurred'),
+    ).toBeInTheDocument();
+    expect(searchInput).toBeInvalid();
+    expect(console.error).toHaveBeenCalledWith(
+      'FetchRevisionsByAuthor ERROR: ',
+      new Error(),
     );
   });
 });

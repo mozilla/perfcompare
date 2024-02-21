@@ -112,21 +112,11 @@ export type SearchState = Record<InputType, SearchStateForInput>;
 
 export type SelectedRevisionsState = {
   revisions: RevisionsList[];
-  base: RevisionsList[];
-  new: RevisionsList[];
-};
-
-export interface ResultsHashmap {
-  [key: string]: CompareResultsItem[];
-}
-
-export type CompareResultsState = {
-  data: ResultsHashmap;
-  loading: boolean;
-  error: string | undefined;
+  baseCommittedRevisions: RevisionsList[];
+  newCommittedRevisions: RevisionsList[];
 };
 
 export type PlatformInfo = {
   shortName: string;
-  icon: object;
+  icon: React.ReactNode;
 };

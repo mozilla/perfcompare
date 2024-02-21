@@ -7,8 +7,8 @@ import Tooltip from '@mui/material/Tooltip';
 import { style, cssRule } from 'typestyle';
 
 import { frameworkMap } from '../../common/constants';
-import { useAppSelector } from '../../hooks/app';
-import useHandleChangeFrameworkDropdown from '../../hooks/useHandleFrameworkDropdown';
+import { useAppDispatch, useAppSelector } from '../../hooks/app';
+import { updateFramework } from '../../reducers/FrameworkSlice';
 import { Strings } from '../../resources/Strings';
 import {
   Spacing,
@@ -20,17 +20,29 @@ import {
   DropDownMenuRaw,
   DropDownItemRaw,
 } from '../../styles';
-import type { ThemeMode, View } from '../../types/state';
 import type { Framework } from '../../types/types';
-
-interface FrameworkDropdownProps {
-  view: View;
-  mode: ThemeMode;
-}
 
 const strings = Strings.components.searchDefault.sharedCollasped.framkework;
 
-function FrameworkDropdown({ view, mode }: FrameworkDropdownProps) {
+const sortFrameworks = (
+  frameworks: Record<Framework['id'], Framework['name']>,
+) => {
+  const unsortedArray = Object.entries(frameworks);
+
+  // Sort the array based on values
+
+  const sortedArray = unsortedArray.sort((a, b) => {
+    return a[1].localeCompare(b[1]);
+  });
+
+  return sortedArray;
+};
+
+const sortedFrameworks = sortFrameworks(frameworkMap);
+
+function FrameworkDropdown() {
+  const mode = useAppSelector((state) => state.theme.mode);
+
   cssRule('.MuiTooltip-popper', {
     ...(mode === 'light' ? TooltipRaw.Light : TooltipRaw.Dark),
     $nest: {
@@ -63,7 +75,6 @@ function FrameworkDropdown({ view, mode }: FrameworkDropdownProps) {
       },
     },
   });
-  const size = view == 'compare-results' ? 'small' : undefined;
 
   const styles = {
     container: style({
@@ -80,23 +91,24 @@ function FrameworkDropdown({ view, mode }: FrameworkDropdownProps) {
     }),
   };
 
+  const dispatch = useAppDispatch();
   const frameworkId = useAppSelector((state) => state.framework.id);
-
-  const { handleChangeFrameworkDropdown } = useHandleChangeFrameworkDropdown();
 
   const handleFrameworkSelect = async (event: SelectChangeEvent) => {
     const id = +event.target.value as Framework['id'];
     const name = frameworkMap[id];
 
-    await handleChangeFrameworkDropdown({ id, name });
+    dispatch(
+      updateFramework({
+        id,
+        name,
+      }),
+    );
   };
 
   return (
     <div>
-      <FormControl
-        size={size}
-        className={`framework-dropdown ${styles.container}`}
-      >
+      <FormControl className={`framework-dropdown ${styles.container}`}>
         <InputLabel
           id='select-framework-label'
           className='dropdown-select-label'
@@ -114,9 +126,9 @@ function FrameworkDropdown({ view, mode }: FrameworkDropdownProps) {
           className='dropdown-select'
           variant='standard'
           onChange={(e) => void handleFrameworkSelect(e)}
-          name='Framework'
+          name='framework'
         >
-          {Object.entries(frameworkMap).map(([id, name]) => (
+          {sortedFrameworks.map(([id, name]) => (
             <MenuItem value={id} key={name} className='framework-dropdown-item'>
               {name}
             </MenuItem>

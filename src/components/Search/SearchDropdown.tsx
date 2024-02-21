@@ -4,9 +4,8 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { style, cssRule } from 'typestyle';
 
 import { repoMap } from '../../common/constants';
-import { compareView } from '../../common/constants';
-import { useAppSelector } from '../../hooks/app';
-import useHandleChangeDropdown from '../../hooks/useHandleChangeDropdown';
+import { useAppSelector, useAppDispatch } from '../../hooks/app';
+import { updateRepository } from '../../reducers/SearchSlice';
 import {
   ButtonsLightRaw,
   ButtonsDarkRaw,
@@ -14,30 +13,45 @@ import {
   FontsRaw,
   Colors,
 } from '../../styles';
-import { InputType, ThemeMode, View } from '../../types/state';
+import { fetchRecentRevisions } from '../../thunks/searchThunk';
+import { InputType, Repository } from '../../types/state';
 
 interface SearchDropdownProps {
-  view: View;
+  isEditable?: boolean;
   selectLabel: string;
   tooltipText: string;
-  mode: ThemeMode;
   searchType: InputType;
 }
 
+//handle in progress repos here if necessary
 function SearchDropdown({
-  view,
+  isEditable,
   selectLabel,
-  mode,
   searchType,
 }: SearchDropdownProps) {
-  const size = view == compareView ? 'small' : undefined;
-  const { handleChangeDropdown } = useHandleChangeDropdown();
-  const searchState = useAppSelector((state) => state.search[searchType]);
-  const { repository } = searchState;
+  const size = isEditable == true ? 'small' : undefined;
+  const mode = useAppSelector((state) => state.theme.mode);
+  const repository = useAppSelector(
+    (state) => state.search[searchType].repository,
+  );
+  const dispatch = useAppDispatch();
 
   const handleRepoSelect = async (event: SelectChangeEvent) => {
-    const selectedRepository = event.target.value;
-    await handleChangeDropdown({ selectedRepository, searchType });
+    const selectedRepository = event.target.value as Repository['name'];
+    dispatch(
+      updateRepository({
+        repository: selectedRepository,
+        searchType: searchType,
+      }),
+    );
+
+    // Fetch 10 most recent revisions when repository changes
+    await dispatch(
+      fetchRecentRevisions({
+        repository: selectedRepository,
+        searchType: searchType,
+      }),
+    );
   };
 
   cssRule('.MuiTooltip-popper', {

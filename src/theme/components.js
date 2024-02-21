@@ -223,6 +223,15 @@ const components = {
       },
     },
   },
+  MuiSelect: {
+    styleOverrides: {
+      root: {
+        '&.Mui-focused': {
+          outline: '1px auto',
+        },
+      },
+    },
+  },
 };
 
 export default components;

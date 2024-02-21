@@ -2,14 +2,12 @@
 
 exports[`Search View renders correctly when there are no results 1`] = `
 <body>
-  <div />
-  <div />
   <div>
     <div
       class="fcndgf6"
     >
       <button
-        class="f1szgo9t"
+        class="f1blkb62"
         role="link"
         tabindex="1"
       >
@@ -125,14 +123,16 @@ exports[`Search View renders correctly when there are no results 1`] = `
             <hr
               class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
             />
-            <div
+            <form
+              action="/compare-results"
               class="form-wrapper"
+              method="get"
             >
               <div
                 class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fxraqjn label-edit-wrapper css-13eijkh-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fl6uoag label-edit-wrapper css-13eijkh-MuiGrid-root"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -155,11 +155,11 @@ exports[`Search View renders correctly when there are no results 1`] = `
                   </label>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-container container_fx9j6vk css-1ljzhs0-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container container_f1psuwcf show-container  css-1ljzhs0-MuiGrid-root"
                   id="base-search-container"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fxraqjn  search-base-dropdown css-1awobkc-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fl6uoag  -base-dropdown css-1awobkc-MuiGrid-root"
                     id="base_search-dropdown"
                   >
                     <div>
@@ -167,14 +167,14 @@ exports[`Search View renders correctly when there are no results 1`] = `
                         class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
                       >
                         <div
-                          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                           data-testid="dropdown-select-base"
                         >
                           <div
                             aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-labelledby="select-repository-label"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                             role="button"
                             tabindex="0"
                           >
@@ -188,7 +188,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                           />
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
                             data-testid="ArrowDropDownIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
@@ -233,7 +233,6 @@ exports[`Search View renders correctly when there are no results 1`] = `
                             aria-invalid="false"
                             class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                             id="search-base-input"
-                            name="baseSearch"
                             placeholder="Search base by ID number or author email"
                             type="text"
                             value=""
@@ -257,12 +256,24 @@ exports[`Search View renders correctly when there are no results 1`] = `
                     </div>
                   </div>
                 </div>
+                <div
+                  class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
+                >
+                  <div
+                    class="box_f65ycfw base-box MuiBox-root css-0"
+                    data-testid="selected-revs---search-revisions"
+                  >
+                    <ul
+                      class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
+                    />
+                  </div>
+                </div>
               </div>
               <div
                 class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fxraqjn label-edit-wrapper css-13eijkh-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fl6uoag label-edit-wrapper css-13eijkh-MuiGrid-root"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -285,11 +296,11 @@ exports[`Search View renders correctly when there are no results 1`] = `
                   </label>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-container container_fx9j6vk css-1ljzhs0-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container container_f1psuwcf show-container  css-1ljzhs0-MuiGrid-root"
                   id="new-search-container"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fxraqjn  search-base-dropdown css-1awobkc-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fl6uoag  -base-dropdown css-1awobkc-MuiGrid-root"
                     id="new_search-dropdown"
                   >
                     <div>
@@ -297,14 +308,14 @@ exports[`Search View renders correctly when there are no results 1`] = `
                         class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
                       >
                         <div
-                          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                           data-testid="dropdown-select-new"
                         >
                           <div
                             aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-labelledby="select-repository-label"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                             role="button"
                             tabindex="0"
                           >
@@ -318,7 +329,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                           />
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
                             data-testid="ArrowDropDownIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
@@ -363,7 +374,6 @@ exports[`Search View renders correctly when there are no results 1`] = `
                             aria-invalid="false"
                             class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                             id="search-new-input"
-                            name="newSearch"
                             placeholder="Search revision by ID number or author email"
                             type="text"
                             value=""
@@ -387,9 +397,21 @@ exports[`Search View renders correctly when there are no results 1`] = `
                     </div>
                   </div>
                 </div>
+                <div
+                  class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
+                >
+                  <div
+                    class="box_f65ycfw new-box MuiBox-root css-0"
+                    data-testid="selected-revs---search-revisions"
+                  >
+                    <ul
+                      class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
+                    />
+                  </div>
+                </div>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fxraqjn fjuaqdk css-13eijkh-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fl6uoag fjuaqdk css-13eijkh-MuiGrid-root"
               >
                 <div>
                   <div
@@ -416,15 +438,15 @@ exports[`Search View renders correctly when there are no results 1`] = `
                       </svg>
                     </label>
                     <div
-                      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                       data-testid="dropdown-select-framework"
                     >
                       <div
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        aria-labelledby="select-framework-label mui-component-select-Framework"
-                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                        id="mui-component-select-Framework"
+                        aria-labelledby="select-framework-label mui-component-select-framework"
+                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                        id="mui-component-select-framework"
                         role="button"
                         tabindex="0"
                       >
@@ -433,13 +455,13 @@ exports[`Search View renders correctly when there are no results 1`] = `
                       <input
                         aria-hidden="true"
                         class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                        name="Framework"
+                        name="framework"
                         tabindex="-1"
                         value="1"
                       />
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
                         data-testid="ArrowDropDownIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
@@ -452,11 +474,10 @@ exports[`Search View renders correctly when there are no results 1`] = `
                   </div>
                 </div>
                 <button
-                  aria-label="compare revisions"
                   class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1pha5e5-MuiButtonBase-root-MuiButton-root"
                   id="compare-button"
                   tabindex="0"
-                  type="button"
+                  type="submit"
                 >
                   Compare
                   <span
@@ -464,7 +485,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                   />
                 </button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
         <div
