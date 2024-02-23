@@ -207,7 +207,11 @@ function RevisionRow(props: RevisionRowProps) {
           <div className='graph' role='cell'>
             <div className='graph-link-button-container'>
               <IconButton aria-label='graph link' size='small'>
-                <Link href={graphLink} target='_blank'>
+                <Link
+                  href={graphLink}
+                  target='_blank'
+                  aria-label='link to revision graph'
+                >
                   <TimelineIcon />
                 </Link>
               </IconButton>

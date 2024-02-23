@@ -93,6 +93,7 @@ function SelectedRevisionItem({
                 <Link
                   href={getTreeherderURL(item.revision, repository)}
                   target='_blank'
+                  aria-label={`link to revision jobs in treeherder for ${revisionHash}`}
                 >
                   {revisionHash}
                 </Link>

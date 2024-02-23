@@ -393,6 +393,7 @@ exports[`Results View The table should match snapshot and other elements should 
         </strong>
          
         <a
+          aria-label="link to revision jobs in treeherder for spam"
           class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
           href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
           target="_blank"
@@ -547,6 +548,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 type="button"
               >
                 <a
+                  aria-label="link to revision graph"
                   class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
                   href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000"
                   target="_blank"
@@ -863,6 +865,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 type="button"
               >
                 <a
+                  aria-label="link to revision graph"
                   class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
                   href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2Cedcc6311f15bdf7924ef3f0ccfd8b47ce1892212%2C1%2C1&timerange=5184000"
                   target="_blank"
@@ -1185,6 +1188,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 type="button"
               >
                 <a
+                  aria-label="link to revision graph"
                   class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
                   href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C3a6d4b6178678c3113c980b378bb83b2629926a0%2C1%2C1&timerange=5184000"
                   target="_blank"
@@ -1506,6 +1510,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 type="button"
               >
                 <a
+                  aria-label="link to revision graph"
                   class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
                   href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C3a6d4b6178678c3113c980b378bb83b2629926a0%2C1%2C1&timerange=5184000"
                   target="_blank"

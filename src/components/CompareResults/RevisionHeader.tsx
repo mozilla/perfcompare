@@ -101,6 +101,7 @@ function RevisionHeader(props: RevisionHeaderProps) {
         <Link
           href={getTreeherderURL(header.new_rev, header.new_repo)}
           target='_blank'
+          aria-label={`link to revision jobs in treeherder for ${shortHash}`}
         >
           {shortHash}
         </Link>

@@ -29,11 +29,23 @@ describe('App', () => {
     expect(homeText).toBeInTheDocument();
   });
 
+  test('Should display File bug link', async () => {
+    render(<App />);
+
+    const link = await screen.findByRole('link', {
+      name: 'link to file bug in bugzilla',
+    });
+    expect(link).toHaveAttribute(
+      'href',
+      'https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]',
+    );
+  });
+
   test('Should display PerfCompare Matrix channel link', async () => {
     render(<App />);
 
     const link = await screen.findByRole('link', {
-      name: '#perfcompare:mozilla.org on Matrix',
+      name: 'link to perfcompare matrix channel',
     });
     expect(link).toHaveAttribute(
       'href',

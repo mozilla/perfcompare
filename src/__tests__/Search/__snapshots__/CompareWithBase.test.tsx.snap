@@ -214,6 +214,7 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
                             class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
                           >
                             <a
+                              aria-label="link to revision jobs in treeherder for coconut"
                               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
                               href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
                               target="_blank"
@@ -472,6 +473,7 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
                             class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
                           >
                             <a
+                              aria-label="link to revision jobs in treeherder for spam"
                               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
                               href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
                               target="_blank"
@@ -588,6 +590,7 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
                             class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
                           >
                             <a
+                              aria-label="link to revision jobs in treeherder for spamspam"
                               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
                               href="https://treeherder.mozilla.org/jobs?repo=try&revision=spamspam"
                               target="_blank"

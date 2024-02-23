@@ -99,11 +99,19 @@ function App() {
           <Alert className={Banner} severity='warning'>
             <div className='banner-text'>
               {strings.text}{' '}
-              <Link href={strings.href} target='_blank'>
+              <Link
+                href={strings.href}
+                target='_blank'
+                aria-label={'link to file bug in bugzilla'}
+              >
                 {strings.linkText}
               </Link>{' '}
               {contact.text}{' '}
-              <Link href={contact.href} target='_blank'>
+              <Link
+                href={contact.href}
+                target='_blank'
+                aria-label={'link to perfcompare matrix channel'}
+              >
                 {contact.linkText}
               </Link>
               .
