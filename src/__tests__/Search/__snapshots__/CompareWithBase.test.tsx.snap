@@ -65,14 +65,14 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
             class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
           >
             <div
-              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
               data-testid="dropdown-select-base"
             >
               <div
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="select-repository-label"
-                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1co7s6p-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                 role="button"
                 tabindex="0"
               >
@@ -86,7 +86,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
               />
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
                 data-testid="ArrowDropDownIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -349,14 +349,14 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
             class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
           >
             <div
-              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
               data-testid="dropdown-select-new"
             >
               <div
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="select-repository-label"
-                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1co7s6p-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                 role="button"
                 tabindex="0"
               >
@@ -370,7 +370,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
               />
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
                 data-testid="ArrowDropDownIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -603,14 +603,14 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
           </svg>
         </label>
         <div
-          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
           data-testid="dropdown-select-framework"
         >
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-labelledby="select-framework-label mui-component-select-framework"
-            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
             id="mui-component-select-framework"
             role="button"
             tabindex="0"
@@ -626,7 +626,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
           />
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
             data-testid="ArrowDropDownIcon"
             focusable="false"
             viewBox="0 0 24 24"
@@ -829,14 +829,14 @@ exports[`Compare With Base should have an edit mode in Results View: After click
             class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
           >
             <div
-              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
               data-testid="dropdown-select-base"
             >
               <div
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="select-repository-label"
-                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1co7s6p-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                 role="button"
                 tabindex="0"
               >
@@ -850,7 +850,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               />
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
                 data-testid="ArrowDropDownIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -1145,14 +1145,14 @@ exports[`Compare With Base should have an edit mode in Results View: After click
             class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
           >
             <div
-              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
               data-testid="dropdown-select-new"
             >
               <div
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="select-repository-label"
-                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1co7s6p-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                 role="button"
                 tabindex="0"
               >
@@ -1166,7 +1166,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               />
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
                 data-testid="ArrowDropDownIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -1399,14 +1399,14 @@ exports[`Compare With Base should have an edit mode in Results View: After click
           </svg>
         </label>
         <div
-          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
           data-testid="dropdown-select-framework"
         >
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-labelledby="select-framework-label mui-component-select-framework"
-            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
             id="mui-component-select-framework"
             role="button"
             tabindex="0"
@@ -1422,7 +1422,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
           />
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
             data-testid="ArrowDropDownIcon"
             focusable="false"
             viewBox="0 0 24 24"
@@ -1514,14 +1514,14 @@ exports[`Compare With Base should have an edit mode in Results View: After click
             class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
           >
             <div
-              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
               data-testid="dropdown-select-base"
             >
               <div
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="select-repository-label"
-                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1co7s6p-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                 role="button"
                 tabindex="0"
               >
@@ -1535,7 +1535,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               />
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
                 data-testid="ArrowDropDownIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -1662,14 +1662,14 @@ exports[`Compare With Base should have an edit mode in Results View: After click
             class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
           >
             <div
-              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
               data-testid="dropdown-select-new"
             >
               <div
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="select-repository-label"
-                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1co7s6p-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                 role="button"
                 tabindex="0"
               >
@@ -1683,7 +1683,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               />
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
                 data-testid="ArrowDropDownIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -1948,14 +1948,14 @@ exports[`Compare With Base should have an edit mode in Results View: After click
           </svg>
         </label>
         <div
-          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
           data-testid="dropdown-select-framework"
         >
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-labelledby="select-framework-label mui-component-select-framework"
-            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
             id="mui-component-select-framework"
             role="button"
             tabindex="0"
@@ -1971,7 +1971,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
           />
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
             data-testid="ArrowDropDownIcon"
             focusable="false"
             viewBox="0 0 24 24"
@@ -2063,14 +2063,14 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
             class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
           >
             <div
-              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
               data-testid="dropdown-select-base"
             >
               <div
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="select-repository-label"
-                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1co7s6p-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                 role="button"
                 tabindex="0"
               >
@@ -2084,7 +2084,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
               />
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
                 data-testid="ArrowDropDownIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -2347,14 +2347,14 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
             class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
           >
             <div
-              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
               data-testid="dropdown-select-new"
             >
               <div
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="select-repository-label"
-                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1co7s6p-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                 role="button"
                 tabindex="0"
               >
@@ -2368,7 +2368,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
               />
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
                 data-testid="ArrowDropDownIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -2601,14 +2601,14 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
           </svg>
         </label>
         <div
-          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
           data-testid="dropdown-select-framework"
         >
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-labelledby="select-framework-label mui-component-select-framework"
-            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
             id="mui-component-select-framework"
             role="button"
             tabindex="0"
@@ -2624,7 +2624,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
           />
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
             data-testid="ArrowDropDownIcon"
             focusable="false"
             viewBox="0 0 24 24"
@@ -2660,7 +2660,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
       class="fcndgf6"
     >
       <button
-        class="f1szgo9t"
+        class="f1blkb62"
         role="link"
         tabindex="1"
       >
@@ -2821,14 +2821,14 @@ exports[`Compare With Base should remove the checked revision once X button is c
                         class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
                       >
                         <div
-                          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                           data-testid="dropdown-select-base"
                         >
                           <div
                             aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-labelledby="select-repository-label"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                             role="button"
                             tabindex="0"
                           >
@@ -2842,7 +2842,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                           />
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
                             data-testid="ArrowDropDownIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
@@ -2962,14 +2962,14 @@ exports[`Compare With Base should remove the checked revision once X button is c
                         class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
                       >
                         <div
-                          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                           data-testid="dropdown-select-new"
                         >
                           <div
                             aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-labelledby="select-repository-label"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                             role="button"
                             tabindex="0"
                           >
@@ -2983,7 +2983,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                           />
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
                             data-testid="ArrowDropDownIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
@@ -3092,14 +3092,14 @@ exports[`Compare With Base should remove the checked revision once X button is c
                       </svg>
                     </label>
                     <div
-                      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                       data-testid="dropdown-select-framework"
                     >
                       <div
                         aria-expanded="false"
                         aria-haspopup="listbox"
                         aria-labelledby="select-framework-label mui-component-select-framework"
-                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                         id="mui-component-select-framework"
                         role="button"
                         tabindex="0"
@@ -3115,7 +3115,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                       />
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
                         data-testid="ArrowDropDownIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
@@ -3235,14 +3235,14 @@ exports[`Compare With Base should save the updated BASE revision when save butto
             class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
           >
             <div
-              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
               data-testid="dropdown-select-base"
             >
               <div
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="select-repository-label"
-                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1co7s6p-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                 role="button"
                 tabindex="0"
               >
@@ -3256,7 +3256,7 @@ exports[`Compare With Base should save the updated BASE revision when save butto
               />
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
                 data-testid="ArrowDropDownIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -3512,14 +3512,14 @@ exports[`Compare With Base should save the updated BASE revision when save butto
             class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
           >
             <div
-              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
               data-testid="dropdown-select-new"
             >
               <div
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="select-repository-label"
-                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1co7s6p-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                 role="button"
                 tabindex="0"
               >
@@ -3533,7 +3533,7 @@ exports[`Compare With Base should save the updated BASE revision when save butto
               />
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
                 data-testid="ArrowDropDownIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -3759,14 +3759,14 @@ exports[`Compare With Base should save the updated BASE revision when save butto
           </svg>
         </label>
         <div
-          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
           data-testid="dropdown-select-framework"
         >
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-labelledby="select-framework-label mui-component-select-framework"
-            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
             id="mui-component-select-framework"
             role="button"
             tabindex="0"
@@ -3782,7 +3782,7 @@ exports[`Compare With Base should save the updated BASE revision when save butto
           />
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
             data-testid="ArrowDropDownIcon"
             focusable="false"
             viewBox="0 0 24 24"
@@ -3874,14 +3874,14 @@ exports[`Compare With Base should save the updated NEW revision when save button
             class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
           >
             <div
-              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
               data-testid="dropdown-select-base"
             >
               <div
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="select-repository-label"
-                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1co7s6p-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                 role="button"
                 tabindex="0"
               >
@@ -3895,7 +3895,7 @@ exports[`Compare With Base should save the updated NEW revision when save button
               />
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
                 data-testid="ArrowDropDownIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -4132,14 +4132,14 @@ exports[`Compare With Base should save the updated NEW revision when save button
             class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
           >
             <div
-              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
               data-testid="dropdown-select-new"
             >
               <div
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="select-repository-label"
-                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1co7s6p-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                 role="button"
                 tabindex="0"
               >
@@ -4153,7 +4153,7 @@ exports[`Compare With Base should save the updated NEW revision when save button
               />
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
                 data-testid="ArrowDropDownIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -4411,14 +4411,14 @@ exports[`Compare With Base should save the updated NEW revision when save button
           </svg>
         </label>
         <div
-          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
           data-testid="dropdown-select-framework"
         >
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-labelledby="select-framework-label mui-component-select-framework"
-            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
             id="mui-component-select-framework"
             role="button"
             tabindex="0"
@@ -4434,7 +4434,7 @@ exports[`Compare With Base should save the updated NEW revision when save button
           />
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
             data-testid="ArrowDropDownIcon"
             focusable="false"
             viewBox="0 0 24 24"
@@ -4526,14 +4526,14 @@ exports[`Compare With Base should save the updated NEW revision when save button
             class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
           >
             <div
-              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
               data-testid="dropdown-select-base"
             >
               <div
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="select-repository-label"
-                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1co7s6p-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                 role="button"
                 tabindex="0"
               >
@@ -4547,7 +4547,7 @@ exports[`Compare With Base should save the updated NEW revision when save button
               />
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
                 data-testid="ArrowDropDownIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -4803,14 +4803,14 @@ exports[`Compare With Base should save the updated NEW revision when save button
             class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
           >
             <div
-              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
               data-testid="dropdown-select-new"
             >
               <div
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="select-repository-label"
-                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1co7s6p-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                 role="button"
                 tabindex="0"
               >
@@ -4824,7 +4824,7 @@ exports[`Compare With Base should save the updated NEW revision when save button
               />
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
                 data-testid="ArrowDropDownIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -5050,14 +5050,14 @@ exports[`Compare With Base should save the updated NEW revision when save button
           </svg>
         </label>
         <div
-          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
           data-testid="dropdown-select-framework"
         >
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-labelledby="select-framework-label mui-component-select-framework"
-            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
             id="mui-component-select-framework"
             role="button"
             tabindex="0"
@@ -5073,7 +5073,7 @@ exports[`Compare With Base should save the updated NEW revision when save button
           />
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
             data-testid="ArrowDropDownIcon"
             focusable="false"
             viewBox="0 0 24 24"
@@ -5165,14 +5165,14 @@ exports[`Compare With Base should save the updated NEW revision when save button
             class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
           >
             <div
-              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
               data-testid="dropdown-select-base"
             >
               <div
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="select-repository-label"
-                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1co7s6p-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                 role="button"
                 tabindex="0"
               >
@@ -5186,7 +5186,7 @@ exports[`Compare With Base should save the updated NEW revision when save button
               />
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
                 data-testid="ArrowDropDownIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -5442,14 +5442,14 @@ exports[`Compare With Base should save the updated NEW revision when save button
             class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
           >
             <div
-              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
               data-testid="dropdown-select-new"
             >
               <div
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="select-repository-label"
-                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1co7s6p-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                 role="button"
                 tabindex="0"
               >
@@ -5463,7 +5463,7 @@ exports[`Compare With Base should save the updated NEW revision when save button
               />
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
                 data-testid="ArrowDropDownIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -5689,14 +5689,14 @@ exports[`Compare With Base should save the updated NEW revision when save button
           </svg>
         </label>
         <div
-          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1q6aue5-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
           data-testid="dropdown-select-framework"
         >
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-labelledby="select-framework-label mui-component-select-framework"
-            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-4yslue-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
             id="mui-component-select-framework"
             role="button"
             tabindex="0"
@@ -5712,7 +5712,7 @@ exports[`Compare With Base should save the updated NEW revision when save button
           />
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-o3okz2-MuiSvgIcon-root-MuiSelect-icon"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
             data-testid="ArrowDropDownIcon"
             focusable="false"
             viewBox="0 0 24 24"
