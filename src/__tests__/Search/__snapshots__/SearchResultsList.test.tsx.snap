@@ -127,6 +127,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
               action="/compare-results"
               class="form-wrapper"
               method="get"
+              role="form"
             >
               <div
                 class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"

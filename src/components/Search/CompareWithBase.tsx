@@ -173,28 +173,11 @@ function CompareWithBase({
     handleCancelNew();
   };
 
-  const handleDisplayedRevisionsBase = () => {
-    if (baseInProgress.isInProgress) {
-      setDisplayedRevisionsBase(baseInProgress);
-    } else {
-      setDisplayedRevisionsBase(baseStaging);
-    }
-  };
-
-  const handleDisplayedRevisionsNew = () => {
-    if (newInProgress.isInProgress) {
-      setDisplayedRevisionsNew(newInProgress);
-    } else {
-      setDisplayedRevisionsNew(newStaging);
-    }
-  };
-
   const handleEditBase = () => {
     setInProgressBase({
       ...baseStaging,
       isInProgress: true,
     });
-    handleDisplayedRevisionsBase();
   };
 
   const handleEditNew = () => {
@@ -202,7 +185,6 @@ function CompareWithBase({
       ...newStaging,
       isInProgress: true,
     });
-    handleDisplayedRevisionsNew();
   };
 
   const handleRemoveEditViewRevisionBase = (item: RevisionsList) => {
@@ -272,6 +254,7 @@ function CompareWithBase({
           action='/compare-results'
           className='form-wrapper'
           onSubmit={possiblyPreventFormSubmission}
+          role='form'
         >
           <SearchComponent
             {...stringsBase}

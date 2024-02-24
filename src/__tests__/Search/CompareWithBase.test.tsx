@@ -1,7 +1,9 @@
+import { ReactElement } from 'react';
+
 import userEvent from '@testing-library/user-event';
 
-import { repoMap } from '../../common/constants';
-import CompareWithBase from '../../components/Search/CompareWithBase';
+import { loader } from '../../components/CompareResults/loader';
+import ResultsView from '../../components/CompareResults/ResultsView';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import getTestData from '../utils/fixtures';
@@ -13,38 +15,57 @@ import {
   FetchMockSandbox,
 } from '../utils/test-utils';
 
-function renderComponent(isEditable: boolean) {
+function setupTestData() {
   const { testData } = getTestData();
-  const baseRevs = testData.slice(0, 1);
-  const newRevs = testData.slice(1, 3);
-
-  // The "??" operations below are so that Typescript doesn't wonder about the
-  // undefined value later.
-  const baseRepos = baseRevs.map(
-    (item) => repoMap[item.repository_id] ?? 'try',
+  (global.fetch as FetchMockSandbox).get(
+    'begin:https://treeherder.mozilla.org/api/project/try/push/',
+    {
+      results: testData,
+    },
   );
-  const newRepos = newRevs.map((item) => repoMap[item.repository_id] ?? 'try');
+}
 
-  renderWithRouter(
-    <CompareWithBase
-      isEditable={isEditable}
-      baseRevs={baseRevs}
-      newRevs={newRevs}
-      baseRepos={baseRepos}
-      newRepos={newRepos}
-    />,
+function renderComponent() {
+  setupTestData();
+  return renderWithRouter(
+    <SearchView title={Strings.metaData.pageTitle.search} />,
   );
+}
+
+function renderWithRoute(component: ReactElement) {
+  const { testData } = getTestData();
+  (window.fetch as FetchMockSandbox)
+    .get('begin:https://treeherder.mozilla.org/api/perfcompare/results/', [])
+    .get(
+      'begin:https://treeherder.mozilla.org/api/project/mozilla-central/push/?revision=coconut',
+      {
+        results: [testData[0]],
+      },
+    )
+    .get(
+      'begin:https://treeherder.mozilla.org/api/project/mozilla-central/push/?revision=spam',
+      {
+        results: [testData[1]],
+      },
+    );
+  return renderWithRouter(component, {
+    route: '/compare-results/',
+    search:
+      '?baseRev=coconut&baseRepo=mozilla-central&newRev=spam&newRepo=mozilla-central&framework=2',
+    loader,
+  });
 }
 
 describe('Compare With Base', () => {
   it('renders correctly when there are no results', async () => {
-    renderComponent(false);
-
-    expect(document.body).toMatchSnapshot();
+    renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
+    expect(await screen.findByText('Compare with a base')).toBeInTheDocument();
+    const formElement = await screen.findByRole('form');
+    expect(formElement).toMatchSnapshot('Initial state for the form');
   });
 
   it('toggles component open and closed on click', async () => {
-    renderComponent(false);
+    renderComponent();
 
     const user = userEvent.setup({ delay: null });
     const testExpandedID = 'base-state';
@@ -68,7 +89,7 @@ describe('Compare With Base', () => {
   });
 
   it('selects and displays new framework when clicked', async () => {
-    renderComponent(false);
+    renderComponent();
     const user = userEvent.setup({ delay: null });
     expect(screen.getByText(/talos/i)).toBeInTheDocument();
     expect(screen.queryByText(/build_metrics/i)).not.toBeInTheDocument();
@@ -88,18 +109,10 @@ describe('Compare With Base', () => {
   });
 
   it('should remove the checked revision once X button is clicked', async () => {
-    const { testData } = getTestData();
-    (global.fetch as FetchMockSandbox).get(
-      'begin:https://treeherder.mozilla.org/api/project/try/push/',
-      {
-        results: testData,
-      },
-    );
+    renderComponent();
 
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
-
-    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
@@ -120,11 +133,195 @@ describe('Compare With Base', () => {
     expect(screen.queryAllByTestId('selected-rev-item')[0]).toBeUndefined();
   });
 
-  it('hides x icon when mode is isEditable', async () => {
-    renderComponent(true);
+  it('should have an edit mode in Results View', async () => {
+    renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
 
-    expect(screen.getAllByTestId('selected-rev-item')[0]).not.toHaveClass(
-      'icon-close-hidden',
+    const user = userEvent.setup({ delay: null });
+
+    expect(await screen.findByText('Compare with a base')).toBeInTheDocument();
+    const formElement = await screen.findByRole('form');
+    expect(formElement).toMatchSnapshot('Initial state for the form');
+
+    // Find out if the base revision is rendered
+    const baseRevisionText = screen.getByText(/you've got no arms left!/);
+    const newRevisionText = screen.getByText(/it's just a flesh wound/);
+    expect(baseRevisionText).toBeInTheDocument();
+    expect(newRevisionText).toBeInTheDocument();
+
+    // The search container should be hidden
+    const baseSearchContainer = document.querySelector(
+      '#base-search-container',
+    );
+    expect(baseSearchContainer).toHaveClass('hide-container');
+
+    // Click the edit button
+    let editButton = screen.getAllByRole('button', { name: 'edit button' })[0];
+    await user.click(editButton);
+
+    expect(baseSearchContainer).toHaveClass('show-container');
+
+    expect(formElement).toMatchSnapshot(
+      'After clicking edit for the base revision',
+    );
+    expect(editButton).not.toBeInTheDocument();
+
+    // Pressing the cancel button should hide input and dropdown
+    const cancelButton = screen.getByRole('button', { name: 'cancel button' });
+    await user.click(cancelButton);
+
+    expect(baseSearchContainer).toHaveClass('hide-container');
+
+    // Click the edit button again
+    editButton = screen.getAllByRole('button', { name: 'edit button' })[0];
+    await user.click(editButton);
+    expect(baseSearchContainer).toHaveClass('show-container');
+
+    // Remove the base revision by clicking the X button
+    const closeBaseButton = screen.getByRole('button', {
+      name: 'close-button',
+    });
+    await user.click(closeBaseButton);
+    expect(baseRevisionText).not.toBeInTheDocument();
+
+    // Click the save button
+    const saveButtonBase = screen.getByRole('button', { name: 'save button' });
+    await user.click(saveButtonBase);
+
+    // The baseRevision is still hidden
+    expect(baseRevisionText).not.toBeInTheDocument();
+
+    // The search container is hidden.
+    expect(baseSearchContainer).toHaveClass('hide-container');
+
+    // Do the same operation with the components for the "new" revisions
+    const newSearchContainer = document.querySelector('#new-search-container');
+    expect(newSearchContainer).toHaveClass('hide-container');
+
+    // Click the edit button for new revisions
+    editButton = screen.getAllByRole('button', { name: 'edit button' })[1];
+    await user.click(editButton);
+    expect(formElement).toMatchSnapshot(
+      'After clicking edit for the new revision',
+    );
+    expect(newSearchContainer).toHaveClass('show-container');
+
+    // Remove the new revision by clicking the X button
+    const closeNewButton = screen.getByRole('button', {
+      name: 'close-button',
+    });
+    await user.click(closeNewButton);
+    expect(newRevisionText).not.toBeInTheDocument();
+
+    // Click the save button
+    const saveButtonNew = screen.getByRole('button', { name: 'save button' });
+    await user.click(saveButtonNew);
+    expect(newSearchContainer).toHaveClass('hide-container');
+  });
+
+  it('should save the updated BASE revision when save button is clicked', async () => {
+    setupTestData();
+    renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
+
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
+
+    expect(await screen.findByText('Compare with a base')).toBeInTheDocument();
+    const formElement = await screen.findByRole('form');
+    expect(formElement).toMatchSnapshot(
+      'Initial state for the form in edit mode',
+    );
+
+    // Click the edit button
+    const editButton = screen.getAllByRole('button', {
+      name: 'edit button',
+    })[0];
+    await user.click(editButton);
+
+    // Remove the base revision by clicking the X button
+    const closeBaseButton = screen.getByRole('button', {
+      name: 'close-button',
+    });
+    await user.click(closeBaseButton);
+
+    // Select an updated base revision in the dropdown
+    const searchInput = screen.getAllByRole('textbox')[0];
+    await user.click(searchInput);
+
+    const horse = await screen.findAllByText('What, ridden on a horse?');
+
+    await user.click(horse[0]);
+    expect(screen.getAllByTestId('checkbox-2')[0]).toHaveClass('Mui-checked');
+    //test toggle action for base revision container
+    await user.click(horse[0]);
+    expect(screen.getAllByTestId('checkbox-2')[0]).not.toHaveClass(
+      'Mui-checked',
+    );
+    await user.click(horse[0]);
+    expect(screen.getAllByTestId('checkbox-2')[0]).toHaveClass('Mui-checked');
+
+    // Click the save button
+    const saveButtonBase = screen.getByRole('button', { name: 'save button' });
+    await user.click(saveButtonBase);
+
+    //the updated base revision is rendered
+    const updatedBaseRevisionText = screen.getByText(
+      /What, ridden on a horse?/,
+    );
+    expect(updatedBaseRevisionText).toBeInTheDocument();
+  });
+
+  it('should save the updated NEW revision when save button is clicked', async () => {
+    setupTestData();
+    renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
+
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
+
+    expect(await screen.findByText('Compare with a base')).toBeInTheDocument();
+    const formElement = await screen.findByRole('form');
+    expect(formElement).toMatchSnapshot(
+      'Initial state for the form in edit mode',
+    );
+
+    // Click the edit button for new revisions
+    const editButton = screen.getAllByRole('button', {
+      name: 'edit button',
+    })[1];
+    await user.click(editButton);
+    expect(formElement).toMatchSnapshot(
+      'After clicking edit for the new revision',
+    );
+
+    // Remove the new revision by clicking the X button
+    const closeNewButton = screen.getByRole('button', {
+      name: 'close-button',
+    });
+    await user.click(closeNewButton);
+
+    // Select an updated new revision in the dropdown
+    const searchInputNew = screen.getByRole('textbox');
+    await user.click(searchInputNew);
+    const horse = await screen.findByRole('button', {
+      name: /What, ridden on a horse?/,
+    });
+    await user.click(horse);
+    expect(horse).toHaveClass('item-selected');
+    // test toggle action for new revision container
+    await user.click(horse);
+    expect(horse).not.toHaveClass('item-selected');
+    await user.click(horse);
+    expect(horse).toHaveClass('item-selected');
+
+    // Click the save button
+    const saveButton = screen.getByRole('button', { name: 'save button' });
+    await user.click(saveButton);
+
+    //the updated new revision is rendered
+    const updatedNewRevisionText = screen.getByText(/What, ridden on a horse?/);
+    expect(updatedNewRevisionText).toBeInTheDocument();
+
+    expect(formElement).toMatchSnapshot(
+      'After clicking save for the new revision',
     );
   });
 });
