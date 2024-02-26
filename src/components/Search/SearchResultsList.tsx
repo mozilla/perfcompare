@@ -61,7 +61,7 @@ function SearchResultsList({
             index={index}
             item={item}
             revisionsCount={revisionsCount}
-            isCheckedState={isCheckedState}
+            isChecked={isCheckedState(item)}
             onToggle={handleToggleAction}
           />
         ))}

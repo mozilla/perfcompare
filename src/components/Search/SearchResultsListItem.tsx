@@ -19,7 +19,7 @@ interface SearchResultsListItemProps {
   index: number;
   item: Changeset;
   revisionsCount: number;
-  isCheckedState: (item: Changeset) => boolean;
+  isChecked: boolean;
   onToggle: (item: Changeset) => void;
 }
 
@@ -58,13 +58,12 @@ const styles = {
 function SearchResultsListItem({
   index,
   item,
-  isCheckedState,
+  isChecked,
   onToggle,
 }: SearchResultsListItemProps) {
   const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);
   const itemDate = new Date(item.push_timestamp * 1000);
-  const isChecked = isCheckedState(item);
 
   const onToggleAction = () => {
     onToggle(item);
