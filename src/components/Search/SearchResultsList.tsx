@@ -25,19 +25,10 @@ function SearchResultsList({
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = SelectListStyles(mode);
   const { handleToggle } = useCheckRevision(isBase, hasNonEditableState);
-  const searchType = isBase ? 'base' : 'new';
   const revisionsCount = isBase === true ? 1 : 3;
-  const isCommittedChecked = (item: Changeset) => {
-    return useAppSelector((state) =>
-      state.search[searchType].checkedRevisions.includes(item),
-    );
-  };
   const isInProgressChecked = (item: Changeset) => {
     return displayedRevisions.map((rev) => rev.id).includes(item.id);
   };
-  const isCheckedState = hasNonEditableState
-    ? isInProgressChecked
-    : isCommittedChecked;
 
   const handleToggleAction = (item: Changeset) => {
     const toggleArray = handleToggle(item, revisionsCount, displayedRevisions);
@@ -61,7 +52,7 @@ function SearchResultsList({
             index={index}
             item={item}
             revisionsCount={revisionsCount}
-            isChecked={isCheckedState(item)}
+            isChecked={isInProgressChecked(item)}
             onToggle={handleToggleAction}
           />
         ))}
