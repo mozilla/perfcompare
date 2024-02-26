@@ -52,7 +52,7 @@ function SearchResultsList({
       alignItems='flex-end'
       data-testid='list-mode'
     >
-      <List dense={isEditable == true} sx={{ paddingTop: '0' }}>
+      <List dense={isEditable} sx={{ paddingTop: '0' }}>
         {searchResults.map((item, index) => (
           <SearchResultsListItem
             key={item.id}
