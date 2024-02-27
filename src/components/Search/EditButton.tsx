@@ -19,7 +19,7 @@ export default function EditButton({ isBase, onEditAction }: EditButtonProps) {
       id={`${searchType}-edit-button`}
       role='button'
       name='edit-button'
-      aria-label='edit button'
+      aria-label='edit revision'
       onClick={onEditAction}
     >
       <img

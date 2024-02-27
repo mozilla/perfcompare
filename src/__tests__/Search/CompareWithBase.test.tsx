@@ -107,7 +107,7 @@ describe('Compare With Base', () => {
     await user.click(checkbox);
     expect(checkbox).toHaveClass('Mui-checked');
     const removeButton = document.querySelectorAll(
-      '[aria-label="close-button"]',
+      '[aria-label="remove revision"]',
     );
     expect(removeButton[0]).toBeInTheDocument();
     expect(screen.getAllByTestId('selected-rev-item')[0]).toBeInTheDocument();

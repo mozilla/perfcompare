@@ -579,7 +579,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="download-button-container"
             >
               <button
-                aria-label="download"
+                aria-label="download results"
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
                 type="button"
@@ -609,7 +609,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="runs-button-container"
             >
               <button
-                aria-label="retrigger button"
+                aria-label="retrigger job"
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
                 type="button"
@@ -896,7 +896,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="download-button-container"
             >
               <button
-                aria-label="download"
+                aria-label="download results"
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
                 type="button"
@@ -926,7 +926,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="runs-button-container"
             >
               <button
-                aria-label="retrigger button"
+                aria-label="retrigger job"
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
                 type="button"
@@ -1219,7 +1219,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="download-button-container"
             >
               <button
-                aria-label="download"
+                aria-label="download results"
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
                 type="button"
@@ -1249,7 +1249,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="runs-button-container"
             >
               <button
-                aria-label="retrigger button"
+                aria-label="retrigger job"
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
                 type="button"
@@ -1541,7 +1541,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="download-button-container"
             >
               <button
-                aria-label="download"
+                aria-label="download results"
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
                 type="button"
@@ -1571,7 +1571,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="runs-button-container"
             >
               <button
-                aria-label="retrigger button"
+                aria-label="retrigger job"
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
                 type="button"

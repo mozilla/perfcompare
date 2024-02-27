@@ -124,7 +124,7 @@ function SelectedRevisionItem({
         <Button
           role='button'
           name='close-button'
-          aria-label='close-button'
+          aria-label='remove revision'
           className={`${iconClassName} revision-action close-button`}
           onClick={onRemoveRevision}
         >

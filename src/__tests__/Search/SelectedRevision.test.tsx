@@ -68,7 +68,7 @@ describe('SelectedRevision', () => {
     renderComponent();
 
     const removeButton = document.querySelectorAll(
-      '[aria-label="close-button"]',
+      '[aria-label="remove revision"]',
     );
 
     const removeIcon = screen.getByTestId('close-icon');

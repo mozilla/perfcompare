@@ -38,7 +38,7 @@ export default function SaveCancelButtons({
         className={`cancel-save cancel-button ${cancelBtn.main} cancel-button-${searchType}`}
         role='button'
         name='cancel-button'
-        aria-label='cancel button'
+        aria-label='cancel edit'
         variant='contained'
         onClick={onCancel}
       >
@@ -49,7 +49,7 @@ export default function SaveCancelButtons({
         }`}
         role='button'
         name='save-button'
-        aria-label='save button'
+        aria-label='save edit'
         variant='contained'
         onClick={onSave}
       >

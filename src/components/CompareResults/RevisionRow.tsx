@@ -220,14 +220,14 @@ function RevisionRow(props: RevisionRowProps) {
 
           <div className='download' role='cell'>
             <div className='download-button-container'>
-              <IconButton aria-label='download' size='small'>
+              <IconButton aria-label='download results' size='small'>
                 <FileDownloadOutlinedIcon />
               </IconButton>
             </div>
           </div>
           <div className='retrigger-button' role='cell'>
             <div className='runs-button-container'>
-              <IconButton aria-label='retrigger button' size='small'>
+              <IconButton aria-label='retrigger job' size='small'>
                 <RefreshOutlinedIcon />
               </IconButton>
             </div>

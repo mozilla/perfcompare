@@ -268,7 +268,7 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
                         </p>
                       </div>
                       <button
-                        aria-label="close-button"
+                        aria-label="remove revision"
                         class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon icon-close-show revision-action close-button css-t42cd1-MuiButtonBase-root-MuiButton-root"
                         name="close-button"
                         role="button"
@@ -527,7 +527,7 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
                         </p>
                       </div>
                       <button
-                        aria-label="close-button"
+                        aria-label="remove revision"
                         class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon icon-close-show revision-action close-button css-t42cd1-MuiButtonBase-root-MuiButton-root"
                         name="close-button"
                         role="button"
@@ -644,7 +644,7 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
                         </p>
                       </div>
                       <button
-                        aria-label="close-button"
+                        aria-label="remove revision"
                         class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon icon-close-show revision-action close-button css-t42cd1-MuiButtonBase-root-MuiButton-root"
                         name="close-button"
                         role="button"
