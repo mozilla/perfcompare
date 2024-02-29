@@ -541,34 +541,28 @@ exports[`Results View The table should match snapshot and other elements should 
             <div
               class="graph-link-button-container"
             >
-              <button
-                aria-label="graph link"
+              <a
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+                href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000"
                 tabindex="0"
-                type="button"
+                target="_blank"
+                title="go to revision graph in treeherder"
               >
-                <a
-                  aria-label="link to revision graph"
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                  href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000"
-                  target="_blank"
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                  data-testid="TimelineIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                    data-testid="TimelineIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2z"
-                    />
-                  </svg>
-                </a>
+                  <path
+                    d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2z"
+                  />
+                </svg>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
-              </button>
+              </a>
             </div>
           </div>
           <div
@@ -579,9 +573,9 @@ exports[`Results View The table should match snapshot and other elements should 
               class="download-button-container"
             >
               <button
-                aria-label="download results"
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
+                title="download results"
                 type="button"
               >
                 <svg
@@ -606,12 +600,12 @@ exports[`Results View The table should match snapshot and other elements should 
             role="cell"
           >
             <div
-              class="runs-button-container"
+              class="retrigger-button-container"
             >
               <button
-                aria-label="retrigger job"
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
+                title="retrigger jobs"
                 type="button"
               >
                 <svg
@@ -641,9 +635,9 @@ exports[`Results View The table should match snapshot and other elements should 
             data-testid="expand-revision-button"
           >
             <button
-              aria-label="expand row"
               class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
+              title="expand row"
               type="button"
             >
               <svg
@@ -858,34 +852,28 @@ exports[`Results View The table should match snapshot and other elements should 
             <div
               class="graph-link-button-container"
             >
-              <button
-                aria-label="graph link"
+              <a
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+                href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2Cedcc6311f15bdf7924ef3f0ccfd8b47ce1892212%2C1%2C1&timerange=5184000"
                 tabindex="0"
-                type="button"
+                target="_blank"
+                title="go to revision graph in treeherder"
               >
-                <a
-                  aria-label="link to revision graph"
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                  href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2Cedcc6311f15bdf7924ef3f0ccfd8b47ce1892212%2C1%2C1&timerange=5184000"
-                  target="_blank"
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                  data-testid="TimelineIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                    data-testid="TimelineIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2z"
-                    />
-                  </svg>
-                </a>
+                  <path
+                    d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2z"
+                  />
+                </svg>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
-              </button>
+              </a>
             </div>
           </div>
           <div
@@ -896,9 +884,9 @@ exports[`Results View The table should match snapshot and other elements should 
               class="download-button-container"
             >
               <button
-                aria-label="download results"
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
+                title="download results"
                 type="button"
               >
                 <svg
@@ -923,12 +911,12 @@ exports[`Results View The table should match snapshot and other elements should 
             role="cell"
           >
             <div
-              class="runs-button-container"
+              class="retrigger-button-container"
             >
               <button
-                aria-label="retrigger job"
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
+                title="retrigger jobs"
                 type="button"
               >
                 <svg
@@ -958,9 +946,9 @@ exports[`Results View The table should match snapshot and other elements should 
             data-testid="expand-revision-button"
           >
             <button
-              aria-label="expand row"
               class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
+              title="expand row"
               type="button"
             >
               <svg
@@ -1181,34 +1169,28 @@ exports[`Results View The table should match snapshot and other elements should 
             <div
               class="graph-link-button-container"
             >
-              <button
-                aria-label="graph link"
+              <a
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+                href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C3a6d4b6178678c3113c980b378bb83b2629926a0%2C1%2C1&timerange=5184000"
                 tabindex="0"
-                type="button"
+                target="_blank"
+                title="go to revision graph in treeherder"
               >
-                <a
-                  aria-label="link to revision graph"
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                  href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C3a6d4b6178678c3113c980b378bb83b2629926a0%2C1%2C1&timerange=5184000"
-                  target="_blank"
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                  data-testid="TimelineIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                    data-testid="TimelineIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2z"
-                    />
-                  </svg>
-                </a>
+                  <path
+                    d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2z"
+                  />
+                </svg>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
-              </button>
+              </a>
             </div>
           </div>
           <div
@@ -1219,9 +1201,9 @@ exports[`Results View The table should match snapshot and other elements should 
               class="download-button-container"
             >
               <button
-                aria-label="download results"
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
+                title="download results"
                 type="button"
               >
                 <svg
@@ -1246,12 +1228,12 @@ exports[`Results View The table should match snapshot and other elements should 
             role="cell"
           >
             <div
-              class="runs-button-container"
+              class="retrigger-button-container"
             >
               <button
-                aria-label="retrigger job"
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
+                title="retrigger jobs"
                 type="button"
               >
                 <svg
@@ -1281,9 +1263,9 @@ exports[`Results View The table should match snapshot and other elements should 
             data-testid="expand-revision-button"
           >
             <button
-              aria-label="expand row"
               class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
+              title="expand row"
               type="button"
             >
               <svg
@@ -1503,34 +1485,28 @@ exports[`Results View The table should match snapshot and other elements should 
             <div
               class="graph-link-button-container"
             >
-              <button
-                aria-label="graph link"
+              <a
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+                href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C3a6d4b6178678c3113c980b378bb83b2629926a0%2C1%2C1&timerange=5184000"
                 tabindex="0"
-                type="button"
+                target="_blank"
+                title="go to revision graph in treeherder"
               >
-                <a
-                  aria-label="link to revision graph"
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                  href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C3a6d4b6178678c3113c980b378bb83b2629926a0%2C1%2C1&timerange=5184000"
-                  target="_blank"
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                  data-testid="TimelineIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                    data-testid="TimelineIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2z"
-                    />
-                  </svg>
-                </a>
+                  <path
+                    d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2z"
+                  />
+                </svg>
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
-              </button>
+              </a>
             </div>
           </div>
           <div
@@ -1541,9 +1517,9 @@ exports[`Results View The table should match snapshot and other elements should 
               class="download-button-container"
             >
               <button
-                aria-label="download results"
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
+                title="download results"
                 type="button"
               >
                 <svg
@@ -1568,12 +1544,12 @@ exports[`Results View The table should match snapshot and other elements should 
             role="cell"
           >
             <div
-              class="runs-button-container"
+              class="retrigger-button-container"
             >
               <button
-                aria-label="retrigger job"
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
+                title="retrigger jobs"
                 type="button"
               >
                 <svg
@@ -1603,9 +1579,9 @@ exports[`Results View The table should match snapshot and other elements should 
             data-testid="expand-revision-button"
           >
             <button
-              aria-label="expand row"
               class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
+              title="expand row"
               type="button"
             >
               <svg

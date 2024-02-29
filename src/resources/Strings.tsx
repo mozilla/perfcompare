@@ -85,8 +85,14 @@ export const Strings = {
     },
     revisionRow: {
       platformUndefinedText: 'Unspecified',
+      title: {
+        graphLink: 'go to revision graph in treeherder',
+        downloadResults: 'download results',
+        retriggerJobs: 'retrigger jobs',
+      },
     },
     expandableRow: {
+      title: 'expand row',
       singleRun: 'Only one run (consider more runs for greater confidence).',
       Low: "A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
       Medium:
