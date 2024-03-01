@@ -575,7 +575,7 @@ exports[`Results View The table should match snapshot and other elements should 
               <button
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
-                title="download results"
+                title="download profilers"
                 type="button"
               >
                 <svg
@@ -886,7 +886,7 @@ exports[`Results View The table should match snapshot and other elements should 
               <button
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
-                title="download results"
+                title="download profilers"
                 type="button"
               >
                 <svg
@@ -1203,7 +1203,7 @@ exports[`Results View The table should match snapshot and other elements should 
               <button
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
-                title="download results"
+                title="download profilers"
                 type="button"
               >
                 <svg
@@ -1519,7 +1519,7 @@ exports[`Results View The table should match snapshot and other elements should 
               <button
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
-                title="download results"
+                title="download profilers"
                 type="button"
               >
                 <svg

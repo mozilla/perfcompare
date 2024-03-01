@@ -219,7 +219,7 @@ function RevisionRow(props: RevisionRowProps) {
           <div className='download' role='cell'>
             <div className='download-button-container'>
               <IconButton
-                title={Strings.components.revisionRow.title.downloadResults}
+                title={Strings.components.revisionRow.title.downloadProfilers}
                 size='small'
               >
                 <FileDownloadOutlinedIcon />

@@ -379,7 +379,7 @@ exports[`Results Table Should match snapshot 1`] = `
                   <button
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
-                    title="download results"
+                    title="download profilers"
                     type="button"
                   >
                     <svg
@@ -690,7 +690,7 @@ exports[`Results Table Should match snapshot 1`] = `
                   <button
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
-                    title="download results"
+                    title="download profilers"
                     type="button"
                   >
                     <svg
@@ -1007,7 +1007,7 @@ exports[`Results Table Should match snapshot 1`] = `
                   <button
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
-                    title="download results"
+                    title="download profilers"
                     type="button"
                   >
                     <svg
@@ -1323,7 +1323,7 @@ exports[`Results Table Should match snapshot 1`] = `
                   <button
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
-                    title="download results"
+                    title="download profilers"
                     type="button"
                   >
                     <svg

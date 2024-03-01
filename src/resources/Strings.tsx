@@ -87,7 +87,7 @@ export const Strings = {
       platformUndefinedText: 'Unspecified',
       title: {
         graphLink: 'go to revision graph in treeherder',
-        downloadResults: 'download results',
+        downloadProfilers: 'download profilers',
         jobLink: 'go to revision jobs in treeherder for',
         retriggerJobs: 'retrigger jobs',
       },
