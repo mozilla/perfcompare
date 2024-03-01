@@ -7,7 +7,6 @@ import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import { IconButton } from '@mui/material';
-import Link from '@mui/material/Link';
 import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
@@ -206,24 +205,33 @@ function RevisionRow(props: RevisionRowProps) {
         <div className='row-buttons cell'>
           <div className='graph' role='cell'>
             <div className='graph-link-button-container'>
-              <IconButton aria-label='graph link' size='small'>
-                <Link href={graphLink} target='_blank'>
-                  <TimelineIcon />
-                </Link>
+              <IconButton
+                title={Strings.components.revisionRow.title.graphLink}
+                size='small'
+                href={graphLink}
+                target='_blank'
+              >
+                <TimelineIcon />
               </IconButton>
             </div>
           </div>
 
           <div className='download' role='cell'>
             <div className='download-button-container'>
-              <IconButton aria-label='download' size='small'>
+              <IconButton
+                title={Strings.components.revisionRow.title.downloadProfilers}
+                size='small'
+              >
                 <FileDownloadOutlinedIcon />
               </IconButton>
             </div>
           </div>
           <div className='retrigger-button' role='cell'>
-            <div className='runs-button-container'>
-              <IconButton aria-label='retrigger button' size='small'>
+            <div className='retrigger-button-container'>
+              <IconButton
+                title={Strings.components.revisionRow.title.retriggerJobs}
+                size='small'
+              >
                 <RefreshOutlinedIcon />
               </IconButton>
             </div>
@@ -235,7 +243,14 @@ function RevisionRow(props: RevisionRowProps) {
             onClick={toggleIsExpanded}
             data-testid='expand-revision-button'
           >
-            <IconButton aria-label='expand row' size='small'>
+            <IconButton
+              title={
+                expanded
+                  ? Strings.components.expandableRow.title.shrink
+                  : Strings.components.expandableRow.title.expand
+              }
+              size='small'
+            >
               {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
             </IconButton>
           </div>

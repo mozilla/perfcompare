@@ -29,6 +29,18 @@ describe('App', () => {
     expect(homeText).toBeInTheDocument();
   });
 
+  test('Should display File bug link', async () => {
+    render(<App />);
+
+    const link = await screen.findByRole('link', {
+      name: /File a bug on Bugzilla/,
+    });
+    expect(link).toHaveAttribute(
+      'href',
+      'https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]',
+    );
+  });
+
   test('Should display PerfCompare Matrix channel link', async () => {
     render(<App />);
 
