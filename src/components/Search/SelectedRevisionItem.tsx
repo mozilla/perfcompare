@@ -33,7 +33,7 @@ interface SelectedRevisionItemProps {
   isBase: boolean;
   isWarning: boolean;
   iconClassName: string;
-  removeRevision: (item: Changeset) => void;
+  onRemoveRevision: (item: Changeset) => void;
 }
 
 function SelectedRevisionItem({
@@ -42,7 +42,7 @@ function SelectedRevisionItem({
   iconClassName,
   isBase,
   isWarning,
-  removeRevision,
+  onRemoveRevision,
 }: SelectedRevisionItemProps) {
   const searchType = isBase ? 'base' : 'new';
   const mode = useAppSelector((state) => state.theme.mode);
@@ -51,10 +51,6 @@ function SelectedRevisionItem({
   const commitMessage = getLatestCommitMessage(item);
   const itemDate = new Date(item.push_timestamp * 1000);
   const repository = repoMap[item.repository_id] ?? 'try';
-
-  const onRemoveRevision = () => {
-    removeRevision(item);
-  };
 
   return (
     <ListItem
@@ -125,7 +121,7 @@ function SelectedRevisionItem({
           name='close-button'
           title='remove revision'
           className={`${iconClassName} revision-action close-button`}
-          onClick={onRemoveRevision}
+          onClick={() => onRemoveRevision(item)}
         >
           <CloseOutlined fontSize='small' data-testid='close-icon' />
         </Button>

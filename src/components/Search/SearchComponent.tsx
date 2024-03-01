@@ -36,11 +36,11 @@ interface SearchProps {
   searchResults: Changeset[];
   displayedRevisions: Changeset[];
   setPopoverIsOpen?: Dispatch<SetStateAction<boolean>>;
-  handleSave: () => void;
-  handleCancel: () => void;
-  handleEdit: () => void;
-  handleSearchResultsEditToggle: (toggleArray: Changeset[]) => void;
-  handleRemoveEditViewRevision: (item: Changeset) => void;
+  onSave: () => void;
+  onCancel: () => void;
+  onEdit: () => void;
+  onSearchResultsToggle: (toggleArray: Changeset[]) => void;
+  onRemoveRevision: (item: Changeset) => void;
   prevRevision?: Changeset;
   selectLabel: string;
   tooltip: string;
@@ -52,11 +52,11 @@ function SearchComponent({
   isBaseComp,
   searchResults,
   displayedRevisions,
-  handleCancel,
-  handleSave,
-  handleEdit,
-  handleSearchResultsEditToggle,
-  handleRemoveEditViewRevision,
+  onCancel,
+  onSave,
+  onEdit,
+  onSearchResultsToggle,
+  onRemoveRevision,
   selectLabel,
   tooltip,
   inputPlaceholder,
@@ -149,7 +149,7 @@ function SearchComponent({
           <EditButton
             isBase={isBaseComp}
             onEditAction={() => {
-              handleEdit();
+              onEdit();
               setFormIsDisplayed(true);
             }}
           />
@@ -199,7 +199,7 @@ function SearchComponent({
               isBase={isBaseComp}
               searchResults={searchResults}
               displayedRevisions={displayedRevisions}
-              onEditToggle={handleSearchResultsEditToggle}
+              onToggle={onSearchResultsToggle}
             />
           )}
         </Grid>
@@ -208,11 +208,11 @@ function SearchComponent({
           <SaveCancelButtons
             searchType={searchType}
             onSave={() => {
-              handleSave();
+              onSave();
               setFormIsDisplayed(false);
             }}
             onCancel={() => {
-              handleCancel();
+              onCancel();
               setFormIsDisplayed(false);
             }}
           />
@@ -227,7 +227,7 @@ function SearchComponent({
             formIsDisplayed={formIsDisplayed}
             isWarning={isWarning}
             displayedRevisions={displayedRevisions}
-            onEditRemove={handleRemoveEditViewRevision}
+            onRemoveRevision={onRemoveRevision}
           />
         </Grid>
       )}

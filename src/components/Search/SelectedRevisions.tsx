@@ -13,7 +13,7 @@ interface SelectedRevisionsProps {
   hasNonEditableState: boolean;
   isWarning: boolean;
   displayedRevisions: Changeset[];
-  onEditRemove: (item: Changeset) => void;
+  onRemoveRevision: (item: Changeset) => void;
 }
 
 function SelectedRevisions({
@@ -22,29 +22,22 @@ function SelectedRevisions({
   hasNonEditableState,
   isWarning,
   displayedRevisions,
-  onEditRemove,
+  onRemoveRevision,
 }: SelectedRevisionsProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = SelectRevsStyles(mode);
   const searchType = isBase ? 'base' : 'new';
-
-  const onEditRemoveAction = (item: Changeset) => {
-    onEditRemove(item);
-  };
 
   const { removeCheckedRevision } = useCheckRevision(
     isBase,
     hasNonEditableState,
   );
 
-  const handleRemoveRevision = (item: Changeset) => {
-    removeCheckedRevision(item);
-  };
   const removeRevision = (item: Changeset) => {
     if (hasNonEditableState) {
-      onEditRemoveAction(item);
+      onRemoveRevision(item);
     } else {
-      handleRemoveRevision(item);
+      removeCheckedRevision(item);
     }
   };
 
@@ -68,7 +61,7 @@ function SelectedRevisions({
             item={item}
             isBase={isBase}
             isWarning={isWarning}
-            removeRevision={removeRevision}
+            onRemoveRevision={removeRevision}
             iconClassName={iconClassName}
           />
         ))}
