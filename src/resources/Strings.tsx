@@ -86,14 +86,17 @@ export const Strings = {
     revisionRow: {
       platformUndefinedText: 'Unspecified',
       title: {
-        graphLink: 'go to revision graph in treeherder',
-        downloadProfilers: 'download profilers',
-        jobLink: 'go to revision jobs in treeherder for',
+        graphLink: 'open the evolution graph for this job in treeherder',
+        downloadProfilers: 'open the performance profile for this job',
+        jobLink: 'open treeherder view for',
         retriggerJobs: 'retrigger jobs',
       },
     },
     expandableRow: {
-      title: 'expand row',
+      title: {
+        expand: 'expand this row',
+        shrink: 'shrink this row',
+      },
       singleRun: 'Only one run (consider more runs for greater confidence).',
       Low: "A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
       Medium:

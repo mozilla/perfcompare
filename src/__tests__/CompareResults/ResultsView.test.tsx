@@ -199,7 +199,7 @@ describe('Results View', () => {
     );
 
     const expandButton = await screen.findByRole('button', {
-      name: 'expand row',
+      name: 'expand this row',
     });
     await user.click(expandButton);
     expect(await screen.findByTestId('expanded-row-content')).toMatchSnapshot();

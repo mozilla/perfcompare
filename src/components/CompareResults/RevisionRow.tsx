@@ -244,7 +244,11 @@ function RevisionRow(props: RevisionRowProps) {
             data-testid='expand-revision-button'
           >
             <IconButton
-              title={Strings.components.expandableRow.title}
+              title={
+                expanded
+                  ? Strings.components.expandableRow.title.shrink
+                  : Strings.components.expandableRow.title.expand
+              }
               size='small'
             >
               {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}

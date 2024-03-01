@@ -396,7 +396,7 @@ exports[`Results View The table should match snapshot and other elements should 
           class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
           href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
           target="_blank"
-          title="go to revision jobs in treeherder for spam"
+          title="open treeherder view for spam"
         >
           spam
         </a>
@@ -546,7 +546,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000"
                 tabindex="0"
                 target="_blank"
-                title="go to revision graph in treeherder"
+                title="open the evolution graph for this job in treeherder"
               >
                 <svg
                   aria-hidden="true"
@@ -575,7 +575,7 @@ exports[`Results View The table should match snapshot and other elements should 
               <button
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
-                title="download profilers"
+                title="open the performance profile for this job"
                 type="button"
               >
                 <svg
@@ -637,7 +637,7 @@ exports[`Results View The table should match snapshot and other elements should 
             <button
               class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
-              title="expand row"
+              title="expand this row"
               type="button"
             >
               <svg
@@ -857,7 +857,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2Cedcc6311f15bdf7924ef3f0ccfd8b47ce1892212%2C1%2C1&timerange=5184000"
                 tabindex="0"
                 target="_blank"
-                title="go to revision graph in treeherder"
+                title="open the evolution graph for this job in treeherder"
               >
                 <svg
                   aria-hidden="true"
@@ -886,7 +886,7 @@ exports[`Results View The table should match snapshot and other elements should 
               <button
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
-                title="download profilers"
+                title="open the performance profile for this job"
                 type="button"
               >
                 <svg
@@ -948,7 +948,7 @@ exports[`Results View The table should match snapshot and other elements should 
             <button
               class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
-              title="expand row"
+              title="expand this row"
               type="button"
             >
               <svg
@@ -1174,7 +1174,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C3a6d4b6178678c3113c980b378bb83b2629926a0%2C1%2C1&timerange=5184000"
                 tabindex="0"
                 target="_blank"
-                title="go to revision graph in treeherder"
+                title="open the evolution graph for this job in treeherder"
               >
                 <svg
                   aria-hidden="true"
@@ -1203,7 +1203,7 @@ exports[`Results View The table should match snapshot and other elements should 
               <button
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
-                title="download profilers"
+                title="open the performance profile for this job"
                 type="button"
               >
                 <svg
@@ -1265,7 +1265,7 @@ exports[`Results View The table should match snapshot and other elements should 
             <button
               class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
-              title="expand row"
+              title="expand this row"
               type="button"
             >
               <svg
@@ -1490,7 +1490,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C3a6d4b6178678c3113c980b378bb83b2629926a0%2C1%2C1&timerange=5184000"
                 tabindex="0"
                 target="_blank"
-                title="go to revision graph in treeherder"
+                title="open the evolution graph for this job in treeherder"
               >
                 <svg
                   aria-hidden="true"
@@ -1519,7 +1519,7 @@ exports[`Results View The table should match snapshot and other elements should 
               <button
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
-                title="download profilers"
+                title="open the performance profile for this job"
                 type="button"
               >
                 <svg
@@ -1581,7 +1581,7 @@ exports[`Results View The table should match snapshot and other elements should 
             <button
               class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
-              title="expand row"
+              title="expand this row"
               type="button"
             >
               <svg
