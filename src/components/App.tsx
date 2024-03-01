@@ -69,6 +69,8 @@ export const router = createBrowserRouter(
         element={<ResultsView title={Strings.metaData.pageTitle.results} />}
         errorElement={<PageError title={Strings.metaData.pageTitle.results} />}
       />
+
+      <Route path='/taskcluster-auth' />
     </>,
   ),
 );
