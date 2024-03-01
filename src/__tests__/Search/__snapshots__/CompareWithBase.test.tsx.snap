@@ -214,10 +214,10 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
                             class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
                           >
                             <a
-                              aria-label="link to revision jobs in treeherder for coconut"
                               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
                               href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
                               target="_blank"
+                              title="go to revision jobs in treeherder for coconut"
                             >
                               coconut
                             </a>
@@ -268,11 +268,10 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
                         </p>
                       </div>
                       <button
-                        aria-label="remove revision"
                         class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon icon-close-show revision-action close-button css-t42cd1-MuiButtonBase-root-MuiButton-root"
                         name="close-button"
-                        role="button"
                         tabindex="0"
+                        title="remove revision"
                         type="button"
                       >
                         <svg
@@ -473,10 +472,10 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
                             class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
                           >
                             <a
-                              aria-label="link to revision jobs in treeherder for spam"
                               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
                               href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
                               target="_blank"
+                              title="go to revision jobs in treeherder for spam"
                             >
                               spam
                             </a>
@@ -527,11 +526,10 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
                         </p>
                       </div>
                       <button
-                        aria-label="remove revision"
                         class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon icon-close-show revision-action close-button css-t42cd1-MuiButtonBase-root-MuiButton-root"
                         name="close-button"
-                        role="button"
                         tabindex="0"
+                        title="remove revision"
                         type="button"
                       >
                         <svg
@@ -590,10 +588,10 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
                             class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
                           >
                             <a
-                              aria-label="link to revision jobs in treeherder for spamspam"
                               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
                               href="https://treeherder.mozilla.org/jobs?repo=try&revision=spamspam"
                               target="_blank"
+                              title="go to revision jobs in treeherder for spamspam"
                             >
                               spamspam
                             </a>
@@ -644,11 +642,10 @@ exports[`Compare With Base renders correctly when there are no results 1`] = `
                         </p>
                       </div>
                       <button
-                        aria-label="remove revision"
                         class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon icon-close-show revision-action close-button css-t42cd1-MuiButtonBase-root-MuiButton-root"
                         name="close-button"
-                        role="button"
                         tabindex="0"
+                        title="remove revision"
                         type="button"
                       >
                         <svg

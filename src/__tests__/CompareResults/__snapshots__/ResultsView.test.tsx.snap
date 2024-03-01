@@ -393,10 +393,10 @@ exports[`Results View The table should match snapshot and other elements should 
         </strong>
          
         <a
-          aria-label="link to revision jobs in treeherder for spam"
           class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
           href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
           target="_blank"
+          title="go to revision jobs in treeherder for spam"
         >
           spam
         </a>

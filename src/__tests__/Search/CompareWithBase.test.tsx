@@ -106,9 +106,7 @@ describe('Compare With Base', () => {
     const checkbox = (await screen.findAllByTestId('checkbox-0'))[0];
     await user.click(checkbox);
     expect(checkbox).toHaveClass('Mui-checked');
-    const removeButton = document.querySelectorAll(
-      '[aria-label="remove revision"]',
-    );
+    const removeButton = document.querySelectorAll('[title="remove revision"]');
     expect(removeButton[0]).toBeInTheDocument();
     expect(screen.getAllByTestId('selected-rev-item')[0]).toBeInTheDocument();
 

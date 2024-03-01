@@ -33,7 +33,7 @@ describe('App', () => {
     render(<App />);
 
     const link = await screen.findByRole('link', {
-      name: 'link to file bug in bugzilla',
+      name: /File a bug on Bugzilla/,
     });
     expect(link).toHaveAttribute(
       'href',
@@ -45,7 +45,7 @@ describe('App', () => {
     render(<App />);
 
     const link = await screen.findByRole('link', {
-      name: 'link to perfcompare matrix channel',
+      name: '#perfcompare:mozilla.org on Matrix',
     });
     expect(link).toHaveAttribute(
       'href',

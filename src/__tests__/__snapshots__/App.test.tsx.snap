@@ -85,7 +85,6 @@ exports[`App CompareResults loader Should render an error page when the treeherd
           This is an unstable pre-release version. Some features may not yet be supported.
            
           <a
-            aria-label="link to file bug in bugzilla"
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
             href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
             target="_blank"
@@ -96,7 +95,6 @@ exports[`App CompareResults loader Should render an error page when the treeherd
           Find us at
            
           <a
-            aria-label="link to perfcompare matrix channel"
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
             href="https://matrix.to/#/#perfcompare:mozilla.org"
             target="_blank"
@@ -240,7 +238,6 @@ exports[`App CompareResults loader Should render an error page when the treeherd
           This is an unstable pre-release version. Some features may not yet be supported.
            
           <a
-            aria-label="link to file bug in bugzilla"
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
             href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
             target="_blank"
@@ -251,7 +248,6 @@ exports[`App CompareResults loader Should render an error page when the treeherd
           Find us at
            
           <a
-            aria-label="link to perfcompare matrix channel"
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
             href="https://matrix.to/#/#perfcompare:mozilla.org"
             target="_blank"

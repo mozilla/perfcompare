@@ -93,7 +93,7 @@ function SelectedRevisionItem({
                 <Link
                   href={getTreeherderURL(item.revision, repository)}
                   target='_blank'
-                  aria-label={`link to revision jobs in treeherder for ${revisionHash}`}
+                  title={`${Strings.components.revisionRow.title.jobLink} ${revisionHash}`}
                 >
                   {revisionHash}
                 </Link>
@@ -122,9 +122,8 @@ function SelectedRevisionItem({
           secondaryTypographyProps={{ noWrap: true }}
         />
         <Button
-          role='button'
           name='close-button'
-          aria-label='remove revision'
+          title='remove revision'
           className={`${iconClassName} revision-action close-button`}
           onClick={onRemoveRevision}
         >

@@ -88,6 +88,7 @@ export const Strings = {
       title: {
         graphLink: 'go to revision graph in treeherder',
         downloadResults: 'download results',
+        jobLink: 'go to revision jobs in treeherder for',
         retriggerJobs: 'retrigger jobs',
       },
     },

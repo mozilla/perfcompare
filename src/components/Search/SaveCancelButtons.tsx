@@ -36,9 +36,7 @@ export default function SaveCancelButtons({
     <div className='cancel-save-btns' id='cancel-save_btns'>
       <Button
         className={`cancel-save cancel-button ${cancelBtn.main} cancel-button-${searchType}`}
-        role='button'
         name='cancel-button'
-        aria-label='cancel edit'
         variant='contained'
         onClick={onCancel}
       >
@@ -47,9 +45,7 @@ export default function SaveCancelButtons({
       <Button
         className={`cancel-save save-button save-button-${searchType} 
         }`}
-        role='button'
         name='save-button'
-        aria-label='save edit'
         variant='contained'
         onClick={onSave}
       >
