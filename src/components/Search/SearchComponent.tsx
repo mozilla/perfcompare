@@ -173,7 +173,7 @@ function SearchComponent({
           } ${hasNonEditableState ? compareView : ''}-base-dropdown`}
         >
           <SearchDropdown
-            hasNonEditableState={hasNonEditableState}
+            compact={hasNonEditableState}
             selectLabel={selectLabel}
             tooltipText={tooltip}
             searchType={searchType}
@@ -189,7 +189,7 @@ function SearchComponent({
         >
           <SearchInput
             onFocus={() => setDisplayDropdown(true)}
-            hasNonEditableState={hasNonEditableState}
+            compact={hasNonEditableState}
             inputPlaceholder={inputPlaceholder}
             searchType={searchType}
           />

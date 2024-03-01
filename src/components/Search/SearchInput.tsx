@@ -12,13 +12,13 @@ import { InputType } from '../../types/state';
 interface SearchInputProps {
   onFocus: () => unknown;
   inputPlaceholder: string;
-  hasNonEditableState?: boolean;
+  compact: boolean;
   searchType: InputType;
 }
 
 function SearchInput({
   onFocus,
-  hasNonEditableState,
+  compact,
   inputPlaceholder,
   searchType,
 }: SearchInputProps) {
@@ -26,7 +26,7 @@ function SearchInput({
   const searchState = useAppSelector((state) => state.search[searchType]);
   const mode = useAppSelector((state) => state.theme.mode);
   const { inputError, inputHelperText, repository } = searchState;
-  const size = hasNonEditableState === true ? 'small' : undefined;
+  const size = compact ? 'small' : undefined;
 
   const styles = {
     container: style({

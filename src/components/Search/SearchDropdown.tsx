@@ -17,7 +17,7 @@ import { fetchRecentRevisions } from '../../thunks/searchThunk';
 import { InputType, Repository } from '../../types/state';
 
 interface SearchDropdownProps {
-  hasNonEditableState?: boolean;
+  compact: boolean;
   selectLabel: string;
   tooltipText: string;
   searchType: InputType;
@@ -25,11 +25,11 @@ interface SearchDropdownProps {
 
 //handle in progress repos here if necessary
 function SearchDropdown({
-  hasNonEditableState,
+  compact,
   selectLabel,
   searchType,
 }: SearchDropdownProps) {
-  const size = hasNonEditableState == true ? 'small' : undefined;
+  const size = compact ? 'small' : undefined;
   const mode = useAppSelector((state) => state.theme.mode);
   const repository = useAppSelector(
     (state) => state.search[searchType].repository,
