@@ -30,7 +30,7 @@ import SearchResultsList from './SearchResultsList';
 import SelectedRevisions from './SelectedRevisions';
 
 interface SearchProps {
-  isEditable: boolean;
+  hasNonEditableState: boolean;
   isWarning: boolean;
   isBaseComp: boolean;
   searchResults: Changeset[];
@@ -48,7 +48,7 @@ interface SearchProps {
 }
 
 function SearchComponent({
-  isEditable,
+  hasNonEditableState,
   isBaseComp,
   searchResults,
   displayedRevisions,
@@ -89,7 +89,7 @@ function SearchComponent({
   });
 
   const [displayDropdown, setDisplayDropdown] = useState(false);
-  const [formIsDisplayed, setFormIsDisplayed] = useState(!isEditable);
+  const [formIsDisplayed, setFormIsDisplayed] = useState(!hasNonEditableState);
 
   const handleDocumentMousedown = useCallback(
     (e: MouseEvent) => {
@@ -145,7 +145,7 @@ function SearchComponent({
           </Tooltip>
         </InputLabel>
         {/**** Edit Button ****/}
-        {isEditable && !formIsDisplayed && (
+        {hasNonEditableState && !formIsDisplayed && (
           <EditButton
             isBase={isBaseComp}
             onEditAction={() => {
@@ -169,11 +169,11 @@ function SearchComponent({
           xs={2}
           id={`${searchType}_search-dropdown`}
           className={`${searchType}-search-dropdown ${styles.dropDown} ${
-            isEditable ? 'small' : ''
-          } ${isEditable ? compareView : ''}-base-dropdown`}
+            hasNonEditableState ? 'small' : ''
+          } ${hasNonEditableState ? compareView : ''}-base-dropdown`}
         >
           <SearchDropdown
-            isEditable={isEditable}
+            hasNonEditableState={hasNonEditableState}
             selectLabel={selectLabel}
             tooltipText={tooltip}
             searchType={searchType}
@@ -184,18 +184,18 @@ function SearchComponent({
           xs={7}
           id={`${searchType}_search-input`}
           className={`${searchType}-search-input  ${styles.baseSearchInput} ${
-            isEditable ? 'big' : ''
+            hasNonEditableState ? 'big' : ''
           } `}
         >
           <SearchInput
             onFocus={() => setDisplayDropdown(true)}
-            isEditable={isEditable}
+            hasNonEditableState={hasNonEditableState}
             inputPlaceholder={inputPlaceholder}
             searchType={searchType}
           />
           {searchResults.length > 0 && displayDropdown && (
             <SearchResultsList
-              isEditable={isEditable}
+              hasNonEditableState={hasNonEditableState}
               isBase={isBaseComp}
               searchResults={searchResults}
               displayedRevisions={displayedRevisions}
@@ -204,7 +204,7 @@ function SearchComponent({
           )}
         </Grid>
         {/****** Cancel Save Buttons ******/}
-        {isEditable && formIsDisplayed && (
+        {hasNonEditableState && formIsDisplayed && (
           <SaveCancelButtons
             searchType={searchType}
             onSave={() => {
@@ -223,7 +223,7 @@ function SearchComponent({
         <Grid className='d-flex'>
           <SelectedRevisions
             isBase={isBaseComp}
-            isEditable={isEditable}
+            hasNonEditableState={hasNonEditableState}
             formIsDisplayed={formIsDisplayed}
             isWarning={isWarning}
             displayedRevisions={displayedRevisions}

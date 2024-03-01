@@ -20,7 +20,7 @@ const stringsBase = Strings.components.searchDefault.base.collapsed.base;
 const stringsNew = Strings.components.searchDefault.base.collapsed.revision;
 
 interface CompareWithBaseProps {
-  isEditable: boolean;
+  hasNonEditableState: boolean;
   baseRevs: Changeset[];
   newRevs: Changeset[];
 }
@@ -30,8 +30,44 @@ interface InProgressState {
   isInProgress: boolean;
 }
 
+/**
+ * This component implements the form where the user can enter the input to
+ * compare some revisions with a base revision.
+ * It is fairly complex because it has several states, that also depend on where
+ * it's used.
+ *
+ * In the Search View, the user can edit it always, then presses the
+ * "Compare" button to move to the Results View. Pressing the "Compare" button
+ * is a normal Form submission, that goes through React Router to change the URL
+ * and rerender the page.
+ *
+ * In the Results View, it is initially displayed as non-editable, but presents
+ * an Edit button on each part (base revision / new revisions). When the user
+ * presses this Edit button, the corresponding part will move to an editable
+ * state, similar to the initial state of the Search View. The user will be
+ * able to Cancel or Save the changes, in which case the state moves back to
+ * "non-editable" with respectively the previous selections or the new
+ * selections being displayed. The user can also presses "Compare" directly to
+ * search using the new input.
+ *
+ * Therefore these 3 different states exist:
+ * - The initial state comes from the URL in the ResultsView, and is empty in the
+ *   SearchView (aka the Homepage). It is passed to this component with the
+ *   props. When the user presses "Compare", the URL changes, and so change the
+ *   props too.
+ * - The non-editable state (also known as the staging state) is used in the
+ *   ResultsView only: it contains the snapshot of the revisions, that the user
+ *   will go back if they presses "cancel" after starting editing. It's
+ *   initialized with the initial state.
+ * - The in-progress state represents the set of revisions that the user is
+ *   currently selecting. In the SearchView it can be changed always, but in the
+ *   ResultsView the user will need to press Edit first. If the user presses
+ *   "Save" at this point, the in-progress state is copied to the non-editable
+ *   state. If the user presses "Cancel", the previous non-editable state is
+ *   recalled.
+ */
 function CompareWithBase({
-  isEditable,
+  hasNonEditableState,
   baseRevs,
   newRevs,
 }: CompareWithBaseProps) {
@@ -223,7 +259,7 @@ function CompareWithBase({
             {...stringsBase}
             isBaseComp={true}
             isWarning={isWarning}
-            isEditable={isEditable}
+            hasNonEditableState={hasNonEditableState}
             searchResults={searchResultsBase}
             displayedRevisions={displayedRevisionsBaseRevs}
             handleSave={handleSaveBase}
@@ -235,7 +271,7 @@ function CompareWithBase({
           <SearchComponent
             {...stringsNew}
             isBaseComp={false}
-            isEditable={isEditable}
+            hasNonEditableState={hasNonEditableState}
             isWarning={isWarning}
             searchResults={searchResultsNew}
             displayedRevisions={displayedRevisionsNewRevs}
