@@ -158,8 +158,10 @@ describe('Compare With Base', () => {
     );
     expect(baseSearchContainer).toHaveClass('hide-container');
 
-    // Click the edit button
-    let editButton = screen.getAllByRole('button', { name: 'edit button' })[0];
+    // Click the edit revision
+    let editButton = screen.getAllByRole('button', {
+      name: 'edit revision',
+    })[0];
     await user.click(editButton);
 
     expect(baseSearchContainer).toHaveClass('show-container');
@@ -170,25 +172,25 @@ describe('Compare With Base', () => {
     expect(editButton).not.toBeInTheDocument();
 
     // Pressing the cancel button should hide input and dropdown
-    const cancelButton = screen.getByRole('button', { name: 'cancel button' });
+    const cancelButton = screen.getByRole('button', { name: 'Cancel' });
     await user.click(cancelButton);
 
     expect(baseSearchContainer).toHaveClass('hide-container');
 
-    // Click the edit button again
-    editButton = screen.getAllByRole('button', { name: 'edit button' })[0];
+    // Click the edit revision again
+    editButton = screen.getAllByRole('button', { name: 'edit revision' })[0];
     await user.click(editButton);
     expect(baseSearchContainer).toHaveClass('show-container');
 
     // Remove the base revision by clicking the X button
     const closeBaseButton = screen.getByRole('button', {
-      name: 'close-button',
+      name: 'remove revision',
     });
     await user.click(closeBaseButton);
     expect(baseRevisionText).not.toBeInTheDocument();
 
-    // Click the save button
-    const saveButtonBase = screen.getByRole('button', { name: 'save button' });
+    // Click the Save
+    const saveButtonBase = screen.getByRole('button', { name: 'Save' });
     await user.click(saveButtonBase);
 
     // The baseRevision is still hidden
@@ -201,8 +203,8 @@ describe('Compare With Base', () => {
     const newSearchContainer = document.querySelector('#new-search-container');
     expect(newSearchContainer).toHaveClass('hide-container');
 
-    // Click the edit button for new revisions
-    editButton = screen.getAllByRole('button', { name: 'edit button' })[1];
+    // Click the edit revision for new revisions
+    editButton = screen.getAllByRole('button', { name: 'edit revision' })[1];
     await user.click(editButton);
     expect(formElement).toMatchSnapshot(
       'After clicking edit for the new revision',
@@ -211,18 +213,18 @@ describe('Compare With Base', () => {
 
     // Remove the new revision by clicking the X button
     const closeNewButton = screen.getByRole('button', {
-      name: 'close-button',
+      name: 'remove revision',
     });
     await user.click(closeNewButton);
     expect(newRevisionText).not.toBeInTheDocument();
 
-    // Click the save button
-    const saveButtonNew = screen.getByRole('button', { name: 'save button' });
+    // Click the Save
+    const saveButtonNew = screen.getByRole('button', { name: 'Save' });
     await user.click(saveButtonNew);
     expect(newSearchContainer).toHaveClass('hide-container');
   });
 
-  it('should save the updated BASE revision when save button is clicked', async () => {
+  it('should save the updated BASE revision when Save is clicked', async () => {
     renderWithCompareResultsURL(
       <ResultsView title={Strings.metaData.pageTitle.results} />,
     );
@@ -232,15 +234,15 @@ describe('Compare With Base', () => {
 
     expect(await screen.findByText('Compare with a base')).toBeInTheDocument();
 
-    // Click the edit button
+    // Click the edit revision
     const editButton = screen.getAllByRole('button', {
-      name: 'edit button',
+      name: 'edit revision',
     })[0];
     await user.click(editButton);
 
     // Remove the base revision by clicking the X button
     const closeBaseButton = screen.getByRole('button', {
-      name: 'close-button',
+      name: 'remove revision',
     });
     await user.click(closeBaseButton);
 
@@ -260,8 +262,8 @@ describe('Compare With Base', () => {
     await user.click(horse[0]);
     expect(screen.getAllByTestId('checkbox-2')[0]).toHaveClass('Mui-checked');
 
-    // Click the save button
-    const saveButtonBase = screen.getByRole('button', { name: 'save button' });
+    // Click the Save
+    const saveButtonBase = screen.getByRole('button', { name: 'Save' });
     await user.click(saveButtonBase);
 
     //the updated base revision is rendered
@@ -271,7 +273,7 @@ describe('Compare With Base', () => {
     expect(updatedBaseRevisionText).toBeInTheDocument();
   });
 
-  it('should save the updated NEW revision when save button is clicked', async () => {
+  it('should save the updated NEW revision when Save is clicked', async () => {
     renderWithCompareResultsURL(
       <ResultsView title={Strings.metaData.pageTitle.results} />,
     );
@@ -281,9 +283,9 @@ describe('Compare With Base', () => {
 
     expect(await screen.findByText('Compare with a base')).toBeInTheDocument();
 
-    // Click the edit button for new revisions
+    // Click the edit revision for new revisions
     const editButton = screen.getAllByRole('button', {
-      name: 'edit button',
+      name: 'edit revision',
     })[1];
     await user.click(editButton);
 
@@ -301,8 +303,8 @@ describe('Compare With Base', () => {
     await user.click(horse);
     expect(horse).toHaveClass('item-selected');
 
-    // Click the save button
-    const saveButton = screen.getByRole('button', { name: 'save button' });
+    // Click the Save
+    const saveButton = screen.getByRole('button', { name: 'Save' });
     await user.click(saveButton);
 
     //the updated new revision is rendered

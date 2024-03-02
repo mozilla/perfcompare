@@ -40,6 +40,7 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
             href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
             target="_blank"
+            title="open treeherder view for coconut"
           >
             coconut
           </a>
@@ -90,11 +91,10 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
       </p>
     </div>
     <button
-      aria-label="close-button"
       class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon icon-close-show revision-action close-button css-t42cd1-MuiButtonBase-root-MuiButton-root"
       name="close-button"
-      role="button"
       tabindex="0"
+      title="remove revision"
       type="button"
     >
       <svg

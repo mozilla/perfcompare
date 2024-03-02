@@ -33,11 +33,10 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
         </svg>
       </label>
       <button
-        aria-label="edit button"
+        aria-label="edit revision"
         class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium edit-button edit-button-base show-edit-btn css-t42cd1-MuiButtonBase-root-MuiButton-root"
         id="base-edit-button"
         name="edit-button"
-        role="button"
         tabindex="0"
         type="button"
       >
@@ -203,6 +202,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
                       href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=coconut"
                       target="_blank"
+                      title="open treeherder view for coconut"
                     >
                       coconut
                     </a>
@@ -253,11 +253,10 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                 </p>
               </div>
               <button
-                aria-label="close-button"
                 class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon icon-close-hidden revision-action close-button css-t42cd1-MuiButtonBase-root-MuiButton-root"
                 name="close-button"
-                role="button"
                 tabindex="0"
+                title="remove revision"
                 type="button"
               >
                 <svg
@@ -310,11 +309,10 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
         </svg>
       </label>
       <button
-        aria-label="edit button"
+        aria-label="edit revision"
         class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium edit-button edit-button-new show-edit-btn css-t42cd1-MuiButtonBase-root-MuiButton-root"
         id="new-edit-button"
         name="edit-button"
-        role="button"
         tabindex="0"
         type="button"
       >
@@ -480,6 +478,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
                       href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
                       target="_blank"
+                      title="open treeherder view for spam"
                     >
                       spam
                     </a>
@@ -530,11 +529,10 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                 </p>
               </div>
               <button
-                aria-label="close-button"
                 class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon icon-close-hidden revision-action close-button css-t42cd1-MuiButtonBase-root-MuiButton-root"
                 name="close-button"
-                role="button"
                 tabindex="0"
+                title="remove revision"
                 type="button"
               >
                 <svg
@@ -908,10 +906,8 @@ exports[`Compare With Base should have an edit mode in Results View: After click
         id="cancel-save_btns"
       >
         <button
-          aria-label="cancel button"
           class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium cancel-save cancel-button f9oipqi cancel-button-base css-hkf0n7-MuiButtonBase-root-MuiButton-root"
           name="cancel-button"
-          role="button"
           tabindex="0"
           type="button"
         >
@@ -921,11 +917,9 @@ exports[`Compare With Base should have an edit mode in Results View: After click
           />
         </button>
         <button
-          aria-label="save button"
           class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium cancel-save save-button save-button-base 
         } css-hkf0n7-MuiButtonBase-root-MuiButton-root"
           name="save-button"
-          role="button"
           tabindex="0"
           type="button"
         >
@@ -985,6 +979,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
                       href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=coconut"
                       target="_blank"
+                      title="open treeherder view for coconut"
                     >
                       coconut
                     </a>
@@ -1035,11 +1030,10 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                 </p>
               </div>
               <button
-                aria-label="close-button"
                 class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon icon-close-show revision-action close-button css-t42cd1-MuiButtonBase-root-MuiButton-root"
                 name="close-button"
-                role="button"
                 tabindex="0"
+                title="remove revision"
                 type="button"
               >
                 <svg
@@ -1092,11 +1086,10 @@ exports[`Compare With Base should have an edit mode in Results View: After click
         </svg>
       </label>
       <button
-        aria-label="edit button"
+        aria-label="edit revision"
         class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium edit-button edit-button-new show-edit-btn css-t42cd1-MuiButtonBase-root-MuiButton-root"
         id="new-edit-button"
         name="edit-button"
-        role="button"
         tabindex="0"
         type="button"
       >
@@ -1262,6 +1255,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
                       href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
                       target="_blank"
+                      title="open treeherder view for spam"
                     >
                       spam
                     </a>
@@ -1312,11 +1306,10 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                 </p>
               </div>
               <button
-                aria-label="close-button"
                 class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon icon-close-hidden revision-action close-button css-t42cd1-MuiButtonBase-root-MuiButton-root"
                 name="close-button"
-                role="button"
                 tabindex="0"
+                title="remove revision"
                 type="button"
               >
                 <svg
@@ -1454,11 +1447,10 @@ exports[`Compare With Base should have an edit mode in Results View: After click
         </svg>
       </label>
       <button
-        aria-label="edit button"
+        aria-label="edit revision"
         class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium edit-button edit-button-base show-edit-btn css-t42cd1-MuiButtonBase-root-MuiButton-root"
         id="base-edit-button"
         name="edit-button"
-        role="button"
         tabindex="0"
         type="button"
       >
@@ -1720,10 +1712,8 @@ exports[`Compare With Base should have an edit mode in Results View: After click
         id="cancel-save_btns"
       >
         <button
-          aria-label="cancel button"
           class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium cancel-save cancel-button f9oipqi cancel-button-new css-hkf0n7-MuiButtonBase-root-MuiButton-root"
           name="cancel-button"
-          role="button"
           tabindex="0"
           type="button"
         >
@@ -1733,11 +1723,9 @@ exports[`Compare With Base should have an edit mode in Results View: After click
           />
         </button>
         <button
-          aria-label="save button"
           class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium cancel-save save-button save-button-new 
         } css-hkf0n7-MuiButtonBase-root-MuiButton-root"
           name="save-button"
-          role="button"
           tabindex="0"
           type="button"
         >
@@ -1797,6 +1785,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
                       href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
                       target="_blank"
+                      title="open treeherder view for spam"
                     >
                       spam
                     </a>
@@ -1847,11 +1836,10 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                 </p>
               </div>
               <button
-                aria-label="close-button"
                 class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon icon-close-show revision-action close-button css-t42cd1-MuiButtonBase-root-MuiButton-root"
                 name="close-button"
-                role="button"
                 tabindex="0"
+                title="remove revision"
                 type="button"
               >
                 <svg
@@ -1989,11 +1977,10 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
         </svg>
       </label>
       <button
-        aria-label="edit button"
+        aria-label="edit revision"
         class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium edit-button edit-button-base show-edit-btn css-t42cd1-MuiButtonBase-root-MuiButton-root"
         id="base-edit-button"
         name="edit-button"
-        role="button"
         tabindex="0"
         type="button"
       >
@@ -2159,6 +2146,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
                       href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=coconut"
                       target="_blank"
+                      title="open treeherder view for coconut"
                     >
                       coconut
                     </a>
@@ -2209,11 +2197,10 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                 </p>
               </div>
               <button
-                aria-label="close-button"
                 class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon icon-close-hidden revision-action close-button css-t42cd1-MuiButtonBase-root-MuiButton-root"
                 name="close-button"
-                role="button"
                 tabindex="0"
+                title="remove revision"
                 type="button"
               >
                 <svg
@@ -2266,11 +2253,10 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
         </svg>
       </label>
       <button
-        aria-label="edit button"
+        aria-label="edit revision"
         class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium edit-button edit-button-new show-edit-btn css-t42cd1-MuiButtonBase-root-MuiButton-root"
         id="new-edit-button"
         name="edit-button"
-        role="button"
         tabindex="0"
         type="button"
       >
@@ -2436,6 +2422,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
                       href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
                       target="_blank"
+                      title="open treeherder view for spam"
                     >
                       spam
                     </a>
@@ -2486,11 +2473,10 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                 </p>
               </div>
               <button
-                aria-label="close-button"
                 class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon icon-close-hidden revision-action close-button css-t42cd1-MuiButtonBase-root-MuiButton-root"
                 name="close-button"
-                role="button"
                 tabindex="0"
+                title="remove revision"
                 type="button"
               >
                 <svg
