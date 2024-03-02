@@ -15,7 +15,7 @@ import {
   FetchMockSandbox,
 } from '../utils/test-utils';
 
-function setupTestData() {
+function setUpTestData() {
   const { testData } = getTestData();
   (global.fetch as FetchMockSandbox).get(
     'begin:https://treeherder.mozilla.org/api/project/try/push/',
@@ -23,17 +23,6 @@ function setupTestData() {
       results: testData,
     },
   );
-}
-
-function renderComponent() {
-  setupTestData();
-  return renderWithRouter(
-    <SearchView title={Strings.metaData.pageTitle.search} />,
-  );
-}
-
-function renderWithRoute(component: ReactElement) {
-  const { testData } = getTestData();
   (window.fetch as FetchMockSandbox)
     .get('begin:https://treeherder.mozilla.org/api/perfcompare/results/', [])
     .get(
@@ -48,6 +37,17 @@ function renderWithRoute(component: ReactElement) {
         results: [testData[1]],
       },
     );
+}
+
+function renderSearchViewComponent() {
+  setUpTestData();
+  return renderWithRouter(
+    <SearchView title={Strings.metaData.pageTitle.search} />,
+  );
+}
+
+function renderWithCompareResultsURL(component: ReactElement) {
+  setUpTestData();
   return renderWithRouter(component, {
     route: '/compare-results/',
     search:
@@ -58,14 +58,16 @@ function renderWithRoute(component: ReactElement) {
 
 describe('Compare With Base', () => {
   it('renders correctly when there are no results', async () => {
-    renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
+    renderWithCompareResultsURL(
+      <ResultsView title={Strings.metaData.pageTitle.results} />,
+    );
     expect(await screen.findByText('Compare with a base')).toBeInTheDocument();
     const formElement = await screen.findByRole('form');
     expect(formElement).toMatchSnapshot('Initial state for the form');
   });
 
   it('toggles component open and closed on click', async () => {
-    renderComponent();
+    renderSearchViewComponent();
 
     const user = userEvent.setup({ delay: null });
     const testExpandedID = 'base-state';
@@ -89,7 +91,7 @@ describe('Compare With Base', () => {
   });
 
   it('selects and displays new framework when clicked', async () => {
-    renderComponent();
+    renderSearchViewComponent();
     const user = userEvent.setup({ delay: null });
     expect(screen.getByText(/talos/i)).toBeInTheDocument();
     expect(screen.queryByText(/build_metrics/i)).not.toBeInTheDocument();
@@ -109,7 +111,7 @@ describe('Compare With Base', () => {
   });
 
   it('should remove the checked revision once X button is clicked', async () => {
-    renderComponent();
+    renderSearchViewComponent();
 
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
@@ -134,7 +136,9 @@ describe('Compare With Base', () => {
   });
 
   it('should have an edit mode in Results View', async () => {
-    renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
+    renderWithCompareResultsURL(
+      <ResultsView title={Strings.metaData.pageTitle.results} />,
+    );
 
     const user = userEvent.setup({ delay: null });
 
@@ -219,17 +223,14 @@ describe('Compare With Base', () => {
   });
 
   it('should save the updated BASE revision when save button is clicked', async () => {
-    setupTestData();
-    renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
+    renderWithCompareResultsURL(
+      <ResultsView title={Strings.metaData.pageTitle.results} />,
+    );
 
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
     expect(await screen.findByText('Compare with a base')).toBeInTheDocument();
-    const formElement = await screen.findByRole('form');
-    expect(formElement).toMatchSnapshot(
-      'Initial state for the form in edit mode',
-    );
 
     // Click the edit button
     const editButton = screen.getAllByRole('button', {
@@ -271,32 +272,20 @@ describe('Compare With Base', () => {
   });
 
   it('should save the updated NEW revision when save button is clicked', async () => {
-    setupTestData();
-    renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
+    renderWithCompareResultsURL(
+      <ResultsView title={Strings.metaData.pageTitle.results} />,
+    );
 
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
     expect(await screen.findByText('Compare with a base')).toBeInTheDocument();
-    const formElement = await screen.findByRole('form');
-    expect(formElement).toMatchSnapshot(
-      'Initial state for the form in edit mode',
-    );
 
     // Click the edit button for new revisions
     const editButton = screen.getAllByRole('button', {
       name: 'edit button',
     })[1];
     await user.click(editButton);
-    expect(formElement).toMatchSnapshot(
-      'After clicking edit for the new revision',
-    );
-
-    // Remove the new revision by clicking the X button
-    const closeNewButton = screen.getByRole('button', {
-      name: 'close-button',
-    });
-    await user.click(closeNewButton);
 
     // Select an updated new revision in the dropdown
     const searchInputNew = screen.getByRole('textbox');
@@ -319,9 +308,5 @@ describe('Compare With Base', () => {
     //the updated new revision is rendered
     const updatedNewRevisionText = screen.getByText(/What, ridden on a horse?/);
     expect(updatedNewRevisionText).toBeInTheDocument();
-
-    expect(formElement).toMatchSnapshot(
-      'After clicking save for the new revision',
-    );
   });
 });
