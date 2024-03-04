@@ -68,7 +68,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
   });
 
   it('should update error state if fetchRevisionsByAuthor returns an error', async () => {
-    const errorMessage = 'She turned me into a newt!';
+    const errorMessage = 'It got better...';
     (global.fetch as FetchMockSandbox).get(
       'glob:https://treeherder.mozilla.org/api/project/*/push/*',
       (url) =>

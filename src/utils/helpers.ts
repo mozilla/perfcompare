@@ -14,8 +14,17 @@ const truncateHash = (revision: RevisionsList['revision']) =>
 
 // return only most recent commit message
 // first commit is usually 'try_task_config'
-const getLatestCommitMessage = (item: RevisionsList) =>
-  item.revisions[item.revisions.length - 1].comments;
+const getLatestCommitMessage = (item: RevisionsList) => {
+  const { repository_id: repositoryId, revisions } = item;
+  const isTry = repositoryId === 4;
+  const lastUsefulRevision =
+    isTry && revisions.length > 1 ? revisions[1] : revisions[0];
+  const lastUsefulSummary = lastUsefulRevision.comments.slice(
+    0,
+    lastUsefulRevision.comments.indexOf('\n'),
+  );
+  return lastUsefulSummary;
+};
 
 // ensure all numbers display two digits
 const formatNumber = (number: number): string => {

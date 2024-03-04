@@ -634,7 +634,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                               <p
                                 class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
                               >
-                                You've got two empty 'alves of coconuts and you're bangin' 'em togetha! 
+                                You've got two empty 'alves of coconuts and you're bangin' 'em togetha 
                               </p>
                             </div>
                           </li>
@@ -729,7 +729,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                               <p
                                 class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
                               >
-                                It got better... 
+                                She turned me into a newt! 
                               </p>
                             </div>
                           </li>
