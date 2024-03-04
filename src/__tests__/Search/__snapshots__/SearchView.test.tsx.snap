@@ -125,6 +125,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
             />
             <form
               action="/compare-results"
+              aria-label="Compare with base form"
               class="form-wrapper"
               method="get"
             >

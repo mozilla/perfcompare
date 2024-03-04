@@ -46,6 +46,7 @@ exports[`Search Containter should match snapshot 1`] = `
           />
           <form
             action="/compare-results"
+            aria-label="Compare with base form"
             class="form-wrapper"
             method="get"
           >
