@@ -17,13 +17,10 @@ import {
 
 function setUpTestData() {
   const { testData } = getTestData();
-  (global.fetch as FetchMockSandbox).get(
-    'begin:https://treeherder.mozilla.org/api/project/try/push/',
-    {
+  (global.fetch as FetchMockSandbox)
+    .get('begin:https://treeherder.mozilla.org/api/project/try/push/', {
       results: testData,
-    },
-  );
-  (window.fetch as FetchMockSandbox)
+    })
     .get('begin:https://treeherder.mozilla.org/api/perfcompare/results/', [])
     .get(
       'begin:https://treeherder.mozilla.org/api/project/mozilla-central/push/?revision=coconut',
@@ -62,7 +59,9 @@ describe('Compare With Base', () => {
       <ResultsView title={Strings.metaData.pageTitle.results} />,
     );
     expect(await screen.findByText('Compare with a base')).toBeInTheDocument();
-    const formElement = await screen.findByRole('form');
+    const formElement = await screen.findByRole('form', {
+      name: 'Compare with base form',
+    });
     expect(formElement).toMatchSnapshot('Initial state for the form');
   });
 
@@ -143,7 +142,9 @@ describe('Compare With Base', () => {
     const user = userEvent.setup({ delay: null });
 
     expect(await screen.findByText('Compare with a base')).toBeInTheDocument();
-    const formElement = await screen.findByRole('form');
+    const formElement = await screen.findByRole('form', {
+      name: 'Compare with base form',
+    });
     expect(formElement).toMatchSnapshot('Initial state for the form');
 
     // Find out if the base revision is rendered

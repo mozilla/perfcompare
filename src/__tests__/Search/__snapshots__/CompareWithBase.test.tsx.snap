@@ -3,9 +3,9 @@
 exports[`Compare With Base renders correctly when there are no results: Initial state for the form 1`] = `
 <form
   action="/compare-results"
+  aria-label="Compare with base form"
   class="form-wrapper"
   method="get"
-  role="form"
 >
   <div
     class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
@@ -770,9 +770,9 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
 exports[`Compare With Base should have an edit mode in Results View: After clicking edit for the base revision 1`] = `
 <form
   action="/compare-results"
+  aria-label="Compare with base form"
   class="form-wrapper"
   method="get"
-  role="form"
 >
   <div
     class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
@@ -1417,9 +1417,9 @@ exports[`Compare With Base should have an edit mode in Results View: After click
 exports[`Compare With Base should have an edit mode in Results View: After clicking edit for the new revision 1`] = `
 <form
   action="/compare-results"
+  aria-label="Compare with base form"
   class="form-wrapper"
   method="get"
-  role="form"
 >
   <div
     class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
@@ -1947,9 +1947,9 @@ exports[`Compare With Base should have an edit mode in Results View: After click
 exports[`Compare With Base should have an edit mode in Results View: Initial state for the form 1`] = `
 <form
   action="/compare-results"
+  aria-label="Compare with base form"
   class="form-wrapper"
   method="get"
-  role="form"
 >
   <div
     class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
@@ -2708,9 +2708,9 @@ exports[`Compare With Base should remove the checked revision once X button is c
             />
             <form
               action="/compare-results"
+              aria-label="Compare with base form"
               class="form-wrapper"
               method="get"
-              role="form"
             >
               <div
                 class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"

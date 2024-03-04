@@ -254,7 +254,7 @@ function CompareWithBase({
           action='/compare-results'
           className='form-wrapper'
           onSubmit={possiblyPreventFormSubmission}
-          role='form'
+          aria-label='Compare with base form'
         >
           <SearchComponent
             {...stringsBase}
