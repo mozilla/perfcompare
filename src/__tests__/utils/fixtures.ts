@@ -88,7 +88,7 @@ const getTestData = () => {
           repository_id: 77,
           revision: 'spam',
           author: 'grahamchapman@python.com',
-          comments: 'It got better...',
+          comments: 'It got better...\n',
         },
       ],
       revision_count: 1,
