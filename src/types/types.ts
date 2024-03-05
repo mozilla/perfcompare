@@ -282,3 +282,10 @@ export type FakeCommitHash =
   | 'bb6a5e451dace3b9c7be42d24c9272738d73e6db'
   | '9d50665254899d8431813bdc04178e6006ce6d59'
   | 'a998c42399a8fcea623690bf65bef49de20535b4';
+
+export type UserCredentials = {
+  defaultRootUrl: {
+    expires: string;
+    credentials: { clientID: string; accessToken: string };
+  };
+};

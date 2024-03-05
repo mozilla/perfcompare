@@ -297,3 +297,31 @@ export const platformMap: Record<Platform, string> = {
   'android-hw-a51-11-0-aarch64-shippable-qr':
     'Android 11.0 Samsung A51 Shippable AArch64',
 };
+
+// Taskcluster Third-Party Login constants
+export const tcAuthCallbackUrl = '/taskcluster-auth';
+export const prodFirefoxRootUrl = 'https://firefox-ci-tc.services.mozilla.com';
+export const stagingFirefoxRootUrl =
+  'https://stage.taskcluster.nonprod.cloudops.mozgcp.net';
+export const tcClientIdMap: Record<string, string> = {
+  'https://perf.compare': 'production',
+  'https://beta--mozilla-perfcompare.netlify.app': 'beta',
+  'http://localhost:3000': 'localhost-3000',
+  'https://tc-staging.treeherder.nonprod.cloudops.mozgcp.net':
+    'taskcluster-staging',
+};
+export const clientId = `perfcompare-${
+  tcClientIdMap[window.location.origin]
+}-client`;
+export const redirectURI = `${window.location.origin}${tcAuthCallbackUrl}`;
+export const getRootUrl = (rootUrl: string) => {
+  // we need this workaround for the perfcompare-taskcluster-staging deployment since all repository fixtures
+  // and the default login rootUrls are for https://firefox-ci-tc.services.mozilla.com
+  if (
+    rootUrl === prodFirefoxRootUrl &&
+    clientId === 'perfcompare-taskcluster-staging-client'
+  ) {
+    return stagingFirefoxRootUrl;
+  }
+  return rootUrl;
+};

@@ -150,4 +150,53 @@ describe('Results View', () => {
     expect(createObjectURLMock).toHaveBeenCalled();
     expect(revokeObjectURLMock).toHaveBeenCalledWith('blob:');
   });
+
+  it('click on retrigger button ', async () => {
+    const user = userEvent.setup({ delay: null });
+
+    const { testCompareDataWithMultipleRuns, testData } = getTestData();
+    (window.fetch as FetchMockSandbox)
+      .get(
+        'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
+        testCompareDataWithMultipleRuns,
+      )
+      .get('begin:https://treeherder.mozilla.org/api/project/', {
+        results: [testData[0]],
+      });
+
+    const mockGetRandomValues = jest.fn().mockReturnValue(new Uint32Array(1));
+    Object.defineProperty(window, 'crypto', {
+      value: { getRandomValues: mockGetRandomValues },
+    });
+    window.open = jest.fn();
+    jest.spyOn(Storage.prototype, 'setItem');
+
+    renderWithRouter(
+      <ResultsView title={Strings.metaData.pageTitle.results} />,
+      {
+        route: '/compare-results/',
+        search: '?baseRev=spam&baseRepo=mozilla-central&framework=2',
+        loader,
+      },
+    );
+
+    const retriggerButton = await screen.findByRole('button', {
+      name: 'retrigger jobs',
+    });
+    await user.click(retriggerButton);
+    expect(window.open).toHaveBeenCalledWith(
+      'https://firefox-ci-tc.services.mozilla.com/login/oauth/authorize/?client_id=treeherder-localhost-5000-client&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A5000%2Ftaskcluster-auth&scope=hooks%3Atrigger-hook%3A*&state=AAAAAAAAAAAAAAAAAAAAA',
+      '_blank',
+    );
+    expect(localStorage.setItem).toHaveBeenCalledTimes(2);
+    expect(localStorage.setItem).toHaveBeenCalledWith(
+      'requestState',
+      'AAAAAAAAAAAAAAAAAAAAA',
+    );
+    expect(localStorage.setItem).toHaveBeenLastCalledWith(
+      'tcRootUrl',
+      'https://firefox-ci-tc.services.mozilla.com',
+    );
+    expect(await screen.findByTestId('retrigger-jobs-button'));
+  });
 });
