@@ -597,6 +597,7 @@ exports[`Results View The table should match snapshot and other elements should 
           </div>
           <div
             class="retrigger-button"
+            data-testid="retrigger-jobs-button"
             role="cell"
           >
             <div
@@ -908,6 +909,7 @@ exports[`Results View The table should match snapshot and other elements should 
           </div>
           <div
             class="retrigger-button"
+            data-testid="retrigger-jobs-button"
             role="cell"
           >
             <div
@@ -1225,6 +1227,7 @@ exports[`Results View The table should match snapshot and other elements should 
           </div>
           <div
             class="retrigger-button"
+            data-testid="retrigger-jobs-button"
             role="cell"
           >
             <div
@@ -1541,6 +1544,7 @@ exports[`Results View The table should match snapshot and other elements should 
           </div>
           <div
             class="retrigger-button"
+            data-testid="retrigger-jobs-button"
             role="cell"
           >
             <div

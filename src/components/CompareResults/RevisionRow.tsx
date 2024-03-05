@@ -10,6 +10,7 @@ import { IconButton } from '@mui/material';
 import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
+import { checkTaskclusterCredentials } from '../../logic/taskcluster';
 import { Strings } from '../../resources/Strings';
 import { Colors, Spacing, ExpandableRowStyles } from '../../styles';
 import type { CompareResultsItem, PlatformInfo } from '../../types/state';
@@ -226,11 +227,16 @@ function RevisionRow(props: RevisionRowProps) {
               </IconButton>
             </div>
           </div>
-          <div className='retrigger-button' role='cell'>
+          <div
+            className='retrigger-button'
+            role='cell'
+            data-testid='retrigger-jobs-button'
+          >
             <div className='retrigger-button-container'>
               <IconButton
                 title={Strings.components.revisionRow.title.retriggerJobs}
                 size='small'
+                onClick={() => checkTaskclusterCredentials()}
               >
                 <RefreshOutlinedIcon />
               </IconButton>
