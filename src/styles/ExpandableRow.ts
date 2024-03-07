@@ -13,10 +13,7 @@ export const ExpandableRowStyles = () => {
       transition: 'border-radius 0.4s ease-in-out',
       $nest: {
         '&.content-row': {
-          minHeight: '0',
-          height: '0',
-          overflow: 'hidden',
-          transition: 'min-height 0.4s ease-in-out',
+          display: 'none',
           cursor: 'default',
           $nest: {
             '&.content-row--expanded': {
