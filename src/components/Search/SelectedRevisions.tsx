@@ -2,7 +2,6 @@ import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 
 import { useAppSelector } from '../../hooks/app';
-import useCheckRevision from '../../hooks/useCheckRevision';
 import { SelectRevsStyles } from '../../styles';
 import { Changeset } from '../../types/state';
 import SelectedRevisionItem from './SelectedRevisionItem';
@@ -28,16 +27,6 @@ function SelectedRevisions({
   const styles = SelectRevsStyles(mode);
   const searchType = isBase ? 'base' : 'new';
 
-  const { removeCheckedRevision } = useCheckRevision(isBase);
-
-  const removeRevision = (item: Changeset) => {
-    if (hasNonEditableState) {
-      onRemoveRevision(item);
-    } else {
-      removeCheckedRevision(item);
-    }
-  };
-
   const iconClassName = canRemoveRevision
     ? 'icon-close-show'
     : 'icon-close-hidden';
@@ -57,7 +46,7 @@ function SelectedRevisions({
             item={item}
             isBase={isBase}
             isWarning={isWarning}
-            onRemoveRevision={removeRevision}
+            onRemoveRevision={onRemoveRevision}
             iconClassName={iconClassName}
           />
         ))}
