@@ -1025,7 +1025,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     Revisions
                     <svg
                       aria-hidden="true"
-                      aria-label="Revisions (typically including your changes) to compare against the selected base revision."
+                      aria-label="Revisions (typically including your changes) to compare over a specified time range."
                       class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
                       data-mui-internal-clone-element="true"
                       data-testid="InfoOutlinedIcon"

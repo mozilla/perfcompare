@@ -15,25 +15,17 @@ import {
   //SearchStyles can be found in CompareCards.ts
   SearchStyles,
 } from '../../styles';
-import { Repository, RevisionsList } from '../../types/state';
+import { RevisionsList } from '../../types/state';
 import SearchDropdown from './SearchDropdown';
 import SearchInput from './SearchInput';
 import SearchResultsList from './SearchResultsList';
 
-interface RevisionsState {
-  revs: RevisionsList[];
-  repos: Repository['name'][];
-}
-
 interface SearchProps {
-  displayedRevisions: RevisionsState;
   selectLabel: string;
   searchResults: RevisionsList[];
   tooltip: string;
   inputPlaceholder: string;
   isEditable: boolean;
-  handleSearchResultsEditToggle: (toggleArray: RevisionsList[]) => void;
-  handleRemoveEditViewRevision: (item: RevisionsList) => void;
 }
 
 function SearchComponent({
@@ -42,12 +34,19 @@ function SearchComponent({
   inputPlaceholder,
   isEditable,
   searchResults,
-  displayedRevisions,
-  handleSearchResultsEditToggle,
 }: SearchProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = SearchStyles(mode);
   const [displayDropdown, setDisplayDropdown] = useState(false);
+  //temporary until next PR covers selected revisions
+  const handleSearchResultsEditToggle = (toggleArray: RevisionsList[]) => {
+    console.log('handleSearchResultsEditToggle', toggleArray);
+  };
+
+  const displayedRevisions = {
+    revs: [],
+    repos: [],
+  };
 
   /* These overriding rules update the theme mode by accessing the otherwise inaccessible MUI tooltip styles */
   cssRule('.MuiPopover-root', {
@@ -171,7 +170,7 @@ function SearchComponent({
         </Grid>
       </Grid>
       {/***** Selected Revisions Section *****/}
-      {/** This section will be handled in a new PR */}
+      {/** This section will be handled in a revisions PR */}
     </Grid>
   );
 }
