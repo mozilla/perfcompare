@@ -93,7 +93,7 @@ describe('Base Search', () => {
   it('renders framework dropdown in closed condition', async () => {
     renderComponent();
     // 'talos' is selected by default and dropdown is not visible
-    expect(screen.getByText(/talos/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/talos/i)[0]).toBeInTheDocument();
     expect(screen.queryByText(/build_metrics/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/awsy/i)).not.toBeInTheDocument();
   });
@@ -104,7 +104,6 @@ describe('Base Search', () => {
     renderComponent();
 
     // Click inside the input box to show search results.
-
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
 
@@ -112,7 +111,6 @@ describe('Base Search', () => {
     expect(comment[0]).toBeInTheDocument();
 
     // Click outside the input box to hide search results.
-
     const label = screen.getAllByLabelText('Base')[0];
     await user.click(label);
     expect(comment[0]).not.toBeInTheDocument();
@@ -317,3 +315,5 @@ describe('Base Search', () => {
     );
   });
 });
+
+describe('Compare Over Time', () => {});
