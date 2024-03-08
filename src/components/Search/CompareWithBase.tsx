@@ -99,7 +99,7 @@ function CompareWithBase({
     (baseRepository !== 'try' && newRepository === 'try');
 
   const possiblyPreventFormSubmission = (e: React.FormEvent) => {
-    const isFormReadyToBeSubmitted = baseRevs.length > 0;
+    const isFormReadyToBeSubmitted = baseInProgressRevs.length > 0;
     if (!isFormReadyToBeSubmitted) {
       e.preventDefault();
       enqueueSnackbar(strings.base.collapsed.errors.notEnoughRevisions, {
