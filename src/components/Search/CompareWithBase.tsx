@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
-import { useSnackbar } from 'notistack';
+import { useSnackbar, VariantType } from 'notistack';
 import { Form } from 'react-router-dom';
 import { style } from 'typestyle';
 
@@ -159,12 +159,46 @@ function CompareWithBase({
     setInProgressNewRevs(revisionsNew);
   };
 
-  const handleSearchResultsToggleBase = (toggleArray: Changeset[]) => {
-    setInProgressBaseRevs(toggleArray || []);
+  const handleItemToggleInChangesetList = (
+    item: Changeset,
+    maxRevisions: number,
+    changesets: Changeset[],
+  ) => {
+    const isChecked = changesets.map((rev) => rev.id).includes(item.id);
+    const newChecked = [...changesets];
+
+    // if item is not already checked, add to checked
+    if (changesets.length < maxRevisions && !isChecked) {
+      newChecked.push(item);
+    } else if (isChecked) {
+      // if item is already checked, remove from checked
+      newChecked.splice(changesets.indexOf(item), 1);
+    } else {
+      // if there are already `maxRevisions` checked revisions, print a warning
+      const variant: VariantType = 'warning';
+      enqueueSnackbar(`Maximum ${maxRevisions} revision(s).`, { variant });
+    }
+
+    const filteredChecked = [...new Set(newChecked)];
+    return filteredChecked;
   };
 
-  const handleSearchResultsToggleNew = (toggleArray: Changeset[]) => {
-    setInProgressNewRevs(toggleArray || []);
+  const handleSearchResultsToggleBase = (item: Changeset) => {
+    const newBaseRevs = handleItemToggleInChangesetList(
+      item,
+      1,
+      baseInProgressRevs,
+    );
+    setInProgressBaseRevs(newBaseRevs);
+  };
+
+  const handleSearchResultsToggleNew = (item: Changeset) => {
+    const newNewRevs = handleItemToggleInChangesetList(
+      item,
+      3,
+      newInProgressRevs,
+    );
+    setInProgressNewRevs(newNewRevs);
   };
 
   return (
