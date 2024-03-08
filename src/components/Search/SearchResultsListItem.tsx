@@ -12,15 +12,15 @@ import dayjs from 'dayjs';
 import { style } from 'typestyle';
 
 import { Spacing } from '../../styles';
-import type { RevisionsList } from '../../types/state';
+import type { Changeset } from '../../types/state';
 import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
 
 interface SearchResultsListItemProps {
   index: number;
-  item: RevisionsList;
+  item: Changeset;
   revisionsCount: number;
-  isCheckedState: (item: RevisionsList) => boolean;
-  onToggle: (item: RevisionsList) => void;
+  isCheckedState: (item: Changeset) => boolean;
+  onToggle: (item: Changeset) => void;
 }
 
 const styles = {

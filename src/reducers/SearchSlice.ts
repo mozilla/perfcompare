@@ -7,7 +7,7 @@ import {
 } from '../thunks/searchThunk';
 import type {
   Repository,
-  RevisionsList,
+  Changeset,
   SearchState,
   SearchStateForInput,
   InputType,
@@ -45,7 +45,7 @@ const search = createSlice({
     updateSearchResults(
       state,
       action: PayloadAction<{
-        results: RevisionsList[];
+        results: Changeset[];
         searchType: InputType;
       }>,
     ) {
@@ -69,7 +69,7 @@ const search = createSlice({
     updateCheckedRevisions(
       state,
       action: PayloadAction<{
-        newChecked: RevisionsList[];
+        newChecked: Changeset[];
         searchType: InputType;
       }>,
     ) {

@@ -11,7 +11,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks/app';
 import { clearCheckedRevisionforType } from '../../reducers/SearchSlice';
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles, SearchStyles } from '../../styles';
-import type { RevisionsList, Repository } from '../../types/state';
+import type { Changeset, Repository } from '../../types/state';
 import CompareButton from './CompareButton';
 import FrameworkDropdown from './FrameworkDropdown';
 import SearchComponent from './SearchComponent';
@@ -22,19 +22,19 @@ const stringsNew = Strings.components.searchDefault.base.collapsed.revision;
 
 interface CompareWithBaseProps {
   isEditable: boolean;
-  baseRevs: RevisionsList[];
-  newRevs: RevisionsList[];
+  baseRevs: Changeset[];
+  newRevs: Changeset[];
   baseRepos: Repository['name'][];
   newRepos: Repository['name'][];
 }
 
 interface RevisionsState {
-  revs: RevisionsList[];
+  revs: Changeset[];
   repos: Repository['name'][];
 }
 
 interface InProgressState {
-  revs: RevisionsList[];
+  revs: Changeset[];
   repos: Repository['name'][];
   isInProgress: boolean;
 }
@@ -187,7 +187,7 @@ function CompareWithBase({
     });
   };
 
-  const handleRemoveEditViewRevisionBase = (item: RevisionsList) => {
+  const handleRemoveEditViewRevisionBase = (item: Changeset) => {
     const revisionsBase = [...baseInProgress.revs];
     revisionsBase.splice(baseInProgress.revs.indexOf(item), 1);
     setInProgressBase({
@@ -197,7 +197,7 @@ function CompareWithBase({
     });
   };
 
-  const handleRemoveEditViewRevisionNew = (item: RevisionsList) => {
+  const handleRemoveEditViewRevisionNew = (item: Changeset) => {
     const revisionsNew = [...newInProgress.revs];
     revisionsNew.splice(newInProgress.revs.indexOf(item), 1);
     setInProgressNew({
@@ -207,7 +207,7 @@ function CompareWithBase({
     });
   };
 
-  const handleSearchResultsEditToggleBase = (toggleArray: RevisionsList[]) => {
+  const handleSearchResultsEditToggleBase = (toggleArray: Changeset[]) => {
     const repos = toggleArray.map((rev) => repoMap[rev.repository_id] ?? 'try');
     setInProgressBase({
       revs: toggleArray || [],
@@ -216,7 +216,7 @@ function CompareWithBase({
     });
   };
 
-  const handleSearchResultsEditToggleNew = (toggleArray: RevisionsList[]) => {
+  const handleSearchResultsEditToggleNew = (toggleArray: Changeset[]) => {
     const repos = toggleArray.map((rev) => repoMap[rev.repository_id] ?? 'try');
     setInProgressNew({
       revs: toggleArray || [],

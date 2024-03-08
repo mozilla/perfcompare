@@ -1,4 +1,4 @@
-import { CompareResultsItem, Repository, RevisionsList } from '../types/state';
+import { CompareResultsItem, Repository, Changeset } from '../types/state';
 import { Framework } from '../types/types';
 
 // This file contains functions to request the Treeherder API
@@ -102,6 +102,6 @@ export async function fetchRecentRevisions(params: RecentRevisionsParams) {
     }
   }
 
-  const json = (await response.json()) as { results: RevisionsList[] };
+  const json = (await response.json()) as { results: Changeset[] };
   return json.results;
 }
