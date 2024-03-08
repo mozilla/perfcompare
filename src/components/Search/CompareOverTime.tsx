@@ -10,6 +10,9 @@ import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles, SearchStyles } from '../../styles';
 import { RevisionsList, Repository } from '../../types/state';
+import CompareButton from './CompareButton';
+import FrameworkDropdown from './FrameworkDropdown';
+import SearchOverTime from './SearchOverTime';
 
 const strings = Strings.components.searchDefault;
 const stringsNew =
@@ -55,12 +58,24 @@ function CompareOverTime({ isEditable }: CompareWithTimeProps) {
   };
 
   return (
-    <div
-      className={`compare-card-container compare-card-container--time ${styles.container}`}
+    <Grid
+      className={`wrapper--overtime ${styles.wrapper} ${containerStyles.container}`}
     >
-      <div className={`compare-card-text ${styles.cardText}`}>
-        <div className='compare-card-title'>{strings.overTime.title}</div>
-        <div className='compare-card-tagline'>{strings.overTime.tagline}</div>
+      <div
+        className={`compare-card-container compare-card-container--${
+          expanded ? 'expanded' : 'hidden'
+        } ${styles.container}`}
+        onClick={toggleIsExpanded}
+        data-testid='time-state'
+      >
+        <div className={`compare-card-text ${styles.cardText}`}>
+          <div className='compare-card-title'>{strings.overTime.title}</div>
+          <div className='compare-card-tagline'>{strings.overTime.tagline}</div>
+        </div>
+        <div
+          className='compare-card-img compare-card-img--time'
+          aria-label='a clock'
+        />
       </div>
       <div
         className={`compare-card-container content-base content-base--${

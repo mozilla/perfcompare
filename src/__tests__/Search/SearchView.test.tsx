@@ -266,7 +266,7 @@ describe('Base Search', () => {
 
     // Press the compare button -> It shouldn't work!
     const compareButton = await screen.findByRole('button', {
-      name: /Compare/,
+      name: 'compare with base',
     });
     await user.click(compareButton);
 

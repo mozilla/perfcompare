@@ -7,7 +7,11 @@ import { ButtonStyles } from '../../styles';
 
 const strings = Strings.components.searchDefault.sharedCollasped;
 
-export default function CompareButton() {
+interface CompareButtonProps {
+  name: string;
+}
+
+export default function CompareButton({ name }: CompareButtonProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   const btnStyles = ButtonStyles(mode);
 
@@ -22,6 +26,7 @@ export default function CompareButton() {
       className={`compare-button ${styles.button}`}
       sx={{ textTransform: 'none !important' }}
       type='submit'
+      aria-label={name}
     >
       {strings.button}
     </Button>

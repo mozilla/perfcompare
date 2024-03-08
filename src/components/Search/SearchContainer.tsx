@@ -44,8 +44,14 @@ function SearchContainer(props: SearchViewProps) {
         baseRepos={checkedBaseRepos}
         newRepos={checkedNewRepos}
       />
-      {/* hidden until post-mvp release */}
-      <CompareOverTime />
+
+      <CompareOverTime
+        isEditable={false}
+        baseRevs={checkedRevisionsListBase}
+        newRevs={checkedRevisionsListNew}
+        baseRepos={checkedBaseRepos}
+        newRepos={checkedNewRepos}
+      />
     </section>
   );
 }

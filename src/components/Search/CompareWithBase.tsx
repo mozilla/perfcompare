@@ -226,7 +226,7 @@ function CompareWithBase({
   };
 
   return (
-    <Grid className='wrapper'>
+    <Grid className={`wrapper--withbase ${styles.wrapper}`}>
       <div
         className={`compare-card-container compare-card-container--${
           expanded ? 'expanded' : 'hidden'
@@ -288,7 +288,7 @@ function CompareWithBase({
             className={`${dropDownStyles.dropDown} ${bottomStyles.container}`}
           >
             <FrameworkDropdown />
-            <CompareButton />
+            <CompareButton name='compare with base' />
           </Grid>
         </Form>
       </div>
