@@ -2,7 +2,6 @@ import React from 'react';
 
 import Typography from '@mui/material/Typography';
 
-import { repoMap } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { SearchContainerStyles } from '../../styles';
@@ -21,15 +20,6 @@ function SearchContainer(props: SearchViewProps) {
     (state) => state.search.base.checkedRevisions,
   );
 
-  // The "??" operations below are so that Typescript doesn't wonder about the
-  // undefined value later.
-  const checkedNewRepos = checkedChangesetsNew.map(
-    (item) => repoMap[item.repository_id] ?? 'try',
-  );
-  const checkedBaseRepos = checkedChangesetsBase.map(
-    (item) => repoMap[item.repository_id] ?? 'try',
-  );
-
   return (
     <section
       data-testid='search-section'
@@ -41,8 +31,6 @@ function SearchContainer(props: SearchViewProps) {
         isEditable={false}
         baseRevs={checkedChangesetsBase}
         newRevs={checkedChangesetsNew}
-        baseRepos={checkedBaseRepos}
-        newRepos={checkedNewRepos}
       />
       {/* hidden until post-mvp release */}
       <CompareOverTime />
