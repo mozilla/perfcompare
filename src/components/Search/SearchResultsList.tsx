@@ -2,7 +2,6 @@ import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 
 import { useAppSelector } from '../../hooks/app';
-import useCheckRevision from '../../hooks/useCheckRevision';
 import { SelectListStyles } from '../../styles';
 import { Changeset } from '../../types/state';
 import SearchResultsListItem from './SearchResultsListItem';
@@ -12,7 +11,7 @@ interface SearchResultsListProps {
   isBase: boolean;
   searchResults: Changeset[];
   displayedRevisions: Changeset[];
-  onToggle: (toggleArray: Changeset[]) => void;
+  onToggle: (item: Changeset) => void;
 }
 
 function SearchResultsList({
@@ -24,18 +23,9 @@ function SearchResultsList({
 }: SearchResultsListProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = SelectListStyles(mode);
-  const { handleToggle } = useCheckRevision(isBase, hasNonEditableState);
   const revisionsCount = isBase === true ? 1 : 3;
   const isInProgressChecked = (item: Changeset) => {
     return displayedRevisions.map((rev) => rev.id).includes(item.id);
-  };
-
-  const handleToggleAction = (item: Changeset) => {
-    const toggleArray = handleToggle(item, revisionsCount, displayedRevisions);
-
-    if (hasNonEditableState) {
-      onToggle(toggleArray);
-    }
   };
 
   return (
@@ -53,7 +43,7 @@ function SearchResultsList({
             item={item}
             revisionsCount={revisionsCount}
             isChecked={isInProgressChecked(item)}
-            onToggle={handleToggleAction}
+            onToggle={onToggle}
           />
         ))}
       </List>
