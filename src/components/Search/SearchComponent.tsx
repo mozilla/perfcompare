@@ -39,7 +39,7 @@ interface SearchProps {
   onSave: () => void;
   onCancel: () => void;
   onEdit: () => void;
-  onSearchResultsToggle: (toggleArray: Changeset[]) => void;
+  onSearchResultsToggle: (item: Changeset) => void;
   onRemoveRevision: (item: Changeset) => void;
   prevRevision?: Changeset;
   selectLabel: string;

@@ -28,10 +28,7 @@ function SelectedRevisions({
   const styles = SelectRevsStyles(mode);
   const searchType = isBase ? 'base' : 'new';
 
-  const { removeCheckedRevision } = useCheckRevision(
-    isBase,
-    hasNonEditableState,
-  );
+  const { removeCheckedRevision } = useCheckRevision(isBase);
 
   const removeRevision = (item: Changeset) => {
     if (hasNonEditableState) {
