@@ -92,13 +92,13 @@ describe('Compare With Base', () => {
   it('selects and displays new framework when clicked', async () => {
     renderSearchViewComponent();
     const user = userEvent.setup({ delay: null });
-    expect(screen.getByText(/talos/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/talos/i)[0]).toBeInTheDocument();
     expect(screen.queryByText(/build_metrics/i)).not.toBeInTheDocument();
-    const frameworkDropdown = screen.getByRole('button', {
+    const frameworkDropdown = screen.getAllByRole('button', {
       name: 'Framework talos',
     });
 
-    await user.click(frameworkDropdown);
+    await user.click(frameworkDropdown[0]);
     expect(screen.getByRole('listbox')).toMatchSnapshot();
     const buildMetricsItem = screen.getByRole('option', {
       name: 'build_metrics',

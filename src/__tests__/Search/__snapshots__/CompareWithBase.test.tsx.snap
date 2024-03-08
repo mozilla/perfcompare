@@ -3127,7 +3127,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                     Revisions
                     <svg
                       aria-hidden="true"
-                      aria-label="Revisions (typically including your changes) to compare over a specified time range."
+                      aria-label="Revisions (typically including your changes) to compare against the selected base revision."
                       class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
                       data-mui-internal-clone-element="true"
                       data-testid="InfoOutlinedIcon"
