@@ -7,8 +7,7 @@ import { useSnackbar } from 'notistack';
 import { Form } from 'react-router-dom';
 import { style } from 'typestyle';
 
-import { useAppDispatch, useAppSelector } from '../../hooks/app';
-import { clearCheckedRevisionforType } from '../../reducers/SearchSlice';
+import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles, SearchStyles, Spacing } from '../../styles';
 import type { Changeset } from '../../types/state';
@@ -85,8 +84,6 @@ function CompareWithBase({
   const [newInProgressRevs, setInProgressNewRevs] =
     useState<Changeset[]>(newRevs);
 
-  const dispatch = useAppDispatch();
-
   const mode = useAppSelector((state) => state.theme.mode);
 
   const styles = CompareCardsStyles(mode);
@@ -131,11 +128,9 @@ function CompareWithBase({
 
   const handleCancelBase = () => {
     setInProgressBaseRevs(baseStagingRevs);
-    dispatch(clearCheckedRevisionforType({ searchType: 'base' }));
   };
   const handleCancelNew = () => {
     setInProgressNewRevs(newStagingRevs);
-    dispatch(clearCheckedRevisionforType({ searchType: 'new' }));
   };
 
   const handleSaveBase = () => {
