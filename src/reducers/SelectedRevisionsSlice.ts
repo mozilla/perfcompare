@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { RevisionsList, SelectedRevisionsState } from '../types/state';
+import { Changeset, SelectedRevisionsState } from '../types/state';
 
 const initialState: SelectedRevisionsState = {
   revisions: [],
@@ -16,7 +16,7 @@ const selectedRevisions = createSlice({
     setSelectedRevisions(
       state,
       action: PayloadAction<{
-        selectedRevisions: RevisionsList[];
+        selectedRevisions: Changeset[];
       }>,
     ) {
       state.revisions = action.payload.selectedRevisions;

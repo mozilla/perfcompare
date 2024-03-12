@@ -16,7 +16,7 @@ import dayjs from 'dayjs';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { SelectRevsStyles } from '../../styles';
-import { Repository, RevisionsList } from '../../types/state';
+import { Repository, Changeset } from '../../types/state';
 import {
   truncateHash,
   getLatestCommitMessage,
@@ -28,12 +28,12 @@ const warning = base.collapsed.warnings.comparison;
 
 interface SelectedRevisionItemProps {
   index: number;
-  item: RevisionsList;
+  item: Changeset;
   repository: Repository['name'];
   isBase: boolean;
   isWarning: boolean;
   iconClassName: string;
-  removeRevision: (item: RevisionsList) => void;
+  removeRevision: (item: Changeset) => void;
 }
 
 function SelectedRevisionItem({

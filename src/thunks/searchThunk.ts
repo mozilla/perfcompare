@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { treeherderBaseURL } from '../common/constants';
 import type { APIPushResponse } from '../types/api';
-import type { Repository, RevisionsList, InputType } from '../types/state';
+import type { Repository, Changeset, InputType } from '../types/state';
 
 interface FetchDataArgs {
   repository: Repository['name'];
@@ -17,7 +17,7 @@ interface FetchDataArgsIDEmail {
 }
 
 export const fetchRecentRevisions = createAsyncThunk<
-  RevisionsList[],
+  Changeset[],
   FetchDataArgs,
   { rejectValue: string }
 >(
@@ -43,7 +43,7 @@ export const fetchRecentRevisions = createAsyncThunk<
 );
 
 export const fetchRevisionByID = createAsyncThunk<
-  RevisionsList[],
+  Changeset[],
   FetchDataArgsIDEmail,
   { rejectValue: string }
 >(
@@ -68,7 +68,7 @@ export const fetchRevisionByID = createAsyncThunk<
 );
 
 export const fetchRevisionsByAuthor = createAsyncThunk<
-  RevisionsList[],
+  Changeset[],
   FetchDataArgsIDEmail,
   { rejectValue: string }
 >(

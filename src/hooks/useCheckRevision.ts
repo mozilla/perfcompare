@@ -1,7 +1,7 @@
 import { useSnackbar, VariantType } from 'notistack';
 
 import { updateCheckedRevisions } from '../reducers/SearchSlice';
-import { InputType, RevisionsList } from '../types/state';
+import { InputType, Changeset } from '../types/state';
 import { useAppDispatch, useAppSelector } from './app';
 
 const useCheckRevision = (isBase: boolean, isEditable: boolean) => {
@@ -9,14 +9,14 @@ const useCheckRevision = (isBase: boolean, isEditable: boolean) => {
   const dispatch = useAppDispatch();
   const searchType: InputType = isBase ? 'base' : 'new';
 
-  const searchCheckedRevisions: RevisionsList[] = useAppSelector(
+  const searchCheckedRevisions: Changeset[] = useAppSelector(
     (state) => state.search[searchType].checkedRevisions,
   );
 
   const setToggleState = (
-    revision: RevisionsList,
+    revision: Changeset,
     maxRevisions: number,
-    revisionsList: RevisionsList[],
+    revisionsList: Changeset[],
   ) => {
     const isChecked = revisionsList.map((rev) => rev.id).includes(revision.id);
     const newChecked = [...revisionsList];
@@ -38,9 +38,9 @@ const useCheckRevision = (isBase: boolean, isEditable: boolean) => {
   };
 
   const handleToggle = (
-    revision: RevisionsList,
+    revision: Changeset,
     maxRevisions: number,
-    inProgressRevisions: RevisionsList[],
+    inProgressRevisions: Changeset[],
   ) => {
     //handle the state of "in progress" revisions in results view
     if (isEditable) {
@@ -65,7 +65,7 @@ const useCheckRevision = (isBase: boolean, isEditable: boolean) => {
     return filteredChecked;
   };
 
-  const removeCheckedRevision = (revision: RevisionsList) => {
+  const removeCheckedRevision = (revision: Changeset) => {
     const newChecked = [...searchCheckedRevisions];
     newChecked.splice(searchCheckedRevisions.indexOf(revision), 1);
     dispatch(updateCheckedRevisions({ newChecked, searchType }));
