@@ -23,7 +23,7 @@ function setUpTestData() {
     })
     .get('begin:https://treeherder.mozilla.org/api/perfcompare/results/', [])
     .get(
-      'begin:https://treeherder.mozilla.org/api/project/mozilla-central/push/?revision=coconut',
+      'begin:https://treeherder.mozilla.org/api/project/try/push/?revision=coconut',
       {
         results: [testData[0]],
       },
@@ -48,7 +48,7 @@ function renderWithCompareResultsURL(component: ReactElement) {
   return renderWithRouter(component, {
     route: '/compare-results/',
     search:
-      '?baseRev=coconut&baseRepo=mozilla-central&newRev=spam&newRepo=mozilla-central&framework=2',
+      '?baseRev=coconut&baseRepo=try&newRev=spam&newRepo=mozilla-central&framework=2',
     loader,
   });
 }

@@ -19,14 +19,8 @@ interface ResultsViewProps {
 }
 function ResultsView(props: ResultsViewProps) {
   const dispatch = useAppDispatch();
-  const {
-    baseRevInfo,
-    baseRepo,
-    newRevsInfo,
-    newRepos,
-    frameworkId,
-    frameworkName,
-  } = useLoaderData() as LoaderReturnValue;
+  const { baseRevInfo, newRevsInfo, frameworkId, frameworkName } =
+    useLoaderData() as LoaderReturnValue;
 
   // The CompareWithBase component wants arrays. So that we keep the same array
   // reference if the data doesn't change, we use `useMemo` for these 2 variables.
@@ -34,7 +28,6 @@ function ResultsView(props: ResultsViewProps) {
     () => (baseRevInfo ? [baseRevInfo] : []),
     [baseRevInfo],
   );
-  const baseRepos = useMemo(() => [baseRepo], [baseRepo]);
 
   const { title } = props;
   const themeMode = useAppSelector((state) => state.theme.mode);
@@ -75,8 +68,6 @@ function ResultsView(props: ResultsViewProps) {
           isEditable={true}
           baseRevs={baseRevInfos}
           newRevs={newRevsInfo ?? []}
-          baseRepos={baseRepos}
-          newRepos={newRepos}
         />
       </section>
       <Grid container alignItems='center' justifyContent='center'>

@@ -4,7 +4,7 @@ import List from '@mui/material/List';
 import { useAppSelector } from '../../hooks/app';
 import useCheckRevision from '../../hooks/useCheckRevision';
 import { SelectRevsStyles } from '../../styles';
-import { Repository, Changeset } from '../../types/state';
+import { Changeset } from '../../types/state';
 import SelectedRevisionItem from './SelectedRevisionItem';
 
 interface SelectedRevisionsProps {
@@ -12,13 +12,8 @@ interface SelectedRevisionsProps {
   formIsDisplayed: boolean;
   isEditable: boolean;
   isWarning: boolean;
-  displayedRevisions: RevisionsState;
+  displayedRevisions: Changeset[];
   onEditRemove: (item: Changeset) => void;
-}
-
-interface RevisionsState {
-  revs: Changeset[];
-  repos: Repository['name'][];
 }
 
 function SelectedRevisions({
@@ -63,12 +58,11 @@ function SelectedRevisions({
       }`}
     >
       <List>
-        {displayedRevisions.revs.map((item, index) => (
+        {displayedRevisions.map((item, index) => (
           <SelectedRevisionItem
             key={item.id}
             index={index}
             item={item}
-            repository={displayedRevisions.repos[index]}
             isBase={isBase}
             isWarning={isWarning}
             removeRevision={removeRevision}
