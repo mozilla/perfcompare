@@ -25,11 +25,6 @@ interface CompareWithBaseProps {
   newRevs: Changeset[];
 }
 
-interface InProgressState {
-  revs: Changeset[];
-  isInProgress: boolean;
-}
-
 /**
  * This component implements the form where the user can enter the input to
  * compare some revisions with a base revision.
@@ -81,15 +76,11 @@ function CompareWithBase({
 
   //the edit button will initialize the "in progress" state
   //and copy "stage" to "in progress" state
-  const [baseInProgress, setInProgressBase] = useState<InProgressState>({
-    revs: [],
-    isInProgress: false,
-  });
+  const [baseInProgressRevs, setInProgressBaseRevs] = useState<Changeset[]>([]);
+  const [baseInProgress, setInProgressBase] = useState(false);
 
-  const [newInProgress, setInProgressNew] = useState<InProgressState>({
-    revs: [],
-    isInProgress: false,
-  });
+  const [newInProgressRevs, setInProgressNewRevs] = useState<Changeset[]>([]);
+  const [newInProgress, setInProgressNew] = useState(false);
 
   const [displayedRevisionsBaseRevs, setDisplayedRevisionsBaseRevs] =
     useState<Changeset[]>(baseRevs);
@@ -137,21 +128,23 @@ function CompareWithBase({
   }, [baseRevs, newRevs]);
 
   useEffect(() => {
-    if (newInProgress.isInProgress) {
-      setDisplayedRevisionsNewRevs(newInProgress.revs);
+    if (newInProgress) {
+      setDisplayedRevisionsNewRevs(newInProgressRevs);
     } else {
       setDisplayedRevisionsNewRevs(newStagingRevs);
     }
 
-    if (baseInProgress.isInProgress) {
-      setDisplayedRevisionsBaseRevs(baseInProgress.revs);
+    if (baseInProgress) {
+      setDisplayedRevisionsBaseRevs(baseInProgressRevs);
     } else {
       setDisplayedRevisionsBaseRevs(baseStagingRevs);
     }
   }, [
-    newInProgress.revs,
+    newInProgress,
+    newInProgressRevs,
     newStagingRevs,
-    baseInProgress.revs,
+    baseInProgress,
+    baseInProgressRevs,
     baseStagingRevs,
   ]);
 
@@ -159,69 +152,57 @@ function CompareWithBase({
     setExpanded(!expanded);
   };
   const handleCancelBase = () => {
-    setInProgressBase({ revs: [], isInProgress: false });
+    setInProgressBaseRevs([]);
+    setInProgressBase(false);
     dispatch(clearCheckedRevisionforType({ searchType: 'base' }));
   };
 
   const handleCancelNew = () => {
-    setInProgressNew({ revs: [], isInProgress: false });
+    setInProgressNewRevs([]);
+    setInProgressNew(false);
     dispatch(clearCheckedRevisionforType({ searchType: 'new' }));
   };
 
   const handleSaveBase = () => {
-    setStagingBaseRevs(baseInProgress.revs);
+    setStagingBaseRevs(baseInProgressRevs);
     handleCancelBase();
   };
 
   const handleSaveNew = () => {
-    setStagingNewRevs(newInProgress.revs);
+    setStagingNewRevs(newInProgressRevs);
     handleCancelNew();
   };
 
   const handleEditBase = () => {
-    setInProgressBase({
-      revs: baseStagingRevs,
-      isInProgress: true,
-    });
+    setInProgressBaseRevs(baseStagingRevs);
+    setInProgressBase(true);
   };
 
   const handleEditNew = () => {
-    setInProgressNew({
-      revs: newStagingRevs,
-      isInProgress: true,
-    });
+    setInProgressNewRevs(newStagingRevs);
+    setInProgressNew(true);
   };
 
   const handleRemoveEditViewRevisionBase = (item: Changeset) => {
-    const revisionsBase = [...baseInProgress.revs];
-    revisionsBase.splice(baseInProgress.revs.indexOf(item), 1);
-    setInProgressBase({
-      revs: revisionsBase,
-      isInProgress: true,
-    });
+    const revisionsBase = [...baseInProgressRevs];
+    revisionsBase.splice(baseInProgressRevs.indexOf(item), 1);
+    setInProgressBaseRevs(revisionsBase);
   };
 
   const handleRemoveEditViewRevisionNew = (item: Changeset) => {
-    const revisionsNew = [...newInProgress.revs];
-    revisionsNew.splice(newInProgress.revs.indexOf(item), 1);
-    setInProgressNew({
-      revs: revisionsNew,
-      isInProgress: true,
-    });
+    const revisionsNew = [...newInProgressRevs];
+    revisionsNew.splice(newInProgressRevs.indexOf(item), 1);
+    setInProgressNewRevs(revisionsNew);
   };
 
   const handleSearchResultsEditToggleBase = (toggleArray: Changeset[]) => {
-    setInProgressBase({
-      revs: toggleArray || [],
-      isInProgress: true,
-    });
+    setInProgressBaseRevs(toggleArray || []);
+    setInProgressBase(true);
   };
 
   const handleSearchResultsEditToggleNew = (toggleArray: Changeset[]) => {
-    setInProgressNew({
-      revs: toggleArray || [],
-      isInProgress: true,
-    });
+    setInProgressNewRevs(toggleArray || []);
+    setInProgressNew(true);
   };
 
   return (
