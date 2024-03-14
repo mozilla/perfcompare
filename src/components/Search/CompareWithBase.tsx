@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
@@ -70,23 +70,19 @@ function CompareWithBase({
   const [expanded, setExpanded] = useState(true);
   const { enqueueSnackbar } = useSnackbar();
 
-  //the "committed" base and new revisions initialize the staging state
+  // The "committed" base and new revisions initialize the staging state.
+  // These states are snapshots of selections, that the user can either save (by
+  // pressing the "Save" button) or revert to (by pressing the Cancel button).
   const [baseStagingRevs, setStagingBaseRevs] = useState<Changeset[]>(baseRevs);
-
   const [newStagingRevs, setStagingNewRevs] = useState<Changeset[]>(newRevs);
 
-  //the edit button will initialize the "in progress" state
-  //and copy "stage" to "in progress" state
-  const [baseInProgressRevs, setInProgressBaseRevs] = useState<Changeset[]>([]);
-  const [baseInProgress, setInProgressBase] = useState(false);
-
-  const [newInProgressRevs, setInProgressNewRevs] = useState<Changeset[]>([]);
-  const [newInProgress, setInProgressNew] = useState(false);
-
-  const [displayedRevisionsBaseRevs, setDisplayedRevisionsBaseRevs] =
+  // The "committed" base and new revisions initialize the "in progress" state
+  // too. These states hold the data that are displayed to the user. They always
+  // contain the displayed data. That's also the ones that will be committed if
+  // the user presses the "Compare" button.
+  const [baseInProgressRevs, setInProgressBaseRevs] =
     useState<Changeset[]>(baseRevs);
-
-  const [displayedRevisionsNewRevs, setDisplayedRevisionsNewRevs] =
+  const [newInProgressRevs, setInProgressNewRevs] =
     useState<Changeset[]>(newRevs);
 
   const dispatch = useAppDispatch();
@@ -129,65 +125,31 @@ function CompareWithBase({
     }),
   };
 
-  useEffect(() => {
-    setStagingBaseRevs(baseRevs);
-    setStagingNewRevs(newRevs);
-  }, [baseRevs, newRevs]);
-
-  useEffect(() => {
-    if (newInProgress) {
-      setDisplayedRevisionsNewRevs(newInProgressRevs);
-    } else {
-      setDisplayedRevisionsNewRevs(newStagingRevs);
-    }
-
-    if (baseInProgress) {
-      setDisplayedRevisionsBaseRevs(baseInProgressRevs);
-    } else {
-      setDisplayedRevisionsBaseRevs(baseStagingRevs);
-    }
-  }, [
-    newInProgress,
-    newInProgressRevs,
-    newStagingRevs,
-    baseInProgress,
-    baseInProgressRevs,
-    baseStagingRevs,
-  ]);
-
   const toggleIsExpanded = () => {
     setExpanded(!expanded);
   };
+
   const handleCancelBase = () => {
-    setInProgressBaseRevs([]);
-    setInProgressBase(false);
+    setInProgressBaseRevs(baseStagingRevs);
     dispatch(clearCheckedRevisionforType({ searchType: 'base' }));
   };
-
   const handleCancelNew = () => {
-    setInProgressNewRevs([]);
-    setInProgressNew(false);
+    setInProgressNewRevs(newStagingRevs);
     dispatch(clearCheckedRevisionforType({ searchType: 'new' }));
   };
 
   const handleSaveBase = () => {
     setStagingBaseRevs(baseInProgressRevs);
-    handleCancelBase();
   };
-
   const handleSaveNew = () => {
     setStagingNewRevs(newInProgressRevs);
-    handleCancelNew();
   };
 
   const handleEditBase = () => {
     setInProgressBaseRevs(baseStagingRevs);
-    setInProgressBase(true);
   };
-
   const handleEditNew = () => {
     setInProgressNewRevs(newStagingRevs);
-    setInProgressNew(true);
   };
 
   const handleRemoveRevisionBase = (item: Changeset) => {
@@ -204,12 +166,10 @@ function CompareWithBase({
 
   const handleSearchResultsToggleBase = (toggleArray: Changeset[]) => {
     setInProgressBaseRevs(toggleArray || []);
-    setInProgressBase(true);
   };
 
   const handleSearchResultsToggleNew = (toggleArray: Changeset[]) => {
     setInProgressNewRevs(toggleArray || []);
-    setInProgressNew(true);
   };
 
   return (
@@ -251,7 +211,7 @@ function CompareWithBase({
             isWarning={isWarning}
             hasNonEditableState={hasNonEditableState}
             searchResults={searchResultsBase}
-            displayedRevisions={displayedRevisionsBaseRevs}
+            displayedRevisions={baseInProgressRevs}
             onSave={handleSaveBase}
             onCancel={handleCancelBase}
             onEdit={handleEditBase}
@@ -264,7 +224,7 @@ function CompareWithBase({
             hasNonEditableState={hasNonEditableState}
             isWarning={isWarning}
             searchResults={searchResultsNew}
-            displayedRevisions={displayedRevisionsNewRevs}
+            displayedRevisions={newInProgressRevs}
             onSave={handleSaveNew}
             onCancel={handleCancelNew}
             onEdit={handleEditNew}
