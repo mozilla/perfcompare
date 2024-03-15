@@ -21,7 +21,7 @@ import {
   //SearchStyles can be found in CompareCards.ts
   SearchStyles,
 } from '../../styles';
-import type { RevisionsList, InputType, Repository } from '../../types/state';
+import type { Changeset, InputType } from '../../types/state';
 import EditButton from './EditButton';
 import SaveCancelButtons from './SaveCancelButtons';
 import SearchDropdown from './SearchDropdown';
@@ -29,24 +29,19 @@ import SearchInput from './SearchInput';
 import SearchResultsList from './SearchResultsList';
 import SelectedRevisions from './SelectedRevisions';
 
-interface RevisionsState {
-  revs: RevisionsList[];
-  repos: Repository['name'][];
-}
-
 interface SearchProps {
   isEditable: boolean;
   isWarning: boolean;
   isBaseComp: boolean;
-  searchResults: RevisionsList[];
-  displayedRevisions: RevisionsState;
+  searchResults: Changeset[];
+  displayedRevisions: Changeset[];
   setPopoverIsOpen?: Dispatch<SetStateAction<boolean>>;
   handleSave: () => void;
   handleCancel: () => void;
   handleEdit: () => void;
-  handleSearchResultsEditToggle: (toggleArray: RevisionsList[]) => void;
-  handleRemoveEditViewRevision: (item: RevisionsList) => void;
-  prevRevision?: RevisionsList;
+  handleSearchResultsEditToggle: (toggleArray: Changeset[]) => void;
+  handleRemoveEditViewRevision: (item: Changeset) => void;
+  prevRevision?: Changeset;
   selectLabel: string;
   tooltip: string;
   inputPlaceholder: string;

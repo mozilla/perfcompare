@@ -1,15 +1,15 @@
 import { setSelectedRevisions } from '../reducers/SelectedRevisionsSlice';
-import { RevisionsList } from '../types/state';
+import { Changeset } from '../types/state';
 import { useAppDispatch, useAppSelector } from './app';
 
 const useSelectRevision = () => {
   const dispatch = useAppDispatch();
 
-  const baseCheckedRevisions: RevisionsList[] = useAppSelector(
+  const baseCheckedRevisions: Changeset[] = useAppSelector(
     (state) => state.search.base.checkedRevisions,
   );
 
-  const newCheckedRevisions: RevisionsList[] = useAppSelector(
+  const newCheckedRevisions: Changeset[] = useAppSelector(
     (state) => state.search.new.checkedRevisions,
   );
 

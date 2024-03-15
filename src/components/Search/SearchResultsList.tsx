@@ -4,20 +4,15 @@ import List from '@mui/material/List';
 import { useAppSelector } from '../../hooks/app';
 import useCheckRevision from '../../hooks/useCheckRevision';
 import { SelectListStyles } from '../../styles';
-import { RevisionsList, Repository } from '../../types/state';
+import { Changeset } from '../../types/state';
 import SearchResultsListItem from './SearchResultsListItem';
-
-interface RevisionsState {
-  revs: RevisionsList[];
-  repos: Repository['name'][];
-}
 
 interface SearchResultsListProps {
   isEditable: boolean;
   isBase: boolean;
-  searchResults: RevisionsList[];
-  displayedRevisions: RevisionsState;
-  onEditToggle: (toggleArray: RevisionsList[]) => void;
+  searchResults: Changeset[];
+  displayedRevisions: Changeset[];
+  onEditToggle: (toggleArray: Changeset[]) => void;
 }
 
 function SearchResultsList({
@@ -32,22 +27,18 @@ function SearchResultsList({
   const { handleToggle } = useCheckRevision(isBase, isEditable);
   const searchType = isBase ? 'base' : 'new';
   const revisionsCount = isBase === true ? 1 : 3;
-  const isCommittedChecked = (item: RevisionsList) => {
+  const isCommittedChecked = (item: Changeset) => {
     return useAppSelector((state) =>
       state.search[searchType].checkedRevisions.includes(item),
     );
   };
-  const isInProgressChecked = (item: RevisionsList) => {
-    return displayedRevisions.revs.map((rev) => rev.id).includes(item.id);
+  const isInProgressChecked = (item: Changeset) => {
+    return displayedRevisions.map((rev) => rev.id).includes(item.id);
   };
   const isCheckedState = isEditable ? isInProgressChecked : isCommittedChecked;
 
-  const handleToggleAction = (item: RevisionsList) => {
-    const toggleArray = handleToggle(
-      item,
-      revisionsCount,
-      displayedRevisions.revs,
-    );
+  const handleToggleAction = (item: Changeset) => {
+    const toggleArray = handleToggle(item, revisionsCount, displayedRevisions);
 
     if (isEditable) {
       onEditToggle(toggleArray);

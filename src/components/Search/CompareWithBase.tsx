@@ -6,12 +6,11 @@ import { useSnackbar } from 'notistack';
 import { Form } from 'react-router-dom';
 import { style } from 'typestyle';
 
-import { repoMap } from '../../common/constants';
 import { useAppDispatch, useAppSelector } from '../../hooks/app';
 import { clearCheckedRevisionforType } from '../../reducers/SearchSlice';
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles, SearchStyles } from '../../styles';
-import type { RevisionsList, Repository } from '../../types/state';
+import type { Changeset } from '../../types/state';
 import CompareButton from './CompareButton';
 import FrameworkDropdown from './FrameworkDropdown';
 import SearchComponent from './SearchComponent';
@@ -22,20 +21,12 @@ const stringsNew = Strings.components.searchDefault.base.collapsed.revision;
 
 interface CompareWithBaseProps {
   isEditable: boolean;
-  baseRevs: RevisionsList[];
-  newRevs: RevisionsList[];
-  baseRepos: Repository['name'][];
-  newRepos: Repository['name'][];
-}
-
-interface RevisionsState {
-  revs: RevisionsList[];
-  repos: Repository['name'][];
+  baseRevs: Changeset[];
+  newRevs: Changeset[];
 }
 
 interface InProgressState {
-  revs: RevisionsList[];
-  repos: Repository['name'][];
+  revs: Changeset[];
   isInProgress: boolean;
 }
 
@@ -43,48 +34,32 @@ function CompareWithBase({
   isEditable,
   baseRevs,
   newRevs,
-  baseRepos,
-  newRepos,
 }: CompareWithBaseProps) {
   const [expanded, setExpanded] = useState(true);
   const { enqueueSnackbar } = useSnackbar();
 
   //the "committed" base and new revisions initialize the staging state
-  const [baseStaging, setStagingBase] = useState<RevisionsState>({
-    revs: baseRevs,
-    repos: baseRepos,
-  });
+  const [baseStagingRevs, setStagingBaseRevs] = useState<Changeset[]>(baseRevs);
 
-  const [newStaging, setStagingNew] = useState<RevisionsState>({
-    revs: newRevs,
-    repos: newRepos,
-  });
+  const [newStagingRevs, setStagingNewRevs] = useState<Changeset[]>(newRevs);
 
   //the edit button will initialize the "in progress" state
   //and copy "stage" to "in progress" state
   const [baseInProgress, setInProgressBase] = useState<InProgressState>({
     revs: [],
-    repos: [],
     isInProgress: false,
   });
 
   const [newInProgress, setInProgressNew] = useState<InProgressState>({
     revs: [],
-    repos: [],
     isInProgress: false,
   });
 
-  const [displayedRevisionsBase, setDisplayedRevisionsBase] =
-    useState<RevisionsState>({
-      revs: baseRevs,
-      repos: baseRepos,
-    });
+  const [displayedRevisionsBaseRevs, setDisplayedRevisionsBaseRevs] =
+    useState<Changeset[]>(baseRevs);
 
-  const [displayedRevisionsNew, setDisplayedRevisionsNew] =
-    useState<RevisionsState>({
-      revs: newRevs,
-      repos: newRepos,
-    });
+  const [displayedRevisionsNewRevs, setDisplayedRevisionsNewRevs] =
+    useState<Changeset[]>(newRevs);
 
   const dispatch = useAppDispatch();
 
@@ -120,107 +95,95 @@ function CompareWithBase({
     }),
   };
 
-  const revRepos = {
-    revs: [],
-    repos: [],
-  };
-
   useEffect(() => {
-    setStagingBase({
-      revs: baseRevs,
-      repos: baseRepos,
-    });
-    setStagingNew({
-      revs: newRevs,
-      repos: newRepos,
-    });
+    setStagingBaseRevs(baseRevs);
+    setStagingNewRevs(newRevs);
   }, [baseRevs, newRevs]);
 
   useEffect(() => {
     if (newInProgress.isInProgress) {
-      setDisplayedRevisionsNew(newInProgress);
+      setDisplayedRevisionsNewRevs(newInProgress.revs);
     } else {
-      setDisplayedRevisionsNew(newStaging);
+      setDisplayedRevisionsNewRevs(newStagingRevs);
     }
 
     if (baseInProgress.isInProgress) {
-      setDisplayedRevisionsBase(baseInProgress);
+      setDisplayedRevisionsBaseRevs(baseInProgress.revs);
     } else {
-      setDisplayedRevisionsBase(baseStaging);
+      setDisplayedRevisionsBaseRevs(baseStagingRevs);
     }
-  }, [newInProgress, newStaging, baseInProgress, baseStaging]);
+  }, [
+    newInProgress.revs,
+    newStagingRevs,
+    baseInProgress.revs,
+    baseStagingRevs,
+  ]);
 
   const toggleIsExpanded = () => {
     setExpanded(!expanded);
   };
   const handleCancelBase = () => {
-    setInProgressBase({ ...revRepos, isInProgress: false });
+    setInProgressBase({ revs: [], isInProgress: false });
     dispatch(clearCheckedRevisionforType({ searchType: 'base' }));
   };
 
   const handleCancelNew = () => {
-    setInProgressNew({ ...revRepos, isInProgress: false });
+    setInProgressNew({ revs: [], isInProgress: false });
     dispatch(clearCheckedRevisionforType({ searchType: 'new' }));
   };
 
   const handleSaveBase = () => {
-    setStagingBase(baseInProgress);
+    setStagingBaseRevs(baseInProgress.revs);
     handleCancelBase();
   };
 
   const handleSaveNew = () => {
-    setStagingNew(newInProgress);
+    setStagingNewRevs(newInProgress.revs);
     handleCancelNew();
   };
 
   const handleEditBase = () => {
     setInProgressBase({
-      ...baseStaging,
+      revs: baseStagingRevs,
       isInProgress: true,
     });
   };
 
   const handleEditNew = () => {
     setInProgressNew({
-      ...newStaging,
+      revs: newStagingRevs,
       isInProgress: true,
     });
   };
 
-  const handleRemoveEditViewRevisionBase = (item: RevisionsList) => {
+  const handleRemoveEditViewRevisionBase = (item: Changeset) => {
     const revisionsBase = [...baseInProgress.revs];
     revisionsBase.splice(baseInProgress.revs.indexOf(item), 1);
     setInProgressBase({
       revs: revisionsBase,
-      repos: baseInProgress.repos,
       isInProgress: true,
     });
   };
 
-  const handleRemoveEditViewRevisionNew = (item: RevisionsList) => {
+  const handleRemoveEditViewRevisionNew = (item: Changeset) => {
     const revisionsNew = [...newInProgress.revs];
     revisionsNew.splice(newInProgress.revs.indexOf(item), 1);
     setInProgressNew({
       revs: revisionsNew,
-      repos: newInProgress.repos,
       isInProgress: true,
     });
   };
 
-  const handleSearchResultsEditToggleBase = (toggleArray: RevisionsList[]) => {
-    const repos = toggleArray.map((rev) => repoMap[rev.repository_id] ?? 'try');
+  const handleSearchResultsEditToggleBase = (toggleArray: Changeset[]) => {
     setInProgressBase({
       revs: toggleArray || [],
-      repos,
       isInProgress: true,
     });
   };
 
-  const handleSearchResultsEditToggleNew = (toggleArray: RevisionsList[]) => {
-    const repos = toggleArray.map((rev) => repoMap[rev.repository_id] ?? 'try');
+  const handleSearchResultsEditToggleNew = (toggleArray: Changeset[]) => {
     setInProgressNew({
       revs: toggleArray || [],
-      repos,
       isInProgress: true,
     });
   };
@@ -262,7 +225,7 @@ function CompareWithBase({
             isWarning={isWarning}
             isEditable={isEditable}
             searchResults={searchResultsBase}
-            displayedRevisions={displayedRevisionsBase}
+            displayedRevisions={displayedRevisionsBaseRevs}
             handleSave={handleSaveBase}
             handleCancel={handleCancelBase}
             handleEdit={handleEditBase}
@@ -275,7 +238,7 @@ function CompareWithBase({
             isEditable={isEditable}
             isWarning={isWarning}
             searchResults={searchResultsNew}
-            displayedRevisions={displayedRevisionsNew}
+            displayedRevisions={displayedRevisionsNewRevs}
             handleSave={handleSaveNew}
             handleCancel={handleCancelNew}
             handleEdit={handleEditNew}

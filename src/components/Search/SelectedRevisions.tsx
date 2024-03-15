@@ -4,7 +4,7 @@ import List from '@mui/material/List';
 import { useAppSelector } from '../../hooks/app';
 import useCheckRevision from '../../hooks/useCheckRevision';
 import { SelectRevsStyles } from '../../styles';
-import { Repository, RevisionsList } from '../../types/state';
+import { Changeset } from '../../types/state';
 import SelectedRevisionItem from './SelectedRevisionItem';
 
 interface SelectedRevisionsProps {
@@ -12,13 +12,8 @@ interface SelectedRevisionsProps {
   formIsDisplayed: boolean;
   isEditable: boolean;
   isWarning: boolean;
-  displayedRevisions: RevisionsState;
-  onEditRemove: (item: RevisionsList) => void;
-}
-
-interface RevisionsState {
-  revs: RevisionsList[];
-  repos: Repository['name'][];
+  displayedRevisions: Changeset[];
+  onEditRemove: (item: Changeset) => void;
 }
 
 function SelectedRevisions({
@@ -33,16 +28,16 @@ function SelectedRevisions({
   const styles = SelectRevsStyles(mode);
   const searchType = isBase ? 'base' : 'new';
 
-  const onEditRemoveAction = (item: RevisionsList) => {
+  const onEditRemoveAction = (item: Changeset) => {
     onEditRemove(item);
   };
 
   const { removeCheckedRevision } = useCheckRevision(isBase, isEditable);
 
-  const handleRemoveRevision = (item: RevisionsList) => {
+  const handleRemoveRevision = (item: Changeset) => {
     removeCheckedRevision(item);
   };
-  const removeRevision = (item: RevisionsList) => {
+  const removeRevision = (item: Changeset) => {
     if (isEditable) {
       onEditRemoveAction(item);
     } else {
@@ -63,12 +58,11 @@ function SelectedRevisions({
       }`}
     >
       <List>
-        {displayedRevisions.revs.map((item, index) => (
+        {displayedRevisions.map((item, index) => (
           <SelectedRevisionItem
             key={item.id}
             index={index}
             item={item}
-            repository={displayedRevisions.repos[index]}
             isBase={isBase}
             isWarning={isWarning}
             removeRevision={removeRevision}

@@ -2,7 +2,6 @@ import React from 'react';
 
 import Typography from '@mui/material/Typography';
 
-import { repoMap } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { SearchContainerStyles } from '../../styles';
@@ -14,20 +13,11 @@ const strings = Strings.components.searchDefault;
 function SearchContainer(props: SearchViewProps) {
   const themeMode = useAppSelector((state) => state.theme.mode);
   const styles = SearchContainerStyles(themeMode, /* isHome */ true);
-  const checkedRevisionsListNew = useAppSelector(
+  const checkedChangesetsNew = useAppSelector(
     (state) => state.search.new.checkedRevisions,
   );
-  const checkedRevisionsListBase = useAppSelector(
+  const checkedChangesetsBase = useAppSelector(
     (state) => state.search.base.checkedRevisions,
-  );
-
-  // The "??" operations below are so that Typescript doesn't wonder about the
-  // undefined value later.
-  const checkedNewRepos = checkedRevisionsListNew.map(
-    (item) => repoMap[item.repository_id] ?? 'try',
-  );
-  const checkedBaseRepos = checkedRevisionsListBase.map(
-    (item) => repoMap[item.repository_id] ?? 'try',
   );
 
   return (
@@ -39,10 +29,8 @@ function SearchContainer(props: SearchViewProps) {
       <Typography className='search-default-title'>{strings.title}</Typography>
       <CompareWithBase
         isEditable={false}
-        baseRevs={checkedRevisionsListBase}
-        newRevs={checkedRevisionsListNew}
-        baseRepos={checkedBaseRepos}
-        newRepos={checkedNewRepos}
+        baseRevs={checkedChangesetsBase}
+        newRevs={checkedChangesetsNew}
       />
 
       <CompareOverTime
