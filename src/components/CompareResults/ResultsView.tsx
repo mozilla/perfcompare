@@ -65,7 +65,7 @@ function ResultsView(props: ResultsViewProps) {
         <SearchViewInit />
 
         <CompareWithBase
-          isEditable={true}
+          hasNonEditableState={true}
           baseRevs={baseRevInfos}
           newRevs={newRevsInfo ?? []}
         />

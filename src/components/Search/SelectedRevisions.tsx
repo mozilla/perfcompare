@@ -10,7 +10,7 @@ import SelectedRevisionItem from './SelectedRevisionItem';
 interface SelectedRevisionsProps {
   isBase: boolean;
   formIsDisplayed: boolean;
-  isEditable: boolean;
+  hasNonEditableState: boolean;
   isWarning: boolean;
   displayedRevisions: Changeset[];
   onEditRemove: (item: Changeset) => void;
@@ -19,7 +19,7 @@ interface SelectedRevisionsProps {
 function SelectedRevisions({
   isBase,
   formIsDisplayed,
-  isEditable,
+  hasNonEditableState,
   isWarning,
   displayedRevisions,
   onEditRemove,
@@ -32,13 +32,16 @@ function SelectedRevisions({
     onEditRemove(item);
   };
 
-  const { removeCheckedRevision } = useCheckRevision(isBase, isEditable);
+  const { removeCheckedRevision } = useCheckRevision(
+    isBase,
+    hasNonEditableState,
+  );
 
   const handleRemoveRevision = (item: Changeset) => {
     removeCheckedRevision(item);
   };
   const removeRevision = (item: Changeset) => {
-    if (isEditable) {
+    if (hasNonEditableState) {
       onEditRemoveAction(item);
     } else {
       handleRemoveRevision(item);
@@ -46,7 +49,7 @@ function SelectedRevisions({
   };
 
   const iconClassName =
-    !formIsDisplayed && isEditable
+    !formIsDisplayed && hasNonEditableState
       ? 'icon icon-close-hidden'
       : 'icon icon-close-show';
 
@@ -54,7 +57,7 @@ function SelectedRevisions({
     <Box
       className={`${styles.box} ${searchType}-box`}
       data-testid={`selected-revs-${
-        isEditable ? '--editable-revisions' : '--search-revisions'
+        hasNonEditableState ? '--editable-revisions' : '--search-revisions'
       }`}
     >
       <List>
