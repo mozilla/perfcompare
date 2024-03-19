@@ -152,7 +152,6 @@ function CompareWithBase({
     revisionsBase.splice(baseInProgressRevs.indexOf(item), 1);
     setInProgressBaseRevs(revisionsBase);
   };
-
   const handleRemoveRevisionNew = (item: Changeset) => {
     const revisionsNew = [...newInProgressRevs];
     revisionsNew.splice(newInProgressRevs.indexOf(item), 1);
@@ -191,7 +190,6 @@ function CompareWithBase({
     );
     setInProgressBaseRevs(newBaseRevs);
   };
-
   const handleSearchResultsToggleNew = (item: Changeset) => {
     const newNewRevs = handleItemToggleInChangesetList(
       item,
