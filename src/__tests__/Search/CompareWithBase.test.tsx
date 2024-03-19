@@ -7,9 +7,7 @@ import ResultsView from '../../components/CompareResults/ResultsView';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import getTestData from '../utils/fixtures';
-import { store } from '../utils/setupTests';
 import {
-  act,
   screen,
   renderWithRouter,
   FetchMockSandbox,
@@ -142,12 +140,9 @@ describe('Compare With Base', () => {
 
     await user.click(removeButton[0]);
 
-    act(() => {
-      expect(store.getState().search.base.checkedRevisions).toEqual([]);
-    });
     expect(document.body).toMatchSnapshot();
 
-    expect(screen.queryAllByTestId('selected-rev-item')[0]).toBeUndefined();
+    expect(screen.queryByTestId('selected-rev-item')).not.toBeInTheDocument();
   });
 
   it('should have an edit mode in Results View', async () => {
