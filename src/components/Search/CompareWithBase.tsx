@@ -183,24 +183,24 @@ function CompareWithBase({
     setInProgressNew(true);
   };
 
-  const handleRemoveEditViewRevisionBase = (item: Changeset) => {
+  const handleRemoveRevisionBase = (item: Changeset) => {
     const revisionsBase = [...baseInProgressRevs];
     revisionsBase.splice(baseInProgressRevs.indexOf(item), 1);
     setInProgressBaseRevs(revisionsBase);
   };
 
-  const handleRemoveEditViewRevisionNew = (item: Changeset) => {
+  const handleRemoveRevisionNew = (item: Changeset) => {
     const revisionsNew = [...newInProgressRevs];
     revisionsNew.splice(newInProgressRevs.indexOf(item), 1);
     setInProgressNewRevs(revisionsNew);
   };
 
-  const handleSearchResultsEditToggleBase = (toggleArray: Changeset[]) => {
+  const handleSearchResultsToggleBase = (toggleArray: Changeset[]) => {
     setInProgressBaseRevs(toggleArray || []);
     setInProgressBase(true);
   };
 
-  const handleSearchResultsEditToggleNew = (toggleArray: Changeset[]) => {
+  const handleSearchResultsToggleNew = (toggleArray: Changeset[]) => {
     setInProgressNewRevs(toggleArray || []);
     setInProgressNew(true);
   };
@@ -243,11 +243,11 @@ function CompareWithBase({
             hasNonEditableState={hasNonEditableState}
             searchResults={searchResultsBase}
             displayedRevisions={displayedRevisionsBaseRevs}
-            handleSave={handleSaveBase}
-            handleCancel={handleCancelBase}
-            handleEdit={handleEditBase}
-            handleSearchResultsEditToggle={handleSearchResultsEditToggleBase}
-            handleRemoveEditViewRevision={handleRemoveEditViewRevisionBase}
+            onSave={handleSaveBase}
+            onCancel={handleCancelBase}
+            onEdit={handleEditBase}
+            onSearchResultsToggle={handleSearchResultsToggleBase}
+            onRemoveRevision={handleRemoveRevisionBase}
           />
           <SearchComponent
             {...stringsNew}
@@ -256,11 +256,11 @@ function CompareWithBase({
             isWarning={isWarning}
             searchResults={searchResultsNew}
             displayedRevisions={displayedRevisionsNewRevs}
-            handleSave={handleSaveNew}
-            handleCancel={handleCancelNew}
-            handleEdit={handleEditNew}
-            handleSearchResultsEditToggle={handleSearchResultsEditToggleNew}
-            handleRemoveEditViewRevision={handleRemoveEditViewRevisionNew}
+            onSave={handleSaveNew}
+            onCancel={handleCancelNew}
+            onEdit={handleEditNew}
+            onSearchResultsToggle={handleSearchResultsToggleNew}
+            onRemoveRevision={handleRemoveRevisionNew}
           />
           <Grid
             item

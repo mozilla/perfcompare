@@ -12,7 +12,7 @@ interface SearchResultsListProps {
   isBase: boolean;
   searchResults: Changeset[];
   displayedRevisions: Changeset[];
-  onEditToggle: (toggleArray: Changeset[]) => void;
+  onToggle: (toggleArray: Changeset[]) => void;
 }
 
 function SearchResultsList({
@@ -20,7 +20,7 @@ function SearchResultsList({
   isBase,
   searchResults,
   displayedRevisions,
-  onEditToggle,
+  onToggle,
 }: SearchResultsListProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = SelectListStyles(mode);
@@ -34,7 +34,7 @@ function SearchResultsList({
     const toggleArray = handleToggle(item, revisionsCount, displayedRevisions);
 
     if (hasNonEditableState) {
-      onEditToggle(toggleArray);
+      onToggle(toggleArray);
     }
   };
 
