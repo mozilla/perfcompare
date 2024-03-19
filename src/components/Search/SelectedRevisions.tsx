@@ -9,7 +9,7 @@ import SelectedRevisionItem from './SelectedRevisionItem';
 
 interface SelectedRevisionsProps {
   isBase: boolean;
-  formIsDisplayed: boolean;
+  canRemoveRevision: boolean;
   hasNonEditableState: boolean;
   isWarning: boolean;
   displayedRevisions: Changeset[];
@@ -18,7 +18,7 @@ interface SelectedRevisionsProps {
 
 function SelectedRevisions({
   isBase,
-  formIsDisplayed,
+  canRemoveRevision,
   hasNonEditableState,
   isWarning,
   displayedRevisions,
@@ -41,10 +41,9 @@ function SelectedRevisions({
     }
   };
 
-  const iconClassName =
-    !formIsDisplayed && hasNonEditableState
-      ? 'icon icon-close-hidden'
-      : 'icon icon-close-show';
+  const iconClassName = canRemoveRevision
+    ? 'icon-close-show'
+    : 'icon-close-hidden';
 
   return (
     <Box

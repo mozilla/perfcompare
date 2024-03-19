@@ -224,7 +224,7 @@ function SearchComponent({
           <SelectedRevisions
             isBase={isBaseComp}
             hasNonEditableState={hasNonEditableState}
-            formIsDisplayed={formIsDisplayed}
+            canRemoveRevision={!hasNonEditableState || formIsDisplayed}
             isWarning={isWarning}
             displayedRevisions={displayedRevisions}
             onRemoveRevision={onRemoveRevision}
