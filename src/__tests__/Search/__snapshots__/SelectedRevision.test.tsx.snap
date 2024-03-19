@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SelectedRevision should show the selected checked revisions once a result checkbox is clicked 1`] = `
+exports[`SelectedRevision should show the selected checked revisions once a result checkbox is clicked, and remove it when X button is clicked 1`] = `
 <li
   class="MuiListItem-root MuiListItem-gutters MuiListItem-padding item-container item-0 item-base css-vtiz8x-MuiListItem-root"
   data-testid="selected-rev-item"
