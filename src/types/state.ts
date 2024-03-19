@@ -99,7 +99,6 @@ export type SearchStateForInput = {
   searchValue: string;
   inputError: boolean;
   inputHelperText: string;
-  checkedRevisions: Changeset[];
 };
 
 export type InputType = 'base' | 'new';
