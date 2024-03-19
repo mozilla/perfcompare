@@ -19,7 +19,6 @@ const DEFAULT_VALUES: SearchStateForInput = {
   searchValue: '',
   inputError: false,
   inputHelperText: '',
-  checkedRevisions: [],
 };
 
 const initialState: SearchState = {
@@ -64,27 +63,6 @@ const search = createSlice({
     ) {
       const type = action.payload.searchType;
       state[type].repository = action.payload.repository;
-    },
-
-    updateCheckedRevisions(
-      state,
-      action: PayloadAction<{
-        newChecked: Changeset[];
-        searchType: InputType;
-      }>,
-    ) {
-      const type = action.payload.searchType;
-      state[type].checkedRevisions = action.payload.newChecked;
-    },
-
-    clearCheckedRevisionforType(
-      state,
-      action: PayloadAction<{
-        searchType: InputType;
-      }>,
-    ) {
-      const type = action.payload.searchType;
-      state[type].checkedRevisions = initialState[type].checkedRevisions;
     },
 
     setInputError(
@@ -144,8 +122,6 @@ export const {
   updateSearchValue,
   updateSearchResults,
   updateRepository,
-  updateCheckedRevisions,
-  clearCheckedRevisionforType,
   setInputError,
 } = search.actions;
 export default search.reducer;
