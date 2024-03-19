@@ -9,7 +9,6 @@ import SelectedRevisionItem from './SelectedRevisionItem';
 interface SelectedRevisionsProps {
   isBase: boolean;
   canRemoveRevision: boolean;
-  hasNonEditableState: boolean;
   isWarning: boolean;
   displayedRevisions: Changeset[];
   onRemoveRevision: (item: Changeset) => void;
@@ -18,7 +17,6 @@ interface SelectedRevisionsProps {
 function SelectedRevisions({
   isBase,
   canRemoveRevision,
-  hasNonEditableState,
   isWarning,
   displayedRevisions,
   onRemoveRevision,
@@ -32,12 +30,7 @@ function SelectedRevisions({
     : 'icon-close-hidden';
 
   return (
-    <Box
-      className={`${styles.box} ${searchType}-box`}
-      data-testid={`selected-revs-${
-        hasNonEditableState ? '--editable-revisions' : '--search-revisions'
-      }`}
-    >
+    <Box className={`${styles.box} ${searchType}-box`}>
       <List>
         {displayedRevisions.map((item, index) => (
           <SelectedRevisionItem

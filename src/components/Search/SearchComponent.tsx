@@ -223,7 +223,6 @@ function SearchComponent({
         <Grid className='d-flex'>
           <SelectedRevisions
             isBase={isBaseComp}
-            hasNonEditableState={hasNonEditableState}
             canRemoveRevision={!hasNonEditableState || formIsDisplayed}
             isWarning={isWarning}
             displayedRevisions={displayedRevisions}
