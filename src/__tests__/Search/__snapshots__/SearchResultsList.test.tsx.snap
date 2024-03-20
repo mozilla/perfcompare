@@ -975,7 +975,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root wrapper--overtime f116vnhj f1wt0yvj css-plh9qo-MuiGrid-root"
+          class="MuiGrid-root wrapper--overtime f1ucodr8 f1wt0yvj css-plh9qo-MuiGrid-root"
         >
           <div
             class="compare-card-container compare-card-container--hidden container_f10wk1hq"
@@ -1020,7 +1020,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-                    id="select-repository-label"
+                    id="select-repository-label--time"
                   >
                     Revisions
                     <svg
@@ -1040,11 +1040,11 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 </div>
                 <div
                   class="MuiGrid-root MuiGrid-container container_f1psuwcf css-1ljzhs0-MuiGrid-root"
-                  id="new-search-container"
+                  id="new-search-container--time"
                 >
                   <div
                     class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fl6uoag  -base-dropdown css-1awobkc-MuiGrid-root"
-                    id="new_search-dropdown"
+                    id="new_search-dropdown--time"
                   >
                     <div>
                       <div
@@ -1086,8 +1086,8 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_fctyy2s   css-17gmabg-MuiGrid-root"
-                    id="new_search-input"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_fctyy2s   css-17gmabg-MuiGrid-root"
+                    id="new_search-input--time"
                   >
                     <div
                       class="MuiFormControl-root MuiFormControl-fullWidth fj0l9jr css-q8hpuo-MuiFormControl-root"

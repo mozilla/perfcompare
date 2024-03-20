@@ -45,7 +45,7 @@ function CompareOverTime({ isEditable }: CompareWithTimeProps) {
 
   const wrapperStyles = {
     wrapper: style({
-      marginBottom: `${Spacing.layoutXLarge - Spacing.xMedium}px`,
+      marginBottom: `${Spacing.layoutXLarge}px`,
     }),
   };
 

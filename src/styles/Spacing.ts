@@ -3,7 +3,6 @@
 export enum Spacing {
   xSmall = 4,
   Small = 8,
-  xMedium = 12,
   Medium = 16,
   Large = 24,
   xLarge = 32,

@@ -68,34 +68,30 @@ export default function SearchOverTime({
   });
 
   useEffect(() => {
-    const handleDocumentMousedown = (e: MouseEvent) => {
-      if (!displayDropdown) {
-        return;
-      }
-      const target = e.target as HTMLElement;
-      if (target.closest('.new-search-input') === null) {
-        // Close the dropdown only if the click is outside the search input or one
-        // of it's descendants.
-        setDisplayDropdown(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleDocumentMousedown);
-    return () => {
-      document.removeEventListener('mousedown', handleDocumentMousedown);
-    };
-  }, [displayDropdown]);
-
-  useEffect(() => {
     const handleEscKeypress = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setDisplayDropdown(false);
       }
     };
 
+    const handleDocumentMousedown = (e: MouseEvent) => {
+      if (!displayDropdown) {
+        return;
+      }
+      const target = e.target as HTMLElement;
+      if (target.closest('.new-search-input--time') === null) {
+        // Close the dropdown only if the click is outside the search input or one
+        // of it's descendants.
+        setDisplayDropdown(false);
+      }
+    };
+
     document.addEventListener('keydown', handleEscKeypress);
+    document.addEventListener('mousedown', handleDocumentMousedown);
+
     return () => {
       document.removeEventListener('keydown', handleEscKeypress);
+      document.removeEventListener('mousedown', handleDocumentMousedown);
     };
   }, [displayDropdown]);
 
@@ -107,7 +103,7 @@ export default function SearchOverTime({
         className={`$new-search-dropdown ${styles.dropDown} label-edit-wrapper`}
       >
         <InputLabel
-          id='select-repository-label'
+          id='select-repository-label--time'
           className='dropdown-select-label'
         >
           {selectLabel}
@@ -120,13 +116,13 @@ export default function SearchOverTime({
       <Grid
         container
         alignItems='flex-start'
-        id='new-search-container'
+        id='new-search-container--time'
         className={`${styles.container}`}
       >
         <Grid
           item
           xs={2}
-          id='new_search-dropdown'
+          id='new_search-dropdown--time'
           className={`new-search-dropdown ${styles.dropDown} ${
             isEditable ? 'small' : ''
           } ${isEditable ? compareView : ''}-base-dropdown`}
@@ -141,8 +137,8 @@ export default function SearchOverTime({
         <Grid
           item
           xs={7}
-          id='new_search-input'
-          className={`new-search-input  ${styles.baseSearchInput} ${
+          id='new_search-input--time'
+          className={`new-search-input--time  ${styles.baseSearchInput} ${
             isEditable ? 'big' : ''
           } `}
         >
