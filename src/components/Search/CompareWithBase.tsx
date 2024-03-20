@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+import { Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import { useSnackbar } from 'notistack';
@@ -9,7 +10,7 @@ import { style } from 'typestyle';
 import { useAppDispatch, useAppSelector } from '../../hooks/app';
 import { clearCheckedRevisionforType } from '../../reducers/SearchSlice';
 import { Strings } from '../../resources/Strings';
-import { CompareCardsStyles, SearchStyles } from '../../styles';
+import { CompareCardsStyles, SearchStyles, Spacing } from '../../styles';
 import type { Changeset } from '../../types/state';
 import CompareButton from './CompareButton';
 import FrameworkDropdown from './FrameworkDropdown';
@@ -92,6 +93,12 @@ function CompareWithBase({
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'flex-end',
+    }),
+  };
+
+  const wrapperStyles = {
+    wrapper: style({
+      marginBottom: `${Spacing.Large}px`,
     }),
   };
 
@@ -189,7 +196,7 @@ function CompareWithBase({
   };
 
   return (
-    <Grid className={`wrapper--withbase ${styles.wrapper}`}>
+    <Grid className={`wrapper--withbase ${wrapperStyles.wrapper}`}>
       <div
         className={`compare-card-container compare-card-container--${
           expanded ? 'expanded' : 'hidden'
@@ -198,8 +205,10 @@ function CompareWithBase({
         data-testid='base-state'
       >
         <div className={`compare-card-text ${styles.cardText}`}>
-          <div className='compare-card-title'>{strings.base.title}</div>
-          <div className='compare-card-tagline'>{strings.base.tagline}</div>
+          <Typography variant='h2' className='compare-card-title'>
+            {strings.base.title}
+          </Typography>
+          <p className='compare-card-tagline'>{strings.base.tagline}</p>
         </div>
         <div
           className='compare-card-img compare-card-img--base'
@@ -251,7 +260,7 @@ function CompareWithBase({
             className={`${dropDownStyles.dropDown} ${bottomStyles.container}`}
           >
             <FrameworkDropdown />
-            <CompareButton name='compare with base' />
+            <CompareButton label={strings.base.title} />
           </Grid>
         </Form>
       </div>

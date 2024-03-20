@@ -13,25 +13,25 @@ exports[`Search Containter should match snapshot 1`] = `
         Compare with a base or over time
       </p>
       <div
-        class="MuiGrid-root wrapper--withbase wrapper_f1hckl9f css-plh9qo-MuiGrid-root"
+        class="MuiGrid-root wrapper--withbase fcdpsbx css-plh9qo-MuiGrid-root"
       >
         <div
           class="compare-card-container compare-card-container--expanded container_f10wk1hq"
           data-testid="base-state"
         >
           <div
-            class="compare-card-text cardText_f10ud7bq"
+            class="compare-card-text cardText_f1daqd2p"
           >
-            <div
-              class="compare-card-title"
+            <h2
+              class="MuiTypography-root MuiTypography-h2 compare-card-title css-1u33eov-MuiTypography-root"
             >
               Compare with a base
-            </div>
-            <div
+            </h2>
+            <p
               class="compare-card-tagline"
             >
               Analyze differences between specific revisions.
-            </div>
+            </p>
           </div>
           <div
             aria-label="two overlapping circles"
@@ -396,13 +396,12 @@ exports[`Search Containter should match snapshot 1`] = `
                 </div>
               </div>
               <button
-                aria-label="compare with base"
                 class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1pha5e5-MuiButtonBase-root-MuiButton-root"
                 id="compare-button"
                 tabindex="0"
                 type="submit"
               >
-                Compare
+                Compare with a base
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
@@ -412,25 +411,25 @@ exports[`Search Containter should match snapshot 1`] = `
         </div>
       </div>
       <div
-        class="MuiGrid-root wrapper--overtime wrapper_f1hckl9f f1wt0yvj css-plh9qo-MuiGrid-root"
+        class="MuiGrid-root wrapper--overtime f116vnhj f1wt0yvj css-plh9qo-MuiGrid-root"
       >
         <div
           class="compare-card-container compare-card-container--hidden container_f10wk1hq"
           data-testid="time-state"
         >
           <div
-            class="compare-card-text cardText_f10ud7bq"
+            class="compare-card-text cardText_f1daqd2p"
           >
-            <div
-              class="compare-card-title"
+            <h2
+              class="MuiTypography-root MuiTypography-h2 compare-card-title css-1u33eov-MuiTypography-root"
             >
               Compare over time
-            </div>
-            <div
+            </h2>
+            <p
               class="compare-card-tagline"
             >
               Analyze differences between revisions within a specific time range.
-            </div>
+            </p>
           </div>
           <div
             aria-label="a clock"
@@ -445,6 +444,7 @@ exports[`Search Containter should match snapshot 1`] = `
           />
           <form
             action="/compare-results"
+            aria-label="Compare over time form"
             class="form-wrapper"
             method="get"
           >
@@ -641,13 +641,12 @@ exports[`Search Containter should match snapshot 1`] = `
                 </div>
               </div>
               <button
-                aria-label="compare over time"
                 class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1pha5e5-MuiButtonBase-root-MuiButton-root"
                 id="compare-button"
                 tabindex="0"
                 type="submit"
               >
-                Compare
+                Compare over time
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />

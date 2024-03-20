@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 
 import InfoIcon from '@mui/icons-material/InfoOutlined';
 import Grid from '@mui/material/Grid';
@@ -15,20 +15,20 @@ import {
   //SearchStyles can be found in CompareCards.ts
   SearchStyles,
 } from '../../styles';
-import { RevisionsList } from '../../types/state';
+import { Changeset } from '../../types/state';
 import SearchDropdown from './SearchDropdown';
 import SearchInput from './SearchInput';
 import SearchResultsList from './SearchResultsList';
 
 interface SearchProps {
   selectLabel: string;
-  searchResults: RevisionsList[];
+  searchResults: Changeset[];
   tooltip: string;
   inputPlaceholder: string;
   isEditable: boolean;
 }
 
-function SearchComponent({
+export default function SearchOverTime({
   selectLabel,
   tooltip,
   inputPlaceholder,
@@ -39,14 +39,11 @@ function SearchComponent({
   const styles = SearchStyles(mode);
   const [displayDropdown, setDisplayDropdown] = useState(false);
   //temporary until next PR covers selected revisions
-  const handleSearchResultsEditToggle = (toggleArray: RevisionsList[]) => {
+  const handleSearchResultsEditToggle = (toggleArray: Changeset[]) => {
     console.log('handleSearchResultsEditToggle', toggleArray);
   };
 
-  const displayedRevisions = {
-    revs: [],
-    repos: [],
-  };
+  const displayedRevisions: Changeset[] = [];
 
   /* These overriding rules update the theme mode by accessing the otherwise inaccessible MUI tooltip styles */
   cssRule('.MuiPopover-root', {
@@ -70,8 +67,8 @@ function SearchComponent({
     },
   });
 
-  const handleDocumentMousedown = useCallback(
-    (e: MouseEvent) => {
+  useEffect(() => {
+    const handleDocumentMousedown = (e: MouseEvent) => {
       if (!displayDropdown) {
         return;
       }
@@ -81,29 +78,26 @@ function SearchComponent({
         // of it's descendants.
         setDisplayDropdown(false);
       }
-    },
-    [displayDropdown],
-  );
+    };
 
-  const handleEscKeypress = (e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      setDisplayDropdown(false);
-    }
-  };
-
-  useEffect(() => {
     document.addEventListener('mousedown', handleDocumentMousedown);
     return () => {
       document.removeEventListener('mousedown', handleDocumentMousedown);
     };
-  }, [handleDocumentMousedown]);
+  }, [displayDropdown]);
 
   useEffect(() => {
+    const handleEscKeypress = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setDisplayDropdown(false);
+      }
+    };
+
     document.addEventListener('keydown', handleEscKeypress);
     return () => {
       document.removeEventListener('keydown', handleEscKeypress);
     };
-  });
+  }, [displayDropdown]);
 
   return (
     <Grid className={styles.component}>
@@ -174,5 +168,3 @@ function SearchComponent({
     </Grid>
   );
 }
-
-export default SearchComponent;

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Grid } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import { useLocation } from 'react-router-dom';
 import { Form } from 'react-router-dom';
@@ -8,8 +8,8 @@ import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
-import { CompareCardsStyles, SearchStyles } from '../../styles';
-import { RevisionsList, Repository } from '../../types/state';
+import { CompareCardsStyles, SearchStyles, Spacing } from '../../styles';
+import { Changeset } from '../../types/state';
 import CompareButton from './CompareButton';
 import FrameworkDropdown from './FrameworkDropdown';
 import SearchOverTime from './SearchOverTime';
@@ -20,10 +20,8 @@ const stringsNew =
 
 interface CompareWithTimeProps {
   isEditable: boolean;
-  baseRevs: RevisionsList[];
-  newRevs: RevisionsList[];
-  baseRepos: Repository['name'][];
-  newRepos: Repository['name'][];
+  baseRevs: Changeset[];
+  newRevs: Changeset[];
 }
 
 function CompareOverTime({ isEditable }: CompareWithTimeProps) {
@@ -45,6 +43,12 @@ function CompareOverTime({ isEditable }: CompareWithTimeProps) {
     }),
   };
 
+  const wrapperStyles = {
+    wrapper: style({
+      marginBottom: `${Spacing.layoutXLarge - Spacing.xMedium}px`,
+    }),
+  };
+
   const bottomStyles = {
     container: style({
       display: 'flex',
@@ -59,7 +63,7 @@ function CompareOverTime({ isEditable }: CompareWithTimeProps) {
 
   return (
     <Grid
-      className={`wrapper--overtime ${styles.wrapper} ${containerStyles.container}`}
+      className={`wrapper--overtime ${wrapperStyles.wrapper} ${containerStyles.container}`}
     >
       <div
         className={`compare-card-container compare-card-container--${
@@ -69,8 +73,10 @@ function CompareOverTime({ isEditable }: CompareWithTimeProps) {
         data-testid='time-state'
       >
         <div className={`compare-card-text ${styles.cardText}`}>
-          <div className='compare-card-title'>{strings.overTime.title}</div>
-          <div className='compare-card-tagline'>{strings.overTime.tagline}</div>
+          <Typography variant='h2' className='compare-card-title'>
+            {strings.overTime.title}
+          </Typography>
+          <p className='compare-card-tagline'>{strings.overTime.tagline}</p>
         </div>
         <div
           className='compare-card-img compare-card-img--time'
@@ -83,7 +89,11 @@ function CompareOverTime({ isEditable }: CompareWithTimeProps) {
         } ${styles.container} `}
       >
         <Divider className='divider' />
-        <Form action='/compare-results' className='form-wrapper'>
+        <Form
+          action='/compare-results'
+          className='form-wrapper'
+          aria-label='Compare over time form'
+        >
           <SearchOverTime
             {...stringsNew}
             searchResults={searchResults}
@@ -96,7 +106,7 @@ function CompareOverTime({ isEditable }: CompareWithTimeProps) {
             className={`${dropDownStyles.dropDown} ${bottomStyles.container}`}
           >
             <FrameworkDropdown />
-            <CompareButton name='compare over time' />
+            <CompareButton label={strings.overTime.title} />
           </Grid>
         </Form>
       </div>

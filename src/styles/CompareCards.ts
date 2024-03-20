@@ -23,16 +23,6 @@ export const CompareCardsStyles = (mode: string) => {
   const isTrueLight = mode == 'light' ? true : false;
 
   const compareCardsCSS = stylesheet({
-    wrapper: {
-      $nest: {
-        '&.wrapper--withbase': {
-          marginBottom: `${Spacing.Large}px`,
-        },
-        '&.wrapper--overtime': {
-          marginBottom: `${Spacing.layoutXLarge - 12}px`,
-        },
-      },
-    },
     container: {
       ...(isTrueLight ? CardsLightRaw : CardsDarkRaw),
       width: '100%',
@@ -119,6 +109,7 @@ export const CompareCardsStyles = (mode: string) => {
         },
         '.compare-card-tagline': {
           ...(isTrueLight ? FontsRaw.BodyDefault : FontsRaw.BodyDefaultDark),
+          margin: '0px',
         },
       },
     },

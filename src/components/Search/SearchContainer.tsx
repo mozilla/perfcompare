@@ -35,10 +35,8 @@ function SearchContainer(props: SearchViewProps) {
 
       <CompareOverTime
         isEditable={false}
-        baseRevs={checkedRevisionsListBase}
-        newRevs={checkedRevisionsListNew}
-        baseRepos={checkedBaseRepos}
-        newRepos={checkedNewRepos}
+        baseRevs={checkedChangesetsBase}
+        newRevs={checkedChangesetsNew}
       />
     </section>
   );

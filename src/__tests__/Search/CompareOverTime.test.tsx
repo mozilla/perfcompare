@@ -7,7 +7,11 @@ import {
   screen,
   renderWithRouter,
   FetchMockSandbox,
+  within,
 } from '../utils/test-utils';
+
+const formName = 'Compare over time form';
+const overTimeTitle = Strings.components.searchDefault.overTime.title;
 
 function setUpTestData() {
   const { testData } = getTestData();
@@ -40,9 +44,11 @@ function renderSearchViewComponent() {
 describe('Compare Over Time', () => {
   it('renders correctly in Search View', async () => {
     renderSearchViewComponent();
-    expect(await screen.findByText('Compare over time')).toBeInTheDocument();
+    expect(
+      await screen.findByRole('heading', { name: overTimeTitle }),
+    ).toBeInTheDocument();
     const formElement = await screen.findByRole('form', {
-      name: 'Compare with base form',
+      name: formName,
     });
     expect(formElement).toMatchSnapshot('Initial state for the form');
   });
@@ -78,8 +84,15 @@ describe('Compare Over Time', () => {
     const headerContent = screen.getByTestId(testExpandedID);
     await user.click(headerContent);
 
-    expect(screen.getAllByText(/talos/i)[1]).toBeInTheDocument();
-    expect(screen.queryByText(/build_metrics/i)).not.toBeInTheDocument();
+    const formElement = await screen.findByRole('form', {
+      name: formName,
+    });
+    expect(within(formElement).getByText(/talos/i)).toBeInTheDocument();
+
+    expect(
+      within(formElement).queryByText(/build_metrics/i),
+    ).not.toBeInTheDocument();
+
     const frameworkDropdown = screen.getAllByRole('button', {
       name: 'Framework talos',
     });

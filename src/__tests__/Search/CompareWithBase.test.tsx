@@ -13,7 +13,11 @@ import {
   screen,
   renderWithRouter,
   FetchMockSandbox,
+  within,
 } from '../utils/test-utils';
+
+const formName = 'Compare with base form';
+const baseTitle = Strings.components.searchDefault.base.title;
 
 function setUpTestData() {
   const { testData } = getTestData();
@@ -58,9 +62,14 @@ describe('Compare With Base', () => {
     renderWithCompareResultsURL(
       <ResultsView title={Strings.metaData.pageTitle.results} />,
     );
-    expect(await screen.findByText('Compare with a base')).toBeInTheDocument();
+
+    const compTitle = await screen.findByRole('heading', {
+      name: baseTitle,
+    });
+
+    expect(compTitle).toBeInTheDocument();
     const formElement = await screen.findByRole('form', {
-      name: 'Compare with base form',
+      name: formName,
     });
     expect(formElement).toMatchSnapshot('Initial state for the form');
   });
@@ -92,8 +101,15 @@ describe('Compare With Base', () => {
   it('selects and displays new framework when clicked', async () => {
     renderSearchViewComponent();
     const user = userEvent.setup({ delay: null });
-    expect(screen.getAllByText(/talos/i)[0]).toBeInTheDocument();
-    expect(screen.queryByText(/build_metrics/i)).not.toBeInTheDocument();
+
+    const formElement = await screen.findByRole('form', {
+      name: formName,
+    });
+    expect(within(formElement).getByText(/talos/i)).toBeInTheDocument();
+    expect(
+      within(formElement).queryByText(/build_metrics/i),
+    ).not.toBeInTheDocument();
+
     const frameworkDropdown = screen.getAllByRole('button', {
       name: 'Framework talos',
     });
@@ -106,7 +122,7 @@ describe('Compare With Base', () => {
 
     await user.click(buildMetricsItem);
 
-    expect(screen.getAllByText(/build_metrics/i)[0]).toBeInTheDocument();
+    expect(within(formElement).getByText(/build_metrics/i)).toBeInTheDocument();
   });
 
   it('should remove the checked revision once X button is clicked', async () => {
@@ -139,12 +155,18 @@ describe('Compare With Base', () => {
       <ResultsView title={Strings.metaData.pageTitle.results} />,
     );
 
-    const user = userEvent.setup({ delay: null });
-
-    expect(await screen.findByText('Compare with a base')).toBeInTheDocument();
-    const formElement = await screen.findByRole('form', {
-      name: 'Compare with base form',
+    const compTitle = await screen.findByRole('heading', {
+      name: baseTitle,
     });
+
+    expect(compTitle).toBeInTheDocument();
+
+    const user = userEvent.setup({ delay: null });
+    const formElement = await screen.findByRole('form', {
+      name: formName,
+    });
+    expect(formElement).toBeInTheDocument();
+
     expect(formElement).toMatchSnapshot('Initial state for the form');
 
     // Find out if the base revision is rendered
@@ -233,7 +255,11 @@ describe('Compare With Base', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    expect(await screen.findByText('Compare with a base')).toBeInTheDocument();
+    const compTitle = await screen.findByRole('heading', {
+      name: baseTitle,
+    });
+
+    expect(compTitle).toBeInTheDocument();
 
     // Click the edit revision
     const editButton = screen.getAllByRole('button', {
@@ -282,7 +308,11 @@ describe('Compare With Base', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    expect(await screen.findByText('Compare with a base')).toBeInTheDocument();
+    const compTitle = await screen.findByRole('heading', {
+      name: baseTitle,
+    });
+
+    expect(compTitle).toBeInTheDocument();
 
     // Click the edit revision for new revisions
     const editButton = screen.getAllByRole('button', {
