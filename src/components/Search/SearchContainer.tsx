@@ -28,7 +28,7 @@ function SearchContainer(props: SearchViewProps) {
     >
       <Typography className='search-default-title'>{strings.title}</Typography>
       <CompareWithBase
-        isEditable={false}
+        hasNonEditableState={false}
         baseRevs={checkedChangesetsBase}
         newRevs={checkedChangesetsNew}
       />

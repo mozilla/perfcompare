@@ -8,40 +8,33 @@ import { Changeset } from '../../types/state';
 import SearchResultsListItem from './SearchResultsListItem';
 
 interface SearchResultsListProps {
-  isEditable: boolean;
+  hasNonEditableState: boolean;
   isBase: boolean;
   searchResults: Changeset[];
   displayedRevisions: Changeset[];
-  onEditToggle: (toggleArray: Changeset[]) => void;
+  onToggle: (toggleArray: Changeset[]) => void;
 }
 
 function SearchResultsList({
-  isEditable,
+  hasNonEditableState,
   isBase,
   searchResults,
   displayedRevisions,
-  onEditToggle,
+  onToggle,
 }: SearchResultsListProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = SelectListStyles(mode);
-  const { handleToggle } = useCheckRevision(isBase, isEditable);
-  const searchType = isBase ? 'base' : 'new';
+  const { handleToggle } = useCheckRevision(isBase, hasNonEditableState);
   const revisionsCount = isBase === true ? 1 : 3;
-  const isCommittedChecked = (item: Changeset) => {
-    return useAppSelector((state) =>
-      state.search[searchType].checkedRevisions.includes(item),
-    );
-  };
   const isInProgressChecked = (item: Changeset) => {
     return displayedRevisions.map((rev) => rev.id).includes(item.id);
   };
-  const isCheckedState = isEditable ? isInProgressChecked : isCommittedChecked;
 
   const handleToggleAction = (item: Changeset) => {
     const toggleArray = handleToggle(item, revisionsCount, displayedRevisions);
 
-    if (isEditable) {
-      onEditToggle(toggleArray);
+    if (hasNonEditableState) {
+      onToggle(toggleArray);
     }
   };
 
@@ -52,14 +45,14 @@ function SearchResultsList({
       alignItems='flex-end'
       data-testid='list-mode'
     >
-      <List dense={isEditable == true} sx={{ paddingTop: '0' }}>
+      <List dense={hasNonEditableState} sx={{ paddingTop: '0' }}>
         {searchResults.map((item, index) => (
           <SearchResultsListItem
             key={item.id}
             index={index}
             item={item}
             revisionsCount={revisionsCount}
-            isCheckedState={isCheckedState}
+            isChecked={isInProgressChecked(item)}
             onToggle={handleToggleAction}
           />
         ))}

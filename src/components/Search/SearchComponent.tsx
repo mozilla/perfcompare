@@ -30,17 +30,17 @@ import SearchResultsList from './SearchResultsList';
 import SelectedRevisions from './SelectedRevisions';
 
 interface SearchProps {
-  isEditable: boolean;
+  hasNonEditableState: boolean;
   isWarning: boolean;
   isBaseComp: boolean;
   searchResults: Changeset[];
   displayedRevisions: Changeset[];
   setPopoverIsOpen?: Dispatch<SetStateAction<boolean>>;
-  handleSave: () => void;
-  handleCancel: () => void;
-  handleEdit: () => void;
-  handleSearchResultsEditToggle: (toggleArray: Changeset[]) => void;
-  handleRemoveEditViewRevision: (item: Changeset) => void;
+  onSave: () => void;
+  onCancel: () => void;
+  onEdit: () => void;
+  onSearchResultsToggle: (toggleArray: Changeset[]) => void;
+  onRemoveRevision: (item: Changeset) => void;
   prevRevision?: Changeset;
   selectLabel: string;
   tooltip: string;
@@ -48,15 +48,15 @@ interface SearchProps {
 }
 
 function SearchComponent({
-  isEditable,
+  hasNonEditableState,
   isBaseComp,
   searchResults,
   displayedRevisions,
-  handleCancel,
-  handleSave,
-  handleEdit,
-  handleSearchResultsEditToggle,
-  handleRemoveEditViewRevision,
+  onCancel,
+  onSave,
+  onEdit,
+  onSearchResultsToggle,
+  onRemoveRevision,
   selectLabel,
   tooltip,
   inputPlaceholder,
@@ -89,7 +89,7 @@ function SearchComponent({
   });
 
   const [displayDropdown, setDisplayDropdown] = useState(false);
-  const [formIsDisplayed, setFormIsDisplayed] = useState(!isEditable);
+  const [formIsDisplayed, setFormIsDisplayed] = useState(!hasNonEditableState);
 
   const handleDocumentMousedown = useCallback(
     (e: MouseEvent) => {
@@ -145,11 +145,11 @@ function SearchComponent({
           </Tooltip>
         </InputLabel>
         {/**** Edit Button ****/}
-        {isEditable && !formIsDisplayed && (
+        {hasNonEditableState && !formIsDisplayed && (
           <EditButton
             isBase={isBaseComp}
             onEditAction={() => {
-              handleEdit();
+              onEdit();
               setFormIsDisplayed(true);
             }}
           />
@@ -169,11 +169,11 @@ function SearchComponent({
           xs={2}
           id={`${searchType}_search-dropdown`}
           className={`${searchType}-search-dropdown ${styles.dropDown} ${
-            isEditable ? 'small' : ''
-          } ${isEditable ? compareView : ''}-base-dropdown`}
+            hasNonEditableState ? 'small' : ''
+          } ${hasNonEditableState ? compareView : ''}-base-dropdown`}
         >
           <SearchDropdown
-            isEditable={isEditable}
+            compact={hasNonEditableState}
             selectLabel={selectLabel}
             tooltipText={tooltip}
             searchType={searchType}
@@ -184,35 +184,35 @@ function SearchComponent({
           xs={7}
           id={`${searchType}_search-input`}
           className={`${searchType}-search-input  ${styles.baseSearchInput} ${
-            isEditable ? 'big' : ''
+            hasNonEditableState ? 'big' : ''
           } `}
         >
           <SearchInput
             onFocus={() => setDisplayDropdown(true)}
-            isEditable={isEditable}
+            compact={hasNonEditableState}
             inputPlaceholder={inputPlaceholder}
             searchType={searchType}
           />
           {searchResults.length > 0 && displayDropdown && (
             <SearchResultsList
-              isEditable={isEditable}
+              hasNonEditableState={hasNonEditableState}
               isBase={isBaseComp}
               searchResults={searchResults}
               displayedRevisions={displayedRevisions}
-              onEditToggle={handleSearchResultsEditToggle}
+              onToggle={onSearchResultsToggle}
             />
           )}
         </Grid>
         {/****** Cancel Save Buttons ******/}
-        {isEditable && formIsDisplayed && (
+        {hasNonEditableState && formIsDisplayed && (
           <SaveCancelButtons
             searchType={searchType}
             onSave={() => {
-              handleSave();
+              onSave();
               setFormIsDisplayed(false);
             }}
             onCancel={() => {
-              handleCancel();
+              onCancel();
               setFormIsDisplayed(false);
             }}
           />
@@ -223,11 +223,11 @@ function SearchComponent({
         <Grid className='d-flex'>
           <SelectedRevisions
             isBase={isBaseComp}
-            isEditable={isEditable}
-            formIsDisplayed={formIsDisplayed}
+            hasNonEditableState={hasNonEditableState}
+            canRemoveRevision={!hasNonEditableState || formIsDisplayed}
             isWarning={isWarning}
             displayedRevisions={displayedRevisions}
-            onEditRemove={handleRemoveEditViewRevision}
+            onRemoveRevision={onRemoveRevision}
           />
         </Grid>
       )}

@@ -9,52 +9,47 @@ import SelectedRevisionItem from './SelectedRevisionItem';
 
 interface SelectedRevisionsProps {
   isBase: boolean;
-  formIsDisplayed: boolean;
-  isEditable: boolean;
+  canRemoveRevision: boolean;
+  hasNonEditableState: boolean;
   isWarning: boolean;
   displayedRevisions: Changeset[];
-  onEditRemove: (item: Changeset) => void;
+  onRemoveRevision: (item: Changeset) => void;
 }
 
 function SelectedRevisions({
   isBase,
-  formIsDisplayed,
-  isEditable,
+  canRemoveRevision,
+  hasNonEditableState,
   isWarning,
   displayedRevisions,
-  onEditRemove,
+  onRemoveRevision,
 }: SelectedRevisionsProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = SelectRevsStyles(mode);
   const searchType = isBase ? 'base' : 'new';
 
-  const onEditRemoveAction = (item: Changeset) => {
-    onEditRemove(item);
-  };
+  const { removeCheckedRevision } = useCheckRevision(
+    isBase,
+    hasNonEditableState,
+  );
 
-  const { removeCheckedRevision } = useCheckRevision(isBase, isEditable);
-
-  const handleRemoveRevision = (item: Changeset) => {
-    removeCheckedRevision(item);
-  };
   const removeRevision = (item: Changeset) => {
-    if (isEditable) {
-      onEditRemoveAction(item);
+    if (hasNonEditableState) {
+      onRemoveRevision(item);
     } else {
-      handleRemoveRevision(item);
+      removeCheckedRevision(item);
     }
   };
 
-  const iconClassName =
-    !formIsDisplayed && isEditable
-      ? 'icon icon-close-hidden'
-      : 'icon icon-close-show';
+  const iconClassName = canRemoveRevision
+    ? 'icon-close-show'
+    : 'icon-close-hidden';
 
   return (
     <Box
       className={`${styles.box} ${searchType}-box`}
       data-testid={`selected-revs-${
-        isEditable ? '--editable-revisions' : '--search-revisions'
+        hasNonEditableState ? '--editable-revisions' : '--search-revisions'
       }`}
     >
       <List>
@@ -65,7 +60,7 @@ function SelectedRevisions({
             item={item}
             isBase={isBase}
             isWarning={isWarning}
-            removeRevision={removeRevision}
+            onRemoveRevision={removeRevision}
             iconClassName={iconClassName}
           />
         ))}
