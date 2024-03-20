@@ -132,7 +132,7 @@ export default function SearchOverTime({
           } ${isEditable ? compareView : ''}-base-dropdown`}
         >
           <SearchDropdown
-            isEditable={false}
+            compact={false}
             selectLabel={selectLabel}
             tooltipText={tooltip}
             searchType='new'
@@ -148,17 +148,17 @@ export default function SearchOverTime({
         >
           <SearchInput
             onFocus={() => setDisplayDropdown(true)}
-            isEditable={false}
+            compact={false}
             inputPlaceholder={inputPlaceholder}
             searchType='new'
           />
           {searchResults.length > 0 && displayDropdown && (
             <SearchResultsList
-              isEditable={isEditable}
+              hasNonEditableState={isEditable}
               isBase={false}
               searchResults={searchResults}
               displayedRevisions={displayedRevisions}
-              onEditToggle={handleSearchResultsEditToggle}
+              onToggle={handleSearchResultsEditToggle}
             />
           )}
         </Grid>
