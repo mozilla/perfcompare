@@ -74,8 +74,15 @@ function getEditButtons() {
   });
 }
 
-function getRemoveRevisionButton() {
-  return screen.getByRole('button', {
+function getRemoveRevisionButton(targetRevision?: string | RegExp) {
+  let container: { getByRole: (typeof screen)['getByRole'] } = screen;
+  if (targetRevision) {
+    const target = screen.getByText(targetRevision);
+    container = within(target.closest('li') ?? document.body);
+  }
+
+  // eslint-disable-next-line testing-library/prefer-screen-queries
+  return container.getByRole('button', {
     name: 'remove revision',
   });
 }
@@ -278,6 +285,21 @@ describe('Compare With Base', () => {
       /What, ridden on a horse?/,
     );
     expect(updatedBaseRevisionText).toBeInTheDocument();
+
+    // Now we want to test that pressing cancel will go back to this saved snapshot.
+    // Click edit again.
+    await user.click(getEditButtons()[0]);
+
+    // Click the remove button for the "ridden on a horse" item.
+    await user.click(getRemoveRevisionButton());
+    expect(
+      screen.queryByText(/What, ridden on a horse?/),
+    ).not.toBeInTheDocument();
+
+    // Click the cancel button
+    await user.click(getCancelButton());
+    // Oh look, it's back!
+    expect(screen.getByText(/What, ridden on a horse?/)).toBeInTheDocument();
   });
 
   it('should save the updated NEW revision when Save is clicked', async () => {
@@ -314,5 +336,69 @@ describe('Compare With Base', () => {
     //the updated new revision is rendered
     const updatedNewRevisionText = screen.getByText(/What, ridden on a horse?/);
     expect(updatedNewRevisionText).toBeInTheDocument();
+
+    // Now we want to test that pressing cancel will go back to this saved snapshot.
+    // Click edit again.
+    await user.click(getEditButtons()[1]);
+
+    // Click the remove button for the "ridden on a horse" item.
+    await user.click(getRemoveRevisionButton(/ridden on a horse/));
+    expect(
+      screen.queryByText(/What, ridden on a horse?/),
+    ).not.toBeInTheDocument();
+
+    // Click the cancel button
+    await user.click(getCancelButton());
+    // Oh look, it's back!
+    expect(screen.getByText(/What, ridden on a horse?/)).toBeInTheDocument();
+  });
+
+  it('should move back to the previously selected base and new revisions when Cancel is clicked', async () => {
+    renderWithCompareResultsURL(
+      <ResultsView title={Strings.metaData.pageTitle.results} />,
+    );
+    await waitForPageReadyAndReturnForm();
+
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
+
+    expect(screen.getByText("you've got no arms left!")).toBeInTheDocument();
+
+    // Click the edit revision for the base revision
+    await user.click(getEditButtons()[0]);
+
+    // Remove the base revision by clicking the X button
+    await user.click(getRemoveRevisionButton());
+
+    // The base revision has been removed
+    expect(
+      screen.queryByText("you've got no arms left!"),
+    ).not.toBeInTheDocument();
+
+    // Click the Cancel button
+    await user.click(getCancelButton());
+
+    // the base revision is rendered again
+    expect(screen.getByText("you've got no arms left!")).toBeInTheDocument();
+
+    // Do the same with the new revision
+    expect(screen.getByText("it's just a flesh wound")).toBeInTheDocument();
+
+    // Click the edit revision for the new revisions
+    await user.click(getEditButtons()[1]);
+
+    // Remove the new revision by clicking the X button
+    await user.click(getRemoveRevisionButton());
+
+    // The new revision has been removed
+    expect(
+      screen.queryByText("it's just a flesh wound"),
+    ).not.toBeInTheDocument();
+
+    // Click the Cancel button
+    await user.click(getCancelButton());
+
+    // the new revision is rendered again
+    expect(screen.getByText("it's just a flesh wound")).toBeInTheDocument();
   });
 });
