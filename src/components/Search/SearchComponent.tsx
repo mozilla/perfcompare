@@ -124,7 +124,7 @@ function SearchComponent({
     return () => {
       document.removeEventListener('keydown', handleEscKeypress);
     };
-  });
+  }, []);
 
   return (
     <Grid className={styles.component}>

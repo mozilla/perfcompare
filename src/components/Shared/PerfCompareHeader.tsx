@@ -24,7 +24,6 @@ function PerfCompareHeader({ isHome }: PerfCompareHeaderProps) {
       <Box className='header-text'>
         <Typography
           variant='h1'
-          component='div'
           align='center'
           gutterBottom
           className='perfcompare-header'

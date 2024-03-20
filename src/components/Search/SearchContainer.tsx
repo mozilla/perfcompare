@@ -32,8 +32,12 @@ function SearchContainer(props: SearchViewProps) {
         baseRevs={checkedChangesetsBase}
         newRevs={checkedChangesetsNew}
       />
-      {/* hidden until post-mvp release */}
-      <CompareOverTime />
+
+      <CompareOverTime
+        isEditable={false}
+        baseRevs={checkedChangesetsBase}
+        newRevs={checkedChangesetsNew}
+      />
     </section>
   );
 }

@@ -12,6 +12,8 @@ import {
   FetchMockSandbox,
 } from '../utils/test-utils';
 
+const baseTitle = Strings.components.searchDefault.base.title;
+
 function setupTestData() {
   const { testData } = getTestData();
   (global.fetch as FetchMockSandbox).get(
@@ -61,13 +63,16 @@ describe('Search Container', () => {
   it('renders compare with base', async () => {
     renderComponent();
 
-    const title = screen.getAllByText('Compare with a base')[0];
+    const compTitle = await screen.findByRole('heading', {
+      name: baseTitle,
+    });
+
     const baseInput = screen.getByPlaceholderText(
       'Search base by ID number or author email',
     );
     const repoDropdown = screen.getAllByTestId('dropdown-select-base')[0];
 
-    expect(title).toBeInTheDocument();
+    expect(compTitle).toBeInTheDocument();
     expect(baseInput).toBeInTheDocument();
     expect(repoDropdown).toBeInTheDocument();
   });
@@ -93,7 +98,7 @@ describe('Base Search', () => {
   it('renders framework dropdown in closed condition', async () => {
     renderComponent();
     // 'talos' is selected by default and dropdown is not visible
-    expect(screen.getByText(/talos/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/talos/i)[0]).toBeInTheDocument();
     expect(screen.queryByText(/build_metrics/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/awsy/i)).not.toBeInTheDocument();
   });
@@ -104,7 +109,6 @@ describe('Base Search', () => {
     renderComponent();
 
     // Click inside the input box to show search results.
-
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
 
@@ -112,7 +116,6 @@ describe('Base Search', () => {
     expect(comment[0]).toBeInTheDocument();
 
     // Click outside the input box to hide search results.
-
     const label = screen.getAllByLabelText('Base')[0];
     await user.click(label);
     expect(comment[0]).not.toBeInTheDocument();
@@ -268,7 +271,7 @@ describe('Base Search', () => {
 
     // Press the compare button -> It shouldn't work!
     const compareButton = await screen.findByRole('button', {
-      name: /Compare/,
+      name: /Compare with a base/,
     });
     await user.click(compareButton);
 

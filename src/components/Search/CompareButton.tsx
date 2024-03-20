@@ -2,12 +2,13 @@ import Button from '@mui/material/Button';
 import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
-import { Strings } from '../../resources/Strings';
 import { ButtonStyles } from '../../styles';
 
-const strings = Strings.components.searchDefault.sharedCollasped;
+interface CompareButtonProps {
+  label: string;
+}
 
-export default function CompareButton() {
+export default function CompareButton({ label }: CompareButtonProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   const btnStyles = ButtonStyles(mode);
 
@@ -23,7 +24,7 @@ export default function CompareButton() {
       sx={{ textTransform: 'none !important' }}
       type='submit'
     >
-      {strings.button}
+      {label}
     </Button>
   );
 }

@@ -58,7 +58,6 @@ export const CompareCardsStyles = (mode: string) => {
           },
         },
         '&.compare-card-container--time': {
-          visibility: 'hidden',
           marginTop: `${Spacing.Large}px`,
           marginBottom: `${Spacing.layoutLarge + 20}px`,
         },
@@ -110,6 +109,7 @@ export const CompareCardsStyles = (mode: string) => {
         },
         '.compare-card-tagline': {
           ...(isTrueLight ? FontsRaw.BodyDefault : FontsRaw.BodyDefaultDark),
+          margin: '0px',
         },
       },
     },
