@@ -158,11 +158,15 @@ function CompareWithBase({
     setInProgressNewRevs(revisionsNew);
   };
 
-  const handleItemToggleInChangesetList = (
-    item: Changeset,
-    maxRevisions: number,
-    changesets: Changeset[],
-  ) => {
+  const handleItemToggleInChangesetList = ({
+    item,
+    maxRevisions,
+    changesets,
+  }: {
+    item: Changeset;
+    maxRevisions: number;
+    changesets: Changeset[];
+  }) => {
     const isChecked = changesets.map((rev) => rev.id).includes(item.id);
     const newChecked = [...changesets];
 
@@ -183,19 +187,19 @@ function CompareWithBase({
   };
 
   const handleSearchResultsToggleBase = (item: Changeset) => {
-    const newBaseRevs = handleItemToggleInChangesetList(
+    const newBaseRevs = handleItemToggleInChangesetList({
       item,
-      1,
-      baseInProgressRevs,
-    );
+      maxRevisions: 1,
+      changesets: baseInProgressRevs,
+    });
     setInProgressBaseRevs(newBaseRevs);
   };
   const handleSearchResultsToggleNew = (item: Changeset) => {
-    const newNewRevs = handleItemToggleInChangesetList(
+    const newNewRevs = handleItemToggleInChangesetList({
       item,
-      3,
-      newInProgressRevs,
-    );
+      maxRevisions: 3,
+      changesets: newInProgressRevs,
+    });
     setInProgressNewRevs(newNewRevs);
   };
 
