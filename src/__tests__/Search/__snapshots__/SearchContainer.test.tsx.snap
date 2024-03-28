@@ -183,7 +183,6 @@ exports[`Search Containter should match snapshot 1`] = `
               >
                 <div
                   class="box_f65ycfw base-box MuiBox-root css-0"
-                  data-testid="selected-revs---search-revisions"
                 >
                   <ul
                     class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -324,7 +323,6 @@ exports[`Search Containter should match snapshot 1`] = `
               >
                 <div
                   class="box_f65ycfw new-box MuiBox-root css-0"
-                  data-testid="selected-revs---search-revisions"
                 >
                   <ul
                     class="MuiList-root MuiList-padding css-h4y409-MuiList-root"

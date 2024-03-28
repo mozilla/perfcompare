@@ -13,13 +13,6 @@ const strings = Strings.components.searchDefault;
 function SearchContainer(props: SearchViewProps) {
   const themeMode = useAppSelector((state) => state.theme.mode);
   const styles = SearchContainerStyles(themeMode, /* isHome */ true);
-  const checkedChangesetsNew = useAppSelector(
-    (state) => state.search.new.checkedRevisions,
-  );
-  const checkedChangesetsBase = useAppSelector(
-    (state) => state.search.base.checkedRevisions,
-  );
-
   return (
     <section
       data-testid='search-section'
@@ -27,17 +20,9 @@ function SearchContainer(props: SearchViewProps) {
       className={styles.container}
     >
       <Typography className='search-default-title'>{strings.title}</Typography>
-      <CompareWithBase
-        hasNonEditableState={false}
-        baseRevs={checkedChangesetsBase}
-        newRevs={checkedChangesetsNew}
-      />
-
-      <CompareOverTime
-        isEditable={false}
-        baseRevs={checkedChangesetsBase}
-        newRevs={checkedChangesetsNew}
-      />
+      <CompareWithBase hasNonEditableState={false} baseRevs={[]} newRevs={[]} />
+      {/* hidden until post-mvp release */}
+      <CompareOverTime isEditable={false} baseRevs={[]} newRevs={[]} />
     </section>
   );
 }

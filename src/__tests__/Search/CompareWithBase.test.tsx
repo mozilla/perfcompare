@@ -7,17 +7,12 @@ import ResultsView from '../../components/CompareResults/ResultsView';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import getTestData from '../utils/fixtures';
-import { store } from '../utils/setupTests';
 import {
-  act,
   screen,
   renderWithRouter,
   FetchMockSandbox,
   within,
 } from '../utils/test-utils';
-
-const formName = 'Compare with base form';
-const baseTitle = Strings.components.searchDefault.base.title;
 
 function setUpTestData() {
   const { testData } = getTestData();
@@ -57,20 +52,51 @@ function renderWithCompareResultsURL(component: ReactElement) {
   });
 }
 
+// Useful function utilities to get various elements in the page
+async function waitForPageReadyAndReturnForm() {
+  const formName = 'Compare with base form';
+  const baseTitle = Strings.components.searchDefault.base.title;
+
+  const compTitle = await screen.findByRole('heading', {
+    name: baseTitle,
+  });
+
+  expect(compTitle).toBeInTheDocument();
+  const formElement = await screen.findByRole('form', {
+    name: formName,
+  });
+  return formElement;
+}
+
+function getEditButtons() {
+  return screen.getAllByRole('button', {
+    name: 'edit revision',
+  });
+}
+
+function getRemoveRevisionButton(targetRevision?: string | RegExp) {
+  let container: { getByRole: (typeof screen)['getByRole'] } = screen;
+  if (targetRevision) {
+    const target = screen.getByText(targetRevision);
+    container = within(target.closest('li') ?? document.body);
+  }
+
+  // eslint-disable-next-line testing-library/prefer-screen-queries
+  return container.getByRole('button', {
+    name: 'remove revision',
+  });
+}
+
+function getCancelButton() {
+  return screen.getByRole('button', { name: 'Cancel' });
+}
+
 describe('Compare With Base', () => {
   it('renders correctly when there are no results', async () => {
     renderWithCompareResultsURL(
       <ResultsView title={Strings.metaData.pageTitle.results} />,
     );
-
-    const compTitle = await screen.findByRole('heading', {
-      name: baseTitle,
-    });
-
-    expect(compTitle).toBeInTheDocument();
-    const formElement = await screen.findByRole('form', {
-      name: formName,
-    });
+    const formElement = await waitForPageReadyAndReturnForm();
     expect(formElement).toMatchSnapshot('Initial state for the form');
   });
 
@@ -100,11 +126,8 @@ describe('Compare With Base', () => {
 
   it('selects and displays new framework when clicked', async () => {
     renderSearchViewComponent();
+    const formElement = await waitForPageReadyAndReturnForm();
     const user = userEvent.setup({ delay: null });
-
-    const formElement = await screen.findByRole('form', {
-      name: formName,
-    });
     expect(within(formElement).getByText(/talos/i)).toBeInTheDocument();
     expect(
       within(formElement).queryByText(/build_metrics/i),
@@ -142,31 +165,17 @@ describe('Compare With Base', () => {
 
     await user.click(removeButton[0]);
 
-    act(() => {
-      expect(store.getState().search.base.checkedRevisions).toEqual([]);
-    });
     expect(document.body).toMatchSnapshot();
 
-    expect(screen.queryAllByTestId('selected-rev-item')[0]).toBeUndefined();
+    expect(screen.queryByTestId('selected-rev-item')).not.toBeInTheDocument();
   });
 
   it('should have an edit mode in Results View', async () => {
     renderWithCompareResultsURL(
       <ResultsView title={Strings.metaData.pageTitle.results} />,
     );
-
-    const compTitle = await screen.findByRole('heading', {
-      name: baseTitle,
-    });
-
-    expect(compTitle).toBeInTheDocument();
-
+    const formElement = await waitForPageReadyAndReturnForm();
     const user = userEvent.setup({ delay: null });
-    const formElement = await screen.findByRole('form', {
-      name: formName,
-    });
-    expect(formElement).toBeInTheDocument();
-
     expect(formElement).toMatchSnapshot('Initial state for the form');
 
     // Find out if the base revision is rendered
@@ -182,9 +191,7 @@ describe('Compare With Base', () => {
     expect(baseSearchContainer).toHaveClass('hide-container');
 
     // Click the edit revision
-    let editButton = screen.getAllByRole('button', {
-      name: 'edit revision',
-    })[0];
+    const editButton = getEditButtons()[0];
     await user.click(editButton);
 
     expect(baseSearchContainer).toHaveClass('show-container');
@@ -195,21 +202,16 @@ describe('Compare With Base', () => {
     expect(editButton).not.toBeInTheDocument();
 
     // Pressing the cancel button should hide input and dropdown
-    const cancelButton = screen.getByRole('button', { name: 'Cancel' });
-    await user.click(cancelButton);
+    await user.click(getCancelButton());
 
     expect(baseSearchContainer).toHaveClass('hide-container');
 
     // Click the edit revision again
-    editButton = screen.getAllByRole('button', { name: 'edit revision' })[0];
-    await user.click(editButton);
+    await user.click(getEditButtons()[0]);
     expect(baseSearchContainer).toHaveClass('show-container');
 
     // Remove the base revision by clicking the X button
-    const closeBaseButton = screen.getByRole('button', {
-      name: 'remove revision',
-    });
-    await user.click(closeBaseButton);
+    await user.click(getRemoveRevisionButton());
     expect(baseRevisionText).not.toBeInTheDocument();
 
     // Click the Save
@@ -227,18 +229,14 @@ describe('Compare With Base', () => {
     expect(newSearchContainer).toHaveClass('hide-container');
 
     // Click the edit revision for new revisions
-    editButton = screen.getAllByRole('button', { name: 'edit revision' })[1];
-    await user.click(editButton);
+    await user.click(getEditButtons()[1]);
     expect(formElement).toMatchSnapshot(
       'After clicking edit for the new revision',
     );
     expect(newSearchContainer).toHaveClass('show-container');
 
     // Remove the new revision by clicking the X button
-    const closeNewButton = screen.getByRole('button', {
-      name: 'remove revision',
-    });
-    await user.click(closeNewButton);
+    await user.click(getRemoveRevisionButton());
     expect(newRevisionText).not.toBeInTheDocument();
 
     // Click the Save
@@ -251,27 +249,16 @@ describe('Compare With Base', () => {
     renderWithCompareResultsURL(
       <ResultsView title={Strings.metaData.pageTitle.results} />,
     );
+    await waitForPageReadyAndReturnForm();
 
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    const compTitle = await screen.findByRole('heading', {
-      name: baseTitle,
-    });
-
-    expect(compTitle).toBeInTheDocument();
-
     // Click the edit revision
-    const editButton = screen.getAllByRole('button', {
-      name: 'edit revision',
-    })[0];
-    await user.click(editButton);
+    await user.click(getEditButtons()[0]);
 
     // Remove the base revision by clicking the X button
-    const closeBaseButton = screen.getByRole('button', {
-      name: 'remove revision',
-    });
-    await user.click(closeBaseButton);
+    await user.click(getRemoveRevisionButton());
 
     // Select an updated base revision in the dropdown
     const searchInput = screen.getAllByRole('textbox')[0];
@@ -298,6 +285,21 @@ describe('Compare With Base', () => {
       /What, ridden on a horse?/,
     );
     expect(updatedBaseRevisionText).toBeInTheDocument();
+
+    // Now we want to test that pressing cancel will go back to this saved snapshot.
+    // Click edit again.
+    await user.click(getEditButtons()[0]);
+
+    // Click the remove button for the "ridden on a horse" item.
+    await user.click(getRemoveRevisionButton());
+    expect(
+      screen.queryByText(/What, ridden on a horse?/),
+    ).not.toBeInTheDocument();
+
+    // Click the cancel button
+    await user.click(getCancelButton());
+    // Oh look, it's back!
+    expect(screen.getByText(/What, ridden on a horse?/)).toBeInTheDocument();
   });
 
   it('should save the updated NEW revision when Save is clicked', async () => {
@@ -305,20 +307,13 @@ describe('Compare With Base', () => {
       <ResultsView title={Strings.metaData.pageTitle.results} />,
     );
 
+    await waitForPageReadyAndReturnForm();
+
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    const compTitle = await screen.findByRole('heading', {
-      name: baseTitle,
-    });
-
-    expect(compTitle).toBeInTheDocument();
-
     // Click the edit revision for new revisions
-    const editButton = screen.getAllByRole('button', {
-      name: 'edit revision',
-    })[1];
-    await user.click(editButton);
+    await user.click(getEditButtons()[1]);
 
     // Select an updated new revision in the dropdown
     const searchInputNew = screen.getByRole('textbox');
@@ -341,5 +336,69 @@ describe('Compare With Base', () => {
     //the updated new revision is rendered
     const updatedNewRevisionText = screen.getByText(/What, ridden on a horse?/);
     expect(updatedNewRevisionText).toBeInTheDocument();
+
+    // Now we want to test that pressing cancel will go back to this saved snapshot.
+    // Click edit again.
+    await user.click(getEditButtons()[1]);
+
+    // Click the remove button for the "ridden on a horse" item.
+    await user.click(getRemoveRevisionButton(/ridden on a horse/));
+    expect(
+      screen.queryByText(/What, ridden on a horse?/),
+    ).not.toBeInTheDocument();
+
+    // Click the cancel button
+    await user.click(getCancelButton());
+    // Oh look, it's back!
+    expect(screen.getByText(/What, ridden on a horse?/)).toBeInTheDocument();
+  });
+
+  it('should move back to the previously selected base and new revisions when Cancel is clicked', async () => {
+    renderWithCompareResultsURL(
+      <ResultsView title={Strings.metaData.pageTitle.results} />,
+    );
+    await waitForPageReadyAndReturnForm();
+
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
+
+    expect(screen.getByText("you've got no arms left!")).toBeInTheDocument();
+
+    // Click the edit revision for the base revision
+    await user.click(getEditButtons()[0]);
+
+    // Remove the base revision by clicking the X button
+    await user.click(getRemoveRevisionButton());
+
+    // The base revision has been removed
+    expect(
+      screen.queryByText("you've got no arms left!"),
+    ).not.toBeInTheDocument();
+
+    // Click the Cancel button
+    await user.click(getCancelButton());
+
+    // the base revision is rendered again
+    expect(screen.getByText("you've got no arms left!")).toBeInTheDocument();
+
+    // Do the same with the new revision
+    expect(screen.getByText("it's just a flesh wound")).toBeInTheDocument();
+
+    // Click the edit revision for the new revisions
+    await user.click(getEditButtons()[1]);
+
+    // Remove the new revision by clicking the X button
+    await user.click(getRemoveRevisionButton());
+
+    // The new revision has been removed
+    expect(
+      screen.queryByText("it's just a flesh wound"),
+    ).not.toBeInTheDocument();
+
+    // Click the Cancel button
+    await user.click(getCancelButton());
+
+    // the new revision is rendered again
+    expect(screen.getByText("it's just a flesh wound")).toBeInTheDocument();
   });
 });
