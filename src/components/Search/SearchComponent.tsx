@@ -187,7 +187,7 @@ function SearchComponent({
           />
           {searchResults.length > 0 && displayDropdown && (
             <SearchResultsList
-              hasNonEditableState={hasNonEditableState}
+              compact={hasNonEditableState}
               searchResults={searchResults}
               displayedRevisions={displayedRevisions}
               onToggle={onSearchResultsToggle}

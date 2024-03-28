@@ -7,14 +7,14 @@ import { Changeset } from '../../types/state';
 import SearchResultsListItem from './SearchResultsListItem';
 
 interface SearchResultsListProps {
-  hasNonEditableState: boolean;
+  compact: boolean;
   searchResults: Changeset[];
   displayedRevisions: Changeset[];
   onToggle: (item: Changeset) => void;
 }
 
 function SearchResultsList({
-  hasNonEditableState,
+  compact,
   searchResults,
   displayedRevisions,
   onToggle,
@@ -32,7 +32,7 @@ function SearchResultsList({
       alignItems='flex-end'
       data-testid='list-mode'
     >
-      <List dense={hasNonEditableState} sx={{ paddingTop: '0' }}>
+      <List dense={compact} sx={{ paddingTop: '0' }}>
         {searchResults.map((item, index) => (
           <SearchResultsListItem
             key={item.id}
