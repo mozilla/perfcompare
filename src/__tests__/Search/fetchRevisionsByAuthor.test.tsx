@@ -31,7 +31,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     act(() => void jest.runAllTimers());
 
     expect(global.fetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/try/push/?author=johncleese@python.com',
+      'https://treeherder.mozilla.org/api/project/try/push/?author=johncleese%40python.com',
       undefined,
     );
 
@@ -59,7 +59,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     act(() => void jest.runAllTimers());
 
     expect(global.fetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/try/push/?author=ericidle@python.com',
+      'https://treeherder.mozilla.org/api/project/try/push/?author=ericidle%40python.com',
       undefined,
     );
 
@@ -92,7 +92,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     act(() => void jest.runAllTimers());
 
     expect(global.fetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/try/push/?author=grahamchapman@python.com',
+      'https://treeherder.mozilla.org/api/project/try/push/?author=grahamchapman%40python.com',
       undefined,
     );
     expect(await screen.findByText(errorMessage)).toBeInTheDocument();
@@ -127,7 +127,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     act(() => void jest.runAllTimers());
 
     expect(global.fetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/try/push/?author=grahamchapman@python.com',
+      'https://treeherder.mozilla.org/api/project/try/push/?author=grahamchapman%40python.com',
       undefined,
     );
     expect(

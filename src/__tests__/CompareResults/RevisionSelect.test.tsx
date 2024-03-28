@@ -39,11 +39,6 @@ describe('Revision select', () => {
   });
 
   it('Should filter results', async () => {
-    // The SearchViewInit component requests recent revisions at load time.
-    (window.fetch as FetchMockSandbox).get(
-      'begin:https://treeherder.mozilla.org/api/project/',
-      { results: [] },
-    );
     renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
 
     // check to display results for all revisions
