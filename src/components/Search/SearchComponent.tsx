@@ -26,7 +26,6 @@ interface SearchProps {
   hasNonEditableState: boolean;
   isWarning: boolean;
   isBaseComp: boolean;
-  searchResults: Changeset[];
   displayedRevisions: Changeset[];
   onSave: () => void;
   onCancel: () => void;
@@ -43,7 +42,6 @@ interface SearchProps {
 function SearchComponent({
   hasNonEditableState,
   isBaseComp,
-  searchResults,
   displayedRevisions,
   onCancel,
   onSave,
@@ -150,7 +148,6 @@ function SearchComponent({
           <SearchInputAndResults
             compact={hasNonEditableState}
             inputPlaceholder={inputPlaceholder}
-            searchResults={searchResults}
             displayedRevisions={displayedRevisions}
             searchType={searchType}
             repository={repository}

@@ -15,6 +15,7 @@ interface SearchInputProps {
   compact: boolean;
   searchType: InputType;
   repository: Repository['name'];
+  fetcherLoad: (url: string) => void;
 }
 
 function SearchInput({
@@ -23,8 +24,10 @@ function SearchInput({
   inputPlaceholder,
   searchType,
   repository,
+  fetcherLoad,
 }: SearchInputProps) {
-  const { handleChangeSearch } = useHandleChangeSearch();
+  const { handleChangeSearch, searchRecentRevisions } =
+    useHandleChangeSearch(fetcherLoad);
   const searchState = useAppSelector((state) => state.search[searchType]);
   const mode = useAppSelector((state) => state.theme.mode);
   const { inputError, inputHelperText } = searchState;
@@ -47,6 +50,14 @@ function SearchInput({
     }),
   };
 
+  async function onInputFocus(
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) {
+    onFocus();
+    const searchTerm = e.currentTarget.value;
+    await searchRecentRevisions(repository, searchTerm, searchType);
+  }
+
   return (
     <FormControl className={styles.container} fullWidth>
       <TextField
@@ -54,7 +65,7 @@ function SearchInput({
         helperText={inputError && inputHelperText}
         placeholder={inputPlaceholder}
         id={`search-${searchType}-input`}
-        onFocus={onFocus}
+        onFocus={(e) => void onInputFocus(e)}
         onChange={(e) => handleChangeSearch({ e, searchType, repository })}
         size={size}
         className={`search-text-field ${searchType}`}

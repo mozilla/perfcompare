@@ -98,9 +98,6 @@ function CompareWithBase({
 
   const styles = CompareCardsStyles(mode);
   const dropDownStyles = SearchStyles(mode);
-  const search = useAppSelector((state) => state.search);
-  const searchResultsBase = search.base.searchResults;
-  const searchResultsNew = search.new.searchResults;
 
   const isWarning =
     (baseRepository === 'try' && newRepository !== 'try') ||
@@ -278,7 +275,6 @@ function CompareWithBase({
             isBaseComp={true}
             isWarning={isWarning}
             hasNonEditableState={hasNonEditableState}
-            searchResults={searchResultsBase}
             displayedRevisions={baseInProgressRev ? [baseInProgressRev] : []}
             onSave={handleSaveBase}
             onCancel={handleCancelBase}
@@ -295,7 +291,6 @@ function CompareWithBase({
             isBaseComp={false}
             hasNonEditableState={hasNonEditableState}
             isWarning={isWarning}
-            searchResults={searchResultsNew}
             displayedRevisions={newInProgressRevs}
             onSave={handleSaveNew}
             onCancel={handleCancelNew}

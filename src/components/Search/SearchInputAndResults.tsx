@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 
 import Box from '@mui/material/Box';
+import { useFetcher } from 'react-router-dom';
 
 import type { Changeset, Repository } from '../../types/state';
 import SearchInput from './SearchInput';
@@ -9,7 +10,6 @@ import SearchResultsList from './SearchResultsList';
 interface Props {
   compact: boolean;
   inputPlaceholder: string;
-  searchResults: Changeset[];
   displayedRevisions: Changeset[];
   searchType: 'base' | 'new';
   repository: Repository['name'];
@@ -19,12 +19,12 @@ interface Props {
 export default function SearchInputAndResults({
   compact,
   inputPlaceholder,
-  searchResults,
   displayedRevisions,
   searchType,
   repository,
   onSearchResultsToggle,
 }: Props) {
+  const fetcher = useFetcher<Changeset[]>();
   const [displayDropdown, setDisplayDropdown] = useState(false);
   const containerRef = useRef(null as null | HTMLElement);
 
@@ -71,16 +71,17 @@ export default function SearchInputAndResults({
         inputPlaceholder={inputPlaceholder}
         searchType={searchType}
         repository={repository}
+        fetcherLoad={fetcher.load}
       />
 
-      {searchResults.length > 0 && displayDropdown && (
+      {fetcher.data && fetcher.data.length && displayDropdown ? (
         <SearchResultsList
           compact={compact}
-          searchResults={searchResults}
+          searchResults={fetcher.data}
           displayedRevisions={displayedRevisions}
           onToggle={onSearchResultsToggle}
         />
-      )}
+      ) : null}
     </Box>
   );
 }

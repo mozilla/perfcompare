@@ -21,7 +21,6 @@ import SearchInputAndResults from './SearchInputAndResults';
 
 interface SearchProps {
   selectLabel: string;
-  searchResults: Changeset[];
   tooltip: string;
   inputPlaceholder: string;
   isEditable: boolean;
@@ -32,7 +31,6 @@ export default function SearchOverTime({
   tooltip,
   inputPlaceholder,
   isEditable,
-  searchResults,
 }: SearchProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = SearchStyles(mode);
@@ -118,7 +116,6 @@ export default function SearchOverTime({
           <SearchInputAndResults
             compact={false}
             inputPlaceholder={inputPlaceholder}
-            searchResults={searchResults}
             displayedRevisions={displayedRevisions}
             searchType='new'
             repository={repository}

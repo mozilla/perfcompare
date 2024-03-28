@@ -18,6 +18,7 @@ import { Banner } from '../styles/Banner';
 import getProtocolTheme from '../theme/protocolTheme';
 import { loader as compareLoader } from './CompareResults/loader';
 import ResultsView from './CompareResults/ResultsView';
+import { loader as recentRevisionsLoader } from './Search/loader';
 import SearchView from './Search/SearchView';
 import { PageError } from './Shared/PageError';
 import SnackbarCloseButton from './Shared/SnackbarCloseButton';
@@ -71,6 +72,14 @@ export const router = createBrowserRouter(
       />
 
       <Route path='/taskcluster-auth' />
+
+      <Route
+        path='/api/recent-revisions/:repository'
+        loader={recentRevisionsLoader}
+      >
+        <Route path='by-author/:author' loader={recentRevisionsLoader} />
+        <Route path='by-hash/:hash' loader={recentRevisionsLoader} />
+      </Route>
     </>,
   ),
 );
