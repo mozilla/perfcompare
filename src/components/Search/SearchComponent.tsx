@@ -188,7 +188,6 @@ function SearchComponent({
           {searchResults.length > 0 && displayDropdown && (
             <SearchResultsList
               hasNonEditableState={hasNonEditableState}
-              isBase={isBaseComp}
               searchResults={searchResults}
               displayedRevisions={displayedRevisions}
               onToggle={onSearchResultsToggle}
