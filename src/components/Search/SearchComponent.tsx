@@ -39,7 +39,7 @@ interface SearchProps {
   onSave: () => void;
   onCancel: () => void;
   onEdit: () => void;
-  onSearchResultsToggle: (toggleArray: Changeset[]) => void;
+  onSearchResultsToggle: (item: Changeset) => void;
   onRemoveRevision: (item: Changeset) => void;
   prevRevision?: Changeset;
   selectLabel: string;
@@ -223,7 +223,6 @@ function SearchComponent({
         <Grid className='d-flex'>
           <SelectedRevisions
             isBase={isBaseComp}
-            hasNonEditableState={hasNonEditableState}
             canRemoveRevision={!hasNonEditableState || formIsDisplayed}
             isWarning={isWarning}
             displayedRevisions={displayedRevisions}
