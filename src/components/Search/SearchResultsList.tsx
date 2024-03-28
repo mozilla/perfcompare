@@ -8,7 +8,6 @@ import SearchResultsListItem from './SearchResultsListItem';
 
 interface SearchResultsListProps {
   hasNonEditableState: boolean;
-  isBase: boolean;
   searchResults: Changeset[];
   displayedRevisions: Changeset[];
   onToggle: (item: Changeset) => void;
@@ -16,14 +15,12 @@ interface SearchResultsListProps {
 
 function SearchResultsList({
   hasNonEditableState,
-  isBase,
   searchResults,
   displayedRevisions,
   onToggle,
 }: SearchResultsListProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = SelectListStyles(mode);
-  const revisionsCount = isBase === true ? 1 : 3;
   const isInProgressChecked = (item: Changeset) => {
     return displayedRevisions.map((rev) => rev.id).includes(item.id);
   };
@@ -41,7 +38,6 @@ function SearchResultsList({
             key={item.id}
             index={index}
             item={item}
-            revisionsCount={revisionsCount}
             isChecked={isInProgressChecked(item)}
             onToggle={onToggle}
           />

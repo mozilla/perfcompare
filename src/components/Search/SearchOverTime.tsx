@@ -151,7 +151,6 @@ export default function SearchOverTime({
           {searchResults.length > 0 && displayDropdown && (
             <SearchResultsList
               hasNonEditableState={isEditable}
-              isBase={false}
               searchResults={searchResults}
               displayedRevisions={displayedRevisions}
               onToggle={handleSearchResultsEditToggle}

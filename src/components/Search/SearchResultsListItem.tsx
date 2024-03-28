@@ -18,7 +18,6 @@ import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
 interface SearchResultsListItemProps {
   index: number;
   item: Changeset;
-  revisionsCount: number;
   isChecked: boolean;
   onToggle: (item: Changeset) => void;
 }
