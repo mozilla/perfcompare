@@ -1,15 +1,8 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
-import type {
-  SearchState,
-  SearchStateForInput,
-  InputType,
-} from '../types/state';
+import type { SearchState, SearchStateForInput } from '../types/state';
 
-const DEFAULT_VALUES: SearchStateForInput = {
-  inputError: false,
-  inputHelperText: '',
-};
+const DEFAULT_VALUES: SearchStateForInput = undefined;
 
 const initialState: SearchState = {
   base: DEFAULT_VALUES,
@@ -19,20 +12,7 @@ const initialState: SearchState = {
 const search = createSlice({
   name: 'search',
   initialState,
-  reducers: {
-    setInputError(
-      state,
-      action: PayloadAction<{
-        errorMessage: string;
-        searchType: InputType;
-      }>,
-    ) {
-      const type = action.payload.searchType;
-      state[type].inputError = true;
-      state[type].inputHelperText = action.payload.errorMessage;
-    },
-  },
+  reducers: {},
 });
 
-export const { setInputError } = search.actions;
 export default search.reducer;

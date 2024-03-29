@@ -1,9 +1,7 @@
-import { FormEvent } from 'react';
+import { FormEvent, useState } from 'react';
 
-import { setInputError } from '../reducers/SearchSlice';
 import { Strings } from '../resources/Strings';
 import type { Repository, InputType } from '../types/state';
-import { useAppDispatch } from './app';
 
 interface HandleChangeProps {
   e: FormEvent<HTMLInputElement | HTMLTextAreaElement>;
@@ -16,12 +14,11 @@ const strings = Strings.errors;
 let timeout: null | ReturnType<typeof setTimeout> = null;
 
 const useHandleChangeSearch = (fetcherLoad: (url: string) => void) => {
-  const dispatch = useAppDispatch();
+  const [inputError, setInputError] = useState('');
 
   const searchRecentRevisions = async (
     repository: Repository['name'],
     searchTerm: string,
-    searchType: InputType,
   ) => {
     const emailMatch = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const hashMatch = /\b[a-f0-9]+\b/;
@@ -33,35 +30,29 @@ const useHandleChangeSearch = (fetcherLoad: (url: string) => void) => {
     } else if (hashMatch.test(searchTerm)) {
       apiUrl += '/by-hash/' + encodeURIComponent(searchTerm);
     } else if (searchTerm) {
-      dispatch(
-        setInputError({
-          errorMessage: strings.warningText,
-          searchType,
-        }),
-      );
+      setInputError(strings.warningText);
       return;
     }
 
     fetcherLoad(apiUrl);
   };
 
-  const handleChangeSearch = ({
-    e,
-    searchType,
-    repository,
-  }: HandleChangeProps) => {
+  const handleChangeSearch = ({ e, repository }: HandleChangeProps) => {
     const search = e.currentTarget.value;
     const idleTime = 500;
     const onTimeout = () => {
-      void searchRecentRevisions(repository, search, searchType);
+      void searchRecentRevisions(repository, search);
     };
+
+    // Clear existing errors
+    setInputError('');
 
     // Clear any existing timer whenever user types
     if (timeout) clearTimeout(timeout);
 
     timeout = setTimeout(onTimeout, idleTime);
   };
-  return { handleChangeSearch, searchRecentRevisions };
+  return { handleChangeSearch, searchRecentRevisions, inputError };
 };
 
 export default useHandleChangeSearch;

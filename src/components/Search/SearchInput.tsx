@@ -26,11 +26,9 @@ function SearchInput({
   repository,
   fetcherLoad,
 }: SearchInputProps) {
-  const { handleChangeSearch, searchRecentRevisions } =
+  const { handleChangeSearch, searchRecentRevisions, inputError } =
     useHandleChangeSearch(fetcherLoad);
-  const searchState = useAppSelector((state) => state.search[searchType]);
   const mode = useAppSelector((state) => state.theme.mode);
-  const { inputError, inputHelperText } = searchState;
   const size = compact ? 'small' : undefined;
 
   const styles = {
@@ -55,14 +53,14 @@ function SearchInput({
   ) {
     onFocus();
     const searchTerm = e.currentTarget.value;
-    await searchRecentRevisions(repository, searchTerm, searchType);
+    await searchRecentRevisions(repository, searchTerm);
   }
 
   return (
     <FormControl className={styles.container} fullWidth>
       <TextField
-        error={inputError}
-        helperText={inputError && inputHelperText}
+        error={Boolean(inputError)}
+        helperText={inputError}
         placeholder={inputPlaceholder}
         id={`search-${searchType}-input`}
         onFocus={(e) => void onInputFocus(e)}

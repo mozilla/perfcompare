@@ -93,10 +93,7 @@ export type CompareResultsItem = {
   more_runs_are_needed: boolean;
 };
 
-export type SearchStateForInput = {
-  inputError: boolean;
-  inputHelperText: string;
-};
+export type SearchStateForInput = void;
 
 export type InputType = 'base' | 'new';
 
