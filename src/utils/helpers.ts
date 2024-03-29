@@ -116,23 +116,6 @@ const swapArrayElements = <T>(
   return array;
 };
 
-// Taskcluster Third-Party Login helper
-// from the MDN crypto.getRandomValues doc
-const secureRandom = () =>
-  window.crypto.getRandomValues(new Uint32Array(1))[0] / 4294967295;
-
-const generateNonce = () => {
-  let value = '';
-  const characters =
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-
-  for (let i = 0; i <= 20; i++) {
-    value += characters.charAt(Math.floor(secureRandom() * characters.length));
-  }
-
-  return value;
-};
-
 export {
   formatDate,
   getLatestCommitMessage,
@@ -141,5 +124,4 @@ export {
   swapArrayElements,
   truncateHash,
   getDocsURL,
-  generateNonce,
 };

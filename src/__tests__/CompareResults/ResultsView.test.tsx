@@ -151,7 +151,7 @@ describe('Results View', () => {
     expect(revokeObjectURLMock).toHaveBeenCalledWith('blob:');
   });
 
-  it('click on retrigger button ', async () => {
+  it('click on retrigger button', async () => {
     const user = userEvent.setup({ delay: null });
 
     const { testCompareDataWithMultipleRuns, testData } = getTestData();

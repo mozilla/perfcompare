@@ -1,43 +1,68 @@
 // This file contains logic for the Taskcluster Third-Party Login
 
-import { prodFirefoxRootUrl, getRootUrl } from '../common/constants';
 import { UserCredentials } from '../types/types';
-import { generateNonce } from '../utils/helpers';
 
-// For testing purposes
-const treeherderClientId = `treeherder-localhost-5000-client`;
-const treeherderRedirectURI = `http://localhost:5000/taskcluster-auth`;
+export const prodTaskclusterUrl = 'https://firefox-ci-tc.services.mozilla.com';
+export const stagingTaskclusterUrl =
+  'https://stage.taskcluster.nonprod.cloudops.mozgcp.net';
+export const tcClientIdMap: Record<string, string> = {
+  'https://perf.compare': 'production',
+  'https://beta--mozilla-perfcompare.netlify.app': 'beta',
+  'http://localhost:3000': 'localhost-3000',
+  'https://tc-staging.treeherder.nonprod.cloudops.mozgcp.net':
+    'taskcluster-staging',
+};
 
-const getAuthCode = (defaultRootUrl: string) => {
+export const tcAuthCallbackUrl = '/taskcluster-auth';
+export const clientId = `perfcompare-${
+  tcClientIdMap[window.location.origin]
+}-client`;
+export const redirectURI = `${window.location.origin}${tcAuthCallbackUrl}`;
+
+export const getRootUrl = (rootUrl: string) => {
+  // we need this workaround for the perfcompare-taskcluster-staging deployment since all repository fixtures
+  // and the default login rootUrls are for https://firefox-ci-tc.services.mozilla.com
+  if (
+    rootUrl === prodTaskclusterUrl &&
+    clientId === 'perfcompare-taskcluster-staging-client'
+  ) {
+    return stagingTaskclusterUrl;
+  }
+  return rootUrl;
+};
+
+const generateNonce = () => {
+  return window.crypto.randomUUID();
+};
+
+const getAuthCode = (taskclusterUrl: string) => {
   const nonce = generateNonce();
-  localStorage.setItem('requestState', nonce);
-  localStorage.setItem('tcRootUrl', defaultRootUrl);
+  sessionStorage.setItem('requestState', nonce); // The request state it's stored in sessionStorage so that it can be used in the callback
+  sessionStorage.setItem('taskclusterUrl', taskclusterUrl);
 
   const params = new URLSearchParams({
-    // client_id: clientId,
-    client_id: treeherderClientId,
+    client_id: clientId,
     response_type: 'code',
-    // redirect_uri: redirectURI,
-    redirect_uri: treeherderRedirectURI,
+    redirect_uri: redirectURI,
     scope: 'hooks:trigger-hook:*',
     state: nonce,
   });
-  const url = `${defaultRootUrl}/login/oauth/authorize/?${params.toString()}`;
+  const url = `${taskclusterUrl}/login/oauth/authorize/?${params.toString()}`;
   window.open(url, '_blank');
 };
 
 export const checkTaskclusterCredentials = () => {
-  const defaultRootUrl = getRootUrl(prodFirefoxRootUrl);
+  const taskclusterUrl = getRootUrl(prodTaskclusterUrl);
   const userCredentials = JSON.parse(
-    localStorage.getItem('userCredentials') as string,
+    sessionStorage.getItem('userCredentials') as string,
   ) as UserCredentials;
 
   if (
     !userCredentials ||
-    !userCredentials[defaultRootUrl as keyof UserCredentials]
-    // TODO: once the userCredentials are set in localStorage check if the "expires" date is in the past
+    !userCredentials[taskclusterUrl]
+    // TODO: once the userCredentials are set in sessionStorage check if the "expires" date is in the past
   ) {
-    getAuthCode(defaultRootUrl);
+    getAuthCode(taskclusterUrl);
   }
   // TODO: handle case where the user navigates directly to the login route
 };
