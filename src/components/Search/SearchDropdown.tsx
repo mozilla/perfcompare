@@ -4,7 +4,7 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { style, cssRule } from 'typestyle';
 
 import { repoMap } from '../../common/constants';
-import { useAppSelector, useAppDispatch } from '../../hooks/app';
+import { useAppSelector } from '../../hooks/app';
 import {
   ButtonsLightRaw,
   ButtonsDarkRaw,
@@ -12,7 +12,6 @@ import {
   FontsRaw,
   Colors,
 } from '../../styles';
-import { fetchRecentRevisions } from '../../thunks/searchThunk';
 import { InputType, Repository } from '../../types/state';
 
 interface SearchDropdownProps {
@@ -33,19 +32,10 @@ function SearchDropdown({
 }: SearchDropdownProps) {
   const size = compact ? 'small' : undefined;
   const mode = useAppSelector((state) => state.theme.mode);
-  const dispatch = useAppDispatch();
 
   const handleRepoSelect = async (event: SelectChangeEvent) => {
     const selectedRepository = event.target.value as Repository['name'];
     onChange(selectedRepository);
-
-    // Fetch 10 most recent revisions when repository changes
-    await dispatch(
-      fetchRecentRevisions({
-        repository: selectedRepository,
-        searchType: searchType,
-      }),
-    );
   };
 
   cssRule('.MuiTooltip-popper', {

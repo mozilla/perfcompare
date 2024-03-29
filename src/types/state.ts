@@ -94,8 +94,6 @@ export type CompareResultsItem = {
 };
 
 export type SearchStateForInput = {
-  searchResults: Changeset[];
-  searchValue: string;
   inputError: boolean;
   inputHelperText: string;
 };

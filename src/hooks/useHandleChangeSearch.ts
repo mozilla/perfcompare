@@ -1,10 +1,6 @@
 import { FormEvent } from 'react';
 
-import {
-  updateSearchValue,
-  updateSearchResults,
-  setInputError,
-} from '../reducers/SearchSlice';
+import { setInputError } from '../reducers/SearchSlice';
 import { Strings } from '../resources/Strings';
 import type { Repository, InputType } from '../types/state';
 import { useAppDispatch } from './app';
@@ -55,15 +51,6 @@ const useHandleChangeSearch = (fetcherLoad: (url: string) => void) => {
     repository,
   }: HandleChangeProps) => {
     const search = e.currentTarget.value;
-    dispatch(
-      updateSearchValue({
-        search,
-        searchType,
-      }),
-    );
-
-    dispatch(updateSearchResults({ results: [], searchType }));
-
     const idleTime = 500;
     const onTimeout = () => {
       void searchRecentRevisions(repository, search, searchType);
