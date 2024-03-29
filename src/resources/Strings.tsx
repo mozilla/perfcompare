@@ -126,6 +126,6 @@ export const Strings = {
     },
   },
   errors: {
-    warningText: 'Search must be a 12- or 40-character hash, or email address',
+    warningText: 'Search must be an hexadecimal hash, or an email address',
   },
 };
