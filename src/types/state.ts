@@ -94,7 +94,6 @@ export type CompareResultsItem = {
 };
 
 export type SearchStateForInput = {
-  repository: Repository['name'];
   searchResults: Changeset[];
   searchValue: string;
   inputError: boolean;

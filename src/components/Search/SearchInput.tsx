@@ -7,13 +7,14 @@ import { style } from 'typestyle';
 import { useAppSelector } from '../../hooks/app';
 import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
 import { InputStylesRaw } from '../../styles';
-import { InputType } from '../../types/state';
+import { InputType, Repository } from '../../types/state';
 
 interface SearchInputProps {
   onFocus: () => unknown;
   inputPlaceholder: string;
   compact: boolean;
   searchType: InputType;
+  repository: Repository['name'];
 }
 
 function SearchInput({
@@ -21,11 +22,12 @@ function SearchInput({
   compact,
   inputPlaceholder,
   searchType,
+  repository,
 }: SearchInputProps) {
   const { handleChangeSearch } = useHandleChangeSearch();
   const searchState = useAppSelector((state) => state.search[searchType]);
   const mode = useAppSelector((state) => state.theme.mode);
-  const { inputError, inputHelperText, repository } = searchState;
+  const { inputError, inputHelperText } = searchState;
   const size = compact ? 'small' : undefined;
 
   const styles = {

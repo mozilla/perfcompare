@@ -15,7 +15,7 @@ import {
   //SearchStyles can be found in CompareCards.ts
   SearchStyles,
 } from '../../styles';
-import { Changeset } from '../../types/state';
+import { Changeset, Repository } from '../../types/state';
 import SearchDropdown from './SearchDropdown';
 import SearchInput from './SearchInput';
 import SearchResultsList from './SearchResultsList';
@@ -38,6 +38,8 @@ export default function SearchOverTime({
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = SearchStyles(mode);
   const [displayDropdown, setDisplayDropdown] = useState(false);
+  const [repository, setRepository] = useState('try' as Repository['name']);
+
   //temporary until next PR covers selected revisions
   const handleSearchResultsEditToggle = (item: Changeset) => {
     console.log('handleSearchResultsEditToggle', item);
@@ -130,8 +132,9 @@ export default function SearchOverTime({
           <SearchDropdown
             compact={false}
             selectLabel={selectLabel}
-            tooltipText={tooltip}
             searchType='new'
+            repository={repository}
+            onChange={(repo: Repository['name']) => setRepository(repo)}
           />
         </Grid>
         <Grid
@@ -147,6 +150,7 @@ export default function SearchOverTime({
             compact={false}
             inputPlaceholder={inputPlaceholder}
             searchType='new'
+            repository={repository}
           />
           {searchResults.length > 0 && displayDropdown && (
             <SearchResultsList

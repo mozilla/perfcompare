@@ -8,7 +8,6 @@ import { skipLink } from '../../styles';
 import SkipLink from '../Accessibility/SkipLink';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
 import SearchContainer from './SearchContainer';
-import SearchViewInit from './SearchViewInit';
 
 function SearchView(props: SearchViewProps) {
   const containerRef = useRef(null);
@@ -33,7 +32,6 @@ function SearchView(props: SearchViewProps) {
         </button>
       </SkipLink>
       <PerfCompareHeader isHome />
-      <SearchViewInit />
       <SearchContainer containerRef={containerRef} />
     </div>
   );
