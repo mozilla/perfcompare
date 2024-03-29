@@ -14,7 +14,6 @@ import type { Changeset, Repository } from '../../types/state';
 import CompareButton from './CompareButton';
 import FrameworkDropdown from './FrameworkDropdown';
 import SearchComponent from './SearchComponent';
-import SearchViewInit from './SearchViewInit';
 
 const strings = Strings.components.searchDefault;
 const stringsBase = Strings.components.searchDefault.base.collapsed.base;
@@ -235,10 +234,6 @@ function CompareWithBase({
 
   return (
     <Grid className={`wrapper--withbase ${wrapperStyles.wrapper}`}>
-      <SearchViewInit
-        repositoryBase={baseRepository}
-        repositoryNew={newRepository}
-      />
       <div
         className={`compare-card-container compare-card-container--${
           expanded ? 'expanded' : 'hidden'
