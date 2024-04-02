@@ -1,4 +1,6 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
+
+import Box from '@mui/material/Box';
 
 import type { Changeset, Repository } from '../../types/state';
 import SearchInput from './SearchInput';
@@ -24,6 +26,7 @@ export default function SearchInputAndResults({
   onSearchResultsToggle,
 }: Props) {
   const [displayDropdown, setDisplayDropdown] = useState(false);
+  const containerRef = useRef(null as null | HTMLElement);
 
   const handleDocumentMousedown = useCallback(
     (e: MouseEvent) => {
@@ -31,7 +34,7 @@ export default function SearchInputAndResults({
         return;
       }
       const target = e.target as HTMLElement;
-      if (target.closest(`.${searchType}-search-input`) === null) {
+      if (!containerRef.current?.contains(target)) {
         // Close the dropdown only if the click is outside the search input or one
         // of it's descendants.
         setDisplayDropdown(false);
@@ -61,7 +64,7 @@ export default function SearchInputAndResults({
   }, []);
 
   return (
-    <>
+    <Box ref={containerRef}>
       <SearchInput
         onFocus={() => setDisplayDropdown(true)}
         compact={compact}
@@ -78,6 +81,6 @@ export default function SearchInputAndResults({
           onToggle={onSearchResultsToggle}
         />
       )}
-    </>
+    </Box>
   );
 }
