@@ -10,6 +10,7 @@ import {
 } from 'react-router-dom';
 import type { LoaderFunction } from 'react-router-dom';
 
+import { loader as recentRevisionsLoader } from '../../components/Search/loader';
 import SnackbarCloseButton from '../../components/Shared/SnackbarCloseButton';
 import getProtocolTheme from '../../theme/protocolTheme';
 import { store } from './setupTests';
@@ -58,6 +59,17 @@ export function renderWithRouter(
           createRoutesFromElements(
             <>
               <Route path={route} element={ui} loader={loader} />
+
+              <Route
+                path='/api/recent-revisions/:repository'
+                loader={recentRevisionsLoader}
+              >
+                <Route
+                  path='by-author/:author'
+                  loader={recentRevisionsLoader}
+                />
+                <Route path='by-hash/:hash' loader={recentRevisionsLoader} />
+              </Route>
             </>,
           ),
         )}
