@@ -2,7 +2,12 @@ import { ThemeProvider, createTheme, Theme } from '@mui/material/styles';
 import { render as rtlRender } from '@testing-library/react';
 import { SnackbarProvider } from 'notistack';
 import { Provider } from 'react-redux';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import {
+  Route,
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
+} from 'react-router-dom';
 import type { LoaderFunction } from 'react-router-dom';
 
 import SnackbarCloseButton from '../../components/Shared/SnackbarCloseButton';
@@ -49,7 +54,13 @@ export function renderWithRouter(
   return {
     ...render(
       <RouterProvider
-        router={createBrowserRouter([{ path: route, element: ui, loader }])}
+        router={createBrowserRouter(
+          createRoutesFromElements(
+            <>
+              <Route path={route} element={ui} loader={loader} />
+            </>,
+          ),
+        )}
       />,
       theme,
     ),
