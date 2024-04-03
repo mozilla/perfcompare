@@ -1,6 +1,7 @@
 import { Link } from '@mui/material';
 import { style } from 'typestyle';
 
+import { Strings } from '../../resources/Strings';
 import { Colors, Spacing } from '../../styles';
 import type { RevisionsHeader } from '../../types/state';
 import {
@@ -101,6 +102,7 @@ function RevisionHeader(props: RevisionHeaderProps) {
         <Link
           href={getTreeherderURL(header.new_rev, header.new_repo)}
           target='_blank'
+          title={`${Strings.components.revisionRow.title.jobLink} ${shortHash}`}
         >
           {shortHash}
         </Link>

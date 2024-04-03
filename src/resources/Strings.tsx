@@ -11,6 +11,11 @@ export const Strings = {
       linkText: 'File a bug on Bugzilla.',
       href: 'https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]',
     },
+    contact: {
+      text: 'Find us at',
+      linkText: '#perfcompare:mozilla.org on Matrix',
+      href: 'https://matrix.to/#/#perfcompare:mozilla.org',
+    },
     header: {
       title: 'PerfCompare',
       tagline:
@@ -51,6 +56,9 @@ export const Strings = {
             comparison:
               'Comparing “try” repository to any repository aside from “try” is not recommended.',
           },
+          errors: {
+            notEnoughRevisions: 'Please select at least one base revision.',
+          },
           base: {
             selectLabel: 'Base',
             inputPlaceholder: 'Search base by ID number or author email',
@@ -72,13 +80,34 @@ export const Strings = {
         img: 'https://user-images.githubusercontent.com/88336547/233250659-4012551b-e07a-44ce-accb-242e29d31914.png',
         imgDark:
           'https://user-images.githubusercontent.com/88336547/233250642-7fd7c217-e72b-4375-9078-7ed2f99cb0f7.png',
-        collapedSelectLabel: 'Time range',
+        collapsed: {
+          timeRange: {
+            selectLabel: 'Time range',
+            tooltip: 'The time range to compare revisions.',
+          },
+          revisions: {
+            selectLabel: 'Revisions',
+            tooltip:
+              'Revisions (typically including your changes) to compare over a specified time range.',
+            inputPlaceholder: 'Search revision by ID number or author email',
+          },
+        },
       },
     },
     revisionRow: {
       platformUndefinedText: 'Unspecified',
+      title: {
+        graphLink: 'open the evolution graph for this job in treeherder',
+        downloadProfilers: 'open the performance profile for this job',
+        jobLink: 'open treeherder view for',
+        retriggerJobs: 'retrigger jobs',
+      },
     },
     expandableRow: {
+      title: {
+        expand: 'expand this row',
+        shrink: 'shrink this row',
+      },
       singleRun: 'Only one run (consider more runs for greater confidence).',
       Low: "A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
       Medium:

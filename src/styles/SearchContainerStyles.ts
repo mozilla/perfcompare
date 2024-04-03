@@ -2,19 +2,15 @@ import { stylesheet } from 'typestyle';
 
 import { FontsRaw, Spacing } from '../styles';
 
-export const SearchContainerStyles = (
-  mode: string,
-  view: 'search' | 'compare-results',
-) => {
-  const isTrueLight = mode == 'light' ? true : false;
-  const isSearch = view == 'search' ? true : false;
+export const SearchContainerStyles = (mode: string, isHome: boolean) => {
+  const isTrueLight = mode == 'light';
 
   const styles = stylesheet({
     container: {
-      maxWidth: isSearch ? '810px' : '950px',
-      marginTop: isSearch ? `${Spacing.layoutLarge + 20}px` : '0px',
+      maxWidth: isHome ? '810px' : '950px',
+      marginTop: isHome ? `${Spacing.layoutLarge + 20}px` : '0px',
       margin: '0 auto',
-      marginBottom: isSearch ? '0px' : `${Spacing.layoutXLarge + 4}px`,
+      marginBottom: isHome ? '0px' : `${Spacing.layoutXLarge + 4}px`,
       display: 'flex',
       justifyContent: 'center',
       flexDirection: 'column',

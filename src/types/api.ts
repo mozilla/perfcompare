@@ -1,4 +1,4 @@
-import type { Repository, RevisionsList } from './state';
+import type { Repository, Changeset } from './state';
 
 type APIFilterParams = {
   full: boolean;
@@ -13,5 +13,5 @@ type APIPushMeta = {
 
 export type APIPushResponse = {
   meta: APIPushMeta;
-  results: RevisionsList[];
+  results: Changeset[];
 };

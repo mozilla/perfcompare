@@ -61,7 +61,7 @@ describe('Search View/fetchRecentRevisions', () => {
     renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
 
     const errorMessages = await screen.findAllByText('No results found');
-    expect(errorMessages).toHaveLength(2);
+    expect(errorMessages).toHaveLength(3);
 
     const inputs = screen.getAllByRole('textbox');
     expect(inputs[0]).toBeInvalid();
@@ -87,7 +87,7 @@ describe('Search View/fetchRecentRevisions', () => {
     renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
 
     const errorMessages = await screen.findAllByText(errorMessage);
-    expect(errorMessages).toHaveLength(2);
+    expect(errorMessages).toHaveLength(3);
 
     const inputs = screen.getAllByRole('textbox');
     expect(inputs[0]).toBeInvalid();

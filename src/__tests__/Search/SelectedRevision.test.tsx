@@ -33,7 +33,7 @@ describe('SelectedRevision', () => {
     );
   });
 
-  it.skip('should show the selected checked revisions once a result checkbox is clicked', async () => {
+  it('should show the selected checked revisions once a result checkbox is clicked', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
@@ -52,7 +52,7 @@ describe('SelectedRevision', () => {
     expect(noArmsLeftCheckbox).toBeChecked();
     expect(noArmsLeft.querySelector('.Mui-checked')).toBeInTheDocument();
 
-    const selectedRevsContainer = screen.getByTestId('selected-revs-search');
+    const selectedRevsContainer = screen.getByTestId('selected-rev-item');
     expect(selectedRevsContainer).toMatchSnapshot();
   });
 
@@ -67,9 +67,7 @@ describe('SelectedRevision', () => {
 
     renderComponent();
 
-    const removeButton = document.querySelectorAll(
-      '[aria-label="close-button"]',
-    );
+    const removeButton = document.querySelectorAll('[title="remove revision"]');
 
     const removeIcon = screen.getByTestId('close-icon');
     expect(removeIcon).toBeInTheDocument();

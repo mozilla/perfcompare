@@ -12,13 +12,13 @@ import { InputType } from '../../types/state';
 interface SearchInputProps {
   onFocus: () => unknown;
   inputPlaceholder: string;
-  isEditable?: boolean;
+  compact: boolean;
   searchType: InputType;
 }
 
 function SearchInput({
   onFocus,
-  isEditable,
+  compact,
   inputPlaceholder,
   searchType,
 }: SearchInputProps) {
@@ -26,7 +26,7 @@ function SearchInput({
   const searchState = useAppSelector((state) => state.search[searchType]);
   const mode = useAppSelector((state) => state.theme.mode);
   const { inputError, inputHelperText, repository } = searchState;
-  const size = isEditable === true ? 'small' : undefined;
+  const size = compact ? 'small' : undefined;
 
   const styles = {
     container: style({
@@ -55,7 +55,6 @@ function SearchInput({
         onFocus={onFocus}
         onChange={(e) => handleChangeSearch({ e, searchType, repository })}
         size={size}
-        name={`${searchType}Search`}
         className={`search-text-field ${searchType}`}
         InputProps={{
           startAdornment: (

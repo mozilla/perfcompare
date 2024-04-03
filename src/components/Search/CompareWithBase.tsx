@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react';
 
+import { Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
+import { useSnackbar } from 'notistack';
+import { Form } from 'react-router-dom';
 import { style } from 'typestyle';
 
-import { repoMap } from '../../common/constants';
 import { useAppDispatch, useAppSelector } from '../../hooks/app';
 import { clearCheckedRevisionforType } from '../../reducers/SearchSlice';
 import { Strings } from '../../resources/Strings';
-import { CompareCardsStyles, SearchStyles } from '../../styles';
-import type { RevisionsList, Repository } from '../../types/state';
+import { CompareCardsStyles, SearchStyles, Spacing } from '../../styles';
+import type { Changeset } from '../../types/state';
 import CompareButton from './CompareButton';
 import FrameworkDropdown from './FrameworkDropdown';
 import SearchComponent from './SearchComponent';
@@ -19,69 +21,73 @@ const stringsBase = Strings.components.searchDefault.base.collapsed.base;
 const stringsNew = Strings.components.searchDefault.base.collapsed.revision;
 
 interface CompareWithBaseProps {
-  isEditable: boolean;
-  baseRevs: RevisionsList[];
-  newRevs: RevisionsList[];
-  baseRepos: Repository['name'][];
-  newRepos: Repository['name'][];
+  hasNonEditableState: boolean;
+  baseRevs: Changeset[];
+  newRevs: Changeset[];
 }
 
-interface RevisionsState {
-  revs: RevisionsList[];
-  repos: Repository['name'][];
-}
-
-interface InProgressState {
-  revs: RevisionsList[];
-  repos: Repository['name'][];
-  isInProgress: boolean;
-}
-
+/**
+ * This component implements the form where the user can enter the input to
+ * compare some revisions with a base revision.
+ * It is fairly complex because it has several states, that also depend on where
+ * it's used.
+ *
+ * In the Search View, the user can edit it always, then presses the
+ * "Compare" button to move to the Results View. Pressing the "Compare" button
+ * is a normal Form submission, that goes through React Router to change the URL
+ * and rerender the page.
+ *
+ * In the Results View, it is initially displayed as non-editable, but presents
+ * an Edit button on each part (base revision / new revisions). When the user
+ * presses this Edit button, the corresponding part will move to an editable
+ * state, similar to the initial state of the Search View. The user will be
+ * able to Cancel or Save the changes, in which case the state moves back to
+ * "non-editable" with respectively the previous selections or the new
+ * selections being displayed. The user can also presses "Compare" directly to
+ * search using the new input.
+ *
+ * Therefore these 3 different states exist:
+ * - The initial state comes from the URL in the ResultsView, and is empty in the
+ *   SearchView (aka the Homepage). It is passed to this component with the
+ *   props. When the user presses "Compare", the URL changes, and so change the
+ *   props too.
+ * - The non-editable state (also known as the staging state) is used in the
+ *   ResultsView only: it contains the snapshot of the revisions, that the user
+ *   will go back if they presses "cancel" after starting editing. It's
+ *   initialized with the initial state.
+ * - The in-progress state represents the set of revisions that the user is
+ *   currently selecting. In the SearchView it can be changed always, but in the
+ *   ResultsView the user will need to press Edit first. If the user presses
+ *   "Save" at this point, the in-progress state is copied to the non-editable
+ *   state. If the user presses "Cancel", the previous non-editable state is
+ *   recalled.
+ */
 function CompareWithBase({
-  isEditable,
+  hasNonEditableState,
   baseRevs,
   newRevs,
-  baseRepos,
-  newRepos,
 }: CompareWithBaseProps) {
   const [expanded, setExpanded] = useState(true);
+  const { enqueueSnackbar } = useSnackbar();
 
   //the "committed" base and new revisions initialize the staging state
-  const [baseStaging, setStagingBase] = useState<RevisionsState>({
-    revs: baseRevs,
-    repos: baseRepos,
-  });
+  const [baseStagingRevs, setStagingBaseRevs] = useState<Changeset[]>(baseRevs);
 
-  const [newStaging, setStagingNew] = useState<RevisionsState>({
-    revs: newRevs,
-    repos: newRepos,
-  });
+  const [newStagingRevs, setStagingNewRevs] = useState<Changeset[]>(newRevs);
 
   //the edit button will initialize the "in progress" state
   //and copy "stage" to "in progress" state
-  const [baseInProgress, setInProgressBase] = useState<InProgressState>({
-    revs: [],
-    repos: [],
-    isInProgress: false,
-  });
+  const [baseInProgressRevs, setInProgressBaseRevs] = useState<Changeset[]>([]);
+  const [baseInProgress, setInProgressBase] = useState(false);
 
-  const [newInProgress, setInProgressNew] = useState<InProgressState>({
-    revs: [],
-    repos: [],
-    isInProgress: false,
-  });
+  const [newInProgressRevs, setInProgressNewRevs] = useState<Changeset[]>([]);
+  const [newInProgress, setInProgressNew] = useState(false);
 
-  const [displayedRevisionsBase, setDisplayedRevisionsBase] =
-    useState<RevisionsState>({
-      revs: baseRevs,
-      repos: baseRepos,
-    });
+  const [displayedRevisionsBaseRevs, setDisplayedRevisionsBaseRevs] =
+    useState<Changeset[]>(baseRevs);
 
-  const [displayedRevisionsNew, setDisplayedRevisionsNew] =
-    useState<RevisionsState>({
-      revs: newRevs,
-      repos: newRepos,
-    });
+  const [displayedRevisionsNewRevs, setDisplayedRevisionsNewRevs] =
+    useState<Changeset[]>(newRevs);
 
   const dispatch = useAppDispatch();
 
@@ -99,6 +105,16 @@ function CompareWithBase({
     (baseRepository === 'try' && newRepository !== 'try') ||
     (baseRepository !== 'try' && newRepository === 'try');
 
+  const possiblyPreventFormSubmission = (e: React.FormEvent) => {
+    const isFormReadyToBeSubmitted = baseRevs.length > 0;
+    if (!isFormReadyToBeSubmitted) {
+      e.preventDefault();
+      enqueueSnackbar(strings.base.collapsed.errors.notEnoughRevisions, {
+        variant: 'error',
+      });
+    }
+  };
+
   const bottomStyles = {
     container: style({
       display: 'flex',
@@ -107,149 +123,97 @@ function CompareWithBase({
     }),
   };
 
-  const revRepos = {
-    revs: [],
-    repos: [],
+  const wrapperStyles = {
+    wrapper: style({
+      marginBottom: `${Spacing.Large}px`,
+    }),
   };
 
   useEffect(() => {
-    setStagingBase({
-      revs: baseRevs,
-      repos: baseRepos,
-    });
-    setStagingNew({
-      revs: newRevs,
-      repos: newRepos,
-    });
+    setStagingBaseRevs(baseRevs);
+    setStagingNewRevs(newRevs);
   }, [baseRevs, newRevs]);
 
   useEffect(() => {
-    if (newInProgress.isInProgress) {
-      setDisplayedRevisionsNew(newInProgress);
+    if (newInProgress) {
+      setDisplayedRevisionsNewRevs(newInProgressRevs);
     } else {
-      setDisplayedRevisionsNew(newStaging);
+      setDisplayedRevisionsNewRevs(newStagingRevs);
     }
 
-    if (baseInProgress.isInProgress) {
-      setDisplayedRevisionsBase(baseInProgress);
+    if (baseInProgress) {
+      setDisplayedRevisionsBaseRevs(baseInProgressRevs);
     } else {
-      setDisplayedRevisionsBase(baseStaging);
+      setDisplayedRevisionsBaseRevs(baseStagingRevs);
     }
-  }, [newInProgress, newStaging, baseInProgress, baseStaging]);
+  }, [
+    newInProgress,
+    newInProgressRevs,
+    newStagingRevs,
+    baseInProgress,
+    baseInProgressRevs,
+    baseStagingRevs,
+  ]);
 
   const toggleIsExpanded = () => {
     setExpanded(!expanded);
   };
-
-  const handleCancel = (isBase: boolean) => {
-    if (isBase) {
-      setInProgressBase({ ...revRepos, isInProgress: false });
-      dispatch(clearCheckedRevisionforType({ searchType: 'base' }));
-    }
-
-    if (!isBase) {
-      setInProgressNew({ ...revRepos, isInProgress: false });
-      dispatch(clearCheckedRevisionforType({ searchType: 'new' }));
-    }
+  const handleCancelBase = () => {
+    setInProgressBaseRevs([]);
+    setInProgressBase(false);
+    dispatch(clearCheckedRevisionforType({ searchType: 'base' }));
   };
 
-  const handleSave = (isBase: boolean) => {
-    if (isBase) {
-      setStagingBase(baseInProgress);
-      handleCancel(true);
-    }
-
-    if (!isBase) {
-      setStagingNew(newInProgress);
-      handleCancel(false);
-    }
-  };
-  const handleDisplayedRevisions = (isBase: boolean) => {
-    if (isBase) {
-      if (baseInProgress.isInProgress) {
-        setDisplayedRevisionsBase(baseInProgress);
-      } else {
-        setDisplayedRevisionsBase(baseStaging);
-      }
-    }
-    if (!isBase) {
-      if (newInProgress.isInProgress) {
-        setDisplayedRevisionsNew(newInProgress);
-      } else {
-        setDisplayedRevisionsNew(newStaging);
-      }
-    }
+  const handleCancelNew = () => {
+    setInProgressNewRevs([]);
+    setInProgressNew(false);
+    dispatch(clearCheckedRevisionforType({ searchType: 'new' }));
   };
 
-  const handleEdit = (isBase: boolean) => {
-    if (isBase) {
-      setInProgressBase({
-        ...baseStaging,
-        isInProgress: true,
-      });
-      handleDisplayedRevisions(true);
-    }
-
-    if (!isBase) {
-      setInProgressNew({
-        ...newStaging,
-        isInProgress: true,
-      });
-      handleDisplayedRevisions(true);
-    }
+  const handleSaveBase = () => {
+    setStagingBaseRevs(baseInProgressRevs);
+    handleCancelBase();
   };
 
-  const handleRemoveEditViewRevision = (
-    isBase: boolean,
-    item: RevisionsList,
-  ) => {
-    const revisionsBase = [...baseInProgress.revs];
-    const revisionsNew = [...newInProgress.revs];
-
-    if (isBase) {
-      revisionsBase.splice(baseInProgress.revs.indexOf(item), 1);
-      setInProgressBase({
-        revs: revisionsBase,
-        repos: baseInProgress.repos,
-        isInProgress: true,
-      });
-    }
-
-    if (!isBase) {
-      revisionsNew.splice(newInProgress.revs.indexOf(item), 1);
-      setInProgressNew({
-        revs: revisionsNew,
-        repos: newInProgress.repos,
-        isInProgress: true,
-      });
-    }
+  const handleSaveNew = () => {
+    setStagingNewRevs(newInProgressRevs);
+    handleCancelNew();
   };
 
-  const handleSearchResultsEditToggle = (
-    isBase: boolean,
-    toggleArray: RevisionsList[],
-  ) => {
-    const repos = toggleArray.map((rev) => repoMap[rev.repository_id] ?? 'try');
+  const handleEditBase = () => {
+    setInProgressBaseRevs(baseStagingRevs);
+    setInProgressBase(true);
+  };
 
-    if (isBase) {
-      setInProgressBase({
-        revs: toggleArray || [],
-        repos,
-        isInProgress: true,
-      });
-    }
+  const handleEditNew = () => {
+    setInProgressNewRevs(newStagingRevs);
+    setInProgressNew(true);
+  };
 
-    if (!isBase) {
-      setInProgressNew({
-        revs: toggleArray || [],
-        repos,
-        isInProgress: true,
-      });
-    }
+  const handleRemoveRevisionBase = (item: Changeset) => {
+    const revisionsBase = [...baseInProgressRevs];
+    revisionsBase.splice(baseInProgressRevs.indexOf(item), 1);
+    setInProgressBaseRevs(revisionsBase);
+  };
+
+  const handleRemoveRevisionNew = (item: Changeset) => {
+    const revisionsNew = [...newInProgressRevs];
+    revisionsNew.splice(newInProgressRevs.indexOf(item), 1);
+    setInProgressNewRevs(revisionsNew);
+  };
+
+  const handleSearchResultsToggleBase = (toggleArray: Changeset[]) => {
+    setInProgressBaseRevs(toggleArray || []);
+    setInProgressBase(true);
+  };
+
+  const handleSearchResultsToggleNew = (toggleArray: Changeset[]) => {
+    setInProgressNewRevs(toggleArray || []);
+    setInProgressNew(true);
   };
 
   return (
-    <Grid className='wrapper'>
+    <Grid className={`wrapper--withbase ${wrapperStyles.wrapper}`}>
       <div
         className={`compare-card-container compare-card-container--${
           expanded ? 'expanded' : 'hidden'
@@ -258,8 +222,10 @@ function CompareWithBase({
         data-testid='base-state'
       >
         <div className={`compare-card-text ${styles.cardText}`}>
-          <div className='compare-card-title'>{strings.base.title}</div>
-          <div className='compare-card-tagline'>{strings.base.tagline}</div>
+          <Typography variant='h2' className='compare-card-title'>
+            {strings.base.title}
+          </Typography>
+          <p className='compare-card-tagline'>{strings.base.tagline}</p>
         </div>
         <div
           className='compare-card-img compare-card-img--base'
@@ -273,33 +239,37 @@ function CompareWithBase({
         } ${styles.container} `}
       >
         <Divider className='divider' />
-
-        <div className='form-wrapper'>
+        <Form
+          action='/compare-results'
+          className='form-wrapper'
+          onSubmit={possiblyPreventFormSubmission}
+          aria-label='Compare with base form'
+        >
           <SearchComponent
             {...stringsBase}
             isBaseComp={true}
             isWarning={isWarning}
-            isEditable={isEditable}
+            hasNonEditableState={hasNonEditableState}
             searchResults={searchResultsBase}
-            handleSave={handleSave}
-            handleCancel={handleCancel}
-            handleEdit={handleEdit}
-            handleSearchResultsEditToggle={handleSearchResultsEditToggle}
-            handleRemoveEditViewRevision={handleRemoveEditViewRevision}
-            displayedRevisions={displayedRevisionsBase}
+            displayedRevisions={displayedRevisionsBaseRevs}
+            onSave={handleSaveBase}
+            onCancel={handleCancelBase}
+            onEdit={handleEditBase}
+            onSearchResultsToggle={handleSearchResultsToggleBase}
+            onRemoveRevision={handleRemoveRevisionBase}
           />
           <SearchComponent
             {...stringsNew}
             isBaseComp={false}
-            isEditable={isEditable}
+            hasNonEditableState={hasNonEditableState}
             isWarning={isWarning}
             searchResults={searchResultsNew}
-            handleSave={handleSave}
-            handleCancel={handleCancel}
-            handleEdit={handleEdit}
-            handleSearchResultsEditToggle={handleSearchResultsEditToggle}
-            handleRemoveEditViewRevision={handleRemoveEditViewRevision}
-            displayedRevisions={displayedRevisionsNew}
+            displayedRevisions={displayedRevisionsNewRevs}
+            onSave={handleSaveNew}
+            onCancel={handleCancelNew}
+            onEdit={handleEditNew}
+            onSearchResultsToggle={handleSearchResultsToggleNew}
+            onRemoveRevision={handleRemoveRevisionNew}
           />
           <Grid
             item
@@ -307,9 +277,9 @@ function CompareWithBase({
             className={`${dropDownStyles.dropDown} ${bottomStyles.container}`}
           >
             <FrameworkDropdown />
-            <CompareButton />
+            <CompareButton label={strings.base.title} />
           </Grid>
-        </div>
+        </Form>
       </div>
     </Grid>
   );

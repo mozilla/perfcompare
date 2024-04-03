@@ -1,4 +1,5 @@
 import userEvent from '@testing-library/user-event';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
@@ -6,9 +7,12 @@ import getTestData from '../utils/fixtures';
 import {
   screen,
   act,
+  render,
   renderWithRouter,
   FetchMockSandbox,
 } from '../utils/test-utils';
+
+const baseTitle = Strings.components.searchDefault.base.title;
 
 function setupTestData() {
   const { testData } = getTestData();
@@ -59,13 +63,16 @@ describe('Search Container', () => {
   it('renders compare with base', async () => {
     renderComponent();
 
-    const title = screen.getAllByText('Compare with a base')[0];
+    const compTitle = await screen.findByRole('heading', {
+      name: baseTitle,
+    });
+
     const baseInput = screen.getByPlaceholderText(
       'Search base by ID number or author email',
     );
     const repoDropdown = screen.getAllByTestId('dropdown-select-base')[0];
 
-    expect(title).toBeInTheDocument();
+    expect(compTitle).toBeInTheDocument();
     expect(baseInput).toBeInTheDocument();
     expect(repoDropdown).toBeInTheDocument();
   });
@@ -91,7 +98,7 @@ describe('Base Search', () => {
   it('renders framework dropdown in closed condition', async () => {
     renderComponent();
     // 'talos' is selected by default and dropdown is not visible
-    expect(screen.getByText(/talos/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/talos/i)[0]).toBeInTheDocument();
     expect(screen.queryByText(/build_metrics/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/awsy/i)).not.toBeInTheDocument();
   });
@@ -102,7 +109,6 @@ describe('Base Search', () => {
     renderComponent();
 
     // Click inside the input box to show search results.
-
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
 
@@ -110,7 +116,6 @@ describe('Base Search', () => {
     expect(comment[0]).toBeInTheDocument();
 
     // Click outside the input box to hide search results.
-
     const label = screen.getAllByLabelText('Base')[0];
     await user.click(label);
     expect(comment[0]).not.toBeInTheDocument();
@@ -246,10 +251,36 @@ describe('Base Search', () => {
   });
 
   it('should have compare button and once clicked should redirect to results page with the right query params', async () => {
-    const { history } = renderComponent();
-    expect(history.location.pathname).toEqual('/');
+    // In this test, we need to define both / and /compare-results routes, so
+    // we'll do that directly without renderComponent.
+
+    setupTestData();
+    const router = createBrowserRouter([
+      {
+        path: '/',
+        element: <SearchView title={Strings.metaData.pageTitle.search} />,
+      },
+      { path: '/compare-results', element: <div /> },
+    ]);
+
+    render(<RouterProvider router={router} />);
+
+    expect(window.location.pathname).toEqual('/');
 
     const user = userEvent.setup({ delay: null });
+
+    // Press the compare button -> It shouldn't work!
+    const compareButton = await screen.findByRole('button', {
+      name: /Compare with a base/,
+    });
+    await user.click(compareButton);
+
+    // We haven't navigated.
+    expect(window.location.pathname).toEqual('/');
+    // And there should be an alert
+    expect(
+      await screen.findByText('Please select at least one base revision.'),
+    ).toBeInTheDocument();
 
     // focus first input to show results
     const inputs = screen.getAllByRole('textbox');
@@ -279,12 +310,13 @@ describe('Base Search', () => {
     await screen.findByText(/flesh wound/);
 
     // Press the compare button
-    const compareButton = document.querySelector('.compare-button');
-    await user.click(compareButton as HTMLElement);
+    await user.click(compareButton);
 
-    expect(history.location.pathname).toEqual('/compare-results');
-    expect(history.location.search).toEqual(
-      '?revs=coconut,spam&repos=try,mozilla-central&framework=1',
+    expect(window.location.pathname).toEqual('/compare-results');
+    const searchParams = new URLSearchParams(window.location.search);
+    searchParams.sort();
+    expect(searchParams.toString()).toEqual(
+      'baseRepo=try&baseRev=coconut&framework=1&newRepo=mozilla-central&newRev=spam',
     );
   });
 });

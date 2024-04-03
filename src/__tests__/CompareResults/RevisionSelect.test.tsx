@@ -1,5 +1,6 @@
 import type { ReactElement } from 'react';
 
+import { loader } from '../../components/CompareResults/loader';
 import ResultsView from '../../components/CompareResults/ResultsView';
 import RevisionSelect from '../../components/CompareResults/RevisionSelect';
 import { Strings } from '../../resources/Strings';
@@ -8,87 +9,71 @@ import {
   renderWithRouter,
   screen,
   within,
+  FetchMockSandbox,
 } from '../utils/test-utils';
 
 function renderWithRoute(component: ReactElement) {
   return renderWithRouter(component, {
-    route: '/compare-results/?fakedata=true',
+    route: '/compare-results/',
+    search: '?fakedata=true',
+    loader,
   });
 }
 
 describe('Revision select', () => {
-  it('Should match snapshot', () => {
-    renderWithRoute(<RevisionSelect />);
-
-    expect(screen.getByTestId('revision-select')).toBeInTheDocument();
-    expect(document.body).toMatchSnapshot();
-  });
-
   it("Should change 'All revisions' option to bb6a5e451dac", async () => {
     renderWithRoute(<RevisionSelect />);
 
-    let selectButton = await screen.findByRole('button');
+    expect(await screen.findByTestId('revision-select')).toBeInTheDocument();
+    expect(document.body).toMatchSnapshot();
 
-    expect(selectButton).toHaveTextContent('All revisions');
-
+    const selectButton = await screen.findByRole('button', {
+      name: 'All revisions',
+    });
     fireEvent.mouseDown(selectButton);
 
     const listbox = within(await screen.findByRole('listbox'));
-
     fireEvent.click(await listbox.findByText('bb6a5e451dac'));
 
-    selectButton = await screen.findByRole('button');
     expect(selectButton).toHaveTextContent('bb6a5e451dac');
   });
 
-  it('Should render results for bb6a5e451dac', async () => {
-    const location = {
-      ...window.location,
-      search: '?fakedata=true',
-    };
-    Object.defineProperty(window, 'location', {
-      writable: true,
-      value: location,
-    });
-    const urlParams = new URLSearchParams(window.location.search);
-    const fakedataParam = urlParams.get('fakedata');
-    expect(fakedataParam).toBe('true');
-
+  it('Should filter results', async () => {
+    // The SearchViewInit component requests recent revisions at load time.
+    (window.fetch as FetchMockSandbox).get(
+      'begin:https://treeherder.mozilla.org/api/project/',
+      { results: [] },
+    );
     renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
 
     // check to display results for all revisions
     let firstRevisionHeaders = await screen.findAllByRole('link', {
       name: /bb6a5e451dac/,
     });
-    expect(firstRevisionHeaders.length).toBe(8);
+    expect(firstRevisionHeaders).toHaveLength(8);
 
-    const secondRevisionHeaders = await screen.findAllByRole('link', {
+    let secondRevisionHeaders = await screen.findAllByRole('link', {
       name: /9d5066525489/,
     });
-    expect(secondRevisionHeaders.length).toBe(7);
+    expect(secondRevisionHeaders).toHaveLength(7);
 
     const thirdRevisionHeaders = await screen.findAllByRole('link', {
       name: /a998c42399a8/,
     });
-    expect(thirdRevisionHeaders.length).toBe(7);
+    expect(thirdRevisionHeaders).toHaveLength(7);
 
     // change comparison to revision bb6a5e451dac
     const selectRevisionDropdown = within(
       await screen.findByTestId('revision-select'),
     );
-    let selectButton = await selectRevisionDropdown.findByRole('button');
-    expect(selectButton).toHaveTextContent('All revisions');
-
+    const selectButton = await selectRevisionDropdown.findByRole('button', {
+      name: 'All revisions',
+    });
     fireEvent.mouseDown(selectButton);
 
-    const listbox = within(await screen.findByRole('listbox'));
-
+    let listbox = within(await screen.findByRole('listbox'));
     fireEvent.click(await listbox.findByText('bb6a5e451dac'));
-
-    selectButton = await selectRevisionDropdown.findByRole('button');
     expect(selectButton).toHaveTextContent('bb6a5e451dac');
-
-    fireEvent.mouseDown(selectButton);
 
     // check to display results only for revision bb6a5e451dac
     // findByRole doesn't work anymore because the root element
@@ -96,7 +81,7 @@ describe('Revision select', () => {
     firstRevisionHeaders = await screen.findAllByText(/bb6a5e451dac/, {
       selector: 'a',
     });
-    expect(firstRevisionHeaders.length).toBe(8);
+    expect(firstRevisionHeaders).toHaveLength(8);
 
     expect(
       screen.queryAllByText(/9d5066525489/, {
@@ -109,42 +94,11 @@ describe('Revision select', () => {
         selector: 'a',
       }),
     ).toStrictEqual([]);
-  });
 
-  it('Should render results for 9d5066525489', async () => {
-    const location = {
-      ...window.location,
-      search: '?fakedata=true',
-    };
-    Object.defineProperty(window, 'location', {
-      writable: true,
-      value: location,
-    });
-    const urlParams = new URLSearchParams(window.location.search);
-    const fakedataParam = urlParams.get('fakedata');
-    expect(fakedataParam).toBe('true');
-
-    renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
-
-    // check comparison to be for revision bb6a5e451dac
-    const firstRevisionHeaders = await screen.findAllByRole('link', {
-      name: /bb6a5e451dac/,
-    });
-    expect(firstRevisionHeaders.length).toBe(8);
-
-    // change comparison to revision 9d5066525489
-    const selectRevisionDropdown = within(
-      await screen.findByTestId('revision-select'),
-    );
-    let selectButton = await selectRevisionDropdown.findByRole('button');
-
+    // Now select the second option 9d5066525489
     fireEvent.mouseDown(selectButton);
-
-    const listbox = within(await screen.findByRole('listbox'));
-
+    listbox = within(await screen.findByRole('listbox'));
     fireEvent.click(await listbox.findByText('9d5066525489'));
-
-    selectButton = await selectRevisionDropdown.findByRole('button');
     expect(selectButton).toHaveTextContent('9d5066525489');
 
     fireEvent.mouseDown(selectButton);
@@ -152,10 +106,10 @@ describe('Revision select', () => {
     // check to display results only for revision 9d5066525489
     // findByRole doesn't work anymore because the root element
     // has aria-hidden but we don't know why yet
-    const secondRevisionHeaders = await screen.findAllByText(/9d5066525489/, {
+    secondRevisionHeaders = await screen.findAllByText(/9d5066525489/, {
       selector: 'a',
     });
-    expect(secondRevisionHeaders.length).toBe(7);
+    expect(secondRevisionHeaders).toHaveLength(7);
 
     expect(
       screen.queryAllByText(/bb6a5e451dac/, {
@@ -165,65 +119,6 @@ describe('Revision select', () => {
 
     expect(
       screen.queryAllByText(/a998c42399a8/, {
-        selector: 'a',
-      }),
-    ).toStrictEqual([]);
-  });
-
-  it('Should render results for a998c42399a8', async () => {
-    const location = {
-      ...window.location,
-      search: '?fakedata=true',
-    };
-    Object.defineProperty(window, 'location', {
-      writable: true,
-      value: location,
-    });
-    const urlParams = new URLSearchParams(window.location.search);
-    const fakedataParam = urlParams.get('fakedata');
-    expect(fakedataParam).toBe('true');
-
-    renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
-
-    // check comparison to be for revision bb6a5e451dac
-    const firstRevisionHeaders = await screen.findAllByRole('link', {
-      name: /bb6a5e451dac/,
-    });
-    expect(firstRevisionHeaders.length).toBe(8);
-
-    // change comparison to revision a998c42399a8
-    const selectRevisionDropdown = within(
-      await screen.findByTestId('revision-select'),
-    );
-    let selectButton = await selectRevisionDropdown.findByRole('button');
-
-    fireEvent.mouseDown(selectButton);
-
-    const listbox = within(await screen.findByRole('listbox'));
-
-    fireEvent.click(await listbox.findByText('a998c42399a8'));
-
-    selectButton = await selectRevisionDropdown.findByRole('button');
-    expect(selectButton).toHaveTextContent('a998c42399a8');
-
-    fireEvent.mouseDown(selectButton);
-
-    // check to display results only for revision a998c42399a8
-    // findByRole doesn't work anymore because the root element
-    // has aria-hidden but we don't know why yet
-    const thirdRevisionHeaders = await screen.findAllByText(/a998c42399a8/, {
-      selector: 'a',
-    });
-    expect(thirdRevisionHeaders.length).toBe(7);
-
-    expect(
-      screen.queryAllByText(/9d5066525489/, {
-        selector: 'a',
-      }),
-    ).toStrictEqual([]);
-
-    expect(
-      screen.queryAllByText(/bb6a5e451dac/, {
         selector: 'a',
       }),
     ).toStrictEqual([]);

@@ -4,53 +4,37 @@ import List from '@mui/material/List';
 import { useAppSelector } from '../../hooks/app';
 import useCheckRevision from '../../hooks/useCheckRevision';
 import { SelectListStyles } from '../../styles';
-import { RevisionsList, Repository } from '../../types/state';
+import { Changeset } from '../../types/state';
 import SearchResultsListItem from './SearchResultsListItem';
 
-interface RevisionsState {
-  revs: RevisionsList[];
-  repos: Repository['name'][];
-}
-
 interface SearchResultsListProps {
-  isEditable: boolean;
+  hasNonEditableState: boolean;
   isBase: boolean;
-  searchResults: RevisionsList[];
-  displayedRevisions: RevisionsState;
-  onEditToggle: (toggleArray: RevisionsList[]) => void;
+  searchResults: Changeset[];
+  displayedRevisions: Changeset[];
+  onToggle: (toggleArray: Changeset[]) => void;
 }
 
 function SearchResultsList({
-  isEditable,
+  hasNonEditableState,
   isBase,
   searchResults,
   displayedRevisions,
-  onEditToggle,
+  onToggle,
 }: SearchResultsListProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = SelectListStyles(mode);
-  const { handleToggle } = useCheckRevision(isBase, isEditable);
-  const searchType = isBase ? 'base' : 'new';
+  const { handleToggle } = useCheckRevision(isBase, hasNonEditableState);
   const revisionsCount = isBase === true ? 1 : 3;
-  const isCommittedChecked = (item: RevisionsList) => {
-    return useAppSelector((state) =>
-      state.search[searchType].checkedRevisions.includes(item),
-    );
+  const isInProgressChecked = (item: Changeset) => {
+    return displayedRevisions.map((rev) => rev.id).includes(item.id);
   };
-  const isInProgressChecked = (item: RevisionsList) => {
-    return displayedRevisions.revs.map((rev) => rev.id).includes(item.id);
-  };
-  const isCheckedState = isEditable ? isInProgressChecked : isCommittedChecked;
 
-  const handleToggleAction = (item: RevisionsList) => {
-    const toggleArray = handleToggle(
-      item,
-      revisionsCount,
-      displayedRevisions.revs,
-    );
+  const handleToggleAction = (item: Changeset) => {
+    const toggleArray = handleToggle(item, revisionsCount, displayedRevisions);
 
-    if (isEditable) {
-      onEditToggle(toggleArray);
+    if (hasNonEditableState) {
+      onToggle(toggleArray);
     }
   };
 
@@ -61,14 +45,14 @@ function SearchResultsList({
       alignItems='flex-end'
       data-testid='list-mode'
     >
-      <List dense={isEditable == true} sx={{ paddingTop: '0' }}>
+      <List dense={hasNonEditableState} sx={{ paddingTop: '0' }}>
         {searchResults.map((item, index) => (
           <SearchResultsListItem
             key={item.id}
             index={index}
             item={item}
             revisionsCount={revisionsCount}
-            isCheckedState={isCheckedState}
+            isChecked={isInProgressChecked(item)}
             onToggle={handleToggleAction}
           />
         ))}

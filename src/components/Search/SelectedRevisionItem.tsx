@@ -13,10 +13,11 @@ import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import dayjs from 'dayjs';
 
+import { repoMap } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { SelectRevsStyles } from '../../styles';
-import { Repository, RevisionsList } from '../../types/state';
+import { Changeset } from '../../types/state';
 import {
   truncateHash,
   getLatestCommitMessage,
@@ -28,22 +29,20 @@ const warning = base.collapsed.warnings.comparison;
 
 interface SelectedRevisionItemProps {
   index: number;
-  item: RevisionsList;
-  repository: Repository['name'];
+  item: Changeset;
   isBase: boolean;
   isWarning: boolean;
   iconClassName: string;
-  removeRevision: (item: RevisionsList) => void;
+  onRemoveRevision: (item: Changeset) => void;
 }
 
 function SelectedRevisionItem({
   index,
   item,
-  repository,
   iconClassName,
   isBase,
   isWarning,
-  removeRevision,
+  onRemoveRevision,
 }: SelectedRevisionItemProps) {
   const searchType = isBase ? 'base' : 'new';
   const mode = useAppSelector((state) => state.theme.mode);
@@ -51,16 +50,15 @@ function SelectedRevisionItem({
   const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);
   const itemDate = new Date(item.push_timestamp * 1000);
-
-  const onRemoveRevision = () => {
-    removeRevision(item);
-  };
+  const repository = repoMap[item.repository_id] ?? 'try';
 
   return (
     <ListItem
       className={`item-container item-${index} item-${searchType}`}
       data-testid='selected-rev-item'
     >
+      <input type='hidden' name={searchType + 'Rev'} value={item.revision} />
+      <input type='hidden' name={searchType + 'Repo'} value={repository} />
       <div className={styles.repo}>
         <div>{repository}</div>
         {isWarning && repository === 'try' && (
@@ -91,6 +89,7 @@ function SelectedRevisionItem({
                 <Link
                   href={getTreeherderURL(item.revision, repository)}
                   target='_blank'
+                  title={`${Strings.components.revisionRow.title.jobLink} ${revisionHash}`}
                 >
                   {revisionHash}
                 </Link>
@@ -119,11 +118,10 @@ function SelectedRevisionItem({
           secondaryTypographyProps={{ noWrap: true }}
         />
         <Button
-          role='button'
           name='close-button'
-          aria-label='close-button'
+          title='remove revision'
           className={`${iconClassName} revision-action close-button`}
-          onClick={onRemoveRevision}
+          onClick={() => onRemoveRevision(item)}
         >
           <CloseOutlined fontSize='small' data-testid='close-icon' />
         </Button>

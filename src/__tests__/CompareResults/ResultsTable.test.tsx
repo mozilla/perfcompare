@@ -1,25 +1,47 @@
 import type { ReactElement } from 'react';
 
+import { loader } from '../../components/CompareResults/loader';
 import ResultsTable from '../../components/CompareResults/ResultsTable';
-import { renderWithRouter, screen } from '../utils/test-utils';
+import getTestData from '../utils/fixtures';
+import {
+  renderWithRouter,
+  screen,
+  FetchMockSandbox,
+} from '../utils/test-utils';
 
 function renderWithRoute(component: ReactElement) {
   return renderWithRouter(component, {
-    route: '/compare-results/?fakedata=true',
+    route: '/compare-results/',
+    search: '?baseRev=spam&baseRepo=try&framework=1',
+    loader,
   });
 }
 
 describe('Results Table', () => {
-  it('Should match snapshot', () => {
+  it('Should match snapshot', async () => {
+    const { testCompareData } = getTestData();
+    (window.fetch as FetchMockSandbox)
+      .get(
+        'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
+        testCompareData,
+      )
+      .get('begin:https://treeherder.mozilla.org/api/project/', {
+        results: [],
+      });
     renderWithRoute(<ResultsTable />);
 
-    expect(screen.getByTestId('results-table')).toBeInTheDocument();
+    expect(await screen.findByTestId('results-table')).toBeInTheDocument();
     expect(document.body).toMatchSnapshot();
   });
 
-  it('Display message for not finding results', () => {
+  it('Display message for not finding results', async () => {
+    (window.fetch as FetchMockSandbox)
+      .get('begin:https://treeherder.mozilla.org/api/perfcompare/results/', [])
+      .get('begin:https://treeherder.mozilla.org/api/project/', {
+        results: [],
+      });
     renderWithRoute(<ResultsTable />);
 
-    expect(screen.getByText(/No results found/)).toBeInTheDocument();
+    expect(await screen.findByText(/No results found/)).toBeInTheDocument();
   });
 });

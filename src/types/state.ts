@@ -21,7 +21,7 @@ export type SubRevision = {
   comments: string;
 };
 
-export type RevisionsList = {
+export type Changeset = {
   id: number;
   revision: string;
   author: string;
@@ -95,11 +95,11 @@ export type CompareResultsItem = {
 
 export type SearchStateForInput = {
   repository: Repository['name'];
-  searchResults: RevisionsList[];
+  searchResults: Changeset[];
   searchValue: string;
   inputError: boolean;
   inputHelperText: string;
-  checkedRevisions: RevisionsList[];
+  checkedRevisions: Changeset[];
 };
 
 export type InputType = 'base' | 'new';
@@ -111,19 +111,9 @@ export type ThemeMode = 'light' | 'dark';
 export type SearchState = Record<InputType, SearchStateForInput>;
 
 export type SelectedRevisionsState = {
-  revisions: RevisionsList[];
-  baseCommittedRevisions: RevisionsList[];
-  newCommittedRevisions: RevisionsList[];
-};
-
-export interface ResultsHashmap {
-  [key: string]: CompareResultsItem[];
-}
-
-export type CompareResultsState = {
-  data: ResultsHashmap;
-  loading: boolean;
-  error: string | undefined;
+  revisions: Changeset[];
+  baseCommittedRevisions: Changeset[];
+  newCommittedRevisions: Changeset[];
 };
 
 export type PlatformInfo = {

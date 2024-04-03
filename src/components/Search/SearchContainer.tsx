@@ -2,7 +2,6 @@ import React from 'react';
 
 import Typography from '@mui/material/Typography';
 
-import { repoMap, searchView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { SearchContainerStyles } from '../../styles';
@@ -13,48 +12,13 @@ const strings = Strings.components.searchDefault;
 
 function SearchContainer(props: SearchViewProps) {
   const themeMode = useAppSelector((state) => state.theme.mode);
-  const styles = SearchContainerStyles(themeMode, searchView);
-  const checkedRevisionsListNew = useAppSelector(
+  const styles = SearchContainerStyles(themeMode, /* isHome */ true);
+  const checkedChangesetsNew = useAppSelector(
     (state) => state.search.new.checkedRevisions,
   );
-  const checkedRevisionsListBase = useAppSelector(
+  const checkedChangesetsBase = useAppSelector(
     (state) => state.search.base.checkedRevisions,
   );
-
-  // The "??" operations below are so that Typescript doesn't wonder about the
-  // undefined value later.
-  const checkedNewRepos = checkedRevisionsListNew.map(
-    (item) => repoMap[item.repository_id] ?? 'try',
-  );
-  const checkedBaseRepos = checkedRevisionsListBase.map(
-    (item) => repoMap[item.repository_id] ?? 'try',
-  );
-
-  const checkedRevisionsListNew = useAppSelector(
-    (state) => state.search.new.checkedRevisions,
-  );
-  const checkedRevisionsListBase = useAppSelector(
-    (state) => state.search.base.checkedRevisions,
-  );
-  const displayedCheckedRevisions = {
-    baseRevs: checkedRevisionsListBase,
-    newRevs: checkedRevisionsListNew,
-  };
-
-  const checkedNewRepos = checkedRevisionsListNew.map((item) => {
-    const selectedRep = repoMap[item.repository_id];
-    return selectedRep;
-  });
-
-  const checkedBaseRepos = checkedRevisionsListBase.map((item) => {
-    const selectedRep = repoMap[item.repository_id];
-    return selectedRep;
-  });
-
-  const displayedRepositories = {
-    baseRepos: checkedBaseRepos as Repository['name'][],
-    newRepos: checkedNewRepos as Repository['name'][],
-  };
 
   return (
     <section
@@ -64,14 +28,16 @@ function SearchContainer(props: SearchViewProps) {
     >
       <Typography className='search-default-title'>{strings.title}</Typography>
       <CompareWithBase
-        isEditable={false}
-        baseRevs={checkedRevisionsListBase}
-        newRevs={checkedRevisionsListNew}
-        baseRepos={checkedBaseRepos}
-        newRepos={checkedNewRepos}
+        hasNonEditableState={false}
+        baseRevs={checkedChangesetsBase}
+        newRevs={checkedChangesetsNew}
       />
-      {/* hidden until post-mvp release */}
-      <CompareOverTime />
+
+      <CompareOverTime
+        isEditable={false}
+        baseRevs={checkedChangesetsBase}
+        newRevs={checkedChangesetsNew}
+      />
     </section>
   );
 }

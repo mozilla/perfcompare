@@ -16,7 +16,6 @@ export const skipLink = style({
 
   $nest: {
     '&:focus': {
-      outline: 'none',
       transform: 'translateY(0%)',
     },
   },

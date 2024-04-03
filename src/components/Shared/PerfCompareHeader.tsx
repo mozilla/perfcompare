@@ -9,14 +9,14 @@ import { HeaderStyles } from '../../styles';
 import ToggleDarkMode from './ToggleDarkModeButton';
 
 interface PerfCompareHeaderProps {
-  view: 'search' | 'compare-results';
+  isHome?: boolean;
 }
 
 const strings = Strings.components.header;
 
-function PerfCompareHeader({ view }: PerfCompareHeaderProps) {
+function PerfCompareHeader({ isHome }: PerfCompareHeaderProps) {
   const themeMode = useAppSelector((state) => state.theme.mode);
-  const styles = HeaderStyles(themeMode, view);
+  const styles = HeaderStyles(themeMode, isHome ?? false);
 
   return (
     <Grid className={`header-container ${styles.container}`}>
@@ -24,14 +24,13 @@ function PerfCompareHeader({ view }: PerfCompareHeaderProps) {
       <Box className='header-text'>
         <Typography
           variant='h1'
-          component='div'
           align='center'
           gutterBottom
           className='perfcompare-header'
         >
           {strings.title}
         </Typography>
-        {view === 'search' && (
+        {isHome ? (
           <>
             <Typography
               component='div'
@@ -43,7 +42,7 @@ function PerfCompareHeader({ view }: PerfCompareHeaderProps) {
             </Typography>
             <Button className='learn-more-btn'>{strings.learnMore}</Button>
           </>
-        )}
+        ) : null}
       </Box>
     </Grid>
   );

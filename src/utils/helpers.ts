@@ -6,16 +6,24 @@ import {
   nonDocumentedTestsDevTools,
   supportedPerfdocsFrameworks,
 } from '../common/constants';
-import type { Repository, RevisionsList } from '../types/state';
+import type { Repository, Changeset } from '../types/state';
 import type { Framework, SupportedPerfdocsFramework } from '../types/types';
 
-const truncateHash = (revision: RevisionsList['revision']) =>
-  revision.slice(0, 12);
+const truncateHash = (revision: Changeset['revision']) => revision.slice(0, 12);
 
 // return only most recent commit message
 // first commit is usually 'try_task_config'
-const getLatestCommitMessage = (item: RevisionsList) =>
-  item.revisions[item.revisions.length - 1].comments;
+const getLatestCommitMessage = (item: Changeset) => {
+  const { repository_id: repositoryId, revisions } = item;
+  const isTry = repositoryId === 4;
+  const lastUsefulRevision =
+    isTry && revisions.length > 1 ? revisions[1] : revisions[0];
+  const lastUsefulSummary = lastUsefulRevision.comments.slice(
+    0,
+    lastUsefulRevision.comments.indexOf('\n'),
+  );
+  return lastUsefulSummary;
+};
 
 // ensure all numbers display two digits
 const formatNumber = (number: number): string => {
@@ -38,7 +46,7 @@ const formatDate = (timestamp: number): string => {
 };
 
 const getTreeherderURL = (
-  revision: RevisionsList['revision'],
+  revision: Changeset['revision'],
   repository: Repository['name'],
 ) =>
   `https://treeherder.mozilla.org/jobs?repo=${repository}&revision=${revision}`;

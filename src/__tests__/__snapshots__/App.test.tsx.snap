@@ -1,0 +1,356 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App CompareResults loader Should render an error page when the requested URL is invalid 1`] = `
+<p>
+  Error: 
+  The parameter baseRev is missing.
+</p>
+`;
+
+exports[`App CompareResults loader Should render an error page when the requested URL is invalid 2`] = `
+<p>
+  Error: 
+  The parameter baseRepo is missing.
+</p>
+`;
+
+exports[`App CompareResults loader Should render an error page when the requested URL is invalid 3`] = `
+<p>
+  Error: 
+  There should be as many "newRepo" parameters as there are "newRev" parameters.
+</p>
+`;
+
+exports[`App CompareResults loader Should render an error page when the requested URL is invalid 4`] = `
+<p>
+  Error: 
+  The parameter baseRepo "UNKNOWN" should be one of mozilla-central, try, mozilla-beta, mozilla-release, autoland, fenix.
+</p>
+`;
+
+exports[`App CompareResults loader Should render an error page when the requested URL is invalid 5`] = `
+<p>
+  Error: 
+  Every parameter newRepo "UNKNOWN" should be one of mozilla-central, try, mozilla-beta, mozilla-release, autoland, fenix.
+</p>
+`;
+
+exports[`App CompareResults loader Should render an error page when the requested URL is invalid 6`] = `
+<p>
+  Error: 
+  The parameter framework should be a number, but it is "FOO".
+</p>
+`;
+
+exports[`App CompareResults loader Should render an error page when the requested URL is invalid 7`] = `
+<p>
+  Error: 
+  The parameter framework isn't a valid value: "25".
+</p>
+`;
+
+exports[`App CompareResults loader Should render an error page when the treeherder request fails with an error 400 1`] = `
+<body>
+  <div>
+    <div
+      aria-live="assertive"
+      class="alert-container"
+      role="alert"
+    />
+    <div
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-standardWarning MuiAlert-standard fld8l4l css-1qrenvf-MuiPaper-root-MuiAlert-root"
+      role="alert"
+    >
+      <div
+        class="MuiAlert-icon css-1ytlwq5-MuiAlert-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
+          data-testid="ReportProblemOutlinedIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 5.99L19.53 19H4.47L12 5.99M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"
+          />
+        </svg>
+      </div>
+      <div
+        class="MuiAlert-message css-1pxa9xg-MuiAlert-message"
+      >
+        <div
+          class="banner-text"
+        >
+          This is an unstable pre-release version. Some features may not yet be supported.
+           
+          <a
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+            href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
+            target="_blank"
+          >
+            File a bug on Bugzilla.
+          </a>
+           
+          Find us at
+           
+          <a
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+            href="https://matrix.to/#/#perfcompare:mozilla.org"
+            target="_blank"
+          >
+            #perfcompare:mozilla.org on Matrix
+          </a>
+          .
+        </div>
+      </div>
+    </div>
+    <div
+      class="fcndgf6"
+    >
+      <div
+        class="MuiGrid-root header-container container_flkg2b4 css-plh9qo-MuiGrid-root"
+      >
+        <div
+          class="toggle-dark-mode f4zotac MuiBox-root css-0"
+        >
+          <div
+            class="MuiFormGroup-root css-dmmspl-MuiFormGroup-root"
+          >
+            <label
+              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-z8chs3-MuiFormControlLabel-root"
+            >
+              <span
+                class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-julti5-MuiSwitch-root"
+              >
+                <span
+                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1yg1ubd-MuiButtonBase-root-MuiSwitch-switchBase"
+                >
+                  <input
+                    aria-label="Dark mode switch"
+                    class="PrivateSwitchBase-input MuiSwitch-input css-1m9pwf3"
+                    id="Dark mode"
+                    name="toggle-dark-mode"
+                    type="checkbox"
+                  />
+                  <span
+                    class="MuiSwitch-thumb css-jsexje-MuiSwitch-thumb"
+                  />
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </span>
+                <span
+                  class="MuiSwitch-track css-1yjjitx-MuiSwitch-track"
+                />
+              </span>
+              <span
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1giq4eh-MuiTypography-root"
+              >
+                Dark mode
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          class="header-text MuiBox-root css-0"
+        >
+          <h1
+            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-160ox9e-MuiTypography-root"
+          >
+            PerfCompare
+          </h1>
+        </div>
+      </div>
+      <section
+        class="container_fs3wa1q"
+      >
+        <a
+          aria-label="link to home"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+          href="/"
+        >
+          <div
+            class="css-1d9cypr-MuiStack-root"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1mecf1h-MuiSvgIcon-root"
+              data-testid="ChevronLeftIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+              />
+            </svg>
+            <p>
+              Home
+            </p>
+          </div>
+        </a>
+        <p>
+          Error: 
+          Error when requesting treeherder: Treeherder request error
+        </p>
+        <p>
+          More information about this error has been written to the Web Console.
+        </p>
+      </section>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`App CompareResults loader Should render an error page when the treeherder request fails with an error 500 1`] = `
+<body>
+  <div>
+    <div
+      aria-live="assertive"
+      class="alert-container"
+      role="alert"
+    />
+    <div
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-standardWarning MuiAlert-standard fld8l4l css-1qrenvf-MuiPaper-root-MuiAlert-root"
+      role="alert"
+    >
+      <div
+        class="MuiAlert-icon css-1ytlwq5-MuiAlert-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
+          data-testid="ReportProblemOutlinedIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 5.99L19.53 19H4.47L12 5.99M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"
+          />
+        </svg>
+      </div>
+      <div
+        class="MuiAlert-message css-1pxa9xg-MuiAlert-message"
+      >
+        <div
+          class="banner-text"
+        >
+          This is an unstable pre-release version. Some features may not yet be supported.
+           
+          <a
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+            href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
+            target="_blank"
+          >
+            File a bug on Bugzilla.
+          </a>
+           
+          Find us at
+           
+          <a
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+            href="https://matrix.to/#/#perfcompare:mozilla.org"
+            target="_blank"
+          >
+            #perfcompare:mozilla.org on Matrix
+          </a>
+          .
+        </div>
+      </div>
+    </div>
+    <div
+      class="fcndgf6"
+    >
+      <div
+        class="MuiGrid-root header-container container_flkg2b4 css-plh9qo-MuiGrid-root"
+      >
+        <div
+          class="toggle-dark-mode f4zotac MuiBox-root css-0"
+        >
+          <div
+            class="MuiFormGroup-root css-dmmspl-MuiFormGroup-root"
+          >
+            <label
+              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementStart toggle-text css-z8chs3-MuiFormControlLabel-root"
+            >
+              <span
+                class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-julti5-MuiSwitch-root"
+              >
+                <span
+                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1yg1ubd-MuiButtonBase-root-MuiSwitch-switchBase"
+                >
+                  <input
+                    aria-label="Dark mode switch"
+                    class="PrivateSwitchBase-input MuiSwitch-input css-1m9pwf3"
+                    id="Dark mode"
+                    name="toggle-dark-mode"
+                    type="checkbox"
+                  />
+                  <span
+                    class="MuiSwitch-thumb css-jsexje-MuiSwitch-thumb"
+                  />
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </span>
+                <span
+                  class="MuiSwitch-track css-1yjjitx-MuiSwitch-track"
+                />
+              </span>
+              <span
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1giq4eh-MuiTypography-root"
+              >
+                Dark mode
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          class="header-text MuiBox-root css-0"
+        >
+          <h1
+            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-160ox9e-MuiTypography-root"
+          >
+            PerfCompare
+          </h1>
+        </div>
+      </div>
+      <section
+        class="container_fs3wa1q"
+      >
+        <a
+          aria-label="link to home"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+          href="/"
+        >
+          <div
+            class="css-1d9cypr-MuiStack-root"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1mecf1h-MuiSvgIcon-root"
+              data-testid="ChevronLeftIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+              />
+            </svg>
+            <p>
+              Home
+            </p>
+          </div>
+        </a>
+        <p>
+          Error: 
+          Error when requesting treeherder: (500) Internal Server Error
+        </p>
+        <p>
+          More information about this error has been written to the Web Console.
+        </p>
+      </section>
+    </div>
+  </div>
+</body>
+`;
