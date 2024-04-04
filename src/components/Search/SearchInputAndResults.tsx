@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import { useFetcher } from 'react-router-dom';
 
 import type { Changeset, Repository } from '../../types/state';
+import type { LoaderReturnValue } from './loader';
 import SearchInput from './SearchInput';
 import SearchResultsList from './SearchResultsList';
 
@@ -24,7 +25,7 @@ export default function SearchInputAndResults({
   repository,
   onSearchResultsToggle,
 }: Props) {
-  const fetcher = useFetcher<Changeset[]>();
+  const fetcher = useFetcher<LoaderReturnValue>();
   const [displayDropdown, setDisplayDropdown] = useState(false);
   const containerRef = useRef(null as null | HTMLElement);
 
@@ -72,12 +73,13 @@ export default function SearchInputAndResults({
         searchType={searchType}
         repository={repository}
         fetcherLoad={fetcher.load}
+        fetcherError={fetcher.data?.error ?? null}
       />
 
-      {fetcher.data && fetcher.data.length && displayDropdown ? (
+      {fetcher.data?.results && displayDropdown ? (
         <SearchResultsList
           compact={compact}
-          searchResults={fetcher.data}
+          searchResults={fetcher.data.results}
           displayedRevisions={displayedRevisions}
           onToggle={onSearchResultsToggle}
         />

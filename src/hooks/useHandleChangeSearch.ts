@@ -21,7 +21,7 @@ const useHandleChangeSearch = (fetcherLoad: (url: string) => void) => {
     searchTerm: string,
   ) => {
     const emailMatch = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const hashMatch = /\b[a-f0-9]+\b/;
+    const hashMatch = /^[a-f0-9]+$/i;
 
     let apiUrl = `/api/recent-revisions/${repository}`;
 

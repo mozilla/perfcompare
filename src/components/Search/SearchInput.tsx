@@ -16,6 +16,7 @@ interface SearchInputProps {
   searchType: InputType;
   repository: Repository['name'];
   fetcherLoad: (url: string) => void;
+  fetcherError: string | null;
 }
 
 function SearchInput({
@@ -25,6 +26,7 @@ function SearchInput({
   searchType,
   repository,
   fetcherLoad,
+  fetcherError,
 }: SearchInputProps) {
   const { handleChangeSearch, searchRecentRevisions, inputError } =
     useHandleChangeSearch(fetcherLoad);
@@ -56,11 +58,14 @@ function SearchInput({
     await searchRecentRevisions(repository, searchTerm);
   }
 
+  const errorText = fetcherError ?? inputError;
+  const hasError = Boolean(errorText);
+
   return (
     <FormControl className={styles.container} fullWidth>
       <TextField
-        error={Boolean(inputError)}
-        helperText={inputError}
+        error={hasError}
+        helperText={errorText}
         placeholder={inputPlaceholder}
         id={`search-${searchType}-input`}
         onFocus={(e) => void onInputFocus(e)}

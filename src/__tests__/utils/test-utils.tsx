@@ -39,6 +39,11 @@ export function render(ui: React.ReactElement, themeConfig?: ThemeConfig) {
   return rtlRender(ui, { wrapper: Wrapper });
 }
 
+function ErrorElement() {
+  console.log('FOOOOOO');
+  return <div>ERROR</div>;
+}
+
 export function renderWithRouter(
   ui: React.ReactElement,
   {
@@ -63,6 +68,7 @@ export function renderWithRouter(
               <Route
                 path='/api/recent-revisions/:repository'
                 loader={recentRevisionsLoader}
+                errorElement={<ErrorElement />}
               >
                 <Route
                   path='by-author/:author'

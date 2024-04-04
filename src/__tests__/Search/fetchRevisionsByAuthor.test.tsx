@@ -41,7 +41,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     ).toBeInTheDocument();
   });
 
-  it('should reject fetchRevisionsByAuthor if fetch returns no results', async () => {
+  it.only('should reject fetchRevisionsByAuthor if fetch returns no results', async () => {
     (global.fetch as FetchMockSandbox).get(
       'glob:https://treeherder.mozilla.org/api/project/*/push/*',
       (url) => ({
@@ -64,6 +64,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     );
 
     expect(await screen.findByText('No results found')).toBeInTheDocument();
+    screen.debug();
     expect(searchInput).toBeInvalid();
   });
 
