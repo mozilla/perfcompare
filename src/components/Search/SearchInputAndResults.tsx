@@ -1,8 +1,16 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import {
+  useState,
+  useEffect,
+  useCallback,
+  useRef,
+  type ChangeEvent,
+} from 'react';
 
 import Box from '@mui/material/Box';
 import { useFetcher } from 'react-router-dom';
 
+import useIdleChange from '../../hooks/useIdleChange';
+import { Strings } from '../../resources/Strings';
 import type { Changeset, Repository } from '../../types/state';
 import type { LoaderReturnValue } from './loader';
 import SearchInput from './SearchInput';
@@ -28,6 +36,25 @@ export default function SearchInputAndResults({
   const fetcher = useFetcher<LoaderReturnValue>();
   const [displayDropdown, setDisplayDropdown] = useState(false);
   const containerRef = useRef(null as null | HTMLElement);
+  const [inputError, setInputError] = useState('');
+
+  const searchRecentRevisions = (searchTerm: string) => {
+    const emailMatch = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const hashMatch = /^[a-f0-9]+$/i;
+
+    let apiUrl = `/api/recent-revisions/${repository}`;
+
+    if (emailMatch.test(searchTerm)) {
+      apiUrl += '/by-author/' + encodeURIComponent(searchTerm);
+    } else if (hashMatch.test(searchTerm)) {
+      apiUrl += '/by-hash/' + encodeURIComponent(searchTerm);
+    } else if (searchTerm) {
+      setInputError(Strings.errors.warningText);
+      return;
+    }
+
+    fetcher.load(apiUrl);
+  };
 
   const handleDocumentMousedown = useCallback(
     (e: MouseEvent) => {
@@ -64,19 +91,37 @@ export default function SearchInputAndResults({
     };
   }, []);
 
+  const onValueChangeAfterTimeout = (searchTerm: string) => {
+    searchRecentRevisions(searchTerm);
+  };
+
+  const { onIdleChange } = useIdleChange(onValueChangeAfterTimeout);
+
+  const onValueChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setInputError('');
+    onIdleChange(e);
+  };
+
+  const onFocus = (searchTerm: string) => {
+    setDisplayDropdown(true);
+    searchRecentRevisions(searchTerm);
+  };
+
+  const fetcherError = fetcher.data?.error;
+  const errorText = inputError ?? fetcherError ?? null;
+
   return (
     <Box ref={containerRef}>
       <SearchInput
-        onFocus={() => setDisplayDropdown(true)}
         compact={compact}
         inputPlaceholder={inputPlaceholder}
         searchType={searchType}
-        repository={repository}
-        fetcherLoad={fetcher.load}
-        fetcherError={fetcher.data?.error ?? null}
+        errorText={errorText}
+        onFocus={onFocus}
+        onChange={onValueChange}
       />
 
-      {fetcher.data?.results && displayDropdown ? (
+      {fetcher.data?.results && !errorText && displayDropdown ? (
         <SearchResultsList
           compact={compact}
           searchResults={fetcher.data.results}
