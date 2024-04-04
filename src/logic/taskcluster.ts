@@ -7,9 +7,9 @@ export const stagingTaskclusterUrl =
   'https://stage.taskcluster.nonprod.cloudops.mozgcp.net';
 export const stagingClientId = 'perfcompare-staging-client';
 export const tcClientIdMap: Record<string, string> = {
-  'https://perf.compare': 'production',
-  'https://beta--mozilla-perfcompare.netlify.app': 'beta',
-  'http://localhost:3000': 'localhost-3000',
+  'https://perf.compare': 'perfcompare-production-client',
+  'https://beta--mozilla-perfcompare.netlify.app': 'perfcompare-beta-client',
+  'http://localhost:3000': 'perfcompare-localhost-3000-client',
 };
 
 export const getTaskclusterParams = () => {
@@ -17,7 +17,7 @@ export const getTaskclusterParams = () => {
   let tcParams = {
     url: prodTaskclusterUrl,
     redirectUri: redirectUri,
-    clientId: `perfcompare-${tcClientIdMap[window.location.origin]}-client`,
+    clientId: tcClientIdMap[window.location.origin],
   };
   if (window.location.hash.includes('taskcluster-staging')) {
     tcParams.url = stagingTaskclusterUrl;
@@ -36,7 +36,10 @@ const getAuthCode = (tcParams: {
   clientId: string;
 }) => {
   const nonce = generateNonce();
-  sessionStorage.setItem('requestState', nonce); // The request state it's stored in sessionStorage so that it can be used in the callback
+  // The nonce is stored in sessionStorage so that it can be compared with the one received by the callback endpoint.
+  sessionStorage.setItem('requestState', nonce);
+  // The taskclusterUrl is also stored, so that the additional
+  // requests done by the callback endpoint use the same URL.
   sessionStorage.setItem('taskclusterUrl', tcParams.url);
 
   const params = new URLSearchParams({
