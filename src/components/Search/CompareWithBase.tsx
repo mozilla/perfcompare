@@ -276,7 +276,7 @@ function CompareWithBase({
             xs={2}
             className={`${dropDownStyles.dropDown} ${bottomStyles.container}`}
           >
-            <FrameworkDropdown />
+            <FrameworkDropdown compact={false} />
             <CompareButton label={strings.base.title} />
           </Grid>
         </Form>

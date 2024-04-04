@@ -6,6 +6,7 @@ import framework from '../reducers/FrameworkSlice';
 import search from '../reducers/SearchSlice';
 import selectedRevisions from '../reducers/SelectedRevisionsSlice';
 import theme from '../reducers/ThemeSlice';
+import timeRange from '../reducers/TimeRangeSlice';
 
 const reducer = combineReducers({
   theme,
@@ -13,6 +14,7 @@ const reducer = combineReducers({
   framework,
   selectedRevisions,
   comparison,
+  timeRange,
 });
 
 export const store = configureStore({

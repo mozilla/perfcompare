@@ -13,6 +13,7 @@ import { Changeset } from '../../types/state';
 import CompareButton from './CompareButton';
 import FrameworkDropdown from './FrameworkDropdown';
 import SearchOverTime from './SearchOverTime';
+import TimeRangeDropdown from './TimeRangeDropdown';
 
 const strings = Strings.components.searchDefault;
 const stringsNew =
@@ -54,6 +55,13 @@ function CompareOverTime({ isEditable }: CompareWithTimeProps) {
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'flex-end',
+      $nest: {
+        '.bottom-dropdowns': {
+          display: 'flex',
+          minWidth: '580px',
+          justifyContent: 'space-between',
+        },
+      },
     }),
   };
 
@@ -105,7 +113,11 @@ function CompareOverTime({ isEditable }: CompareWithTimeProps) {
             xs={2}
             className={`${dropDownStyles.dropDown} ${bottomStyles.container}`}
           >
-            <FrameworkDropdown />
+            <div className='bottom-dropdowns'>
+              <FrameworkDropdown compact={true} />
+              <TimeRangeDropdown />
+            </div>
+
             <CompareButton label={strings.overTime.title} />
           </Grid>
         </Form>
