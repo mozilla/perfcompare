@@ -7,9 +7,10 @@ import { Form } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
+import useSearchResults from '../../hooks/useSearchResults';
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles, SearchStyles, Spacing } from '../../styles';
-import { Changeset } from '../../types/state';
+import { Changeset, Repository } from '../../types/state';
 import { TimeRange } from '../../types/types';
 import CompareButton from './CompareButton';
 import FrameworkDropdown from './FrameworkDropdown';
@@ -21,17 +22,29 @@ const stringsNew =
   Strings.components.searchDefault.overTime.collapsed.revisions;
 
 interface CompareWithTimeProps {
-  isEditable: boolean;
-  baseRevs: Changeset[];
+  hasNonEditableState: boolean;
   newRevs: Changeset[];
 }
 
-function CompareOverTime({ isEditable }: CompareWithTimeProps) {
+function CompareOverTime({
+  hasNonEditableState,
+  newRevs,
+}: CompareWithTimeProps) {
   const [expanded, setExpanded] = useState(false);
   const [timeRangeValue, setTimeRangeValue] = useState(
     86400 as TimeRange['value'],
   );
 
+  //Let's assume that the user wants to edit the new revisions
+  const [inProgressRevs, setInProgressRevs] = useState<Changeset[]>(newRevs);
+
+  const [repository, setRepository] = useState('try' as Repository['name']);
+
+  const {
+    handleRemoveNewRevision,
+    handleItemToggleInChangesetList,
+    isMaxRevisions,
+  } = useSearchResults();
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = CompareCardsStyles(mode);
   const dropDownStyles = SearchStyles(mode);
@@ -69,6 +82,24 @@ function CompareOverTime({ isEditable }: CompareWithTimeProps) {
 
   const toggleIsExpanded = () => {
     setExpanded(!expanded);
+  };
+
+  const handleSearchResultsToggle = (item: Changeset) => {
+    const updatedRevs = handleItemToggleInChangesetList({
+      item,
+      changesets: inProgressRevs,
+    });
+
+    if (isMaxRevisions(updatedRevs)) {
+      return;
+    }
+
+    setInProgressRevs(updatedRevs);
+  };
+
+  const handleRemoveRevision = (item: Changeset) => {
+    const updatedRevs = handleRemoveNewRevision(item, inProgressRevs);
+    setInProgressRevs(updatedRevs);
   };
 
   return (
@@ -121,7 +152,7 @@ function CompareOverTime({ isEditable }: CompareWithTimeProps) {
               />
             </div>
 
-            <CompareButton label={strings.overTime.title} />
+            <CompareButton label={strings.sharedCollasped.button} />
           </Grid>
         </Form>
       </div>

@@ -578,6 +578,17 @@ exports[`Search Containter should match snapshot 1`] = `
                   </div>
                 </div>
               </div>
+              <div
+                class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
+              >
+                <div
+                  class="box_f65ycfw new-box MuiBox-root css-0"
+                >
+                  <ul
+                    class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
+                  />
+                </div>
+              </div>
             </div>
             <div
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fl6uoag fx35f8m css-13eijkh-MuiGrid-root"
@@ -708,7 +719,7 @@ exports[`Search Containter should match snapshot 1`] = `
                 tabindex="0"
                 type="submit"
               >
-                Compare over time
+                Compare
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />

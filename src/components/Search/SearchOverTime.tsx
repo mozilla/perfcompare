@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from 'react';
 
 import InfoIcon from '@mui/icons-material/InfoOutlined';
@@ -18,12 +19,18 @@ import {
 import { Changeset, Repository } from '../../types/state';
 import SearchDropdown from './SearchDropdown';
 import SearchInputAndResults from './SearchInputAndResults';
+import SelectedRevisions from './SelectedRevisions';
 
 interface SearchProps {
   selectLabel: string;
   tooltip: string;
   inputPlaceholder: string;
-  isEditable: boolean;
+  hasNonEditableState: boolean;
+  displayedRevisions: Changeset[];
+  repository: Repository['name'];
+  onSearchResultsToggle: (item: Changeset) => void;
+  onRemoveRevision: (item: Changeset) => void;
+  onRepositoryChange: (repo: Repository['name']) => unknown;
 }
 
 export default function SearchOverTime({
@@ -34,14 +41,8 @@ export default function SearchOverTime({
 }: SearchProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = SearchStyles(mode);
-  const [repository, setRepository] = useState('try' as Repository['name']);
 
-  //temporary until next PR covers selected revisions
-  const handleSearchResultsEditToggle = (item: Changeset) => {
-    console.log('handleSearchResultsEditToggle', item);
-  };
-
-  const displayedRevisions: Changeset[] = [];
+  const [formIsDisplayed, setFormIsDisplayed] = useState(!hasNonEditableState);
 
   /* These overriding rules update the theme mode by accessing the otherwise inaccessible MUI tooltip styles */
   cssRule('.MuiPopover-root', {
@@ -94,8 +95,8 @@ export default function SearchOverTime({
           xs={2}
           id='new_search-dropdown--time'
           className={`new-search-dropdown ${styles.dropDown} ${
-            isEditable ? 'small' : ''
-          } ${isEditable ? compareView : ''}-new-dropdown`}
+            hasNonEditableState ? 'small' : ''
+          } ${hasNonEditableState ? compareView : ''}-new-dropdown`}
         >
           <SearchDropdown
             compact={false}
@@ -103,7 +104,7 @@ export default function SearchOverTime({
             searchType='new'
             repository={repository}
             labelIdInfo='repo-dropdown--overtime'
-            onChange={(repo: Repository['name']) => setRepository(repo)}
+            onChange={onRepositoryChange}
           />
         </Grid>
         <Grid
@@ -111,21 +112,31 @@ export default function SearchOverTime({
           xs={7}
           id='new_search-input--time'
           className={`new-search-input--time  ${styles.baseSearchInput} ${
-            isEditable ? 'big' : ''
+            hasNonEditableState ? 'big' : ''
           } `}
         >
           <SearchInputAndResults
-            compact={false}
+            compact={hasNonEditableState}
             inputPlaceholder={inputPlaceholder}
             displayedRevisions={displayedRevisions}
             searchType='new'
             repository={repository}
-            onSearchResultsToggle={handleSearchResultsEditToggle}
+            onSearchResultsToggle={onSearchResultsToggle}
           />
         </Grid>
       </Grid>
       {/***** Selected Revisions Section *****/}
-      {/** This section will be handled in a revisions PR */}
+      {displayedRevisions && (
+        <Grid className='d-flex'>
+          <SelectedRevisions
+            isBase={false}
+            canRemoveRevision={!hasNonEditableState || formIsDisplayed}
+            isWarning={false}
+            displayedRevisions={displayedRevisions}
+            onRemoveRevision={onRemoveRevision}
+          />
+        </Grid>
+      )}
     </Grid>
   );
 }
