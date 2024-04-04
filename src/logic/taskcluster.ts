@@ -55,8 +55,14 @@ const getAuthCode = (tcParams: {
 
 export const checkTaskclusterCredentials = () => {
   const taskclusterParams = getTaskclusterParams();
+  if (!taskclusterParams.clientId) {
+    alert(
+      `No clientId is configured for origin ${window.location.origin}, sorry!`,
+    );
+    return;
+  }
   const userCredentials = JSON.parse(
-    sessionStorage.getItem('userCredentials') as string,
+    localStorage.getItem('userCredentials') as string,
   ) as UserCredentials;
 
   if (
