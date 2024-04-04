@@ -87,10 +87,17 @@ function TaskclusterCallback() {
     }
 
     // fetch token Bearer, it will be used to fetch the access_token
+    const body = new URLSearchParams({
+      grant_type: 'authorization_code',
+      code: taskclusterCode,
+      redirect_uri: redirectURI,
+      client_id: clientId,
+    });
+
     const options = {
       mode: 'no-cors',
       method: 'POST',
-      body: `grant_type=authorization_code&code=${taskclusterCode}&redirect_uri=${redirectURI}&client_id=${clientId}`,
+      body: body,
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     };
     console.log(`${rootUrl}/login/oauth/token`, options);
