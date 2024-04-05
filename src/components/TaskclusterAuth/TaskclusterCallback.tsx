@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { useSearchParams } from 'react-router-dom';
+import { useLoaderData, useSearchParams } from 'react-router-dom';
 
 // TODO remove this after integrating the auth code logic
 localStorage.setItem('requestState', 'OkCrH5isZncYqeJbRDelN');
@@ -19,6 +19,11 @@ interface RequestOptions {
     'Content-Type': string;
   };
 }
+
+type LoaderReturnValue = {
+  access_token: string;
+  token_type: 'Bearer';
+};
 
 // from treeherder
 const processErrorMessage = async (error: string, status) => {
@@ -70,13 +75,19 @@ const getData = async (url: string, options: RequestOptions) => {
   return { data, failureStatus };
 };
 
-function TaskclusterCallback() {
+export default function TaskclusterCallback() {
+  console.log('taskcluster component');
   const [searchParams] = useSearchParams();
   const [errorMessage, setErrorMessage] = useState('');
 
   const code = searchParams.get('code') as string;
   const state = searchParams.get('state') as string;
   const requestState = localStorage.getItem('requestState');
+
+  // {"access_token":"RmFiallZdWJROXFhUjdRSU1TZ3U4dw==","token_type":"Bearer"
+  const { access_token: accessToken, token_type: tokenType } =
+    useLoaderData() as LoaderReturnValue;
+  console.log('accessToken ', accessToken, 'tokenType ', tokenType);
 
   const getCredentials = async (taskclusterCode: string) => {
     const rootUrl = localStorage.getItem('tcRootUrl');
@@ -132,5 +143,3 @@ function TaskclusterCallback() {
     </div>
   );
 }
-
-export default TaskclusterCallback;
