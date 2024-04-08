@@ -20,7 +20,11 @@ function SearchContainer(props: SearchViewProps) {
       className={styles.container}
     >
       <Typography className='search-default-title'>{strings.title}</Typography>
-      <CompareWithBase hasNonEditableState={false} baseRevs={[]} newRevs={[]} />
+      <CompareWithBase
+        hasNonEditableState={false}
+        baseRev={null}
+        newRevs={[]}
+      />
       {/* hidden until post-mvp release */}
       <CompareOverTime isEditable={false} baseRevs={[]} newRevs={[]} />
     </section>
