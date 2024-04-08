@@ -148,13 +148,25 @@ function CompareWithBase({
   };
 
   const handleRemoveRevisionBase = (item: Changeset) => {
+    // Currently item seems to be the same object than the one stored in
+    // baseInProgressRevs, but it might change in the future. That's why we're
+    // comparing the ids instead of using indexOf directly.
+    const indexInBaseChangesets = baseInProgressRevs.findIndex(
+      (rev) => rev.id === item.id,
+    );
     const revisionsBase = [...baseInProgressRevs];
-    revisionsBase.splice(baseInProgressRevs.indexOf(item), 1);
+    revisionsBase.splice(indexInBaseChangesets, 1);
     setInProgressBaseRevs(revisionsBase);
   };
   const handleRemoveRevisionNew = (item: Changeset) => {
+    // Currently item seems to be the same object than the one stored in
+    // newInProgressRevs, but it might change in the future. That's why we're
+    // comparing the ids instead of using indexOf directly.
+    const indexInNewChangesets = newInProgressRevs.findIndex(
+      (rev) => rev.id === item.id,
+    );
     const revisionsNew = [...newInProgressRevs];
-    revisionsNew.splice(newInProgressRevs.indexOf(item), 1);
+    revisionsNew.splice(indexInNewChangesets, 1);
     setInProgressNewRevs(revisionsNew);
   };
 
@@ -167,7 +179,14 @@ function CompareWithBase({
     maxRevisions: number;
     changesets: Changeset[];
   }) => {
-    const isChecked = changesets.map((rev) => rev.id).includes(item.id);
+    // Warning: `item` isn't always the same object than the one in
+    // `changesets`, therefore we need to compare the id. This happens when the
+    // data in `changesets` comes from the loader, but `item` comes from the
+    // search results.
+    const indexInCheckedChangesets = changesets.findIndex(
+      (rev) => rev.id === item.id,
+    );
+    const isChecked = indexInCheckedChangesets >= 0;
     const newChecked = [...changesets];
 
     // if item is not already checked, add to checked
@@ -175,15 +194,14 @@ function CompareWithBase({
       newChecked.push(item);
     } else if (isChecked) {
       // if item is already checked, remove from checked
-      newChecked.splice(changesets.indexOf(item), 1);
+      newChecked.splice(indexInCheckedChangesets, 1);
     } else {
       // if there are already `maxRevisions` checked revisions, print a warning
       const variant: VariantType = 'warning';
       enqueueSnackbar(`Maximum ${maxRevisions} revision(s).`, { variant });
     }
 
-    const filteredChecked = [...new Set(newChecked)];
-    return filteredChecked;
+    return newChecked;
   };
 
   const handleSearchResultsToggleBase = (item: Changeset) => {
