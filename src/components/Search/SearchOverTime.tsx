@@ -39,8 +39,8 @@ export default function SearchOverTime({
   const styles = SearchStyles(mode);
   const [displayDropdown, setDisplayDropdown] = useState(false);
   //temporary until next PR covers selected revisions
-  const handleSearchResultsEditToggle = (toggleArray: Changeset[]) => {
-    console.log('handleSearchResultsEditToggle', toggleArray);
+  const handleSearchResultsEditToggle = (item: Changeset) => {
+    console.log('handleSearchResultsEditToggle', item);
   };
 
   const displayedRevisions: Changeset[] = [];

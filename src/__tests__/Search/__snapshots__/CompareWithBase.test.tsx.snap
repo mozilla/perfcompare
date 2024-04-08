@@ -158,7 +158,6 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
     >
       <div
         class="box_f65ycfw base-box MuiBox-root css-0"
-        data-testid="selected-revs---editable-revisions"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -434,7 +433,6 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
     >
       <div
         class="box_f65ycfw new-box MuiBox-root css-0"
-        data-testid="selected-revs---editable-revisions"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -935,7 +933,6 @@ exports[`Compare With Base should have an edit mode in Results View: After click
     >
       <div
         class="box_f65ycfw base-box MuiBox-root css-0"
-        data-testid="selected-revs---editable-revisions"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -1211,7 +1208,6 @@ exports[`Compare With Base should have an edit mode in Results View: After click
     >
       <div
         class="box_f65ycfw new-box MuiBox-root css-0"
-        data-testid="selected-revs---editable-revisions"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -1572,7 +1568,6 @@ exports[`Compare With Base should have an edit mode in Results View: After click
     >
       <div
         class="box_f65ycfw base-box MuiBox-root css-0"
-        data-testid="selected-revs---editable-revisions"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -1741,7 +1736,6 @@ exports[`Compare With Base should have an edit mode in Results View: After click
     >
       <div
         class="box_f65ycfw new-box MuiBox-root css-0"
-        data-testid="selected-revs---editable-revisions"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -2102,7 +2096,6 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
     >
       <div
         class="box_f65ycfw base-box MuiBox-root css-0"
-        data-testid="selected-revs---editable-revisions"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -2378,7 +2371,6 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
     >
       <div
         class="box_f65ycfw new-box MuiBox-root css-0"
-        data-testid="selected-revs---editable-revisions"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -2845,7 +2837,6 @@ exports[`Compare With Base should remove the checked revision once X button is c
                 >
                   <div
                     class="box_f65ycfw base-box MuiBox-root css-0"
-                    data-testid="selected-revs---search-revisions"
                   >
                     <ul
                       class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -2986,7 +2977,6 @@ exports[`Compare With Base should remove the checked revision once X button is c
                 >
                   <div
                     class="box_f65ycfw new-box MuiBox-root css-0"
-                    data-testid="selected-revs---search-revisions"
                   >
                     <ul
                       class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
