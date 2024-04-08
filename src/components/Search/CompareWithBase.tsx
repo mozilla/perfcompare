@@ -187,11 +187,9 @@ function CompareWithBase({
 
   const handleItemToggleInChangesetList = ({
     item,
-    maxRevisions,
     changesets,
   }: {
     item: Changeset;
-    maxRevisions: number;
     changesets: Changeset[];
   }) => {
     // Warning: `item` isn't always the same object than the one in
@@ -205,15 +203,11 @@ function CompareWithBase({
     const newChecked = [...changesets];
 
     // if item is not already checked, add to checked
-    if (changesets.length < maxRevisions && !isChecked) {
+    if (!isChecked) {
       newChecked.push(item);
     } else if (isChecked) {
       // if item is already checked, remove from checked
       newChecked.splice(indexInCheckedChangesets, 1);
-    } else {
-      // if there are already `maxRevisions` checked revisions, print a warning
-      const variant: VariantType = 'warning';
-      enqueueSnackbar(`Maximum ${maxRevisions} revision(s).`, { variant });
     }
 
     return newChecked;
@@ -229,9 +223,16 @@ function CompareWithBase({
   const handleSearchResultsToggleNew = (item: Changeset) => {
     const newNewRevs = handleItemToggleInChangesetList({
       item,
-      maxRevisions: 3,
       changesets: newInProgressRevs,
     });
+
+    const maxRevisions = 3;
+    if (newNewRevs.length > maxRevisions) {
+      const variant: VariantType = 'warning';
+      enqueueSnackbar(`Maximum ${maxRevisions} revisions.`, { variant });
+      return;
+    }
+    // if there are already `maxRevisions` checked revisions, print a warning
     setInProgressNewRevs(newNewRevs);
   };
 
