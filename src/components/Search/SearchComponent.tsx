@@ -1,10 +1,4 @@
-import {
-  Dispatch,
-  SetStateAction,
-  useEffect,
-  useState,
-  useCallback,
-} from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
 import InfoIcon from '@mui/icons-material/InfoOutlined';
 import Grid from '@mui/material/Grid';
@@ -35,13 +29,11 @@ interface SearchProps {
   isBaseComp: boolean;
   searchResults: Changeset[];
   displayedRevisions: Changeset[];
-  setPopoverIsOpen?: Dispatch<SetStateAction<boolean>>;
   onSave: () => void;
   onCancel: () => void;
   onEdit: () => void;
   onSearchResultsToggle: (item: Changeset) => void;
   onRemoveRevision: (item: Changeset) => void;
-  prevRevision?: Changeset;
   selectLabel: string;
   tooltip: string;
   inputPlaceholder: string;
@@ -196,7 +188,6 @@ function SearchComponent({
           {searchResults.length > 0 && displayDropdown && (
             <SearchResultsList
               hasNonEditableState={hasNonEditableState}
-              isBase={isBaseComp}
               searchResults={searchResults}
               displayedRevisions={displayedRevisions}
               onToggle={onSearchResultsToggle}
