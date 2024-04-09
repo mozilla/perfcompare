@@ -9,6 +9,7 @@ import ResultsView from '../../components/CompareResults/ResultsView';
 import RevisionHeader from '../../components/CompareResults/RevisionHeader';
 import { Strings } from '../../resources/Strings';
 import { RevisionsHeader } from '../../types/state';
+import { getLocationOrigin } from '../../utils/location';
 import getTestData from '../utils/fixtures';
 import {
   renderWithRouter,
@@ -33,6 +34,11 @@ function renderWithRoute(component: ReactElement) {
     loader,
   });
 }
+
+jest.mock('../../utils/location', () => ({
+  getLocationOrigin: jest.fn(),
+}));
+const mockedGetLocationOrigin = getLocationOrigin as jest.Mock;
 
 describe('Results View', () => {
   it('The table should match snapshot and other elements should be present in the page', async () => {
@@ -151,7 +157,7 @@ describe('Results View', () => {
     expect(revokeObjectURLMock).toHaveBeenCalledWith('blob:');
   });
 
-  it('click on retrigger button', async () => {
+  it('Clicking on the retrigger button should request an authorization code', async () => {
     const user = userEvent.setup({ delay: null });
 
     const { testCompareDataWithMultipleRuns, testData } = getTestData();
@@ -164,12 +170,10 @@ describe('Results View', () => {
         results: [testData[0]],
       });
 
-    const mockGetRandomValues = jest.fn().mockReturnValue(new Uint32Array(1));
-    Object.defineProperty(window, 'crypto', {
-      value: { getRandomValues: mockGetRandomValues },
-    });
+    window.alert = jest.fn();
+    const mockedWindowAlert = window.alert as jest.Mock;
     window.open = jest.fn();
-    jest.spyOn(Storage.prototype, 'setItem');
+    const mockedWindowOpen = window.open as jest.Mock;
 
     renderWithRouter(
       <ResultsView title={Strings.metaData.pageTitle.results} />,
@@ -183,20 +187,33 @@ describe('Results View', () => {
     const retriggerButton = await screen.findByRole('button', {
       name: 'retrigger jobs',
     });
+
+    // Test no clientId configured should alert
+    mockedGetLocationOrigin.mockImplementation(() => 'http://test.com');
     await user.click(retriggerButton);
-    expect(window.open).toHaveBeenCalledWith(
-      'https://firefox-ci-tc.services.mozilla.com/login/oauth/authorize/?client_id=treeherder-localhost-5000-client&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A5000%2Ftaskcluster-auth&scope=hooks%3Atrigger-hook%3A*&state=AAAAAAAAAAAAAAAAAAAAA',
-      '_blank',
+    expect(mockedWindowAlert).toHaveBeenCalledWith(
+      'No clientId is configured for origin http://test.com, sorry!',
     );
-    expect(localStorage.setItem).toHaveBeenCalledTimes(2);
-    expect(localStorage.setItem).toHaveBeenCalledWith(
-      'requestState',
-      'AAAAAAAAAAAAAAAAAAAAA',
+
+    // Test requesting an authorization code from Taskcluster production URL
+    mockedGetLocationOrigin.mockImplementation(() => 'http://localhost:3000');
+    await user.click(retriggerButton);
+    let windowOpenUrlString = mockedWindowOpen.mock.lastCall[0] as string;
+    let windowOpenUrl = new URL(windowOpenUrlString);
+    expect(sessionStorage.requestState).toBe(
+      windowOpenUrl.searchParams.get('state'),
     );
-    expect(localStorage.setItem).toHaveBeenLastCalledWith(
-      'tcRootUrl',
-      'https://firefox-ci-tc.services.mozilla.com',
+    expect(sessionStorage.taskclusterUrl).toBe(windowOpenUrl.origin);
+
+    // Test requesting an authorization code from Taskcluster staging URL
+    window.location.hash = 'taskcluster-staging';
+    await user.click(retriggerButton);
+    windowOpenUrlString = mockedWindowOpen.mock.lastCall[0] as string;
+    windowOpenUrl = new URL(windowOpenUrlString);
+    console.log(windowOpenUrlString);
+    expect(sessionStorage.requestState).toBe(
+      windowOpenUrl.searchParams.get('state'),
     );
-    expect(await screen.findByTestId('retrigger-jobs-button'));
+    expect(sessionStorage.taskclusterUrl).toBe(windowOpenUrl.origin);
   });
 });

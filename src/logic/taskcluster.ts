@@ -1,6 +1,7 @@
 // This file contains logic for the Taskcluster Third-Party Login
 
 import { UserCredentials } from '../types/types';
+import { getLocationOrigin } from '../utils/location';
 
 export const prodTaskclusterUrl = 'https://firefox-ci-tc.services.mozilla.com';
 export const stagingTaskclusterUrl =
@@ -13,11 +14,12 @@ export const tcClientIdMap: Record<string, string> = {
 };
 
 export const getTaskclusterParams = () => {
-  const redirectUri = `${window.location.origin}/taskcluster-auth`;
-  let tcParams = {
+  const locationOrigin = getLocationOrigin();
+  const redirectUri = `${locationOrigin}/taskcluster-auth`;
+  const tcParams = {
     url: prodTaskclusterUrl,
     redirectUri: redirectUri,
-    clientId: tcClientIdMap[window.location.origin],
+    clientId: tcClientIdMap[locationOrigin],
   };
   if (window.location.hash.includes('taskcluster-staging')) {
     tcParams.url = stagingTaskclusterUrl;
@@ -55,10 +57,10 @@ const getAuthCode = (tcParams: {
 
 export const checkTaskclusterCredentials = () => {
   const taskclusterParams = getTaskclusterParams();
+  const locationOrigin = getLocationOrigin();
+
   if (!taskclusterParams.clientId) {
-    alert(
-      `No clientId is configured for origin ${window.location.origin}, sorry!`,
-    );
+    alert(`No clientId is configured for origin ${locationOrigin}, sorry!`);
     return;
   }
   const userCredentials = JSON.parse(
