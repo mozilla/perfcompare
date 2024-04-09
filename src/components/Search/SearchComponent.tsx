@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useState } from 'react';
 
 import InfoIcon from '@mui/icons-material/InfoOutlined';
 import Grid from '@mui/material/Grid';
@@ -19,8 +19,7 @@ import type { Changeset, InputType, Repository } from '../../types/state';
 import EditButton from './EditButton';
 import SaveCancelButtons from './SaveCancelButtons';
 import SearchDropdown from './SearchDropdown';
-import SearchInput from './SearchInput';
-import SearchResultsList from './SearchResultsList';
+import SearchInputAndResults from './SearchInputAndResults';
 import SelectedRevisions from './SelectedRevisions';
 
 interface SearchProps {
@@ -84,43 +83,7 @@ function SearchComponent({
     },
   });
 
-  const [displayDropdown, setDisplayDropdown] = useState(false);
   const [formIsDisplayed, setFormIsDisplayed] = useState(!hasNonEditableState);
-
-  const handleDocumentMousedown = useCallback(
-    (e: MouseEvent) => {
-      if (!displayDropdown) {
-        return;
-      }
-      const target = e.target as HTMLElement;
-      if (target.closest(`.${searchType}-search-input`) === null) {
-        // Close the dropdown only if the click is outside the search input or one
-        // of it's descendants.
-        setDisplayDropdown(false);
-      }
-    },
-    [displayDropdown],
-  );
-
-  const handleEscKeypress = (e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      setDisplayDropdown(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('mousedown', handleDocumentMousedown);
-    return () => {
-      document.removeEventListener('mousedown', handleDocumentMousedown);
-    };
-  }, [handleDocumentMousedown]);
-
-  useEffect(() => {
-    document.addEventListener('keydown', handleEscKeypress);
-    return () => {
-      document.removeEventListener('keydown', handleEscKeypress);
-    };
-  }, []);
 
   return (
     <Grid className={styles.component}>
@@ -184,21 +147,15 @@ function SearchComponent({
             hasNonEditableState ? 'big' : ''
           } `}
         >
-          <SearchInput
-            onFocus={() => setDisplayDropdown(true)}
+          <SearchInputAndResults
             compact={hasNonEditableState}
             inputPlaceholder={inputPlaceholder}
+            searchResults={searchResults}
+            displayedRevisions={displayedRevisions}
             searchType={searchType}
             repository={repository}
+            onSearchResultsToggle={onSearchResultsToggle}
           />
-          {searchResults.length > 0 && displayDropdown && (
-            <SearchResultsList
-              compact={hasNonEditableState}
-              searchResults={searchResults}
-              displayedRevisions={displayedRevisions}
-              onToggle={onSearchResultsToggle}
-            />
-          )}
         </Grid>
         {/****** Cancel Save Buttons ******/}
         {hasNonEditableState && formIsDisplayed && (
