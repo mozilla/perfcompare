@@ -15,7 +15,7 @@ import {
   //SearchStyles can be found in CompareCards.ts
   SearchStyles,
 } from '../../styles';
-import type { Changeset, InputType } from '../../types/state';
+import type { Changeset, InputType, Repository } from '../../types/state';
 import EditButton from './EditButton';
 import SaveCancelButtons from './SaveCancelButtons';
 import SearchDropdown from './SearchDropdown';
@@ -37,6 +37,8 @@ interface SearchProps {
   selectLabel: string;
   tooltip: string;
   inputPlaceholder: string;
+  repository: Repository['name'];
+  onRepositoryChange: (repo: Repository['name']) => unknown;
 }
 
 function SearchComponent({
@@ -53,6 +55,8 @@ function SearchComponent({
   tooltip,
   inputPlaceholder,
   isWarning,
+  repository,
+  onRepositoryChange,
 }: SearchProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = SearchStyles(mode);
@@ -167,8 +171,9 @@ function SearchComponent({
           <SearchDropdown
             compact={hasNonEditableState}
             selectLabel={selectLabel}
-            tooltipText={tooltip}
             searchType={searchType}
+            repository={repository}
+            onChange={onRepositoryChange}
           />
         </Grid>
         <Grid
@@ -184,6 +189,7 @@ function SearchComponent({
             compact={hasNonEditableState}
             inputPlaceholder={inputPlaceholder}
             searchType={searchType}
+            repository={repository}
           />
           {searchResults.length > 0 && displayDropdown && (
             <SearchResultsList

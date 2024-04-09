@@ -10,10 +10,11 @@ import { style } from 'typestyle';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles, SearchStyles, Spacing } from '../../styles';
-import type { Changeset } from '../../types/state';
+import type { Changeset, Repository } from '../../types/state';
 import CompareButton from './CompareButton';
 import FrameworkDropdown from './FrameworkDropdown';
 import SearchComponent from './SearchComponent';
+import SearchViewInit from './SearchViewInit';
 
 const strings = Strings.components.searchDefault;
 const stringsBase = Strings.components.searchDefault.base.collapsed.base;
@@ -83,14 +84,18 @@ function CompareWithBase({
     useState<Changeset[]>(baseRevs);
   const [newInProgressRevs, setInProgressNewRevs] =
     useState<Changeset[]>(newRevs);
+  const [baseRepository, setBaseRepository] = useState(
+    'try' as Repository['name'],
+  );
+  const [newRepository, setNewRepository] = useState(
+    'try' as Repository['name'],
+  );
 
   const mode = useAppSelector((state) => state.theme.mode);
 
   const styles = CompareCardsStyles(mode);
   const dropDownStyles = SearchStyles(mode);
   const search = useAppSelector((state) => state.search);
-  const baseRepository = search.base.repository;
-  const newRepository = search.new.repository;
   const searchResultsBase = search.base.searchResults;
   const searchResultsNew = search.new.searchResults;
 
@@ -223,6 +228,10 @@ function CompareWithBase({
 
   return (
     <Grid className={`wrapper--withbase ${wrapperStyles.wrapper}`}>
+      <SearchViewInit
+        repositoryBase={baseRepository}
+        repositoryNew={newRepository}
+      />
       <div
         className={`compare-card-container compare-card-container--${
           expanded ? 'expanded' : 'hidden'
@@ -266,6 +275,10 @@ function CompareWithBase({
             onEdit={handleEditBase}
             onSearchResultsToggle={handleSearchResultsToggleBase}
             onRemoveRevision={handleRemoveRevisionBase}
+            repository={baseRepository}
+            onRepositoryChange={(repo: Repository['name']) =>
+              setBaseRepository(repo)
+            }
           />
           <SearchComponent
             {...stringsNew}
@@ -279,6 +292,10 @@ function CompareWithBase({
             onEdit={handleEditNew}
             onSearchResultsToggle={handleSearchResultsToggleNew}
             onRemoveRevision={handleRemoveRevisionNew}
+            repository={newRepository}
+            onRepositoryChange={(repo: Repository['name']) =>
+              setNewRepository(repo)
+            }
           />
           <Grid
             item

@@ -8,7 +8,6 @@ import { useAppDispatch, useAppSelector } from '../../hooks/app';
 import { updateFramework } from '../../reducers/FrameworkSlice';
 import { SearchContainerStyles, background } from '../../styles';
 import CompareWithBase from '../Search/CompareWithBase';
-import SearchViewInit from '../Search/SearchViewInit';
 import { LinkToHome } from '../Shared/LinkToHome';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
 import type { LoaderReturnValue } from './loader';
@@ -62,7 +61,6 @@ function ResultsView(props: ResultsViewProps) {
       <PerfCompareHeader />
       <section className={sectionStyles.container}>
         <LinkToHome />
-        <SearchViewInit />
 
         <CompareWithBase
           hasNonEditableState={true}

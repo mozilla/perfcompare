@@ -6,7 +6,6 @@ import {
   fetchRevisionsByAuthor,
 } from '../thunks/searchThunk';
 import type {
-  Repository,
   Changeset,
   SearchState,
   SearchStateForInput,
@@ -14,7 +13,6 @@ import type {
 } from '../types/state';
 
 const DEFAULT_VALUES: SearchStateForInput = {
-  repository: 'try',
   searchResults: [],
   searchValue: '',
   inputError: false,
@@ -52,17 +50,6 @@ const search = createSlice({
       state[type].searchResults = action.payload.results;
       state[type].inputError = false;
       state[type].inputHelperText = '';
-    },
-
-    updateRepository(
-      state,
-      action: PayloadAction<{
-        repository: Repository['name'];
-        searchType: InputType;
-      }>,
-    ) {
-      const type = action.payload.searchType;
-      state[type].repository = action.payload.repository;
     },
 
     setInputError(
@@ -118,10 +105,6 @@ const search = createSlice({
   },
 });
 
-export const {
-  updateSearchValue,
-  updateSearchResults,
-  updateRepository,
-  setInputError,
-} = search.actions;
+export const { updateSearchValue, updateSearchResults, setInputError } =
+  search.actions;
 export default search.reducer;
