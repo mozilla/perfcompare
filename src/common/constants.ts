@@ -9,8 +9,6 @@ import {
 
 export const treeherderBaseURL = 'https://treeherder.mozilla.org';
 
-export const maxRevisionsError = 'Maximum 1 revision(s).';
-
 export const compareView = 'compare-results';
 export const searchView = 'search';
 

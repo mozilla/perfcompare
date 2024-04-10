@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 
 import Grid from '@mui/material/Grid';
 import { useLoaderData } from 'react-router-dom';
@@ -20,13 +20,6 @@ function ResultsView(props: ResultsViewProps) {
   const dispatch = useAppDispatch();
   const { baseRevInfo, newRevsInfo, frameworkId, frameworkName } =
     useLoaderData() as LoaderReturnValue;
-
-  // The CompareWithBase component wants arrays. So that we keep the same array
-  // reference if the data doesn't change, we use `useMemo` for these 2 variables.
-  const baseRevInfos = useMemo(
-    () => (baseRevInfo ? [baseRevInfo] : []),
-    [baseRevInfo],
-  );
 
   const { title } = props;
   const themeMode = useAppSelector((state) => state.theme.mode);
@@ -64,7 +57,7 @@ function ResultsView(props: ResultsViewProps) {
 
         <CompareWithBase
           hasNonEditableState={true}
-          baseRevs={baseRevInfos}
+          baseRev={baseRevInfo ?? null}
           newRevs={newRevsInfo ?? []}
         />
       </section>

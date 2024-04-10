@@ -22,7 +22,7 @@ const stringsNew = Strings.components.searchDefault.base.collapsed.revision;
 
 interface CompareWithBaseProps {
   hasNonEditableState: boolean;
-  baseRevs: Changeset[];
+  baseRev: Changeset | null;
   newRevs: Changeset[];
 }
 
@@ -64,7 +64,7 @@ interface CompareWithBaseProps {
  */
 function CompareWithBase({
   hasNonEditableState,
-  baseRevs,
+  baseRev,
   newRevs,
 }: CompareWithBaseProps) {
   const [expanded, setExpanded] = useState(true);
@@ -73,15 +73,18 @@ function CompareWithBase({
   // The "committed" base and new revisions initialize the staging state.
   // These states are snapshots of selections, that the user can either save (by
   // pressing the "Save" button) or revert to (by pressing the Cancel button).
-  const [baseStagingRevs, setStagingBaseRevs] = useState<Changeset[]>(baseRevs);
+  const [baseStagingRev, setStagingBaseRev] = useState<Changeset | null>(
+    baseRev,
+  );
   const [newStagingRevs, setStagingNewRevs] = useState<Changeset[]>(newRevs);
 
   // The "committed" base and new revisions initialize the "in progress" state
   // too. These states hold the data that are displayed to the user. They always
   // contain the displayed data. That's also the ones that will be committed if
   // the user presses the "Compare" button.
-  const [baseInProgressRevs, setInProgressBaseRevs] =
-    useState<Changeset[]>(baseRevs);
+  const [baseInProgressRev, setInProgressBaseRev] = useState<Changeset | null>(
+    baseRev,
+  );
   const [newInProgressRevs, setInProgressNewRevs] =
     useState<Changeset[]>(newRevs);
   const [baseRepository, setBaseRepository] = useState(
@@ -104,7 +107,7 @@ function CompareWithBase({
     (baseRepository !== 'try' && newRepository === 'try');
 
   const possiblyPreventFormSubmission = (e: React.FormEvent) => {
-    const isFormReadyToBeSubmitted = baseInProgressRevs.length > 0;
+    const isFormReadyToBeSubmitted = baseInProgressRev !== null;
     if (!isFormReadyToBeSubmitted) {
       e.preventDefault();
       enqueueSnackbar(strings.base.collapsed.errors.notEnoughRevisions, {
@@ -132,21 +135,21 @@ function CompareWithBase({
   };
 
   const handleCancelBase = () => {
-    setInProgressBaseRevs(baseStagingRevs);
+    setInProgressBaseRev(baseStagingRev);
   };
   const handleCancelNew = () => {
     setInProgressNewRevs(newStagingRevs);
   };
 
   const handleSaveBase = () => {
-    setStagingBaseRevs(baseInProgressRevs);
+    setStagingBaseRev(baseInProgressRev);
   };
   const handleSaveNew = () => {
     setStagingNewRevs(newInProgressRevs);
   };
 
   const handleEditBase = () => {
-    setInProgressBaseRevs(baseStagingRevs);
+    setInProgressBaseRev(baseStagingRev);
   };
   const handleEditNew = () => {
     setInProgressNewRevs(newStagingRevs);
@@ -156,12 +159,19 @@ function CompareWithBase({
     // Currently item seems to be the same object than the one stored in
     // baseInProgressRevs, but it might change in the future. That's why we're
     // comparing the ids instead of using indexOf directly.
-    const indexInBaseChangesets = baseInProgressRevs.findIndex(
-      (rev) => rev.id === item.id,
-    );
-    const revisionsBase = [...baseInProgressRevs];
-    revisionsBase.splice(indexInBaseChangesets, 1);
-    setInProgressBaseRevs(revisionsBase);
+    if (baseInProgressRev?.id !== item.id) {
+      // This shouldn't happen, but better be safe.
+      console.error(
+        `We tried to remove the base item id ${
+          item.id
+        }, but current base item is ${
+          baseInProgressRev ? baseInProgressRev.id : 'null'
+        }. This shouldn't happen!`,
+      );
+      return;
+    }
+
+    setInProgressBaseRev(null);
   };
   const handleRemoveRevisionNew = (item: Changeset) => {
     // Currently item seems to be the same object than the one stored in
@@ -177,11 +187,9 @@ function CompareWithBase({
 
   const handleItemToggleInChangesetList = ({
     item,
-    maxRevisions,
     changesets,
   }: {
     item: Changeset;
-    maxRevisions: number;
     changesets: Changeset[];
   }) => {
     // Warning: `item` isn't always the same object than the one in
@@ -195,34 +203,36 @@ function CompareWithBase({
     const newChecked = [...changesets];
 
     // if item is not already checked, add to checked
-    if (changesets.length < maxRevisions && !isChecked) {
+    if (!isChecked) {
       newChecked.push(item);
     } else if (isChecked) {
       // if item is already checked, remove from checked
       newChecked.splice(indexInCheckedChangesets, 1);
-    } else {
-      // if there are already `maxRevisions` checked revisions, print a warning
-      const variant: VariantType = 'warning';
-      enqueueSnackbar(`Maximum ${maxRevisions} revision(s).`, { variant });
     }
 
     return newChecked;
   };
 
   const handleSearchResultsToggleBase = (item: Changeset) => {
-    const newBaseRevs = handleItemToggleInChangesetList({
-      item,
-      maxRevisions: 1,
-      changesets: baseInProgressRevs,
-    });
-    setInProgressBaseRevs(newBaseRevs);
+    // Warning: `item` isn't always the same object than the one stored in
+    // state, therefore we need to compare the id. This happens when the
+    // data in the state comes from the loader, but `item` comes from the
+    // search results.
+    setInProgressBaseRev(baseInProgressRev?.id === item.id ? null : item);
   };
   const handleSearchResultsToggleNew = (item: Changeset) => {
     const newNewRevs = handleItemToggleInChangesetList({
       item,
-      maxRevisions: 3,
       changesets: newInProgressRevs,
     });
+
+    const maxRevisions = 3;
+    if (newNewRevs.length > maxRevisions) {
+      const variant: VariantType = 'warning';
+      enqueueSnackbar(`Maximum ${maxRevisions} revisions.`, { variant });
+      return;
+    }
+    // if there are already `maxRevisions` checked revisions, print a warning
     setInProgressNewRevs(newNewRevs);
   };
 
@@ -269,7 +279,7 @@ function CompareWithBase({
             isWarning={isWarning}
             hasNonEditableState={hasNonEditableState}
             searchResults={searchResultsBase}
-            displayedRevisions={baseInProgressRevs}
+            displayedRevisions={baseInProgressRev ? [baseInProgressRev] : []}
             onSave={handleSaveBase}
             onCancel={handleCancelBase}
             onEdit={handleEditBase}
