@@ -9,6 +9,7 @@ import ResultsView from '../../components/CompareResults/ResultsView';
 import RevisionHeader from '../../components/CompareResults/RevisionHeader';
 import { Strings } from '../../resources/Strings';
 import { RevisionsHeader } from '../../types/state';
+import { getLocationOrigin } from '../../utils/location';
 import getTestData from '../utils/fixtures';
 import {
   renderWithRouter,
@@ -33,6 +34,9 @@ function renderWithRoute(component: ReactElement) {
     loader,
   });
 }
+
+jest.mock('../../utils/location');
+const mockedGetLocationOrigin = getLocationOrigin as jest.Mock;
 
 describe('Results View', () => {
   it('The table should match snapshot and other elements should be present in the page', async () => {
@@ -149,5 +153,64 @@ describe('Results View', () => {
 
     expect(createObjectURLMock).toHaveBeenCalled();
     expect(revokeObjectURLMock).toHaveBeenCalledWith('blob:');
+  });
+
+  it('Clicking on the retrigger button should request an authorization code', async () => {
+    const user = userEvent.setup({ delay: null });
+
+    const { testCompareDataWithMultipleRuns, testData } = getTestData();
+    (window.fetch as FetchMockSandbox)
+      .get(
+        'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
+        testCompareDataWithMultipleRuns,
+      )
+      .get('begin:https://treeherder.mozilla.org/api/project/', {
+        results: [testData[0]],
+      });
+
+    jest.spyOn(window, 'alert').mockImplementation();
+    const mockedWindowAlert = window.alert as jest.Mock;
+    jest.spyOn(window, 'open').mockImplementation();
+    const mockedWindowOpen = window.open as jest.Mock;
+
+    renderWithRouter(
+      <ResultsView title={Strings.metaData.pageTitle.results} />,
+      {
+        route: '/compare-results/',
+        search: '?baseRev=spam&baseRepo=mozilla-central&framework=2',
+        loader,
+      },
+    );
+
+    const retriggerButton = await screen.findByRole('button', {
+      name: 'retrigger jobs',
+    });
+
+    // Test no clientId configured should alert
+    mockedGetLocationOrigin.mockImplementation(() => 'http://test.com');
+    await user.click(retriggerButton);
+    expect(mockedWindowAlert).toHaveBeenCalledWith(
+      'No clientId is configured for origin http://test.com, sorry!',
+    );
+
+    // Test requesting an authorization code from Taskcluster production URL
+    mockedGetLocationOrigin.mockImplementation(() => 'http://localhost:3000');
+    await user.click(retriggerButton);
+    let windowOpenUrlString = mockedWindowOpen.mock.lastCall[0] as string;
+    let windowOpenUrl = new URL(windowOpenUrlString);
+    expect(sessionStorage.requestState).toBe(
+      windowOpenUrl.searchParams.get('state'),
+    );
+    expect(sessionStorage.taskclusterUrl).toBe(windowOpenUrl.origin);
+
+    // Test requesting an authorization code from Taskcluster staging URL
+    window.location.hash = 'taskcluster-staging';
+    await user.click(retriggerButton);
+    windowOpenUrlString = mockedWindowOpen.mock.lastCall[0] as string;
+    windowOpenUrl = new URL(windowOpenUrlString);
+    expect(sessionStorage.requestState).toBe(
+      windowOpenUrl.searchParams.get('state'),
+    );
+    expect(sessionStorage.taskclusterUrl).toBe(windowOpenUrl.origin);
   });
 });

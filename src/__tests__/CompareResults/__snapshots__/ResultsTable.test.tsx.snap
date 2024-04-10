@@ -401,6 +401,7 @@ exports[`Results Table Should match snapshot 1`] = `
               </div>
               <div
                 class="retrigger-button"
+                data-testid="retrigger-jobs-button"
                 role="cell"
               >
                 <div
@@ -712,6 +713,7 @@ exports[`Results Table Should match snapshot 1`] = `
               </div>
               <div
                 class="retrigger-button"
+                data-testid="retrigger-jobs-button"
                 role="cell"
               >
                 <div
@@ -1029,6 +1031,7 @@ exports[`Results Table Should match snapshot 1`] = `
               </div>
               <div
                 class="retrigger-button"
+                data-testid="retrigger-jobs-button"
                 role="cell"
               >
                 <div
@@ -1345,6 +1348,7 @@ exports[`Results Table Should match snapshot 1`] = `
               </div>
               <div
                 class="retrigger-button"
+                data-testid="retrigger-jobs-button"
                 role="cell"
               >
                 <div
