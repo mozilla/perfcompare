@@ -31,8 +31,8 @@ const fetchData = async (url: string, options: RequestOptions) => {
 
 export async function loader({ request }: { request: Request }) {
   // TODO remove this after integrating the auth code logic
-  localStorage.setItem('requestState', 'OkCrH5isZncYqeJbRDelN');
-  localStorage.setItem(
+  sessionStorage.setItem('requestState', 'OkCrH5isZncYqeJbRDelN');
+  sessionStorage.setItem(
     'tcRootUrl',
     'https://firefox-ci-tc.services.mozilla.com',
   );
@@ -48,9 +48,9 @@ export async function loader({ request }: { request: Request }) {
   const taskclusterCode = url.searchParams.get('code') as string;
   const state = url.searchParams.get('state');
 
-  const requestState = localStorage.getItem('requestState');
+  const requestState = sessionStorage.getItem('requestState');
 
-  const rootUrl = localStorage.getItem('tcRootUrl') as string;
+  const rootUrl = sessionStorage.getItem('tcRootUrl') as string;
 
   if (!taskclusterCode) {
     throw new Error(`Error when getting Taskcluster code from URL.`);
