@@ -83,3 +83,5 @@ export async function loader({ request }: { request: Request }) {
 
   return response;
 }
+
+export type LoaderReturnValue = Awaited<ReturnType<typeof loader>>;
