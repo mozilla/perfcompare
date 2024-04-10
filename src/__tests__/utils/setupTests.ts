@@ -5,6 +5,7 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import '@testing-library/jest-dom';
+import { webcrypto } from 'node:crypto';
 import { TextDecoder, TextEncoder } from 'util';
 
 import { density1d } from 'fast-kde';
@@ -46,6 +47,8 @@ jest.mock('fast-kde', () => ({
   density1d: jest.fn(),
 }));
 const MockedDensity1d = density1d as jest.Mock;
+
+Object.defineProperty(window, 'crypto', { value: webcrypto });
 
 beforeEach(() => {
   // After every test jest resets the mock implementation, so we need to define

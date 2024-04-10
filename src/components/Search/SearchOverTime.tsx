@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import InfoIcon from '@mui/icons-material/InfoOutlined';
 import Grid from '@mui/material/Grid';
@@ -15,10 +15,9 @@ import {
   //SearchStyles can be found in CompareCards.ts
   SearchStyles,
 } from '../../styles';
-import { Changeset } from '../../types/state';
+import { Changeset, Repository } from '../../types/state';
 import SearchDropdown from './SearchDropdown';
-import SearchInput from './SearchInput';
-import SearchResultsList from './SearchResultsList';
+import SearchInputAndResults from './SearchInputAndResults';
 
 interface SearchProps {
   selectLabel: string;
@@ -37,10 +36,11 @@ export default function SearchOverTime({
 }: SearchProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = SearchStyles(mode);
-  const [displayDropdown, setDisplayDropdown] = useState(false);
+  const [repository, setRepository] = useState('try' as Repository['name']);
+
   //temporary until next PR covers selected revisions
-  const handleSearchResultsEditToggle = (toggleArray: Changeset[]) => {
-    console.log('handleSearchResultsEditToggle', toggleArray);
+  const handleSearchResultsEditToggle = (item: Changeset) => {
+    console.log('handleSearchResultsEditToggle', item);
   };
 
   const displayedRevisions: Changeset[] = [];
@@ -66,34 +66,6 @@ export default function SearchOverTime({
       },
     },
   });
-
-  useEffect(() => {
-    const handleEscKeypress = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setDisplayDropdown(false);
-      }
-    };
-
-    const handleDocumentMousedown = (e: MouseEvent) => {
-      if (!displayDropdown) {
-        return;
-      }
-      const target = e.target as HTMLElement;
-      if (target.closest('.new-search-input--time') === null) {
-        // Close the dropdown only if the click is outside the search input or one
-        // of it's descendants.
-        setDisplayDropdown(false);
-      }
-    };
-
-    document.addEventListener('keydown', handleEscKeypress);
-    document.addEventListener('mousedown', handleDocumentMousedown);
-
-    return () => {
-      document.removeEventListener('keydown', handleEscKeypress);
-      document.removeEventListener('mousedown', handleDocumentMousedown);
-    };
-  }, [displayDropdown]);
 
   return (
     <Grid className={styles.component}>
@@ -130,8 +102,9 @@ export default function SearchOverTime({
           <SearchDropdown
             compact={false}
             selectLabel={selectLabel}
-            tooltipText={tooltip}
             searchType='new'
+            repository={repository}
+            onChange={(repo: Repository['name']) => setRepository(repo)}
           />
         </Grid>
         <Grid
@@ -142,21 +115,15 @@ export default function SearchOverTime({
             isEditable ? 'big' : ''
           } `}
         >
-          <SearchInput
-            onFocus={() => setDisplayDropdown(true)}
+          <SearchInputAndResults
             compact={false}
             inputPlaceholder={inputPlaceholder}
+            searchResults={searchResults}
+            displayedRevisions={displayedRevisions}
             searchType='new'
+            repository={repository}
+            onSearchResultsToggle={handleSearchResultsEditToggle}
           />
-          {searchResults.length > 0 && displayDropdown && (
-            <SearchResultsList
-              hasNonEditableState={isEditable}
-              isBase={false}
-              searchResults={searchResults}
-              displayedRevisions={displayedRevisions}
-              onToggle={handleSearchResultsEditToggle}
-            />
-          )}
         </Grid>
       </Grid>
       {/***** Selected Revisions Section *****/}

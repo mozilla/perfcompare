@@ -1,10 +1,4 @@
-import {
-  Dispatch,
-  SetStateAction,
-  useEffect,
-  useState,
-  useCallback,
-} from 'react';
+import { useState } from 'react';
 
 import InfoIcon from '@mui/icons-material/InfoOutlined';
 import Grid from '@mui/material/Grid';
@@ -21,12 +15,11 @@ import {
   //SearchStyles can be found in CompareCards.ts
   SearchStyles,
 } from '../../styles';
-import type { Changeset, InputType } from '../../types/state';
+import type { Changeset, InputType, Repository } from '../../types/state';
 import EditButton from './EditButton';
 import SaveCancelButtons from './SaveCancelButtons';
 import SearchDropdown from './SearchDropdown';
-import SearchInput from './SearchInput';
-import SearchResultsList from './SearchResultsList';
+import SearchInputAndResults from './SearchInputAndResults';
 import SelectedRevisions from './SelectedRevisions';
 
 interface SearchProps {
@@ -35,16 +28,16 @@ interface SearchProps {
   isBaseComp: boolean;
   searchResults: Changeset[];
   displayedRevisions: Changeset[];
-  setPopoverIsOpen?: Dispatch<SetStateAction<boolean>>;
   onSave: () => void;
   onCancel: () => void;
   onEdit: () => void;
-  onSearchResultsToggle: (toggleArray: Changeset[]) => void;
+  onSearchResultsToggle: (item: Changeset) => void;
   onRemoveRevision: (item: Changeset) => void;
-  prevRevision?: Changeset;
   selectLabel: string;
   tooltip: string;
   inputPlaceholder: string;
+  repository: Repository['name'];
+  onRepositoryChange: (repo: Repository['name']) => unknown;
 }
 
 function SearchComponent({
@@ -61,6 +54,8 @@ function SearchComponent({
   tooltip,
   inputPlaceholder,
   isWarning,
+  repository,
+  onRepositoryChange,
 }: SearchProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = SearchStyles(mode);
@@ -88,43 +83,7 @@ function SearchComponent({
     },
   });
 
-  const [displayDropdown, setDisplayDropdown] = useState(false);
   const [formIsDisplayed, setFormIsDisplayed] = useState(!hasNonEditableState);
-
-  const handleDocumentMousedown = useCallback(
-    (e: MouseEvent) => {
-      if (!displayDropdown) {
-        return;
-      }
-      const target = e.target as HTMLElement;
-      if (target.closest(`.${searchType}-search-input`) === null) {
-        // Close the dropdown only if the click is outside the search input or one
-        // of it's descendants.
-        setDisplayDropdown(false);
-      }
-    },
-    [displayDropdown],
-  );
-
-  const handleEscKeypress = (e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      setDisplayDropdown(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('mousedown', handleDocumentMousedown);
-    return () => {
-      document.removeEventListener('mousedown', handleDocumentMousedown);
-    };
-  }, [handleDocumentMousedown]);
-
-  useEffect(() => {
-    document.addEventListener('keydown', handleEscKeypress);
-    return () => {
-      document.removeEventListener('keydown', handleEscKeypress);
-    };
-  }, []);
 
   return (
     <Grid className={styles.component}>
@@ -175,8 +134,9 @@ function SearchComponent({
           <SearchDropdown
             compact={hasNonEditableState}
             selectLabel={selectLabel}
-            tooltipText={tooltip}
             searchType={searchType}
+            repository={repository}
+            onChange={onRepositoryChange}
           />
         </Grid>
         <Grid
@@ -187,21 +147,15 @@ function SearchComponent({
             hasNonEditableState ? 'big' : ''
           } `}
         >
-          <SearchInput
-            onFocus={() => setDisplayDropdown(true)}
+          <SearchInputAndResults
             compact={hasNonEditableState}
             inputPlaceholder={inputPlaceholder}
+            searchResults={searchResults}
+            displayedRevisions={displayedRevisions}
             searchType={searchType}
+            repository={repository}
+            onSearchResultsToggle={onSearchResultsToggle}
           />
-          {searchResults.length > 0 && displayDropdown && (
-            <SearchResultsList
-              hasNonEditableState={hasNonEditableState}
-              isBase={isBaseComp}
-              searchResults={searchResults}
-              displayedRevisions={displayedRevisions}
-              onToggle={onSearchResultsToggle}
-            />
-          )}
         </Grid>
         {/****** Cancel Save Buttons ******/}
         {hasNonEditableState && formIsDisplayed && (
@@ -223,7 +177,6 @@ function SearchComponent({
         <Grid className='d-flex'>
           <SelectedRevisions
             isBase={isBaseComp}
-            hasNonEditableState={hasNonEditableState}
             canRemoveRevision={!hasNonEditableState || formIsDisplayed}
             isWarning={isWarning}
             displayedRevisions={displayedRevisions}
