@@ -35,9 +35,7 @@ function renderWithRoute(component: ReactElement) {
   });
 }
 
-jest.mock('../../utils/location', () => ({
-  getLocationOrigin: jest.fn(),
-}));
+jest.mock('../../utils/location');
 const mockedGetLocationOrigin = getLocationOrigin as jest.Mock;
 
 describe('Results View', () => {
@@ -170,9 +168,9 @@ describe('Results View', () => {
         results: [testData[0]],
       });
 
-    window.alert = jest.fn();
+    jest.spyOn(window, 'alert').mockImplementation();
     const mockedWindowAlert = window.alert as jest.Mock;
-    window.open = jest.fn();
+    jest.spyOn(window, 'open').mockImplementation();
     const mockedWindowOpen = window.open as jest.Mock;
 
     renderWithRouter(
@@ -210,7 +208,6 @@ describe('Results View', () => {
     await user.click(retriggerButton);
     windowOpenUrlString = mockedWindowOpen.mock.lastCall[0] as string;
     windowOpenUrl = new URL(windowOpenUrlString);
-    console.log(windowOpenUrlString);
     expect(sessionStorage.requestState).toBe(
       windowOpenUrl.searchParams.get('state'),
     );
