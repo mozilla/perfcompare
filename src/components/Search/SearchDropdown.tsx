@@ -5,7 +5,6 @@ import { style, cssRule } from 'typestyle';
 
 import { repoMap } from '../../common/constants';
 import { useAppSelector, useAppDispatch } from '../../hooks/app';
-import { updateRepository } from '../../reducers/SearchSlice';
 import {
   ButtonsLightRaw,
   ButtonsDarkRaw,
@@ -19,8 +18,9 @@ import { InputType, Repository } from '../../types/state';
 interface SearchDropdownProps {
   compact: boolean;
   selectLabel: string;
-  tooltipText: string;
   searchType: InputType;
+  repository: Repository['name'];
+  onChange: (val: Repository['name']) => unknown;
 }
 
 //handle in progress repos here if necessary
@@ -28,22 +28,16 @@ function SearchDropdown({
   compact,
   selectLabel,
   searchType,
+  repository,
+  onChange,
 }: SearchDropdownProps) {
   const size = compact ? 'small' : undefined;
   const mode = useAppSelector((state) => state.theme.mode);
-  const repository = useAppSelector(
-    (state) => state.search[searchType].repository,
-  );
   const dispatch = useAppDispatch();
 
   const handleRepoSelect = async (event: SelectChangeEvent) => {
     const selectedRepository = event.target.value as Repository['name'];
-    dispatch(
-      updateRepository({
-        repository: selectedRepository,
-        searchType: searchType,
-      }),
-    );
+    onChange(selectedRepository);
 
     // Fetch 10 most recent revisions when repository changes
     await dispatch(

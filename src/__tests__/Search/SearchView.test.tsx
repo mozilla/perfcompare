@@ -70,7 +70,7 @@ describe('Search Container', () => {
     const baseInput = screen.getByPlaceholderText(
       'Search base by ID number or author email',
     );
-    const repoDropdown = screen.getAllByTestId('dropdown-select-base')[0];
+    const repoDropdown = screen.getAllByRole('button', { name: 'Base' })[0];
 
     expect(compTitle).toBeInTheDocument();
     expect(baseInput).toBeInTheDocument();
