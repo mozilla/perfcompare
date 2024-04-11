@@ -94,10 +94,7 @@ function SearchComponent({
           styles.dropDown
         } label-edit-wrapper`}
       >
-        <InputLabel
-          id='select-repository-label'
-          className='dropdown-select-label'
-        >
+        <InputLabel id={selectLabel} className='dropdown-select-label'>
           {selectLabel}
           <Tooltip placement='top' title={tooltip}>
             <InfoIcon fontSize='small' className='dropdown-info-icon' />

@@ -75,16 +75,15 @@ function SearchDropdown({
   };
 
   return (
-    <div>
+    <>
       <FormControl
         size={size}
         className={`search-dropdown ${styles.container}`}
       >
         <Select
           data-testid={`dropdown-select-${searchType}`}
-          label={selectLabel}
           value={repository}
-          labelId='select-repository-label'
+          labelId={selectLabel}
           className='dropdown-select'
           variant='standard'
           onChange={(e) => void handleRepoSelect(e)}
@@ -101,7 +100,7 @@ function SearchDropdown({
           ))}
         </Select>
       </FormControl>
-    </div>
+    </>
   );
 }
 

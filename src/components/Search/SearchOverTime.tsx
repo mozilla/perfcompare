@@ -72,12 +72,9 @@ export default function SearchOverTime({
       <Grid
         item
         xs={2}
-        className={`$new-search-dropdown ${styles.dropDown} label-edit-wrapper`}
+        className={`new-search-dropdown ${styles.dropDown} label-edit-wrapper`}
       >
-        <InputLabel
-          id='select-repository-label--time'
-          className='dropdown-select-label'
-        >
+        <InputLabel id={selectLabel} className='dropdown-select-label'>
           {selectLabel}
           <Tooltip placement='top' title={tooltip}>
             <InfoIcon fontSize='small' className='dropdown-info-icon' />
@@ -97,7 +94,7 @@ export default function SearchOverTime({
           id='new_search-dropdown--time'
           className={`new-search-dropdown ${styles.dropDown} ${
             isEditable ? 'small' : ''
-          } ${isEditable ? compareView : ''}-base-dropdown`}
+          } ${isEditable ? compareView : ''}-new-dropdown`}
         >
           <SearchDropdown
             compact={false}

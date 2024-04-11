@@ -64,8 +64,7 @@ describe('SelectedRevision', () => {
     const user = userEvent.setup({ delay: null });
     renderComponent();
 
-    // TODO The second dropdown incorrectly also has the name "Base".
-    const baseDropdown = screen.getAllByRole('button', { name: 'Base' })[0];
+    const baseDropdown = screen.getByRole('button', { name: 'Base' });
     expect(baseDropdown).toHaveTextContent('try');
 
     const firstSearchInput = screen.getAllByPlaceholderText(
@@ -78,8 +77,7 @@ describe('SelectedRevision', () => {
       }),
     );
 
-    // TODO This dropdown incorrectly has the name "Base".
-    const newDropdown = screen.getAllByRole('button', { name: 'Base' })[1];
+    const newDropdown = screen.getAllByRole('button', { name: 'Revisions' })[0];
     await user.click(newDropdown);
     const mozRepoItem = await screen.findByRole('option', {
       name: 'mozilla-central',

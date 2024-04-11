@@ -15,7 +15,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-        id="select-repository-label"
+        id="Base"
       >
         Base
         <svg
@@ -59,42 +59,40 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fl6uoag small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="base_search-dropdown"
       >
-        <div>
+        <div
+          class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+        >
           <div
-            class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+            data-testid="dropdown-select-base"
           >
             <div
-              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-              data-testid="dropdown-select-base"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-labelledby="Base"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              role="button"
+              tabindex="0"
             >
-              <div
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-labelledby="select-repository-label"
-                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                role="button"
-                tabindex="0"
-              >
-                try
-              </div>
-              <input
-                aria-hidden="true"
-                class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                tabindex="-1"
-                value="try"
-              />
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
-                data-testid="ArrowDropDownIcon"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M7 10l5 5 5-5z"
-                />
-              </svg>
+              try
             </div>
+            <input
+              aria-hidden="true"
+              class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+              tabindex="-1"
+              value="try"
+            />
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+              data-testid="ArrowDropDownIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7 10l5 5 5-5z"
+              />
+            </svg>
           </div>
         </div>
       </div>
@@ -294,7 +292,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-        id="select-repository-label"
+        id="Revisions"
       >
         Revisions
         <svg
@@ -338,42 +336,40 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fl6uoag small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown"
       >
-        <div>
+        <div
+          class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+        >
           <div
-            class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+            data-testid="dropdown-select-new"
           >
             <div
-              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-              data-testid="dropdown-select-new"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-labelledby="Revisions"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              role="button"
+              tabindex="0"
             >
-              <div
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-labelledby="select-repository-label"
-                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                role="button"
-                tabindex="0"
-              >
-                try
-              </div>
-              <input
-                aria-hidden="true"
-                class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                tabindex="-1"
-                value="try"
-              />
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
-                data-testid="ArrowDropDownIcon"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M7 10l5 5 5-5z"
-                />
-              </svg>
+              try
             </div>
+            <input
+              aria-hidden="true"
+              class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+              tabindex="-1"
+              value="try"
+            />
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+              data-testid="ArrowDropDownIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7 10l5 5 5-5z"
+              />
+            </svg>
           </div>
         </div>
       </div>
@@ -568,64 +564,62 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
   <div
     class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fl6uoag fjuaqdk css-13eijkh-MuiGrid-root"
   >
-    <div>
-      <div
-        class="MuiFormControl-root framework-dropdown fnpbx3q css-1nrlq1o-MuiFormControl-root"
+    <div
+      class="MuiFormControl-root framework-dropdown f1pm9d4y css-1nrlq1o-MuiFormControl-root"
+    >
+      <label
+        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
+        data-shrink="true"
+        id="select-framework-label"
       >
-        <label
-          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
-          data-shrink="true"
-          id="select-framework-label"
+        Framework
+        <svg
+          aria-hidden="true"
+          aria-label="The framework or test harness containing the test you want to examine."
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+          data-mui-internal-clone-element="true"
+          data-testid="InfoOutlinedIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          Framework
-          <svg
-            aria-hidden="true"
-            aria-label="The framework or test harness containing the test you want to examine."
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
-            data-mui-internal-clone-element="true"
-            data-testid="InfoOutlinedIcon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-            />
-          </svg>
-        </label>
-        <div
-          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-          data-testid="dropdown-select-framework"
-        >
-          <div
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-labelledby="select-framework-label mui-component-select-framework"
-            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-            id="mui-component-select-framework"
-            role="button"
-            tabindex="0"
-          >
-            build_metrics
-          </div>
-          <input
-            aria-hidden="true"
-            class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-            name="framework"
-            tabindex="-1"
-            value="2"
+          <path
+            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
           />
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
-            data-testid="ArrowDropDownIcon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M7 10l5 5 5-5z"
-            />
-          </svg>
+        </svg>
+      </label>
+      <div
+        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+        data-testid="dropdown-select-framework"
+      >
+        <div
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-labelledby="select-framework-label mui-component-select-framework"
+          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+          id="mui-component-select-framework"
+          role="button"
+          tabindex="0"
+        >
+          build_metrics
         </div>
+        <input
+          aria-hidden="true"
+          class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+          name="framework"
+          tabindex="-1"
+          value="2"
+        />
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+          data-testid="ArrowDropDownIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M7 10l5 5 5-5z"
+          />
+        </svg>
       </div>
     </div>
     <button
@@ -788,7 +782,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-        id="select-repository-label"
+        id="Base"
       >
         Base
         <svg
@@ -814,42 +808,40 @@ exports[`Compare With Base should have an edit mode in Results View: After click
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fl6uoag small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="base_search-dropdown"
       >
-        <div>
+        <div
+          class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+        >
           <div
-            class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+            data-testid="dropdown-select-base"
           >
             <div
-              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-              data-testid="dropdown-select-base"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-labelledby="Base"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              role="button"
+              tabindex="0"
             >
-              <div
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-labelledby="select-repository-label"
-                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                role="button"
-                tabindex="0"
-              >
-                try
-              </div>
-              <input
-                aria-hidden="true"
-                class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                tabindex="-1"
-                value="try"
-              />
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
-                data-testid="ArrowDropDownIcon"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M7 10l5 5 5-5z"
-                />
-              </svg>
+              try
             </div>
+            <input
+              aria-hidden="true"
+              class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+              tabindex="-1"
+              value="try"
+            />
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+              data-testid="ArrowDropDownIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7 10l5 5 5-5z"
+              />
+            </svg>
           </div>
         </div>
       </div>
@@ -1077,7 +1069,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-        id="select-repository-label"
+        id="Revisions"
       >
         Revisions
         <svg
@@ -1121,42 +1113,40 @@ exports[`Compare With Base should have an edit mode in Results View: After click
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fl6uoag small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown"
       >
-        <div>
+        <div
+          class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+        >
           <div
-            class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+            data-testid="dropdown-select-new"
           >
             <div
-              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-              data-testid="dropdown-select-new"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-labelledby="Revisions"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              role="button"
+              tabindex="0"
             >
-              <div
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-labelledby="select-repository-label"
-                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                role="button"
-                tabindex="0"
-              >
-                try
-              </div>
-              <input
-                aria-hidden="true"
-                class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                tabindex="-1"
-                value="try"
-              />
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
-                data-testid="ArrowDropDownIcon"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M7 10l5 5 5-5z"
-                />
-              </svg>
+              try
             </div>
+            <input
+              aria-hidden="true"
+              class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+              tabindex="-1"
+              value="try"
+            />
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+              data-testid="ArrowDropDownIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7 10l5 5 5-5z"
+              />
+            </svg>
           </div>
         </div>
       </div>
@@ -1351,64 +1341,62 @@ exports[`Compare With Base should have an edit mode in Results View: After click
   <div
     class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fl6uoag fjuaqdk css-13eijkh-MuiGrid-root"
   >
-    <div>
-      <div
-        class="MuiFormControl-root framework-dropdown fnpbx3q css-1nrlq1o-MuiFormControl-root"
+    <div
+      class="MuiFormControl-root framework-dropdown f1pm9d4y css-1nrlq1o-MuiFormControl-root"
+    >
+      <label
+        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
+        data-shrink="true"
+        id="select-framework-label"
       >
-        <label
-          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
-          data-shrink="true"
-          id="select-framework-label"
+        Framework
+        <svg
+          aria-hidden="true"
+          aria-label="The framework or test harness containing the test you want to examine."
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+          data-mui-internal-clone-element="true"
+          data-testid="InfoOutlinedIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          Framework
-          <svg
-            aria-hidden="true"
-            aria-label="The framework or test harness containing the test you want to examine."
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
-            data-mui-internal-clone-element="true"
-            data-testid="InfoOutlinedIcon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-            />
-          </svg>
-        </label>
-        <div
-          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-          data-testid="dropdown-select-framework"
-        >
-          <div
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-labelledby="select-framework-label mui-component-select-framework"
-            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-            id="mui-component-select-framework"
-            role="button"
-            tabindex="0"
-          >
-            build_metrics
-          </div>
-          <input
-            aria-hidden="true"
-            class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-            name="framework"
-            tabindex="-1"
-            value="2"
+          <path
+            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
           />
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
-            data-testid="ArrowDropDownIcon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M7 10l5 5 5-5z"
-            />
-          </svg>
+        </svg>
+      </label>
+      <div
+        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+        data-testid="dropdown-select-framework"
+      >
+        <div
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-labelledby="select-framework-label mui-component-select-framework"
+          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+          id="mui-component-select-framework"
+          role="button"
+          tabindex="0"
+        >
+          build_metrics
         </div>
+        <input
+          aria-hidden="true"
+          class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+          name="framework"
+          tabindex="-1"
+          value="2"
+        />
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+          data-testid="ArrowDropDownIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M7 10l5 5 5-5z"
+          />
+        </svg>
       </div>
     </div>
     <button
@@ -1441,7 +1429,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-        id="select-repository-label"
+        id="Base"
       >
         Base
         <svg
@@ -1485,42 +1473,40 @@ exports[`Compare With Base should have an edit mode in Results View: After click
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fl6uoag small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="base_search-dropdown"
       >
-        <div>
+        <div
+          class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+        >
           <div
-            class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+            data-testid="dropdown-select-base"
           >
             <div
-              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-              data-testid="dropdown-select-base"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-labelledby="Base"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              role="button"
+              tabindex="0"
             >
-              <div
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-labelledby="select-repository-label"
-                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                role="button"
-                tabindex="0"
-              >
-                try
-              </div>
-              <input
-                aria-hidden="true"
-                class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                tabindex="-1"
-                value="try"
-              />
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
-                data-testid="ArrowDropDownIcon"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M7 10l5 5 5-5z"
-                />
-              </svg>
+              try
             </div>
+            <input
+              aria-hidden="true"
+              class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+              tabindex="-1"
+              value="try"
+            />
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+              data-testid="ArrowDropDownIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7 10l5 5 5-5z"
+              />
+            </svg>
           </div>
         </div>
       </div>
@@ -1603,7 +1589,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-        id="select-repository-label"
+        id="Revisions"
       >
         Revisions
         <svg
@@ -1629,42 +1615,40 @@ exports[`Compare With Base should have an edit mode in Results View: After click
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fl6uoag small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown"
       >
-        <div>
+        <div
+          class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+        >
           <div
-            class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+            data-testid="dropdown-select-new"
           >
             <div
-              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-              data-testid="dropdown-select-new"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-labelledby="Revisions"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              role="button"
+              tabindex="0"
             >
-              <div
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-labelledby="select-repository-label"
-                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                role="button"
-                tabindex="0"
-              >
-                try
-              </div>
-              <input
-                aria-hidden="true"
-                class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                tabindex="-1"
-                value="try"
-              />
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
-                data-testid="ArrowDropDownIcon"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M7 10l5 5 5-5z"
-                />
-              </svg>
+              try
             </div>
+            <input
+              aria-hidden="true"
+              class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+              tabindex="-1"
+              value="try"
+            />
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+              data-testid="ArrowDropDownIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7 10l5 5 5-5z"
+              />
+            </svg>
           </div>
         </div>
       </div>
@@ -1887,64 +1871,62 @@ exports[`Compare With Base should have an edit mode in Results View: After click
   <div
     class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fl6uoag fjuaqdk css-13eijkh-MuiGrid-root"
   >
-    <div>
-      <div
-        class="MuiFormControl-root framework-dropdown fnpbx3q css-1nrlq1o-MuiFormControl-root"
+    <div
+      class="MuiFormControl-root framework-dropdown f1pm9d4y css-1nrlq1o-MuiFormControl-root"
+    >
+      <label
+        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
+        data-shrink="true"
+        id="select-framework-label"
       >
-        <label
-          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
-          data-shrink="true"
-          id="select-framework-label"
+        Framework
+        <svg
+          aria-hidden="true"
+          aria-label="The framework or test harness containing the test you want to examine."
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+          data-mui-internal-clone-element="true"
+          data-testid="InfoOutlinedIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          Framework
-          <svg
-            aria-hidden="true"
-            aria-label="The framework or test harness containing the test you want to examine."
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
-            data-mui-internal-clone-element="true"
-            data-testid="InfoOutlinedIcon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-            />
-          </svg>
-        </label>
-        <div
-          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-          data-testid="dropdown-select-framework"
-        >
-          <div
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-labelledby="select-framework-label mui-component-select-framework"
-            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-            id="mui-component-select-framework"
-            role="button"
-            tabindex="0"
-          >
-            build_metrics
-          </div>
-          <input
-            aria-hidden="true"
-            class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-            name="framework"
-            tabindex="-1"
-            value="2"
+          <path
+            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
           />
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
-            data-testid="ArrowDropDownIcon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M7 10l5 5 5-5z"
-            />
-          </svg>
+        </svg>
+      </label>
+      <div
+        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+        data-testid="dropdown-select-framework"
+      >
+        <div
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-labelledby="select-framework-label mui-component-select-framework"
+          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+          id="mui-component-select-framework"
+          role="button"
+          tabindex="0"
+        >
+          build_metrics
         </div>
+        <input
+          aria-hidden="true"
+          class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+          name="framework"
+          tabindex="-1"
+          value="2"
+        />
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+          data-testid="ArrowDropDownIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M7 10l5 5 5-5z"
+          />
+        </svg>
       </div>
     </div>
     <button
@@ -1977,7 +1959,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-        id="select-repository-label"
+        id="Base"
       >
         Base
         <svg
@@ -2021,42 +2003,40 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fl6uoag small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="base_search-dropdown"
       >
-        <div>
+        <div
+          class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+        >
           <div
-            class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+            data-testid="dropdown-select-base"
           >
             <div
-              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-              data-testid="dropdown-select-base"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-labelledby="Base"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              role="button"
+              tabindex="0"
             >
-              <div
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-labelledby="select-repository-label"
-                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                role="button"
-                tabindex="0"
-              >
-                try
-              </div>
-              <input
-                aria-hidden="true"
-                class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                tabindex="-1"
-                value="try"
-              />
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
-                data-testid="ArrowDropDownIcon"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M7 10l5 5 5-5z"
-                />
-              </svg>
+              try
             </div>
+            <input
+              aria-hidden="true"
+              class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+              tabindex="-1"
+              value="try"
+            />
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+              data-testid="ArrowDropDownIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7 10l5 5 5-5z"
+              />
+            </svg>
           </div>
         </div>
       </div>
@@ -2256,7 +2236,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-        id="select-repository-label"
+        id="Revisions"
       >
         Revisions
         <svg
@@ -2300,42 +2280,40 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fl6uoag small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown"
       >
-        <div>
+        <div
+          class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+        >
           <div
-            class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+            data-testid="dropdown-select-new"
           >
             <div
-              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-              data-testid="dropdown-select-new"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-labelledby="Revisions"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              role="button"
+              tabindex="0"
             >
-              <div
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-labelledby="select-repository-label"
-                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                role="button"
-                tabindex="0"
-              >
-                try
-              </div>
-              <input
-                aria-hidden="true"
-                class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                tabindex="-1"
-                value="try"
-              />
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
-                data-testid="ArrowDropDownIcon"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M7 10l5 5 5-5z"
-                />
-              </svg>
+              try
             </div>
+            <input
+              aria-hidden="true"
+              class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+              tabindex="-1"
+              value="try"
+            />
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+              data-testid="ArrowDropDownIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7 10l5 5 5-5z"
+              />
+            </svg>
           </div>
         </div>
       </div>
@@ -2530,64 +2508,62 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
   <div
     class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fl6uoag fjuaqdk css-13eijkh-MuiGrid-root"
   >
-    <div>
-      <div
-        class="MuiFormControl-root framework-dropdown fnpbx3q css-1nrlq1o-MuiFormControl-root"
+    <div
+      class="MuiFormControl-root framework-dropdown f1pm9d4y css-1nrlq1o-MuiFormControl-root"
+    >
+      <label
+        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
+        data-shrink="true"
+        id="select-framework-label"
       >
-        <label
-          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
-          data-shrink="true"
-          id="select-framework-label"
+        Framework
+        <svg
+          aria-hidden="true"
+          aria-label="The framework or test harness containing the test you want to examine."
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+          data-mui-internal-clone-element="true"
+          data-testid="InfoOutlinedIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          Framework
-          <svg
-            aria-hidden="true"
-            aria-label="The framework or test harness containing the test you want to examine."
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
-            data-mui-internal-clone-element="true"
-            data-testid="InfoOutlinedIcon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-            />
-          </svg>
-        </label>
-        <div
-          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-          data-testid="dropdown-select-framework"
-        >
-          <div
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-labelledby="select-framework-label mui-component-select-framework"
-            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-            id="mui-component-select-framework"
-            role="button"
-            tabindex="0"
-          >
-            build_metrics
-          </div>
-          <input
-            aria-hidden="true"
-            class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-            name="framework"
-            tabindex="-1"
-            value="2"
+          <path
+            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
           />
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
-            data-testid="ArrowDropDownIcon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M7 10l5 5 5-5z"
-            />
-          </svg>
+        </svg>
+      </label>
+      <div
+        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+        data-testid="dropdown-select-framework"
+      >
+        <div
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-labelledby="select-framework-label mui-component-select-framework"
+          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+          id="mui-component-select-framework"
+          role="button"
+          tabindex="0"
+        >
+          build_metrics
         </div>
+        <input
+          aria-hidden="true"
+          class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+          name="framework"
+          tabindex="-1"
+          value="2"
+        />
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+          data-testid="ArrowDropDownIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M7 10l5 5 5-5z"
+          />
+        </svg>
       </div>
     </div>
     <button
@@ -2690,7 +2666,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
         </div>
       </div>
       <section
-        class="container_f1m49pie"
+        class="container_f4mez8i"
         data-testid="search-section"
       >
         <p
@@ -2744,7 +2720,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-                    id="select-repository-label"
+                    id="Base"
                   >
                     Base
                     <svg
@@ -2770,42 +2746,40 @@ exports[`Compare With Base should remove the checked revision once X button is c
                     class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fl6uoag  -base-dropdown css-1awobkc-MuiGrid-root"
                     id="base_search-dropdown"
                   >
-                    <div>
+                    <div
+                      class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+                    >
                       <div
-                        class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+                        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                        data-testid="dropdown-select-base"
                       >
                         <div
-                          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-                          data-testid="dropdown-select-base"
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          aria-labelledby="Base"
+                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                          role="button"
+                          tabindex="0"
                         >
-                          <div
-                            aria-expanded="false"
-                            aria-haspopup="listbox"
-                            aria-labelledby="select-repository-label"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                            role="button"
-                            tabindex="0"
-                          >
-                            try
-                          </div>
-                          <input
-                            aria-hidden="true"
-                            class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                            tabindex="-1"
-                            value="try"
-                          />
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
-                            data-testid="ArrowDropDownIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M7 10l5 5 5-5z"
-                            />
-                          </svg>
+                          try
                         </div>
+                        <input
+                          aria-hidden="true"
+                          class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                          tabindex="-1"
+                          value="try"
+                        />
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+                          data-testid="ArrowDropDownIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M7 10l5 5 5-5z"
+                          />
+                        </svg>
                       </div>
                     </div>
                   </div>
@@ -2888,7 +2862,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-                    id="select-repository-label"
+                    id="Revisions"
                   >
                     Revisions
                     <svg
@@ -2914,42 +2888,40 @@ exports[`Compare With Base should remove the checked revision once X button is c
                     class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fl6uoag  -base-dropdown css-1awobkc-MuiGrid-root"
                     id="new_search-dropdown"
                   >
-                    <div>
+                    <div
+                      class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+                    >
                       <div
-                        class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+                        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                        data-testid="dropdown-select-new"
                       >
                         <div
-                          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-                          data-testid="dropdown-select-new"
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          aria-labelledby="Revisions"
+                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                          role="button"
+                          tabindex="0"
                         >
-                          <div
-                            aria-expanded="false"
-                            aria-haspopup="listbox"
-                            aria-labelledby="select-repository-label"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                            role="button"
-                            tabindex="0"
-                          >
-                            try
-                          </div>
-                          <input
-                            aria-hidden="true"
-                            class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                            tabindex="-1"
-                            value="try"
-                          />
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
-                            data-testid="ArrowDropDownIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M7 10l5 5 5-5z"
-                            />
-                          </svg>
+                          try
                         </div>
+                        <input
+                          aria-hidden="true"
+                          class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                          tabindex="-1"
+                          value="try"
+                        />
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+                          data-testid="ArrowDropDownIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M7 10l5 5 5-5z"
+                          />
+                        </svg>
                       </div>
                     </div>
                   </div>
@@ -3027,64 +2999,62 @@ exports[`Compare With Base should remove the checked revision once X button is c
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fl6uoag fjuaqdk css-13eijkh-MuiGrid-root"
               >
-                <div>
-                  <div
-                    class="MuiFormControl-root framework-dropdown fnpbx3q css-1nrlq1o-MuiFormControl-root"
+                <div
+                  class="MuiFormControl-root framework-dropdown f1pm9d4y css-1nrlq1o-MuiFormControl-root"
+                >
+                  <label
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
+                    data-shrink="true"
+                    id="select-framework-label"
                   >
-                    <label
-                      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
-                      data-shrink="true"
-                      id="select-framework-label"
+                    Framework
+                    <svg
+                      aria-hidden="true"
+                      aria-label="The framework or test harness containing the test you want to examine."
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+                      data-mui-internal-clone-element="true"
+                      data-testid="InfoOutlinedIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
                     >
-                      Framework
-                      <svg
-                        aria-hidden="true"
-                        aria-label="The framework or test harness containing the test you want to examine."
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
-                        data-mui-internal-clone-element="true"
-                        data-testid="InfoOutlinedIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-                        />
-                      </svg>
-                    </label>
-                    <div
-                      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-                      data-testid="dropdown-select-framework"
-                    >
-                      <div
-                        aria-expanded="false"
-                        aria-haspopup="listbox"
-                        aria-labelledby="select-framework-label mui-component-select-framework"
-                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                        id="mui-component-select-framework"
-                        role="button"
-                        tabindex="0"
-                      >
-                        talos
-                      </div>
-                      <input
-                        aria-hidden="true"
-                        class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                        name="framework"
-                        tabindex="-1"
-                        value="1"
+                      <path
+                        d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
                       />
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
-                        data-testid="ArrowDropDownIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M7 10l5 5 5-5z"
-                        />
-                      </svg>
+                    </svg>
+                  </label>
+                  <div
+                    class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                    data-testid="dropdown-select-framework"
+                  >
+                    <div
+                      aria-expanded="false"
+                      aria-haspopup="listbox"
+                      aria-labelledby="select-framework-label mui-component-select-framework"
+                      class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                      id="mui-component-select-framework"
+                      role="button"
+                      tabindex="0"
+                    >
+                      talos
                     </div>
+                    <input
+                      aria-hidden="true"
+                      class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                      name="framework"
+                      tabindex="-1"
+                      value="1"
+                    />
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+                      data-testid="ArrowDropDownIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M7 10l5 5 5-5z"
+                      />
+                    </svg>
                   </div>
                 </div>
                 <button
@@ -3144,11 +3114,11 @@ exports[`Compare With Base should remove the checked revision once X button is c
                 class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 $new-search-dropdown dropDown_fl6uoag label-edit-wrapper css-13eijkh-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fl6uoag label-edit-wrapper css-13eijkh-MuiGrid-root"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-                    id="select-repository-label--time"
+                    id="Revisions"
                   >
                     Revisions
                     <svg
@@ -3171,45 +3141,43 @@ exports[`Compare With Base should remove the checked revision once X button is c
                   id="new-search-container--time"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fl6uoag  -base-dropdown css-1awobkc-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fl6uoag  -new-dropdown css-1awobkc-MuiGrid-root"
                     id="new_search-dropdown--time"
                   >
-                    <div>
+                    <div
+                      class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+                    >
                       <div
-                        class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+                        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                        data-testid="dropdown-select-new"
                       >
                         <div
-                          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-                          data-testid="dropdown-select-new"
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          aria-labelledby="Revisions"
+                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                          role="button"
+                          tabindex="0"
                         >
-                          <div
-                            aria-expanded="false"
-                            aria-haspopup="listbox"
-                            aria-labelledby="select-repository-label"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                            role="button"
-                            tabindex="0"
-                          >
-                            try
-                          </div>
-                          <input
-                            aria-hidden="true"
-                            class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                            tabindex="-1"
-                            value="try"
-                          />
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
-                            data-testid="ArrowDropDownIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M7 10l5 5 5-5z"
-                            />
-                          </svg>
+                          try
                         </div>
+                        <input
+                          aria-hidden="true"
+                          class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                          tabindex="-1"
+                          value="try"
+                        />
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+                          data-testid="ArrowDropDownIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M7 10l5 5 5-5z"
+                          />
+                        </svg>
                       </div>
                     </div>
                   </div>
@@ -3274,11 +3242,13 @@ exports[`Compare With Base should remove the checked revision once X button is c
                 </div>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fl6uoag fjuaqdk css-13eijkh-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fl6uoag fx35f8m css-13eijkh-MuiGrid-root"
               >
-                <div>
+                <div
+                  class="bottom-dropdowns"
+                >
                   <div
-                    class="MuiFormControl-root framework-dropdown fnpbx3q css-1nrlq1o-MuiFormControl-root"
+                    class="MuiFormControl-root framework-dropdown f9u9kv7 css-1nrlq1o-MuiFormControl-root"
                   >
                     <label
                       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
@@ -3321,6 +3291,64 @@ exports[`Compare With Base should remove the checked revision once X button is c
                         name="framework"
                         tabindex="-1"
                         value="1"
+                      />
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+                        data-testid="ArrowDropDownIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M7 10l5 5 5-5z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div
+                    class="MuiFormControl-root timerange-dropdown f9u9kv7 css-1nrlq1o-MuiFormControl-root"
+                  >
+                    <label
+                      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
+                      data-shrink="true"
+                      id="select-timerange-label"
+                    >
+                      Time range
+                      <svg
+                        aria-hidden="true"
+                        aria-label="The time range to compare revisions."
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+                        data-mui-internal-clone-element="true"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                        />
+                      </svg>
+                    </label>
+                    <div
+                      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                      data-testid="dropdown-select-timerange"
+                    >
+                      <div
+                        aria-expanded="false"
+                        aria-haspopup="listbox"
+                        aria-labelledby="select-timerange-label mui-component-select-timerange"
+                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                        id="mui-component-select-timerange"
+                        role="button"
+                        tabindex="0"
+                      >
+                        Last day
+                      </div>
+                      <input
+                        aria-hidden="true"
+                        class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                        name="timerange"
+                        tabindex="-1"
+                        value="86400"
                       />
                       <svg
                         aria-hidden="true"
