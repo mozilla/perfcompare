@@ -1,3 +1,6 @@
+import { tcClientIdMap } from '../../logic/taskcluster';
+import { getLocationOrigin } from '../../utils/location';
+
 interface RequestOptions {
   method: string;
   body: string;
@@ -30,18 +33,11 @@ const fetchData = async (url: string, options: RequestOptions) => {
 };
 
 export async function loader({ request }: { request: Request }) {
-  // TODO remove this after integrating the auth code logic
-  sessionStorage.setItem('requestState', 'OkCrH5isZncYqeJbRDelN');
-  sessionStorage.setItem(
-    'tcRootUrl',
-    'https://firefox-ci-tc.services.mozilla.com',
-  );
-  // END TODO remove
-
   const tcAuthCallbackUrl = '/taskcluster-auth';
   const redirectURI = `${window.location.origin}${tcAuthCallbackUrl}`;
-  // TODO update to a valid perfcompare clientId
-  const clientId = `treeherder-localhost-5000-client`;
+
+  const locationOrigin = getLocationOrigin();
+  const clientId = tcClientIdMap[locationOrigin];
 
   const url = new URL(request.url);
 
@@ -50,7 +46,7 @@ export async function loader({ request }: { request: Request }) {
 
   const requestState = sessionStorage.getItem('requestState');
 
-  const rootUrl = sessionStorage.getItem('tcRootUrl') as string;
+  const rootUrl = sessionStorage.getItem('taskclusterUrl') as string;
 
   if (!taskclusterCode) {
     throw new Error(`Error when getting Taskcluster code from URL.`);
