@@ -10,6 +10,7 @@ import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles, SearchStyles, Spacing } from '../../styles';
 import { Changeset } from '../../types/state';
+import { TimeRange } from '../../types/types';
 import CompareButton from './CompareButton';
 import FrameworkDropdown from './FrameworkDropdown';
 import SearchOverTime from './SearchOverTime';
@@ -27,6 +28,9 @@ interface CompareWithTimeProps {
 
 function CompareOverTime({ isEditable }: CompareWithTimeProps) {
   const [expanded, setExpanded] = useState(false);
+  const [timeRangeValue, setTimeRangeValue] = useState(
+    86400 as TimeRange['value'],
+  );
 
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = CompareCardsStyles(mode);
@@ -115,7 +119,12 @@ function CompareOverTime({ isEditable }: CompareWithTimeProps) {
           >
             <div className='bottom-dropdowns'>
               <FrameworkDropdown compact={true} />
-              <TimeRangeDropdown />
+              <TimeRangeDropdown
+                timeRangeValue={timeRangeValue}
+                onChange={(val: TimeRange['value']) => {
+                  setTimeRangeValue(val);
+                }}
+              />
             </div>
 
             <CompareButton label={strings.overTime.title} />

@@ -93,7 +93,7 @@ describe('Base and OverTime Search', () => {
     // 'try' is selected by default and dropdown is not visible
     expect(screen.getAllByText(/try/i)[0]).toBeInTheDocument();
     //test the overtime component
-    expect(screen.getAllByText(/try/i)[1]).toBeInTheDocument();
+    expect(screen.getAllByText(/try/i)[2]).toBeInTheDocument();
 
     expect(screen.queryByText(/autoland/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/mozilla-central/i)).not.toBeInTheDocument();

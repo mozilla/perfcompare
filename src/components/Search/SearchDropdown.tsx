@@ -20,15 +20,16 @@ interface SearchDropdownProps {
   selectLabel: string;
   searchType: InputType;
   repository: Repository['name'];
+  labelIdInfo: string;
   onChange: (val: Repository['name']) => unknown;
 }
 
 //handle in progress repos here if necessary
 function SearchDropdown({
   compact,
-  selectLabel,
   searchType,
   repository,
+  labelIdInfo,
   onChange,
 }: SearchDropdownProps) {
   const size = compact ? 'small' : undefined;
@@ -81,9 +82,9 @@ function SearchDropdown({
         className={`search-dropdown ${styles.container}`}
       >
         <Select
-          data-testid={`dropdown-select-${searchType}`}
+          data-testid={`dropdown-select-${labelIdInfo}`}
           value={repository}
-          labelId={selectLabel}
+          labelId={labelIdInfo}
           className='dropdown-select'
           variant='standard'
           onChange={(e) => void handleRepoSelect(e)}

@@ -7,8 +7,7 @@ import Tooltip from '@mui/material/Tooltip';
 import { style, cssRule } from 'typestyle';
 
 import { timeRangeMap } from '../../common/constants';
-import { useAppDispatch, useAppSelector } from '../../hooks/app';
-import { updateTimeRange } from '../../reducers/TimeRangeSlice';
+import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import {
   Spacing,
@@ -24,7 +23,15 @@ import type { TimeRange } from '../../types/types';
 
 const strings = Strings.components.searchDefault.overTime.collapsed.timeRange;
 
-function TimeRangeDropdown() {
+interface TimeRangeDropdownProps {
+  timeRangeValue: TimeRange['value'];
+  onChange: (val: TimeRange['value']) => unknown;
+}
+
+function TimeRangeDropdown({
+  timeRangeValue,
+  onChange,
+}: TimeRangeDropdownProps) {
   const mode = useAppSelector((state) => state.theme.mode);
 
   cssRule('.MuiTooltip-popper', {
@@ -74,19 +81,9 @@ function TimeRangeDropdown() {
     }),
   };
 
-  const dispatch = useAppDispatch();
-  const timeRangeValue = useAppSelector((state) => state.timeRange.value);
-
   const handleTimeRangeSelect = async (event: SelectChangeEvent) => {
     const value = +event.target.value as TimeRange['value'];
-    const text = timeRangeMap[value];
-
-    dispatch(
-      updateTimeRange({
-        value,
-        text,
-      }),
-    );
+    onChange(value);
   };
 
   return (
@@ -114,7 +111,7 @@ function TimeRangeDropdown() {
           {Object.entries(timeRangeMap).map(([value, text]) => (
             <MenuItem
               value={value}
-              key={text}
+              key={value}
               className='timerange-dropdown-item'
             >
               {text}

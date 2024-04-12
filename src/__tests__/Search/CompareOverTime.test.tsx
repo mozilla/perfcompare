@@ -110,8 +110,15 @@ describe('Compare Over Time', () => {
     const mozRepoItem = await screen.findAllByRole('option', {
       name: 'mozilla-central',
     });
-    await user.click(mozRepoItem[1]);
+    await user.click(mozRepoItem[0]);
     expect(screen.getAllByText(/mozilla-central/i)[0]).toBeInTheDocument();
+
+    await user.click(newDropdown);
+    const autolandItem = await screen.findAllByRole('option', {
+      name: 'autoland',
+    });
+    await user.click(autolandItem[0]);
+    expect(screen.getAllByText(/autoland/i)[0]).toBeInTheDocument();
   });
 
   it('selects and displays new framework when clicked', async () => {
