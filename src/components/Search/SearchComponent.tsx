@@ -37,6 +37,7 @@ interface SearchProps {
   tooltip: string;
   inputPlaceholder: string;
   repository: Repository['name'];
+  labelIdInfo: string;
   onRepositoryChange: (repo: Repository['name']) => unknown;
 }
 
@@ -55,6 +56,7 @@ function SearchComponent({
   inputPlaceholder,
   isWarning,
   repository,
+  labelIdInfo,
   onRepositoryChange,
 }: SearchProps) {
   const mode = useAppSelector((state) => state.theme.mode);
@@ -94,10 +96,7 @@ function SearchComponent({
           styles.dropDown
         } label-edit-wrapper`}
       >
-        <InputLabel
-          id='select-repository-label'
-          className='dropdown-select-label'
-        >
+        <InputLabel id={labelIdInfo} className='dropdown-select-label'>
           {selectLabel}
           <Tooltip placement='top' title={tooltip}>
             <InfoIcon fontSize='small' className='dropdown-info-icon' />
@@ -136,6 +135,7 @@ function SearchComponent({
             selectLabel={selectLabel}
             searchType={searchType}
             repository={repository}
+            labelIdInfo={labelIdInfo}
             onChange={onRepositoryChange}
           />
         </Grid>

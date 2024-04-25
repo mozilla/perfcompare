@@ -11,11 +11,11 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
     class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 $new-search-dropdown dropDown_fl6uoag label-edit-wrapper css-13eijkh-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fl6uoag label-edit-wrapper css-13eijkh-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-        id="select-repository-label--time"
+        id="repo-dropdown--overtime"
       >
         Revisions
         <svg
@@ -38,45 +38,43 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
       id="new-search-container--time"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fl6uoag  -base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fl6uoag  -new-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown--time"
       >
-        <div>
+        <div
+          class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+        >
           <div
-            class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+            data-testid="dropdown-select-repo-dropdown--overtime"
           >
             <div
-              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-              data-testid="dropdown-select-new"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-labelledby="repo-dropdown--overtime"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              role="button"
+              tabindex="0"
             >
-              <div
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-labelledby="select-repository-label"
-                class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                role="button"
-                tabindex="0"
-              >
-                try
-              </div>
-              <input
-                aria-hidden="true"
-                class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                tabindex="-1"
-                value="try"
-              />
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
-                data-testid="ArrowDropDownIcon"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M7 10l5 5 5-5z"
-                />
-              </svg>
+              try
             </div>
+            <input
+              aria-hidden="true"
+              class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+              tabindex="-1"
+              value="try"
+            />
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+              data-testid="ArrowDropDownIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7 10l5 5 5-5z"
+              />
+            </svg>
           </div>
         </div>
       </div>
@@ -141,11 +139,13 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
     </div>
   </div>
   <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fl6uoag fjuaqdk css-13eijkh-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fl6uoag fx35f8m css-13eijkh-MuiGrid-root"
   >
-    <div>
+    <div
+      class="bottom-dropdowns"
+    >
       <div
-        class="MuiFormControl-root framework-dropdown fnpbx3q css-1nrlq1o-MuiFormControl-root"
+        class="MuiFormControl-root framework-dropdown f9u9kv7 css-1nrlq1o-MuiFormControl-root"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
@@ -188,6 +188,64 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
             name="framework"
             tabindex="-1"
             value="1"
+          />
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+            data-testid="ArrowDropDownIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7 10l5 5 5-5z"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        class="MuiFormControl-root timerange-dropdown f9u9kv7 css-1nrlq1o-MuiFormControl-root"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
+          data-shrink="true"
+          id="select-timerange-label"
+        >
+          Time range
+          <svg
+            aria-hidden="true"
+            aria-label="The time range to compare revisions."
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+            data-mui-internal-clone-element="true"
+            data-testid="InfoOutlinedIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+            />
+          </svg>
+        </label>
+        <div
+          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+          data-testid="dropdown-select-timerange"
+        >
+          <div
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-labelledby="select-timerange-label mui-component-select-timerange"
+            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+            id="mui-component-select-timerange"
+            role="button"
+            tabindex="0"
+          >
+            Last day
+          </div>
+          <input
+            aria-hidden="true"
+            class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+            name="timerange"
+            tabindex="-1"
+            value="86400"
           />
           <svg
             aria-hidden="true"
@@ -341,6 +399,112 @@ exports[`Compare Over Time selects and displays new framework when clicked 1`] =
     tabindex="0"
   >
     talos
+    <span
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+    />
+  </li>
+</ul>
+`;
+
+exports[`Compare Over Time selects and displays new time range when clicked 1`] = `
+<ul
+  aria-labelledby="select-timerange-label"
+  class="MuiList-root MuiList-padding MuiMenu-list css-6hp17o-MuiList-root-MuiMenu-list"
+  role="listbox"
+  tabindex="-1"
+>
+  <li
+    aria-selected="true"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters Mui-selected MuiMenuItem-root MuiMenuItem-gutters Mui-selected timerange-dropdown-item css-shx448-MuiButtonBase-root-MuiMenuItem-root"
+    data-value="86400"
+    role="option"
+    tabindex="0"
+  >
+    Last day
+    <span
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+    />
+  </li>
+  <li
+    aria-selected="false"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item css-shx448-MuiButtonBase-root-MuiMenuItem-root"
+    data-value="172800"
+    role="option"
+    tabindex="-1"
+  >
+    Last 2 days
+    <span
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+    />
+  </li>
+  <li
+    aria-selected="false"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item css-shx448-MuiButtonBase-root-MuiMenuItem-root"
+    data-value="604800"
+    role="option"
+    tabindex="-1"
+  >
+    Last 7 days
+    <span
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+    />
+  </li>
+  <li
+    aria-selected="false"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item css-shx448-MuiButtonBase-root-MuiMenuItem-root"
+    data-value="1209600"
+    role="option"
+    tabindex="-1"
+  >
+    Last 14 days
+    <span
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+    />
+  </li>
+  <li
+    aria-selected="false"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item css-shx448-MuiButtonBase-root-MuiMenuItem-root"
+    data-value="2592000"
+    role="option"
+    tabindex="-1"
+  >
+    Last 30 days
+    <span
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+    />
+  </li>
+  <li
+    aria-selected="false"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item css-shx448-MuiButtonBase-root-MuiMenuItem-root"
+    data-value="5184000"
+    role="option"
+    tabindex="-1"
+  >
+    Last 60 days
+    <span
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+    />
+  </li>
+  <li
+    aria-selected="false"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item css-shx448-MuiButtonBase-root-MuiMenuItem-root"
+    data-value="7776000"
+    role="option"
+    tabindex="-1"
+  >
+    Last 90 days
+    <span
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+    />
+  </li>
+  <li
+    aria-selected="false"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item css-shx448-MuiButtonBase-root-MuiMenuItem-root"
+    data-value="31536000"
+    role="option"
+    tabindex="-1"
+  >
+    Last year
     <span
       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
     />

@@ -72,10 +72,10 @@ export default function SearchOverTime({
       <Grid
         item
         xs={2}
-        className={`$new-search-dropdown ${styles.dropDown} label-edit-wrapper`}
+        className={`new-search-dropdown ${styles.dropDown} label-edit-wrapper`}
       >
         <InputLabel
-          id='select-repository-label--time'
+          id='repo-dropdown--overtime'
           className='dropdown-select-label'
         >
           {selectLabel}
@@ -97,13 +97,14 @@ export default function SearchOverTime({
           id='new_search-dropdown--time'
           className={`new-search-dropdown ${styles.dropDown} ${
             isEditable ? 'small' : ''
-          } ${isEditable ? compareView : ''}-base-dropdown`}
+          } ${isEditable ? compareView : ''}-new-dropdown`}
         >
           <SearchDropdown
             compact={false}
             selectLabel={selectLabel}
             searchType='new'
             repository={repository}
+            labelIdInfo='repo-dropdown--overtime'
             onChange={(repo: Repository['name']) => setRepository(repo)}
           />
         </Grid>

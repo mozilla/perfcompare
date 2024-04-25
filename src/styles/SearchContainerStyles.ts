@@ -7,7 +7,7 @@ export const SearchContainerStyles = (mode: string, isHome: boolean) => {
 
   const styles = stylesheet({
     container: {
-      maxWidth: isHome ? '810px' : '950px',
+      maxWidth: isHome ? '850px' : '950px',
       marginTop: isHome ? `${Spacing.layoutLarge + 20}px` : '0px',
       margin: '0 auto',
       marginBottom: isHome ? '0px' : `${Spacing.layoutXLarge + 4}px`,
