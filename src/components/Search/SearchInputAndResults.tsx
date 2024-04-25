@@ -9,7 +9,6 @@ import SearchResultsList from './SearchResultsList';
 interface Props {
   compact: boolean;
   inputPlaceholder: string;
-  searchResults: Changeset[];
   displayedRevisions: Changeset[];
   searchType: 'base' | 'new';
   repository: Repository['name'];
@@ -19,13 +18,16 @@ interface Props {
 export default function SearchInputAndResults({
   compact,
   inputPlaceholder,
-  searchResults,
   displayedRevisions,
   searchType,
   repository,
   onSearchResultsToggle,
 }: Props) {
   const [displayDropdown, setDisplayDropdown] = useState(false);
+  const [recentRevisions, setRecentRevisions] = useState(
+    null as null | Changeset[],
+  );
+  const [searchError, setSearchError] = useState(null as null | string);
   const containerRef = useRef(null as null | HTMLElement);
 
   const handleDocumentMousedown = useCallback(
@@ -71,12 +73,13 @@ export default function SearchInputAndResults({
         inputPlaceholder={inputPlaceholder}
         searchType={searchType}
         repository={repository}
+        searchError={searchError}
       />
 
-      {searchResults.length > 0 && displayDropdown && (
+      {recentRevisions && displayDropdown && (
         <SearchResultsList
           compact={compact}
-          searchResults={searchResults}
+          searchResults={recentRevisions}
           displayedRevisions={displayedRevisions}
           onToggle={onSearchResultsToggle}
         />

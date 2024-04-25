@@ -15,6 +15,7 @@ interface SearchInputProps {
   compact: boolean;
   searchType: InputType;
   repository: Repository['name'];
+  searchError: null | string;
 }
 
 function SearchInput({
@@ -23,11 +24,10 @@ function SearchInput({
   inputPlaceholder,
   searchType,
   repository,
+  searchError,
 }: SearchInputProps) {
   const { handleChangeSearch } = useHandleChangeSearch();
-  const searchState = useAppSelector((state) => state.search[searchType]);
   const mode = useAppSelector((state) => state.theme.mode);
-  const { inputError, inputHelperText } = searchState;
   const size = compact ? 'small' : undefined;
 
   const styles = {
@@ -50,8 +50,8 @@ function SearchInput({
   return (
     <FormControl className={styles.container} fullWidth>
       <TextField
-        error={inputError}
-        helperText={inputError && inputHelperText}
+        error={Boolean(searchError)}
+        helperText={searchError}
         placeholder={inputPlaceholder}
         id={`search-${searchType}-input`}
         onFocus={onFocus}
