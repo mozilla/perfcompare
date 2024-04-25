@@ -2,6 +2,8 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 
 import Box from '@mui/material/Box';
 
+import { fetchRecentRevisions } from '../../logic/treeherder';
+import { Strings } from '../../resources/Strings';
 import type { Changeset, Repository } from '../../types/state';
 import SearchInput from './SearchInput';
 import SearchResultsList from './SearchResultsList';
@@ -48,6 +50,49 @@ export default function SearchInputAndResults({
   const handleEscKeypress = (e: KeyboardEvent) => {
     if (e.key === 'Escape') {
       setDisplayDropdown(false);
+    }
+  };
+
+  const searchRecentRevisions = async (searchTerm: string) => {
+    const emailMatch = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const longHashMatch = /\b[a-f0-9]{40}\b/;
+    const shortHashMatch = /\b[a-f0-9]{12}\b/;
+
+    setSearchError(null);
+    let searchParameters;
+    if (!searchTerm) {
+      searchParameters = { repository };
+    } else if (emailMatch.test(searchTerm)) {
+      searchParameters = { repository, author: searchTerm };
+    } else if (
+      longHashMatch.test(searchTerm) ||
+      shortHashMatch.test(searchTerm)
+    ) {
+      searchParameters = { repository, hash: searchTerm };
+    } else {
+      setSearchError(Strings.errors.warningText);
+      setRecentRevisions(null);
+      return;
+    }
+
+    try {
+      const results = await fetchRecentRevisions(searchParameters);
+      if (results.length) {
+        setRecentRevisions(results);
+      } else {
+        setSearchError('No results found');
+        setRecentRevisions(null);
+      }
+    } catch (e) {
+      console.error('Error while fetching recent revisions:', e);
+      const strError =
+        typeof e === 'string'
+          ? e
+          : e instanceof Error
+          ? e.message
+          : `Unknown error: ${String(e)}`;
+      setSearchError(strError || 'An error has occurred');
+      setRecentRevisions(null);
     }
   };
 
