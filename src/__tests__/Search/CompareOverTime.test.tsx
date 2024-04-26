@@ -13,7 +13,7 @@ import {
 function setUpTestData() {
   const { testData } = getTestData();
   (global.fetch as FetchMockSandbox)
-    .get('begin:https://treeherder.mozilla.org/api/project/try/push/', {
+    .get('glob:https://treeherder.mozilla.org/api/project/*/push/*', {
       results: testData,
     })
     .get('begin:https://treeherder.mozilla.org/api/perfcompare/results/', [])

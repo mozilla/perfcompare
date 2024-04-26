@@ -97,7 +97,7 @@ describe('Search View/fetchRecentRevisions', () => {
       undefined,
     );
     expect(console.error).toHaveBeenCalledWith(
-      'FetchRecentRevisions ERROR: ',
+      'Error while fetching recent revisions:',
       new Error(errorMessage),
     );
   });

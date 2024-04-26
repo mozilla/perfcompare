@@ -188,10 +188,11 @@ describe('Base and OverTime Search', () => {
       ),
     ).toBeInTheDocument();
 
-    // fetch is called 5 times:
-    // - 2 times on initial load
-    // - 1 time for each "clear"
-    expect(global.fetch).toHaveBeenCalledTimes(5);
+    // fetch is called 6 times:
+    // - 3 times on initial load: one for each input, that is 2 in "compare with
+    //   base", 1 in "compare over time"
+    // - 3 times from the user interaction: 1 time for each "clear"
+    expect(global.fetch).toHaveBeenCalledTimes(6);
   });
 
   it('Should clear search results if the search value is cleared', async () => {
@@ -204,7 +205,7 @@ describe('Base and OverTime Search', () => {
     act(() => void jest.runAllTimers());
 
     expect(global.fetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/try/push/?author=terryjones@python.com',
+      'https://treeherder.mozilla.org/api/project/try/push/?author=terryjones%40python.com',
       undefined,
     );
 
@@ -256,10 +257,11 @@ describe('Base and OverTime Search', () => {
     expect(errorElements[0]).toBeInTheDocument();
     expect(errorElements[1]).toBeInTheDocument();
     expect(console.error).toHaveBeenCalledWith(
-      'FetchRecentRevisions ERROR: ',
+      'Error while fetching recent revisions:',
       new Error(),
     );
-    expect(console.error).toHaveBeenCalledTimes(2);
+    // 3 times: 1 for each input, that is 2 in compare with base, 1 in compare over time
+    expect(console.error).toHaveBeenCalledTimes(3);
   });
 
   it('should have compare button and once clicked should redirect to results page with the right query params', async () => {
