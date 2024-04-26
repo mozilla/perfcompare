@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import { fetchRecentRevisions } from '../../logic/treeherder';
 import { Strings } from '../../resources/Strings';
 import type { Changeset, Repository } from '../../types/state';
+import { simpleDebounce } from '../../utils/simple-debounce';
 import SearchInput from './SearchInput';
 import SearchResultsList from './SearchResultsList';
 
@@ -96,6 +97,14 @@ export default function SearchInputAndResults({
     }
   };
 
+  const debouncedSearchRecentRevisions = simpleDebounce(searchRecentRevisions);
+  const onValueChange = (searchTerm: string) => {
+    // Reset various states
+    setSearchError(null);
+    setRecentRevisions(null);
+    debouncedSearchRecentRevisions(searchTerm);
+  };
+
   useEffect(() => {
     document.addEventListener('mousedown', handleDocumentMousedown);
     return () => {
@@ -117,8 +126,8 @@ export default function SearchInputAndResults({
         compact={compact}
         inputPlaceholder={inputPlaceholder}
         searchType={searchType}
-        repository={repository}
         searchError={searchError}
+        onChange={onValueChange}
       />
 
       {recentRevisions && displayDropdown && (
