@@ -31,6 +31,11 @@ export default function SearchInputAndResults({
     null as null | Changeset[],
   );
   const [searchError, setSearchError] = useState(null as null | string);
+
+  // The last used searchTerm is kept in a ref, so that it's possible to use it
+  // in an effect when the repository prop changes. It's not stored in a state
+  // because it's not used for rendering DOM.
+  const lastSearchTermRef = useRef('');
   const containerRef = useRef(null as null | HTMLElement);
 
   const handleDocumentMousedown = useCallback(
@@ -59,7 +64,10 @@ export default function SearchInputAndResults({
     const longHashMatch = /\b[a-f0-9]{40}\b/;
     const shortHashMatch = /\b[a-f0-9]{12}\b/;
 
+    // Reset various states
     setSearchError(null);
+    lastSearchTermRef.current = '';
+
     let searchParameters;
     if (!searchTerm) {
       searchParameters = { repository };
@@ -75,6 +83,10 @@ export default function SearchInputAndResults({
       setRecentRevisions(null);
       return;
     }
+
+    // Keep the current searchTerm in ref so that we can use it when the
+    // repository information changes.
+    lastSearchTermRef.current = searchTerm;
 
     try {
       const results = await fetchRecentRevisions(searchParameters);
@@ -104,6 +116,13 @@ export default function SearchInputAndResults({
     setRecentRevisions(null);
     debouncedSearchRecentRevisions(searchTerm);
   };
+
+  // At load time and everytime the repository information changes, the recent
+  // revisions are fetched again. It's useful so that the dropdown is shown
+  // right away when focusing the input.
+  useEffect(() => {
+    void searchRecentRevisions(lastSearchTermRef.current);
+  }, [repository]);
 
   useEffect(() => {
     document.addEventListener('mousedown', handleDocumentMousedown);
