@@ -21,12 +21,15 @@ function SearchContainer(props: SearchViewProps) {
     >
       <Typography className='search-default-title'>{strings.title}</Typography>
       <CompareWithBase
+        //why is this false? Shouldn't it be true?
+        //There's no editables state in home page
+        //What was the reason for isEditable to hasNonEditableState?
         hasNonEditableState={false}
         baseRev={null}
         newRevs={[]}
       />
       {/* hidden until post-mvp release */}
-      <CompareOverTime isEditable={false} baseRevs={[]} newRevs={[]} />
+      <CompareOverTime hasNonEditableState={false} newRevs={[]} />
     </section>
   );
 }
