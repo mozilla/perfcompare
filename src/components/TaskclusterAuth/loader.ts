@@ -1,44 +1,6 @@
-import { tcClientIdMap } from '../../logic/taskcluster';
-import { getLocationOrigin } from '../../utils/location';
+import { retrieveTaskclusterToken } from '../../logic/taskcluster';
 
-interface RequestOptions {
-  method: string;
-  body: URLSearchParams;
-  headers: {
-    'Content-Type': string;
-  };
-}
-
-interface ResponseToken {
-  access_token: string;
-  token_type: 'Bearer';
-}
-
-const fetchData = async (url: string, options: RequestOptions) => {
-  const response = await fetch(url, options);
-
-  if (!response.ok) {
-    if (response.status === 400) {
-      throw new Error(
-        `Error when requesting Taskcluster: ${await response.text()}`,
-      );
-    } else {
-      throw new Error(
-        `Error when requesting Taskcluster: (${response.status}) ${response.statusText}`,
-      );
-    }
-  }
-
-  return response.json() as Promise<ResponseToken>;
-};
-
-export async function loader({ request }: { request: Request }) {
-  const tcAuthCallbackUrl = '/taskcluster-auth';
-  const redirectURI = `${window.location.origin}${tcAuthCallbackUrl}`;
-
-  const locationOrigin = getLocationOrigin();
-  const clientId = tcClientIdMap[locationOrigin];
-
+export function loader({ request }: { request: Request }) {
   const url = new URL(request.url);
 
   const taskclusterCode = url.searchParams.get('code') as string;
@@ -58,26 +20,11 @@ export async function loader({ request }: { request: Request }) {
     );
   }
 
-  // fetch token Bearer, it will be used to fetch the access_token
-  const body = new URLSearchParams({
-    grant_type: 'authorization_code',
-    code: taskclusterCode,
-    redirect_uri: redirectURI,
-    client_id: clientId,
-  });
-
-  const options: RequestOptions = {
-    method: 'POST',
-    body: body,
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-  };
-
-  // fetch token Bearer
-  const response = await fetchData(`${rootUrl}/login/oauth/token`, options);
+  const tokenBearer = retrieveTaskclusterToken(rootUrl, taskclusterCode);
 
   // TODO fetch access token with token Bearer
 
-  return response;
+  return tokenBearer;
 }
 
 export type LoaderReturnValue = Awaited<ReturnType<typeof loader>>;
