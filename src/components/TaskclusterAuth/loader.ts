@@ -3,7 +3,7 @@ import { getLocationOrigin } from '../../utils/location';
 
 interface RequestOptions {
   method: string;
-  body: string;
+  body: URLSearchParams;
   headers: {
     'Content-Type': string;
   };
@@ -68,7 +68,7 @@ export async function loader({ request }: { request: Request }) {
 
   const options: RequestOptions = {
     method: 'POST',
-    body: body.toString(),
+    body: body,
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
   };
 
