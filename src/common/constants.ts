@@ -5,6 +5,7 @@ import {
   Framework,
   Platform,
   SupportedPerfdocsFramework,
+  TimeRange,
 } from '../types/types';
 
 export const treeherderBaseURL = 'https://treeherder.mozilla.org';
@@ -34,6 +35,17 @@ export const frameworkMap: Record<Framework['id'], Framework['name']> = {
   13: 'browsertime',
   15: 'mozperftest',
   16: 'fxrecord',
+};
+
+export const timeRangeMap: Record<TimeRange['value'], TimeRange['text']> = {
+  86400: 'Last day',
+  172800: 'Last 2 days',
+  604800: 'Last 7 days',
+  1209600: 'Last 14 days',
+  2592000: 'Last 30 days',
+  5184000: 'Last 60 days',
+  7776000: 'Last 90 days',
+  31536000: 'Last year',
 };
 
 export const supportedPerfdocsFrameworks: Record<

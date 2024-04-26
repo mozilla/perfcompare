@@ -24,6 +24,14 @@ function setupTestData() {
   );
 }
 
+async function expandOverTimeComponent() {
+  const user = userEvent.setup({ delay: null });
+  const testExpandedID = 'time-state';
+  const headerContent = screen.getByTestId(testExpandedID);
+
+  await user.click(headerContent);
+}
+
 function renderComponent() {
   setupTestData();
   return renderWithRouter(
@@ -70,7 +78,7 @@ describe('Search Container', () => {
     const baseInput = screen.getByPlaceholderText(
       'Search base by ID number or author email',
     );
-    const repoDropdown = screen.getAllByRole('button', { name: 'Base' })[0];
+    const repoDropdown = screen.getByRole('button', { name: 'Base' });
 
     expect(compTitle).toBeInTheDocument();
     expect(baseInput).toBeInTheDocument();
@@ -78,11 +86,15 @@ describe('Search Container', () => {
   });
 });
 
-describe('Base Search', () => {
-  it('renders repository dropdown in closed condition', async () => {
+describe('Base and OverTime Search', () => {
+  it('renders repository dropdown in closed condition in both Base and OverTime components', async () => {
     renderComponent();
+    await expandOverTimeComponent();
     // 'try' is selected by default and dropdown is not visible
     expect(screen.getAllByText(/try/i)[0]).toBeInTheDocument();
+    //test the overtime component
+    expect(screen.getAllByText(/try/i)[2]).toBeInTheDocument();
+
     expect(screen.queryByText(/autoland/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/mozilla-central/i)).not.toBeInTheDocument();
 
@@ -116,7 +128,7 @@ describe('Base Search', () => {
     expect(comment[0]).toBeInTheDocument();
 
     // Click outside the input box to hide search results.
-    const label = screen.getAllByLabelText('Base')[0];
+    const label = screen.getByLabelText('Base');
     await user.click(label);
     expect(comment[0]).not.toBeInTheDocument();
   });

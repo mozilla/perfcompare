@@ -10,9 +10,6 @@ import {
   within,
 } from '../utils/test-utils';
 
-const formName = 'Compare over time form';
-const overTimeTitle = Strings.components.searchDefault.overTime.title;
-
 function setUpTestData() {
   const { testData } = getTestData();
   (global.fetch as FetchMockSandbox)
@@ -34,6 +31,13 @@ function setUpTestData() {
     );
 }
 
+async function expandOverTimeComponent() {
+  const user = userEvent.setup({ delay: null });
+  const testExpandedID = 'time-state';
+  const headerContent = screen.getByTestId(testExpandedID);
+  await user.click(headerContent);
+}
+
 function renderSearchViewComponent() {
   setUpTestData();
   return renderWithRouter(
@@ -41,15 +45,26 @@ function renderSearchViewComponent() {
   );
 }
 
+// Useful function utilities to get various elements in the page
+async function waitForPageReadyAndReturnForm() {
+  const formName = 'Compare over time form';
+  const overTimeTitle = Strings.components.searchDefault.overTime.title;
+
+  const compTitle = await screen.findByRole('heading', {
+    name: overTimeTitle,
+  });
+
+  expect(compTitle).toBeInTheDocument();
+  const formElement = await screen.findByRole('form', {
+    name: formName,
+  });
+  return formElement;
+}
+
 describe('Compare Over Time', () => {
   it('renders correctly in Search View', async () => {
     renderSearchViewComponent();
-    expect(
-      await screen.findByRole('heading', { name: overTimeTitle }),
-    ).toBeInTheDocument();
-    const formElement = await screen.findByRole('form', {
-      name: formName,
-    });
+    const formElement = await waitForPageReadyAndReturnForm();
     expect(formElement).toMatchSnapshot('Initial state for the form');
   });
 
@@ -77,16 +92,41 @@ describe('Compare Over Time', () => {
     );
   });
 
+  it('selects and displays new repository when clicked', async () => {
+    renderSearchViewComponent();
+    const formElement = await waitForPageReadyAndReturnForm();
+    await expandOverTimeComponent();
+
+    const user = userEvent.setup({ delay: null });
+    expect(within(formElement).getByText(/try/i)).toBeInTheDocument();
+
+    expect(
+      within(formElement).queryByText(/mozilla-central/i),
+    ).not.toBeInTheDocument();
+
+    const newDropdown = screen.getAllByRole('button', { name: 'Revisions' })[1];
+
+    await user.click(newDropdown);
+    const mozRepoItem = await screen.findAllByRole('option', {
+      name: 'mozilla-central',
+    });
+    await user.click(mozRepoItem[0]);
+    expect(screen.getAllByText(/mozilla-central/i)[0]).toBeInTheDocument();
+
+    await user.click(newDropdown);
+    const autolandItem = await screen.findAllByRole('option', {
+      name: 'autoland',
+    });
+    await user.click(autolandItem[0]);
+    expect(screen.getAllByText(/autoland/i)[0]).toBeInTheDocument();
+  });
+
   it('selects and displays new framework when clicked', async () => {
     renderSearchViewComponent();
+    await expandOverTimeComponent();
+    const formElement = await waitForPageReadyAndReturnForm();
     const user = userEvent.setup({ delay: null });
-    const testExpandedID = 'time-state';
-    const headerContent = screen.getByTestId(testExpandedID);
-    await user.click(headerContent);
 
-    const formElement = await screen.findByRole('form', {
-      name: formName,
-    });
     expect(within(formElement).getByText(/talos/i)).toBeInTheDocument();
 
     expect(
@@ -108,14 +148,39 @@ describe('Compare Over Time', () => {
     expect(screen.getAllByText(/build_metrics/i)[1]).toBeInTheDocument();
   });
 
+  it('selects and displays new time range when clicked', async () => {
+    renderSearchViewComponent();
+    const formElement = await waitForPageReadyAndReturnForm();
+    await expandOverTimeComponent();
+
+    const user = userEvent.setup({ delay: null });
+
+    expect(within(formElement).getByText(/Last day/i)).toBeInTheDocument();
+
+    expect(
+      within(formElement).queryByText(/Last 2 days/i),
+    ).not.toBeInTheDocument();
+
+    const timeRangeDropdown = screen.getByRole('button', {
+      name: 'Time range Last day',
+    });
+
+    await user.click(timeRangeDropdown);
+    expect(screen.getByRole('listbox')).toMatchSnapshot();
+    const last2daysItem = screen.getByRole('option', {
+      name: 'Last 2 days',
+    });
+
+    await user.click(last2daysItem);
+
+    expect(within(formElement).getByText(/Last 2 days/i)).toBeInTheDocument();
+  });
+
   it('should hide search results when clicking outside of search input', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
     renderSearchViewComponent();
-
-    const testExpandedID = 'time-state';
-    const headerContent = screen.getByTestId(testExpandedID);
-    await user.click(headerContent);
+    await expandOverTimeComponent();
 
     // Click inside the input box to show search results.
     const searchInput = screen.getAllByRole('textbox')[2];

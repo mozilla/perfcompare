@@ -6,9 +6,8 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Tooltip from '@mui/material/Tooltip';
 import { style, cssRule } from 'typestyle';
 
-import { frameworkMap } from '../../common/constants';
-import { useAppDispatch, useAppSelector } from '../../hooks/app';
-import { updateFramework } from '../../reducers/FrameworkSlice';
+import { timeRangeMap } from '../../common/constants';
+import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import {
   Spacing,
@@ -20,31 +19,19 @@ import {
   DropDownMenuRaw,
   DropDownItemRaw,
 } from '../../styles';
-import type { Framework } from '../../types/types';
+import type { TimeRange } from '../../types/types';
 
-const strings = Strings.components.searchDefault.sharedCollasped.framkework;
+const strings = Strings.components.searchDefault.overTime.collapsed.timeRange;
 
-interface FrameworkDropdownProps {
-  compact: boolean;
+interface TimeRangeDropdownProps {
+  timeRangeValue: TimeRange['value'];
+  onChange: (val: TimeRange['value']) => unknown;
 }
 
-const sortFrameworks = (
-  frameworks: Record<Framework['id'], Framework['name']>,
-) => {
-  const unsortedArray = Object.entries(frameworks);
-
-  // Sort the array based on values
-
-  const sortedArray = unsortedArray.sort((a, b) => {
-    return a[1].localeCompare(b[1]);
-  });
-
-  return sortedArray;
-};
-
-const sortedFrameworks = sortFrameworks(frameworkMap);
-
-function FrameworkDropdown({ compact }: FrameworkDropdownProps) {
+function TimeRangeDropdown({
+  timeRangeValue,
+  onChange,
+}: TimeRangeDropdownProps) {
   const mode = useAppSelector((state) => state.theme.mode);
 
   cssRule('.MuiTooltip-popper', {
@@ -82,7 +69,7 @@ function FrameworkDropdown({ compact }: FrameworkDropdownProps) {
 
   const styles = {
     container: style({
-      minWidth: `${compact ? '280' : '319'}px !important`,
+      minWidth: '280px !important',
 
       $nest: {
         '.MuiInputBase-root': {
@@ -94,26 +81,16 @@ function FrameworkDropdown({ compact }: FrameworkDropdownProps) {
     }),
   };
 
-  const dispatch = useAppDispatch();
-  const frameworkId = useAppSelector((state) => state.framework.id);
-
-  const handleFrameworkSelect = async (event: SelectChangeEvent) => {
-    const id = +event.target.value as Framework['id'];
-    const name = frameworkMap[id];
-
-    dispatch(
-      updateFramework({
-        id,
-        name,
-      }),
-    );
+  const handleTimeRangeSelect = async (event: SelectChangeEvent) => {
+    const value = +event.target.value as TimeRange['value'];
+    onChange(value);
   };
 
   return (
     <>
-      <FormControl className={`framework-dropdown ${styles.container}`}>
+      <FormControl className={`timerange-dropdown ${styles.container}`}>
         <InputLabel
-          id='select-framework-label'
+          id='select-timerange-label'
           className='dropdown-select-label'
         >
           {strings.selectLabel}
@@ -122,18 +99,22 @@ function FrameworkDropdown({ compact }: FrameworkDropdownProps) {
           </Tooltip>
         </InputLabel>
         <Select
-          data-testid='dropdown-select-framework'
+          data-testid='dropdown-select-timerange'
           label={strings.selectLabel}
-          value={`${frameworkId}`}
-          labelId='select-framework-label'
+          value={`${timeRangeValue}`}
+          labelId='select-timerange-label'
           className='dropdown-select'
           variant='standard'
-          onChange={(e) => void handleFrameworkSelect(e)}
-          name='framework'
+          onChange={(e) => void handleTimeRangeSelect(e)}
+          name='timerange'
         >
-          {sortedFrameworks.map(([id, name]) => (
-            <MenuItem value={id} key={name} className='framework-dropdown-item'>
-              {name}
+          {Object.entries(timeRangeMap).map(([value, text]) => (
+            <MenuItem
+              value={value}
+              key={value}
+              className='timerange-dropdown-item'
+            >
+              {text}
             </MenuItem>
           ))}
         </Select>
@@ -142,4 +123,4 @@ function FrameworkDropdown({ compact }: FrameworkDropdownProps) {
   );
 }
 
-export default FrameworkDropdown;
+export default TimeRangeDropdown;

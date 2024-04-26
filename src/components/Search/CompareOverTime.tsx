@@ -10,9 +10,11 @@ import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles, SearchStyles, Spacing } from '../../styles';
 import { Changeset } from '../../types/state';
+import { TimeRange } from '../../types/types';
 import CompareButton from './CompareButton';
 import FrameworkDropdown from './FrameworkDropdown';
 import SearchOverTime from './SearchOverTime';
+import TimeRangeDropdown from './TimeRangeDropdown';
 
 const strings = Strings.components.searchDefault;
 const stringsNew =
@@ -26,6 +28,9 @@ interface CompareWithTimeProps {
 
 function CompareOverTime({ isEditable }: CompareWithTimeProps) {
   const [expanded, setExpanded] = useState(false);
+  const [timeRangeValue, setTimeRangeValue] = useState(
+    86400 as TimeRange['value'],
+  );
 
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = CompareCardsStyles(mode);
@@ -54,6 +59,13 @@ function CompareOverTime({ isEditable }: CompareWithTimeProps) {
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'flex-end',
+      $nest: {
+        '.bottom-dropdowns': {
+          display: 'flex',
+          minWidth: '580px',
+          justifyContent: 'space-between',
+        },
+      },
     }),
   };
 
@@ -105,7 +117,16 @@ function CompareOverTime({ isEditable }: CompareWithTimeProps) {
             xs={2}
             className={`${dropDownStyles.dropDown} ${bottomStyles.container}`}
           >
-            <FrameworkDropdown />
+            <div className='bottom-dropdowns'>
+              <FrameworkDropdown compact={true} />
+              <TimeRangeDropdown
+                timeRangeValue={timeRangeValue}
+                onChange={(val: TimeRange['value']) => {
+                  setTimeRangeValue(val);
+                }}
+              />
+            </div>
+
             <CompareButton label={strings.overTime.title} />
           </Grid>
         </Form>

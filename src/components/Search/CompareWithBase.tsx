@@ -286,6 +286,7 @@ function CompareWithBase({
             onSearchResultsToggle={handleSearchResultsToggleBase}
             onRemoveRevision={handleRemoveRevisionBase}
             repository={baseRepository}
+            labelIdInfo='repo-dropdown--base'
             onRepositoryChange={(repo: Repository['name']) =>
               setBaseRepository(repo)
             }
@@ -303,6 +304,7 @@ function CompareWithBase({
             onSearchResultsToggle={handleSearchResultsToggleNew}
             onRemoveRevision={handleRemoveRevisionNew}
             repository={newRepository}
+            labelIdInfo='repo-dropdown--new'
             onRepositoryChange={(repo: Repository['name']) =>
               setNewRepository(repo)
             }
@@ -312,7 +314,7 @@ function CompareWithBase({
             xs={2}
             className={`${dropDownStyles.dropDown} ${bottomStyles.container}`}
           >
-            <FrameworkDropdown />
+            <FrameworkDropdown compact={false} />
             <CompareButton label={strings.base.title} />
           </Grid>
         </Form>
