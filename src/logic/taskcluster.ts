@@ -76,3 +76,60 @@ export const checkTaskclusterCredentials = () => {
   }
   // TODO: handle case where the user navigates directly to the login route
 };
+
+interface RequestOptions {
+  method: string;
+  body: URLSearchParams;
+  headers: {
+    'Content-Type': string;
+  };
+}
+
+interface ResponseToken {
+  access_token: string;
+  token_type: 'Bearer';
+}
+
+const fetchData = async (url: string, options: RequestOptions) => {
+  const response = await fetch(url, options);
+
+  if (!response.ok) {
+    if (response.status === 400) {
+      throw new Error(
+        `Error when requesting Taskcluster: ${await response.text()}`,
+      );
+    } else {
+      throw new Error(
+        `Error when requesting Taskcluster: (${response.status}) ${response.statusText}`,
+      );
+    }
+  }
+
+  return response.json() as Promise<ResponseToken>;
+};
+
+export async function retrieveTaskclusterToken(rootUrl: string, code: string) {
+  const tcAuthCallbackUrl = '/taskcluster-auth';
+  const redirectURI = `${window.location.origin}${tcAuthCallbackUrl}`;
+  const locationOrigin = getLocationOrigin();
+  const clientId = tcClientIdMap[locationOrigin];
+
+  // prepare to fetch token Bearer, it will be used to fetch the access_token
+  const body = new URLSearchParams({
+    grant_type: 'authorization_code',
+    code,
+    redirect_uri: redirectURI,
+    client_id: clientId,
+  });
+
+  const options: RequestOptions = {
+    method: 'POST',
+    body: body,
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  };
+
+  // fetch token Bearer
+  const response = await fetchData(`${rootUrl}/login/oauth/token`, options);
+
+  return response;
+}
