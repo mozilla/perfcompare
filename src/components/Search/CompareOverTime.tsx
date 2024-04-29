@@ -2,7 +2,6 @@ import { useState } from 'react';
 
 import { Grid, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
-import { useLocation } from 'react-router-dom';
 import { Form } from 'react-router-dom';
 import { style } from 'typestyle';
 
@@ -35,7 +34,6 @@ function CompareOverTime({
     86400 as TimeRange['value'],
   );
 
-  //Let's assume that the user wants to edit the new revisions
   const [inProgressRevs, setInProgressRevs] = useState<Changeset[]>(newRevs);
 
   const [repository, setRepository] = useState('try' as Repository['name']);
@@ -103,9 +101,7 @@ function CompareOverTime({
   };
 
   return (
-    <Grid
-      className={`wrapper--overtime ${wrapperStyles.wrapper} ${containerStyles.container}`}
-    >
+    <Grid className={`wrapper--overtime ${wrapperStyles.wrapper}`}>
       <div
         className={`compare-card-container compare-card-container--${
           expanded ? 'expanded' : 'hidden'
