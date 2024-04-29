@@ -50,6 +50,7 @@ export type Framework =
   | { id: 11; name: 'js-bench' }
   | { id: 12; name: 'devtools' }
   | { id: 13; name: 'browsertime' }
+  | { id: 14; name: 'vcs' }
   | { id: 15; name: 'mozperftest' }
   | { id: 16; name: 'fxrecord' };
 

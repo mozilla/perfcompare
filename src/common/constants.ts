@@ -33,6 +33,7 @@ export const frameworkMap: Record<Framework['id'], Framework['name']> = {
   11: 'js-bench',
   12: 'devtools',
   13: 'browsertime',
+  14: 'vcs',
   15: 'mozperftest',
   16: 'fxrecord',
 };
@@ -84,6 +85,7 @@ export const frameworks: Framework[] = [
   { id: 11, name: 'js-bench' },
   { id: 12, name: 'devtools' },
   { id: 13, name: 'browsertime' },
+  { id: 14, name: 'vcs' },
   { id: 15, name: 'mozperftest' },
   { id: 16, name: 'fxrecord' },
 ];
