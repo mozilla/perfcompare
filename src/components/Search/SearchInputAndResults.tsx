@@ -36,6 +36,11 @@ export default function SearchInputAndResults({
   // in an effect when the repository prop changes. It's not stored in a state
   // because it's not used for rendering DOM.
   const lastSearchTermRef = useRef('');
+  // This is used as a request id. It's incremented for each new request, and
+  // is checked when the response comes back, so that an older response is
+  // disregarded.
+  const requestsCounterRef = useRef(0);
+
   const containerRef = useRef(null as null | HTMLElement);
 
   const handleDocumentMousedown = useCallback(
@@ -87,9 +92,15 @@ export default function SearchInputAndResults({
     // Keep the current searchTerm in ref so that we can use it when the
     // repository information changes.
     lastSearchTermRef.current = searchTerm;
+    const thisRequestId = requestsCounterRef.current;
 
     try {
       const results = await fetchRecentRevisions(searchParameters);
+      if (thisRequestId !== requestsCounterRef.current) {
+        // The user edited the text since the request started.
+        // Let's ignore the result then.
+        return;
+      }
       if (results.length) {
         setRecentRevisions(results);
       } else {
@@ -114,6 +125,8 @@ export default function SearchInputAndResults({
     // Reset various states
     setSearchError(null);
     setRecentRevisions(null);
+    // And increase the counter, so that responses for inflight requests will be ignored.
+    requestsCounterRef.current++;
     debouncedSearchRecentRevisions(searchTerm);
   };
 
