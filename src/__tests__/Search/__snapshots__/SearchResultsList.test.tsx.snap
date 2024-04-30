@@ -1278,15 +1278,13 @@ exports[`SearchResultsList should match snapshot 1`] = `
                   </div>
                 </div>
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1pha5e5-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1pha5e5-MuiButtonBase-root-MuiButton-root"
+                  disabled=""
                   id="compare-button"
-                  tabindex="0"
+                  tabindex="-1"
                   type="submit"
                 >
                   Compare
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
                 </button>
               </div>
             </form>

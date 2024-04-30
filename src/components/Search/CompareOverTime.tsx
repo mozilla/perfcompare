@@ -148,7 +148,10 @@ function CompareOverTime({
               />
             </div>
 
-            <CompareButton label={strings.sharedCollasped.button} />
+            <CompareButton
+              isDisabled={true}
+              label={strings.sharedCollasped.button}
+            />
           </Grid>
         </Form>
       </div>
