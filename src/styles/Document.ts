@@ -5,6 +5,7 @@ cssRule('html, body', {
   padding: 0,
 });
 
+//to prevent the vertical overflow of the root element
 cssRule('#root', {
   overflow: 'hidden',
 });

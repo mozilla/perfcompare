@@ -188,6 +188,7 @@ describe('Compare Over Time', () => {
   it('should remove the checked revision once X button is clicked', async () => {
     renderSearchViewComponent();
     await expandOverTimeComponent();
+    const formElement = await waitForPageReadyAndReturnForm();
 
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
@@ -203,7 +204,7 @@ describe('Compare Over Time', () => {
 
     await user.click(removeButton[0]);
 
-    expect(document.body).toMatchSnapshot();
+    expect(formElement).toMatchSnapshot();
 
     expect(screen.queryByTestId('selected-rev-item')).not.toBeInTheDocument();
   });
