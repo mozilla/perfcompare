@@ -35,8 +35,6 @@ function CompareOverTime({ isEditable }: CompareWithTimeProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = CompareCardsStyles(mode);
   const dropDownStyles = SearchStyles(mode);
-  const search = useAppSelector((state) => state.search);
-  const searchResults = search.new.searchResults;
   //temporary hash to hide the component until functionality is complete
   const location = useLocation();
   const hash = location.hash;
@@ -106,11 +104,7 @@ function CompareOverTime({ isEditable }: CompareWithTimeProps) {
           className='form-wrapper'
           aria-label='Compare over time form'
         >
-          <SearchOverTime
-            {...stringsNew}
-            searchResults={searchResults}
-            isEditable={isEditable}
-          />
+          <SearchOverTime {...stringsNew} isEditable={isEditable} />
 
           <Grid
             item

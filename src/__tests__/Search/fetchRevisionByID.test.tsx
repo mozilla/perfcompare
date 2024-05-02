@@ -33,8 +33,15 @@ describe('Search View/fetchRevisionByID', () => {
       'https://treeherder.mozilla.org/api/project/try/push/?revision=abcdef123456',
       undefined,
     );
+    expect(
+      await screen.findByText("you've got no arms left!"),
+    ).toBeInTheDocument();
 
     await user.clear(searchInput);
+    expect(
+      screen.queryByText("you've got no arms left!"),
+    ).not.toBeInTheDocument();
+
     await user.type(searchInput, 'abcdef1234567890abcdef1234567890abcdef12');
     act(() => void jest.runAllTimers());
 
@@ -107,7 +114,7 @@ describe('Search View/fetchRevisionByID', () => {
     expect(await screen.findByText(errorMessage)).toBeInTheDocument();
     expect(searchInput).toBeInvalid();
     expect(console.error).toHaveBeenCalledWith(
-      'FetchRevisionByID ERROR: ',
+      'Error while fetching recent revisions:',
       new Error(errorMessage),
     );
   });
@@ -144,7 +151,7 @@ describe('Search View/fetchRevisionByID', () => {
     ).toBeInTheDocument();
     expect(searchInput).toBeInvalid();
     expect(console.error).toHaveBeenCalledWith(
-      'FetchRevisionByID ERROR: ',
+      'Error while fetching recent revisions:',
       new Error(),
     );
   });

@@ -5,16 +5,16 @@ import TextField from '@mui/material/TextField';
 import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
-import useHandleChangeSearch from '../../hooks/useHandleChangeSearch';
 import { InputStylesRaw } from '../../styles';
-import { InputType, Repository } from '../../types/state';
+import { InputType } from '../../types/state';
 
 interface SearchInputProps {
   onFocus: () => unknown;
   inputPlaceholder: string;
   compact: boolean;
   searchType: InputType;
-  repository: Repository['name'];
+  searchError: null | string;
+  onChange: (searchTerm: string) => unknown;
 }
 
 function SearchInput({
@@ -22,12 +22,10 @@ function SearchInput({
   compact,
   inputPlaceholder,
   searchType,
-  repository,
+  searchError,
+  onChange,
 }: SearchInputProps) {
-  const { handleChangeSearch } = useHandleChangeSearch();
-  const searchState = useAppSelector((state) => state.search[searchType]);
   const mode = useAppSelector((state) => state.theme.mode);
-  const { inputError, inputHelperText } = searchState;
   const size = compact ? 'small' : undefined;
 
   const styles = {
@@ -50,12 +48,12 @@ function SearchInput({
   return (
     <FormControl className={styles.container} fullWidth>
       <TextField
-        error={inputError}
-        helperText={inputError && inputHelperText}
+        error={Boolean(searchError)}
+        helperText={searchError}
         placeholder={inputPlaceholder}
         id={`search-${searchType}-input`}
         onFocus={onFocus}
-        onChange={(e) => handleChangeSearch({ e, searchType, repository })}
+        onChange={(e) => onChange(e.currentTarget.value)}
         size={size}
         className={`search-text-field ${searchType}`}
         InputProps={{

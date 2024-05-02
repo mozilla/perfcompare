@@ -21,6 +21,8 @@ import ResultsView from './CompareResults/ResultsView';
 import SearchView from './Search/SearchView';
 import { PageError } from './Shared/PageError';
 import SnackbarCloseButton from './Shared/SnackbarCloseButton';
+import { loader as authenticationLoader } from './TaskclusterAuth/loader';
+import TaskclusterCallback from './TaskclusterAuth/TaskclusterCallback';
 
 const strings: InfoStrings = {
   text: Strings.components.topBanner.text,
@@ -70,7 +72,12 @@ export const router = createBrowserRouter(
         errorElement={<PageError title={Strings.metaData.pageTitle.results} />}
       />
 
-      <Route path='/taskcluster-auth' />
+      <Route
+        path='/taskcluster-auth'
+        loader={authenticationLoader}
+        element={<TaskclusterCallback />}
+        errorElement={<PageError title={'Error'} />}
+      />
     </>,
   ),
 );

@@ -16,12 +16,17 @@ const baseTitle = Strings.components.searchDefault.base.title;
 
 function setupTestData() {
   const { testData } = getTestData();
-  (global.fetch as FetchMockSandbox).get(
-    'begin:https://treeherder.mozilla.org/api/project/try/push/',
-    {
+  (global.fetch as FetchMockSandbox)
+    .get('begin:https://treeherder.mozilla.org/api/project/try/push/', {
       results: testData,
-    },
-  );
+    })
+    .get(
+      'begin:https://treeherder.mozilla.org/api/project/try/push/?author=',
+      (url) => {
+        const author = new URL(url).searchParams.get('author');
+        return { results: testData.filter((item) => item.author === author) };
+      },
+    );
 }
 
 async function expandOverTimeComponent() {
@@ -188,10 +193,51 @@ describe('Base and OverTime Search', () => {
       ),
     ).toBeInTheDocument();
 
-    // fetch is called 5 times:
-    // - 2 times on initial load
-    // - 1 time for each "clear"
-    expect(global.fetch).toHaveBeenCalledTimes(5);
+    // fetch is called 6 times:
+    // - 3 times on initial load: one for each input, that is 2 in "compare with
+    //   base", 1 in "compare over time"
+    // - 3 times from the user interaction: 1 time for each "clear", because the
+    //   other user interactons are invalid and therefore don't trigger any
+    //   fetches (this is the goal for this test).
+    expect(global.fetch).toHaveBeenCalledTimes(6);
+  });
+
+  it('Should debounce user interaction', async () => {
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
+    renderComponent();
+
+    const searchInput = screen.getAllByRole('textbox')[0];
+
+    // Contrary to the previous test, the timers are not run so that we can test
+    // the debounce behavior.
+    await user.type(searchInput, 'coconut');
+    expect(
+      screen.queryByText(
+        'Search must be a 12- or 40-character hash, or email address',
+      ),
+    ).not.toBeInTheDocument();
+
+    await user.type(searchInput, '@python.co');
+    await user.type(searchInput, 'm');
+
+    expect(
+      await screen.findByText("you've got no arms left!"),
+    ).toBeInTheDocument();
+
+    // Fetch was called 4 times:
+    // - 3 times on initial load
+    // - once for coconut@python.com
+    // The call to coconut@python.co was debounced.
+    expect(global.fetch).not.toHaveBeenCalledWith(
+      'https://treeherder.mozilla.org/api/project/try/push/?author=coconut%40python.co',
+      undefined,
+    );
+    expect(global.fetch).toHaveBeenCalledWith(
+      'https://treeherder.mozilla.org/api/project/try/push/?author=coconut%40python.com',
+      undefined,
+    );
+    expect(global.fetch).toHaveBeenCalledTimes(4);
   });
 
   it('Should clear search results if the search value is cleared', async () => {
@@ -204,7 +250,7 @@ describe('Base and OverTime Search', () => {
     act(() => void jest.runAllTimers());
 
     expect(global.fetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/try/push/?author=terryjones@python.com',
+      'https://treeherder.mozilla.org/api/project/try/push/?author=terryjones%40python.com',
       undefined,
     );
 
@@ -256,10 +302,11 @@ describe('Base and OverTime Search', () => {
     expect(errorElements[0]).toBeInTheDocument();
     expect(errorElements[1]).toBeInTheDocument();
     expect(console.error).toHaveBeenCalledWith(
-      'FetchRecentRevisions ERROR: ',
+      'Error while fetching recent revisions:',
       new Error(),
     );
-    expect(console.error).toHaveBeenCalledTimes(2);
+    // 3 times: 1 for each input, that is 2 in compare with base, 1 in compare over time
+    expect(console.error).toHaveBeenCalledTimes(3);
   });
 
   it('should have compare button and once clicked should redirect to results page with the right query params', async () => {
