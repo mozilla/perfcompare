@@ -29,9 +29,8 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'johncleese@python.com');
     act(() => void jest.runAllTimers());
-
     expect(global.fetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/try/push/?author=johncleese@python.com',
+      'https://treeherder.mozilla.org/api/project/try/push/?author=johncleese%40python.com',
       undefined,
     );
 
@@ -59,7 +58,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     act(() => void jest.runAllTimers());
 
     expect(global.fetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/try/push/?author=ericidle@python.com',
+      'https://treeherder.mozilla.org/api/project/try/push/?author=ericidle%40python.com',
       undefined,
     );
 
@@ -92,13 +91,13 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     act(() => void jest.runAllTimers());
 
     expect(global.fetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/try/push/?author=grahamchapman@python.com',
+      'https://treeherder.mozilla.org/api/project/try/push/?author=grahamchapman%40python.com',
       undefined,
     );
     expect(await screen.findByText(errorMessage)).toBeInTheDocument();
     expect(searchInput).toBeInvalid();
     expect(console.error).toHaveBeenCalledWith(
-      'FetchRevisionsByAuthor ERROR: ',
+      'Error while fetching recent revisions:',
       new Error(errorMessage),
     );
   });
@@ -127,7 +126,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     act(() => void jest.runAllTimers());
 
     expect(global.fetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/try/push/?author=grahamchapman@python.com',
+      'https://treeherder.mozilla.org/api/project/try/push/?author=grahamchapman%40python.com',
       undefined,
     );
     expect(
@@ -135,7 +134,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     ).toBeInTheDocument();
     expect(searchInput).toBeInvalid();
     expect(console.error).toHaveBeenCalledWith(
-      'FetchRevisionsByAuthor ERROR: ',
+      'Error while fetching recent revisions:',
       new Error(),
     );
   });

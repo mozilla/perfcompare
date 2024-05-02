@@ -9,7 +9,7 @@ import {
 
 describe('Search by title/test name', () => {
   it('should be present', async () => {
-    // The SearchViewInit component requests recent revisions at load time.
+    // The component requests recent revisions at load time.
     (window.fetch as FetchMockSandbox).get(
       'begin:https://treeherder.mozilla.org/api/project/',
       { results: [] },

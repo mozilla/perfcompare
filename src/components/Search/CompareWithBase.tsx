@@ -14,7 +14,6 @@ import type { Changeset, Repository } from '../../types/state';
 import CompareButton from './CompareButton';
 import FrameworkDropdown from './FrameworkDropdown';
 import SearchComponent from './SearchComponent';
-import SearchViewInit from './SearchViewInit';
 
 const strings = Strings.components.searchDefault;
 const stringsBase = Strings.components.searchDefault.base.collapsed.base;
@@ -98,9 +97,6 @@ function CompareWithBase({
 
   const styles = CompareCardsStyles(mode);
   const dropDownStyles = SearchStyles(mode);
-  const search = useAppSelector((state) => state.search);
-  const searchResultsBase = search.base.searchResults;
-  const searchResultsNew = search.new.searchResults;
 
   const isWarning =
     (baseRepository === 'try' && newRepository !== 'try') ||
@@ -238,10 +234,6 @@ function CompareWithBase({
 
   return (
     <Grid className={`wrapper--withbase ${wrapperStyles.wrapper}`}>
-      <SearchViewInit
-        repositoryBase={baseRepository}
-        repositoryNew={newRepository}
-      />
       <div
         className={`compare-card-container compare-card-container--${
           expanded ? 'expanded' : 'hidden'
@@ -278,7 +270,6 @@ function CompareWithBase({
             isBaseComp={true}
             isWarning={isWarning}
             hasNonEditableState={hasNonEditableState}
-            searchResults={searchResultsBase}
             displayedRevisions={baseInProgressRev ? [baseInProgressRev] : []}
             onSave={handleSaveBase}
             onCancel={handleCancelBase}
@@ -296,7 +287,6 @@ function CompareWithBase({
             isBaseComp={false}
             hasNonEditableState={hasNonEditableState}
             isWarning={isWarning}
-            searchResults={searchResultsNew}
             displayedRevisions={newInProgressRevs}
             onSave={handleSaveNew}
             onCancel={handleCancelNew}

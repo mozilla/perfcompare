@@ -93,20 +93,11 @@ export type CompareResultsItem = {
   more_runs_are_needed: boolean;
 };
 
-export type SearchStateForInput = {
-  searchResults: Changeset[];
-  searchValue: string;
-  inputError: boolean;
-  inputHelperText: string;
-};
-
 export type InputType = 'base' | 'new';
 
 export type View = 'compare-results' | 'search';
 
 export type ThemeMode = 'light' | 'dark';
-
-export type SearchState = Record<InputType, SearchStateForInput>;
 
 export type SelectedRevisionsState = {
   revisions: Changeset[];

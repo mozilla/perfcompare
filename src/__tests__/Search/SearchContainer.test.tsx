@@ -4,7 +4,6 @@ import SearchContainer from '../../components/Search/SearchContainer';
 import getTestData from '../utils/fixtures';
 import { renderWithRouter, FetchMockSandbox } from '../utils/test-utils';
 
-// This can be removed once SearchViewInit is removed.
 function setupTestData() {
   const { testData } = getTestData();
   (global.fetch as FetchMockSandbox).get(
