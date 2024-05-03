@@ -21,6 +21,7 @@ function SearchResultsList({
 }: SearchResultsListProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = SelectListStyles(mode);
+
   const isInProgressChecked = (item: Changeset) => {
     return displayedRevisions.map((rev) => rev.id).includes(item.id);
   };

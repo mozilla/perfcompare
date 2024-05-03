@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
-import { useSnackbar, VariantType } from 'notistack';
+import { VariantType, useSnackbar } from 'notistack';
 import { Form } from 'react-router-dom';
 import { style } from 'typestyle';
 
@@ -151,36 +151,6 @@ function CompareWithBase({
     setInProgressNewRevs(newStagingRevs);
   };
 
-  const handleRemoveRevisionBase = (item: Changeset) => {
-    // Currently item seems to be the same object than the one stored in
-    // baseInProgressRevs, but it might change in the future. That's why we're
-    // comparing the ids instead of using indexOf directly.
-    if (baseInProgressRev?.id !== item.id) {
-      // This shouldn't happen, but better be safe.
-      console.error(
-        `We tried to remove the base item id ${
-          item.id
-        }, but current base item is ${
-          baseInProgressRev ? baseInProgressRev.id : 'null'
-        }. This shouldn't happen!`,
-      );
-      return;
-    }
-
-    setInProgressBaseRev(null);
-  };
-  const handleRemoveRevisionNew = (item: Changeset) => {
-    // Currently item seems to be the same object than the one stored in
-    // newInProgressRevs, but it might change in the future. That's why we're
-    // comparing the ids instead of using indexOf directly.
-    const indexInNewChangesets = newInProgressRevs.findIndex(
-      (rev) => rev.id === item.id,
-    );
-    const revisionsNew = [...newInProgressRevs];
-    revisionsNew.splice(indexInNewChangesets, 1);
-    setInProgressNewRevs(revisionsNew);
-  };
-
   const handleItemToggleInChangesetList = ({
     item,
     changesets,
@@ -209,6 +179,37 @@ function CompareWithBase({
     return newChecked;
   };
 
+  const handleRemoveRevisionBase = (item: Changeset) => {
+    // Currently item seems to be the same object than the one stored in
+    // baseInProgressRevs, but it might change in the future. That's why we're
+    // comparing the ids instead of using indexOf directly.
+    if (baseInProgressRev?.id !== item.id) {
+      // This shouldn't happen, but better be safe.
+      console.error(
+        `We tried to remove the base item id ${
+          item.id
+        }, but current base item is ${
+          baseInProgressRev ? baseInProgressRev.id : 'null'
+        }. This shouldn't happen!`,
+      );
+      return;
+    }
+
+    setInProgressBaseRev(null);
+  };
+
+  const handleRemoveRevisionNew = (item: Changeset) => {
+    // Currently item seems to be the same object than the one stored in
+    // newInProgressRevs, but it might change in the future. That's why we're
+    // comparing the ids instead of using indexOf directly.
+    const indexInNewChangesets = newInProgressRevs.findIndex(
+      (rev) => rev.id === item.id,
+    );
+    const revisionsNew = [...newInProgressRevs];
+    revisionsNew.splice(indexInNewChangesets, 1);
+    setInProgressNewRevs(revisionsNew);
+  };
+
   const handleSearchResultsToggleBase = (item: Changeset) => {
     // Warning: `item` isn't always the same object than the one stored in
     // state, therefore we need to compare the id. This happens when the
@@ -216,6 +217,7 @@ function CompareWithBase({
     // search results.
     setInProgressBaseRev(baseInProgressRev?.id === item.id ? null : item);
   };
+
   const handleSearchResultsToggleNew = (item: Changeset) => {
     const newNewRevs = handleItemToggleInChangesetList({
       item,
