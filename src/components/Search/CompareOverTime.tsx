@@ -2,14 +2,14 @@ import { useState } from 'react';
 
 import { Grid, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
-import { useLocation } from 'react-router-dom';
-import { Form } from 'react-router-dom';
+import { VariantType, useSnackbar } from 'notistack';
+import { Form, useLocation } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles, SearchStyles, Spacing } from '../../styles';
-import { Changeset } from '../../types/state';
+import { Changeset, Repository } from '../../types/state';
 import { TimeRange } from '../../types/types';
 import CompareButton from './CompareButton';
 import FrameworkDropdown from './FrameworkDropdown';
@@ -21,17 +21,22 @@ const stringsNew =
   Strings.components.searchDefault.overTime.collapsed.revisions;
 
 interface CompareWithTimeProps {
-  isEditable: boolean;
-  baseRevs: Changeset[];
+  hasNonEditableState: boolean;
   newRevs: Changeset[];
 }
 
-function CompareOverTime({ isEditable }: CompareWithTimeProps) {
+function CompareOverTime({
+  hasNonEditableState,
+  newRevs,
+}: CompareWithTimeProps) {
+  const { enqueueSnackbar } = useSnackbar();
   const [expanded, setExpanded] = useState(false);
   const [timeRangeValue, setTimeRangeValue] = useState(
     86400 as TimeRange['value'],
   );
 
+  const [inProgressRevs, setInProgressRevs] = useState<Changeset[]>(newRevs);
+  const [repository, setRepository] = useState('try' as Repository['name']);
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = CompareCardsStyles(mode);
   const dropDownStyles = SearchStyles(mode);
@@ -70,6 +75,61 @@ function CompareOverTime({ isEditable }: CompareWithTimeProps) {
   const toggleIsExpanded = () => {
     setExpanded(!expanded);
   };
+  const handleRemoveRevision = (item: Changeset) => {
+    // Currently item seems to be the same object than the one stored in
+    // newInProgressRevs, but it might change in the future. That's why we're
+    // comparing the ids instead of using indexOf directly.
+    const indexInNewChangesets = inProgressRevs.findIndex(
+      (rev) => rev.id === item.id,
+    );
+    const revisionsNew = [...inProgressRevs];
+    revisionsNew.splice(indexInNewChangesets, 1);
+    setInProgressRevs(revisionsNew);
+  };
+
+  const handleItemToggleInChangesetList = ({
+    item,
+    changesets,
+  }: {
+    item: Changeset;
+    changesets: Changeset[];
+  }) => {
+    // Warning: `item` isn't always the same object than the one in
+    // `changesets`, therefore we need to compare the id. This happens when the
+    // data in `changesets` comes from the loader, but `item` comes from the
+    // search results.
+    const indexInCheckedChangesets = changesets.findIndex(
+      (rev) => rev.id === item.id,
+    );
+    const isChecked = indexInCheckedChangesets >= 0;
+    const newChecked = [...changesets];
+
+    // if item is not already checked, add to checked
+    if (!isChecked) {
+      newChecked.push(item);
+    } else if (isChecked) {
+      // if item is already checked, remove from checked
+      newChecked.splice(indexInCheckedChangesets, 1);
+    }
+
+    return newChecked;
+  };
+
+  const handleSearchResultsToggle = (item: Changeset) => {
+    const newNewRevs = handleItemToggleInChangesetList({
+      item,
+      changesets: inProgressRevs,
+    });
+
+    const maxRevisions = 3;
+    if (newNewRevs.length > maxRevisions) {
+      const variant: VariantType = 'warning';
+      enqueueSnackbar(`Maximum ${maxRevisions} revisions.`, { variant });
+      return;
+    }
+    // if there are already `maxRevisions` checked revisions, print a warning
+    setInProgressRevs(newNewRevs);
+  };
 
   return (
     <Grid
@@ -104,7 +164,17 @@ function CompareOverTime({ isEditable }: CompareWithTimeProps) {
           className='form-wrapper'
           aria-label='Compare over time form'
         >
-          <SearchOverTime {...stringsNew} isEditable={isEditable} />
+          <SearchOverTime
+            {...stringsNew}
+            hasNonEditableState={hasNonEditableState}
+            repository={repository}
+            displayedRevisions={inProgressRevs}
+            onRemoveRevision={handleRemoveRevision}
+            onSearchResultsToggle={handleSearchResultsToggle}
+            onRepositoryChange={(repo: Repository['name']) =>
+              setRepository(repo)
+            }
+          />
 
           <Grid
             item
@@ -121,7 +191,7 @@ function CompareOverTime({ isEditable }: CompareWithTimeProps) {
               />
             </div>
 
-            <CompareButton label={strings.overTime.title} />
+            <CompareButton label={strings.sharedCollasped.button} />
           </Grid>
         </Form>
       </div>

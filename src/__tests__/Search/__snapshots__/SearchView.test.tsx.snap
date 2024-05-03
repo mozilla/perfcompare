@@ -95,7 +95,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
           class="MuiGrid-root wrapper--withbase fcdpsbx css-plh9qo-MuiGrid-root"
         >
           <div
-            class="compare-card-container compare-card-container--expanded container_f10wk1hq"
+            class="compare-card-container compare-card-container--expanded container_fulqxr1"
             data-testid="base-state"
           >
             <div
@@ -118,7 +118,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
             />
           </div>
           <div
-            class="compare-card-container content-base content-base--expanded container_f10wk1hq "
+            class="compare-card-container content-base content-base--expanded container_fulqxr1 "
           >
             <hr
               class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
@@ -493,7 +493,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
           class="MuiGrid-root wrapper--overtime f1ucodr8 f1wt0yvj css-plh9qo-MuiGrid-root"
         >
           <div
-            class="compare-card-container compare-card-container--hidden container_f10wk1hq"
+            class="compare-card-container compare-card-container--hidden container_fulqxr1"
             data-testid="time-state"
           >
             <div
@@ -516,7 +516,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
             />
           </div>
           <div
-            class="compare-card-container content-base content-base--hidden container_f10wk1hq "
+            class="compare-card-container content-base content-base--hidden container_fulqxr1 "
           >
             <hr
               class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
@@ -657,6 +657,17 @@ exports[`Search View renders correctly when there are no results 1`] = `
                     </div>
                   </div>
                 </div>
+                <div
+                  class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
+                >
+                  <div
+                    class="box_f65ycfw new-box MuiBox-root css-0"
+                  >
+                    <ul
+                      class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
+                    />
+                  </div>
+                </div>
               </div>
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fl6uoag fx35f8m css-13eijkh-MuiGrid-root"
@@ -787,7 +798,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                   tabindex="0"
                   type="submit"
                 >
-                  Compare over time
+                  Compare
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />

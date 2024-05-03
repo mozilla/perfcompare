@@ -14,7 +14,7 @@ const lightMode = {
     disabled: Colors.PrimaryDisabled,
   },
   background: {
-    default: Colors.Background100,
+    default: Colors.Background300,
   },
   primary: {
     main: Colors.PrimaryDefault,
@@ -36,7 +36,7 @@ const darkMode = {
     disabled: Colors.PrimaryDisabledDark,
   },
   background: {
-    default: Colors.Background300Dark,
+    default: Colors.Background100Dark,
   },
   primary: {
     main: Colors.PrimaryDark,

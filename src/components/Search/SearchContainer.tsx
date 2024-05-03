@@ -25,8 +25,7 @@ function SearchContainer(props: SearchViewProps) {
         baseRev={null}
         newRevs={[]}
       />
-      {/* hidden until post-mvp release */}
-      <CompareOverTime isEditable={false} baseRevs={[]} newRevs={[]} />
+      <CompareOverTime hasNonEditableState={false} newRevs={[]} />
     </section>
   );
 }

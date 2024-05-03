@@ -66,16 +66,17 @@ export const CompareCardsStyles = (mode: string) => {
           boxShadow: '0px 2px 4px rgba(58, 57, 68, 0.2)',
         },
         '&.content-base': {
+          visibility: 'hidden',
           minHeight: '0',
           height: '0',
           flexWrap: 'nowrap',
-          overflow: 'hidden',
           transition: 'min-height 0.5s ease-in-out',
           flexDirection: 'column',
           borderRadius: `0px 0px ${Spacing.Small}px ${Spacing.Small}px`,
           cursor: 'default',
           $nest: {
             '&.content-base--expanded': {
+              visibility: 'visible',
               borderRadius: `0px 0px ${Spacing.Small}px ${Spacing.Small}px`,
               borderTop: isTrueLight
                 ? Colors.Background200
