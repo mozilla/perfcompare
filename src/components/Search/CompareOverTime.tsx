@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Grid, Typography } from '@mui/material';
+import { Grid, SelectChangeEvent, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import { VariantType, useSnackbar } from 'notistack';
 import { Form, useLocation } from 'react-router-dom';
@@ -10,7 +10,7 @@ import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles, SearchStyles, Spacing } from '../../styles';
 import { Changeset, Repository } from '../../types/state';
-import { TimeRange } from '../../types/types';
+import { Framework, TimeRange } from '../../types/types';
 import CompareButton from './CompareButton';
 import FrameworkDropdown from './FrameworkDropdown';
 import SearchOverTime from './SearchOverTime';
@@ -23,6 +23,7 @@ const stringsNew =
 interface CompareWithTimeProps {
   hasNonEditableState: boolean;
   newRevs: Changeset[];
+  frameworkIdVal: Framework['id'];
 }
 
 function CompareOverTime({
@@ -34,6 +35,7 @@ function CompareOverTime({
   const [timeRangeValue, setTimeRangeValue] = useState(
     86400 as TimeRange['value'],
   );
+  const [frameworkId, setframeWorkValue] = useState(1 as Framework['id']);
 
   const [inProgressRevs, setInProgressRevs] = useState<Changeset[]>(newRevs);
   const [repository, setRepository] = useState('try' as Repository['name']);
@@ -182,7 +184,14 @@ function CompareOverTime({
             className={`${dropDownStyles.dropDown} ${bottomStyles.container}`}
           >
             <div className='bottom-dropdowns'>
-              <FrameworkDropdown compact={true} />
+              <FrameworkDropdown
+                compact={true}
+                frameworkId={frameworkId}
+                onChange={(event: SelectChangeEvent) => {
+                  const id = +event.target.value as Framework['id'];
+                  setframeWorkValue(id);
+                }}
+              />
               <TimeRangeDropdown
                 timeRangeValue={timeRangeValue}
                 onChange={(val: TimeRange['value']) => {

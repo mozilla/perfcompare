@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Typography } from '@mui/material';
+import { SelectChangeEvent, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import { VariantType, useSnackbar } from 'notistack';
@@ -11,6 +11,7 @@ import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles, SearchStyles, Spacing } from '../../styles';
 import type { Changeset, Repository } from '../../types/state';
+import { Framework } from '../../types/types';
 import CompareButton from './CompareButton';
 import FrameworkDropdown from './FrameworkDropdown';
 import SearchComponent from './SearchComponent';
@@ -23,6 +24,7 @@ interface CompareWithBaseProps {
   hasNonEditableState: boolean;
   baseRev: Changeset | null;
   newRevs: Changeset[];
+  frameworkIdVal: Framework['id'];
 }
 
 /**
@@ -65,8 +67,10 @@ function CompareWithBase({
   hasNonEditableState,
   baseRev,
   newRevs,
+  frameworkIdVal,
 }: CompareWithBaseProps) {
   const [expanded, setExpanded] = useState(true);
+  const [frameWorkId, setframeWorkValue] = useState(frameworkIdVal);
   const { enqueueSnackbar } = useSnackbar();
 
   // The "committed" base and new revisions initialize the staging state.
@@ -306,7 +310,14 @@ function CompareWithBase({
             xs={2}
             className={`${dropDownStyles.dropDown} ${bottomStyles.container}`}
           >
-            <FrameworkDropdown compact={false} />
+            <FrameworkDropdown
+              compact={false}
+              frameworkId={frameWorkId}
+              onChange={(event: SelectChangeEvent) => {
+                const id = +event.target.value as Framework['id'];
+                setframeWorkValue(id);
+              }}
+            />
             <CompareButton label={strings.base.title} />
           </Grid>
         </Form>

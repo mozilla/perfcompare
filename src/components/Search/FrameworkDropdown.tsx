@@ -7,8 +7,7 @@ import Tooltip from '@mui/material/Tooltip';
 import { style, cssRule } from 'typestyle';
 
 import { frameworkMap } from '../../common/constants';
-import { useAppDispatch, useAppSelector } from '../../hooks/app';
-import { updateFramework } from '../../reducers/FrameworkSlice';
+import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import {
   Spacing,
@@ -26,6 +25,9 @@ const strings = Strings.components.searchDefault.sharedCollasped.framkework;
 
 interface FrameworkDropdownProps {
   compact: boolean;
+  frameworkId: Framework['id'];
+
+  onChange: (event: SelectChangeEvent) => void;
 }
 
 const sortFrameworks = (
@@ -44,7 +46,12 @@ const sortFrameworks = (
 
 const sortedFrameworks = sortFrameworks(frameworkMap);
 
-function FrameworkDropdown({ compact }: FrameworkDropdownProps) {
+function FrameworkDropdown({
+  compact,
+  frameworkId,
+
+  onChange,
+}: FrameworkDropdownProps) {
   const mode = useAppSelector((state) => state.theme.mode);
 
   cssRule('.MuiTooltip-popper', {
@@ -94,21 +101,6 @@ function FrameworkDropdown({ compact }: FrameworkDropdownProps) {
     }),
   };
 
-  const dispatch = useAppDispatch();
-  const frameworkId = useAppSelector((state) => state.framework.id);
-
-  const handleFrameworkSelect = async (event: SelectChangeEvent) => {
-    const id = +event.target.value as Framework['id'];
-    const name = frameworkMap[id];
-
-    dispatch(
-      updateFramework({
-        id,
-        name,
-      }),
-    );
-  };
-
   return (
     <>
       <FormControl className={`framework-dropdown ${styles.container}`}>
@@ -128,7 +120,7 @@ function FrameworkDropdown({ compact }: FrameworkDropdownProps) {
           labelId='select-framework-label'
           className='dropdown-select'
           variant='standard'
-          onChange={(e) => void handleFrameworkSelect(e)}
+          onChange={onChange}
           name='framework'
         >
           {sortedFrameworks.map(([id, name]) => (

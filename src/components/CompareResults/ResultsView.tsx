@@ -4,8 +4,7 @@ import Grid from '@mui/material/Grid';
 import { useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
 
-import { useAppDispatch, useAppSelector } from '../../hooks/app';
-import { updateFramework } from '../../reducers/FrameworkSlice';
+import { useAppSelector } from '../../hooks/app';
 import { SearchContainerStyles, background } from '../../styles';
 import CompareWithBase from '../Search/CompareWithBase';
 import { LinkToHome } from '../Shared/LinkToHome';
@@ -17,8 +16,7 @@ interface ResultsViewProps {
   title: string;
 }
 function ResultsView(props: ResultsViewProps) {
-  const dispatch = useAppDispatch();
-  const { baseRevInfo, newRevsInfo, frameworkId, frameworkName } =
+  const { baseRevInfo, newRevsInfo, frameworkId } =
     useLoaderData() as LoaderReturnValue;
 
   const { title } = props;
@@ -35,17 +33,6 @@ function ResultsView(props: ResultsViewProps) {
     document.title = title;
   }, [title]);
 
-  // TODO in the future we'll pass the framework information to CompareWithBase
-  // as a prop instead of using the redux store.
-  useEffect(() => {
-    dispatch(
-      updateFramework({
-        id: frameworkId,
-        name: frameworkName,
-      }),
-    );
-  }, [frameworkId, frameworkName]);
-
   return (
     <div
       className={styles.container}
@@ -59,6 +46,7 @@ function ResultsView(props: ResultsViewProps) {
           hasNonEditableState={true}
           baseRev={baseRevInfo ?? null}
           newRevs={newRevsInfo ?? []}
+          frameworkIdVal={frameworkId}
         />
       </section>
       <Grid container alignItems='center' justifyContent='center'>
