@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Grid, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import { VariantType, useSnackbar } from 'notistack';
-import { Form } from 'react-router-dom';
+import { Form, useLocation } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
@@ -36,9 +36,7 @@ function CompareOverTime({
   );
 
   const [inProgressRevs, setInProgressRevs] = useState<Changeset[]>(newRevs);
-
   const [repository, setRepository] = useState('try' as Repository['name']);
-
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = CompareCardsStyles(mode);
   const dropDownStyles = SearchStyles(mode);
@@ -77,7 +75,6 @@ function CompareOverTime({
   const toggleIsExpanded = () => {
     setExpanded(!expanded);
   };
-
   const handleRemoveRevision = (item: Changeset) => {
     // Currently item seems to be the same object than the one stored in
     // newInProgressRevs, but it might change in the future. That's why we're
@@ -135,7 +132,9 @@ function CompareOverTime({
   };
 
   return (
-    <Grid className={`wrapper--overtime ${wrapperStyles.wrapper}`}>
+    <Grid
+      className={`wrapper--overtime ${wrapperStyles.wrapper} ${containerStyles.container}`}
+    >
       <div
         className={`compare-card-container compare-card-container--${
           expanded ? 'expanded' : 'hidden'
@@ -165,7 +164,17 @@ function CompareOverTime({
           className='form-wrapper'
           aria-label='Compare over time form'
         >
-          <SearchOverTime {...stringsNew} isEditable={isEditable} />
+          <SearchOverTime
+            {...stringsNew}
+            hasNonEditableState={hasNonEditableState}
+            repository={repository}
+            displayedRevisions={inProgressRevs}
+            onRemoveRevision={handleRemoveRevision}
+            onSearchResultsToggle={handleSearchResultsToggle}
+            onRepositoryChange={(repo: Repository['name']) =>
+              setRepository(repo)
+            }
+          />
 
           <Grid
             item
@@ -182,12 +191,7 @@ function CompareOverTime({
               />
             </div>
 
-            <CompareButton
-              //this disabled btn is temporary until
-              //fetching the data is implemented
-              isDisabled={true}
-              label={strings.sharedCollasped.button}
-            />
+            <CompareButton label={strings.sharedCollasped.button} />
           </Grid>
         </Form>
       </div>

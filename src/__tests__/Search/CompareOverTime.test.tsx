@@ -12,18 +12,12 @@ import {
 
 function setUpTestData() {
   const { testData } = getTestData();
-  (global.fetch as FetchMockSandbox)
-    .get('glob:https://treeherder.mozilla.org/api/project/*/push/*', {
+  (global.fetch as FetchMockSandbox).get(
+    'glob:https://treeherder.mozilla.org/api/project/*/push/*',
+    {
       results: testData,
     },
   );
-}
-
-async function expandOverTimeComponent() {
-  const user = userEvent.setup({ delay: null });
-  const testExpandedID = 'time-state';
-  const headerContent = screen.getByTestId(testExpandedID);
-  await user.click(headerContent);
 }
 
 function renderSearchViewComponent() {
@@ -37,7 +31,6 @@ function renderSearchViewComponent() {
 async function waitForPageReadyAndReturnForm() {
   const formName = 'Compare over time form';
   const overTimeTitle = Strings.components.searchDefault.overTime.title;
-
   const compTitle = await screen.findByRole('heading', {
     name: overTimeTitle,
   });
@@ -47,6 +40,18 @@ async function waitForPageReadyAndReturnForm() {
     name: formName,
   });
   return formElement;
+}
+
+async function expandOverTimeComponent() {
+  window.location.hash = '#comparetime';
+  expect(window.location.hash).toBe('#comparetime');
+  const user = userEvent.setup({ delay: null });
+  const testExpandedID = 'time-state';
+  const headerContent = screen.getByTestId(testExpandedID);
+  await user.click(headerContent);
+  expect(screen.getByTestId('time-state')).toHaveClass(
+    'compare-card-container--expanded',
+  );
 }
 
 describe('Compare Over Time', () => {
@@ -168,8 +173,8 @@ describe('Compare Over Time', () => {
   it('should hide search results when clicking outside of search input', async () => {
     renderSearchViewComponent();
     await expandOverTimeComponent();
-    // set delay to null to prevent test time-out due to useFakeTimers
 
+    // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
     // Click inside the input box to show search results.
@@ -193,6 +198,8 @@ describe('Compare Over Time', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
+    expect(within(formElement).getByText(/Time range/)).toBeInTheDocument();
+
     const searchInput = screen.getAllByRole('textbox')[2];
     await user.click(searchInput);
     const checkbox = (await screen.findAllByTestId('checkbox-0'))[0];
@@ -212,6 +219,8 @@ describe('Compare Over Time', () => {
   it('should not allow selecting more than 3 revisions', async () => {
     renderSearchViewComponent();
     await expandOverTimeComponent();
+    const formElement = await waitForPageReadyAndReturnForm();
+    expect(within(formElement).getByText(/Time range/)).toBeInTheDocument();
 
     const checkboxForText = (textElement: Element) =>
       textElement.closest('li')?.querySelector('.MuiCheckbox-root');

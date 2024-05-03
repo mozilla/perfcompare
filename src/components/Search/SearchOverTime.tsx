@@ -28,8 +28,8 @@ interface SearchProps {
   hasNonEditableState: boolean;
   displayedRevisions: Changeset[];
   repository: Repository['name'];
-  onSearchResultsToggle: (item: Changeset) => void;
   onRemoveRevision: (item: Changeset) => void;
+  onSearchResultsToggle: (item: Changeset) => void;
   onRepositoryChange: (repo: Repository['name']) => unknown;
 }
 
@@ -37,7 +37,12 @@ export default function SearchOverTime({
   selectLabel,
   tooltip,
   inputPlaceholder,
-  isEditable,
+  hasNonEditableState,
+  repository,
+  displayedRevisions,
+  onRemoveRevision,
+  onSearchResultsToggle,
+  onRepositoryChange,
 }: SearchProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = SearchStyles(mode);

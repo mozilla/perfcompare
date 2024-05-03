@@ -975,7 +975,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root wrapper--overtime f1ucodr8 css-plh9qo-MuiGrid-root"
+          class="MuiGrid-root wrapper--overtime f1ucodr8 f1wt0yvj css-plh9qo-MuiGrid-root"
         >
           <div
             class="compare-card-container compare-card-container--hidden container_fulqxr1"
@@ -1278,13 +1278,15 @@ exports[`SearchResultsList should match snapshot 1`] = `
                   </div>
                 </div>
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1pha5e5-MuiButtonBase-root-MuiButton-root"
-                  disabled=""
+                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1pha5e5-MuiButtonBase-root-MuiButton-root"
                   id="compare-button"
-                  tabindex="-1"
+                  tabindex="0"
                   type="submit"
                 >
                   Compare
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
                 </button>
               </div>
             </form>

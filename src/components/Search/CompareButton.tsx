@@ -6,13 +6,9 @@ import { ButtonStyles } from '../../styles';
 
 interface CompareButtonProps {
   label: string;
-  isDisabled?: boolean;
 }
 
-export default function CompareButton({
-  label,
-  isDisabled,
-}: CompareButtonProps) {
+export default function CompareButton({ label }: CompareButtonProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   const btnStyles = ButtonStyles(mode);
 
@@ -27,7 +23,6 @@ export default function CompareButton({
       className={`compare-button ${styles.button}`}
       sx={{ textTransform: 'none !important' }}
       type='submit'
-      disabled={isDisabled}
     >
       {label}
     </Button>
