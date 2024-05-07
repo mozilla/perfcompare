@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { SearchContainerStyles } from '../../styles';
+import type { Framework } from '../../types/types';
 import CompareOverTime from './CompareOverTime';
 import CompareWithBase from './CompareWithBase';
 
@@ -20,12 +21,19 @@ function SearchContainer(props: SearchViewProps) {
       className={styles.container}
     >
       <Typography className='search-default-title'>{strings.title}</Typography>
+      {/* hard code the frameworkIdVal  because talos is the
+       default framework; refer to frameworkMap in constants.ts */}
       <CompareWithBase
+        frameworkIdVal={1 as Framework['id']}
         hasNonEditableState={false}
         baseRev={null}
         newRevs={[]}
       />
-      <CompareOverTime hasNonEditableState={false} newRevs={[]} />
+      <CompareOverTime
+        hasNonEditableState={false}
+        newRevs={[]}
+        frameworkIdVal={1 as Framework['id']}
+      />
     </section>
   );
 }
