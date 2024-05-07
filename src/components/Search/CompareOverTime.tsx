@@ -29,13 +29,15 @@ interface CompareWithTimeProps {
 function CompareOverTime({
   hasNonEditableState,
   newRevs,
+  frameworkIdVal,
 }: CompareWithTimeProps) {
   const { enqueueSnackbar } = useSnackbar();
   const [expanded, setExpanded] = useState(false);
   const [timeRangeValue, setTimeRangeValue] = useState(
     86400 as TimeRange['value'],
   );
-  const [frameworkId, setframeWorkValue] = useState(1 as Framework['id']);
+
+  const [frameworkId, setframeWorkValue] = useState(frameworkIdVal);
 
   const [inProgressRevs, setInProgressRevs] = useState<Changeset[]>(newRevs);
   const [repository, setRepository] = useState('try' as Repository['name']);

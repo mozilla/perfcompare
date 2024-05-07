@@ -21,6 +21,8 @@ function SearchContainer(props: SearchViewProps) {
       className={styles.container}
     >
       <Typography className='search-default-title'>{strings.title}</Typography>
+      {/* hard code the frameworkIdVal  because talos is the
+       default framework; refer to frameworkMap in constants.ts */}
       <CompareWithBase
         frameworkIdVal={1 as Framework['id']}
         hasNonEditableState={false}
