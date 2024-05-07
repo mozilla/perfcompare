@@ -104,23 +104,18 @@ describe('Compare With Base', () => {
     renderSearchViewComponent();
 
     const user = userEvent.setup({ delay: null });
-    const testExpandedID = 'base-state';
-    const headerContent = screen.getByTestId(testExpandedID);
+    const testExpandedTimeID = 'time-state';
+    const headerContentTime = screen.getByTestId(testExpandedTimeID);
 
     //make sure it's in collapsed state first
     expect(screen.getAllByTestId('base-state')[0]).toHaveClass(
       'compare-card-container--expanded',
     );
 
-    //make sure it's hidden when user clicks on title component
-    await user.click(headerContent);
-    expect(screen.getAllByTestId('base-state')[0]).not.toHaveClass(
-      'compare-card-container--expanded',
-    );
-
-    await user.click(headerContent);
+    //make sure it's hidden when user clicks on the over time title component
+    await user.click(headerContentTime);
     expect(screen.getAllByTestId('base-state')[0]).toHaveClass(
-      'compare-card-container--expanded',
+      'compare-card-container--hidden',
     );
   });
 
