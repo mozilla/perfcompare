@@ -62,12 +62,14 @@ describe('Compare Over Time', () => {
     expect(formElement).toMatchSnapshot('Initial state for the form');
   });
 
-  it('toggles component open and closed on click', async () => {
+  it('expands on header click and closes when user clicks base component header', async () => {
     renderSearchViewComponent();
     const user = userEvent.setup({ delay: null });
 
     const testExpandedID = 'time-state';
     const headerContent = screen.getByTestId(testExpandedID);
+    const testExpandedBaseID = 'base-state';
+    const headerContentBase = screen.getByTestId(testExpandedBaseID);
 
     //make sure it's in the hidden state first
     expect(screen.getByTestId('time-state')).toHaveClass(
@@ -80,7 +82,8 @@ describe('Compare Over Time', () => {
       'compare-card-container--expanded',
     );
 
-    await user.click(headerContent);
+    //make sure it's hidden when user clicks title
+    await user.click(headerContentBase);
     expect(screen.getByTestId('time-state')).toHaveClass(
       'compare-card-container--hidden',
     );
@@ -200,9 +203,9 @@ describe('Compare Over Time', () => {
 
     expect(within(formElement).getByText(/Time range/)).toBeInTheDocument();
 
-    const searchInput = screen.getAllByRole('textbox')[2];
+    const searchInput = screen.getByRole('textbox');
     await user.click(searchInput);
-    const checkbox = (await screen.findAllByTestId('checkbox-0'))[0];
+    const checkbox = await screen.findByTestId('checkbox-0');
     await user.click(checkbox);
     expect(checkbox).toHaveClass('Mui-checked');
     const removeButton = document.querySelectorAll('[title="remove revision"]');
@@ -229,7 +232,7 @@ describe('Compare Over Time', () => {
     const user = userEvent.setup({ delay: null });
 
     // focus input to show results
-    const searchInput = screen.getAllByRole('textbox')[2];
+    const searchInput = screen.getByRole('textbox');
     await user.click(searchInput);
 
     const noArmsLeft = await screen.findByText(/no arms left/);

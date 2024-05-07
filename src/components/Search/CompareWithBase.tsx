@@ -25,6 +25,8 @@ interface CompareWithBaseProps {
   baseRev: Changeset | null;
   newRevs: Changeset[];
   frameworkIdVal: Framework['id'];
+  expanded: null | 'isBaseSearch' | 'isOverTime';
+  onExpanded: (expanded: 'isBaseSearch' | 'isOverTime') => void;
 }
 
 /**
@@ -67,11 +69,12 @@ function CompareWithBase({
   hasNonEditableState,
   baseRev,
   newRevs,
+  expanded,
+  onExpanded,
   frameworkIdVal,
 }: CompareWithBaseProps) {
-  const [expanded, setExpanded] = useState(true);
-  const [frameWorkId, setframeWorkValue] = useState(frameworkIdVal);
   const { enqueueSnackbar } = useSnackbar();
+  const [frameWorkId, setframeWorkValue] = useState(frameworkIdVal);
 
   // The "committed" base and new revisions initialize the staging state.
   // These states are snapshots of selections, that the user can either save (by
@@ -131,7 +134,7 @@ function CompareWithBase({
   };
 
   const toggleIsExpanded = () => {
-    setExpanded(!expanded);
+    onExpanded('isBaseSearch');
   };
 
   const handleCancelBase = () => {
@@ -242,7 +245,9 @@ function CompareWithBase({
     <Grid className={`wrapper--withbase ${wrapperStyles.wrapper}`}>
       <div
         className={`compare-card-container compare-card-container--${
-          expanded ? 'expanded' : 'hidden'
+          expanded === 'isBaseSearch' || expanded === null
+            ? 'expanded'
+            : 'hidden'
         } ${styles.container}`}
         onClick={toggleIsExpanded}
         data-testid='base-state'
@@ -261,7 +266,9 @@ function CompareWithBase({
 
       <div
         className={`compare-card-container content-base content-base--${
-          expanded ? 'expanded' : 'hidden'
+          expanded === 'isBaseSearch' || expanded === null
+            ? 'expanded'
+            : 'hidden'
         } ${styles.container} `}
       >
         <Divider className='divider' />
