@@ -48,7 +48,7 @@ function ResultsView(props: ResultsViewProps) {
           newRevs={newRevsInfo ?? []}
           frameworkIdVal={frameworkId}
           isBaseSearch={null}
-          expandBaseComponent={() => null}
+          expandBaseComponent={() => {}}
         />
       </section>
       <Grid container alignItems='center' justifyContent='center'>
