@@ -24,15 +24,18 @@ interface CompareWithTimeProps {
   hasNonEditableState: boolean;
   newRevs: Changeset[];
   frameworkIdVal: Framework['id'];
+  isBaseSearch: null | boolean;
+  expandBaseComponent: (expanded: boolean) => void;
 }
 
 function CompareOverTime({
   hasNonEditableState,
   newRevs,
   frameworkIdVal,
+  isBaseSearch,
+  expandBaseComponent,
 }: CompareWithTimeProps) {
   const { enqueueSnackbar } = useSnackbar();
-  const [expanded, setExpanded] = useState(false);
   const [timeRangeValue, setTimeRangeValue] = useState(
     86400 as TimeRange['value'],
   );
@@ -77,7 +80,7 @@ function CompareOverTime({
   };
 
   const toggleIsExpanded = () => {
-    setExpanded(!expanded);
+    expandBaseComponent(false);
   };
   const handleRemoveRevision = (item: Changeset) => {
     // Currently item seems to be the same object than the one stored in
@@ -141,7 +144,7 @@ function CompareOverTime({
     >
       <div
         className={`compare-card-container compare-card-container--${
-          expanded ? 'expanded' : 'hidden'
+          !isBaseSearch && isBaseSearch !== null ? 'expanded' : 'hidden'
         } ${styles.container}`}
         onClick={toggleIsExpanded}
         data-testid='time-state'
@@ -159,7 +162,7 @@ function CompareOverTime({
       </div>
       <div
         className={`compare-card-container content-base content-base--${
-          expanded ? 'expanded' : 'hidden'
+          !isBaseSearch && isBaseSearch !== null ? 'expanded' : 'hidden'
         } ${styles.container} `}
       >
         <Divider className='divider' />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Typography from '@mui/material/Typography';
 
@@ -14,6 +14,8 @@ const strings = Strings.components.searchDefault;
 function SearchContainer(props: SearchViewProps) {
   const themeMode = useAppSelector((state) => state.theme.mode);
   const styles = SearchContainerStyles(themeMode, /* isHome */ true);
+  const [isBaseSearch, expandBaseComponent] = useState(null as null | boolean);
+
   return (
     <section
       data-testid='search-section'
@@ -28,10 +30,14 @@ function SearchContainer(props: SearchViewProps) {
         hasNonEditableState={false}
         baseRev={null}
         newRevs={[]}
+        isBaseSearch={isBaseSearch}
+        expandBaseComponent={expandBaseComponent}
       />
       <CompareOverTime
         hasNonEditableState={false}
         newRevs={[]}
+        isBaseSearch={isBaseSearch}
+        expandBaseComponent={expandBaseComponent}
         frameworkIdVal={1 as Framework['id']}
       />
     </section>
