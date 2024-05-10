@@ -100,22 +100,51 @@ describe('Compare With Base', () => {
     expect(formElement).toMatchSnapshot('Initial state for the form');
   });
 
-  it('toggles component open and closed on click', async () => {
+  it('expands when user clicks on title header', async () => {
     renderSearchViewComponent();
 
     const user = userEvent.setup({ delay: null });
     const testExpandedTimeID = 'time-state';
     const headerContentTime = screen.getByTestId(testExpandedTimeID);
+    const testExpandedBaseID = 'base-state';
+    const headerContentBase = screen.getByTestId(testExpandedBaseID);
 
     //make sure it's in collapsed state first
-    expect(screen.getAllByTestId('base-state')[0]).toHaveClass(
+    expect(screen.getAllByTestId(testExpandedBaseID)[0]).toHaveClass(
       'compare-card-container--expanded',
     );
 
     //make sure it's hidden when user clicks on the over time title component
     await user.click(headerContentTime);
-    expect(screen.getAllByTestId('base-state')[0]).toHaveClass(
+    expect(screen.getAllByTestId(testExpandedBaseID)[0]).toHaveClass(
       'compare-card-container--hidden',
+    );
+
+    await user.click(headerContentBase);
+    expect(screen.getAllByTestId(testExpandedBaseID)[0]).toHaveClass(
+      'compare-card-container--expanded',
+    );
+  });
+
+  it('does nothing when user clicks on title header in Results view', async () => {
+    renderWithCompareResultsURL(
+      <ResultsView title={Strings.metaData.pageTitle.results} />,
+    );
+    await waitForPageReadyAndReturnForm();
+
+    const user = userEvent.setup({ delay: null });
+    const testExpandedBaseID = 'base-state';
+    const headerContentBase = screen.getByTestId(testExpandedBaseID);
+
+    //make sure it's in collapsed state first
+    expect(screen.getByTestId(testExpandedBaseID)).toHaveClass(
+      'compare-card-container--expanded',
+    );
+
+    //remains expanded when user clicks on the title component
+    await user.click(headerContentBase);
+    expect(screen.getByTestId(testExpandedBaseID)).toHaveClass(
+      'compare-card-container--expanded',
     );
   });
 

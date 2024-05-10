@@ -26,7 +26,7 @@ interface CompareWithBaseProps {
   newRevs: Changeset[];
   frameworkIdVal: Framework['id'];
   isBaseSearch: null | boolean;
-  expandBaseComponent: (expanded: boolean) => void;
+  expandBaseComponent: (expanded: boolean) => void | null;
 }
 
 /**

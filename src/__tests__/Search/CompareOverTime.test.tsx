@@ -49,7 +49,7 @@ async function expandOverTimeComponent() {
   const testExpandedID = 'time-state';
   const headerContent = screen.getByTestId(testExpandedID);
   await user.click(headerContent);
-  expect(screen.getByTestId('time-state')).toHaveClass(
+  expect(screen.getByTestId(testExpandedID)).toHaveClass(
     'compare-card-container--expanded',
   );
 }
@@ -72,19 +72,19 @@ describe('Compare Over Time', () => {
     const headerContentBase = screen.getByTestId(testExpandedBaseID);
 
     //make sure it's in the hidden state first
-    expect(screen.getByTestId('time-state')).toHaveClass(
+    expect(screen.getByTestId(testExpandedID)).toHaveClass(
       'compare-card-container--hidden',
     );
 
     //make sure it's collapsed when user clicks on title component
     await user.click(headerContent);
-    expect(screen.getByTestId('time-state')).toHaveClass(
+    expect(screen.getByTestId(testExpandedID)).toHaveClass(
       'compare-card-container--expanded',
     );
 
     //make sure it's hidden when user clicks title
     await user.click(headerContentBase);
-    expect(screen.getByTestId('time-state')).toHaveClass(
+    expect(screen.getByTestId(testExpandedID)).toHaveClass(
       'compare-card-container--hidden',
     );
   });
