@@ -628,7 +628,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
       tabindex="0"
       type="submit"
     >
-      Compare
+      Compare with a base
       <span
         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       />
@@ -1405,7 +1405,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
       tabindex="0"
       type="submit"
     >
-      Compare
+      Compare with a base
       <span
         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       />
@@ -1935,7 +1935,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
       tabindex="0"
       type="submit"
     >
-      Compare
+      Compare with a base
       <span
         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       />
@@ -2572,7 +2572,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
       tabindex="0"
       type="submit"
     >
-      Compare
+      Compare with a base
       <span
         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       />
@@ -3063,7 +3063,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                   tabindex="0"
                   type="submit"
                 >
-                  Compare
+                  Compare with a base
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />

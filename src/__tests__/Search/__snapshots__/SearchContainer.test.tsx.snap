@@ -401,7 +401,7 @@ exports[`Search Containter should match snapshot 1`] = `
                 tabindex="0"
                 type="submit"
               >
-                Compare
+                Compare with a base
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />

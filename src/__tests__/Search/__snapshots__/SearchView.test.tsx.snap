@@ -480,7 +480,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                   tabindex="0"
                   type="submit"
                 >
-                  Compare
+                  Compare with a base
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
