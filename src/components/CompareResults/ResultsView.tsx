@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import Grid from '@mui/material/Grid';
 import { useLoaderData } from 'react-router-dom';
@@ -18,6 +18,7 @@ interface ResultsViewProps {
 function ResultsView(props: ResultsViewProps) {
   const { baseRevInfo, newRevsInfo, frameworkId } =
     useLoaderData() as LoaderReturnValue;
+ 
 
   const { title } = props;
   const themeMode = useAppSelector((state) => state.theme.mode);
