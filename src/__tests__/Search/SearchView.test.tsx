@@ -330,7 +330,7 @@ describe('Base and OverTime Search', () => {
 
     // Press the compare button -> It shouldn't work!
     const compareButton = await screen.findByRole('button', {
-      name: /Compare/,
+      name: /Compare with a base/,
     });
     await user.click(compareButton);
 
