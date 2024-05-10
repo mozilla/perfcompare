@@ -104,7 +104,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
               <h2
                 class="MuiTypography-root MuiTypography-h2 compare-card-title css-1u33eov-MuiTypography-root"
               >
-                Compare with a base
+                Compare
               </h2>
               <p
                 class="compare-card-tagline"
@@ -965,7 +965,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                   tabindex="0"
                   type="submit"
                 >
-                  Compare with a base
+                  Compare
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
