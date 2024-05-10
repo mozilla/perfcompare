@@ -25,8 +25,8 @@ interface CompareWithBaseProps {
   baseRev: Changeset | null;
   newRevs: Changeset[];
   frameworkIdVal: Framework['id'];
-  expanded: null | 'isBaseSearch' | 'isOverTime';
-  onExpanded: (expanded: 'isBaseSearch' | 'isOverTime') => void;
+  isBaseSearch: null | boolean;
+  expandBaseComponent: (expanded: boolean) => void;
 }
 
 /**
@@ -69,8 +69,8 @@ function CompareWithBase({
   hasNonEditableState,
   baseRev,
   newRevs,
-  expanded,
-  onExpanded,
+  isBaseSearch,
+  expandBaseComponent,
   frameworkIdVal,
 }: CompareWithBaseProps) {
   const { enqueueSnackbar } = useSnackbar();
@@ -134,7 +134,7 @@ function CompareWithBase({
   };
 
   const toggleIsExpanded = () => {
-    onExpanded('isBaseSearch');
+    expandBaseComponent(true);
   };
 
   const handleCancelBase = () => {
@@ -245,9 +245,7 @@ function CompareWithBase({
     <Grid className={`wrapper--withbase ${wrapperStyles.wrapper}`}>
       <div
         className={`compare-card-container compare-card-container--${
-          expanded === 'isBaseSearch' || expanded === null
-            ? 'expanded'
-            : 'hidden'
+          isBaseSearch || isBaseSearch === null ? 'expanded' : 'hidden'
         } ${styles.container}`}
         onClick={toggleIsExpanded}
         data-testid='base-state'
@@ -266,9 +264,7 @@ function CompareWithBase({
 
       <div
         className={`compare-card-container content-base content-base--${
-          expanded === 'isBaseSearch' || expanded === null
-            ? 'expanded'
-            : 'hidden'
+          isBaseSearch || isBaseSearch === null ? 'expanded' : 'hidden'
         } ${styles.container} `}
       >
         <Divider className='divider' />

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 import Grid from '@mui/material/Grid';
 import { useLoaderData } from 'react-router-dom';
@@ -18,9 +18,6 @@ interface ResultsViewProps {
 function ResultsView(props: ResultsViewProps) {
   const { baseRevInfo, newRevsInfo, frameworkId } =
     useLoaderData() as LoaderReturnValue;
-  const [expanded, setExpanded] = useState(
-    null as null | 'isBaseSearch' | 'isOverTime',
-  );
 
   const { title } = props;
   const themeMode = useAppSelector((state) => state.theme.mode);
@@ -50,8 +47,8 @@ function ResultsView(props: ResultsViewProps) {
           baseRev={baseRevInfo ?? null}
           newRevs={newRevsInfo ?? []}
           frameworkIdVal={frameworkId}
-          expanded={expanded}
-          onExpanded={setExpanded}
+          isBaseSearch={null}
+          expandBaseComponent={() => null}
         />
       </section>
       <Grid container alignItems='center' justifyContent='center'>

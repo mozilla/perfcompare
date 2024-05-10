@@ -24,16 +24,16 @@ interface CompareWithTimeProps {
   hasNonEditableState: boolean;
   newRevs: Changeset[];
   frameworkIdVal: Framework['id'];
-  expanded: null | 'isBaseSearch' | 'isOverTime';
-  onExpanded: (expanded: 'isBaseSearch' | 'isOverTime') => void;
+  isBaseSearch: null | boolean;
+  expandBaseComponent: (expanded: boolean) => void;
 }
 
 function CompareOverTime({
   hasNonEditableState,
   newRevs,
   frameworkIdVal,
-  expanded,
-  onExpanded,
+  isBaseSearch,
+  expandBaseComponent,
 }: CompareWithTimeProps) {
   const { enqueueSnackbar } = useSnackbar();
   const [timeRangeValue, setTimeRangeValue] = useState(
@@ -80,7 +80,7 @@ function CompareOverTime({
   };
 
   const toggleIsExpanded = () => {
-    onExpanded('isOverTime');
+    expandBaseComponent(false);
   };
   const handleRemoveRevision = (item: Changeset) => {
     // Currently item seems to be the same object than the one stored in
@@ -144,7 +144,7 @@ function CompareOverTime({
     >
       <div
         className={`compare-card-container compare-card-container--${
-          expanded === 'isOverTime' ? 'expanded' : 'hidden'
+          !isBaseSearch && isBaseSearch !== null ? 'expanded' : 'hidden'
         } ${styles.container}`}
         onClick={toggleIsExpanded}
         data-testid='time-state'
@@ -162,7 +162,7 @@ function CompareOverTime({
       </div>
       <div
         className={`compare-card-container content-base content-base--${
-          expanded === 'isOverTime' ? 'expanded' : 'hidden'
+          !isBaseSearch && isBaseSearch !== null ? 'expanded' : 'hidden'
         } ${styles.container} `}
       >
         <Divider className='divider' />

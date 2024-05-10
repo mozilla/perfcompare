@@ -14,9 +14,7 @@ const strings = Strings.components.searchDefault;
 function SearchContainer(props: SearchViewProps) {
   const themeMode = useAppSelector((state) => state.theme.mode);
   const styles = SearchContainerStyles(themeMode, /* isHome */ true);
-  const [expanded, setExpanded] = useState(
-    null as null | 'isBaseSearch' | 'isOverTime',
-  );
+  const [isBaseSearch, expandBaseComponent] = useState(null as null | boolean);
 
   return (
     <section
@@ -32,14 +30,14 @@ function SearchContainer(props: SearchViewProps) {
         hasNonEditableState={false}
         baseRev={null}
         newRevs={[]}
-        expanded={expanded}
-        onExpanded={setExpanded}
+        isBaseSearch={isBaseSearch}
+        expandBaseComponent={expandBaseComponent}
       />
       <CompareOverTime
         hasNonEditableState={false}
         newRevs={[]}
-        expanded={expanded}
-        onExpanded={setExpanded}
+        isBaseSearch={isBaseSearch}
+        expandBaseComponent={expandBaseComponent}
         frameworkIdVal={1 as Framework['id']}
       />
     </section>
