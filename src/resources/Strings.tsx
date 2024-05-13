@@ -41,7 +41,7 @@ export const Strings = {
         button: 'Compare',
       },
       base: {
-        title: 'Compare with a base',
+        title: 'Compare',
         tagline: 'Analyze differences between specific revisions.',
         img: 'https://user-images.githubusercontent.com/88336547/233237125-1534220b-c343-421a-9133-ce8f151cb979.png',
         imgDark:
@@ -49,7 +49,6 @@ export const Strings = {
 
         save: 'Save',
         cancel: 'Cancel',
-        compare: 'Compare',
         editIcon:
           'https://user-images.githubusercontent.com/88336547/259900252-462ac221-f4ff-4b1c-bb6b-5df906e8007d.svg',
         collapsed: {
