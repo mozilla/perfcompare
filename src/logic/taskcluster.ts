@@ -78,9 +78,10 @@ export const checkTaskclusterCredentials = () => {
 };
 
 interface RequestOptions {
-  method: string;
-  body: URLSearchParams;
+  method?: string;
+  body?: URLSearchParams;
   headers: {
+    Authorization?: string;
     'Content-Type': string;
   };
 }
@@ -130,6 +131,26 @@ export async function retrieveTaskclusterToken(rootUrl: string, code: string) {
 
   // fetch token Bearer
   const response = await fetchData(`${rootUrl}/login/oauth/token`, options);
+
+  return response;
+}
+
+export async function retrieveTaskclusterAccessToken(
+  rootUrl: string,
+  tokenBearer: string,
+) {
+  const options: RequestOptions = {
+    headers: {
+      Authorization: `Bearer ${tokenBearer}`,
+      'Content-Type': 'aplication/json',
+    },
+  };
+
+  // fetch Taskcluster credentials using token Bearer
+  const response = await fetchData(
+    `${rootUrl}/login/oauth/credentials`,
+    options,
+  );
 
   return response;
 }
