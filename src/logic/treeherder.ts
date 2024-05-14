@@ -1,5 +1,5 @@
 import { CompareResultsItem, Repository, Changeset } from '../types/state';
-import { Framework } from '../types/types';
+import { Framework, TimeRange } from '../types/types';
 
 // This file contains functions to request the Treeherder API
 
@@ -17,7 +17,7 @@ type FetchOverTimeProps = {
   newRepo: Repository['name'];
   newRev: string;
   framework: Framework['id'];
-  interval: number;
+  interval: TimeRange['value'];
 };
 
 // This fetches data from the Treeherder API /api/perfcompare/results.
