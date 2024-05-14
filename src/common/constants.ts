@@ -88,8 +88,6 @@ export const frameworks: Framework[] = [
   { id: 16, name: 'fxrecord' },
 ];
 
-
-
 export const timeRanges: TimeRange[] = [
   { value: 86400, text: 'Last day' },
   { value: 172800, text: 'Last 2 days' },
