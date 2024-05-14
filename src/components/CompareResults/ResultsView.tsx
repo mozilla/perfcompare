@@ -6,6 +6,8 @@ import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
 import { SearchContainerStyles, background } from '../../styles';
+import { TimeRange } from '../../types/types';
+import CompareOverTime from '../Search/CompareOverTime';
 import CompareWithBase from '../Search/CompareWithBase';
 import { LinkToHome } from '../Shared/LinkToHome';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
@@ -16,7 +18,7 @@ interface ResultsViewProps {
   title: string;
 }
 function ResultsView(props: ResultsViewProps) {
-  const { baseRevInfo, newRevsInfo, frameworkId } =
+  const { baseRevInfo, newRevsInfo, frameworkId, intervalValue } =
     useLoaderData() as LoaderReturnValue;
 
   const { title } = props;
@@ -50,6 +52,17 @@ function ResultsView(props: ResultsViewProps) {
           isBaseSearch={null}
           expandBaseComponent={() => null}
         />
+
+        {intervalValue ?? (
+          <CompareOverTime
+            hasNonEditableState={false}
+            newRevs={[]}
+            isBaseSearch={null}
+            expandBaseComponent={() => null}
+            frameworkIdVal={frameworkId}
+            intervalValue={intervalValue || (86400 as TimeRange['value'])}
+          />
+        )}
       </section>
       <Grid container alignItems='center' justifyContent='center'>
         <Grid item xs={12}>

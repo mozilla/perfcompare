@@ -64,10 +64,7 @@ function checkValues({
   }
 
   //if interval is not null, return values for time range component
-  if (interval !== null) {
-    if (interval === null) {
-      interval = 86400;
-    }
+  if (interval) {
     const intervalValue = +interval as TimeRange['value'];
     if (Number.isNaN(intervalValue)) {
       throw new Error(

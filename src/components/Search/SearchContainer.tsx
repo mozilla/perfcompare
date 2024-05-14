@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { SearchContainerStyles } from '../../styles';
-import type { Framework } from '../../types/types';
+import type { Framework, TimeRange } from '../../types/types';
 import CompareOverTime from './CompareOverTime';
 import CompareWithBase from './CompareWithBase';
 
@@ -39,6 +39,7 @@ function SearchContainer(props: SearchViewProps) {
         isBaseSearch={isBaseSearch}
         expandBaseComponent={expandBaseComponent}
         frameworkIdVal={1 as Framework['id']}
+        intervalValue={86400 as TimeRange['value']}
       />
     </section>
   );

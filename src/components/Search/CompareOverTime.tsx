@@ -24,6 +24,7 @@ interface CompareWithTimeProps {
   hasNonEditableState: boolean;
   newRevs: Changeset[];
   frameworkIdVal: Framework['id'];
+  intervalValue: TimeRange['value'];
   isBaseSearch: null | boolean;
   expandBaseComponent: (expanded: boolean) => void;
 }
@@ -32,13 +33,12 @@ function CompareOverTime({
   hasNonEditableState,
   newRevs,
   frameworkIdVal,
+  intervalValue,
   isBaseSearch,
   expandBaseComponent,
 }: CompareWithTimeProps) {
   const { enqueueSnackbar } = useSnackbar();
-  const [timeRangeValue, setTimeRangeValue] = useState(
-    86400 as TimeRange['value'],
-  );
+  const [timeRangeValue, setTimeRangeValue] = useState(intervalValue);
 
   const [frameworkId, setframeWorkValue] = useState(frameworkIdVal);
 
