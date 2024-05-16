@@ -2687,7 +2687,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
               <h2
                 class="MuiTypography-root MuiTypography-h2 compare-card-title css-1u33eov-MuiTypography-root"
               >
-                Compare
+                Compare with a base
               </h2>
               <p
                 class="compare-card-tagline"

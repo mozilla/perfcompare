@@ -321,7 +321,7 @@ function CompareWithBase({
                 setframeWorkValue(id);
               }}
             />
-            <CompareButton label={strings.base.title} />
+            <CompareButton label={strings.base.compareBtn} />
           </Grid>
         </Form>
       </div>
