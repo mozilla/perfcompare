@@ -12,6 +12,7 @@ import { Colors, Spacing } from '../../styles';
 import type { CompareResultsItem, RevisionsHeader } from '../../types/state';
 import type { LoaderReturnValue } from './loader';
 import NoResultsFound from './NoResultsFound';
+import type { LoaderReturnValue as OverTimeLoadResults } from './overTimeLoader';
 import TableContent from './TableContent';
 import TableHeader from './TableHeader';
 
@@ -67,10 +68,13 @@ const customStyles = {
   background: 'none',
 };
 
-function ResultsTable() {
+function ResultsTable(props: { isOverTime: boolean }) {
   const themeMode = useAppSelector((state) => state.theme.mode);
+  const { isOverTime } = props;
+  const { results: withBaseResults } = useLoaderData() as LoaderReturnValue;
+  const { results: overTimeResults } = useLoaderData() as OverTimeLoadResults;
+  const results = isOverTime ? overTimeResults : withBaseResults;
 
-  const { results } = useLoaderData() as LoaderReturnValue;
   const activeComparison = useAppSelector(
     (state) => state.comparison.activeComparison,
   );

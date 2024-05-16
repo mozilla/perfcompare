@@ -1,12 +1,11 @@
-import { repoMap, frameworks, timeRanges } from '../../common/constants';
+import { repoMap, frameworks } from '../../common/constants';
 import {
   fetchCompareResults,
-  fetchCompareOverTimeResults,
   fetchFakeCompareResults,
   fetchRecentRevisions,
 } from '../../logic/treeherder';
 import { Repository } from '../../types/state';
-import { FakeCommitHash, Framework, TimeRange } from '../../types/types';
+import { FakeCommitHash, Framework } from '../../types/types';
 
 // This function checks and sanitizes the input values, then returns values that
 // we can then use in the rest of the application.
@@ -16,14 +15,12 @@ function checkValues({
   newRevs,
   newRepos,
   framework,
-  interval,
 }: {
   baseRev: string | null;
   baseRepo: Repository['name'] | null;
   newRevs: string[];
   newRepos: Repository['name'][];
   framework: string | number | null;
-  interval: string | number | null;
 }): {
   baseRev: string;
   baseRepo: Repository['name'];
@@ -31,10 +28,24 @@ function checkValues({
   newRepos: Repository['name'][];
   frameworkId: Framework['id'];
   frameworkName: Framework['name'];
-  intervalValue: TimeRange['value'];
-  intervalText: TimeRange['text'];
 } {
-  //check framework first for the case of compare over time component
+  if (baseRev === null) {
+    throw new Error('The parameter baseRev is missing.');
+  }
+
+  if (baseRepo === null) {
+    throw new Error('The parameter baseRepo is missing.');
+  }
+
+  const validRepoValues = Object.values(repoMap);
+  if (!validRepoValues.includes(baseRepo)) {
+    throw new Error(
+      `The parameter baseRepo "${baseRepo}" should be one of ${validRepoValues.join(
+        ', ',
+      )}.`,
+    );
+  }
+
   if (framework === null) {
     framework = 1; // default to talos so that manually typing the URL is easier
   }
@@ -55,64 +66,6 @@ function checkValues({
     );
   }
 
-  //check the new repos and revs first for the case of compare over time component
-
-  if (newRevs.length !== newRepos.length) {
-    throw new Error(
-      'There should be as many "newRepo" parameters as there are "newRev" parameters.',
-    );
-  }
-
-  //if interval is not null, return values for time range component
-  if (interval) {
-    const intervalValue = +interval as TimeRange['value'];
-    if (Number.isNaN(intervalValue)) {
-      throw new Error(
-        `The parameter interval should be a number, but it is "${interval}".`,
-      );
-    }
-
-    const intervalText = timeRanges.find(
-      (entry) => entry.value === intervalValue,
-    )?.text;
-
-    if (!intervalText) {
-      throw new Error(
-        `The parameter interval isn't a valid value: "${interval}".`,
-      );
-    }
-
-    //baseRev is not needed for compare over time
-    //so set it to newRev[0] to pass tsc linter
-    return {
-      baseRev: newRevs[0],
-      baseRepo: newRepos[0],
-      newRevs,
-      newRepos,
-      frameworkId,
-      frameworkName,
-      intervalText,
-      intervalValue,
-    };
-  }
-
-  if (baseRev === null) {
-    throw new Error('The parameter baseRev is missing.');
-  }
-
-  if (baseRepo === null) {
-    throw new Error('The parameter baseRepo is missing.');
-  }
-
-  const validRepoValues = Object.values(repoMap);
-  if (!validRepoValues.includes(baseRepo)) {
-    throw new Error(
-      `The parameter baseRepo "${baseRepo}" should be one of ${validRepoValues.join(
-        ', ',
-      )}.`,
-    );
-  }
-
   if (!newRevs.length) {
     return {
       baseRev,
@@ -121,12 +74,14 @@ function checkValues({
       newRepos: [baseRepo],
       frameworkId,
       frameworkName,
-      //default to these values to pass tsc linter
-      intervalText: 'Last day',
-      intervalValue: 86400,
     };
   }
 
+  if (newRevs.length !== newRepos.length) {
+    throw new Error(
+      'There should be as many "newRepo" parameters as there are "newRev" parameters.',
+    );
+  }
   if (!newRepos.every((newRepo) => validRepoValues.includes(newRepo))) {
     throw new Error(
       `Every parameter newRepo "${newRepos.join(
@@ -142,8 +97,6 @@ function checkValues({
     newRepos,
     frameworkId,
     frameworkName,
-    intervalText: 'Last day',
-    intervalValue: 86400,
   };
 }
 
@@ -169,30 +122,6 @@ async function fetchCompareResultsOnTreeherder({
       newRev,
       newRepo: newRepos[i],
       framework,
-    }),
-  );
-  return Promise.all(promises);
-}
-
-//Compare over time results are fetched in a similar way to compare results.
-// /logic/treeherder.ts for all the revs we need results for.
-async function fetchCompareOverTimeResultsOnTreeherder({
-  newRevs,
-  newRepos,
-  framework,
-  interval,
-}: {
-  newRevs: string[];
-  newRepos: Repository['name'][];
-  framework: Framework['id'];
-  interval: TimeRange['value'];
-}) {
-  const promises = newRevs.map((newRev, i) =>
-    fetchCompareOverTimeResults({
-      newRev,
-      newRepo: newRepos[i],
-      framework,
-      interval,
     }),
   );
   return Promise.all(promises);
@@ -253,25 +182,15 @@ export async function loader({ request }: { request: Request }) {
     'newRepo',
   ) as Repository['name'][];
   const frameworkFromUrl = url.searchParams.get('framework');
-  const intervalFromUrl = url.searchParams.get('interval');
 
-  const {
-    baseRev,
-    baseRepo,
-    newRevs,
-    newRepos,
-    frameworkId,
-    frameworkName,
-    intervalValue,
-    intervalText,
-  } = checkValues({
-    baseRev: baseRevFromUrl,
-    baseRepo: baseRepoFromUrl,
-    newRevs: newRevsFromUrl,
-    newRepos: newReposFromUrl,
-    framework: frameworkFromUrl,
-    interval: intervalFromUrl,
-  });
+  const { baseRev, baseRepo, newRevs, newRepos, frameworkId, frameworkName } =
+    checkValues({
+      baseRev: baseRevFromUrl,
+      baseRepo: baseRepoFromUrl,
+      newRevs: newRevsFromUrl,
+      newRepos: newReposFromUrl,
+      framework: frameworkFromUrl,
+    });
 
   const resultsPromise = fetchCompareResultsOnTreeherder({
     baseRev,
@@ -279,13 +198,6 @@ export async function loader({ request }: { request: Request }) {
     newRevs,
     newRepos,
     framework: frameworkId,
-  });
-
-  const resultsTimePromise = fetchCompareOverTimeResultsOnTreeherder({
-    newRevs,
-    newRepos,
-    framework: frameworkId,
-    interval: intervalValue,
   });
 
   // For each of these requests, we get a list of 1 item because we request one
@@ -301,17 +213,14 @@ export async function loader({ request }: { request: Request }) {
     ),
   );
 
-  const [results, overTimeResults, baseRevInfo, ...newRevsInfo] =
-    await Promise.all([
-      resultsPromise,
-      resultsTimePromise,
-      baseRevInfoPromise,
-      ...newRevsInfoPromises,
-    ]);
+  const [results, baseRevInfo, ...newRevsInfo] = await Promise.all([
+    resultsPromise,
+    baseRevInfoPromise,
+    ...newRevsInfoPromises,
+  ]);
 
   return {
     results,
-    overTimeResults,
     baseRev,
     baseRevInfo,
     baseRepo,
@@ -320,8 +229,6 @@ export async function loader({ request }: { request: Request }) {
     newRepos,
     frameworkId,
     frameworkName,
-    intervalValue,
-    intervalText,
   };
 }
 

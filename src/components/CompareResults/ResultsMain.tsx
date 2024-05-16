@@ -6,8 +6,9 @@ import { Colors } from '../../styles';
 import ResultsHeader from './ResultsHeader';
 import ResultsTable from './ResultsTable';
 
-function ResultsMain() {
+function ResultsMain(props: { isOverTime: boolean }) {
   const themeMode = useAppSelector((state) => state.theme.mode);
+  const { isOverTime } = props;
 
   const themeColor100 =
     themeMode === 'light' ? Colors.Background300 : Colors.Background100Dark;
@@ -24,7 +25,7 @@ function ResultsMain() {
   return (
     <Container className={styles.container} data-testid='results-main'>
       <ResultsHeader />
-      <ResultsTable />
+      <ResultsTable isOverTime={isOverTime} />
     </Container>
   );
 }

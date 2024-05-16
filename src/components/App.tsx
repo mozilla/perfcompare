@@ -17,6 +17,8 @@ import { Strings } from '../resources/Strings';
 import { Banner } from '../styles/Banner';
 import getProtocolTheme from '../theme/protocolTheme';
 import { loader as compareLoader } from './CompareResults/loader';
+import { loader as compareOverTimeLoader } from './CompareResults/overTimeLoader';
+import OverTimeResultsView from './CompareResults/OverTimeResultsView';
 import ResultsView from './CompareResults/ResultsView';
 import SearchView from './Search/SearchView';
 import { PageError } from './Shared/PageError';
@@ -69,6 +71,16 @@ export const router = createBrowserRouter(
         path='/compare-results'
         loader={compareLoader}
         element={<ResultsView title={Strings.metaData.pageTitle.results} />}
+        errorElement={<PageError title={Strings.metaData.pageTitle.results} />}
+      />
+
+      {/* created a new route for the compare-over-time-results page */}
+      <Route
+        path='/compare-over-time-results'
+        loader={compareOverTimeLoader}
+        element={
+          <OverTimeResultsView title={Strings.metaData.pageTitle.results} />
+        }
         errorElement={<PageError title={Strings.metaData.pageTitle.results} />}
       />
 

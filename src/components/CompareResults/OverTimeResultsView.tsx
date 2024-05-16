@@ -6,17 +6,17 @@ import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
 import { SearchContainerStyles, background } from '../../styles';
-import CompareWithBase from '../Search/CompareWithBase';
+import CompareOverTime from '../Search/CompareOverTime';
 import { LinkToHome } from '../Shared/LinkToHome';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
-import type { LoaderReturnValue } from './loader';
+import type { LoaderReturnValue } from './overTimeLoader';
 import ResultsMain from './ResultsMain';
 
 interface ResultsViewProps {
   title: string;
 }
 function ResultsView(props: ResultsViewProps) {
-  const { baseRevInfo, newRevsInfo, frameworkId } =
+  const { newRevsInfo, frameworkId, intervalValue } =
     useLoaderData() as LoaderReturnValue;
 
   const { title } = props;
@@ -42,18 +42,18 @@ function ResultsView(props: ResultsViewProps) {
       <section className={sectionStyles.container}>
         <LinkToHome />
 
-        <CompareWithBase
-          hasNonEditableState={true}
-          baseRev={baseRevInfo ?? null}
+        <CompareOverTime
+          hasNonEditableState={false}
           newRevs={newRevsInfo ?? []}
-          frameworkIdVal={frameworkId}
-          isBaseSearch={null}
+          isBaseSearch={true}
           expandBaseComponent={() => null}
+          frameworkIdVal={frameworkId}
+          intervalValue={intervalValue}
         />
       </section>
       <Grid container alignItems='center' justifyContent='center'>
         <Grid item xs={12}>
-          <ResultsMain isOverTime={false} />
+          <ResultsMain isOverTime={true} />
         </Grid>
       </Grid>
     </div>

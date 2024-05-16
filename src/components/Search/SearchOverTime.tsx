@@ -7,7 +7,7 @@ import InputLabel from '@mui/material/InputLabel';
 import Tooltip from '@mui/material/Tooltip';
 import { cssRule } from 'typestyle';
 
-import { compareView } from '../../common/constants';
+import { compareOverTimeView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import {
   Spacing,
@@ -101,7 +101,7 @@ export default function SearchOverTime({
           id='new_search-dropdown--time'
           className={`new-search-dropdown ${styles.dropDown} ${
             hasNonEditableState ? 'small' : ''
-          } ${hasNonEditableState ? compareView : ''}-new-dropdown`}
+          } ${hasNonEditableState ? compareOverTimeView : ''}-new-dropdown`}
         >
           <SearchDropdown
             compact={false}
