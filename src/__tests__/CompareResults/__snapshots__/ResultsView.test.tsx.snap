@@ -2,7 +2,7 @@
 
 exports[`Results View Should display Base, New and Common graphs with tooltips 1`] = `
 <div
-  class="content-row content-row--expanded container_f16sbjml "
+  class="content-row content-row--expanded container_f1izwqil "
   data-testid="expanded-row-content"
 >
   <div
@@ -660,78 +660,9 @@ exports[`Results View The table should match snapshot and other elements should 
         </div>
       </div>
       <div
-        class="content-row content-row--default container_f16sbjml "
+        class="content-row content-row--default container_f1izwqil "
         data-testid="expanded-row-content"
-      >
-        <div
-          class="ff20o48"
-        >
-          <div
-            class="f19s1n7z"
-          >
-            <div
-              class="fc8wfj0"
-            >
-              <b>
-                macosx1015-64-shippable-qr
-              </b>
-               
-              <br />
-            </div>
-            <div
-              class="fc8wfj0"
-            >
-              <hr
-                class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
-              />
-               
-            </div>
-            <div
-              class="fc8wfj0"
-            >
-              <div>
-                Only one run (consider more runs for greater confidence).
-                 
-              </div>
-            </div>
-            <div
-              class="fc8wfj0"
-            >
-              <b>
-                Mean Difference
-              </b>
-              : 
-              1.08
-              %
-               
-              worse
-               (
-              7.6
-              )
-            </div>
-            <div>
-              <div>
-                <b>
-                  Confidence
-                </b>
-                : 
-                Low
-                 
-              </div>
-              <div
-                class="fj8mg7a"
-              >
-                <b>
-                  **Note
-                </b>
-                : 
-                A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
-                 
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      />
       <div
         class="revisionRow f1x1c13s fp4ugv1"
         role="row"
@@ -972,78 +903,9 @@ exports[`Results View The table should match snapshot and other elements should 
         </div>
       </div>
       <div
-        class="content-row content-row--default container_f16sbjml "
+        class="content-row content-row--default container_f1izwqil "
         data-testid="expanded-row-content"
-      >
-        <div
-          class="ff20o48"
-        >
-          <div
-            class="f19s1n7z"
-          >
-            <div
-              class="fc8wfj0"
-            >
-              <b>
-                linux1804-64-shippable-qr
-              </b>
-               
-              <br />
-            </div>
-            <div
-              class="fc8wfj0"
-            >
-              <hr
-                class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
-              />
-               
-            </div>
-            <div
-              class="fc8wfj0"
-            >
-              <div>
-                Only one run (consider more runs for greater confidence).
-                 
-              </div>
-            </div>
-            <div
-              class="fc8wfj0"
-            >
-              <b>
-                Mean Difference
-              </b>
-              : 
-              1.85
-              %
-               
-              worse
-               (
-              14.37
-              )
-            </div>
-            <div>
-              <div>
-                <b>
-                  Confidence
-                </b>
-                : 
-                Medium
-                 
-              </div>
-              <div
-                class="fj8mg7a"
-              >
-                <b>
-                  **Note
-                </b>
-                : 
-                A value of 'med' indicates uncertainty that there is a significant change. If you haven't already, consider retriggering the job to be more sure.
-                 
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      />
       <div
         class="revisionRow f1x1c13s fp4ugv1"
         role="row"
@@ -1290,78 +1152,9 @@ exports[`Results View The table should match snapshot and other elements should 
         </div>
       </div>
       <div
-        class="content-row content-row--default container_f16sbjml "
+        class="content-row content-row--default container_f1izwqil "
         data-testid="expanded-row-content"
-      >
-        <div
-          class="ff20o48"
-        >
-          <div
-            class="f19s1n7z"
-          >
-            <div
-              class="fc8wfj0"
-            >
-              <b>
-                windows10-64-shippable-qr
-              </b>
-               
-              <br />
-            </div>
-            <div
-              class="fc8wfj0"
-            >
-              <hr
-                class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
-              />
-               
-            </div>
-            <div
-              class="fc8wfj0"
-            >
-              <div>
-                Only one run (consider more runs for greater confidence).
-                 
-              </div>
-            </div>
-            <div
-              class="fc8wfj0"
-            >
-              <b>
-                Mean Difference
-              </b>
-              : 
-              -2.4
-              %
-               
-              better
-               (
-              -15.46
-              )
-            </div>
-            <div>
-              <div>
-                <b>
-                  Confidence
-                </b>
-                : 
-                High
-                 
-              </div>
-              <div
-                class="fj8mg7a"
-              >
-                <b>
-                  **Note
-                </b>
-                : 
-                A value of 'high' indicates more confidence that there is a significant change, however you should check the historical record for the test by looking at the graph to be more sure (some noisy tests can provide inconsistent results).
-                 
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      />
       <div
         class="revisionRow f1x1c13s fp4ugv1"
         role="row"
@@ -1607,67 +1400,9 @@ exports[`Results View The table should match snapshot and other elements should 
         </div>
       </div>
       <div
-        class="content-row content-row--default container_f16sbjml "
+        class="content-row content-row--default container_f1izwqil "
         data-testid="expanded-row-content"
-      >
-        <div
-          class="ff20o48"
-        >
-          <div
-            class="f19s1n7z"
-          >
-            <div
-              class="fc8wfj0"
-            >
-              <b>
-                windows10-64-shippable-qr
-              </b>
-               
-              <br />
-            </div>
-            <div
-              class="fc8wfj0"
-            >
-              <hr
-                class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
-              />
-               
-            </div>
-            <div
-              class="fc8wfj0"
-            >
-              <div>
-                Only one run (consider more runs for greater confidence).
-                 
-              </div>
-            </div>
-            <div
-              class="fc8wfj0"
-            >
-              <b>
-                Mean Difference
-              </b>
-              : 
-              -2.4
-              %
-               
-              better
-               (
-              -15.46
-              )
-            </div>
-            <div>
-              <div>
-                <b>
-                  Confidence
-                </b>
-                : Not available
-                 
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      />
     </div>
   </div>
 </div>
