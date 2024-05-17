@@ -269,7 +269,7 @@ function RevisionRow(props: RevisionRowProps) {
         } ${stylesCard.container} `}
         data-testid='expanded-row-content'
       >
-        <RevisionRowExpandable result={result} />
+        {expanded && <RevisionRowExpandable result={result} />}
       </div>
     </>
   );
