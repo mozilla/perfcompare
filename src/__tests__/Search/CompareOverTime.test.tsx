@@ -62,6 +62,13 @@ describe('Compare Over Time', () => {
     expect(formElement).toMatchSnapshot('Initial state for the form');
   });
 
+  it('has the correct title for the component', async () => {
+    renderSearchViewComponent();
+    const title = 'Compare over time';
+    const compTitle = screen.getByRole('heading', { name: title });
+    expect(compTitle).toBeInTheDocument();
+  });
+
   it('expands on header click and closes when user clicks base component header', async () => {
     renderSearchViewComponent();
     const user = userEvent.setup({ delay: null });
