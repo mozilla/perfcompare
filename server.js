@@ -4,7 +4,11 @@ var express = require('express');
 
 var app = express();
 
-app.use(express.static(path.join(__dirname, 'build')));
+const rootDir = path.join(__dirname, 'build');
+app.use(express.static(rootDir));
+app.get('/*', (req, res) => {
+  res.sendFile('index.html', { root: rootDir });
+});
 
 app.set('port', process.env.PORT || 8080);
 
