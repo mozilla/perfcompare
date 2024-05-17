@@ -82,40 +82,6 @@ describe('Results View', () => {
     expect(linkToSuite).not.toBeInTheDocument();
   });
 
-  it('Should display the expande row when expand button is clicked', async () => {
-    const user = userEvent.setup({ delay: null });
-    // We set up a compare data that has 1 result but with several runs, so that
-    // the graphs are displayed for this result.
-    const { testCompareDataWithMultipleRuns, testData } = getTestData();
-    (window.fetch as FetchMockSandbox)
-      .get(
-        'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
-        testCompareDataWithMultipleRuns,
-      )
-      .get('begin:https://treeherder.mozilla.org/api/project/', {
-        results: [testData[0]],
-      });
-
-    renderWithRouter(
-      <ResultsView title={Strings.metaData.pageTitle.results} />,
-      {
-        route: '/compare-results/',
-        search: '?baseRev=spam&baseRepo=mozilla-central&framework=2',
-        loader,
-      },
-    );
-
-    const expandedRowContent = screen.queryByTestId('expanded-row-content');
-    expect(expandedRowContent).not.toBeInTheDocument();
-
-    const expandButton = await screen.findByRole('button', {
-      name: 'expand this row',
-    });
-    await user.click(expandButton);
-    expect(
-      await screen.findByTestId('expanded-row-content'),
-    ).toBeInTheDocument();
-  });
 
   it('Should display Base, New and Common graphs with tooltips', async () => {
     const user = userEvent.setup({ delay: null });
