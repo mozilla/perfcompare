@@ -464,10 +464,6 @@ exports[`Results Table Should match snapshot 1`] = `
             </div>
           </div>
           <div
-            class="content-row content-row--default container_f1izwqil "
-            data-testid="expanded-row-content"
-          />
-          <div
             class="revisionRow f1x1c13s fp4ugv1"
             role="row"
           >
@@ -706,10 +702,6 @@ exports[`Results Table Should match snapshot 1`] = `
               </div>
             </div>
           </div>
-          <div
-            class="content-row content-row--default container_f1izwqil "
-            data-testid="expanded-row-content"
-          />
           <div
             class="revisionRow f1x1c13s fp4ugv1"
             role="row"
@@ -956,10 +948,6 @@ exports[`Results Table Should match snapshot 1`] = `
             </div>
           </div>
           <div
-            class="content-row content-row--default container_f1izwqil "
-            data-testid="expanded-row-content"
-          />
-          <div
             class="revisionRow f1x1c13s fp4ugv1"
             role="row"
           >
@@ -1203,10 +1191,6 @@ exports[`Results Table Should match snapshot 1`] = `
               </div>
             </div>
           </div>
-          <div
-            class="content-row content-row--default container_f1izwqil "
-            data-testid="expanded-row-content"
-          />
         </div>
       </div>
     </div>

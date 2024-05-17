@@ -2,7 +2,7 @@
 
 exports[`Results View Should display Base, New and Common graphs with tooltips 1`] = `
 <div
-  class="content-row content-row--expanded container_f1izwqil "
+  class="content-row container_fd0x6jr"
   data-testid="expanded-row-content"
 >
   <div
@@ -660,10 +660,6 @@ exports[`Results View The table should match snapshot and other elements should 
         </div>
       </div>
       <div
-        class="content-row content-row--default container_f1izwqil "
-        data-testid="expanded-row-content"
-      />
-      <div
         class="revisionRow f1x1c13s fp4ugv1"
         role="row"
       >
@@ -902,10 +898,6 @@ exports[`Results View The table should match snapshot and other elements should 
           </div>
         </div>
       </div>
-      <div
-        class="content-row content-row--default container_f1izwqil "
-        data-testid="expanded-row-content"
-      />
       <div
         class="revisionRow f1x1c13s fp4ugv1"
         role="row"
@@ -1152,10 +1144,6 @@ exports[`Results View The table should match snapshot and other elements should 
         </div>
       </div>
       <div
-        class="content-row content-row--default container_f1izwqil "
-        data-testid="expanded-row-content"
-      />
-      <div
         class="revisionRow f1x1c13s fp4ugv1"
         role="row"
       >
@@ -1399,10 +1387,6 @@ exports[`Results View The table should match snapshot and other elements should 
           </div>
         </div>
       </div>
-      <div
-        class="content-row content-row--default container_f1izwqil "
-        data-testid="expanded-row-content"
-      />
     </div>
   </div>
 </div>

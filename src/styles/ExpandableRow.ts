@@ -13,14 +13,10 @@ export const ExpandableRowStyles = () => {
       $nest: {
         '&.content-row': {
           cursor: 'default',
-          $nest: {
-            '&.content-row--expanded': {
-              borderRadius: `0px 0px ${Spacing.Small}px ${Spacing.Small}px`,
-              display: 'flex',
-              minHeight: '200px',
-              height: '100%',
-            },
-          },
+          borderRadius: `0px 0px ${Spacing.Small}px ${Spacing.Small}px`,
+          display: 'flex',
+          minHeight: '200px',
+          height: '100%',
         },
       },
     },
