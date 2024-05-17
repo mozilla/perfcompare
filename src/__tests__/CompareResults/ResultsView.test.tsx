@@ -82,7 +82,6 @@ describe('Results View', () => {
     expect(linkToSuite).not.toBeInTheDocument();
   });
 
-
   it('Should display Base, New and Common graphs with tooltips', async () => {
     const user = userEvent.setup({ delay: null });
 
