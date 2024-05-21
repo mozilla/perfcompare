@@ -3,11 +3,13 @@ import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
 import { Colors } from '../../styles';
+import type { CompareResultsItem } from '../../types/state';
 import ResultsHeader from './ResultsHeader';
 import ResultsTable from './ResultsTable';
 
-function ResultsMain() {
+function ResultsMain(props: { results: CompareResultsItem[][] }) {
   const themeMode = useAppSelector((state) => state.theme.mode);
+  const { results } = props;
 
   const themeColor100 =
     themeMode === 'light' ? Colors.Background300 : Colors.Background100Dark;
@@ -24,7 +26,7 @@ function ResultsMain() {
   return (
     <Container className={styles.container} data-testid='results-main'>
       <ResultsHeader />
-      <ResultsTable />
+      <ResultsTable results={results} />
     </Container>
   );
 }

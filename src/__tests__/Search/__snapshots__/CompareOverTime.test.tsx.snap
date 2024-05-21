@@ -2,7 +2,7 @@
 
 exports[`Compare Over Time renders correctly in Search View: Initial state for the form 1`] = `
 <form
-  action="/compare-results"
+  action="/compare-over-time-results"
   aria-label="Compare over time form"
   class="form-wrapper"
   method="get"
@@ -243,9 +243,9 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-labelledby="select-timerange-label mui-component-select-timerange"
+            aria-labelledby="select-timerange-label mui-component-select-selectedTimeRange"
             class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-            id="mui-component-select-timerange"
+            id="mui-component-select-selectedTimeRange"
             role="button"
             tabindex="0"
           >
@@ -254,7 +254,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
           <input
             aria-hidden="true"
             class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-            name="timerange"
+            name="selectedTimeRange"
             tabindex="-1"
             value="86400"
           />
@@ -525,7 +525,7 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
 
 exports[`Compare Over Time should remove the checked revision once X button is clicked 1`] = `
 <form
-  action="/compare-results"
+  action="/compare-over-time-results"
   aria-label="Compare over time form"
   class="form-wrapper"
   method="get"
@@ -766,9 +766,9 @@ exports[`Compare Over Time should remove the checked revision once X button is c
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-labelledby="select-timerange-label mui-component-select-timerange"
+            aria-labelledby="select-timerange-label mui-component-select-selectedTimeRange"
             class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-            id="mui-component-select-timerange"
+            id="mui-component-select-selectedTimeRange"
             role="button"
             tabindex="0"
           >
@@ -777,7 +777,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
           <input
             aria-hidden="true"
             class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-            name="timerange"
+            name="selectedTimeRange"
             tabindex="-1"
             value="86400"
           />

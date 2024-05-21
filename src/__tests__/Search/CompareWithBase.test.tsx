@@ -100,6 +100,13 @@ describe('Compare With Base', () => {
     expect(formElement).toMatchSnapshot('Initial state for the form');
   });
 
+  it('has the correct title for the component', async () => {
+    renderSearchViewComponent();
+    const title = 'Compare with a base';
+    const compTitle = screen.getByRole('heading', { name: title });
+    expect(compTitle).toBeInTheDocument();
+  });
+
   it('expands when user clicks on title header', async () => {
     renderSearchViewComponent();
 
