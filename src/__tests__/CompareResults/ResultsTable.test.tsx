@@ -20,6 +20,7 @@ function renderWithRoute(component: ReactElement) {
 describe('Results Table', () => {
   it('Should match snapshot', async () => {
     const { testCompareData } = getTestData();
+
     (window.fetch as FetchMockSandbox)
       .get(
         'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
@@ -28,7 +29,7 @@ describe('Results Table', () => {
       .get('begin:https://treeherder.mozilla.org/api/project/', {
         results: [],
       });
-    renderWithRoute(<ResultsTable />);
+    renderWithRoute(<ResultsTable results={[]} />);
 
     expect(await screen.findByTestId('results-table')).toBeInTheDocument();
     expect(document.body).toMatchSnapshot();
@@ -40,7 +41,7 @@ describe('Results Table', () => {
       .get('begin:https://treeherder.mozilla.org/api/project/', {
         results: [],
       });
-    renderWithRoute(<ResultsTable />);
+    renderWithRoute(<ResultsTable results={[]} />);
 
     expect(await screen.findByText(/No results found/)).toBeInTheDocument();
   });

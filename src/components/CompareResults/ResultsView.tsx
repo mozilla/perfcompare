@@ -16,7 +16,7 @@ interface ResultsViewProps {
   title: string;
 }
 function ResultsView(props: ResultsViewProps) {
-  const { baseRevInfo, newRevsInfo, frameworkId } =
+  const { baseRevInfo, newRevsInfo, frameworkId, results } =
     useLoaderData() as LoaderReturnValue;
 
   const { title } = props;
@@ -53,7 +53,7 @@ function ResultsView(props: ResultsViewProps) {
       </section>
       <Grid container alignItems='center' justifyContent='center'>
         <Grid item xs={12}>
-          <ResultsMain isOverTime={false} />
+          <ResultsMain results={results} />
         </Grid>
       </Grid>
     </div>

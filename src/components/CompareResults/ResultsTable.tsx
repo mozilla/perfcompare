@@ -3,16 +3,13 @@ import { useMemo } from 'react';
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
 import Paper from '@mui/material/Paper';
-import { useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { Colors, Spacing } from '../../styles';
 import type { CompareResultsItem, RevisionsHeader } from '../../types/state';
-import type { LoaderReturnValue } from './loader';
 import NoResultsFound from './NoResultsFound';
-import type { LoaderReturnValue as OverTimeLoadResults } from './overTimeLoader';
 import TableContent from './TableContent';
 import TableHeader from './TableHeader';
 
@@ -68,12 +65,9 @@ const customStyles = {
   background: 'none',
 };
 
-function ResultsTable(props: { isOverTime: boolean }) {
+function ResultsTable(props: { results: CompareResultsItem[][] }) {
   const themeMode = useAppSelector((state) => state.theme.mode);
-  const { isOverTime } = props;
-  const { results: withBaseResults } = useLoaderData() as LoaderReturnValue;
-  const { results: overTimeResults } = useLoaderData() as OverTimeLoadResults;
-  const results = isOverTime ? overTimeResults : withBaseResults;
+  const { results } = props;
 
   const activeComparison = useAppSelector(
     (state) => state.comparison.activeComparison,
