@@ -103,7 +103,7 @@ module.exports = {
     },
     {
       // JavaScript linting
-      files: ['src/**/*.js', 'webpack/**/*.js'],
+      files: ['src/**/*.js', 'webpack/**/*.js', '*.js'],
       parser: 'espree',
       parserOptions: {
         ecmaVersion: 12,
