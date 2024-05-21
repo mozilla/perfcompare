@@ -1,5 +1,5 @@
 import { CompareResultsItem, Repository, Changeset } from '../types/state';
-import { Framework } from '../types/types';
+import { Framework, TimeRange } from '../types/types';
 
 // This file contains functions to request the Treeherder API
 
@@ -11,6 +11,13 @@ type FetchProps = {
   newRepo: Repository['name'];
   newRev: string;
   framework: Framework['id'];
+};
+
+type FetchOverTimeProps = {
+  newRepo: Repository['name'];
+  newRev: string;
+  framework: Framework['id'];
+  interval: TimeRange['value'];
 };
 
 // This fetches data from the Treeherder API /api/perfcompare/results.
@@ -29,6 +36,41 @@ export async function fetchCompareResults({
     new_revision: newRev,
     framework: String(framework),
     interval: '86400',
+    no_subtests: 'true',
+  });
+
+  const response = await fetch(
+    `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`,
+  );
+  if (!response.ok) {
+    if (response.status === 400) {
+      throw new Error(
+        `Error when requesting treeherder: ${await response.text()}`,
+      );
+    } else {
+      throw new Error(
+        `Error when requesting treeherder: (${response.status}) ${response.statusText}`,
+      );
+    }
+  }
+
+  return response.json() as Promise<CompareResultsItem[]>;
+}
+
+// This API returns the results of compare over time between new revisions.
+
+export async function fetchCompareOverTimeResults({
+  newRev,
+  newRepo,
+  framework,
+  interval,
+}: FetchOverTimeProps) {
+  const searchParams = new URLSearchParams({
+    base_repository: newRepo,
+    new_repository: newRepo,
+    new_revision: newRev,
+    framework: String(framework),
+    interval: String(interval),
     no_subtests: 'true',
   });
 
