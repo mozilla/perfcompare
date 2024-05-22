@@ -411,7 +411,7 @@ exports[`Search Containter should match snapshot 1`] = `
         </div>
       </div>
       <div
-        class="MuiGrid-root wrapper--overtime f1ucodr8 f1wt0yvj css-plh9qo-MuiGrid-root"
+        class="MuiGrid-root wrapper--overtime f1ucodr8 css-plh9qo-MuiGrid-root"
       >
         <div
           class="compare-card-container compare-card-container--hidden container_fulqxr1"
@@ -443,7 +443,7 @@ exports[`Search Containter should match snapshot 1`] = `
             class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
           />
           <form
-            action="/compare-results"
+            action="/compare-over-time-results"
             aria-label="Compare over time form"
             class="form-wrapper"
             method="get"
@@ -684,9 +684,9 @@ exports[`Search Containter should match snapshot 1`] = `
                     <div
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-labelledby="select-timerange-label mui-component-select-timerange"
+                      aria-labelledby="select-timerange-label mui-component-select-selectedTimeRange"
                       class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                      id="mui-component-select-timerange"
+                      id="mui-component-select-selectedTimeRange"
                       role="button"
                       tabindex="0"
                     >
@@ -695,7 +695,7 @@ exports[`Search Containter should match snapshot 1`] = `
                     <input
                       aria-hidden="true"
                       class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                      name="timerange"
+                      name="selectedTimeRange"
                       tabindex="-1"
                       value="86400"
                     />

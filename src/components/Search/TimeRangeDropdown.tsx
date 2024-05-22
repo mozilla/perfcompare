@@ -106,7 +106,7 @@ function TimeRangeDropdown({
           className='dropdown-select'
           variant='standard'
           onChange={(e) => void handleTimeRangeSelect(e)}
-          name='timerange'
+          name='selectedTimeRange'
         >
           {Object.entries(timeRangeMap).map(([value, text]) => (
             <MenuItem

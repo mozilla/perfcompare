@@ -35,7 +35,7 @@
     "dev": "webpack serve --config webpack/webpack.config.js --env env=development --open",
     "start": "node server.js",
     "build": "webpack --config webpack/webpack.config.js --env env=production",
-    "lint": "eslint \"src/**/*.{js,ts,tsx}\"",
+    "lint": "eslint \"src/**/*.{js,ts,tsx}\" \"*.js\"",
     "lint:fix": "npm run lint -- --fix",
     "format": "prettier --write . --config ./.prettierrc.js",
     "format:check": "prettier --check . --config ./.prettierrc.js",

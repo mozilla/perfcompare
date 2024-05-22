@@ -262,15 +262,14 @@ function RevisionRow(props: RevisionRowProps) {
           </div>
         </div>
       </div>
-
-      <div
-        className={`content-row content-row--${
-          expanded ? 'expanded' : 'default'
-        } ${stylesCard.container} `}
-        data-testid='expanded-row-content'
-      >
-        <RevisionRowExpandable result={result} />
-      </div>
+      {expanded && (
+        <div
+          className={`content-row ${stylesCard.container}`}
+          data-testid='expanded-row-content'
+        >
+          <RevisionRowExpandable result={result} />
+        </div>
+      )}
     </>
   );
 }

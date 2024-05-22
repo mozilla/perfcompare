@@ -3,9 +3,11 @@ import { useState } from 'react';
 import { Grid, SelectChangeEvent, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import { VariantType, useSnackbar } from 'notistack';
-import { Form, useLocation } from 'react-router-dom';
+import { Form } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { style } from 'typestyle';
 
+import { compareOverTimeView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles, SearchStyles, Spacing } from '../../styles';
@@ -24,6 +26,7 @@ interface CompareWithTimeProps {
   hasNonEditableState: boolean;
   newRevs: Changeset[];
   frameworkIdVal: Framework['id'];
+  intervalValue: TimeRange['value'];
   isBaseSearch: null | boolean;
   expandBaseComponent: (expanded: boolean) => void;
 }
@@ -32,35 +35,28 @@ function CompareOverTime({
   hasNonEditableState,
   newRevs,
   frameworkIdVal,
+  intervalValue,
   isBaseSearch,
   expandBaseComponent,
 }: CompareWithTimeProps) {
   const { enqueueSnackbar } = useSnackbar();
-  const [timeRangeValue, setTimeRangeValue] = useState(
-    86400 as TimeRange['value'],
-  );
+  const location = useLocation();
+  const resultsView = location.pathname.includes(compareOverTimeView);
+  const searchView =
+    !isBaseSearch && isBaseSearch !== null ? 'expanded' : 'hidden';
 
+  const [timeRangeValue, setTimeRangeValue] = useState(intervalValue);
   const [frameworkId, setframeWorkValue] = useState(frameworkIdVal);
-
   const [inProgressRevs, setInProgressRevs] = useState<Changeset[]>(newRevs);
   const [repository, setRepository] = useState('try' as Repository['name']);
+
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = CompareCardsStyles(mode);
   const dropDownStyles = SearchStyles(mode);
-  //temporary hash to hide the component until functionality is complete
-  const location = useLocation();
-  const hash = location.hash;
-
-  //temporary styles to hide the component based on hash
-  const containerStyles = {
-    container: style({
-      display: hash === '#comparetime' ? 'block' : 'none',
-    }),
-  };
 
   const wrapperStyles = {
     wrapper: style({
-      marginBottom: `${Spacing.layoutXLarge}px`,
+      marginBottom: `${resultsView ? '0' : Spacing.layoutXLarge}px`,
     }),
   };
 
@@ -77,6 +73,16 @@ function CompareOverTime({
         },
       },
     }),
+  };
+
+  const possiblyPreventFormSubmission = (e: React.FormEvent) => {
+    const isFormReadyToBeSubmitted = inProgressRevs !== null;
+    if (!isFormReadyToBeSubmitted) {
+      e.preventDefault();
+      enqueueSnackbar(strings.base.collapsed.errors.notEnoughRevisions, {
+        variant: 'error',
+      });
+    }
   };
 
   const toggleIsExpanded = () => {
@@ -139,12 +145,10 @@ function CompareOverTime({
   };
 
   return (
-    <Grid
-      className={`wrapper--overtime ${wrapperStyles.wrapper} ${containerStyles.container}`}
-    >
+    <Grid className={`wrapper--overtime ${wrapperStyles.wrapper}`}>
       <div
         className={`compare-card-container compare-card-container--${
-          !isBaseSearch && isBaseSearch !== null ? 'expanded' : 'hidden'
+          resultsView ? 'expanded' : searchView
         } ${styles.container}`}
         onClick={toggleIsExpanded}
         data-testid='time-state'
@@ -162,12 +166,13 @@ function CompareOverTime({
       </div>
       <div
         className={`compare-card-container content-base content-base--${
-          !isBaseSearch && isBaseSearch !== null ? 'expanded' : 'hidden'
+          resultsView ? 'expanded' : searchView
         } ${styles.container} `}
       >
         <Divider className='divider' />
         <Form
-          action='/compare-results'
+          action='/compare-over-time-results'
+          onSubmit={possiblyPreventFormSubmission}
           className='form-wrapper'
           aria-label='Compare over time form'
         >
