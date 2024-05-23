@@ -20,6 +20,24 @@ type FetchOverTimeProps = {
   interval: TimeRange['value'];
 };
 
+type FetchSubtestsProps = {
+  baseRepo: Repository['name'];
+  baseRev: string;
+  newRepo: Repository['name'];
+  newRev: string;
+  framework: Framework['id'];
+  parentSignature: string;
+};
+
+type FetchSubtestsOverTimeProps = {
+  baseRepo: Repository['name'];
+  newRepo: Repository['name'];
+  newRev: string;
+  framework: Framework['id'];
+  interval: TimeRange['value'];
+  parentSignature: string;
+};
+
 // This fetches data from the Treeherder API /api/perfcompare/results.
 // This API returns the results of a comparison between 2 revisions.
 export async function fetchCompareResults({
@@ -58,7 +76,6 @@ export async function fetchCompareResults({
 }
 
 // This API returns the results of compare over time between new revisions.
-
 export async function fetchCompareOverTimeResults({
   newRev,
   newRepo,
@@ -72,6 +89,78 @@ export async function fetchCompareOverTimeResults({
     framework: String(framework),
     interval: String(interval),
     no_subtests: 'true',
+  });
+
+  const response = await fetch(
+    `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`,
+  );
+  if (!response.ok) {
+    if (response.status === 400) {
+      throw new Error(
+        `Error when requesting treeherder: ${await response.text()}`,
+      );
+    } else {
+      throw new Error(
+        `Error when requesting treeherder: (${response.status}) ${response.statusText}`,
+      );
+    }
+  }
+
+  return response.json() as Promise<CompareResultsItem[]>;
+}
+
+// This API returns the subtests results of a particular comparison result between 2 revisions.
+export async function fetchSubtestsCompareResults({
+  baseRev,
+  baseRepo,
+  newRev,
+  newRepo,
+  framework,
+  parentSignature,
+}: FetchSubtestsProps) {
+  const searchParams = new URLSearchParams({
+    base_repository: baseRepo,
+    base_revision: baseRev,
+    new_repository: newRepo,
+    new_revision: newRev,
+    framework: String(framework),
+    parent_signature: parentSignature,
+  });
+
+  const response = await fetch(
+    `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`,
+  );
+  if (!response.ok) {
+    if (response.status === 400) {
+      throw new Error(
+        `Error when requesting treeherder: ${await response.text()}`,
+      );
+    } else {
+      throw new Error(
+        `Error when requesting treeherder: (${response.status}) ${response.statusText}`,
+      );
+    }
+  }
+
+  return response.json() as Promise<CompareResultsItem[]>;
+}
+
+// This API returns the subtests results of a particular comparison result between 2 revisions.
+export async function fetchSubtestsCompareOverTimeResults({
+  baseRepo,
+  newRev,
+  newRepo,
+  framework,
+  interval,
+  parentSignature,
+}: FetchSubtestsOverTimeProps) {
+  const searchParams = new URLSearchParams({
+    base_repository: baseRepo,
+    new_repository: newRepo,
+    new_revision: newRev,
+    framework: String(framework),
+    interval: String(interval),
+    parent_signature: parentSignature,
   });
 
   const response = await fetch(

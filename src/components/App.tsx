@@ -20,6 +20,9 @@ import { loader as compareLoader } from './CompareResults/loader';
 import { loader as compareOverTimeLoader } from './CompareResults/overTimeLoader';
 import OverTimeResultsView from './CompareResults/OverTimeResultsView';
 import ResultsView from './CompareResults/ResultsView';
+import { loader as compareSubtestsLoader } from './CompareResults/subtestsLoader';
+import { loader as compareSubtestsOverTimeLoader } from './CompareResults/subtestsOverTimeLoader';
+import SubtestsResultsView from './CompareResults/SubtestsResultsView';
 import SearchView from './Search/SearchView';
 import { PageError } from './Shared/PageError';
 import SnackbarCloseButton from './Shared/SnackbarCloseButton';
@@ -80,6 +83,20 @@ export const router = createBrowserRouter(
         element={
           <OverTimeResultsView title={Strings.metaData.pageTitle.results} />
         }
+        errorElement={<PageError title={Strings.metaData.pageTitle.results} />}
+      />
+
+      <Route
+        path='/subtestsCompareWithBase'
+        loader={compareSubtestsLoader}
+        element={<SubtestsResultsView />}
+        errorElement={<PageError title={Strings.metaData.pageTitle.results} />}
+      />
+
+      <Route
+        path='/subtestsCompareOverTime'
+        loader={compareSubtestsOverTimeLoader}
+        element={<SubtestsResultsView />}
         errorElement={<PageError title={Strings.metaData.pageTitle.results} />}
       />
 
