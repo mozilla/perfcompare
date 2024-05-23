@@ -373,7 +373,9 @@ describe('Compare With Base', () => {
     );
 
     // Select an updated new revision in the dropdown
-    const searchInputNew = screen.getByRole('textbox');
+    const searchInputNew = screen.getByRole('textbox', {
+      name: /Search revision/,
+    });
     await user.click(searchInputNew);
     const horse = await screen.findByRole('button', {
       name: /What, ridden on a horse?/,

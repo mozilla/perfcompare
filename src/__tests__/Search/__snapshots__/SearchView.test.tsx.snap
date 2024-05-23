@@ -233,6 +233,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                             </div>
                             <input
                               aria-invalid="false"
+                              aria-label="Search base by ID number or author email"
                               class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                               id="search-base-input"
                               placeholder="Search base by ID number or author email"
@@ -376,6 +377,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                             </div>
                             <input
                               aria-invalid="false"
+                              aria-label="Search revision by ID number or author email"
                               class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                               id="search-new-input"
                               placeholder="Search revision by ID number or author email"
@@ -633,6 +635,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                             </div>
                             <input
                               aria-invalid="false"
+                              aria-label="Search revision by ID number or author email"
                               class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                               id="search-new-input"
                               placeholder="Search revision by ID number or author email"
