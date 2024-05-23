@@ -74,7 +74,6 @@ export const router = createBrowserRouter(
         errorElement={<PageError title={Strings.metaData.pageTitle.results} />}
       />
 
-      {/* created a new route for the compare-over-time-results page */}
       <Route
         path='/compare-over-time-results'
         loader={compareOverTimeLoader}
