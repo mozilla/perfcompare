@@ -1,3 +1,5 @@
+import { useState, useMemo } from 'react';
+
 import { Container } from '@mui/system';
 import { style } from 'typestyle';
 
@@ -11,6 +13,7 @@ import SearchInput from './SearchInput';
 
 function ResultsMain(props: { results: CompareResultsItem[][] }) {
   const themeMode = useAppSelector((state) => state.theme.mode);
+  const [searchTerm, setSearchTerm] = useState('');
   const { results } = props;
 
   const themeColor100 =
@@ -33,17 +36,37 @@ function ResultsMain(props: { results: CompareResultsItem[][] }) {
     }),
   };
 
+  const filteredResults = useMemo(
+    () =>
+      searchTerm
+        ? results
+            .map((resultsForOneComparison) =>
+              resultsForOneComparison.filter(
+                (result) =>
+                  result.suite.includes(searchTerm) ||
+                  result.extra_options.includes(searchTerm) ||
+                  result.option_name.includes(searchTerm) ||
+                  result.test.includes(searchTerm) ||
+                  result.new_rev.includes(searchTerm) ||
+                  result.platform.includes(searchTerm),
+              ),
+            )
+            .filter((resultsForOneComparison) => resultsForOneComparison.length)
+        : results,
+    [results, searchTerm],
+  );
+
   return (
     <Container className={styles.container} data-testid='results-main'>
       <header>
         <div className={styles.title}>Results</div>
         <div className={styles.content}>
-          <SearchInput />
+          <SearchInput onChange={setSearchTerm} />
           <RevisionSelect />
           <DownloadButton />
         </div>
       </header>
-      <ResultsTable results={results} />
+      <ResultsTable results={filteredResults} />
     </Container>
   );
 }
