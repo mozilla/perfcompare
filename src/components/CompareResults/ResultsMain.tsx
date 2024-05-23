@@ -2,10 +2,12 @@ import { Container } from '@mui/system';
 import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
-import { Colors } from '../../styles';
+import { Colors, Spacing } from '../../styles';
 import type { CompareResultsItem } from '../../types/state';
-import ResultsHeader from './ResultsHeader';
+import DownloadButton from './DownloadButton';
 import ResultsTable from './ResultsTable';
+import RevisionSelect from './RevisionSelect';
+import SearchInput from './SearchInput';
 
 function ResultsMain(props: { results: CompareResultsItem[][] }) {
   const themeMode = useAppSelector((state) => state.theme.mode);
@@ -20,11 +22,27 @@ function ResultsMain(props: { results: CompareResultsItem[][] }) {
       margin: '0 auto',
       marginBottom: '80px',
     }),
+    title: style({
+      margin: 0,
+      marginBottom: Spacing.Medium,
+    }),
+    content: style({
+      display: 'flex',
+      justifyContent: 'flex-end',
+      alignItems: 'center',
+    }),
   };
 
   return (
     <Container className={styles.container} data-testid='results-main'>
-      <ResultsHeader />
+      <header>
+        <div className={styles.title}>Results</div>
+        <div className={styles.content}>
+          <SearchInput />
+          <RevisionSelect />
+          <DownloadButton />
+        </div>
+      </header>
       <ResultsTable results={results} />
     </Container>
   );
