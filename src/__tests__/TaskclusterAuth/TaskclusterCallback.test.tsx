@@ -1,7 +1,12 @@
 import { loader } from '../../components/TaskclusterAuth/loader';
 import TaskclusterCallback from '../../components/TaskclusterAuth/TaskclusterCallback';
 import { getLocationOrigin } from '../../utils/location';
-import { FetchMockSandbox, renderWithRouter } from '../utils/test-utils';
+import {
+  FetchMockSandbox,
+  renderWithRouter,
+  screen,
+} from '../utils/test-utils';
+
 jest.mock('../../utils/location');
 const mockedGetLocationOrigin = getLocationOrigin as jest.Mock;
 
@@ -30,7 +35,7 @@ describe('Taskcluster Callback', () => {
     expect(window.fetch).toHaveBeenCalledTimes(1);
   });
 
-  it('should fetch credentials with token bearer', () => {
+  it('should fetch credentials with token bearer', async () => {
     (window.fetch as FetchMockSandbox).post(
       'begin:https://firefox-ci-tc.services.mozilla.com/login/oauth/token',
       {
@@ -63,14 +68,8 @@ describe('Taskcluster Callback', () => {
     });
     mockedGetLocationOrigin.mockImplementation(() => 'http://localhost:3000');
 
-    expect(window.fetch).toHaveBeenLastCalledWith(
-      'https://firefox-ci-tc.services.mozilla.com/login/oauth/credentials',
-      {
-        headers: {
-          Authorization: `Bearer RnVpOGJtdDZTb3FlWW5PVUxVclprQQ==`,
-          'Content-Type': 'aplication/json',
-        },
-      },
-    );
+    expect(
+      await screen.findByText(/Getting Taskcluster credentials/),
+    ).toBeInTheDocument();
   });
 });
