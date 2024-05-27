@@ -135,7 +135,7 @@ export async function retrieveTaskclusterToken(rootUrl: string, code: string) {
   return response;
 }
 
-export async function retrieveTaskclusterAccessToken(
+export async function retrieveTaskclusterUserCredentials(
   rootUrl: string,
   tokenBearer: string,
 ) {

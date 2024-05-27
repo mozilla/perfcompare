@@ -1,5 +1,5 @@
 import {
-  retrieveTaskclusterAccessToken,
+  retrieveTaskclusterUserCredentials,
   retrieveTaskclusterToken,
 } from '../../logic/taskcluster';
 
@@ -26,7 +26,7 @@ export async function loader({ request }: { request: Request }) {
   const tokenBearer = await retrieveTaskclusterToken(rootUrl, taskclusterCode);
 
   // fetch access token with token Bearer
-  const accessToken = await retrieveTaskclusterAccessToken(
+  const accessToken = await retrieveTaskclusterUserCredentials(
     rootUrl,
     tokenBearer.access_token,
   );
