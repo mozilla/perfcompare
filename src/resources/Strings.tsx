@@ -82,6 +82,9 @@ export const Strings = {
         imgDark:
           'https://user-images.githubusercontent.com/88336547/233250642-7fd7c217-e72b-4375-9078-7ed2f99cb0f7.png',
         collapsed: {
+          errors: {
+            notEnoughRevisions: 'Please select at least one revision.',
+          },
           timeRange: {
             selectLabel: 'Time range',
             tooltip: 'The time range to compare revisions.',

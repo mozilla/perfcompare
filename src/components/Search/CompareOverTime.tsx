@@ -19,12 +19,13 @@ import SearchOverTime from './SearchOverTime';
 import TimeRangeDropdown from './TimeRangeDropdown';
 
 const strings = Strings.components.searchDefault;
+const stringsOverTime = Strings.components.searchDefault.overTime;
 const stringsNew =
   Strings.components.searchDefault.overTime.collapsed.revisions;
 
 interface CompareWithTimeProps {
   hasNonEditableState: boolean;
-  newRevs: Changeset[];
+  newRevs: Changeset[] | [];
   frameworkIdVal: Framework['id'];
   intervalValue: TimeRange['value'];
   isBaseSearch: null | boolean;
@@ -47,7 +48,9 @@ function CompareOverTime({
 
   const [timeRangeValue, setTimeRangeValue] = useState(intervalValue);
   const [frameworkId, setframeWorkValue] = useState(frameworkIdVal);
-  const [inProgressRevs, setInProgressRevs] = useState<Changeset[]>(newRevs);
+  const [inProgressRevs, setInProgressRevs] = useState<Changeset[] | []>(
+    newRevs,
+  );
   const [repository, setRepository] = useState('try' as Repository['name']);
 
   const mode = useAppSelector((state) => state.theme.mode);
@@ -76,10 +79,10 @@ function CompareOverTime({
   };
 
   const possiblyPreventFormSubmission = (e: React.FormEvent) => {
-    const isFormReadyToBeSubmitted = inProgressRevs !== null;
+    const isFormReadyToBeSubmitted = inProgressRevs.length > 0;
     if (!isFormReadyToBeSubmitted) {
       e.preventDefault();
-      enqueueSnackbar(strings.base.collapsed.errors.notEnoughRevisions, {
+      enqueueSnackbar(stringsOverTime.collapsed.errors.notEnoughRevisions, {
         variant: 'error',
       });
     }
@@ -89,9 +92,6 @@ function CompareOverTime({
     expandBaseComponent(false);
   };
   const handleRemoveRevision = (item: Changeset) => {
-    // Currently item seems to be the same object than the one stored in
-    // newInProgressRevs, but it might change in the future. That's why we're
-    // comparing the ids instead of using indexOf directly.
     const indexInNewChangesets = inProgressRevs.findIndex(
       (rev) => rev.id === item.id,
     );

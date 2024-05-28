@@ -33,8 +33,10 @@ async function expandOverTimeComponent() {
   const user = userEvent.setup({ delay: null });
   const testExpandedID = 'time-state';
   const headerContent = screen.getByTestId(testExpandedID);
-
   await user.click(headerContent);
+  expect(screen.getByTestId(testExpandedID)).toHaveClass(
+    'compare-card-container--expanded',
+  );
 }
 
 function renderComponent() {

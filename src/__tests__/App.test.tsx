@@ -116,6 +116,30 @@ describe('App', () => {
       expect(document.body).toMatchSnapshot();
     });
 
+    it('Should render an error page for compare over time when the treeherder request fails with an error 400', async () => {
+      // Silence console.error for a better console output. We'll check its result later.
+      jest.spyOn(console, 'error').mockImplementation(() => {});
+      (window.fetch as FetchMockSandbox).get(
+        'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
+        {
+          status: 400,
+          body: 'Treeherder request error',
+        },
+      );
+
+      await router.navigate(
+        '/compare-over-time-results?newRev=coconut&newRepo=try&framework=1&selectedTimeRange=86400',
+      );
+      render(<App />);
+
+      await screen.findByText(/Error/);
+      expect(console.error).toHaveBeenCalledWith(
+        new Error('Error when requesting treeherder: Treeherder request error'),
+      );
+      expect(console.error).toHaveBeenCalledTimes(1);
+      expect(document.body).toMatchSnapshot();
+    });
+
     it('Should render an error page when the requested URL is invalid', async () => {
       // Silence console.error for a better console output. We'll check its result later.
       // If an expectation toHaveBeenCalledTimes fails, it might be easier to

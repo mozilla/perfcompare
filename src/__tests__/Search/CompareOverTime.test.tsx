@@ -1,5 +1,10 @@
-import userEvent from '@testing-library/user-event';
+import { ReactElement } from 'react';
 
+import userEvent from '@testing-library/user-event';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+import { loader } from '../../components/CompareResults/overTimeLoader';
+import OverTimeResultsView from '../../components/CompareResults/OverTimeResultsView';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import getTestData from '../utils/fixtures';
@@ -8,16 +13,22 @@ import {
   renderWithRouter,
   FetchMockSandbox,
   within,
+  render,
 } from '../utils/test-utils';
 
 function setUpTestData() {
   const { testData } = getTestData();
-  (global.fetch as FetchMockSandbox).get(
-    'glob:https://treeherder.mozilla.org/api/project/*/push/*',
-    {
+  (global.fetch as FetchMockSandbox)
+    .get('glob:https://treeherder.mozilla.org/api/project/*/push/*', {
       results: testData,
-    },
-  );
+    })
+    .get('begin:https://treeherder.mozilla.org/api/perfcompare/results/', [])
+    .get(
+      'begin:https://treeherder.mozilla.org/api/project/try/push/?revision=coconut',
+      {
+        results: [testData[0]],
+      },
+    );
 }
 
 function renderSearchViewComponent() {
@@ -25,6 +36,15 @@ function renderSearchViewComponent() {
   return renderWithRouter(
     <SearchView title={Strings.metaData.pageTitle.search} />,
   );
+}
+
+function renderWithCompareResultsURL(component: ReactElement) {
+  setUpTestData();
+  return renderWithRouter(component, {
+    route: '/compare-over-time-results/',
+    search: '?newRev=coconut&newRepo=try&framework=2&selectedTimeRange=86400',
+    loader,
+  });
 }
 
 // Useful function utilities to get various elements in the page
@@ -43,8 +63,6 @@ async function waitForPageReadyAndReturnForm() {
 }
 
 async function expandOverTimeComponent() {
-  window.location.hash = '#comparetime';
-  expect(window.location.hash).toBe('#comparetime');
   const user = userEvent.setup({ delay: null });
   const testExpandedID = 'time-state';
   const headerContent = screen.getByTestId(testExpandedID);
@@ -58,6 +76,14 @@ describe('Compare Over Time', () => {
   it('renders correctly in Search View', async () => {
     renderSearchViewComponent();
     await expandOverTimeComponent();
+    const formElement = await waitForPageReadyAndReturnForm();
+    expect(formElement).toMatchSnapshot('Initial state for the form');
+  });
+
+  it('renders correctly when there are no results', async () => {
+    renderWithCompareResultsURL(
+      <OverTimeResultsView title={Strings.metaData.pageTitle.results} />,
+    );
     const formElement = await waitForPageReadyAndReturnForm();
     expect(formElement).toMatchSnapshot('Initial state for the form');
   });
@@ -96,6 +122,29 @@ describe('Compare Over Time', () => {
     );
   });
 
+  it('remains expanded when user clicks on title header in Results view', async () => {
+    renderWithCompareResultsURL(
+      <OverTimeResultsView title={Strings.metaData.pageTitle.results} />,
+    );
+    await waitForPageReadyAndReturnForm();
+
+    const user = userEvent.setup({ delay: null });
+
+    const testExpandedID = 'time-state';
+    const headerContent = screen.getByTestId(testExpandedID);
+
+    //make sure it's in collapsed state first
+    expect(screen.getByTestId(testExpandedID)).toHaveClass(
+      'compare-card-container--expanded',
+    );
+
+    //remains expanded when user clicks on the title component
+    await user.click(headerContent);
+    expect(screen.getByTestId(testExpandedID)).toHaveClass(
+      'compare-card-container--expanded',
+    );
+  });
+
   it('selects and displays new repository when clicked', async () => {
     renderSearchViewComponent();
     const user = userEvent.setup({ delay: null });
@@ -108,7 +157,7 @@ describe('Compare Over Time', () => {
       within(formElement).queryByText(/mozilla-central/i),
     ).not.toBeInTheDocument();
 
-    const newDropdown = screen.getAllByRole('button', { name: 'Revisions' })[1];
+    const newDropdown = screen.getByRole('button', { name: 'Revisions' });
 
     await user.click(newDropdown);
     const mozRepoItem = await screen.findAllByRole('option', {
@@ -137,18 +186,15 @@ describe('Compare Over Time', () => {
       within(formElement).queryByText(/build_metrics/i),
     ).not.toBeInTheDocument();
 
-    const frameworkDropdown = screen.getAllByRole('button', {
+    const frameworkDropdown = screen.getByRole('button', {
       name: 'Framework talos',
     });
 
-    await user.click(frameworkDropdown[1]);
-    expect(screen.getByRole('listbox')).toMatchSnapshot();
+    await user.click(frameworkDropdown);
     const buildMetricsItem = screen.getByRole('option', {
       name: 'build_metrics',
     });
-
     await user.click(buildMetricsItem);
-
     expect(screen.getAllByText(/build_metrics/i)[1]).toBeInTheDocument();
   });
 
@@ -188,7 +234,7 @@ describe('Compare Over Time', () => {
     const user = userEvent.setup({ delay: null });
 
     // Click inside the input box to show search results.
-    const searchInput = screen.getAllByRole('textbox')[2];
+    const searchInput = screen.getByRole('textbox');
     await user.click(searchInput);
 
     const comment = await screen.findAllByText("you've got no arms left!");
@@ -262,5 +308,72 @@ describe('Compare Over Time', () => {
     // Should allow unchecking revisions even after four have been selected
     await user.click(fleshWound);
     expect(fleshWound).not.toHaveClass('Mui-checked');
+  });
+
+  it('should redirect to compare over time results page with the right query params when the user clicks over time compare button', async () => {
+    setUpTestData();
+    const router = createBrowserRouter([
+      {
+        path: '/',
+        element: <SearchView title={Strings.metaData.pageTitle.search} />,
+      },
+      { path: '/compare-over-time-results', element: <div /> },
+    ]);
+
+    render(<RouterProvider router={router} />);
+
+    expect(window.location.pathname).toEqual('/');
+    await expandOverTimeComponent();
+
+    const user = userEvent.setup({ delay: null });
+
+    // Press the compare button -> It shouldn't work!
+    const compareButton = await screen.findByRole('button', {
+      name: /Compare/,
+    });
+    await user.click(compareButton);
+
+    // We haven't navigated.
+    expect(window.location.pathname).toEqual('/');
+    // And there should be an alert
+    expect(
+      await screen.findByText('Please select at least one revision.'),
+    ).toBeInTheDocument();
+
+    // focus first input to show results
+    const inputs = screen.getAllByRole('textbox');
+    await user.click(inputs[0]);
+
+    // Select a rev
+    const items = await screen.findAllByText("you've got no arms left!");
+    await user.click(items[0]);
+
+    // Press Escape key to hide search results.
+    await user.keyboard('{Escape}');
+    expect(items[0]).not.toBeInTheDocument();
+
+    // Check that the item has been added
+    await screen.findByText(/no arms left/);
+
+    // Press the compare button
+    await user.click(compareButton);
+
+    expect(window.location.pathname).toEqual('/compare-over-time-results');
+    const searchParams = new URLSearchParams(window.location.search);
+
+    expect(searchParams.toString()).toEqual(
+      'newRev=coconut&newRepo=try&framework=1&selectedTimeRange=86400',
+    );
+  });
+
+  it('should show the new revision in the results view', async () => {
+    renderWithCompareResultsURL(
+      <OverTimeResultsView title={Strings.metaData.pageTitle.results} />,
+    );
+    await waitForPageReadyAndReturnForm();
+    const selectedRevs = screen.getByTestId('selected-rev-item');
+    expect(selectedRevs).toBeInTheDocument();
+
+    expect(screen.getByText("you've got no arms left!")).toBeInTheDocument();
   });
 });
