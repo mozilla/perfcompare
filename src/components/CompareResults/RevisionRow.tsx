@@ -208,6 +208,7 @@ function RevisionRow(props: RevisionRowProps) {
             <div className='graph-link-button-container'>
               <IconButton
                 title={Strings.components.revisionRow.title.graphLink}
+                color='primary'
                 size='small'
                 href={graphLink}
                 target='_blank'
@@ -221,6 +222,7 @@ function RevisionRow(props: RevisionRowProps) {
             <div className='download-button-container'>
               <IconButton
                 title={Strings.components.revisionRow.title.downloadProfilers}
+                color='primary'
                 size='small'
               >
                 <FileDownloadOutlinedIcon />
@@ -235,6 +237,7 @@ function RevisionRow(props: RevisionRowProps) {
             <div className='retrigger-button-container'>
               <IconButton
                 title={Strings.components.revisionRow.title.retriggerJobs}
+                color='primary'
                 size='small'
                 onClick={() => checkTaskclusterCredentials()}
               >
@@ -255,6 +258,7 @@ function RevisionRow(props: RevisionRowProps) {
                   ? Strings.components.expandableRow.title.shrink
                   : Strings.components.expandableRow.title.expand
               }
+              color='primary'
               size='small'
             >
               {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}

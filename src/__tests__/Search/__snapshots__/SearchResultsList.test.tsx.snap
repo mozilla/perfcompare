@@ -29,7 +29,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-julti5-MuiSwitch-root"
               >
                 <span
-                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1yg1ubd-MuiButtonBase-root-MuiSwitch-switchBase"
+                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1n50hym-MuiButtonBase-root-MuiSwitch-switchBase"
                 >
                   <input
                     aria-label="Dark mode switch"
@@ -71,7 +71,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
             Analyze results of performance tests to detect regressions and identify opportunities for improvement.
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium learn-more-btn css-t42cd1-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium learn-more-btn css-13h131f-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
@@ -188,7 +188,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                         />
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
                           data-testid="ArrowDropDownIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -214,10 +214,10 @@ exports[`SearchResultsList should match snapshot 1`] = `
                           class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
                         >
                           <div
-                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-focused MuiInputBase-formControl MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
+                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-focused MuiInputBase-formControl MuiInputBase-adornedStart css-193b4t-MuiInputBase-root-MuiOutlinedInput-root"
                           >
                             <div
-                              class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-yzzuft-MuiInputAdornment-root"
+                              class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
                             >
                               <svg
                                 aria-hidden="true"
@@ -265,7 +265,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                           class="MuiList-root MuiList-padding css-1fc0pkb-MuiList-root"
                         >
                           <div
-                            class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk  css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
+                            class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk  css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
                             role="button"
                             tabindex="0"
                           >
@@ -273,10 +273,10 @@ exports[`SearchResultsList should match snapshot 1`] = `
                               class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-314c9k-MuiListItem-root"
                             >
                               <div
-                                class="MuiListItemIcon-root search-revision-item-icon search-revision css-tamlkj-MuiListItemIcon-root"
+                                class="MuiListItemIcon-root search-revision-item-icon search-revision css-cveggr-MuiListItemIcon-root"
                               >
                                 <span
-                                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-c9gmeh-MuiButtonBase-root-MuiCheckbox-root"
+                                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-m9dalc-MuiButtonBase-root-MuiCheckbox-root"
                                   data-testid="checkbox-0"
                                 >
                                   <input
@@ -360,7 +360,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                             />
                           </div>
                           <div
-                            class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk  css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
+                            class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk  css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
                             role="button"
                             tabindex="0"
                           >
@@ -368,10 +368,10 @@ exports[`SearchResultsList should match snapshot 1`] = `
                               class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-314c9k-MuiListItem-root"
                             >
                               <div
-                                class="MuiListItemIcon-root search-revision-item-icon search-revision css-tamlkj-MuiListItemIcon-root"
+                                class="MuiListItemIcon-root search-revision-item-icon search-revision css-cveggr-MuiListItemIcon-root"
                               >
                                 <span
-                                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-c9gmeh-MuiButtonBase-root-MuiCheckbox-root"
+                                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-m9dalc-MuiButtonBase-root-MuiCheckbox-root"
                                   data-testid="checkbox-1"
                                 >
                                   <input
@@ -455,7 +455,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                             />
                           </div>
                           <div
-                            class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk  css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
+                            class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk  css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
                             role="button"
                             tabindex="0"
                           >
@@ -463,10 +463,10 @@ exports[`SearchResultsList should match snapshot 1`] = `
                               class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-314c9k-MuiListItem-root"
                             >
                               <div
-                                class="MuiListItemIcon-root search-revision-item-icon search-revision css-tamlkj-MuiListItemIcon-root"
+                                class="MuiListItemIcon-root search-revision-item-icon search-revision css-cveggr-MuiListItemIcon-root"
                               >
                                 <span
-                                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-c9gmeh-MuiButtonBase-root-MuiCheckbox-root"
+                                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-m9dalc-MuiButtonBase-root-MuiCheckbox-root"
                                   data-testid="checkbox-2"
                                 >
                                   <input
@@ -550,7 +550,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                             />
                           </div>
                           <div
-                            class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk  css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
+                            class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk  css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
                             role="button"
                             tabindex="0"
                           >
@@ -558,10 +558,10 @@ exports[`SearchResultsList should match snapshot 1`] = `
                               class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-314c9k-MuiListItem-root"
                             >
                               <div
-                                class="MuiListItemIcon-root search-revision-item-icon search-revision css-tamlkj-MuiListItemIcon-root"
+                                class="MuiListItemIcon-root search-revision-item-icon search-revision css-cveggr-MuiListItemIcon-root"
                               >
                                 <span
-                                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-c9gmeh-MuiButtonBase-root-MuiCheckbox-root"
+                                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-m9dalc-MuiButtonBase-root-MuiCheckbox-root"
                                   data-testid="checkbox-3"
                                 >
                                   <input
@@ -645,7 +645,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                             />
                           </div>
                           <div
-                            class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk  css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
+                            class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters fl1awgk  css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
                             role="button"
                             tabindex="0"
                           >
@@ -653,10 +653,10 @@ exports[`SearchResultsList should match snapshot 1`] = `
                               class="MuiListItem-root MuiListItem-gutters search-revision-item search-revision css-314c9k-MuiListItem-root"
                             >
                               <div
-                                class="MuiListItemIcon-root search-revision-item-icon search-revision css-tamlkj-MuiListItemIcon-root"
+                                class="MuiListItemIcon-root search-revision-item-icon search-revision css-cveggr-MuiListItemIcon-root"
                               >
                                 <span
-                                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-c9gmeh-MuiButtonBase-root-MuiCheckbox-root"
+                                  class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-edgeStart MuiCheckbox-root MuiCheckbox-colorPrimary search-revision-item-checkbox css-m9dalc-MuiButtonBase-root-MuiCheckbox-root"
                                   data-testid="checkbox-4"
                                 >
                                   <input
@@ -815,7 +815,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                         />
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
                           data-testid="ArrowDropDownIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -841,10 +841,10 @@ exports[`SearchResultsList should match snapshot 1`] = `
                           class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
                         >
                           <div
-                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
+                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-193b4t-MuiInputBase-root-MuiOutlinedInput-root"
                           >
                             <div
-                              class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-yzzuft-MuiInputAdornment-root"
+                              class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
                             >
                               <svg
                                 aria-hidden="true"
@@ -948,7 +948,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     />
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
                       data-testid="ArrowDropDownIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
@@ -960,7 +960,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                   </div>
                 </div>
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1pha5e5-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1rgi3bk-MuiButtonBase-root-MuiButton-root"
                   id="compare-button"
                   tabindex="0"
                   type="submit"
@@ -1071,7 +1071,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                         />
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
                           data-testid="ArrowDropDownIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -1097,10 +1097,10 @@ exports[`SearchResultsList should match snapshot 1`] = `
                           class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
                         >
                           <div
-                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
+                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-193b4t-MuiInputBase-root-MuiOutlinedInput-root"
                           >
                             <div
-                              class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-yzzuft-MuiInputAdornment-root"
+                              class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
                             >
                               <svg
                                 aria-hidden="true"
@@ -1207,7 +1207,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       />
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
                         data-testid="ArrowDropDownIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
@@ -1265,7 +1265,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       />
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
                         data-testid="ArrowDropDownIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
@@ -1278,7 +1278,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                   </div>
                 </div>
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1pha5e5-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1rgi3bk-MuiButtonBase-root-MuiButton-root"
                   id="compare-button"
                   tabindex="0"
                   type="submit"
