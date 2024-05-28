@@ -77,11 +77,6 @@ export const checkTaskclusterCredentials = () => {
   // TODO: handle case where the user navigates directly to the login route
 };
 
-interface ResponseToken {
-  access_token: string;
-  token_type: 'Bearer';
-}
-
 async function checkTaskclusterResponse(response: Response) {
   if (!response.ok) {
     if (response.status === 400) {
@@ -94,6 +89,11 @@ async function checkTaskclusterResponse(response: Response) {
       );
     }
   }
+}
+
+interface ResponseToken {
+  access_token: string;
+  token_type: 'Bearer';
 }
 
 export async function retrieveTaskclusterToken(rootUrl: string, code: string) {
@@ -126,6 +126,14 @@ export async function retrieveTaskclusterToken(rootUrl: string, code: string) {
   return response.json() as Promise<ResponseToken>;
 }
 
+interface ResponseUserCredentials {
+  credentials: {
+    accessToken: string;
+    clientId: string;
+  };
+  expires: string;
+}
+
 export async function retrieveTaskclusterUserCredentials(
   rootUrl: string,
   tokenBearer: string,
@@ -144,5 +152,5 @@ export async function retrieveTaskclusterUserCredentials(
 
   void checkTaskclusterResponse(response);
 
-  return response;
+  return response.json() as Promise<ResponseUserCredentials>;
 }

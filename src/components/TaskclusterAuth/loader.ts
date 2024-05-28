@@ -26,14 +26,14 @@ export async function loader({ request }: { request: Request }) {
   const tokenBearer = await retrieveTaskclusterToken(rootUrl, taskclusterCode);
 
   // fetch access token with token Bearer
-  const accessToken = await retrieveTaskclusterUserCredentials(
+  const userCredentials = await retrieveTaskclusterUserCredentials(
     rootUrl,
     tokenBearer.access_token,
   );
 
-  sessionStorage.setItem('userCredentials', JSON.stringify(accessToken));
+  localStorage.setItem('userCredentials', JSON.stringify(userCredentials));
 
-  return accessToken;
+  return userCredentials;
 }
 
 export type LoaderReturnValue = Awaited<ReturnType<typeof loader>>;
