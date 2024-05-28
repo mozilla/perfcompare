@@ -1193,9 +1193,3 @@ exports[`Results View The table should match snapshot and other elements should 
   </div>
 </div>
 `;
-
-exports[`Results View renders correctly 1`] = `
-<body>
-  <div />
-</body>
-`;

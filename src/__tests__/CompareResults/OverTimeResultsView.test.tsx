@@ -33,20 +33,12 @@ jest.mock('../../utils/location');
 // const mockedGetLocationOrigin = getLocationOrigin as jest.Mock;
 
 describe('Results View', () => {
-  it('renders correctly', async () => {
-    renderWithRoute(
-      <OverTimeResultsView title={Strings.metaData.pageTitle.results} />,
-    );
-
-    expect(document.body).toMatchSnapshot();
-  });
-
   it('The table should match snapshot and other elements should be present in the page', async () => {
     renderWithRoute(
       <OverTimeResultsView title={Strings.metaData.pageTitle.results} />,
     );
-    expect(await screen.findByRole('table')).toMatchSnapshot();
 
+    expect(await screen.findByRole('table')).toMatchSnapshot();
     const link = screen.getByRole('link', { name: /link to home/i });
     expect(link).toBeInTheDocument();
   });
