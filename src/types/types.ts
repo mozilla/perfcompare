@@ -297,3 +297,8 @@ export type UserCredentials = Record<
   string,
   { expires: string; credentials: { clientId: string; accessToken: string } }
 >;
+
+export type TokenBearer = Record<
+  string,
+  { access_token: string; token_type: 'Bearer' }
+>;

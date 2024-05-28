@@ -1,6 +1,6 @@
 // This file contains logic for the Taskcluster Third-Party Login
 
-import { UserCredentials } from '../types/types';
+import { TokenBearer, UserCredentials } from '../types/types';
 import { getLocationOrigin } from '../utils/location';
 
 export const prodTaskclusterUrl = 'https://firefox-ci-tc.services.mozilla.com';
@@ -91,11 +91,6 @@ async function checkTaskclusterResponse(response: Response) {
   }
 }
 
-interface ResponseToken {
-  access_token: string;
-  token_type: 'Bearer';
-}
-
 export async function retrieveTaskclusterToken(rootUrl: string, code: string) {
   const tcAuthCallbackUrl = '/taskcluster-auth';
   const redirectURI = `${window.location.origin}${tcAuthCallbackUrl}`;
@@ -123,7 +118,7 @@ export async function retrieveTaskclusterToken(rootUrl: string, code: string) {
 
   void checkTaskclusterResponse(response);
 
-  return response.json() as Promise<ResponseToken>;
+  return response.json() as Promise<TokenBearer>;
 }
 
 export async function retrieveTaskclusterUserCredentials(
