@@ -126,14 +126,6 @@ export async function retrieveTaskclusterToken(rootUrl: string, code: string) {
   return response.json() as Promise<ResponseToken>;
 }
 
-interface ResponseUserCredentials {
-  credentials: {
-    accessToken: string;
-    clientId: string;
-  };
-  expires: string;
-}
-
 export async function retrieveTaskclusterUserCredentials(
   rootUrl: string,
   tokenBearer: string,
@@ -152,5 +144,5 @@ export async function retrieveTaskclusterUserCredentials(
 
   void checkTaskclusterResponse(response);
 
-  return response.json() as Promise<ResponseUserCredentials>;
+  return response.json() as Promise<UserCredentials>;
 }
