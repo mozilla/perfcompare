@@ -77,23 +77,12 @@ export const checkTaskclusterCredentials = () => {
   // TODO: handle case where the user navigates directly to the login route
 };
 
-interface RequestOptions {
-  method?: string;
-  body?: URLSearchParams;
-  headers: {
-    Authorization?: string;
-    'Content-Type': string;
-  };
-}
-
 interface ResponseToken {
   access_token: string;
   token_type: 'Bearer';
 }
 
-const fetchData = async (url: string, options: RequestOptions) => {
-  const response = await fetch(url, options);
-
+async function checkTaskclusterResponse(response: Response) {
   if (!response.ok) {
     if (response.status === 400) {
       throw new Error(
@@ -105,9 +94,7 @@ const fetchData = async (url: string, options: RequestOptions) => {
       );
     }
   }
-
-  return response.json() as Promise<ResponseToken>;
-};
+}
 
 export async function retrieveTaskclusterToken(rootUrl: string, code: string) {
   const tcAuthCallbackUrl = '/taskcluster-auth';
@@ -123,34 +110,39 @@ export async function retrieveTaskclusterToken(rootUrl: string, code: string) {
     client_id: clientId,
   });
 
-  const options: RequestOptions = {
+  const options = {
     method: 'POST',
     body: body,
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
   };
 
-  // fetch token Bearer
-  const response = await fetchData(`${rootUrl}/login/oauth/token`, options);
+  const url = `${rootUrl}/login/oauth/token`;
 
-  return response;
+  // fetch token Bearer
+  const response = await fetch(url, options);
+
+  void checkTaskclusterResponse(response);
+
+  return response.json() as Promise<ResponseToken>;
 }
 
 export async function retrieveTaskclusterUserCredentials(
   rootUrl: string,
   tokenBearer: string,
 ) {
-  const options: RequestOptions = {
+  const options = {
     headers: {
       Authorization: `Bearer ${tokenBearer}`,
       'Content-Type': 'aplication/json',
     },
   };
 
+  const url = `${rootUrl}/login/oauth/credentials`;
+
   // fetch Taskcluster credentials using token Bearer
-  const response = await fetchData(
-    `${rootUrl}/login/oauth/credentials`,
-    options,
-  );
+  const response = await fetch(url, options);
+
+  void checkTaskclusterResponse(response);
 
   return response;
 }
