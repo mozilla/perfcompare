@@ -42,8 +42,7 @@ export default function SaveCancelButtons({
         {cancel}
       </Button>
       <Button
-        className={`cancel-save save-button save-button-${searchType} 
-        }`}
+        className={`cancel-save save-button save-button-${searchType}`}
         name='save-button'
         onClick={onSave}
       >
