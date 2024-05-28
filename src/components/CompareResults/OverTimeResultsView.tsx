@@ -44,7 +44,7 @@ function ResultsView(props: ResultsViewProps) {
 
         <CompareOverTime
           hasNonEditableState={false}
-          newRevs={newRevsInfo ?? []}
+          newRevs={newRevsInfo}
           isBaseSearch={true}
           expandBaseComponent={() => null}
           frameworkIdVal={frameworkId}
