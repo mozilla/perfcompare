@@ -75,7 +75,7 @@ exports[`App CompareResults loader Should render an error page for compare over 
                 class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-julti5-MuiSwitch-root"
               >
                 <span
-                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1yg1ubd-MuiButtonBase-root-MuiSwitch-switchBase"
+                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1n50hym-MuiButtonBase-root-MuiSwitch-switchBase"
                 >
                   <input
                     aria-label="Dark mode switch"
@@ -277,7 +277,7 @@ exports[`App CompareResults loader Should render an error page when the treeherd
                 class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-julti5-MuiSwitch-root"
               >
                 <span
-                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1yg1ubd-MuiButtonBase-root-MuiSwitch-switchBase"
+                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1n50hym-MuiButtonBase-root-MuiSwitch-switchBase"
                 >
                   <input
                     aria-label="Dark mode switch"
@@ -430,7 +430,7 @@ exports[`App CompareResults loader Should render an error page when the treeherd
                 class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-julti5-MuiSwitch-root"
               >
                 <span
-                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1yg1ubd-MuiButtonBase-root-MuiSwitch-switchBase"
+                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1n50hym-MuiButtonBase-root-MuiSwitch-switchBase"
                 >
                   <input
                     aria-label="Dark mode switch"

@@ -9,6 +9,8 @@ function SnackbarCloseButton(props: SnackbarCloseButtonProps) {
   return (
     <IconButton
       data-testid='alert-close'
+      color='inherit'
+      aria-label='Dismiss'
       onClick={() => closeSnackbar(snackbarKey)}
     >
       <Close />
