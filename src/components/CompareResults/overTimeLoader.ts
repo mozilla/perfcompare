@@ -42,12 +42,12 @@ function checkValues({
     );
   }
 
-  if (framework === null) {
-    framework = 1; // default to talos so that manually typing the URL is easier
+  if (interval === null) {
+    throw new Error('The parameter interval is missing.');
   }
 
-  if (interval === null) {
-    interval = 86400; // default to 1 day
+  if (framework === null) {
+    framework = 1; // default to talos so that manually typing the URL is easier
   }
 
   const frameworkId = +framework as Framework['id'];
@@ -88,8 +88,8 @@ function checkValues({
     newRepos,
     frameworkId,
     frameworkName,
-    intervalText: 'Last day',
-    intervalValue: 86400,
+    intervalText,
+    intervalValue,
   };
 }
 

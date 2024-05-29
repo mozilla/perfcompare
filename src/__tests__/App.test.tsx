@@ -68,7 +68,7 @@ describe('App', () => {
     expect(screen.queryByLabelText('Light mode')).not.toBeInTheDocument();
   });
 
-  describe('CompareResults loader', () => {
+  describe('CompareResults or CompareOverTime loader', () => {
     it('Should render an error page when the treeherder request fails with an error 500', async () => {
       // Silence console.error for a better console output. We'll check its result later.
       jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -238,7 +238,18 @@ describe('App', () => {
       expect(console.error).toHaveBeenCalledTimes(1);
       (console.error as jest.Mock).mockClear();
 
-      // Error 6: invalid framework value
+      // Error 6:  interval value is missing
+      await act(() =>
+        router.navigate('/compare-over-time-results/?newRev=spam&newRepo=try'),
+      );
+      expect(await screen.findByText(/interval/)).toMatchSnapshot();
+      expect(console.error).toHaveBeenCalledWith(
+        new Error(`The parameter interval is missing.`),
+      );
+      expect(console.error).toHaveBeenCalledTimes(1);
+      (console.error as jest.Mock).mockClear();
+
+      // Error 7: invalid framework value
       await act(() =>
         router.navigate(
           '/compare-results/?baseRev=spam&baseRepo=try&framework=FOO',
@@ -253,10 +264,10 @@ describe('App', () => {
       expect(console.error).toHaveBeenCalledTimes(1);
       (console.error as jest.Mock).mockClear();
 
-      // Error 6b: compare over time
+      // Error 7b: compare over time
       await act(() =>
         router.navigate(
-          '/compare-over-time-results/?newRev=spam&newRepo=try&framework=FOO',
+          '/compare-over-time-results/?newRev=spam&newRepo=try&framework=FOO&selectedTimeRange=86400',
         ),
       );
       expect(await screen.findByText(/"FOO"/)).toMatchSnapshot();
@@ -268,7 +279,7 @@ describe('App', () => {
       expect(console.error).toHaveBeenCalledTimes(1);
       (console.error as jest.Mock).mockClear();
 
-      // Error 7: unknown framework value
+      // Error 8: unknown framework value
       await act(() =>
         router.navigate(
           '/compare-results/?baseRev=spam&baseRepo=try&framework=25',
@@ -281,10 +292,10 @@ describe('App', () => {
       expect(console.error).toHaveBeenCalledTimes(1);
       (console.error as jest.Mock).mockClear();
 
-      // Error 7b: compare over time
+      // Error 8b: compare over time
       await act(() =>
         router.navigate(
-          '/compare-over-time-results/?newRev=spam&newRepo=try&framework=25',
+          '/compare-over-time-results/?newRev=spam&newRepo=try&framework=25&selectedTimeRange=86400',
         ),
       );
       expect(await screen.findByText(/"25"/)).toMatchSnapshot();
@@ -294,7 +305,7 @@ describe('App', () => {
       expect(console.error).toHaveBeenCalledTimes(1);
       (console.error as jest.Mock).mockClear();
 
-      // Error 8: invalid interval value
+      // Error 9: invalid interval value
       await act(() =>
         router.navigate(
           '/compare-over-time-results/?newRev=spam&newRepo=try&selectedTimeRange=FOO',
@@ -309,7 +320,7 @@ describe('App', () => {
       expect(console.error).toHaveBeenCalledTimes(1);
       (console.error as jest.Mock).mockClear();
 
-      // Error 9: unknown interval value
+      // Error 10: unknown interval value
       await act(() =>
         router.navigate(
           '/compare-over-time-results/?newRev=spam&newRepo=try&selectedTimeRange=1000',
