@@ -13,9 +13,6 @@ const components = {
   MuiButton: {
     styleOverrides: {
       root: {
-        body: {
-          backgroundColor: '#ffffff',
-        },
         '&.add-revision-button': {
           height: 'auto',
           width: '100%',
@@ -200,15 +197,6 @@ const components = {
           '&:hover': {
             backgroundColor: 'transparent',
           },
-        },
-      },
-    },
-  },
-  MuiContainer: {
-    styleOverrides: {
-      root: {
-        '&.perf-body': {
-          backgroundColor: '#ffffff !important',
         },
       },
     },

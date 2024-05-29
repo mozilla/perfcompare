@@ -398,7 +398,7 @@ exports[`Search Containter should match snapshot 1`] = `
                 </div>
               </div>
               <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1rgi3bk-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-ub7tqp-MuiButtonBase-root-MuiButton-root"
                 id="compare-button"
                 tabindex="0"
                 type="submit"
@@ -716,7 +716,7 @@ exports[`Search Containter should match snapshot 1`] = `
                 </div>
               </div>
               <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1rgi3bk-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-ub7tqp-MuiButtonBase-root-MuiButton-root"
                 id="compare-button"
                 tabindex="0"
                 type="submit"

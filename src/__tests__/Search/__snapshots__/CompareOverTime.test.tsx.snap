@@ -273,7 +273,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
       </div>
     </div>
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1rgi3bk-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-ub7tqp-MuiButtonBase-root-MuiButton-root"
       id="compare-button"
       tabindex="0"
       type="submit"
@@ -523,7 +523,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
                 </p>
               </div>
               <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon-close-show revision-action close-button css-13h131f-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon-close-show revision-action close-button css-j1urod-MuiButtonBase-root-MuiButton-root"
                 name="close-button"
                 tabindex="0"
                 title="remove revision"
@@ -677,7 +677,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
       </div>
     </div>
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1rgi3bk-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-ub7tqp-MuiButtonBase-root-MuiButton-root"
       id="compare-button"
       tabindex="0"
       type="submit"
@@ -1070,7 +1070,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
       </div>
     </div>
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1rgi3bk-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-ub7tqp-MuiButtonBase-root-MuiButton-root"
       id="compare-button"
       tabindex="0"
       type="submit"
