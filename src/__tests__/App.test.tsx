@@ -180,6 +180,21 @@ describe('App', () => {
       expect(console.error).toHaveBeenCalledTimes(1);
       (console.error as jest.Mock).mockClear();
 
+      //Error 3b: compare over time
+      await act(() =>
+        router.navigate(
+          '/compare-over-time-results/?newRev=foo&newRepo=try&newRepo=mozilla-central',
+        ),
+      );
+      expect(await screen.findByText(/"newRepo"/)).toMatchSnapshot();
+      expect(console.error).toHaveBeenCalledWith(
+        new Error(
+          'There should be as many "newRepo" parameters as there are "newRev" parameters.',
+        ),
+      );
+      expect(console.error).toHaveBeenCalledTimes(1);
+      (console.error as jest.Mock).mockClear();
+
       // Error 4: unknown baseRepo value
       await act(() =>
         router.navigate('/compare-results/?baseRev=spam&baseRepo=UNKNOWN'),
@@ -208,10 +223,40 @@ describe('App', () => {
       expect(console.error).toHaveBeenCalledTimes(1);
       (console.error as jest.Mock).mockClear();
 
+      // Error 5b: compare over time
+      await act(() =>
+        router.navigate(
+          '/compare-over-time-results/?newRev=foo&newRepo=UNKNOWN',
+        ),
+      );
+      expect(await screen.findByText(/"UNKNOWN"/)).toMatchSnapshot();
+      expect(console.error).toHaveBeenCalledWith(
+        new Error(
+          'Every parameter newRepo "UNKNOWN" should be one of mozilla-central, try, mozilla-beta, mozilla-release, autoland, fenix.',
+        ),
+      );
+      expect(console.error).toHaveBeenCalledTimes(1);
+      (console.error as jest.Mock).mockClear();
+
       // Error 6: invalid framework value
       await act(() =>
         router.navigate(
           '/compare-results/?baseRev=spam&baseRepo=try&framework=FOO',
+        ),
+      );
+      expect(await screen.findByText(/"FOO"/)).toMatchSnapshot();
+      expect(console.error).toHaveBeenCalledWith(
+        new Error(
+          'The parameter framework should be a number, but it is "FOO".',
+        ),
+      );
+      expect(console.error).toHaveBeenCalledTimes(1);
+      (console.error as jest.Mock).mockClear();
+
+      // Error 6b: compare over time
+      await act(() =>
+        router.navigate(
+          '/compare-over-time-results/?newRev=spam&newRepo=try&framework=FOO',
         ),
       );
       expect(await screen.findByText(/"FOO"/)).toMatchSnapshot();
@@ -232,6 +277,47 @@ describe('App', () => {
       expect(await screen.findByText(/"25"/)).toMatchSnapshot();
       expect(console.error).toHaveBeenCalledWith(
         new Error(`The parameter framework isn't a valid value: "25".`),
+      );
+      expect(console.error).toHaveBeenCalledTimes(1);
+      (console.error as jest.Mock).mockClear();
+
+      // Error 7b: compare over time
+      await act(() =>
+        router.navigate(
+          '/compare-over-time-results/?newRev=spam&newRepo=try&framework=25',
+        ),
+      );
+      expect(await screen.findByText(/"25"/)).toMatchSnapshot();
+      expect(console.error).toHaveBeenCalledWith(
+        new Error(`The parameter framework isn't a valid value: "25".`),
+      );
+      expect(console.error).toHaveBeenCalledTimes(1);
+      (console.error as jest.Mock).mockClear();
+
+      // Error 8: invalid interval value
+      await act(() =>
+        router.navigate(
+          '/compare-over-time-results/?newRev=spam&newRepo=try&selectedTimeRange=FOO',
+        ),
+      );
+      expect(await screen.findByText(/"FOO"/)).toMatchSnapshot();
+      expect(console.error).toHaveBeenCalledWith(
+        new Error(
+          `The parameter interval should be a number, but it is "FOO".`,
+        ),
+      );
+      expect(console.error).toHaveBeenCalledTimes(1);
+      (console.error as jest.Mock).mockClear();
+
+      // Error 9: unknown interval value
+      await act(() =>
+        router.navigate(
+          '/compare-over-time-results/?newRev=spam&newRepo=try&selectedTimeRange=1000',
+        ),
+      );
+      expect(await screen.findByText(/"1000"/)).toMatchSnapshot();
+      expect(console.error).toHaveBeenCalledWith(
+        new Error(`The parameter interval isn't a valid value: "1000".`),
       );
       expect(console.error).toHaveBeenCalledTimes(1);
       (console.error as jest.Mock).mockClear();

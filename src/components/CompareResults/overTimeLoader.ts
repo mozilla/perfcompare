@@ -26,8 +26,28 @@ function checkValues({
   intervalValue: TimeRange['value'];
   intervalText: TimeRange['text'];
 } {
+  if (newRevs.length !== newRepos.length) {
+    throw new Error(
+      'There should be as many "newRepo" parameters as there are "newRev" parameters.',
+    );
+  }
+
+  const validRepoValues = Object.values(repoMap);
+
+  if (!newRepos.every((newRepo) => validRepoValues.includes(newRepo))) {
+    throw new Error(
+      `Every parameter newRepo "${newRepos.join(
+        '", "',
+      )}" should be one of ${validRepoValues.join(', ')}.`,
+    );
+  }
+
   if (framework === null) {
     framework = 1; // default to talos so that manually typing the URL is easier
+  }
+
+  if (interval === null) {
+    interval = 86400; // default to 1 day
   }
 
   const frameworkId = +framework as Framework['id'];
@@ -46,9 +66,6 @@ function checkValues({
     );
   }
 
-  if (interval === null) {
-    interval = 86400; // default to 1 day
-  }
   const intervalValue = +interval as TimeRange['value'];
   if (Number.isNaN(intervalValue)) {
     throw new Error(
@@ -63,22 +80,6 @@ function checkValues({
   if (!intervalText) {
     throw new Error(
       `The parameter interval isn't a valid value: "${interval}".`,
-    );
-  }
-
-  if (newRevs.length !== newRepos.length) {
-    throw new Error(
-      'There should be as many "newRepo" parameters as there are "newRev" parameters.',
-    );
-  }
-
-  const validRepoValues = Object.values(repoMap);
-
-  if (!newRepos.every((newRepo) => validRepoValues.includes(newRepo))) {
-    throw new Error(
-      `Every parameter newRepo "${newRepos.join(
-        '", "',
-      )}" should be one of ${validRepoValues.join(', ')}.`,
     );
   }
 
@@ -129,7 +130,7 @@ export async function loader({ request }: { request: Request }) {
     'newRepo',
   ) as Repository['name'][];
   const frameworkFromUrl = url.searchParams.get('framework');
-  const intervalFromUrl = url.searchParams.get('interval');
+  const intervalFromUrl = url.searchParams.get('selectedTimeRange');
 
   const {
     newRevs,

@@ -177,28 +177,70 @@ exports[`App CompareResults loader Should render an error page when the requeste
 exports[`App CompareResults loader Should render an error page when the requested URL is invalid 4`] = `
 <p>
   Error: 
-  The parameter baseRepo "UNKNOWN" should be one of mozilla-central, try, mozilla-beta, mozilla-release, autoland, fenix.
+  There should be as many "newRepo" parameters as there are "newRev" parameters.
 </p>
 `;
 
 exports[`App CompareResults loader Should render an error page when the requested URL is invalid 5`] = `
 <p>
   Error: 
-  Every parameter newRepo "UNKNOWN" should be one of mozilla-central, try, mozilla-beta, mozilla-release, autoland, fenix.
+  The parameter baseRepo "UNKNOWN" should be one of mozilla-central, try, mozilla-beta, mozilla-release, autoland, fenix.
 </p>
 `;
 
 exports[`App CompareResults loader Should render an error page when the requested URL is invalid 6`] = `
 <p>
   Error: 
-  The parameter framework should be a number, but it is "FOO".
+  Every parameter newRepo "UNKNOWN" should be one of mozilla-central, try, mozilla-beta, mozilla-release, autoland, fenix.
 </p>
 `;
 
 exports[`App CompareResults loader Should render an error page when the requested URL is invalid 7`] = `
 <p>
   Error: 
+  Every parameter newRepo "UNKNOWN" should be one of mozilla-central, try, mozilla-beta, mozilla-release, autoland, fenix.
+</p>
+`;
+
+exports[`App CompareResults loader Should render an error page when the requested URL is invalid 8`] = `
+<p>
+  Error: 
+  The parameter framework should be a number, but it is "FOO".
+</p>
+`;
+
+exports[`App CompareResults loader Should render an error page when the requested URL is invalid 9`] = `
+<p>
+  Error: 
+  The parameter framework should be a number, but it is "FOO".
+</p>
+`;
+
+exports[`App CompareResults loader Should render an error page when the requested URL is invalid 10`] = `
+<p>
+  Error: 
   The parameter framework isn't a valid value: "25".
+</p>
+`;
+
+exports[`App CompareResults loader Should render an error page when the requested URL is invalid 11`] = `
+<p>
+  Error: 
+  The parameter framework isn't a valid value: "25".
+</p>
+`;
+
+exports[`App CompareResults loader Should render an error page when the requested URL is invalid 12`] = `
+<p>
+  Error: 
+  The parameter interval should be a number, but it is "FOO".
+</p>
+`;
+
+exports[`App CompareResults loader Should render an error page when the requested URL is invalid 13`] = `
+<p>
+  Error: 
+  The parameter interval isn't a valid value: "1000".
 </p>
 `;
 
