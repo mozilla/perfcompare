@@ -1,6 +1,6 @@
 // This file contains logic for the Taskcluster Third-Party Login
 
-import { TokenBearer, UserCredentials } from '../types/types';
+import { CredentialsResponse, TokenBearer, UserCredentials } from '../types/types';
 import { getLocationOrigin } from '../utils/location';
 
 export const prodTaskclusterUrl = 'https://firefox-ci-tc.services.mozilla.com';
@@ -58,6 +58,7 @@ const getAuthCode = (tcParams: {
 export const checkTaskclusterCredentials = () => {
   const taskclusterParams = getTaskclusterParams();
   const locationOrigin = getLocationOrigin();
+  console.log(taskclusterParams);
 
   if (!taskclusterParams.clientId) {
     alert(`No clientId is configured for origin ${locationOrigin}, sorry!`);
@@ -139,5 +140,5 @@ export async function retrieveTaskclusterUserCredentials(
 
   void checkTaskclusterResponse(response);
 
-  return response.json() as Promise<UserCredentials>;
+  return response.json() as Promise<CredentialsResponse>;
 }

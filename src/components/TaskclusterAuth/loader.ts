@@ -31,12 +31,12 @@ export async function loader({ request }: { request: Request }) {
   storeTokenBearer(tokenBearer);
 
   // fetch access token with token Bearer
-  const userCredentials: UserCredentials = await retrieveTaskclusterUserCredentials(
+  const userCredentials = await retrieveTaskclusterUserCredentials(
     rootUrl,
     tokenBearer.access_token,
   );
 
-  storeUserCredentials(userCredentials);
+  storeUserCredentials({[rootUrl]: userCredentials} as UserCredentials);
 
   return userCredentials;
 }
