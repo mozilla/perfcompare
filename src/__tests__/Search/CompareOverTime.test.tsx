@@ -160,18 +160,18 @@ describe('Compare Over Time', () => {
     const newDropdown = screen.getByRole('button', { name: 'Revisions' });
 
     await user.click(newDropdown);
-    const mozRepoItem = await screen.findAllByRole('option', {
+    const mozRepoItem = await screen.findByRole('option', {
       name: 'mozilla-central',
     });
-    await user.click(mozRepoItem[0]);
-    expect(screen.getAllByText(/mozilla-central/i)[0]).toBeInTheDocument();
+    await user.click(mozRepoItem);
+    expect(mozRepoItem).toBeInTheDocument();
 
     await user.click(newDropdown);
-    const autolandItem = await screen.findAllByRole('option', {
+    const autolandItem = await screen.findByRole('option', {
       name: 'autoland',
     });
-    await user.click(autolandItem[0]);
-    expect(screen.getAllByText(/autoland/i)[0]).toBeInTheDocument();
+    await user.click(autolandItem);
+    expect(autolandItem).toBeInTheDocument();
   });
 
   it('selects and displays new framework when clicked', async () => {

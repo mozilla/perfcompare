@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App CompareResults loader Should render an error page for compare over time when the treeherder request fails with an error 400 1`] = `
+exports[`App CompareResults or CompareOverTime loader Should render an error page for compare over time when the treeherder request fails with an error 400 1`] = `
 <body>
   <div>
     <div
@@ -153,56 +153,105 @@ exports[`App CompareResults loader Should render an error page for compare over 
 </body>
 `;
 
-exports[`App CompareResults loader Should render an error page when the requested URL is invalid 1`] = `
+exports[`App CompareResults or CompareOverTime loader Should render an error page when the requested URL is invalid 1`] = `
 <p>
   Error: 
   The parameter baseRev is missing.
 </p>
 `;
 
-exports[`App CompareResults loader Should render an error page when the requested URL is invalid 2`] = `
+exports[`App CompareResults or CompareOverTime loader Should render an error page when the requested URL is invalid 2`] = `
 <p>
   Error: 
   The parameter baseRepo is missing.
 </p>
 `;
 
-exports[`App CompareResults loader Should render an error page when the requested URL is invalid 3`] = `
+exports[`App CompareResults or CompareOverTime loader Should render an error page when the requested URL is invalid 3`] = `
 <p>
   Error: 
   There should be as many "newRepo" parameters as there are "newRev" parameters.
 </p>
 `;
 
-exports[`App CompareResults loader Should render an error page when the requested URL is invalid 4`] = `
+exports[`App CompareResults or CompareOverTime loader Should render an error page when the requested URL is invalid 4`] = `
+<p>
+  Error: 
+  There should be as many "newRepo" parameters as there are "newRev" parameters.
+</p>
+`;
+
+exports[`App CompareResults or CompareOverTime loader Should render an error page when the requested URL is invalid 5`] = `
 <p>
   Error: 
   The parameter baseRepo "UNKNOWN" should be one of mozilla-central, try, mozilla-beta, mozilla-release, autoland, fenix.
 </p>
 `;
 
-exports[`App CompareResults loader Should render an error page when the requested URL is invalid 5`] = `
+exports[`App CompareResults or CompareOverTime loader Should render an error page when the requested URL is invalid 6`] = `
 <p>
   Error: 
   Every parameter newRepo "UNKNOWN" should be one of mozilla-central, try, mozilla-beta, mozilla-release, autoland, fenix.
 </p>
 `;
 
-exports[`App CompareResults loader Should render an error page when the requested URL is invalid 6`] = `
+exports[`App CompareResults or CompareOverTime loader Should render an error page when the requested URL is invalid 7`] = `
+<p>
+  Error: 
+  Every parameter newRepo "UNKNOWN" should be one of mozilla-central, try, mozilla-beta, mozilla-release, autoland, fenix.
+</p>
+`;
+
+exports[`App CompareResults or CompareOverTime loader Should render an error page when the requested URL is invalid 8`] = `
+<p>
+  Error: 
+  The parameter interval is missing.
+</p>
+`;
+
+exports[`App CompareResults or CompareOverTime loader Should render an error page when the requested URL is invalid 9`] = `
 <p>
   Error: 
   The parameter framework should be a number, but it is "FOO".
 </p>
 `;
 
-exports[`App CompareResults loader Should render an error page when the requested URL is invalid 7`] = `
+exports[`App CompareResults or CompareOverTime loader Should render an error page when the requested URL is invalid 10`] = `
+<p>
+  Error: 
+  The parameter framework should be a number, but it is "FOO".
+</p>
+`;
+
+exports[`App CompareResults or CompareOverTime loader Should render an error page when the requested URL is invalid 11`] = `
 <p>
   Error: 
   The parameter framework isn't a valid value: "25".
 </p>
 `;
 
-exports[`App CompareResults loader Should render an error page when the treeherder request fails with an error 400 1`] = `
+exports[`App CompareResults or CompareOverTime loader Should render an error page when the requested URL is invalid 12`] = `
+<p>
+  Error: 
+  The parameter framework isn't a valid value: "25".
+</p>
+`;
+
+exports[`App CompareResults or CompareOverTime loader Should render an error page when the requested URL is invalid 13`] = `
+<p>
+  Error: 
+  The parameter interval should be a number, but it is "FOO".
+</p>
+`;
+
+exports[`App CompareResults or CompareOverTime loader Should render an error page when the requested URL is invalid 14`] = `
+<p>
+  Error: 
+  The parameter interval isn't a valid value: "1000".
+</p>
+`;
+
+exports[`App CompareResults or CompareOverTime loader Should render an error page when the treeherder request fails with an error 400 1`] = `
 <body>
   <div>
     <div
@@ -355,7 +404,7 @@ exports[`App CompareResults loader Should render an error page when the treeherd
 </body>
 `;
 
-exports[`App CompareResults loader Should render an error page when the treeherder request fails with an error 500 1`] = `
+exports[`App CompareResults or CompareOverTime loader Should render an error page when the treeherder request fails with an error 500 1`] = `
 <body>
   <div>
     <div

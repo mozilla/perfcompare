@@ -39,6 +39,16 @@ async function expandOverTimeComponent() {
   );
 }
 
+async function expandWithBaseComponent() {
+  const user = userEvent.setup({ delay: null });
+  const testExpandedID = 'base-state';
+  const headerContent = screen.getByTestId(testExpandedID);
+  await user.click(headerContent);
+  expect(screen.getByTestId(testExpandedID)).toHaveClass(
+    'compare-card-container--expanded',
+  );
+}
+
 function renderComponent() {
   setupTestData();
   return renderWithRouter(
@@ -96,18 +106,27 @@ describe('Search Container', () => {
 describe('Base and OverTime Search', () => {
   it('renders repository dropdown in closed condition in both Base and OverTime components', async () => {
     renderComponent();
-    await expandOverTimeComponent();
     // 'try' is selected by default and dropdown is not visible
     expect(screen.getAllByText(/try/i)[0]).toBeInTheDocument();
-    //test the overtime component
-    expect(screen.getAllByText(/try/i)[2]).toBeInTheDocument();
-
-    expect(screen.queryByText(/autoland/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/mozilla-central/i)).not.toBeInTheDocument();
+
+    //test the overtime component
+    await expandOverTimeComponent();
+    expect(screen.getAllByText(/try/i)[2]).toBeInTheDocument();
+    expect(screen.queryByText(/autoland/i)).not.toBeInTheDocument();
+
+    await expandWithBaseComponent();
 
     // Search input appears
     expect(
       screen.getByPlaceholderText(/Search base by ID number or author email/i),
+    ).toBeInTheDocument();
+
+    await expandOverTimeComponent();
+    expect(
+      screen.getAllByPlaceholderText(
+        /Search revision by ID number or author email/i,
+      )[1],
     ).toBeInTheDocument();
 
     // No list items should appear
