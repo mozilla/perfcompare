@@ -36,7 +36,7 @@ export async function loader({ request }: { request: Request }) {
     tokenBearer.access_token,
   );
 
-  storeUserCredentials({[rootUrl]: userCredentials} as UserCredentials);
+  storeUserCredentials({ [rootUrl]: userCredentials } as UserCredentials);
 
   return userCredentials;
 }

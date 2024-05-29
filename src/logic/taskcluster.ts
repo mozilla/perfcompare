@@ -1,6 +1,10 @@
 // This file contains logic for the Taskcluster Third-Party Login
 
-import { CredentialsResponse, TokenBearer, UserCredentials } from '../types/types';
+import {
+  CredentialsResponse,
+  TokenBearer,
+  UserCredentials,
+} from '../types/types';
 import { getLocationOrigin } from '../utils/location';
 
 export const prodTaskclusterUrl = 'https://firefox-ci-tc.services.mozilla.com';
