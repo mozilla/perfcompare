@@ -173,7 +173,7 @@ function SearchComponent({
       {displayedRevisions && (
         <Grid
           className='d-flex'
-          data-testid={`${isBaseComp ? 'base' : 'new'}-selected-revision`}
+          data-testid={`${searchType}-selected-revision`}
         >
           <SelectedRevisions
             isBase={isBaseComp}
