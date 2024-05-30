@@ -32,6 +32,8 @@ function SearchContainer(props: SearchViewProps) {
         newRevs={[]}
         isBaseSearch={isBaseSearch}
         expandBaseComponent={expandBaseComponent}
+        baseRepo='try'
+        newRepo='try'
       />
       <CompareOverTime
         hasNonEditableState={false}
