@@ -115,35 +115,6 @@ function checkValues({
   };
 }
 
-// This is essentially a glue to call the related function from
-// /logic/treeherder.ts for all the revs we need results for.
-async function fetchSubtestsCompareOverTimeResultsOnTreeherder({
-  baseRepo,
-  newRev,
-  newRepo,
-  framework,
-  interval,
-  parentSignature,
-}: {
-  baseRepo: Repository['name'];
-  newRev: string;
-  newRepo: Repository['name'];
-  framework: Framework['id'];
-  interval: TimeRange['value'];
-  parentSignature: string;
-}) {
-  const results = fetchSubtestsCompareOverTimeResults({
-    baseRepo,
-    newRev,
-    newRepo,
-    framework,
-    interval,
-    parentSignature,
-  });
-
-  return results;
-}
-
 // This function is responsible for fetching the data from the URL. It's called
 // by React Router DOM when the compare-results path is requested.
 // It uses the URL parameters as inputs, and returns all the fetched data to the
@@ -180,7 +151,7 @@ export async function loader({ request }: { request: Request }) {
     parentSignature: parentSignatureFromUrl,
   });
 
-  const results = fetchSubtestsCompareOverTimeResultsOnTreeherder({
+  const results = fetchSubtestsCompareOverTimeResults({
     baseRepo,
     newRev,
     newRepo,
