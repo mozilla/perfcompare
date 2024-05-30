@@ -23,7 +23,7 @@ import SearchInputAndResults from './SearchInputAndResults';
 import SelectedRevisions from './SelectedRevisions';
 
 interface SearchProps {
-  hasNonEditableState: boolean;
+  hasEditableState: boolean;
   isWarning: boolean;
   isBaseComp: boolean;
   displayedRevisions: Changeset[];
@@ -41,7 +41,7 @@ interface SearchProps {
 }
 
 function SearchComponent({
-  hasNonEditableState,
+  hasEditableState,
   isBaseComp,
   displayedRevisions,
   onCancel,
@@ -83,7 +83,7 @@ function SearchComponent({
     },
   });
 
-  const [formIsDisplayed, setFormIsDisplayed] = useState(!hasNonEditableState);
+  const [formIsDisplayed, setFormIsDisplayed] = useState(!hasEditableState);
 
   return (
     <Grid className={styles.component}>
@@ -101,7 +101,7 @@ function SearchComponent({
           </Tooltip>
         </InputLabel>
         {/**** Edit Button ****/}
-        {hasNonEditableState && !formIsDisplayed && (
+        {hasEditableState && !formIsDisplayed && (
           <EditButton
             isBase={isBaseComp}
             onEditAction={() => {
@@ -125,11 +125,11 @@ function SearchComponent({
           xs={2}
           id={`${searchType}_search-dropdown`}
           className={`${searchType}-search-dropdown ${styles.dropDown} ${
-            hasNonEditableState ? 'small' : ''
-          } ${hasNonEditableState ? compareView : ''}-base-dropdown`}
+            hasEditableState ? 'small' : ''
+          } ${hasEditableState ? compareView : ''}-base-dropdown`}
         >
           <SearchDropdown
-            compact={hasNonEditableState}
+            compact={hasEditableState}
             selectLabel={selectLabel}
             searchType={searchType}
             repository={repository}
@@ -142,11 +142,11 @@ function SearchComponent({
           xs={7}
           id={`${searchType}_search-input`}
           className={`${searchType}-search-input  ${styles.baseSearchInput} ${
-            hasNonEditableState ? 'big' : ''
+            hasEditableState ? 'big' : ''
           } `}
         >
           <SearchInputAndResults
-            compact={hasNonEditableState}
+            compact={hasEditableState}
             inputPlaceholder={inputPlaceholder}
             displayedRevisions={displayedRevisions}
             searchType={searchType}
@@ -155,7 +155,7 @@ function SearchComponent({
           />
         </Grid>
         {/****** Cancel Save Buttons ******/}
-        {hasNonEditableState && formIsDisplayed && (
+        {hasEditableState && formIsDisplayed && (
           <SaveCancelButtons
             searchType={searchType}
             onSave={() => {
@@ -177,7 +177,7 @@ function SearchComponent({
         >
           <SelectedRevisions
             isBase={isBaseComp}
-            canRemoveRevision={!hasNonEditableState || formIsDisplayed}
+            canRemoveRevision={!hasEditableState || formIsDisplayed}
             isWarning={isWarning}
             displayedRevisions={displayedRevisions}
             onRemoveRevision={onRemoveRevision}

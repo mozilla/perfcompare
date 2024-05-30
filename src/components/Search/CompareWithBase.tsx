@@ -21,7 +21,7 @@ const stringsBase = Strings.components.searchDefault.base.collapsed.base;
 const stringsNew = Strings.components.searchDefault.base.collapsed.revision;
 
 interface CompareWithBaseProps {
-  hasNonEditableState: boolean;
+  hasEditableState: boolean;
   baseRev: Changeset | null;
   newRevs: Changeset[];
   baseRepo: Repository['name'];
@@ -68,7 +68,7 @@ interface CompareWithBaseProps {
  *   recalled.
  */
 function CompareWithBase({
-  hasNonEditableState,
+  hasEditableState,
   baseRev,
   newRevs,
   isBaseSearch,
@@ -278,7 +278,7 @@ function CompareWithBase({
             {...stringsBase}
             isBaseComp={true}
             isWarning={isWarning}
-            hasNonEditableState={hasNonEditableState}
+            hasEditableState={hasEditableState}
             displayedRevisions={baseInProgressRev ? [baseInProgressRev] : []}
             onSave={handleSaveBase}
             onCancel={handleCancelBase}
@@ -294,7 +294,7 @@ function CompareWithBase({
           <SearchComponent
             {...stringsNew}
             isBaseComp={false}
-            hasNonEditableState={hasNonEditableState}
+            hasEditableState={hasEditableState}
             isWarning={isWarning}
             displayedRevisions={newInProgressRevs}
             onSave={handleSaveNew}
