@@ -17,6 +17,7 @@ import {
   SearchStyles,
 } from '../../styles';
 import { Changeset, Repository } from '../../types/state';
+import EditButton from './EditButton';
 import SearchDropdown from './SearchDropdown';
 import SearchInputAndResults from './SearchInputAndResults';
 import SelectedRevisions from './SelectedRevisions';
@@ -31,6 +32,7 @@ interface SearchProps {
   onRemoveRevision: (item: Changeset) => void;
   onSearchResultsToggle: (item: Changeset) => void;
   onRepositoryChange: (repo: Repository['name']) => unknown;
+  onEdit: () => void;
 }
 
 export default function SearchOverTime({
@@ -43,6 +45,7 @@ export default function SearchOverTime({
   onRemoveRevision,
   onSearchResultsToggle,
   onRepositoryChange,
+  onEdit,
 }: SearchProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = SearchStyles(mode);
@@ -87,13 +90,25 @@ export default function SearchOverTime({
             <InfoIcon fontSize='small' className='dropdown-info-icon' />
           </Tooltip>
         </InputLabel>
+        {/**** Edit Button ****/}
+        {hasNonEditableState && !formIsDisplayed && (
+          <EditButton
+            isBase={false}
+            onEditAction={() => {
+              onEdit();
+              setFormIsDisplayed(true);
+            }}
+          />
+        )}
       </Grid>
       {/**** Search - DropDown Section ****/}
       <Grid
         container
         alignItems='flex-start'
         id='new-search-container--time'
-        className={`${styles.container}`}
+        className={`${styles.container} ${
+          formIsDisplayed ? 'show-container' : 'hide-container'
+        } `}
       >
         <Grid
           item

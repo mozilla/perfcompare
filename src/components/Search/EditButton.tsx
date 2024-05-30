@@ -9,6 +9,7 @@ interface EditButtonProps {
 
 const baseComp = Strings.components.searchDefault.base;
 const editImgUrl = baseComp.editIcon;
+const editText = Strings.components.searchDefault.sharedCollasped.edit;
 
 export default function EditButton({ isBase, onEditAction }: EditButtonProps) {
   const searchType = isBase ? 'base' : 'new';
@@ -27,6 +28,7 @@ export default function EditButton({ isBase, onEditAction }: EditButtonProps) {
         src={editImgUrl}
         alt='edit-icon'
       />
+      {editText}
     </Button>
   );
 }

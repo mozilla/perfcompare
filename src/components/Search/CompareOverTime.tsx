@@ -48,6 +48,8 @@ function CompareOverTime({
 
   const [timeRangeValue, setTimeRangeValue] = useState(intervalValue);
   const [frameworkId, setframeWorkValue] = useState(frameworkIdVal);
+  // see notes in compare with base
+  const [stagingRevs, setStagingRevs] = useState<Changeset[]>(newRevs);
   const [inProgressRevs, setInProgressRevs] = useState<Changeset[] | []>(
     newRevs,
   );
@@ -144,6 +146,10 @@ function CompareOverTime({
     setInProgressRevs(newNewRevs);
   };
 
+  const handleEdit = () => {
+    setInProgressRevs(stagingRevs);
+  };
+
   return (
     <Grid className={`wrapper--overtime ${wrapperStyles.wrapper}`}>
       <div
@@ -186,6 +192,7 @@ function CompareOverTime({
             onRepositoryChange={(repo: Repository['name']) =>
               setRepository(repo)
             }
+            onEdit={handleEdit}
           />
 
           <Grid

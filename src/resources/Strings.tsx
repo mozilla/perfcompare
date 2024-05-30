@@ -39,6 +39,7 @@ export const Strings = {
             'The framework or test harness containing the test you want to examine.',
         },
         button: 'Compare',
+        edit: 'Edit entry',
       },
       base: {
         title: 'Compare with a base',

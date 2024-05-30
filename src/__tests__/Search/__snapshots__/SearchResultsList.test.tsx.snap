@@ -133,7 +133,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fl6uoag label-edit-wrapper css-13eijkh-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1098v0k label-edit-wrapper css-13eijkh-MuiGrid-root"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -160,7 +160,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                   id="base-search-container"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fl6uoag  -base-dropdown css-1awobkc-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1098v0k  -base-dropdown css-1awobkc-MuiGrid-root"
                     id="base_search-dropdown"
                   >
                     <div
@@ -760,7 +760,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fl6uoag label-edit-wrapper css-13eijkh-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1098v0k label-edit-wrapper css-13eijkh-MuiGrid-root"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -787,7 +787,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                   id="new-search-container"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fl6uoag  -base-dropdown css-1awobkc-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1098v0k  -base-dropdown css-1awobkc-MuiGrid-root"
                     id="new_search-dropdown"
                   >
                     <div
@@ -899,7 +899,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fl6uoag fjuaqdk css-13eijkh-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1098v0k fjuaqdk css-13eijkh-MuiGrid-root"
               >
                 <div
                   class="MuiFormControl-root framework-dropdown f1pm9d4y css-1nrlq1o-MuiFormControl-root"
@@ -1016,7 +1016,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fl6uoag label-edit-wrapper css-13eijkh-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1098v0k label-edit-wrapper css-13eijkh-MuiGrid-root"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -1039,11 +1039,11 @@ exports[`SearchResultsList should match snapshot 1`] = `
                   </label>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-container container_f1psuwcf css-1ljzhs0-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container container_f1psuwcf show-container  css-1ljzhs0-MuiGrid-root"
                   id="new-search-container--time"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fl6uoag  -new-dropdown css-1awobkc-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1098v0k  -new-dropdown css-1awobkc-MuiGrid-root"
                     id="new_search-dropdown--time"
                   >
                     <div
@@ -1155,7 +1155,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fl6uoag fx35f8m css-13eijkh-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1098v0k fx35f8m css-13eijkh-MuiGrid-root"
               >
                 <div
                   class="bottom-dropdowns"

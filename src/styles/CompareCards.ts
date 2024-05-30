@@ -158,10 +158,13 @@ export const SearchStyles = (mode: string) => {
               visibility: 'hidden',
             },
             '.edit-button': {
-              padding: '0px',
-              justifyContent: 'flex-end',
+              padding: `${Spacing.xSmall}px ${Spacing.Small}px`,
+              alignItems: 'center',
+              justifyContent: 'center',
               marginLeft: `${Spacing.Medium}px`,
               bottom: `${Spacing.Small}px`,
+              gap: `${Spacing.xSmall}px`,
+              fontFamily: FontsRaw.BodyDefault.fontFamily,
               $nest: {
                 '&:hover': {
                   backgroundColor: 'transparent',
