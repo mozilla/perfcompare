@@ -37,7 +37,6 @@ export default function SaveCancelButtons({
       <Button
         className={`cancel-save cancel-button ${cancelBtn.main} cancel-button-${searchType}`}
         name='cancel-button'
-        variant='contained'
         onClick={onCancel}
       >
         {cancel}
@@ -46,7 +45,6 @@ export default function SaveCancelButtons({
         className={`cancel-save save-button save-button-${searchType} 
         }`}
         name='save-button'
-        variant='contained'
         onClick={onSave}
       >
         {save}

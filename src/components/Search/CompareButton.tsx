@@ -19,7 +19,6 @@ export default function CompareButton({ label }: CompareButtonProps) {
   return (
     <Button
       id='compare-button'
-      variant='contained'
       className={`compare-button ${styles.button}`}
       sx={{ textTransform: 'none !important' }}
       type='submit'
