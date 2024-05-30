@@ -542,7 +542,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="graph-link-button-container"
             >
               <a
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                 href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000"
                 tabindex="0"
                 target="_blank"
@@ -573,7 +573,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="download-button-container"
             >
               <button
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
                 title="open the performance profile for this job"
                 type="button"
@@ -604,7 +604,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="retrigger-button-container"
             >
               <button
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
                 title="retrigger jobs"
                 type="button"
@@ -636,7 +636,7 @@ exports[`Results View The table should match snapshot and other elements should 
             data-testid="expand-revision-button"
           >
             <button
-              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               title="expand this row"
               type="button"
@@ -781,7 +781,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="graph-link-button-container"
             >
               <a
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                 href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2Cedcc6311f15bdf7924ef3f0ccfd8b47ce1892212%2C1%2C1&timerange=5184000"
                 tabindex="0"
                 target="_blank"
@@ -812,7 +812,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="download-button-container"
             >
               <button
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
                 title="open the performance profile for this job"
                 type="button"
@@ -843,7 +843,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="retrigger-button-container"
             >
               <button
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
                 title="retrigger jobs"
                 type="button"
@@ -875,7 +875,7 @@ exports[`Results View The table should match snapshot and other elements should 
             data-testid="expand-revision-button"
           >
             <button
-              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               title="expand this row"
               type="button"
@@ -1026,7 +1026,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="graph-link-button-container"
             >
               <a
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                 href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C3a6d4b6178678c3113c980b378bb83b2629926a0%2C1%2C1&timerange=5184000"
                 tabindex="0"
                 target="_blank"
@@ -1057,7 +1057,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="download-button-container"
             >
               <button
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
                 title="open the performance profile for this job"
                 type="button"
@@ -1088,7 +1088,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="retrigger-button-container"
             >
               <button
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
                 title="retrigger jobs"
                 type="button"
@@ -1120,7 +1120,7 @@ exports[`Results View The table should match snapshot and other elements should 
             data-testid="expand-revision-button"
           >
             <button
-              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               title="expand this row"
               type="button"
@@ -1270,7 +1270,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="graph-link-button-container"
             >
               <a
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                 href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C3a6d4b6178678c3113c980b378bb83b2629926a0%2C1%2C1&timerange=5184000"
                 tabindex="0"
                 target="_blank"
@@ -1301,7 +1301,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="download-button-container"
             >
               <button
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
                 title="open the performance profile for this job"
                 type="button"
@@ -1332,7 +1332,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="retrigger-button-container"
             >
               <button
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
                 title="retrigger jobs"
                 type="button"
@@ -1364,7 +1364,7 @@ exports[`Results View The table should match snapshot and other elements should 
             data-testid="expand-revision-button"
           >
             <button
-              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-181l1t7-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               title="expand this row"
               type="button"

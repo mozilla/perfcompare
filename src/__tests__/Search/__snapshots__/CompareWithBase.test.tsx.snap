@@ -34,7 +34,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
       </label>
       <button
         aria-label="edit revision"
-        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium edit-button edit-button-base show-edit-btn css-t42cd1-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium edit-button edit-button-base show-edit-btn css-13h131f-MuiButtonBase-root-MuiButton-root"
         id="base-edit-button"
         name="edit-button"
         tabindex="0"
@@ -84,7 +84,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -110,10 +110,10 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
               class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
             >
               <div
-                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-193b4t-MuiInputBase-root-MuiOutlinedInput-root"
               >
                 <div
-                  class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-yzzuft-MuiInputAdornment-root"
+                  class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-1laqsz7-MuiInputAdornment-root"
                 >
                   <svg
                     aria-hidden="true"
@@ -186,7 +186,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_f5s7lzh css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
+              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_f5s7lzh css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
@@ -254,7 +254,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                 </p>
               </div>
               <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon-close-hidden revision-action close-button css-t42cd1-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon-close-hidden revision-action close-button css-13h131f-MuiButtonBase-root-MuiButton-root"
                 name="close-button"
                 tabindex="0"
                 title="remove revision"
@@ -311,7 +311,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
       </label>
       <button
         aria-label="edit revision"
-        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium edit-button edit-button-new show-edit-btn css-t42cd1-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium edit-button edit-button-new show-edit-btn css-13h131f-MuiButtonBase-root-MuiButton-root"
         id="new-edit-button"
         name="edit-button"
         tabindex="0"
@@ -361,7 +361,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -387,10 +387,10 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
               class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
             >
               <div
-                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-193b4t-MuiInputBase-root-MuiOutlinedInput-root"
               >
                 <div
-                  class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-yzzuft-MuiInputAdornment-root"
+                  class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-1laqsz7-MuiInputAdornment-root"
                 >
                   <svg
                     aria-hidden="true"
@@ -463,7 +463,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_f5s7lzh css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
+              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_f5s7lzh css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
@@ -531,7 +531,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                 </p>
               </div>
               <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon-close-hidden revision-action close-button css-t42cd1-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon-close-hidden revision-action close-button css-13h131f-MuiButtonBase-root-MuiButton-root"
                 name="close-button"
                 tabindex="0"
                 title="remove revision"
@@ -611,7 +611,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
         />
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
           data-testid="ArrowDropDownIcon"
           focusable="false"
           viewBox="0 0 24 24"
@@ -623,7 +623,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
       </div>
     </div>
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1pha5e5-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1rgi3bk-MuiButtonBase-root-MuiButton-root"
       id="compare-button"
       tabindex="0"
       type="submit"
@@ -646,7 +646,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
 >
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-shx448-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="4"
     role="option"
     tabindex="-1"
@@ -658,7 +658,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-shx448-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="13"
     role="option"
     tabindex="-1"
@@ -670,7 +670,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-shx448-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="2"
     role="option"
     tabindex="-1"
@@ -682,7 +682,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-shx448-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="12"
     role="option"
     tabindex="-1"
@@ -694,7 +694,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-shx448-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="16"
     role="option"
     tabindex="-1"
@@ -706,7 +706,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-shx448-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="11"
     role="option"
     tabindex="-1"
@@ -718,7 +718,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-shx448-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="15"
     role="option"
     tabindex="-1"
@@ -730,7 +730,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-shx448-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="6"
     role="option"
     tabindex="-1"
@@ -742,7 +742,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-shx448-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="10"
     role="option"
     tabindex="-1"
@@ -754,7 +754,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="true"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters Mui-selected MuiMenuItem-root MuiMenuItem-gutters Mui-selected framework-dropdown-item css-shx448-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters Mui-selected MuiMenuItem-root MuiMenuItem-gutters Mui-selected framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="1"
     role="option"
     tabindex="0"
@@ -833,7 +833,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -859,10 +859,10 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
             >
               <div
-                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-193b4t-MuiInputBase-root-MuiOutlinedInput-root"
               >
                 <div
-                  class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-yzzuft-MuiInputAdornment-root"
+                  class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-1laqsz7-MuiInputAdornment-root"
                 >
                   <svg
                     aria-hidden="true"
@@ -908,7 +908,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
         id="cancel-save_btns"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium cancel-save cancel-button f9oipqi cancel-button-base css-hkf0n7-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium cancel-save cancel-button f9oipqi cancel-button-base css-2uznlz-MuiButtonBase-root-MuiButton-root"
           name="cancel-button"
           tabindex="0"
           type="button"
@@ -920,7 +920,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
         </button>
         <button
           class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium cancel-save save-button save-button-base 
-        } css-hkf0n7-MuiButtonBase-root-MuiButton-root"
+        } css-2uznlz-MuiButtonBase-root-MuiButton-root"
           name="save-button"
           tabindex="0"
           type="button"
@@ -963,7 +963,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_f5s7lzh css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
+              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_f5s7lzh css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
@@ -1031,7 +1031,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                 </p>
               </div>
               <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon-close-show revision-action close-button css-t42cd1-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon-close-show revision-action close-button css-13h131f-MuiButtonBase-root-MuiButton-root"
                 name="close-button"
                 tabindex="0"
                 title="remove revision"
@@ -1088,7 +1088,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
       </label>
       <button
         aria-label="edit revision"
-        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium edit-button edit-button-new show-edit-btn css-t42cd1-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium edit-button edit-button-new show-edit-btn css-13h131f-MuiButtonBase-root-MuiButton-root"
         id="new-edit-button"
         name="edit-button"
         tabindex="0"
@@ -1138,7 +1138,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -1164,10 +1164,10 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
             >
               <div
-                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-193b4t-MuiInputBase-root-MuiOutlinedInput-root"
               >
                 <div
-                  class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-yzzuft-MuiInputAdornment-root"
+                  class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-1laqsz7-MuiInputAdornment-root"
                 >
                   <svg
                     aria-hidden="true"
@@ -1240,7 +1240,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_f5s7lzh css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
+              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_f5s7lzh css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
@@ -1308,7 +1308,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                 </p>
               </div>
               <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon-close-hidden revision-action close-button css-t42cd1-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon-close-hidden revision-action close-button css-13h131f-MuiButtonBase-root-MuiButton-root"
                 name="close-button"
                 tabindex="0"
                 title="remove revision"
@@ -1388,7 +1388,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
         />
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
           data-testid="ArrowDropDownIcon"
           focusable="false"
           viewBox="0 0 24 24"
@@ -1400,7 +1400,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
       </div>
     </div>
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1pha5e5-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1rgi3bk-MuiButtonBase-root-MuiButton-root"
       id="compare-button"
       tabindex="0"
       type="submit"
@@ -1448,7 +1448,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
       </label>
       <button
         aria-label="edit revision"
-        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium edit-button edit-button-base show-edit-btn css-t42cd1-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium edit-button edit-button-base show-edit-btn css-13h131f-MuiButtonBase-root-MuiButton-root"
         id="base-edit-button"
         name="edit-button"
         tabindex="0"
@@ -1498,7 +1498,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -1524,10 +1524,10 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
             >
               <div
-                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-193b4t-MuiInputBase-root-MuiOutlinedInput-root"
               >
                 <div
-                  class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-yzzuft-MuiInputAdornment-root"
+                  class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-1laqsz7-MuiInputAdornment-root"
                 >
                   <svg
                     aria-hidden="true"
@@ -1640,7 +1640,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -1666,10 +1666,10 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
             >
               <div
-                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-193b4t-MuiInputBase-root-MuiOutlinedInput-root"
               >
                 <div
-                  class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-yzzuft-MuiInputAdornment-root"
+                  class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-1laqsz7-MuiInputAdornment-root"
                 >
                   <svg
                     aria-hidden="true"
@@ -1715,7 +1715,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
         id="cancel-save_btns"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium cancel-save cancel-button f9oipqi cancel-button-new css-hkf0n7-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium cancel-save cancel-button f9oipqi cancel-button-new css-2uznlz-MuiButtonBase-root-MuiButton-root"
           name="cancel-button"
           tabindex="0"
           type="button"
@@ -1727,7 +1727,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
         </button>
         <button
           class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium cancel-save save-button save-button-new 
-        } css-hkf0n7-MuiButtonBase-root-MuiButton-root"
+        } css-2uznlz-MuiButtonBase-root-MuiButton-root"
           name="save-button"
           tabindex="0"
           type="button"
@@ -1770,7 +1770,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_f5s7lzh css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
+              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_f5s7lzh css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
@@ -1838,7 +1838,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                 </p>
               </div>
               <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon-close-show revision-action close-button css-t42cd1-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon-close-show revision-action close-button css-13h131f-MuiButtonBase-root-MuiButton-root"
                 name="close-button"
                 tabindex="0"
                 title="remove revision"
@@ -1918,7 +1918,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
         />
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
           data-testid="ArrowDropDownIcon"
           focusable="false"
           viewBox="0 0 24 24"
@@ -1930,7 +1930,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
       </div>
     </div>
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1pha5e5-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1rgi3bk-MuiButtonBase-root-MuiButton-root"
       id="compare-button"
       tabindex="0"
       type="submit"
@@ -1978,7 +1978,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
       </label>
       <button
         aria-label="edit revision"
-        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium edit-button edit-button-base show-edit-btn css-t42cd1-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium edit-button edit-button-base show-edit-btn css-13h131f-MuiButtonBase-root-MuiButton-root"
         id="base-edit-button"
         name="edit-button"
         tabindex="0"
@@ -2028,7 +2028,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -2054,10 +2054,10 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
               class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
             >
               <div
-                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-193b4t-MuiInputBase-root-MuiOutlinedInput-root"
               >
                 <div
-                  class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-yzzuft-MuiInputAdornment-root"
+                  class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-1laqsz7-MuiInputAdornment-root"
                 >
                   <svg
                     aria-hidden="true"
@@ -2130,7 +2130,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_f5s7lzh css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
+              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_f5s7lzh css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
@@ -2198,7 +2198,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                 </p>
               </div>
               <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon-close-hidden revision-action close-button css-t42cd1-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon-close-hidden revision-action close-button css-13h131f-MuiButtonBase-root-MuiButton-root"
                 name="close-button"
                 tabindex="0"
                 title="remove revision"
@@ -2255,7 +2255,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
       </label>
       <button
         aria-label="edit revision"
-        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium edit-button edit-button-new show-edit-btn css-t42cd1-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium edit-button edit-button-new show-edit-btn css-13h131f-MuiButtonBase-root-MuiButton-root"
         id="new-edit-button"
         name="edit-button"
         tabindex="0"
@@ -2305,7 +2305,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
             />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
               data-testid="ArrowDropDownIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -2331,10 +2331,10 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
               class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
             >
               <div
-                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-193b4t-MuiInputBase-root-MuiOutlinedInput-root"
               >
                 <div
-                  class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-yzzuft-MuiInputAdornment-root"
+                  class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-1laqsz7-MuiInputAdornment-root"
                 >
                   <svg
                     aria-hidden="true"
@@ -2407,7 +2407,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_f5s7lzh css-14s1a2o-MuiButtonBase-root-MuiListItemButton-root"
+              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_f5s7lzh css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
@@ -2475,7 +2475,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                 </p>
               </div>
               <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon-close-hidden revision-action close-button css-t42cd1-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon-close-hidden revision-action close-button css-13h131f-MuiButtonBase-root-MuiButton-root"
                 name="close-button"
                 tabindex="0"
                 title="remove revision"
@@ -2555,7 +2555,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
         />
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
           data-testid="ArrowDropDownIcon"
           focusable="false"
           viewBox="0 0 24 24"
@@ -2567,7 +2567,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
       </div>
     </div>
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1pha5e5-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1rgi3bk-MuiButtonBase-root-MuiButton-root"
       id="compare-button"
       tabindex="0"
       type="submit"
@@ -2612,7 +2612,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                 class="MuiSwitch-root MuiSwitch-sizeMedium toggle-switch toggle-dark-mode css-julti5-MuiSwitch-root"
               >
                 <span
-                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1yg1ubd-MuiButtonBase-root-MuiSwitch-switchBase"
+                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1n50hym-MuiButtonBase-root-MuiSwitch-switchBase"
                 >
                   <input
                     aria-label="Dark mode switch"
@@ -2654,7 +2654,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
             Analyze results of performance tests to detect regressions and identify opportunities for improvement.
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium learn-more-btn css-t42cd1-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium learn-more-btn css-13h131f-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
@@ -2771,7 +2771,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                         />
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
                           data-testid="ArrowDropDownIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -2797,10 +2797,10 @@ exports[`Compare With Base should remove the checked revision once X button is c
                           class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
                         >
                           <div
-                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
+                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-193b4t-MuiInputBase-root-MuiOutlinedInput-root"
                           >
                             <div
-                              class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-yzzuft-MuiInputAdornment-root"
+                              class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
                             >
                               <svg
                                 aria-hidden="true"
@@ -2913,7 +2913,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                         />
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
                           data-testid="ArrowDropDownIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -2939,10 +2939,10 @@ exports[`Compare With Base should remove the checked revision once X button is c
                           class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
                         >
                           <div
-                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
+                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-193b4t-MuiInputBase-root-MuiOutlinedInput-root"
                           >
                             <div
-                              class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-yzzuft-MuiInputAdornment-root"
+                              class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
                             >
                               <svg
                                 aria-hidden="true"
@@ -3046,7 +3046,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                     />
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
                       data-testid="ArrowDropDownIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
@@ -3058,7 +3058,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                   </div>
                 </div>
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1pha5e5-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1rgi3bk-MuiButtonBase-root-MuiButton-root"
                   id="compare-button"
                   tabindex="0"
                   type="submit"
@@ -3169,7 +3169,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                         />
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
                           data-testid="ArrowDropDownIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -3195,10 +3195,10 @@ exports[`Compare With Base should remove the checked revision once X button is c
                           class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
                         >
                           <div
-                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-1vjgbo6-MuiInputBase-root-MuiOutlinedInput-root"
+                            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-193b4t-MuiInputBase-root-MuiOutlinedInput-root"
                           >
                             <div
-                              class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-yzzuft-MuiInputAdornment-root"
+                              class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
                             >
                               <svg
                                 aria-hidden="true"
@@ -3305,7 +3305,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                       />
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
                         data-testid="ArrowDropDownIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
@@ -3363,7 +3363,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                       />
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-b6zwsb-MuiSvgIcon-root-MuiSelect-icon"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
                         data-testid="ArrowDropDownIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
@@ -3376,7 +3376,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                   </div>
                 </div>
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1pha5e5-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium compare-button fr4s9wi css-1rgi3bk-MuiButtonBase-root-MuiButton-root"
                   id="compare-button"
                   tabindex="0"
                   type="submit"

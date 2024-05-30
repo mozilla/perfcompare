@@ -8,11 +8,6 @@ import components from './components';
 import typography from './typography';
 
 const lightMode = {
-  action: {
-    active: Colors.PrimaryDefault,
-    hover: Colors.PrimaryHover,
-    disabled: Colors.PrimaryDisabled,
-  },
   background: {
     default: Colors.Background300,
   },
@@ -30,11 +25,6 @@ const lightMode = {
 };
 
 const darkMode = {
-  action: {
-    active: Colors.PrimaryDark,
-    hover: Colors.PrimaryHoverDark,
-    disabled: Colors.PrimaryDisabledDark,
-  },
   background: {
     default: Colors.Background100Dark,
   },
