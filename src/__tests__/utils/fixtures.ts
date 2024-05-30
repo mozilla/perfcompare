@@ -142,7 +142,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconut',
@@ -188,7 +188,7 @@ const getTestData = () => {
       is_improvement: false,
       is_regression: true,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconut',
@@ -234,7 +234,7 @@ const getTestData = () => {
       is_improvement: false,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconut',
@@ -280,7 +280,7 @@ const getTestData = () => {
       is_improvement: false,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
   ];
 
@@ -330,7 +330,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -376,7 +376,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -422,7 +422,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -468,7 +468,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -514,7 +514,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -560,7 +560,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -606,7 +606,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -652,7 +652,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -698,7 +698,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -744,7 +744,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -790,7 +790,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -836,7 +836,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -882,7 +882,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -928,7 +928,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -974,7 +974,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -1020,7 +1020,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -1066,7 +1066,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -1112,7 +1112,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -1158,7 +1158,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -1204,7 +1204,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -1250,7 +1250,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -1296,7 +1296,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -1342,7 +1342,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -1388,7 +1388,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -1434,7 +1434,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -1480,7 +1480,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -1526,7 +1526,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -1572,7 +1572,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -1618,7 +1618,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -1664,7 +1664,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -1710,7 +1710,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -1756,7 +1756,7 @@ const getTestData = () => {
       is_improvement: true,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -1802,7 +1802,7 @@ const getTestData = () => {
       is_improvement: false,
       is_regression: true,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -1848,7 +1848,7 @@ const getTestData = () => {
       is_improvement: false,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
     {
       base_rev: 'coconuts',
@@ -1894,7 +1894,7 @@ const getTestData = () => {
       is_improvement: false,
       is_regression: false,
       is_meaningful: true,
-      parent_signature: '4769486',
+      parent_signature: null,
     },
   ];
 

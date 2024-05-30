@@ -91,7 +91,7 @@ export type CompareResultsItem = {
   is_regression: boolean;
   is_meaningful: boolean;
   more_runs_are_needed: boolean;
-  parent_signature: string;
+  parent_signature: number | null;
 };
 
 export type InputType = 'base' | 'new';
