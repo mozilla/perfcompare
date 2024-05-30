@@ -65,7 +65,6 @@ function checkValues({
       `The parameter framework isn't a valid value: "${framework}".`,
     );
   }
-
   if (!newRevs.length) {
     return {
       baseRev,

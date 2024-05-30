@@ -261,6 +261,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                 </div>
                 <div
                   class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
+                  data-testid="base-selected-revision"
                 >
                   <div
                     class="box_f65ycfw base-box MuiBox-root css-0"
@@ -403,6 +404,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                 </div>
                 <div
                   class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
+                  data-testid="new-selected-revision"
                 >
                   <div
                     class="box_f65ycfw new-box MuiBox-root css-0"

@@ -171,7 +171,10 @@ function SearchComponent({
       </Grid>
       {/***** Selected Revisions Section *****/}
       {displayedRevisions && (
-        <Grid className='d-flex'>
+        <Grid
+          className='d-flex'
+          data-testid={`${isBaseComp ? 'base' : 'new'}-selected-revision`}
+        >
           <SelectedRevisions
             isBase={isBaseComp}
             canRemoveRevision={!hasNonEditableState || formIsDisplayed}
