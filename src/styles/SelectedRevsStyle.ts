@@ -104,23 +104,11 @@ export const SelectRevsStyles = (mode: string) => {
           },
         },
         button: {
-          padding: 0,
-          justifyContent: 'flex-end',
+          padding: 2,
+          marginTop: -2,
           $nest: {
-            '&.revision-action': {
-              minWidth: '14px',
-              height: '14px',
-            },
             '&.close-button': {
               marginLeft: `${Spacing.Large}px`,
-            },
-            '&.close-button-results': {
-              marginLeft: `${Spacing.layoutXLarge + 44}px`,
-            },
-
-            svg: {
-              width: '0.875rem',
-              height: '0.875rem',
             },
             '&.icon-close-show': {
               color: isTrueLight ? Colors.IconLight : Colors.IconDark,
