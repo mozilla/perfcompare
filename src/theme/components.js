@@ -11,6 +11,11 @@ import zap from './img/zap-10.svg';
 
 const components = {
   MuiButton: {
+    defaultProps: {
+      // The props to change the default for.
+      disableElevation: true, // No more ripple, on the whole application 💣!
+      variant: 'contained',
+    },
     styleOverrides: {
       root: {
         '&.add-revision-button': {
