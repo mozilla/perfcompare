@@ -3,7 +3,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { FormControl, InputAdornment, TextField, Button } from '@mui/material';
 import { style } from 'typestyle';
 
-import { ButtonsLightRaw, Spacing } from '../../styles';
+import { Spacing } from '../../styles';
 
 const styles = {
   container: style({
@@ -14,10 +14,7 @@ const styles = {
       '.form-container': {
         maxWidth: '447px',
       },
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       '.MuiButtonBase-root': {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-        ...ButtonsLightRaw.Secondary,
         marginLeft: Spacing.Small,
       },
     },

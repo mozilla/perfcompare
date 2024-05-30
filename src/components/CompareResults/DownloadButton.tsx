@@ -7,7 +7,7 @@ import { style } from 'typestyle';
 import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
-import { ButtonsLightRaw, Spacing } from '../../styles';
+import { Spacing } from '../../styles';
 import type { CompareResultsItem } from '../../types/state';
 import { truncateHash } from '../../utils/helpers';
 import type { LoaderReturnValue } from './loader';
@@ -80,7 +80,6 @@ const styles = {
     height: '41px',
     $nest: {
       '.MuiButtonBase-root': {
-        ...ButtonsLightRaw.Secondary,
         height: '100%',
       },
     },
@@ -128,7 +127,13 @@ function DownloadButton() {
 
   return (
     <div className={styles.downloadButton}>
-      <Button onClick={handleDownloadClick}>Download JSON</Button>
+      <Button
+        variant='contained'
+        color='secondary'
+        onClick={handleDownloadClick}
+      >
+        Download JSON
+      </Button>
     </div>
   );
 }

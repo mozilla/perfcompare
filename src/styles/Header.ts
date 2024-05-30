@@ -1,7 +1,6 @@
 import { stylesheet } from 'typestyle';
 
 import { Strings } from '../resources/Strings';
-import { ButtonsLightRaw, ButtonsDarkRaw } from './Buttons';
 import { Colors } from './Colors';
 import { Spacing } from './Spacing';
 
@@ -42,9 +41,6 @@ export const HeaderStyles = (mode: string, isHome: boolean) => {
           marginBottom: `${Spacing.layoutLarge + 14}px`,
           maxWidth: '104px',
           alignSelf: 'center',
-          ...(isTrueLight
-            ? ButtonsLightRaw.Secondary
-            : ButtonsDarkRaw.Secondary),
         },
         '.learn-more-btn': {
           //hidden until purpose is determined
