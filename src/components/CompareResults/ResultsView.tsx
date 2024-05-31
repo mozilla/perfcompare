@@ -16,9 +16,10 @@ interface ResultsViewProps {
   title: string;
 }
 function ResultsView(props: ResultsViewProps) {
-  const { baseRevInfo, newRevsInfo, frameworkId, results } =
+  const { baseRevInfo, newRevsInfo, frameworkId, results, baseRepo, newRepos } =
     useLoaderData() as LoaderReturnValue;
 
+  const newRepo = newRepos[0];
   const { title } = props;
   const themeMode = useAppSelector((state) => state.theme.mode);
   const styles = {
@@ -49,6 +50,8 @@ function ResultsView(props: ResultsViewProps) {
           frameworkIdVal={frameworkId}
           isBaseSearch={null}
           expandBaseComponent={() => null}
+          baseRepo={baseRepo}
+          newRepo={newRepo}
         />
       </section>
       <Grid container alignItems='center' justifyContent='center'>
