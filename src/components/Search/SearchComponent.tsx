@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import InfoIcon from '@mui/icons-material/InfoOutlined';
 import Grid from '@mui/material/Grid';
 import InputLabel from '@mui/material/InputLabel';
@@ -17,7 +15,6 @@ import {
 } from '../../styles';
 import type { Changeset, InputType, Repository } from '../../types/state';
 import EditButton from './EditButton';
-import SaveCancelButtons from './SaveCancelButtons';
 import SearchDropdown from './SearchDropdown';
 import SearchInputAndResults from './SearchInputAndResults';
 import SelectedRevisions from './SelectedRevisions';
@@ -27,9 +24,8 @@ interface SearchProps {
   isWarning: boolean;
   isBaseComp: boolean;
   displayedRevisions: Changeset[];
-  onSave: () => void;
-  onCancel: () => void;
   onEdit: () => void;
+  onSetDisplayForm: (display: boolean) => void;
   onSearchResultsToggle: (item: Changeset) => void;
   onRemoveRevision: (item: Changeset) => void;
   selectLabel: string;
@@ -38,14 +34,13 @@ interface SearchProps {
   repository: Repository['name'];
   labelIdInfo: string;
   onRepositoryChange: (repo: Repository['name']) => unknown;
+  formIsDisplayed: boolean;
 }
 
 function SearchComponent({
   hasEditButton,
   isBaseComp,
   displayedRevisions,
-  onCancel,
-  onSave,
   onEdit,
   onSearchResultsToggle,
   onRemoveRevision,
@@ -56,6 +51,8 @@ function SearchComponent({
   repository,
   labelIdInfo,
   onRepositoryChange,
+  onSetDisplayForm,
+  formIsDisplayed,
 }: SearchProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = SearchStyles(mode);
@@ -83,8 +80,6 @@ function SearchComponent({
     },
   });
 
-  const [formIsDisplayed, setFormIsDisplayed] = useState(!hasEditButton);
-
   return (
     <Grid className={styles.component}>
       <Grid
@@ -106,7 +101,7 @@ function SearchComponent({
             isBase={isBaseComp}
             onEditAction={() => {
               onEdit();
-              setFormIsDisplayed(true);
+              onSetDisplayForm(true);
             }}
           />
         )}
@@ -154,20 +149,6 @@ function SearchComponent({
             onSearchResultsToggle={onSearchResultsToggle}
           />
         </Grid>
-        {/****** Cancel Save Buttons ******/}
-        {hasEditButton && formIsDisplayed && (
-          <SaveCancelButtons
-            searchType={searchType}
-            onSave={() => {
-              onSave();
-              setFormIsDisplayed(false);
-            }}
-            onCancel={() => {
-              onCancel();
-              setFormIsDisplayed(false);
-            }}
-          />
-        )}
       </Grid>
       {/***** Selected Revisions Section *****/}
       {displayedRevisions && (

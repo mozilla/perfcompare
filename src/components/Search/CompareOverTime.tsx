@@ -210,7 +210,13 @@ function CompareOverTime({
               />
             </div>
 
-            <CompareButton label={strings.sharedCollasped.button} />
+            <CompareButton
+              label={strings.sharedCollasped.button}
+              hasNonEditableState={hasEditButton}
+              onCancel={() => {}}
+              onSetDisplayForm={() => {}}
+              formIsDisplayed={hasEditButton}
+            />
           </Grid>
         </Form>
       </div>

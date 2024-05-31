@@ -80,14 +80,7 @@ function CompareWithBase({
   const { enqueueSnackbar } = useSnackbar();
   const [frameWorkId, setframeWorkValue] = useState(frameworkIdVal);
 
-  // The "committed" base and new revisions initialize the staging state.
-  // These states are snapshots of selections, that the user can either save (by
-  // pressing the "Save" button) or revert to (by pressing the Cancel button).
-  const [baseStagingRev, setStagingBaseRev] = useState<Changeset | null>(
-    baseRev,
-  );
-  const [newStagingRevs, setStagingNewRevs] = useState<Changeset[]>(newRevs);
-
+  // pressing Cancel reverts to committed states.
   // The "committed" base and new revisions initialize the "in progress" state
   // too. These states hold the data that are displayed to the user. They always
   // contain the displayed data. That's also the ones that will be committed if
@@ -99,6 +92,7 @@ function CompareWithBase({
     useState<Changeset[]>(newRevs);
   const [baseRepository, setBaseRepository] = useState(baseRepo);
   const [newRepository, setNewRepository] = useState(newRepo);
+  const [formIsDisplayed, setFormIsDisplayed] = useState(!hasNonEditableState);
 
   const mode = useAppSelector((state) => state.theme.mode);
 
@@ -137,25 +131,16 @@ function CompareWithBase({
     expandBaseComponent(true);
   };
 
-  const handleCancelBase = () => {
-    setInProgressBaseRev(baseStagingRev);
-  };
-  const handleCancelNew = () => {
-    setInProgressNewRevs(newStagingRevs);
-  };
-
-  const handleSaveBase = () => {
-    setStagingBaseRev(baseInProgressRev);
-  };
-  const handleSaveNew = () => {
-    setStagingNewRevs(newInProgressRevs);
+  const handleCancel = () => {
+    setInProgressNewRevs(newRevs);
+    setInProgressBaseRev(baseRev);
   };
 
   const handleEditBase = () => {
-    setInProgressBaseRev(baseStagingRev);
+    setInProgressBaseRev(baseRev);
   };
   const handleEditNew = () => {
-    setInProgressNewRevs(newStagingRevs);
+    setInProgressNewRevs(newRevs);
   };
 
   const handleItemToggleInChangesetList = ({
@@ -241,6 +226,10 @@ function CompareWithBase({
     setInProgressNewRevs(newNewRevs);
   };
 
+  const handleSetDisplayForm = (display: boolean) => {
+    setFormIsDisplayed(display);
+  };
+
   return (
     <Grid className={`wrapper--withbase ${wrapperStyles.wrapper}`}>
       <div
@@ -280,8 +269,6 @@ function CompareWithBase({
             isWarning={isWarning}
             hasEditButton={hasEditButton}
             displayedRevisions={baseInProgressRev ? [baseInProgressRev] : []}
-            onSave={handleSaveBase}
-            onCancel={handleCancelBase}
             onEdit={handleEditBase}
             onSearchResultsToggle={handleSearchResultsToggleBase}
             onRemoveRevision={handleRemoveRevisionBase}
@@ -290,6 +277,8 @@ function CompareWithBase({
             onRepositoryChange={(repo: Repository['name']) =>
               setBaseRepository(repo)
             }
+            onSetDisplayForm={handleSetDisplayForm}
+            formIsDisplayed={formIsDisplayed}
           />
           <SearchComponent
             {...stringsNew}
@@ -297,8 +286,6 @@ function CompareWithBase({
             hasEditButton={hasEditButton}
             isWarning={isWarning}
             displayedRevisions={newInProgressRevs}
-            onSave={handleSaveNew}
-            onCancel={handleCancelNew}
             onEdit={handleEditNew}
             onSearchResultsToggle={handleSearchResultsToggleNew}
             onRemoveRevision={handleRemoveRevisionNew}
@@ -307,6 +294,8 @@ function CompareWithBase({
             onRepositoryChange={(repo: Repository['name']) =>
               setNewRepository(repo)
             }
+            onSetDisplayForm={handleSetDisplayForm}
+            formIsDisplayed={formIsDisplayed}
           />
           <Grid
             item
@@ -321,7 +310,13 @@ function CompareWithBase({
                 setframeWorkValue(id);
               }}
             />
-            <CompareButton label={strings.base.compareBtn} />
+            <CompareButton
+              hasNonEditableState={hasNonEditableState}
+              label={strings.base.compareBtn}
+              onCancel={handleCancel}
+              onSetDisplayForm={handleSetDisplayForm}
+              formIsDisplayed={formIsDisplayed}
+            />
           </Grid>
         </Form>
       </div>

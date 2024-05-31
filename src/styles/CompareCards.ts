@@ -19,6 +19,8 @@ const textDarkMode = {
   color: `${Colors.PrimaryTextDark} !important`,
 };
 
+const repoDropdownWidth = 200;
+
 export const CompareCardsStyles = (mode: string) => {
   const isTrueLight = mode == 'light' ? true : false;
 
@@ -125,11 +127,19 @@ export const SearchStyles = (mode: string) => {
     component: {
       marginBottom: `${Spacing.xLarge}px`,
     },
+    cancelCompareBtn: {
+      display: 'flex',
+      alignItems: 'center',
+      $nest: {
+        '.cancel-button': {
+          marginRight: `${Spacing.Small}px`,
+        },
+      },
+    },
     container: {
       margin: 'auto',
       justifyContent: 'space-between',
       position: 'relative',
-
       $nest: {
         '&.hide-container': {
           display: 'none',
@@ -144,11 +154,8 @@ export const SearchStyles = (mode: string) => {
     },
 
     dropDown: {
-      minWidth: '200px',
+      minWidth: `${repoDropdownWidth}px`,
       $nest: {
-        '&.small': {
-          minWidth: '175px',
-        },
         '&.label-edit-wrapper': {
           display: 'flex',
           justifyContent: 'space-between',
@@ -186,8 +193,8 @@ export const SearchStyles = (mode: string) => {
       left: '220px',
       $nest: {
         '&.big': {
-          left: '190px',
-          minWidth: '510px',
+          left: '212px',
+          minWidth: `${850 - repoDropdownWidth - Spacing.Default}px`,
         },
         '&.base-search-input--mobile, &.new-search-input--mobile': {
           position: 'unset',
