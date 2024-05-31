@@ -24,7 +24,7 @@ const stringsNew =
   Strings.components.searchDefault.overTime.collapsed.revisions;
 
 interface CompareWithTimeProps {
-  hasEditableState: boolean;
+  hasEditButton: boolean;
   newRevs: Changeset[] | [];
   frameworkIdVal: Framework['id'];
   intervalValue: TimeRange['value'];
@@ -33,7 +33,7 @@ interface CompareWithTimeProps {
 }
 
 function CompareOverTime({
-  hasEditableState,
+  hasEditButton,
   newRevs,
   frameworkIdVal,
   intervalValue,
@@ -178,7 +178,7 @@ function CompareOverTime({
         >
           <SearchOverTime
             {...stringsNew}
-            hasEditableState={hasEditableState}
+            hasEditButton={hasEditButton}
             repository={repository}
             displayedRevisions={inProgressRevs}
             onRemoveRevision={handleRemoveRevision}

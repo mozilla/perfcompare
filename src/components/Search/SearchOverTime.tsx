@@ -25,7 +25,7 @@ interface SearchProps {
   selectLabel: string;
   tooltip: string;
   inputPlaceholder: string;
-  hasEditableState: boolean;
+  hasEditButton: boolean;
   displayedRevisions: Changeset[];
   repository: Repository['name'];
   onRemoveRevision: (item: Changeset) => void;
@@ -37,7 +37,7 @@ export default function SearchOverTime({
   selectLabel,
   tooltip,
   inputPlaceholder,
-  hasEditableState,
+  hasEditButton,
   repository,
   displayedRevisions,
   onRemoveRevision,
@@ -47,7 +47,7 @@ export default function SearchOverTime({
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = SearchStyles(mode);
 
-  const [formIsDisplayed, setFormIsDisplayed] = useState(!hasEditableState);
+  const [formIsDisplayed, setFormIsDisplayed] = useState(!hasEditButton);
 
   /* These overriding rules update the theme mode by accessing the otherwise inaccessible MUI tooltip styles */
   cssRule('.MuiPopover-root', {
@@ -100,8 +100,8 @@ export default function SearchOverTime({
           xs={2}
           id='new_search-dropdown--time'
           className={`new-search-dropdown ${styles.dropDown} ${
-            hasEditableState ? 'small' : ''
-          } ${hasEditableState ? compareOverTimeView : ''}-new-dropdown`}
+            hasEditButton ? 'small' : ''
+          } ${hasEditButton ? compareOverTimeView : ''}-new-dropdown`}
         >
           <SearchDropdown
             compact={false}
@@ -117,11 +117,11 @@ export default function SearchOverTime({
           xs={7}
           id='new_search-input--time'
           className={`new-search-input--time  ${styles.baseSearchInput} ${
-            hasEditableState ? 'big' : ''
+            hasEditButton ? 'big' : ''
           } `}
         >
           <SearchInputAndResults
-            compact={hasEditableState}
+            compact={hasEditButton}
             inputPlaceholder={inputPlaceholder}
             displayedRevisions={displayedRevisions}
             searchType='new'
@@ -135,7 +135,7 @@ export default function SearchOverTime({
         <Grid className='d-flex'>
           <SelectedRevisions
             isBase={false}
-            canRemoveRevision={!hasEditableState || formIsDisplayed}
+            canRemoveRevision={!hasEditButton || formIsDisplayed}
             isWarning={false}
             displayedRevisions={displayedRevisions}
             onRemoveRevision={onRemoveRevision}

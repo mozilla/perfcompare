@@ -44,7 +44,7 @@ function ResultsView(props: ResultsViewProps) {
         <LinkToHome />
 
         <CompareWithBase
-          hasEditableState={true}
+          hasEditButton={true}
           baseRev={baseRevInfo ?? null}
           newRevs={newRevsInfo ?? []}
           frameworkIdVal={frameworkId}

@@ -43,7 +43,7 @@ function ResultsView(props: ResultsViewProps) {
         <LinkToHome />
 
         <CompareOverTime
-          hasEditableState={true}
+          hasEditButton={true}
           newRevs={newRevsInfo}
           isBaseSearch={true}
           expandBaseComponent={() => null}
