@@ -50,7 +50,7 @@ describe('Taskcluster Callback', () => {
         expires: '2024-05-20T14:07:40.828Z',
         credentials: {
           clientId:
-            'mozilla-auth0/ad|Mozilla-LDAP|aesanu/perfcompare-localhost-3000-client-OCvzh5',
+            'mozilla-auth0/ad|Mozilla-LDAP|ldapuser/perfcompare-localhost-3000-client-OCvzh5',
           accessToken: 'jQWJVQdeRceT-YymPwTWagPh2PwJr0RmmZyL1uAfMSWg',
         },
       },
@@ -61,15 +61,34 @@ describe('Taskcluster Callback', () => {
       'https://firefox-ci-tc.services.mozilla.com',
     );
 
+    mockedGetLocationOrigin.mockImplementation(() => 'http://localhost:3000');
+
     renderWithRouter(<TaskclusterCallback />, {
       route: '/taskcluster-auth',
       search: '?code=dwcygG5HQNaLiRe3RcTCbQ&state=OkCrH5isZncYqeJbRDelN',
       loader,
     });
-    mockedGetLocationOrigin.mockImplementation(() => 'http://localhost:3000');
 
     expect(
       await screen.findByText(/Getting Taskcluster credentials/),
     ).toBeInTheDocument();
+
+    expect(window.fetch).toHaveBeenLastCalledWith(
+      'https://firefox-ci-tc.services.mozilla.com/login/oauth/credentials',
+      {
+        headers: {
+          Authorization: 'Bearer RnVpOGJtdDZTb3FlWW5PVUxVclprQQ==',
+          'Content-Type': 'aplication/json',
+        },
+      },
+    );
+
+    expect(localStorage.tokenBearer).toBe(
+      '{"Bearer":{"access_token":"RnVpOGJtdDZTb3FlWW5PVUxVclprQQ==","token_type":"Bearer"}}',
+    );
+
+    expect(localStorage.userCredentials).toBe(
+      '{"https://firefox-ci-tc.services.mozilla.com":{"expires":"2024-05-20T14:07:40.828Z","credentials":{"clientId":"mozilla-auth0/ad|Mozilla-LDAP|ldapuser/perfcompare-localhost-3000-client-OCvzh5","accessToken":"jQWJVQdeRceT-YymPwTWagPh2PwJr0RmmZyL1uAfMSWg"}}}',
+    );
   });
 });
