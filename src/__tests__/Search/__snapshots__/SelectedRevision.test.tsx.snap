@@ -23,7 +23,7 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
     </div>
   </div>
   <div
-    class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_f5s7lzh css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
+    class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
     role="button"
     tabindex="0"
   >
@@ -91,7 +91,7 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
       </p>
     </div>
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium icon-close-show revision-action close-button css-j1urod-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium icon-close-show revision-action close-button css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
       name="close-button"
       tabindex="0"
       title="remove revision"

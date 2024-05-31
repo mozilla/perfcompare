@@ -153,20 +153,10 @@ export const SearchStyles = (mode: string) => {
         '&.label-edit-wrapper': {
           display: 'flex',
           justifyContent: 'space-between',
+          alignItems: 'end',
           $nest: {
             '.hide-edit-btn': {
               visibility: 'hidden',
-            },
-            '.edit-button': {
-              padding: '0px',
-              justifyContent: 'flex-end',
-              marginLeft: `${Spacing.Medium}px`,
-              bottom: `${Spacing.Small}px`,
-              $nest: {
-                '&:hover': {
-                  backgroundColor: 'transparent',
-                },
-              },
             },
           },
         },
