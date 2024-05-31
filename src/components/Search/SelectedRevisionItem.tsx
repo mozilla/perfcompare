@@ -5,7 +5,7 @@ import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
 import WarningIcon from '@mui/icons-material/Warning';
 import { Link } from '@mui/material';
-import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
@@ -117,14 +117,14 @@ function SelectedRevisionItem({
           primaryTypographyProps={{ noWrap: true }}
           secondaryTypographyProps={{ noWrap: true }}
         />
-        <Button
+        <IconButton
           name='close-button'
           title='remove revision'
           className={`${iconClassName} revision-action close-button`}
           onClick={() => onRemoveRevision(item)}
         >
           <CloseOutlined fontSize='small' data-testid='close-icon' />
-        </Button>
+        </IconButton>
       </ListItemButton>
     </ListItem>
   );

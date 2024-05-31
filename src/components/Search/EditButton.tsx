@@ -1,4 +1,4 @@
-import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
 
 import { Strings } from '../../resources/Strings';
 
@@ -14,7 +14,7 @@ export default function EditButton({ isBase, onEditAction }: EditButtonProps) {
   const searchType = isBase ? 'base' : 'new';
 
   return (
-    <Button
+    <IconButton
       className={`edit-button edit-button-${searchType} show-edit-btn`}
       id={`${searchType}-edit-button`}
       name='edit-button'
@@ -27,6 +27,6 @@ export default function EditButton({ isBase, onEditAction }: EditButtonProps) {
         src={editImgUrl}
         alt='edit-icon'
       />
-    </Button>
+    </IconButton>
   );
 }

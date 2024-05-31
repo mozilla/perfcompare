@@ -2,12 +2,11 @@ import { useMemo } from 'react';
 
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
-import Paper from '@mui/material/Paper';
 import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
-import { Colors, Spacing } from '../../styles';
+import { Spacing } from '../../styles';
 import type { CompareResultsItem, RevisionsHeader } from '../../types/state';
 import NoResultsFound from './NoResultsFound';
 import TableContent from './TableContent';
@@ -60,13 +59,7 @@ function processResults(results: CompareResultsItem[]) {
 const allRevisionsOption =
   Strings.components.comparisonRevisionDropdown.allRevisions.key;
 
-const customStyles = {
-  boxShadow: 'none',
-  background: 'none',
-};
-
 function ResultsTable(props: { results: CompareResultsItem[][] }) {
-  const themeMode = useAppSelector((state) => state.theme.mode);
   const { results } = props;
 
   const activeComparison = useAppSelector(
@@ -85,22 +78,17 @@ function ResultsTable(props: { results: CompareResultsItem[][] }) {
   // TODO Implement a loading UI through the react-router defer mechanism
   const loading = false;
 
-  const themeColor100 =
-    themeMode === 'light' ? Colors.Background100 : Colors.Background100Dark;
-
   const styles = {
     tableContainer: style({
-      backgroundColor: themeColor100,
       marginTop: Spacing.Large,
       paddingBottom: Spacing.Large,
     }),
   };
 
   return (
-    <Paper
+    <Box
       className={styles.tableContainer}
       data-testid='results-table'
-      sx={customStyles}
       role='table'
     >
       {loading ? (
@@ -120,7 +108,7 @@ function ResultsTable(props: { results: CompareResultsItem[][] }) {
         </>
       )}
       {!loading && processedResults.length == 0 && <NoResultsFound />}
-    </Paper>
+    </Box>
   );
 }
 

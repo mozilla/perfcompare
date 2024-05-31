@@ -16,6 +16,7 @@ const lightMode = {
   },
   secondary: {
     main: Colors.SecondaryDefault,
+    dark: Colors.SecondaryHover,
   },
   text: {
     primary: Colors.PrimaryText,
@@ -32,7 +33,8 @@ const darkMode = {
     main: Colors.PrimaryDark,
   },
   secondary: {
-    main: Colors.SecondaryDark,
+    main: Colors.Background300Dark,
+    dark: Colors.SecondaryHoverDark,
   },
   text: {
     primary: Colors.PrimaryTextDark,
