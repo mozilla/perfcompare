@@ -1,9 +1,6 @@
 import Button from '@mui/material/Button';
-import { style } from 'typestyle';
 
-import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
-import { ButtonStyles } from '../../styles';
 import type { InputType } from '../../types/state';
 
 interface SaveCancelButtonsProps {
@@ -21,29 +18,18 @@ export default function SaveCancelButtons({
   onCancel,
   onSave,
 }: SaveCancelButtonsProps) {
-  const mode = useAppSelector((state) => state.theme.mode);
-  const btnStyles = ButtonStyles(mode);
-  const cancelBtn = {
-    main: style({
-      $nest: {
-        '&.MuiButtonBase-root': {
-          ...btnStyles.Secondary,
-        },
-      },
-    }),
-  };
   return (
     <div className='cancel-save-btns' id='cancel-save_btns'>
       <Button
-        className={`cancel-save cancel-button ${cancelBtn.main} cancel-button-${searchType}`}
+        className={`cancel-save cancel-button cancel-button-${searchType}`}
         name='cancel-button'
+        color='secondary'
         onClick={onCancel}
       >
         {cancel}
       </Button>
       <Button
-        className={`cancel-save save-button save-button-${searchType} 
-        }`}
+        className={`cancel-save save-button save-button-${searchType}`}
         name='save-button'
         onClick={onSave}
       >

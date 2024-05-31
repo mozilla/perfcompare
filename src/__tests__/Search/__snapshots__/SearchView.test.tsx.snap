@@ -14,7 +14,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
         Skip to search
       </button>
       <div
-        class="MuiGrid-root header-container container_f38ku8z css-plh9qo-MuiGrid-root"
+        class="MuiGrid-root header-container container_f15tggp2 css-plh9qo-MuiGrid-root"
       >
         <div
           class="toggle-dark-mode f4zotac MuiBox-root css-0"
@@ -71,7 +71,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
             Analyze results of performance tests to detect regressions and identify opportunities for improvement.
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation learn-more-btn css-12uusfv-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation learn-more-btn css-i4ay87-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
@@ -477,7 +477,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                   </div>
                 </div>
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation compare-button fr4s9wi css-3xx06c-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-w3l8dt-MuiButtonBase-root-MuiButton-root"
                   id="compare-button"
                   tabindex="0"
                   type="submit"
@@ -795,7 +795,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                   </div>
                 </div>
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation compare-button fr4s9wi css-3xx06c-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-w3l8dt-MuiButtonBase-root-MuiButton-root"
                   id="compare-button"
                   tabindex="0"
                   type="submit"
