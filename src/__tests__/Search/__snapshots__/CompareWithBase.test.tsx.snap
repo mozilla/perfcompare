@@ -52,7 +52,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
       </button>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_f1psuwcf hide-container  css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_f19z97w1 hide-container  css-1ljzhs0-MuiGrid-root"
       id="base-search-container"
     >
       <div
@@ -350,7 +350,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
       </button>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_f1psuwcf hide-container  css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_f19z97w1 hide-container  css-1ljzhs0-MuiGrid-root"
       id="new-search-container"
     >
       <div
@@ -665,7 +665,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
       </div>
     </div>
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-w3l8dt-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-mire2f-MuiButtonBase-root-MuiButton-root"
       id="compare-button"
       tabindex="0"
       type="submit"
@@ -843,7 +843,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
       </label>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_f1psuwcf show-container  css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_f19z97w1 show-container  css-1ljzhs0-MuiGrid-root"
       id="base-search-container"
     >
       <div
@@ -950,7 +950,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
         id="cancel-save_btns"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-save cancel-button cancel-button-base css-kcsbz2-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-save cancel-button cancel-button-base css-scvq78-MuiButtonBase-root-MuiButton-root"
           name="cancel-button"
           tabindex="0"
           type="button"
@@ -961,7 +961,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
           />
         </button>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-save save-button save-button-base css-i4ay87-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-save save-button save-button-base css-mire2f-MuiButtonBase-root-MuiButton-root"
           name="save-button"
           tabindex="0"
           type="button"
@@ -1168,7 +1168,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
       </button>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_f1psuwcf hide-container  css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_f19z97w1 hide-container  css-1ljzhs0-MuiGrid-root"
       id="new-search-container"
     >
       <div
@@ -1483,7 +1483,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
       </div>
     </div>
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-w3l8dt-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-mire2f-MuiButtonBase-root-MuiButton-root"
       id="compare-button"
       tabindex="0"
       type="submit"
@@ -1549,7 +1549,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
       </button>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_f1psuwcf hide-container  css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_f19z97w1 hide-container  css-1ljzhs0-MuiGrid-root"
       id="base-search-container"
     >
       <div
@@ -1692,7 +1692,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
       </label>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_f1psuwcf show-container  css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_f19z97w1 show-container  css-1ljzhs0-MuiGrid-root"
       id="new-search-container"
     >
       <div
@@ -1799,7 +1799,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
         id="cancel-save_btns"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-save cancel-button cancel-button-new css-kcsbz2-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-save cancel-button cancel-button-new css-scvq78-MuiButtonBase-root-MuiButton-root"
           name="cancel-button"
           tabindex="0"
           type="button"
@@ -1810,7 +1810,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
           />
         </button>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-save save-button save-button-new css-i4ay87-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-save save-button save-button-new css-mire2f-MuiButtonBase-root-MuiButton-root"
           name="save-button"
           tabindex="0"
           type="button"
@@ -2034,7 +2034,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
       </div>
     </div>
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-w3l8dt-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-mire2f-MuiButtonBase-root-MuiButton-root"
       id="compare-button"
       tabindex="0"
       type="submit"
@@ -2100,7 +2100,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
       </button>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_f1psuwcf hide-container  css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_f19z97w1 hide-container  css-1ljzhs0-MuiGrid-root"
       id="base-search-container"
     >
       <div
@@ -2398,7 +2398,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
       </button>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_f1psuwcf hide-container  css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_f19z97w1 hide-container  css-1ljzhs0-MuiGrid-root"
       id="new-search-container"
     >
       <div
@@ -2713,7 +2713,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
       </div>
     </div>
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-w3l8dt-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-mire2f-MuiButtonBase-root-MuiButton-root"
       id="compare-button"
       tabindex="0"
       type="submit"
@@ -2761,7 +2761,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
       </label>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_f1psuwcf show-container  css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_f19z97w1 show-container  css-1ljzhs0-MuiGrid-root"
       id="base-search-container"
     >
       <div
@@ -2868,7 +2868,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
         id="cancel-save_btns"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-save cancel-button cancel-button-base css-kcsbz2-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-save cancel-button cancel-button-base css-scvq78-MuiButtonBase-root-MuiButton-root"
           name="cancel-button"
           tabindex="0"
           type="button"
@@ -2879,7 +2879,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
           />
         </button>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-save save-button save-button-base css-i4ay87-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-save save-button save-button-base css-mire2f-MuiButtonBase-root-MuiButton-root"
           name="save-button"
           tabindex="0"
           type="button"
@@ -2949,7 +2949,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
       </button>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_f1psuwcf hide-container  css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_f19z97w1 hide-container  css-1ljzhs0-MuiGrid-root"
       id="new-search-container"
     >
       <div
@@ -3264,7 +3264,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
       </div>
     </div>
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-w3l8dt-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-mire2f-MuiButtonBase-root-MuiButton-root"
       id="compare-button"
       tabindex="0"
       type="submit"
@@ -3351,7 +3351,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
             Analyze results of performance tests to detect regressions and identify opportunities for improvement.
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation learn-more-btn css-i4ay87-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation learn-more-btn css-mire2f-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
@@ -3436,7 +3436,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                   </label>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-container container_f1psuwcf show-container  css-1ljzhs0-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container container_f19z97w1 show-container  css-1ljzhs0-MuiGrid-root"
                   id="base-search-container"
                 >
                   <div
@@ -3579,7 +3579,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                   </label>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-container container_f1psuwcf show-container  css-1ljzhs0-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container container_f19z97w1 show-container  css-1ljzhs0-MuiGrid-root"
                   id="new-search-container"
                 >
                   <div
@@ -3757,7 +3757,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                   </div>
                 </div>
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-w3l8dt-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-mire2f-MuiButtonBase-root-MuiButton-root"
                   id="compare-button"
                   tabindex="0"
                   type="submit"
@@ -3836,7 +3836,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                   </label>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-container container_f1psuwcf css-1ljzhs0-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container container_f19z97w1 css-1ljzhs0-MuiGrid-root"
                   id="new-search-container--time"
                 >
                   <div
@@ -4075,7 +4075,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                   </div>
                 </div>
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-w3l8dt-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-mire2f-MuiButtonBase-root-MuiButton-root"
                   id="compare-button"
                   tabindex="0"
                   type="submit"
@@ -4129,7 +4129,7 @@ exports[`Compare With Base should save the updated BASE revision when Save is cl
       </label>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_f1psuwcf show-container  css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_f19z97w1 show-container  css-1ljzhs0-MuiGrid-root"
       id="base-search-container"
     >
       <div
@@ -4236,7 +4236,7 @@ exports[`Compare With Base should save the updated BASE revision when Save is cl
         id="cancel-save_btns"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-save cancel-button cancel-button-base css-kcsbz2-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-save cancel-button cancel-button-base css-scvq78-MuiButtonBase-root-MuiButton-root"
           name="cancel-button"
           tabindex="0"
           type="button"
@@ -4247,7 +4247,7 @@ exports[`Compare With Base should save the updated BASE revision when Save is cl
           />
         </button>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-save save-button save-button-base css-i4ay87-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-save save-button save-button-base css-mire2f-MuiButtonBase-root-MuiButton-root"
           name="save-button"
           tabindex="0"
           type="button"
@@ -4454,7 +4454,7 @@ exports[`Compare With Base should save the updated BASE revision when Save is cl
       </button>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_f1psuwcf hide-container  css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_f19z97w1 hide-container  css-1ljzhs0-MuiGrid-root"
       id="new-search-container"
     >
       <div
@@ -4769,7 +4769,7 @@ exports[`Compare With Base should save the updated BASE revision when Save is cl
       </div>
     </div>
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-w3l8dt-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-mire2f-MuiButtonBase-root-MuiButton-root"
       id="compare-button"
       tabindex="0"
       type="submit"
@@ -4835,7 +4835,7 @@ exports[`Compare With Base should save the updated NEW revision when Save is cli
       </button>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_f1psuwcf hide-container  css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_f19z97w1 hide-container  css-1ljzhs0-MuiGrid-root"
       id="base-search-container"
     >
       <div
@@ -5115,7 +5115,7 @@ exports[`Compare With Base should save the updated NEW revision when Save is cli
       </label>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_f1psuwcf show-container  css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_f19z97w1 show-container  css-1ljzhs0-MuiGrid-root"
       id="new-search-container"
     >
       <div
@@ -5222,7 +5222,7 @@ exports[`Compare With Base should save the updated NEW revision when Save is cli
         id="cancel-save_btns"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-save cancel-button cancel-button-new css-kcsbz2-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-save cancel-button cancel-button-new css-scvq78-MuiButtonBase-root-MuiButton-root"
           name="cancel-button"
           tabindex="0"
           type="button"
@@ -5233,7 +5233,7 @@ exports[`Compare With Base should save the updated NEW revision when Save is cli
           />
         </button>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-save save-button save-button-new css-i4ay87-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-save save-button save-button-new css-mire2f-MuiButtonBase-root-MuiButton-root"
           name="save-button"
           tabindex="0"
           type="button"
@@ -5457,7 +5457,7 @@ exports[`Compare With Base should save the updated NEW revision when Save is cli
       </div>
     </div>
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-w3l8dt-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-mire2f-MuiButtonBase-root-MuiButton-root"
       id="compare-button"
       tabindex="0"
       type="submit"

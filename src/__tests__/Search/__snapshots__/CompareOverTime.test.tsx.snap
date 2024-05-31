@@ -34,7 +34,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
       </label>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_f1psuwcf css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_f19z97w1 css-1ljzhs0-MuiGrid-root"
       id="new-search-container--time"
     >
       <div
@@ -273,7 +273,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
       </div>
     </div>
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-w3l8dt-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-mire2f-MuiButtonBase-root-MuiButton-root"
       id="compare-button"
       tabindex="0"
       type="submit"
@@ -321,7 +321,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
       </label>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_f1psuwcf css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_f19z97w1 css-1ljzhs0-MuiGrid-root"
       id="new-search-container--time"
     >
       <div
@@ -677,7 +677,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
       </div>
     </div>
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-w3l8dt-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-mire2f-MuiButtonBase-root-MuiButton-root"
       id="compare-button"
       tabindex="0"
       type="submit"
@@ -831,7 +831,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
       </label>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_f1psuwcf css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_f19z97w1 css-1ljzhs0-MuiGrid-root"
       id="new-search-container--time"
     >
       <div
@@ -1070,7 +1070,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
       </div>
     </div>
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-w3l8dt-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-mire2f-MuiButtonBase-root-MuiButton-root"
       id="compare-button"
       tabindex="0"
       type="submit"

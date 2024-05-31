@@ -77,7 +77,7 @@ exports[`Search Containter should match snapshot 1`] = `
                 </label>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-container container_f1psuwcf show-container  css-1ljzhs0-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-container container_f19z97w1 show-container  css-1ljzhs0-MuiGrid-root"
                 id="base-search-container"
               >
                 <div
@@ -220,7 +220,7 @@ exports[`Search Containter should match snapshot 1`] = `
                 </label>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-container container_f1psuwcf show-container  css-1ljzhs0-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-container container_f19z97w1 show-container  css-1ljzhs0-MuiGrid-root"
                 id="new-search-container"
               >
                 <div
@@ -398,7 +398,7 @@ exports[`Search Containter should match snapshot 1`] = `
                 </div>
               </div>
               <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-w3l8dt-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-mire2f-MuiButtonBase-root-MuiButton-root"
                 id="compare-button"
                 tabindex="0"
                 type="submit"
@@ -477,7 +477,7 @@ exports[`Search Containter should match snapshot 1`] = `
                 </label>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-container container_f1psuwcf css-1ljzhs0-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-container container_f19z97w1 css-1ljzhs0-MuiGrid-root"
                 id="new-search-container--time"
               >
                 <div
@@ -716,7 +716,7 @@ exports[`Search Containter should match snapshot 1`] = `
                 </div>
               </div>
               <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-w3l8dt-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-mire2f-MuiButtonBase-root-MuiButton-root"
                 id="compare-button"
                 tabindex="0"
                 type="submit"
