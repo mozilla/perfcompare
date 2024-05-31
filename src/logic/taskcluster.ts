@@ -2,7 +2,7 @@
 
 import {
   CredentialsResponse,
-  TokenBearer,
+  TokenBearerResponse,
   UserCredentials,
 } from '../types/types';
 import { getLocationOrigin } from '../utils/location';
@@ -62,7 +62,6 @@ const getAuthCode = (tcParams: {
 export const checkTaskclusterCredentials = () => {
   const taskclusterParams = getTaskclusterParams();
   const locationOrigin = getLocationOrigin();
-  console.log(taskclusterParams);
 
   if (!taskclusterParams.clientId) {
     alert(`No clientId is configured for origin ${locationOrigin}, sorry!`);
@@ -123,7 +122,7 @@ export async function retrieveTaskclusterToken(rootUrl: string, code: string) {
 
   void checkTaskclusterResponse(response);
 
-  return response.json() as Promise<TokenBearer>;
+  return response.json() as Promise<TokenBearerResponse>;
 }
 
 export async function retrieveTaskclusterUserCredentials(
