@@ -24,6 +24,8 @@ interface CompareWithBaseProps {
   hasNonEditableState: boolean;
   baseRev: Changeset | null;
   newRevs: Changeset[];
+  baseRepo: Repository['name'];
+  newRepo: Repository['name'];
   frameworkIdVal: Framework['id'];
   isBaseSearch: null | boolean;
   expandBaseComponent: (expanded: boolean) => void | null;
@@ -72,6 +74,8 @@ function CompareWithBase({
   isBaseSearch,
   expandBaseComponent,
   frameworkIdVal,
+  baseRepo,
+  newRepo,
 }: CompareWithBaseProps) {
   const { enqueueSnackbar } = useSnackbar();
   const [frameWorkId, setframeWorkValue] = useState(frameworkIdVal);
@@ -93,12 +97,8 @@ function CompareWithBase({
   );
   const [newInProgressRevs, setInProgressNewRevs] =
     useState<Changeset[]>(newRevs);
-  const [baseRepository, setBaseRepository] = useState(
-    'try' as Repository['name'],
-  );
-  const [newRepository, setNewRepository] = useState(
-    'try' as Repository['name'],
-  );
+  const [baseRepository, setBaseRepository] = useState(baseRepo);
+  const [newRepository, setNewRepository] = useState(newRepo);
 
   const mode = useAppSelector((state) => state.theme.mode);
 

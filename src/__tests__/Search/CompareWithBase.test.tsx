@@ -17,7 +17,7 @@ import {
 function setUpTestData() {
   const { testData } = getTestData();
   (global.fetch as FetchMockSandbox)
-    .get('begin:https://treeherder.mozilla.org/api/project/try/push/', {
+    .get('glob:https://treeherder.mozilla.org/api/project/*/push/*', {
       results: testData,
     })
     .get('begin:https://treeherder.mozilla.org/api/perfcompare/results/', [])
@@ -28,7 +28,7 @@ function setUpTestData() {
       },
     )
     .get(
-      'begin:https://treeherder.mozilla.org/api/project/mozilla-central/push/?revision=spam',
+      'glob:https://treeherder.mozilla.org/api/project/mozilla-central/push/?revision=spam',
       {
         results: [testData[1]],
       },
@@ -209,11 +209,22 @@ describe('Compare With Base', () => {
     const user = userEvent.setup({ delay: null });
     expect(formElement).toMatchSnapshot('Initial state for the form');
 
+    const baseSelectedRevision = await screen.findByTestId(
+      'base-selected-revision',
+    );
+
+    const newSelectedRevision = await screen.findByTestId(
+      'new-selected-revision',
+    );
+
     // Find out if the base revision is rendered
-    const baseRevisionText = screen.getByText(/you've got no arms left!/);
-    const newRevisionText = screen.getByText(/it's just a flesh wound/);
-    expect(baseRevisionText).toBeInTheDocument();
-    expect(newRevisionText).toBeInTheDocument();
+    expect(
+      within(baseSelectedRevision).getByText(/no arms left/),
+    ).toBeInTheDocument();
+
+    expect(
+      within(newSelectedRevision).getByText(/no arms left/),
+    ).toBeInTheDocument();
 
     // The search container should be hidden
     const baseSearchContainer = document.querySelector(
@@ -243,14 +254,19 @@ describe('Compare With Base', () => {
 
     // Remove the base revision by clicking the X button
     await user.click(getRemoveRevisionButton());
-    expect(baseRevisionText).not.toBeInTheDocument();
+    expect(formElement).toMatchSnapshot('after removal of base revision');
+    expect(
+      within(baseSelectedRevision).queryByText(/no arms left/),
+    ).not.toBeInTheDocument();
 
     // Click the Save
     const saveButtonBase = screen.getByRole('button', { name: 'Save' });
     await user.click(saveButtonBase);
 
     // The baseRevision is still hidden
-    expect(baseRevisionText).not.toBeInTheDocument();
+    expect(
+      within(baseSelectedRevision).queryByText(/no arms left/),
+    ).not.toBeInTheDocument();
 
     // The search container is hidden.
     expect(baseSearchContainer).toHaveClass('hide-container');
@@ -268,7 +284,9 @@ describe('Compare With Base', () => {
 
     // Remove the new revision by clicking the X button
     await user.click(getRemoveRevisionButton());
-    expect(newRevisionText).not.toBeInTheDocument();
+    expect(
+      within(newSelectedRevision).queryByText(/no arms left/),
+    ).not.toBeInTheDocument();
 
     // Click the Save
     const saveButtonNew = screen.getByRole('button', { name: 'Save' });
@@ -280,13 +298,17 @@ describe('Compare With Base', () => {
     renderWithCompareResultsURL(
       <ResultsView title={Strings.metaData.pageTitle.results} />,
     );
-    await waitForPageReadyAndReturnForm();
+    const formElement = await waitForPageReadyAndReturnForm();
 
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
     // Click the edit revision
     await user.click(getEditButtons()[0]);
+
+    expect(formElement).toMatchSnapshot(
+      'After clicking edit for the base revision',
+    );
 
     // Remove the base revision by clicking the X button
     await user.click(getRemoveRevisionButton());
@@ -338,13 +360,17 @@ describe('Compare With Base', () => {
       <ResultsView title={Strings.metaData.pageTitle.results} />,
     );
 
-    await waitForPageReadyAndReturnForm();
+    const formElement = await waitForPageReadyAndReturnForm();
 
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
     // Click the edit revision for new revisions
     await user.click(getEditButtons()[1]);
+
+    expect(formElement).toMatchSnapshot(
+      'After clicking edit for the new revision',
+    );
 
     // Select an updated new revision in the dropdown
     const searchInputNew = screen.getByRole('textbox');
@@ -393,7 +419,18 @@ describe('Compare With Base', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    expect(screen.getByText("you've got no arms left!")).toBeInTheDocument();
+    const baseSelectedRevision = await screen.findByTestId(
+      'base-selected-revision',
+    );
+
+    const newSelectedRevision = await screen.findByTestId(
+      'new-selected-revision',
+    );
+
+    // Find out if the base revision is rendered
+    expect(
+      within(baseSelectedRevision).getByText(/no arms left/),
+    ).toBeInTheDocument();
 
     // Click the edit revision for the base revision
     await user.click(getEditButtons()[0]);
@@ -403,17 +440,21 @@ describe('Compare With Base', () => {
 
     // The base revision has been removed
     expect(
-      screen.queryByText("you've got no arms left!"),
+      within(baseSelectedRevision).queryByText(/no arms left/),
     ).not.toBeInTheDocument();
 
     // Click the Cancel button
     await user.click(getCancelButton());
 
     // the base revision is rendered again
-    expect(screen.getByText("you've got no arms left!")).toBeInTheDocument();
+    expect(
+      within(baseSelectedRevision).getByText(/no arms left/),
+    ).toBeInTheDocument();
 
     // Do the same with the new revision
-    expect(screen.getByText("it's just a flesh wound")).toBeInTheDocument();
+    expect(
+      within(newSelectedRevision).getByText(/no arms left/),
+    ).toBeInTheDocument();
 
     // Click the edit revision for the new revisions
     await user.click(getEditButtons()[1]);
@@ -423,13 +464,15 @@ describe('Compare With Base', () => {
 
     // The new revision has been removed
     expect(
-      screen.queryByText("it's just a flesh wound"),
+      within(newSelectedRevision).queryByText(/no arms left/),
     ).not.toBeInTheDocument();
 
     // Click the Cancel button
     await user.click(getCancelButton());
 
     // the new revision is rendered again
-    expect(screen.getByText("it's just a flesh wound")).toBeInTheDocument();
+    expect(
+      within(newSelectedRevision).getByText(/no arms left/),
+    ).toBeInTheDocument();
   });
 });
