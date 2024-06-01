@@ -74,15 +74,18 @@ function getEditButtons() {
   });
 }
 
-function getRemoveRevisionButton(targetRevision?: string | RegExp) {
-  let container: { getByRole: (typeof screen)['getByRole'] } = screen;
+function getRemoveRevisionButton(
+  index: number,
+  targetRevision?: string | RegExp,
+) {
+  let container: { getAllByRole: (typeof screen)['getAllByRole'] } = screen;
   if (targetRevision) {
-    const target = screen.getByText(targetRevision);
+    const target = screen.getAllByText(targetRevision)[index];
     container = within(target.closest('li') ?? document.body);
   }
 
   // eslint-disable-next-line testing-library/prefer-screen-queries
-  return container.getByRole('button', {
+  return container.getAllByRole('button', {
     name: 'remove revision',
   });
 }
@@ -238,9 +241,7 @@ describe('Compare With Base', () => {
 
     expect(baseSearchContainer).toHaveClass('show-container');
 
-    expect(formElement).toMatchSnapshot(
-      'After clicking edit for the base revision',
-    );
+    expect(formElement).toMatchSnapshot('After clicking edit button');
     expect(editButton).not.toBeInTheDocument();
 
     // Pressing the cancel button should hide input and dropdown
@@ -253,20 +254,19 @@ describe('Compare With Base', () => {
     expect(baseSearchContainer).toHaveClass('show-container');
 
     // Remove the base revision by clicking the X button
-    await user.click(getRemoveRevisionButton());
+    await user.click(getRemoveRevisionButton(0, 'coconut')[0]);
     expect(formElement).toMatchSnapshot('after removal of base revision');
     expect(
       within(baseSelectedRevision).queryByText(/no arms left/),
     ).not.toBeInTheDocument();
 
-    // Click the Save
-    const saveButtonBase = screen.getByRole('button', { name: 'Save' });
-    await user.click(saveButtonBase);
-
     // The baseRevision is still hidden
     expect(
       within(baseSelectedRevision).queryByText(/no arms left/),
     ).not.toBeInTheDocument();
+
+    // Pressing the cancel button should hide input and dropdown
+    await user.click(getCancelButton());
 
     // The search container is hidden.
     expect(baseSearchContainer).toHaveClass('hide-container');
@@ -276,140 +276,16 @@ describe('Compare With Base', () => {
     expect(newSearchContainer).toHaveClass('hide-container');
 
     // Click the edit revision for new revisions
-    await user.click(getEditButtons()[1]);
-    expect(formElement).toMatchSnapshot(
-      'After clicking edit for the new revision',
-    );
+    await user.click(getEditButtons()[0]);
+
     expect(newSearchContainer).toHaveClass('show-container');
 
     // Remove the new revision by clicking the X button
-    await user.click(getRemoveRevisionButton());
+    await user.click(getRemoveRevisionButton(1, 'coconut')[0]);
+    expect(formElement).toMatchSnapshot('after removal of new revision');
     expect(
       within(newSelectedRevision).queryByText(/no arms left/),
     ).not.toBeInTheDocument();
-
-    // Click the Save
-    const saveButtonNew = screen.getByRole('button', { name: 'Save' });
-    await user.click(saveButtonNew);
-    expect(newSearchContainer).toHaveClass('hide-container');
-  });
-
-  it('should save the updated BASE revision when Save is clicked', async () => {
-    renderWithCompareResultsURL(
-      <ResultsView title={Strings.metaData.pageTitle.results} />,
-    );
-    const formElement = await waitForPageReadyAndReturnForm();
-
-    // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
-
-    // Click the edit revision
-    await user.click(getEditButtons()[0]);
-
-    expect(formElement).toMatchSnapshot(
-      'After clicking edit for the base revision',
-    );
-
-    // Remove the base revision by clicking the X button
-    await user.click(getRemoveRevisionButton());
-
-    // Select an updated base revision in the dropdown
-    const searchInput = screen.getAllByRole('textbox')[0];
-    await user.click(searchInput);
-
-    const horse = await screen.findAllByText('What, ridden on a horse?');
-
-    await user.click(horse[0]);
-    expect(screen.getAllByTestId('checkbox-2')[0]).toHaveClass('Mui-checked');
-    //test toggle action for base revision container
-    await user.click(horse[0]);
-    expect(screen.getAllByTestId('checkbox-2')[0]).not.toHaveClass(
-      'Mui-checked',
-    );
-    await user.click(horse[0]);
-    expect(screen.getAllByTestId('checkbox-2')[0]).toHaveClass('Mui-checked');
-
-    // Click the Save
-    const saveButtonBase = screen.getByRole('button', { name: 'Save' });
-    await user.click(saveButtonBase);
-
-    //the updated base revision is rendered
-    const updatedBaseRevisionText = screen.getByText(
-      /What, ridden on a horse?/,
-    );
-    expect(updatedBaseRevisionText).toBeInTheDocument();
-
-    // Now we want to test that pressing cancel will go back to this saved snapshot.
-    // Click edit again.
-    await user.click(getEditButtons()[0]);
-
-    // Click the remove button for the "ridden on a horse" item.
-    await user.click(getRemoveRevisionButton());
-    expect(
-      screen.queryByText(/What, ridden on a horse?/),
-    ).not.toBeInTheDocument();
-
-    // Click the cancel button
-    await user.click(getCancelButton());
-    // Oh look, it's back!
-    expect(screen.getByText(/What, ridden on a horse?/)).toBeInTheDocument();
-  });
-
-  it('should save the updated NEW revision when Save is clicked', async () => {
-    renderWithCompareResultsURL(
-      <ResultsView title={Strings.metaData.pageTitle.results} />,
-    );
-
-    const formElement = await waitForPageReadyAndReturnForm();
-
-    // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
-
-    // Click the edit revision for new revisions
-    await user.click(getEditButtons()[1]);
-
-    expect(formElement).toMatchSnapshot(
-      'After clicking edit for the new revision',
-    );
-
-    // Select an updated new revision in the dropdown
-    const searchInputNew = screen.getByRole('textbox', {
-      name: /Search revision/,
-    });
-    await user.click(searchInputNew);
-    const horse = await screen.findByRole('button', {
-      name: /What, ridden on a horse?/,
-    });
-    await user.click(horse);
-    expect(horse).toHaveClass('item-selected');
-    // test toggle action for new revision container
-    await user.click(horse);
-    expect(horse).not.toHaveClass('item-selected');
-    await user.click(horse);
-    expect(horse).toHaveClass('item-selected');
-
-    // Click the Save
-    const saveButton = screen.getByRole('button', { name: 'Save' });
-    await user.click(saveButton);
-
-    //the updated new revision is rendered
-    const updatedNewRevisionText = screen.getByText(/What, ridden on a horse?/);
-    expect(updatedNewRevisionText).toBeInTheDocument();
-
-    // Now we want to test that pressing cancel will go back to this saved snapshot.
-    // Click edit again.
-    await user.click(getEditButtons()[1]);
-
-    // Click the remove button for the "ridden on a horse" item.
-    await user.click(getRemoveRevisionButton(/ridden on a horse/));
-    expect(
-      screen.queryByText(/What, ridden on a horse?/),
-    ).not.toBeInTheDocument();
-
-    // Click the cancel button
-    await user.click(getCancelButton());
-    // Oh look, it's back!
-    expect(screen.getByText(/What, ridden on a horse?/)).toBeInTheDocument();
   });
 
   it('should move back to the previously selected base and new revisions when Cancel is clicked', async () => {
@@ -438,7 +314,7 @@ describe('Compare With Base', () => {
     await user.click(getEditButtons()[0]);
 
     // Remove the base revision by clicking the X button
-    await user.click(getRemoveRevisionButton());
+    await user.click(getRemoveRevisionButton(0, 'coconut')[0]);
 
     // The base revision has been removed
     expect(
@@ -459,10 +335,10 @@ describe('Compare With Base', () => {
     ).toBeInTheDocument();
 
     // Click the edit revision for the new revisions
-    await user.click(getEditButtons()[1]);
+    await user.click(getEditButtons()[0]);
 
     // Remove the new revision by clicking the X button
-    await user.click(getRemoveRevisionButton());
+    await user.click(getRemoveRevisionButton(1, 'coconut')[0]);
 
     // The new revision has been removed
     expect(

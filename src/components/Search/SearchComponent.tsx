@@ -96,7 +96,9 @@ function SearchComponent({
           </Tooltip>
         </InputLabel>
         {/**** Edit Button ****/}
-        {hasEditButton && !formIsDisplayed && (
+
+        {/* temporary until global edit button PR */}
+        { hasEditButton && !formIsDisplayed && isBaseComp && (
           <EditButton
             isBase={isBaseComp}
             onEditAction={() => {
