@@ -2,13 +2,7 @@ import { useState, useCallback } from 'react';
 
 import Close from '@mui/icons-material/Close';
 import SearchIcon from '@mui/icons-material/Search';
-import {
-  InputAdornment,
-  TextField,
-  Button,
-  Box,
-  IconButton,
-} from '@mui/material';
+import { InputAdornment, TextField, Box, IconButton } from '@mui/material';
 
 import { Strings } from '../../resources/Strings';
 import { simpleDebounce } from '../../utils/simple-debounce';
@@ -77,9 +71,6 @@ function SearchInput({ onChange }: SearchInputProps) {
           ),
         }}
       />
-      <Button variant='contained' color='secondary' sx={{ marginLeft: 1 }}>
-        Apply
-      </Button>
     </Box>
   );
 }

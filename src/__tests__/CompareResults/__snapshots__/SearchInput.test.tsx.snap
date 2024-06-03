@@ -81,15 +81,5 @@ exports[`Search by title/test name should filter results after a timeout or imme
       </fieldset>
     </div>
   </div>
-  <button
-    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-b8j7ll-MuiButtonBase-root-MuiButton-root"
-    tabindex="0"
-    type="button"
-  >
-    Apply
-    <span
-      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-    />
-  </button>
 </form>
 `;
