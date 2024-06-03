@@ -38,6 +38,22 @@ type FetchSubtestsOverTimeProps = {
   parentSignature: string;
 };
 
+async function fetchFromTreeherder(url: string) {
+  const response = await fetch(url);
+  if (!response.ok) {
+    if (response.status === 400) {
+      throw new Error(
+        `Error when requesting treeherder: ${await response.text()}`,
+      );
+    } else {
+      throw new Error(
+        `Error when requesting treeherder: (${response.status}) ${response.statusText}`,
+      );
+    }
+  }
+  return response;
+}
+
 // This fetches data from the Treeherder API /api/perfcompare/results.
 // This API returns the results of a comparison between 2 revisions.
 export async function fetchCompareResults({
@@ -56,21 +72,8 @@ export async function fetchCompareResults({
     interval: '86400',
     no_subtests: 'true',
   });
-
-  const response = await fetch(
-    `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`,
-  );
-  if (!response.ok) {
-    if (response.status === 400) {
-      throw new Error(
-        `Error when requesting treeherder: ${await response.text()}`,
-      );
-    } else {
-      throw new Error(
-        `Error when requesting treeherder: (${response.status}) ${response.statusText}`,
-      );
-    }
-  }
+  const url = `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`;
+  const response = await fetchFromTreeherder(url);
 
   return response.json() as Promise<CompareResultsItem[]>;
 }
@@ -90,21 +93,8 @@ export async function fetchCompareOverTimeResults({
     interval: String(interval),
     no_subtests: 'true',
   });
-
-  const response = await fetch(
-    `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`,
-  );
-  if (!response.ok) {
-    if (response.status === 400) {
-      throw new Error(
-        `Error when requesting treeherder: ${await response.text()}`,
-      );
-    } else {
-      throw new Error(
-        `Error when requesting treeherder: (${response.status}) ${response.statusText}`,
-      );
-    }
-  }
+  const url = `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`;
+  const response = await fetchFromTreeherder(url);
 
   return response.json() as Promise<CompareResultsItem[]>;
 }
@@ -127,20 +117,8 @@ export async function fetchSubtestsCompareResults({
     parent_signature: parentSignature,
   });
 
-  const response = await fetch(
-    `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`,
-  );
-  if (!response.ok) {
-    if (response.status === 400) {
-      throw new Error(
-        `Error when requesting treeherder: ${await response.text()}`,
-      );
-    } else {
-      throw new Error(
-        `Error when requesting treeherder: (${response.status}) ${response.statusText}`,
-      );
-    }
-  }
+  const url = `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`;
+  const response = await fetchFromTreeherder(url);
 
   return response.json() as Promise<CompareResultsItem[]>;
 }
@@ -163,20 +141,8 @@ export async function fetchSubtestsCompareOverTimeResults({
     parent_signature: parentSignature,
   });
 
-  const response = await fetch(
-    `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`,
-  );
-  if (!response.ok) {
-    if (response.status === 400) {
-      throw new Error(
-        `Error when requesting treeherder: ${await response.text()}`,
-      );
-    } else {
-      throw new Error(
-        `Error when requesting treeherder: (${response.status}) ${response.statusText}`,
-      );
-    }
-  }
+  const url = `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`;
+  const response = await fetchFromTreeherder(url);
 
   return response.json() as Promise<CompareResultsItem[]>;
 }
@@ -219,19 +185,7 @@ function computeUrlFromSearchTermAndRepository({
 // filtering by hash or author, using the Treeherder API /api/project.
 export async function fetchRecentRevisions(params: RecentRevisionsParams) {
   const url = computeUrlFromSearchTermAndRepository(params);
-  const response = await fetch(url);
-
-  if (!response.ok) {
-    if (response.status === 400) {
-      throw new Error(
-        `Error when requesting treeherder: ${await response.text()}`,
-      );
-    } else {
-      throw new Error(
-        `Error when requesting treeherder: (${response.status}) ${response.statusText}`,
-      );
-    }
-  }
+  const response = await fetchFromTreeherder(url);
 
   const json = (await response.json()) as { results: Changeset[] };
   return json.results;
