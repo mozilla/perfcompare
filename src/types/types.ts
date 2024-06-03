@@ -1,12 +1,21 @@
 import { CompareResultsItem } from './state';
 
-export type CompareResultsTableConfig = {
-  name?: string;
-  key: string;
-  disable?: boolean;
-  filter?: boolean;
-  sort?: boolean;
-};
+export type CompareResultsTableConfig =
+  | {
+      name?: string;
+      filter?: false;
+      key: string;
+      disable?: boolean;
+    }
+  | {
+      name: string;
+      key: string;
+      disable?: boolean;
+      filter: true;
+      possibleValues: string[];
+      // This function returns whether this result matches the value for this column.
+      matchesFunction: (result: CompareResultsItem, value: string) => boolean;
+    };
 
 export type ConfidenceText = 'High' | 'Medium' | 'Low';
 
