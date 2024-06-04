@@ -325,7 +325,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
       id="new-search-container--time"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1qectas  -new-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1qectas small compare-over-time-results-new-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown--time"
       >
         <div
@@ -366,7 +366,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_fctyy2s   css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_fctyy2s big  css-17gmabg-MuiGrid-root"
         id="new_search-input--time"
       >
         <div
@@ -379,10 +379,10 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
               class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
             >
               <div
-                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-193b4t-MuiInputBase-root-MuiOutlinedInput-root"
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-193b4t-MuiInputBase-root-MuiOutlinedInput-root"
               >
                 <div
-                  class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
+                  class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-1laqsz7-MuiInputAdornment-root"
                 >
                   <svg
                     aria-hidden="true"
@@ -398,7 +398,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
                 </div>
                 <input
                   aria-invalid="false"
-                  class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
+                  class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-jrmsot-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-new-input"
                   placeholder="Search revision by ID number or author email"
                   type="text"
@@ -523,7 +523,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
                 </p>
               </div>
               <button
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium icon-close-show revision-action close-button css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium icon-close-hidden revision-action close-button css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
                 name="close-button"
                 tabindex="0"
                 title="remove revision"
