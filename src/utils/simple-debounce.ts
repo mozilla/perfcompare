@@ -21,5 +21,10 @@ export const simpleDebounce = <T>(
     // And schedule a new one.
     timeout = setTimeout(onTimeout, idleTime);
   };
+  debouncedFunc.clear = () => {
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+  };
   return debouncedFunc;
 };

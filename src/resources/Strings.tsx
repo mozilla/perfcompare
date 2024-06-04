@@ -128,6 +128,10 @@ export const Strings = {
         text: 'All revisions',
       },
     },
+    searchResultsInput: {
+      placeholder: 'Search results',
+      label: 'Search by title, platform, revision or options',
+    },
   },
   errors: {
     warningText: 'Search must be a 12- or 40-character hash, or email address',

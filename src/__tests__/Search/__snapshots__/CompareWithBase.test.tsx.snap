@@ -129,6 +129,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                 </div>
                 <input
                   aria-invalid="false"
+                  aria-label="Search base by ID number or author email"
                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-jrmsot-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-base-input"
                   placeholder="Search base by ID number or author email"
@@ -427,6 +428,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                 </div>
                 <input
                   aria-invalid="false"
+                  aria-label="Search revision by ID number or author email"
                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-jrmsot-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-new-input"
                   placeholder="Search revision by ID number or author email"
@@ -920,6 +922,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                 </div>
                 <input
                   aria-invalid="false"
+                  aria-label="Search base by ID number or author email"
                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-jrmsot-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-base-input"
                   placeholder="Search base by ID number or author email"
@@ -1245,6 +1248,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                 </div>
                 <input
                   aria-invalid="false"
+                  aria-label="Search revision by ID number or author email"
                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-jrmsot-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-new-input"
                   placeholder="Search revision by ID number or author email"
@@ -1626,6 +1630,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                 </div>
                 <input
                   aria-invalid="false"
+                  aria-label="Search base by ID number or author email"
                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-jrmsot-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-base-input"
                   placeholder="Search base by ID number or author email"
@@ -1769,6 +1774,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                 </div>
                 <input
                   aria-invalid="false"
+                  aria-label="Search revision by ID number or author email"
                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-jrmsot-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-new-input"
                   placeholder="Search revision by ID number or author email"
@@ -2177,6 +2183,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                 </div>
                 <input
                   aria-invalid="false"
+                  aria-label="Search base by ID number or author email"
                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-jrmsot-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-base-input"
                   placeholder="Search base by ID number or author email"
@@ -2475,6 +2482,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                 </div>
                 <input
                   aria-invalid="false"
+                  aria-label="Search revision by ID number or author email"
                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-jrmsot-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-new-input"
                   placeholder="Search revision by ID number or author email"
@@ -2838,6 +2846,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                 </div>
                 <input
                   aria-invalid="false"
+                  aria-label="Search base by ID number or author email"
                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-jrmsot-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-base-input"
                   placeholder="Search base by ID number or author email"
@@ -3026,6 +3035,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                 </div>
                 <input
                   aria-invalid="false"
+                  aria-label="Search revision by ID number or author email"
                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-jrmsot-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-new-input"
                   placeholder="Search revision by ID number or author email"
@@ -3513,6 +3523,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                             </div>
                             <input
                               aria-invalid="false"
+                              aria-label="Search base by ID number or author email"
                               class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                               id="search-base-input"
                               placeholder="Search base by ID number or author email"
@@ -3656,6 +3667,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                             </div>
                             <input
                               aria-invalid="false"
+                              aria-label="Search revision by ID number or author email"
                               class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                               id="search-new-input"
                               placeholder="Search revision by ID number or author email"
@@ -3913,6 +3925,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                             </div>
                             <input
                               aria-invalid="false"
+                              aria-label="Search revision by ID number or author email"
                               class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                               id="search-new-input"
                               placeholder="Search revision by ID number or author email"
@@ -4206,6 +4219,7 @@ exports[`Compare With Base should save the updated BASE revision when Save is cl
                 </div>
                 <input
                   aria-invalid="false"
+                  aria-label="Search base by ID number or author email"
                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-jrmsot-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-base-input"
                   placeholder="Search base by ID number or author email"
@@ -4531,6 +4545,7 @@ exports[`Compare With Base should save the updated BASE revision when Save is cl
                 </div>
                 <input
                   aria-invalid="false"
+                  aria-label="Search revision by ID number or author email"
                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-jrmsot-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-new-input"
                   placeholder="Search revision by ID number or author email"
@@ -4912,6 +4927,7 @@ exports[`Compare With Base should save the updated NEW revision when Save is cli
                 </div>
                 <input
                   aria-invalid="false"
+                  aria-label="Search base by ID number or author email"
                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-jrmsot-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-base-input"
                   placeholder="Search base by ID number or author email"
@@ -5192,6 +5208,7 @@ exports[`Compare With Base should save the updated NEW revision when Save is cli
                 </div>
                 <input
                   aria-invalid="false"
+                  aria-label="Search revision by ID number or author email"
                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-jrmsot-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-new-input"
                   placeholder="Search revision by ID number or author email"
