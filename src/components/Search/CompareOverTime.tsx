@@ -212,7 +212,7 @@ function CompareOverTime({
 
             <CompareButton
               label={strings.sharedCollasped.button}
-              hasNonEditableState={hasEditButton}
+              hasEditButton={hasEditButton}
               onCancel={() => {}}
               onSetDisplayForm={() => {}}
               formIsDisplayed={hasEditButton}

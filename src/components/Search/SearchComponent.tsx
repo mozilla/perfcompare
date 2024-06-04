@@ -98,7 +98,7 @@ function SearchComponent({
         {/**** Edit Button ****/}
 
         {/* temporary until global edit button PR */}
-        { hasEditButton && !formIsDisplayed && isBaseComp && (
+        {hasEditButton && !formIsDisplayed && isBaseComp && (
           <EditButton
             isBase={isBaseComp}
             onEditAction={() => {

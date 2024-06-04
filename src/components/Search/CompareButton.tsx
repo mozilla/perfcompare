@@ -6,7 +6,7 @@ import CancelButton from './CancelButton';
 
 interface CompareButtonProps {
   label: string;
-  hasNonEditableState: boolean;
+  hasEditButton: boolean;
   onCancel: () => void;
   onSetDisplayForm: (display: boolean) => void;
   formIsDisplayed: boolean;
@@ -14,7 +14,7 @@ interface CompareButtonProps {
 
 export default function CompareButton({
   label,
-  hasNonEditableState,
+  hasEditButton,
   onSetDisplayForm,
   onCancel,
   formIsDisplayed,
@@ -24,7 +24,7 @@ export default function CompareButton({
 
   return (
     <div className={`${cancelCompareStyle.cancelCompareBtn} cancel-compare`}>
-      {hasNonEditableState && formIsDisplayed && (
+      {hasEditButton && formIsDisplayed && (
         <CancelButton
           onCancel={() => {
             onCancel();

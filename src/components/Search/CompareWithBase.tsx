@@ -92,7 +92,7 @@ function CompareWithBase({
     useState<Changeset[]>(newRevs);
   const [baseRepository, setBaseRepository] = useState(baseRepo);
   const [newRepository, setNewRepository] = useState(newRepo);
-  const [formIsDisplayed, setFormIsDisplayed] = useState(!hasNonEditableState);
+  const [formIsDisplayed, setFormIsDisplayed] = useState(!hasEditButton);
 
   const mode = useAppSelector((state) => state.theme.mode);
 
@@ -311,7 +311,7 @@ function CompareWithBase({
               }}
             />
             <CompareButton
-              hasNonEditableState={hasNonEditableState}
+              hasEditButton={hasEditButton}
               label={strings.base.compareBtn}
               onCancel={handleCancel}
               onSetDisplayForm={handleSetDisplayForm}
