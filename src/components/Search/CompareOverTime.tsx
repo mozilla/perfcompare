@@ -13,7 +13,7 @@ import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles, SearchStyles, Spacing } from '../../styles';
 import { Changeset, Repository } from '../../types/state';
 import { Framework, TimeRange } from '../../types/types';
-import CompareButton from './CompareButton';
+import CancelAndCompareButtons from './CancelAndCompareButtons';
 import FrameworkDropdown from './FrameworkDropdown';
 import SearchOverTime from './SearchOverTime';
 import TimeRangeDropdown from './TimeRangeDropdown';
@@ -52,6 +52,7 @@ function CompareOverTime({
     newRevs,
   );
   const [repository, setRepository] = useState('try' as Repository['name']);
+  const [hasCancelButton, setHasCancelButton] = useState(false);
 
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = CompareCardsStyles(mode);
@@ -91,6 +92,12 @@ function CompareOverTime({
   const toggleIsExpanded = () => {
     expandBaseComponent(false);
   };
+
+  const handleCancel = () => {
+    setInProgressRevs(newRevs);
+    setHasCancelButton(false);
+  };
+
   const handleRemoveRevision = (item: Changeset) => {
     const indexInNewChangesets = inProgressRevs.findIndex(
       (rev) => rev.id === item.id,
@@ -210,12 +217,10 @@ function CompareOverTime({
               />
             </div>
 
-            <CompareButton
+            <CancelAndCompareButtons
               label={strings.sharedCollasped.button}
-              hasEditButton={hasEditButton}
-              onCancel={() => {}}
-              onSetDisplayForm={() => {}}
-              formIsDisplayed={hasEditButton}
+              hasCancelButton={hasCancelButton}
+              onCancel={handleCancel}
             />
           </Grid>
         </Form>

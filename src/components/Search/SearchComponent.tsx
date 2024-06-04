@@ -25,7 +25,6 @@ interface SearchProps {
   isBaseComp: boolean;
   displayedRevisions: Changeset[];
   onEdit: () => void;
-  onSetDisplayForm: (display: boolean) => void;
   onSearchResultsToggle: (item: Changeset) => void;
   onRemoveRevision: (item: Changeset) => void;
   selectLabel: string;
@@ -51,7 +50,6 @@ function SearchComponent({
   repository,
   labelIdInfo,
   onRepositoryChange,
-  onSetDisplayForm,
   formIsDisplayed,
 }: SearchProps) {
   const mode = useAppSelector((state) => state.theme.mode);
@@ -103,7 +101,6 @@ function SearchComponent({
             isBase={isBaseComp}
             onEditAction={() => {
               onEdit();
-              onSetDisplayForm(true);
             }}
           />
         )}

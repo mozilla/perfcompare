@@ -127,15 +127,7 @@ export const SearchStyles = (mode: string) => {
     component: {
       marginBottom: `${Spacing.xLarge}px`,
     },
-    cancelCompareBtn: {
-      display: 'flex',
-      alignItems: 'center',
-      $nest: {
-        '.cancel-button': {
-          marginRight: `${Spacing.Small}px`,
-        },
-      },
-    },
+
     container: {
       margin: 'auto',
       justifyContent: 'space-between',

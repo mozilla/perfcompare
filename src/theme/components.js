@@ -19,11 +19,9 @@ const components = {
     styleOverrides: {
       contained: {
         height: 32,
+        padding: '4px 16px',
       },
       root: {
-        '&.btn-all': {
-          padding: '4px 16px',
-        },
         '&.add-revision-button': {
           height: 'auto',
           width: '100%',

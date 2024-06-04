@@ -12,7 +12,7 @@ import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles, SearchStyles, Spacing } from '../../styles';
 import type { Changeset, Repository } from '../../types/state';
 import { Framework } from '../../types/types';
-import CompareButton from './CompareButton';
+import CancelAndCompareButtons from './CancelAndCompareButtons';
 import FrameworkDropdown from './FrameworkDropdown';
 import SearchComponent from './SearchComponent';
 
@@ -93,6 +93,7 @@ function CompareWithBase({
   const [baseRepository, setBaseRepository] = useState(baseRepo);
   const [newRepository, setNewRepository] = useState(newRepo);
   const [formIsDisplayed, setFormIsDisplayed] = useState(!hasEditButton);
+  const [hasCancelButton, setHasCancelButton] = useState(false);
 
   const mode = useAppSelector((state) => state.theme.mode);
 
@@ -134,13 +135,19 @@ function CompareWithBase({
   const handleCancel = () => {
     setInProgressNewRevs(newRevs);
     setInProgressBaseRev(baseRev);
+    setFormIsDisplayed(false);
+    setHasCancelButton(false);
   };
 
   const handleEditBase = () => {
     setInProgressBaseRev(baseRev);
+    setHasCancelButton(true);
+    setFormIsDisplayed(true);
   };
+
   const handleEditNew = () => {
     setInProgressNewRevs(newRevs);
+    setHasCancelButton(true);
   };
 
   const handleItemToggleInChangesetList = ({
@@ -226,10 +233,6 @@ function CompareWithBase({
     setInProgressNewRevs(newNewRevs);
   };
 
-  const handleSetDisplayForm = (display: boolean) => {
-    setFormIsDisplayed(display);
-  };
-
   return (
     <Grid className={`wrapper--withbase ${wrapperStyles.wrapper}`}>
       <div
@@ -277,7 +280,6 @@ function CompareWithBase({
             onRepositoryChange={(repo: Repository['name']) =>
               setBaseRepository(repo)
             }
-            onSetDisplayForm={handleSetDisplayForm}
             formIsDisplayed={formIsDisplayed}
           />
           <SearchComponent
@@ -294,7 +296,6 @@ function CompareWithBase({
             onRepositoryChange={(repo: Repository['name']) =>
               setNewRepository(repo)
             }
-            onSetDisplayForm={handleSetDisplayForm}
             formIsDisplayed={formIsDisplayed}
           />
           <Grid
@@ -310,12 +311,10 @@ function CompareWithBase({
                 setframeWorkValue(id);
               }}
             />
-            <CompareButton
-              hasEditButton={hasEditButton}
+            <CancelAndCompareButtons
               label={strings.base.compareBtn}
               onCancel={handleCancel}
-              onSetDisplayForm={handleSetDisplayForm}
-              formIsDisplayed={formIsDisplayed}
+              hasCancelButton={hasCancelButton}
             />
           </Grid>
         </Form>
