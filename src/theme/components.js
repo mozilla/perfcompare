@@ -17,6 +17,9 @@ const components = {
       variant: 'contained',
     },
     styleOverrides: {
+      contained: {
+        height: 32,
+      },
       root: {
         '&.add-revision-button': {
           height: 'auto',
