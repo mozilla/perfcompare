@@ -1,17 +1,11 @@
 import FormControl from '@mui/material/FormControl';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { style, cssRule } from 'typestyle';
+import { style } from 'typestyle';
 
 import { repoMap } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
-import {
-  ButtonsLightRaw,
-  ButtonsDarkRaw,
-  TooltipRaw,
-  FontsRaw,
-  Colors,
-} from '../../styles';
+import { ButtonsLightRaw, ButtonsDarkRaw } from '../../styles';
 import { InputType, Repository } from '../../types/state';
 
 interface SearchDropdownProps {
@@ -38,18 +32,6 @@ function SearchDropdown({
     const selectedRepository = event.target.value as Repository['name'];
     onChange(selectedRepository);
   };
-
-  cssRule('.MuiTooltip-popper', {
-    ...(mode === 'light' ? TooltipRaw.Light : TooltipRaw.Dark),
-    $nest: {
-      '.MuiTooltip-tooltip': {
-        ...(mode === 'light' ? FontsRaw.BodySmall : FontsRaw.BodySmallDark),
-        backgroundColor: Colors.ColorTransparent,
-        padding: '0px',
-        margin: '0px !important',
-      },
-    },
-  });
 
   const styles = {
     container: style({
