@@ -686,17 +686,6 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
       class=" fdmokus cancel-compare"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-button btn-all css-9b6laa-MuiButtonBase-root-MuiButton-root"
-        name="cancel-button"
-        tabindex="0"
-        type="button"
-      >
-        Cancel
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
-      </button>
-      <button
         class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-bgps8p-MuiButtonBase-root-MuiButton-root"
         id="compare-button"
         tabindex="0"
