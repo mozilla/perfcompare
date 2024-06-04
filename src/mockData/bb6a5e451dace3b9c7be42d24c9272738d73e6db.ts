@@ -45,6 +45,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    parent_signature: null,
   },
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
@@ -90,6 +91,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    parent_signature: null,
   },
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
@@ -135,6 +137,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    parent_signature: null,
   },
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
@@ -181,6 +184,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    parent_signature: null,
   },
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
@@ -227,6 +231,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: true,
     is_regression: false,
     is_meaningful: false,
+    parent_signature: null,
   },
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
@@ -273,6 +278,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    parent_signature: null,
   },
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
@@ -319,6 +325,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    parent_signature: null,
   },
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
@@ -364,6 +371,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    parent_signature: null,
   },
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
@@ -410,6 +418,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    parent_signature: null,
   },
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
@@ -456,6 +465,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: true,
     is_regression: false,
     is_meaningful: false,
+    parent_signature: null,
   },
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
@@ -502,6 +512,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    parent_signature: null,
   },
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
@@ -548,6 +559,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    parent_signature: null,
   },
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
@@ -593,6 +605,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    parent_signature: null,
   },
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
@@ -638,6 +651,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    parent_signature: null,
   },
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
@@ -683,6 +697,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    parent_signature: null,
   },
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
@@ -728,6 +743,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    parent_signature: null,
   },
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
@@ -774,6 +790,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    parent_signature: null,
   },
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
@@ -820,6 +837,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    parent_signature: null,
   },
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
@@ -866,6 +884,7 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    parent_signature: null,
   },
   {
     base_rev: '3639b6891b332ea6c4ffea87bb2d1139c38b781d',
@@ -911,5 +930,6 @@ export const comparisonResults: CompareResultsItem[] = [
     is_improvement: false,
     is_regression: false,
     is_meaningful: true,
+    parent_signature: null,
   },
 ];
