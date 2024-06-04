@@ -138,7 +138,6 @@ export const SearchStyles = (mode: string) => {
         '.cancel-save': {
           padding: '4px 16px',
           maxWidth: '44px',
-          maxHeight: '32px',
           marginLeft: `${Spacing.Small}px`,
         },
       },

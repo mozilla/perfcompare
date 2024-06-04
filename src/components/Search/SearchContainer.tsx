@@ -27,7 +27,7 @@ function SearchContainer(props: SearchViewProps) {
        default framework; refer to frameworkMap in constants.ts */}
       <CompareWithBase
         frameworkIdVal={1 as Framework['id']}
-        hasNonEditableState={false}
+        hasEditButton={false}
         baseRev={null}
         newRevs={[]}
         isBaseSearch={isBaseSearch}
@@ -36,7 +36,7 @@ function SearchContainer(props: SearchViewProps) {
         newRepo='try'
       />
       <CompareOverTime
-        hasNonEditableState={false}
+        hasEditButton={false}
         newRevs={[]}
         isBaseSearch={isBaseSearch}
         expandBaseComponent={expandBaseComponent}

@@ -6,14 +6,7 @@ interface CompareButtonProps {
 
 export default function CompareButton({ label }: CompareButtonProps) {
   return (
-    <Button
-      id='compare-button'
-      color='primary'
-      type='submit'
-      sx={{
-        height: 32,
-      }}
-    >
+    <Button id='compare-button' color='primary' type='submit'>
       {label}
     </Button>
   );

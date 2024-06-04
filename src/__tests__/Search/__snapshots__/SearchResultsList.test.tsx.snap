@@ -71,7 +71,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
             Analyze results of performance tests to detect regressions and identify opportunities for improvement.
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation learn-more-btn css-i4ay87-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation learn-more-btn css-mire2f-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
@@ -156,7 +156,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                   </label>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-container container_f1psuwcf show-container  css-1ljzhs0-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container container_f19z97w1 show-container  css-1ljzhs0-MuiGrid-root"
                   id="base-search-container"
                 >
                   <div
@@ -233,6 +233,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                             </div>
                             <input
                               aria-invalid="false"
+                              aria-label="Search base by ID number or author email"
                               class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                               id="search-base-input"
                               placeholder="Search base by ID number or author email"
@@ -784,7 +785,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                   </label>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-container container_f1psuwcf show-container  css-1ljzhs0-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container container_f19z97w1 show-container  css-1ljzhs0-MuiGrid-root"
                   id="new-search-container"
                 >
                   <div
@@ -861,6 +862,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                             </div>
                             <input
                               aria-invalid="false"
+                              aria-label="Search revision by ID number or author email"
                               class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                               id="search-new-input"
                               placeholder="Search revision by ID number or author email"
@@ -962,7 +964,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                   </div>
                 </div>
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-w3l8dt-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-mire2f-MuiButtonBase-root-MuiButton-root"
                   id="compare-button"
                   tabindex="0"
                   type="submit"
@@ -1041,7 +1043,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                   </label>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-container container_f1psuwcf css-1ljzhs0-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container container_f19z97w1 css-1ljzhs0-MuiGrid-root"
                   id="new-search-container--time"
                 >
                   <div
@@ -1118,6 +1120,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                             </div>
                             <input
                               aria-invalid="false"
+                              aria-label="Search revision by ID number or author email"
                               class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                               id="search-new-input"
                               placeholder="Search revision by ID number or author email"
@@ -1280,7 +1283,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                   </div>
                 </div>
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-w3l8dt-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-mire2f-MuiButtonBase-root-MuiButton-root"
                   id="compare-button"
                   tabindex="0"
                   type="submit"
