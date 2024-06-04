@@ -43,7 +43,7 @@ function SearchInput({ onChange }: SearchInputProps) {
       component='form'
       aria-label={inputStrings.label}
       onSubmit={onSubmit}
-      sx={{ display: 'flex', marginRight: 'auto' }}
+      sx={{ display: 'flex', marginRight: 'auto', width: '50%' }}
     >
       <TextField
         placeholder={inputStrings.placeholder}
@@ -51,6 +51,7 @@ function SearchInput({ onChange }: SearchInputProps) {
         size='small'
         value={searchTerm}
         onChange={onValueChange}
+        sx={{ flex: 'auto' }}
         InputProps={{
           startAdornment: (
             <InputAdornment position='start'>

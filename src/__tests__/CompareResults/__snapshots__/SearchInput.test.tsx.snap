@@ -3,10 +3,10 @@
 exports[`Search by title/test name should filter results after a timeout or immediately with enter 1`] = `
 <form
   aria-label="Search by title, platform, revision or options"
-  class="MuiBox-root css-zad53"
+  class="MuiBox-root css-183ebj2"
 >
   <div
-    class="MuiFormControl-root MuiTextField-root css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root css-1cocm2p-MuiFormControl-root-MuiTextField-root"
   >
     <div
       class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart MuiInputBase-adornedEnd css-m7khg8-MuiInputBase-root-MuiOutlinedInput-root"
@@ -36,7 +36,7 @@ exports[`Search by title/test name should filter results after a timeout or imme
         aria-label="Search by title, platform, revision or options"
         class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-rg83rj-MuiInputBase-input-MuiOutlinedInput-input"
         id=":r7:"
-        placeholder="title, platform, revision or options"
+        placeholder="Search results"
         type="text"
         value=""
       />

@@ -129,7 +129,7 @@ export const Strings = {
       },
     },
     searchResultsInput: {
-      placeholder: 'title, platform, revision or options',
+      placeholder: 'Search results',
       label: 'Search by title, platform, revision or options',
     },
   },
