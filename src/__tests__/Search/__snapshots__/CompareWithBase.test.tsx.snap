@@ -79,6 +79,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
             <input
               aria-hidden="true"
               class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+              name=""
               tabindex="-1"
               value="try"
             />
@@ -378,6 +379,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
             <input
               aria-hidden="true"
               class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+              name=""
               tabindex="-1"
               value="mozilla-central"
             />
@@ -872,6 +874,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
             <input
               aria-hidden="true"
               class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+              name=""
               tabindex="-1"
               value="try"
             />
@@ -1198,6 +1201,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
             <input
               aria-hidden="true"
               class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+              name=""
               tabindex="-1"
               value="mozilla-central"
             />
@@ -1580,6 +1584,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
             <input
               aria-hidden="true"
               class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+              name=""
               tabindex="-1"
               value="try"
             />
@@ -1724,6 +1729,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
             <input
               aria-hidden="true"
               class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+              name=""
               tabindex="-1"
               value="mozilla-central"
             />
@@ -2133,6 +2139,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
             <input
               aria-hidden="true"
               class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+              name=""
               tabindex="-1"
               value="try"
             />
@@ -2432,6 +2439,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
             <input
               aria-hidden="true"
               class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+              name=""
               tabindex="-1"
               value="mozilla-central"
             />
@@ -2796,6 +2804,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
             <input
               aria-hidden="true"
               class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+              name=""
               tabindex="-1"
               value="try"
             />
@@ -2985,6 +2994,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
             <input
               aria-hidden="true"
               class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+              name=""
               tabindex="-1"
               value="mozilla-central"
             />
@@ -3473,6 +3483,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                         <input
                           aria-hidden="true"
                           class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                          name=""
                           tabindex="-1"
                           value="try"
                         />
@@ -3617,6 +3628,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                         <input
                           aria-hidden="true"
                           class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                          name=""
                           tabindex="-1"
                           value="try"
                         />
@@ -3825,7 +3837,140 @@ exports[`Compare With Base should remove the checked revision once X button is c
                 class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1qectas label-edit-wrapper css-13eijkh-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-5 fi12nct base-repo-dropdown dropDown_f1qectas css-13eijkh-MuiGrid-root"
+                >
+                  <label
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label dropdown-select-label--base css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
+                    id="base-repo-dropdown--overtime"
+                  >
+                    Base repository
+                    <svg
+                      aria-hidden="true"
+                      aria-label="The repository to compare revisions against."
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+                      data-mui-internal-clone-element="true"
+                      data-testid="InfoOutlinedIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                      />
+                    </svg>
+                  </label>
+                  <label
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label dropdown-select-label--time css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
+                    id="select-timerange-label"
+                  >
+                    Time range
+                    <svg
+                      aria-hidden="true"
+                      aria-label="The time range to compare revisions."
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+                      data-mui-internal-clone-element="true"
+                      data-testid="InfoOutlinedIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                      />
+                    </svg>
+                  </label>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-container container_f19z97w1 faq44in css-1ljzhs0-MuiGrid-root"
+                  id="base-search-container--time"
+                >
+                  <div
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 base-search-dropdown dropDown_f1qectas  -base-dropdown css-1k9lgq8-MuiGrid-root"
+                    id="base_search-dropdown--time"
+                  >
+                    <div
+                      class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+                    >
+                      <div
+                        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                        data-testid="dropdown-select-base-repo-dropdown--overtime"
+                      >
+                        <div
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          aria-labelledby="base-repo-dropdown--overtime mui-component-select-baseRepo"
+                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                          id="mui-component-select-baseRepo"
+                          role="button"
+                          tabindex="0"
+                        >
+                          try
+                        </div>
+                        <input
+                          aria-hidden="true"
+                          class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                          name="baseRepo"
+                          tabindex="-1"
+                          value="try"
+                        />
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
+                          data-testid="ArrowDropDownIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M7 10l5 5 5-5z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 new-search-dropdown dropDown_f1qectas  css-1k9lgq8-MuiGrid-root"
+                    id="time-range"
+                  >
+                    <div
+                      class="MuiFormControl-root timerange-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+                    >
+                      <div
+                        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                        data-testid="dropdown-select-timerange"
+                      >
+                        <div
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          aria-labelledby="select-timerange-label mui-component-select-selectedTimeRange"
+                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                          id="mui-component-select-selectedTimeRange"
+                          role="button"
+                          tabindex="0"
+                        >
+                          Last day
+                        </div>
+                        <input
+                          aria-hidden="true"
+                          class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                          name="selectedTimeRange"
+                          tabindex="-1"
+                          value="86400"
+                        />
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
+                          data-testid="ArrowDropDownIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M7 10l5 5 5-5z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1qectas css-13eijkh-MuiGrid-root"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -3875,6 +4020,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                         <input
                           aria-hidden="true"
                           class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                          name=""
                           tabindex="-1"
                           value="try"
                         />
@@ -4028,64 +4174,6 @@ exports[`Compare With Base should remove the checked revision once X button is c
                       </svg>
                     </div>
                   </div>
-                  <div
-                    class="MuiFormControl-root timerange-dropdown f9u9kv7 css-1nrlq1o-MuiFormControl-root"
-                  >
-                    <label
-                      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
-                      data-shrink="true"
-                      id="select-timerange-label"
-                    >
-                      Time range
-                      <svg
-                        aria-hidden="true"
-                        aria-label="The time range to compare revisions."
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
-                        data-mui-internal-clone-element="true"
-                        data-testid="InfoOutlinedIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-                        />
-                      </svg>
-                    </label>
-                    <div
-                      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-                      data-testid="dropdown-select-timerange"
-                    >
-                      <div
-                        aria-expanded="false"
-                        aria-haspopup="listbox"
-                        aria-labelledby="select-timerange-label mui-component-select-selectedTimeRange"
-                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                        id="mui-component-select-selectedTimeRange"
-                        role="button"
-                        tabindex="0"
-                      >
-                        Last day
-                      </div>
-                      <input
-                        aria-hidden="true"
-                        class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                        name="selectedTimeRange"
-                        tabindex="-1"
-                        value="86400"
-                      />
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
-                        data-testid="ArrowDropDownIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M7 10l5 5 5-5z"
-                        />
-                      </svg>
-                    </div>
-                  </div>
                 </div>
                 <button
                   class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-mire2f-MuiButtonBase-root-MuiButton-root"
@@ -4169,6 +4257,7 @@ exports[`Compare With Base should save the updated BASE revision when Save is cl
             <input
               aria-hidden="true"
               class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+              name=""
               tabindex="-1"
               value="try"
             />
@@ -4495,6 +4584,7 @@ exports[`Compare With Base should save the updated BASE revision when Save is cl
             <input
               aria-hidden="true"
               class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+              name=""
               tabindex="-1"
               value="mozilla-central"
             />
@@ -4877,6 +4967,7 @@ exports[`Compare With Base should save the updated NEW revision when Save is cli
             <input
               aria-hidden="true"
               class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+              name=""
               tabindex="-1"
               value="try"
             />
@@ -5158,6 +5249,7 @@ exports[`Compare With Base should save the updated NEW revision when Save is cli
             <input
               aria-hidden="true"
               class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+              name=""
               tabindex="-1"
               value="mozilla-central"
             />

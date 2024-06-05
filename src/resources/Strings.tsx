@@ -85,6 +85,10 @@ export const Strings = {
           errors: {
             notEnoughRevisions: 'Please select at least one revision.',
           },
+          baseRepo: {
+            selectLabelBase: 'Base repository',
+            tooltipBase: 'The repository to compare revisions against.',
+          },
           timeRange: {
             selectLabel: 'Time range',
             tooltip: 'The time range to compare revisions.',

@@ -16,12 +16,9 @@ import { Framework, TimeRange } from '../../types/types';
 import CompareButton from './CompareButton';
 import FrameworkDropdown from './FrameworkDropdown';
 import SearchOverTime from './SearchOverTime';
-import TimeRangeDropdown from './TimeRangeDropdown';
 
 const strings = Strings.components.searchDefault;
 const stringsOverTime = Strings.components.searchDefault.overTime;
-const stringsNew =
-  Strings.components.searchDefault.overTime.collapsed.revisions;
 
 interface CompareWithTimeProps {
   hasEditButton: boolean;
@@ -29,6 +26,8 @@ interface CompareWithTimeProps {
   frameworkIdVal: Framework['id'];
   intervalValue: TimeRange['value'];
   isBaseSearch: null | boolean;
+  newRepo: Repository['name'];
+  baseRepo: Repository['name'];
   expandBaseComponent: (expanded: boolean) => void;
 }
 
@@ -38,6 +37,8 @@ function CompareOverTime({
   frameworkIdVal,
   intervalValue,
   isBaseSearch,
+  baseRepo,
+  newRepo,
   expandBaseComponent,
 }: CompareWithTimeProps) {
   const { enqueueSnackbar } = useSnackbar();
@@ -51,8 +52,8 @@ function CompareOverTime({
   const [inProgressRevs, setInProgressRevs] = useState<Changeset[] | []>(
     newRevs,
   );
-  const [repository, setRepository] = useState('try' as Repository['name']);
-
+  const [baseRepository, setBaseRepository] = useState(baseRepo);
+  const [newRepository, setNewRepository] = useState(newRepo);
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = CompareCardsStyles(mode);
   const dropDownStyles = SearchStyles(mode);
@@ -177,14 +178,21 @@ function CompareOverTime({
           aria-label='Compare over time form'
         >
           <SearchOverTime
-            {...stringsNew}
             hasEditButton={hasEditButton}
-            repository={repository}
+            baseRepo={baseRepository}
+            newRepo={newRepository}
             displayedRevisions={inProgressRevs}
             onRemoveRevision={handleRemoveRevision}
             onSearchResultsToggle={handleSearchResultsToggle}
-            onRepositoryChange={(repo: Repository['name']) =>
-              setRepository(repo)
+            onBaseRepositoryChange={(repo: Repository['name']) =>
+              setBaseRepository(repo)
+            }
+            onNewRepositoryChange={(repo: Repository['name']) =>
+              setNewRepository(repo)
+            }
+            timeRangeValue={timeRangeValue}
+            onTimeRangeChange={(value: TimeRange['value']) =>
+              setTimeRangeValue(value)
             }
           />
 
@@ -200,12 +208,6 @@ function CompareOverTime({
                 onChange={(event: SelectChangeEvent) => {
                   const id = +event.target.value as Framework['id'];
                   setframeWorkValue(id);
-                }}
-              />
-              <TimeRangeDropdown
-                timeRangeValue={timeRangeValue}
-                onChange={(val: TimeRange['value']) => {
-                  setTimeRangeValue(val);
                 }}
               />
             </div>

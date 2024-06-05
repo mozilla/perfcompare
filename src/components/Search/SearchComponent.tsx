@@ -135,6 +135,7 @@ function SearchComponent({
             repository={repository}
             labelIdInfo={labelIdInfo}
             onChange={onRepositoryChange}
+            isOverTimeBase={false}
           />
         </Grid>
         <Grid

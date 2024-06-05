@@ -14,6 +14,7 @@ type FetchProps = {
 };
 
 type FetchOverTimeProps = {
+  baseRepo: Repository['name'];
   newRepo: Repository['name'];
   newRev: string;
   framework: Framework['id'];
@@ -80,13 +81,14 @@ export async function fetchCompareResults({
 
 // This API returns the results of compare over time between new revisions.
 export async function fetchCompareOverTimeResults({
+  baseRepo,
   newRev,
   newRepo,
   framework,
   interval,
 }: FetchOverTimeProps) {
   const searchParams = new URLSearchParams({
-    base_repository: newRepo,
+    base_repository: baseRepo,
     new_repository: newRepo,
     new_revision: newRev,
     framework: String(framework),
