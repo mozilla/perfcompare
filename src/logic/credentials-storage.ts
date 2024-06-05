@@ -1,5 +1,8 @@
-import { UserCredentials } from '../types/types';
-import { TokenBearer } from '../types/types';
+import {
+  CredentialsResponse,
+  TokenBearer,
+  UserCredentials,
+} from '../types/types';
 
 export function storeToken(token: TokenBearer) {
   localStorage.setItem('tokenBearer', JSON.stringify(token));
@@ -11,12 +14,26 @@ export function retrieveToken(): TokenBearer {
   ) as TokenBearer;
 }
 
-export function storeUserCredentials(credentials: UserCredentials) {
-  localStorage.setItem('userCredentials', JSON.stringify(credentials));
+export function storeUserCredentials(
+  rootUrl: string,
+  credentials: CredentialsResponse,
+) {
+  const allCredentialsAsString = localStorage.userCredentials as string;
+  const allCredentials = (
+    allCredentialsAsString ? JSON.parse(allCredentialsAsString) : {}
+  ) as UserCredentials;
+
+  allCredentials[rootUrl] = credentials;
+  localStorage.userCredentials = JSON.stringify(allCredentials);
 }
 
-export function retrieveUserCredentials(): UserCredentials {
-  return JSON.parse(
-    localStorage.getItem('userCredentials') as string,
-  ) as UserCredentials;
+export function retrieveUserCredentials(
+  rootUrl: string,
+): CredentialsResponse | null {
+  const allCredentialsAsString = localStorage.userCredentials as string;
+
+  if (allCredentialsAsString) return null;
+
+  const allCredentials = JSON.parse(allCredentialsAsString) as UserCredentials;
+  return allCredentials[rootUrl];
 }

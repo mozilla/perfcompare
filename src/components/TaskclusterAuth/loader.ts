@@ -6,7 +6,6 @@ import {
   retrieveTaskclusterUserCredentials,
   retrieveTaskclusterToken,
 } from '../../logic/taskcluster';
-import { UserCredentials } from '../../types/types';
 
 export async function loader({ request }: { request: Request }) {
   const url = new URL(request.url);
@@ -41,7 +40,7 @@ export async function loader({ request }: { request: Request }) {
     tokenResponse.access_token,
   );
 
-  storeUserCredentials({ [rootUrl]: userCredentials } as UserCredentials);
+  storeUserCredentials(rootUrl, userCredentials);
 
   return userCredentials;
 }
