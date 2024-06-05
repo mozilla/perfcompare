@@ -306,3 +306,7 @@ export type TokenBearerResponse = {
 };
 
 export type TokenBearer = Record<string, TokenBearerResponse>;
+
+export type TokenResponse = TokenBearerResponse;
+
+export type UserToken = Record<string, TokenResponse>;

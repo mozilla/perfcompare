@@ -1,17 +1,28 @@
 import {
   CredentialsResponse,
-  TokenBearer,
+  UserToken,
+  TokenBearerResponse,
   UserCredentials,
+  TokenResponse,
 } from '../types/types';
 
-export function storeToken(token: TokenBearer) {
-  localStorage.setItem('tokenBearer', JSON.stringify(token));
+export function storeUserToken(rootUrl: string, token: TokenBearerResponse) {
+  const allTokensAsString = localStorage.userTokens as string;
+  const allTokens = (
+    allTokensAsString ? JSON.parse(allTokensAsString) : {}
+  ) as UserToken;
+
+  allTokens[rootUrl] = token;
+  localStorage.userTokens = JSON.stringify(allTokens);
 }
 
-export function retrieveToken(): TokenBearer {
-  return JSON.parse(
-    localStorage.getItem('tokenBearer') as string,
-  ) as TokenBearer;
+export function retrieveToken(rootUrl: string): TokenResponse | null {
+  const allUserTokensAsString = localStorage.userTokens as string;
+
+  if (allUserTokensAsString) return null;
+
+  const allTokens = JSON.parse(allUserTokensAsString) as UserToken;
+  return allTokens[rootUrl];
 }
 
 export function storeUserCredentials(

@@ -1,5 +1,5 @@
 import {
-  storeToken,
+  storeUserToken,
   storeUserCredentials,
 } from '../../logic/credentials-storage';
 import {
@@ -32,7 +32,7 @@ export async function loader({ request }: { request: Request }) {
     taskclusterCode,
   );
 
-  storeToken({ [tokenResponse.token_type]: tokenResponse });
+  storeUserToken(rootUrl, tokenResponse);
 
   // fetch access token with token Bearer
   const userCredentials = await retrieveTaskclusterUserCredentials(
