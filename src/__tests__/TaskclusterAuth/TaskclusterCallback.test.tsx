@@ -83,8 +83,8 @@ describe('Taskcluster Callback', () => {
       },
     );
 
-    expect(localStorage.tokenBearer).toBe(
-      '{"Bearer":{"access_token":"RnVpOGJtdDZTb3FlWW5PVUxVclprQQ==","token_type":"Bearer"}}',
+    expect(localStorage.userTokens).toBe(
+      '{"https://firefox-ci-tc.services.mozilla.com":{"access_token":"RnVpOGJtdDZTb3FlWW5PVUxVclprQQ==","token_type":"Bearer"}}',
     );
 
     expect(localStorage.userCredentials).toBe(
