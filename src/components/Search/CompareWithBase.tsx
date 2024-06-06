@@ -12,7 +12,8 @@ import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles, SearchStyles, Spacing } from '../../styles';
 import type { Changeset, Repository } from '../../types/state';
 import { Framework } from '../../types/types';
-import CompareButton from './CompareButton';
+import CancelAndCompareButtons from './CancelAndCompareButtons';
+import EditButton from './EditButton';
 import FrameworkDropdown from './FrameworkDropdown';
 import SearchComponent from './SearchComponent';
 
@@ -62,9 +63,8 @@ interface CompareWithBaseProps {
  *   initialized with the initial state.
  * - The in-progress state represents the set of revisions that the user is
  *   currently selecting. In the SearchView it can be changed always, but in the
- *   ResultsView the user will need to press Edit first. If the user presses
- *   "Save" at this point, the in-progress state is copied to the non-editable
- *   state. If the user presses "Cancel", the previous non-editable state is
+ *   ResultsView the user will need to press Edit first.
+ *   If the user presses "Cancel", the previous non-editable state is
  *   recalled.
  */
 function CompareWithBase({
@@ -80,14 +80,7 @@ function CompareWithBase({
   const { enqueueSnackbar } = useSnackbar();
   const [frameWorkId, setframeWorkValue] = useState(frameworkIdVal);
 
-  // The "committed" base and new revisions initialize the staging state.
-  // These states are snapshots of selections, that the user can either save (by
-  // pressing the "Save" button) or revert to (by pressing the Cancel button).
-  const [baseStagingRev, setStagingBaseRev] = useState<Changeset | null>(
-    baseRev,
-  );
-  const [newStagingRevs, setStagingNewRevs] = useState<Changeset[]>(newRevs);
-
+  // pressing Cancel reverts to committed states.
   // The "committed" base and new revisions initialize the "in progress" state
   // too. These states hold the data that are displayed to the user. They always
   // contain the displayed data. That's also the ones that will be committed if
@@ -99,11 +92,13 @@ function CompareWithBase({
     useState<Changeset[]>(newRevs);
   const [baseRepository, setBaseRepository] = useState(baseRepo);
   const [newRepository, setNewRepository] = useState(newRepo);
+  const [formIsDisplayed, setFormIsDisplayed] = useState(!hasEditButton);
 
   const mode = useAppSelector((state) => state.theme.mode);
 
   const styles = CompareCardsStyles(mode);
   const dropDownStyles = SearchStyles(mode);
+  const hasCancelButton = hasEditButton && formIsDisplayed;
 
   const isWarning =
     (baseRepository === 'try' && newRepository !== 'try') ||
@@ -137,25 +132,16 @@ function CompareWithBase({
     expandBaseComponent(true);
   };
 
-  const handleCancelBase = () => {
-    setInProgressBaseRev(baseStagingRev);
-  };
-  const handleCancelNew = () => {
-    setInProgressNewRevs(newStagingRevs);
-  };
-
-  const handleSaveBase = () => {
-    setStagingBaseRev(baseInProgressRev);
-  };
-  const handleSaveNew = () => {
-    setStagingNewRevs(newInProgressRevs);
+  const handleCancel = () => {
+    setInProgressNewRevs(newRevs);
+    setInProgressBaseRev(baseRev);
+    setFormIsDisplayed(false);
   };
 
-  const handleEditBase = () => {
-    setInProgressBaseRev(baseStagingRev);
-  };
-  const handleEditNew = () => {
-    setInProgressNewRevs(newStagingRevs);
+  const handleEdit = () => {
+    setInProgressBaseRev(baseRev);
+    setInProgressNewRevs(newRevs);
+    setFormIsDisplayed(true);
   };
 
   const handleItemToggleInChangesetList = ({
@@ -274,15 +260,19 @@ function CompareWithBase({
           onSubmit={possiblyPreventFormSubmission}
           aria-label='Compare with base form'
         >
+          {/**** Edit Button ****/}
+          <div className='edit-btn-wrapper'>
+            {hasEditButton && !formIsDisplayed && (
+              <EditButton onEditAction={handleEdit} />
+            )}
+          </div>
+
           <SearchComponent
             {...stringsBase}
             isBaseComp={true}
             isWarning={isWarning}
             hasEditButton={hasEditButton}
             displayedRevisions={baseInProgressRev ? [baseInProgressRev] : []}
-            onSave={handleSaveBase}
-            onCancel={handleCancelBase}
-            onEdit={handleEditBase}
             onSearchResultsToggle={handleSearchResultsToggleBase}
             onRemoveRevision={handleRemoveRevisionBase}
             repository={baseRepository}
@@ -290,6 +280,7 @@ function CompareWithBase({
             onRepositoryChange={(repo: Repository['name']) =>
               setBaseRepository(repo)
             }
+            formIsDisplayed={formIsDisplayed}
           />
           <SearchComponent
             {...stringsNew}
@@ -297,9 +288,6 @@ function CompareWithBase({
             hasEditButton={hasEditButton}
             isWarning={isWarning}
             displayedRevisions={newInProgressRevs}
-            onSave={handleSaveNew}
-            onCancel={handleCancelNew}
-            onEdit={handleEditNew}
             onSearchResultsToggle={handleSearchResultsToggleNew}
             onRemoveRevision={handleRemoveRevisionNew}
             repository={newRepository}
@@ -307,6 +295,7 @@ function CompareWithBase({
             onRepositoryChange={(repo: Repository['name']) =>
               setNewRepository(repo)
             }
+            formIsDisplayed={formIsDisplayed}
           />
           <Grid
             item
@@ -321,7 +310,11 @@ function CompareWithBase({
                 setframeWorkValue(id);
               }}
             />
-            <CompareButton label={strings.base.compareBtn} />
+            <CancelAndCompareButtons
+              label={strings.base.compareBtn}
+              onCancel={handleCancel}
+              hasCancelButton={hasCancelButton}
+            />
           </Grid>
         </Form>
       </div>
