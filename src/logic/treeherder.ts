@@ -74,7 +74,7 @@ export async function fetchCompareResults({
     new_revision: newRev,
     framework: String(framework),
     interval: '86400',
-    no_subtests: 'true',
+    // no_subtests: 'true',
   });
   const url = `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`;
   const response = await fetchFromTreeherder(url);
@@ -96,7 +96,7 @@ export async function fetchCompareOverTimeResults({
     new_revision: newRev,
     framework: String(framework),
     interval: String(interval),
-    no_subtests: 'true',
+    // no_subtests: 'true',
   });
   const url = `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`;
   const response = await fetchFromTreeherder(url);

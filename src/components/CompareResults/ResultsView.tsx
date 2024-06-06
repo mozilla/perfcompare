@@ -16,7 +16,7 @@ interface ResultsViewProps {
   title: string;
 }
 function ResultsView(props: ResultsViewProps) {
-  const { baseRevInfo, newRevsInfo, frameworkId, baseRepo, newRepos } =
+  const { baseRevInfo, newRevsInfo, frameworkId, baseRepo, newRepos , view} =
     useLoaderData() as LoaderReturnValue;
 
   const newRepo = newRepos[0];
@@ -56,7 +56,7 @@ function ResultsView(props: ResultsViewProps) {
 
       <Grid container alignItems='center' justifyContent='center'>
         <Grid item xs={12}>
-          <ResultsMain />
+          <ResultsMain view={view} />
         </Grid>
       </Grid>
     </div>
