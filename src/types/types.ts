@@ -293,20 +293,14 @@ export type FakeCommitHash =
   | '9d50665254899d8431813bdc04178e6006ce6d59'
   | 'a998c42399a8fcea623690bf65bef49de20535b4';
 
-export type CredentialsResponse = {
+export type UserCredentials = {
   expires: string;
   credentials: { clientId: string; accessToken: string };
 };
 
-export type UserCredentials = Record<string, CredentialsResponse>;
+export type UserCredentialsDictionary = Record<string, UserCredentials>;
 
-export type TokenBearerResponse = {
+export type TokenBearer = {
   access_token: string;
   token_type: 'Bearer';
 };
-
-export type TokenBearer = Record<string, TokenBearerResponse>;
-
-export type TokenResponse = TokenBearerResponse;
-
-export type UserToken = Record<string, TokenResponse>;

@@ -1,9 +1,9 @@
 // This file contains logic for the Taskcluster Third-Party Login
 
 import {
-  CredentialsResponse,
-  TokenBearerResponse,
   UserCredentials,
+  TokenBearer,
+  UserCredentialsDictionary,
 } from '../types/types';
 import { getLocationOrigin } from '../utils/location';
 
@@ -69,7 +69,7 @@ export const checkTaskclusterCredentials = () => {
   }
   const userCredentials = JSON.parse(
     localStorage.getItem('userCredentials') as string,
-  ) as UserCredentials;
+  ) as UserCredentialsDictionary; //UserCredentialsDictionary
 
   if (
     !userCredentials ||
@@ -122,7 +122,7 @@ export async function retrieveTaskclusterToken(rootUrl: string, code: string) {
 
   void checkTaskclusterResponse(response);
 
-  return response.json() as Promise<TokenBearerResponse>;
+  return response.json() as Promise<TokenBearer>;
 }
 
 export async function retrieveTaskclusterUserCredentials(
@@ -143,5 +143,5 @@ export async function retrieveTaskclusterUserCredentials(
 
   void checkTaskclusterResponse(response);
 
-  return response.json() as Promise<CredentialsResponse>;
+  return response.json() as Promise<UserCredentials>;
 }

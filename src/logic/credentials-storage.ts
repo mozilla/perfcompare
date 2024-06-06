@@ -1,38 +1,38 @@
 import {
-  CredentialsResponse,
-  UserToken,
-  TokenBearerResponse,
   UserCredentials,
-  TokenResponse,
+  TokenBearer,
+  UserCredentialsDictionary,
 } from '../types/types';
 
-export function storeUserToken(rootUrl: string, token: TokenBearerResponse) {
+type TokenBearerDictionary = Record<string, TokenBearer>;
+
+export function storeUserToken(rootUrl: string, token: TokenBearer) {
   const allTokensAsString = localStorage.userTokens as string;
   const allTokens = (
     allTokensAsString ? JSON.parse(allTokensAsString) : {}
-  ) as UserToken;
+  ) as TokenBearerDictionary;
 
   allTokens[rootUrl] = token;
   localStorage.userTokens = JSON.stringify(allTokens);
 }
 
-export function retrieveToken(rootUrl: string): TokenResponse | null {
+export function retrieveToken(rootUrl: string): TokenBearer | null {
   const allUserTokensAsString = localStorage.userTokens as string;
 
   if (allUserTokensAsString) return null;
 
-  const allTokens = JSON.parse(allUserTokensAsString) as UserToken;
-  return allTokens[rootUrl];
+  const allTokens = JSON.parse(allUserTokensAsString) as TokenBearerDictionary;
+  return allTokens[rootUrl] ?? null;
 }
 
 export function storeUserCredentials(
   rootUrl: string,
-  credentials: CredentialsResponse,
+  credentials: UserCredentials,
 ) {
   const allCredentialsAsString = localStorage.userCredentials as string;
   const allCredentials = (
     allCredentialsAsString ? JSON.parse(allCredentialsAsString) : {}
-  ) as UserCredentials;
+  ) as UserCredentialsDictionary;
 
   allCredentials[rootUrl] = credentials;
   localStorage.userCredentials = JSON.stringify(allCredentials);
@@ -40,11 +40,13 @@ export function storeUserCredentials(
 
 export function retrieveUserCredentials(
   rootUrl: string,
-): CredentialsResponse | null {
+): UserCredentials | null {
   const allCredentialsAsString = localStorage.userCredentials as string;
 
   if (allCredentialsAsString) return null;
 
-  const allCredentials = JSON.parse(allCredentialsAsString) as UserCredentials;
-  return allCredentials[rootUrl];
+  const allCredentials = JSON.parse(
+    allCredentialsAsString,
+  ) as UserCredentialsDictionary;
+  return allCredentials[rootUrl] ?? null;
 }
