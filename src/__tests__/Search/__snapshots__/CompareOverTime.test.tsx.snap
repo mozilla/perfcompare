@@ -11,7 +11,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
     class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1qectas label-edit-wrapper css-13eijkh-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 label-edit-wrapper css-13eijkh-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -34,11 +34,11 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
       </label>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_f19z97w1 css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_fmzmsg2 css-1ljzhs0-MuiGrid-root"
       id="new-search-container--time"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1qectas  -new-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1  -new-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown--time"
       >
         <div
@@ -79,7 +79,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_fctyy2s   css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f1o6j1ms   css-17gmabg-MuiGrid-root"
         id="new_search-input--time"
       >
         <div
@@ -111,6 +111,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
                 </div>
                 <input
                   aria-invalid="false"
+                  aria-label="Search revision by ID number or author email"
                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-new-input"
                   placeholder="Search revision by ID number or author email"
@@ -150,7 +151,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
     </div>
   </div>
   <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1qectas fx35f8m css-13eijkh-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f913nm1 fx35f8m css-13eijkh-MuiGrid-root"
   >
     <div
       class="bottom-dropdowns"
@@ -272,17 +273,21 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
         </div>
       </div>
     </div>
-    <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-mire2f-MuiButtonBase-root-MuiButton-root"
-      id="compare-button"
-      tabindex="0"
-      type="submit"
+    <div
+      class=" fs9pw6x cancel-compare"
     >
-      Compare
-      <span
-        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-      />
-    </button>
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+        id="compare-button"
+        tabindex="0"
+        type="submit"
+      >
+        Compare
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </button>
+    </div>
   </div>
 </form>
 `;
@@ -298,7 +303,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
     class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1qectas label-edit-wrapper css-13eijkh-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 label-edit-wrapper css-13eijkh-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -321,11 +326,11 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
       </label>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_f19z97w1 css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_fmzmsg2 css-1ljzhs0-MuiGrid-root"
       id="new-search-container--time"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1qectas small compare-over-time-results-new-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 small compare-over-time-results-new-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown--time"
       >
         <div
@@ -366,7 +371,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_fctyy2s big  css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f1o6j1ms big  css-17gmabg-MuiGrid-root"
         id="new_search-input--time"
       >
         <div
@@ -398,6 +403,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
                 </div>
                 <input
                   aria-invalid="false"
+                  aria-label="Search revision by ID number or author email"
                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-jrmsot-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-new-input"
                   placeholder="Search revision by ID number or author email"
@@ -554,7 +560,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
     </div>
   </div>
   <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1qectas fx35f8m css-13eijkh-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f913nm1 fx35f8m css-13eijkh-MuiGrid-root"
   >
     <div
       class="bottom-dropdowns"
@@ -676,17 +682,21 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
         </div>
       </div>
     </div>
-    <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-mire2f-MuiButtonBase-root-MuiButton-root"
-      id="compare-button"
-      tabindex="0"
-      type="submit"
+    <div
+      class=" fs9pw6x cancel-compare"
     >
-      Compare
-      <span
-        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-      />
-    </button>
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+        id="compare-button"
+        tabindex="0"
+        type="submit"
+      >
+        Compare
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </button>
+    </div>
   </div>
 </form>
 `;
@@ -808,7 +818,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
     class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1qectas label-edit-wrapper css-13eijkh-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 label-edit-wrapper css-13eijkh-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -831,11 +841,11 @@ exports[`Compare Over Time should remove the checked revision once X button is c
       </label>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_f19z97w1 css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_fmzmsg2 css-1ljzhs0-MuiGrid-root"
       id="new-search-container--time"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1qectas  -new-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1  -new-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown--time"
       >
         <div
@@ -876,7 +886,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_fctyy2s   css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f1o6j1ms   css-17gmabg-MuiGrid-root"
         id="new_search-input--time"
       >
         <div
@@ -908,6 +918,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
                 </div>
                 <input
                   aria-invalid="false"
+                  aria-label="Search revision by ID number or author email"
                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-new-input"
                   placeholder="Search revision by ID number or author email"
@@ -947,7 +958,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
     </div>
   </div>
   <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1qectas fx35f8m css-13eijkh-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f913nm1 fx35f8m css-13eijkh-MuiGrid-root"
   >
     <div
       class="bottom-dropdowns"
@@ -1069,17 +1080,21 @@ exports[`Compare Over Time should remove the checked revision once X button is c
         </div>
       </div>
     </div>
-    <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-mire2f-MuiButtonBase-root-MuiButton-root"
-      id="compare-button"
-      tabindex="0"
-      type="submit"
+    <div
+      class=" fs9pw6x cancel-compare"
     >
-      Compare
-      <span
-        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-      />
-    </button>
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+        id="compare-button"
+        tabindex="0"
+        type="submit"
+      >
+        Compare
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </button>
+    </div>
   </div>
 </form>
 `;

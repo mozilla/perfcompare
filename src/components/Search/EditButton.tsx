@@ -1,32 +1,34 @@
-import IconButton from '@mui/material/IconButton';
+import Button from '@mui/material/Button';
 
 import { Strings } from '../../resources/Strings';
 
 interface EditButtonProps {
-  isBase: boolean;
   onEditAction: () => void;
 }
 
 const baseComp = Strings.components.searchDefault.base;
 const editImgUrl = baseComp.editIcon;
+const editText = baseComp.editText;
 
-export default function EditButton({ isBase, onEditAction }: EditButtonProps) {
-  const searchType = isBase ? 'base' : 'new';
+const buttonIcon = (
+  <img
+    id='edit-button-icon'
+    className='icon icon-edit'
+    src={editImgUrl}
+    alt='edit-icon'
+  />
+);
 
+export default function EditButton({ onEditAction }: EditButtonProps) {
   return (
-    <IconButton
-      className={`edit-button edit-button-${searchType} show-edit-btn`}
-      id={`${searchType}-edit-button`}
+    <Button
+      className='global-edit-button edit-revision-button'
       name='edit-button'
       aria-label='edit revision'
+      startIcon={buttonIcon}
       onClick={onEditAction}
     >
-      <img
-        id={`${searchType}-edit-button-icon`}
-        className='icon icon-edit'
-        src={editImgUrl}
-        alt='edit-icon'
-      />
-    </IconButton>
+      {editText}
+    </Button>
   );
 }
