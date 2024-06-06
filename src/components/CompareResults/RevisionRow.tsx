@@ -8,13 +8,16 @@ import TimelineIcon from '@mui/icons-material/Timeline';
 import { IconButton } from '@mui/material';
 import { style } from 'typestyle';
 
+import { compareView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { Colors, Spacing, ExpandableRowStyles } from '../../styles';
 import type { CompareResultsItem, PlatformShortName } from '../../types/state';
+import { TimeRange } from '../../types/types';
 import { getPlatformShortName } from '../../utils/platform';
 import AndroidIcon from '../Shared/Icons/AndroidIcon';
 import LinuxIcon from '../Shared/Icons/LinuxIcon';
+import SubtestsIcon from '../Shared/Icons/SubtestsIcon';
 import WindowsIcon from '../Shared/Icons/WindowsIcon';
 import RetriggerButton from './Retrigger/RetriggerButton';
 import RevisionRowExpandable from './RevisionRowExpandable';
@@ -39,8 +42,35 @@ const platformIcons: Record<PlatformShortName, ReactNode> = {
   Unspecified: '',
 };
 
+const getSubtestsCompareWithBaseLink = (result: CompareResultsItem) =>
+  `/subtestsCompareWithBase?baseRev=${result.base_rev}&
+baseRepo=${result.base_repository_name}&
+newRev=${result.new_rev}&
+newRepo=${result.new_repository_name}&
+framework=${result.framework_id}&
+parentSignature=${result.signature_id}`;
+
+const getSubtestsCompareOverTimeLink = (result: CompareResultsItem, interval: TimeRange['value']) =>
+  `/subtestsCompareOverTime?baseRepo=${result.base_repository_name}
+&newRev=${result.new_rev}
+&newRepo=${result.new_repository_name}
+&framework=${result.framework_id}
+&interval=${interval}
+&parentSignature=${result.signature_id}`;
+
+const getSubtestsLink = (view: string, result: CompareResultsItem) => {
+  if ((view == compareView)) return getSubtestsCompareWithBaseLink(result);
+  else
+  {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const interval = urlParams.get('selectedTimeRange');
+    return getSubtestsCompareOverTimeLink(result, interval);
+  }
+};
+
 function RevisionRow(props: RevisionRowProps) {
-  const { result } = props;
+  const { result, view } = props;
   const {
     platform,
     base_median_value: baseMedianValue,
@@ -194,6 +224,22 @@ function RevisionRow(props: RevisionRowProps) {
           <strong> {newRuns.length} </strong>
         </div>
         <div className='row-buttons cell'>
+          {result.has_subtests && (
+            <div className='subtests' role='cell'>
+              <div className='subtests-link-button-container'>
+                <IconButton
+                  title={Strings.components.revisionRow.title.subtestsLink}
+                  color='primary'
+                  size='small'
+                  href={getSubtestsLink(view, result)}
+                  target='_blank'
+                >
+                  <SubtestsIcon />
+                </IconButton>
+              </div>
+            </div>
+          )}
+
           <div className='graph' role='cell'>
             <div className='graph-link-button-container'>
               <IconButton
@@ -263,6 +309,7 @@ function RevisionRow(props: RevisionRowProps) {
 
 interface RevisionRowProps {
   result: CompareResultsItem;
+  view: string;
 }
 
 export default RevisionRow;

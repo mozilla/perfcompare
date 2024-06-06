@@ -15,11 +15,12 @@ import ResultsTable from './ResultsTable';
 import RevisionSelect from './RevisionSelect';
 import SearchInput from './SearchInput';
 
-function ResultsMain() {
+function ResultsMain(props: {view: string}) {
   const { results } = useLoaderData() as LoaderReturnValue;
 
   const themeMode = useAppSelector((state) => state.theme.mode);
   const [searchTerm, setSearchTerm] = useState('');
+  const { view } = props;
 
   const themeColor100 =
     themeMode === 'light' ? Colors.Background300 : Colors.Background100Dark;
@@ -59,7 +60,7 @@ function ResultsMain() {
               <DownloadButton />
             </div>
           </header>
-          <ResultsTable filteringSearchTerm={searchTerm} />
+          <ResultsTable filteringSearchTerm={searchTerm} view={view}/>
         </Await>
       </Suspense>
     </Container>

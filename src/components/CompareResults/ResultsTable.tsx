@@ -177,9 +177,10 @@ const allRevisionsOption =
 
 type ResultsTableProps = {
   filteringSearchTerm: string;
+  view: string;
 };
 
-function ResultsTable({ filteringSearchTerm }: ResultsTableProps) {
+function ResultsTable({ filteringSearchTerm, view }: ResultsTableProps) {
   const loaderData = useAsyncValue();
   const results = loaderData as CompareResultsItem[][];
   const activeComparison = useAppSelector(
@@ -246,6 +247,7 @@ function ResultsTable({ filteringSearchTerm }: ResultsTableProps) {
           identifier={res.key}
           header={res.revisionHeader}
           results={res.value}
+          view={view}
         />
       ))}
 
