@@ -39,6 +39,7 @@ export const Strings = {
             'The framework or test harness containing the test you want to examine.',
         },
         button: 'Compare',
+        cancel: 'Cancel',
       },
       base: {
         title: 'Compare with a base',
@@ -46,12 +47,10 @@ export const Strings = {
         img: 'https://user-images.githubusercontent.com/88336547/233237125-1534220b-c343-421a-9133-ce8f151cb979.png',
         imgDark:
           'https://user-images.githubusercontent.com/88336547/233250674-004d071a-7c23-40f4-b348-0687a3fef6e3.png',
-
-        save: 'Save',
-        cancel: 'Cancel',
         compareBtn: 'Compare',
         editIcon:
           'https://user-images.githubusercontent.com/88336547/259900252-462ac221-f4ff-4b1c-bb6b-5df906e8007d.svg',
+        editText: 'Edit entry',
         collapsed: {
           warnings: {
             comparison:

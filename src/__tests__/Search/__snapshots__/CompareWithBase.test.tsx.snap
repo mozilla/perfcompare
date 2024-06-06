@@ -8,10 +8,36 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
   method="get"
 >
   <div
+    class="edit-btn-wrapper"
+  >
+    <button
+      aria-label="edit revision"
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+      name="edit-button"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="MuiButton-startIcon MuiButton-iconSizeMedium css-gcc2o7-MuiButton-startIcon"
+      >
+        <img
+          alt="edit-icon"
+          class="icon icon-edit"
+          id="edit-button-icon"
+          src="https://user-images.githubusercontent.com/88336547/259900252-462ac221-f4ff-4b1c-bb6b-5df906e8007d.svg"
+        />
+      </span>
+      Edit entry
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </button>
+  </div>
+  <div
     class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1qectas label-edit-wrapper css-13eijkh-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f913nm1 label-edit-wrapper css-13eijkh-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -32,31 +58,13 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
           />
         </svg>
       </label>
-      <button
-        aria-label="edit revision"
-        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium edit-button edit-button-base show-edit-btn css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
-        id="base-edit-button"
-        name="edit-button"
-        tabindex="0"
-        type="button"
-      >
-        <img
-          alt="edit-icon"
-          class="icon icon-edit"
-          id="base-edit-button-icon"
-          src="https://user-images.githubusercontent.com/88336547/259900252-462ac221-f4ff-4b1c-bb6b-5df906e8007d.svg"
-        />
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
-      </button>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_f19z97w1 hide-container  css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_fmzmsg2 hide-container  css-1ljzhs0-MuiGrid-root"
       id="base-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1qectas small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f913nm1 small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="base_search-dropdown"
       >
         <div
@@ -97,7 +105,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_fctyy2s big  css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f1o6j1ms big  css-17gmabg-MuiGrid-root"
         id="base_search-input"
       >
         <div
@@ -310,7 +318,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
     class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1qectas label-edit-wrapper css-13eijkh-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 label-edit-wrapper css-13eijkh-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -331,31 +339,13 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
           />
         </svg>
       </label>
-      <button
-        aria-label="edit revision"
-        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium edit-button edit-button-new show-edit-btn css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
-        id="new-edit-button"
-        name="edit-button"
-        tabindex="0"
-        type="button"
-      >
-        <img
-          alt="edit-icon"
-          class="icon icon-edit"
-          id="new-edit-button-icon"
-          src="https://user-images.githubusercontent.com/88336547/259900252-462ac221-f4ff-4b1c-bb6b-5df906e8007d.svg"
-        />
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
-      </button>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_f19z97w1 hide-container  css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_fmzmsg2 hide-container  css-1ljzhs0-MuiGrid-root"
       id="new-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1qectas small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown"
       >
         <div
@@ -396,7 +386,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_fctyy2s big  css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f1o6j1ms big  css-17gmabg-MuiGrid-root"
         id="new_search-input"
       >
         <div
@@ -606,7 +596,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
     </div>
   </div>
   <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1qectas fjuaqdk css-13eijkh-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f913nm1 fjuaqdk css-13eijkh-MuiGrid-root"
   >
     <div
       class="MuiFormControl-root framework-dropdown f1pm9d4y css-1nrlq1o-MuiFormControl-root"
@@ -666,17 +656,21 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
         </svg>
       </div>
     </div>
-    <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-mire2f-MuiButtonBase-root-MuiButton-root"
-      id="compare-button"
-      tabindex="0"
-      type="submit"
+    <div
+      class=" fs9pw6x cancel-compare"
     >
-      Compare
-      <span
-        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-      />
-    </button>
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+        id="compare-button"
+        tabindex="0"
+        type="submit"
+      >
+        Compare
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </button>
+    </div>
   </div>
 </form>
 `;
@@ -811,7 +805,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
 </ul>
 `;
 
-exports[`Compare With Base should have an edit mode in Results View: After clicking edit for the base revision 1`] = `
+exports[`Compare With Base should have an edit mode in Results View: After clicking edit button 1`] = `
 <form
   action="/compare-results"
   aria-label="Compare with base form"
@@ -819,10 +813,13 @@ exports[`Compare With Base should have an edit mode in Results View: After click
   method="get"
 >
   <div
+    class="edit-btn-wrapper"
+  />
+  <div
     class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1qectas label-edit-wrapper css-13eijkh-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f913nm1 label-edit-wrapper css-13eijkh-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -845,11 +842,11 @@ exports[`Compare With Base should have an edit mode in Results View: After click
       </label>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_f19z97w1 show-container  css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_fmzmsg2 show-container  css-1ljzhs0-MuiGrid-root"
       id="base-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1qectas small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f913nm1 small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="base_search-dropdown"
       >
         <div
@@ -890,7 +887,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_fctyy2s big  css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f1o6j1ms big  css-17gmabg-MuiGrid-root"
         id="base_search-input"
       >
         <div
@@ -947,33 +944,6 @@ exports[`Compare With Base should have an edit mode in Results View: After click
             </div>
           </div>
         </div>
-      </div>
-      <div
-        class="cancel-save-btns"
-        id="cancel-save_btns"
-      >
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-save cancel-button cancel-button-base css-scvq78-MuiButtonBase-root-MuiButton-root"
-          name="cancel-button"
-          tabindex="0"
-          type="button"
-        >
-          Cancel
-          <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
-        </button>
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-save save-button save-button-base css-mire2f-MuiButtonBase-root-MuiButton-root"
-          name="save-button"
-          tabindex="0"
-          type="button"
-        >
-          Save
-          <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
-        </button>
       </div>
     </div>
     <div
@@ -1130,7 +1100,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
     class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1qectas label-edit-wrapper css-13eijkh-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 label-edit-wrapper css-13eijkh-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -1151,31 +1121,13 @@ exports[`Compare With Base should have an edit mode in Results View: After click
           />
         </svg>
       </label>
-      <button
-        aria-label="edit revision"
-        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium edit-button edit-button-new show-edit-btn css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
-        id="new-edit-button"
-        name="edit-button"
-        tabindex="0"
-        type="button"
-      >
-        <img
-          alt="edit-icon"
-          class="icon icon-edit"
-          id="new-edit-button-icon"
-          src="https://user-images.githubusercontent.com/88336547/259900252-462ac221-f4ff-4b1c-bb6b-5df906e8007d.svg"
-        />
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
-      </button>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_f19z97w1 hide-container  css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_fmzmsg2 show-container  css-1ljzhs0-MuiGrid-root"
       id="new-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1qectas small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown"
       >
         <div
@@ -1216,7 +1168,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_fctyy2s big  css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f1o6j1ms big  css-17gmabg-MuiGrid-root"
         id="new_search-input"
       >
         <div
@@ -1273,559 +1225,6 @@ exports[`Compare With Base should have an edit mode in Results View: After click
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div
-      class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
-      data-testid="new-selected-revision"
-    >
-      <div
-        class="box_f65ycfw new-box MuiBox-root css-0"
-      >
-        <ul
-          class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
-        >
-          <li
-            class="MuiListItem-root MuiListItem-gutters MuiListItem-padding item-container item-0 item-new css-vtiz8x-MuiListItem-root"
-            data-testid="selected-rev-item"
-          >
-            <input
-              name="newRev"
-              type="hidden"
-              value="coconut"
-            />
-            <input
-              name="newRepo"
-              type="hidden"
-              value="try"
-            />
-            <div
-              class="repo_f1bx8by5"
-            >
-              <div>
-                try
-              </div>
-              <div
-                class="warning-icon"
-              >
-                <svg
-                  aria-label="Comparing “try” repository to any repository aside from “try” is not recommended."
-                  class="MuiSvgIcon-root MuiSvgIcon-colorWarning MuiSvgIcon-fontSizeSmall css-1jwhf5x-MuiSvgIcon-root"
-                  data-mui-internal-clone-element="true"
-                  data-testid="WarningIcon"
-                  focusable="false"
-                  role="img"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
-                  />
-                  <title>
-                    Comparing “try” repository to any repository aside from “try” is not recommended.
-                  </title>
-                </svg>
-              </div>
-            </div>
-            <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
-            >
-              <div
-                class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
-              >
-                <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-hrbm3k-MuiTypography-root"
-                >
-                  <span
-                    class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
-                  >
-                    <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                      href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
-                      target="_blank"
-                      title="open treeherder view for coconut"
-                    >
-                      coconut
-                    </a>
-                  </span>
-                  <div
-                    class="info-caption"
-                  >
-                    <div
-                      class="info-caption-item item-author"
-                    >
-                       
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
-                        data-testid="MailOutlineOutlinedIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
-                        />
-                      </svg>
-                       
-                      johncleese@python.com
-                    </div>
-                    <div
-                      class="info-caption-item item-time"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall time-icon css-1mecf1h-MuiSvgIcon-root"
-                        data-testid="AccessTimeOutlinedIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
-                        />
-                      </svg>
-                      03/29/51 00:00
-                    </div>
-                  </div>
-                </span>
-                <p
-                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
-                >
-                  you've got no arms left! 
-                </p>
-              </div>
-              <button
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium icon-close-hidden revision-action close-button css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
-                name="close-button"
-                tabindex="0"
-                title="remove revision"
-                type="button"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1mecf1h-MuiSvgIcon-root"
-                  data-testid="close-icon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
-                  />
-                </svg>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1qectas fjuaqdk css-13eijkh-MuiGrid-root"
-  >
-    <div
-      class="MuiFormControl-root framework-dropdown f1pm9d4y css-1nrlq1o-MuiFormControl-root"
-    >
-      <label
-        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
-        data-shrink="true"
-        id="select-framework-label"
-      >
-        Framework
-        <svg
-          aria-hidden="true"
-          aria-label="The framework or test harness containing the test you want to examine."
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
-          data-mui-internal-clone-element="true"
-          data-testid="InfoOutlinedIcon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-          />
-        </svg>
-      </label>
-      <div
-        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-        data-testid="dropdown-select-framework"
-      >
-        <div
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-labelledby="select-framework-label mui-component-select-framework"
-          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-          id="mui-component-select-framework"
-          role="button"
-          tabindex="0"
-        >
-          build_metrics
-        </div>
-        <input
-          aria-hidden="true"
-          class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-          name="framework"
-          tabindex="-1"
-          value="2"
-        />
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
-          data-testid="ArrowDropDownIcon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M7 10l5 5 5-5z"
-          />
-        </svg>
-      </div>
-    </div>
-    <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-mire2f-MuiButtonBase-root-MuiButton-root"
-      id="compare-button"
-      tabindex="0"
-      type="submit"
-    >
-      Compare
-      <span
-        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-      />
-    </button>
-  </div>
-</form>
-`;
-
-exports[`Compare With Base should have an edit mode in Results View: After clicking edit for the new revision 1`] = `
-<form
-  action="/compare-results"
-  aria-label="Compare with base form"
-  class="form-wrapper"
-  method="get"
->
-  <div
-    class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
-  >
-    <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1qectas label-edit-wrapper css-13eijkh-MuiGrid-root"
-    >
-      <label
-        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-        id="repo-dropdown--base"
-      >
-        Base
-        <svg
-          aria-hidden="true"
-          aria-label="The baseline revision (no changes) your revision will be compared against."
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
-          data-mui-internal-clone-element="true"
-          data-testid="InfoOutlinedIcon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-          />
-        </svg>
-      </label>
-      <button
-        aria-label="edit revision"
-        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium edit-button edit-button-base show-edit-btn css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
-        id="base-edit-button"
-        name="edit-button"
-        tabindex="0"
-        type="button"
-      >
-        <img
-          alt="edit-icon"
-          class="icon icon-edit"
-          id="base-edit-button-icon"
-          src="https://user-images.githubusercontent.com/88336547/259900252-462ac221-f4ff-4b1c-bb6b-5df906e8007d.svg"
-        />
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
-      </button>
-    </div>
-    <div
-      class="MuiGrid-root MuiGrid-container container_f19z97w1 hide-container  css-1ljzhs0-MuiGrid-root"
-      id="base-search-container"
-    >
-      <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1qectas small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
-        id="base_search-dropdown"
-      >
-        <div
-          class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
-        >
-          <div
-            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-            data-testid="dropdown-select-repo-dropdown--base"
-          >
-            <div
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-labelledby="repo-dropdown--base"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-              role="button"
-              tabindex="0"
-            >
-              try
-            </div>
-            <input
-              aria-hidden="true"
-              class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-              tabindex="-1"
-              value="try"
-            />
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
-              data-testid="ArrowDropDownIcon"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M7 10l5 5 5-5z"
-              />
-            </svg>
-          </div>
-        </div>
-      </div>
-      <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_fctyy2s big  css-17gmabg-MuiGrid-root"
-        id="base_search-input"
-      >
-        <div
-          class="MuiBox-root css-0"
-        >
-          <div
-            class="MuiFormControl-root MuiFormControl-fullWidth fj0l9jr css-q8hpuo-MuiFormControl-root"
-          >
-            <div
-              class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
-            >
-              <div
-                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-193b4t-MuiInputBase-root-MuiOutlinedInput-root"
-              >
-                <div
-                  class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-1laqsz7-MuiInputAdornment-root"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                    data-testid="SearchIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-                    />
-                  </svg>
-                </div>
-                <input
-                  aria-invalid="false"
-                  aria-label="Search base by ID number or author email"
-                  class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-jrmsot-MuiInputBase-input-MuiOutlinedInput-input"
-                  id="search-base-input"
-                  placeholder="Search base by ID number or author email"
-                  type="text"
-                  value=""
-                />
-                <fieldset
-                  aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
-                >
-                  <legend
-                    class="css-ihdtdm"
-                  >
-                    <span
-                      class="notranslate"
-                    >
-                      ​
-                    </span>
-                  </legend>
-                </fieldset>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
-      data-testid="base-selected-revision"
-    >
-      <div
-        class="box_f65ycfw base-box MuiBox-root css-0"
-      >
-        <ul
-          class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
-        />
-      </div>
-    </div>
-  </div>
-  <div
-    class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
-  >
-    <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1qectas label-edit-wrapper css-13eijkh-MuiGrid-root"
-    >
-      <label
-        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-        id="repo-dropdown--new"
-      >
-        Revisions
-        <svg
-          aria-hidden="true"
-          aria-label="Revisions (typically including your changes) to compare against the selected base revision."
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
-          data-mui-internal-clone-element="true"
-          data-testid="InfoOutlinedIcon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-          />
-        </svg>
-      </label>
-    </div>
-    <div
-      class="MuiGrid-root MuiGrid-container container_f19z97w1 show-container  css-1ljzhs0-MuiGrid-root"
-      id="new-search-container"
-    >
-      <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1qectas small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
-        id="new_search-dropdown"
-      >
-        <div
-          class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
-        >
-          <div
-            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-            data-testid="dropdown-select-repo-dropdown--new"
-          >
-            <div
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-labelledby="repo-dropdown--new"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-              role="button"
-              tabindex="0"
-            >
-              mozilla-central
-            </div>
-            <input
-              aria-hidden="true"
-              class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-              tabindex="-1"
-              value="mozilla-central"
-            />
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
-              data-testid="ArrowDropDownIcon"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M7 10l5 5 5-5z"
-              />
-            </svg>
-          </div>
-        </div>
-      </div>
-      <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_fctyy2s big  css-17gmabg-MuiGrid-root"
-        id="new_search-input"
-      >
-        <div
-          class="MuiBox-root css-0"
-        >
-          <div
-            class="MuiFormControl-root MuiFormControl-fullWidth fj0l9jr css-q8hpuo-MuiFormControl-root"
-          >
-            <div
-              class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
-            >
-              <div
-                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-193b4t-MuiInputBase-root-MuiOutlinedInput-root"
-              >
-                <div
-                  class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-1laqsz7-MuiInputAdornment-root"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                    data-testid="SearchIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-                    />
-                  </svg>
-                </div>
-                <input
-                  aria-invalid="false"
-                  aria-label="Search revision by ID number or author email"
-                  class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-jrmsot-MuiInputBase-input-MuiOutlinedInput-input"
-                  id="search-new-input"
-                  placeholder="Search revision by ID number or author email"
-                  type="text"
-                  value=""
-                />
-                <fieldset
-                  aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
-                >
-                  <legend
-                    class="css-ihdtdm"
-                  >
-                    <span
-                      class="notranslate"
-                    >
-                      ​
-                    </span>
-                  </legend>
-                </fieldset>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="cancel-save-btns"
-        id="cancel-save_btns"
-      >
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-save cancel-button cancel-button-new css-scvq78-MuiButtonBase-root-MuiButton-root"
-          name="cancel-button"
-          tabindex="0"
-          type="button"
-        >
-          Cancel
-          <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
-        </button>
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-save save-button save-button-new css-mire2f-MuiButtonBase-root-MuiButton-root"
-          name="save-button"
-          tabindex="0"
-          type="button"
-        >
-          Save
-          <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
-        </button>
       </div>
     </div>
     <div
@@ -1979,7 +1378,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
     </div>
   </div>
   <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1qectas fjuaqdk css-13eijkh-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f913nm1 fjuaqdk css-13eijkh-MuiGrid-root"
   >
     <div
       class="MuiFormControl-root framework-dropdown f1pm9d4y css-1nrlq1o-MuiFormControl-root"
@@ -2039,17 +1438,32 @@ exports[`Compare With Base should have an edit mode in Results View: After click
         </svg>
       </div>
     </div>
-    <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-mire2f-MuiButtonBase-root-MuiButton-root"
-      id="compare-button"
-      tabindex="0"
-      type="submit"
+    <div
+      class=" fs9pw6x cancel-compare"
     >
-      Compare
-      <span
-        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-      />
-    </button>
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-button css-1kvj3q1-MuiButtonBase-root-MuiButton-root"
+        name="cancel-button"
+        tabindex="0"
+        type="button"
+      >
+        Cancel
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </button>
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+        id="compare-button"
+        tabindex="0"
+        type="submit"
+      >
+        Compare
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </button>
+    </div>
   </div>
 </form>
 `;
@@ -2062,10 +1476,36 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
   method="get"
 >
   <div
+    class="edit-btn-wrapper"
+  >
+    <button
+      aria-label="edit revision"
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+      name="edit-button"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="MuiButton-startIcon MuiButton-iconSizeMedium css-gcc2o7-MuiButton-startIcon"
+      >
+        <img
+          alt="edit-icon"
+          class="icon icon-edit"
+          id="edit-button-icon"
+          src="https://user-images.githubusercontent.com/88336547/259900252-462ac221-f4ff-4b1c-bb6b-5df906e8007d.svg"
+        />
+      </span>
+      Edit entry
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </button>
+  </div>
+  <div
     class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1qectas label-edit-wrapper css-13eijkh-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f913nm1 label-edit-wrapper css-13eijkh-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -2086,31 +1526,13 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
           />
         </svg>
       </label>
-      <button
-        aria-label="edit revision"
-        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium edit-button edit-button-base show-edit-btn css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
-        id="base-edit-button"
-        name="edit-button"
-        tabindex="0"
-        type="button"
-      >
-        <img
-          alt="edit-icon"
-          class="icon icon-edit"
-          id="base-edit-button-icon"
-          src="https://user-images.githubusercontent.com/88336547/259900252-462ac221-f4ff-4b1c-bb6b-5df906e8007d.svg"
-        />
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
-      </button>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_f19z97w1 hide-container  css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_fmzmsg2 hide-container  css-1ljzhs0-MuiGrid-root"
       id="base-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1qectas small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f913nm1 small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="base_search-dropdown"
       >
         <div
@@ -2151,7 +1573,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_fctyy2s big  css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f1o6j1ms big  css-17gmabg-MuiGrid-root"
         id="base_search-input"
       >
         <div
@@ -2364,7 +1786,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
     class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1qectas label-edit-wrapper css-13eijkh-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 label-edit-wrapper css-13eijkh-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -2385,31 +1807,13 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
           />
         </svg>
       </label>
-      <button
-        aria-label="edit revision"
-        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium edit-button edit-button-new show-edit-btn css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
-        id="new-edit-button"
-        name="edit-button"
-        tabindex="0"
-        type="button"
-      >
-        <img
-          alt="edit-icon"
-          class="icon icon-edit"
-          id="new-edit-button-icon"
-          src="https://user-images.githubusercontent.com/88336547/259900252-462ac221-f4ff-4b1c-bb6b-5df906e8007d.svg"
-        />
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
-      </button>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_f19z97w1 hide-container  css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_fmzmsg2 hide-container  css-1ljzhs0-MuiGrid-root"
       id="new-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1qectas small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown"
       >
         <div
@@ -2450,7 +1854,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_fctyy2s big  css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f1o6j1ms big  css-17gmabg-MuiGrid-root"
         id="new_search-input"
       >
         <div
@@ -2660,7 +2064,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
     </div>
   </div>
   <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1qectas fjuaqdk css-13eijkh-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f913nm1 fjuaqdk css-13eijkh-MuiGrid-root"
   >
     <div
       class="MuiFormControl-root framework-dropdown f1pm9d4y css-1nrlq1o-MuiFormControl-root"
@@ -2720,17 +2124,21 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
         </svg>
       </div>
     </div>
-    <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-mire2f-MuiButtonBase-root-MuiButton-root"
-      id="compare-button"
-      tabindex="0"
-      type="submit"
+    <div
+      class=" fs9pw6x cancel-compare"
     >
-      Compare
-      <span
-        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-      />
-    </button>
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+        id="compare-button"
+        tabindex="0"
+        type="submit"
+      >
+        Compare
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </button>
+    </div>
   </div>
 </form>
 `;
@@ -2743,10 +2151,13 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
   method="get"
 >
   <div
+    class="edit-btn-wrapper"
+  />
+  <div
     class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1qectas label-edit-wrapper css-13eijkh-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f913nm1 label-edit-wrapper css-13eijkh-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -2769,11 +2180,11 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
       </label>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_f19z97w1 show-container  css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_fmzmsg2 show-container  css-1ljzhs0-MuiGrid-root"
       id="base-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1qectas small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f913nm1 small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="base_search-dropdown"
       >
         <div
@@ -2814,7 +2225,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_fctyy2s big  css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f1o6j1ms big  css-17gmabg-MuiGrid-root"
         id="base_search-input"
       >
         <div
@@ -2872,33 +2283,6 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
           </div>
         </div>
       </div>
-      <div
-        class="cancel-save-btns"
-        id="cancel-save_btns"
-      >
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-save cancel-button cancel-button-base css-scvq78-MuiButtonBase-root-MuiButton-root"
-          name="cancel-button"
-          tabindex="0"
-          type="button"
-        >
-          Cancel
-          <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
-        </button>
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-save save-button save-button-base css-mire2f-MuiButtonBase-root-MuiButton-root"
-          name="save-button"
-          tabindex="0"
-          type="button"
-        >
-          Save
-          <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
-        </button>
-      </div>
     </div>
     <div
       class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
@@ -2917,7 +2301,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
     class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1qectas label-edit-wrapper css-13eijkh-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 label-edit-wrapper css-13eijkh-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -2938,31 +2322,13 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
           />
         </svg>
       </label>
-      <button
-        aria-label="edit revision"
-        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium edit-button edit-button-new show-edit-btn css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
-        id="new-edit-button"
-        name="edit-button"
-        tabindex="0"
-        type="button"
-      >
-        <img
-          alt="edit-icon"
-          class="icon icon-edit"
-          id="new-edit-button-icon"
-          src="https://user-images.githubusercontent.com/88336547/259900252-462ac221-f4ff-4b1c-bb6b-5df906e8007d.svg"
-        />
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
-      </button>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_f19z97w1 hide-container  css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_fmzmsg2 show-container  css-1ljzhs0-MuiGrid-root"
       id="new-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1qectas small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown"
       >
         <div
@@ -3003,7 +2369,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_fctyy2s big  css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f1o6j1ms big  css-17gmabg-MuiGrid-root"
         id="new_search-input"
       >
         <div
@@ -3182,7 +2548,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                 </p>
               </div>
               <button
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium icon-close-hidden revision-action close-button css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium icon-close-show revision-action close-button css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
                 name="close-button"
                 tabindex="0"
                 title="remove revision"
@@ -3213,7 +2579,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
     </div>
   </div>
   <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1qectas fjuaqdk css-13eijkh-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f913nm1 fjuaqdk css-13eijkh-MuiGrid-root"
   >
     <div
       class="MuiFormControl-root framework-dropdown f1pm9d4y css-1nrlq1o-MuiFormControl-root"
@@ -3273,17 +2639,558 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
         </svg>
       </div>
     </div>
-    <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-mire2f-MuiButtonBase-root-MuiButton-root"
-      id="compare-button"
-      tabindex="0"
-      type="submit"
+    <div
+      class=" fs9pw6x cancel-compare"
     >
-      Compare
-      <span
-        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-      />
-    </button>
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-button css-1kvj3q1-MuiButtonBase-root-MuiButton-root"
+        name="cancel-button"
+        tabindex="0"
+        type="button"
+      >
+        Cancel
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </button>
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+        id="compare-button"
+        tabindex="0"
+        type="submit"
+      >
+        Compare
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Compare With Base should have an edit mode in Results View: after removal of new revision 1`] = `
+<form
+  action="/compare-results"
+  aria-label="Compare with base form"
+  class="form-wrapper"
+  method="get"
+>
+  <div
+    class="edit-btn-wrapper"
+  />
+  <div
+    class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f913nm1 label-edit-wrapper css-13eijkh-MuiGrid-root"
+    >
+      <label
+        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
+        id="repo-dropdown--base"
+      >
+        Base
+        <svg
+          aria-hidden="true"
+          aria-label="The baseline revision (no changes) your revision will be compared against."
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+          data-mui-internal-clone-element="true"
+          data-testid="InfoOutlinedIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+          />
+        </svg>
+      </label>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-container container_fmzmsg2 show-container  css-1ljzhs0-MuiGrid-root"
+      id="base-search-container"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f913nm1 small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        id="base_search-dropdown"
+      >
+        <div
+          class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+        >
+          <div
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+            data-testid="dropdown-select-repo-dropdown--base"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-labelledby="repo-dropdown--base"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              role="button"
+              tabindex="0"
+            >
+              try
+            </div>
+            <input
+              aria-hidden="true"
+              class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+              tabindex="-1"
+              value="try"
+            />
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
+              data-testid="ArrowDropDownIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7 10l5 5 5-5z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f1o6j1ms big  css-17gmabg-MuiGrid-root"
+        id="base_search-input"
+      >
+        <div
+          class="MuiBox-root css-0"
+        >
+          <div
+            class="MuiFormControl-root MuiFormControl-fullWidth fj0l9jr css-q8hpuo-MuiFormControl-root"
+          >
+            <div
+              class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
+            >
+              <div
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-193b4t-MuiInputBase-root-MuiOutlinedInput-root"
+              >
+                <div
+                  class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-1laqsz7-MuiInputAdornment-root"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                    data-testid="SearchIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                    />
+                  </svg>
+                </div>
+                <input
+                  aria-invalid="false"
+                  aria-label="Search base by ID number or author email"
+                  class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-jrmsot-MuiInputBase-input-MuiOutlinedInput-input"
+                  id="search-base-input"
+                  placeholder="Search base by ID number or author email"
+                  type="text"
+                  value=""
+                />
+                <fieldset
+                  aria-hidden="true"
+                  class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+                >
+                  <legend
+                    class="css-ihdtdm"
+                  >
+                    <span
+                      class="notranslate"
+                    >
+                      ​
+                    </span>
+                  </legend>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
+      data-testid="base-selected-revision"
+    >
+      <div
+        class="box_f65ycfw base-box MuiBox-root css-0"
+      >
+        <ul
+          class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
+        >
+          <li
+            class="MuiListItem-root MuiListItem-gutters MuiListItem-padding item-container item-0 item-base css-vtiz8x-MuiListItem-root"
+            data-testid="selected-rev-item"
+          >
+            <input
+              name="baseRev"
+              type="hidden"
+              value="coconut"
+            />
+            <input
+              name="baseRepo"
+              type="hidden"
+              value="try"
+            />
+            <div
+              class="repo_f1bx8by5"
+            >
+              <div>
+                try
+              </div>
+              <div
+                class="warning-icon"
+              >
+                <svg
+                  aria-label="Comparing “try” repository to any repository aside from “try” is not recommended."
+                  class="MuiSvgIcon-root MuiSvgIcon-colorWarning MuiSvgIcon-fontSizeSmall css-1jwhf5x-MuiSvgIcon-root"
+                  data-mui-internal-clone-element="true"
+                  data-testid="WarningIcon"
+                  focusable="false"
+                  role="img"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
+                  />
+                  <title>
+                    Comparing “try” repository to any repository aside from “try” is not recommended.
+                  </title>
+                </svg>
+              </div>
+            </div>
+            <div
+              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
+              >
+                <span
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-hrbm3k-MuiTypography-root"
+                >
+                  <span
+                    class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
+                  >
+                    <a
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+                      href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
+                      target="_blank"
+                      title="open treeherder view for coconut"
+                    >
+                      coconut
+                    </a>
+                  </span>
+                  <div
+                    class="info-caption"
+                  >
+                    <div
+                      class="info-caption-item item-author"
+                    >
+                       
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
+                        data-testid="MailOutlineOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
+                        />
+                      </svg>
+                       
+                      johncleese@python.com
+                    </div>
+                    <div
+                      class="info-caption-item item-time"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall time-icon css-1mecf1h-MuiSvgIcon-root"
+                        data-testid="AccessTimeOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
+                        />
+                      </svg>
+                      03/29/51 00:00
+                    </div>
+                  </div>
+                </span>
+                <p
+                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
+                >
+                  you've got no arms left! 
+                </p>
+              </div>
+              <button
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium icon-close-show revision-action close-button css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
+                name="close-button"
+                tabindex="0"
+                title="remove revision"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1mecf1h-MuiSvgIcon-root"
+                  data-testid="close-icon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
+                  />
+                </svg>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </button>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 label-edit-wrapper css-13eijkh-MuiGrid-root"
+    >
+      <label
+        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
+        id="repo-dropdown--new"
+      >
+        Revisions
+        <svg
+          aria-hidden="true"
+          aria-label="Revisions (typically including your changes) to compare against the selected base revision."
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+          data-mui-internal-clone-element="true"
+          data-testid="InfoOutlinedIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+          />
+        </svg>
+      </label>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-container container_fmzmsg2 show-container  css-1ljzhs0-MuiGrid-root"
+      id="new-search-container"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        id="new_search-dropdown"
+      >
+        <div
+          class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
+        >
+          <div
+            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+            data-testid="dropdown-select-repo-dropdown--new"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-labelledby="repo-dropdown--new"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              role="button"
+              tabindex="0"
+            >
+              mozilla-central
+            </div>
+            <input
+              aria-hidden="true"
+              class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+              tabindex="-1"
+              value="mozilla-central"
+            />
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
+              data-testid="ArrowDropDownIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7 10l5 5 5-5z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f1o6j1ms big  css-17gmabg-MuiGrid-root"
+        id="new_search-input"
+      >
+        <div
+          class="MuiBox-root css-0"
+        >
+          <div
+            class="MuiFormControl-root MuiFormControl-fullWidth fj0l9jr css-q8hpuo-MuiFormControl-root"
+          >
+            <div
+              class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
+            >
+              <div
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-193b4t-MuiInputBase-root-MuiOutlinedInput-root"
+              >
+                <div
+                  class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-1laqsz7-MuiInputAdornment-root"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                    data-testid="SearchIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                    />
+                  </svg>
+                </div>
+                <input
+                  aria-invalid="false"
+                  aria-label="Search revision by ID number or author email"
+                  class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-jrmsot-MuiInputBase-input-MuiOutlinedInput-input"
+                  id="search-new-input"
+                  placeholder="Search revision by ID number or author email"
+                  type="text"
+                  value=""
+                />
+                <fieldset
+                  aria-hidden="true"
+                  class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+                >
+                  <legend
+                    class="css-ihdtdm"
+                  >
+                    <span
+                      class="notranslate"
+                    >
+                      ​
+                    </span>
+                  </legend>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
+      data-testid="new-selected-revision"
+    >
+      <div
+        class="box_f65ycfw new-box MuiBox-root css-0"
+      >
+        <ul
+          class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f913nm1 fjuaqdk css-13eijkh-MuiGrid-root"
+  >
+    <div
+      class="MuiFormControl-root framework-dropdown f1pm9d4y css-1nrlq1o-MuiFormControl-root"
+    >
+      <label
+        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
+        data-shrink="true"
+        id="select-framework-label"
+      >
+        Framework
+        <svg
+          aria-hidden="true"
+          aria-label="The framework or test harness containing the test you want to examine."
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+          data-mui-internal-clone-element="true"
+          data-testid="InfoOutlinedIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+          />
+        </svg>
+      </label>
+      <div
+        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+        data-testid="dropdown-select-framework"
+      >
+        <div
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-labelledby="select-framework-label mui-component-select-framework"
+          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+          id="mui-component-select-framework"
+          role="button"
+          tabindex="0"
+        >
+          build_metrics
+        </div>
+        <input
+          aria-hidden="true"
+          class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+          name="framework"
+          tabindex="-1"
+          value="2"
+        />
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
+          data-testid="ArrowDropDownIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M7 10l5 5 5-5z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class=" fs9pw6x cancel-compare"
+    >
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-button css-1kvj3q1-MuiButtonBase-root-MuiButton-root"
+        name="cancel-button"
+        tabindex="0"
+        type="button"
+      >
+        Cancel
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </button>
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+        id="compare-button"
+        tabindex="0"
+        type="submit"
+      >
+        Compare
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </button>
+    </div>
   </div>
 </form>
 `;
@@ -3361,7 +3268,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
             Analyze results of performance tests to detect regressions and identify opportunities for improvement.
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation learn-more-btn css-mire2f-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation learn-more-btn css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
@@ -3385,7 +3292,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
           class="MuiGrid-root wrapper--withbase fcdpsbx css-plh9qo-MuiGrid-root"
         >
           <div
-            class="compare-card-container compare-card-container--expanded container_fulqxr1"
+            class="compare-card-container compare-card-container--expanded container_f1l9fg47"
             data-testid="base-state"
           >
             <div
@@ -3408,7 +3315,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
             />
           </div>
           <div
-            class="compare-card-container content-base content-base--expanded container_fulqxr1 "
+            class="compare-card-container content-base content-base--expanded container_f1l9fg47 "
           >
             <hr
               class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
@@ -3420,10 +3327,13 @@ exports[`Compare With Base should remove the checked revision once X button is c
               method="get"
             >
               <div
+                class="edit-btn-wrapper"
+              />
+              <div
                 class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1qectas label-edit-wrapper css-13eijkh-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f913nm1 label-edit-wrapper css-13eijkh-MuiGrid-root"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -3446,11 +3356,11 @@ exports[`Compare With Base should remove the checked revision once X button is c
                   </label>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-container container_f19z97w1 show-container  css-1ljzhs0-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container container_fmzmsg2 show-container  css-1ljzhs0-MuiGrid-root"
                   id="base-search-container"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1qectas  -base-dropdown css-1awobkc-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f913nm1  -base-dropdown css-1awobkc-MuiGrid-root"
                     id="base_search-dropdown"
                   >
                     <div
@@ -3491,7 +3401,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                     </div>
                   </div>
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_fctyy2s   css-17gmabg-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f1o6j1ms   css-17gmabg-MuiGrid-root"
                     id="base_search-input"
                   >
                     <div
@@ -3567,7 +3477,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                 class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1qectas label-edit-wrapper css-13eijkh-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 label-edit-wrapper css-13eijkh-MuiGrid-root"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -3590,11 +3500,11 @@ exports[`Compare With Base should remove the checked revision once X button is c
                   </label>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-container container_f19z97w1 show-container  css-1ljzhs0-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container container_fmzmsg2 show-container  css-1ljzhs0-MuiGrid-root"
                   id="new-search-container"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1qectas  -base-dropdown css-1awobkc-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1  -base-dropdown css-1awobkc-MuiGrid-root"
                     id="new_search-dropdown"
                   >
                     <div
@@ -3635,7 +3545,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                     </div>
                   </div>
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_fctyy2s   css-17gmabg-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f1o6j1ms   css-17gmabg-MuiGrid-root"
                     id="new_search-input"
                   >
                     <div
@@ -3708,7 +3618,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                 </div>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1qectas fjuaqdk css-13eijkh-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f913nm1 fjuaqdk css-13eijkh-MuiGrid-root"
               >
                 <div
                   class="MuiFormControl-root framework-dropdown f1pm9d4y css-1nrlq1o-MuiFormControl-root"
@@ -3768,17 +3678,21 @@ exports[`Compare With Base should remove the checked revision once X button is c
                     </svg>
                   </div>
                 </div>
-                <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-mire2f-MuiButtonBase-root-MuiButton-root"
-                  id="compare-button"
-                  tabindex="0"
-                  type="submit"
+                <div
+                  class=" fs9pw6x cancel-compare"
                 >
-                  Compare
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </button>
+                  <button
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+                    id="compare-button"
+                    tabindex="0"
+                    type="submit"
+                  >
+                    Compare
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
               </div>
             </form>
           </div>
@@ -3787,7 +3701,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
           class="MuiGrid-root wrapper--overtime f1ucodr8 css-plh9qo-MuiGrid-root"
         >
           <div
-            class="compare-card-container compare-card-container--hidden container_fulqxr1"
+            class="compare-card-container compare-card-container--hidden container_f1l9fg47"
             data-testid="time-state"
           >
             <div
@@ -3810,7 +3724,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
             />
           </div>
           <div
-            class="compare-card-container content-base content-base--hidden container_fulqxr1 "
+            class="compare-card-container content-base content-base--hidden container_f1l9fg47 "
           >
             <hr
               class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
@@ -3825,7 +3739,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                 class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1qectas label-edit-wrapper css-13eijkh-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 label-edit-wrapper css-13eijkh-MuiGrid-root"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -3848,11 +3762,11 @@ exports[`Compare With Base should remove the checked revision once X button is c
                   </label>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-container container_f19z97w1 css-1ljzhs0-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container container_fmzmsg2 css-1ljzhs0-MuiGrid-root"
                   id="new-search-container--time"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1qectas  -new-dropdown css-1awobkc-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1  -new-dropdown css-1awobkc-MuiGrid-root"
                     id="new_search-dropdown--time"
                   >
                     <div
@@ -3893,7 +3807,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                     </div>
                   </div>
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_fctyy2s   css-17gmabg-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f1o6j1ms   css-17gmabg-MuiGrid-root"
                     id="new_search-input--time"
                   >
                     <div
@@ -3965,7 +3879,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                 </div>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1qectas fx35f8m css-13eijkh-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f913nm1 fx35f8m css-13eijkh-MuiGrid-root"
               >
                 <div
                   class="bottom-dropdowns"
@@ -4087,17 +4001,21 @@ exports[`Compare With Base should remove the checked revision once X button is c
                     </div>
                   </div>
                 </div>
-                <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-mire2f-MuiButtonBase-root-MuiButton-root"
-                  id="compare-button"
-                  tabindex="0"
-                  type="submit"
+                <div
+                  class=" fs9pw6x cancel-compare"
                 >
-                  Compare
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </button>
+                  <button
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+                    id="compare-button"
+                    tabindex="0"
+                    type="submit"
+                  >
+                    Compare
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
               </div>
             </form>
           </div>
@@ -4106,1384 +4024,4 @@ exports[`Compare With Base should remove the checked revision once X button is c
     </div>
   </div>
 </body>
-`;
-
-exports[`Compare With Base should save the updated BASE revision when Save is clicked: After clicking edit for the base revision 1`] = `
-<form
-  action="/compare-results"
-  aria-label="Compare with base form"
-  class="form-wrapper"
-  method="get"
->
-  <div
-    class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
-  >
-    <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1qectas label-edit-wrapper css-13eijkh-MuiGrid-root"
-    >
-      <label
-        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-        id="repo-dropdown--base"
-      >
-        Base
-        <svg
-          aria-hidden="true"
-          aria-label="The baseline revision (no changes) your revision will be compared against."
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
-          data-mui-internal-clone-element="true"
-          data-testid="InfoOutlinedIcon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-          />
-        </svg>
-      </label>
-    </div>
-    <div
-      class="MuiGrid-root MuiGrid-container container_f19z97w1 show-container  css-1ljzhs0-MuiGrid-root"
-      id="base-search-container"
-    >
-      <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1qectas small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
-        id="base_search-dropdown"
-      >
-        <div
-          class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
-        >
-          <div
-            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-            data-testid="dropdown-select-repo-dropdown--base"
-          >
-            <div
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-labelledby="repo-dropdown--base"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-              role="button"
-              tabindex="0"
-            >
-              try
-            </div>
-            <input
-              aria-hidden="true"
-              class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-              tabindex="-1"
-              value="try"
-            />
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
-              data-testid="ArrowDropDownIcon"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M7 10l5 5 5-5z"
-              />
-            </svg>
-          </div>
-        </div>
-      </div>
-      <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_fctyy2s big  css-17gmabg-MuiGrid-root"
-        id="base_search-input"
-      >
-        <div
-          class="MuiBox-root css-0"
-        >
-          <div
-            class="MuiFormControl-root MuiFormControl-fullWidth fj0l9jr css-q8hpuo-MuiFormControl-root"
-          >
-            <div
-              class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
-            >
-              <div
-                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-193b4t-MuiInputBase-root-MuiOutlinedInput-root"
-              >
-                <div
-                  class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-1laqsz7-MuiInputAdornment-root"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                    data-testid="SearchIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-                    />
-                  </svg>
-                </div>
-                <input
-                  aria-invalid="false"
-                  aria-label="Search base by ID number or author email"
-                  class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-jrmsot-MuiInputBase-input-MuiOutlinedInput-input"
-                  id="search-base-input"
-                  placeholder="Search base by ID number or author email"
-                  type="text"
-                  value=""
-                />
-                <fieldset
-                  aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
-                >
-                  <legend
-                    class="css-ihdtdm"
-                  >
-                    <span
-                      class="notranslate"
-                    >
-                      ​
-                    </span>
-                  </legend>
-                </fieldset>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="cancel-save-btns"
-        id="cancel-save_btns"
-      >
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-save cancel-button cancel-button-base css-scvq78-MuiButtonBase-root-MuiButton-root"
-          name="cancel-button"
-          tabindex="0"
-          type="button"
-        >
-          Cancel
-          <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
-        </button>
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-save save-button save-button-base css-mire2f-MuiButtonBase-root-MuiButton-root"
-          name="save-button"
-          tabindex="0"
-          type="button"
-        >
-          Save
-          <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
-        </button>
-      </div>
-    </div>
-    <div
-      class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
-      data-testid="base-selected-revision"
-    >
-      <div
-        class="box_f65ycfw base-box MuiBox-root css-0"
-      >
-        <ul
-          class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
-        >
-          <li
-            class="MuiListItem-root MuiListItem-gutters MuiListItem-padding item-container item-0 item-base css-vtiz8x-MuiListItem-root"
-            data-testid="selected-rev-item"
-          >
-            <input
-              name="baseRev"
-              type="hidden"
-              value="coconut"
-            />
-            <input
-              name="baseRepo"
-              type="hidden"
-              value="try"
-            />
-            <div
-              class="repo_f1bx8by5"
-            >
-              <div>
-                try
-              </div>
-              <div
-                class="warning-icon"
-              >
-                <svg
-                  aria-label="Comparing “try” repository to any repository aside from “try” is not recommended."
-                  class="MuiSvgIcon-root MuiSvgIcon-colorWarning MuiSvgIcon-fontSizeSmall css-1jwhf5x-MuiSvgIcon-root"
-                  data-mui-internal-clone-element="true"
-                  data-testid="WarningIcon"
-                  focusable="false"
-                  role="img"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
-                  />
-                  <title>
-                    Comparing “try” repository to any repository aside from “try” is not recommended.
-                  </title>
-                </svg>
-              </div>
-            </div>
-            <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
-            >
-              <div
-                class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
-              >
-                <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-hrbm3k-MuiTypography-root"
-                >
-                  <span
-                    class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
-                  >
-                    <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                      href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
-                      target="_blank"
-                      title="open treeherder view for coconut"
-                    >
-                      coconut
-                    </a>
-                  </span>
-                  <div
-                    class="info-caption"
-                  >
-                    <div
-                      class="info-caption-item item-author"
-                    >
-                       
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
-                        data-testid="MailOutlineOutlinedIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
-                        />
-                      </svg>
-                       
-                      johncleese@python.com
-                    </div>
-                    <div
-                      class="info-caption-item item-time"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall time-icon css-1mecf1h-MuiSvgIcon-root"
-                        data-testid="AccessTimeOutlinedIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
-                        />
-                      </svg>
-                      03/29/51 00:00
-                    </div>
-                  </div>
-                </span>
-                <p
-                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
-                >
-                  you've got no arms left! 
-                </p>
-              </div>
-              <button
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium icon-close-show revision-action close-button css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
-                name="close-button"
-                tabindex="0"
-                title="remove revision"
-                type="button"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1mecf1h-MuiSvgIcon-root"
-                  data-testid="close-icon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
-                  />
-                </svg>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div
-    class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
-  >
-    <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1qectas label-edit-wrapper css-13eijkh-MuiGrid-root"
-    >
-      <label
-        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-        id="repo-dropdown--new"
-      >
-        Revisions
-        <svg
-          aria-hidden="true"
-          aria-label="Revisions (typically including your changes) to compare against the selected base revision."
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
-          data-mui-internal-clone-element="true"
-          data-testid="InfoOutlinedIcon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-          />
-        </svg>
-      </label>
-      <button
-        aria-label="edit revision"
-        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium edit-button edit-button-new show-edit-btn css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
-        id="new-edit-button"
-        name="edit-button"
-        tabindex="0"
-        type="button"
-      >
-        <img
-          alt="edit-icon"
-          class="icon icon-edit"
-          id="new-edit-button-icon"
-          src="https://user-images.githubusercontent.com/88336547/259900252-462ac221-f4ff-4b1c-bb6b-5df906e8007d.svg"
-        />
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
-      </button>
-    </div>
-    <div
-      class="MuiGrid-root MuiGrid-container container_f19z97w1 hide-container  css-1ljzhs0-MuiGrid-root"
-      id="new-search-container"
-    >
-      <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1qectas small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
-        id="new_search-dropdown"
-      >
-        <div
-          class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
-        >
-          <div
-            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-            data-testid="dropdown-select-repo-dropdown--new"
-          >
-            <div
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-labelledby="repo-dropdown--new"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-              role="button"
-              tabindex="0"
-            >
-              mozilla-central
-            </div>
-            <input
-              aria-hidden="true"
-              class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-              tabindex="-1"
-              value="mozilla-central"
-            />
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
-              data-testid="ArrowDropDownIcon"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M7 10l5 5 5-5z"
-              />
-            </svg>
-          </div>
-        </div>
-      </div>
-      <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_fctyy2s big  css-17gmabg-MuiGrid-root"
-        id="new_search-input"
-      >
-        <div
-          class="MuiBox-root css-0"
-        >
-          <div
-            class="MuiFormControl-root MuiFormControl-fullWidth fj0l9jr css-q8hpuo-MuiFormControl-root"
-          >
-            <div
-              class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
-            >
-              <div
-                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-193b4t-MuiInputBase-root-MuiOutlinedInput-root"
-              >
-                <div
-                  class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-1laqsz7-MuiInputAdornment-root"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                    data-testid="SearchIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-                    />
-                  </svg>
-                </div>
-                <input
-                  aria-invalid="false"
-                  aria-label="Search revision by ID number or author email"
-                  class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-jrmsot-MuiInputBase-input-MuiOutlinedInput-input"
-                  id="search-new-input"
-                  placeholder="Search revision by ID number or author email"
-                  type="text"
-                  value=""
-                />
-                <fieldset
-                  aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
-                >
-                  <legend
-                    class="css-ihdtdm"
-                  >
-                    <span
-                      class="notranslate"
-                    >
-                      ​
-                    </span>
-                  </legend>
-                </fieldset>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
-      data-testid="new-selected-revision"
-    >
-      <div
-        class="box_f65ycfw new-box MuiBox-root css-0"
-      >
-        <ul
-          class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
-        >
-          <li
-            class="MuiListItem-root MuiListItem-gutters MuiListItem-padding item-container item-0 item-new css-vtiz8x-MuiListItem-root"
-            data-testid="selected-rev-item"
-          >
-            <input
-              name="newRev"
-              type="hidden"
-              value="coconut"
-            />
-            <input
-              name="newRepo"
-              type="hidden"
-              value="try"
-            />
-            <div
-              class="repo_f1bx8by5"
-            >
-              <div>
-                try
-              </div>
-              <div
-                class="warning-icon"
-              >
-                <svg
-                  aria-label="Comparing “try” repository to any repository aside from “try” is not recommended."
-                  class="MuiSvgIcon-root MuiSvgIcon-colorWarning MuiSvgIcon-fontSizeSmall css-1jwhf5x-MuiSvgIcon-root"
-                  data-mui-internal-clone-element="true"
-                  data-testid="WarningIcon"
-                  focusable="false"
-                  role="img"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
-                  />
-                  <title>
-                    Comparing “try” repository to any repository aside from “try” is not recommended.
-                  </title>
-                </svg>
-              </div>
-            </div>
-            <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
-            >
-              <div
-                class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
-              >
-                <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-hrbm3k-MuiTypography-root"
-                >
-                  <span
-                    class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
-                  >
-                    <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                      href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
-                      target="_blank"
-                      title="open treeherder view for coconut"
-                    >
-                      coconut
-                    </a>
-                  </span>
-                  <div
-                    class="info-caption"
-                  >
-                    <div
-                      class="info-caption-item item-author"
-                    >
-                       
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
-                        data-testid="MailOutlineOutlinedIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
-                        />
-                      </svg>
-                       
-                      johncleese@python.com
-                    </div>
-                    <div
-                      class="info-caption-item item-time"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall time-icon css-1mecf1h-MuiSvgIcon-root"
-                        data-testid="AccessTimeOutlinedIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
-                        />
-                      </svg>
-                      03/29/51 00:00
-                    </div>
-                  </div>
-                </span>
-                <p
-                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
-                >
-                  you've got no arms left! 
-                </p>
-              </div>
-              <button
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium icon-close-hidden revision-action close-button css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
-                name="close-button"
-                tabindex="0"
-                title="remove revision"
-                type="button"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1mecf1h-MuiSvgIcon-root"
-                  data-testid="close-icon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
-                  />
-                </svg>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1qectas fjuaqdk css-13eijkh-MuiGrid-root"
-  >
-    <div
-      class="MuiFormControl-root framework-dropdown f1pm9d4y css-1nrlq1o-MuiFormControl-root"
-    >
-      <label
-        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
-        data-shrink="true"
-        id="select-framework-label"
-      >
-        Framework
-        <svg
-          aria-hidden="true"
-          aria-label="The framework or test harness containing the test you want to examine."
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
-          data-mui-internal-clone-element="true"
-          data-testid="InfoOutlinedIcon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-          />
-        </svg>
-      </label>
-      <div
-        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-        data-testid="dropdown-select-framework"
-      >
-        <div
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-labelledby="select-framework-label mui-component-select-framework"
-          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-          id="mui-component-select-framework"
-          role="button"
-          tabindex="0"
-        >
-          build_metrics
-        </div>
-        <input
-          aria-hidden="true"
-          class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-          name="framework"
-          tabindex="-1"
-          value="2"
-        />
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
-          data-testid="ArrowDropDownIcon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M7 10l5 5 5-5z"
-          />
-        </svg>
-      </div>
-    </div>
-    <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-mire2f-MuiButtonBase-root-MuiButton-root"
-      id="compare-button"
-      tabindex="0"
-      type="submit"
-    >
-      Compare
-      <span
-        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-      />
-    </button>
-  </div>
-</form>
-`;
-
-exports[`Compare With Base should save the updated NEW revision when Save is clicked: After clicking edit for the new revision 1`] = `
-<form
-  action="/compare-results"
-  aria-label="Compare with base form"
-  class="form-wrapper"
-  method="get"
->
-  <div
-    class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
-  >
-    <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1qectas label-edit-wrapper css-13eijkh-MuiGrid-root"
-    >
-      <label
-        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-        id="repo-dropdown--base"
-      >
-        Base
-        <svg
-          aria-hidden="true"
-          aria-label="The baseline revision (no changes) your revision will be compared against."
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
-          data-mui-internal-clone-element="true"
-          data-testid="InfoOutlinedIcon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-          />
-        </svg>
-      </label>
-      <button
-        aria-label="edit revision"
-        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium edit-button edit-button-base show-edit-btn css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
-        id="base-edit-button"
-        name="edit-button"
-        tabindex="0"
-        type="button"
-      >
-        <img
-          alt="edit-icon"
-          class="icon icon-edit"
-          id="base-edit-button-icon"
-          src="https://user-images.githubusercontent.com/88336547/259900252-462ac221-f4ff-4b1c-bb6b-5df906e8007d.svg"
-        />
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
-      </button>
-    </div>
-    <div
-      class="MuiGrid-root MuiGrid-container container_f19z97w1 hide-container  css-1ljzhs0-MuiGrid-root"
-      id="base-search-container"
-    >
-      <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1qectas small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
-        id="base_search-dropdown"
-      >
-        <div
-          class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
-        >
-          <div
-            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-            data-testid="dropdown-select-repo-dropdown--base"
-          >
-            <div
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-labelledby="repo-dropdown--base"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-              role="button"
-              tabindex="0"
-            >
-              try
-            </div>
-            <input
-              aria-hidden="true"
-              class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-              tabindex="-1"
-              value="try"
-            />
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
-              data-testid="ArrowDropDownIcon"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M7 10l5 5 5-5z"
-              />
-            </svg>
-          </div>
-        </div>
-      </div>
-      <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_fctyy2s big  css-17gmabg-MuiGrid-root"
-        id="base_search-input"
-      >
-        <div
-          class="MuiBox-root css-0"
-        >
-          <div
-            class="MuiFormControl-root MuiFormControl-fullWidth fj0l9jr css-q8hpuo-MuiFormControl-root"
-          >
-            <div
-              class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
-            >
-              <div
-                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-193b4t-MuiInputBase-root-MuiOutlinedInput-root"
-              >
-                <div
-                  class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-1laqsz7-MuiInputAdornment-root"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                    data-testid="SearchIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-                    />
-                  </svg>
-                </div>
-                <input
-                  aria-invalid="false"
-                  aria-label="Search base by ID number or author email"
-                  class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-jrmsot-MuiInputBase-input-MuiOutlinedInput-input"
-                  id="search-base-input"
-                  placeholder="Search base by ID number or author email"
-                  type="text"
-                  value=""
-                />
-                <fieldset
-                  aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
-                >
-                  <legend
-                    class="css-ihdtdm"
-                  >
-                    <span
-                      class="notranslate"
-                    >
-                      ​
-                    </span>
-                  </legend>
-                </fieldset>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
-      data-testid="base-selected-revision"
-    >
-      <div
-        class="box_f65ycfw base-box MuiBox-root css-0"
-      >
-        <ul
-          class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
-        >
-          <li
-            class="MuiListItem-root MuiListItem-gutters MuiListItem-padding item-container item-0 item-base css-vtiz8x-MuiListItem-root"
-            data-testid="selected-rev-item"
-          >
-            <input
-              name="baseRev"
-              type="hidden"
-              value="coconut"
-            />
-            <input
-              name="baseRepo"
-              type="hidden"
-              value="try"
-            />
-            <div
-              class="repo_f1bx8by5"
-            >
-              <div>
-                try
-              </div>
-              <div
-                class="warning-icon"
-              >
-                <svg
-                  aria-label="Comparing “try” repository to any repository aside from “try” is not recommended."
-                  class="MuiSvgIcon-root MuiSvgIcon-colorWarning MuiSvgIcon-fontSizeSmall css-1jwhf5x-MuiSvgIcon-root"
-                  data-mui-internal-clone-element="true"
-                  data-testid="WarningIcon"
-                  focusable="false"
-                  role="img"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
-                  />
-                  <title>
-                    Comparing “try” repository to any repository aside from “try” is not recommended.
-                  </title>
-                </svg>
-              </div>
-            </div>
-            <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
-            >
-              <div
-                class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
-              >
-                <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-hrbm3k-MuiTypography-root"
-                >
-                  <span
-                    class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
-                  >
-                    <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                      href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
-                      target="_blank"
-                      title="open treeherder view for coconut"
-                    >
-                      coconut
-                    </a>
-                  </span>
-                  <div
-                    class="info-caption"
-                  >
-                    <div
-                      class="info-caption-item item-author"
-                    >
-                       
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
-                        data-testid="MailOutlineOutlinedIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
-                        />
-                      </svg>
-                       
-                      johncleese@python.com
-                    </div>
-                    <div
-                      class="info-caption-item item-time"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall time-icon css-1mecf1h-MuiSvgIcon-root"
-                        data-testid="AccessTimeOutlinedIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
-                        />
-                      </svg>
-                      03/29/51 00:00
-                    </div>
-                  </div>
-                </span>
-                <p
-                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
-                >
-                  you've got no arms left! 
-                </p>
-              </div>
-              <button
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium icon-close-hidden revision-action close-button css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
-                name="close-button"
-                tabindex="0"
-                title="remove revision"
-                type="button"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1mecf1h-MuiSvgIcon-root"
-                  data-testid="close-icon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
-                  />
-                </svg>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div
-    class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
-  >
-    <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1qectas label-edit-wrapper css-13eijkh-MuiGrid-root"
-    >
-      <label
-        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
-        id="repo-dropdown--new"
-      >
-        Revisions
-        <svg
-          aria-hidden="true"
-          aria-label="Revisions (typically including your changes) to compare against the selected base revision."
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
-          data-mui-internal-clone-element="true"
-          data-testid="InfoOutlinedIcon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-          />
-        </svg>
-      </label>
-    </div>
-    <div
-      class="MuiGrid-root MuiGrid-container container_f19z97w1 show-container  css-1ljzhs0-MuiGrid-root"
-      id="new-search-container"
-    >
-      <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1qectas small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
-        id="new_search-dropdown"
-      >
-        <div
-          class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
-        >
-          <div
-            class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-            data-testid="dropdown-select-repo-dropdown--new"
-          >
-            <div
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-labelledby="repo-dropdown--new"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-              role="button"
-              tabindex="0"
-            >
-              mozilla-central
-            </div>
-            <input
-              aria-hidden="true"
-              class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-              tabindex="-1"
-              value="mozilla-central"
-            />
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
-              data-testid="ArrowDropDownIcon"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M7 10l5 5 5-5z"
-              />
-            </svg>
-          </div>
-        </div>
-      </div>
-      <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_fctyy2s big  css-17gmabg-MuiGrid-root"
-        id="new_search-input"
-      >
-        <div
-          class="MuiBox-root css-0"
-        >
-          <div
-            class="MuiFormControl-root MuiFormControl-fullWidth fj0l9jr css-q8hpuo-MuiFormControl-root"
-          >
-            <div
-              class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
-            >
-              <div
-                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-193b4t-MuiInputBase-root-MuiOutlinedInput-root"
-              >
-                <div
-                  class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeSmall css-1laqsz7-MuiInputAdornment-root"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                    data-testid="SearchIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-                    />
-                  </svg>
-                </div>
-                <input
-                  aria-invalid="false"
-                  aria-label="Search revision by ID number or author email"
-                  class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-jrmsot-MuiInputBase-input-MuiOutlinedInput-input"
-                  id="search-new-input"
-                  placeholder="Search revision by ID number or author email"
-                  type="text"
-                  value=""
-                />
-                <fieldset
-                  aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
-                >
-                  <legend
-                    class="css-ihdtdm"
-                  >
-                    <span
-                      class="notranslate"
-                    >
-                      ​
-                    </span>
-                  </legend>
-                </fieldset>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="cancel-save-btns"
-        id="cancel-save_btns"
-      >
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-save cancel-button cancel-button-new css-scvq78-MuiButtonBase-root-MuiButton-root"
-          name="cancel-button"
-          tabindex="0"
-          type="button"
-        >
-          Cancel
-          <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
-        </button>
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-save save-button save-button-new css-mire2f-MuiButtonBase-root-MuiButton-root"
-          name="save-button"
-          tabindex="0"
-          type="button"
-        >
-          Save
-          <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
-        </button>
-      </div>
-    </div>
-    <div
-      class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
-      data-testid="new-selected-revision"
-    >
-      <div
-        class="box_f65ycfw new-box MuiBox-root css-0"
-      >
-        <ul
-          class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
-        >
-          <li
-            class="MuiListItem-root MuiListItem-gutters MuiListItem-padding item-container item-0 item-new css-vtiz8x-MuiListItem-root"
-            data-testid="selected-rev-item"
-          >
-            <input
-              name="newRev"
-              type="hidden"
-              value="coconut"
-            />
-            <input
-              name="newRepo"
-              type="hidden"
-              value="try"
-            />
-            <div
-              class="repo_f1bx8by5"
-            >
-              <div>
-                try
-              </div>
-              <div
-                class="warning-icon"
-              >
-                <svg
-                  aria-label="Comparing “try” repository to any repository aside from “try” is not recommended."
-                  class="MuiSvgIcon-root MuiSvgIcon-colorWarning MuiSvgIcon-fontSizeSmall css-1jwhf5x-MuiSvgIcon-root"
-                  data-mui-internal-clone-element="true"
-                  data-testid="WarningIcon"
-                  focusable="false"
-                  role="img"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
-                  />
-                  <title>
-                    Comparing “try” repository to any repository aside from “try” is not recommended.
-                  </title>
-                </svg>
-              </div>
-            </div>
-            <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
-            >
-              <div
-                class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
-              >
-                <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-hrbm3k-MuiTypography-root"
-                >
-                  <span
-                    class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
-                  >
-                    <a
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                      href="https://treeherder.mozilla.org/jobs?repo=try&revision=coconut"
-                      target="_blank"
-                      title="open treeherder view for coconut"
-                    >
-                      coconut
-                    </a>
-                  </span>
-                  <div
-                    class="info-caption"
-                  >
-                    <div
-                      class="info-caption-item item-author"
-                    >
-                       
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
-                        data-testid="MailOutlineOutlinedIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
-                        />
-                      </svg>
-                       
-                      johncleese@python.com
-                    </div>
-                    <div
-                      class="info-caption-item item-time"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall time-icon css-1mecf1h-MuiSvgIcon-root"
-                        data-testid="AccessTimeOutlinedIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
-                        />
-                      </svg>
-                      03/29/51 00:00
-                    </div>
-                  </div>
-                </span>
-                <p
-                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
-                >
-                  you've got no arms left! 
-                </p>
-              </div>
-              <button
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium icon-close-show revision-action close-button css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
-                name="close-button"
-                tabindex="0"
-                title="remove revision"
-                type="button"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1mecf1h-MuiSvgIcon-root"
-                  data-testid="close-icon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
-                  />
-                </svg>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1qectas fjuaqdk css-13eijkh-MuiGrid-root"
-  >
-    <div
-      class="MuiFormControl-root framework-dropdown f1pm9d4y css-1nrlq1o-MuiFormControl-root"
-    >
-      <label
-        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
-        data-shrink="true"
-        id="select-framework-label"
-      >
-        Framework
-        <svg
-          aria-hidden="true"
-          aria-label="The framework or test harness containing the test you want to examine."
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
-          data-mui-internal-clone-element="true"
-          data-testid="InfoOutlinedIcon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-          />
-        </svg>
-      </label>
-      <div
-        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-        data-testid="dropdown-select-framework"
-      >
-        <div
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-labelledby="select-framework-label mui-component-select-framework"
-          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-          id="mui-component-select-framework"
-          role="button"
-          tabindex="0"
-        >
-          build_metrics
-        </div>
-        <input
-          aria-hidden="true"
-          class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-          name="framework"
-          tabindex="-1"
-          value="2"
-        />
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
-          data-testid="ArrowDropDownIcon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M7 10l5 5 5-5z"
-          />
-        </svg>
-      </div>
-    </div>
-    <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-mire2f-MuiButtonBase-root-MuiButton-root"
-      id="compare-button"
-      tabindex="0"
-      type="submit"
-    >
-      Compare
-      <span
-        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-      />
-    </button>
-  </div>
-</form>
 `;

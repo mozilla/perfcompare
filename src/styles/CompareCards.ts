@@ -19,6 +19,8 @@ const textDarkMode = {
   color: `${Colors.PrimaryTextDark} !important`,
 };
 
+const repoDropdownWidth = 200;
+
 export const CompareCardsStyles = (mode: string) => {
   const isTrueLight = mode == 'light' ? true : false;
 
@@ -56,6 +58,10 @@ export const CompareCardsStyles = (mode: string) => {
               })`,
             },
           },
+        },
+        '.edit-btn-wrapper': {
+          display: 'flex',
+          justifyContent: 'end',
         },
         '&.compare-card-container--time': {
           marginTop: `${Spacing.Large}px`,
@@ -125,40 +131,21 @@ export const SearchStyles = (mode: string) => {
     component: {
       marginBottom: `${Spacing.xLarge}px`,
     },
+
     container: {
       margin: 'auto',
       justifyContent: 'space-between',
       position: 'relative',
-
       $nest: {
         '&.hide-container': {
           display: 'none',
-        },
-
-        '.cancel-save': {
-          padding: '4px 16px',
-          maxWidth: '44px',
-          marginLeft: `${Spacing.Small}px`,
         },
       },
     },
 
     dropDown: {
-      minWidth: '200px',
+      minWidth: `${repoDropdownWidth}px`,
       $nest: {
-        '&.small': {
-          minWidth: '175px',
-        },
-        '&.label-edit-wrapper': {
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'end',
-          $nest: {
-            '.hide-edit-btn': {
-              visibility: 'hidden',
-            },
-          },
-        },
         '.dropdown-select-label,.base_label': {
           ...(isTrueLight ? FontsRaw.BodyDefault : FontsRaw.BodyDefaultDark),
           fontWeight: '600',
@@ -186,8 +173,8 @@ export const SearchStyles = (mode: string) => {
       left: '220px',
       $nest: {
         '&.big': {
-          left: '190px',
-          minWidth: '510px',
+          left: '212px',
+          minWidth: `${850 - repoDropdownWidth - Spacing.Default}px`,
         },
         '&.base-search-input--mobile, &.new-search-input--mobile': {
           position: 'unset',

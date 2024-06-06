@@ -16,7 +16,7 @@ exports[`Search Containter should match snapshot 1`] = `
         class="MuiGrid-root wrapper--withbase fcdpsbx css-plh9qo-MuiGrid-root"
       >
         <div
-          class="compare-card-container compare-card-container--expanded container_fulqxr1"
+          class="compare-card-container compare-card-container--expanded container_f1l9fg47"
           data-testid="base-state"
         >
           <div
@@ -39,7 +39,7 @@ exports[`Search Containter should match snapshot 1`] = `
           />
         </div>
         <div
-          class="compare-card-container content-base content-base--expanded container_fulqxr1 "
+          class="compare-card-container content-base content-base--expanded container_f1l9fg47 "
         >
           <hr
             class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
@@ -51,10 +51,13 @@ exports[`Search Containter should match snapshot 1`] = `
             method="get"
           >
             <div
+              class="edit-btn-wrapper"
+            />
+            <div
               class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
             >
               <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1qectas label-edit-wrapper css-13eijkh-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f913nm1 label-edit-wrapper css-13eijkh-MuiGrid-root"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -77,11 +80,11 @@ exports[`Search Containter should match snapshot 1`] = `
                 </label>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-container container_f19z97w1 show-container  css-1ljzhs0-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-container container_fmzmsg2 show-container  css-1ljzhs0-MuiGrid-root"
                 id="base-search-container"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1qectas  -base-dropdown css-1awobkc-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f913nm1  -base-dropdown css-1awobkc-MuiGrid-root"
                   id="base_search-dropdown"
                 >
                   <div
@@ -122,7 +125,7 @@ exports[`Search Containter should match snapshot 1`] = `
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_fctyy2s   css-17gmabg-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f1o6j1ms   css-17gmabg-MuiGrid-root"
                   id="base_search-input"
                 >
                   <div
@@ -198,7 +201,7 @@ exports[`Search Containter should match snapshot 1`] = `
               class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
             >
               <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1qectas label-edit-wrapper css-13eijkh-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 label-edit-wrapper css-13eijkh-MuiGrid-root"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -221,11 +224,11 @@ exports[`Search Containter should match snapshot 1`] = `
                 </label>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-container container_f19z97w1 show-container  css-1ljzhs0-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-container container_fmzmsg2 show-container  css-1ljzhs0-MuiGrid-root"
                 id="new-search-container"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1qectas  -base-dropdown css-1awobkc-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1  -base-dropdown css-1awobkc-MuiGrid-root"
                   id="new_search-dropdown"
                 >
                   <div
@@ -266,7 +269,7 @@ exports[`Search Containter should match snapshot 1`] = `
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_fctyy2s   css-17gmabg-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f1o6j1ms   css-17gmabg-MuiGrid-root"
                   id="new_search-input"
                 >
                   <div
@@ -339,7 +342,7 @@ exports[`Search Containter should match snapshot 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1qectas fjuaqdk css-13eijkh-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f913nm1 fjuaqdk css-13eijkh-MuiGrid-root"
             >
               <div
                 class="MuiFormControl-root framework-dropdown f1pm9d4y css-1nrlq1o-MuiFormControl-root"
@@ -399,17 +402,21 @@ exports[`Search Containter should match snapshot 1`] = `
                   </svg>
                 </div>
               </div>
-              <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-mire2f-MuiButtonBase-root-MuiButton-root"
-                id="compare-button"
-                tabindex="0"
-                type="submit"
+              <div
+                class=" fs9pw6x cancel-compare"
               >
-                Compare
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </button>
+                <button
+                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+                  id="compare-button"
+                  tabindex="0"
+                  type="submit"
+                >
+                  Compare
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </button>
+              </div>
             </div>
           </form>
         </div>
@@ -418,7 +425,7 @@ exports[`Search Containter should match snapshot 1`] = `
         class="MuiGrid-root wrapper--overtime f1ucodr8 css-plh9qo-MuiGrid-root"
       >
         <div
-          class="compare-card-container compare-card-container--hidden container_fulqxr1"
+          class="compare-card-container compare-card-container--hidden container_f1l9fg47"
           data-testid="time-state"
         >
           <div
@@ -441,7 +448,7 @@ exports[`Search Containter should match snapshot 1`] = `
           />
         </div>
         <div
-          class="compare-card-container content-base content-base--hidden container_fulqxr1 "
+          class="compare-card-container content-base content-base--hidden container_f1l9fg47 "
         >
           <hr
             class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
@@ -456,7 +463,7 @@ exports[`Search Containter should match snapshot 1`] = `
               class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
             >
               <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1qectas label-edit-wrapper css-13eijkh-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 label-edit-wrapper css-13eijkh-MuiGrid-root"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -479,11 +486,11 @@ exports[`Search Containter should match snapshot 1`] = `
                 </label>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-container container_f19z97w1 css-1ljzhs0-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-container container_fmzmsg2 css-1ljzhs0-MuiGrid-root"
                 id="new-search-container--time"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1qectas  -new-dropdown css-1awobkc-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1  -new-dropdown css-1awobkc-MuiGrid-root"
                   id="new_search-dropdown--time"
                 >
                   <div
@@ -524,7 +531,7 @@ exports[`Search Containter should match snapshot 1`] = `
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_fctyy2s   css-17gmabg-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f1o6j1ms   css-17gmabg-MuiGrid-root"
                   id="new_search-input--time"
                 >
                   <div
@@ -596,7 +603,7 @@ exports[`Search Containter should match snapshot 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1qectas fx35f8m css-13eijkh-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f913nm1 fx35f8m css-13eijkh-MuiGrid-root"
             >
               <div
                 class="bottom-dropdowns"
@@ -718,17 +725,21 @@ exports[`Search Containter should match snapshot 1`] = `
                   </div>
                 </div>
               </div>
-              <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-mire2f-MuiButtonBase-root-MuiButton-root"
-                id="compare-button"
-                tabindex="0"
-                type="submit"
+              <div
+                class=" fs9pw6x cancel-compare"
               >
-                Compare
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </button>
+                <button
+                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+                  id="compare-button"
+                  tabindex="0"
+                  type="submit"
+                >
+                  Compare
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </button>
+              </div>
             </div>
           </form>
         </div>

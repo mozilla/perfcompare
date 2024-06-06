@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { StyledEngineProvider } from '@mui/material/styles';
 import { createRoot, Root } from 'react-dom/client';
 import { Provider } from 'react-redux';
 
@@ -16,7 +17,9 @@ const root: Root = createRoot(container!);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <StyledEngineProvider injectFirst>
+        <App />
+      </StyledEngineProvider>
     </Provider>
   </React.StrictMode>,
 );

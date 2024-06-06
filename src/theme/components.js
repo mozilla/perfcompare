@@ -1,5 +1,6 @@
 import { green, red } from '@mui/material/colors';
 
+import { Colors, Spacing, FontSizeRaw } from '../styles';
 import android from './img/android.svg';
 import high from './img/high.svg';
 import linux from './img/linux.svg';
@@ -19,6 +20,7 @@ const components = {
     styleOverrides: {
       contained: {
         height: 32,
+        padding: '4px 16px',
       },
       root: {
         '&.add-revision-button': {
@@ -27,12 +29,17 @@ const components = {
           lineHeight: '1.4375em',
         },
         '&.edit-revision-button': {
-          width: '50%',
-          padding: '0',
-          minWidth: '0',
+          width: '100%',
+          justifyContent: 'end',
+          fontSize: FontSizeRaw.xSmall.fontSize,
+          maxWidth: '100px',
+          padding: `${Spacing.xSmall}px ${Spacing.Small}px`,
+          backgroundColor: 'transparent',
+          color: Colors.LinkText,
           '&:hover': {
             backgroundColor: 'transparent',
           },
+
           '& .MuiSvgIcon-root': {
             width: 'auto',
             height: '2.4rem',
@@ -136,6 +143,10 @@ const components = {
   },
   MuiTypography: {
     styleOverrides: {
+      variantMapping: {
+        body1: 'span',
+        body2: 'span',
+      },
       root: {
         '&.perfcompare-header': {
           '&:after': {

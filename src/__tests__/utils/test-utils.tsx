@@ -1,4 +1,9 @@
-import { ThemeProvider, createTheme, Theme } from '@mui/material/styles';
+import {
+  StyledEngineProvider,
+  ThemeProvider,
+  createTheme,
+  Theme,
+} from '@mui/material/styles';
 import { render as rtlRender } from '@testing-library/react';
 import { SnackbarProvider } from 'notistack';
 import { Provider } from 'react-redux';
@@ -17,17 +22,19 @@ export function render(ui: React.ReactElement, themeConfig?: ThemeConfig) {
     const { protocolTheme } = getProtocolTheme('light');
     const theme = themeConfig ? createTheme(themeConfig) : protocolTheme;
     return (
-      <ThemeProvider theme={theme}>
-        <SnackbarProvider
-          maxSnack={3}
-          autoHideDuration={6000}
-          action={(snackbarKey) => (
-            <SnackbarCloseButton snackbarKey={snackbarKey} />
-          )}
-        >
-          <Provider store={store}>{children}</Provider>
-        </SnackbarProvider>
-      </ThemeProvider>
+      <StyledEngineProvider injectFirst>
+        <ThemeProvider theme={theme}>
+          <SnackbarProvider
+            maxSnack={3}
+            autoHideDuration={6000}
+            action={(snackbarKey) => (
+              <SnackbarCloseButton snackbarKey={snackbarKey} />
+            )}
+          >
+            <Provider store={store}>{children}</Provider>
+          </SnackbarProvider>
+        </ThemeProvider>
+      </StyledEngineProvider>
     );
   }
   return rtlRender(ui, { wrapper: Wrapper });
