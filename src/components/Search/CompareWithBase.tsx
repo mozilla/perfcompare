@@ -106,9 +106,8 @@ function CompareWithBase({
 
   const onFormSubmit = (e: React.FormEvent) => {
     const isFormReadyToBeSubmitted = baseInProgressRev !== null;
-    setFormIsDisplayed(false);
+    setFormIsDisplayed(!isFormReadyToBeSubmitted);
     if (!isFormReadyToBeSubmitted) {
-      setFormIsDisplayed(true);
       e.preventDefault();
       enqueueSnackbar(strings.base.collapsed.errors.notEnoughRevisions, {
         variant: 'error',
