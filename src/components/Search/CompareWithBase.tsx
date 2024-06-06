@@ -13,6 +13,7 @@ import { CompareCardsStyles, SearchStyles, Spacing } from '../../styles';
 import type { Changeset, Repository } from '../../types/state';
 import { Framework } from '../../types/types';
 import CancelAndCompareButtons from './CancelAndCompareButtons';
+import EditButton from './EditButton';
 import FrameworkDropdown from './FrameworkDropdown';
 import SearchComponent from './SearchComponent';
 
@@ -62,9 +63,8 @@ interface CompareWithBaseProps {
  *   initialized with the initial state.
  * - The in-progress state represents the set of revisions that the user is
  *   currently selecting. In the SearchView it can be changed always, but in the
- *   ResultsView the user will need to press Edit first. If the user presses
- *   "Save" at this point, the in-progress state is copied to the non-editable
- *   state. If the user presses "Cancel", the previous non-editable state is
+ *   ResultsView the user will need to press Edit first.
+ *   If the user presses "Cancel", the previous non-editable state is
  *   recalled.
  */
 function CompareWithBase({
@@ -93,12 +93,12 @@ function CompareWithBase({
   const [baseRepository, setBaseRepository] = useState(baseRepo);
   const [newRepository, setNewRepository] = useState(newRepo);
   const [formIsDisplayed, setFormIsDisplayed] = useState(!hasEditButton);
-  const [hasCancelButton, setHasCancelButton] = useState(false);
 
   const mode = useAppSelector((state) => state.theme.mode);
 
   const styles = CompareCardsStyles(mode);
   const dropDownStyles = SearchStyles(mode);
+  const hasCancelButton = hasEditButton && formIsDisplayed;
 
   const isWarning =
     (baseRepository === 'try' && newRepository !== 'try') ||
@@ -136,18 +136,12 @@ function CompareWithBase({
     setInProgressNewRevs(newRevs);
     setInProgressBaseRev(baseRev);
     setFormIsDisplayed(false);
-    setHasCancelButton(false);
   };
 
-  const handleEditBase = () => {
+  const handleEdit = () => {
     setInProgressBaseRev(baseRev);
-    setHasCancelButton(true);
-    setFormIsDisplayed(true);
-  };
-
-  const handleEditNew = () => {
     setInProgressNewRevs(newRevs);
-    setHasCancelButton(true);
+    setFormIsDisplayed(true);
   };
 
   const handleItemToggleInChangesetList = ({
@@ -266,13 +260,19 @@ function CompareWithBase({
           onSubmit={possiblyPreventFormSubmission}
           aria-label='Compare with base form'
         >
+          {/**** Edit Button ****/}
+          <div className='edit-btn-wrapper'>
+            {hasEditButton && !formIsDisplayed && (
+              <EditButton onEditAction={handleEdit} />
+            )}
+          </div>
+
           <SearchComponent
             {...stringsBase}
             isBaseComp={true}
             isWarning={isWarning}
             hasEditButton={hasEditButton}
             displayedRevisions={baseInProgressRev ? [baseInProgressRev] : []}
-            onEdit={handleEditBase}
             onSearchResultsToggle={handleSearchResultsToggleBase}
             onRemoveRevision={handleRemoveRevisionBase}
             repository={baseRepository}
@@ -288,7 +288,6 @@ function CompareWithBase({
             hasEditButton={hasEditButton}
             isWarning={isWarning}
             displayedRevisions={newInProgressRevs}
-            onEdit={handleEditNew}
             onSearchResultsToggle={handleSearchResultsToggleNew}
             onRemoveRevision={handleRemoveRevisionNew}
             repository={newRepository}

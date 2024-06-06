@@ -14,7 +14,6 @@ import {
   SearchStyles,
 } from '../../styles';
 import type { Changeset, InputType, Repository } from '../../types/state';
-import EditButton from './EditButton';
 import SearchDropdown from './SearchDropdown';
 import SearchInputAndResults from './SearchInputAndResults';
 import SelectedRevisions from './SelectedRevisions';
@@ -24,7 +23,6 @@ interface SearchProps {
   isWarning: boolean;
   isBaseComp: boolean;
   displayedRevisions: Changeset[];
-  onEdit: () => void;
   onSearchResultsToggle: (item: Changeset) => void;
   onRemoveRevision: (item: Changeset) => void;
   selectLabel: string;
@@ -40,7 +38,6 @@ function SearchComponent({
   hasEditButton,
   isBaseComp,
   displayedRevisions,
-  onEdit,
   onSearchResultsToggle,
   onRemoveRevision,
   selectLabel,
@@ -93,17 +90,6 @@ function SearchComponent({
             <InfoIcon fontSize='small' className='dropdown-info-icon' />
           </Tooltip>
         </InputLabel>
-        {/**** Edit Button ****/}
-
-        {/* temporary until global edit button PR */}
-        {hasEditButton && !formIsDisplayed && isBaseComp && (
-          <EditButton
-            isBase={isBaseComp}
-            onEditAction={() => {
-              onEdit();
-            }}
-          />
-        )}
       </Grid>
       {/**** Search - DropDown Section ****/}
       <Grid

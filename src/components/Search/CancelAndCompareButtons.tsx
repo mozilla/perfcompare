@@ -20,18 +20,14 @@ export default function CompareButton({
   const cancelCompareStyles = style({
     display: 'flex',
     alignItems: 'center',
-    $nest: {
-      '.cancel-button': {
-        marginRight: `${Spacing.Small}px`,
-      },
-    },
+    gap: `${Spacing.Small}px`,
   });
 
   return (
     <div className={` ${cancelCompareStyles} cancel-compare`}>
       {hasCancelButton && (
         <Button
-          className={`cancel-button btn-all`}
+          className='cancel-button'
           name='cancel-button'
           color='secondary'
           onClick={onCancel}

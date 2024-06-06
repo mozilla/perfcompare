@@ -59,6 +59,10 @@ export const CompareCardsStyles = (mode: string) => {
             },
           },
         },
+        '.edit-btn-wrapper': {
+          display: 'flex',
+          justifyContent: 'end',
+        },
         '&.compare-card-container--time': {
           marginTop: `${Spacing.Large}px`,
           marginBottom: `${Spacing.layoutLarge + 20}px`,
@@ -136,28 +140,12 @@ export const SearchStyles = (mode: string) => {
         '&.hide-container': {
           display: 'none',
         },
-
-        '.cancel-save': {
-          padding: '4px 16px',
-          maxWidth: '44px',
-          marginLeft: `${Spacing.Small}px`,
-        },
       },
     },
 
     dropDown: {
       minWidth: `${repoDropdownWidth}px`,
       $nest: {
-        '&.label-edit-wrapper': {
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'end',
-          $nest: {
-            '.hide-edit-btn': {
-              visibility: 'hidden',
-            },
-          },
-        },
         '.dropdown-select-label,.base_label': {
           ...(isTrueLight ? FontsRaw.BodyDefault : FontsRaw.BodyDefaultDark),
           fontWeight: '600',

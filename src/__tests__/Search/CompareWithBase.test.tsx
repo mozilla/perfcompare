@@ -68,8 +68,8 @@ async function waitForPageReadyAndReturnForm() {
   return formElement;
 }
 
-function getEditButtons() {
-  return screen.getAllByRole('button', {
+function getEditButton() {
+  return screen.getByRole('button', {
     name: 'edit revision',
   });
 }
@@ -78,14 +78,14 @@ function getRemoveRevisionButton(
   index: number,
   targetRevision?: string | RegExp,
 ) {
-  let container: { getAllByRole: (typeof screen)['getAllByRole'] } = screen;
+  let container: { getByRole: (typeof screen)['getByRole'] } = screen;
   if (targetRevision) {
     const target = screen.getAllByText(targetRevision)[index];
     container = within(target.closest('li') ?? document.body);
   }
 
   // eslint-disable-next-line testing-library/prefer-screen-queries
-  return container.getAllByRole('button', {
+  return container.getByRole('button', {
     name: 'remove revision',
   });
 }
@@ -236,7 +236,7 @@ describe('Compare With Base', () => {
     expect(baseSearchContainer).toHaveClass('hide-container');
 
     // Click the edit revision
-    const editButton = getEditButtons()[0];
+    const editButton = getEditButton();
     await user.click(editButton);
 
     expect(baseSearchContainer).toHaveClass('show-container');
@@ -250,11 +250,11 @@ describe('Compare With Base', () => {
     expect(baseSearchContainer).toHaveClass('hide-container');
 
     // Click the edit revision again
-    await user.click(getEditButtons()[0]);
+    await user.click(getEditButton());
     expect(baseSearchContainer).toHaveClass('show-container');
 
     // Remove the base revision by clicking the X button
-    await user.click(getRemoveRevisionButton(0, 'coconut')[0]);
+    await user.click(getRemoveRevisionButton(0, 'coconut'));
     expect(formElement).toMatchSnapshot('after removal of base revision');
     expect(
       within(baseSelectedRevision).queryByText(/no arms left/),
@@ -276,12 +276,12 @@ describe('Compare With Base', () => {
     expect(newSearchContainer).toHaveClass('hide-container');
 
     // Click the edit revision for new revisions
-    await user.click(getEditButtons()[0]);
+    await user.click(getEditButton());
 
     expect(newSearchContainer).toHaveClass('show-container');
 
     // Remove the new revision by clicking the X button
-    await user.click(getRemoveRevisionButton(1, 'coconut')[0]);
+    await user.click(getRemoveRevisionButton(1, 'coconut'));
     expect(formElement).toMatchSnapshot('after removal of new revision');
     expect(
       within(newSelectedRevision).queryByText(/no arms left/),
@@ -311,10 +311,10 @@ describe('Compare With Base', () => {
     ).toBeInTheDocument();
 
     // Click the edit revision for the base revision
-    await user.click(getEditButtons()[0]);
+    await user.click(getEditButton());
 
     // Remove the base revision by clicking the X button
-    await user.click(getRemoveRevisionButton(0, 'coconut')[0]);
+    await user.click(getRemoveRevisionButton(0, 'coconut'));
 
     // The base revision has been removed
     expect(
@@ -335,10 +335,10 @@ describe('Compare With Base', () => {
     ).toBeInTheDocument();
 
     // Click the edit revision for the new revisions
-    await user.click(getEditButtons()[0]);
+    await user.click(getEditButton());
 
     // Remove the new revision by clicking the X button
-    await user.click(getRemoveRevisionButton(1, 'coconut')[0]);
+    await user.click(getRemoveRevisionButton(1, 'coconut'));
 
     // The new revision has been removed
     expect(

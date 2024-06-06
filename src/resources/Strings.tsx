@@ -50,6 +50,7 @@ export const Strings = {
         compareBtn: 'Compare',
         editIcon:
           'https://user-images.githubusercontent.com/88336547/259900252-462ac221-f4ff-4b1c-bb6b-5df906e8007d.svg',
+        editText: 'Edit entry',
         collapsed: {
           warnings: {
             comparison:
