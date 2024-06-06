@@ -104,9 +104,11 @@ function CompareWithBase({
     (baseRepository === 'try' && newRepository !== 'try') ||
     (baseRepository !== 'try' && newRepository === 'try');
 
-  const possiblyPreventFormSubmission = (e: React.FormEvent) => {
+  const onFormSubmit = (e: React.FormEvent) => {
     const isFormReadyToBeSubmitted = baseInProgressRev !== null;
+    setFormIsDisplayed(false);
     if (!isFormReadyToBeSubmitted) {
+      setFormIsDisplayed(true);
       e.preventDefault();
       enqueueSnackbar(strings.base.collapsed.errors.notEnoughRevisions, {
         variant: 'error',
@@ -257,7 +259,7 @@ function CompareWithBase({
         <Form
           action='/compare-results'
           className='form-wrapper'
-          onSubmit={possiblyPreventFormSubmission}
+          onSubmit={onFormSubmit}
           aria-label='Compare with base form'
         >
           {/**** Edit Button ****/}
