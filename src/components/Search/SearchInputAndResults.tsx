@@ -64,69 +64,76 @@ export default function SearchInputAndResults({
     }
   };
 
-  const searchRecentRevisions = async (searchTerm: string) => {
-    const emailMatch = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const longHashMatch = /\b[a-f0-9]{40}\b/;
-    const shortHashMatch = /\b[a-f0-9]{12}\b/;
+  const searchRecentRevisions = useCallback(
+    async (searchTerm: string) => {
+      const emailMatch = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const longHashMatch = /\b[a-f0-9]{40}\b/;
+      const shortHashMatch = /\b[a-f0-9]{12}\b/;
 
-    // Reset various states
-    setSearchError(null);
-    lastSearchTermRef.current = '';
+      // Reset various states
+      setSearchError(null);
+      lastSearchTermRef.current = '';
 
-    let searchParameters;
-    if (!searchTerm) {
-      searchParameters = { repository };
-    } else if (emailMatch.test(searchTerm)) {
-      searchParameters = { repository, author: searchTerm };
-    } else if (
-      longHashMatch.test(searchTerm) ||
-      shortHashMatch.test(searchTerm)
-    ) {
-      searchParameters = { repository, hash: searchTerm };
-    } else {
-      setSearchError(Strings.errors.warningText);
-      setRecentRevisions(null);
-      return;
-    }
+      // By increasing the counter, we ensure that responses for inflight requests will be ignored.
+      const thisRequestId = ++requestsCounterRef.current;
 
-    // Keep the current searchTerm in ref so that we can use it when the
-    // repository information changes.
-    lastSearchTermRef.current = searchTerm;
-    const thisRequestId = requestsCounterRef.current;
-
-    try {
-      const results = await fetchRecentRevisions(searchParameters);
-      if (thisRequestId !== requestsCounterRef.current) {
-        // The user edited the text since the request started.
-        // Let's ignore the result then.
+      let searchParameters;
+      if (!searchTerm) {
+        searchParameters = { repository };
+      } else if (emailMatch.test(searchTerm)) {
+        searchParameters = { repository, author: searchTerm };
+      } else if (
+        longHashMatch.test(searchTerm) ||
+        shortHashMatch.test(searchTerm)
+      ) {
+        searchParameters = { repository, hash: searchTerm };
+      } else {
+        setSearchError(Strings.errors.warningText);
+        setRecentRevisions(null);
         return;
       }
-      if (results.length) {
-        setRecentRevisions(results);
-      } else {
-        setSearchError('No results found');
+
+      // Keep the current searchTerm in ref so that we can use it when the
+      // repository information changes.
+      lastSearchTermRef.current = searchTerm;
+
+      try {
+        const results = await fetchRecentRevisions(searchParameters);
+        if (thisRequestId !== requestsCounterRef.current) {
+          // The user edited the text since the request started.
+          // Let's ignore the result then.
+          return;
+        }
+        if (results.length) {
+          setRecentRevisions(results);
+        } else {
+          setSearchError('No results found');
+          setRecentRevisions(null);
+        }
+      } catch (e) {
+        console.error('Error while fetching recent revisions:', e);
+        const strError =
+          typeof e === 'string'
+            ? e
+            : e instanceof Error
+            ? e.message
+            : `Unknown error: ${String(e)}`;
+        setSearchError(strError || 'An error has occurred');
         setRecentRevisions(null);
       }
-    } catch (e) {
-      console.error('Error while fetching recent revisions:', e);
-      const strError =
-        typeof e === 'string'
-          ? e
-          : e instanceof Error
-          ? e.message
-          : `Unknown error: ${String(e)}`;
-      setSearchError(strError || 'An error has occurred');
-      setRecentRevisions(null);
-    }
-  };
+    },
+    [repository],
+  );
 
-  const debouncedSearchRecentRevisions = simpleDebounce(searchRecentRevisions);
+  const debouncedSearchRecentRevisions = useCallback(
+    simpleDebounce(searchRecentRevisions),
+    [searchRecentRevisions],
+  );
+
   const onValueChange = (searchTerm: string) => {
     // Reset various states
     setSearchError(null);
     setRecentRevisions(null);
-    // And increase the counter, so that responses for inflight requests will be ignored.
-    requestsCounterRef.current++;
     debouncedSearchRecentRevisions(searchTerm);
   };
 
