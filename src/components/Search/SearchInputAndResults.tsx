@@ -58,11 +58,11 @@ export default function SearchInputAndResults({
     [displayDropdown],
   );
 
-  const handleEscKeypress = (e: KeyboardEvent) => {
+  const handleEscKeypress = useCallback((e: KeyboardEvent) => {
     if (e.key === 'Escape') {
       setDisplayDropdown(false);
     }
-  };
+  }, []);
 
   const searchRecentRevisions = useCallback(
     async (searchTerm: string) => {
@@ -156,7 +156,7 @@ export default function SearchInputAndResults({
     return () => {
       document.removeEventListener('keydown', handleEscKeypress);
     };
-  }, []);
+  }, [handleEscKeypress]);
 
   return (
     <Box ref={containerRef}>
