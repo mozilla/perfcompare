@@ -153,7 +153,7 @@ export default function SearchOverTime({
             repository={baseRepo}
             labelIdInfo='base-repo-dropdown--overtime'
             onChange={onBaseRepositoryChange}
-            isOverTimeBase={true}
+            name='baseRepo'
           />
         </Grid>
 
@@ -203,7 +203,6 @@ export default function SearchOverTime({
             repository={newRepo}
             labelIdInfo='repo-dropdown--overtime'
             onChange={onNewRepositoryChange}
-            isOverTimeBase={false}
           />
         </Grid>
         <Grid

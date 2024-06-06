@@ -54,9 +54,11 @@ function CompareOverTime({
   );
   const [baseRepository, setBaseRepository] = useState(baseRepo);
   const [newRepository, setNewRepository] = useState(newRepo);
+  const [formIsDisplayed, setFormIsDisplayed] = useState(!hasEditButton);
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = CompareCardsStyles(mode);
   const dropDownStyles = SearchStyles(mode);
+  const hasCancelButton = hasEditButton && formIsDisplayed;
 
   const wrapperStyles = {
     wrapper: style({
@@ -95,7 +97,7 @@ function CompareOverTime({
 
   const handleCancel = () => {
     setInProgressRevs(newRevs);
-    setHasCancelButton(false);
+    setFormIsDisplayed(false);
   };
 
   const handleRemoveRevision = (item: Changeset) => {

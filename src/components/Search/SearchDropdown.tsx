@@ -20,7 +20,7 @@ interface SearchDropdownProps {
   searchType: InputType;
   repository: Repository['name'];
   labelIdInfo: string;
-  isOverTimeBase: boolean;
+  name?: string;
   onChange: (val: Repository['name']) => unknown;
 }
 
@@ -30,7 +30,7 @@ function SearchDropdown({
   searchType,
   repository,
   labelIdInfo,
-  isOverTimeBase,
+  name,
   onChange,
 }: SearchDropdownProps) {
   const size = compact ? 'small' : undefined;
@@ -80,7 +80,7 @@ function SearchDropdown({
           className='dropdown-select'
           variant='standard'
           onChange={(e) => void handleRepoSelect(e)}
-          name={`${isOverTimeBase ? 'baseRepo' : ''}`}
+          name={name}
         >
           {Object.keys(repoMap).map((key) => (
             <MenuItem
