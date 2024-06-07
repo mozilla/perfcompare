@@ -1,6 +1,13 @@
-import { retrieveTaskclusterToken } from '../../logic/taskcluster';
+import {
+  storeUserToken,
+  storeUserCredentials,
+} from '../../logic/credentials-storage';
+import {
+  retrieveTaskclusterUserCredentials,
+  retrieveTaskclusterToken,
+} from '../../logic/taskcluster';
 
-export function loader({ request }: { request: Request }) {
+export async function loader({ request }: { request: Request }) {
   const url = new URL(request.url);
 
   const taskclusterCode = url.searchParams.get('code') as string;
@@ -20,11 +27,22 @@ export function loader({ request }: { request: Request }) {
     );
   }
 
-  const tokenBearer = retrieveTaskclusterToken(rootUrl, taskclusterCode);
+  const tokenResponse = await retrieveTaskclusterToken(
+    rootUrl,
+    taskclusterCode,
+  );
 
-  // TODO fetch access token with token Bearer
+  storeUserToken(rootUrl, tokenResponse);
 
-  return tokenBearer;
+  // fetch access token with token Bearer
+  const userCredentials = await retrieveTaskclusterUserCredentials(
+    rootUrl,
+    tokenResponse.access_token,
+  );
+
+  storeUserCredentials(rootUrl, userCredentials);
+
+  return userCredentials;
 }
 
 export type LoaderReturnValue = Awaited<ReturnType<typeof loader>>;
