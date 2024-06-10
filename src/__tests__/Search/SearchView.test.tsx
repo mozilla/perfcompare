@@ -9,6 +9,7 @@ import {
   act,
   render,
   renderWithRouter,
+  waitFor,
   FetchMockSandbox,
 } from '../utils/test-utils';
 
@@ -17,16 +18,16 @@ const baseTitle = Strings.components.searchDefault.base.title;
 function setupTestData() {
   const { testData } = getTestData();
   (global.fetch as FetchMockSandbox)
-    .get('begin:https://treeherder.mozilla.org/api/project/try/push/', {
-      results: testData,
-    })
     .get(
       'begin:https://treeherder.mozilla.org/api/project/try/push/?author=',
       (url) => {
         const author = new URL(url).searchParams.get('author');
         return { results: testData.filter((item) => item.author === author) };
       },
-    );
+    )
+    .get('begin:https://treeherder.mozilla.org/api/project/try/push/', {
+      results: testData,
+    });
 }
 
 async function expandOverTimeComponent() {
@@ -224,38 +225,57 @@ describe('Base and OverTime Search', () => {
   });
 
   it('Should debounce user interaction', async () => {
+    // Contrary to the previous test, the timers are not run so that we can test
+    // the debounce behavior.
+
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
     renderComponent();
 
     const searchInput = screen.getAllByRole('textbox')[0];
+    await user.click(searchInput);
 
-    // Contrary to the previous test, the timers are not run so that we can test
-    // the debounce behavior.
-    await user.type(searchInput, 'coconut');
+    // Wait until the dropdown appears as the result of the focus.
+    await screen.findByText('She turned me into a newt!');
+
+    await user.type(searchInput, 'johncleese');
+    // No error appears while the user type.
     expect(
       screen.queryByText(
         'Search must be a 12- or 40-character hash, or email address',
       ),
     ).not.toBeInTheDocument();
 
+    // But this appears after a while.
+    expect(
+      await screen.findByText(
+        'Search must be a 12- or 40-character hash, or email address',
+      ),
+    ).toBeInTheDocument();
+
     await user.type(searchInput, '@python.co');
     await user.type(searchInput, 'm');
 
+    // The only result is this one. All other results should not appear.
     expect(
       await screen.findByText("you've got no arms left!"),
     ).toBeInTheDocument();
+    await waitFor(() =>
+      expect(
+        screen.queryByText('She turned me into a newt!'),
+      ).not.toBeInTheDocument(),
+    );
 
     // Fetch was called 4 times:
     // - 3 times on initial load
     // - once for coconut@python.com
     // The call to coconut@python.co was debounced.
     expect(global.fetch).not.toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/try/push/?author=coconut%40python.co',
+      'https://treeherder.mozilla.org/api/project/try/push/?author=johncleese%40python.co',
       undefined,
     );
     expect(global.fetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/try/push/?author=coconut%40python.com',
+      'https://treeherder.mozilla.org/api/project/try/push/?author=johncleese%40python.com',
       undefined,
     );
     expect(global.fetch).toHaveBeenCalledTimes(4);
@@ -267,20 +287,20 @@ describe('Base and OverTime Search', () => {
     renderComponent();
 
     const searchInput = screen.getAllByRole('textbox')[0];
-    await user.type(searchInput, 'terryjones@python.com');
+    await user.type(searchInput, 'terrygilliam@python.com');
     act(() => void jest.runAllTimers());
 
     expect(global.fetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/try/push/?author=terryjones%40python.com',
+      'https://treeherder.mozilla.org/api/project/try/push/?author=terrygilliam%40python.com',
       undefined,
     );
 
-    await screen.findAllByText("you've got no arms left!");
+    await screen.findAllByText('What, ridden on a horse?');
 
     await user.clear(searchInput);
 
     expect(
-      screen.queryByText("you've got no arms left!"),
+      screen.queryByText('What, ridden on a horse?'),
     ).not.toBeInTheDocument();
   });
 
