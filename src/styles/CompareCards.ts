@@ -124,6 +124,7 @@ export const CompareCardsStyles = (mode: string) => {
 
   return compareCardsCSS;
 };
+
 export const SearchStyles = (mode: string) => {
   const isTrueLight = mode == 'light' ? true : false;
 
@@ -133,7 +134,6 @@ export const SearchStyles = (mode: string) => {
     },
 
     container: {
-      margin: 'auto',
       justifyContent: 'space-between',
       position: 'relative',
       $nest: {

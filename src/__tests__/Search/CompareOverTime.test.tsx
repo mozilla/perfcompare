@@ -42,7 +42,8 @@ function renderWithCompareResultsURL(component: ReactElement) {
   setUpTestData();
   return renderWithRouter(component, {
     route: '/compare-over-time-results/',
-    search: '?newRev=coconut&newRepo=try&framework=2&selectedTimeRange=86400',
+    search:
+      '?baseRepo=try&selectedTimeRange=86400&newRev=coconut&newRepo=try&framework=2',
     loader,
   });
 }
@@ -145,13 +146,44 @@ describe('Compare Over Time', () => {
     );
   });
 
+  it('selects and displays base repository when clicked', async () => {
+    renderSearchViewComponent();
+    const user = userEvent.setup({ delay: null });
+    await expandOverTimeComponent();
+    const formElement = await waitForPageReadyAndReturnForm();
+
+    expect(within(formElement).getAllByText(/try/i)[0]).toBeInTheDocument();
+
+    expect(
+      within(formElement).queryByText(/mozilla-central/i),
+    ).not.toBeInTheDocument();
+
+    const newDropdown = screen.getByRole('button', {
+      name: 'Base repository try',
+    });
+
+    await user.click(newDropdown);
+    const mozRepoItem = await screen.findByRole('option', {
+      name: 'mozilla-central',
+    });
+    await user.click(mozRepoItem);
+    expect(mozRepoItem).toBeInTheDocument();
+
+    await user.click(newDropdown);
+    const autolandItem = await screen.findByRole('option', {
+      name: 'autoland',
+    });
+    await user.click(autolandItem);
+    expect(autolandItem).toBeInTheDocument();
+  });
+
   it('selects and displays new repository when clicked', async () => {
     renderSearchViewComponent();
     const user = userEvent.setup({ delay: null });
     await expandOverTimeComponent();
     const formElement = await waitForPageReadyAndReturnForm();
 
-    expect(within(formElement).getByText(/try/i)).toBeInTheDocument();
+    expect(within(formElement).getAllByText(/try/i)[1]).toBeInTheDocument();
 
     expect(
       within(formElement).queryByText(/mozilla-central/i),
@@ -362,7 +394,7 @@ describe('Compare Over Time', () => {
     const searchParams = new URLSearchParams(window.location.search);
 
     expect(searchParams.toString()).toEqual(
-      'newRev=coconut&newRepo=try&framework=1&selectedTimeRange=86400',
+      'baseRepo=try&selectedTimeRange=86400&newRev=coconut&newRepo=try&framework=1',
     );
   });
 

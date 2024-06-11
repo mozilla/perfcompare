@@ -16,9 +16,15 @@ interface ResultsViewProps {
   title: string;
 }
 function ResultsView(props: ResultsViewProps) {
-  const { newRevsInfo, frameworkId, intervalValue, results } =
-    useLoaderData() as LoaderReturnValue;
-
+  const {
+    newRevsInfo,
+    frameworkId,
+    intervalValue,
+    results,
+    baseRepo,
+    newRepos,
+  } = useLoaderData() as LoaderReturnValue;
+  const newRepo = newRepos[0];
   const { title } = props;
   const themeMode = useAppSelector((state) => state.theme.mode);
   const styles = {
@@ -36,7 +42,7 @@ function ResultsView(props: ResultsViewProps) {
   return (
     <div
       className={styles.container}
-      data-testid='beta-version-compare-results'
+      data-testid='beta-version-compare-overtime-results'
     >
       <PerfCompareHeader />
       <section className={sectionStyles.container}>
@@ -49,6 +55,8 @@ function ResultsView(props: ResultsViewProps) {
           expandBaseComponent={() => null}
           frameworkIdVal={frameworkId}
           intervalValue={intervalValue}
+          baseRepo={baseRepo}
+          newRepo={newRepo}
         />
       </section>
       <Grid container alignItems='center' justifyContent='center'>
