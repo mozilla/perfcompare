@@ -130,7 +130,7 @@ export const SearchStyles = (mode: string) => {
 
   const searchCSS = stylesheet({
     component: {
-      marginBottom: `${Spacing.xLarge}px`,
+      marginBottom: `${Spacing.Large}px`,
     },
 
     container: {

@@ -14,6 +14,7 @@ import { CompareCardsStyles, SearchStyles, Spacing } from '../../styles';
 import { Changeset, Repository } from '../../types/state';
 import { Framework, TimeRange } from '../../types/types';
 import CancelAndCompareButtons from './CancelAndCompareButtons';
+import EditButton from './EditButton';
 import FrameworkDropdown from './FrameworkDropdown';
 import SearchOverTime from './SearchOverTime';
 
@@ -81,8 +82,9 @@ function CompareOverTime({
     }),
   };
 
-  const possiblyPreventFormSubmission = (e: React.FormEvent) => {
+  const onFormSubmit = (e: React.FormEvent) => {
     const isFormReadyToBeSubmitted = inProgressRevs.length > 0;
+    setFormIsDisplayed(!isFormReadyToBeSubmitted);
     if (!isFormReadyToBeSubmitted) {
       e.preventDefault();
       enqueueSnackbar(stringsOverTime.collapsed.errors.notEnoughRevisions, {
@@ -98,6 +100,11 @@ function CompareOverTime({
   const handleCancel = () => {
     setInProgressRevs(newRevs);
     setFormIsDisplayed(false);
+  };
+
+  const handleEdit = () => {
+    setInProgressRevs(newRevs);
+    setFormIsDisplayed(true);
   };
 
   const handleRemoveRevision = (item: Changeset) => {
@@ -181,15 +188,23 @@ function CompareOverTime({
         <Divider className='divider' />
         <Form
           action='/compare-over-time-results'
-          onSubmit={possiblyPreventFormSubmission}
+          onSubmit={onFormSubmit}
           className='form-wrapper'
           aria-label='Compare over time form'
         >
+          {/**** Edit Button ****/}
+          <div className='edit-btn-wrapper'>
+            {hasEditButton && !formIsDisplayed && (
+              <EditButton onEditAction={handleEdit} />
+            )}
+          </div>
+
           <SearchOverTime
             hasEditButton={hasEditButton}
             baseRepo={baseRepository}
             newRepo={newRepository}
             displayedRevisions={inProgressRevs}
+            formIsDisplayed={formIsDisplayed}
             onRemoveRevision={handleRemoveRevision}
             onSearchResultsToggle={handleSearchResultsToggle}
             onBaseRepositoryChange={(repo: Repository['name']) =>

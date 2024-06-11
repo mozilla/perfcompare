@@ -133,7 +133,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                 class="edit-btn-wrapper"
               />
               <div
-                class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
+                class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
               >
                 <div
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f913nm1 label-edit-wrapper css-13eijkh-MuiGrid-root"
@@ -277,7 +277,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                 </div>
               </div>
               <div
-                class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
+                class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
               >
                 <div
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 label-edit-wrapper css-13eijkh-MuiGrid-root"
@@ -539,10 +539,13 @@ exports[`Search View renders correctly when there are no results 1`] = `
               method="get"
             >
               <div
-                class="MuiGrid-root component_f14z0jsa css-plh9qo-MuiGrid-root"
+                class="edit-btn-wrapper"
+              />
+              <div
+                class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f913nm1 css-1e9xsub-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f913nm1 css-6u0ba5-MuiGrid-root"
                 >
                   <div
                     class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-1t7ybvx-MuiGrid-root"
@@ -569,7 +572,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                     </label>
                   </div>
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-1t7ybvx-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-4syqmy-MuiGrid-root"
                   >
                     <label
                       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label dropdown-select-label--time css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -593,11 +596,34 @@ exports[`Search View renders correctly when there are no results 1`] = `
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 container_fgv7cgi css-146irxc-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container base-search-container--readonly container_fgv7cgi css-16wugw1-MuiGrid-root"
+                >
+                  <div
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true base-search-dropdown f13jbxzm dropDown_f913nm1   -base-dropdown css-1t7ybvx-MuiGrid-root"
+                    style="max-width: 360px;"
+                  >
+                    <span
+                      class="MuiTypography-root MuiTypography-body2 css-11g6e76-MuiTypography-root"
+                    >
+                      try
+                    </span>
+                  </div>
+                  <div
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown f13jbxzm  css-4syqmy-MuiGrid-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiTypography-body2 css-11g6e76-MuiTypography-root"
+                    >
+                      Last day
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-container container_fgv7cgi css-yk40p5-MuiGrid-root"
                   id="base-search-container--time"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true base-search-dropdown dropDown_f913nm1  -base-dropdown css-1t7ybvx-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true base-search-dropdown  -base-dropdown css-1t7ybvx-MuiGrid-root"
                     id="base_search-dropdown--time"
                     style="max-width: 360px;"
                   >
@@ -641,7 +667,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                     </div>
                   </div>
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown dropDown_f913nm1  css-1t7ybvx-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown dropDown_f913nm1  css-4syqmy-MuiGrid-root"
                     id="time-range"
                   >
                     <div
@@ -685,7 +711,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 css-13eijkh-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 css-h8md1u-MuiGrid-root"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -708,7 +734,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                   </label>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-container container_fgv7cgi css-1ljzhs0-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container container_fgv7cgi show-container css-1ljzhs0-MuiGrid-root"
                   id="new-search-container--time"
                 >
                   <div

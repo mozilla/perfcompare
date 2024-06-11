@@ -237,7 +237,9 @@ describe('Compare Over Time', () => {
 
     const user = userEvent.setup({ delay: null });
 
-    expect(within(formElement).getByText(/Last day/i)).toBeInTheDocument();
+    expect(
+      within(formElement).getAllByText(/Last day/i)[1],
+    ).toBeInTheDocument();
 
     expect(
       within(formElement).queryByText(/Last 2 days/i),
@@ -255,7 +257,9 @@ describe('Compare Over Time', () => {
 
     await user.click(last2daysItem);
 
-    expect(within(formElement).getByText(/Last 2 days/i)).toBeInTheDocument();
+    expect(
+      within(formElement).getAllByText(/Last 2 days/i)[1],
+    ).toBeInTheDocument();
   });
 
   it('should hide search results when clicking outside of search input', async () => {
