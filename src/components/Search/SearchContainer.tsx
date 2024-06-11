@@ -42,6 +42,8 @@ function SearchContainer(props: SearchViewProps) {
         expandBaseComponent={expandBaseComponent}
         frameworkIdVal={1 as Framework['id']}
         intervalValue={86400 as TimeRange['value']}
+        baseRepo='try'
+        newRepo='try'
       />
     </section>
   );
