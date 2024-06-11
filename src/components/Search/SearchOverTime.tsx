@@ -60,27 +60,6 @@ export default function SearchOverTime({
 
   const [formIsDisplayed, setFormIsDisplayed] = useState(!hasEditButton);
 
-  const baseRepoStyles = style({
-    marginBottom: `${Spacing.Large}px`,
-    justifyContent: 'space-between',
-    $nest: {
-      ' > div': {
-        flexGrow: 1,
-        maxWidth: '360px',
-      },
-    },
-  });
-
-  const baseTimeRangeStyles = style({
-    display: 'flex',
-    justifyContent: 'start',
-    $nest: {
-      '> label': {
-        flexGrow: 1,
-      },
-    },
-  });
-
   /* These overriding rules update the theme mode by accessing the otherwise inaccessible MUI tooltip styles */
   cssRule('.MuiPopover-root', {
     $nest: {
@@ -107,28 +86,33 @@ export default function SearchOverTime({
     <Grid className={styles.component}>
       {/**** Base - Time-Range Labels ****/}
       <Grid
-        item
-        xs={5}
-        className={`${baseTimeRangeStyles} base-repo-dropdown ${styles.dropDown}`}
+        container
+        spacing={2}
+        className={`base-repo-dropdown ${styles.dropDown}`}
       >
-        <InputLabel
-          id='base-repo-dropdown--overtime'
-          className='dropdown-select-label dropdown-select-label--base'
-        >
-          {stringsBase.selectLabelBase}
-          <Tooltip placement='top' title={stringsBase.tooltipBase}>
-            <InfoIcon fontSize='small' className='dropdown-info-icon' />
-          </Tooltip>
-        </InputLabel>
-        <InputLabel
-          id='select-timerange-label'
-          className='dropdown-select-label dropdown-select-label--time'
-        >
-          {timeRangeStrings.selectLabel}
-          <Tooltip placement='top' title={timeRangeStrings.tooltip}>
-            <InfoIcon fontSize='small' className='dropdown-info-icon' />
-          </Tooltip>
-        </InputLabel>
+        <Grid item xs style={{ maxWidth: '360px' }}>
+          <InputLabel
+            id='base-repo-dropdown--overtime'
+            className='dropdown-select-label dropdown-select-label--base'
+          >
+            {stringsBase.selectLabelBase}
+            <Tooltip placement='top' title={stringsBase.tooltipBase}>
+              <InfoIcon fontSize='small' className='dropdown-info-icon' />
+            </Tooltip>
+          </InputLabel>
+        </Grid>
+
+        <Grid item xs>
+          <InputLabel
+            id='select-timerange-label'
+            className='dropdown-select-label dropdown-select-label--time'
+          >
+            {timeRangeStrings.selectLabel}
+            <Tooltip placement='top' title={timeRangeStrings.tooltip}>
+              <InfoIcon fontSize='small' className='dropdown-info-icon' />
+            </Tooltip>
+          </InputLabel>
+        </Grid>
       </Grid>
 
       {/**** Base - TimeRange DropDown Section ****/}
@@ -136,11 +120,14 @@ export default function SearchOverTime({
         container
         alignItems='flex-start'
         id='base-search-container--time'
-        className={`${styles.container} ${baseRepoStyles}`}
+        spacing={2}
+        mb={3}
+        className={`${styles.container}`}
       >
         <Grid
           item
-          xs={6}
+          xs
+          style={{ maxWidth: '360px' }}
           id='base_search-dropdown--time'
           className={`base-search-dropdown ${styles.dropDown} ${
             hasEditButton ? 'small' : ''
@@ -159,7 +146,7 @@ export default function SearchOverTime({
 
         <Grid
           item
-          xs={6}
+          xs
           id='time-range'
           className={`new-search-dropdown ${styles.dropDown} `}
         >
