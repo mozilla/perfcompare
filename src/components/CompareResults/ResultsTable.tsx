@@ -72,6 +72,43 @@ function filterBySearchTerm(results: CompareResultsItem[], searchTerm: string) {
   );
 }
 
+const headerCellsConfiguration = [
+  {
+    name: 'Platform',
+    disable: true,
+    filter: true,
+    key: 'platform',
+    sort: true,
+  },
+  {
+    name: 'Base',
+    key: 'base',
+  },
+  { key: 'comparisonSign' },
+  { name: 'New', key: 'new' },
+  {
+    name: 'Status',
+    disable: true,
+    filter: true,
+    key: 'status',
+    sort: true,
+  },
+  {
+    name: 'Delta(%)',
+    key: 'delta',
+  },
+  {
+    name: 'Confidence',
+    disable: true,
+    filter: true,
+    key: 'confidence',
+    sort: true,
+  },
+  { name: 'Total Runs', key: 'runs' },
+  { key: 'buttons' },
+  { key: 'expand' },
+];
+
 const allRevisionsOption =
   Strings.components.comparisonRevisionDropdown.allRevisions.key;
 
@@ -121,7 +158,7 @@ function ResultsTable({ results, filteringSearchTerm }: ResultsTableProps) {
         </Box>
       ) : (
         <>
-          <TableHeader />
+          <TableHeader headerCellsConfiguration={headerCellsConfiguration} />
           {processedResults.map((res) => (
             <TableContent
               key={res.key}
