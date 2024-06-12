@@ -98,9 +98,10 @@ function ResultsTable(props: { results: CompareResultsItem[][] }) {
       ) : (
         <>
           <TableHeader />
-          {processedResults.map((res, index) => (
+          {processedResults.map((res) => (
             <TableContent
-              key={index}
+              key={res.key}
+              identifier={res.key}
               header={res.revisionHeader}
               results={res.value}
             />
