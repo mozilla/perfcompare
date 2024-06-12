@@ -213,6 +213,7 @@ export const platformMap: Record<Platform, string> = {
   'windows10-64-2004-devedition-qr': 'Windows 10 x64 2004 WebRender DevEdition',
   'windows10-64-2004-mingwclang': 'Windows 10 x64 2004 MinGW',
   'windows10-64-2004-mingwclang-qr': 'Windows 10 x64 2004 MinGW WebRender',
+  'windows11-64-2009-qr': 'Windows 11 x64 22H2 WebRender',
   'windows2012-32': 'Windows 2012',
   'windows2012-32-shippable': 'Windows 2012 Shippable',
   'windows2012-32-add-on-devel': 'Windows 2012 addon',
