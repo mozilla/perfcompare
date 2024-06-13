@@ -1,30 +1,12 @@
 import { CompareResultsItem } from './state';
 
-export type SelectedRevisionsTableHeaders =
-  | 'Project'
-  | 'Revision'
-  | 'Author'
-  | 'Commit Message'
-  | 'Timestamp';
-
-export type CompareResultsTableHeader = {
-  id: string;
-  label: CompareResultsTableHeaderName;
+export type CompareResultsTableConfig = {
+  name?: string;
   key: string;
-  align: 'left' | 'center' | 'right';
+  disable?: boolean;
+  filter?: boolean;
+  sort?: boolean;
 };
-
-export type CompareResultsTableHeaderName =
-  | 'Platform'
-  | 'Graph'
-  | 'Suite'
-  | 'Test Name'
-  | 'Base'
-  | 'New'
-  | 'Delta'
-  | 'Status'
-  | 'Confidence'
-  | 'Total Runs';
 
 export type ConfidenceText = 'High' | 'Medium' | 'Low';
 

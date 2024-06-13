@@ -4,17 +4,10 @@ import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
 import { Colors, Spacing } from '../../styles';
-
-type HeaderCell = {
-  name?: string;
-  key: string;
-  disable?: boolean;
-  filter?: boolean;
-  sort?: boolean;
-};
+import type { CompareResultsTableConfig } from '../../types/types';
 
 type TableHeaderProps = {
-  headerCellsConfiguration: HeaderCell[];
+  headerCellsConfiguration: CompareResultsTableConfig[];
 };
 
 function TableHeader({ headerCellsConfiguration }: TableHeaderProps) {
