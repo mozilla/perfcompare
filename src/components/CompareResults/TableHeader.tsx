@@ -5,7 +5,19 @@ import { style } from 'typestyle';
 import { useAppSelector } from '../../hooks/app';
 import { Colors, Spacing } from '../../styles';
 
-function TableHeader() {
+type HeaderCell = {
+  name?: string;
+  key: string;
+  disable?: boolean;
+  filter?: boolean;
+  sort?: boolean;
+};
+
+type TableHeaderProps = {
+  headerCellsConfiguration: HeaderCell[];
+};
+
+function TableHeader({ headerCellsConfiguration }: TableHeaderProps) {
   const themeMode = useAppSelector((state) => state.theme.mode);
   const styles = {
     tableHeader: style({
@@ -59,49 +71,13 @@ function TableHeader() {
     }),
   };
 
-  const headerCells = [
-    {
-      name: 'Platform',
-      disable: true,
-      filter: true,
-      key: 'platform',
-      sort: true,
-    },
-    {
-      name: 'Base',
-      key: 'base',
-    },
-    { key: 'comparisonSign' },
-    { name: 'New', key: 'new' },
-    {
-      name: 'Status',
-      disable: true,
-      filter: true,
-      key: 'status',
-      sort: true,
-    },
-    {
-      name: 'Delta(%)',
-      key: 'delta',
-    },
-    {
-      name: 'Confidence',
-      disable: true,
-      filter: true,
-      key: 'confidence',
-      sort: true,
-    },
-    { name: 'Total Runs', key: 'runs' },
-    { key: 'buttons' },
-    { key: 'expand' },
-  ];
   return (
     <div
       className={`${styles.tableHeader} ${styles.typography}`}
       data-testid='table-header'
       role='row'
     >
-      {headerCells.map((header) => (
+      {headerCellsConfiguration.map((header) => (
         <div
           key={`${header.key}`}
           className={`cell ${header.key}-header ${

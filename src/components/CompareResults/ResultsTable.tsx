@@ -56,12 +56,68 @@ function processResults(results: CompareResultsItem[]) {
   return restructuredResults;
 }
 
+function filterBySearchTerm(results: CompareResultsItem[], searchTerm: string) {
+  if (!searchTerm) {
+    return results;
+  }
+
+  return results.filter(
+    (result) =>
+      result.suite.includes(searchTerm) ||
+      result.extra_options.includes(searchTerm) ||
+      result.option_name.includes(searchTerm) ||
+      result.test.includes(searchTerm) ||
+      result.new_rev.includes(searchTerm) ||
+      result.platform.includes(searchTerm),
+  );
+}
+
+const headerCellsConfiguration = [
+  {
+    name: 'Platform',
+    disable: true,
+    filter: true,
+    key: 'platform',
+    sort: true,
+  },
+  {
+    name: 'Base',
+    key: 'base',
+  },
+  { key: 'comparisonSign' },
+  { name: 'New', key: 'new' },
+  {
+    name: 'Status',
+    disable: true,
+    filter: true,
+    key: 'status',
+    sort: true,
+  },
+  {
+    name: 'Delta(%)',
+    key: 'delta',
+  },
+  {
+    name: 'Confidence',
+    disable: true,
+    filter: true,
+    key: 'confidence',
+    sort: true,
+  },
+  { name: 'Total Runs', key: 'runs' },
+  { key: 'buttons' },
+  { key: 'expand' },
+];
+
 const allRevisionsOption =
   Strings.components.comparisonRevisionDropdown.allRevisions.key;
 
-function ResultsTable(props: { results: CompareResultsItem[][] }) {
-  const { results } = props;
+type ResultsTableProps = {
+  results: CompareResultsItem[][];
+  filteringSearchTerm: string;
+};
 
+function ResultsTable({ results, filteringSearchTerm }: ResultsTableProps) {
   const activeComparison = useAppSelector(
     (state) => state.comparison.activeComparison,
   );
@@ -72,8 +128,13 @@ function ResultsTable(props: { results: CompareResultsItem[][] }) {
         ? results.flat()
         : results.find((result) => result[0].new_rev === activeComparison) ??
           [];
-    return processResults(resultsForCurrentComparison);
-  }, [results, activeComparison]);
+
+    const filteredResults = filterBySearchTerm(
+      resultsForCurrentComparison,
+      filteringSearchTerm,
+    );
+    return processResults(filteredResults);
+  }, [results, activeComparison, filteringSearchTerm]);
 
   // TODO Implement a loading UI through the react-router defer mechanism
   const loading = false;
@@ -97,7 +158,7 @@ function ResultsTable(props: { results: CompareResultsItem[][] }) {
         </Box>
       ) : (
         <>
-          <TableHeader />
+          <TableHeader headerCellsConfiguration={headerCellsConfiguration} />
           {processedResults.map((res) => (
             <TableContent
               key={res.key}
