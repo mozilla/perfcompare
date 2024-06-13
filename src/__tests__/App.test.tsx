@@ -128,7 +128,7 @@ describe('App', () => {
       );
 
       await router.navigate(
-        '/compare-over-time-results?newRev=coconut&newRepo=try&framework=1&selectedTimeRange=86400',
+        '/compare-over-time-results?baseRepo=try&selectedTimeRange=86400&newRev=try&newRepo=try&framework=1',
       );
       render(<App />);
 
@@ -165,6 +165,19 @@ describe('App', () => {
       expect(console.error).toHaveBeenCalledTimes(1);
       (console.error as jest.Mock).mockClear();
 
+      // Error 2b: no baseRepo compare over time
+      await act(() =>
+        router.navigate(
+          '/compare-over-time-results/?newRev=foo&newRepo=try&newRepo=mozilla-central',
+        ),
+      );
+      expect(await screen.findByText(/baseRepo/)).toMatchSnapshot();
+      expect(console.error).toHaveBeenCalledWith(
+        new Error('The parameter baseRepo is missing.'),
+      );
+      expect(console.error).toHaveBeenCalledTimes(1);
+      (console.error as jest.Mock).mockClear();
+
       // Error 3: not the same amount of newRevs and newRepos
       await act(() =>
         router.navigate(
@@ -183,7 +196,7 @@ describe('App', () => {
       //Error 3b: compare over time
       await act(() =>
         router.navigate(
-          '/compare-over-time-results/?newRev=foo&newRepo=try&newRepo=mozilla-central',
+          '/compare-over-time-results/?baseRepo=try&newRev=foo&newRepo=try&newRepo=mozilla-central',
         ),
       );
       expect(await screen.findByText(/"newRepo"/)).toMatchSnapshot();
@@ -226,7 +239,7 @@ describe('App', () => {
       // Error 5b: compare over time
       await act(() =>
         router.navigate(
-          '/compare-over-time-results/?newRev=foo&newRepo=UNKNOWN',
+          '/compare-over-time-results/?baseRepo=try&newRev=foo&newRepo=UNKNOWN',
         ),
       );
       expect(await screen.findByText(/"UNKNOWN"/)).toMatchSnapshot();
@@ -240,7 +253,9 @@ describe('App', () => {
 
       // Error 6:  interval value is missing
       await act(() =>
-        router.navigate('/compare-over-time-results/?newRev=spam&newRepo=try'),
+        router.navigate(
+          '/compare-over-time-results/?baseRepo=try&newRev=spam&newRepo=try',
+        ),
       );
       expect(await screen.findByText(/interval/)).toMatchSnapshot();
       expect(console.error).toHaveBeenCalledWith(
@@ -267,7 +282,7 @@ describe('App', () => {
       // Error 7b: compare over time
       await act(() =>
         router.navigate(
-          '/compare-over-time-results/?newRev=spam&newRepo=try&framework=FOO&selectedTimeRange=86400',
+          '/compare-over-time-results/?baseRepo=try&selectedTimeRange=86400&newRev=spam&newRepo=try&framework=FOO',
         ),
       );
       expect(await screen.findByText(/"FOO"/)).toMatchSnapshot();
@@ -295,7 +310,7 @@ describe('App', () => {
       // Error 8b: compare over time
       await act(() =>
         router.navigate(
-          '/compare-over-time-results/?newRev=spam&newRepo=try&framework=25&selectedTimeRange=86400',
+          '/compare-over-time-results/?baseRepo=try&newRev=spam&newRepo=try&framework=25&selectedTimeRange=86400',
         ),
       );
       expect(await screen.findByText(/"25"/)).toMatchSnapshot();
@@ -308,7 +323,7 @@ describe('App', () => {
       // Error 9: invalid interval value
       await act(() =>
         router.navigate(
-          '/compare-over-time-results/?newRev=spam&newRepo=try&selectedTimeRange=FOO',
+          '/compare-over-time-results/?baseRepo=try&newRev=spam&newRepo=try&selectedTimeRange=FOO',
         ),
       );
       expect(await screen.findByText(/"FOO"/)).toMatchSnapshot();
@@ -323,7 +338,7 @@ describe('App', () => {
       // Error 10: unknown interval value
       await act(() =>
         router.navigate(
-          '/compare-over-time-results/?newRev=spam&newRepo=try&selectedTimeRange=1000',
+          '/compare-over-time-results/?baseRepo=try&newRev=spam&newRepo=try&selectedTimeRange=1000',
         ),
       );
       expect(await screen.findByText(/"1000"/)).toMatchSnapshot();

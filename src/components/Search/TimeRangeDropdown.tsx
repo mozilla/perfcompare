@@ -1,9 +1,6 @@
-import InfoIcon from '@mui/icons-material/InfoOutlined';
 import FormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import Tooltip from '@mui/material/Tooltip';
 import { style, cssRule } from 'typestyle';
 
 import { timeRangeMap } from '../../common/constants';
@@ -54,7 +51,7 @@ function TimeRangeDropdown({
 
   const styles = {
     container: style({
-      minWidth: '280px !important',
+      width: '100%',
 
       $nest: {
         '.MuiInputBase-root': {
@@ -74,15 +71,6 @@ function TimeRangeDropdown({
   return (
     <>
       <FormControl className={`timerange-dropdown ${styles.container}`}>
-        <InputLabel
-          id='select-timerange-label'
-          className='dropdown-select-label'
-        >
-          {strings.selectLabel}
-          <Tooltip placement='top' title={strings.tooltip}>
-            <InfoIcon fontSize='small' className='dropdown-info-icon' />
-          </Tooltip>
-        </InputLabel>
         <Select
           data-testid='dropdown-select-timerange'
           label={strings.selectLabel}
