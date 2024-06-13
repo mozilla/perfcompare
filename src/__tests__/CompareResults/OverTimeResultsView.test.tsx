@@ -24,7 +24,8 @@ function renderWithRoute(component: ReactElement) {
 
   return renderWithRouter(component, {
     route: '/compare-over-time-results/',
-    search: '?newRev=coconut&newRepo=try&framework=1&selectedTimeRange=86400',
+    search:
+      '?baseRepo=try&selectedTimeRange=86400&newRev=try&newRepo=try&framework=1',
     loader,
   });
 }

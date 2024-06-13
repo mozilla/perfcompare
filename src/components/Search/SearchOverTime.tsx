@@ -5,10 +5,11 @@ import InfoIcon from '@mui/icons-material/InfoOutlined';
 import Grid from '@mui/material/Grid';
 import InputLabel from '@mui/material/InputLabel';
 import Tooltip from '@mui/material/Tooltip';
-import { cssRule } from 'typestyle';
+import { cssRule, style } from 'typestyle';
 
 import { compareOverTimeView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
+import { Strings } from '../../resources/Strings';
 import {
   Spacing,
   DropDownMenuRaw,
@@ -17,35 +18,45 @@ import {
   SearchStyles,
 } from '../../styles';
 import { Changeset, Repository } from '../../types/state';
+import { TimeRange } from '../../types/types';
 import SearchDropdown from './SearchDropdown';
 import SearchInputAndResults from './SearchInputAndResults';
 import SelectedRevisions from './SelectedRevisions';
+import TimeRangeDropdown from './TimeRangeDropdown';
 
 interface SearchProps {
-  selectLabel: string;
-  tooltip: string;
-  inputPlaceholder: string;
   hasEditButton: boolean;
   displayedRevisions: Changeset[];
-  repository: Repository['name'];
+  baseRepo: Repository['name'];
+  newRepo: Repository['name'];
+  timeRangeValue: TimeRange['value'];
   onRemoveRevision: (item: Changeset) => void;
   onSearchResultsToggle: (item: Changeset) => void;
-  onRepositoryChange: (repo: Repository['name']) => unknown;
+  onBaseRepositoryChange: (repo: Repository['name']) => unknown;
+  onNewRepositoryChange: (repo: Repository['name']) => unknown;
+  onTimeRangeChange: (val: TimeRange['value']) => unknown;
 }
 
 export default function SearchOverTime({
-  selectLabel,
-  tooltip,
-  inputPlaceholder,
   hasEditButton,
-  repository,
+  baseRepo,
+  newRepo,
   displayedRevisions,
+  timeRangeValue,
   onRemoveRevision,
   onSearchResultsToggle,
-  onRepositoryChange,
+  onBaseRepositoryChange,
+  onNewRepositoryChange,
+  onTimeRangeChange,
 }: SearchProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = SearchStyles(mode);
+  const timeRangeStrings =
+    Strings.components.searchDefault.overTime.collapsed.timeRange;
+  const stringsBase =
+    Strings.components.searchDefault.overTime.collapsed.baseRepo;
+  const stringsNew =
+    Strings.components.searchDefault.overTime.collapsed.revisions;
 
   const [formIsDisplayed, setFormIsDisplayed] = useState(!hasEditButton);
 
@@ -73,22 +84,91 @@ export default function SearchOverTime({
 
   return (
     <Grid className={styles.component}>
+      {/**** Base - Time-Range Labels ****/}
       <Grid
-        item
-        xs={2}
-        className={`new-search-dropdown ${styles.dropDown} label-edit-wrapper`}
+        container
+        spacing={2}
+        className={`base-repo-dropdown ${styles.dropDown}`}
       >
+        <Grid item xs style={{ maxWidth: '360px' }}>
+          <InputLabel
+            id='base-repo-dropdown--overtime'
+            className='dropdown-select-label dropdown-select-label--base'
+          >
+            {stringsBase.selectLabelBase}
+            <Tooltip placement='top' title={stringsBase.tooltipBase}>
+              <InfoIcon fontSize='small' className='dropdown-info-icon' />
+            </Tooltip>
+          </InputLabel>
+        </Grid>
+
+        <Grid item xs>
+          <InputLabel
+            id='select-timerange-label'
+            className='dropdown-select-label dropdown-select-label--time'
+          >
+            {timeRangeStrings.selectLabel}
+            <Tooltip placement='top' title={timeRangeStrings.tooltip}>
+              <InfoIcon fontSize='small' className='dropdown-info-icon' />
+            </Tooltip>
+          </InputLabel>
+        </Grid>
+      </Grid>
+
+      {/**** Base - TimeRange DropDown Section ****/}
+      <Grid
+        container
+        alignItems='flex-start'
+        id='base-search-container--time'
+        spacing={2}
+        mb={3}
+        className={`${styles.container}`}
+      >
+        <Grid
+          item
+          xs
+          style={{ maxWidth: '360px' }}
+          id='base_search-dropdown--time'
+          className={`base-search-dropdown ${styles.dropDown} ${
+            hasEditButton ? 'small' : ''
+          } ${hasEditButton ? compareOverTimeView : ''}-base-dropdown`}
+        >
+          <SearchDropdown
+            compact={hasEditButton}
+            selectLabel={stringsBase.selectLabelBase}
+            searchType='base'
+            repository={baseRepo}
+            labelIdInfo='base-repo-dropdown--overtime'
+            onChange={onBaseRepositoryChange}
+            name='baseRepo'
+          />
+        </Grid>
+
+        <Grid
+          item
+          xs
+          id='time-range'
+          className={`new-search-dropdown ${styles.dropDown} `}
+        >
+          <TimeRangeDropdown
+            timeRangeValue={timeRangeValue}
+            onChange={onTimeRangeChange}
+          />
+        </Grid>
+      </Grid>
+
+      {/*** Revision- DropDown Section ***/}
+      <Grid item xs={2} className={`new-search-dropdown ${styles.dropDown}`}>
         <InputLabel
           id='repo-dropdown--overtime'
           className='dropdown-select-label'
         >
-          {selectLabel}
-          <Tooltip placement='top' title={tooltip}>
+          {stringsNew.selectLabel}
+          <Tooltip placement='top' title={stringsNew.tooltip}>
             <InfoIcon fontSize='small' className='dropdown-info-icon' />
           </Tooltip>
         </InputLabel>
       </Grid>
-      {/**** Search - DropDown Section ****/}
       <Grid
         container
         alignItems='flex-start'
@@ -104,12 +184,12 @@ export default function SearchOverTime({
           } ${hasEditButton ? compareOverTimeView : ''}-new-dropdown`}
         >
           <SearchDropdown
-            compact={false}
-            selectLabel={selectLabel}
+            compact={hasEditButton}
+            selectLabel={stringsNew.selectLabel}
             searchType='new'
-            repository={repository}
+            repository={newRepo}
             labelIdInfo='repo-dropdown--overtime'
-            onChange={onRepositoryChange}
+            onChange={onNewRepositoryChange}
           />
         </Grid>
         <Grid
@@ -122,10 +202,10 @@ export default function SearchOverTime({
         >
           <SearchInputAndResults
             compact={hasEditButton}
-            inputPlaceholder={inputPlaceholder}
+            inputPlaceholder={stringsNew.inputPlaceholder}
             displayedRevisions={displayedRevisions}
             searchType='new'
-            repository={repository}
+            repository={newRepo}
             onSearchResultsToggle={onSearchResultsToggle}
           />
         </Grid>

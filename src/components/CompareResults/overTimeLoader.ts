@@ -9,16 +9,19 @@ import { Framework, TimeRange } from '../../types/types';
 // This function checks and sanitizes the input values, then returns values that
 // we can then use in the rest of the application.
 function checkValues({
+  baseRepo,
   newRevs,
   newRepos,
   framework,
   interval,
 }: {
+  baseRepo: Repository['name'] | null;
   newRevs: string[];
   newRepos: Repository['name'][];
   framework: string | number | null;
   interval: string | number | null;
 }): {
+  baseRepo: Repository['name'];
   newRevs: string[];
   newRepos: Repository['name'][];
   frameworkId: Framework['id'];
@@ -26,6 +29,10 @@ function checkValues({
   intervalValue: TimeRange['value'];
   intervalText: TimeRange['text'];
 } {
+  if (baseRepo === null) {
+    throw new Error('The parameter baseRepo is missing.');
+  }
+
   if (newRevs.length !== newRepos.length) {
     throw new Error(
       'There should be as many "newRepo" parameters as there are "newRev" parameters.',
@@ -84,6 +91,7 @@ function checkValues({
   }
 
   return {
+    baseRepo,
     newRevs,
     newRepos,
     frameworkId,
@@ -96,11 +104,13 @@ function checkValues({
 //Compare over time results are fetched in a similar way to compare results.
 // /logic/treeherder.ts for all the revs we need results for.
 async function fetchCompareOverTimeResultsOnTreeherder({
+  baseRepo,
   newRevs,
   newRepos,
   framework,
   interval,
 }: {
+  baseRepo: Repository['name'];
   newRevs: string[];
   newRepos: Repository['name'][];
   framework: Framework['id'];
@@ -108,6 +118,7 @@ async function fetchCompareOverTimeResultsOnTreeherder({
 }) {
   const promises = newRevs.map((newRev, i) =>
     fetchCompareOverTimeResults({
+      baseRepo,
       newRev,
       newRepo: newRepos[i],
       framework,
@@ -118,13 +129,16 @@ async function fetchCompareOverTimeResultsOnTreeherder({
 }
 
 // This function is responsible for fetching the data from the URL. It's called
-// by React Router DOM when the compare-results path is requested.
+// by React Router DOM when the compare-over-time-results path is requested.
 // It uses the URL parameters as inputs, and returns all the fetched data to the
 // React components through React Router's useLoaderData hook.
 export async function loader({ request }: { request: Request }) {
   const url = new URL(request.url);
   //removed fakeData and fetchAllFakeCompareResults until one
   //for compareTime is created
+  const baseRepoFromUrl = url.searchParams.get('baseRepo') as
+    | Repository['name']
+    | null;
   const newRevsFromUrl = url.searchParams.getAll('newRev');
   const newReposFromUrl = url.searchParams.getAll(
     'newRepo',
@@ -133,6 +147,7 @@ export async function loader({ request }: { request: Request }) {
   const intervalFromUrl = url.searchParams.get('selectedTimeRange');
 
   const {
+    baseRepo,
     newRevs,
     newRepos,
     frameworkId,
@@ -140,6 +155,7 @@ export async function loader({ request }: { request: Request }) {
     intervalValue,
     intervalText,
   } = checkValues({
+    baseRepo: baseRepoFromUrl,
     newRevs: newRevsFromUrl,
     newRepos: newReposFromUrl,
     framework: frameworkFromUrl,
@@ -147,6 +163,7 @@ export async function loader({ request }: { request: Request }) {
   });
 
   const resultsTimePromise = fetchCompareOverTimeResultsOnTreeherder({
+    baseRepo,
     newRevs,
     newRepos,
     framework: frameworkId,
@@ -165,6 +182,7 @@ export async function loader({ request }: { request: Request }) {
   ]);
 
   return {
+    baseRepo,
     results,
     newRevs,
     newRevsInfo,
