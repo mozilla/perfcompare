@@ -10,9 +10,6 @@ import {
   Spacing,
   ButtonsLightRaw,
   ButtonsDarkRaw,
-  TooltipRaw,
-  FontsRaw,
-  Colors,
   DropDownMenuRaw,
   DropDownItemRaw,
 } from '../../styles';
@@ -30,18 +27,6 @@ function TimeRangeDropdown({
   onChange,
 }: TimeRangeDropdownProps) {
   const mode = useAppSelector((state) => state.theme.mode);
-
-  cssRule('.MuiTooltip-popper', {
-    ...(mode === 'light' ? TooltipRaw.Light : TooltipRaw.Dark),
-    $nest: {
-      '.MuiTooltip-tooltip': {
-        ...(mode === 'light' ? FontsRaw.BodySmall : FontsRaw.BodySmallDark),
-        backgroundColor: Colors.ColorTransparent,
-        padding: '0px',
-        margin: '0px !important',
-      },
-    },
-  });
 
   cssRule('.MuiPopover-root', {
     $nest: {
