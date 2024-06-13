@@ -6,7 +6,7 @@ import RevisionHeader from './RevisionHeader';
 import RevisionRow from './RevisionRow';
 
 function TableContent(props: TableContentProps) {
-  const { results, header } = props;
+  const { results, header, identifier } = props;
 
   const styles = {
     tableBody: style({
@@ -18,8 +18,8 @@ function TableContent(props: TableContentProps) {
       <RevisionHeader header={header} />
       <div>
         {results.length > 0 &&
-          results.map((result, index) => (
-            <RevisionRow key={index} result={result} />
+          results.map((result) => (
+            <RevisionRow key={identifier + result.platform} result={result} />
           ))}
       </div>
     </div>
@@ -29,6 +29,7 @@ function TableContent(props: TableContentProps) {
 interface TableContentProps {
   results: CompareResultsItem[];
   header: RevisionsHeader;
+  identifier: string;
 }
 
 export default TableContent;

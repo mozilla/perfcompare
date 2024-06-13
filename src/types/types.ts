@@ -196,6 +196,7 @@ export type Platform =
   | 'windows10-64-2004-devedition-qr'
   | 'windows10-64-2004-mingwclang'
   | 'windows10-64-2004-mingwclang-qr'
+  | 'windows11-64-2009-qr'
   | 'windows2012-32'
   | 'windows2012-32-shippable'
   | 'windows2012-32-add-on-devel'

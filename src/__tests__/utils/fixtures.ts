@@ -242,7 +242,7 @@ const getTestData = () => {
       base_app: '',
       new_app: '',
       framework_id: 1,
-      platform: 'windows10-64-shippable-qr',
+      platform: 'windows10-64-qr',
       suite: 'a11yr',
       is_empty: false,
       header_name: 'a11yr dhtml.html opt e10s fission stylo webrender',
