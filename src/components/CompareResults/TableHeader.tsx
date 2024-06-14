@@ -1,5 +1,5 @@
 import CheckIcon from '@mui/icons-material/Check';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import FilterListIcon from '@mui/icons-material/FilterList';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -43,11 +43,17 @@ function FilterableColumn({
     onToggle(newUncheckedValues);
   };
 
+  const hasFilteredValues = uncheckedValues && uncheckedValues.size;
+  const buttonAriaLabel = hasFilteredValues
+    ? `${name} (Click to filter values. Some filters are active.)`
+    : `${name} (Click to filter values)`;
+
   return (
     <>
       <Button
         color='secondary'
         {...bindTrigger(popupState)}
+        aria-label={buttonAriaLabel}
         sx={(theme) => ({
           background:
             theme.palette.mode == 'light'
@@ -58,7 +64,14 @@ function FilterableColumn({
         })}
       >
         {name}
-        <ExpandMoreIcon />
+        <FilterListIcon
+          fontSize='small'
+          color={hasFilteredValues ? 'primary' : 'inherit'}
+          sx={{ marginInlineStart: 1 }}
+          titleAccess={
+            hasFilteredValues ? 'Some filters are active' : 'No active filters'
+          }
+        />
       </Button>
       <Menu {...bindMenu(popupState)}>
         <MenuItem dense={true} onClick={onClear}>
