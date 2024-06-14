@@ -947,6 +947,53 @@ exports[`Results Table Should match snapshot 1`] = `
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div
+        class="f1otqxop"
+        role="rowgroup"
+      >
+        <div
+          class="fx9q187"
+        >
+          <div
+            class="f897l9y"
+          >
+            <strong>
+              <a
+                aria-label="link to suite documentation"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
+                href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
+                target="_blank"
+              >
+                a11yr
+              </a>
+               dhtml.html
+            </strong>
+             
+            <a
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+              href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
+              target="_blank"
+              title="open treeherder view for spam"
+            >
+              spam
+            </a>
+          </div>
+          <div
+            class="f1oxa67k"
+          >
+            <span
+              class="f1rpr1m5"
+            >
+              opt
+            </span>
+            <span
+              class="f1rpr1m5"
+            />
+          </div>
+        </div>
+        <div>
           <div
             class="revisionRow f1x1c13s fp4ugv1"
             role="row"
