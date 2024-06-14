@@ -1,4 +1,3 @@
-/* eslint-disable jest/no-disabled-tests */
 import type { ReactElement } from 'react';
 
 import { loader } from '../../components/CompareResults/overTimeLoader';

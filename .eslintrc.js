@@ -111,4 +111,10 @@ module.exports = {
       },
     },
   ],
+  // This property is specified both here in addition to the command line in
+  // package.json.
+  // The reason is that the property only warns but the command line option
+  // outputs errors, but the property is useful so that we have the information
+  // directly in editors.
+  reportUnusedDisableDirectives: true,
 };

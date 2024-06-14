@@ -1,4 +1,3 @@
-/* eslint-disable jest/no-disabled-tests */
 import userEvent from '@testing-library/user-event';
 
 import SearchView from '../../components/Search/SearchView';
