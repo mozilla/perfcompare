@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 
 import AppleIcon from '@mui/icons-material/Apple';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
@@ -11,7 +11,8 @@ import { style } from 'typestyle';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { Colors, Spacing, ExpandableRowStyles } from '../../styles';
-import type { CompareResultsItem, PlatformInfo } from '../../types/state';
+import type { CompareResultsItem, PlatformShortName } from '../../types/state';
+import { getPlatformShortName } from '../../utils/platform';
 import AndroidIcon from '../Shared/Icons/AndroidIcon';
 import LinuxIcon from '../Shared/Icons/LinuxIcon';
 import WindowsIcon from '../Shared/Icons/WindowsIcon';
@@ -30,23 +31,12 @@ function determineSign(baseMedianValue: number, newMedianValue: number) {
   return '';
 }
 
-const getPlatformInfo = (platformName: string): PlatformInfo => {
-  if (platformName.toLowerCase().includes('linux'))
-    return { shortName: 'Linux', icon: <LinuxIcon /> };
-  else if (
-    platformName.toLowerCase().includes('osx') ||
-    platformName.toLowerCase().includes('os x')
-  )
-    return { shortName: 'OSX', icon: <AppleIcon /> };
-  else if (platformName.toLowerCase().includes('windows'))
-    return { shortName: 'Windows', icon: <WindowsIcon /> };
-  else if (platformName.toLowerCase().includes('android'))
-    return { shortName: 'Android', icon: <AndroidIcon /> };
-  else
-    return {
-      shortName: Strings.components.revisionRow.platformUndefinedText,
-      icon: '',
-    };
+const platformIcons: Record<PlatformShortName, ReactNode> = {
+  Linux: <LinuxIcon />,
+  OSX: <AppleIcon />,
+  Windows: <WindowsIcon />,
+  Android: <AndroidIcon />,
+  Unspecified: '',
 };
 
 function RevisionRow(props: RevisionRowProps) {
@@ -66,7 +56,8 @@ function RevisionRow(props: RevisionRowProps) {
     graphs_link: graphLink,
   } = result;
 
-  const platformInfo = getPlatformInfo(platform);
+  const platformShortName = getPlatformShortName(platform);
+  const platformIcon = platformIcons[platformShortName];
 
   const [expanded, setExpanded] = useState(false);
 
@@ -170,8 +161,8 @@ function RevisionRow(props: RevisionRowProps) {
       >
         <div className='platform cell' role='cell'>
           <div className='platform-container'>
-            {platformInfo.icon}
-            <span>{platformInfo.shortName}</span>
+            {platformIcon}
+            <span>{platformShortName}</span>
           </div>
         </div>
         <div className='base-value cell' role='cell'>
