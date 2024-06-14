@@ -10,7 +10,6 @@ import {
   Spacing,
   DropDownMenuRaw,
   DropDownItemRaw,
-  //SearchStyles can be found in CompareCards.ts
   SearchStyles,
 } from '../../styles';
 import type { Changeset, InputType, Repository } from '../../types/state';
@@ -50,6 +49,7 @@ function SearchComponent({
   formIsDisplayed,
 }: SearchProps) {
   const mode = useAppSelector((state) => state.theme.mode);
+  //SearchStyles can be found in CompareCards.ts
   const styles = SearchStyles(mode);
   const searchType: InputType = isBaseComp ? 'base' : 'new';
 
