@@ -126,98 +126,101 @@ export default function SearchOverTime({
       </Grid>
 
       {/**** Base - TimeRange ReadyOnly ****/}
-      <Grid
-        container
-        alignItems='flex-start'
-        columnSpacing={2}
-        mb={3}
-        className={`base-search-container--readonly ${styles.container}`}
-        display={formIsDisplayed ? 'none' : 'flex'}
-        sx={{ p: 0, ml: 0, mb: 2 }}
-      >
+      {!formIsDisplayed && (
         <Grid
-          item
-          xs
-          style={{ maxWidth: '360px' }}
-          className={`base-search-dropdown ${readOnlyStyles} ${
-            styles.dropDown
-          }  ${hasEditButton ? 'small' : ''} ${
-            hasEditButton ? compareOverTimeView : ''
-          }-base-dropdown`}
+          container
+          alignItems='flex-start'
+          columnSpacing={2}
+          mb={3}
+          id='time-search-container--readonly'
+          className={styles.container}
+          sx={{ p: 0, ml: 0, mb: 2 }}
         >
-          <Typography
-            component='span'
-            variant='body2'
-            color='text.primary'
-            alignItems='center'
+          <Grid
+            item
+            xs
+            style={{ maxWidth: '360px' }}
+            className={`base-search-dropdown ${readOnlyStyles} ${
+              styles.dropDown
+            }  ${hasEditButton ? 'small' : ''} ${
+              hasEditButton ? compareOverTimeView : ''
+            }-base-dropdown`}
           >
-            {baseRepo}
-          </Typography>
-        </Grid>
+            <Typography
+              component='span'
+              variant='body2'
+              color='text.primary'
+              alignItems='center'
+            >
+              {baseRepo}
+            </Typography>
+          </Grid>
 
-        <Grid
-          item
-          xs
-          ml={3}
-          className={`new-search-dropdown ${readOnlyStyles} `}
-        >
-          <Typography
-            component='span'
-            variant='body2'
-            color='text.primary'
-            alignItems='center'
+          <Grid
+            item
+            xs
+            ml={3}
+            className={`new-search-dropdown ${readOnlyStyles}`}
           >
-            {timeRangeText}
-          </Typography>
+            <Typography
+              component='span'
+              variant='body2'
+              color='text.primary'
+              alignItems='center'
+            >
+              {timeRangeText}
+            </Typography>
+          </Grid>
         </Grid>
-      </Grid>
+      )}
 
       {/**** Base - TimeRange DropDowns Section ****/}
-      <Grid
-        container
-        alignItems='flex-start'
-        id='base-search-container--time'
-        mb={3}
-        p={0}
-        ml={0}
-        className={`${styles.container}`}
-        display={formIsDisplayed ? 'flex' : 'none'}
-      >
+      {formIsDisplayed && (
         <Grid
-          item
-          xs
-          style={{ maxWidth: '360px' }}
-          id='base_search-dropdown--time'
-          className={`base-search-dropdown ${hasEditButton ? 'small' : ''} ${
-            hasEditButton ? compareOverTimeView : ''
-          }-base-dropdown`}
+          container
+          alignItems='flex-start'
+          id='base-time-dropdown-container'
+          mb={3}
+          p={0}
+          ml={0}
+          className={`${styles.container}`}
         >
-          <SearchDropdown
-            compact={hasEditButton}
-            selectLabel={stringsBase.selectLabelBase}
-            searchType='base'
-            repository={baseRepo}
-            labelIdInfo='base-repo-dropdown--overtime'
-            onChange={onBaseRepositoryChange}
-            name='baseRepo'
-          />
-        </Grid>
+          <Grid
+            item
+            xs
+            style={{ maxWidth: '360px' }}
+            id='base_search-dropdown--time'
+            className={`base-search-dropdown ${hasEditButton ? 'small' : ''} ${
+              hasEditButton ? compareOverTimeView : ''
+            }-base-dropdown`}
+          >
+            <SearchDropdown
+              compact={hasEditButton}
+              selectLabel={stringsBase.selectLabelBase}
+              searchType='base'
+              repository={baseRepo}
+              labelIdInfo='base-repo-dropdown--overtime'
+              onChange={onBaseRepositoryChange}
+              name='baseRepo'
+            />
+          </Grid>
 
-        <Grid
-          item
-          xs
-          id='time-range'
-          ml={3}
-          className={`new-search-dropdown ${styles.dropDown} `}
-        >
-          <TimeRangeDropdown
-            timeRangeValue={timeRangeValue}
-            onChange={onTimeRangeChange}
-          />
+          <Grid
+            item
+            xs
+            id='time-range'
+            ml={3}
+            className={`new-search-dropdown ${styles.dropDown} `}
+          >
+            <TimeRangeDropdown
+              timeRangeValue={timeRangeValue}
+              onChange={onTimeRangeChange}
+            />
+          </Grid>
         </Grid>
-      </Grid>
+      )}
 
-      {/*** Revision- DropDown Section ***/}
+      {/*** Revision- DropDown Labels Section ***/}
       <Grid
         item
         xs={2}
@@ -235,49 +238,52 @@ export default function SearchOverTime({
         </InputLabel>
       </Grid>
 
-      <Grid
-        container
-        alignItems='flex-start'
-        id='new-search-container--time'
-        className={`${styles.container} ${
-          formIsDisplayed ? 'show-container' : 'hide-container'
-        }`}
-      >
+      {formIsDisplayed && (
         <Grid
-          item
-          xs={2}
-          id='new_search-dropdown--time'
-          className={`new-search-dropdown ${styles.dropDown} ${
-            hasEditButton ? 'small' : ''
-          } ${hasEditButton ? compareOverTimeView : ''}-new-dropdown`}
+          container
+          alignItems='flex-start'
+          id='new-search-container--time'
+          className={`${styles.container} ${
+            formIsDisplayed ? 'show-container--time' : ''
+          }`}
         >
-          <SearchDropdown
-            compact={hasEditButton}
-            selectLabel={stringsNew.selectLabel}
-            searchType='new'
-            repository={newRepo}
-            labelIdInfo='repo-dropdown--overtime'
-            onChange={onNewRepositoryChange}
-          />
+          <Grid
+            item
+            xs={2}
+            id='new_search-dropdown--time'
+            className={`new-search-dropdown ${styles.dropDown} ${
+              hasEditButton ? 'small' : ''
+            } ${hasEditButton ? compareOverTimeView : ''}-new-dropdown`}
+          >
+            <SearchDropdown
+              compact={hasEditButton}
+              selectLabel={stringsNew.selectLabel}
+              searchType='new'
+              repository={newRepo}
+              labelIdInfo='repo-dropdown--overtime'
+              onChange={onNewRepositoryChange}
+            />
+          </Grid>
+          <Grid
+            item
+            xs={7}
+            id='new_search-input--time'
+            className={`new-search-input--time  ${styles.baseSearchInput} ${
+              hasEditButton ? 'big' : ''
+            } `}
+          >
+            <SearchInputAndResults
+              compact={hasEditButton}
+              inputPlaceholder={stringsNew.inputPlaceholder}
+              displayedRevisions={displayedRevisions}
+              searchType='new'
+              repository={newRepo}
+              onSearchResultsToggle={onSearchResultsToggle}
+            />
+          </Grid>
         </Grid>
-        <Grid
-          item
-          xs={7}
-          id='new_search-input--time'
-          className={`new-search-input--time  ${styles.baseSearchInput} ${
-            hasEditButton ? 'big' : ''
-          } `}
-        >
-          <SearchInputAndResults
-            compact={hasEditButton}
-            inputPlaceholder={stringsNew.inputPlaceholder}
-            displayedRevisions={displayedRevisions}
-            searchType='new'
-            repository={newRepo}
-            onSearchResultsToggle={onSearchResultsToggle}
-          />
-        </Grid>
-      </Grid>
+      )}
+
       {/***** Selected Revisions Section *****/}
       {displayedRevisions && (
         <Grid className='d-flex'>

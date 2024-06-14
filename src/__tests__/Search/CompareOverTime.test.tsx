@@ -63,6 +63,16 @@ async function waitForPageReadyAndReturnForm() {
   return formElement;
 }
 
+function getEditButton() {
+  return screen.getByRole('button', {
+    name: 'edit revision',
+  });
+}
+
+function getCancelButton() {
+  return screen.getByRole('button', { name: 'Cancel' });
+}
+
 async function expandOverTimeComponent() {
   const user = userEvent.setup({ delay: null });
   const testExpandedID = 'time-state';
@@ -238,7 +248,7 @@ describe('Compare Over Time', () => {
     const user = userEvent.setup({ delay: null });
 
     expect(
-      within(formElement).getAllByText(/Last day/i)[1],
+      within(formElement).getAllByText(/Last day/i)[0],
     ).toBeInTheDocument();
 
     expect(
@@ -258,7 +268,7 @@ describe('Compare Over Time', () => {
     await user.click(last2daysItem);
 
     expect(
-      within(formElement).getAllByText(/Last 2 days/i)[1],
+      within(formElement).getAllByText(/Last 2 days/i)[0],
     ).toBeInTheDocument();
   });
 
@@ -411,5 +421,135 @@ describe('Compare Over Time', () => {
     expect(selectedRevs).toBeInTheDocument();
 
     expect(screen.getByText("you've got no arms left!")).toBeInTheDocument();
+  });
+
+  it('should have an edit mode in Results View', async () => {
+    renderWithCompareResultsURL(
+      <OverTimeResultsView title={Strings.metaData.pageTitle.results} />,
+    );
+    const formElement = await waitForPageReadyAndReturnForm();
+    const user = userEvent.setup({ delay: null });
+    expect(formElement).toMatchSnapshot('Initial state for the form');
+
+    // the readonly and new revision should be displayed
+    const timeReadOnly = document.querySelector(
+      '#time-search-container--readonly',
+    );
+    expect(timeReadOnly).toBeInTheDocument();
+
+    const newSelectedRevision = await screen.findByTestId('selected-rev-item');
+    expect(
+      within(newSelectedRevision).getByText(/no arms left/),
+    ).toBeInTheDocument();
+
+    //the base repo and time range dropdowns should be hidden
+    expect(
+      screen.queryByRole('button', { name: 'Base repository try' }),
+    ).not.toBeInTheDocument();
+
+    expect(
+      screen.queryByRole('button', { name: 'Time range Last day' }),
+    ).not.toBeInTheDocument();
+
+    // The new repo dropdown and search input should be hidden
+    expect(
+      screen.queryByRole('button', { name: 'Revisions' }),
+    ).not.toBeInTheDocument();
+    expect(within(formElement).queryByRole('textbox')).not.toBeInTheDocument();
+
+    // Click the edit revision button
+    const editButton = getEditButton();
+    await user.click(editButton);
+
+    expect(formElement).toMatchSnapshot('After clicking edit button');
+
+    expect(editButton).not.toBeInTheDocument();
+
+    //the base repo and time range dropdowns should be visible
+    expect(
+      screen.getByRole('button', { name: 'Base repository try' }),
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByRole('button', { name: 'Time range Last day' }),
+    ).toBeInTheDocument();
+
+    // The new repo dropdown and search input should be visible
+    expect(
+      screen.getByRole('button', { name: 'Revisions' }),
+    ).toBeInTheDocument();
+    expect(within(formElement).getByRole('textbox')).toBeInTheDocument();
+
+    // Pressing the cancel button should hide input and dropdowns
+    await user.click(getCancelButton());
+
+    expect(
+      screen.queryByRole('button', { name: 'Base repository try' }),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole('button', { name: 'Time range Last day' }),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole('button', { name: 'Revisions' }),
+    ).not.toBeInTheDocument();
+    expect(within(formElement).queryByRole('textbox')).not.toBeInTheDocument();
+  });
+
+  it('should update revisions and time-range after user changes both in edit mode', async () => {
+    renderWithCompareResultsURL(
+      <OverTimeResultsView title={Strings.metaData.pageTitle.results} />,
+    );
+    const formElement = await waitForPageReadyAndReturnForm();
+    const user = userEvent.setup({ delay: null });
+    expect(formElement).toMatchSnapshot('Initial state for the form');
+
+    const checkboxForText = (textElement: Element) =>
+      textElement.closest('li')?.querySelector('.MuiCheckbox-root');
+
+    const newSelectedRevision = await screen.findByTestId('selected-rev-item');
+
+    expect(
+      within(newSelectedRevision).getByText(/no arms left/),
+    ).toBeInTheDocument();
+
+    // The new repo dropdown and search input should be hidden
+    expect(
+      screen.queryByRole('button', { name: 'Revisions' }),
+    ).not.toBeInTheDocument();
+    expect(within(formElement).queryByRole('textbox')).not.toBeInTheDocument();
+
+    // Click the edit revision
+    const editButton = getEditButton();
+    await user.click(editButton);
+
+    // The new repo dropdown and search input should be visible
+    expect(
+      screen.getByRole('button', { name: 'Revisions' }),
+    ).toBeInTheDocument();
+    expect(within(formElement).getByRole('textbox')).toBeInTheDocument();
+
+    expect(formElement).toMatchSnapshot('After clicking edit button');
+    expect(editButton).not.toBeInTheDocument();
+
+    //add a new revision
+    const searchInput = within(formElement).getByRole('textbox');
+    await user.click(searchInput);
+    const alvesOfCoconut = await screen.findByText(/alves of coconuts/);
+    await user.click(alvesOfCoconut);
+    expect(checkboxForText(alvesOfCoconut)).toHaveClass('Mui-checked');
+
+    //change time range
+    const timeRangeDropdown = screen.getByRole('button', {
+      name: 'Time range Last day',
+    });
+    await user.click(timeRangeDropdown);
+    const last2daysItem = screen.getByRole('option', {
+      name: 'Last 2 days',
+    });
+    await user.click(last2daysItem);
+
+    // the updated revision and time range should be displayed
+    expect(screen.getByText(/alves of coconuts/)).toBeInTheDocument();
+    expect(last2daysItem).toBeInTheDocument();
   });
 });

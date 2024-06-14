@@ -517,31 +517,8 @@ exports[`Search Containter should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-container base-search-container--readonly container_fgv7cgi css-16wugw1-MuiGrid-root"
-              >
-                <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true base-search-dropdown f13jbxzm dropDown_f913nm1   -base-dropdown css-1t7ybvx-MuiGrid-root"
-                  style="max-width: 360px;"
-                >
-                  <span
-                    class="MuiTypography-root MuiTypography-body2 css-11g6e76-MuiTypography-root"
-                  >
-                    try
-                  </span>
-                </div>
-                <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown f13jbxzm  css-4syqmy-MuiGrid-root"
-                >
-                  <span
-                    class="MuiTypography-root MuiTypography-body2 css-11g6e76-MuiTypography-root"
-                  >
-                    Last day
-                  </span>
-                </div>
-              </div>
-              <div
-                class="MuiGrid-root MuiGrid-container container_fgv7cgi css-yk40p5-MuiGrid-root"
-                id="base-search-container--time"
+                class="MuiGrid-root MuiGrid-container container_fgv7cgi css-14mwbf0-MuiGrid-root"
+                id="base-time-dropdown-container"
               >
                 <div
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true base-search-dropdown  -base-dropdown css-1t7ybvx-MuiGrid-root"
@@ -655,7 +632,7 @@ exports[`Search Containter should match snapshot 1`] = `
                 </label>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-container container_fgv7cgi show-container css-1ljzhs0-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-container container_fgv7cgi show-container--time css-1ljzhs0-MuiGrid-root"
                 id="new-search-container--time"
               >
                 <div
