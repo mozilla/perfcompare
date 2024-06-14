@@ -29,7 +29,9 @@ describe('Results Table', () => {
       .get('begin:https://treeherder.mozilla.org/api/project/', {
         results: [],
       });
-    renderWithRoute(<ResultsTable results={[]} filteringSearchTerm='' />);
+    renderWithRoute(
+      <ResultsTable results={[testCompareData]} filteringSearchTerm='' />,
+    );
 
     expect(await screen.findByTestId('results-table')).toBeInTheDocument();
     expect(document.body).toMatchSnapshot();
