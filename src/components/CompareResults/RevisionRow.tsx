@@ -4,19 +4,18 @@ import AppleIcon from '@mui/icons-material/Apple';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
-import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import { IconButton } from '@mui/material';
 import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
-import { checkTaskclusterCredentials } from '../../logic/taskcluster';
 import { Strings } from '../../resources/Strings';
 import { Colors, Spacing, ExpandableRowStyles } from '../../styles';
 import type { CompareResultsItem, PlatformInfo } from '../../types/state';
 import AndroidIcon from '../Shared/Icons/AndroidIcon';
 import LinuxIcon from '../Shared/Icons/LinuxIcon';
 import WindowsIcon from '../Shared/Icons/WindowsIcon';
+import RetriggerButton from './RetriggerButton';
 import RevisionRowExpandable from './RevisionRowExpandable';
 
 function determineStatus(improvement: boolean, regression: boolean) {
@@ -235,14 +234,7 @@ function RevisionRow(props: RevisionRowProps) {
             data-testid='retrigger-jobs-button'
           >
             <div className='retrigger-button-container'>
-              <IconButton
-                title={Strings.components.revisionRow.title.retriggerJobs}
-                color='primary'
-                size='small'
-                onClick={() => checkTaskclusterCredentials()}
-              >
-                <RefreshOutlinedIcon />
-              </IconButton>
+              <RetriggerButton />
             </div>
           </div>
         </div>

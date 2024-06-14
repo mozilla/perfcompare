@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 
 import { Container } from '@mui/system';
 import { style } from 'typestyle';
@@ -36,26 +36,6 @@ function ResultsMain(props: { results: CompareResultsItem[][] }) {
     }),
   };
 
-  const filteredResults = useMemo(
-    () =>
-      searchTerm
-        ? results
-            .map((resultsForOneComparison) =>
-              resultsForOneComparison.filter(
-                (result) =>
-                  result.suite.includes(searchTerm) ||
-                  result.extra_options.includes(searchTerm) ||
-                  result.option_name.includes(searchTerm) ||
-                  result.test.includes(searchTerm) ||
-                  result.new_rev.includes(searchTerm) ||
-                  result.platform.includes(searchTerm),
-              ),
-            )
-            .filter((resultsForOneComparison) => resultsForOneComparison.length)
-        : results,
-    [results, searchTerm],
-  );
-
   return (
     <Container className={styles.container} data-testid='results-main'>
       <header>
@@ -66,7 +46,7 @@ function ResultsMain(props: { results: CompareResultsItem[][] }) {
           <DownloadButton />
         </div>
       </header>
-      <ResultsTable results={filteredResults} />
+      <ResultsTable results={results} filteringSearchTerm={searchTerm} />
     </Container>
   );
 }

@@ -29,7 +29,7 @@ describe('Results Table', () => {
       .get('begin:https://treeherder.mozilla.org/api/project/', {
         results: [],
       });
-    renderWithRoute(<ResultsTable results={[]} />);
+    renderWithRoute(<ResultsTable results={[]} filteringSearchTerm='' />);
 
     expect(await screen.findByTestId('results-table')).toBeInTheDocument();
     expect(document.body).toMatchSnapshot();
@@ -41,7 +41,7 @@ describe('Results Table', () => {
       .get('begin:https://treeherder.mozilla.org/api/project/', {
         results: [],
       });
-    renderWithRoute(<ResultsTable results={[]} />);
+    renderWithRoute(<ResultsTable results={[]} filteringSearchTerm='' />);
 
     expect(await screen.findByText(/No results found/)).toBeInTheDocument();
   });
