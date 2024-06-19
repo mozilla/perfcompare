@@ -99,7 +99,7 @@ export default function SearchOverTime({
         spacing={2}
         className={`base-repo-dropdown ${styles.dropDown}`}
       >
-        <Grid item xs style={{ maxWidth: '360px' }}>
+        <Grid item xs>
           <InputLabel
             id='base-repo-dropdown--overtime'
             className='dropdown-select-label dropdown-select-label--base'
@@ -111,7 +111,7 @@ export default function SearchOverTime({
           </InputLabel>
         </Grid>
 
-        <Grid item xs ml={3}>
+        <Grid item xs>
           <InputLabel
             id='select-timerange-label'
             className='dropdown-select-label dropdown-select-label--time'
@@ -138,7 +138,7 @@ export default function SearchOverTime({
           <Grid
             item
             xs
-            style={{ maxWidth: '360px' }}
+            style={{ maxWidth: '364px' }}
             className={`base-search-dropdown ${readOnlyStyles} ${
               styles.dropDown
             }  ${hasEditButton ? 'small' : ''} ${
@@ -187,7 +187,7 @@ export default function SearchOverTime({
           <Grid
             item
             xs
-            style={{ maxWidth: '360px' }}
+            style={{ maxWidth: '365px' }}
             id='base_search-dropdown--time'
             className={`base-search-dropdown ${hasEditButton ? 'small' : ''} ${
               hasEditButton ? compareOverTimeView : ''
@@ -208,7 +208,7 @@ export default function SearchOverTime({
             item
             xs
             id='time-range'
-            ml={3}
+            style={{ maxWidth: '365px' }}
             className={`new-search-dropdown ${styles.dropDown} `}
           >
             <TimeRangeDropdown

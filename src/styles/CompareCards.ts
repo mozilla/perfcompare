@@ -167,8 +167,7 @@ export const SearchStyles = (mode: string) => {
     },
 
     baseSearchInput: {
-      minWidth: '490px',
-      width: '100%',
+      minWidth: '530px',
       position: 'absolute',
       left: '220px',
       $nest: {
