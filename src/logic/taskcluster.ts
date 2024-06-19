@@ -152,3 +152,98 @@ export async function retrieveTaskclusterUserCredentials(
 
   return response.json() as Promise<UserCredentials>;
 }
+
+type Action = {
+  hookId: string;
+  hookGroupId: string; // check to see if it used
+  kind: 'hook';
+  hookPayload: unknown;
+  name: string;
+};
+
+export async function fetchActionsFromDecisionTask(
+  rootUrl: string,
+  decisionTaskId: string,
+) {
+  const url = `${rootUrl}/api/queue/v1/task/${decisionTaskId}/artifacts/public%2Factions.json`;
+
+  const response = await fetch(url);
+
+  void checkTaskclusterResponse(response);
+
+  return (await response.json()) as {
+    actions: Array<Action>;
+    variables: unknown;
+  };
+}
+
+export async function fetchTaskInformationFromTaskId(
+  rootUrl: string,
+  taskId: string,
+) {
+  const url = `${rootUrl}/api/queue/v1/task/${taskId}`;
+
+  const response = await fetch(url);
+
+  void checkTaskclusterResponse(response);
+
+  return (await response.json()) as { scopes: Array<string> };
+}
+
+export async function expandScopes(rootUrl: string, scopes: Array<string>) {
+  const url = `${rootUrl}/api/auth/v1/scopes/expand`;
+
+  const options = {
+    method: 'POST',
+    body: JSON.stringify({ scopes }),
+    headers: { 'Content-Type': 'application/json' },
+  };
+
+  const response = await fetch(url, options);
+
+  void checkTaskclusterResponse(response);
+
+  const json = (await response.json()) as { scopes: Array<string> };
+
+  return json.scopes;
+}
+
+export async function triggerHook(
+  rootUrl: string,
+  accessToken: string,
+  hookGroupId: string,
+  hookId: string,
+  hookPayload: string,
+) {
+  const url = `${rootUrl}/api/hooks/v1/hooks/${encodeURIComponent(
+    hookGroupId,
+  )}/${encodeURIComponent(hookId)}/trigger`;
+
+  const options = {
+    method: 'POST',
+    body: JSON.stringify(hookPayload),
+    headers: {
+      Authorization: `Bearer ${accessToken}`, // to be checked
+      'Content-Type': 'application/json',
+    },
+  };
+
+  const response = await fetch(url, options);
+
+  void checkTaskclusterResponse(response);
+
+  const json = (await response.json()) as { taskId: string };
+
+  return json.taskId;
+}
+
+export async function retrigger() {
+  // GOAL: retrigger one job
+  // Treeherder functions retriggerMultipleJobs, retriggerByRevision
+  // retriggerMultipleJobs(currentRetriggerRow, baseRetriggerTimes, newRetriggerTimes, this.props)
+  // retriggerByRevision(results.originalRtriggerableJobId, job repo, isBaseline=truOrFalse, retriggerTimes=1forNow, cevaPropsIdk)
+  // retriggerByRevision uses JobModel.get(currentRepo.name, jobId), JobModel.retrigger([job], currentRepo, notify, times)
+  // do not retrigger -> isBaseline && isBaseAggregate - nu inteleg
+  // need access to repo
+  // depends on jobId, currentRepo, isBaseline, times
+}

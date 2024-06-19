@@ -1,3 +1,4 @@
+import { JobInformation } from '../types/api';
 import { CompareResultsItem, Repository, Changeset } from '../types/state';
 import { Framework, TimeRange } from '../types/types';
 
@@ -191,4 +192,33 @@ export async function fetchRecentRevisions(params: RecentRevisionsParams) {
 
   const json = (await response.json()) as { results: Changeset[] };
   return json.results;
+}
+
+export async function fetchJobInformationFromJobId(
+  repo: string,
+  jobId: number,
+) {
+  const url = `${treeherderBaseURL}/api/project/${repo}/jobs/${jobId}`;
+  const response = await fetchFromTreeherder(url);
+
+  return (await response.json()) as JobInformation;
+}
+
+export async function fetchDecisionTaskIdFromPushId(
+  repo: string,
+  pushId: number,
+) {
+  const url = `${treeherderBaseURL}/api/project/${repo}/push/decisiontask/?push_ids=${pushId}`;
+  const response = await fetchFromTreeherder(url);
+
+  const json = (await response.json()) as Record<string, { id: string }>;
+  const decisionTask = json[pushId]?.id;
+
+  if (!decisionTask) {
+    throw new Error(
+      `Failing fetching decision Task id: ${JSON.stringify(json)}`,
+    );
+  }
+
+  return decisionTask;
 }
