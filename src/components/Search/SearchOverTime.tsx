@@ -97,7 +97,6 @@ export default function SearchOverTime({
       <Grid
         container
         spacing={2}
-        mb={0.5}
         className={`base-repo-dropdown ${styles.dropDown}`}
       >
         <Grid item xs style={{ maxWidth: '360px' }}>
@@ -221,12 +220,7 @@ export default function SearchOverTime({
       )}
 
       {/*** Revision- DropDown Labels Section ***/}
-      <Grid
-        item
-        xs={2}
-        mb={0.5}
-        className={`new-search-dropdown ${styles.dropDown}`}
-      >
+      <Grid item xs={2} className={`new-search-dropdown ${styles.dropDown}`}>
         <InputLabel
           id='repo-dropdown--overtime'
           className='dropdown-select-label'
