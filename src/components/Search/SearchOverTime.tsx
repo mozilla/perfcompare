@@ -87,8 +87,9 @@ export default function SearchOverTime({
 
   const readOnlyStyles = style({
     borderRadius: Spacing.xSmall,
-    backgroundColor: Colors.Background200,
-    padding: `${Spacing.xSmall}px ${Spacing.xSmall}px`,
+    backgroundColor:
+      mode === 'light' ? Colors.Background200 : Colors.Background300Dark,
+    padding: '6px 12px 6px 16px',
   });
 
   return (
@@ -129,21 +130,19 @@ export default function SearchOverTime({
         <Grid
           container
           alignItems='flex-start'
-          columnSpacing={2}
           mb={3}
+          p={0}
+          ml={0}
           id='time-search-container--readonly'
           className={styles.container}
-          sx={{ p: 0, ml: 0, mb: 2 }}
         >
           <Grid
             item
             xs
-            style={{ maxWidth: '364px' }}
+            style={{ maxWidth: hasEditButton ? '415px' : '365px' }}
             className={`base-search-dropdown ${readOnlyStyles} ${
               styles.dropDown
-            }  ${hasEditButton ? 'small' : ''} ${
-              hasEditButton ? compareOverTimeView : ''
-            }-base-dropdown`}
+            }  ${hasEditButton ? compareOverTimeView : ''}-base-dropdown`}
           >
             <Typography
               component='span'
@@ -158,8 +157,8 @@ export default function SearchOverTime({
           <Grid
             item
             xs
-            ml={3}
-            className={`new-search-dropdown ${readOnlyStyles}`}
+            style={{ maxWidth: hasEditButton ? '415px' : '365px' }}
+            className={`new-search-dropdown  ${readOnlyStyles}`}
           >
             <Typography
               component='span'
@@ -187,11 +186,9 @@ export default function SearchOverTime({
           <Grid
             item
             xs
-            style={{ maxWidth: '365px' }}
+            style={{ maxWidth: hasEditButton ? '415px' : '365px' }}
             id='base_search-dropdown--time'
-            className={`base-search-dropdown ${hasEditButton ? 'small' : ''} ${
-              hasEditButton ? compareOverTimeView : ''
-            }-base-dropdown`}
+            className='base-search-dropdown'
           >
             <SearchDropdown
               compact={hasEditButton}
@@ -208,8 +205,10 @@ export default function SearchOverTime({
             item
             xs
             id='time-range'
-            style={{ maxWidth: '365px' }}
-            className={`new-search-dropdown ${styles.dropDown} `}
+            style={{ maxWidth: hasEditButton ? '415px' : '365px' }}
+            className={`new-search-dropdown ${hasEditButton ? 'small' : ''} ${
+              styles.dropDown
+            }  `}
           >
             <TimeRangeDropdown
               timeRangeValue={timeRangeValue}

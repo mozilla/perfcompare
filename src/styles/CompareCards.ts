@@ -45,7 +45,7 @@ export const CompareCardsStyles = (mode: string) => {
           backgroundPosition: 'center',
           background: isTrueLight
             ? Colors.Background200
-            : Colors.Background200Dark,
+            : Colors.Background300Dark,
           $nest: {
             '&.compare-card-img--time': {
               backgroundImage: `url(${
@@ -62,6 +62,11 @@ export const CompareCardsStyles = (mode: string) => {
         '.edit-btn-wrapper': {
           display: 'flex',
           justifyContent: 'end',
+          $nest: {
+            button: {
+              color: isTrueLight ? Colors.LinkText : Colors.LinkTextDark,
+            },
+          },
         },
         '&.compare-card-container--time': {
           marginTop: `${Spacing.Large}px`,

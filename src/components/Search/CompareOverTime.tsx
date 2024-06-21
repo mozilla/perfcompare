@@ -195,7 +195,7 @@ function CompareOverTime({
           {/**** Edit Button ****/}
           <div className='edit-btn-wrapper'>
             {hasEditButton && !formIsDisplayed && (
-              <EditButton onEditAction={handleEdit} />
+              <EditButton onEditAction={handleEdit} mode={mode} />
             )}
           </div>
 
