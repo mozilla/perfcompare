@@ -1,6 +1,6 @@
 import { green, red } from '@mui/material/colors';
 
-import { Colors, Spacing, FontSizeRaw } from '../styles';
+import { Colors, Spacing, FontsRaw, FontSizeRaw } from '../styles';
 import android from './img/android.svg';
 import high from './img/high.svg';
 import linux from './img/linux.svg';
@@ -142,10 +142,15 @@ const components = {
     },
   },
   MuiTypography: {
-    styleOverrides: {
+    defaultProps: {
       variantMapping: {
         body1: 'span',
         body2: 'span',
+      },
+    },
+    styleOverrides: {
+      body1: {
+        ...FontsRaw.BodyDefault,
       },
       root: {
         '&.perfcompare-header': {

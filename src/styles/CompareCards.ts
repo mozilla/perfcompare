@@ -66,6 +66,12 @@ export const CompareCardsStyles = (mode: string) => {
             button: {
               color: isTrueLight ? Colors.LinkText : Colors.LinkTextDark,
             },
+            '&.show-edit-btn': {
+              visibility: 'visible',
+            },
+            '&.hide-edit-btn': {
+              visibility: 'hidden',
+            },
           },
         },
         '&.compare-card-container--time': {

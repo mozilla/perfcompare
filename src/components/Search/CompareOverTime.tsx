@@ -193,10 +193,14 @@ function CompareOverTime({
           aria-label='Compare over time form'
         >
           {/**** Edit Button ****/}
-          <div className='edit-btn-wrapper'>
-            {hasEditButton && !formIsDisplayed && (
-              <EditButton onEditAction={handleEdit} mode={mode} />
-            )}
+          <div
+            className={`edit-btn-wrapper ${
+              hasEditButton && !formIsDisplayed
+                ? 'show-edit-btn'
+                : 'hide-edit-btn'
+            }`}
+          >
+            <EditButton onEditAction={handleEdit} mode={mode} />
           </div>
 
           <SearchOverTime

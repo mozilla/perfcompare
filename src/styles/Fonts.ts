@@ -2,7 +2,6 @@ import { style, fontFace } from 'typestyle';
 
 import metropolisFontURL from '../../public/fonts/Metropolis-Bold.woff2';
 import sfFontURL from '../../public/fonts/sf-pro-text-regular.woff';
-import { Colors } from './Colors';
 
 fontFace({
   fontFamily: 'Metropolis',
@@ -16,12 +15,10 @@ fontFace({
 
 const sharedFontStyles = {
   fontStyle: 'normal',
-  color: Colors.PrimaryText,
 };
 
 const sharedFontStylesDark = {
   fontStyle: 'normal',
-  color: Colors.PrimaryTextDark,
 };
 
 export const FontsRaw = {

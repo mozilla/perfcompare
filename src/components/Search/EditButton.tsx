@@ -1,4 +1,5 @@
 import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 import { Strings } from '../../resources/Strings';
 import pencilDark from '../../theme/img/pencil-dark.svg';
@@ -30,7 +31,7 @@ export default function EditButton({ onEditAction, mode }: EditButtonProps) {
       startIcon={buttonIcon}
       onClick={onEditAction}
     >
-      {editText}
+      <Typography variant='body1'>{editText}</Typography>
     </Button>
   );
 }

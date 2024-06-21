@@ -8,17 +8,43 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
   method="get"
 >
   <div
-    class="edit-btn-wrapper"
-  />
+    class="edit-btn-wrapper hide-edit-btn"
+  >
+    <button
+      aria-label="edit revision"
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+      name="edit-button"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="MuiButton-startIcon MuiButton-iconSizeMedium css-gcc2o7-MuiButton-startIcon"
+      >
+        <img
+          alt="edit-icon"
+          class="icon icon-edit"
+          id="edit-button-icon"
+          src="pencil.svg"
+        />
+      </span>
+      <span
+        class="MuiTypography-root MuiTypography-body1 css-13qdlub-MuiTypography-root"
+      >
+        Edit entry
+      </span>
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </button>
+  </div>
   <div
     class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f913nm1 css-6u0ba5-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f913nm1 css-1e9xsub-MuiGrid-root"
     >
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-1t7ybvx-MuiGrid-root"
-        style="max-width: 360px;"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label dropdown-select-label--base css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -41,7 +67,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
         </label>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-4syqmy-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-1t7ybvx-MuiGrid-root"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label dropdown-select-label--time css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -69,9 +95,9 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
       id="base-time-dropdown-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true base-search-dropdown  -base-dropdown css-1t7ybvx-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true base-search-dropdown css-1t7ybvx-MuiGrid-root"
         id="base_search-dropdown--time"
-        style="max-width: 360px;"
+        style="max-width: 365px;"
       >
         <div
           class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
@@ -113,8 +139,9 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown dropDown_f913nm1  css-4syqmy-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  dropDown_f913nm1   css-1t7ybvx-MuiGrid-root"
         id="time-range"
+        style="max-width: 365px;"
       >
         <div
           class="MuiFormControl-root timerange-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
@@ -157,7 +184,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
       </div>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 css-h8md1u-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 css-13eijkh-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -225,7 +252,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f1o6j1ms   css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f7qwsv0   css-17gmabg-MuiGrid-root"
         id="new_search-input--time"
       >
         <div
@@ -288,7 +315,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
       class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
     >
       <div
-        class="box_f65ycfw new-box MuiBox-root css-0"
+        class="box_f6fb7f6 new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -388,7 +415,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
   method="get"
 >
   <div
-    class="edit-btn-wrapper"
+    class="edit-btn-wrapper show-edit-btn"
   >
     <button
       aria-label="edit revision"
@@ -404,10 +431,14 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
           alt="edit-icon"
           class="icon icon-edit"
           id="edit-button-icon"
-          src="https://user-images.githubusercontent.com/88336547/259900252-462ac221-f4ff-4b1c-bb6b-5df906e8007d.svg"
+          src="pencil.svg"
         />
       </span>
-      Edit entry
+      <span
+        class="MuiTypography-root MuiTypography-body1 css-13qdlub-MuiTypography-root"
+      >
+        Edit entry
+      </span>
       <span
         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       />
@@ -417,11 +448,10 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
     class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f913nm1 css-6u0ba5-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f913nm1 css-1e9xsub-MuiGrid-root"
     >
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-1t7ybvx-MuiGrid-root"
-        style="max-width: 360px;"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label dropdown-select-label--base css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -444,7 +474,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
         </label>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-4syqmy-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-1t7ybvx-MuiGrid-root"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label dropdown-select-label--time css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -468,12 +498,12 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
       </div>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_fgv7cgi css-1bti0o5-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_fgv7cgi css-14mwbf0-MuiGrid-root"
       id="time-search-container--readonly"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true base-search-dropdown f13jbxzm dropDown_f913nm1  small compare-over-time-results-base-dropdown css-1t7ybvx-MuiGrid-root"
-        style="max-width: 360px;"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true base-search-dropdown flie9py dropDown_f913nm1  compare-over-time-results-base-dropdown css-1t7ybvx-MuiGrid-root"
+        style="max-width: 415px;"
       >
         <span
           class="MuiTypography-root MuiTypography-body2 css-11g6e76-MuiTypography-root"
@@ -482,7 +512,8 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
         </span>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown f13jbxzm css-4syqmy-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  flie9py css-1t7ybvx-MuiGrid-root"
+        style="max-width: 415px;"
       >
         <span
           class="MuiTypography-root MuiTypography-body2 css-11g6e76-MuiTypography-root"
@@ -492,7 +523,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
       </div>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 css-h8md1u-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 css-13eijkh-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -518,7 +549,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
       class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
     >
       <div
-        class="box_f65ycfw new-box MuiBox-root css-0"
+        class="box_f6fb7f6 new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -553,7 +584,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-hrbm3k-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-6bdtsh-MuiTypography-root"
                 >
                   <span
                     class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
@@ -606,11 +637,11 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
                     </div>
                   </div>
                 </span>
-                <p
+                <span
                   class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
                 >
                   you've got no arms left! 
-                </p>
+                </span>
               </div>
               <button
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium icon-close-hidden revision-action close-button css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
@@ -841,17 +872,52 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
   method="get"
 >
   <div
-    class="edit-btn-wrapper"
-  />
+    class="edit-btn-wrapper hide-edit-btn"
+  >
+    <button
+      aria-label="edit revision"
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+      name="edit-button"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="MuiButton-startIcon MuiButton-iconSizeMedium css-gcc2o7-MuiButton-startIcon"
+      >
+        <img
+          alt="edit-icon"
+          class="icon icon-edit"
+          id="edit-button-icon"
+          src="pencil.svg"
+        />
+      </span>
+      <span
+        class="MuiTypography-root MuiTypography-body1 css-13qdlub-MuiTypography-root"
+      >
+        Edit entry
+      </span>
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      >
+        <span
+          class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+          style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+        >
+          <span
+            class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+          />
+        </span>
+      </span>
+    </button>
+  </div>
   <div
     class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f913nm1 css-6u0ba5-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f913nm1 css-1e9xsub-MuiGrid-root"
     >
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-1t7ybvx-MuiGrid-root"
-        style="max-width: 360px;"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label dropdown-select-label--base css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -874,7 +940,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
         </label>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-4syqmy-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-1t7ybvx-MuiGrid-root"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label dropdown-select-label--time css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -902,9 +968,9 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
       id="base-time-dropdown-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true base-search-dropdown small compare-over-time-results-base-dropdown css-1t7ybvx-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true base-search-dropdown css-1t7ybvx-MuiGrid-root"
         id="base_search-dropdown--time"
-        style="max-width: 360px;"
+        style="max-width: 415px;"
       >
         <div
           class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
@@ -946,8 +1012,9 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown dropDown_f913nm1  css-4syqmy-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown small dropDown_f913nm1   css-1t7ybvx-MuiGrid-root"
         id="time-range"
+        style="max-width: 415px;"
       >
         <div
           class="MuiFormControl-root timerange-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
@@ -990,7 +1057,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
       </div>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 css-h8md1u-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 css-13eijkh-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -1058,7 +1125,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f1o6j1ms big  css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f7qwsv0 big  css-17gmabg-MuiGrid-root"
         id="new_search-input--time"
       >
         <div
@@ -1121,7 +1188,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
       class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
     >
       <div
-        class="box_f65ycfw new-box MuiBox-root css-0"
+        class="box_f6fb7f6 new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -1156,7 +1223,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-hrbm3k-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-6bdtsh-MuiTypography-root"
                 >
                   <span
                     class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
@@ -1209,11 +1276,11 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
                     </div>
                   </div>
                 </span>
-                <p
+                <span
                   class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
                 >
                   you've got no arms left! 
-                </p>
+                </span>
               </div>
               <button
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium icon-close-show revision-action close-button css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
@@ -1349,7 +1416,7 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
   method="get"
 >
   <div
-    class="edit-btn-wrapper"
+    class="edit-btn-wrapper show-edit-btn"
   >
     <button
       aria-label="edit revision"
@@ -1365,10 +1432,14 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
           alt="edit-icon"
           class="icon icon-edit"
           id="edit-button-icon"
-          src="https://user-images.githubusercontent.com/88336547/259900252-462ac221-f4ff-4b1c-bb6b-5df906e8007d.svg"
+          src="pencil.svg"
         />
       </span>
-      Edit entry
+      <span
+        class="MuiTypography-root MuiTypography-body1 css-13qdlub-MuiTypography-root"
+      >
+        Edit entry
+      </span>
       <span
         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       />
@@ -1378,11 +1449,10 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
     class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f913nm1 css-6u0ba5-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f913nm1 css-1e9xsub-MuiGrid-root"
     >
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-1t7ybvx-MuiGrid-root"
-        style="max-width: 360px;"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label dropdown-select-label--base css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -1405,7 +1475,7 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
         </label>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-4syqmy-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-1t7ybvx-MuiGrid-root"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label dropdown-select-label--time css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -1429,12 +1499,12 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
       </div>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_fgv7cgi css-1bti0o5-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_fgv7cgi css-14mwbf0-MuiGrid-root"
       id="time-search-container--readonly"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true base-search-dropdown f13jbxzm dropDown_f913nm1  small compare-over-time-results-base-dropdown css-1t7ybvx-MuiGrid-root"
-        style="max-width: 360px;"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true base-search-dropdown flie9py dropDown_f913nm1  compare-over-time-results-base-dropdown css-1t7ybvx-MuiGrid-root"
+        style="max-width: 415px;"
       >
         <span
           class="MuiTypography-root MuiTypography-body2 css-11g6e76-MuiTypography-root"
@@ -1443,7 +1513,8 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
         </span>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown f13jbxzm css-4syqmy-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  flie9py css-1t7ybvx-MuiGrid-root"
+        style="max-width: 415px;"
       >
         <span
           class="MuiTypography-root MuiTypography-body2 css-11g6e76-MuiTypography-root"
@@ -1453,7 +1524,7 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
       </div>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 css-h8md1u-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 css-13eijkh-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -1479,7 +1550,7 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
       class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
     >
       <div
-        class="box_f65ycfw new-box MuiBox-root css-0"
+        class="box_f6fb7f6 new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -1514,7 +1585,7 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-hrbm3k-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-6bdtsh-MuiTypography-root"
                 >
                   <span
                     class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
@@ -1567,11 +1638,11 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
                     </div>
                   </div>
                 </span>
-                <p
+                <span
                   class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
                 >
                   you've got no arms left! 
-                </p>
+                </span>
               </div>
               <button
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium icon-close-hidden revision-action close-button css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
@@ -1696,17 +1767,43 @@ exports[`Compare Over Time should remove the checked revision once X button is c
   method="get"
 >
   <div
-    class="edit-btn-wrapper"
-  />
+    class="edit-btn-wrapper hide-edit-btn"
+  >
+    <button
+      aria-label="edit revision"
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+      name="edit-button"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="MuiButton-startIcon MuiButton-iconSizeMedium css-gcc2o7-MuiButton-startIcon"
+      >
+        <img
+          alt="edit-icon"
+          class="icon icon-edit"
+          id="edit-button-icon"
+          src="pencil.svg"
+        />
+      </span>
+      <span
+        class="MuiTypography-root MuiTypography-body1 css-13qdlub-MuiTypography-root"
+      >
+        Edit entry
+      </span>
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </button>
+  </div>
   <div
     class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f913nm1 css-6u0ba5-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f913nm1 css-1e9xsub-MuiGrid-root"
     >
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-1t7ybvx-MuiGrid-root"
-        style="max-width: 360px;"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label dropdown-select-label--base css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -1729,7 +1826,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
         </label>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-4syqmy-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-1t7ybvx-MuiGrid-root"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label dropdown-select-label--time css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -1757,9 +1854,9 @@ exports[`Compare Over Time should remove the checked revision once X button is c
       id="base-time-dropdown-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true base-search-dropdown  -base-dropdown css-1t7ybvx-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true base-search-dropdown css-1t7ybvx-MuiGrid-root"
         id="base_search-dropdown--time"
-        style="max-width: 360px;"
+        style="max-width: 365px;"
       >
         <div
           class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
@@ -1801,8 +1898,9 @@ exports[`Compare Over Time should remove the checked revision once X button is c
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown dropDown_f913nm1  css-4syqmy-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  dropDown_f913nm1   css-1t7ybvx-MuiGrid-root"
         id="time-range"
+        style="max-width: 365px;"
       >
         <div
           class="MuiFormControl-root timerange-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
@@ -1845,7 +1943,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
       </div>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 css-h8md1u-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 css-13eijkh-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -1913,7 +2011,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f1o6j1ms   css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f7qwsv0   css-17gmabg-MuiGrid-root"
         id="new_search-input--time"
       >
         <div
@@ -1976,7 +2074,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
       class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
     >
       <div
-        class="box_f65ycfw new-box MuiBox-root css-0"
+        class="box_f6fb7f6 new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -2076,17 +2174,52 @@ exports[`Compare Over Time should update revisions and time-range after user cha
   method="get"
 >
   <div
-    class="edit-btn-wrapper"
-  />
+    class="edit-btn-wrapper hide-edit-btn"
+  >
+    <button
+      aria-label="edit revision"
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+      name="edit-button"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="MuiButton-startIcon MuiButton-iconSizeMedium css-gcc2o7-MuiButton-startIcon"
+      >
+        <img
+          alt="edit-icon"
+          class="icon icon-edit"
+          id="edit-button-icon"
+          src="pencil.svg"
+        />
+      </span>
+      <span
+        class="MuiTypography-root MuiTypography-body1 css-13qdlub-MuiTypography-root"
+      >
+        Edit entry
+      </span>
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      >
+        <span
+          class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+          style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+        >
+          <span
+            class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+          />
+        </span>
+      </span>
+    </button>
+  </div>
   <div
     class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f913nm1 css-6u0ba5-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f913nm1 css-1e9xsub-MuiGrid-root"
     >
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-1t7ybvx-MuiGrid-root"
-        style="max-width: 360px;"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label dropdown-select-label--base css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -2109,7 +2242,7 @@ exports[`Compare Over Time should update revisions and time-range after user cha
         </label>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-4syqmy-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-1t7ybvx-MuiGrid-root"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label dropdown-select-label--time css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -2137,9 +2270,9 @@ exports[`Compare Over Time should update revisions and time-range after user cha
       id="base-time-dropdown-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true base-search-dropdown small compare-over-time-results-base-dropdown css-1t7ybvx-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true base-search-dropdown css-1t7ybvx-MuiGrid-root"
         id="base_search-dropdown--time"
-        style="max-width: 360px;"
+        style="max-width: 415px;"
       >
         <div
           class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
@@ -2181,8 +2314,9 @@ exports[`Compare Over Time should update revisions and time-range after user cha
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown dropDown_f913nm1  css-4syqmy-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown small dropDown_f913nm1   css-1t7ybvx-MuiGrid-root"
         id="time-range"
+        style="max-width: 415px;"
       >
         <div
           class="MuiFormControl-root timerange-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
@@ -2225,7 +2359,7 @@ exports[`Compare Over Time should update revisions and time-range after user cha
       </div>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 css-h8md1u-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 css-13eijkh-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -2293,7 +2427,7 @@ exports[`Compare Over Time should update revisions and time-range after user cha
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f1o6j1ms big  css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f7qwsv0 big  css-17gmabg-MuiGrid-root"
         id="new_search-input--time"
       >
         <div
@@ -2356,7 +2490,7 @@ exports[`Compare Over Time should update revisions and time-range after user cha
       class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
     >
       <div
-        class="box_f65ycfw new-box MuiBox-root css-0"
+        class="box_f6fb7f6 new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -2391,7 +2525,7 @@ exports[`Compare Over Time should update revisions and time-range after user cha
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-hrbm3k-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-6bdtsh-MuiTypography-root"
                 >
                   <span
                     class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
@@ -2444,11 +2578,11 @@ exports[`Compare Over Time should update revisions and time-range after user cha
                     </div>
                   </div>
                 </span>
-                <p
+                <span
                   class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
                 >
                   you've got no arms left! 
-                </p>
+                </span>
               </div>
               <button
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium icon-close-show revision-action close-button css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
@@ -2584,7 +2718,7 @@ exports[`Compare Over Time should update revisions and time-range after user cha
   method="get"
 >
   <div
-    class="edit-btn-wrapper"
+    class="edit-btn-wrapper show-edit-btn"
   >
     <button
       aria-label="edit revision"
@@ -2600,10 +2734,14 @@ exports[`Compare Over Time should update revisions and time-range after user cha
           alt="edit-icon"
           class="icon icon-edit"
           id="edit-button-icon"
-          src="https://user-images.githubusercontent.com/88336547/259900252-462ac221-f4ff-4b1c-bb6b-5df906e8007d.svg"
+          src="pencil.svg"
         />
       </span>
-      Edit entry
+      <span
+        class="MuiTypography-root MuiTypography-body1 css-13qdlub-MuiTypography-root"
+      >
+        Edit entry
+      </span>
       <span
         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       />
@@ -2613,11 +2751,10 @@ exports[`Compare Over Time should update revisions and time-range after user cha
     class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f913nm1 css-6u0ba5-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f913nm1 css-1e9xsub-MuiGrid-root"
     >
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-1t7ybvx-MuiGrid-root"
-        style="max-width: 360px;"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label dropdown-select-label--base css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -2640,7 +2777,7 @@ exports[`Compare Over Time should update revisions and time-range after user cha
         </label>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-4syqmy-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-1t7ybvx-MuiGrid-root"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label dropdown-select-label--time css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -2664,12 +2801,12 @@ exports[`Compare Over Time should update revisions and time-range after user cha
       </div>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_fgv7cgi css-1bti0o5-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_fgv7cgi css-14mwbf0-MuiGrid-root"
       id="time-search-container--readonly"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true base-search-dropdown f13jbxzm dropDown_f913nm1  small compare-over-time-results-base-dropdown css-1t7ybvx-MuiGrid-root"
-        style="max-width: 360px;"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true base-search-dropdown flie9py dropDown_f913nm1  compare-over-time-results-base-dropdown css-1t7ybvx-MuiGrid-root"
+        style="max-width: 415px;"
       >
         <span
           class="MuiTypography-root MuiTypography-body2 css-11g6e76-MuiTypography-root"
@@ -2678,7 +2815,8 @@ exports[`Compare Over Time should update revisions and time-range after user cha
         </span>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown f13jbxzm css-4syqmy-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  flie9py css-1t7ybvx-MuiGrid-root"
+        style="max-width: 415px;"
       >
         <span
           class="MuiTypography-root MuiTypography-body2 css-11g6e76-MuiTypography-root"
@@ -2688,7 +2826,7 @@ exports[`Compare Over Time should update revisions and time-range after user cha
       </div>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 css-h8md1u-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 css-13eijkh-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -2714,7 +2852,7 @@ exports[`Compare Over Time should update revisions and time-range after user cha
       class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
     >
       <div
-        class="box_f65ycfw new-box MuiBox-root css-0"
+        class="box_f6fb7f6 new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -2749,7 +2887,7 @@ exports[`Compare Over Time should update revisions and time-range after user cha
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-hrbm3k-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-6bdtsh-MuiTypography-root"
                 >
                   <span
                     class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
@@ -2802,11 +2940,11 @@ exports[`Compare Over Time should update revisions and time-range after user cha
                     </div>
                   </div>
                 </span>
-                <p
+                <span
                   class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
                 >
                   you've got no arms left! 
-                </p>
+                </span>
               </div>
               <button
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium icon-close-hidden revision-action close-button css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
