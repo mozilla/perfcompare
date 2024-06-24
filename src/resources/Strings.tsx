@@ -102,7 +102,6 @@ export const Strings = {
       },
     },
     revisionRow: {
-      platformUndefinedText: 'Unspecified',
       title: {
         graphLink: 'open the evolution graph for this job in treeherder',
         downloadProfilers: 'open the performance profile for this job',
