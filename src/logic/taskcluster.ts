@@ -1,11 +1,11 @@
 // This file contains logic for the Taskcluster Third-Party Login
 
-import {
-  UserCredentials,
-  TokenBearer,
-  UserCredentialsDictionary,
-} from '../types/types';
+import { UserCredentials, TokenBearer } from '../types/types';
 import { getLocationOrigin } from '../utils/location';
+import {
+  waitForStorageEvent,
+  retrieveUserCredentials,
+} from './credentials-storage';
 
 export const prodTaskclusterUrl = 'https://firefox-ci-tc.services.mozilla.com';
 export const stagingTaskclusterUrl =
@@ -36,11 +36,17 @@ const generateNonce = () => {
   return window.crypto.randomUUID();
 };
 
-const getAuthCode = (tcParams: {
+type TaskclusterParams = {
   url: string;
   redirectUri: string;
   clientId: string;
-}) => {
+};
+
+// This function opens a new tab to the taskcluster authentication requesting a
+// code. After authentication it will redirect to our redirectUri page
+// /taskcluster-auth with the code, then it will set the result to localStorage.
+// waitForStorageEvent will wait for this.
+const openTaskclusterAuthenticationPage = (tcParams: TaskclusterParams) => {
   const nonce = generateNonce();
   // The nonce is stored in sessionStorage so that it can be compared with the one received by the callback endpoint.
   sessionStorage.setItem('requestState', nonce);
@@ -59,27 +65,38 @@ const getAuthCode = (tcParams: {
   window.open(url, '_blank');
 };
 
-export const checkTaskclusterCredentials = () => {
-  const taskclusterParams = getTaskclusterParams();
+// This function returns the stored credentials in localStorage.
+export const getTaskclusterCredentials = (
+  taskclusterParams: TaskclusterParams,
+) => {
   const locationOrigin = getLocationOrigin();
 
   if (!taskclusterParams.clientId) {
     alert(`No clientId is configured for origin ${locationOrigin}, sorry!`);
     return;
   }
-  const userCredentials = JSON.parse(
-    localStorage.getItem('userCredentials') as string,
-  ) as UserCredentialsDictionary; //UserCredentialsDictionary
 
-  if (
-    !userCredentials ||
-    !userCredentials[taskclusterParams.url]
-    // TODO: once the userCredentials are set in sessionStorage check if the "expires" date is in the past
-  ) {
-    getAuthCode(taskclusterParams);
-  }
-  // TODO: handle case where the user navigates directly to the login route
+  const credentials = retrieveUserCredentials(taskclusterParams.url);
+  return credentials;
 };
+
+// This returns the taskcluster access token, either stored or possibly opening
+// a new tab for authentication.
+export async function getTaskclusterAccessToken() {
+  const taskclusterParams = getTaskclusterParams();
+  let accessToken = getTaskclusterCredentials(taskclusterParams);
+  if (!accessToken) {
+    openTaskclusterAuthenticationPage(taskclusterParams);
+    await waitForStorageEvent();
+    accessToken = getTaskclusterCredentials(taskclusterParams);
+
+    if (!accessToken) {
+      throw new Error("Couldn't retrieve an access token for taskcluster");
+    }
+  }
+
+  return accessToken;
+}
 
 async function checkTaskclusterResponse(response: Response) {
   if (!response.ok) {

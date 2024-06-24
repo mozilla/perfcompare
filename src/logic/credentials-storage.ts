@@ -43,10 +43,26 @@ export function retrieveUserCredentials(
 ): UserCredentials | null {
   const allCredentialsAsString = localStorage.userCredentials as string;
 
-  if (allCredentialsAsString) return null;
+  if (!allCredentialsAsString) return null;
 
   const allCredentials = JSON.parse(
     allCredentialsAsString,
   ) as UserCredentialsDictionary;
   return allCredentials[rootUrl] ?? null;
+}
+
+export function waitForStorageEvent(): Promise<void> {
+  return new Promise((resolve) => {
+    window.addEventListener(
+      'storage',
+      function storageListener(event: StorageEvent) {
+        // TODO change userCredentials with userTokens
+        // when the userCredentials fetch is moved here
+        if (event.key === 'userCredentials') {
+          resolve();
+          window.removeEventListener('storage', storageListener);
+        }
+      },
+    );
+  });
 }
