@@ -20,6 +20,11 @@ function renderWithRoute(component: ReactElement) {
 describe('Results Table', () => {
   it('Should match snapshot', async () => {
     const { testCompareData } = getTestData();
+    const compareDataToChange = testCompareData.at(-1)!;
+    Object.assign(compareDataToChange, {
+      extra_options: '',
+      header_name: `${compareDataToChange.suite} ${compareDataToChange.test} ${compareDataToChange.option_name}`,
+    });
 
     (window.fetch as FetchMockSandbox)
       .get(
@@ -29,7 +34,9 @@ describe('Results Table', () => {
       .get('begin:https://treeherder.mozilla.org/api/project/', {
         results: [],
       });
-    renderWithRoute(<ResultsTable results={[]} filteringSearchTerm='' />);
+    renderWithRoute(
+      <ResultsTable results={[testCompareData]} filteringSearchTerm='' />,
+    );
 
     expect(await screen.findByTestId('results-table')).toBeInTheDocument();
     expect(document.body).toMatchSnapshot();

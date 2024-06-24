@@ -84,7 +84,7 @@ function createTitle(
 }
 
 function getExtraOptions(extraOptions: string) {
-  return extraOptions.split(' ');
+  return extraOptions ? extraOptions.split(' ') : [];
 }
 
 function RevisionHeader(props: RevisionHeaderProps) {
