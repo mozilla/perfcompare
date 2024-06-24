@@ -104,17 +104,6 @@ function CompareWithBase({
     (baseRepository === 'try' && newRepository !== 'try') ||
     (baseRepository !== 'try' && newRepository === 'try');
 
-  const onFormSubmit = (e: React.FormEvent) => {
-    const isFormReadyToBeSubmitted = baseInProgressRev !== null;
-    setFormIsDisplayed(!isFormReadyToBeSubmitted);
-    if (!isFormReadyToBeSubmitted) {
-      e.preventDefault();
-      enqueueSnackbar(strings.base.collapsed.errors.notEnoughRevisions, {
-        variant: 'error',
-      });
-    }
-  };
-
   const bottomStyles = {
     container: style({
       display: 'flex',
@@ -127,6 +116,17 @@ function CompareWithBase({
     wrapper: style({
       marginBottom: `${Spacing.Large}px`,
     }),
+  };
+
+  const onFormSubmit = (e: React.FormEvent) => {
+    const isFormReadyToBeSubmitted = baseInProgressRev !== null;
+    setFormIsDisplayed(!isFormReadyToBeSubmitted);
+    if (!isFormReadyToBeSubmitted) {
+      e.preventDefault();
+      enqueueSnackbar(strings.base.collapsed.errors.notEnoughRevisions, {
+        variant: 'error',
+      });
+    }
   };
 
   const toggleIsExpanded = () => {
