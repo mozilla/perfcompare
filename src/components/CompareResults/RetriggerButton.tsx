@@ -1,8 +1,17 @@
 import { useState } from 'react';
 
+import CloseIcon from '@mui/icons-material/Close';
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
-import { IconButton, Modal, Box, Typography, Button } from '@mui/material';
+import {
+  IconButton,
+  Modal,
+  Box,
+  Paper,
+  Typography,
+  Button,
+} from '@mui/material';
 
+import TaskclusterLogo from '../../assets/taskcluster-logo.png';
 import {
   getTaskclusterCredentials,
   getTaskclusterParams,
@@ -16,29 +25,109 @@ import {
 import { Strings } from '../../resources/Strings';
 import { CompareResultsItem } from '../../types/state';
 
+type CenteredModalProps = {
+  open: boolean;
+  onClose: () => unknown;
+  ariaLabelledby: string;
+  children: React.ReactNode;
+  paperStyle?: React.ComponentProps<typeof Paper>['sx'];
+};
+
+function CenteredModal(props: CenteredModalProps) {
+  return (
+    <Modal
+      open={props.open}
+      onClose={props.onClose}
+      aria-labelledby={props.ariaLabelledby}
+      sx={{ display: 'flex' }}
+    >
+      <Paper
+        sx={{
+          margin: 'auto',
+          padding: 6,
+          maxHeight: 0.6,
+          width: 0.6,
+          maxWidth: 500,
+          overflow: 'auto',
+          position: 'relative' /* to be able to position the close icon */,
+          ...props.paperStyle,
+        }}
+      >
+        <IconButton
+          aria-label='Close'
+          size='large'
+          sx={{ position: 'absolute', top: 8, right: 8 }}
+          onClick={props.onClose}
+        >
+          <CloseIcon />
+        </IconButton>
+        {props.children}
+      </Paper>
+    </Modal>
+  );
+}
+
 type SignInModalProps = {
   open: boolean;
   onClose: () => unknown;
   onSignIn: () => unknown;
 };
-function SignInModal({ open, onClose, onSignIn }: SignInModalProps) {
+function SignInModal(props: SignInModalProps) {
+  const [waitingSignIn, setWaitingSignIn] = useState(false);
   const onSignInButtonClick = () => {
-    onSignIn();
+    if (waitingSignIn) {
+      return;
+    }
+    setWaitingSignIn(true);
+    props.onSignIn();
   };
+
+  const onClose = () => {
+    setWaitingSignIn(false);
+    props.onClose();
+  };
+
   return (
-    <Modal
-      open={open}
+    <CenteredModal
+      open={props.open}
       onClose={onClose}
-      aria-labelledby='sign-in-modal-title'
-      sx={{ display: 'flex' }}
+      ariaLabelledby='sign-in-modal-title'
+      paperStyle={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: 2,
+        paddingBottom: 5,
+        textAlign: 'center',
+      }}
     >
-      <Box>
-        <Typography id='sign-in-modal-title' component='h2'>
-          Sign into Taskcluster to re-trigger the comparison
-        </Typography>
-        <Button onClick={onSignInButtonClick}>Sign in</Button>
+      <Box
+        sx={{
+          filter: (theme) =>
+            theme.palette.mode === 'dark' ? 'brightness(2)' : null,
+        }}
+      >
+        <img src={TaskclusterLogo} role='presentation' width='48' />
       </Box>
-    </Modal>
+      <Typography id='sign-in-modal-title' component='h2' variant='h2'>
+        Sign into Taskcluster to re-trigger the comparison
+      </Typography>
+      <Typography>
+        To be able to retrigger a task within Taskcluster, it’s necessary that
+        you log in to it first. Then PerfCompare will retrigger the task on your
+        behalf.
+      </Typography>
+      <Button
+        onClick={onSignInButtonClick}
+        disabled={waitingSignIn}
+        sx={{ marginTop: 1 }}
+      >
+        Sign in
+      </Button>
+      <Button variant='text' size='small' sx={{ padding: 0 }} onClick={onClose}>
+        Not now
+      </Button>
+    </CenteredModal>
   );
 }
 
@@ -47,12 +136,14 @@ type RetriggerModalProps = {
   onClose: () => unknown;
   onRetriggerClick: (times: { baseTimes: number; newTimes: number }) => unknown;
 };
+
 function RetriggerModal({ open, onClose }: RetriggerModalProps) {
   return (
     <Modal
       open={open}
       onClose={onClose}
       aria-labelledby='retrigger-modal-title'
+      sx={{ display: 'flex' }}
     >
       <Box>
         <Typography id='retrigger-modal-title' component='h2'>
