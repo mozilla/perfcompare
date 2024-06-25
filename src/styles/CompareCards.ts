@@ -35,6 +35,9 @@ export const CompareCardsStyles = (mode: string) => {
       transition: 'border-radius 0.4s ease-in-out',
       justifyContent: 'space-between',
       $nest: {
+        ul: {
+          padding: '0',
+        },
         '.compare-card-img': {
           minWidth: '194px',
           borderRadius: `0px ${Spacing.Small}px ${Spacing.Small}px 0px`,
@@ -45,7 +48,7 @@ export const CompareCardsStyles = (mode: string) => {
           backgroundPosition: 'center',
           background: isTrueLight
             ? Colors.Background200
-            : Colors.Background200Dark,
+            : Colors.Background300Dark,
           $nest: {
             '&.compare-card-img--time': {
               backgroundImage: `url(${
@@ -62,6 +65,14 @@ export const CompareCardsStyles = (mode: string) => {
         '.edit-btn-wrapper': {
           display: 'flex',
           justifyContent: 'end',
+          $nest: {
+            '&.show-edit-btn': {
+              visibility: 'visible',
+            },
+            '&.hide-edit-btn': {
+              visibility: 'hidden',
+            },
+          },
         },
         '&.compare-card-container--time': {
           marginTop: `${Spacing.Large}px`,
@@ -167,8 +178,7 @@ export const SearchStyles = (mode: string) => {
     },
 
     baseSearchInput: {
-      minWidth: '490px',
-      width: '100%',
+      minWidth: '530px',
       position: 'absolute',
       left: '220px',
       $nest: {

@@ -48,8 +48,6 @@ export const Strings = {
         imgDark:
           'https://user-images.githubusercontent.com/88336547/233250674-004d071a-7c23-40f4-b348-0687a3fef6e3.png',
         compareBtn: 'Compare',
-        editIcon:
-          'https://user-images.githubusercontent.com/88336547/259900252-462ac221-f4ff-4b1c-bb6b-5df906e8007d.svg',
         editText: 'Edit entry',
         collapsed: {
           warnings: {
