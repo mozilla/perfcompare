@@ -1,25 +1,27 @@
 import Button from '@mui/material/Button';
 
 import { Strings } from '../../resources/Strings';
+import pencilDark from '../../theme/img/pencil-dark.svg';
+import pencil from '../../theme/img/pencil.svg';
 
 interface EditButtonProps {
   onEditAction: () => void;
+  mode: string;
 }
 
 const baseComp = Strings.components.searchDefault.base;
-const editImgUrl = baseComp.editIcon;
 const editText = baseComp.editText;
 
-const buttonIcon = (
-  <img
-    id='edit-button-icon'
-    className='icon icon-edit'
-    src={editImgUrl}
-    alt='edit-icon'
-  />
-);
+export default function EditButton({ onEditAction, mode }: EditButtonProps) {
+  const buttonIcon = (
+    <img
+      id='edit-button-icon'
+      className='icon icon-edit'
+      src={mode === 'light' ? pencil.toString() : pencilDark.toString()}
+      alt='edit-icon'
+    />
+  );
 
-export default function EditButton({ onEditAction }: EditButtonProps) {
   return (
     <Button
       className='global-edit-button edit-revision-button'
@@ -27,6 +29,8 @@ export default function EditButton({ onEditAction }: EditButtonProps) {
       aria-label='edit revision'
       startIcon={buttonIcon}
       onClick={onEditAction}
+      color='primary'
+      variant='text'
     >
       {editText}
     </Button>

@@ -463,7 +463,7 @@ describe('Compare Over Time', () => {
 
     expect(formElement).toMatchSnapshot('After clicking edit button');
 
-    expect(editButton).not.toBeInTheDocument();
+    expect(editButton).not.toBeVisible();
 
     //the base repo and time range dropdowns should be visible
     expect(
@@ -529,7 +529,7 @@ describe('Compare Over Time', () => {
     expect(within(formElement).getByRole('textbox')).toBeInTheDocument();
 
     expect(formElement).toMatchSnapshot('After clicking edit button');
-    expect(editButton).not.toBeInTheDocument();
+    expect(editButton).not.toBeVisible();
 
     //add a new revision
     const searchInput = within(formElement).getByRole('textbox');

@@ -86,6 +86,8 @@ module.exports = {
         // TODO: update tests to not use store directly and remove these overrides
         // https://github.com/mozilla/perfcompare/issues/115
         '@typescript-eslint/no-unsafe-member-access': 'off',
+        // We can be less strict in tests about non-null assertions, to make it easier.
+        '@typescript-eslint/no-non-null-assertion': 'off',
 
         // This disallows using direct Node properties (eg: firstChild), but we have
         // legitimate uses:
@@ -111,4 +113,10 @@ module.exports = {
       },
     },
   ],
+  // This property is specified both here in addition to the command line in
+  // package.json.
+  // The reason is that the property only warns but the command line option
+  // outputs errors, but the property is useful so that we have the information
+  // directly in editors.
+  reportUnusedDisableDirectives: true,
 };

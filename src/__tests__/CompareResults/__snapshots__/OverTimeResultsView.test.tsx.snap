@@ -12,165 +12,134 @@ exports[`Results View The table should match snapshot and other elements should 
     role="row"
   >
     <div
-      class="cell platform-header fcno249"
+      class="cell platform-header"
       role="columnheader"
     >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-        data-testid="SortIcon"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
-        />
-      </svg>
-      <div
-        role="cell"
+      <button
+        aria-haspopup="true"
+        aria-label="Platform (Click to filter values)"
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-gsklu7-MuiButtonBase-root-MuiButton-root"
+        tabindex="0"
+        type="button"
       >
         Platform
-      </div>
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-        data-testid="ExpandMoreIcon"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+        <svg
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-reqpbo-MuiSvgIcon-root"
+          data-testid="FilterListIcon"
+          focusable="false"
+          role="img"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"
+          />
+          <title>
+            No active filters
+          </title>
+        </svg>
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
-      </svg>
+      </button>
     </div>
     <div
-      class="cell base-header "
+      class="cell base-header"
       role="columnheader"
     >
-      <div
-        role="cell"
-      >
-        Base
-      </div>
+      Base
     </div>
     <div
-      class="cell comparisonSign-header "
+      class="cell comparisonSign-header"
+      role="columnheader"
+    />
+    <div
+      class="cell new-header"
       role="columnheader"
     >
-      <div
-        role="cell"
-      />
+      New
     </div>
     <div
-      class="cell new-header "
+      class="cell status-header"
       role="columnheader"
     >
-      <div
-        role="cell"
-      >
-        New
-      </div>
-    </div>
-    <div
-      class="cell status-header fcno249"
-      role="columnheader"
-    >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-        data-testid="SortIcon"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
-        />
-      </svg>
-      <div
-        role="cell"
+      <button
+        aria-haspopup="true"
+        aria-label="Status (Click to filter values)"
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-gsklu7-MuiButtonBase-root-MuiButton-root"
+        tabindex="0"
+        type="button"
       >
         Status
-      </div>
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-        data-testid="ExpandMoreIcon"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+        <svg
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-reqpbo-MuiSvgIcon-root"
+          data-testid="FilterListIcon"
+          focusable="false"
+          role="img"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"
+          />
+          <title>
+            No active filters
+          </title>
+        </svg>
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
-      </svg>
+      </button>
     </div>
     <div
-      class="cell delta-header "
+      class="cell delta-header"
       role="columnheader"
     >
-      <div
-        role="cell"
-      >
-        Delta(%)
-      </div>
+      Delta(%)
     </div>
     <div
-      class="cell confidence-header fcno249"
+      class="cell confidence-header"
       role="columnheader"
     >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-        data-testid="SortIcon"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
-        />
-      </svg>
-      <div
-        role="cell"
+      <button
+        aria-haspopup="true"
+        aria-label="Confidence (Click to filter values)"
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-gsklu7-MuiButtonBase-root-MuiButton-root"
+        tabindex="0"
+        type="button"
       >
         Confidence
-      </div>
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-        data-testid="ExpandMoreIcon"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+        <svg
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-reqpbo-MuiSvgIcon-root"
+          data-testid="FilterListIcon"
+          focusable="false"
+          role="img"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"
+          />
+          <title>
+            No active filters
+          </title>
+        </svg>
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
-      </svg>
+      </button>
     </div>
     <div
-      class="cell runs-header "
+      class="cell runs-header"
       role="columnheader"
     >
-      <div
-        role="cell"
-      >
-        Total Runs
-      </div>
+      Total Runs
     </div>
     <div
-      class="cell buttons-header "
+      class="cell buttons-header"
       role="columnheader"
-    >
-      <div
-        role="cell"
-      />
-    </div>
+    />
     <div
-      class="cell expand-header "
+      class="cell expand-header"
       role="columnheader"
-    >
-      <div
-        role="cell"
-      />
-    </div>
+    />
   </div>
   <div
     class="f1otqxop"

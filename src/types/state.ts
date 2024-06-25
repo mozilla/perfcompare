@@ -110,7 +110,9 @@ export type SelectedRevisionsState = {
   newCommittedRevisions: Changeset[];
 };
 
-export type PlatformInfo = {
-  shortName: string;
-  icon: React.ReactNode;
-};
+export type PlatformShortName =
+  | 'Linux'
+  | 'OSX'
+  | 'Windows'
+  | 'Android'
+  | 'Unspecified';

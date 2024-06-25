@@ -17,7 +17,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
         class="MuiGrid-root header-container container_f15tggp2 css-plh9qo-MuiGrid-root"
       >
         <div
-          class="toggle-dark-mode f4zotac MuiBox-root css-0"
+          class="toggle-dark-mode f10ie5uy MuiBox-root css-0"
         >
           <div
             class="MuiFormGroup-root css-dmmspl-MuiFormGroup-root"
@@ -50,7 +50,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                 />
               </span>
               <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1giq4eh-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-13qdlub-MuiTypography-root"
               >
                 Dark mode
               </span>
@@ -66,12 +66,12 @@ exports[`Search View renders correctly when there are no results 1`] = `
             PerfCompare
           </h1>
           <div
-            class="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-tagline css-1jlyab0-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-tagline css-hbzfo1-MuiTypography-root"
           >
             Analyze results of performance tests to detect regressions and identify opportunities for improvement.
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation learn-more-btn css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation learn-more-btn css-pp3xxr-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
@@ -83,23 +83,23 @@ exports[`Search View renders correctly when there are no results 1`] = `
         </div>
       </div>
       <section
-        class="container_f4mez8i"
+        class="container_fsocifg"
         data-testid="search-section"
       >
-        <p
-          class="MuiTypography-root MuiTypography-body1 search-default-title css-1giq4eh-MuiTypography-root"
+        <span
+          class="MuiTypography-root MuiTypography-body1 search-default-title css-13qdlub-MuiTypography-root"
         >
           Compare with a base or over time
-        </p>
+        </span>
         <div
           class="MuiGrid-root wrapper--withbase fcdpsbx css-plh9qo-MuiGrid-root"
         >
           <div
-            class="compare-card-container compare-card-container--expanded container_f1l9fg47"
+            class="compare-card-container compare-card-container--expanded container_f1cct50y"
             data-testid="base-state"
           >
             <div
-              class="compare-card-text cardText_f1daqd2p"
+              class="compare-card-text cardText_f17sylv5"
             >
               <h2
                 class="MuiTypography-root MuiTypography-h2 compare-card-title css-1u33eov-MuiTypography-root"
@@ -118,7 +118,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
             />
           </div>
           <div
-            class="compare-card-container content-base content-base--expanded container_f1l9fg47 "
+            class="compare-card-container content-base content-base--expanded container_f1cct50y "
           >
             <hr
               class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
@@ -130,8 +130,31 @@ exports[`Search View renders correctly when there are no results 1`] = `
               method="get"
             >
               <div
-                class="edit-btn-wrapper"
-              />
+                class="edit-btn-wrapper hide-edit-btn"
+              >
+                <button
+                  aria-label="edit revision"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1rvsmwy-MuiButtonBase-root-MuiButton-root"
+                  name="edit-button"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiButton-startIcon MuiButton-iconSizeMedium css-gcc2o7-MuiButton-startIcon"
+                  >
+                    <img
+                      alt="edit-icon"
+                      class="icon icon-edit"
+                      id="edit-button-icon"
+                      src="pencil.svg"
+                    />
+                  </span>
+                  Edit entry
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </button>
+              </div>
               <div
                 class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
               >
@@ -204,7 +227,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                     </div>
                   </div>
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f1o6j1ms   css-17gmabg-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f7qwsv0   css-17gmabg-MuiGrid-root"
                     id="base_search-input"
                   >
                     <div
@@ -268,7 +291,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                   data-testid="base-selected-revision"
                 >
                   <div
-                    class="box_f65ycfw base-box MuiBox-root css-0"
+                    class="box_fobrng5 base-box MuiBox-root css-0"
                   >
                     <ul
                       class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -348,7 +371,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                     </div>
                   </div>
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f1o6j1ms   css-17gmabg-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f7qwsv0   css-17gmabg-MuiGrid-root"
                     id="new_search-input"
                   >
                     <div
@@ -412,7 +435,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                   data-testid="new-selected-revision"
                 >
                   <div
-                    class="box_f65ycfw new-box MuiBox-root css-0"
+                    class="box_fobrng5 new-box MuiBox-root css-0"
                   >
                     <ul
                       class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -485,7 +508,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                   class=" fs9pw6x cancel-compare"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pp3xxr-MuiButtonBase-root-MuiButton-root"
                     id="compare-button"
                     tabindex="0"
                     type="submit"
@@ -504,11 +527,11 @@ exports[`Search View renders correctly when there are no results 1`] = `
           class="MuiGrid-root wrapper--overtime f1ucodr8 css-plh9qo-MuiGrid-root"
         >
           <div
-            class="compare-card-container compare-card-container--hidden container_f1l9fg47"
+            class="compare-card-container compare-card-container--hidden container_f1cct50y"
             data-testid="time-state"
           >
             <div
-              class="compare-card-text cardText_f1daqd2p"
+              class="compare-card-text cardText_f17sylv5"
             >
               <h2
                 class="MuiTypography-root MuiTypography-h2 compare-card-title css-1u33eov-MuiTypography-root"
@@ -527,7 +550,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
             />
           </div>
           <div
-            class="compare-card-container content-base content-base--hidden container_f1l9fg47 "
+            class="compare-card-container content-base content-base--hidden container_f1cct50y "
           >
             <hr
               class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
@@ -539,17 +562,39 @@ exports[`Search View renders correctly when there are no results 1`] = `
               method="get"
             >
               <div
-                class="edit-btn-wrapper"
-              />
+                class="edit-btn-wrapper hide-edit-btn"
+              >
+                <button
+                  aria-label="edit revision"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1rvsmwy-MuiButtonBase-root-MuiButton-root"
+                  name="edit-button"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiButton-startIcon MuiButton-iconSizeMedium css-gcc2o7-MuiButton-startIcon"
+                  >
+                    <img
+                      alt="edit-icon"
+                      class="icon icon-edit"
+                      id="edit-button-icon"
+                      src="pencil.svg"
+                    />
+                  </span>
+                  Edit entry
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </button>
+              </div>
               <div
                 class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f913nm1 css-6u0ba5-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f913nm1 css-1e9xsub-MuiGrid-root"
                 >
                   <div
                     class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-1t7ybvx-MuiGrid-root"
-                    style="max-width: 360px;"
                   >
                     <label
                       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label dropdown-select-label--base css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -572,7 +617,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                     </label>
                   </div>
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-4syqmy-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-1t7ybvx-MuiGrid-root"
                   >
                     <label
                       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label dropdown-select-label--time css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -600,9 +645,9 @@ exports[`Search View renders correctly when there are no results 1`] = `
                   id="base-time-dropdown-container"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true base-search-dropdown  -base-dropdown css-1t7ybvx-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true base-search-dropdown css-1t7ybvx-MuiGrid-root"
                     id="base_search-dropdown--time"
-                    style="max-width: 360px;"
+                    style="max-width: 365px;"
                   >
                     <div
                       class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
@@ -644,8 +689,9 @@ exports[`Search View renders correctly when there are no results 1`] = `
                     </div>
                   </div>
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown dropDown_f913nm1  css-4syqmy-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  dropDown_f913nm1   css-1t7ybvx-MuiGrid-root"
                     id="time-range"
+                    style="max-width: 365px;"
                   >
                     <div
                       class="MuiFormControl-root timerange-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
@@ -688,7 +734,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 css-h8md1u-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 css-13eijkh-MuiGrid-root"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -756,7 +802,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                     </div>
                   </div>
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f1o6j1ms   css-17gmabg-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f7qwsv0   css-17gmabg-MuiGrid-root"
                     id="new_search-input--time"
                   >
                     <div
@@ -819,7 +865,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                   class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
                 >
                   <div
-                    class="box_f65ycfw new-box MuiBox-root css-0"
+                    class="box_fobrng5 new-box MuiBox-root css-0"
                   >
                     <ul
                       class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -896,7 +942,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                   class=" fs9pw6x cancel-compare"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pp3xxr-MuiButtonBase-root-MuiButton-root"
                     id="compare-button"
                     tabindex="0"
                     type="submit"

@@ -242,8 +242,7 @@ describe('Compare With Base', () => {
     expect(baseSearchContainer).toHaveClass('show-container');
 
     expect(formElement).toMatchSnapshot('After clicking edit button');
-    expect(editButton).not.toBeInTheDocument();
-
+    expect(editButton).not.toBeVisible();
     // Pressing the cancel button should hide input and dropdown
     await user.click(getCancelButton());
 
