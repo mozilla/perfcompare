@@ -66,9 +66,8 @@ const openTaskclusterAuthenticationPage = (tcParams: TaskclusterParams) => {
 };
 
 // This function returns the stored credentials in localStorage.
-export const getTaskclusterCredentials = (
-  taskclusterParams: TaskclusterParams,
-) => {
+export const getTaskclusterCredentials = () => {
+  const taskclusterParams = getTaskclusterParams();
   const locationOrigin = getLocationOrigin();
 
   if (!taskclusterParams.clientId) {
@@ -77,25 +76,16 @@ export const getTaskclusterCredentials = (
   }
 
   const credentials = retrieveUserCredentials(taskclusterParams.url);
+  // TOOD Check if it is expired, return false if they are.
   return credentials;
 };
 
-// This returns the taskcluster access token, either stored or possibly opening
-// a new tab for authentication.
-export async function getTaskclusterAccessToken() {
+// This function opens a new page to the taskcluster authentication, and waits
+// for the user credentials to be stored in localStorage.
+export async function signInIntoTaskcluster() {
   const taskclusterParams = getTaskclusterParams();
-  let accessToken = getTaskclusterCredentials(taskclusterParams);
-  if (!accessToken) {
-    openTaskclusterAuthenticationPage(taskclusterParams);
-    await waitForStorageEvent();
-    accessToken = getTaskclusterCredentials(taskclusterParams);
-
-    if (!accessToken) {
-      throw new Error("Couldn't retrieve an access token for taskcluster");
-    }
-  }
-
-  return accessToken;
+  openTaskclusterAuthenticationPage(taskclusterParams);
+  await waitForStorageEvent();
 }
 
 async function checkTaskclusterResponse(response: Response) {

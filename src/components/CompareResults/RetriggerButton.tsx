@@ -1,14 +1,20 @@
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
 import { IconButton } from '@mui/material';
 
-import { getTaskclusterAccessToken } from '../../logic/taskcluster';
+import {
+  getTaskclusterCredentials,
+  signInIntoTaskcluster,
+} from '../../logic/taskcluster';
 import { Strings } from '../../resources/Strings';
 
 function RetriggerButton() {
   const onOpenModal = async () => {
-    const accessToken = await getTaskclusterAccessToken();
+    let accessToken = getTaskclusterCredentials();
+    if (!accessToken) {
+      await signInIntoTaskcluster();
+      accessToken = getTaskclusterCredentials();
+    }
 
-    // TODO do something with accessToken
     console.log('We have an access token!', accessToken);
   };
 
