@@ -21,7 +21,7 @@ const config: Config.InitialOptions = {
         },
       },
     ],
-    '^.+\\.svg$': '<rootDir>/src/__tests__/utils/fileTransformer.js',
+    '^.+\\.(?:svg|png)$': '<rootDir>/src/__tests__/utils/fileTransformer.js',
   },
   // This transformIgnorePatterns is better understood as a double negation: the
   // package names below _will_ be transformed.
