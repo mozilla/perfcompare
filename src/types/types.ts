@@ -1,30 +1,21 @@
 import { CompareResultsItem } from './state';
 
-export type SelectedRevisionsTableHeaders =
-  | 'Project'
-  | 'Revision'
-  | 'Author'
-  | 'Commit Message'
-  | 'Timestamp';
-
-export type CompareResultsTableHeader = {
-  id: string;
-  label: CompareResultsTableHeaderName;
-  key: string;
-  align: 'left' | 'center' | 'right';
-};
-
-export type CompareResultsTableHeaderName =
-  | 'Platform'
-  | 'Graph'
-  | 'Suite'
-  | 'Test Name'
-  | 'Base'
-  | 'New'
-  | 'Delta'
-  | 'Status'
-  | 'Confidence'
-  | 'Total Runs';
+export type CompareResultsTableConfig =
+  | {
+      name?: string;
+      filter?: false;
+      key: string;
+      disable?: boolean;
+    }
+  | {
+      name: string;
+      key: string;
+      disable?: boolean;
+      filter: true;
+      possibleValues: string[];
+      // This function returns whether this result matches the value for this column.
+      matchesFunction: (result: CompareResultsItem, value: string) => boolean;
+    };
 
 export type ConfidenceText = 'High' | 'Medium' | 'Low';
 
