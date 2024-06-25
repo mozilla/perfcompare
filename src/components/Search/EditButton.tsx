@@ -1,5 +1,4 @@
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 
 import { Strings } from '../../resources/Strings';
 import pencilDark from '../../theme/img/pencil-dark.svg';
@@ -30,8 +29,10 @@ export default function EditButton({ onEditAction, mode }: EditButtonProps) {
       aria-label='edit revision'
       startIcon={buttonIcon}
       onClick={onEditAction}
+      color='primary'
+      variant='text'
     >
-      <Typography variant='body1'>{editText}</Typography>
+      {editText}
     </Button>
   );
 }

@@ -16,7 +16,7 @@ exports[`Search Containter should match snapshot 1`] = `
         class="MuiGrid-root wrapper--withbase fcdpsbx css-plh9qo-MuiGrid-root"
       >
         <div
-          class="compare-card-container compare-card-container--expanded container_f1ldw9ja"
+          class="compare-card-container compare-card-container--expanded container_f1cct50y"
           data-testid="base-state"
         >
           <div
@@ -39,7 +39,7 @@ exports[`Search Containter should match snapshot 1`] = `
           />
         </div>
         <div
-          class="compare-card-container content-base content-base--expanded container_f1ldw9ja "
+          class="compare-card-container content-base content-base--expanded container_f1cct50y "
         >
           <hr
             class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
@@ -55,7 +55,7 @@ exports[`Search Containter should match snapshot 1`] = `
             >
               <button
                 aria-label="edit revision"
-                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1rvsmwy-MuiButtonBase-root-MuiButton-root"
                 name="edit-button"
                 tabindex="0"
                 type="button"
@@ -70,11 +70,7 @@ exports[`Search Containter should match snapshot 1`] = `
                     src="pencil.svg"
                   />
                 </span>
-                <span
-                  class="MuiTypography-root MuiTypography-body1 css-13qdlub-MuiTypography-root"
-                >
-                  Edit entry
-                </span>
+                Edit entry
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
@@ -216,7 +212,7 @@ exports[`Search Containter should match snapshot 1`] = `
                 data-testid="base-selected-revision"
               >
                 <div
-                  class="box_f6fb7f6 base-box MuiBox-root css-0"
+                  class="box_fobrng5 base-box MuiBox-root css-0"
                 >
                   <ul
                     class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -360,7 +356,7 @@ exports[`Search Containter should match snapshot 1`] = `
                 data-testid="new-selected-revision"
               >
                 <div
-                  class="box_f6fb7f6 new-box MuiBox-root css-0"
+                  class="box_fobrng5 new-box MuiBox-root css-0"
                 >
                   <ul
                     class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -433,7 +429,7 @@ exports[`Search Containter should match snapshot 1`] = `
                 class=" fs9pw6x cancel-compare"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pp3xxr-MuiButtonBase-root-MuiButton-root"
                   id="compare-button"
                   tabindex="0"
                   type="submit"
@@ -452,7 +448,7 @@ exports[`Search Containter should match snapshot 1`] = `
         class="MuiGrid-root wrapper--overtime f1ucodr8 css-plh9qo-MuiGrid-root"
       >
         <div
-          class="compare-card-container compare-card-container--hidden container_f1ldw9ja"
+          class="compare-card-container compare-card-container--hidden container_f1cct50y"
           data-testid="time-state"
         >
           <div
@@ -475,7 +471,7 @@ exports[`Search Containter should match snapshot 1`] = `
           />
         </div>
         <div
-          class="compare-card-container content-base content-base--hidden container_f1ldw9ja "
+          class="compare-card-container content-base content-base--hidden container_f1cct50y "
         >
           <hr
             class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
@@ -491,7 +487,7 @@ exports[`Search Containter should match snapshot 1`] = `
             >
               <button
                 aria-label="edit revision"
-                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1rvsmwy-MuiButtonBase-root-MuiButton-root"
                 name="edit-button"
                 tabindex="0"
                 type="button"
@@ -506,11 +502,7 @@ exports[`Search Containter should match snapshot 1`] = `
                     src="pencil.svg"
                   />
                 </span>
-                <span
-                  class="MuiTypography-root MuiTypography-body1 css-13qdlub-MuiTypography-root"
-                >
-                  Edit entry
-                </span>
+                Edit entry
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
@@ -794,7 +786,7 @@ exports[`Search Containter should match snapshot 1`] = `
                 class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
               >
                 <div
-                  class="box_f6fb7f6 new-box MuiBox-root css-0"
+                  class="box_fobrng5 new-box MuiBox-root css-0"
                 >
                   <ul
                     class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -871,7 +863,7 @@ exports[`Search Containter should match snapshot 1`] = `
                 class=" fs9pw6x cancel-compare"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pp3xxr-MuiButtonBase-root-MuiButton-root"
                   id="compare-button"
                   tabindex="0"
                   type="submit"

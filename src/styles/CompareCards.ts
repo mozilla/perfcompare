@@ -35,6 +35,9 @@ export const CompareCardsStyles = (mode: string) => {
       transition: 'border-radius 0.4s ease-in-out',
       justifyContent: 'space-between',
       $nest: {
+        ul: {
+          padding: '0',
+        },
         '.compare-card-img': {
           minWidth: '194px',
           borderRadius: `0px ${Spacing.Small}px ${Spacing.Small}px 0px`,
@@ -63,9 +66,6 @@ export const CompareCardsStyles = (mode: string) => {
           display: 'flex',
           justifyContent: 'end',
           $nest: {
-            button: {
-              color: isTrueLight ? Colors.LinkText : Colors.LinkTextDark,
-            },
             '&.show-edit-btn': {
               visibility: 'visible',
             },

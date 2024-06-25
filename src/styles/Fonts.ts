@@ -17,10 +17,6 @@ const sharedFontStyles = {
   fontStyle: 'normal',
 };
 
-const sharedFontStylesDark = {
-  fontStyle: 'normal',
-};
-
 export const FontsRaw = {
   HeadingDefault: {
     ...sharedFontStyles,
@@ -28,6 +24,7 @@ export const FontsRaw = {
     fontWeight: '600',
     fontSize: '17px',
     fontFamily: 'SF Pro',
+    fontStyle: 'normal',
   },
 
   HeadingXS: {
@@ -56,7 +53,7 @@ export const FontsRaw = {
   //DARK MODE FONTS
 
   HeadingDefaultDark: {
-    ...sharedFontStylesDark,
+    ...sharedFontStyles,
     lineHeight: '22px',
     fontWeight: '600',
     fontSize: '17px',
@@ -64,14 +61,14 @@ export const FontsRaw = {
   },
 
   HeadingXSDark: {
-    ...sharedFontStylesDark,
+    ...sharedFontStyles,
     lineHeight: '28px',
     fontSize: '24px',
     fontFamily: 'Metropolis',
   },
 
   BodyDefaultDark: {
-    ...sharedFontStylesDark,
+    ...sharedFontStyles,
     lineHeight: '16px',
     fontWeight: '400',
     fontSize: '14px',
@@ -79,7 +76,7 @@ export const FontsRaw = {
   },
 
   BodySmallDark: {
-    ...sharedFontStylesDark,
+    ...sharedFontStyles,
     lineHeight: '14px',
     fontWeight: '400',
     fontSize: '12px',

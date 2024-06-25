@@ -12,7 +12,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
   >
     <button
       aria-label="edit revision"
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1rvsmwy-MuiButtonBase-root-MuiButton-root"
       name="edit-button"
       tabindex="0"
       type="button"
@@ -27,11 +27,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
           src="pencil.svg"
         />
       </span>
-      <span
-        class="MuiTypography-root MuiTypography-body1 css-13qdlub-MuiTypography-root"
-      >
-        Edit entry
-      </span>
+      Edit entry
       <span
         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       />
@@ -173,7 +169,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
       data-testid="base-selected-revision"
     >
       <div
-        class="box_f6fb7f6 base-box MuiBox-root css-0"
+        class="box_fobrng5 base-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -454,7 +450,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
       data-testid="new-selected-revision"
     >
       <div
-        class="box_f6fb7f6 new-box MuiBox-root css-0"
+        class="box_fobrng5 new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -664,7 +660,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
       class=" fs9pw6x cancel-compare"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pp3xxr-MuiButtonBase-root-MuiButton-root"
         id="compare-button"
         tabindex="0"
         type="submit"
@@ -821,7 +817,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
   >
     <button
       aria-label="edit revision"
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1rvsmwy-MuiButtonBase-root-MuiButton-root"
       name="edit-button"
       tabindex="0"
       type="button"
@@ -836,11 +832,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
           src="pencil.svg"
         />
       </span>
-      <span
-        class="MuiTypography-root MuiTypography-body1 css-13qdlub-MuiTypography-root"
-      >
-        Edit entry
-      </span>
+      Edit entry
       <span
         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       >
@@ -991,7 +983,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
       data-testid="base-selected-revision"
     >
       <div
-        class="box_f6fb7f6 base-box MuiBox-root css-0"
+        class="box_fobrng5 base-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -1272,7 +1264,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
       data-testid="new-selected-revision"
     >
       <div
-        class="box_f6fb7f6 new-box MuiBox-root css-0"
+        class="box_fobrng5 new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -1482,7 +1474,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
       class=" fs9pw6x cancel-compare"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-button css-1kvj3q1-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-button css-iendvr-MuiButtonBase-root-MuiButton-root"
         name="cancel-button"
         tabindex="0"
         type="button"
@@ -1493,7 +1485,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
         />
       </button>
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pp3xxr-MuiButtonBase-root-MuiButton-root"
         id="compare-button"
         tabindex="0"
         type="submit"
@@ -1520,7 +1512,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
   >
     <button
       aria-label="edit revision"
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1rvsmwy-MuiButtonBase-root-MuiButton-root"
       name="edit-button"
       tabindex="0"
       type="button"
@@ -1535,11 +1527,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
           src="pencil.svg"
         />
       </span>
-      <span
-        class="MuiTypography-root MuiTypography-body1 css-13qdlub-MuiTypography-root"
-      >
-        Edit entry
-      </span>
+      Edit entry
       <span
         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       />
@@ -1681,7 +1669,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
       data-testid="base-selected-revision"
     >
       <div
-        class="box_f6fb7f6 base-box MuiBox-root css-0"
+        class="box_fobrng5 base-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -1962,7 +1950,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
       data-testid="new-selected-revision"
     >
       <div
-        class="box_f6fb7f6 new-box MuiBox-root css-0"
+        class="box_fobrng5 new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -2172,7 +2160,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
       class=" fs9pw6x cancel-compare"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pp3xxr-MuiButtonBase-root-MuiButton-root"
         id="compare-button"
         tabindex="0"
         type="submit"
@@ -2199,7 +2187,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
   >
     <button
       aria-label="edit revision"
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1rvsmwy-MuiButtonBase-root-MuiButton-root"
       name="edit-button"
       tabindex="0"
       type="button"
@@ -2214,11 +2202,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
           src="pencil.svg"
         />
       </span>
-      <span
-        class="MuiTypography-root MuiTypography-body1 css-13qdlub-MuiTypography-root"
-      >
-        Edit entry
-      </span>
+      Edit entry
       <span
         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       >
@@ -2377,7 +2361,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
       data-testid="base-selected-revision"
     >
       <div
-        class="box_f6fb7f6 base-box MuiBox-root css-0"
+        class="box_fobrng5 base-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -2521,7 +2505,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
       data-testid="new-selected-revision"
     >
       <div
-        class="box_f6fb7f6 new-box MuiBox-root css-0"
+        class="box_fobrng5 new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -2731,7 +2715,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
       class=" fs9pw6x cancel-compare"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-button css-1kvj3q1-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-button css-iendvr-MuiButtonBase-root-MuiButton-root"
         name="cancel-button"
         tabindex="0"
         type="button"
@@ -2742,7 +2726,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
         />
       </button>
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pp3xxr-MuiButtonBase-root-MuiButton-root"
         id="compare-button"
         tabindex="0"
         type="submit"
@@ -2769,7 +2753,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
   >
     <button
       aria-label="edit revision"
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1rvsmwy-MuiButtonBase-root-MuiButton-root"
       name="edit-button"
       tabindex="0"
       type="button"
@@ -2784,11 +2768,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
           src="pencil.svg"
         />
       </span>
-      <span
-        class="MuiTypography-root MuiTypography-body1 css-13qdlub-MuiTypography-root"
-      >
-        Edit entry
-      </span>
+      Edit entry
       <span
         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       >
@@ -2955,7 +2935,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
       data-testid="base-selected-revision"
     >
       <div
-        class="box_f6fb7f6 base-box MuiBox-root css-0"
+        class="box_fobrng5 base-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -3236,7 +3216,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
       data-testid="new-selected-revision"
     >
       <div
-        class="box_f6fb7f6 new-box MuiBox-root css-0"
+        class="box_fobrng5 new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -3309,7 +3289,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
       class=" fs9pw6x cancel-compare"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-button css-1kvj3q1-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-button css-iendvr-MuiButtonBase-root-MuiButton-root"
         name="cancel-button"
         tabindex="0"
         type="button"
@@ -3320,7 +3300,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
         />
       </button>
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pp3xxr-MuiButtonBase-root-MuiButton-root"
         id="compare-button"
         tabindex="0"
         type="submit"
@@ -3408,7 +3388,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
             Analyze results of performance tests to detect regressions and identify opportunities for improvement.
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation learn-more-btn css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation learn-more-btn css-pp3xxr-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
@@ -3432,7 +3412,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
           class="MuiGrid-root wrapper--withbase fcdpsbx css-plh9qo-MuiGrid-root"
         >
           <div
-            class="compare-card-container compare-card-container--expanded container_f1ldw9ja"
+            class="compare-card-container compare-card-container--expanded container_f1cct50y"
             data-testid="base-state"
           >
             <div
@@ -3455,7 +3435,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
             />
           </div>
           <div
-            class="compare-card-container content-base content-base--expanded container_f1ldw9ja "
+            class="compare-card-container content-base content-base--expanded container_f1cct50y "
           >
             <hr
               class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
@@ -3471,7 +3451,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
               >
                 <button
                   aria-label="edit revision"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1rvsmwy-MuiButtonBase-root-MuiButton-root"
                   name="edit-button"
                   tabindex="0"
                   type="button"
@@ -3486,11 +3466,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                       src="pencil.svg"
                     />
                   </span>
-                  <span
-                    class="MuiTypography-root MuiTypography-body1 css-13qdlub-MuiTypography-root"
-                  >
-                    Edit entry
-                  </span>
+                  Edit entry
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
@@ -3632,7 +3608,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                   data-testid="base-selected-revision"
                 >
                   <div
-                    class="box_f6fb7f6 base-box MuiBox-root css-0"
+                    class="box_fobrng5 base-box MuiBox-root css-0"
                   >
                     <ul
                       class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -3776,7 +3752,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                   data-testid="new-selected-revision"
                 >
                   <div
-                    class="box_f6fb7f6 new-box MuiBox-root css-0"
+                    class="box_fobrng5 new-box MuiBox-root css-0"
                   >
                     <ul
                       class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -3849,7 +3825,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                   class=" fs9pw6x cancel-compare"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pp3xxr-MuiButtonBase-root-MuiButton-root"
                     id="compare-button"
                     tabindex="0"
                     type="submit"
@@ -3868,7 +3844,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
           class="MuiGrid-root wrapper--overtime f1ucodr8 css-plh9qo-MuiGrid-root"
         >
           <div
-            class="compare-card-container compare-card-container--hidden container_f1ldw9ja"
+            class="compare-card-container compare-card-container--hidden container_f1cct50y"
             data-testid="time-state"
           >
             <div
@@ -3891,7 +3867,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
             />
           </div>
           <div
-            class="compare-card-container content-base content-base--hidden container_f1ldw9ja "
+            class="compare-card-container content-base content-base--hidden container_f1cct50y "
           >
             <hr
               class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
@@ -3907,7 +3883,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
               >
                 <button
                   aria-label="edit revision"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1rvsmwy-MuiButtonBase-root-MuiButton-root"
                   name="edit-button"
                   tabindex="0"
                   type="button"
@@ -3922,11 +3898,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                       src="pencil.svg"
                     />
                   </span>
-                  <span
-                    class="MuiTypography-root MuiTypography-body1 css-13qdlub-MuiTypography-root"
-                  >
-                    Edit entry
-                  </span>
+                  Edit entry
                   <span
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
@@ -4210,7 +4182,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                   class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
                 >
                   <div
-                    class="box_f6fb7f6 new-box MuiBox-root css-0"
+                    class="box_fobrng5 new-box MuiBox-root css-0"
                   >
                     <ul
                       class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -4287,7 +4259,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                   class=" fs9pw6x cancel-compare"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-1ugbv6y-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pp3xxr-MuiButtonBase-root-MuiButton-root"
                     id="compare-button"
                     tabindex="0"
                     type="submit"

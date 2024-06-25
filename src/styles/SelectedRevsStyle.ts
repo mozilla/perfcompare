@@ -17,6 +17,7 @@ export const SelectRevsStyles = (mode: string) => {
       height: 'auto',
       border: 'none',
       padding: 0,
+      marginTop: `${Spacing.xSmall + 2}px`,
 
       $nest: {
         '&.show-base-close-icon': {
