@@ -9,13 +9,13 @@ import { Strings } from '../../resources/Strings';
 
 function RetriggerButton() {
   const onOpenModal = async () => {
-    let accessToken = getTaskclusterCredentials();
-    if (!accessToken) {
+    let credentials = getTaskclusterCredentials();
+    if (!credentials) {
       await signInIntoTaskcluster();
-      accessToken = getTaskclusterCredentials();
+      credentials = getTaskclusterCredentials();
     }
 
-    console.log('We have an access token!', accessToken);
+    console.log('We have an access token!', credentials);
   };
 
   // TODO implement modal
