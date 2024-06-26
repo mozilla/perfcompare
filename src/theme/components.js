@@ -60,6 +60,16 @@ const components = {
       },
     },
   },
+  MuiBackdrop: {
+    styleOverrides: {
+      root: ({ theme }) => ({
+        backgroundColor:
+          theme.palette.mode === 'light'
+            ? 'rgb(0, 0, 0, 0.5)'
+            : 'rgb(255, 255, 255, 0.5)',
+      }),
+    },
+  },
   MuiPaper: {
     styleOverrides: {
       root: {
