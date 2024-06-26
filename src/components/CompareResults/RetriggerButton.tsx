@@ -1,5 +1,7 @@
+import { useState } from 'react';
+
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
-import { IconButton } from '@mui/material';
+import { IconButton, Modal, Box, Typography, Button } from '@mui/material';
 
 import {
   getTaskclusterCredentials,
@@ -14,8 +16,60 @@ import {
 import { Strings } from '../../resources/Strings';
 import { CompareResultsItem } from '../../types/state';
 
-function RetriggerButton(props: RetriggerButtonProps) {
-  const { result } = props;
+type SignInModalProps = {
+  open: boolean;
+  onClose: () => unknown;
+  onSignIn: () => unknown;
+};
+function SignInModal({ open, onClose, onSignIn }: SignInModalProps) {
+  const onSignInButtonClick = () => {
+    onSignIn();
+  };
+  return (
+    <Modal
+      open={open}
+      onClose={onClose}
+      aria-labelledby='sign-in-modal-title'
+      sx={{ display: 'flex' }}
+    >
+      <Box>
+        <Typography id='sign-in-modal-title' component='h2'>
+          Sign into Taskcluster to re-trigger the comparison
+        </Typography>
+        <Button onClick={onSignInButtonClick}>Sign in</Button>
+      </Box>
+    </Modal>
+  );
+}
+
+type RetriggerModalProps = {
+  open: boolean;
+  onClose: () => unknown;
+  onRetriggerClick: (times: { baseTimes: number; newTimes: number }) => unknown;
+};
+function RetriggerModal({ open, onClose }: RetriggerModalProps) {
+  return (
+    <Modal
+      open={open}
+      onClose={onClose}
+      aria-labelledby='retrigger-modal-title'
+    >
+      <Box>
+        <Typography id='retrigger-modal-title' component='h2'>
+          Configure the number of retriggers
+        </Typography>
+      </Box>
+    </Modal>
+  );
+}
+
+type Status = 'pending' | 'signin-modal' | 'retrigger-modal';
+
+interface RetriggerButtonProps {
+  result: CompareResultsItem;
+}
+
+function RetriggerButton({ result }: RetriggerButtonProps) {
   const {
     base_repository_name: baseRepository,
     base_retriggerable_job_ids: baseRetriggerableJobIds,
@@ -23,7 +77,13 @@ function RetriggerButton(props: RetriggerButtonProps) {
     new_retriggerable_job_ids: newRetriggerableJobIds,
   } = result;
 
-  const getRetriggerConfig = async (repository: string, jobId: number) => {
+  const [status, setStatus] = useState('pending' as Status);
+
+  const getRetriggerConfig = async (
+    repository: string,
+    jobId: number,
+    times: number,
+  ) => {
     const tcParams = getTaskclusterParams();
 
     const jobInfo = await fetchJobInformationFromJobId(repository, jobId);
@@ -36,39 +96,55 @@ function RetriggerButton(props: RetriggerButtonProps) {
       rootUrl: tcParams.url,
       jobInfo,
       decisionTaskId,
-      // TODO decided by the user in the modal
-      times: 2,
+      times,
     };
 
     return config;
   };
 
-  const onOpenModal = async () => {
-    let credentials = getTaskclusterCredentials();
+  const onRetriggerButtonClick = async () => {
+    const credentials = getTaskclusterCredentials();
     if (!credentials) {
-      await signInIntoTaskcluster();
-      credentials = getTaskclusterCredentials();
+      setStatus('signin-modal');
+      return;
     }
 
-    const baseRetriggerConfig = await getRetriggerConfig(
+    setStatus('retrigger-modal');
+  };
+
+  const onSignIn = async () => {
+    await signInIntoTaskcluster();
+    setStatus('retrigger-modal');
+  };
+
+  const onRetriggerConfirm = async ({
+    baseTimes,
+    newTimes,
+  }: {
+    baseTimes: number;
+    newTimes: number;
+  }) => {
+    setStatus('pending');
+
+    const baseRetriggerConfigPromise = getRetriggerConfig(
       baseRepository,
       baseRetriggerableJobIds[0],
+      baseTimes,
     );
 
-    const newRetriggerConfig = await getRetriggerConfig(
+    const newRetriggerConfigPromise = getRetriggerConfig(
       newRepository,
       newRetriggerableJobIds[0],
+      newTimes,
     );
 
     const [baseRetriggerTaskId, newRetriggerTaskId] = await Promise.all([
-      retrigger(baseRetriggerConfig),
-      retrigger(newRetriggerConfig),
+      baseRetriggerConfigPromise.then(retrigger),
+      newRetriggerConfigPromise.then(retrigger),
     ]);
     console.log('Retrigger taskId for base: ', baseRetriggerTaskId);
     console.log('Retrigger taskId for new: ', newRetriggerTaskId);
   };
-
-  // TODO implement modal
 
   return (
     <>
@@ -76,16 +152,22 @@ function RetriggerButton(props: RetriggerButtonProps) {
         title={Strings.components.revisionRow.title.retriggerJobs}
         color='primary'
         size='small'
-        onClick={() => void onOpenModal()}
+        onClick={() => void onRetriggerButtonClick()}
       >
         <RefreshOutlinedIcon />
       </IconButton>
+      <SignInModal
+        open={status === 'signin-modal'}
+        onClose={() => setStatus('pending')}
+        onSignIn={onSignIn}
+      />
+      <RetriggerModal
+        open={status === 'retrigger-modal'}
+        onClose={() => setStatus('pending')}
+        onRetriggerClick={onRetriggerConfirm}
+      />
     </>
   );
-}
-
-interface RetriggerButtonProps {
-  result: CompareResultsItem;
 }
 
 export default RetriggerButton;
