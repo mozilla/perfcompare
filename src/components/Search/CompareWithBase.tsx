@@ -72,10 +72,10 @@ function CompareWithBase({
   baseRev,
   newRevs,
   isBaseSearch,
-  expandBaseComponent,
   frameworkIdVal,
   baseRepo,
   newRepo,
+  expandBaseComponent,
 }: CompareWithBaseProps) {
   const { enqueueSnackbar } = useSnackbar();
   const [frameWorkId, setframeWorkValue] = useState(frameworkIdVal);

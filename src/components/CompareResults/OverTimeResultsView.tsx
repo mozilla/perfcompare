@@ -1,7 +1,12 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { useEffect } from 'react';
+import React from 'react';
 
+import Box from '@mui/material/Box';
+import CircularProgress from '@mui/material/CircularProgress';
 import Grid from '@mui/material/Grid';
-import { useLoaderData } from 'react-router-dom';
+import { Await, useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
@@ -47,7 +52,6 @@ function ResultsView(props: ResultsViewProps) {
       <PerfCompareHeader />
       <section className={sectionStyles.container}>
         <LinkToHome />
-
         <CompareOverTime
           hasEditButton={true}
           newRevs={newRevsInfo}
@@ -61,7 +65,17 @@ function ResultsView(props: ResultsViewProps) {
       </section>
       <Grid container alignItems='center' justifyContent='center'>
         <Grid item xs={12}>
-          <ResultsMain results={results} />
+          <React.Suspense
+            fallback={
+              <Box display='flex' justifyContent='center' alignItems='center'>
+                <CircularProgress />
+              </Box>
+            }
+          >
+            <Await resolve={results}>
+              <ResultsMain />
+            </Await>
+          </React.Suspense>
         </Grid>
       </Grid>
     </div>

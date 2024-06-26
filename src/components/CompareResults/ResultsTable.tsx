@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react';
 
 import Box from '@mui/material/Box';
-import CircularProgress from '@mui/material/CircularProgress';
 import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
@@ -220,9 +219,6 @@ function ResultsTable({ results, filteringSearchTerm }: ResultsTableProps) {
     });
   };
 
-  // TODO Implement a loading UI through the react-router defer mechanism
-  const loading = false;
-
   const styles = {
     tableContainer: style({
       marginTop: Spacing.Large,
@@ -236,29 +232,22 @@ function ResultsTable({ results, filteringSearchTerm }: ResultsTableProps) {
       data-testid='results-table'
       role='table'
     >
-      {loading ? (
-        <Box display='flex' justifyContent='center' alignItems='center'>
-          <CircularProgress />
-        </Box>
-      ) : (
-        <>
-          <TableHeader
-            cellsConfiguration={cellsConfiguration}
-            filters={tableFilters}
-            onToggleFilter={onToggleFilter}
-            onClearFilter={onClearFilter}
-          />
-          {processedResults.map((res) => (
-            <TableContent
-              key={res.key}
-              identifier={res.key}
-              header={res.revisionHeader}
-              results={res.value}
-            />
-          ))}
-        </>
-      )}
-      {!loading && processedResults.length == 0 && <NoResultsFound />}
+      <TableHeader
+        cellsConfiguration={cellsConfiguration}
+        filters={tableFilters}
+        onToggleFilter={onToggleFilter}
+        onClearFilter={onClearFilter}
+      />
+      {processedResults.map((res) => (
+        <TableContent
+          key={res.key}
+          identifier={res.key}
+          header={res.revisionHeader}
+          results={res.value}
+        />
+      ))}
+
+      {processedResults.length == 0 && <NoResultsFound />}
     </Box>
   );
 }

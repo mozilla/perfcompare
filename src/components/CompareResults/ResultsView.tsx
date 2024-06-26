@@ -1,7 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { useEffect } from 'react';
+import React from 'react';
 
+import Box from '@mui/material/Box';
+import CircularProgress from '@mui/material/CircularProgress';
 import Grid from '@mui/material/Grid';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, Await } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
@@ -18,7 +22,7 @@ interface ResultsViewProps {
 function ResultsView(props: ResultsViewProps) {
   const { baseRevInfo, newRevsInfo, frameworkId, results, baseRepo, newRepos } =
     useLoaderData() as LoaderReturnValue;
-
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   const newRepo = newRepos[0];
   const { title } = props;
   const themeMode = useAppSelector((state) => state.theme.mode);
@@ -42,7 +46,6 @@ function ResultsView(props: ResultsViewProps) {
       <PerfCompareHeader />
       <section className={sectionStyles.container}>
         <LinkToHome />
-
         <CompareWithBase
           hasEditButton={true}
           baseRev={baseRevInfo ?? null}
@@ -54,9 +57,20 @@ function ResultsView(props: ResultsViewProps) {
           newRepo={newRepo}
         />
       </section>
+
       <Grid container alignItems='center' justifyContent='center'>
         <Grid item xs={12}>
-          <ResultsMain results={results} />
+          <React.Suspense
+            fallback={
+              <Box display='flex' justifyContent='center' alignItems='center'>
+                <CircularProgress />
+              </Box>
+            }
+          >
+            <Await resolve={results}>
+              <ResultsMain />
+            </Await>
+          </React.Suspense>
         </Grid>
       </Grid>
     </div>

@@ -1,7 +1,6 @@
 import { useMemo } from 'react';
 
 import { Button } from '@mui/material';
-import { useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { RootState } from '../../common/store';
@@ -10,7 +9,6 @@ import { Strings } from '../../resources/Strings';
 import { Spacing } from '../../styles';
 import type { CompareResultsItem } from '../../types/state';
 import { truncateHash } from '../../utils/helpers';
-import type { LoaderReturnValue } from './loader';
 
 type ResultsGroupedByKey = Record<string, CompareResultsItem[]>;
 
@@ -86,8 +84,11 @@ const styles = {
   }),
 };
 
-function DownloadButton() {
-  const { results } = useLoaderData() as LoaderReturnValue;
+type DownloadButtonProps = {
+  results: CompareResultsItem[][];
+};
+
+function DownloadButton({ results }: DownloadButtonProps) {
   const activeComparison = useAppSelector(
     (state) => state.comparison.activeComparison,
   );

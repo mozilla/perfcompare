@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import { Container } from '@mui/system';
+import { useAsyncValue } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
@@ -11,10 +12,11 @@ import ResultsTable from './ResultsTable';
 import RevisionSelect from './RevisionSelect';
 import SearchInput from './SearchInput';
 
-function ResultsMain(props: { results: CompareResultsItem[][] }) {
+function ResultsMain() {
+  const loaderData = useAsyncValue();
+  const results = loaderData as CompareResultsItem[][];
   const themeMode = useAppSelector((state) => state.theme.mode);
   const [searchTerm, setSearchTerm] = useState('');
-  const { results } = props;
 
   const themeColor100 =
     themeMode === 'light' ? Colors.Background300 : Colors.Background100Dark;
@@ -43,9 +45,10 @@ function ResultsMain(props: { results: CompareResultsItem[][] }) {
         <div className={styles.content}>
           <SearchInput onChange={setSearchTerm} />
           <RevisionSelect />
-          <DownloadButton />
+          <DownloadButton results={results} />
         </div>
       </header>
+
       <ResultsTable results={results} filteringSearchTerm={searchTerm} />
     </Container>
   );

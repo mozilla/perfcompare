@@ -1,3 +1,5 @@
+import { defer } from 'react-router-dom';
+
 import { repoMap, frameworks } from '../../common/constants';
 import {
   fetchCompareResults,
@@ -212,14 +214,13 @@ export async function loader({ request }: { request: Request }) {
     ),
   );
 
-  const [results, baseRevInfo, ...newRevsInfo] = await Promise.all([
-    resultsPromise,
+  const [baseRevInfo, ...newRevsInfo] = await Promise.all([
     baseRevInfoPromise,
     ...newRevsInfoPromises,
   ]);
 
-  return {
-    results,
+  return defer({
+    results: resultsPromise,
     baseRev,
     baseRevInfo,
     baseRepo,
@@ -228,7 +229,7 @@ export async function loader({ request }: { request: Request }) {
     newRepos,
     frameworkId,
     frameworkName,
-  };
+  });
 }
 
 export type LoaderReturnValue = Awaited<ReturnType<typeof loader>>;
