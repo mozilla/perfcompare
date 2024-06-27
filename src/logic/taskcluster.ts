@@ -1,11 +1,17 @@
 // This file contains logic for the Taskcluster Third-Party Login
 
+import jsone from 'json-e';
+
 import { UserCredentials, TokenBearer } from '../types/types';
 import { getLocationOrigin } from '../utils/location';
 import {
   waitForStorageEvent,
   retrieveUserCredentials,
 } from './credentials-storage';
+import {
+  fetchDecisionTaskIdFromPushId,
+  fetchJobInformationFromJobId,
+} from './treeherder';
 
 export const prodTaskclusterUrl = 'https://firefox-ci-tc.services.mozilla.com';
 export const stagingTaskclusterUrl =
@@ -237,13 +243,55 @@ export async function triggerHook(
   return json.taskId;
 }
 
-export async function retrigger() {
+export async function retrigger(rootUrl: string, repo: string, jobId: number) {
   // GOAL: retrigger one job
-  // Treeherder functions retriggerMultipleJobs, retriggerByRevision
-  // retriggerMultipleJobs(currentRetriggerRow, baseRetriggerTimes, newRetriggerTimes, this.props)
-  // retriggerByRevision(results.originalRtriggerableJobId, job repo, isBaseline=truOrFalse, retriggerTimes=1forNow, cevaPropsIdk)
-  // retriggerByRevision uses JobModel.get(currentRepo.name, jobId), JobModel.retrigger([job], currentRepo, notify, times)
-  // do not retrigger -> isBaseline && isBaseAggregate - nu inteleg
-  // need access to repo
-  // depends on jobId, currentRepo, isBaseline, times
+
+  const jobInfo = await fetchJobInformationFromJobId(repo, jobId);
+
+  const { push_id: pushId } = jobInfo;
+  const decisionTaskId = await fetchDecisionTaskIdFromPushId(repo, pushId);
+
+  const actionsResponse = await fetchActionsFromDecisionTask(
+    rootUrl,
+    decisionTaskId,
+  );
+
+  const retriggerAction = actionsResponse.actions.find(
+    (action) => action.name === 'retrigger-multiple',
+  );
+
+  // submit retrigger action to Taskcluster
+  const context = Object.assign(
+    {},
+    {
+      taskGroupId: decisionTaskId,
+      taskId: null,
+      input: jobInfo.job_type_name,
+    },
+    actionsResponse.variables,
+  );
+
+  if (retriggerAction?.kind === 'hook') {
+    // maybe use JSON.stringify
+    const hookPayload = jsone(retriggerAction.hookPayload, context) as string;
+    const { hookId, hookGroupId } = retriggerAction;
+    const userCredentials = retrieveUserCredentials(rootUrl);
+    const accessToken = userCredentials?.credentials.accessToken;
+
+    if (!accessToken) {
+      throw new Error('Missing access token for retriggering action.');
+    }
+
+    const newTaskId = await triggerHook(
+      rootUrl,
+      accessToken,
+      hookGroupId,
+      hookId,
+      hookPayload,
+    );
+
+    return newTaskId;
+  } else {
+    throw new Error('Missing hook kind for action');
+  }
 }

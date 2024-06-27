@@ -19,6 +19,7 @@
     "fast-kde": "^0.2.1",
     "format": "^0.2.2",
     "material-ui-popup-state": "^5.1.2",
+    "json-e": "^4.7.0",
     "notistack": "^2.0.5",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",

@@ -198,7 +198,7 @@ export async function fetchJobInformationFromJobId(
   repo: string,
   jobId: number,
 ) {
-  const url = `${treeherderBaseURL}/api/project/${repo}/jobs/${jobId}`;
+  const url = `${treeherderBaseURL}/api/project/${repo}/jobs/${jobId}/`;
   const response = await fetchFromTreeherder(url);
 
   return (await response.json()) as JobInformation;
@@ -212,13 +212,13 @@ export async function fetchDecisionTaskIdFromPushId(
   const response = await fetchFromTreeherder(url);
 
   const json = (await response.json()) as Record<string, { id: string }>;
-  const decisionTask = json[pushId]?.id;
+  const decisionTaskId = json[pushId]?.id;
 
-  if (!decisionTask) {
+  if (!decisionTaskId) {
     throw new Error(
       `Failing fetching decision Task id: ${JSON.stringify(json)}`,
     );
   }
 
-  return decisionTask;
+  return decisionTaskId;
 }
