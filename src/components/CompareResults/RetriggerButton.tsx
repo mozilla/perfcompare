@@ -23,12 +23,12 @@ function RetriggerButton(props: RetriggerButtonProps) {
     if (!credentials) {
       await signInIntoTaskcluster();
       credentials = getTaskclusterCredentials();
-      // Check if it's the right url
-      const tcParams = getTaskclusterParams();
-      await retrigger(tcParams.url, baseRepository, baseRetriggerableJobIds[0]);
     }
 
     console.log('We have an access token!', credentials);
+    // Check if it's the right url
+    const tcParams = getTaskclusterParams();
+    await retrigger(tcParams.url, baseRepository, baseRetriggerableJobIds[0]);
   };
 
   // TODO implement modal

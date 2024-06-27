@@ -227,7 +227,7 @@ export async function triggerHook(
 
   const options = {
     method: 'POST',
-    body: JSON.stringify(hookPayload),
+    body: hookPayload,
     headers: {
       Authorization: `Bearer ${accessToken}`, // to be checked
       'Content-Type': 'application/json',
@@ -260,6 +260,10 @@ export async function retrigger(rootUrl: string, repo: string, jobId: number) {
     (action) => action.name === 'retrigger-multiple',
   );
 
+  if (retriggerAction?.kind !== 'hook') {
+    throw new Error('Missing hook kind for action');
+  }
+
   // submit retrigger action to Taskcluster
   const context = Object.assign(
     {},
@@ -271,30 +275,26 @@ export async function retrigger(rootUrl: string, repo: string, jobId: number) {
     actionsResponse.variables,
   );
 
-  if (retriggerAction?.kind === 'hook') {
-    // maybe use JSON.stringify
-    const hookPayload = jsone(
-      JSON.stringify(retriggerAction.hookPayload),
-      context,
-    ) as string;
-    const { hookId, hookGroupId } = retriggerAction;
-    const userCredentials = retrieveUserCredentials(rootUrl);
-    const accessToken = userCredentials?.credentials.accessToken;
+  // maybe use JSON.stringify
+  const hookPayload = jsone(
+    JSON.stringify(retriggerAction.hookPayload),
+    context,
+  ) as string;
+  const { hookId, hookGroupId } = retriggerAction;
+  const userCredentials = retrieveUserCredentials(rootUrl);
+  const accessToken = userCredentials?.credentials.accessToken;
 
-    if (!accessToken) {
-      throw new Error('Missing access token for retriggering action.');
-    }
-
-    const newTaskId = await triggerHook(
-      rootUrl,
-      accessToken,
-      hookGroupId,
-      hookId,
-      hookPayload,
-    );
-
-    return newTaskId;
-  } else {
-    throw new Error('Missing hook kind for action');
+  if (!accessToken) {
+    throw new Error('Missing access token for retriggering action.');
   }
+
+  const newTaskId = await triggerHook(
+    rootUrl,
+    accessToken,
+    hookGroupId,
+    hookId,
+    hookPayload,
+  );
+
+  return newTaskId;
 }
