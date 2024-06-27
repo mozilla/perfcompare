@@ -273,7 +273,10 @@ export async function retrigger(rootUrl: string, repo: string, jobId: number) {
 
   if (retriggerAction?.kind === 'hook') {
     // maybe use JSON.stringify
-    const hookPayload = jsone(retriggerAction.hookPayload, context) as string;
+    const hookPayload = jsone(
+      JSON.stringify(retriggerAction.hookPayload),
+      context,
+    ) as string;
     const { hookId, hookGroupId } = retriggerAction;
     const userCredentials = retrieveUserCredentials(rootUrl);
     const accessToken = userCredentials?.credentials.accessToken;
