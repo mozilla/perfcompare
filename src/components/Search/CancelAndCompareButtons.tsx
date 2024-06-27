@@ -7,12 +7,14 @@ import { Spacing } from '../../styles/Spacing';
 interface CompareButtonProps {
   label: string;
   hasCancelButton: boolean;
+  loading: boolean;
   onCancel: () => void;
 }
 
 export default function CompareButton({
   label,
   hasCancelButton,
+  loading,
   onCancel,
 }: CompareButtonProps) {
   const cancelText = Strings.components.searchDefault.sharedCollasped.cancel;
@@ -36,7 +38,7 @@ export default function CompareButton({
         </Button>
       )}
       <Button id='compare-button' color='primary' type='submit'>
-        {label}
+        {loading ? 'Loading...' : label}
       </Button>
     </div>
   );

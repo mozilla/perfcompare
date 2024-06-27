@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import Box from '@mui/material/Box';
+import CircularProgress from '@mui/material/CircularProgress';
 import { Container } from '@mui/system';
 import { useAsyncValue } from 'react-router-dom';
 import { style } from 'typestyle';
@@ -12,7 +14,7 @@ import ResultsTable from './ResultsTable';
 import RevisionSelect from './RevisionSelect';
 import SearchInput from './SearchInput';
 
-function ResultsMain() {
+function ResultsMain({ loading }: { loading: boolean }) {
   const loaderData = useAsyncValue();
   const results = loaderData as CompareResultsItem[][];
   const themeMode = useAppSelector((state) => state.theme.mode);
@@ -49,7 +51,19 @@ function ResultsMain() {
         </div>
       </header>
 
-      <ResultsTable results={results} filteringSearchTerm={searchTerm} />
+      {loading ? (
+        <Box
+          display='flex'
+          justifyContent='center'
+          alignItems='center'
+          mb={3}
+          mt={3}
+        >
+          <CircularProgress />
+        </Box>
+      ) : (
+        <ResultsTable results={results} filteringSearchTerm={searchTerm} />
+      )}
     </Container>
   );
 }

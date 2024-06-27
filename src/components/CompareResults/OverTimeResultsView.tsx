@@ -4,7 +4,12 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
 import Grid from '@mui/material/Grid';
-import { Await, useLoaderData } from 'react-router-dom';
+import {
+  Await,
+  useFetcher,
+  useLoaderData,
+  useLocation,
+} from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
@@ -19,6 +24,9 @@ interface ResultsViewProps {
   title: string;
 }
 function ResultsView(props: ResultsViewProps) {
+  const location = useLocation();
+  const fetcher = useFetcher();
+  const [loading, setLoading] = React.useState(true);
   const {
     newRevsInfo,
     frameworkId,
@@ -42,6 +50,21 @@ function ResultsView(props: ResultsViewProps) {
     document.title = title;
   }, [title]);
 
+  useEffect(() => {
+    const waitForData = async () => {
+      await results;
+      setLoading(false);
+    };
+
+    void waitForData();
+  }, [results]);
+
+  const handleLoaderRefresh = () => {
+    setLoading(true);
+    const currentUrl = `/compare-over-time-results/${location.search}`;
+    fetcher.load(currentUrl);
+  };
+
   return (
     <div
       className={styles.container}
@@ -59,6 +82,8 @@ function ResultsView(props: ResultsViewProps) {
           intervalValue={intervalValue}
           baseRepo={baseRepo}
           newRepo={newRepo}
+          handleRefresh={handleLoaderRefresh}
+          loading={loading}
         />
       </section>
       <Grid container alignItems='center' justifyContent='center'>
@@ -76,7 +101,7 @@ function ResultsView(props: ResultsViewProps) {
             }
           >
             <Await resolve={results}>
-              <ResultsMain />
+              <ResultsMain loading={loading} />
             </Await>
           </React.Suspense>
         </Grid>
