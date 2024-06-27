@@ -28,7 +28,12 @@ function RetriggerButton(props: RetriggerButtonProps) {
     console.log('We have an access token!', credentials);
     // Check if it's the right url
     const tcParams = getTaskclusterParams();
-    await retrigger(tcParams.url, baseRepository, baseRetriggerableJobIds[0]);
+    const retriggerJobConfig = {
+      rootUrl: tcParams.url,
+      repo: baseRepository,
+      jobId: baseRetriggerableJobIds[0],
+    };
+    await retrigger(retriggerJobConfig);
   };
 
   // TODO implement modal

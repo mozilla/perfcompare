@@ -214,13 +214,15 @@ export async function expandScopes(rootUrl: string, scopes: Array<string>) {
   return json.scopes;
 }
 
-export async function triggerHook(
-  rootUrl: string,
-  accessToken: string,
-  hookGroupId: string,
-  hookId: string,
-  hookPayload: string,
-) {
+export async function triggerHook(triggerHookConfig: {
+  rootUrl: string;
+  accessToken: string;
+  hookGroupId: string;
+  hookId: string;
+  hookPayload: string;
+}) {
+  const { rootUrl, accessToken, hookGroupId, hookId, hookPayload } =
+    triggerHookConfig;
   const url = `${rootUrl}/api/hooks/v1/hooks/${encodeURIComponent(
     hookGroupId,
   )}/${encodeURIComponent(hookId)}/trigger`;
@@ -243,9 +245,14 @@ export async function triggerHook(
   return json.taskId;
 }
 
-export async function retrigger(rootUrl: string, repo: string, jobId: number) {
-  // GOAL: retrigger one job
-
+// This function's goal is to retrigger an existing job from its jobId. It will
+// call all appropriate APIs from taskcluster and treeherder.
+export async function retrigger(retriggerJobConfig: {
+  rootUrl: string;
+  repo: string;
+  jobId: number;
+}) {
+  const { rootUrl, repo, jobId } = retriggerJobConfig;
   const jobInfo = await fetchJobInformationFromJobId(repo, jobId);
 
   const { push_id: pushId } = jobInfo;
@@ -288,13 +295,15 @@ export async function retrigger(rootUrl: string, repo: string, jobId: number) {
     throw new Error('Missing access token for retriggering action.');
   }
 
-  const newTaskId = await triggerHook(
+  const triggerHookConfig = {
     rootUrl,
     accessToken,
     hookGroupId,
     hookId,
     hookPayload,
-  );
+  };
+
+  const newTaskId = await triggerHook(triggerHookConfig);
 
   return newTaskId;
 }
