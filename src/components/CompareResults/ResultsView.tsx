@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { useEffect } from 'react';
 import React from 'react';
 
@@ -22,7 +21,6 @@ interface ResultsViewProps {
 function ResultsView(props: ResultsViewProps) {
   const { baseRevInfo, newRevsInfo, frameworkId, results, baseRepo, newRepos } =
     useLoaderData() as LoaderReturnValue;
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   const newRepo = newRepos[0];
   const { title } = props;
   const themeMode = useAppSelector((state) => state.theme.mode);
@@ -62,7 +60,12 @@ function ResultsView(props: ResultsViewProps) {
         <Grid item xs={12}>
           <React.Suspense
             fallback={
-              <Box display='flex' justifyContent='center' alignItems='center'>
+              <Box
+                display='flex'
+                justifyContent='center'
+                alignItems='center'
+                mb={5}
+              >
                 <CircularProgress />
               </Box>
             }

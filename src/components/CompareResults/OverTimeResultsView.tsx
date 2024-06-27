@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { useEffect } from 'react';
 import React from 'react';
 
@@ -54,7 +52,7 @@ function ResultsView(props: ResultsViewProps) {
         <LinkToHome />
         <CompareOverTime
           hasEditButton={true}
-          newRevs={newRevsInfo}
+          newRevs={newRevsInfo ?? []}
           isBaseSearch={true}
           expandBaseComponent={() => null}
           frameworkIdVal={frameworkId}
@@ -67,7 +65,12 @@ function ResultsView(props: ResultsViewProps) {
         <Grid item xs={12}>
           <React.Suspense
             fallback={
-              <Box display='flex' justifyContent='center' alignItems='center'>
+              <Box
+                display='flex'
+                justifyContent='center'
+                alignItems='center'
+                mb={5}
+              >
                 <CircularProgress />
               </Box>
             }
