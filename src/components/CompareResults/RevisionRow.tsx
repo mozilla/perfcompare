@@ -6,6 +6,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import { IconButton } from '@mui/material';
+import { useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { compareView } from '../../common/constants';
@@ -19,6 +20,7 @@ import AndroidIcon from '../Shared/Icons/AndroidIcon';
 import LinuxIcon from '../Shared/Icons/LinuxIcon';
 import SubtestsIcon from '../Shared/Icons/SubtestsIcon';
 import WindowsIcon from '../Shared/Icons/WindowsIcon';
+import type { LoaderReturnValue } from './overTimeLoader';
 import RetriggerButton from './Retrigger/RetriggerButton';
 import RevisionRowExpandable from './RevisionRowExpandable';
 
@@ -48,29 +50,32 @@ baseRepo=${result.base_repository_name}&
 newRev=${result.new_rev}&
 newRepo=${result.new_repository_name}&
 framework=${result.framework_id}&
-parentSignature=${result.signature_id}`;
+baseParentSignature=${result.base_signature_id}&
+newParentSignature=${result.new_signature_id}`;
 
-const getSubtestsCompareOverTimeLink = (result: CompareResultsItem, interval: TimeRange['value']) =>
-  `/subtestsCompareOverTime?baseRepo=${result.base_repository_name}
-&newRev=${result.new_rev}
-&newRepo=${result.new_repository_name}
-&framework=${result.framework_id}
-&interval=${interval}
-&parentSignature=${result.signature_id}`;
+const getSubtestsCompareOverTimeLink = (
+  result: CompareResultsItem,
+  interval: TimeRange['value'],
+) =>
+  `/subtestsCompareOverTime?baseRepo=${result.base_repository_name}&
+newRev=${result.new_rev}&
+newRepo=${result.new_repository_name}&
+framework=${result.framework_id}&
+interval=${interval}&
+baseParentSignature=${result.base_signature_id}&
+newParentSignature=${result.new_signature_id}`;
 
-const getSubtestsLink = (view: string, result: CompareResultsItem) => {
-  if ((view == compareView)) return getSubtestsCompareWithBaseLink(result);
-  else
-  {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const interval = urlParams.get('selectedTimeRange');
-    return getSubtestsCompareOverTimeLink(result, interval);
+const getSubtestsLink = (result: CompareResultsItem) => {
+  const { view } = useLoaderData() as LoaderReturnValue;
+  if (view == compareView) return getSubtestsCompareWithBaseLink(result);
+  else {
+    const { intervalValue } = useLoaderData() as LoaderReturnValue;
+    return getSubtestsCompareOverTimeLink(result, intervalValue);
   }
 };
 
 function RevisionRow(props: RevisionRowProps) {
-  const { result, view } = props;
+  const { result } = props;
   const {
     platform,
     base_median_value: baseMedianValue,
@@ -231,7 +236,7 @@ function RevisionRow(props: RevisionRowProps) {
                   title={Strings.components.revisionRow.title.subtestsLink}
                   color='primary'
                   size='small'
-                  href={getSubtestsLink(view, result)}
+                  href={getSubtestsLink(result)}
                   target='_blank'
                 >
                   <SubtestsIcon />
@@ -309,7 +314,6 @@ function RevisionRow(props: RevisionRowProps) {
 
 interface RevisionRowProps {
   result: CompareResultsItem;
-  view: string;
 }
 
 export default RevisionRow;
