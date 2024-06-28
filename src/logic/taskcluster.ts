@@ -276,7 +276,7 @@ export async function retrigger(retriggerJobConfig: {
     {},
     {
       taskGroupId: decisionTaskId,
-      taskId: null,
+      taskId: jobInfo.task_id,
       input: jobInfo.job_type_name,
     },
     actionsResponse.variables,
