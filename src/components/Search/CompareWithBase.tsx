@@ -29,9 +29,7 @@ interface CompareWithBaseProps {
   newRepo: Repository['name'];
   frameworkIdVal: Framework['id'];
   isBaseSearch: null | boolean;
-  loading: boolean;
   expandBaseComponent: (expanded: boolean) => void | null;
-  handleRefresh: () => void;
 }
 
 /**
@@ -77,9 +75,7 @@ function CompareWithBase({
   frameworkIdVal,
   baseRepo,
   newRepo,
-  loading,
   expandBaseComponent,
-  handleRefresh,
 }: CompareWithBaseProps) {
   const { enqueueSnackbar } = useSnackbar();
   const [frameWorkId, setframeWorkValue] = useState(frameworkIdVal);
@@ -99,7 +95,6 @@ function CompareWithBase({
   const [formIsDisplayed, setFormIsDisplayed] = useState(!hasEditButton);
 
   const mode = useAppSelector((state) => state.theme.mode);
-
   const styles = CompareCardsStyles(mode);
   const dropDownStyles = SearchStyles(mode);
   const hasCancelButton = hasEditButton && formIsDisplayed;
@@ -124,10 +119,7 @@ function CompareWithBase({
 
   const onFormSubmit = (e: React.FormEvent) => {
     const isFormReadyToBeSubmitted = baseInProgressRev !== null;
-    setFormIsDisplayed(!isFormReadyToBeSubmitted);
-    if (hasEditButton) {
-      handleRefresh();
-    }
+
     if (!isFormReadyToBeSubmitted) {
       e.preventDefault();
       enqueueSnackbar(strings.base.collapsed.errors.notEnoughRevisions, {
@@ -267,6 +259,7 @@ function CompareWithBase({
           className='form-wrapper'
           onSubmit={onFormSubmit}
           aria-label='Compare with base form'
+          reloadDocument={hasEditButton ?? true}
         >
           {/**** Edit Button ****/}
           <div
@@ -322,11 +315,12 @@ function CompareWithBase({
                 setframeWorkValue(id);
               }}
             />
+
             <CancelAndCompareButtons
               label={strings.base.compareBtn}
               onCancel={handleCancel}
               hasCancelButton={hasCancelButton}
-              loading={loading}
+              hasEditButton={hasEditButton}
             />
           </Grid>
         </Form>

@@ -246,4 +246,4 @@ type DeferredLoaderData = {
 
 //had to be more explicit with the type because the defer
 //function returns a an inaccessible type
-export type LoaderReturnValue = Awaited<DeferredLoaderData>;
+export type LoaderReturnValue = DeferredLoaderData;

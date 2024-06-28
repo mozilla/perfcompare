@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 
 import Box from '@mui/material/Box';
+import { useAsyncValue } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
@@ -175,11 +176,12 @@ const allRevisionsOption =
   Strings.components.comparisonRevisionDropdown.allRevisions.key;
 
 type ResultsTableProps = {
-  results: CompareResultsItem[][];
   filteringSearchTerm: string;
 };
 
-function ResultsTable({ results, filteringSearchTerm }: ResultsTableProps) {
+function ResultsTable({ filteringSearchTerm }: ResultsTableProps) {
+  const loaderData = useAsyncValue();
+  const results = loaderData as CompareResultsItem[][];
   const activeComparison = useAppSelector(
     (state) => state.comparison.activeComparison,
   );

@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 
 import { Button } from '@mui/material';
+import { useAsyncValue } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { RootState } from '../../common/store';
@@ -84,11 +85,9 @@ const styles = {
   }),
 };
 
-type DownloadButtonProps = {
-  results: CompareResultsItem[][];
-};
-
-function DownloadButton({ results }: DownloadButtonProps) {
+function DownloadButton() {
+  const loaderData = useAsyncValue();
+  const results = loaderData as CompareResultsItem[][];
   const activeComparison = useAppSelector(
     (state) => state.comparison.activeComparison,
   );

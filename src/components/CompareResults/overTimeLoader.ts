@@ -205,4 +205,4 @@ type DeferredLoaderData = {
   intervalText: TimeRange['text'];
 };
 
-export type LoaderReturnValue = Awaited<DeferredLoaderData>;
+export type LoaderReturnValue = DeferredLoaderData;

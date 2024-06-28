@@ -1,20 +1,25 @@
+import React from 'react';
+
 import Button from '@mui/material/Button';
+import { Await, useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { Strings } from '../../resources/Strings';
 import { Spacing } from '../../styles/Spacing';
+import type { LoaderReturnValue } from '../CompareResults/loader';
+import type { LoaderReturnValue as OverTimeLoaderReturnValue } from '../CompareResults/overTimeLoader';
 
 interface CompareButtonProps {
   label: string;
   hasCancelButton: boolean;
-  loading: boolean;
+  hasEditButton: boolean;
   onCancel: () => void;
 }
 
 export default function CompareButton({
   label,
   hasCancelButton,
-  loading,
+  hasEditButton,
   onCancel,
 }: CompareButtonProps) {
   const cancelText = Strings.components.searchDefault.sharedCollasped.cancel;
@@ -24,6 +29,35 @@ export default function CompareButton({
     alignItems: 'center',
     gap: `${Spacing.Small}px`,
   });
+
+  const renderCompareButton = () => {
+    if (hasEditButton) {
+      const { results } = useLoaderData() as
+        | LoaderReturnValue
+        | OverTimeLoaderReturnValue;
+
+      return (
+        <React.Suspense
+          fallback={
+            <Button id='compare-button' color='primary' type='submit' disabled>
+              Loading...
+            </Button>
+          }
+        >
+          <Await resolve={results}>
+            <Button id='compare-button' color='primary' type='submit'>
+              {label}
+            </Button>
+          </Await>
+        </React.Suspense>
+      );
+    } else
+      return (
+        <Button id='compare-button' color='primary' type='submit'>
+          {label}
+        </Button>
+      );
+  };
 
   return (
     <div className={` ${cancelCompareStyles} cancel-compare`}>
@@ -37,9 +71,8 @@ export default function CompareButton({
           {cancelText}
         </Button>
       )}
-      <Button id='compare-button' color='primary' type='submit'>
-        {loading ? 'Loading...' : label}
-      </Button>
+
+      {renderCompareButton()}
     </div>
   );
 }

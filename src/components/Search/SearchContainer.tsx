@@ -34,8 +34,6 @@ function SearchContainer(props: SearchViewProps) {
         expandBaseComponent={expandBaseComponent}
         baseRepo='try'
         newRepo='try'
-        loading={false}
-        handleRefresh={() => null}
       />
       <CompareOverTime
         hasEditButton={false}
@@ -46,8 +44,6 @@ function SearchContainer(props: SearchViewProps) {
         intervalValue={86400 as TimeRange['value']}
         baseRepo='try'
         newRepo='try'
-        loading={false}
-        handleRefresh={() => null}
       />
     </section>
   );
