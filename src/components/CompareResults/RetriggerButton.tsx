@@ -12,10 +12,11 @@ import { CompareResultsItem } from '../../types/state';
 
 function RetriggerButton(props: RetriggerButtonProps) {
   const { result } = props;
-  // Consider the retrigger just for base for now
   const {
     base_repository_name: baseRepository,
     base_retriggerable_job_ids: baseRetriggerableJobIds,
+    new_repository_name: newRepository,
+    new_retriggerable_job_ids: newRetriggerableJobIds,
   } = result;
 
   const onOpenModal = async () => {
@@ -25,15 +26,24 @@ function RetriggerButton(props: RetriggerButtonProps) {
       credentials = getTaskclusterCredentials();
     }
 
-    console.log('We have an access token!', credentials);
-    // Check if it's the right url
     const tcParams = getTaskclusterParams();
-    const retriggerJobConfig = {
-      rootUrl: tcParams.url,
-      repo: baseRepository,
-      jobId: baseRetriggerableJobIds[0],
-    };
-    await retrigger(retriggerJobConfig);
+
+    const [baseRetriggerTaskId, newRetriggerTaskId] = await Promise.all([
+      retrigger({
+        rootUrl: tcParams.url,
+        repo: baseRepository,
+        jobId: baseRetriggerableJobIds[0],
+        // TODO decided by the user in the modal
+        times: 2,
+      }),
+      retrigger({
+        rootUrl: tcParams.url,
+        repo: newRepository,
+        jobId: newRetriggerableJobIds[0],
+        // TODO decided by the user in the modal
+        times: 2,
+      }),
+    ]);
   };
 
   // TODO implement modal

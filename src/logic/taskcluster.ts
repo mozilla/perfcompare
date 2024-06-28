@@ -1,6 +1,7 @@
 // This file contains logic for the Taskcluster Third-Party Login
 
 import jsone from 'json-e';
+import { Hooks } from 'taskcluster-client-web';
 
 import { UserCredentials, TokenBearer } from '../types/types';
 import { getLocationOrigin } from '../utils/location';
@@ -161,7 +162,7 @@ export async function retrieveTaskclusterUserCredentials(
 
 type Action = {
   hookId: string;
-  hookGroupId: string; // check to see if it used
+  hookGroupId: string;
   kind: 'hook';
   hookPayload: unknown;
   name: string;
@@ -183,76 +184,15 @@ export async function fetchActionsFromDecisionTask(
   };
 }
 
-export async function fetchTaskInformationFromTaskId(
-  rootUrl: string,
-  taskId: string,
-) {
-  const url = `${rootUrl}/api/queue/v1/task/${taskId}`;
-
-  const response = await fetch(url);
-
-  void checkTaskclusterResponse(response);
-
-  return (await response.json()) as { scopes: Array<string> };
-}
-
-export async function expandScopes(rootUrl: string, scopes: Array<string>) {
-  const url = `${rootUrl}/api/auth/v1/scopes/expand`;
-
-  const options = {
-    method: 'POST',
-    body: JSON.stringify({ scopes }),
-    headers: { 'Content-Type': 'application/json' },
-  };
-
-  const response = await fetch(url, options);
-
-  void checkTaskclusterResponse(response);
-
-  const json = (await response.json()) as { scopes: Array<string> };
-
-  return json.scopes;
-}
-
-export async function triggerHook(triggerHookConfig: {
-  rootUrl: string;
-  accessToken: string;
-  hookGroupId: string;
-  hookId: string;
-  hookPayload: string;
-}) {
-  const { rootUrl, accessToken, hookGroupId, hookId, hookPayload } =
-    triggerHookConfig;
-  const url = `${rootUrl}/api/hooks/v1/hooks/${encodeURIComponent(
-    hookGroupId,
-  )}/${encodeURIComponent(hookId)}/trigger`;
-
-  const options = {
-    method: 'POST',
-    body: hookPayload,
-    headers: {
-      Authorization: `Bearer ${accessToken}`, // to be checked
-      'Content-Type': 'application/json',
-    },
-  };
-
-  const response = await fetch(url, options);
-
-  void checkTaskclusterResponse(response);
-
-  const json = (await response.json()) as { taskId: string };
-
-  return json.taskId;
-}
-
 // This function's goal is to retrigger an existing job from its jobId. It will
 // call all appropriate APIs from taskcluster and treeherder.
 export async function retrigger(retriggerJobConfig: {
   rootUrl: string;
   repo: string;
   jobId: number;
+  times: number;
 }) {
-  const { rootUrl, repo, jobId } = retriggerJobConfig;
+  const { rootUrl, repo, jobId, times } = retriggerJobConfig;
   const jobInfo = await fetchJobInformationFromJobId(repo, jobId);
 
   const { push_id: pushId } = jobInfo;
@@ -277,16 +217,17 @@ export async function retrigger(retriggerJobConfig: {
     {
       taskGroupId: decisionTaskId,
       taskId: jobInfo.task_id,
-      input: jobInfo.job_type_name,
+      input: {
+        requests: [{ tasks: [jobInfo.job_type_name], times }],
+      },
     },
     actionsResponse.variables,
   );
 
-  // maybe use JSON.stringify
   const hookPayload = jsone(
-    JSON.stringify(retriggerAction.hookPayload),
+    retriggerAction.hookPayload as Record<string, unknown>,
     context,
-  ) as string;
+  ) as unknown;
   const { hookId, hookGroupId } = retriggerAction;
   const userCredentials = retrieveUserCredentials(rootUrl);
   const accessToken = userCredentials?.credentials.accessToken;
@@ -295,15 +236,12 @@ export async function retrigger(retriggerJobConfig: {
     throw new Error('Missing access token for retriggering action.');
   }
 
-  const triggerHookConfig = {
+  const hooks = new Hooks({
     rootUrl,
-    accessToken,
-    hookGroupId,
-    hookId,
-    hookPayload,
-  };
+    credentials: userCredentials.credentials,
+  });
 
-  const newTaskId = await triggerHook(triggerHookConfig);
+  const newTaskId = await hooks.triggerHook(hookGroupId, hookId, hookPayload);
 
   return newTaskId;
 }
