@@ -23,7 +23,6 @@ function ResultsView(props: ResultsViewProps) {
 
     baseRepo,
     newRepos,
-    view,
   } = useLoaderData() as LoaderReturnValue;
   const newRepo = newRepos[0];
   const { title } = props;
@@ -61,7 +60,7 @@ function ResultsView(props: ResultsViewProps) {
       </section>
       <Grid container alignItems='center' justifyContent='center'>
         <Grid item xs={12}>
-          <ResultsMain view={view}/>
+          <ResultsMain />
         </Grid>
       </Grid>
     </div>

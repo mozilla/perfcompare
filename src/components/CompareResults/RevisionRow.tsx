@@ -77,7 +77,7 @@ const getSubtestsCompareOverTimeLink = (
 };
 
 function RevisionRow(props: RevisionRowProps) {
-  const { result, view } = props;
+  const { result } = props;
   const {
     platform,
     base_median_value: baseMedianValue,
@@ -328,7 +328,6 @@ function RevisionRow(props: RevisionRowProps) {
 
 interface RevisionRowProps {
   result: CompareResultsItem;
-  view: string;
 }
 
 export default RevisionRow;
