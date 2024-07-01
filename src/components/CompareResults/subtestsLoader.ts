@@ -119,7 +119,9 @@ export async function loader({ request }: { request: Request }) {
     | Repository['name']
     | null;
   const frameworkFromUrl = url.searchParams.get('framework');
-  const baseParentSignatureFromUrl = url.searchParams.get('baseParentSignature');
+  const baseParentSignatureFromUrl = url.searchParams.get(
+    'baseParentSignature',
+  );
   const newParentSignatureFromUrl = url.searchParams.get('newParentSignature');
 
   const {
@@ -139,7 +141,6 @@ export async function loader({ request }: { request: Request }) {
     framework: frameworkFromUrl,
     baseParentSignature: baseParentSignatureFromUrl,
     newParentSignature: newParentSignatureFromUrl,
-
   });
 
   const results = fetchSubtestsCompareResults({

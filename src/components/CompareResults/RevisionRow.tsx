@@ -20,7 +20,8 @@ import AndroidIcon from '../Shared/Icons/AndroidIcon';
 import LinuxIcon from '../Shared/Icons/LinuxIcon';
 import SubtestsIcon from '../Shared/Icons/SubtestsIcon';
 import WindowsIcon from '../Shared/Icons/WindowsIcon';
-import type { LoaderReturnValue } from './overTimeLoader';
+import type { LoaderReturnValue as WithBaseLoaderReturnValue } from './loader';
+import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeLoader';
 import RetriggerButton from './Retrigger/RetriggerButton';
 import RevisionRowExpandable from './RevisionRowExpandable';
 
@@ -44,34 +45,35 @@ const platformIcons: Record<PlatformShortName, ReactNode> = {
   Unspecified: '',
 };
 
-const getSubtestsCompareWithBaseLink = (result: CompareResultsItem) =>
-  `/subtestsCompareWithBase?baseRev=${result.base_rev}&
-baseRepo=${result.base_repository_name}&
-newRev=${result.new_rev}&
-newRepo=${result.new_repository_name}&
-framework=${result.framework_id}&
-baseParentSignature=${result.base_signature_id}&
-newParentSignature=${result.new_signature_id}`;
+const getSubtestsCompareWithBaseLink = (result: CompareResultsItem) => {
+  const params = new URLSearchParams({
+    baseRev: result.base_rev,
+    baseRepo: result.base_repository_name,
+    newRev: result.new_rev,
+    newRepo: result.new_repository_name,
+    framework: String(result.framework_id),
+    baseParentSignature: String(result.base_signature_id),
+    newParentSignature: String(result.new_signature_id),
+  });
+
+  return `/subtestsCompareWithBase?${params.toString()}`;
+};
 
 const getSubtestsCompareOverTimeLink = (
   result: CompareResultsItem,
   interval: TimeRange['value'],
-) =>
-  `/subtestsCompareOverTime?baseRepo=${result.base_repository_name}&
-newRev=${result.new_rev}&
-newRepo=${result.new_repository_name}&
-framework=${result.framework_id}&
-interval=${interval}&
-baseParentSignature=${result.base_signature_id}&
-newParentSignature=${result.new_signature_id}`;
+) => {
+  const params = new URLSearchParams({
+    baseRepo: result.base_repository_name,
+    newRev: result.new_rev,
+    newRepo: result.new_repository_name,
+    framework: String(result.framework_id),
+    interval: String(interval),
+    baseParentSignature: String(result.base_signature_id),
+    newParentSignature: String(result.new_signature_id),
+  });
 
-const getSubtestsLink = (result: CompareResultsItem) => {
-  const { view } = useLoaderData() as LoaderReturnValue;
-  if (view == compareView) return getSubtestsCompareWithBaseLink(result);
-  else {
-    const { intervalValue } = useLoaderData() as LoaderReturnValue;
-    return getSubtestsCompareOverTimeLink(result, intervalValue);
-  }
+  return `/subtestsCompareOverTime?${params.toString()}`;
 };
 
 function RevisionRow(props: RevisionRowProps) {
@@ -99,6 +101,18 @@ function RevisionRow(props: RevisionRowProps) {
   const toggleIsExpanded = () => {
     setExpanded(!expanded);
   };
+
+  // Note that the return type is different depending on the view we're in
+  const loaderData = useLoaderData() as
+    | WithBaseLoaderReturnValue
+    | OverTimeLoaderReturnValue;
+  const subtestsCompareLink =
+    loaderData.view === compareView
+      ? getSubtestsCompareWithBaseLink(result)
+      : getSubtestsCompareOverTimeLink(
+          result,
+          (loaderData as OverTimeLoaderReturnValue).intervalValue,
+        );
 
   const stylesCard = ExpandableRowStyles();
 
@@ -236,7 +250,7 @@ function RevisionRow(props: RevisionRowProps) {
                   title={Strings.components.revisionRow.title.subtestsLink}
                   color='primary'
                   size='small'
-                  href={getSubtestsLink(result)}
+                  href={subtestsCompareLink}
                   target='_blank'
                 >
                   <SubtestsIcon />

@@ -139,7 +139,9 @@ export async function loader({ request }: { request: Request }) {
     | null;
   const intervalFromUrl = url.searchParams.get('interval');
   const frameworkFromUrl = url.searchParams.get('framework');
-  const baseParentSignatureFromUrl = url.searchParams.get('baseParentSignature');
+  const baseParentSignatureFromUrl = url.searchParams.get(
+    'baseParentSignature',
+  );
   const newParentSignatureFromUrl = url.searchParams.get('baseParentSignature');
 
   const {
@@ -151,7 +153,7 @@ export async function loader({ request }: { request: Request }) {
     intervalValue,
     intervalText,
     baseParentSignature,
-    newParentSignature
+    newParentSignature,
   } = checkValues({
     baseRepo: baseRepoFromUrl,
     newRev: newRevFromUrl,
