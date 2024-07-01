@@ -7,6 +7,10 @@ import {
   retrigger,
   signInIntoTaskcluster,
 } from '../../logic/taskcluster';
+import {
+  fetchDecisionTaskIdFromPushId,
+  fetchJobInformationFromJobId,
+} from '../../logic/treeherder';
 import { Strings } from '../../resources/Strings';
 import { CompareResultsItem } from '../../types/state';
 
@@ -19,6 +23,26 @@ function RetriggerButton(props: RetriggerButtonProps) {
     new_retriggerable_job_ids: newRetriggerableJobIds,
   } = result;
 
+  const getRetriggerConfig = async (repository: string, jobId: number) => {
+    const tcParams = getTaskclusterParams();
+
+    const jobInfo = await fetchJobInformationFromJobId(repository, jobId);
+    const decisionTaskId = await fetchDecisionTaskIdFromPushId(
+      repository,
+      jobInfo.push_id,
+    );
+
+    const config = {
+      rootUrl: tcParams.url,
+      jobInfo,
+      decisionTaskId,
+      // TODO decided by the user in the modal
+      times: 2,
+    };
+
+    return config;
+  };
+
   const onOpenModal = async () => {
     let credentials = getTaskclusterCredentials();
     if (!credentials) {
@@ -26,23 +50,19 @@ function RetriggerButton(props: RetriggerButtonProps) {
       credentials = getTaskclusterCredentials();
     }
 
-    const tcParams = getTaskclusterParams();
+    const baseRetriggerConfig = await getRetriggerConfig(
+      baseRepository,
+      baseRetriggerableJobIds[0],
+    );
+
+    const newRetriggerConfig = await getRetriggerConfig(
+      newRepository,
+      newRetriggerableJobIds[0],
+    );
 
     const [baseRetriggerTaskId, newRetriggerTaskId] = await Promise.all([
-      retrigger({
-        rootUrl: tcParams.url,
-        repo: baseRepository,
-        jobId: baseRetriggerableJobIds[0],
-        // TODO decided by the user in the modal
-        times: 2,
-      }),
-      retrigger({
-        rootUrl: tcParams.url,
-        repo: newRepository,
-        jobId: newRetriggerableJobIds[0],
-        // TODO decided by the user in the modal
-        times: 2,
-      }),
+      retrigger(baseRetriggerConfig),
+      retrigger(newRetriggerConfig),
     ]);
     console.log('Retrigger taskId for base: ', baseRetriggerTaskId);
     console.log('Retrigger taskId for new: ', newRetriggerTaskId);

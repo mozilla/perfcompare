@@ -3,16 +3,13 @@
 import jsone from 'json-e';
 import { Hooks } from 'taskcluster-client-web';
 
+import { JobInformation } from '../types/api';
 import { UserCredentials, TokenBearer } from '../types/types';
 import { getLocationOrigin } from '../utils/location';
 import {
   waitForStorageEvent,
   retrieveUserCredentials,
 } from './credentials-storage';
-import {
-  fetchDecisionTaskIdFromPushId,
-  fetchJobInformationFromJobId,
-} from './treeherder';
 
 export const prodTaskclusterUrl = 'https://firefox-ci-tc.services.mozilla.com';
 export const stagingTaskclusterUrl =
@@ -188,15 +185,11 @@ export async function fetchActionsFromDecisionTask(
 // call all appropriate APIs from taskcluster and treeherder.
 export async function retrigger(retriggerJobConfig: {
   rootUrl: string;
-  repo: string;
-  jobId: number;
+  jobInfo: JobInformation;
+  decisionTaskId: string;
   times: number;
 }) {
-  const { rootUrl, repo, jobId, times } = retriggerJobConfig;
-  const jobInfo = await fetchJobInformationFromJobId(repo, jobId);
-
-  const { push_id: pushId } = jobInfo;
-  const decisionTaskId = await fetchDecisionTaskIdFromPushId(repo, pushId);
+  const { rootUrl, jobInfo, decisionTaskId, times } = retriggerJobConfig;
 
   const actionsResponse = await fetchActionsFromDecisionTask(
     rootUrl,
