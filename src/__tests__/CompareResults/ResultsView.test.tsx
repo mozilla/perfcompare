@@ -195,6 +195,8 @@ describe('Results View', () => {
     // Test requesting an authorization code from Taskcluster production URL
     mockedGetLocationOrigin.mockImplementation(() => 'http://localhost:3000');
     await user.click(retriggerButton);
+    await user.click(await screen.findByRole('button', { name: /Sign in/ }));
+
     let windowOpenUrlString = mockedWindowOpen.mock.lastCall[0] as string;
     let windowOpenUrl = new URL(windowOpenUrlString);
     expect(sessionStorage.requestState).toBe(

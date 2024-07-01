@@ -3,6 +3,11 @@ declare module '*.svg' {
   export default content;
 }
 
+declare module '*.png' {
+  const content: string;
+  export = content;
+}
+
 declare module '*.woff' {
   const content: string;
   export = content;

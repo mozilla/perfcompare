@@ -102,7 +102,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
               class="compare-card-text cardText_f17sylv5"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h2 compare-card-title css-1u33eov-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h2 compare-card-title css-15umudq-MuiTypography-root"
               >
                 Compare with a base
               </h2>
@@ -1019,7 +1019,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
               class="compare-card-text cardText_f17sylv5"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h2 compare-card-title css-1u33eov-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h2 compare-card-title css-15umudq-MuiTypography-root"
               >
                 Compare over time
               </h2>
