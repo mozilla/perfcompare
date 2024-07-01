@@ -59,7 +59,7 @@ function ResultsMain() {
               <DownloadButton />
             </div>
           </header>
-          <ResultsTable filteringSearchTerm={searchTerm}/>
+          <ResultsTable filteringSearchTerm={searchTerm} />
         </Await>
       </Suspense>
     </Container>
