@@ -55,7 +55,9 @@ const mockUse = jest.fn().mockImplementation(() => {
   };
 });
 
-// after upgrading taskcluster to 39.1.1, fail to `import taskcluster-client-web`
+// Fail to `import taskcluster-client-web`
+// There is a bug filed for this issue in the Taskcluster project
+// https://github.com/taskcluster/taskcluster/issues/7110
 jest.mock('taskcluster-client-web', () => {
   return {
     Queue: jest.fn().mockImplementation(() => {
