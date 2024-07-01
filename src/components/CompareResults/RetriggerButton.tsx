@@ -44,6 +44,8 @@ function RetriggerButton(props: RetriggerButtonProps) {
         times: 2,
       }),
     ]);
+    console.log('Retrigger taskId for base: ', baseRetriggerTaskId);
+    console.log('Retrigger taskId for new: ', newRetriggerTaskId);
   };
 
   // TODO implement modal
