@@ -182,7 +182,7 @@ export async function fetchActionsFromDecisionTask(
 }
 
 // This function's goal is to retrigger an existing job from its jobId. It will
-// call all appropriate APIs from taskcluster and treeherder.
+// call all appropriate APIs from taskcluster.
 export async function retrigger(retriggerJobConfig: {
   rootUrl: string;
   jobInfo: JobInformation;
@@ -190,6 +190,8 @@ export async function retrigger(retriggerJobConfig: {
   times: number;
 }) {
   const { rootUrl, jobInfo, decisionTaskId, times } = retriggerJobConfig;
+
+  if (!times) return null;
 
   const actionsResponse = await fetchActionsFromDecisionTask(
     rootUrl,
