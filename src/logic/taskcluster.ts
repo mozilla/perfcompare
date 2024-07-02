@@ -80,7 +80,14 @@ export const getTaskclusterCredentials = () => {
   }
 
   const credentials = retrieveUserCredentials(taskclusterParams.url);
-  // TOOD Check if it is expired, return false if they are.
+
+  if (!credentials?.expires) return false;
+
+  const expirationDate = new Date(credentials.expires);
+  const currentDate = new Date();
+
+  if (expirationDate < currentDate) return false;
+
   return credentials;
 };
 
