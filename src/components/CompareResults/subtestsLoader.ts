@@ -143,15 +143,17 @@ export async function loader({ request }: { request: Request }) {
     newParentSignature: newParentSignatureFromUrl,
   });
 
-  const results = fetchSubtestsCompareResults({
-    baseRev,
-    baseRepo,
-    newRev,
-    newRepo,
-    framework: frameworkId,
-    baseParentSignature,
-    newParentSignature,
-  });
+  const [results] = await Promise.all([
+    fetchSubtestsCompareResults({
+      baseRev,
+      baseRepo,
+      newRev,
+      newRepo,
+      framework: frameworkId,
+      baseParentSignature,
+      newParentSignature,
+    }),
+  ]);
 
   return {
     results,
