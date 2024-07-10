@@ -16,7 +16,7 @@ import { getPlatformShortName } from '../../utils/platform';
 import AndroidIcon from '../Shared/Icons/AndroidIcon';
 import LinuxIcon from '../Shared/Icons/LinuxIcon';
 import WindowsIcon from '../Shared/Icons/WindowsIcon';
-import RetriggerButton from './RetriggerButton';
+import RetriggerButton from './Retrigger/RetriggerButton';
 import RevisionRowExpandable from './RevisionRowExpandable';
 
 function determineStatus(improvement: boolean, regression: boolean) {
@@ -225,7 +225,7 @@ function RevisionRow(props: RevisionRowProps) {
             data-testid='retrigger-jobs-button'
           >
             <div className='retrigger-button-container'>
-              <RetriggerButton />
+              <RetriggerButton result={result} />
             </div>
           </div>
         </div>

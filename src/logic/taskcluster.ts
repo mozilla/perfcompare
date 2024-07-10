@@ -1,5 +1,9 @@
 // This file contains logic for the Taskcluster Third-Party Login
 
+import jsone from 'json-e';
+import { Hooks } from 'taskcluster-client-web';
+
+import { JobInformation } from '../types/api';
 import { UserCredentials, TokenBearer } from '../types/types';
 import { getLocationOrigin } from '../utils/location';
 import {
@@ -76,7 +80,17 @@ export const getTaskclusterCredentials = () => {
   }
 
   const credentials = retrieveUserCredentials(taskclusterParams.url);
-  // TOOD Check if it is expired, return false if they are.
+
+  if (!credentials?.expires) {
+    console.error('Missing credentials or expiration date on credentials.');
+    return false;
+  }
+
+  const expirationDate = new Date(credentials.expires);
+  const currentDate = new Date();
+
+  if (expirationDate < currentDate) return false;
+
   return credentials;
 };
 
@@ -151,4 +165,88 @@ export async function retrieveTaskclusterUserCredentials(
   void checkTaskclusterResponse(response);
 
   return response.json() as Promise<UserCredentials>;
+}
+
+type Action = {
+  hookId: string;
+  hookGroupId: string;
+  kind: 'hook';
+  hookPayload: unknown;
+  name: string;
+};
+
+export async function fetchActionsFromDecisionTask(
+  rootUrl: string,
+  decisionTaskId: string,
+) {
+  const url = `${rootUrl}/api/queue/v1/task/${decisionTaskId}/artifacts/public%2Factions.json`;
+
+  const response = await fetch(url);
+
+  void checkTaskclusterResponse(response);
+
+  return (await response.json()) as {
+    actions: Array<Action>;
+    variables: unknown;
+  };
+}
+
+// This function's goal is to retrigger an existing job from its jobId. It will
+// call all appropriate APIs from taskcluster.
+export async function retrigger(retriggerJobConfig: {
+  rootUrl: string;
+  jobInfo: JobInformation;
+  decisionTaskId: string;
+  times: number;
+}) {
+  const { rootUrl, jobInfo, decisionTaskId, times } = retriggerJobConfig;
+
+  if (!times) return null;
+
+  const actionsResponse = await fetchActionsFromDecisionTask(
+    rootUrl,
+    decisionTaskId,
+  );
+
+  const retriggerAction = actionsResponse.actions.find(
+    (action) => action.name === 'retrigger-multiple',
+  );
+
+  if (retriggerAction?.kind !== 'hook') {
+    throw new Error('Missing hook kind for action');
+  }
+
+  // submit retrigger action to Taskcluster
+  const context = Object.assign(
+    {},
+    {
+      taskGroupId: decisionTaskId,
+      taskId: jobInfo.task_id,
+      input: {
+        requests: [{ tasks: [jobInfo.job_type_name], times }],
+      },
+    },
+    actionsResponse.variables,
+  );
+
+  const hookPayload = jsone(
+    retriggerAction.hookPayload as Record<string, unknown>,
+    context,
+  ) as unknown;
+  const { hookId, hookGroupId } = retriggerAction;
+  const userCredentials = retrieveUserCredentials(rootUrl);
+  const accessToken = userCredentials?.credentials.accessToken;
+
+  if (!accessToken) {
+    throw new Error('Missing access token for retriggering action.');
+  }
+
+  const hooks = new Hooks({
+    rootUrl,
+    credentials: userCredentials.credentials,
+  });
+
+  const newTaskId = await hooks.triggerHook(hookGroupId, hookId, hookPayload);
+
+  return newTaskId;
 }

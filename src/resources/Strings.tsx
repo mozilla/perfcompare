@@ -132,6 +132,19 @@ export const Strings = {
       placeholder: 'Search results',
       label: 'Search by title, platform, revision or options',
     },
+    retrigger: {
+      signin: {
+        title: 'Sign into Taskcluster to re-trigger the comparison',
+        body: 'To be able to retrigger a task within Taskcluster, it’s necessary that you log in to it first. Then PerfCompare will retrigger the task on your behalf.',
+        submitButton: 'Sign in',
+        cancelButton: 'Not now',
+      },
+      config: {
+        title: 'Retrigger jobs',
+        body: 'Choose how many clones of the base and new tasks will be started.',
+        submitButton: 'Retrigger',
+      },
+    },
   },
   errors: {
     warningText: 'Search must be a 12- or 40-character hash, or email address',
