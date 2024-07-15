@@ -2,11 +2,21 @@ const path = require('path');
 
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   entry: path.resolve(__dirname, '..', './src/index.tsx'),
   resolve: {
     extensions: ['.js', '.ts', '.tsx'],
+    // these polyfills are for taskcluster-client-web
+    fallback: {
+      assert: require.resolve('assert'),
+      buffer: require.resolve('buffer'),
+      crypto: require.resolve('crypto-browserify'),
+      stream: require.resolve('stream-browserify'),
+      url: require.resolve('url'),
+      vm: false,
+    },
   },
   module: {
     rules: [
@@ -41,6 +51,12 @@ module.exports = {
     filename: '[name].[chunkhash].js',
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      Buffer: ['buffer', 'Buffer'],
+    }),
+    new webpack.ProvidePlugin({
+      process: 'process/browser',
+    }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '..', './public/index.html'),
       favicon: './public/favicon.svg',

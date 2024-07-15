@@ -42,6 +42,10 @@ export async function loader({ request }: { request: Request }) {
 
   storeUserCredentials(rootUrl, userCredentials);
 
+  window.close();
+
+  // TODO Use defer values as explained in https://reactrouter.com/en/main/guides/deferred
+  // so that the component displays while retrieving all the data
   return userCredentials;
 }
 

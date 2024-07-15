@@ -20,7 +20,7 @@ function ResultsView(props: ResultsViewProps) {
     newRevsInfo,
     frameworkId,
     intervalValue,
-    results,
+
     baseRepo,
     newRepos,
   } = useLoaderData() as LoaderReturnValue;
@@ -47,10 +47,9 @@ function ResultsView(props: ResultsViewProps) {
       <PerfCompareHeader />
       <section className={sectionStyles.container}>
         <LinkToHome />
-
         <CompareOverTime
           hasEditButton={true}
-          newRevs={newRevsInfo}
+          newRevs={newRevsInfo ?? []}
           isBaseSearch={true}
           expandBaseComponent={() => null}
           frameworkIdVal={frameworkId}
@@ -61,7 +60,7 @@ function ResultsView(props: ResultsViewProps) {
       </section>
       <Grid container alignItems='center' justifyContent='center'>
         <Grid item xs={12}>
-          <ResultsMain results={results} />
+          <ResultsMain />
         </Grid>
       </Grid>
     </div>

@@ -36,6 +36,45 @@ global.TextEncoder = TextEncoder;
 
 let store: Store;
 
+const mockBuildUrl = jest.fn((root: string, taskId: string, path: string) => {
+  return `${root}/${taskId}/artifacts/${path}`;
+});
+
+const mockTask = jest.fn(() => {
+  return {
+    tags: { test: 'test' },
+    id: 'TASKID',
+    payload: { env: { MOZHARNESS_TEST_PATHS: '{ "mock": ["mock.json"] }' } },
+  };
+});
+const mockUse = jest.fn().mockImplementation(() => {
+  return {
+    createTask: jest.fn(() => {
+      return 'ACTION_TASKID';
+    }),
+  };
+});
+
+// Fail to `import taskcluster-client-web`
+// There is a bug filed for this issue in the Taskcluster project
+// https://github.com/taskcluster/taskcluster/issues/7110
+jest.mock('taskcluster-client-web', () => {
+  return {
+    Queue: jest.fn().mockImplementation(() => {
+      return {
+        buildUrl: mockBuildUrl,
+        getLatestArtifact:
+          'https://firefox-ci-tc.services.mozilla.com/api/queue/v1/task',
+        task: mockTask,
+        use: mockUse,
+      };
+    }),
+    slugid: jest.fn(() => {
+      return 'TEST_SLUGID';
+    }),
+  };
+});
+
 jest.mock('react-chartjs-2', () => ({
   Bubble: jest.fn(),
   Line: jest.fn(),

@@ -3,7 +3,8 @@ import type { ReactElement } from 'react';
 import userEvent, { type UserEvent } from '@testing-library/user-event';
 
 import { loader } from '../../components/CompareResults/loader';
-import ResultsTable from '../../components/CompareResults/ResultsTable';
+import ResultsView from '../../components/CompareResults/ResultsView';
+import { Strings } from '../../resources/Strings';
 import type { CompareResultsItem } from '../../types/state';
 import getTestData from '../utils/fixtures';
 import {
@@ -22,17 +23,16 @@ function renderWithRoute(component: ReactElement) {
 }
 
 function setupAndRender(testCompareData: CompareResultsItem[]) {
+  const { testData } = getTestData();
   (window.fetch as FetchMockSandbox)
     .get(
       'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
       testCompareData,
     )
     .get('begin:https://treeherder.mozilla.org/api/project/', {
-      results: [],
+      results: [testData[0]],
     });
-  renderWithRoute(
-    <ResultsTable results={[testCompareData]} filteringSearchTerm='' />,
-  );
+  renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
 }
 
 describe('Results Table', () => {
