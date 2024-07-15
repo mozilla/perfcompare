@@ -29,6 +29,7 @@ interface CompareWithTimeProps {
   isBaseSearch: null | boolean;
   newRepo: Repository['name'];
   baseRepo: Repository['name'];
+
   expandBaseComponent: (expanded: boolean) => void;
 }
 
@@ -40,6 +41,7 @@ function CompareOverTime({
   isBaseSearch,
   baseRepo,
   newRepo,
+
   expandBaseComponent,
 }: CompareWithTimeProps) {
   const { enqueueSnackbar } = useSnackbar();
@@ -84,7 +86,7 @@ function CompareOverTime({
 
   const onFormSubmit = (e: React.FormEvent) => {
     const isFormReadyToBeSubmitted = inProgressRevs.length > 0;
-    setFormIsDisplayed(!isFormReadyToBeSubmitted);
+
     if (!isFormReadyToBeSubmitted) {
       e.preventDefault();
       enqueueSnackbar(stringsOverTime.collapsed.errors.notEnoughRevisions, {
@@ -191,6 +193,7 @@ function CompareOverTime({
           onSubmit={onFormSubmit}
           className='form-wrapper'
           aria-label='Compare over time form'
+          reloadDocument={hasEditButton ?? true}
         >
           {/**** Edit Button ****/}
           <div
@@ -243,6 +246,7 @@ function CompareOverTime({
               label={strings.sharedCollasped.button}
               hasCancelButton={hasCancelButton}
               onCancel={handleCancel}
+              hasEditButton={hasEditButton}
             />
           </Grid>
         </Form>

@@ -16,7 +16,7 @@ interface ResultsViewProps {
   title: string;
 }
 function ResultsView(props: ResultsViewProps) {
-  const { baseRevInfo, newRevsInfo, frameworkId, results, baseRepo, newRepos } =
+  const { baseRevInfo, newRevsInfo, frameworkId, baseRepo, newRepos } =
     useLoaderData() as LoaderReturnValue;
 
   const newRepo = newRepos[0];
@@ -42,7 +42,6 @@ function ResultsView(props: ResultsViewProps) {
       <PerfCompareHeader />
       <section className={sectionStyles.container}>
         <LinkToHome />
-
         <CompareWithBase
           hasEditButton={true}
           baseRev={baseRevInfo ?? null}
@@ -54,9 +53,10 @@ function ResultsView(props: ResultsViewProps) {
           newRepo={newRepo}
         />
       </section>
+
       <Grid container alignItems='center' justifyContent='center'>
         <Grid item xs={12}>
-          <ResultsMain results={results} />
+          <ResultsMain />
         </Grid>
       </Grid>
     </div>

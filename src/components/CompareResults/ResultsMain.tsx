@@ -1,20 +1,25 @@
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 
+import Box from '@mui/material/Box';
+import CircularProgress from '@mui/material/CircularProgress';
 import { Container } from '@mui/system';
+import { Await, useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
 import { Colors, Spacing } from '../../styles';
-import type { CompareResultsItem } from '../../types/state';
+// import type { CompareResultsItem } from '../../types/state';
 import DownloadButton from './DownloadButton';
+import type { LoaderReturnValue } from './loader';
 import ResultsTable from './ResultsTable';
 import RevisionSelect from './RevisionSelect';
 import SearchInput from './SearchInput';
 
-function ResultsMain(props: { results: CompareResultsItem[][] }) {
+function ResultsMain() {
+  const { results } = useLoaderData() as LoaderReturnValue;
+
   const themeMode = useAppSelector((state) => state.theme.mode);
   const [searchTerm, setSearchTerm] = useState('');
-  const { results } = props;
 
   const themeColor100 =
     themeMode === 'light' ? Colors.Background300 : Colors.Background100Dark;
@@ -38,15 +43,25 @@ function ResultsMain(props: { results: CompareResultsItem[][] }) {
 
   return (
     <Container className={styles.container} data-testid='results-main'>
-      <header>
-        <div className={styles.title}>Results</div>
-        <div className={styles.content}>
-          <SearchInput onChange={setSearchTerm} />
-          <RevisionSelect />
-          <DownloadButton />
-        </div>
-      </header>
-      <ResultsTable results={results} filteringSearchTerm={searchTerm} />
+      <Suspense
+        fallback={
+          <Box display='flex' justifyContent='center'>
+            <CircularProgress />
+          </Box>
+        }
+      >
+        <Await resolve={results}>
+          <header>
+            <div className={styles.title}>Results</div>
+            <div className={styles.content}>
+              <SearchInput onChange={setSearchTerm} />
+              <RevisionSelect />
+              <DownloadButton />
+            </div>
+          </header>
+          <ResultsTable filteringSearchTerm={searchTerm} />
+        </Await>
+      </Suspense>
     </Container>
   );
 }
