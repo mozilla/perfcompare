@@ -1,4 +1,4 @@
-import React from 'react';
+import { Suspense } from 'react';
 
 import Button from '@mui/material/Button';
 import { Await, useLoaderData } from 'react-router-dom';
@@ -37,7 +37,7 @@ export default function CompareButton({
         | OverTimeLoaderReturnValue;
 
       return (
-        <React.Suspense
+        <Suspense
           fallback={
             <Button id='compare-button' color='primary' type='submit' disabled>
               Loading...
@@ -49,7 +49,7 @@ export default function CompareButton({
               {label}
             </Button>
           </Await>
-        </React.Suspense>
+        </Suspense>
       );
     } else
       return (

@@ -194,7 +194,6 @@ function CompareOverTime({
           className='form-wrapper'
           aria-label='Compare over time form'
           reloadDocument={hasEditButton ?? true}
-          replace
         >
           {/**** Edit Button ****/}
           <div
