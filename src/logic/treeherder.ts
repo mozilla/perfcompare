@@ -28,7 +28,8 @@ type FetchSubtestsProps = {
   newRepo: Repository['name'];
   newRev: string;
   framework: Framework['id'];
-  parentSignature: string;
+  baseParentSignature: string;
+  newParentSignature: string;
 };
 
 type FetchSubtestsOverTimeProps = {
@@ -37,7 +38,8 @@ type FetchSubtestsOverTimeProps = {
   newRev: string;
   framework: Framework['id'];
   interval: TimeRange['value'];
-  parentSignature: string;
+  baseParentSignature: string;
+  newParentSignature: string;
 };
 
 async function fetchFromTreeherder(url: string) {
@@ -109,7 +111,8 @@ export async function fetchSubtestsCompareResults({
   newRev,
   newRepo,
   framework,
-  parentSignature,
+  baseParentSignature,
+  newParentSignature,
 }: FetchSubtestsProps) {
   const searchParams = new URLSearchParams({
     base_repository: baseRepo,
@@ -117,7 +120,8 @@ export async function fetchSubtestsCompareResults({
     new_repository: newRepo,
     new_revision: newRev,
     framework: String(framework),
-    parent_signature: parentSignature,
+    base_parent_signature: baseParentSignature,
+    new_parent_signature: newParentSignature,
   });
 
   const url = `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`;
@@ -133,7 +137,8 @@ export async function fetchSubtestsCompareOverTimeResults({
   newRepo,
   framework,
   interval,
-  parentSignature,
+  baseParentSignature,
+  newParentSignature,
 }: FetchSubtestsOverTimeProps) {
   const searchParams = new URLSearchParams({
     base_repository: baseRepo,
@@ -141,7 +146,8 @@ export async function fetchSubtestsCompareOverTimeResults({
     new_revision: newRev,
     framework: String(framework),
     interval: String(interval),
-    parent_signature: parentSignature,
+    base_parent_signature: baseParentSignature,
+    new_parent_signature: newParentSignature,
   });
 
   const url = `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`;

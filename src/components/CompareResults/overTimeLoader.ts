@@ -1,6 +1,7 @@
 import { defer } from 'react-router-dom';
 
 import { repoMap, frameworks, timeRanges } from '../../common/constants';
+import { compareOverTimeView } from '../../common/constants';
 import {
   fetchCompareOverTimeResults,
   fetchRecentRevisions,
@@ -190,6 +191,7 @@ export async function loader({ request }: { request: Request }) {
     frameworkName,
     intervalValue,
     intervalText,
+    view: compareOverTimeView,
   });
 }
 
@@ -203,6 +205,7 @@ type DeferredLoaderData = {
   frameworkName: Framework['name'];
   intervalValue: TimeRange['value'];
   intervalText: TimeRange['text'];
+  view: string;
 };
 
 export type LoaderReturnValue = DeferredLoaderData;

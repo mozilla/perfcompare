@@ -11,14 +11,16 @@ function checkValues({
   newRepo,
   framework,
   interval,
-  parentSignature,
+  baseParentSignature,
+  newParentSignature,
 }: {
   baseRepo: Repository['name'] | null;
   newRev: string | null;
   newRepo: Repository['name'] | null;
   framework: string | number | null;
   interval: string | number | null;
-  parentSignature: string | null;
+  baseParentSignature: string | null;
+  newParentSignature: string | null;
 }): {
   baseRepo: Repository['name'];
   newRev: string;
@@ -27,7 +29,8 @@ function checkValues({
   frameworkName: Framework['name'];
   intervalValue: TimeRange['value'];
   intervalText: TimeRange['text'];
-  parentSignature: string;
+  baseParentSignature: string;
+  newParentSignature: string;
 } {
   if (baseRepo === null) {
     throw new Error('The parameter baseRepo is missing.');
@@ -57,8 +60,12 @@ function checkValues({
     );
   }
 
-  if (parentSignature === null) {
-    throw new Error('The parameter parentSignature is missing.');
+  if (baseParentSignature === null) {
+    throw new Error('The parameter baseParentSignature is missing.');
+  }
+
+  if (newParentSignature === null) {
+    throw new Error('The parameter newParentSignature is missing.');
   }
 
   if (framework === null) {
@@ -111,7 +118,8 @@ function checkValues({
     frameworkName,
     intervalText,
     intervalValue,
-    parentSignature,
+    baseParentSignature,
+    newParentSignature,
   };
 }
 
@@ -131,7 +139,10 @@ export async function loader({ request }: { request: Request }) {
     | null;
   const intervalFromUrl = url.searchParams.get('interval');
   const frameworkFromUrl = url.searchParams.get('framework');
-  const parentSignatureFromUrl = url.searchParams.get('parentSignature');
+  const baseParentSignatureFromUrl = url.searchParams.get(
+    'baseParentSignature',
+  );
+  const newParentSignatureFromUrl = url.searchParams.get('baseParentSignature');
 
   const {
     baseRepo,
@@ -141,14 +152,16 @@ export async function loader({ request }: { request: Request }) {
     frameworkName,
     intervalValue,
     intervalText,
-    parentSignature,
+    baseParentSignature,
+    newParentSignature,
   } = checkValues({
     baseRepo: baseRepoFromUrl,
     newRev: newRevFromUrl,
     newRepo: newRepoFromUrl,
     framework: frameworkFromUrl,
     interval: intervalFromUrl,
-    parentSignature: parentSignatureFromUrl,
+    baseParentSignature: baseParentSignatureFromUrl,
+    newParentSignature: newParentSignatureFromUrl,
   });
 
   const results = fetchSubtestsCompareOverTimeResults({
@@ -157,7 +170,8 @@ export async function loader({ request }: { request: Request }) {
     newRepo,
     framework: frameworkId,
     interval: intervalValue,
-    parentSignature,
+    baseParentSignature,
+    newParentSignature,
   });
 
   return {
@@ -169,7 +183,8 @@ export async function loader({ request }: { request: Request }) {
     frameworkName,
     intervalValue,
     intervalText,
-    parentSignature,
+    baseParentSignature,
+    newParentSignature,
   };
 }
 
