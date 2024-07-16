@@ -1,6 +1,7 @@
 import { defer } from 'react-router-dom';
 
 import { repoMap, frameworks } from '../../common/constants';
+import { compareView } from '../../common/constants';
 import {
   fetchCompareResults,
   fetchFakeCompareResults,
@@ -171,6 +172,7 @@ export async function loader({ request }: { request: Request }) {
       newRepos,
       frameworkId,
       frameworkName,
+      view: compareView,
     };
   }
 
@@ -229,6 +231,7 @@ export async function loader({ request }: { request: Request }) {
     newRepos,
     frameworkId,
     frameworkName,
+    view: compareView,
   });
 }
 
@@ -242,6 +245,7 @@ type DeferredLoaderData = {
   newRepos: Repository['name'][];
   frameworkId: Framework['id'];
   frameworkName: Framework['name'];
+  view: string;
 };
 
 //had to be more explicit with the type because the defer

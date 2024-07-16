@@ -95,7 +95,11 @@ export type CompareResultsItem = {
   Each test has a signature and each signature may or may not have a parent_signature.
   If a signature has a parent_signature then we are looking at a subtest. For regular tests this field will be null.
   */
-  parent_signature: number | null;
+  base_parent_signature: number | null;
+  new_parent_signature: number | null;
+  base_signature_id: number;
+  new_signature_id: number;
+  has_subtests: boolean;
 };
 
 export type InputType = 'base' | 'new';

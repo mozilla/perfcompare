@@ -6,16 +6,22 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import { IconButton } from '@mui/material';
+import { useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
 
+import { compareView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { Colors, Spacing, ExpandableRowStyles } from '../../styles';
 import type { CompareResultsItem, PlatformShortName } from '../../types/state';
+import { TimeRange } from '../../types/types';
 import { getPlatformShortName } from '../../utils/platform';
 import AndroidIcon from '../Shared/Icons/AndroidIcon';
 import LinuxIcon from '../Shared/Icons/LinuxIcon';
+import SubtestsIcon from '../Shared/Icons/SubtestsIcon';
 import WindowsIcon from '../Shared/Icons/WindowsIcon';
+import type { LoaderReturnValue as WithBaseLoaderReturnValue } from './loader';
+import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeLoader';
 import RetriggerButton from './Retrigger/RetriggerButton';
 import RevisionRowExpandable from './RevisionRowExpandable';
 
@@ -37,6 +43,37 @@ const platformIcons: Record<PlatformShortName, ReactNode> = {
   Windows: <WindowsIcon />,
   Android: <AndroidIcon />,
   Unspecified: '',
+};
+
+const getSubtestsCompareWithBaseLink = (result: CompareResultsItem) => {
+  const params = new URLSearchParams({
+    baseRev: result.base_rev,
+    baseRepo: result.base_repository_name,
+    newRev: result.new_rev,
+    newRepo: result.new_repository_name,
+    framework: String(result.framework_id),
+    baseParentSignature: String(result.base_signature_id),
+    newParentSignature: String(result.new_signature_id),
+  });
+
+  return `/subtestsCompareWithBase?${params.toString()}`;
+};
+
+const getSubtestsCompareOverTimeLink = (
+  result: CompareResultsItem,
+  interval: TimeRange['value'],
+) => {
+  const params = new URLSearchParams({
+    baseRepo: result.base_repository_name,
+    newRev: result.new_rev,
+    newRepo: result.new_repository_name,
+    framework: String(result.framework_id),
+    interval: String(interval),
+    baseParentSignature: String(result.base_signature_id),
+    newParentSignature: String(result.new_signature_id),
+  });
+
+  return `/subtestsCompareOverTime?${params.toString()}`;
 };
 
 function RevisionRow(props: RevisionRowProps) {
@@ -64,6 +101,18 @@ function RevisionRow(props: RevisionRowProps) {
   const toggleIsExpanded = () => {
     setExpanded(!expanded);
   };
+
+  // Note that the return type is different depending on the view we're in
+  const loaderData = useLoaderData() as
+    | WithBaseLoaderReturnValue
+    | OverTimeLoaderReturnValue;
+  const subtestsCompareLink =
+    loaderData.view === compareView
+      ? getSubtestsCompareWithBaseLink(result)
+      : getSubtestsCompareOverTimeLink(
+          result,
+          (loaderData as OverTimeLoaderReturnValue).intervalValue,
+        );
 
   const stylesCard = ExpandableRowStyles();
 
@@ -194,6 +243,22 @@ function RevisionRow(props: RevisionRowProps) {
           <strong> {newRuns.length} </strong>
         </div>
         <div className='row-buttons cell'>
+          {result.has_subtests && (
+            <div className='subtests' role='cell'>
+              <div className='subtests-link-button-container'>
+                <IconButton
+                  title={Strings.components.revisionRow.title.subtestsLink}
+                  color='primary'
+                  size='small'
+                  href={subtestsCompareLink}
+                  target='_blank'
+                >
+                  <SubtestsIcon />
+                </IconButton>
+              </div>
+            </div>
+          )}
+
           <div className='graph' role='cell'>
             <div className='graph-link-button-container'>
               <IconButton
