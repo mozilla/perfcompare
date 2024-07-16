@@ -75,6 +75,8 @@ jest.mock('taskcluster-client-web', () => {
   };
 });
 
+jest.mock('json-e', () => ({ jsone: jest.fn() }));
+
 jest.mock('react-chartjs-2', () => ({
   Bubble: jest.fn(),
   Line: jest.fn(),
