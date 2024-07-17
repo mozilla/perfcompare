@@ -25,6 +25,166 @@ import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeL
 import RetriggerButton from './Retrigger/RetriggerButton';
 import RevisionRowExpandable from './RevisionRowExpandable';
 
+const revisionsRow = {
+  borderRadius: '4px 0px 0px 4px',
+  display: 'grid',
+  margin: `${Spacing.Small}px 0px`,
+  // Should be kept in sync with the gridTemplateColumns from TableHeader
+  gridTemplateColumns: '2fr 1fr 0.2fr 1fr 1fr 1fr 1fr 1fr 2fr 0.2fr',
+};
+
+const typography = {
+  fontFamily: 'SF Pro',
+  fontStyle: 'normal',
+  fontWeight: 400,
+  fontSize: '13px',
+  lineHeight: '16px',
+};
+
+const stylesLight = {
+  revisionRow: style({
+    ...revisionsRow,
+    $nest: {
+      '.base-value': {
+        backgroundColor: Colors.Background200,
+      },
+      '.cell': {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+      '.confidence': {
+        backgroundColor: Colors.Background200,
+      },
+      '.comparison-sign': {
+        backgroundColor: Colors.Background200,
+      },
+      '.delta': {
+        backgroundColor: Colors.Background200,
+      },
+      '.expand-button-container': {
+        justifyContent: 'right',
+      },
+      '.new-value': {
+        backgroundColor: Colors.Background200,
+      },
+      '.platform': {
+        backgroundColor: Colors.Background200,
+        borderRadius: '4px 0 0 4px',
+        paddingLeft: Spacing.xLarge,
+        justifyContent: 'left',
+      },
+      '.platform-container': {
+        alignItems: 'flex-end',
+        backgroundColor: Colors.Background200,
+        display: 'flex',
+      },
+      '.retrigger-button': {
+        backgroundColor: Colors.Background200,
+        borderRadius: '0px 4px 4px 0px',
+        cursor: 'not-allowed',
+      },
+      '.status': {
+        backgroundColor: Colors.Background200,
+        justifyContent: 'center',
+      },
+      '.total-runs': {
+        backgroundColor: Colors.Background200,
+      },
+      '.row-buttons': {
+        backgroundColor: Colors.Background200,
+        borderRadius: '0px 4px 4px 0px',
+        display: 'flex',
+        justifyContent: 'flex-end',
+        $nest: {
+          '.download': {
+            cursor: 'not-allowed',
+          },
+        },
+      },
+      '.expand-button': {
+        backgroundColor: Colors.Background300,
+      },
+    },
+  }),
+  typography: style({
+    ...typography,
+  }),
+};
+
+const stylesDark = {
+  revisionRow: style({
+    ...revisionsRow,
+    $nest: {
+      '.base-value': {
+        backgroundColor: Colors.Background200Dark,
+      },
+      '.cell': {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+      '.confidence': {
+        backgroundColor: Colors.Background200Dark,
+      },
+      '.comparison-sign': {
+        backgroundColor: Colors.Background200Dark,
+      },
+      '.delta': {
+        backgroundColor: Colors.Background200Dark,
+      },
+      '.expand-button-container': {
+        justifyContent: 'right',
+      },
+      '.new-value': {
+        backgroundColor: Colors.Background200Dark,
+      },
+      '.platform': {
+        backgroundColor: Colors.Background200Dark,
+        borderRadius: '4px 0 0 4px',
+        paddingLeft: Spacing.xLarge,
+        justifyContent: 'left',
+      },
+      '.platform-container': {
+        alignItems: 'flex-end',
+        backgroundColor: Colors.Background200Dark,
+        display: 'flex',
+      },
+      '.retrigger-button': {
+        backgroundColor: Colors.Background200Dark,
+        borderRadius: '0px 4px 4px 0px',
+        cursor: 'not-allowed',
+      },
+      '.status': {
+        backgroundColor: Colors.Background200Dark,
+        justifyContent: 'center',
+      },
+      '.total-runs': {
+        backgroundColor: Colors.Background200Dark,
+      },
+      '.row-buttons': {
+        backgroundColor: Colors.Background200Dark,
+        borderRadius: '0px 4px 4px 0px',
+        display: 'flex',
+        justifyContent: 'flex-end',
+        $nest: {
+          '.download': {
+            cursor: 'not-allowed',
+          },
+        },
+      },
+      '.expand-button': {
+        backgroundColor: Colors.Background100Dark,
+      },
+    },
+  }),
+  typography: style({
+    ...typography,
+  }),
+};
+
+const stylesCard = ExpandableRowStyles();
+
 function determineStatus(improvement: boolean, regression: boolean) {
   if (improvement) return 'Improvement';
   if (regression) return 'Regression';
@@ -114,94 +274,10 @@ function RevisionRow(props: RevisionRowProps) {
           (loaderData as OverTimeLoaderReturnValue).intervalValue,
         );
 
-  const stylesCard = ExpandableRowStyles();
-
   const themeMode = useAppSelector((state) => state.theme.mode);
-  const expandButtonColor =
-    themeMode == 'light' ? Colors.Background300 : Colors.Background100Dark;
-  const themeColor200 =
-    themeMode == 'light' ? Colors.Background200 : Colors.Background200Dark;
 
-  const styles = {
-    revisionRow: style({
-      borderRadius: '4px 0px 0px 4px',
-      display: 'grid',
-      margin: `${Spacing.Small}px 0px`,
-      // Should be kept in sync with the gridTemplateColumns from TableHeader
-      gridTemplateColumns: '2fr 1fr 0.2fr 1fr 1fr 1fr 1fr 1fr 2fr 0.2fr',
-      $nest: {
-        '.base-value': {
-          backgroundColor: themeColor200,
-        },
-        '.cell': {
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        },
-        '.confidence': {
-          backgroundColor: themeColor200,
-        },
-        '.comparison-sign': {
-          backgroundColor: themeColor200,
-        },
-        '.delta': {
-          backgroundColor: themeColor200,
-        },
-        '.expand-button-container': {
-          justifyContent: 'right',
-        },
-        '.new-value': {
-          backgroundColor: themeColor200,
-        },
-        '.platform': {
-          backgroundColor: themeColor200,
-          borderRadius: '4px 0 0 4px',
-          paddingLeft: Spacing.xLarge,
-          justifyContent: 'left',
-        },
-        '.platform-container': {
-          alignItems: 'flex-end',
-          backgroundColor: themeColor200,
-          display: 'flex',
-        },
-        '.retrigger-button': {
-          backgroundColor: themeColor200,
-          borderRadius: '0px 4px 4px 0px',
-          cursor: 'not-allowed',
-        },
-        '.status': {
-          backgroundColor: themeColor200,
-          justifyContent: 'center',
-        },
-        '.total-runs': {
-          backgroundColor: themeColor200,
-        },
+  const styles = themeMode === 'light' ? stylesLight : stylesDark;
 
-        '.row-buttons': {
-          backgroundColor: themeColor200,
-          borderRadius: '0px 4px 4px 0px',
-          display: 'flex',
-          justifyContent: 'flex-end',
-          $nest: {
-            '.download': {
-              cursor: 'not-allowed',
-            },
-          },
-        },
-
-        '.expand-button': {
-          backgroundColor: expandButtonColor,
-        },
-      },
-    }),
-    typography: style({
-      fontFamily: 'SF Pro',
-      fontStyle: 'normal',
-      fontWeight: 400,
-      fontSize: '13px',
-      lineHeight: '16px',
-    }),
-  };
   return (
     <>
       <div
