@@ -5,14 +5,15 @@ import type { CompareResultsItem, RevisionsHeader } from '../../types/state';
 import RevisionHeader from './RevisionHeader';
 import RevisionRow from './RevisionRow';
 
+const styles = {
+  tableBody: style({
+    marginTop: Spacing.Large,
+  }),
+};
+
 function TableContent(props: TableContentProps) {
   const { results, header, identifier } = props;
 
-  const styles = {
-    tableBody: style({
-      marginTop: Spacing.Large,
-    }),
-  };
   return (
     <div className={styles.tableBody} role='rowgroup'>
       <RevisionHeader header={header} />
