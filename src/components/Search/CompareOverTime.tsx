@@ -233,7 +233,6 @@ function CompareOverTime({
           >
             <div className='bottom-dropdowns'>
               <FrameworkDropdown
-                compact={true}
                 frameworkId={frameworkId}
                 onChange={(event: SelectChangeEvent) => {
                   const id = +event.target.value as Framework['id'];

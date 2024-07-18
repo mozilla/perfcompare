@@ -21,9 +21,7 @@ import type { Framework } from '../../types/types';
 const strings = Strings.components.searchDefault.sharedCollasped.framkework;
 
 interface FrameworkDropdownProps {
-  compact: boolean;
   frameworkId: Framework['id'];
-
   onChange: (event: SelectChangeEvent) => void;
 }
 
@@ -43,12 +41,7 @@ const sortFrameworks = (
 
 const sortedFrameworks = sortFrameworks(frameworkMap);
 
-function FrameworkDropdown({
-  compact,
-  frameworkId,
-
-  onChange,
-}: FrameworkDropdownProps) {
+function FrameworkDropdown({ frameworkId, onChange }: FrameworkDropdownProps) {
   const mode = useAppSelector((state) => state.theme.mode);
 
   cssRule('.MuiPopover-root', {
@@ -74,8 +67,7 @@ function FrameworkDropdown({
 
   const styles = {
     container: style({
-      minWidth: `${compact ? '280' : '319'}px !important`,
-
+      minWidth: '319px !important',
       $nest: {
         '.MuiInputBase-root': {
           ...(mode === 'light'

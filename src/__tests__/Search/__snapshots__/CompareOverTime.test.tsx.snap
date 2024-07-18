@@ -326,7 +326,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
       class="bottom-dropdowns"
     >
       <div
-        class="MuiFormControl-root framework-dropdown f9u9kv7 css-1nrlq1o-MuiFormControl-root"
+        class="MuiFormControl-root framework-dropdown f1pm9d4y css-1nrlq1o-MuiFormControl-root"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
@@ -673,7 +673,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
       class="bottom-dropdowns"
     >
       <div
-        class="MuiFormControl-root framework-dropdown f9u9kv7 css-1nrlq1o-MuiFormControl-root"
+        class="MuiFormControl-root framework-dropdown f1pm9d4y css-1nrlq1o-MuiFormControl-root"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
@@ -1308,7 +1308,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
       class="bottom-dropdowns"
     >
       <div
-        class="MuiFormControl-root framework-dropdown f9u9kv7 css-1nrlq1o-MuiFormControl-root"
+        class="MuiFormControl-root framework-dropdown f1pm9d4y css-1nrlq1o-MuiFormControl-root"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
@@ -1666,7 +1666,7 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
       class="bottom-dropdowns"
     >
       <div
-        class="MuiFormControl-root framework-dropdown f9u9kv7 css-1nrlq1o-MuiFormControl-root"
+        class="MuiFormControl-root framework-dropdown f1pm9d4y css-1nrlq1o-MuiFormControl-root"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
@@ -2069,7 +2069,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
       class="bottom-dropdowns"
     >
       <div
-        class="MuiFormControl-root framework-dropdown f9u9kv7 css-1nrlq1o-MuiFormControl-root"
+        class="MuiFormControl-root framework-dropdown f1pm9d4y css-1nrlq1o-MuiFormControl-root"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
@@ -2598,7 +2598,7 @@ exports[`Compare Over Time should update revisions and time-range after user cha
       class="bottom-dropdowns"
     >
       <div
-        class="MuiFormControl-root framework-dropdown f9u9kv7 css-1nrlq1o-MuiFormControl-root"
+        class="MuiFormControl-root framework-dropdown f1pm9d4y css-1nrlq1o-MuiFormControl-root"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
@@ -2956,7 +2956,7 @@ exports[`Compare Over Time should update revisions and time-range after user cha
       class="bottom-dropdowns"
     >
       <div
-        class="MuiFormControl-root framework-dropdown f9u9kv7 css-1nrlq1o-MuiFormControl-root"
+        class="MuiFormControl-root framework-dropdown f1pm9d4y css-1nrlq1o-MuiFormControl-root"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"

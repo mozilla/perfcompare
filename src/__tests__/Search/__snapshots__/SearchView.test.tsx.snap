@@ -444,7 +444,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                 </div>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f913nm1 fjuaqdk css-13eijkh-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f913nm1 css-bwiycy-MuiGrid-root"
               >
                 <div
                   class="MuiFormControl-root framework-dropdown f1pm9d4y css-1nrlq1o-MuiFormControl-root"
@@ -880,7 +880,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                   class="bottom-dropdowns"
                 >
                   <div
-                    class="MuiFormControl-root framework-dropdown f9u9kv7 css-1nrlq1o-MuiFormControl-root"
+                    class="MuiFormControl-root framework-dropdown f1pm9d4y css-1nrlq1o-MuiFormControl-root"
                   >
                     <label
                       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"

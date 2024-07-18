@@ -103,14 +103,6 @@ function CompareWithBase({
     (baseRepository === 'try' && newRepository !== 'try') ||
     (baseRepository !== 'try' && newRepository === 'try');
 
-  const bottomStyles = {
-    container: style({
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'flex-end',
-    }),
-  };
-
   const wrapperStyles = {
     wrapper: style({
       marginBottom: `${Spacing.Large}px`,
@@ -302,19 +294,24 @@ function CompareWithBase({
             }
             formIsDisplayed={formIsDisplayed}
           />
+          {}
           <Grid
             item
             xs={2}
-            className={`${dropDownStyles.dropDown} ${bottomStyles.container}`}
+            display='flex'
+            justifyContent={hasEditButton ? 'flex-end' : 'space-between'}
+            className={`${dropDownStyles.dropDown}`}
+            alignItems='flex-end'
           >
-            <FrameworkDropdown
-              compact={false}
-              frameworkId={frameWorkId}
-              onChange={(event: SelectChangeEvent) => {
-                const id = +event.target.value as Framework['id'];
-                setframeWorkValue(id);
-              }}
-            />
+            {!hasEditButton && (
+              <FrameworkDropdown
+                frameworkId={frameWorkId}
+                onChange={(event: SelectChangeEvent) => {
+                  const id = +event.target.value as Framework['id'];
+                  setframeWorkValue(id);
+                }}
+              />
+            )}
 
             <CancelAndCompareButtons
               label={strings.base.compareBtn}

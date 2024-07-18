@@ -675,71 +675,13 @@ exports[`Results Table Should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f913nm1 fjuaqdk css-13eijkh-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f913nm1 css-13jteey-MuiGrid-root"
               >
                 <div
-                  class="MuiFormControl-root framework-dropdown f1pm9d4y css-1nrlq1o-MuiFormControl-root"
-                >
-                  <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined dropdown-select-label css-11mbixr-MuiFormLabel-root-MuiInputLabel-root"
-                    data-shrink="true"
-                    id="select-framework-label"
-                  >
-                    Framework
-                    <svg
-                      aria-hidden="true"
-                      aria-label="The framework or test harness containing the test you want to examine."
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
-                      data-mui-internal-clone-element="true"
-                      data-testid="InfoOutlinedIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-                      />
-                    </svg>
-                  </label>
-                  <div
-                    class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-                    data-testid="dropdown-select-framework"
-                  >
-                    <div
-                      aria-expanded="false"
-                      aria-haspopup="listbox"
-                      aria-labelledby="select-framework-label mui-component-select-framework"
-                      class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                      id="mui-component-select-framework"
-                      role="button"
-                      tabindex="0"
-                    >
-                      talos
-                    </div>
-                    <input
-                      aria-hidden="true"
-                      class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                      name="framework"
-                      tabindex="-1"
-                      value="1"
-                    />
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-ll500r-MuiSvgIcon-root-MuiSelect-icon"
-                      data-testid="ArrowDropDownIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M7 10l5 5 5-5z"
-                      />
-                    </svg>
-                  </div>
-                </div>
-                <div
-                  class="fs9pw6x cancel-compare"
+                  class=" fs9pw6x cancel-compare"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pfn45j-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pp3xxr-MuiButtonBase-root-MuiButton-root"
                     id="compare-button"
                     tabindex="0"
                     type="submit"
@@ -808,7 +750,7 @@ exports[`Results Table Should match snapshot 1`] = `
                         aria-invalid="false"
                         aria-label="Search by title, platform, revision or options"
                         class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-rg83rj-MuiInputBase-input-MuiOutlinedInput-input"
-                        id=":r5:"
+                        id=":r4:"
                         placeholder="Search results"
                         type="text"
                         value=""
@@ -855,6 +797,57 @@ exports[`Results Table Should match snapshot 1`] = `
                     </div>
                   </div>
                 </form>
+                <div
+                  class="MuiBox-root css-0"
+                  data-testid="dropdown-select"
+                >
+                  <div
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall fzkopmt dropdown-select css-1iil27j-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+                    data-testid="dropdown-select-framework"
+                  >
+                    <div
+                      aria-expanded="false"
+                      aria-haspopup="listbox"
+                      aria-labelledby="select-framework-label mui-component-select-framework"
+                      class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-jaypmb-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                      id="mui-component-select-framework"
+                      role="button"
+                      tabindex="0"
+                    >
+                      talos
+                    </div>
+                    <input
+                      aria-hidden="true"
+                      class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                      name="framework"
+                      tabindex="-1"
+                      value="1"
+                    />
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-w4piji-MuiSvgIcon-root-MuiSelect-icon"
+                      data-testid="ArrowDropDownIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M7 10l5 5 5-5z"
+                      />
+                    </svg>
+                    <fieldset
+                      aria-hidden="true"
+                      class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+                    >
+                      <legend
+                        class="css-yjsfm1"
+                      >
+                        <span>
+                          Framework
+                        </span>
+                      </legend>
+                    </fieldset>
+                  </div>
+                </div>
                 <div
                   class="MuiBox-root css-0"
                   data-testid="revision-select"
@@ -1145,7 +1138,7 @@ exports[`Results Table Should match snapshot 1`] = `
                 </div>
                 <div>
                   <div
-                    class="revisionRow fib0xwf fp4ugv1"
+                    class="revisionRow f1x1c13s fp4ugv1"
                     role="row"
                   >
                     <div
@@ -1226,25 +1219,22 @@ exports[`Results Table Should match snapshot 1`] = `
                       role="cell"
                     >
                       <span>
-                        <span
-                          title="Base runs"
-                        >
-                          B:
-                        </span>
-                        <strong>
-                          1
-                        </strong>
+                        B:
                       </span>
+                      <strong>
+                         
+                        1
+                         
+                      </strong>
+                       
                       <span>
-                        <span
-                          title="New runs"
-                        >
-                          N:
-                        </span>
-                        <strong>
-                          1
-                        </strong>
+                         N: 
                       </span>
+                      <strong>
+                         
+                        1
+                         
+                      </strong>
                     </div>
                     <div
                       class="row-buttons cell"
@@ -1375,7 +1365,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="revisionRow fib0xwf fp4ugv1"
+                    class="revisionRow f1x1c13s fp4ugv1"
                     role="row"
                   >
                     <div
@@ -1455,25 +1445,22 @@ exports[`Results Table Should match snapshot 1`] = `
                       role="cell"
                     >
                       <span>
-                        <span
-                          title="Base runs"
-                        >
-                          B:
-                        </span>
-                        <strong>
-                          1
-                        </strong>
+                        B:
                       </span>
+                      <strong>
+                         
+                        1
+                         
+                      </strong>
+                       
                       <span>
-                        <span
-                          title="New runs"
-                        >
-                          N:
-                        </span>
-                        <strong>
-                          1
-                        </strong>
+                         N: 
                       </span>
+                      <strong>
+                         
+                        1
+                         
+                      </strong>
                     </div>
                     <div
                       class="row-buttons cell"
@@ -1604,7 +1591,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="revisionRow fib0xwf fp4ugv1"
+                    class="revisionRow f1x1c13s fp4ugv1"
                     role="row"
                   >
                     <div
@@ -1685,25 +1672,22 @@ exports[`Results Table Should match snapshot 1`] = `
                       role="cell"
                     >
                       <span>
-                        <span
-                          title="Base runs"
-                        >
-                          B:
-                        </span>
-                        <strong>
-                          1
-                        </strong>
+                        B:
                       </span>
+                      <strong>
+                         
+                        1
+                         
+                      </strong>
+                       
                       <span>
-                        <span
-                          title="New runs"
-                        >
-                          N:
-                        </span>
-                        <strong>
-                          1
-                        </strong>
+                         N: 
                       </span>
+                      <strong>
+                         
+                        1
+                         
+                      </strong>
                     </div>
                     <div
                       class="row-buttons cell"
@@ -1878,7 +1862,7 @@ exports[`Results Table Should match snapshot 1`] = `
                 </div>
                 <div>
                   <div
-                    class="revisionRow fib0xwf fp4ugv1"
+                    class="revisionRow f1x1c13s fp4ugv1"
                     role="row"
                   >
                     <div
@@ -1958,25 +1942,22 @@ exports[`Results Table Should match snapshot 1`] = `
                       role="cell"
                     >
                       <span>
-                        <span
-                          title="Base runs"
-                        >
-                          B:
-                        </span>
-                        <strong>
-                          1
-                        </strong>
+                        B:
                       </span>
+                      <strong>
+                         
+                        1
+                         
+                      </strong>
+                       
                       <span>
-                        <span
-                          title="New runs"
-                        >
-                          N:
-                        </span>
-                        <strong>
-                          1
-                        </strong>
+                         N: 
                       </span>
+                      <strong>
+                         
+                        1
+                         
+                      </strong>
                     </div>
                     <div
                       class="row-buttons cell"
