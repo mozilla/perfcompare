@@ -678,6 +678,16 @@ exports[`Results Table Should match snapshot 1`] = `
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f913nm1 css-13jteey-MuiGrid-root"
               >
                 <div
+                  class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary css-7gzrj-MuiInputBase-root-MuiInput-root"
+                >
+                  <input
+                    class="MuiInputBase-input MuiInput-input css-1fokvfi-MuiInputBase-input-MuiInput-input"
+                    name="framework"
+                    type="text"
+                    value="1"
+                  />
+                </div>
+                <div
                   class=" fs9pw6x cancel-compare"
                 >
                   <button

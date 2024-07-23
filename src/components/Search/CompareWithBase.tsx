@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-import { SelectChangeEvent, Typography } from '@mui/material';
+import { Input, SelectChangeEvent, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import { VariantType, useSnackbar } from 'notistack';
-import { Form } from 'react-router-dom';
+import { Form, useSearchParams } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
@@ -95,9 +95,11 @@ function CompareWithBase({
   const [formIsDisplayed, setFormIsDisplayed] = useState(!hasEditButton);
 
   const mode = useAppSelector((state) => state.theme.mode);
+  const [searchParams] = useSearchParams();
   const styles = CompareCardsStyles(mode);
   const dropDownStyles = SearchStyles(mode);
   const hasCancelButton = hasEditButton && formIsDisplayed;
+  const frameworkURL = searchParams.get('framework');
 
   const isWarning =
     (baseRepository === 'try' && newRepository !== 'try') ||
@@ -294,7 +296,7 @@ function CompareWithBase({
             }
             formIsDisplayed={formIsDisplayed}
           />
-          {}
+
           <Grid
             item
             xs={2}
@@ -311,6 +313,15 @@ function CompareWithBase({
                   setframeWorkValue(id);
                 }}
               />
+            )}
+
+            {/**** Hidden Input to capture framework when user updates revisions ****/}
+            {hasEditButton && (
+              <Input
+                sx={{ visibility: 'hidden' }}
+                value={frameworkURL}
+                name='framework'
+              ></Input>
             )}
 
             <CancelAndCompareButtons

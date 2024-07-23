@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
-import { Grid, SelectChangeEvent, Typography } from '@mui/material';
+import { Grid, Input, SelectChangeEvent, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import { VariantType, useSnackbar } from 'notistack';
-import { Form } from 'react-router-dom';
+import { Form, useSearchParams } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { style } from 'typestyle';
 
@@ -59,28 +59,15 @@ function CompareOverTime({
   const [newRepository, setNewRepository] = useState(newRepo);
   const [formIsDisplayed, setFormIsDisplayed] = useState(!hasEditButton);
   const mode = useAppSelector((state) => state.theme.mode);
+  const [searchParams] = useSearchParams();
   const styles = CompareCardsStyles(mode);
   const dropDownStyles = SearchStyles(mode);
   const hasCancelButton = hasEditButton && formIsDisplayed;
+  const frameworkURL = searchParams.get('framework');
 
   const wrapperStyles = {
     wrapper: style({
       marginBottom: `${resultsView ? '0' : Spacing.layoutXLarge}px`,
-    }),
-  };
-
-  const bottomStyles = {
-    container: style({
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'flex-end',
-      $nest: {
-        '.bottom-dropdowns': {
-          display: 'flex',
-          minWidth: '580px',
-          justifyContent: 'space-between',
-        },
-      },
     }),
   };
 
@@ -229,9 +216,12 @@ function CompareOverTime({
           <Grid
             item
             xs={2}
-            className={`${dropDownStyles.dropDown} ${bottomStyles.container}`}
+            display='flex'
+            justifyContent={hasEditButton ? 'flex-end' : 'space-between'}
+            className={`${dropDownStyles.dropDown}`}
+            alignItems='flex-end'
           >
-            <div className='bottom-dropdowns'>
+            {!hasEditButton && (
               <FrameworkDropdown
                 frameworkId={frameworkId}
                 onChange={(event: SelectChangeEvent) => {
@@ -239,7 +229,16 @@ function CompareOverTime({
                   setframeWorkValue(id);
                 }}
               />
-            </div>
+            )}
+
+            {/**** Hidden Input to capture framework when user updates revisions ****/}
+            {hasEditButton && (
+              <Input
+                sx={{ visibility: 'hidden' }}
+                value={frameworkURL}
+                name='framework'
+              ></Input>
+            )}
 
             <CancelAndCompareButtons
               label={strings.sharedCollasped.button}
