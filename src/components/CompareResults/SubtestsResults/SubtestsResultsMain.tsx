@@ -6,19 +6,32 @@ import { Container } from '@mui/system';
 import { Await, useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
 
-import { useAppSelector } from '../../hooks/app';
-import { Colors, Spacing } from '../../styles';
-import DownloadButton from './DownloadButton';
-import type { LoaderReturnValue } from './loader';
-import ResultsTable from './ResultsTable';
-import RevisionSelect from './RevisionSelect';
-import SearchInput from './SearchInput';
+import { useAppSelector } from '../../../hooks/app';
+import { Colors, Spacing } from '../../../styles';
+import type { SubtestsRevisionsHeader } from '../../../types/state';
+import DownloadButton from '.././DownloadButton';
+import type { LoaderReturnValue } from '.././loader';
+// import RevisionSelect from '.././RevisionSelect';
+import SearchInput from '.././SearchInput';
+import SubtestsResultsTable from './SubtestsResultsTable';
+import SubtestsRevisionHeader from './SubtestsRevisionHeader';
 
-function ResultsMain() {
+function SubtestsResultsMain() {
   const { results } = useLoaderData() as LoaderReturnValue;
 
   const themeMode = useAppSelector((state) => state.theme.mode);
   const [searchTerm, setSearchTerm] = useState('');
+
+  const subtestsHeader: SubtestsRevisionsHeader = {
+    suite: results[0].suite,
+    framework_id: results[0].framework_id,
+    test: results[0].test,
+    option_name: results[0].option_name,
+    extra_options: results[0].extra_options,
+    new_rev: results[0].new_rev,
+    new_repo: results[0].new_repository_name,
+    platform: results[0].platform,
+  };
 
   const themeColor100 =
     themeMode === 'light' ? Colors.Background300 : Colors.Background100Dark;
@@ -41,7 +54,7 @@ function ResultsMain() {
   };
 
   return (
-    <Container className={styles.container} data-testid='results-main'>
+    <Container className={styles.container} data-testid='subtests-main'>
       <Suspense
         fallback={
           <Box display='flex' justifyContent='center'>
@@ -51,18 +64,19 @@ function ResultsMain() {
       >
         <Await resolve={results}>
           <header>
-            <div className={styles.title}>Results</div>
+            {/* <div className={styles.title}>Results</div> */}
+            <SubtestsRevisionHeader header={subtestsHeader} />
             <div className={styles.content}>
               <SearchInput onChange={setSearchTerm} />
-              <RevisionSelect />
+              {/* <RevisionSelect /> */}
               <DownloadButton />
             </div>
           </header>
-          <ResultsTable filteringSearchTerm={searchTerm} />
+          <SubtestsResultsTable filteringSearchTerm={searchTerm} />
         </Await>
       </Suspense>
     </Container>
   );
 }
 
-export default ResultsMain;
+export default SubtestsResultsMain;

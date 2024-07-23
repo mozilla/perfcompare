@@ -3,6 +3,7 @@ export const Strings = {
     pageTitle: {
       search: 'PerfCompare - Search',
       results: 'PerfCompare - Results',
+      subtests: 'PerfCompare - Subtests Results',
     },
   },
   components: {

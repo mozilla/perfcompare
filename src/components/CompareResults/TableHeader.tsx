@@ -130,8 +130,9 @@ function TableHeader({
           alignItems: 'center',
           padding: 0,
           margin: 0,
+          fontWeight: 700,
         },
-        '.platform-header, .confidence-header': {
+        '.platform-header, .subtests-header, .confidence-header': {
           width: '120px',
         },
         '.status-header': {
