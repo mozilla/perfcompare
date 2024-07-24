@@ -22,9 +22,7 @@ import WindowsIcon from '../../Shared/Icons/WindowsIcon';
 
 const styles = {
   revisionHeader: style({
-    // borderBottom: `0.5px solid ${Colors.BorderDropdownMenu}`,
     display: 'flex',
-    // justifyContent: 'space-between',
     alignItems: 'center',
     paddingBottom: '12px',
     marginBottom: '12px',
@@ -68,7 +66,6 @@ const styles = {
   }),
 };
 
-// function createTitle(
 function getSuite(
   header: SubtestsRevisionsHeader,
   docsURL: string,

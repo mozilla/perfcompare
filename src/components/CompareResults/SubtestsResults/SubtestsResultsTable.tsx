@@ -4,13 +4,9 @@ import Box from '@mui/material/Box';
 import { useAsyncValue } from 'react-router-dom';
 import { style } from 'typestyle';
 
-// import { useAppSelector } from '../../../hooks/app';
-// import { Strings } from '../../../resources/Strings';
 import { Spacing } from '../../../styles';
 import type { CompareResultsItem } from '../../../types/state';
-// import type { CompareResultsItem, RevisionsHeader } from '../../../types/state';
 import type { CompareResultsTableConfig } from '../../../types/types';
-// import { getPlatformShortName } from '../../../utils/platform';
 import NoResultsFound from '.././NoResultsFound';
 import TableHeader from '.././TableHeader';
 import SubtestsTableContent from './SubtestsTableContent';
@@ -18,7 +14,6 @@ import SubtestsTableContent from './SubtestsTableContent';
 type SubtestsResults = {
   key: string;
   value: CompareResultsItem[];
-  // revisionHeader: RevisionsHeader;
 };
 
 function processResults(results: CompareResultsItem[]) {
@@ -43,15 +38,6 @@ function processResults(results: CompareResultsItem[]) {
       return {
         key: rowIdentifier,
         value: result,
-        // revisionHeader: {
-        //   suite: result[0].suite,
-        //   framework_id: result[0].framework_id,
-        //   test: result[0].test,
-        //   option_name: result[0].option_name,
-        //   extra_options: result[0].extra_options,
-        //   new_rev: result[0].new_rev,
-        //   new_repo: result[0].new_repository_name,
-        // },
       };
     },
   );
@@ -62,14 +48,7 @@ function processResults(results: CompareResultsItem[]) {
 const cellsConfiguration: CompareResultsTableConfig[] = [
   {
     name: 'Subtests',
-    // disable: true,
-    // filter: true,
     key: 'subtests',
-    // possibleValues: ['Windows', 'OSX', 'Linux', 'Android'],
-    // matchesFunction: (result: CompareResultsItem, value: string) => {
-    //   const platformName = getPlatformShortName(result.platform);
-    //   return platformName === value;
-    // },
   },
   {
     name: 'Base',
@@ -166,9 +145,6 @@ function filterResults(
   });
 }
 
-// const allRevisionsOption =
-//   Strings.components.comparisonRevisionDropdown.allRevisions.key;
-
 type ResultsTableProps = {
   filteringSearchTerm: string;
 };
@@ -176,9 +152,6 @@ type ResultsTableProps = {
 function SubtestsResultsTable({ filteringSearchTerm }: ResultsTableProps) {
   const loaderData = useAsyncValue();
   const results = loaderData as CompareResultsItem[][];
-  // const activeComparison = useAppSelector(
-  //   (state) => state.comparison.activeComparison,
-  // );
 
   const [tableFilters, setTableFilters] = useState(
     new Map() as Map<string, Set<string>>, // ColumnID -> Set<Values to remove>
@@ -186,10 +159,6 @@ function SubtestsResultsTable({ filteringSearchTerm }: ResultsTableProps) {
 
   const processedResults = useMemo(() => {
     const resultsForCurrentComparison = results.flat();
-    // activeComparison === allRevisionsOption
-    // ? results.flat()
-    // : results.find((result) => result[0].new_rev === activeComparison) ??
-    //   [];
 
     const filteredResults = filterResults(
       resultsForCurrentComparison,
@@ -198,7 +167,6 @@ function SubtestsResultsTable({ filteringSearchTerm }: ResultsTableProps) {
     );
     return processResults(filteredResults);
   }, [results, filteringSearchTerm, tableFilters]);
-  // }, [results, activeComparison, filteringSearchTerm, tableFilters]);
 
   const onClearFilter = (columnId: string) => {
     setTableFilters((oldFilters) => {
@@ -240,7 +208,6 @@ function SubtestsResultsTable({ filteringSearchTerm }: ResultsTableProps) {
         <SubtestsTableContent
           key={res.key}
           identifier={res.key}
-          //   header={res.revisionHeader}
           results={res.value}
         />
       ))}

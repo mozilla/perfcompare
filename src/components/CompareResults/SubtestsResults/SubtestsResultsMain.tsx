@@ -11,7 +11,6 @@ import { Colors, Spacing } from '../../../styles';
 import type { SubtestsRevisionsHeader } from '../../../types/state';
 import DownloadButton from '.././DownloadButton';
 import type { LoaderReturnValue } from '.././loader';
-// import RevisionSelect from '.././RevisionSelect';
 import SearchInput from '.././SearchInput';
 import SubtestsResultsTable from './SubtestsResultsTable';
 import SubtestsRevisionHeader from './SubtestsRevisionHeader';
@@ -64,11 +63,9 @@ function SubtestsResultsMain() {
       >
         <Await resolve={results}>
           <header>
-            {/* <div className={styles.title}>Results</div> */}
             <SubtestsRevisionHeader header={subtestsHeader} />
             <div className={styles.content}>
               <SearchInput onChange={setSearchTerm} />
-              {/* <RevisionSelect /> */}
               <DownloadButton />
             </div>
           </header>
