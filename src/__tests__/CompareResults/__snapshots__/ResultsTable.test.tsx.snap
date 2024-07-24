@@ -808,19 +808,19 @@ exports[`Results Table Should match snapshot 1`] = `
                   </div>
                 </form>
                 <div
-                  class="MuiBox-root css-0"
+                  class="MuiBox-root css-nn803e"
                   data-testid="dropdown-select"
                 >
                   <div
-                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall fzkopmt dropdown-select css-1iil27j-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
-                    data-testid="dropdown-select-framework"
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall framework-dropdown-select-results css-rbqt93-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+                    data-testid="framework-select"
                   >
                     <div
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-labelledby="select-framework-label mui-component-select-framework"
+                      aria-labelledby="select-framework-label-results mui-component-select-frameworkResults"
                       class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-jaypmb-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
-                      id="mui-component-select-framework"
+                      id="mui-component-select-frameworkResults"
                       role="button"
                       tabindex="0"
                     >
@@ -829,7 +829,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     <input
                       aria-hidden="true"
                       class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                      name="framework"
+                      name="frameworkResults"
                       tabindex="-1"
                       value="1"
                     />

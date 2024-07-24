@@ -12,6 +12,7 @@ import {
   renderWithRouter,
   FetchMockSandbox,
   within,
+  waitFor,
 } from '../utils/test-utils';
 
 function setUpTestData() {
@@ -31,6 +32,12 @@ function setUpTestData() {
       'glob:https://treeherder.mozilla.org/api/project/mozilla-central/push/?revision=spam',
       {
         results: [testData[1]],
+      },
+    )
+    .get(
+      'glob:https://treeherder.mozilla.org/api/project/mozilla-central/push/?revision=spamspam',
+      {
+        results: [testData[2]],
       },
     );
 }
@@ -285,6 +292,36 @@ describe('Compare With Base', () => {
     expect(
       within(newSelectedRevision).queryByText(/no arms left/),
     ).not.toBeInTheDocument();
+  });
+
+  it('updates the framework and url when a new one is selected', async () => {
+    const user = userEvent.setup({ delay: null });
+    renderWithCompareResultsURL(
+      <ResultsView title={Strings.metaData.pageTitle.results} />,
+    );
+    await waitForPageReadyAndReturnForm();
+    const header = await screen.findByText('Results');
+
+    expect(header).toBeInTheDocument();
+
+    const frameworkDropdown = screen.getByRole('button', {
+      name: 'build_metrics',
+    });
+
+    await user.click(frameworkDropdown);
+
+    const list = await screen.findByRole('listbox');
+
+    const option = await screen.findByRole('option', { name: 'awsy' });
+    await user.click(option);
+
+    await waitFor(() => {
+      expect(location.href).toContain('framework=4');
+    });
+
+    expect(list).toMatchSnapshot('after awsy is selected');
+    const awsy = screen.getByText('awsy');
+    expect(awsy).toBeInTheDocument();
   });
 
   it('should move back to the previously selected base and new revisions when Cancel is clicked', async () => {

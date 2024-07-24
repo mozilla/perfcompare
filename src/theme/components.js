@@ -1,6 +1,12 @@
 import { green, red } from '@mui/material/colors';
 
-import { Spacing, FontsRaw, FontSizeRaw } from '../styles';
+import {
+  Spacing,
+  FontsRaw,
+  FontSizeRaw,
+  ButtonsLightRaw,
+  ButtonsDarkRaw,
+} from '../styles';
 import android from './img/android.svg';
 import high from './img/high.svg';
 import linux from './img/linux.svg';

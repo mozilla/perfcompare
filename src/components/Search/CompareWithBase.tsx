@@ -78,7 +78,7 @@ function CompareWithBase({
   expandBaseComponent,
 }: CompareWithBaseProps) {
   const { enqueueSnackbar } = useSnackbar();
-  const [frameWorkId, setframeWorkValue] = useState(frameworkIdVal);
+  const [frameworkId, setframeWorkValue] = useState(frameworkIdVal);
 
   // pressing Cancel reverts to committed states.
   // The "committed" base and new revisions initialize the "in progress" state
@@ -307,7 +307,7 @@ function CompareWithBase({
           >
             {!hasEditButton && (
               <FrameworkDropdown
-                frameworkId={frameWorkId}
+                frameworkId={frameworkId}
                 onChange={(event: SelectChangeEvent) => {
                   const id = +event.target.value as Framework['id'];
                   setframeWorkValue(id);

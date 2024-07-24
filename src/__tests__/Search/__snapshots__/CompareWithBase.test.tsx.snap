@@ -4035,3 +4035,142 @@ exports[`Compare With Base should remove the checked revision once X button is c
   </div>
 </body>
 `;
+
+exports[`Compare With Base updates the framework and url when a new one is selected: after awsy is selected 1`] = `
+<ul
+  aria-labelledby="select-framework-label-results"
+  class="MuiList-root MuiList-padding MuiMenu-list css-6hp17o-MuiList-root-MuiMenu-list"
+  role="listbox"
+  tabindex="-1"
+>
+  <li
+    aria-selected="false"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    data-value="4"
+    role="option"
+    tabindex="-1"
+  >
+    awsy
+    <span
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+    >
+      <span
+        class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+        style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+      >
+        <span
+          class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+        />
+      </span>
+    </span>
+  </li>
+  <li
+    aria-selected="false"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    data-value="13"
+    role="option"
+    tabindex="-1"
+  >
+    browsertime
+    <span
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+    />
+  </li>
+  <li
+    aria-selected="true"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters Mui-selected MuiMenuItem-root MuiMenuItem-gutters Mui-selected framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    data-value="2"
+    role="option"
+    tabindex="0"
+  >
+    build_metrics
+    <span
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+    />
+  </li>
+  <li
+    aria-selected="false"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    data-value="12"
+    role="option"
+    tabindex="-1"
+  >
+    devtools
+    <span
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+    />
+  </li>
+  <li
+    aria-selected="false"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    data-value="16"
+    role="option"
+    tabindex="-1"
+  >
+    fxrecord
+    <span
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+    />
+  </li>
+  <li
+    aria-selected="false"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    data-value="11"
+    role="option"
+    tabindex="-1"
+  >
+    js-bench
+    <span
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+    />
+  </li>
+  <li
+    aria-selected="false"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    data-value="15"
+    role="option"
+    tabindex="-1"
+  >
+    mozperftest
+    <span
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+    />
+  </li>
+  <li
+    aria-selected="false"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    data-value="6"
+    role="option"
+    tabindex="-1"
+  >
+    platform_microbench
+    <span
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+    />
+  </li>
+  <li
+    aria-selected="false"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    data-value="10"
+    role="option"
+    tabindex="-1"
+  >
+    raptor
+    <span
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+    />
+  </li>
+  <li
+    aria-selected="false"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    data-value="1"
+    role="option"
+    tabindex="-1"
+  >
+    talos
+    <span
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+    />
+  </li>
+</ul>
+`;

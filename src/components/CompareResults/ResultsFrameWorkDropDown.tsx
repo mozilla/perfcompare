@@ -1,19 +1,16 @@
 import Box from '@mui/material/Box';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { style } from 'typestyle';
 
 import { frameworkMap } from '../../common/constants';
-import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
-import { ButtonsDarkRaw, ButtonsLightRaw, Spacing } from '../../styles';
+import { Spacing } from '../../styles';
 import type { Framework } from '../../types/types';
 
 const strings = Strings.components.searchDefault.sharedCollasped.framkework;
 
 interface FrameworkDropdownProps {
   frameworkId: Framework['id'];
-
   onChange: (event: SelectChangeEvent) => void;
 }
 
@@ -34,40 +31,23 @@ const sortedFrameworks = sortFrameworks(frameworkMap);
 
 function ResultsFrameworkDropdown({
   frameworkId,
-
   onChange,
 }: FrameworkDropdownProps) {
-  const mode = useAppSelector((state) => state.theme.mode);
-
-  const stylesSelect = {
-    box: style({
-      display: 'flex',
-      gap: '1px',
-      $nest: {
-        '.MuiInputBase-root': {
-          ...(mode === 'light'
-            ? ButtonsLightRaw.Dropdown
-            : ButtonsDarkRaw.Dropdown),
-        },
-      },
-    }),
-    select: style({
-      marginRight: Spacing.Default,
-      marginLeft: Spacing.Default,
-    }),
-  };
-
   return (
-    <Box data-testid={'dropdown-select'}>
+    <Box display='flex' gap='1px' data-testid={'dropdown-select'}>
       <Select
-        data-testid='dropdown-select-framework'
+        data-testid='framework-select'
         label={strings.selectLabel}
         value={`${frameworkId}`}
-        labelId='select-framework-label'
-        className={`${stylesSelect.select} dropdown-select`}
+        labelId='select-framework-label-results'
+        className='framework-dropdown-select-results'
         onChange={onChange}
         size='small'
-        name='framework'
+        name='frameworkResults'
+        sx={{
+          marginRight: `${Spacing.Default}px`,
+          marginLeft: `${Spacing.Default}px`,
+        }}
       >
         {sortedFrameworks.map(([id, name]) => (
           <MenuItem value={id} key={name} className='framework-dropdown-item'>

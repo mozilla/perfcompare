@@ -115,7 +115,6 @@ function ResultsMain() {
               )}
 
               <RevisionSelect />
-
               <DownloadButton />
             </div>
           </header>

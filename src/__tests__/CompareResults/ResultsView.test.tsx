@@ -46,6 +46,28 @@ describe('Results View', () => {
     expect(link).toBeInTheDocument();
   });
 
+  it('renders framework dropdown in closed condition', async () => {
+    const user = userEvent.setup({ delay: null });
+    renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
+
+    const header = await screen.findByText('Results');
+
+    expect(header).toBeInTheDocument();
+
+    const frameworkDropdown = screen.getByRole('button', {
+      name: 'build_metrics',
+    });
+
+    expect(frameworkDropdown).toMatchSnapshot();
+
+    expect(screen.getAllByText(/build_metrics/i)[0]).toBeInTheDocument();
+    expect(screen.queryByText(/talos/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/awsy/i)).not.toBeInTheDocument();
+
+    await user.click(frameworkDropdown);
+    expect(screen.getByText(/awsy/i)).toBeInTheDocument();
+  });
+
   it('Should render revision header with link to suite docs', async () => {
     const revisionHeader: RevisionsHeader = {
       extra_options: 'e10s fission stylo webgl-ipc webrender',
