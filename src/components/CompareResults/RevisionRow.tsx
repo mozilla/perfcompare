@@ -90,6 +90,7 @@ const stylesLight = {
       },
       '.total-runs': {
         backgroundColor: Colors.Background200,
+        gap: '8px',
       },
       '.row-buttons': {
         backgroundColor: Colors.Background200,
@@ -161,6 +162,7 @@ const stylesDark = {
       },
       '.total-runs': {
         backgroundColor: Colors.Background200Dark,
+        gap: '8px',
       },
       '.row-buttons': {
         backgroundColor: Colors.Background200Dark,
@@ -314,9 +316,14 @@ function RevisionRow(props: RevisionRowProps) {
           {confidenceText}{' '}
         </div>
         <div className='total-runs cell' role='cell'>
-          <span>B:</span>
-          <strong> {baseRuns.length} </strong> <span> N: </span>
-          <strong> {newRuns.length} </strong>
+          <span>
+            <span title='Base runs'>B:</span>
+            <strong>{baseRuns.length}</strong>
+          </span>
+          <span>
+            <span title='New runs'>N:</span>
+            <strong>{newRuns.length}</strong>
+          </span>
         </div>
         <div className='row-buttons cell'>
           {result.has_subtests && (
