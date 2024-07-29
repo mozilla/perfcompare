@@ -18,7 +18,7 @@ import {
 } from '../../styles';
 import type { Framework } from '../../types/types';
 
-const strings = Strings.components.searchDefault.sharedCollasped.framkework;
+const strings = Strings.components.searchDefault.sharedCollasped.framework;
 
 interface FrameworkDropdownProps {
   frameworkId: Framework['id'];
@@ -67,7 +67,7 @@ function FrameworkDropdown({ frameworkId, onChange }: FrameworkDropdownProps) {
 
   const styles = {
     container: style({
-      minWidth: '319px !important',
+      minWidth: '319px',
       $nest: {
         '.MuiInputBase-root': {
           ...(mode === 'light'

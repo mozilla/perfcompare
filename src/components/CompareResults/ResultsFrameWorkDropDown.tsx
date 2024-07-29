@@ -7,7 +7,7 @@ import { Strings } from '../../resources/Strings';
 import { Spacing } from '../../styles';
 import type { Framework } from '../../types/types';
 
-const strings = Strings.components.searchDefault.sharedCollasped.framkework;
+const strings = Strings.components.searchDefault.sharedCollasped.framework;
 
 interface FrameworkDropdownProps {
   frameworkId: Framework['id'];

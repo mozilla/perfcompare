@@ -15,7 +15,7 @@ import { Repository } from '../../types/state';
 import { Framework } from '../../types/types';
 import DownloadButton from './DownloadButton';
 import type { LoaderReturnValue } from './loader';
-import FrameworkDropdown from './ResultsFrameWorkDropDown';
+import ResultsFrameworkDropdown from './ResultsFrameWorkDropDown';
 import ResultsTable from './ResultsTable';
 import RevisionSelect from './RevisionSelect';
 import SearchInput from './SearchInput';
@@ -108,7 +108,7 @@ function ResultsMain() {
                   <CircularProgress />
                 </Box>
               ) : (
-                <FrameworkDropdown
+                <ResultsFrameworkDropdown
                   frameworkId={frameworkIdVal}
                   onChange={onFrameworkChange}
                 />

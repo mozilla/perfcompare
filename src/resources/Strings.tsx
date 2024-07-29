@@ -33,7 +33,7 @@ export const Strings = {
           selectLabel: 'Revisions',
           placeholder: 'Search base by ID number or author email',
         },
-        framkework: {
+        framework: {
           selectLabel: 'Framework',
           tooltip:
             'The framework or test harness containing the test you want to examine.',
