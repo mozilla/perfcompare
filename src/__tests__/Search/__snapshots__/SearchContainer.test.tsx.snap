@@ -426,7 +426,7 @@ exports[`Search Containter should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class=" fs9pw6x cancel-compare"
+                class="fs9pw6x cancel-compare"
               >
                 <button
                   class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pp3xxr-MuiButtonBase-root-MuiButton-root"
@@ -860,7 +860,7 @@ exports[`Search Containter should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class=" fs9pw6x cancel-compare"
+                class="fs9pw6x cancel-compare"
               >
                 <button
                   class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pp3xxr-MuiButtonBase-root-MuiButton-root"

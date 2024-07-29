@@ -45,7 +45,12 @@ export default function CompareButton({
           }
         >
           <Await resolve={results}>
-            <Button id='compare-button' color='primary' type='submit'>
+            <Button
+              id='compare-button'
+              color='primary'
+              type='submit'
+              sx={{ visibility: hasCancelButton ? 'visible' : 'hidden' }}
+            >
               {label}
             </Button>
           </Await>
@@ -60,7 +65,7 @@ export default function CompareButton({
   };
 
   return (
-    <div className={` ${cancelCompareStyles} cancel-compare`}>
+    <div className={`${cancelCompareStyles} cancel-compare`}>
       {hasCancelButton && (
         <Button
           className='cancel-button'
