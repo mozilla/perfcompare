@@ -34,6 +34,7 @@ function SearchContainer(props: SearchViewProps) {
         expandBaseComponent={expandBaseComponent}
         baseRepo='try'
         newRepo='try'
+        onLoadingChange={() => null}
       />
       <CompareOverTime
         hasEditButton={false}

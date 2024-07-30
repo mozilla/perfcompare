@@ -1,13 +1,8 @@
-import { Suspense } from 'react';
-
 import Button from '@mui/material/Button';
-import { Await, useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { Strings } from '../../resources/Strings';
 import { Spacing } from '../../styles/Spacing';
-import type { LoaderReturnValue } from '../CompareResults/loader';
-import type { LoaderReturnValue as OverTimeLoaderReturnValue } from '../CompareResults/overTimeLoader';
 
 interface CompareButtonProps {
   label: string;
@@ -30,40 +25,6 @@ export default function CompareButton({
     gap: `${Spacing.Small}px`,
   });
 
-  const renderCompareButton = () => {
-    if (hasEditButton) {
-      const { results } = useLoaderData() as
-        | LoaderReturnValue
-        | OverTimeLoaderReturnValue;
-
-      return (
-        <Suspense
-          fallback={
-            <Button id='compare-button' color='primary' type='submit' disabled>
-              Loading...
-            </Button>
-          }
-        >
-          <Await resolve={results}>
-            <Button
-              id='compare-button'
-              color='primary'
-              type='submit'
-              sx={{ visibility: hasCancelButton ? 'visible' : 'hidden' }}
-            >
-              {label}
-            </Button>
-          </Await>
-        </Suspense>
-      );
-    } else
-      return (
-        <Button id='compare-button' color='primary' type='submit'>
-          {label}
-        </Button>
-      );
-  };
-
   return (
     <div className={`${cancelCompareStyles} cancel-compare`}>
       {hasCancelButton && (
@@ -76,8 +37,20 @@ export default function CompareButton({
           {cancelText}
         </Button>
       )}
-
-      {renderCompareButton()}
+      {hasEditButton ? (
+        <Button
+          id='compare-button'
+          color='primary'
+          type='submit'
+          sx={{ visibility: hasCancelButton ? 'visible' : 'hidden' }}
+        >
+          {label}
+        </Button>
+      ) : (
+        <Button id='compare-button' color='primary' type='submit'>
+          {label}
+        </Button>
+      )}
     </div>
   );
 }

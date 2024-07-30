@@ -1,4 +1,4 @@
-import { Suspense, useState } from 'react';
+import { useState, lazy } from 'react';
 
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -8,18 +8,20 @@ import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
 import { Colors, Spacing } from '../../styles';
-// import type { CompareResultsItem } from '../../types/state';
 import DownloadButton from './DownloadButton';
 import type { LoaderReturnValue } from './loader';
-import ResultsTable from './ResultsTable';
 import RevisionSelect from './RevisionSelect';
 import SearchInput from './SearchInput';
 
-function ResultsMain() {
+const ResultsTable = lazy(() => import('./ResultsTable'));
+
+function ResultsMain(props: { isLoadingResults: boolean }) {
   const { results } = useLoaderData() as LoaderReturnValue;
 
   const themeMode = useAppSelector((state) => state.theme.mode);
   const [searchTerm, setSearchTerm] = useState('');
+
+  const { isLoadingResults } = props;
 
   const themeColor100 =
     themeMode === 'light' ? Colors.Background300 : Colors.Background100Dark;
@@ -43,25 +45,29 @@ function ResultsMain() {
 
   return (
     <Container className={styles.container} data-testid='results-main'>
-      <Suspense
-        fallback={
-          <Box display='flex' justifyContent='center'>
+      <Await resolve={results}>
+        <header>
+          <div className={styles.title}>Results</div>
+          <div className={styles.content}>
+            <SearchInput onChange={setSearchTerm} />
+            <RevisionSelect />
+            <DownloadButton />
+          </div>
+        </header>
+
+        {isLoadingResults ? (
+          <Box
+            display='flex'
+            justifyContent='center'
+            alignItems='center'
+            minHeight='300px'
+          >
             <CircularProgress />
           </Box>
-        }
-      >
-        <Await resolve={results}>
-          <header>
-            <div className={styles.title}>Results</div>
-            <div className={styles.content}>
-              <SearchInput onChange={setSearchTerm} />
-              <RevisionSelect />
-              <DownloadButton />
-            </div>
-          </header>
+        ) : (
           <ResultsTable filteringSearchTerm={searchTerm} />
-        </Await>
-      </Suspense>
+        )}
+      </Await>
     </Container>
   );
 }

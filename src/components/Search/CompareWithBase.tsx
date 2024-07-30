@@ -30,6 +30,7 @@ interface CompareWithBaseProps {
   frameworkIdVal: Framework['id'];
   isBaseSearch: null | boolean;
   expandBaseComponent: (expanded: boolean) => void | null;
+  onLoadingChange: () => void;
 }
 
 /**
@@ -76,6 +77,7 @@ function CompareWithBase({
   baseRepo,
   newRepo,
   expandBaseComponent,
+  onLoadingChange,
 }: CompareWithBaseProps) {
   const { enqueueSnackbar } = useSnackbar();
   const [frameWorkId, setframeWorkValue] = useState(frameworkIdVal);
@@ -119,6 +121,8 @@ function CompareWithBase({
 
   const onFormSubmit = (e: React.FormEvent) => {
     const isFormReadyToBeSubmitted = baseInProgressRev !== null;
+    setFormIsDisplayed(!isFormReadyToBeSubmitted);
+    onLoadingChange();
 
     if (!isFormReadyToBeSubmitted) {
       e.preventDefault();
@@ -259,7 +263,6 @@ function CompareWithBase({
           className='form-wrapper'
           onSubmit={onFormSubmit}
           aria-label='Compare with base form'
-          reloadDocument={hasEditButton ?? true}
         >
           {/**** Edit Button ****/}
           <div

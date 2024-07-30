@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import Grid from '@mui/material/Grid';
 import { useLoaderData } from 'react-router-dom';
@@ -16,7 +16,7 @@ interface ResultsViewProps {
   title: string;
 }
 function ResultsView(props: ResultsViewProps) {
-  const { baseRevInfo, newRevsInfo, frameworkId, baseRepo, newRepos } =
+  const { baseRevInfo, newRevsInfo, frameworkId, baseRepo, newRepos, results } =
     useLoaderData() as LoaderReturnValue;
 
   const newRepo = newRepos[0];
@@ -30,9 +30,21 @@ function ResultsView(props: ResultsViewProps) {
 
   const sectionStyles = SearchContainerStyles(themeMode, /* isHome */ false);
 
+  const [isLoadingResults, setIsLoadingResults] = useState(true);
+
   useEffect(() => {
     document.title = title;
   }, [title]);
+
+  useEffect(() => {
+    const waitForResults = async () => {
+      await results;
+      setTimeout(() => {
+        setIsLoadingResults(false);
+      }, 500);
+    };
+    void waitForResults();
+  }, [isLoadingResults]);
 
   return (
     <div
@@ -51,12 +63,13 @@ function ResultsView(props: ResultsViewProps) {
           expandBaseComponent={() => null}
           baseRepo={baseRepo}
           newRepo={newRepo}
+          onLoadingChange={() => setIsLoadingResults(true)}
         />
       </section>
 
       <Grid container alignItems='center' justifyContent='center'>
         <Grid item xs={12}>
-          <ResultsMain />
+          <ResultsMain isLoadingResults={isLoadingResults} />
         </Grid>
       </Grid>
     </div>
