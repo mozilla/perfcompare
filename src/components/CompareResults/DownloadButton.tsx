@@ -1,5 +1,3 @@
-import { useMemo } from 'react';
-
 import { Button } from '@mui/material';
 import { useAsyncValue } from 'react-router-dom';
 import { style } from 'typestyle';
@@ -91,10 +89,6 @@ function DownloadButton() {
   const activeComparison = useAppSelector(
     (state) => state.comparison.activeComparison,
   );
-  const processedResults = useMemo(
-    () => generateJsonDataFromComparisonResults(activeComparison, results),
-    [results, activeComparison],
-  );
 
   const fileName = useAppSelector((state: RootState) => {
     if (
@@ -110,6 +104,10 @@ function DownloadButton() {
   });
 
   const handleDownloadClick = () => {
+    const processedResults = generateJsonDataFromComparisonResults(
+      activeComparison,
+      results,
+    );
     const blob = new Blob([processedResults], {
       type: 'application/json',
     });
