@@ -52,7 +52,7 @@
     "test:watch": "npm test -- --watch",
     "test:update": "npm test -- -u",
     "test-all": "run-p test format:check lint tsc",
-    "fix-all": "run-p test:update format lint:fix",
+    "fix-all": "run-p test:update format lint:fix tsc",
     "tsc": "tsc"
   },
   "eslintConfig": {
