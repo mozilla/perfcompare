@@ -204,7 +204,7 @@ exports[`Results View The table should match snapshot and other elements should 
     </div>
     <div>
       <div
-        class="revisionRow f1x1c13s fp4ugv1"
+        class="revisionRow fib0xwf fp4ugv1"
         role="row"
       >
         <div
@@ -285,22 +285,25 @@ exports[`Results View The table should match snapshot and other elements should 
           role="cell"
         >
           <span>
-            B:
+            <span
+              title="Base runs"
+            >
+              B:
+            </span>
+            <strong>
+              1
+            </strong>
           </span>
-          <strong>
-             
-            1
-             
-          </strong>
-           
           <span>
-             N: 
+            <span
+              title="New runs"
+            >
+              N:
+            </span>
+            <strong>
+              1
+            </strong>
           </span>
-          <strong>
-             
-            1
-             
-          </strong>
         </div>
         <div
           class="row-buttons cell"
@@ -431,7 +434,7 @@ exports[`Results View The table should match snapshot and other elements should 
         </div>
       </div>
       <div
-        class="revisionRow f1x1c13s fp4ugv1"
+        class="revisionRow fib0xwf fp4ugv1"
         role="row"
       >
         <div
@@ -511,22 +514,25 @@ exports[`Results View The table should match snapshot and other elements should 
           role="cell"
         >
           <span>
-            B:
+            <span
+              title="Base runs"
+            >
+              B:
+            </span>
+            <strong>
+              1
+            </strong>
           </span>
-          <strong>
-             
-            1
-             
-          </strong>
-           
           <span>
-             N: 
+            <span
+              title="New runs"
+            >
+              N:
+            </span>
+            <strong>
+              1
+            </strong>
           </span>
-          <strong>
-             
-            1
-             
-          </strong>
         </div>
         <div
           class="row-buttons cell"
@@ -657,7 +663,7 @@ exports[`Results View The table should match snapshot and other elements should 
         </div>
       </div>
       <div
-        class="revisionRow f1x1c13s fp4ugv1"
+        class="revisionRow fib0xwf fp4ugv1"
         role="row"
       >
         <div
@@ -738,22 +744,25 @@ exports[`Results View The table should match snapshot and other elements should 
           role="cell"
         >
           <span>
-            B:
+            <span
+              title="Base runs"
+            >
+              B:
+            </span>
+            <strong>
+              1
+            </strong>
           </span>
-          <strong>
-             
-            1
-             
-          </strong>
-           
           <span>
-             N: 
+            <span
+              title="New runs"
+            >
+              N:
+            </span>
+            <strong>
+              1
+            </strong>
           </span>
-          <strong>
-             
-            1
-             
-          </strong>
         </div>
         <div
           class="row-buttons cell"
@@ -884,7 +893,7 @@ exports[`Results View The table should match snapshot and other elements should 
         </div>
       </div>
       <div
-        class="revisionRow f1x1c13s fp4ugv1"
+        class="revisionRow fib0xwf fp4ugv1"
         role="row"
       >
         <div
@@ -964,22 +973,25 @@ exports[`Results View The table should match snapshot and other elements should 
           role="cell"
         >
           <span>
-            B:
+            <span
+              title="Base runs"
+            >
+              B:
+            </span>
+            <strong>
+              1
+            </strong>
           </span>
-          <strong>
-             
-            1
-             
-          </strong>
-           
           <span>
-             N: 
+            <span
+              title="New runs"
+            >
+              N:
+            </span>
+            <strong>
+              1
+            </strong>
           </span>
-          <strong>
-             
-            1
-             
-          </strong>
         </div>
         <div
           class="row-buttons cell"

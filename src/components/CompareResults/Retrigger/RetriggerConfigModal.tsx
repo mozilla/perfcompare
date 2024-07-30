@@ -65,7 +65,6 @@ export function RetriggerConfigModal(props: RetriggerModalProps) {
       open={props.open}
       onClose={props.onClose}
       ariaLabelledby='retrigger-modal-title'
-      paperStyle={{ display: 'flex', flexDirection: 'column', gap: 2 }}
     >
       <Typography id='retrigger-modal-title' component='h2' variant='h2'>
         {retriggerStrings.title}

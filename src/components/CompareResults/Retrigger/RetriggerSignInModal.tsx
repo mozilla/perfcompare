@@ -34,11 +34,8 @@ export function RetriggerSignInModal(props: SignInModalProps) {
       onClose={onClose}
       ariaLabelledby='sign-in-modal-title'
       paperStyle={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: 2,
         paddingBottom: 5,
+        alignItems: 'center',
         textAlign: 'center',
       }}
     >
