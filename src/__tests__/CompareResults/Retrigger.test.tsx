@@ -15,7 +15,7 @@ jest.mock('../../utils/location');
 const mockedGetLocationOrigin = getLocationOrigin as jest.Mock;
 const result = getTestData().testCompareData[0];
 
-const setUpUserCredentions = () => {
+const setUpUserCredentials = () => {
   mockedGetLocationOrigin.mockImplementation(() => 'http://localhost:3000');
   sessionStorage.setItem('requestState', 'OkCrH5isZncYqeJbRDelN');
   sessionStorage.setItem(
@@ -48,10 +48,6 @@ const setUpUserCredentions = () => {
 
 describe('Retrigger', () => {
   it('should display Sign In modal when there are no credentials', async () => {
-    (window.fetch as FetchMockSandbox).get('begin:https://somethingurl', {
-      ceva: 'response',
-    });
-
     render(<RetriggerButton result={result} />);
 
     const openModalButton = await screen.findByTitle('retrigger jobs');
@@ -65,7 +61,7 @@ describe('Retrigger', () => {
   });
 
   it('should display Retrigger modal when there are credentials', async () => {
-    setUpUserCredentions();
+    setUpUserCredentials();
     render(<RetriggerButton result={result} />);
 
     const openModalButton = await screen.findByTitle('retrigger jobs');
@@ -79,69 +75,71 @@ describe('Retrigger', () => {
   });
 
   it('should retrigger one job for base revision and one job for new revision', async () => {
-    setUpUserCredentions();
+    setUpUserCredentials();
     // fetch requests for base revision info
-    (window.fetch as FetchMockSandbox).get(
-      'begin:https://treeherder.mozilla.org/api/project/mozilla-central/jobs/381594973/',
-      {
-        push_id: 1234567,
-      },
-    );
-    (window.fetch as FetchMockSandbox).get(
-      'begin:https://treeherder.mozilla.org/api/project/mozilla-central/push/decisiontask/?push_ids=1234567',
-      {
-        '1234567': { id: 'TeSt0FIBQyuzPDktQnTest', run: '0' },
-      },
-    );
-    (window.fetch as FetchMockSandbox).get(
-      'begin:https://firefox-ci-tc.services.mozilla.com/api/queue/v1/task/TeSt0FIBQyuzPDktQnTest/artifacts/public%2Factions.json',
-      {
-        actions: [
-          { hookPayload: {}, kind: 'hook', name: 'retrigger-multiple' },
-        ],
-        variables: {},
-      },
-    );
-    (window.fetch as FetchMockSandbox).get(
-      'begin:https://firefoxci.taskcluster-artifacts.net/TeSt0FIBQyuzPDktQnTest/0/public/actions.json',
-      {
-        actions: [
-          { hookPayload: {}, kind: 'hook', name: 'retrigger-multiple' },
-        ],
-        variables: {},
-      },
-    );
+    (window.fetch as FetchMockSandbox)
+      .get(
+        'begin:https://treeherder.mozilla.org/api/project/mozilla-central/jobs/381594973/',
+        {
+          push_id: 1234567,
+        },
+      )
+      .get(
+        'begin:https://treeherder.mozilla.org/api/project/mozilla-central/push/decisiontask/?push_ids=1234567',
+        {
+          '1234567': { id: 'TeSt0FIBQyuzPDktQnTest', run: '0' },
+        },
+      )
+      .get(
+        'begin:https://firefox-ci-tc.services.mozilla.com/api/queue/v1/task/TeSt0FIBQyuzPDktQnTest/artifacts/public%2Factions.json',
+        {
+          actions: [
+            { hookPayload: {}, kind: 'hook', name: 'retrigger-multiple' },
+          ],
+          variables: {},
+        },
+      )
+      .get(
+        'begin:https://firefoxci.taskcluster-artifacts.net/TeSt0FIBQyuzPDktQnTest/0/public/actions.json',
+        {
+          actions: [
+            { hookPayload: {}, kind: 'hook', name: 'retrigger-multiple' },
+          ],
+          variables: {},
+        },
+      );
     // fetch requests for new revision info
-    (window.fetch as FetchMockSandbox).get(
-      'begin:https://treeherder.mozilla.org/api/project/mozilla-central/jobs/381452501/',
-      {
-        push_id: 7891011,
-      },
-    );
-    (window.fetch as FetchMockSandbox).get(
-      'begin:https://treeherder.mozilla.org/api/project/mozilla-central/push/decisiontask/?push_ids=7891011',
-      {
-        '7891011': { id: 'TeStSeCoNDuzPDktwoTest', run: '0' },
-      },
-    );
-    (window.fetch as FetchMockSandbox).get(
-      'https://firefox-ci-tc.services.mozilla.com/api/queue/v1/task/TeStSeCoNDuzPDktwoTest/artifacts/public%2Factions.json',
-      {
-        actions: [
-          { hookPayload: {}, kind: 'hook', name: 'retrigger-multiple' },
-        ],
-        variables: {},
-      },
-    );
-    (window.fetch as FetchMockSandbox).get(
-      'begin:https://firefoxci.taskcluster-artifacts.net/TeStSeCoNDuzPDktwoTest/0/public/actions.json',
-      {
-        actions: [
-          { hookPayload: {}, kind: 'hook', name: 'retrigger-multiple' },
-        ],
-        variables: {},
-      },
-    );
+    (window.fetch as FetchMockSandbox)
+      .get(
+        'begin:https://treeherder.mozilla.org/api/project/mozilla-central/jobs/381452501/',
+        {
+          push_id: 7891011,
+        },
+      )
+      .get(
+        'begin:https://treeherder.mozilla.org/api/project/mozilla-central/push/decisiontask/?push_ids=7891011',
+        {
+          '7891011': { id: 'TeStSeCoNDuzPDktwoTest', run: '0' },
+        },
+      )
+      .get(
+        'https://firefox-ci-tc.services.mozilla.com/api/queue/v1/task/TeStSeCoNDuzPDktwoTest/artifacts/public%2Factions.json',
+        {
+          actions: [
+            { hookPayload: {}, kind: 'hook', name: 'retrigger-multiple' },
+          ],
+          variables: {},
+        },
+      )
+      .get(
+        'begin:https://firefoxci.taskcluster-artifacts.net/TeStSeCoNDuzPDktwoTest/0/public/actions.json',
+        {
+          actions: [
+            { hookPayload: {}, kind: 'hook', name: 'retrigger-multiple' },
+          ],
+          variables: {},
+        },
+      );
 
     render(<RetriggerButton result={result} />);
 
@@ -151,23 +149,17 @@ describe('Retrigger', () => {
     await user.click(openModalButton);
 
     // select option 1 for base
-    const baseSelect = within(
-      await screen.findByTestId('base-retrigger-select'),
-    );
+    const baseSelect = await screen.findByLabelText('Base');
 
-    let selectButton = await baseSelect.findByRole('button');
-
-    fireEvent.mouseDown(selectButton);
+    fireEvent.mouseDown(baseSelect);
 
     let listbox = within(await screen.findByRole('listbox'));
     fireEvent.click(await listbox.findByText('1'));
 
     // select option 1 for new
-    const newSelect = within(await screen.findByTestId('new-retrigger-select'));
+    const newSelect = await screen.findByLabelText('New');
 
-    selectButton = await newSelect.findByRole('button');
-
-    fireEvent.mouseDown(selectButton);
+    fireEvent.mouseDown(newSelect);
 
     listbox = within(await screen.findByRole('listbox'));
     fireEvent.click(await listbox.findByText('1'));

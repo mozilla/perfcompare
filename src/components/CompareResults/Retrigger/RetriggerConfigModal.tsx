@@ -29,7 +29,6 @@ function RetriggerCountSelect({
         defaultValue={0}
         label={label}
         sx={{ height: 32 }}
-        data-testid={`${prefix}-retrigger-select`}
       >
         <MenuItem value={0}>0</MenuItem>
         <MenuItem value={1}>1</MenuItem>
