@@ -41,7 +41,7 @@ const styles = {
     fontStyle: 'normal',
     fontWeight: 700,
     fontSize: '8.2px',
-    // End to be removed
+    // End to be removed - update SubtestsRevisionHeader if this is removed
     gap: Spacing.Small + 2,
     letterSpacing: '0.02em',
     marginLeft: Spacing.xSmall,

@@ -20,150 +20,84 @@ const revisionsRow = {
   gridTemplateColumns: '2fr 1fr 0.2fr 1fr 1fr 1fr 1fr 1fr 2fr 0.2fr',
 };
 
-const typography = {
+const typography = style({
   fontFamily: 'SF Pro',
   fontStyle: 'normal',
   fontWeight: 400,
   fontSize: '13px',
   lineHeight: '16px',
-};
+});
 
-const stylesLight = {
-  revisionRow: style({
-    ...revisionsRow,
-    $nest: {
-      '.base-value': {
-        backgroundColor: Colors.Background200,
-      },
-      '.cell': {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      },
-      '.confidence': {
-        backgroundColor: Colors.Background200,
-      },
-      '.comparison-sign': {
-        backgroundColor: Colors.Background200,
-      },
-      '.delta': {
-        backgroundColor: Colors.Background200,
-      },
-      '.expand-button-container': {
-        justifyContent: 'right',
-      },
-      '.new-value': {
-        backgroundColor: Colors.Background200,
-      },
-      '.subtests': {
-        backgroundColor: Colors.Background200,
-        borderRadius: '4px 0 0 4px',
-        paddingLeft: Spacing.xLarge,
-        justifyContent: 'left',
-      },
-      '.subtests-container': {
-        alignItems: 'flex-end',
-        backgroundColor: Colors.Background200,
-        display: 'flex',
-      },
-      '.retrigger-button': {
-        backgroundColor: Colors.Background200,
-        borderRadius: '0px 4px 4px 0px',
-        cursor: 'not-allowed',
-      },
-      '.status': {
-        backgroundColor: Colors.Background200,
-        justifyContent: 'center',
-      },
-      '.total-runs': {
-        backgroundColor: Colors.Background200,
-      },
-      '.row-buttons': {
-        backgroundColor: Colors.Background200,
-        borderRadius: '0px 4px 4px 0px',
-        display: 'flex',
-        justifyContent: 'flex-end',
-        $nest: {
-          '.download': {
-            cursor: 'not-allowed',
+function getStyles(themeMode: string) {
+  const mainBackgroundColor =
+    themeMode === 'light' ? Colors.Background200 : Colors.Background200Dark;
+  const backgroundColorExpandButton =
+    themeMode === 'light' ? Colors.Background300 : Colors.Background100Dark;
+  return {
+    revisionRow: style({
+      ...revisionsRow,
+      $nest: {
+        '.base-value': {
+          backgroundColor: mainBackgroundColor,
+        },
+        '.cell': {
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        },
+        '.confidence': {
+          backgroundColor: mainBackgroundColor,
+        },
+        '.comparison-sign': {
+          backgroundColor: mainBackgroundColor,
+        },
+        '.delta': {
+          backgroundColor: mainBackgroundColor,
+        },
+        '.expand-button-container': {
+          justifyContent: 'right',
+        },
+        '.new-value': {
+          backgroundColor: mainBackgroundColor,
+        },
+        '.subtests': {
+          backgroundColor: mainBackgroundColor,
+          borderRadius: '4px 0 0 4px',
+          paddingLeft: Spacing.xLarge,
+          justifyContent: 'left',
+        },
+        '.subtests-container': {
+          alignItems: 'flex-end',
+          backgroundColor: mainBackgroundColor,
+          display: 'flex',
+        },
+        '.status': {
+          backgroundColor: mainBackgroundColor,
+          justifyContent: 'center',
+        },
+        '.total-runs': {
+          backgroundColor: mainBackgroundColor,
+          gap: '8px',
+        },
+        '.row-buttons': {
+          backgroundColor: mainBackgroundColor,
+          borderRadius: '0px 4px 4px 0px',
+          display: 'flex',
+          justifyContent: 'flex-end',
+          $nest: {
+            '.download': {
+              cursor: 'not-allowed',
+            },
           },
         },
-      },
-      '.expand-button': {
-        backgroundColor: Colors.Background300,
-      },
-    },
-  }),
-  typography: style({
-    ...typography,
-  }),
-};
-
-const stylesDark = {
-  revisionRow: style({
-    ...revisionsRow,
-    $nest: {
-      '.base-value': {
-        backgroundColor: Colors.Background200Dark,
-      },
-      '.cell': {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      },
-      '.confidence': {
-        backgroundColor: Colors.Background200Dark,
-      },
-      '.comparison-sign': {
-        backgroundColor: Colors.Background200Dark,
-      },
-      '.delta': {
-        backgroundColor: Colors.Background200Dark,
-      },
-      '.expand-button-container': {
-        justifyContent: 'right',
-      },
-      '.new-value': {
-        backgroundColor: Colors.Background200Dark,
-      },
-      '.subtests': {
-        backgroundColor: Colors.Background200Dark,
-        borderRadius: '4px 0 0 4px',
-        paddingLeft: Spacing.xLarge,
-        justifyContent: 'left',
-      },
-      '.subtests-container': {
-        alignItems: 'flex-end',
-        backgroundColor: Colors.Background200Dark,
-        display: 'flex',
-      },
-      '.status': {
-        backgroundColor: Colors.Background200Dark,
-        justifyContent: 'center',
-      },
-      '.total-runs': {
-        backgroundColor: Colors.Background200Dark,
-      },
-      '.row-buttons': {
-        backgroundColor: Colors.Background200Dark,
-        borderRadius: '0px 4px 4px 0px',
-        display: 'flex',
-        justifyContent: 'flex-end',
-        $nest: {
-          '.download': {
-            cursor: 'not-allowed',
-          },
+        '.expand-button': {
+          backgroundColor: backgroundColorExpandButton,
         },
       },
-      '.expand-button': {
-        backgroundColor: Colors.Background100Dark,
-      },
-    },
-  }),
-  typography: style({
-    ...typography,
-  }),
-};
+    }),
+    typography: typography,
+  };
+}
 
 const stylesCard = ExpandableRowStyles();
 
@@ -204,7 +138,7 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
 
   const themeMode = useAppSelector((state) => state.theme.mode);
 
-  const styles = themeMode === 'light' ? stylesLight : stylesDark;
+  const styles = getStyles(themeMode);
 
   return (
     <>
@@ -239,9 +173,14 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
           {confidenceText}{' '}
         </div>
         <div className='total-runs cell' role='cell'>
-          <span>B:</span>
-          <strong> {baseRuns.length} </strong> <span> N: </span>
-          <strong> {newRuns.length} </strong>
+          <span>
+            <span title='Base runs'>B:</span>
+            <strong>{baseRuns.length}</strong>
+          </span>
+          <span>
+            <span title='New runs'>N:</span>
+            <strong>{newRuns.length}</strong>
+          </span>
         </div>
         <div className='row-buttons cell'>
           <div className='graph' role='cell'>

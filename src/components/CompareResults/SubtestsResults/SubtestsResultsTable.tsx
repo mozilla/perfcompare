@@ -2,9 +2,7 @@ import { useMemo, useState } from 'react';
 
 import Box from '@mui/material/Box';
 import { useAsyncValue } from 'react-router-dom';
-import { style } from 'typestyle';
 
-import { Spacing } from '../../../styles';
 import type { CompareResultsItem } from '../../../types/state';
 import type { CompareResultsTableConfig } from '../../../types/types';
 import NoResultsFound from '.././NoResultsFound';
@@ -184,18 +182,11 @@ function SubtestsResultsTable({ filteringSearchTerm }: ResultsTableProps) {
     });
   };
 
-  const styles = {
-    tableContainer: style({
-      marginTop: Spacing.Large,
-      paddingBottom: Spacing.Large,
-    }),
-  };
-
   return (
     <Box
-      className={styles.tableContainer}
       data-testid='subtests-results-table'
       role='table'
+      sx={{ marginTop: 3, paddingBottom: 3 }}
     >
       {/* Using the same TableHeader component as the CompareResults components but with different cellsConfiguration  */}
       <TableHeader

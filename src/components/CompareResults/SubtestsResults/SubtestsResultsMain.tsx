@@ -1,7 +1,5 @@
-import { Suspense, useState } from 'react';
+import { useState } from 'react';
 
-import Box from '@mui/material/Box';
-import CircularProgress from '@mui/material/CircularProgress';
 import { Container } from '@mui/system';
 import { Await, useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
@@ -10,13 +8,14 @@ import { useAppSelector } from '../../../hooks/app';
 import { Colors, Spacing } from '../../../styles';
 import type { SubtestsRevisionsHeader } from '../../../types/state';
 import DownloadButton from '.././DownloadButton';
-import type { LoaderReturnValue } from '.././loader';
 import SearchInput from '.././SearchInput';
+import { LoaderReturnValue } from '../subtestsLoader';
+import { LoaderReturnValue as OvertimeLoaderReturnValue } from '../subtestsOverTimeLoader';
 import SubtestsResultsTable from './SubtestsResultsTable';
 import SubtestsRevisionHeader from './SubtestsRevisionHeader';
 
 function SubtestsResultsMain() {
-  const { results } = useLoaderData() as LoaderReturnValue;
+  const { results } = useLoaderData() as LoaderReturnValue | OvertimeLoaderReturnValue;
 
   const themeMode = useAppSelector((state) => state.theme.mode);
   const [searchTerm, setSearchTerm] = useState('');
@@ -54,24 +53,16 @@ function SubtestsResultsMain() {
 
   return (
     <Container className={styles.container} data-testid='subtests-main'>
-      <Suspense
-        fallback={
-          <Box display='flex' justifyContent='center'>
-            <CircularProgress />
-          </Box>
-        }
-      >
-        <Await resolve={results}>
-          <header>
-            <SubtestsRevisionHeader header={subtestsHeader} />
-            <div className={styles.content}>
-              <SearchInput onChange={setSearchTerm} />
-              <DownloadButton />
-            </div>
-          </header>
-          <SubtestsResultsTable filteringSearchTerm={searchTerm} />
-        </Await>
-      </Suspense>
+      <Await resolve={results}>
+        <header>
+          <SubtestsRevisionHeader header={subtestsHeader} />
+          <div className={styles.content}>
+            <SearchInput onChange={setSearchTerm} />
+            <DownloadButton />
+          </div>
+        </header>
+        <SubtestsResultsTable filteringSearchTerm={searchTerm} />
+      </Await>
     </Container>
   );
 }

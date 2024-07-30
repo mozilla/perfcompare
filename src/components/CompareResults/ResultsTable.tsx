@@ -2,11 +2,9 @@ import { useMemo, useState } from 'react';
 
 import Box from '@mui/material/Box';
 import { useAsyncValue } from 'react-router-dom';
-import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
-import { Spacing } from '../../styles';
 import type { CompareResultsItem, RevisionsHeader } from '../../types/state';
 import type { CompareResultsTableConfig } from '../../types/types';
 import { getPlatformShortName } from '../../utils/platform';
@@ -221,18 +219,11 @@ function ResultsTable({ filteringSearchTerm }: ResultsTableProps) {
     });
   };
 
-  const styles = {
-    tableContainer: style({
-      marginTop: Spacing.Large,
-      paddingBottom: Spacing.Large,
-    }),
-  };
-
   return (
     <Box
-      className={styles.tableContainer}
       data-testid='results-table'
       role='table'
+      sx={{ marginTop: 3, paddingBottom: 3 }}
     >
       <TableHeader
         cellsConfiguration={cellsConfiguration}

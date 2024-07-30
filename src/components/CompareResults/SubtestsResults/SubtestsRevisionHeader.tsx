@@ -44,13 +44,11 @@ const styles = {
   chip: style({
     borderRadius: '4px',
     color: Colors.Background300,
-    // To be removed
     fontFamily: 'SF Pro',
     fontStyle: 'normal',
     fontWeight: 700,
     fontSize: '8.2px',
-    // End to be removed
-    gap: Spacing.Small + 2,
+    gap: 10,
     letterSpacing: '0.02em',
     marginLeft: Spacing.xSmall,
     padding: Spacing.xSmall,
