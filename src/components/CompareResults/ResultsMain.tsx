@@ -30,6 +30,8 @@ function ResultsMain() {
 
   // allows user to see the loading spinner
   // for a short time when changing frameworks
+
+  //remove
   useEffect(() => {
     const waitForResults = async () => {
       await results;
