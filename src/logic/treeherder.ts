@@ -200,6 +200,17 @@ export async function fetchRecentRevisions(params: RecentRevisionsParams) {
   return json.results;
 }
 
+// This is a specialised version of fetchRecentRevisions dedicated to fetching
+// information about one specific revision.
+export async function fetchRevisionForRepository(opts: {
+  repository: string;
+  hash: string;
+}) {
+  // We get a list of 1 item because we request one specific hash.
+  const listOfOneRevision = await fetchRecentRevisions(opts);
+  return listOfOneRevision[0];
+}
+
 export async function fetchJobInformationFromJobId(
   repo: string,
   jobId: number,
