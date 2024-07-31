@@ -15,7 +15,7 @@ import { Framework } from '../../types/types';
 import CancelAndCompareButtons from './CancelAndCompareButtons';
 import EditButton from './EditButton';
 import SearchComponent from './SearchComponent';
-import SearchFrameworkComponent from './SearchFrameWorkComponent';
+import SearchFrameworkComponent from './SearchFrameworkComp';
 
 const strings = Strings.components.searchDefault;
 const stringsBase = Strings.components.searchDefault.base.collapsed.base;

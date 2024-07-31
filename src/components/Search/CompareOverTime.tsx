@@ -15,7 +15,7 @@ import { Changeset, Repository } from '../../types/state';
 import { Framework, TimeRange } from '../../types/types';
 import CancelAndCompareButtons from './CancelAndCompareButtons';
 import EditButton from './EditButton';
-import SearchFrameworkComponent from './SearchFrameWorkComponent';
+import SearchFrameworkComponent from './SearchFrameworkComp';
 import SearchOverTime from './SearchOverTime';
 
 const strings = Strings.components.searchDefault;
