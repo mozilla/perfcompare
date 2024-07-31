@@ -683,10 +683,10 @@ exports[`Results Table Should match snapshot 1`] = `
                   value="1"
                 />
                 <div
-                  class=" fs9pw6x cancel-compare"
+                  class="fs9pw6x cancel-compare"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pp3xxr-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pfn45j-MuiButtonBase-root-MuiButton-root"
                     id="compare-button"
                     tabindex="0"
                     type="submit"
@@ -755,7 +755,7 @@ exports[`Results Table Should match snapshot 1`] = `
                         aria-invalid="false"
                         aria-label="Search by title, platform, revision or options"
                         class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-rg83rj-MuiInputBase-input-MuiOutlinedInput-input"
-                        id=":r4:"
+                        id=":r5:"
                         placeholder="Search results"
                         type="text"
                         value=""
@@ -1145,7 +1145,7 @@ exports[`Results Table Should match snapshot 1`] = `
                 </div>
                 <div>
                   <div
-                    class="revisionRow f1x1c13s fp4ugv1"
+                    class="revisionRow fib0xwf fp4ugv1"
                     role="row"
                   >
                     <div
@@ -1226,22 +1226,25 @@ exports[`Results Table Should match snapshot 1`] = `
                       role="cell"
                     >
                       <span>
-                        B:
+                        <span
+                          title="Base runs"
+                        >
+                          B:
+                        </span>
+                        <strong>
+                          1
+                        </strong>
                       </span>
-                      <strong>
-                         
-                        1
-                         
-                      </strong>
-                       
                       <span>
-                         N: 
+                        <span
+                          title="New runs"
+                        >
+                          N:
+                        </span>
+                        <strong>
+                          1
+                        </strong>
                       </span>
-                      <strong>
-                         
-                        1
-                         
-                      </strong>
                     </div>
                     <div
                       class="row-buttons cell"
@@ -1372,7 +1375,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="revisionRow f1x1c13s fp4ugv1"
+                    class="revisionRow fib0xwf fp4ugv1"
                     role="row"
                   >
                     <div
@@ -1452,22 +1455,25 @@ exports[`Results Table Should match snapshot 1`] = `
                       role="cell"
                     >
                       <span>
-                        B:
+                        <span
+                          title="Base runs"
+                        >
+                          B:
+                        </span>
+                        <strong>
+                          1
+                        </strong>
                       </span>
-                      <strong>
-                         
-                        1
-                         
-                      </strong>
-                       
                       <span>
-                         N: 
+                        <span
+                          title="New runs"
+                        >
+                          N:
+                        </span>
+                        <strong>
+                          1
+                        </strong>
                       </span>
-                      <strong>
-                         
-                        1
-                         
-                      </strong>
                     </div>
                     <div
                       class="row-buttons cell"
@@ -1598,7 +1604,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="revisionRow f1x1c13s fp4ugv1"
+                    class="revisionRow fib0xwf fp4ugv1"
                     role="row"
                   >
                     <div
@@ -1679,22 +1685,25 @@ exports[`Results Table Should match snapshot 1`] = `
                       role="cell"
                     >
                       <span>
-                        B:
+                        <span
+                          title="Base runs"
+                        >
+                          B:
+                        </span>
+                        <strong>
+                          1
+                        </strong>
                       </span>
-                      <strong>
-                         
-                        1
-                         
-                      </strong>
-                       
                       <span>
-                         N: 
+                        <span
+                          title="New runs"
+                        >
+                          N:
+                        </span>
+                        <strong>
+                          1
+                        </strong>
                       </span>
-                      <strong>
-                         
-                        1
-                         
-                      </strong>
                     </div>
                     <div
                       class="row-buttons cell"
@@ -1869,7 +1878,7 @@ exports[`Results Table Should match snapshot 1`] = `
                 </div>
                 <div>
                   <div
-                    class="revisionRow f1x1c13s fp4ugv1"
+                    class="revisionRow fib0xwf fp4ugv1"
                     role="row"
                   >
                     <div
@@ -1949,22 +1958,25 @@ exports[`Results Table Should match snapshot 1`] = `
                       role="cell"
                     >
                       <span>
-                        B:
+                        <span
+                          title="Base runs"
+                        >
+                          B:
+                        </span>
+                        <strong>
+                          1
+                        </strong>
                       </span>
-                      <strong>
-                         
-                        1
-                         
-                      </strong>
-                       
                       <span>
-                         N: 
+                        <span
+                          title="New runs"
+                        >
+                          N:
+                        </span>
+                        <strong>
+                          1
+                        </strong>
                       </span>
-                      <strong>
-                         
-                        1
-                         
-                      </strong>
                     </div>
                     <div
                       class="row-buttons cell"

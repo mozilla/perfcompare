@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense, useState, lazy } from 'react';
 
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -15,9 +15,10 @@ import { Framework } from '../../types/types';
 import FrameworkDropdown from '../Shared/FrameworkDropdown';
 import DownloadButton from './DownloadButton';
 import type { LoaderReturnValue } from './loader';
-import ResultsTable from './ResultsTable';
 import RevisionSelect from './RevisionSelect';
 import SearchInput from './SearchInput';
+
+const ResultsTable = lazy(() => import('./ResultsTable'));
 
 function ResultsMain() {
   const { results, frameworkId } = useLoaderData() as LoaderReturnValue;
@@ -25,23 +26,8 @@ function ResultsMain() {
   const themeMode = useAppSelector((state) => state.theme.mode);
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchTerm, setSearchTerm] = useState('');
-  const [isLoading, setIsLoading] = useState(true);
+
   const [frameworkIdVal, setFrameworkIdVal] = useState(frameworkId);
-
-  // allows user to see the loading spinner
-  // for a short time when changing frameworks
-
-  //remove
-  useEffect(() => {
-    const waitForResults = async () => {
-      await results;
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 50);
-    };
-
-    void waitForResults();
-  }, [isLoading]);
 
   const themeColor100 =
     themeMode === 'light' ? Colors.Background300 : Colors.Background100Dark;
@@ -78,7 +64,6 @@ function ResultsMain() {
 
     searchParams.set('framework', id.toString());
     setSearchParams(searchParams);
-    setIsLoading(true);
   };
 
   return (
@@ -95,23 +80,18 @@ function ResultsMain() {
             <div className={styles.title}>Results</div>
             <div className={styles.content}>
               <SearchInput onChange={setSearchTerm} />
-              {isLoading ? (
-                <Box display='flex' sx={{ margin: 'auto' }}>
-                  <CircularProgress />
-                </Box>
-              ) : (
-                <FormControl sx={{ minWidth: 120 }}>
-                  <FrameworkDropdown
-                    frameworkId={frameworkIdVal}
-                    mode={themeMode}
-                    frameworkStyles={frameworkStyles}
-                    size='small'
-                    variant='outlined'
-                    frameworkProps={frameworkProps}
-                    onChange={onFrameworkChange}
-                  />
-                </FormControl>
-              )}
+
+              <FormControl sx={{ minWidth: 120 }}>
+                <FrameworkDropdown
+                  frameworkId={frameworkIdVal}
+                  mode={themeMode}
+                  frameworkStyles={frameworkStyles}
+                  size='small'
+                  variant='outlined'
+                  frameworkProps={frameworkProps}
+                  onChange={onFrameworkChange}
+                />
+              </FormControl>
 
               <RevisionSelect />
               <DownloadButton />
