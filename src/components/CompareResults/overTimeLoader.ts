@@ -1,5 +1,3 @@
-import { defer } from 'react-router-dom';
-
 import { repoMap, frameworks, timeRanges } from '../../common/constants';
 import { compareOverTimeView } from '../../common/constants';
 import {
@@ -182,7 +180,7 @@ export async function loader({ request }: { request: Request }) {
 
   const newRevsInfo = await Promise.all(newRevsInfoPromises);
 
-  return defer({
+  return {
     results: resultsTimePromise,
     baseRepo,
     newRevs,
@@ -193,7 +191,7 @@ export async function loader({ request }: { request: Request }) {
     intervalValue,
     intervalText,
     view: compareOverTimeView,
-  });
+  };
 }
 
 type DeferredLoaderData = {
@@ -209,4 +207,6 @@ type DeferredLoaderData = {
   view: typeof compareOverTimeView;
 };
 
+// Be explicit with the returned type to control it better than if we were
+// inferring it.
 export type LoaderReturnValue = DeferredLoaderData;

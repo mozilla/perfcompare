@@ -1,5 +1,3 @@
-import { defer } from 'react-router-dom';
-
 import { repoMap, frameworks } from '../../common/constants';
 import { compareView } from '../../common/constants';
 import {
@@ -222,7 +220,7 @@ export async function loader({ request }: { request: Request }) {
     ...newRevsInfoPromises,
   ]);
 
-  return defer({
+  return {
     results: resultsPromise,
     baseRev,
     baseRevInfo,
@@ -233,7 +231,7 @@ export async function loader({ request }: { request: Request }) {
     frameworkId,
     frameworkName,
     view: compareView,
-  });
+  };
 }
 
 type DeferredLoaderData = {
@@ -249,6 +247,6 @@ type DeferredLoaderData = {
   view: typeof compareView;
 };
 
-//had to be more explicit with the type because the defer
-//function returns a an inaccessible type
+// Be explicit with the returned type to control it better than if we were
+// inferring it.
 export type LoaderReturnValue = DeferredLoaderData;
