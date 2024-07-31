@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Grid, Input, SelectChangeEvent, Typography } from '@mui/material';
+import { Grid, SelectChangeEvent, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import { VariantType, useSnackbar } from 'notistack';
 import { Form, useSearchParams } from 'react-router-dom';
@@ -15,7 +15,7 @@ import { Changeset, Repository } from '../../types/state';
 import { Framework, TimeRange } from '../../types/types';
 import CancelAndCompareButtons from './CancelAndCompareButtons';
 import EditButton from './EditButton';
-import FrameworkDropdown from './FrameworkDropdown';
+import SearchFrameworkComponent from './SearchFrameWorkComponent';
 import SearchOverTime from './SearchOverTime';
 
 const strings = Strings.components.searchDefault;
@@ -222,7 +222,7 @@ function CompareOverTime({
             alignItems='flex-end'
           >
             {!hasEditButton && (
-              <FrameworkDropdown
+              <SearchFrameworkComponent
                 frameworkId={frameworkId}
                 onChange={(event: SelectChangeEvent) => {
                   const id = +event.target.value as Framework['id'];
@@ -233,11 +233,11 @@ function CompareOverTime({
 
             {/**** Hidden Input to capture framework when user updates revisions ****/}
             {hasEditButton && (
-              <Input
-                sx={{ visibility: 'hidden' }}
-                value={frameworkURL}
+              <input
+                value={frameworkURL?.toString()}
                 name='framework'
-              ></Input>
+                type='hidden'
+              ></input>
             )}
 
             <CancelAndCompareButtons

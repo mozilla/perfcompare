@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Input, SelectChangeEvent, Typography } from '@mui/material';
+import { SelectChangeEvent, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import { VariantType, useSnackbar } from 'notistack';
@@ -14,8 +14,8 @@ import type { Changeset, Repository } from '../../types/state';
 import { Framework } from '../../types/types';
 import CancelAndCompareButtons from './CancelAndCompareButtons';
 import EditButton from './EditButton';
-import FrameworkDropdown from './FrameworkDropdown';
 import SearchComponent from './SearchComponent';
+import SearchFrameworkComponent from './SearchFrameWorkComponent';
 
 const strings = Strings.components.searchDefault;
 const stringsBase = Strings.components.searchDefault.base.collapsed.base;
@@ -302,11 +302,11 @@ function CompareWithBase({
             xs={2}
             display='flex'
             justifyContent={hasEditButton ? 'flex-end' : 'space-between'}
-            className={`${dropDownStyles.dropDown}`}
+            className={dropDownStyles.dropDown}
             alignItems='flex-end'
           >
             {!hasEditButton && (
-              <FrameworkDropdown
+              <SearchFrameworkComponent
                 frameworkId={frameworkId}
                 onChange={(event: SelectChangeEvent) => {
                   const id = +event.target.value as Framework['id'];
@@ -317,11 +317,11 @@ function CompareWithBase({
 
             {/**** Hidden Input to capture framework when user updates revisions ****/}
             {hasEditButton && (
-              <Input
-                sx={{ visibility: 'hidden' }}
-                value={frameworkURL}
+              <input
+                type='hidden'
+                value={frameworkURL?.toString()}
                 name='framework'
-              ></Input>
+              ></input>
             )}
 
             <CancelAndCompareButtons

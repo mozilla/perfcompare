@@ -470,8 +470,8 @@ exports[`Search View renders correctly when there are no results 1`] = `
                     </svg>
                   </label>
                   <div
-                    class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-                    data-testid="dropdown-select-framework"
+                    class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl framework-dropdown-select css-1nctpo-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                    data-testid="framework-select"
                   >
                     <div
                       aria-expanded="false"
@@ -900,8 +900,8 @@ exports[`Search View renders correctly when there are no results 1`] = `
                     </svg>
                   </label>
                   <div
-                    class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-                    data-testid="dropdown-select-framework"
+                    class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl framework-dropdown-select css-1nctpo-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                    data-testid="framework-select"
                   >
                     <div
                       aria-expanded="false"

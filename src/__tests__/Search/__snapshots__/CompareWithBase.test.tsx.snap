@@ -598,16 +598,11 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
   <div
     class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f913nm1 css-13jteey-MuiGrid-root"
   >
-    <div
-      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary css-7gzrj-MuiInputBase-root-MuiInput-root"
-    >
-      <input
-        class="MuiInputBase-input MuiInput-input css-1fokvfi-MuiInputBase-input-MuiInput-input"
-        name="framework"
-        type="text"
-        value="2"
-      />
-    </div>
+    <input
+      name="framework"
+      type="hidden"
+      value="2"
+    />
     <div
       class=" fs9pw6x cancel-compare"
     >
@@ -1364,16 +1359,11 @@ exports[`Compare With Base should have an edit mode in Results View: After click
   <div
     class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f913nm1 css-13jteey-MuiGrid-root"
   >
-    <div
-      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary css-7gzrj-MuiInputBase-root-MuiInput-root"
-    >
-      <input
-        class="MuiInputBase-input MuiInput-input css-1fokvfi-MuiInputBase-input-MuiInput-input"
-        name="framework"
-        type="text"
-        value="2"
-      />
-    </div>
+    <input
+      name="framework"
+      type="hidden"
+      value="2"
+    />
     <div
       class=" fs9pw6x cancel-compare"
     >
@@ -2002,16 +1992,11 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
   <div
     class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f913nm1 css-13jteey-MuiGrid-root"
   >
-    <div
-      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary css-7gzrj-MuiInputBase-root-MuiInput-root"
-    >
-      <input
-        class="MuiInputBase-input MuiInput-input css-1fokvfi-MuiInputBase-input-MuiInput-input"
-        name="framework"
-        type="text"
-        value="2"
-      />
-    </div>
+    <input
+      name="framework"
+      type="hidden"
+      value="2"
+    />
     <div
       class=" fs9pw6x cancel-compare"
     >
@@ -2509,16 +2494,11 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
   <div
     class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f913nm1 css-13jteey-MuiGrid-root"
   >
-    <div
-      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary css-7gzrj-MuiInputBase-root-MuiInput-root"
-    >
-      <input
-        class="MuiInputBase-input MuiInput-input css-1fokvfi-MuiInputBase-input-MuiInput-input"
-        name="framework"
-        type="text"
-        value="2"
-      />
-    </div>
+    <input
+      name="framework"
+      type="hidden"
+      value="2"
+    />
     <div
       class=" fs9pw6x cancel-compare"
     >
@@ -3035,16 +3015,11 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
   <div
     class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f913nm1 css-13jteey-MuiGrid-root"
   >
-    <div
-      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary css-7gzrj-MuiInputBase-root-MuiInput-root"
-    >
-      <input
-        class="MuiInputBase-input MuiInput-input css-1fokvfi-MuiInputBase-input-MuiInput-input"
-        name="framework"
-        type="text"
-        value="2"
-      />
-    </div>
+    <input
+      name="framework"
+      type="hidden"
+      value="2"
+    />
     <div
       class=" fs9pw6x cancel-compare"
     >
@@ -3547,8 +3522,8 @@ exports[`Compare With Base should remove the checked revision once X button is c
                     </svg>
                   </label>
                   <div
-                    class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-                    data-testid="dropdown-select-framework"
+                    class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl framework-dropdown-select css-1nctpo-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                    data-testid="framework-select"
                   >
                     <div
                       aria-expanded="false"
@@ -3977,8 +3952,8 @@ exports[`Compare With Base should remove the checked revision once X button is c
                     </svg>
                   </label>
                   <div
-                    class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
-                    data-testid="dropdown-select-framework"
+                    class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl framework-dropdown-select css-1nctpo-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                    data-testid="framework-select"
                   >
                     <div
                       aria-expanded="false"
@@ -4038,7 +4013,6 @@ exports[`Compare With Base should remove the checked revision once X button is c
 
 exports[`Compare With Base updates the framework and url when a new one is selected: after awsy is selected 1`] = `
 <ul
-  aria-labelledby="select-framework-label-results"
   class="MuiList-root MuiList-padding MuiMenu-list css-6hp17o-MuiList-root-MuiMenu-list"
   role="listbox"
   tabindex="-1"

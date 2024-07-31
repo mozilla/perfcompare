@@ -1,12 +1,10 @@
 import InfoIcon from '@mui/icons-material/InfoOutlined';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { SelectChangeEvent } from '@mui/material/Select';
 import Tooltip from '@mui/material/Tooltip';
 import { style, cssRule } from 'typestyle';
 
-import { frameworkMap } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import {
@@ -17,6 +15,7 @@ import {
   DropDownItemRaw,
 } from '../../styles';
 import type { Framework } from '../../types/types';
+import FrameworkDropdown from '../Shared/FrameworkDropdown';
 
 const strings = Strings.components.searchDefault.sharedCollasped.framework;
 
@@ -25,23 +24,10 @@ interface FrameworkDropdownProps {
   onChange: (event: SelectChangeEvent) => void;
 }
 
-const sortFrameworks = (
-  frameworks: Record<Framework['id'], Framework['name']>,
-) => {
-  const unsortedArray = Object.entries(frameworks);
-
-  // Sort the array based on values
-
-  const sortedArray = unsortedArray.sort((a, b) => {
-    return a[1].localeCompare(b[1]);
-  });
-
-  return sortedArray;
-};
-
-const sortedFrameworks = sortFrameworks(frameworkMap);
-
-function FrameworkDropdown({ frameworkId, onChange }: FrameworkDropdownProps) {
+function SearchFrameworkComponent({
+  frameworkId,
+  onChange,
+}: FrameworkDropdownProps) {
   const mode = useAppSelector((state) => state.theme.mode);
 
   cssRule('.MuiPopover-root', {
@@ -79,36 +65,23 @@ function FrameworkDropdown({ frameworkId, onChange }: FrameworkDropdownProps) {
   };
 
   return (
-    <>
-      <FormControl className={`framework-dropdown ${styles.container}`}>
-        <InputLabel
-          id='select-framework-label'
-          className='dropdown-select-label'
-        >
-          {strings.selectLabel}
-          <Tooltip placement='top' title={strings.tooltip}>
-            <InfoIcon fontSize='small' className='dropdown-info-icon' />
-          </Tooltip>
-        </InputLabel>
-        <Select
-          data-testid='dropdown-select-framework'
-          label={strings.selectLabel}
-          value={`${frameworkId}`}
-          labelId='select-framework-label'
-          className='dropdown-select'
-          variant='standard'
-          onChange={onChange}
-          name='framework'
-        >
-          {sortedFrameworks.map(([id, name]) => (
-            <MenuItem value={id} key={name} className='framework-dropdown-item'>
-              {name}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-    </>
+    <FormControl className={`framework-dropdown ${styles.container}`}>
+      <InputLabel id='select-framework-label' className='dropdown-select-label'>
+        {strings.selectLabel}
+        <Tooltip placement='top' title={strings.tooltip}>
+          <InfoIcon fontSize='small' className='dropdown-info-icon' />
+        </Tooltip>
+      </InputLabel>
+      <FrameworkDropdown
+        frameworkId={frameworkId}
+        labelId='select-framework-label'
+        mode={mode}
+        frameworkStyles={styles}
+        variant='standard'
+        onChange={onChange}
+      />
+    </FormControl>
   );
 }
 
-export default FrameworkDropdown;
+export default SearchFrameworkComponent;

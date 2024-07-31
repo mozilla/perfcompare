@@ -1328,9 +1328,10 @@ exports[`Results View renders framework dropdown in closed condition 1`] = `
 <div
   aria-expanded="false"
   aria-haspopup="listbox"
-  aria-labelledby="select-framework-label-results mui-component-select-frameworkResults"
+  aria-label="without label"
+  aria-labelledby="mui-component-select-framework"
   class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-jaypmb-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
-  id="mui-component-select-frameworkResults"
+  id="mui-component-select-framework"
   role="button"
   tabindex="0"
 >

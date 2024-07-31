@@ -305,7 +305,7 @@ describe('Compare With Base', () => {
     expect(header).toBeInTheDocument();
 
     const frameworkDropdown = screen.getByRole('button', {
-      name: 'build_metrics',
+      name: 'without label',
     });
 
     await user.click(frameworkDropdown);

@@ -1,8 +1,9 @@
 import { Suspense, useEffect, useState } from 'react';
 
-import { SelectChangeEvent } from '@mui/material';
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
+import FormControl from '@mui/material/FormControl';
+import { SelectChangeEvent } from '@mui/material/Select';
 import { Container } from '@mui/system';
 import { useSearchParams } from 'react-router-dom';
 import { Await, useLoaderData } from 'react-router-dom';
@@ -10,12 +11,10 @@ import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
 import { Colors, Spacing } from '../../styles';
-// import type { CompareResultsItem } from '../../types/state';
-import { Repository } from '../../types/state';
 import { Framework } from '../../types/types';
+import FrameworkDropdown from '../Shared/FrameworkDropdown';
 import DownloadButton from './DownloadButton';
 import type { LoaderReturnValue } from './loader';
-import ResultsFrameworkDropdown from './ResultsFrameWorkDropDown';
 import ResultsTable from './ResultsTable';
 import RevisionSelect from './RevisionSelect';
 import SearchInput from './SearchInput';
@@ -62,30 +61,21 @@ function ResultsMain() {
     }),
   };
 
-  type SearchParamsType = {
-    [key: string]:
-      | string
-      | string[]
-      | Framework['id']
-      | Framework['name']
-      | Repository['name'];
+  const frameworkStyles = {
+    marginRight: `${Spacing.Medium}px`,
+    marginLeft: `${Spacing.Medium}px`,
+  };
+
+  const frameworkProps = {
+    'aria-label': 'without label',
   };
 
   const onFrameworkChange = (event: SelectChangeEvent) => {
     const id = +event.target.value as Framework['id'];
     setFrameworkIdVal(id);
-    const searchParamsObject = {} as SearchParamsType;
-    searchParams.forEach((_, key) => {
-      const values = searchParams.getAll(key);
-      // account for revs and repos being arrays
-      if (values.length > 1) {
-        searchParamsObject[key] = values;
-      } else {
-        searchParamsObject[key] = values[0];
-      }
-    });
 
-    setSearchParams({ ...searchParamsObject, framework: id.toString() });
+    searchParams.set('framework', id.toString());
+    setSearchParams(searchParams);
     setIsLoading(true);
   };
 
@@ -108,10 +98,17 @@ function ResultsMain() {
                   <CircularProgress />
                 </Box>
               ) : (
-                <ResultsFrameworkDropdown
-                  frameworkId={frameworkIdVal}
-                  onChange={onFrameworkChange}
-                />
+                <FormControl sx={{ minWidth: 120 }}>
+                  <FrameworkDropdown
+                    frameworkId={frameworkIdVal}
+                    mode={themeMode}
+                    frameworkStyles={frameworkStyles}
+                    size='small'
+                    variant='outlined'
+                    frameworkProps={frameworkProps}
+                    onChange={onFrameworkChange}
+                  />
+                </FormControl>
               )}
 
               <RevisionSelect />

@@ -677,16 +677,11 @@ exports[`Results Table Should match snapshot 1`] = `
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f913nm1 css-13jteey-MuiGrid-root"
               >
-                <div
-                  class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary css-7gzrj-MuiInputBase-root-MuiInput-root"
-                >
-                  <input
-                    class="MuiInputBase-input MuiInput-input css-1fokvfi-MuiInputBase-input-MuiInput-input"
-                    name="framework"
-                    type="text"
-                    value="1"
-                  />
-                </div>
+                <input
+                  name="framework"
+                  type="hidden"
+                  value="1"
+                />
                 <div
                   class=" fs9pw6x cancel-compare"
                 >
@@ -808,19 +803,19 @@ exports[`Results Table Should match snapshot 1`] = `
                   </div>
                 </form>
                 <div
-                  class="MuiBox-root css-nn803e"
-                  data-testid="dropdown-select"
+                  class="MuiFormControl-root css-pe0pe4-MuiFormControl-root"
                 >
                   <div
-                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall framework-dropdown-select-results css-rbqt93-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall framework-dropdown-select css-o91dfy-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
                     data-testid="framework-select"
                   >
                     <div
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-labelledby="select-framework-label-results mui-component-select-frameworkResults"
+                      aria-label="without label"
+                      aria-labelledby="mui-component-select-framework"
                       class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-jaypmb-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
-                      id="mui-component-select-frameworkResults"
+                      id="mui-component-select-framework"
                       role="button"
                       tabindex="0"
                     >
@@ -829,7 +824,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     <input
                       aria-hidden="true"
                       class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                      name="frameworkResults"
+                      name="framework"
                       tabindex="-1"
                       value="1"
                     />
@@ -849,10 +844,12 @@ exports[`Results Table Should match snapshot 1`] = `
                       class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="css-yjsfm1"
+                        class="css-ihdtdm"
                       >
-                        <span>
-                          Framework
+                        <span
+                          class="notranslate"
+                        >
+                          ​
                         </span>
                       </legend>
                     </fieldset>
