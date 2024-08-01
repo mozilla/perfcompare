@@ -1,3 +1,5 @@
+import moize from 'moize';
+
 import { JobInformation } from '../types/api';
 import { CompareResultsItem, Repository, Changeset } from '../types/state';
 import { Framework, TimeRange } from '../types/types';
@@ -210,6 +212,15 @@ export async function fetchRevisionForRepository(opts: {
   const listOfOneRevision = await fetchRecentRevisions(opts);
   return listOfOneRevision[0];
 }
+
+// The memoized version of fetchRecentRevisions.
+// We picked an arbitrary number of 5: we need 4 for base + 3 revs, and added an
+// extra one to allow moving back and worth with some options. It could be
+// increased some more later if needed.
+export const memoizedFetchRevisionForRepository = moize(
+  fetchRevisionForRepository,
+  { isPromise: true, isShallowEqual: true, maxSize: 5 },
+) as typeof fetchRevisionForRepository;
 
 export async function fetchJobInformationFromJobId(
   repo: string,

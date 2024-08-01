@@ -5,7 +5,7 @@ import { compareView } from '../../common/constants';
 import {
   fetchCompareResults,
   fetchFakeCompareResults,
-  fetchRevisionForRepository,
+  memoizedFetchRevisionForRepository,
 } from '../../logic/treeherder';
 import { Changeset, Repository } from '../../types/state';
 import { FakeCommitHash, Framework } from '../../types/types';
@@ -206,12 +206,15 @@ export async function loader({ request }: { request: Request }) {
   // For each of these requests, we get a list of 1 item because we request one
   // specific hash.
   // TODO what happens if there's no result?
-  const baseRevInfoPromise = fetchRevisionForRepository({
+  const baseRevInfoPromise = memoizedFetchRevisionForRepository({
     repository: baseRepo,
     hash: baseRev,
   });
   const newRevsInfoPromises = newRevs.map((newRev, i) =>
-    fetchRevisionForRepository({ repository: newRepos[i], hash: newRev }),
+    memoizedFetchRevisionForRepository({
+      repository: newRepos[i],
+      hash: newRev,
+    }),
   );
 
   const [baseRevInfo, ...newRevsInfo] = await Promise.all([

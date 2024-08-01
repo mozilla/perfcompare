@@ -23,6 +23,7 @@
     "format": "^0.2.2",
     "json-e": "^4.7.0",
     "material-ui-popup-state": "^5.1.2",
+    "moize": "^6.1.6",
     "notistack": "^2.0.5",
     "process": "^0.11.10",
     "react": "^18.2.0",

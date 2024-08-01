@@ -4,7 +4,7 @@ import { repoMap, frameworks, timeRanges } from '../../common/constants';
 import { compareOverTimeView } from '../../common/constants';
 import {
   fetchCompareOverTimeResults,
-  fetchRevisionForRepository,
+  memoizedFetchRevisionForRepository,
 } from '../../logic/treeherder';
 import { Changeset, Repository } from '../../types/state';
 import { Framework, TimeRange } from '../../types/types';
@@ -174,7 +174,10 @@ export async function loader({ request }: { request: Request }) {
   });
 
   const newRevsInfoPromises = newRevs.map((newRev, i) =>
-    fetchRevisionForRepository({ repository: newRepos[i], hash: newRev }),
+    memoizedFetchRevisionForRepository({
+      repository: newRepos[i],
+      hash: newRev,
+    }),
   );
 
   const newRevsInfo = await Promise.all(newRevsInfoPromises);
