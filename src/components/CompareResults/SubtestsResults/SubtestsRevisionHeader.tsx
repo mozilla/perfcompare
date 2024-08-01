@@ -1,20 +1,28 @@
+import { type ReactNode } from 'react';
+
+import AppleIcon from '@mui/icons-material/Apple';
 import { Link } from '@mui/material';
 import { style } from 'typestyle';
 
-import { Strings } from '../../resources/Strings';
-import { Colors, Spacing } from '../../styles';
-import type { RevisionsHeader } from '../../types/state';
+import { Strings } from '../../../resources/Strings';
+import { Colors, Spacing } from '../../../styles';
+import type {
+  SubtestsRevisionsHeader,
+  PlatformShortName,
+} from '../../../types/state';
 import {
   getTreeherderURL,
   truncateHash,
   getDocsURL,
-} from '../../utils/helpers';
+} from '../../../utils/helpers';
+import { getPlatformShortName } from '../../../utils/platform';
+import AndroidIcon from '../../Shared/Icons/AndroidIcon';
+import LinuxIcon from '../../Shared/Icons/LinuxIcon';
+import WindowsIcon from '../../Shared/Icons/WindowsIcon';
 
 const styles = {
   revisionHeader: style({
-    borderBottom: `0.5px solid ${Colors.BorderDropdownMenu}`,
     display: 'flex',
-    justifyContent: 'space-between',
     alignItems: 'center',
     paddingBottom: '12px',
     marginBottom: '12px',
@@ -36,13 +44,11 @@ const styles = {
   chip: style({
     borderRadius: '4px',
     color: Colors.Background300,
-    // To be removed
     fontFamily: 'SF Pro',
     fontStyle: 'normal',
     fontWeight: 700,
     fontSize: '8.2px',
-    // End to be removed - update SubtestsRevisionHeader if this is removed
-    gap: Spacing.Small + 2,
+    gap: 10,
     letterSpacing: '0.02em',
     marginLeft: Spacing.xSmall,
     padding: Spacing.xSmall,
@@ -58,12 +64,11 @@ const styles = {
   }),
 };
 
-function createTitle(
-  header: RevisionsHeader,
+function getSuite(
+  header: SubtestsRevisionsHeader,
   docsURL: string,
   isLinkSupported: boolean,
 ) {
-  const isTestUnavailable = header.test === '' || header.suite === header.test;
   if (isLinkSupported) {
     return (
       <>
@@ -75,11 +80,10 @@ function createTitle(
         >
           {header.suite}
         </Link>
-        {isTestUnavailable ? '' : ` ${header.test}`}
       </>
     );
   } else {
-    return isTestUnavailable ? header.suite : `${header.suite} ${header.test}`;
+    return header.suite;
   }
 }
 
@@ -87,25 +91,36 @@ function getExtraOptions(extraOptions: string) {
   return extraOptions ? extraOptions.split(' ') : [];
 }
 
-function RevisionHeader(props: RevisionHeaderProps) {
+function SubtestsRevisionHeader(props: SubtestsRevisionHeaderProps) {
   const { header } = props;
   const { docsURL, isLinkSupported } = getDocsURL(
     header.suite,
     header.framework_id,
   );
+  const platformIcons: Record<PlatformShortName, ReactNode> = {
+    Linux: <LinuxIcon />,
+    OSX: <AppleIcon />,
+    Windows: <WindowsIcon />,
+    Android: <AndroidIcon />,
+    Unspecified: '',
+  };
+
+  const platformShortName = getPlatformShortName(header.platform);
+  const platformIcon = platformIcons[platformShortName];
   const extraOptions = getExtraOptions(header.extra_options);
   const shortHash = truncateHash(header.new_rev);
   return (
     <div className={styles.revisionHeader}>
       <div className={styles.typography}>
-        <strong>{createTitle(header, docsURL, isLinkSupported)}</strong>{' '}
+        <strong>{getSuite(header, docsURL, isLinkSupported)}</strong> |{' '}
         <Link
           href={getTreeherderURL(header.new_rev, header.new_repo)}
           target='_blank'
           title={`${Strings.components.revisionRow.title.jobLink} ${shortHash}`}
         >
           {shortHash}
-        </Link>
+        </Link>{' '}
+        | {platformIcon} <span>{platformShortName}</span> |{' '}
       </div>
       <div className={styles.tagsOptions}>
         <span className={styles.chip}>{header.option_name}</span>
@@ -119,8 +134,8 @@ function RevisionHeader(props: RevisionHeaderProps) {
   );
 }
 
-interface RevisionHeaderProps {
-  header: RevisionsHeader;
+interface SubtestsRevisionHeaderProps {
+  header: SubtestsRevisionsHeader;
 }
 
-export default RevisionHeader;
+export default SubtestsRevisionHeader;

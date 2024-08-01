@@ -22,7 +22,8 @@ import OverTimeResultsView from './CompareResults/OverTimeResultsView';
 import ResultsView from './CompareResults/ResultsView';
 import { loader as compareSubtestsLoader } from './CompareResults/subtestsLoader';
 import { loader as compareSubtestsOverTimeLoader } from './CompareResults/subtestsOverTimeLoader';
-import SubtestsResultsView from './CompareResults/SubtestsResultsView';
+import SubtestsOverTimeResultsView from './CompareResults/SubtestsResults/SubtestsOverTimeResultsView';
+import SubtestsResultsView from './CompareResults/SubtestsResults/SubtestsResultsView';
 import SearchView from './Search/SearchView';
 import { PageError } from './Shared/PageError';
 import SnackbarCloseButton from './Shared/SnackbarCloseButton';
@@ -89,15 +90,21 @@ export const router = createBrowserRouter(
       <Route
         path='/subtestsCompareWithBase'
         loader={compareSubtestsLoader}
-        element={<SubtestsResultsView />}
-        errorElement={<PageError title={Strings.metaData.pageTitle.results} />}
+        element={
+          <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />
+        }
+        errorElement={<PageError title={Strings.metaData.pageTitle.subtests} />}
       />
 
       <Route
         path='/subtestsCompareOverTime'
         loader={compareSubtestsOverTimeLoader}
-        element={<SubtestsResultsView />}
-        errorElement={<PageError title={Strings.metaData.pageTitle.results} />}
+        element={
+          <SubtestsOverTimeResultsView
+            title={Strings.metaData.pageTitle.subtests}
+          />
+        }
+        errorElement={<PageError title={Strings.metaData.pageTitle.subtests} />}
       />
 
       <Route

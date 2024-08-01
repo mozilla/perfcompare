@@ -3,19 +3,15 @@ import { useMemo, useState } from 'react';
 import Box from '@mui/material/Box';
 import { useAsyncValue } from 'react-router-dom';
 
-import { useAppSelector } from '../../hooks/app';
-import { Strings } from '../../resources/Strings';
-import type { CompareResultsItem, RevisionsHeader } from '../../types/state';
-import type { CompareResultsTableConfig } from '../../types/types';
-import { getPlatformShortName } from '../../utils/platform';
-import NoResultsFound from './NoResultsFound';
-import TableContent from './TableContent';
-import TableHeader from './TableHeader';
+import type { CompareResultsItem } from '../../../types/state';
+import type { CompareResultsTableConfig } from '../../../types/types';
+import NoResultsFound from '.././NoResultsFound';
+import TableHeader from '.././TableHeader';
+import SubtestsTableContent from './SubtestsTableContent';
 
-type Results = {
+type SubtestsResults = {
   key: string;
   value: CompareResultsItem[];
-  revisionHeader: RevisionsHeader;
 };
 
 function processResults(results: CompareResultsItem[]) {
@@ -34,21 +30,12 @@ function processResults(results: CompareResultsItem[]) {
       processedResults.set(rowIdentifier, [result]);
     }
   });
-  const restructuredResults: Results[] = Array.from(
+  const restructuredResults: SubtestsResults[] = Array.from(
     processedResults,
     function ([rowIdentifier, result]) {
       return {
         key: rowIdentifier,
         value: result,
-        revisionHeader: {
-          suite: result[0].suite,
-          framework_id: result[0].framework_id,
-          test: result[0].test,
-          option_name: result[0].option_name,
-          extra_options: result[0].extra_options,
-          new_rev: result[0].new_rev,
-          new_repo: result[0].new_repository_name,
-        },
       };
     },
   );
@@ -58,16 +45,9 @@ function processResults(results: CompareResultsItem[]) {
 
 const cellsConfiguration: CompareResultsTableConfig[] = [
   {
-    name: 'Platform',
-    disable: true,
-    filter: true,
-    key: 'platform',
-    possibleValues: ['Windows', 'OSX', 'Linux', 'Android'],
-    gridWidth: '2fr',
-    matchesFunction: (result: CompareResultsItem, value: string) => {
-      const platformName = getPlatformShortName(result.platform);
-      return platformName === value;
-    },
+    name: 'Subtests',
+    key: 'subtests',
+    gridWidth: '4fr',
   },
   {
     name: 'Base',
@@ -114,14 +94,7 @@ function resultMatchesSearchTerm(
   result: CompareResultsItem,
   searchTerm: string,
 ) {
-  return (
-    result.suite.includes(searchTerm) ||
-    result.extra_options.includes(searchTerm) ||
-    result.option_name.includes(searchTerm) ||
-    result.test.includes(searchTerm) ||
-    result.new_rev.includes(searchTerm) ||
-    result.platform.includes(searchTerm)
-  );
+  return result.test.includes(searchTerm);
 }
 
 function resultMatchesColumnFilter(
@@ -171,30 +144,20 @@ function filterResults(
   });
 }
 
-const allRevisionsOption =
-  Strings.components.comparisonRevisionDropdown.allRevisions.key;
-
 type ResultsTableProps = {
   filteringSearchTerm: string;
 };
 
-function ResultsTable({ filteringSearchTerm }: ResultsTableProps) {
+function SubtestsResultsTable({ filteringSearchTerm }: ResultsTableProps) {
   const loaderData = useAsyncValue();
   const results = loaderData as CompareResultsItem[][];
-  const activeComparison = useAppSelector(
-    (state) => state.comparison.activeComparison,
-  );
 
   const [tableFilters, setTableFilters] = useState(
     new Map() as Map<string, Set<string>>, // ColumnID -> Set<Values to remove>
   );
 
   const processedResults = useMemo(() => {
-    const resultsForCurrentComparison =
-      activeComparison === allRevisionsOption
-        ? results.flat()
-        : results.find((result) => result[0].new_rev === activeComparison) ??
-          [];
+    const resultsForCurrentComparison = results.flat();
 
     const filteredResults = filterResults(
       resultsForCurrentComparison,
@@ -202,7 +165,7 @@ function ResultsTable({ filteringSearchTerm }: ResultsTableProps) {
       tableFilters,
     );
     return processResults(filteredResults);
-  }, [results, activeComparison, filteringSearchTerm, tableFilters]);
+  }, [results, filteringSearchTerm, tableFilters]);
 
   const onClearFilter = (columnId: string) => {
     setTableFilters((oldFilters) => {
@@ -222,10 +185,11 @@ function ResultsTable({ filteringSearchTerm }: ResultsTableProps) {
 
   return (
     <Box
-      data-testid='results-table'
+      data-testid='subtests-results-table'
       role='table'
       sx={{ marginTop: 3, paddingBottom: 3 }}
     >
+      {/* Using the same TableHeader component as the CompareResults components but with different cellsConfiguration */}
       <TableHeader
         cellsConfiguration={cellsConfiguration}
         filters={tableFilters}
@@ -233,10 +197,9 @@ function ResultsTable({ filteringSearchTerm }: ResultsTableProps) {
         onClearFilter={onClearFilter}
       />
       {processedResults.map((res) => (
-        <TableContent
+        <SubtestsTableContent
           key={res.key}
           identifier={res.key}
-          header={res.revisionHeader}
           results={res.value}
         />
       ))}
@@ -246,4 +209,4 @@ function ResultsTable({ filteringSearchTerm }: ResultsTableProps) {
   );
 }
 
-export default ResultsTable;
+export default SubtestsResultsTable;

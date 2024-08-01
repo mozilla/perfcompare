@@ -8,7 +8,6 @@ import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
 import { Colors, Spacing } from '../../styles';
-// import type { CompareResultsItem } from '../../types/state';
 import DownloadButton from './DownloadButton';
 import type { LoaderReturnValue } from './loader';
 import ResultsTable from './ResultsTable';
