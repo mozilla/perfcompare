@@ -1,7 +1,6 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, memo } from 'react';
 
 import Box from '@mui/material/Box';
-import { useAsyncValue } from 'react-router-dom';
 
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
@@ -176,11 +175,10 @@ const allRevisionsOption =
 
 type ResultsTableProps = {
   filteringSearchTerm: string;
+  results: CompareResultsItem[][];
 };
 
-function ResultsTable({ filteringSearchTerm }: ResultsTableProps) {
-  const loaderData = useAsyncValue();
-  const results = loaderData as CompareResultsItem[][];
+function ResultsTable({ filteringSearchTerm, results }: ResultsTableProps) {
   const activeComparison = useAppSelector(
     (state) => state.comparison.activeComparison,
   );
@@ -246,4 +244,4 @@ function ResultsTable({ filteringSearchTerm }: ResultsTableProps) {
   );
 }
 
-export default ResultsTable;
+export default memo(ResultsTable);
