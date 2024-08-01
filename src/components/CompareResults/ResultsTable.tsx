@@ -2,6 +2,7 @@ import { useMemo, useState, memo } from 'react';
 
 import Box from '@mui/material/Box';
 
+import type { compareView, compareOverTimeView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import type { CompareResultsItem, RevisionsHeader } from '../../types/state';
@@ -176,9 +177,14 @@ const allRevisionsOption =
 type ResultsTableProps = {
   filteringSearchTerm: string;
   results: CompareResultsItem[][];
+  view: typeof compareView | typeof compareOverTimeView;
 };
 
-function ResultsTable({ filteringSearchTerm, results }: ResultsTableProps) {
+function ResultsTable({
+  filteringSearchTerm,
+  results,
+  view,
+}: ResultsTableProps) {
   const activeComparison = useAppSelector(
     (state) => state.comparison.activeComparison,
   );
@@ -236,6 +242,7 @@ function ResultsTable({ filteringSearchTerm, results }: ResultsTableProps) {
           identifier={res.key}
           header={res.revisionHeader}
           results={res.value}
+          view={view}
         />
       ))}
 

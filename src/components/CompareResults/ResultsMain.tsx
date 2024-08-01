@@ -11,12 +11,15 @@ import { Colors, Spacing } from '../../styles';
 import type { CompareResultsItem } from '../../types/state';
 import DownloadButton from './DownloadButton';
 import type { LoaderReturnValue } from './loader';
+import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeLoader';
 import ResultsTable from './ResultsTable';
 import RevisionSelect from './RevisionSelect';
 import SearchInput from './SearchInput';
 
 function ResultsMain() {
-  const { results } = useLoaderData() as LoaderReturnValue;
+  const { results, view } = useLoaderData() as
+    | LoaderReturnValue
+    | OverTimeLoaderReturnValue;
 
   const themeMode = useAppSelector((state) => state.theme.mode);
   const [searchTerm, setSearchTerm] = useState('');
@@ -64,6 +67,7 @@ function ResultsMain() {
               <ResultsTable
                 filteringSearchTerm={searchTerm}
                 results={resolvedResults as CompareResultsItem[][]}
+                view={view}
               />
             </>
           )}

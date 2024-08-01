@@ -6,22 +6,18 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import { IconButton } from '@mui/material';
-import { useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
 
-import { compareView } from '../../common/constants';
+import { compareView, compareOverTimeView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { Colors, Spacing, ExpandableRowStyles } from '../../styles';
 import type { CompareResultsItem, PlatformShortName } from '../../types/state';
-import { TimeRange } from '../../types/types';
 import { getPlatformShortName } from '../../utils/platform';
 import AndroidIcon from '../Shared/Icons/AndroidIcon';
 import LinuxIcon from '../Shared/Icons/LinuxIcon';
 import SubtestsIcon from '../Shared/Icons/SubtestsIcon';
 import WindowsIcon from '../Shared/Icons/WindowsIcon';
-import type { LoaderReturnValue as WithBaseLoaderReturnValue } from './loader';
-import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeLoader';
 import RetriggerButton from './Retrigger/RetriggerButton';
 import RevisionRowExpandable from './RevisionRowExpandable';
 
@@ -221,16 +217,30 @@ const getSubtestsCompareWithBaseLink = (result: CompareResultsItem) => {
   return `/subtestsCompareWithBase?${params.toString()}`;
 };
 
-const getSubtestsCompareOverTimeLink = (
-  result: CompareResultsItem,
-  interval: TimeRange['value'],
-) => {
+const getSubtestsCompareOverTimeLink = (result: CompareResultsItem) => {
+  // Fetching the interval value directly from the URL avoids a
+  // spurious render due to react-router context changing. It's not usually a
+  // problem, but because this component can have a lot of instances, this is a
+  // performance problem in our case.
+  // If the process of fetching it from the URL is too costly, we might need to
+  // pass it down using the props otherwise.
+  const currentSearchParams = new URLSearchParams(location.search);
+  const interval = currentSearchParams.get('selectedTimeRange');
+  if (interval === null) {
+    // We should always have it because it's been checked in the loader already.
+    // Let's throw if it's absent so that if the loader and URL changes in the
+    // future but this path isn't changed, this will be very visible.
+    throw new Error(
+      "The parameter 'selectedTimeRange' is absent from the search parameters, this should not happen.",
+    );
+  }
+
   const params = new URLSearchParams({
     baseRepo: result.base_repository_name,
     newRev: result.new_rev,
     newRepo: result.new_repository_name,
     framework: String(result.framework_id),
-    interval: String(interval),
+    interval,
     baseParentSignature: String(result.base_signature_id),
     newParentSignature: String(result.new_signature_id),
   });
@@ -239,7 +249,7 @@ const getSubtestsCompareOverTimeLink = (
 };
 
 function RevisionRow(props: RevisionRowProps) {
-  const { result } = props;
+  const { result, view } = props;
   const {
     platform,
     base_median_value: baseMedianValue,
@@ -265,16 +275,10 @@ function RevisionRow(props: RevisionRowProps) {
   };
 
   // Note that the return type is different depending on the view we're in
-  const loaderData = useLoaderData() as
-    | WithBaseLoaderReturnValue
-    | OverTimeLoaderReturnValue;
   const subtestsCompareLink =
-    loaderData.view === compareView
+    view === compareView
       ? getSubtestsCompareWithBaseLink(result)
-      : getSubtestsCompareOverTimeLink(
-          result,
-          (loaderData as OverTimeLoaderReturnValue).intervalValue,
-        );
+      : getSubtestsCompareOverTimeLink(result);
 
   const themeMode = useAppSelector((state) => state.theme.mode);
 
@@ -411,6 +415,7 @@ function RevisionRow(props: RevisionRowProps) {
 
 interface RevisionRowProps {
   result: CompareResultsItem;
+  view: typeof compareView | typeof compareOverTimeView;
 }
 
 export default RevisionRow;
