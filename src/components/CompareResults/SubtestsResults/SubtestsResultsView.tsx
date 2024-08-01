@@ -3,11 +3,12 @@ import { useEffect } from 'react';
 import Grid from '@mui/material/Grid';
 import { style } from 'typestyle';
 
+import { subtestsView } from '../../../common/constants';
 import { useAppSelector } from '../../../hooks/app';
 import { background } from '../../../styles';
 import PerfCompareHeader from '../../Shared/PerfCompareHeader';
+import SubtestsBreadcrumbs from './SubtestsBreadcrumbs';
 import SubtestsResultsMain from './SubtestsResultsMain';
-
 interface ResultsViewProps {
   title: string;
 }
@@ -30,6 +31,9 @@ function SubtestsResultsView(props: ResultsViewProps) {
       data-testid='beta-version-compare-subtests-results'
     >
       <PerfCompareHeader />
+      <section>
+        <SubtestsBreadcrumbs view={subtestsView} />
+      </section>
       <Grid container alignItems='center' justifyContent='center'>
         <Grid item xs={12}>
           <SubtestsResultsMain />
