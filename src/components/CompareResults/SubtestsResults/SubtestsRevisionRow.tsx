@@ -17,7 +17,7 @@ const revisionsRow = {
   display: 'grid',
   margin: `${Spacing.Small}px 0px`,
   // Should be kept in sync with the gridTemplateColumns from TableHeader
-  gridTemplateColumns: '2fr 1fr 0.2fr 1fr 1fr 1fr 1fr 1fr 2fr 0.2fr',
+  gridTemplateColumns: '4fr 1fr 0.2fr 1fr 1fr 1fr 1fr 1fr 2fr 0.2fr',
 };
 
 const typography = style({

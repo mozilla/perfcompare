@@ -78,7 +78,6 @@ const styles = {
     $nest: {
       '.MuiButtonBase-root': {
         height: '100%',
-        fontWeight: 590,
       },
     },
   }),

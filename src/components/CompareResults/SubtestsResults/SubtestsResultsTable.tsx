@@ -47,6 +47,7 @@ const cellsConfiguration: CompareResultsTableConfig[] = [
   {
     name: 'Subtests',
     key: 'subtests',
+    gridWidth: '4fr',
   },
   {
     name: 'Base',
@@ -188,7 +189,7 @@ function SubtestsResultsTable({ filteringSearchTerm }: ResultsTableProps) {
       role='table'
       sx={{ marginTop: 3, paddingBottom: 3 }}
     >
-      {/* Using the same TableHeader component as the CompareResults components but with different cellsConfiguration  */}
+      {/* Using the same TableHeader component as the CompareResults components but with different cellsConfiguration */}
       <TableHeader
         cellsConfiguration={cellsConfiguration}
         filters={tableFilters}

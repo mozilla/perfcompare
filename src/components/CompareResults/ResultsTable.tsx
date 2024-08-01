@@ -63,6 +63,7 @@ const cellsConfiguration: CompareResultsTableConfig[] = [
     filter: true,
     key: 'platform',
     possibleValues: ['Windows', 'OSX', 'Linux', 'Android'],
+    gridWidth: '2fr',
     matchesFunction: (result: CompareResultsItem, value: string) => {
       const platformName = getPlatformShortName(result.platform);
       return platformName === value;

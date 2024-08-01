@@ -15,7 +15,9 @@ import SubtestsResultsTable from './SubtestsResultsTable';
 import SubtestsRevisionHeader from './SubtestsRevisionHeader';
 
 function SubtestsResultsMain() {
-  const { results } = useLoaderData() as LoaderReturnValue | OvertimeLoaderReturnValue;
+  const { results } = useLoaderData() as
+    | LoaderReturnValue
+    | OvertimeLoaderReturnValue;
 
   const themeMode = useAppSelector((state) => state.theme.mode);
   const [searchTerm, setSearchTerm] = useState('');
