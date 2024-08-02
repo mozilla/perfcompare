@@ -1,3 +1,5 @@
+import moize from 'moize';
+
 import { JobInformation } from '../types/api';
 import { CompareResultsItem, Repository, Changeset } from '../types/state';
 import { Framework, TimeRange } from '../types/types';
@@ -199,6 +201,26 @@ export async function fetchRecentRevisions(params: RecentRevisionsParams) {
   const json = (await response.json()) as { results: Changeset[] };
   return json.results;
 }
+
+// This is a specialised version of fetchRecentRevisions dedicated to fetching
+// information about one specific revision.
+export async function fetchRevisionForRepository(opts: {
+  repository: string;
+  hash: string;
+}) {
+  // We get a list of 1 item because we request one specific hash.
+  const listOfOneRevision = await fetchRecentRevisions(opts);
+  return listOfOneRevision[0];
+}
+
+// The memoized version of fetchRecentRevisions.
+// We picked an arbitrary number of 5: we need 4 for base + 3 revs, and added an
+// extra one to allow moving back and worth with some options. It could be
+// increased some more later if needed.
+export const memoizedFetchRevisionForRepository = moize(
+  fetchRevisionForRepository,
+  { isPromise: true, isShallowEqual: true, maxSize: 5 },
+) as typeof fetchRevisionForRepository;
 
 export async function fetchJobInformationFromJobId(
   repo: string,
