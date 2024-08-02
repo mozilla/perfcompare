@@ -1,4 +1,5 @@
 import userEvent from '@testing-library/user-event';
+import { Hooks } from 'taskcluster-client-web';
 
 import RetriggerButton from '../../components/CompareResults/Retrigger/RetriggerButton';
 import { getLocationOrigin } from '../../utils/location';
@@ -8,6 +9,7 @@ import {
   fireEvent,
   render,
   screen,
+  waitFor,
   within,
 } from '../utils/test-utils';
 
@@ -15,14 +17,86 @@ jest.mock('../../utils/location');
 const mockedGetLocationOrigin = getLocationOrigin as jest.Mock;
 const result = getTestData().testCompareData[0];
 
+const retriggerMultipleActionDefinition = {
+  context: [],
+  description: 'Create a clone of the task.',
+  extra: {
+    actionPerm: 'generic',
+  },
+  hookGroupId: 'project-gecko',
+  hookId: 'in-tree-action-3-generic/f526da500b',
+  hookPayload: {
+    decision: {
+      action: {
+        cb_name: 'retrigger-multiple',
+        description: 'Create a clone of the task.',
+        name: 'retrigger-multiple',
+        symbol: 'rt',
+        taskGroupId: 'ZccXq7SFRLyRF7l6unyxkQ',
+        title: 'Retrigger',
+      },
+      push: {
+        base_revision: '51748d809eb5e6a7c86eeeb911f3b2b12324b1bf',
+        owner: 'mozilla-taskcluster-maintenance@mozilla.com',
+        pushlog_id: '42024',
+        revision: 'ab17014f4b8f237c9d5fe7b88f8a89c49d0ffe7c',
+      },
+      repository: {
+        level: '3',
+        project: 'mozilla-central',
+        url: 'https://hg.mozilla.org/mozilla-central',
+      },
+    },
+    user: {
+      input: {
+        $eval: 'input',
+      },
+      taskGroupId: {
+        $eval: 'taskGroupId',
+      },
+      taskId: {
+        $eval: 'taskId',
+      },
+    },
+  },
+  kind: 'hook',
+  name: 'retrigger-multiple',
+  schema: {
+    properties: {
+      additionalProperties: false,
+      requests: {
+        items: {
+          additionalProperties: false,
+          tasks: {
+            description: 'An array of task labels',
+            items: {
+              type: 'string',
+            },
+            type: 'array',
+          },
+          times: {
+            description: 'How many times to run each task.',
+            maximum: 100,
+            minimum: 1,
+            title: 'Times',
+            type: 'integer',
+          },
+        },
+        type: 'array',
+      },
+    },
+    type: 'object',
+  },
+  title: 'Retrigger',
+};
+
 const setUpUserCredentials = () => {
-  mockedGetLocationOrigin.mockImplementation(() => 'http://localhost:3000');
   sessionStorage.setItem('requestState', 'OkCrH5isZncYqeJbRDelN');
   sessionStorage.setItem(
     'taskclusterUrl',
     'https://firefox-ci-tc.services.mozilla.com',
   );
-  global.localStorage.setItem(
+  window.localStorage.setItem(
     'userTokens',
     JSON.stringify({
       'https://firefox-ci-tc.services.mozilla.com': {
@@ -31,7 +105,7 @@ const setUpUserCredentials = () => {
       },
     }),
   );
-  global.localStorage.setItem(
+  window.localStorage.setItem(
     'userCredentials',
     JSON.stringify({
       'https://firefox-ci-tc.services.mozilla.com': {
@@ -47,6 +121,10 @@ const setUpUserCredentials = () => {
 };
 
 describe('Retrigger', () => {
+  beforeEach(() => {
+    mockedGetLocationOrigin.mockImplementation(() => 'http://localhost:3000');
+  });
+
   it('should display Sign In modal when there are no credentials', async () => {
     render(<RetriggerButton result={result} />);
 
@@ -75,7 +153,6 @@ describe('Retrigger', () => {
   });
 
   it('should retrigger one job for base revision and one job for new revision', async () => {
-    setUpUserCredentials();
     // fetch requests for base revision info
     (window.fetch as FetchMockSandbox)
       .get(
@@ -93,18 +170,14 @@ describe('Retrigger', () => {
       .get(
         'begin:https://firefox-ci-tc.services.mozilla.com/api/queue/v1/task/TeSt0FIBQyuzPDktQnTest/artifacts/public%2Factions.json',
         {
-          actions: [
-            { hookPayload: {}, kind: 'hook', name: 'retrigger-multiple' },
-          ],
+          actions: [{ ...retriggerMultipleActionDefinition }],
           variables: {},
         },
       )
       .get(
         'begin:https://firefoxci.taskcluster-artifacts.net/TeSt0FIBQyuzPDktQnTest/0/public/actions.json',
         {
-          actions: [
-            { hookPayload: {}, kind: 'hook', name: 'retrigger-multiple' },
-          ],
+          actions: [{ ...retriggerMultipleActionDefinition }],
           variables: {},
         },
       );
@@ -125,22 +198,19 @@ describe('Retrigger', () => {
       .get(
         'https://firefox-ci-tc.services.mozilla.com/api/queue/v1/task/TeStSeCoNDuzPDktwoTest/artifacts/public%2Factions.json',
         {
-          actions: [
-            { hookPayload: {}, kind: 'hook', name: 'retrigger-multiple' },
-          ],
+          actions: [{ ...retriggerMultipleActionDefinition }],
           variables: {},
         },
       )
       .get(
         'begin:https://firefoxci.taskcluster-artifacts.net/TeStSeCoNDuzPDktwoTest/0/public/actions.json',
         {
-          actions: [
-            { hookPayload: {}, kind: 'hook', name: 'retrigger-multiple' },
-          ],
+          actions: [{ ...retriggerMultipleActionDefinition }],
           variables: {},
         },
       );
 
+    setUpUserCredentials();
     render(<RetriggerButton result={result} />);
 
     const openModalButton = await screen.findByTitle('retrigger jobs');
@@ -165,9 +235,12 @@ describe('Retrigger', () => {
     fireEvent.click(await listbox.findByText('1'));
 
     const triggerJobsButton = await screen.findByText('Retrigger');
+    const MockedHooks = Hooks as jest.Mock;
 
     await user.click(triggerJobsButton);
 
-    expect('something').toBe(null);
+    await waitFor(() =>
+      expect(new MockedHooks().triggerHook).toHaveBeenCalled(),
+    );
   });
 });
