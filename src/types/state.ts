@@ -115,8 +115,6 @@ export type CompareResultsItem = {
 
 export type InputType = 'base' | 'new';
 
-export type View = 'compare-results' | 'search';
-
 export type ThemeMode = 'light' | 'dark';
 
 export type SelectedRevisionsState = {

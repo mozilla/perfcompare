@@ -206,7 +206,7 @@ type DeferredLoaderData = {
   frameworkName: Framework['name'];
   intervalValue: TimeRange['value'];
   intervalText: TimeRange['text'];
-  view: string;
+  view: typeof compareOverTimeView;
 };
 
 export type LoaderReturnValue = DeferredLoaderData;

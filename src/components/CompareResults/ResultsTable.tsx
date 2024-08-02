@@ -1,8 +1,8 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, memo } from 'react';
 
 import Box from '@mui/material/Box';
-import { useAsyncValue } from 'react-router-dom';
 
+import type { compareView, compareOverTimeView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import type { CompareResultsItem, RevisionsHeader } from '../../types/state';
@@ -176,11 +176,15 @@ const allRevisionsOption =
 
 type ResultsTableProps = {
   filteringSearchTerm: string;
+  results: CompareResultsItem[][];
+  view: typeof compareView | typeof compareOverTimeView;
 };
 
-function ResultsTable({ filteringSearchTerm }: ResultsTableProps) {
-  const loaderData = useAsyncValue();
-  const results = loaderData as CompareResultsItem[][];
+function ResultsTable({
+  filteringSearchTerm,
+  results,
+  view,
+}: ResultsTableProps) {
   const activeComparison = useAppSelector(
     (state) => state.comparison.activeComparison,
   );
@@ -238,6 +242,7 @@ function ResultsTable({ filteringSearchTerm }: ResultsTableProps) {
           identifier={res.key}
           header={res.revisionHeader}
           results={res.value}
+          view={view}
         />
       ))}
 
@@ -246,4 +251,4 @@ function ResultsTable({ filteringSearchTerm }: ResultsTableProps) {
   );
 }
 
-export default ResultsTable;
+export default memo(ResultsTable);

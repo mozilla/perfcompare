@@ -1,5 +1,6 @@
 import { ReactElement } from 'react';
 
+import { compareView } from '../../common/constants';
 import { loader } from '../../components/CompareResults/loader';
 import RevisionRow from '../../components/CompareResults/RevisionRow';
 import { Platform } from '../../types/types';
@@ -59,7 +60,7 @@ describe('<RevisionRow>', () => {
       } = getTestData();
 
       rowData.platform = platform as Platform;
-      renderWithRoute(<RevisionRow result={rowData} />);
+      renderWithRoute(<RevisionRow result={rowData} view={compareView} />);
       const shortNameNode = await screen.findByText(shortName);
       expect(shortNameNode).toBeInTheDocument();
       const previousNode = shortNameNode.previousSibling;

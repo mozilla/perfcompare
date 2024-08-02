@@ -246,7 +246,7 @@ type DeferredLoaderData = {
   newRepos: Repository['name'][];
   frameworkId: Framework['id'];
   frameworkName: Framework['name'];
-  view: string;
+  view: typeof compareView;
 };
 
 //had to be more explicit with the type because the defer

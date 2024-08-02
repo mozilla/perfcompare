@@ -8,14 +8,18 @@ import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
 import { Colors, Spacing } from '../../styles';
+import type { CompareResultsItem } from '../../types/state';
 import DownloadButton from './DownloadButton';
 import type { LoaderReturnValue } from './loader';
+import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeLoader';
 import ResultsTable from './ResultsTable';
 import RevisionSelect from './RevisionSelect';
 import SearchInput from './SearchInput';
 
 function ResultsMain() {
-  const { results } = useLoaderData() as LoaderReturnValue;
+  const { results, view } = useLoaderData() as
+    | LoaderReturnValue
+    | OverTimeLoaderReturnValue;
 
   const themeMode = useAppSelector((state) => state.theme.mode);
   const [searchTerm, setSearchTerm] = useState('');
@@ -50,15 +54,23 @@ function ResultsMain() {
         }
       >
         <Await resolve={results}>
-          <header>
-            <div className={styles.title}>Results</div>
-            <div className={styles.content}>
-              <SearchInput onChange={setSearchTerm} />
-              <RevisionSelect />
-              <DownloadButton />
-            </div>
-          </header>
-          <ResultsTable filteringSearchTerm={searchTerm} />
+          {(resolvedResults) => (
+            <>
+              <header>
+                <div className={styles.title}>Results</div>
+                <div className={styles.content}>
+                  <SearchInput onChange={setSearchTerm} />
+                  <RevisionSelect />
+                  <DownloadButton />
+                </div>
+              </header>
+              <ResultsTable
+                filteringSearchTerm={searchTerm}
+                results={resolvedResults as CompareResultsItem[][]}
+                view={view}
+              />
+            </>
+          )}
         </Await>
       </Suspense>
     </Container>
