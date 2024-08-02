@@ -129,6 +129,11 @@ async function fetchCompareOverTimeResultsOnTreeherder({
   return Promise.all(promises);
 }
 
+// This counter is incremented for each call of the loader. This allows the
+// components to know when a new load happened and use it in keys.
+// Essentially a workaround to https://github.com/remix-run/react-router/issues/11864
+let generationCounter = 0;
+
 // This function is responsible for fetching the data from the URL. It's called
 // by React Router DOM when the compare-over-time-results path is requested.
 // It uses the URL parameters as inputs, and returns all the fetched data to the
@@ -191,6 +196,7 @@ export async function loader({ request }: { request: Request }) {
     intervalValue,
     intervalText,
     view: compareOverTimeView,
+    generation: generationCounter++,
   };
 }
 
@@ -205,6 +211,7 @@ type DeferredLoaderData = {
   intervalValue: TimeRange['value'];
   intervalText: TimeRange['text'];
   view: typeof compareOverTimeView;
+  generation: number;
 };
 
 // Be explicit with the returned type to control it better than if we were

@@ -23,7 +23,7 @@ import RevisionSelect from './RevisionSelect';
 import SearchInput from './SearchInput';
 
 function ResultsMain() {
-  const { results, view, frameworkId } = useLoaderData() as
+  const { results, view, frameworkId, generation } = useLoaderData() as
     | LoaderReturnValue
     | OverTimeLoaderReturnValue;
 
@@ -63,12 +63,17 @@ function ResultsMain() {
 
   return (
     <Container className={styles.container} data-testid='results-main'>
+      {/* Using a key in Suspense makes it that it displays the fallback more
+          consistently.
+          See https://github.com/mozilla/perfcompare/pull/702#discussion_r1705274740
+          for more explanation (and questioning) about this issue. */}
       <Suspense
         fallback={
           <Box display='flex' justifyContent='center'>
             <CircularProgress />
           </Box>
         }
+        key={generation}
       >
         <Await resolve={results}>
           {(resolvedResults: CompareResultsItem[][]) => (
