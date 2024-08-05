@@ -197,7 +197,7 @@ export async function retrigger(retriggerJobConfig: {
   jobInfo: JobInformation;
   decisionTaskId: string;
   times: number;
-}) {
+}): Promise<string | null> {
   const { rootUrl, jobInfo, decisionTaskId, times } = retriggerJobConfig;
 
   if (!times) return null;
@@ -244,7 +244,7 @@ export async function retrigger(retriggerJobConfig: {
     credentials: userCredentials.credentials,
   });
 
-  const newTaskId = await hooks.triggerHook(hookGroupId, hookId, hookPayload);
+  const response = await hooks.triggerHook(hookGroupId, hookId, hookPayload);
 
-  return newTaskId;
+  return response.taskId;
 }

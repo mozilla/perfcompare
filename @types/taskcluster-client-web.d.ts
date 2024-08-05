@@ -8,6 +8,6 @@ declare module 'taskcluster-client-web' {
       hookGroupId: string,
       hookId: string,
       hookPayload: unknown,
-    ): Promise<string>;
+    ): Promise<{ taskId: string; status: { taskId: string } }>;
   }
 }
