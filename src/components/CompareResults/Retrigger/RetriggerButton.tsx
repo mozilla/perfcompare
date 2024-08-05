@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
-import { IconButton } from '@mui/material';
+import { IconButton, Button } from '@mui/material';
+import { useSnackbar } from 'notistack';
 
 import {
   getTaskclusterCredentials,
@@ -15,6 +16,8 @@ import {
 } from '../../../logic/treeherder';
 import { Strings } from '../../../resources/Strings';
 import { CompareResultsItem } from '../../../types/state';
+import { getTreeherderURL } from '../../../utils/helpers';
+import SnackbarCloseButton from '../../Shared/SnackbarCloseButton';
 import { RetriggerConfigModal } from './RetriggerConfigModal';
 import { RetriggerSignInModal } from './RetriggerSignInModal';
 
@@ -30,9 +33,14 @@ function RetriggerButton({ result }: RetriggerButtonProps) {
     base_retriggerable_job_ids: baseRetriggerableJobIds,
     new_repository_name: newRepository,
     new_retriggerable_job_ids: newRetriggerableJobIds,
+    base_rev: baseRev,
+    new_rev: newRev,
+    base_repository_name: baseRepo,
+    new_repository_name: newRepo,
   } = result;
 
   const [status, setStatus] = useState('pending' as Status);
+  const { enqueueSnackbar } = useSnackbar();
 
   const getRetriggerConfig = async (
     repository: string,
@@ -72,6 +80,26 @@ function RetriggerButton({ result }: RetriggerButtonProps) {
     setStatus('retrigger-modal');
   };
 
+  const showNotification = (message: string, actionHref: string) => {
+    enqueueSnackbar(message, {
+      variant: 'info',
+      autoHideDuration: 10000, // The default (6000ms) configured in App.tsx seems a bit low for this notification
+      action: (snackbarKey) => (
+        <>
+          <Button
+            href={actionHref}
+            target='_blank'
+            rel='noreferrer'
+            sx={{ marginInline: 2 }}
+          >
+            {Strings.components.retrigger.notification.treeherderButton}
+          </Button>
+          <SnackbarCloseButton snackbarKey={snackbarKey} />
+        </>
+      ),
+    });
+  };
+
   const onRetriggerConfirm = async ({
     baseTimes,
     newTimes,
@@ -97,8 +125,29 @@ function RetriggerButton({ result }: RetriggerButtonProps) {
       baseRetriggerConfigPromise.then(retrigger),
       newRetriggerConfigPromise.then(retrigger),
     ]);
-    console.log('Retrigger taskId for base: ', baseRetriggerTaskId);
-    console.log('Retrigger taskId for new: ', newRetriggerTaskId);
+
+    // Note that the notification for "new" is dispatched before the
+    // notification for "base", so that visually "base" is before "new", because
+    // they are displayed backwards.
+    if (newRetriggerTaskId) {
+      showNotification(
+        Strings.components.retrigger.notification.body(
+          'new',
+          newRetriggerTaskId,
+        ),
+        getTreeherderURL(newRev, newRepo),
+      );
+    }
+
+    if (baseRetriggerTaskId) {
+      showNotification(
+        Strings.components.retrigger.notification.body(
+          'base',
+          baseRetriggerTaskId,
+        ),
+        getTreeherderURL(baseRev, baseRepo),
+      );
+    }
   };
 
   return (
