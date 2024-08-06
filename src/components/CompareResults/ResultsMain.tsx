@@ -11,9 +11,9 @@ import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
 import { Colors, Spacing } from '../../styles';
+import type { CompareResultsItem } from '../../types/state';
 import { Framework } from '../../types/types';
 import FrameworkDropdown from '../Shared/FrameworkDropdown';
-import type { CompareResultsItem } from '../../types/state';
 import DownloadButton from './DownloadButton';
 import type { LoaderReturnValue } from './loader';
 import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeLoader';
@@ -22,11 +22,9 @@ import RevisionSelect from './RevisionSelect';
 import SearchInput from './SearchInput';
 
 function ResultsMain() {
-
   const { results, view, frameworkId } = useLoaderData() as
     | LoaderReturnValue
     | OverTimeLoaderReturnValue;
-
 
   const themeMode = useAppSelector((state) => state.theme.mode);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -104,7 +102,6 @@ function ResultsMain() {
               />
             </>
           )}
-
         </Await>
       </Suspense>
     </Container>
