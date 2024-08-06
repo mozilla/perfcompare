@@ -5,7 +5,7 @@ import { compareView } from '../../common/constants';
 import {
   fetchCompareResults,
   fetchFakeCompareResults,
-  fetchRecentRevisions,
+  memoizedFetchRevisionForRepository,
 } from '../../logic/treeherder';
 import { Changeset, Repository } from '../../types/state';
 import { FakeCommitHash, Framework } from '../../types/types';
@@ -206,14 +206,15 @@ export async function loader({ request }: { request: Request }) {
   // For each of these requests, we get a list of 1 item because we request one
   // specific hash.
   // TODO what happens if there's no result?
-  const baseRevInfoPromise = fetchRecentRevisions({
+  const baseRevInfoPromise = memoizedFetchRevisionForRepository({
     repository: baseRepo,
     hash: baseRev,
-  }).then((listOfRevisions) => listOfRevisions[0]);
+  });
   const newRevsInfoPromises = newRevs.map((newRev, i) =>
-    fetchRecentRevisions({ repository: newRepos[i], hash: newRev }).then(
-      (listOfRevisions) => listOfRevisions[0],
-    ),
+    memoizedFetchRevisionForRepository({
+      repository: newRepos[i],
+      hash: newRev,
+    }),
   );
 
   const [baseRevInfo, ...newRevsInfo] = await Promise.all([
@@ -245,7 +246,7 @@ type DeferredLoaderData = {
   newRepos: Repository['name'][];
   frameworkId: Framework['id'];
   frameworkName: Framework['name'];
-  view: string;
+  view: typeof compareView;
 };
 
 //had to be more explicit with the type because the defer

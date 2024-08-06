@@ -13,14 +13,20 @@ import { useAppSelector } from '../../hooks/app';
 import { Colors, Spacing } from '../../styles';
 import { Framework } from '../../types/types';
 import FrameworkDropdown from '../Shared/FrameworkDropdown';
+import type { CompareResultsItem } from '../../types/state';
 import DownloadButton from './DownloadButton';
 import type { LoaderReturnValue } from './loader';
+import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeLoader';
 import ResultsTable from './ResultsTable';
 import RevisionSelect from './RevisionSelect';
 import SearchInput from './SearchInput';
 
 function ResultsMain() {
-  const { results, frameworkId } = useLoaderData() as LoaderReturnValue;
+
+  const { results, view, frameworkId } = useLoaderData() as
+    | LoaderReturnValue
+    | OverTimeLoaderReturnValue;
+
 
   const themeMode = useAppSelector((state) => state.theme.mode);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -71,27 +77,34 @@ function ResultsMain() {
         }
       >
         <Await resolve={results}>
-          <header>
-            <div className={styles.title}>Results</div>
-            <div className={styles.content}>
-              <SearchInput onChange={setSearchTerm} />
+          {(resolvedResults) => (
+            <>
+              <header>
+                <div className={styles.title}>Results</div>
+                <div className={styles.content}>
+                  <SearchInput onChange={setSearchTerm} />
+                  <FormControl>
+                    <FrameworkDropdown
+                      frameworkId={frameworkIdVal}
+                      mode={themeMode}
+                      sxStyles={sxStyles}
+                      size='small'
+                      variant='outlined'
+                      onChange={onFrameworkChange}
+                    />
+                  </FormControl>
+                  <RevisionSelect />
+                  <DownloadButton />
+                </div>
+              </header>
+              <ResultsTable
+                filteringSearchTerm={searchTerm}
+                results={resolvedResults as CompareResultsItem[][]}
+                view={view}
+              />
+            </>
+          )}
 
-              <FormControl>
-                <FrameworkDropdown
-                  frameworkId={frameworkIdVal}
-                  mode={themeMode}
-                  sxStyles={sxStyles}
-                  size='small'
-                  variant='outlined'
-                  onChange={onFrameworkChange}
-                />
-              </FormControl>
-
-              <RevisionSelect />
-              <DownloadButton />
-            </div>
-          </header>
-          <ResultsTable filteringSearchTerm={searchTerm} />
         </Await>
       </Suspense>
     </Container>
