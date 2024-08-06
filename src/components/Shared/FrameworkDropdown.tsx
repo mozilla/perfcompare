@@ -9,12 +9,10 @@ interface FrameworkDropdownProps {
   frameworkId: Framework['id'];
   mode: ThemeMode;
   labelId?: string;
-  frameworkStyles: object;
-  frameworkProps?: object;
+  sxStyles?: React.ComponentProps<typeof Select>['sx'];
   size?: 'small' | 'medium';
   variant?: 'standard' | 'outlined' | 'filled';
-  inputProps?: object;
-  onChange: (event: SelectChangeEvent) => void;
+  onChange?: (event: SelectChangeEvent) => void;
 }
 
 const sortFrameworks = (
@@ -35,8 +33,7 @@ const sortedFrameworks = sortFrameworks(frameworkMap);
 function FrameworkDropdown({
   frameworkId,
   labelId,
-  frameworkStyles,
-  frameworkProps,
+  sxStyles,
   variant,
   size,
   onChange,
@@ -51,8 +48,8 @@ function FrameworkDropdown({
       name='framework'
       variant={variant}
       size={size}
-      sx={frameworkStyles}
-      inputProps={frameworkProps}
+      sx={sxStyles}
+      inputProps={{ 'aria-label': 'Framework' }}
     >
       {sortedFrameworks.map(([id, name]) => (
         <MenuItem value={id} key={name} className='framework-dropdown-item'>

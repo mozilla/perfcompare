@@ -470,12 +470,13 @@ exports[`Search View renders correctly when there are no results 1`] = `
                     </svg>
                   </label>
                   <div
-                    class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl framework-dropdown-select css-1nctpo-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                    class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl framework-dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                     data-testid="framework-select"
                   >
                     <div
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Framework"
                       aria-labelledby="select-framework-label mui-component-select-framework"
                       class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                       id="mui-component-select-framework"
@@ -900,12 +901,13 @@ exports[`Search View renders correctly when there are no results 1`] = `
                     </svg>
                   </label>
                   <div
-                    class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl framework-dropdown-select css-1nctpo-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                    class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl framework-dropdown-select css-1nwv3h7-MuiInputBase-root-MuiInput-root-MuiSelect-root"
                     data-testid="framework-select"
                   >
                     <div
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Framework"
                       aria-labelledby="select-framework-label mui-component-select-framework"
                       class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                       id="mui-component-select-framework"

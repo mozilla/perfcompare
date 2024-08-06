@@ -755,7 +755,7 @@ exports[`Results Table Should match snapshot 1`] = `
                         aria-invalid="false"
                         aria-label="Search by title, platform, revision or options"
                         class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-rg83rj-MuiInputBase-input-MuiOutlinedInput-input"
-                        id=":r5:"
+                        id=":r4:"
                         placeholder="Search results"
                         type="text"
                         value=""
@@ -803,7 +803,7 @@ exports[`Results Table Should match snapshot 1`] = `
                   </div>
                 </form>
                 <div
-                  class="MuiFormControl-root css-pe0pe4-MuiFormControl-root"
+                  class="MuiFormControl-root css-1nrlq1o-MuiFormControl-root"
                 >
                   <div
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall framework-dropdown-select css-o91dfy-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
@@ -812,7 +812,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     <div
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-label="without label"
+                      aria-label="Framework"
                       aria-labelledby="mui-component-select-framework"
                       class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-jaypmb-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
                       id="mui-component-select-framework"

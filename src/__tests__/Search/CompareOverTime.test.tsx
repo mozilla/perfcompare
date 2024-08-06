@@ -229,7 +229,7 @@ describe('Compare Over Time', () => {
     ).not.toBeInTheDocument();
 
     const frameworkDropdown = screen.getByRole('button', {
-      name: 'Framework talos',
+      name: 'Framework Framework',
     });
 
     await user.click(frameworkDropdown);

@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import InfoIcon from '@mui/icons-material/InfoOutlined';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
@@ -21,14 +23,11 @@ const strings = Strings.components.searchDefault.sharedCollasped.framework;
 
 interface FrameworkDropdownProps {
   frameworkId: Framework['id'];
-  onChange: (event: SelectChangeEvent) => void;
 }
 
-function SearchFrameworkComponent({
-  frameworkId,
-  onChange,
-}: FrameworkDropdownProps) {
+function SearchFramework({ frameworkId }: FrameworkDropdownProps) {
   const mode = useAppSelector((state) => state.theme.mode);
+  const [frameworkIdVal, setframeWorkValue] = useState(frameworkId);
 
   cssRule('.MuiPopover-root', {
     $nest: {
@@ -64,6 +63,11 @@ function SearchFrameworkComponent({
     }),
   };
 
+  const onChange = (event: SelectChangeEvent) => {
+    const id = +event.target.value as Framework['id'];
+    setframeWorkValue(id);
+  };
+
   return (
     <FormControl className={`framework-dropdown ${styles.container}`}>
       <InputLabel id='select-framework-label' className='dropdown-select-label'>
@@ -73,10 +77,9 @@ function SearchFrameworkComponent({
         </Tooltip>
       </InputLabel>
       <FrameworkDropdown
-        frameworkId={frameworkId}
+        frameworkId={frameworkIdVal}
         labelId='select-framework-label'
         mode={mode}
-        frameworkStyles={styles}
         variant='standard'
         onChange={onChange}
       />
@@ -84,4 +87,4 @@ function SearchFrameworkComponent({
   );
 }
 
-export default SearchFrameworkComponent;
+export default SearchFramework;

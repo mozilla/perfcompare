@@ -1,4 +1,4 @@
-import { Suspense, useState, lazy } from 'react';
+import { Suspense, useState } from 'react';
 
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -15,10 +15,9 @@ import { Framework } from '../../types/types';
 import FrameworkDropdown from '../Shared/FrameworkDropdown';
 import DownloadButton from './DownloadButton';
 import type { LoaderReturnValue } from './loader';
+import ResultsTable from './ResultsTable';
 import RevisionSelect from './RevisionSelect';
 import SearchInput from './SearchInput';
-
-const ResultsTable = lazy(() => import('./ResultsTable'));
 
 function ResultsMain() {
   const { results, frameworkId } = useLoaderData() as LoaderReturnValue;
@@ -49,13 +48,9 @@ function ResultsMain() {
     }),
   };
 
-  const frameworkStyles = {
-    marginRight: `${Spacing.Medium}px`,
-    marginLeft: `${Spacing.Medium}px`,
-  };
-
-  const frameworkProps = {
-    'aria-label': 'without label',
+  const sxStyles = {
+    marginRight: 2,
+    marginLeft: 2,
   };
 
   const onFrameworkChange = (event: SelectChangeEvent) => {
@@ -81,14 +76,13 @@ function ResultsMain() {
             <div className={styles.content}>
               <SearchInput onChange={setSearchTerm} />
 
-              <FormControl sx={{ minWidth: 120 }}>
+              <FormControl>
                 <FrameworkDropdown
                   frameworkId={frameworkIdVal}
                   mode={themeMode}
-                  frameworkStyles={frameworkStyles}
+                  sxStyles={sxStyles}
                   size='small'
                   variant='outlined'
-                  frameworkProps={frameworkProps}
                   onChange={onFrameworkChange}
                 />
               </FormControl>

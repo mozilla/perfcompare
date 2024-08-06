@@ -214,14 +214,13 @@ export async function loader({ request }: { request: Request }) {
     ),
   );
 
-  const [results, baseRevInfo, ...newRevsInfo] = await Promise.all([
-    resultsPromise,
+  const [baseRevInfo, ...newRevsInfo] = await Promise.all([
     baseRevInfoPromise,
     ...newRevsInfoPromises,
   ]);
 
   return {
-    results,
+    results: resultsPromise,
     baseRev,
     baseRevInfo,
     baseRepo,

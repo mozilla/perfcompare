@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Grid, SelectChangeEvent, Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import { VariantType, useSnackbar } from 'notistack';
 import { Form, useSearchParams } from 'react-router-dom';
@@ -51,7 +51,7 @@ function CompareOverTime({
     !isBaseSearch && isBaseSearch !== null ? 'expanded' : 'hidden';
 
   const [timeRangeValue, setTimeRangeValue] = useState(intervalValue);
-  const [frameworkId, setframeWorkValue] = useState(frameworkIdVal);
+
   const [inProgressRevs, setInProgressRevs] = useState<Changeset[] | []>(
     newRevs,
   );
@@ -63,7 +63,7 @@ function CompareOverTime({
   const styles = CompareCardsStyles(mode);
   const dropDownStyles = SearchStyles(mode);
   const hasCancelButton = hasEditButton && formIsDisplayed;
-  const frameworkURL = searchParams.get('framework');
+  const frameworkFromURL = searchParams.get('framework');
 
   const wrapperStyles = {
     wrapper: style({
@@ -222,19 +222,13 @@ function CompareOverTime({
             alignItems='flex-end'
           >
             {!hasEditButton && (
-              <SearchFrameworkComponent
-                frameworkId={frameworkId}
-                onChange={(event: SelectChangeEvent) => {
-                  const id = +event.target.value as Framework['id'];
-                  setframeWorkValue(id);
-                }}
-              />
+              <SearchFrameworkComponent frameworkId={frameworkIdVal} />
             )}
 
             {/**** Hidden Input to capture framework when user updates revisions ****/}
             {hasEditButton && (
               <input
-                value={frameworkURL?.toString()}
+                value={frameworkFromURL?.toString()}
                 name='framework'
                 type='hidden'
               ></input>

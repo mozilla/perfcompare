@@ -55,7 +55,7 @@ describe('Results View', () => {
     expect(header).toBeInTheDocument();
 
     const frameworkDropdown = screen.getByRole('button', {
-      name: 'without label',
+      name: 'Framework',
     });
 
     expect(frameworkDropdown).toMatchSnapshot();

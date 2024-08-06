@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { SelectChangeEvent, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import { VariantType, useSnackbar } from 'notistack';
@@ -78,7 +78,6 @@ function CompareWithBase({
   expandBaseComponent,
 }: CompareWithBaseProps) {
   const { enqueueSnackbar } = useSnackbar();
-  const [frameworkId, setframeWorkValue] = useState(frameworkIdVal);
 
   // pressing Cancel reverts to committed states.
   // The "committed" base and new revisions initialize the "in progress" state
@@ -99,7 +98,7 @@ function CompareWithBase({
   const styles = CompareCardsStyles(mode);
   const dropDownStyles = SearchStyles(mode);
   const hasCancelButton = hasEditButton && formIsDisplayed;
-  const frameworkURL = searchParams.get('framework');
+  const frameworkFromURL = searchParams.get('framework');
 
   const isWarning =
     (baseRepository === 'try' && newRepository !== 'try') ||
@@ -306,20 +305,14 @@ function CompareWithBase({
             alignItems='flex-end'
           >
             {!hasEditButton && (
-              <SearchFrameworkComponent
-                frameworkId={frameworkId}
-                onChange={(event: SelectChangeEvent) => {
-                  const id = +event.target.value as Framework['id'];
-                  setframeWorkValue(id);
-                }}
-              />
+              <SearchFrameworkComponent frameworkId={frameworkIdVal} />
             )}
 
             {/**** Hidden Input to capture framework when user updates revisions ****/}
             {hasEditButton && (
               <input
                 type='hidden'
-                value={frameworkURL?.toString()}
+                value={frameworkFromURL?.toString()}
                 name='framework'
               ></input>
             )}

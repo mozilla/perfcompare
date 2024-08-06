@@ -175,7 +175,7 @@ describe('Compare With Base', () => {
     ).not.toBeInTheDocument();
 
     const frameworkDropdown = screen.getAllByRole('button', {
-      name: 'Framework talos',
+      name: 'Framework Framework',
     });
 
     await user.click(frameworkDropdown[0]);
@@ -305,7 +305,7 @@ describe('Compare With Base', () => {
     expect(header).toBeInTheDocument();
 
     const frameworkDropdown = screen.getByRole('button', {
-      name: 'without label',
+      name: 'Framework',
     });
 
     await user.click(frameworkDropdown);

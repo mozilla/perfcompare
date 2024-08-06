@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 
 import Grid from '@mui/material/Grid';
 import { useLoaderData } from 'react-router-dom';
@@ -16,20 +16,9 @@ interface ResultsViewProps {
   title: string;
 }
 function ResultsView(props: ResultsViewProps) {
-  const loaderData = useLoaderData() as LoaderReturnValue;
+  const { baseRevInfo, newRevsInfo, frameworkId, baseRepo, newRepos } =
+    useLoaderData() as LoaderReturnValue;
 
-  // Memoize baseRevInfo, newRevsInfo, baseRepo
-  const { baseRevInfo, newRevsInfo, baseRepo } = useMemo(
-    () => ({
-      baseRevInfo: loaderData.baseRevInfo,
-      newRevsInfo: loaderData.newRevsInfo,
-      baseRepo: loaderData.baseRepo,
-    }),
-    [loaderData.baseRevInfo, loaderData.newRevsInfo, loaderData.baseRepo],
-  );
-
-  const frameworkId = loaderData.frameworkId;
-  const newRepos = loaderData.newRepos;
   const newRepo = newRepos[0];
   const { title } = props;
   const themeMode = useAppSelector((state) => state.theme.mode);
