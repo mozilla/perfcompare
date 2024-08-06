@@ -48,6 +48,17 @@ export type RevisionsHeader = {
   new_repo: Repository['name'];
 };
 
+export type SubtestsRevisionsHeader = {
+  suite: string;
+  framework_id: Framework['id'];
+  test: string;
+  option_name: string;
+  extra_options: string;
+  new_rev: string;
+  new_repo: Repository['name'];
+  platform: Platform;
+};
+
 export type CompareResultsItem = {
   base_rev: string;
   new_rev: string;
@@ -103,8 +114,6 @@ export type CompareResultsItem = {
 };
 
 export type InputType = 'base' | 'new';
-
-export type View = 'compare-results' | 'search';
 
 export type ThemeMode = 'light' | 'dark';
 

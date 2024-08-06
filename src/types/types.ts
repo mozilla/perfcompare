@@ -6,6 +6,7 @@ export type CompareResultsTableConfig =
       filter?: false;
       key: string;
       disable?: boolean;
+      gridWidth?: string;
     }
   | {
       name: string;
@@ -13,6 +14,7 @@ export type CompareResultsTableConfig =
       disable?: boolean;
       filter: true;
       possibleValues: string[];
+      gridWidth?: string;
       // This function returns whether this result matches the value for this column.
       matchesFunction: (result: CompareResultsItem, value: string) => boolean;
     };

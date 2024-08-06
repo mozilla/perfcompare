@@ -4,7 +4,7 @@ import { repoMap, frameworks, timeRanges } from '../../common/constants';
 import { compareOverTimeView } from '../../common/constants';
 import {
   fetchCompareOverTimeResults,
-  fetchRecentRevisions,
+  memoizedFetchRevisionForRepository,
 } from '../../logic/treeherder';
 import { Changeset, Repository } from '../../types/state';
 import { Framework, TimeRange } from '../../types/types';
@@ -174,9 +174,10 @@ export async function loader({ request }: { request: Request }) {
   });
 
   const newRevsInfoPromises = newRevs.map((newRev, i) =>
-    fetchRecentRevisions({ repository: newRepos[i], hash: newRev }).then(
-      (listOfRevisions) => listOfRevisions[0],
-    ),
+    memoizedFetchRevisionForRepository({
+      repository: newRepos[i],
+      hash: newRev,
+    }),
   );
 
   const newRevsInfo = await Promise.all(newRevsInfoPromises);
@@ -205,7 +206,7 @@ type DeferredLoaderData = {
   frameworkName: Framework['name'];
   intervalValue: TimeRange['value'];
   intervalText: TimeRange['text'];
-  view: string;
+  view: typeof compareOverTimeView;
 };
 
 export type LoaderReturnValue = DeferredLoaderData;

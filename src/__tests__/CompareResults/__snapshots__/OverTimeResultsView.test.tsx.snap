@@ -2,12 +2,12 @@
 
 exports[`Results View The table should match snapshot and other elements should be present in the page 1`] = `
 <div
-  class="f1tsh6r9 MuiBox-root css-0"
+  class="MuiBox-root css-10qup14"
   data-testid="results-table"
   role="table"
 >
   <div
-    class="fh15yft fr2n4tx"
+    class="f1qjwvwg fr2n4tx"
     data-testid="table-header"
     role="row"
   >
