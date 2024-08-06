@@ -1,3 +1,5 @@
+import { defer } from 'react-router-dom';
+
 import { repoMap, frameworks } from '../../common/constants';
 import { compareView } from '../../common/constants';
 import {
@@ -5,7 +7,7 @@ import {
   fetchFakeCompareResults,
   fetchRecentRevisions,
 } from '../../logic/treeherder';
-import { Repository } from '../../types/state';
+import { Changeset, Repository } from '../../types/state';
 import { FakeCommitHash, Framework } from '../../types/types';
 
 // This function checks and sanitizes the input values, then returns values that
@@ -219,7 +221,7 @@ export async function loader({ request }: { request: Request }) {
     ...newRevsInfoPromises,
   ]);
 
-  return {
+  return defer({
     results: resultsPromise,
     baseRev,
     baseRevInfo,
@@ -230,7 +232,22 @@ export async function loader({ request }: { request: Request }) {
     frameworkId,
     frameworkName,
     view: compareView,
-  };
+  });
 }
 
-export type LoaderReturnValue = Awaited<ReturnType<typeof loader>>;
+type DeferredLoaderData = {
+  results: Promise<unknown>;
+  baseRev: string;
+  baseRevInfo: Changeset;
+  baseRepo: Repository['name'];
+  newRevs: string[];
+  newRevsInfo: Changeset[];
+  newRepos: Repository['name'][];
+  frameworkId: Framework['id'];
+  frameworkName: Framework['name'];
+  view: string;
+};
+
+//had to be more explicit with the type because the defer
+//function returns a an inaccessible type
+export type LoaderReturnValue = DeferredLoaderData;

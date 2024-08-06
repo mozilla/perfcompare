@@ -88,7 +88,7 @@ describe('App', () => {
           'Error when requesting treeherder: (500) Internal Server Error',
         ),
       );
-      expect(console.error).toHaveBeenCalledTimes(7);
+      expect(console.error).toHaveBeenCalledTimes(14);
       expect(document.body).toMatchSnapshot();
     });
 
@@ -112,7 +112,7 @@ describe('App', () => {
       expect(console.error).toHaveBeenCalledWith(
         new Error('Error when requesting treeherder: Treeherder request error'),
       );
-      expect(console.error).toHaveBeenCalledTimes(7);
+      expect(console.error).toHaveBeenCalledTimes(14);
       expect(document.body).toMatchSnapshot();
     });
 
