@@ -7,8 +7,8 @@ import { subtestsOverTimeView } from '../../../common/constants';
 import { useAppSelector } from '../../../hooks/app';
 import { background } from '../../../styles';
 import PerfCompareHeader from '../../Shared/PerfCompareHeader';
-import SubtestsBreadcrumbs from './SubtestsBreadcrumbs';
 import SubtestsResultsMain from './SubtestsResultsMain';
+
 interface SubtestsResultsViewProps {
   title: string;
 }
@@ -28,12 +28,9 @@ function SubtestsResultsView(props: SubtestsResultsViewProps) {
   return (
     <div className={styles.container}>
       <PerfCompareHeader />
-      <section>
-        <SubtestsBreadcrumbs view={subtestsOverTimeView} />
-      </section>
       <Grid container alignItems='center' justifyContent='center'>
         <Grid item xs={12}>
-          <SubtestsResultsMain />
+          <SubtestsResultsMain view={subtestsOverTimeView} />
         </Grid>
       </Grid>
     </div>
