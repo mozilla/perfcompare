@@ -2,12 +2,10 @@ import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 import { frameworkMap } from '../../common/constants';
-import { ThemeMode } from '../../types/state';
 import type { Framework } from '../../types/types';
 
 interface FrameworkDropdownProps {
   frameworkId: Framework['id'];
-  mode: ThemeMode;
   labelId?: string;
   sxStyles?: React.ComponentProps<typeof Select>['sx'];
   size?: 'small' | 'medium';

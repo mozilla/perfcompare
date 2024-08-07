@@ -21,11 +21,13 @@ import FrameworkDropdown from '../Shared/FrameworkDropdown';
 
 const strings = Strings.components.searchDefault.sharedCollasped.framework;
 
-interface FrameworkDropdownProps {
+interface SearchFrameworkDropdownProps {
   frameworkId: Framework['id'];
 }
 
-function SearchFramework({ frameworkId }: FrameworkDropdownProps) {
+function SearchFrameworkDropdown({
+  frameworkId,
+}: SearchFrameworkDropdownProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   const [frameworkIdVal, setframeWorkValue] = useState(frameworkId);
 
@@ -79,7 +81,6 @@ function SearchFramework({ frameworkId }: FrameworkDropdownProps) {
       <FrameworkDropdown
         frameworkId={frameworkIdVal}
         labelId='select-framework-label'
-        mode={mode}
         variant='standard'
         onChange={onChange}
       />
@@ -87,4 +88,4 @@ function SearchFramework({ frameworkId }: FrameworkDropdownProps) {
   );
 }
 
-export default SearchFramework;
+export default SearchFrameworkDropdown;

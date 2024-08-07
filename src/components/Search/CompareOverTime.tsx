@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Grid, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import { VariantType, useSnackbar } from 'notistack';
-import { Form, useSearchParams } from 'react-router-dom';
+import { Form } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { style } from 'typestyle';
 
@@ -15,7 +15,7 @@ import { Changeset, Repository } from '../../types/state';
 import { Framework, TimeRange } from '../../types/types';
 import CancelAndCompareButtons from './CancelAndCompareButtons';
 import EditButton from './EditButton';
-import SearchFrameworkComponent from './SearchFrameworkComp';
+import SearchFrameworkDropdown from './SearchFrameworkDropdown';
 import SearchOverTime from './SearchOverTime';
 
 const strings = Strings.components.searchDefault;
@@ -41,7 +41,6 @@ function CompareOverTime({
   isBaseSearch,
   baseRepo,
   newRepo,
-
   expandBaseComponent,
 }: CompareWithTimeProps) {
   const { enqueueSnackbar } = useSnackbar();
@@ -51,7 +50,6 @@ function CompareOverTime({
     !isBaseSearch && isBaseSearch !== null ? 'expanded' : 'hidden';
 
   const [timeRangeValue, setTimeRangeValue] = useState(intervalValue);
-
   const [inProgressRevs, setInProgressRevs] = useState<Changeset[] | []>(
     newRevs,
   );
@@ -59,11 +57,9 @@ function CompareOverTime({
   const [newRepository, setNewRepository] = useState(newRepo);
   const [formIsDisplayed, setFormIsDisplayed] = useState(!hasEditButton);
   const mode = useAppSelector((state) => state.theme.mode);
-  const [searchParams] = useSearchParams();
   const styles = CompareCardsStyles(mode);
   const dropDownStyles = SearchStyles(mode);
   const hasCancelButton = hasEditButton && formIsDisplayed;
-  const frameworkFromURL = searchParams.get('framework');
 
   const wrapperStyles = {
     wrapper: style({
@@ -222,13 +218,13 @@ function CompareOverTime({
             alignItems='flex-end'
           >
             {!hasEditButton && (
-              <SearchFrameworkComponent frameworkId={frameworkIdVal} />
+              <SearchFrameworkDropdown frameworkId={frameworkIdVal} />
             )}
 
             {/**** Hidden Input to capture framework when user updates revisions ****/}
             {hasEditButton && (
               <input
-                value={frameworkFromURL?.toString()}
+                value={frameworkIdVal}
                 name='framework'
                 type='hidden'
               ></input>

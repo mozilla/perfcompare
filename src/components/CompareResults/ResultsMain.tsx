@@ -84,7 +84,6 @@ function ResultsMain() {
                   <FormControl>
                     <FrameworkDropdown
                       frameworkId={frameworkIdVal}
-                      mode={themeMode}
                       sxStyles={sxStyles}
                       size='small'
                       variant='outlined'

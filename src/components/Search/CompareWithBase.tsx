@@ -4,7 +4,7 @@ import { Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import { VariantType, useSnackbar } from 'notistack';
-import { Form, useSearchParams } from 'react-router-dom';
+import { Form } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
@@ -15,7 +15,7 @@ import { Framework } from '../../types/types';
 import CancelAndCompareButtons from './CancelAndCompareButtons';
 import EditButton from './EditButton';
 import SearchComponent from './SearchComponent';
-import SearchFrameworkComponent from './SearchFrameworkComp';
+import SearchFrameworkDropdown from './SearchFrameworkDropdown';
 
 const strings = Strings.components.searchDefault;
 const stringsBase = Strings.components.searchDefault.base.collapsed.base;
@@ -94,11 +94,9 @@ function CompareWithBase({
   const [formIsDisplayed, setFormIsDisplayed] = useState(!hasEditButton);
 
   const mode = useAppSelector((state) => state.theme.mode);
-  const [searchParams] = useSearchParams();
   const styles = CompareCardsStyles(mode);
   const dropDownStyles = SearchStyles(mode);
   const hasCancelButton = hasEditButton && formIsDisplayed;
-  const frameworkFromURL = searchParams.get('framework');
 
   const isWarning =
     (baseRepository === 'try' && newRepository !== 'try') ||
@@ -112,7 +110,6 @@ function CompareWithBase({
 
   const onFormSubmit = (e: React.FormEvent) => {
     const isFormReadyToBeSubmitted = baseInProgressRev !== null;
-    setFormIsDisplayed(!isFormReadyToBeSubmitted);
 
     if (!isFormReadyToBeSubmitted) {
       e.preventDefault();
@@ -253,6 +250,7 @@ function CompareWithBase({
           className='form-wrapper'
           onSubmit={onFormSubmit}
           aria-label='Compare with base form'
+          reloadDocument={hasEditButton ?? true}
         >
           {/**** Edit Button ****/}
           <div
@@ -305,14 +303,14 @@ function CompareWithBase({
             alignItems='flex-end'
           >
             {!hasEditButton && (
-              <SearchFrameworkComponent frameworkId={frameworkIdVal} />
+              <SearchFrameworkDropdown frameworkId={frameworkIdVal} />
             )}
 
             {/**** Hidden Input to capture framework when user updates revisions ****/}
             {hasEditButton && (
               <input
                 type='hidden'
-                value={frameworkFromURL?.toString()}
+                value={frameworkIdVal}
                 name='framework'
               ></input>
             )}
