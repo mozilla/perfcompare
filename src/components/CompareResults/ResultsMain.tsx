@@ -3,6 +3,7 @@ import { Suspense, useState } from 'react';
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
 import FormControl from '@mui/material/FormControl';
+import Grid from '@mui/material/Grid';
 import { SelectChangeEvent } from '@mui/material/Select';
 import { Container } from '@mui/system';
 import { useSearchParams } from 'react-router-dom';
@@ -52,11 +53,6 @@ function ResultsMain() {
     }),
   };
 
-  const sxStyles = {
-    marginRight: 2,
-    marginLeft: 2,
-  };
-
   const onFrameworkChange = (event: SelectChangeEvent) => {
     const id = +event.target.value as Framework['id'];
     setFrameworkIdVal(id);
@@ -79,20 +75,28 @@ function ResultsMain() {
             <>
               <header>
                 <div className={styles.title}>Results</div>
-                <div className={styles.content}>
-                  <SearchInput onChange={setSearchTerm} />
-                  <FormControl>
-                    <FrameworkDropdown
-                      frameworkId={frameworkIdVal}
-                      sxStyles={sxStyles}
-                      size='small'
-                      variant='outlined'
-                      onChange={onFrameworkChange}
-                    />
-                  </FormControl>
-                  <RevisionSelect />
-                  <DownloadButton />
-                </div>
+
+                <Grid container className={styles.content} spacing={2}>
+                  <Grid item md={6} xs={12}>
+                    <SearchInput onChange={setSearchTerm} />
+                  </Grid>
+                  <Grid item xs>
+                    <FormControl sx={{ width: '100%' }}>
+                      <FrameworkDropdown
+                        frameworkId={frameworkIdVal}
+                        size='small'
+                        variant='outlined'
+                        onChange={onFrameworkChange}
+                      />
+                    </FormControl>
+                  </Grid>
+                  <Grid item xs>
+                    <RevisionSelect />
+                  </Grid>
+                  <Grid item xs>
+                    <DownloadButton />
+                  </Grid>
+                </Grid>
               </header>
               <ResultsTable
                 filteringSearchTerm={searchTerm}

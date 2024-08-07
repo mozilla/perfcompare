@@ -5,7 +5,6 @@ import { style } from 'typestyle';
 import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
-import { Spacing } from '../../styles';
 import type { CompareResultsItem } from '../../types/state';
 import { truncateHash } from '../../utils/helpers';
 
@@ -73,12 +72,12 @@ function generateJsonDataFromComparisonResults(
 
 const styles = {
   downloadButton: style({
-    marginLeft: Spacing.Small,
     height: '41px',
     flex: 'none',
     $nest: {
       '.MuiButtonBase-root': {
         height: '100%',
+        width: '100%',
       },
     },
   }),
