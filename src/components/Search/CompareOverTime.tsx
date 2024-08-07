@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Grid, SelectChangeEvent, Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import { VariantType, useSnackbar } from 'notistack';
 import { Form } from 'react-router-dom';
@@ -15,7 +15,7 @@ import { Changeset, Repository } from '../../types/state';
 import { Framework, TimeRange } from '../../types/types';
 import CancelAndCompareButtons from './CancelAndCompareButtons';
 import EditButton from './EditButton';
-import FrameworkDropdown from './FrameworkDropdown';
+import SearchFrameworkDropdown from './SearchFrameworkDropdown';
 import SearchOverTime from './SearchOverTime';
 
 const strings = Strings.components.searchDefault;
@@ -41,7 +41,6 @@ function CompareOverTime({
   isBaseSearch,
   baseRepo,
   newRepo,
-
   expandBaseComponent,
 }: CompareWithTimeProps) {
   const { enqueueSnackbar } = useSnackbar();
@@ -51,7 +50,6 @@ function CompareOverTime({
     !isBaseSearch && isBaseSearch !== null ? 'expanded' : 'hidden';
 
   const [timeRangeValue, setTimeRangeValue] = useState(intervalValue);
-  const [frameworkId, setframeWorkValue] = useState(frameworkIdVal);
   const [inProgressRevs, setInProgressRevs] = useState<Changeset[] | []>(
     newRevs,
   );
@@ -66,21 +64,6 @@ function CompareOverTime({
   const wrapperStyles = {
     wrapper: style({
       marginBottom: `${resultsView ? '0' : Spacing.layoutXLarge}px`,
-    }),
-  };
-
-  const bottomStyles = {
-    container: style({
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'flex-end',
-      $nest: {
-        '.bottom-dropdowns': {
-          display: 'flex',
-          minWidth: '580px',
-          justifyContent: 'space-between',
-        },
-      },
     }),
   };
 
@@ -229,18 +212,23 @@ function CompareOverTime({
           <Grid
             item
             xs={2}
-            className={`${dropDownStyles.dropDown} ${bottomStyles.container}`}
+            display='flex'
+            justifyContent={hasEditButton ? 'flex-end' : 'space-between'}
+            className={`${dropDownStyles.dropDown}`}
+            alignItems='flex-end'
           >
-            <div className='bottom-dropdowns'>
-              <FrameworkDropdown
-                compact={true}
-                frameworkId={frameworkId}
-                onChange={(event: SelectChangeEvent) => {
-                  const id = +event.target.value as Framework['id'];
-                  setframeWorkValue(id);
-                }}
-              />
-            </div>
+            {!hasEditButton && (
+              <SearchFrameworkDropdown frameworkId={frameworkIdVal} />
+            )}
+
+            {/**** Hidden Input to capture framework when user updates revisions ****/}
+            {hasEditButton && (
+              <input
+                value={frameworkIdVal}
+                name='framework'
+                type='hidden'
+              ></input>
+            )}
 
             <CancelAndCompareButtons
               label={strings.sharedCollasped.button}

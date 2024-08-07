@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { SelectChangeEvent, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import { VariantType, useSnackbar } from 'notistack';
@@ -14,8 +14,8 @@ import type { Changeset, Repository } from '../../types/state';
 import { Framework } from '../../types/types';
 import CancelAndCompareButtons from './CancelAndCompareButtons';
 import EditButton from './EditButton';
-import FrameworkDropdown from './FrameworkDropdown';
 import SearchComponent from './SearchComponent';
+import SearchFrameworkDropdown from './SearchFrameworkDropdown';
 
 const strings = Strings.components.searchDefault;
 const stringsBase = Strings.components.searchDefault.base.collapsed.base;
@@ -78,7 +78,6 @@ function CompareWithBase({
   expandBaseComponent,
 }: CompareWithBaseProps) {
   const { enqueueSnackbar } = useSnackbar();
-  const [frameWorkId, setframeWorkValue] = useState(frameworkIdVal);
 
   // pressing Cancel reverts to committed states.
   // The "committed" base and new revisions initialize the "in progress" state
@@ -102,14 +101,6 @@ function CompareWithBase({
   const isWarning =
     (baseRepository === 'try' && newRepository !== 'try') ||
     (baseRepository !== 'try' && newRepository === 'try');
-
-  const bottomStyles = {
-    container: style({
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'flex-end',
-    }),
-  };
 
   const wrapperStyles = {
     wrapper: style({
@@ -302,19 +293,27 @@ function CompareWithBase({
             }
             formIsDisplayed={formIsDisplayed}
           />
+
           <Grid
             item
             xs={2}
-            className={`${dropDownStyles.dropDown} ${bottomStyles.container}`}
+            display='flex'
+            justifyContent={hasEditButton ? 'flex-end' : 'space-between'}
+            className={dropDownStyles.dropDown}
+            alignItems='flex-end'
           >
-            <FrameworkDropdown
-              compact={false}
-              frameworkId={frameWorkId}
-              onChange={(event: SelectChangeEvent) => {
-                const id = +event.target.value as Framework['id'];
-                setframeWorkValue(id);
-              }}
-            />
+            {!hasEditButton && (
+              <SearchFrameworkDropdown frameworkId={frameworkIdVal} />
+            )}
+
+            {/**** Hidden Input to capture framework when user updates revisions ****/}
+            {hasEditButton && (
+              <input
+                type='hidden'
+                value={frameworkIdVal}
+                name='framework'
+              ></input>
+            )}
 
             <CancelAndCompareButtons
               label={strings.base.compareBtn}
