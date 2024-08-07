@@ -75,6 +75,7 @@ const styles = {
   downloadButton: style({
     marginLeft: Spacing.Small,
     height: '41px',
+    flex: 'none',
     $nest: {
       '.MuiButtonBase-root': {
         height: '100%',

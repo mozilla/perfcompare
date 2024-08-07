@@ -35,7 +35,7 @@ exports[`Search by title/test name should filter results after a timeout or imme
         aria-invalid="false"
         aria-label="Search by title, platform, revision or options"
         class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-rg83rj-MuiInputBase-input-MuiOutlinedInput-input"
-        id=":r7:"
+        id=":r6:"
         placeholder="Search results"
         type="text"
         value=""
