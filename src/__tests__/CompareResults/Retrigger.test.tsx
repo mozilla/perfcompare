@@ -138,20 +138,6 @@ describe('Retrigger', () => {
     expect(signInButton).toBeInTheDocument();
   });
 
-  it('should display Retrigger modal when there are credentials', async () => {
-    setUpUserCredentials();
-    render(<RetriggerButton result={result} />);
-
-    const openModalButton = await screen.findByTitle('retrigger jobs');
-
-    const user = userEvent.setup({ delay: null });
-    await user.click(openModalButton);
-
-    const retriggerButton = await screen.findByText('Retrigger');
-
-    expect(retriggerButton).toBeInTheDocument();
-  });
-
   it('should retrigger one job for base revision and one job for new revision', async () => {
     // fetch requests for base revision info
     (window.fetch as FetchMockSandbox)
@@ -213,7 +199,9 @@ describe('Retrigger', () => {
     setUpUserCredentials();
     render(<RetriggerButton result={result} />);
 
-    const openModalButton = await screen.findByTitle('retrigger jobs');
+    const openModalButton = await screen.findByRole('button', {
+      name: 'retrigger jobs',
+    });
 
     const user = userEvent.setup({ delay: null });
     await user.click(openModalButton);
@@ -234,7 +222,9 @@ describe('Retrigger', () => {
     listbox = within(await screen.findByRole('listbox'));
     fireEvent.click(await listbox.findByText('1'));
 
-    const triggerJobsButton = await screen.findByText('Retrigger');
+    const triggerJobsButton = await screen.findByRole('button', {
+      name: 'Retrigger',
+    });
     const MockedHooks = Hooks as jest.Mock;
 
     await user.click(triggerJobsButton);
