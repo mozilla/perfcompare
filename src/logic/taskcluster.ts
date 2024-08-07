@@ -76,13 +76,12 @@ export const getTaskclusterCredentials = () => {
 
   if (!taskclusterParams.clientId) {
     alert(`No clientId is configured for origin ${locationOrigin}, sorry!`);
-    return;
+    return false;
   }
 
   const credentials = retrieveUserCredentials(taskclusterParams.url);
 
   if (!credentials?.expires) {
-    console.error('Missing credentials or expiration date on credentials.');
     return false;
   }
 
@@ -240,7 +239,6 @@ export async function retrigger(retriggerJobConfig: {
   if (!accessToken) {
     throw new Error('Missing access token for retriggering action.');
   }
-
   const hooks = new Hooks({
     rootUrl,
     credentials: userCredentials.credentials,
