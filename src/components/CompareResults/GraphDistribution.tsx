@@ -18,7 +18,7 @@ interface GraphContextRaw {
 }
 
 function GraphDistribution(props: GraphDistributionProps) {
-  const { name, values } = props;
+  const { name, values, min, max } = props;
 
   const graphData = values.map((v) => {
     return { x: v, y: 0, r: 10 };
@@ -43,6 +43,8 @@ function GraphDistribution(props: GraphDistributionProps) {
         grid: {
           display: false,
         },
+        suggestedMin: min,
+        suggestedMax: max,
       },
       y: {
         ticks: {
@@ -81,6 +83,8 @@ function GraphDistribution(props: GraphDistributionProps) {
 interface GraphDistributionProps {
   name: string;
   values: number[];
+  min: number;
+  max: number;
 }
 
 export default GraphDistribution;

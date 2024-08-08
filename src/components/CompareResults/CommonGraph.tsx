@@ -17,7 +17,7 @@ const styles = {
 };
 
 function CommonGraph(props: CommonGraphProps) {
-  const { baseRevisionRuns, newRevisionRuns } = props;
+  const { baseRevisionRuns, newRevisionRuns, min, max } = props;
 
   const options = {
     plugins: {
@@ -69,19 +69,13 @@ function CommonGraph(props: CommonGraphProps) {
   const baseRunsDensity = Array.from(
     kde.density1d(baseRevisionRuns.values, {
       bandwidth: baseRevisionRuns.stddev,
-      extent: [
-        Math.min(...baseRevisionRuns.values),
-        Math.max(...baseRevisionRuns.values),
-      ],
+      extent: [min, max],
     }),
   );
   const newRunsDensity = Array.from(
     kde.density1d(newRevisionRuns.values, {
       bandwidth: newRevisionRuns.stddev,
-      extent: [
-        Math.min(...newRevisionRuns.values),
-        Math.max(...newRevisionRuns.values),
-      ],
+      extent: [min, max],
     }),
   );
 
@@ -126,6 +120,8 @@ interface CommonGraphProps {
     stddev: number;
     stddevPercent: number;
   };
+  min: number;
+  max: number;
 }
 
 export default CommonGraph;
