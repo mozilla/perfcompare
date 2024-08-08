@@ -55,12 +55,11 @@ function SubtestsBreadcrumbs({ view }: SubtestsBreadcrumbsProps) {
   return (
     <Breadcrumbs
       separator={<ChevronLeftIcon fontSize='small' />}
-      aria-label='subtests breadcrumbs'
       sx={{
         marginBottom: 3,
       }}
     >
-      [<div></div>,<Link href='/'>Home</Link>,
+      [<></>,<Link href='/'>Home</Link>,
       <Link href={allResultsURL}>All results</Link>, ]
     </Breadcrumbs>
   );
