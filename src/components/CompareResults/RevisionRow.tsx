@@ -6,6 +6,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import { IconButton } from '@mui/material';
+import Tooltip from '@mui/material/Tooltip';
 import { style } from 'typestyle';
 
 import { compareView, compareOverTimeView } from '../../common/constants';
@@ -291,10 +292,12 @@ function RevisionRow(props: RevisionRowProps) {
         role='row'
       >
         <div className='platform cell' role='cell'>
-          <div className='platform-container'>
-            {platformIcon}
-            <span>{platformShortName}</span>
-          </div>
+          <Tooltip placement='bottom' title={platform} arrow>
+            <div className='platform-container'>
+              {platformIcon}
+              <span>{platformShortName}</span>
+            </div>
+          </Tooltip>
         </div>
         <div className='base-value cell' role='cell'>
           {' '}
