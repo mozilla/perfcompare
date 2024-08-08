@@ -83,7 +83,7 @@ function ResultsMain() {
             <RevisionSelect />
           </Grid>
           <Grid item xs>
-            <DownloadButton results={results} />
+            <DownloadButton resultsPromise={results} />
           </Grid>
         </Grid>
       </header>
