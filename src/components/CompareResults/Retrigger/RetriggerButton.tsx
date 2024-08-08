@@ -84,6 +84,10 @@ function RetriggerButton({ result }: RetriggerButtonProps) {
     enqueueSnackbar(message, {
       variant: 'info',
       autoHideDuration: 10000, // The default (6000ms) configured in App.tsx seems a bit low for this notification
+      // It's common that 2 notifications are sent (one for base, one for
+      // new), so specifying the width makes them look more consistent.
+      // This maxWidth is copied from notistack's own style.
+      style: { width: '1000px', maxWidth: 'calc(100vw - 40px)' },
       action: (snackbarKey) => (
         <>
           <Button
