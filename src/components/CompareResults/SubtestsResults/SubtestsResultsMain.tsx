@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { Container } from '@mui/system';
-import { Await, useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { subtestsView, subtestsOverTimeView } from '../../../common/constants';
@@ -61,17 +61,18 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
 
   return (
     <Container className={styles.container} data-testid='subtests-main'>
-      <Await resolve={results}>
-        <header>
-          <SubtestsBreadcrumbs view={view} />
-          <SubtestsRevisionHeader header={subtestsHeader} />
-          <div className={styles.content}>
-            <SearchInput onChange={setSearchTerm} />
-            <DownloadButton />
-          </div>
-        </header>
-        <SubtestsResultsTable filteringSearchTerm={searchTerm} />
-      </Await>
+      <header>
+        <SubtestsBreadcrumbs view={view} />
+        <SubtestsRevisionHeader header={subtestsHeader} />
+        <div className={styles.content}>
+          <SearchInput onChange={setSearchTerm} />
+          <DownloadButton results={[results]} />
+        </div>
+      </header>
+      <SubtestsResultsTable
+        filteringSearchTerm={searchTerm}
+        results={results}
+      />
     </Container>
   );
 }
