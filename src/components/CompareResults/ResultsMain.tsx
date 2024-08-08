@@ -71,11 +71,10 @@ function ResultsMain() {
         }
       >
         <Await resolve={results}>
-          {(resolvedResults) => (
+          {(resolvedResults: CompareResultsItem[][]) => (
             <>
               <header>
                 <div className={styles.title}>Results</div>
-
                 <Grid container className={styles.content} spacing={2}>
                   <Grid item md={6} xs={12}>
                     <SearchInput onChange={setSearchTerm} />
@@ -94,13 +93,13 @@ function ResultsMain() {
                     <RevisionSelect />
                   </Grid>
                   <Grid item xs>
-                    <DownloadButton />
+                    <DownloadButton results={resolvedResults} />
                   </Grid>
                 </Grid>
               </header>
               <ResultsTable
                 filteringSearchTerm={searchTerm}
-                results={resolvedResults as CompareResultsItem[][]}
+                results={resolvedResults}
                 view={view}
               />
             </>

@@ -1169,7 +1169,9 @@ exports[`Results Table Should match snapshot 1`] = `
                       role="cell"
                     >
                       <div
+                        aria-label="macosx1015-64-shippable-qr"
                         class="platform-container"
+                        data-mui-internal-clone-element="true"
                       >
                         <svg
                           aria-hidden="true"
@@ -1399,7 +1401,9 @@ exports[`Results Table Should match snapshot 1`] = `
                       role="cell"
                     >
                       <div
+                        aria-label="linux1804-64-shippable-qr"
                         class="platform-container"
+                        data-mui-internal-clone-element="true"
                       >
                         <svg
                           aria-hidden="true"
@@ -1628,7 +1632,9 @@ exports[`Results Table Should match snapshot 1`] = `
                       role="cell"
                     >
                       <div
+                        aria-label="windows10-64-shippable-qr"
                         class="platform-container"
+                        data-mui-internal-clone-element="true"
                       >
                         <svg
                           aria-hidden="true"
@@ -1902,7 +1908,9 @@ exports[`Results Table Should match snapshot 1`] = `
                       role="cell"
                     >
                       <div
+                        aria-label="windows10-64-qr"
                         class="platform-container"
+                        data-mui-internal-clone-element="true"
                       >
                         <svg
                           aria-hidden="true"

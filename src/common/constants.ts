@@ -8,10 +8,10 @@ import {
   TimeRange,
 } from '../types/types';
 
-export const treeherderBaseURL = 'https://treeherder.mozilla.org';
-
 export const compareView = 'compare-results';
 export const compareOverTimeView = 'compare-over-time-results';
+export const subtestsView = 'subtests-results';
+export const subtestsOverTimeView = 'subtests-over-time-results';
 export const searchView = 'search';
 
 export const repoMap: Dictionary<Repository['name']> = {
