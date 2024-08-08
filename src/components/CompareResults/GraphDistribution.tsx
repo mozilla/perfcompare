@@ -55,6 +55,11 @@ function GraphDistribution(props: GraphDistributionProps) {
         },
       },
     },
+    elements: {
+      point: {
+        pointStyle: 'triangle',
+      },
+    },
   };
 
   const data = {
