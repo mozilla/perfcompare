@@ -3,7 +3,7 @@
 exports[`Search by title/test name should filter results after a timeout or immediately with enter 1`] = `
 <form
   aria-label="Search by title, platform, revision or options"
-  class="MuiBox-root css-183ebj2"
+  class="MuiBox-root css-1wxqtyp"
 >
   <div
     class="MuiFormControl-root MuiTextField-root css-1cocm2p-MuiFormControl-root-MuiTextField-root"

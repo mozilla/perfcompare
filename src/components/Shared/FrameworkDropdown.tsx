@@ -7,7 +7,6 @@ import type { Framework } from '../../types/types';
 interface FrameworkDropdownProps {
   frameworkId: Framework['id'];
   labelId?: string;
-  sxStyles?: React.ComponentProps<typeof Select>['sx'];
   size?: 'small' | 'medium';
   variant?: 'standard' | 'outlined' | 'filled';
   onChange?: (event: SelectChangeEvent) => void;
@@ -31,7 +30,6 @@ const sortedFrameworks = sortFrameworks(frameworkMap);
 function FrameworkDropdown({
   frameworkId,
   labelId,
-  sxStyles,
   variant,
   size,
   onChange,
@@ -46,7 +44,6 @@ function FrameworkDropdown({
       name='framework'
       variant={variant}
       size={size}
-      sx={sxStyles}
       inputProps={{ 'aria-label': 'Framework' }}
     >
       {sortedFrameworks.map(([id, name]) => (
