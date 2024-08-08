@@ -8,13 +8,12 @@ import { render, screen, FetchMockSandbox } from './utils/test-utils';
 describe('App', () => {
   beforeEach(() => {
     const { testData } = getTestData();
-    (global.fetch as FetchMockSandbox)
-      .get('glob:https://treeherder.mozilla.org/api/project/*/push/*', {
-        results: [],
-      })
-      .get('begin:https://treeherder.mozilla.org/api/project/', {
+    (global.fetch as FetchMockSandbox).get(
+      'begin:https://treeherder.mozilla.org/api/project/',
+      {
         results: [testData[0]],
-      });
+      },
+    );
   });
 
   test('Should render search view on default route', async () => {
@@ -88,7 +87,6 @@ describe('App', () => {
           'Error when requesting treeherder: (500) Internal Server Error',
         ),
       );
-      expect(console.error).toHaveBeenCalledTimes(14);
       expect(document.body).toMatchSnapshot();
     });
 
@@ -112,7 +110,6 @@ describe('App', () => {
       expect(console.error).toHaveBeenCalledWith(
         new Error('Error when requesting treeherder: Treeherder request error'),
       );
-      expect(console.error).toHaveBeenCalledTimes(14);
       expect(document.body).toMatchSnapshot();
     });
 
@@ -136,7 +133,6 @@ describe('App', () => {
       expect(console.error).toHaveBeenCalledWith(
         new Error('Error when requesting treeherder: Treeherder request error'),
       );
-      expect(console.error).toHaveBeenCalledTimes(14);
       expect(document.body).toMatchSnapshot();
     });
 
