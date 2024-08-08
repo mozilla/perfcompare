@@ -75,7 +75,7 @@ function ResultsMain() {
         }
       >
         <Await resolve={results}>
-          {(resolvedResults) => (
+          {(resolvedResults: CompareResultsItem[][]) => (
             <>
               <header>
                 <div className={styles.title}>Results</div>
@@ -91,12 +91,12 @@ function ResultsMain() {
                     />
                   </FormControl>
                   <RevisionSelect />
-                  <DownloadButton />
+                  <DownloadButton results={resolvedResults} />
                 </div>
               </header>
               <ResultsTable
                 filteringSearchTerm={searchTerm}
-                results={resolvedResults as CompareResultsItem[][]}
+                results={resolvedResults}
                 view={view}
               />
             </>
