@@ -63,6 +63,15 @@ function CommonGraph(props: CommonGraphProps) {
         },
       },
     },
+    elements: {
+      line: {
+        borderWidth: 3,
+      },
+      point: {
+        pointRadius: 0,
+        pointHoverRadius: 5,
+      },
+    },
   };
 
   //////////////////// START FAST KDE ////////////////////////
@@ -100,6 +109,7 @@ function CommonGraph(props: CommonGraphProps) {
 
   return (
     <div className={styles.container}>
+      {/* @ts-expect-error the types for chart.js do not seem great and do not support all options. */}
       <Line options={options} data={data} />
     </div>
   );
