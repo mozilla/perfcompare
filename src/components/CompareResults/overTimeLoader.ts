@@ -4,7 +4,7 @@ import {
   fetchCompareOverTimeResults,
   memoizedFetchRevisionForRepository,
 } from '../../logic/treeherder';
-import { Changeset, Repository } from '../../types/state';
+import { Changeset, CompareResultsItem, Repository } from '../../types/state';
 import { Framework, TimeRange } from '../../types/types';
 
 // This function checks and sanitizes the input values, then returns values that
@@ -201,7 +201,7 @@ export async function loader({ request }: { request: Request }) {
 }
 
 type DeferredLoaderData = {
-  results: Promise<unknown>;
+  results: Promise<CompareResultsItem[][]>;
   baseRepo: Repository['name'];
   newRevs: string[];
   newRevsInfo: Changeset[];
