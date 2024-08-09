@@ -82,15 +82,19 @@ function CommonGraph(props: CommonGraphProps) {
   };
 
   //////////////////// START FAST KDE ////////////////////////
+  // Arbitrary value that seems to work OK.
+  // In the future we'll want to compute a better value, see
+  // https://bugzilla.mozilla.org/show_bug.cgi?id=1901248 for some ideas.
+  const bandwidth = (max - min) / 15;
   const baseRunsDensity = Array.from(
     kde.density1d(baseRevisionRuns.values, {
-      bandwidth: baseRevisionRuns.stddev,
+      bandwidth,
       extent: [min, max],
     }),
   );
   const newRunsDensity = Array.from(
     kde.density1d(newRevisionRuns.values, {
-      bandwidth: newRevisionRuns.stddev,
+      bandwidth,
       extent: [min, max],
     }),
   );
