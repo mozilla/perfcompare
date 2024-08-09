@@ -3,6 +3,7 @@ import { useState } from 'react';
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
 import { IconButton, Button } from '@mui/material';
 import { useSnackbar } from 'notistack';
+import { style } from 'typestyle';
 
 import {
   getTaskclusterCredentials,
@@ -23,6 +24,20 @@ import { RetriggerSignInModal } from './RetriggerSignInModal';
 
 type Status = 'pending' | 'signin-modal' | 'retrigger-modal';
 
+const styles = {
+  retrigger: style({
+    fontFamily: 'SF Pro',
+    fontSize: '11px',
+    fontWeight: 590,
+    lineHeight: '16.5px',
+    textAlign: 'left',
+    width: '111px',
+    height: '25px',
+    padding: '4px 8px 4px 8px',
+    gap: '4px',
+    borderRadius: '4px 0px 0px 0px',
+  }),
+};
 interface RetriggerButtonProps {
   result: CompareResultsItem;
 }
@@ -37,6 +52,8 @@ function RetriggerButton({ result }: RetriggerButtonProps) {
     new_rev: newRev,
     base_repository_name: baseRepo,
     new_repository_name: newRepo,
+    base_parent_signature: baseParentSignature,
+    new_parent_signature: newParentSignature,
   } = result;
 
   const [status, setStatus] = useState('pending' as Status);
@@ -163,6 +180,9 @@ function RetriggerButton({ result }: RetriggerButtonProps) {
         onClick={() => void onRetriggerButtonClick()}
       >
         <RefreshOutlinedIcon />
+        {baseParentSignature || newParentSignature ? (
+          <span className={styles.retrigger}>Retrigger button</span>
+        ) : null}
       </IconButton>
       <RetriggerSignInModal
         open={status === 'signin-modal'}

@@ -10,6 +10,7 @@ import { Colors, Spacing } from '../../../styles';
 import type { SubtestsRevisionsHeader } from '../../../types/state';
 import DownloadButton from '.././DownloadButton';
 import SearchInput from '.././SearchInput';
+import RetriggerButton from '../Retrigger/RetriggerButton';
 import { LoaderReturnValue } from '../subtestsLoader';
 import { LoaderReturnValue as OvertimeLoaderReturnValue } from '../subtestsOverTimeLoader';
 import SubtestsBreadcrumbs from './SubtestsBreadcrumbs';
@@ -39,6 +40,8 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
     platform: results[0].platform,
   };
 
+  console.log('results ', results);
+
   const themeColor100 =
     themeMode === 'light' ? Colors.Background300 : Colors.Background100Dark;
 
@@ -67,6 +70,7 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
         <div className={styles.content}>
           <SearchInput onChange={setSearchTerm} />
           <DownloadButton resultsPromise={[results]} />
+          <RetriggerButton result={results[0]} />
         </div>
       </header>
       <SubtestsResultsTable
