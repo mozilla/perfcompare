@@ -40,8 +40,6 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
     platform: results[0].platform,
   };
 
-  console.log('results ', results);
-
   const themeColor100 =
     themeMode === 'light' ? Colors.Background300 : Colors.Background100Dark;
 

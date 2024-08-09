@@ -181,7 +181,7 @@ function RetriggerButton({ result }: RetriggerButtonProps) {
       >
         <RefreshOutlinedIcon />
         {baseParentSignature || newParentSignature ? (
-          <span className={styles.retrigger}>Retrigger button</span>
+          <span className={styles.retrigger}>Retrigger test</span>
         ) : null}
       </IconButton>
       <RetriggerSignInModal
