@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react';
 
 import Box from '@mui/material/Box';
-import { useAsyncValue } from 'react-router-dom';
 
 import type { CompareResultsItem } from '../../../types/state';
 import type { CompareResultsTableConfig } from '../../../types/types';
@@ -146,21 +145,20 @@ function filterResults(
 
 type ResultsTableProps = {
   filteringSearchTerm: string;
+  results: CompareResultsItem[];
 };
 
-function SubtestsResultsTable({ filteringSearchTerm }: ResultsTableProps) {
-  const loaderData = useAsyncValue();
-  const results = loaderData as CompareResultsItem[][];
-
+function SubtestsResultsTable({
+  filteringSearchTerm,
+  results,
+}: ResultsTableProps) {
   const [tableFilters, setTableFilters] = useState(
     new Map() as Map<string, Set<string>>, // ColumnID -> Set<Values to remove>
   );
 
   const processedResults = useMemo(() => {
-    const resultsForCurrentComparison = results.flat();
-
     const filteredResults = filterResults(
-      resultsForCurrentComparison,
+      results,
       filteringSearchTerm,
       tableFilters,
     );
