@@ -250,7 +250,6 @@ function CompareWithBase({
           className='form-wrapper'
           onSubmit={onFormSubmit}
           aria-label='Compare with base form'
-          reloadDocument={hasEditButton ?? true}
         >
           {/**** Edit Button ****/}
           <div

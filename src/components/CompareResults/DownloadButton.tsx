@@ -83,10 +83,10 @@ const styles = {
 };
 
 interface DownloadButtonProps {
-  results: CompareResultsItem[][];
+  resultsPromise: Promise<CompareResultsItem[][]> | CompareResultsItem[][];
 }
 
-function DownloadButton({ results }: DownloadButtonProps) {
+function DownloadButton({ resultsPromise }: DownloadButtonProps) {
   const activeComparison = useAppSelector(
     (state) => state.comparison.activeComparison,
   );
@@ -104,7 +104,8 @@ function DownloadButton({ results }: DownloadButtonProps) {
     }
   });
 
-  const handleDownloadClick = () => {
+  const handleDownloadClick = async () => {
+    const results = await resultsPromise;
     const processedResults = generateJsonDataFromComparisonResults(
       activeComparison,
       results,
@@ -129,7 +130,7 @@ function DownloadButton({ results }: DownloadButtonProps) {
       <Button
         variant='contained'
         color='secondary'
-        onClick={handleDownloadClick}
+        onClick={() => void handleDownloadClick()}
       >
         Download JSON
       </Button>

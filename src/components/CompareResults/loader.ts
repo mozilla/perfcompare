@@ -1,5 +1,3 @@
-import { defer } from 'react-router-dom';
-
 import { repoMap, frameworks } from '../../common/constants';
 import { compareView } from '../../common/constants';
 import {
@@ -7,7 +5,7 @@ import {
   fetchFakeCompareResults,
   memoizedFetchRevisionForRepository,
 } from '../../logic/treeherder';
-import { Changeset, Repository } from '../../types/state';
+import { Changeset, CompareResultsItem, Repository } from '../../types/state';
 import { FakeCommitHash, Framework } from '../../types/types';
 
 // This function checks and sanitizes the input values, then returns values that
@@ -144,6 +142,11 @@ async function fetchAllFakeCompareResults() {
   return Promise.all(promises);
 }
 
+// This counter is incremented for each call of the loader. This allows the
+// components to know when a new load happened and use it in keys.
+// Essentially a workaround to https://github.com/remix-run/react-router/issues/11864
+let generationCounter = 0;
+
 // This function is responsible for fetching the data from the URL. It's called
 // by React Router DOM when the compare-results path is requested.
 // It uses the URL parameters as inputs, and returns all the fetched data to the
@@ -173,6 +176,7 @@ export async function loader({ request }: { request: Request }) {
       frameworkId,
       frameworkName,
       view: compareView,
+      generation: generationCounter++,
     };
   }
 
@@ -222,7 +226,7 @@ export async function loader({ request }: { request: Request }) {
     ...newRevsInfoPromises,
   ]);
 
-  return defer({
+  return {
     results: resultsPromise,
     baseRev,
     baseRevInfo,
@@ -233,11 +237,12 @@ export async function loader({ request }: { request: Request }) {
     frameworkId,
     frameworkName,
     view: compareView,
-  });
+    generation: generationCounter++,
+  };
 }
 
 type DeferredLoaderData = {
-  results: Promise<unknown>;
+  results: Promise<CompareResultsItem[][]>;
   baseRev: string;
   baseRevInfo: Changeset;
   baseRepo: Repository['name'];
@@ -247,8 +252,9 @@ type DeferredLoaderData = {
   frameworkId: Framework['id'];
   frameworkName: Framework['name'];
   view: typeof compareView;
+  generation: number;
 };
 
-//had to be more explicit with the type because the defer
-//function returns a an inaccessible type
+// Be explicit with the returned type to control it better than if we were
+// inferring it.
 export type LoaderReturnValue = DeferredLoaderData;
