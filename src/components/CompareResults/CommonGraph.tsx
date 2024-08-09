@@ -17,7 +17,7 @@ const styles = {
 };
 
 function CommonGraph(props: CommonGraphProps) {
-  const { baseRevisionRuns, newRevisionRuns } = props;
+  const { baseRevisionRuns, newRevisionRuns, min, max } = props;
 
   const options = {
     plugins: {
@@ -63,25 +63,39 @@ function CommonGraph(props: CommonGraphProps) {
         },
       },
     },
+    elements: {
+      line: {
+        borderWidth: 3,
+      },
+      point: {
+        pointRadius: 0,
+        pointHoverRadius: 5,
+      },
+    },
+    interaction: {
+      // Ideally we'd use this mode, but the tooltip then shows
+      // duplicate items. It could be good to debug this in the future.
+      //mode: 'x',
+      // It shows the tooltips as soon as the mouse cursor is on the graph.
+      intersect: false,
+    },
   };
 
   //////////////////// START FAST KDE ////////////////////////
+  // Arbitrary value that seems to work OK.
+  // In the future we'll want to compute a better value, see
+  // https://bugzilla.mozilla.org/show_bug.cgi?id=1901248 for some ideas.
+  const bandwidth = (max - min) / 15;
   const baseRunsDensity = Array.from(
     kde.density1d(baseRevisionRuns.values, {
-      bandwidth: baseRevisionRuns.stddev,
-      extent: [
-        Math.min(...baseRevisionRuns.values),
-        Math.max(...baseRevisionRuns.values),
-      ],
+      bandwidth,
+      extent: [min, max],
     }),
   );
   const newRunsDensity = Array.from(
     kde.density1d(newRevisionRuns.values, {
-      bandwidth: newRevisionRuns.stddev,
-      extent: [
-        Math.min(...newRevisionRuns.values),
-        Math.max(...newRevisionRuns.values),
-      ],
+      bandwidth,
+      extent: [min, max],
     }),
   );
 
@@ -106,6 +120,7 @@ function CommonGraph(props: CommonGraphProps) {
 
   return (
     <div className={styles.container}>
+      {/* @ts-expect-error the types for chart.js do not seem great and do not support all options. */}
       <Line options={options} data={data} />
     </div>
   );
@@ -126,6 +141,8 @@ interface CommonGraphProps {
     stddev: number;
     stddevPercent: number;
   };
+  min: number;
+  max: number;
 }
 
 export default CommonGraph;
