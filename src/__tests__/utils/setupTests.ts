@@ -49,7 +49,10 @@ jest.mock('taskcluster-client-web', () => {
 const MockedHooks = Hooks as jest.Mock;
 
 beforeEach(() => {
-  const triggerHook = jest.fn(() => Promise.resolve('rEtrRigGERtaSkId'));
+  const taskId = 'rEtrRigGERtaSkId';
+  const triggerHook = jest.fn(() =>
+    Promise.resolve({ taskId, status: { taskId } }),
+  );
   // After every test jest resets the mock implementation, so we need to define
   // it again for each test.
   MockedHooks.mockImplementation(() => {
