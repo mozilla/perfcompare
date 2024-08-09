@@ -72,6 +72,13 @@ function CommonGraph(props: CommonGraphProps) {
         pointHoverRadius: 5,
       },
     },
+    interaction: {
+      // Ideally we'd use this mode, but the tooltip then shows
+      // duplicate items. It could be good to debug this in the future.
+      //mode: 'x',
+      // It shows the tooltips as soon as the mouse cursor is on the graph.
+      intersect: false,
+    },
   };
 
   //////////////////// START FAST KDE ////////////////////////
