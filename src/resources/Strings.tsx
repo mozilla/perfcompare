@@ -146,6 +146,11 @@ export const Strings = {
         body: 'Choose how many clones of the base and new tasks will be started.',
         submitButton: 'Retrigger',
       },
+      notification: {
+        body: (taskType: 'base' | 'new', id: string) =>
+          `The retrigger request for the ${taskType} run has been sent successfully, with ID ${id}.`,
+        treeherderButton: 'Open Treeherder',
+      },
     },
   },
   errors: {

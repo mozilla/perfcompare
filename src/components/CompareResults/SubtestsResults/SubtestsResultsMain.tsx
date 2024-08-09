@@ -1,9 +1,10 @@
 import { useState } from 'react';
 
 import { Container } from '@mui/system';
-import { Await, useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
 
+import { subtestsView, subtestsOverTimeView } from '../../../common/constants';
 import { useAppSelector } from '../../../hooks/app';
 import { Colors, Spacing } from '../../../styles';
 import type { SubtestsRevisionsHeader } from '../../../types/state';
@@ -11,10 +12,15 @@ import DownloadButton from '.././DownloadButton';
 import SearchInput from '.././SearchInput';
 import { LoaderReturnValue } from '../subtestsLoader';
 import { LoaderReturnValue as OvertimeLoaderReturnValue } from '../subtestsOverTimeLoader';
+import SubtestsBreadcrumbs from './SubtestsBreadcrumbs';
 import SubtestsResultsTable from './SubtestsResultsTable';
 import SubtestsRevisionHeader from './SubtestsRevisionHeader';
 
-function SubtestsResultsMain() {
+type SubtestsResultsMainProps = {
+  view: typeof subtestsView | typeof subtestsOverTimeView;
+};
+
+function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
   const { results } = useLoaderData() as
     | LoaderReturnValue
     | OvertimeLoaderReturnValue;
@@ -55,16 +61,18 @@ function SubtestsResultsMain() {
 
   return (
     <Container className={styles.container} data-testid='subtests-main'>
-      <Await resolve={results}>
-        <header>
-          <SubtestsRevisionHeader header={subtestsHeader} />
-          <div className={styles.content}>
-            <SearchInput onChange={setSearchTerm} />
-            <DownloadButton />
-          </div>
-        </header>
-        <SubtestsResultsTable filteringSearchTerm={searchTerm} />
-      </Await>
+      <header>
+        <SubtestsBreadcrumbs view={view} />
+        <SubtestsRevisionHeader header={subtestsHeader} />
+        <div className={styles.content}>
+          <SearchInput onChange={setSearchTerm} />
+          <DownloadButton results={[results]} />
+        </div>
+      </header>
+      <SubtestsResultsTable
+        filteringSearchTerm={searchTerm}
+        results={results}
+      />
     </Container>
   );
 }
