@@ -14,6 +14,7 @@ import {
   FetchMockSandbox,
   within,
   render,
+  waitFor,
 } from '../utils/test-utils';
 
 function setUpTestData() {
@@ -168,18 +169,18 @@ describe('Compare Over Time', () => {
       within(formElement).queryByText(/mozilla-central/i),
     ).not.toBeInTheDocument();
 
-    const newDropdown = screen.getByRole('button', {
+    const baseDropdown = screen.getByRole('button', {
       name: 'Base repository try',
     });
 
-    await user.click(newDropdown);
+    await user.click(baseDropdown);
     const mozRepoItem = await screen.findByRole('option', {
       name: 'mozilla-central',
     });
     await user.click(mozRepoItem);
     expect(mozRepoItem).toBeInTheDocument();
 
-    await user.click(newDropdown);
+    await user.click(baseDropdown);
     const autolandItem = await screen.findByRole('option', {
       name: 'autoland',
     });
@@ -495,7 +496,7 @@ describe('Compare Over Time', () => {
     expect(within(formElement).queryByRole('textbox')).not.toBeInTheDocument();
   });
 
-  it('should update revisions and time-range after user changes both in edit mode', async () => {
+  it('should update base repo, revisions and time-range after user changes them and clicks Compare in edit mode', async () => {
     renderWithCompareResultsURL(
       <OverTimeResultsView title={Strings.metaData.pageTitle.results} />,
     );
@@ -521,6 +522,17 @@ describe('Compare Over Time', () => {
     // Click the edit revision
     const editButton = getEditButton();
     await user.click(editButton);
+
+    //The base repo dropdown
+    const baseDropdown = screen.getByRole('button', {
+      name: 'Base repository try',
+    });
+
+    await user.click(baseDropdown);
+    const autolandItem = await screen.findByRole('option', {
+      name: 'autoland',
+    });
+    await user.click(autolandItem);
 
     // The new repo dropdown and search input should be visible
     expect(
@@ -548,8 +560,20 @@ describe('Compare Over Time', () => {
     });
     await user.click(last2daysItem);
 
+    const compareButton = await screen.findByRole('button', {
+      name: /Compare/,
+    });
+
+    // Press the compare button
+    await user.click(compareButton);
+
+    await waitFor(() => {
+      expect(location.href).toContain('selectedTimeRange=172800');
+    });
+
     // the updated revision and time range should be displayed
     expect(screen.getByText(/alves of coconuts/)).toBeInTheDocument();
-    expect(last2daysItem).toBeInTheDocument();
+    expect(screen.getByText(/Last 2 days/)).toBeInTheDocument();
+    expect(within(formElement).getAllByText('autoland')[0]).toBeInTheDocument();
   });
 });
