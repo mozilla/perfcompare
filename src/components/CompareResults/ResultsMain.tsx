@@ -3,6 +3,7 @@ import { Suspense, useState } from 'react';
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
 import FormControl from '@mui/material/FormControl';
+import Grid from '@mui/material/Grid';
 import { SelectChangeEvent } from '@mui/material/Select';
 import { Container } from '@mui/system';
 import { useSearchParams } from 'react-router-dom';
@@ -22,7 +23,7 @@ import RevisionSelect from './RevisionSelect';
 import SearchInput from './SearchInput';
 
 function ResultsMain() {
-  const { results, view, frameworkId } = useLoaderData() as
+  const { results, view, frameworkId, generation } = useLoaderData() as
     | LoaderReturnValue
     | OverTimeLoaderReturnValue;
 
@@ -52,11 +53,6 @@ function ResultsMain() {
     }),
   };
 
-  const sxStyles = {
-    marginRight: 2,
-    marginLeft: 2,
-  };
-
   const onFrameworkChange = (event: SelectChangeEvent) => {
     const id = +event.target.value as Framework['id'];
     setFrameworkIdVal(id);
@@ -67,39 +63,49 @@ function ResultsMain() {
 
   return (
     <Container className={styles.container} data-testid='results-main'>
+      <header>
+        <div className={styles.title}>Results</div>
+        <Grid container className={styles.content} spacing={2}>
+          <Grid item md={6} xs={12}>
+            <SearchInput onChange={setSearchTerm} />
+          </Grid>
+          <Grid item xs>
+            <FormControl sx={{ width: '100%' }}>
+              <FrameworkDropdown
+                frameworkId={frameworkIdVal}
+                size='small'
+                variant='outlined'
+                onChange={onFrameworkChange}
+              />
+            </FormControl>
+          </Grid>
+          <Grid item xs>
+            <RevisionSelect />
+          </Grid>
+          <Grid item xs>
+            <DownloadButton resultsPromise={results} />
+          </Grid>
+        </Grid>
+      </header>
+      {/* Using a key in Suspense makes it that it displays the fallback more
+          consistently.
+          See https://github.com/mozilla/perfcompare/pull/702#discussion_r1705274740
+          for more explanation (and questioning) about this issue. */}
       <Suspense
         fallback={
-          <Box display='flex' justifyContent='center'>
+          <Box display='flex' justifyContent='center' sx={{ marginTop: 3 }}>
             <CircularProgress />
           </Box>
         }
+        key={generation}
       >
         <Await resolve={results}>
           {(resolvedResults) => (
-            <>
-              <header>
-                <div className={styles.title}>Results</div>
-                <div className={styles.content}>
-                  <SearchInput onChange={setSearchTerm} />
-                  <FormControl>
-                    <FrameworkDropdown
-                      frameworkId={frameworkIdVal}
-                      sxStyles={sxStyles}
-                      size='small'
-                      variant='outlined'
-                      onChange={onFrameworkChange}
-                    />
-                  </FormControl>
-                  <RevisionSelect />
-                  <DownloadButton />
-                </div>
-              </header>
-              <ResultsTable
-                filteringSearchTerm={searchTerm}
-                results={resolvedResults as CompareResultsItem[][]}
-                view={view}
-              />
-            </>
+            <ResultsTable
+              filteringSearchTerm={searchTerm}
+              results={resolvedResults as CompareResultsItem[][]}
+              view={view}
+            />
           )}
         </Await>
       </Suspense>

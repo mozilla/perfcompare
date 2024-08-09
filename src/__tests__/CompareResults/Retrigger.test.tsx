@@ -9,7 +9,6 @@ import {
   fireEvent,
   render,
   screen,
-  waitFor,
   within,
 } from '../utils/test-utils';
 
@@ -229,8 +228,40 @@ describe('Retrigger', () => {
 
     await user.click(triggerJobsButton);
 
-    await waitFor(() =>
-      expect(new MockedHooks().triggerHook).toHaveBeenCalled(),
+    // Ideally we shuold use this when https://github.com/iamhosseindhv/notistack/pull/609
+    // is merged and we update notistack.
+    // const baseNotification = await screen.findByRole('alert', {
+    //   description: /The retrigger request for the base run/,
+    // });
+    // const newNotification = await screen.findByRole('alert', {
+    //   description: /The retrigger request for the new run/,
+    // });
+    // In the mean time we use this:
+    const baseNotification = (
+      await screen.findByText(/The retrigger request for the base run/)
+    ).parentElement!;
+    const newNotification = (
+      await screen.findByText(/The retrigger request for the new run/)
+    ).parentElement!;
+
+    const baseButton: HTMLLinkElement = within(baseNotification).getByRole(
+      'link',
+      { name: /Open Treeherder/, hidden: true },
     );
+    expect(baseButton.href).toBe(
+      'https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=coconut',
+    );
+    const newButton: HTMLLinkElement = within(newNotification).getByRole(
+      'link',
+      { name: /Open Treeherder/, hidden: true },
+    );
+    expect(newButton.href).toBe(
+      'https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam',
+    );
+
+    expect(baseNotification).toMatchSnapshot();
+    expect(newNotification).toMatchSnapshot();
+
+    expect(new MockedHooks().triggerHook).toHaveBeenCalled();
   });
 });

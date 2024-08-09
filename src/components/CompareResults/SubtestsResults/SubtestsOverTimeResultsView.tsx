@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import Grid from '@mui/material/Grid';
 import { style } from 'typestyle';
 
+import { subtestsOverTimeView } from '../../../common/constants';
 import { useAppSelector } from '../../../hooks/app';
 import { background } from '../../../styles';
 import PerfCompareHeader from '../../Shared/PerfCompareHeader';
@@ -29,7 +30,7 @@ function SubtestsResultsView(props: SubtestsResultsViewProps) {
       <PerfCompareHeader />
       <Grid container alignItems='center' justifyContent='center'>
         <Grid item xs={12}>
-          <SubtestsResultsMain />
+          <SubtestsResultsMain view={subtestsOverTimeView} />
         </Grid>
       </Grid>
     </div>
