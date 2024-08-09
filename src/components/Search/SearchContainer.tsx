@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Typography from '@mui/material/Typography';
 
-import { repoMap } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { SearchContainerStyles } from '../../styles';
+import type { Framework, TimeRange } from '../../types/types';
 import CompareOverTime from './CompareOverTime';
 import CompareWithBase from './CompareWithBase';
 
@@ -14,21 +14,7 @@ const strings = Strings.components.searchDefault;
 function SearchContainer(props: SearchViewProps) {
   const themeMode = useAppSelector((state) => state.theme.mode);
   const styles = SearchContainerStyles(themeMode, /* isHome */ true);
-  const checkedRevisionsListNew = useAppSelector(
-    (state) => state.search.new.checkedRevisions,
-  );
-  const checkedRevisionsListBase = useAppSelector(
-    (state) => state.search.base.checkedRevisions,
-  );
-
-  // The "??" operations below are so that Typescript doesn't wonder about the
-  // undefined value later.
-  const checkedNewRepos = checkedRevisionsListNew.map(
-    (item) => repoMap[item.repository_id] ?? 'try',
-  );
-  const checkedBaseRepos = checkedRevisionsListBase.map(
-    (item) => repoMap[item.repository_id] ?? 'try',
-  );
+  const [isBaseSearch, expandBaseComponent] = useState(null as null | boolean);
 
   return (
     <section
@@ -37,15 +23,28 @@ function SearchContainer(props: SearchViewProps) {
       className={styles.container}
     >
       <Typography className='search-default-title'>{strings.title}</Typography>
+      {/* hard code the frameworkIdVal  because talos is the
+       default framework; refer to frameworkMap in constants.ts */}
       <CompareWithBase
-        isEditable={false}
-        baseRevs={checkedRevisionsListBase}
-        newRevs={checkedRevisionsListNew}
-        baseRepos={checkedBaseRepos}
-        newRepos={checkedNewRepos}
+        frameworkIdVal={1 as Framework['id']}
+        hasEditButton={false}
+        baseRev={null}
+        newRevs={[]}
+        isBaseSearch={isBaseSearch}
+        expandBaseComponent={expandBaseComponent}
+        baseRepo='try'
+        newRepo='try'
       />
-      {/* hidden until post-mvp release */}
-      <CompareOverTime />
+      <CompareOverTime
+        hasEditButton={false}
+        newRevs={[]}
+        isBaseSearch={isBaseSearch}
+        expandBaseComponent={expandBaseComponent}
+        frameworkIdVal={1 as Framework['id']}
+        intervalValue={86400 as TimeRange['value']}
+        baseRepo='try'
+        newRepo='try'
+      />
     </section>
   );
 }

@@ -1,7 +1,29 @@
+import { ReactElement } from 'react';
+
+import { compareView } from '../../common/constants';
+import { loader } from '../../components/CompareResults/loader';
 import RevisionRow from '../../components/CompareResults/RevisionRow';
 import { Platform } from '../../types/types';
 import getTestData from '../utils/fixtures';
-import { render, screen } from '../utils/test-utils';
+import {
+  screen,
+  renderWithRouter,
+  FetchMockSandbox,
+} from '../utils/test-utils';
+
+function renderWithRoute(component: ReactElement) {
+  (window.fetch as FetchMockSandbox)
+    .get('begin:https://treeherder.mozilla.org/api/perfcompare/results/', [])
+    .get('begin:https://treeherder.mozilla.org/api/project/', {
+      results: [],
+    });
+
+  return renderWithRouter(component, {
+    route: '/compare-results/',
+    search: '?baseRev=spam&baseRepo=mozilla-central&framework=2',
+    loader,
+  });
+}
 
 describe('<RevisionRow>', () => {
   it.each([
@@ -32,14 +54,14 @@ describe('<RevisionRow>', () => {
     },
   ])(
     'shows correct platform info for platform "$platform"',
-    ({ platform, shortName, hasIcon }) => {
+    async ({ platform, shortName, hasIcon }) => {
       const {
         testCompareData: [rowData],
       } = getTestData();
 
       rowData.platform = platform as Platform;
-      render(<RevisionRow result={rowData} />);
-      const shortNameNode = screen.getByText(shortName);
+      renderWithRoute(<RevisionRow result={rowData} view={compareView} />);
+      const shortNameNode = await screen.findByText(shortName);
       expect(shortNameNode).toBeInTheDocument();
       const previousNode = shortNameNode.previousSibling;
       /* eslint-disable jest/no-conditional-expect */

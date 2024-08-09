@@ -21,7 +21,7 @@ export type SubRevision = {
   comments: string;
 };
 
-export type RevisionsList = {
+export type Changeset = {
   id: number;
   revision: string;
   author: string;
@@ -46,6 +46,17 @@ export type RevisionsHeader = {
   extra_options: string;
   new_rev: string;
   new_repo: Repository['name'];
+};
+
+export type SubtestsRevisionsHeader = {
+  suite: string;
+  framework_id: Framework['id'];
+  test: string;
+  option_name: string;
+  extra_options: string;
+  new_rev: string;
+  new_repo: Repository['name'];
+  platform: Platform;
 };
 
 export type CompareResultsItem = {
@@ -91,32 +102,30 @@ export type CompareResultsItem = {
   is_regression: boolean;
   is_meaningful: boolean;
   more_runs_are_needed: boolean;
-};
-
-export type SearchStateForInput = {
-  repository: Repository['name'];
-  searchResults: RevisionsList[];
-  searchValue: string;
-  inputError: boolean;
-  inputHelperText: string;
-  checkedRevisions: RevisionsList[];
+  /* 
+  Each test has a signature and each signature may or may not have a parent_signature.
+  If a signature has a parent_signature then we are looking at a subtest. For regular tests this field will be null.
+  */
+  base_parent_signature: number | null;
+  new_parent_signature: number | null;
+  base_signature_id: number;
+  new_signature_id: number;
+  has_subtests: boolean;
 };
 
 export type InputType = 'base' | 'new';
 
-export type View = 'compare-results' | 'search';
-
 export type ThemeMode = 'light' | 'dark';
 
-export type SearchState = Record<InputType, SearchStateForInput>;
-
 export type SelectedRevisionsState = {
-  revisions: RevisionsList[];
-  baseCommittedRevisions: RevisionsList[];
-  newCommittedRevisions: RevisionsList[];
+  revisions: Changeset[];
+  baseCommittedRevisions: Changeset[];
+  newCommittedRevisions: Changeset[];
 };
 
-export type PlatformInfo = {
-  shortName: string;
-  icon: React.ReactNode;
-};
+export type PlatformShortName =
+  | 'Linux'
+  | 'OSX'
+  | 'Windows'
+  | 'Android'
+  | 'Unspecified';

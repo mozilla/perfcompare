@@ -1,10 +1,11 @@
 import { repoMap, frameworks } from '../../common/constants';
+import { compareView } from '../../common/constants';
 import {
   fetchCompareResults,
   fetchFakeCompareResults,
-  fetchRecentRevisions,
+  memoizedFetchRevisionForRepository,
 } from '../../logic/treeherder';
-import { Repository } from '../../types/state';
+import { Changeset, CompareResultsItem, Repository } from '../../types/state';
 import { FakeCommitHash, Framework } from '../../types/types';
 
 // This function checks and sanitizes the input values, then returns values that
@@ -65,7 +66,6 @@ function checkValues({
       `The parameter framework isn't a valid value: "${framework}".`,
     );
   }
-
   if (!newRevs.length) {
     return {
       baseRev,
@@ -142,6 +142,11 @@ async function fetchAllFakeCompareResults() {
   return Promise.all(promises);
 }
 
+// This counter is incremented for each call of the loader. This allows the
+// components to know when a new load happened and use it in keys.
+// Essentially a workaround to https://github.com/remix-run/react-router/issues/11864
+let generationCounter = 0;
+
 // This function is responsible for fetching the data from the URL. It's called
 // by React Router DOM when the compare-results path is requested.
 // It uses the URL parameters as inputs, and returns all the fetched data to the
@@ -170,6 +175,8 @@ export async function loader({ request }: { request: Request }) {
       newRepos,
       frameworkId,
       frameworkName,
+      view: compareView,
+      generation: generationCounter++,
     };
   }
 
@@ -203,24 +210,24 @@ export async function loader({ request }: { request: Request }) {
   // For each of these requests, we get a list of 1 item because we request one
   // specific hash.
   // TODO what happens if there's no result?
-  const baseRevInfoPromise = fetchRecentRevisions({
+  const baseRevInfoPromise = memoizedFetchRevisionForRepository({
     repository: baseRepo,
     hash: baseRev,
-  }).then((listOfRevisions) => listOfRevisions[0]);
+  });
   const newRevsInfoPromises = newRevs.map((newRev, i) =>
-    fetchRecentRevisions({ repository: newRepos[i], hash: newRev }).then(
-      (listOfRevisions) => listOfRevisions[0],
-    ),
+    memoizedFetchRevisionForRepository({
+      repository: newRepos[i],
+      hash: newRev,
+    }),
   );
 
-  const [results, baseRevInfo, ...newRevsInfo] = await Promise.all([
-    resultsPromise,
+  const [baseRevInfo, ...newRevsInfo] = await Promise.all([
     baseRevInfoPromise,
     ...newRevsInfoPromises,
   ]);
 
   return {
-    results,
+    results: resultsPromise,
     baseRev,
     baseRevInfo,
     baseRepo,
@@ -229,7 +236,25 @@ export async function loader({ request }: { request: Request }) {
     newRepos,
     frameworkId,
     frameworkName,
+    view: compareView,
+    generation: generationCounter++,
   };
 }
 
-export type LoaderReturnValue = Awaited<ReturnType<typeof loader>>;
+type DeferredLoaderData = {
+  results: Promise<CompareResultsItem[][]>;
+  baseRev: string;
+  baseRevInfo: Changeset;
+  baseRepo: Repository['name'];
+  newRevs: string[];
+  newRevsInfo: Changeset[];
+  newRepos: Repository['name'][];
+  frameworkId: Framework['id'];
+  frameworkName: Framework['name'];
+  view: typeof compareView;
+  generation: number;
+};
+
+// Be explicit with the returned type to control it better than if we were
+// inferring it.
+export type LoaderReturnValue = DeferredLoaderData;

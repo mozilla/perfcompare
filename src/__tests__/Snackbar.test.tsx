@@ -1,6 +1,5 @@
 import userEvent from '@testing-library/user-event';
 
-import { maxRevisionsError } from '../common/constants';
 import App from '../components/App';
 import SearchView from '../components/Search/SearchView';
 import { Strings } from '../resources/Strings';
@@ -32,13 +31,15 @@ describe('Snackbar', () => {
     render(<App />);
 
     // focus input to show results
-    const searchInput = screen.getAllByRole('textbox')[0];
+    const searchInput = screen.getAllByRole('textbox')[1];
     await user.click(searchInput);
 
-    await user.click((await screen.findAllByTestId('checkbox-0'))[0]);
-    await user.click(screen.getAllByTestId('checkbox-1')[0]);
+    await user.click(await screen.findByTestId('checkbox-0'));
+    await user.click(screen.getByTestId('checkbox-1'));
+    await user.click(screen.getByTestId('checkbox-2'));
+    await user.click(screen.getByTestId('checkbox-3'));
 
-    const alert = screen.getByText(maxRevisionsError);
+    const alert = screen.getByText('Maximum 3 revisions.');
 
     const closeButton = screen.getByTestId('alert-close');
     await user.click(closeButton);
@@ -72,13 +73,15 @@ describe('Snackbar', () => {
     renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
 
     // focus input to show results
-    const searchInput = screen.getAllByRole('textbox')[0];
+    const searchInput = screen.getAllByRole('textbox')[1];
     await user.click(searchInput);
 
-    await user.click((await screen.findAllByTestId('checkbox-0'))[0]);
-    await user.click(screen.getAllByTestId('checkbox-1')[0]);
+    await user.click(await screen.findByTestId('checkbox-0'));
+    await user.click(screen.getByTestId('checkbox-1'));
+    await user.click(screen.getByTestId('checkbox-2'));
+    await user.click(screen.getByTestId('checkbox-3'));
 
-    const alert = screen.getByText(maxRevisionsError);
+    const alert = screen.getByText('Maximum 3 revisions.');
 
     const closeButton = screen.getByTestId('alert-close');
 

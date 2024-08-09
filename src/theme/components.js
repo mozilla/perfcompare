@@ -1,5 +1,6 @@
 import { green, red } from '@mui/material/colors';
 
+import { Spacing, FontsRaw, FontSizeRaw } from '../styles';
 import android from './img/android.svg';
 import high from './img/high.svg';
 import linux from './img/linux.svg';
@@ -11,23 +12,33 @@ import zap from './img/zap-10.svg';
 
 const components = {
   MuiButton: {
+    defaultProps: {
+      // The props to change the default for.
+      disableElevation: true, // No more ripple, on the whole application 💣!
+      variant: 'contained',
+    },
     styleOverrides: {
+      contained: {
+        height: 32,
+        padding: '4px 16px',
+      },
       root: {
-        body: {
-          backgroundColor: '#ffffff',
-        },
         '&.add-revision-button': {
           height: 'auto',
           width: '100%',
           lineHeight: '1.4375em',
         },
         '&.edit-revision-button': {
-          width: '50%',
-          padding: '0',
-          minWidth: '0',
+          width: '100%',
+          justifyContent: 'end',
+          fontSize: FontSizeRaw.xSmall.fontSize,
+          maxWidth: '100px',
+          padding: `${Spacing.xSmall}px ${Spacing.Small}px`,
+          backgroundColor: 'transparent',
           '&:hover': {
             backgroundColor: 'transparent',
           },
+
           '& .MuiSvgIcon-root': {
             width: 'auto',
             height: '2.4rem',
@@ -45,12 +56,6 @@ const components = {
               },
             },
           },
-        },
-        '&.compare-button': {
-          lineHeight: '1.4375em',
-          padding: '16.5px 14px',
-          textTransform: 'uppercase',
-          marginBottom: '30px',
         },
       },
     },
@@ -136,7 +141,16 @@ const components = {
     },
   },
   MuiTypography: {
+    defaultProps: {
+      variantMapping: {
+        body1: 'span',
+        body2: 'span',
+      },
+    },
     styleOverrides: {
+      body1: {
+        ...FontsRaw.BodyDefault,
+      },
       root: {
         '&.perfcompare-header': {
           '&:after': {
@@ -200,15 +214,6 @@ const components = {
           '&:hover': {
             backgroundColor: 'transparent',
           },
-        },
-      },
-    },
-  },
-  MuiContainer: {
-    styleOverrides: {
-      root: {
-        '&.perf-body': {
-          backgroundColor: '#ffffff !important',
         },
       },
     },

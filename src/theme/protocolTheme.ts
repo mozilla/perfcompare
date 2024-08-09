@@ -8,19 +8,15 @@ import components from './components';
 import typography from './typography';
 
 const lightMode = {
-  action: {
-    active: Colors.PrimaryDefault,
-    hover: Colors.PrimaryHover,
-    disabled: Colors.PrimaryDisabled,
-  },
   background: {
-    default: Colors.Background100,
+    default: Colors.Background300,
   },
   primary: {
     main: Colors.PrimaryDefault,
   },
   secondary: {
     main: Colors.SecondaryDefault,
+    dark: Colors.SecondaryHover,
   },
   text: {
     primary: Colors.PrimaryText,
@@ -30,19 +26,15 @@ const lightMode = {
 };
 
 const darkMode = {
-  action: {
-    active: Colors.PrimaryDark,
-    hover: Colors.PrimaryHoverDark,
-    disabled: Colors.PrimaryDisabledDark,
-  },
   background: {
-    default: Colors.Background300Dark,
+    default: Colors.Background100Dark,
   },
   primary: {
     main: Colors.PrimaryDark,
   },
   secondary: {
-    main: Colors.SecondaryDark,
+    main: Colors.Background300Dark,
+    dark: Colors.SecondaryHoverDark,
   },
   text: {
     primary: Colors.PrimaryTextDark,

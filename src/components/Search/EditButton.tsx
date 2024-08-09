@@ -1,33 +1,38 @@
 import Button from '@mui/material/Button';
 
 import { Strings } from '../../resources/Strings';
+import pencilDark from '../../theme/img/pencil-dark.svg';
+import pencil from '../../theme/img/pencil.svg';
 
 interface EditButtonProps {
-  isBase: boolean;
   onEditAction: () => void;
+  mode: string;
 }
 
 const baseComp = Strings.components.searchDefault.base;
-const editImgUrl = baseComp.editIcon;
+const editText = baseComp.editText;
 
-export default function EditButton({ isBase, onEditAction }: EditButtonProps) {
-  const searchType = isBase ? 'base' : 'new';
+export default function EditButton({ onEditAction, mode }: EditButtonProps) {
+  const buttonIcon = (
+    <img
+      id='edit-button-icon'
+      className='icon icon-edit'
+      src={mode === 'light' ? pencil.toString() : pencilDark.toString()}
+      alt='edit-icon'
+    />
+  );
 
   return (
     <Button
-      className={`edit-button edit-button-${searchType} show-edit-btn`}
-      id={`${searchType}-edit-button`}
-      role='button'
+      className='global-edit-button edit-revision-button'
       name='edit-button'
-      aria-label='edit button'
+      aria-label='edit revision'
+      startIcon={buttonIcon}
       onClick={onEditAction}
+      color='primary'
+      variant='text'
     >
-      <img
-        id={`${searchType}-edit-button-icon`}
-        className='icon icon-edit'
-        src={editImgUrl}
-        alt='edit-icon'
-      />
+      {editText}
     </Button>
   );
 }

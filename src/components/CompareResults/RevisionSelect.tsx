@@ -19,7 +19,7 @@ const styles = {
     gap: '1px',
   }),
   select: style({
-    width: '300px',
+    width: '100%',
   }),
 };
 

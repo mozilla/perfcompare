@@ -21,7 +21,7 @@ const config: Config.InitialOptions = {
         },
       },
     ],
-    '^.+\\.svg$': '<rootDir>/src/__tests__/utils/fileTransformer.js',
+    '^.+\\.(?:svg|png)$': '<rootDir>/src/__tests__/utils/fileTransformer.js',
   },
   // This transformIgnorePatterns is better understood as a double negation: the
   // package names below _will_ be transformed.
@@ -29,7 +29,7 @@ const config: Config.InitialOptions = {
   // dependencies of fetch-mock do! Hopefully this won't be needed in the future
   // when fetch-mock updates.
   transformIgnorePatterns: [
-    '/node_modules/(?!(data-uri-to-buffer|fetch-blob|formdata-polyfill|node-fetch)/)',
+    '/node_modules/(?!(taskcluster-client-web|data-uri-to-buffer|fetch-blob|formdata-polyfill|node-fetch)/)',
   ],
   modulePaths: [],
   moduleNameMapper: {

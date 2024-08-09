@@ -3,6 +3,7 @@ export const Strings = {
     pageTitle: {
       search: 'PerfCompare - Search',
       results: 'PerfCompare - Results',
+      subtests: 'PerfCompare - Subtests Results',
     },
   },
   components: {
@@ -33,12 +34,13 @@ export const Strings = {
           selectLabel: 'Revisions',
           placeholder: 'Search base by ID number or author email',
         },
-        framkework: {
+        framework: {
           selectLabel: 'Framework',
           tooltip:
             'The framework or test harness containing the test you want to examine.',
         },
         button: 'Compare',
+        cancel: 'Cancel',
       },
       base: {
         title: 'Compare with a base',
@@ -46,11 +48,8 @@ export const Strings = {
         img: 'https://user-images.githubusercontent.com/88336547/233237125-1534220b-c343-421a-9133-ce8f151cb979.png',
         imgDark:
           'https://user-images.githubusercontent.com/88336547/233250674-004d071a-7c23-40f4-b348-0687a3fef6e3.png',
-
-        save: 'Save',
-        cancel: 'Cancel',
-        editIcon:
-          'https://user-images.githubusercontent.com/88336547/259900252-462ac221-f4ff-4b1c-bb6b-5df906e8007d.svg',
+        compareBtn: 'Compare',
+        editText: 'Edit entry',
         collapsed: {
           warnings: {
             comparison:
@@ -80,13 +79,41 @@ export const Strings = {
         img: 'https://user-images.githubusercontent.com/88336547/233250659-4012551b-e07a-44ce-accb-242e29d31914.png',
         imgDark:
           'https://user-images.githubusercontent.com/88336547/233250642-7fd7c217-e72b-4375-9078-7ed2f99cb0f7.png',
-        collapedSelectLabel: 'Time range',
+        collapsed: {
+          errors: {
+            notEnoughRevisions: 'Please select at least one revision.',
+          },
+          baseRepo: {
+            selectLabelBase: 'Base repository',
+            tooltipBase: 'The repository to compare revisions against.',
+          },
+          timeRange: {
+            selectLabel: 'Time range',
+            tooltip: 'The time range to compare revisions.',
+          },
+          revisions: {
+            selectLabel: 'Revisions',
+            tooltip:
+              'Revisions (typically including your changes) to compare over a specified time range.',
+            inputPlaceholder: 'Search revision by ID number or author email',
+          },
+        },
       },
     },
     revisionRow: {
-      platformUndefinedText: 'Unspecified',
+      title: {
+        subtestsLink: 'open the subtests for this result',
+        graphLink: 'open the evolution graph for this job in treeherder',
+        downloadProfilers: 'open the performance profile for this job',
+        jobLink: 'open treeherder view for',
+        retriggerJobs: 'retrigger jobs',
+      },
     },
     expandableRow: {
+      title: {
+        expand: 'expand this row',
+        shrink: 'shrink this row',
+      },
       singleRun: 'Only one run (consider more runs for greater confidence).',
       Low: "A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
       Medium:
@@ -101,6 +128,28 @@ export const Strings = {
       allRevisions: {
         key: 'all-revisions',
         text: 'All revisions',
+      },
+    },
+    searchResultsInput: {
+      placeholder: 'Search results',
+      label: 'Search by title, platform, revision or options',
+    },
+    retrigger: {
+      signin: {
+        title: 'Sign into Taskcluster to re-trigger the comparison',
+        body: 'To be able to retrigger a task within Taskcluster, it’s necessary that you log in to it first. Then PerfCompare will retrigger the task on your behalf.',
+        submitButton: 'Sign in',
+        cancelButton: 'Not now',
+      },
+      config: {
+        title: 'Retrigger jobs',
+        body: 'Choose how many clones of the base and new tasks will be started.',
+        submitButton: 'Retrigger',
+      },
+      notification: {
+        body: (taskType: 'base' | 'new', id: string) =>
+          `The retrigger request for the ${taskType} run has been sent successfully, with ID ${id}.`,
+        treeherderButton: 'Open Treeherder',
       },
     },
   },

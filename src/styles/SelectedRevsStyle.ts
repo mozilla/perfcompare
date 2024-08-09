@@ -17,6 +17,7 @@ export const SelectRevsStyles = (mode: string) => {
       height: 'auto',
       border: 'none',
       padding: 0,
+      marginTop: `${Spacing.xSmall + 2}px`,
 
       $nest: {
         '&.show-base-close-icon': {
@@ -30,7 +31,7 @@ export const SelectRevsStyles = (mode: string) => {
           ...(isTrueLight ? FontsRaw.BodyDefault : FontsRaw.BodyDefaultDark),
           backgroundColor: isTrueLight
             ? Colors.Background200
-            : Colors.Background200Dark,
+            : Colors.Background300Dark,
           display: 'flex',
           marginBottom: `${Spacing.Small}px`,
           borderRadius: Spacing.xSmall,
@@ -104,23 +105,11 @@ export const SelectRevsStyles = (mode: string) => {
           },
         },
         button: {
-          padding: 0,
-          justifyContent: 'flex-end',
+          padding: 2,
+          marginTop: -2,
           $nest: {
-            '&.revision-action': {
-              minWidth: '14px',
-              height: '14px',
-            },
             '&.close-button': {
               marginLeft: `${Spacing.Large}px`,
-            },
-            '&.close-button-results': {
-              marginLeft: `${Spacing.layoutXLarge + 44}px`,
-            },
-
-            svg: {
-              width: '0.875rem',
-              height: '0.875rem',
             },
             '&.icon-close-show': {
               color: isTrueLight ? Colors.IconLight : Colors.IconDark,

@@ -1,30 +1,23 @@
 import { CompareResultsItem } from './state';
 
-export type SelectedRevisionsTableHeaders =
-  | 'Project'
-  | 'Revision'
-  | 'Author'
-  | 'Commit Message'
-  | 'Timestamp';
-
-export type CompareResultsTableHeader = {
-  id: string;
-  label: CompareResultsTableHeaderName;
-  key: string;
-  align: 'left' | 'center' | 'right';
-};
-
-export type CompareResultsTableHeaderName =
-  | 'Platform'
-  | 'Graph'
-  | 'Suite'
-  | 'Test Name'
-  | 'Base'
-  | 'New'
-  | 'Delta'
-  | 'Status'
-  | 'Confidence'
-  | 'Total Runs';
+export type CompareResultsTableConfig =
+  | {
+      name?: string;
+      filter?: false;
+      key: string;
+      disable?: boolean;
+      gridWidth?: string;
+    }
+  | {
+      name: string;
+      key: string;
+      disable?: boolean;
+      filter: true;
+      possibleValues: string[];
+      gridWidth?: string;
+      // This function returns whether this result matches the value for this column.
+      matchesFunction: (result: CompareResultsItem, value: string) => boolean;
+    };
 
 export type ConfidenceText = 'High' | 'Medium' | 'Low';
 
@@ -54,6 +47,16 @@ export type Framework =
   | { id: 16; name: 'fxrecord' };
 
 export type SupportedPerfdocsFramework = 'talos' | 'awsy' | 'devtools';
+
+export type TimeRange =
+  | { value: 86400; text: 'Last day' }
+  | { value: 172800; text: 'Last 2 days' }
+  | { value: 604800; text: 'Last 7 days' }
+  | { value: 1209600; text: 'Last 14 days' }
+  | { value: 2592000; text: 'Last 30 days' }
+  | { value: 5184000; text: 'Last 60 days' }
+  | { value: 7776000; text: 'Last 90 days' }
+  | { value: 31536000; text: 'Last year' };
 
 export type FilterValue = {
   name: string;
@@ -186,6 +189,7 @@ export type Platform =
   | 'windows10-64-2004-devedition-qr'
   | 'windows10-64-2004-mingwclang'
   | 'windows10-64-2004-mingwclang-qr'
+  | 'windows11-64-2009-qr'
   | 'windows2012-32'
   | 'windows2012-32-shippable'
   | 'windows2012-32-add-on-devel'
@@ -282,3 +286,15 @@ export type FakeCommitHash =
   | 'bb6a5e451dace3b9c7be42d24c9272738d73e6db'
   | '9d50665254899d8431813bdc04178e6006ce6d59'
   | 'a998c42399a8fcea623690bf65bef49de20535b4';
+
+export type UserCredentials = {
+  expires: string;
+  credentials: { clientId: string; accessToken: string };
+};
+
+export type UserCredentialsDictionary = Record<string, UserCredentials>;
+
+export type TokenBearer = {
+  access_token: string;
+  token_type: 'Bearer';
+};

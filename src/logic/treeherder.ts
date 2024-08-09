@@ -1,5 +1,8 @@
-import { CompareResultsItem, Repository, RevisionsList } from '../types/state';
-import { Framework } from '../types/types';
+import moize from 'moize';
+
+import { JobInformation } from '../types/api';
+import { CompareResultsItem, Repository, Changeset } from '../types/state';
+import { Framework, TimeRange } from '../types/types';
 
 // This file contains functions to request the Treeherder API
 
@@ -12,6 +15,50 @@ type FetchProps = {
   newRev: string;
   framework: Framework['id'];
 };
+
+type FetchOverTimeProps = {
+  baseRepo: Repository['name'];
+  newRepo: Repository['name'];
+  newRev: string;
+  framework: Framework['id'];
+  interval: TimeRange['value'];
+};
+
+type FetchSubtestsProps = {
+  baseRepo: Repository['name'];
+  baseRev: string;
+  newRepo: Repository['name'];
+  newRev: string;
+  framework: Framework['id'];
+  baseParentSignature: string;
+  newParentSignature: string;
+};
+
+type FetchSubtestsOverTimeProps = {
+  baseRepo: Repository['name'];
+  newRepo: Repository['name'];
+  newRev: string;
+  framework: Framework['id'];
+  interval: TimeRange['value'];
+  baseParentSignature: string;
+  newParentSignature: string;
+};
+
+async function fetchFromTreeherder(url: string) {
+  const response = await fetch(url);
+  if (!response.ok) {
+    if (response.status === 400) {
+      throw new Error(
+        `Error when requesting treeherder: ${await response.text()}`,
+      );
+    } else {
+      throw new Error(
+        `Error when requesting treeherder: (${response.status}) ${response.statusText}`,
+      );
+    }
+  }
+  return response;
+}
 
 // This fetches data from the Treeherder API /api/perfcompare/results.
 // This API returns the results of a comparison between 2 revisions.
@@ -31,21 +78,82 @@ export async function fetchCompareResults({
     interval: '86400',
     no_subtests: 'true',
   });
+  const url = `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`;
+  const response = await fetchFromTreeherder(url);
 
-  const response = await fetch(
-    `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`,
-  );
-  if (!response.ok) {
-    if (response.status === 400) {
-      throw new Error(
-        `Error when requesting treeherder: ${await response.text()}`,
-      );
-    } else {
-      throw new Error(
-        `Error when requesting treeherder: (${response.status}) ${response.statusText}`,
-      );
-    }
-  }
+  return response.json() as Promise<CompareResultsItem[]>;
+}
+
+// This API returns the results of compare over time between new revisions.
+export async function fetchCompareOverTimeResults({
+  baseRepo,
+  newRev,
+  newRepo,
+  framework,
+  interval,
+}: FetchOverTimeProps) {
+  const searchParams = new URLSearchParams({
+    base_repository: baseRepo,
+    new_repository: newRepo,
+    new_revision: newRev,
+    framework: String(framework),
+    interval: String(interval),
+    no_subtests: 'true',
+  });
+  const url = `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`;
+  const response = await fetchFromTreeherder(url);
+
+  return response.json() as Promise<CompareResultsItem[]>;
+}
+
+// This API returns the subtests results of a particular comparison result between 2 revisions.
+export async function fetchSubtestsCompareResults({
+  baseRev,
+  baseRepo,
+  newRev,
+  newRepo,
+  framework,
+  baseParentSignature,
+  newParentSignature,
+}: FetchSubtestsProps) {
+  const searchParams = new URLSearchParams({
+    base_repository: baseRepo,
+    base_revision: baseRev,
+    new_repository: newRepo,
+    new_revision: newRev,
+    framework: String(framework),
+    base_parent_signature: baseParentSignature,
+    new_parent_signature: newParentSignature,
+  });
+
+  const url = `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`;
+  const response = await fetchFromTreeherder(url);
+
+  return response.json() as Promise<CompareResultsItem[]>;
+}
+
+// This API returns the subtests results of a particular comparison result between 2 revisions.
+export async function fetchSubtestsCompareOverTimeResults({
+  baseRepo,
+  newRev,
+  newRepo,
+  framework,
+  interval,
+  baseParentSignature,
+  newParentSignature,
+}: FetchSubtestsOverTimeProps) {
+  const searchParams = new URLSearchParams({
+    base_repository: baseRepo,
+    new_repository: newRepo,
+    new_revision: newRev,
+    framework: String(framework),
+    interval: String(interval),
+    base_parent_signature: baseParentSignature,
+    new_parent_signature: newParentSignature,
+  });
+
+  const url = `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`;
+  const response = await fetchFromTreeherder(url);
 
   return response.json() as Promise<CompareResultsItem[]>;
 }
@@ -88,20 +196,57 @@ function computeUrlFromSearchTermAndRepository({
 // filtering by hash or author, using the Treeherder API /api/project.
 export async function fetchRecentRevisions(params: RecentRevisionsParams) {
   const url = computeUrlFromSearchTermAndRepository(params);
-  const response = await fetch(url);
+  const response = await fetchFromTreeherder(url);
 
-  if (!response.ok) {
-    if (response.status === 400) {
-      throw new Error(
-        `Error when requesting treeherder: ${await response.text()}`,
-      );
-    } else {
-      throw new Error(
-        `Error when requesting treeherder: (${response.status}) ${response.statusText}`,
-      );
-    }
+  const json = (await response.json()) as { results: Changeset[] };
+  return json.results;
+}
+
+// This is a specialised version of fetchRecentRevisions dedicated to fetching
+// information about one specific revision.
+export async function fetchRevisionForRepository(opts: {
+  repository: string;
+  hash: string;
+}) {
+  // We get a list of 1 item because we request one specific hash.
+  const listOfOneRevision = await fetchRecentRevisions(opts);
+  return listOfOneRevision[0];
+}
+
+// The memoized version of fetchRecentRevisions.
+// We picked an arbitrary number of 5: we need 4 for base + 3 revs, and added an
+// extra one to allow moving back and worth with some options. It could be
+// increased some more later if needed.
+export const memoizedFetchRevisionForRepository = moize(
+  fetchRevisionForRepository,
+  { isPromise: true, isShallowEqual: true, maxSize: 5 },
+) as typeof fetchRevisionForRepository;
+
+export async function fetchJobInformationFromJobId(
+  repo: string,
+  jobId: number,
+) {
+  const url = `${treeherderBaseURL}/api/project/${repo}/jobs/${jobId}/`;
+  const response = await fetchFromTreeherder(url);
+
+  return (await response.json()) as JobInformation;
+}
+
+export async function fetchDecisionTaskIdFromPushId(
+  repo: string,
+  pushId: number,
+) {
+  const url = `${treeherderBaseURL}/api/project/${repo}/push/decisiontask/?push_ids=${pushId}`;
+  const response = await fetchFromTreeherder(url);
+
+  const json = (await response.json()) as Record<string, { id: string }>;
+  const decisionTaskId = json[pushId]?.id;
+
+  if (!decisionTaskId) {
+    throw new Error(
+      `Failing fetching decision Task id: ${JSON.stringify(json)}`,
+    );
   }
 
-  const json = (await response.json()) as { results: RevisionsList[] };
-  return json.results;
+  return decisionTaskId;
 }

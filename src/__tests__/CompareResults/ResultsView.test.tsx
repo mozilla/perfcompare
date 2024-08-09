@@ -1,4 +1,3 @@
-/* eslint-disable jest/no-disabled-tests */
 import type { ReactElement } from 'react';
 
 import userEvent from '@testing-library/user-event';
@@ -7,15 +6,13 @@ import { Bubble, ChartProps, Line } from 'react-chartjs-2';
 import { loader } from '../../components/CompareResults/loader';
 import ResultsView from '../../components/CompareResults/ResultsView';
 import RevisionHeader from '../../components/CompareResults/RevisionHeader';
-import { setSelectedRevisions } from '../../reducers/SelectedRevisionsSlice';
 import { Strings } from '../../resources/Strings';
 import { RevisionsHeader } from '../../types/state';
+import { getLocationOrigin } from '../../utils/location';
 import getTestData from '../utils/fixtures';
-import { store } from '../utils/setupTests';
 import {
   renderWithRouter,
   screen,
-  act,
   FetchMockSandbox,
 } from '../utils/test-utils';
 
@@ -29,12 +26,16 @@ function renderWithRoute(component: ReactElement) {
     .get('begin:https://treeherder.mozilla.org/api/project/', {
       results: [testData[0]],
     });
+
   return renderWithRouter(component, {
     route: '/compare-results/',
     search: '?baseRev=spam&baseRepo=mozilla-central&framework=2',
     loader,
   });
 }
+
+jest.mock('../../utils/location');
+const mockedGetLocationOrigin = getLocationOrigin as jest.Mock;
 
 describe('Results View', () => {
   it('The table should match snapshot and other elements should be present in the page', async () => {
@@ -45,98 +46,26 @@ describe('Results View', () => {
     expect(link).toBeInTheDocument();
   });
 
-  // TODO Edit mode is not implemented properly currently
-  // eslint-disable-next-line jest/no-disabled-tests
-  it.skip('The CompareWithBase component should have an edit mode', async () => {
-    renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
-    expect(await screen.findByText('Compare with a base')).toBeInTheDocument();
-    const formElement = await screen.findByRole('form');
-    expect(formElement).toMatchSnapshot('Initial state for the form');
-
+  it('renders framework dropdown in closed condition', async () => {
     const user = userEvent.setup({ delay: null });
+    renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
 
-    // add some selected revs to the selection
-    // TODO: handle this with the URL instead
-    const { testData } = getTestData();
-    const selectedRevs = testData.slice(0, 2);
-    act(() => {
-      store.dispatch(setSelectedRevisions({ selectedRevisions: selectedRevs }));
+    const header = await screen.findByText('Results');
+
+    expect(header).toBeInTheDocument();
+
+    const frameworkDropdown = screen.getByRole('button', {
+      name: 'Framework',
     });
 
-    // Find out if the base revision is rendered
-    const baseRevisionText = screen.getByText(/you've got no arms left!/);
-    const newRevisionText = screen.getByText(/just a flesh wound/);
-    expect(baseRevisionText).toBeInTheDocument();
-    expect(newRevisionText).toBeInTheDocument();
+    expect(frameworkDropdown).toMatchSnapshot();
 
-    // The search container should be hidden
-    const baseSearchContainer = document.querySelector(
-      '#base-search-container',
-    );
-    expect(baseSearchContainer).toHaveClass('hide-container');
+    expect(screen.getAllByText(/build_metrics/i)[0]).toBeInTheDocument();
+    expect(screen.queryByText(/talos/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/awsy/i)).not.toBeInTheDocument();
 
-    // Click the edit button
-    let editButton = screen.getAllByRole('button', { name: 'edit button' })[0];
-    await user.click(editButton);
-
-    expect(baseSearchContainer).toHaveClass('show-container');
-
-    expect(formElement).toMatchSnapshot(
-      'After clicking edit for the base revision',
-    );
-    expect(editButton).not.toBeInTheDocument();
-
-    // Press the cancel button should hide input and dropdown
-    const cancelButton = screen.getByRole('button', { name: 'cancel button' });
-    await user.click(cancelButton);
-
-    expect(baseSearchContainer).toHaveClass('hide-container');
-
-    // Click the edit button again
-    editButton = screen.getAllByRole('button', { name: 'edit button' })[0];
-    await user.click(editButton);
-    expect(baseSearchContainer).toHaveClass('show-container');
-
-    // Remove the base revision by clicking the X button
-    const closeBaseButton = screen.getByRole('button', {
-      name: 'close-button',
-    });
-    await user.click(closeBaseButton);
-    expect(baseRevisionText).not.toBeInTheDocument();
-
-    // Click the save button
-    const saveButtonBase = screen.getByRole('button', { name: 'save button' });
-    await user.click(saveButtonBase);
-
-    // The baseRevision is still hidden
-    expect(baseRevisionText).not.toBeInTheDocument();
-
-    // The search container is hidden.
-    expect(baseSearchContainer).toHaveClass('hide-container');
-
-    // Do the same operation with the components for the "new" revisions
-    const newSearchContainer = document.querySelector('#new-search-container');
-    expect(newSearchContainer).toHaveClass('hide-container');
-
-    // Click the edit button
-    editButton = screen.getAllByRole('button', { name: 'edit button' })[1];
-    await user.click(editButton);
-    expect(formElement).toMatchSnapshot(
-      'After clicking edit for the new revision',
-    );
-    expect(newSearchContainer).toHaveClass('show-container');
-
-    // Remove the new revision by clicking the X button
-    const closeNewButton = screen.getByRole('button', {
-      name: 'close-button',
-    });
-    await user.click(closeNewButton);
-    expect(newRevisionText).not.toBeInTheDocument();
-
-    // Click the save button
-    const saveButtonNew = screen.getByRole('button', { name: 'save button' });
-    await user.click(saveButtonNew);
-    expect(newSearchContainer).toHaveClass('hide-container');
+    await user.click(frameworkDropdown);
+    expect(screen.getByText(/awsy/i)).toBeInTheDocument();
   });
 
   it('Should render revision header with link to suite docs', async () => {
@@ -199,7 +128,7 @@ describe('Results View', () => {
     );
 
     const expandButton = await screen.findByRole('button', {
-      name: 'expand row',
+      name: 'expand this row',
     });
     await user.click(expandButton);
     expect(await screen.findByTestId('expanded-row-content')).toMatchSnapshot();
@@ -245,5 +174,66 @@ describe('Results View', () => {
 
     expect(createObjectURLMock).toHaveBeenCalled();
     expect(revokeObjectURLMock).toHaveBeenCalledWith('blob:');
+  });
+
+  it('Clicking on the retrigger button should request an authorization code', async () => {
+    const user = userEvent.setup({ delay: null });
+
+    const { testCompareDataWithMultipleRuns, testData } = getTestData();
+    (window.fetch as FetchMockSandbox)
+      .get(
+        'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
+        testCompareDataWithMultipleRuns,
+      )
+      .get('begin:https://treeherder.mozilla.org/api/project/', {
+        results: [testData[0]],
+      });
+
+    jest.spyOn(window, 'alert').mockImplementation();
+    const mockedWindowAlert = window.alert as jest.Mock;
+    jest.spyOn(window, 'open').mockImplementation();
+    const mockedWindowOpen = window.open as jest.Mock;
+
+    renderWithRouter(
+      <ResultsView title={Strings.metaData.pageTitle.results} />,
+      {
+        route: '/compare-results/',
+        search: '?baseRev=spam&baseRepo=mozilla-central&framework=2',
+        loader,
+      },
+    );
+
+    const retriggerButton = await screen.findByRole('button', {
+      name: 'retrigger jobs',
+    });
+
+    // Test no clientId configured should alert
+    mockedGetLocationOrigin.mockImplementation(() => 'http://test.com');
+    await user.click(retriggerButton);
+    expect(mockedWindowAlert).toHaveBeenCalledWith(
+      'No clientId is configured for origin http://test.com, sorry!',
+    );
+
+    // Test requesting an authorization code from Taskcluster production URL
+    mockedGetLocationOrigin.mockImplementation(() => 'http://localhost:3000');
+    await user.click(retriggerButton);
+    await user.click(await screen.findByRole('button', { name: /Sign in/ }));
+
+    let windowOpenUrlString = mockedWindowOpen.mock.lastCall[0] as string;
+    let windowOpenUrl = new URL(windowOpenUrlString);
+    expect(sessionStorage.requestState).toBe(
+      windowOpenUrl.searchParams.get('state'),
+    );
+    expect(sessionStorage.taskclusterUrl).toBe(windowOpenUrl.origin);
+
+    // Test requesting an authorization code from Taskcluster staging URL
+    window.location.hash = 'taskcluster-staging';
+    await user.click(retriggerButton);
+    windowOpenUrlString = mockedWindowOpen.mock.lastCall[0] as string;
+    windowOpenUrl = new URL(windowOpenUrlString);
+    expect(sessionStorage.requestState).toBe(
+      windowOpenUrl.searchParams.get('state'),
+    );
+    expect(sessionStorage.taskclusterUrl).toBe(windowOpenUrl.origin);
   });
 });

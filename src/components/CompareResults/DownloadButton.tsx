@@ -1,16 +1,11 @@
-import { useMemo } from 'react';
-
 import { Button } from '@mui/material';
-import { useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { RootState } from '../../common/store';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
-import { ButtonsLightRaw, Spacing } from '../../styles';
 import type { CompareResultsItem } from '../../types/state';
 import { truncateHash } from '../../utils/helpers';
-import type { LoaderReturnValue } from './loader';
 
 type ResultsGroupedByKey = Record<string, CompareResultsItem[]>;
 
@@ -76,25 +71,24 @@ function generateJsonDataFromComparisonResults(
 
 const styles = {
   downloadButton: style({
-    marginLeft: Spacing.Small,
     height: '41px',
+    flex: 'none',
     $nest: {
       '.MuiButtonBase-root': {
-        ...ButtonsLightRaw.Secondary,
         height: '100%',
+        width: '100%',
       },
     },
   }),
 };
 
-function DownloadButton() {
-  const { results } = useLoaderData() as LoaderReturnValue;
+interface DownloadButtonProps {
+  resultsPromise: Promise<CompareResultsItem[][]> | CompareResultsItem[][];
+}
+
+function DownloadButton({ resultsPromise }: DownloadButtonProps) {
   const activeComparison = useAppSelector(
     (state) => state.comparison.activeComparison,
-  );
-  const processedResults = useMemo(
-    () => generateJsonDataFromComparisonResults(activeComparison, results),
-    [results, activeComparison],
   );
 
   const fileName = useAppSelector((state: RootState) => {
@@ -110,7 +104,12 @@ function DownloadButton() {
     }
   });
 
-  const handleDownloadClick = () => {
+  const handleDownloadClick = async () => {
+    const results = await resultsPromise;
+    const processedResults = generateJsonDataFromComparisonResults(
+      activeComparison,
+      results,
+    );
     const blob = new Blob([processedResults], {
       type: 'application/json',
     });
@@ -128,7 +127,13 @@ function DownloadButton() {
 
   return (
     <div className={styles.downloadButton}>
-      <Button onClick={handleDownloadClick}>Download JSON</Button>
+      <Button
+        variant='contained'
+        color='secondary'
+        onClick={() => void handleDownloadClick()}
+      >
+        Download JSON
+      </Button>
     </div>
   );
 }

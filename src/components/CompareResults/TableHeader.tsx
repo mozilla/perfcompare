@@ -1,17 +1,124 @@
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import SortIcon from '@mui/icons-material/Sort';
+import CheckIcon from '@mui/icons-material/Check';
+import FilterListIcon from '@mui/icons-material/FilterList';
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import {
+  usePopupState,
+  bindTrigger,
+  bindMenu,
+} from 'material-ui-popup-state/hooks';
 import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
 import { Colors, Spacing } from '../../styles';
+import type { CompareResultsTableConfig } from '../../types/types';
 
-function TableHeader() {
+type FilterableColumnProps = {
+  name: string;
+  columnId: string;
+  possibleValues: string[];
+  uncheckedValues?: Set<string>;
+  onToggle: (checkedValues: Set<string>) => unknown;
+  onClear: () => unknown;
+};
+
+function FilterableColumn({
+  name,
+  columnId,
+  possibleValues,
+  uncheckedValues,
+  onToggle,
+  onClear,
+}: FilterableColumnProps) {
+  const popupState = usePopupState({ variant: 'popover', popupId: columnId });
+
+  const onClickFilter = (value: string) => {
+    const newUncheckedValues = new Set(uncheckedValues);
+    if (newUncheckedValues.has(value)) {
+      newUncheckedValues.delete(value);
+    } else {
+      newUncheckedValues.add(value);
+    }
+    onToggle(newUncheckedValues);
+  };
+
+  const hasFilteredValues = uncheckedValues && uncheckedValues.size;
+  const buttonAriaLabel = hasFilteredValues
+    ? `${name} (Click to filter values. Some filters are active.)`
+    : `${name} (Click to filter values)`;
+
+  return (
+    <>
+      <Button
+        color='secondary'
+        {...bindTrigger(popupState)}
+        aria-label={buttonAriaLabel}
+        sx={(theme) => ({
+          background:
+            theme.palette.mode == 'light'
+              ? Colors.Background200
+              : Colors.Background200Dark,
+          borderRadius: '4px',
+          fontSize: 'inherit',
+        })}
+      >
+        {name}
+        <FilterListIcon
+          fontSize='small'
+          color={hasFilteredValues ? 'primary' : 'inherit'}
+          sx={{ marginInlineStart: 1 }}
+          titleAccess={
+            hasFilteredValues ? 'Some filters are active' : 'No active filters'
+          }
+        />
+      </Button>
+      <Menu {...bindMenu(popupState)}>
+        <MenuItem dense={true} onClick={onClear}>
+          Clear filters
+        </MenuItem>
+        {possibleValues.map((possibleValue) => {
+          const isChecked =
+            !uncheckedValues || !uncheckedValues.has(possibleValue);
+          return (
+            <MenuItem
+              dense={true}
+              key={possibleValue}
+              role='menuitemcheckbox'
+              aria-checked={isChecked ? 'true' : 'false'}
+              aria-label={`${possibleValue}${isChecked ? ' (selected)' : ''}`}
+              onClick={() => onClickFilter(possibleValue)}
+            >
+              {isChecked ? <CheckIcon fontSize='small' /> : null}
+              {possibleValue}
+            </MenuItem>
+          );
+        })}
+      </Menu>
+    </>
+  );
+}
+
+type TableHeaderProps = {
+  cellsConfiguration: CompareResultsTableConfig[];
+  filters: Map<string, Set<string>>;
+  onToggleFilter: (columnId: string, filters: Set<string>) => unknown;
+  onClearFilter: (columnId: string) => unknown;
+};
+
+function TableHeader({
+  cellsConfiguration,
+  filters,
+  onToggleFilter,
+  onClearFilter,
+}: TableHeaderProps) {
+  const gridWidthFirstCell = cellsConfiguration[0].gridWidth as string;
   const themeMode = useAppSelector((state) => state.theme.mode);
   const styles = {
     tableHeader: style({
       display: 'grid',
       // Should be kept in sync with the gridTemplateColumns from RevisionRow
-      gridTemplateColumns: '2fr 1fr 0.2fr 1fr 1fr 1fr 1fr 1fr 2fr 0.2fr',
+      gridTemplateColumns: `${gridWidthFirstCell} 1fr 0.2fr 1fr 1fr 1fr 1fr 1fr 2fr 0.2fr`,
       background:
         themeMode == 'light' ? Colors.Background100 : Colors.Background300Dark,
       borderRadius: '4px',
@@ -24,8 +131,9 @@ function TableHeader() {
           alignItems: 'center',
           padding: 0,
           margin: 0,
+          fontWeight: 700,
         },
-        '.platform-header, .confidence-header': {
+        '.platform-header, .subtests-header, .confidence-header': {
           width: '120px',
         },
         '.status-header': {
@@ -43,13 +151,6 @@ function TableHeader() {
       },
     }),
 
-    filter: style({
-      background:
-        themeMode == 'light' ? Colors.Background200 : Colors.Background200Dark,
-      borderRadius: '4px',
-      cursor: 'not-allowed',
-    }),
-
     typography: style({
       fontFamily: 'SF Pro',
       fontStyle: 'normal',
@@ -59,59 +160,32 @@ function TableHeader() {
     }),
   };
 
-  const headerCells = [
-    {
-      name: 'Platform',
-      disable: true,
-      filter: true,
-      key: 'platform',
-      sort: true,
-    },
-    {
-      name: 'Base',
-      key: 'base',
-    },
-    { key: 'comparisonSign' },
-    { name: 'New', key: 'new' },
-    {
-      name: 'Status',
-      disable: true,
-      filter: true,
-      key: 'status',
-      sort: true,
-    },
-    {
-      name: 'Delta(%)',
-      key: 'delta',
-    },
-    {
-      name: 'Confidence',
-      disable: true,
-      filter: true,
-      key: 'confidence',
-      sort: true,
-    },
-    { name: 'Total Runs', key: 'runs' },
-    { key: 'buttons' },
-    { key: 'expand' },
-  ];
   return (
     <div
       className={`${styles.tableHeader} ${styles.typography}`}
       data-testid='table-header'
       role='row'
     >
-      {headerCells.map((header) => (
+      {cellsConfiguration.map((header) => (
         <div
           key={`${header.key}`}
-          className={`cell ${header.key}-header ${
-            header.filter ? styles.filter : ''
-          }`}
+          className={`cell ${header.key}-header`}
           role='columnheader'
         >
-          {header.sort ? <SortIcon /> : null}
-          <div role='cell'>{header.name}</div>
-          {header.filter ? <ExpandMoreIcon /> : null}
+          {header.filter ? (
+            <FilterableColumn
+              possibleValues={header.possibleValues}
+              name={header.name}
+              columnId={header.key}
+              uncheckedValues={filters.get(header.key)}
+              onClear={() => onClearFilter(header.key)}
+              onToggle={(checkedValues) =>
+                onToggleFilter(header.key, checkedValues)
+              }
+            />
+          ) : (
+            header.name
+          )}
         </div>
       ))}
     </div>

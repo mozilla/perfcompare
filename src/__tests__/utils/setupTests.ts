@@ -5,6 +5,7 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import '@testing-library/jest-dom';
+import { webcrypto } from 'node:crypto';
 import { TextDecoder, TextEncoder } from 'util';
 
 import { density1d } from 'fast-kde';
@@ -13,6 +14,7 @@ import { density1d } from 'fast-kde';
 // to use this mock.
 import fetchMock from 'fetch-mock-jest';
 import { Bubble, Line } from 'react-chartjs-2';
+import { Hooks } from 'taskcluster-client-web';
 
 import { createStore } from '../../common/store';
 import type { Store } from '../../common/store';
@@ -35,6 +37,31 @@ global.TextEncoder = TextEncoder;
 
 let store: Store;
 
+// Fail to `import taskcluster-client-web`
+// There is a bug filed for this issue in the Taskcluster project
+// https://github.com/taskcluster/taskcluster/issues/7110
+jest.mock('taskcluster-client-web', () => {
+  return {
+    Hooks: jest.fn(),
+  };
+});
+
+const MockedHooks = Hooks as jest.Mock;
+
+beforeEach(() => {
+  const taskId = 'rEtrRigGERtaSkId';
+  const triggerHook = jest.fn(() =>
+    Promise.resolve({ taskId, status: { taskId } }),
+  );
+  // After every test jest resets the mock implementation, so we need to define
+  // it again for each test.
+  MockedHooks.mockImplementation(() => {
+    return {
+      triggerHook,
+    };
+  });
+});
+
 jest.mock('react-chartjs-2', () => ({
   Bubble: jest.fn(),
   Line: jest.fn(),
@@ -46,6 +73,8 @@ jest.mock('fast-kde', () => ({
   density1d: jest.fn(),
 }));
 const MockedDensity1d = density1d as jest.Mock;
+
+Object.defineProperty(window, 'crypto', { value: webcrypto });
 
 beforeEach(() => {
   // After every test jest resets the mock implementation, so we need to define

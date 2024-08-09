@@ -45,7 +45,12 @@ function RunValues(props: RunValuesProps) {
         </div>
       )}
       <div>
-        <GraphDistribution name={name} values={values} />
+        <GraphDistribution
+          name={name}
+          values={values}
+          min={props.min}
+          max={props.max}
+        />
       </div>
       <div>
         <div className={styles.values}>
@@ -72,6 +77,8 @@ interface RunValuesProps {
     stddevPercent: number;
     measurementUnit: MeasurementUnit;
   };
+  min: number;
+  max: number;
 }
 
 export default RunValues;

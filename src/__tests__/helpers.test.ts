@@ -81,7 +81,7 @@ describe('getLatestCommitMessage Helper', () => {
 
     const commitMessage = getLatestCommitMessage(testData[4]);
 
-    expect(commitMessage).toStrictEqual('It got better...');
+    expect(commitMessage).toStrictEqual('She turned me into a newt!');
   });
 });
 

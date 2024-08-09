@@ -2,76 +2,44 @@ import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 
 import { useAppSelector } from '../../hooks/app';
-import useCheckRevision from '../../hooks/useCheckRevision';
 import { SelectRevsStyles } from '../../styles';
-import { Repository, RevisionsList } from '../../types/state';
+import { Changeset } from '../../types/state';
 import SelectedRevisionItem from './SelectedRevisionItem';
 
 interface SelectedRevisionsProps {
   isBase: boolean;
-  formIsDisplayed: boolean;
-  isEditable: boolean;
+  canRemoveRevision: boolean;
   isWarning: boolean;
-  displayedRevisions: RevisionsState;
-  onEditRemove: (item: RevisionsList) => void;
-}
-
-interface RevisionsState {
-  revs: RevisionsList[];
-  repos: Repository['name'][];
+  displayedRevisions: Changeset[];
+  onRemoveRevision: (item: Changeset) => void;
 }
 
 function SelectedRevisions({
   isBase,
-  formIsDisplayed,
-  isEditable,
+  canRemoveRevision,
   isWarning,
   displayedRevisions,
-  onEditRemove,
+  onRemoveRevision,
 }: SelectedRevisionsProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = SelectRevsStyles(mode);
   const searchType = isBase ? 'base' : 'new';
 
-  const onEditRemoveAction = (item: RevisionsList) => {
-    onEditRemove(item);
-  };
-
-  const { removeCheckedRevision } = useCheckRevision(isBase, isEditable);
-
-  const handleRemoveRevision = (item: RevisionsList) => {
-    removeCheckedRevision(item);
-  };
-  const removeRevision = (item: RevisionsList) => {
-    if (isEditable) {
-      onEditRemoveAction(item);
-    } else {
-      handleRemoveRevision(item);
-    }
-  };
-
-  const iconClassName =
-    !formIsDisplayed && isEditable
-      ? 'icon icon-close-hidden'
-      : 'icon icon-close-show';
+  const iconClassName = canRemoveRevision
+    ? 'icon-close-show'
+    : 'icon-close-hidden';
 
   return (
-    <Box
-      className={`${styles.box} ${searchType}-box`}
-      data-testid={`selected-revs-${
-        isEditable ? '--editable-revisions' : '--search-revisions'
-      }`}
-    >
+    <Box className={`${styles.box} ${searchType}-box`}>
       <List>
-        {displayedRevisions.revs.map((item, index) => (
+        {displayedRevisions.map((item, index) => (
           <SelectedRevisionItem
             key={item.id}
             index={index}
             item={item}
-            repository={displayedRevisions.repos[index]}
             isBase={isBase}
             isWarning={isWarning}
-            removeRevision={removeRevision}
+            onRemoveRevision={onRemoveRevision}
             iconClassName={iconClassName}
           />
         ))}

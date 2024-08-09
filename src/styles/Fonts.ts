@@ -2,7 +2,6 @@ import { style, fontFace } from 'typestyle';
 
 import metropolisFontURL from '../../public/fonts/Metropolis-Bold.woff2';
 import sfFontURL from '../../public/fonts/sf-pro-text-regular.woff';
-import { Colors } from './Colors';
 
 fontFace({
   fontFamily: 'Metropolis',
@@ -16,12 +15,6 @@ fontFace({
 
 const sharedFontStyles = {
   fontStyle: 'normal',
-  color: Colors.PrimaryText,
-};
-
-const sharedFontStylesDark = {
-  fontStyle: 'normal',
-  color: Colors.PrimaryTextDark,
 };
 
 export const FontsRaw = {
@@ -31,6 +24,7 @@ export const FontsRaw = {
     fontWeight: '600',
     fontSize: '17px',
     fontFamily: 'SF Pro',
+    fontStyle: 'normal',
   },
 
   HeadingXS: {
@@ -59,7 +53,7 @@ export const FontsRaw = {
   //DARK MODE FONTS
 
   HeadingDefaultDark: {
-    ...sharedFontStylesDark,
+    ...sharedFontStyles,
     lineHeight: '22px',
     fontWeight: '600',
     fontSize: '17px',
@@ -67,14 +61,14 @@ export const FontsRaw = {
   },
 
   HeadingXSDark: {
-    ...sharedFontStylesDark,
+    ...sharedFontStyles,
     lineHeight: '28px',
     fontSize: '24px',
     fontFamily: 'Metropolis',
   },
 
   BodyDefaultDark: {
-    ...sharedFontStylesDark,
+    ...sharedFontStyles,
     lineHeight: '16px',
     fontWeight: '400',
     fontSize: '14px',
@@ -82,7 +76,7 @@ export const FontsRaw = {
   },
 
   BodySmallDark: {
-    ...sharedFontStylesDark,
+    ...sharedFontStyles,
     lineHeight: '14px',
     fontWeight: '400',
     fontSize: '12px',

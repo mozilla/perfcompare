@@ -1,70 +1,39 @@
 import FormControl from '@mui/material/FormControl';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { style, cssRule } from 'typestyle';
+import { style } from 'typestyle';
 
 import { repoMap } from '../../common/constants';
-import { useAppSelector, useAppDispatch } from '../../hooks/app';
-import { updateRepository } from '../../reducers/SearchSlice';
-import {
-  ButtonsLightRaw,
-  ButtonsDarkRaw,
-  TooltipRaw,
-  FontsRaw,
-  Colors,
-} from '../../styles';
-import { fetchRecentRevisions } from '../../thunks/searchThunk';
+import { useAppSelector } from '../../hooks/app';
+import { ButtonsLightRaw, ButtonsDarkRaw } from '../../styles';
 import { InputType, Repository } from '../../types/state';
 
 interface SearchDropdownProps {
-  isEditable?: boolean;
+  compact: boolean;
   selectLabel: string;
-  tooltipText: string;
   searchType: InputType;
+  repository: Repository['name'];
+  labelIdInfo: string;
+  name?: string;
+  onChange: (val: Repository['name']) => unknown;
 }
 
 //handle in progress repos here if necessary
 function SearchDropdown({
-  isEditable,
-  selectLabel,
+  compact,
   searchType,
+  repository,
+  labelIdInfo,
+  name,
+  onChange,
 }: SearchDropdownProps) {
-  const size = isEditable == true ? 'small' : undefined;
+  const size = compact ? 'small' : undefined;
   const mode = useAppSelector((state) => state.theme.mode);
-  const repository = useAppSelector(
-    (state) => state.search[searchType].repository,
-  );
-  const dispatch = useAppDispatch();
 
   const handleRepoSelect = async (event: SelectChangeEvent) => {
     const selectedRepository = event.target.value as Repository['name'];
-    dispatch(
-      updateRepository({
-        repository: selectedRepository,
-        searchType: searchType,
-      }),
-    );
-
-    // Fetch 10 most recent revisions when repository changes
-    await dispatch(
-      fetchRecentRevisions({
-        repository: selectedRepository,
-        searchType: searchType,
-      }),
-    );
+    onChange(selectedRepository);
   };
-
-  cssRule('.MuiTooltip-popper', {
-    ...(mode === 'light' ? TooltipRaw.Light : TooltipRaw.Dark),
-    $nest: {
-      '.MuiTooltip-tooltip': {
-        ...(mode === 'light' ? FontsRaw.BodySmall : FontsRaw.BodySmallDark),
-        backgroundColor: Colors.ColorTransparent,
-        padding: '0px',
-        margin: '0px !important',
-      },
-    },
-  });
 
   const styles = {
     container: style({
@@ -81,19 +50,19 @@ function SearchDropdown({
   };
 
   return (
-    <div>
+    <>
       <FormControl
         size={size}
         className={`search-dropdown ${styles.container}`}
       >
         <Select
-          data-testid={`dropdown-select-${searchType}`}
-          label={selectLabel}
+          data-testid={`dropdown-select-${labelIdInfo}`}
           value={repository}
-          labelId='select-repository-label'
+          labelId={labelIdInfo}
           className='dropdown-select'
           variant='standard'
           onChange={(e) => void handleRepoSelect(e)}
+          name={name}
         >
           {Object.keys(repoMap).map((key) => (
             <MenuItem
@@ -107,7 +76,7 @@ function SearchDropdown({
           ))}
         </Select>
       </FormControl>
-    </div>
+    </>
   );
 }
 

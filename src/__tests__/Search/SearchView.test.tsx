@@ -9,16 +9,44 @@ import {
   act,
   render,
   renderWithRouter,
+  waitFor,
   FetchMockSandbox,
 } from '../utils/test-utils';
 
+const baseTitle = Strings.components.searchDefault.base.title;
+
 function setupTestData() {
   const { testData } = getTestData();
-  (global.fetch as FetchMockSandbox).get(
-    'begin:https://treeherder.mozilla.org/api/project/try/push/',
-    {
+  (global.fetch as FetchMockSandbox)
+    .get(
+      'begin:https://treeherder.mozilla.org/api/project/try/push/?author=',
+      (url) => {
+        const author = new URL(url).searchParams.get('author');
+        return { results: testData.filter((item) => item.author === author) };
+      },
+    )
+    .get('begin:https://treeherder.mozilla.org/api/project/try/push/', {
       results: testData,
-    },
+    });
+}
+
+async function expandOverTimeComponent() {
+  const user = userEvent.setup({ delay: null });
+  const testExpandedID = 'time-state';
+  const headerContent = screen.getByTestId(testExpandedID);
+  await user.click(headerContent);
+  expect(screen.getByTestId(testExpandedID)).toHaveClass(
+    'compare-card-container--expanded',
+  );
+}
+
+async function expandWithBaseComponent() {
+  const user = userEvent.setup({ delay: null });
+  const testExpandedID = 'base-state';
+  const headerContent = screen.getByTestId(testExpandedID);
+  await user.click(headerContent);
+  expect(screen.getByTestId(testExpandedID)).toHaveClass(
+    'compare-card-container--expanded',
   );
 }
 
@@ -61,29 +89,45 @@ describe('Search Container', () => {
   it('renders compare with base', async () => {
     renderComponent();
 
-    const title = screen.getAllByText('Compare with a base')[0];
+    const compTitle = await screen.findByRole('heading', {
+      name: baseTitle,
+    });
+
     const baseInput = screen.getByPlaceholderText(
       'Search base by ID number or author email',
     );
-    const repoDropdown = screen.getAllByTestId('dropdown-select-base')[0];
+    const repoDropdown = screen.getByRole('button', { name: 'Base' });
 
-    expect(title).toBeInTheDocument();
+    expect(compTitle).toBeInTheDocument();
     expect(baseInput).toBeInTheDocument();
     expect(repoDropdown).toBeInTheDocument();
   });
 });
 
-describe('Base Search', () => {
-  it('renders repository dropdown in closed condition', async () => {
+describe('Base and OverTime Search', () => {
+  it('renders repository dropdown in closed condition in both Base and OverTime components', async () => {
     renderComponent();
     // 'try' is selected by default and dropdown is not visible
     expect(screen.getAllByText(/try/i)[0]).toBeInTheDocument();
-    expect(screen.queryByText(/autoland/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/mozilla-central/i)).not.toBeInTheDocument();
+
+    //test the overtime component
+    await expandOverTimeComponent();
+    expect(screen.getAllByText(/try/i)[2]).toBeInTheDocument();
+    expect(screen.queryByText(/autoland/i)).not.toBeInTheDocument();
+
+    await expandWithBaseComponent();
 
     // Search input appears
     expect(
       screen.getByPlaceholderText(/Search base by ID number or author email/i),
+    ).toBeInTheDocument();
+
+    await expandOverTimeComponent();
+    expect(
+      screen.getAllByPlaceholderText(
+        /Search revision by ID number or author email/i,
+      )[1],
     ).toBeInTheDocument();
 
     // No list items should appear
@@ -93,7 +137,7 @@ describe('Base Search', () => {
   it('renders framework dropdown in closed condition', async () => {
     renderComponent();
     // 'talos' is selected by default and dropdown is not visible
-    expect(screen.getByText(/talos/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/talos/i)[0]).toBeInTheDocument();
     expect(screen.queryByText(/build_metrics/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/awsy/i)).not.toBeInTheDocument();
   });
@@ -104,7 +148,6 @@ describe('Base Search', () => {
     renderComponent();
 
     // Click inside the input box to show search results.
-
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
 
@@ -112,8 +155,7 @@ describe('Base Search', () => {
     expect(comment[0]).toBeInTheDocument();
 
     // Click outside the input box to hide search results.
-
-    const label = screen.getAllByLabelText('Base')[0];
+    const label = screen.getByLabelText('Base');
     await user.click(label);
     expect(comment[0]).not.toBeInTheDocument();
   });
@@ -173,10 +215,70 @@ describe('Base Search', () => {
       ),
     ).toBeInTheDocument();
 
-    // fetch is called 5 times:
-    // - 2 times on initial load
-    // - 1 time for each "clear"
-    expect(global.fetch).toHaveBeenCalledTimes(5);
+    // fetch is called 6 times:
+    // - 3 times on initial load: one for each input, that is 2 in "compare with
+    //   base", 1 in "compare over time"
+    // - 3 times from the user interaction: 1 time for each "clear", because the
+    //   other user interactons are invalid and therefore don't trigger any
+    //   fetches (this is the goal for this test).
+    expect(global.fetch).toHaveBeenCalledTimes(6);
+  });
+
+  it('Should debounce user interaction', async () => {
+    // Contrary to the previous test, the timers are not run so that we can test
+    // the debounce behavior.
+
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
+    renderComponent();
+
+    const searchInput = screen.getAllByRole('textbox')[0];
+    await user.click(searchInput);
+
+    // Wait until the dropdown appears as the result of the focus.
+    await screen.findByText('She turned me into a newt!');
+
+    await user.type(searchInput, 'johncleese');
+    // No error appears while the user type.
+    expect(
+      screen.queryByText(
+        'Search must be a 12- or 40-character hash, or email address',
+      ),
+    ).not.toBeInTheDocument();
+
+    // But this appears after a while.
+    expect(
+      await screen.findByText(
+        'Search must be a 12- or 40-character hash, or email address',
+      ),
+    ).toBeInTheDocument();
+
+    await user.type(searchInput, '@python.co');
+    await user.type(searchInput, 'm');
+
+    // The only result is this one. All other results should not appear.
+    expect(
+      await screen.findByText("you've got no arms left!"),
+    ).toBeInTheDocument();
+    await waitFor(() =>
+      expect(
+        screen.queryByText('She turned me into a newt!'),
+      ).not.toBeInTheDocument(),
+    );
+
+    // Fetch was called 4 times:
+    // - 3 times on initial load
+    // - once for coconut@python.com
+    // The call to coconut@python.co was debounced.
+    expect(global.fetch).not.toHaveBeenCalledWith(
+      'https://treeherder.mozilla.org/api/project/try/push/?author=johncleese%40python.co',
+      undefined,
+    );
+    expect(global.fetch).toHaveBeenCalledWith(
+      'https://treeherder.mozilla.org/api/project/try/push/?author=johncleese%40python.com',
+      undefined,
+    );
+    expect(global.fetch).toHaveBeenCalledTimes(4);
   });
 
   it('Should clear search results if the search value is cleared', async () => {
@@ -185,20 +287,20 @@ describe('Base Search', () => {
     renderComponent();
 
     const searchInput = screen.getAllByRole('textbox')[0];
-    await user.type(searchInput, 'terryjones@python.com');
+    await user.type(searchInput, 'terrygilliam@python.com');
     act(() => void jest.runAllTimers());
 
     expect(global.fetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/try/push/?author=terryjones@python.com',
+      'https://treeherder.mozilla.org/api/project/try/push/?author=terrygilliam%40python.com',
       undefined,
     );
 
-    await screen.findAllByText("you've got no arms left!");
+    await screen.findAllByText('What, ridden on a horse?');
 
     await user.clear(searchInput);
 
     expect(
-      screen.queryByText("you've got no arms left!"),
+      screen.queryByText('What, ridden on a horse?'),
     ).not.toBeInTheDocument();
   });
 
@@ -241,10 +343,11 @@ describe('Base Search', () => {
     expect(errorElements[0]).toBeInTheDocument();
     expect(errorElements[1]).toBeInTheDocument();
     expect(console.error).toHaveBeenCalledWith(
-      'FetchRecentRevisions ERROR: ',
+      'Error while fetching recent revisions:',
       new Error(),
     );
-    expect(console.error).toHaveBeenCalledTimes(2);
+    // 3 times: 1 for each input, that is 2 in compare with base, 1 in compare over time
+    expect(console.error).toHaveBeenCalledTimes(3);
   });
 
   it('should have compare button and once clicked should redirect to results page with the right query params', async () => {

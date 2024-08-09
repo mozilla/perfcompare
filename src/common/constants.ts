@@ -5,13 +5,13 @@ import {
   Framework,
   Platform,
   SupportedPerfdocsFramework,
+  TimeRange,
 } from '../types/types';
 
-export const treeherderBaseURL = 'https://treeherder.mozilla.org';
-
-export const maxRevisionsError = 'Maximum 1 revision(s).';
-
 export const compareView = 'compare-results';
+export const compareOverTimeView = 'compare-over-time-results';
+export const subtestsView = 'subtests-results';
+export const subtestsOverTimeView = 'subtests-over-time-results';
 export const searchView = 'search';
 
 export const repoMap: Dictionary<Repository['name']> = {
@@ -36,6 +36,17 @@ export const frameworkMap: Record<Framework['id'], Framework['name']> = {
   13: 'browsertime',
   15: 'mozperftest',
   16: 'fxrecord',
+};
+
+export const timeRangeMap: Record<TimeRange['value'], TimeRange['text']> = {
+  86400: 'Last day',
+  172800: 'Last 2 days',
+  604800: 'Last 7 days',
+  1209600: 'Last 14 days',
+  2592000: 'Last 30 days',
+  5184000: 'Last 60 days',
+  7776000: 'Last 90 days',
+  31536000: 'Last year',
 };
 
 export const supportedPerfdocsFrameworks: Record<
@@ -76,6 +87,17 @@ export const frameworks: Framework[] = [
   { id: 13, name: 'browsertime' },
   { id: 15, name: 'mozperftest' },
   { id: 16, name: 'fxrecord' },
+];
+
+export const timeRanges: TimeRange[] = [
+  { value: 86400, text: 'Last day' },
+  { value: 172800, text: 'Last 2 days' },
+  { value: 604800, text: 'Last 7 days' },
+  { value: 1209600, text: 'Last 14 days' },
+  { value: 2592000, text: 'Last 30 days' },
+  { value: 5184000, text: 'Last 60 days' },
+  { value: 7776000, text: 'Last 90 days' },
+  { value: 31536000, text: 'Last year' },
 ];
 
 export const platformMap: Record<Platform, string> = {
@@ -191,6 +213,7 @@ export const platformMap: Record<Platform, string> = {
   'windows10-64-2004-devedition-qr': 'Windows 10 x64 2004 WebRender DevEdition',
   'windows10-64-2004-mingwclang': 'Windows 10 x64 2004 MinGW',
   'windows10-64-2004-mingwclang-qr': 'Windows 10 x64 2004 MinGW WebRender',
+  'windows11-64-2009-qr': 'Windows 11 x64 22H2 WebRender',
   'windows2012-32': 'Windows 2012',
   'windows2012-32-shippable': 'Windows 2012 Shippable',
   'windows2012-32-add-on-devel': 'Windows 2012 addon',

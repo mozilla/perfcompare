@@ -17,10 +17,18 @@ import { Strings } from '../resources/Strings';
 import { Banner } from '../styles/Banner';
 import getProtocolTheme from '../theme/protocolTheme';
 import { loader as compareLoader } from './CompareResults/loader';
+import { loader as compareOverTimeLoader } from './CompareResults/overTimeLoader';
+import OverTimeResultsView from './CompareResults/OverTimeResultsView';
 import ResultsView from './CompareResults/ResultsView';
+import { loader as compareSubtestsLoader } from './CompareResults/subtestsLoader';
+import { loader as compareSubtestsOverTimeLoader } from './CompareResults/subtestsOverTimeLoader';
+import SubtestsOverTimeResultsView from './CompareResults/SubtestsResults/SubtestsOverTimeResultsView';
+import SubtestsResultsView from './CompareResults/SubtestsResults/SubtestsResultsView';
 import SearchView from './Search/SearchView';
 import { PageError } from './Shared/PageError';
 import SnackbarCloseButton from './Shared/SnackbarCloseButton';
+import { loader as authenticationLoader } from './TaskclusterAuth/loader';
+import TaskclusterCallback from './TaskclusterAuth/TaskclusterCallback';
 
 const strings: InfoStrings = {
   text: Strings.components.topBanner.text,
@@ -68,6 +76,42 @@ export const router = createBrowserRouter(
         loader={compareLoader}
         element={<ResultsView title={Strings.metaData.pageTitle.results} />}
         errorElement={<PageError title={Strings.metaData.pageTitle.results} />}
+      />
+
+      <Route
+        path='/compare-over-time-results'
+        loader={compareOverTimeLoader}
+        element={
+          <OverTimeResultsView title={Strings.metaData.pageTitle.results} />
+        }
+        errorElement={<PageError title={Strings.metaData.pageTitle.results} />}
+      />
+
+      <Route
+        path='/subtestsCompareWithBase'
+        loader={compareSubtestsLoader}
+        element={
+          <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />
+        }
+        errorElement={<PageError title={Strings.metaData.pageTitle.subtests} />}
+      />
+
+      <Route
+        path='/subtestsCompareOverTime'
+        loader={compareSubtestsOverTimeLoader}
+        element={
+          <SubtestsOverTimeResultsView
+            title={Strings.metaData.pageTitle.subtests}
+          />
+        }
+        errorElement={<PageError title={Strings.metaData.pageTitle.subtests} />}
+      />
+
+      <Route
+        path='/taskcluster-auth'
+        loader={authenticationLoader}
+        element={<TaskclusterCallback />}
+        errorElement={<PageError title={'Error'} />}
       />
     </>,
   ),

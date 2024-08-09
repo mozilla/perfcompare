@@ -19,6 +19,8 @@ const textDarkMode = {
   color: `${Colors.PrimaryTextDark} !important`,
 };
 
+const repoDropdownWidth = 200;
+
 export const CompareCardsStyles = (mode: string) => {
   const isTrueLight = mode == 'light' ? true : false;
 
@@ -33,6 +35,9 @@ export const CompareCardsStyles = (mode: string) => {
       transition: 'border-radius 0.4s ease-in-out',
       justifyContent: 'space-between',
       $nest: {
+        ul: {
+          padding: '0',
+        },
         '.compare-card-img': {
           minWidth: '194px',
           borderRadius: `0px ${Spacing.Small}px ${Spacing.Small}px 0px`,
@@ -43,7 +48,7 @@ export const CompareCardsStyles = (mode: string) => {
           backgroundPosition: 'center',
           background: isTrueLight
             ? Colors.Background200
-            : Colors.Background200Dark,
+            : Colors.Background300Dark,
           $nest: {
             '&.compare-card-img--time': {
               backgroundImage: `url(${
@@ -57,8 +62,19 @@ export const CompareCardsStyles = (mode: string) => {
             },
           },
         },
+        '.edit-btn-wrapper': {
+          display: 'flex',
+          justifyContent: 'end',
+          $nest: {
+            '&.show-edit-btn': {
+              visibility: 'visible',
+            },
+            '&.hide-edit-btn': {
+              visibility: 'hidden',
+            },
+          },
+        },
         '&.compare-card-container--time': {
-          visibility: 'hidden',
           marginTop: `${Spacing.Large}px`,
           marginBottom: `${Spacing.layoutLarge + 20}px`,
         },
@@ -67,16 +83,17 @@ export const CompareCardsStyles = (mode: string) => {
           boxShadow: '0px 2px 4px rgba(58, 57, 68, 0.2)',
         },
         '&.content-base': {
+          visibility: 'hidden',
           minHeight: '0',
           height: '0',
           flexWrap: 'nowrap',
-          overflow: 'hidden',
           transition: 'min-height 0.5s ease-in-out',
           flexDirection: 'column',
           borderRadius: `0px 0px ${Spacing.Small}px ${Spacing.Small}px`,
           cursor: 'default',
           $nest: {
             '&.content-base--expanded': {
+              visibility: 'visible',
               borderRadius: `0px 0px ${Spacing.Small}px ${Spacing.Small}px`,
               borderTop: isTrueLight
                 ? Colors.Background200
@@ -110,6 +127,7 @@ export const CompareCardsStyles = (mode: string) => {
         },
         '.compare-card-tagline': {
           ...(isTrueLight ? FontsRaw.BodyDefault : FontsRaw.BodyDefaultDark),
+          margin: '0px',
         },
       },
     },
@@ -117,58 +135,28 @@ export const CompareCardsStyles = (mode: string) => {
 
   return compareCardsCSS;
 };
+
 export const SearchStyles = (mode: string) => {
   const isTrueLight = mode == 'light' ? true : false;
 
   const searchCSS = stylesheet({
     component: {
-      marginBottom: `${Spacing.xLarge}px`,
+      marginBottom: `${Spacing.Large}px`,
     },
+
     container: {
-      margin: 'auto',
       justifyContent: 'space-between',
       position: 'relative',
-
       $nest: {
         '&.hide-container': {
           display: 'none',
-        },
-
-        '.cancel-save': {
-          padding: '4px 16px',
-          maxWidth: '44px',
-          maxHeight: '32px',
-          marginLeft: `${Spacing.Small}px`,
         },
       },
     },
 
     dropDown: {
-      minWidth: '200px',
+      minWidth: `${repoDropdownWidth}px`,
       $nest: {
-        '&.small': {
-          minWidth: '175px',
-        },
-        '&.label-edit-wrapper': {
-          display: 'flex',
-          justifyContent: 'space-between',
-          $nest: {
-            '.hide-edit-btn': {
-              visibility: 'hidden',
-            },
-            '.edit-button': {
-              padding: '0px',
-              justifyContent: 'flex-end',
-              marginLeft: `${Spacing.Medium}px`,
-              bottom: `${Spacing.Small}px`,
-              $nest: {
-                '&:hover': {
-                  backgroundColor: 'transparent',
-                },
-              },
-            },
-          },
-        },
         '.dropdown-select-label,.base_label': {
           ...(isTrueLight ? FontsRaw.BodyDefault : FontsRaw.BodyDefaultDark),
           fontWeight: '600',
@@ -190,14 +178,13 @@ export const SearchStyles = (mode: string) => {
     },
 
     baseSearchInput: {
-      minWidth: '490px',
-      width: '100%',
+      minWidth: '530px',
       position: 'absolute',
       left: '220px',
       $nest: {
         '&.big': {
-          left: '190px',
-          minWidth: '510px',
+          left: '212px',
+          minWidth: `${850 - repoDropdownWidth - Spacing.Default}px`,
         },
         '&.base-search-input--mobile, &.new-search-input--mobile': {
           position: 'unset',

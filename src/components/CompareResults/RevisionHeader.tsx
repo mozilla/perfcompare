@@ -1,6 +1,7 @@
 import { Link } from '@mui/material';
 import { style } from 'typestyle';
 
+import { Strings } from '../../resources/Strings';
 import { Colors, Spacing } from '../../styles';
 import type { RevisionsHeader } from '../../types/state';
 import {
@@ -40,7 +41,7 @@ const styles = {
     fontStyle: 'normal',
     fontWeight: 700,
     fontSize: '8.2px',
-    // End to be removed
+    // End to be removed - update SubtestsRevisionHeader if this is removed
     gap: Spacing.Small + 2,
     letterSpacing: '0.02em',
     marginLeft: Spacing.xSmall,
@@ -83,7 +84,7 @@ function createTitle(
 }
 
 function getExtraOptions(extraOptions: string) {
-  return extraOptions.split(' ');
+  return extraOptions ? extraOptions.split(' ') : [];
 }
 
 function RevisionHeader(props: RevisionHeaderProps) {
@@ -101,6 +102,7 @@ function RevisionHeader(props: RevisionHeaderProps) {
         <Link
           href={getTreeherderURL(header.new_rev, header.new_repo)}
           target='_blank'
+          title={`${Strings.components.revisionRow.title.jobLink} ${shortHash}`}
         >
           {shortHash}
         </Link>

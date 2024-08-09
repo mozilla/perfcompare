@@ -12,6 +12,7 @@ const sharedDropDownStyles = {
 };
 
 const sharedListStyles = {
+  border: `${Spacing.xSmall / 2}px solid transparent`,
   borderRadius: `${Spacing.xSmall}px`,
   padding: `${Spacing.Small}px ${Spacing.xSmall}px`,
 };
@@ -46,7 +47,7 @@ export const DropDownItemRaw = {
       },
       '&:focus': {
         backgroundColor: Colors.SecondaryDefault,
-        border: `${Spacing.xSmall - 2}px solid ${Colors.PrimaryDefault}`,
+        borderColor: Colors.PrimaryDefault,
       },
     },
   },
@@ -64,7 +65,7 @@ export const DropDownItemRaw = {
       },
       '&:focus': {
         backgroundColor: Colors.SecondaryDark,
-        border: `${Spacing.xSmall / 2}px solid ${Colors.PrimaryDark}`,
+        borderColor: Colors.PrimaryDark,
       },
     },
   },

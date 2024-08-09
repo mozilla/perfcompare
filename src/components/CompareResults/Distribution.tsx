@@ -12,6 +12,23 @@ const styles = {
   }),
 };
 
+function computeMinMax(
+  baseRuns: number[],
+  newRuns: number[],
+): [number, number] {
+  let min = Infinity;
+  let max = -Infinity;
+  for (const value of baseRuns) {
+    min = Math.min(min, value);
+    max = Math.max(max, value);
+  }
+  for (const value of newRuns) {
+    min = Math.min(min, value);
+    max = Math.max(max, value);
+  }
+  return [min, max];
+}
+
 function Distribution(props: DistributionProps) {
   const { result } = props;
   const {
@@ -49,13 +66,21 @@ function Distribution(props: DistributionProps) {
     measurementUnit: newUnit,
   };
 
+  const [minValue, maxValue] = computeMinMax(baseRuns, newRuns);
+
   return (
     <div className={styles.container}>
-      <RunValues revisionRuns={baseRevisionRuns} />
-      <RunValues revisionRuns={newRevisionRuns} />
+      <RunValues
+        revisionRuns={baseRevisionRuns}
+        min={minValue}
+        max={maxValue}
+      />
+      <RunValues revisionRuns={newRevisionRuns} min={minValue} max={maxValue} />
       <CommonGraph
         baseRevisionRuns={baseRevisionRuns}
         newRevisionRuns={newRevisionRuns}
+        min={minValue}
+        max={maxValue}
       />
     </div>
   );

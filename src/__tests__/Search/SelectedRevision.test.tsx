@@ -1,21 +1,14 @@
-/* eslint-disable jest/no-disabled-tests */
 import userEvent from '@testing-library/user-event';
 
 import SearchView from '../../components/Search/SearchView';
-import { updateCheckedRevisions } from '../../reducers/SearchSlice';
 import { Strings } from '../../resources/Strings';
-import { InputType } from '../../types/state';
 import getTestData from '../utils/fixtures';
-import { store } from '../utils/setupTests';
 import {
   screen,
   within,
   renderWithRouter,
-  act,
   FetchMockSandbox,
 } from '../utils/test-utils';
-
-const searchType = 'base' as InputType;
 
 function renderComponent() {
   renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
@@ -33,7 +26,7 @@ describe('SelectedRevision', () => {
     );
   });
 
-  it.skip('should show the selected checked revisions once a result checkbox is clicked', async () => {
+  it('should show the selected checked revisions once a result checkbox is clicked, and remove it when X button is clicked', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
@@ -52,24 +45,10 @@ describe('SelectedRevision', () => {
     expect(noArmsLeftCheckbox).toBeChecked();
     expect(noArmsLeft.querySelector('.Mui-checked')).toBeInTheDocument();
 
-    const selectedRevsContainer = screen.getByTestId('selected-revs-search');
+    const selectedRevsContainer = screen.getByTestId('selected-rev-item');
     expect(selectedRevsContainer).toMatchSnapshot();
-  });
 
-  it('should remove the selected revision once X button is clicked', async () => {
-    const newChecked = testData.slice(0, 1);
-    act(() => {
-      store.dispatch(updateCheckedRevisions({ newChecked, searchType }));
-    });
-
-    // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
-
-    renderComponent();
-
-    const removeButton = document.querySelectorAll(
-      '[aria-label="close-button"]',
-    );
+    const removeButton = document.querySelectorAll('[title="remove revision"]');
 
     const removeIcon = screen.getByTestId('close-icon');
     expect(removeIcon).toBeInTheDocument();
@@ -77,18 +56,14 @@ describe('SelectedRevision', () => {
 
     await user.click(removeButton[0]);
 
-    act(() => {
-      expect(store.getState().search[searchType].checkedRevisions).toEqual([]);
-    });
-    expect(screen.queryAllByTestId('selected-rev-item')[0]).toBeUndefined();
+    expect(screen.queryByTestId('selected-rev-item')).not.toBeInTheDocument();
   });
 
   it('should show warning icon on selected try revision when try base is compared with a non try repository', async () => {
     const user = userEvent.setup({ delay: null });
     renderComponent();
 
-    // TODO The second dropdown incorrectly also has the name "Base".
-    const baseDropdown = screen.getAllByRole('button', { name: 'Base' })[0];
+    const baseDropdown = screen.getByRole('button', { name: 'Base' });
     expect(baseDropdown).toHaveTextContent('try');
 
     const firstSearchInput = screen.getAllByPlaceholderText(
@@ -101,8 +76,7 @@ describe('SelectedRevision', () => {
       }),
     );
 
-    // TODO This dropdown incorrectly has the name "Base".
-    const newDropdown = screen.getAllByRole('button', { name: 'Base' })[1];
+    const newDropdown = screen.getAllByRole('button', { name: 'Revisions' })[0];
     await user.click(newDropdown);
     const mozRepoItem = await screen.findByRole('option', {
       name: 'mozilla-central',

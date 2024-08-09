@@ -12,37 +12,8 @@ const sharedDropDownBtnStyles = {
   marginTop: '0',
 };
 
-const sharedButtonStyles = {
-  padding: `${Spacing.xSmall}px ${Spacing.Medium}px !important`,
-  height: `${Spacing.xLarge}px`,
-  margin: '0 !important',
-};
-
 //BUTTONS LIGHT
 export const ButtonsLightRaw = {
-  Primary: {
-    ...sharedButtonStyles,
-    color: Colors.InvertedText,
-    backgroundColor: Colors.PrimaryDefault,
-    $nest: {
-      '&:hover': {
-        backgroundColor: Colors.PrimaryHover,
-      },
-      '&:active': {
-        backgroundColor: Colors.PrimaryActive,
-      },
-    },
-  },
-  Secondary: {
-    color: Colors.PrimaryText,
-    backgroundColor: Colors.SecondaryDefault,
-    '&:hover': {
-      backgroundColor: Colors.SecondaryHover,
-    },
-    '&:active': {
-      backgroundColor: Colors.SecondaryActive,
-    },
-  },
   Dropdown: {
     ...sharedDropDownBtnStyles,
     backgroundColor: Colors.SecondaryDefault,
@@ -95,35 +66,12 @@ export const ButtonsLightRaw = {
 };
 
 export const ButtonsLight = {
-  Primary: style(ButtonsLightRaw.Primary),
-  Secondary: style(ButtonsLightRaw.Secondary),
   Dropdown: style(ButtonsLightRaw.Dropdown),
 };
 
 ////////////////////BUTTONS DARK///////////////////////
 
 export const ButtonsDarkRaw = {
-  Primary: {
-    ...sharedButtonStyles,
-    color: Colors.InvertedTextDark,
-    backgroundColor: Colors.PrimaryDark,
-    '&:hover': {
-      backgroundColor: Colors.PrimaryHoverDark,
-    },
-    '&:active': {
-      backgroundColor: Colors.PrimaryActiveDark,
-    },
-  },
-  Secondary: {
-    color: Colors.PrimaryTextDark,
-    backgroundColor: Colors.Background300Dark,
-    '&:hover': {
-      backgroundColor: Colors.SecondaryHoverDark,
-    },
-    '&:active': {
-      backgroundColor: Colors.SecondaryActiveDark,
-    },
-  },
   Dropdown: {
     ...sharedDropDownBtnStyles,
     backgroundColor: Colors.Background300Dark,
@@ -161,17 +109,10 @@ export const ButtonsDarkRaw = {
 };
 
 export const ButtonsDark = {
-  Primary: style(ButtonsDarkRaw.Primary),
-  Secondary: style(ButtonsDarkRaw.Secondary),
   Dropdown: style(ButtonsDarkRaw.Dropdown),
 };
 
 export const ButtonStyles = (mode: string) => {
   const isTrueLight = mode == 'light' ? true : false;
   return isTrueLight ? ButtonsLightRaw : ButtonsDarkRaw;
-};
-
-export const ButtonStylesSecondary = (mode: string) => {
-  const isTrueLight = mode == 'light' ? true : false;
-  return isTrueLight ? ButtonsLight.Secondary : ButtonsDark.Secondary;
 };

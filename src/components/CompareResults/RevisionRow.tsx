@@ -1,23 +1,188 @@
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 
 import AppleIcon from '@mui/icons-material/Apple';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
-import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import { IconButton } from '@mui/material';
-import Link from '@mui/material/Link';
+import Tooltip from '@mui/material/Tooltip';
 import { style } from 'typestyle';
 
+import { compareView, compareOverTimeView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { Colors, Spacing, ExpandableRowStyles } from '../../styles';
-import type { CompareResultsItem, PlatformInfo } from '../../types/state';
+import type { CompareResultsItem, PlatformShortName } from '../../types/state';
+import { getPlatformShortName } from '../../utils/platform';
 import AndroidIcon from '../Shared/Icons/AndroidIcon';
 import LinuxIcon from '../Shared/Icons/LinuxIcon';
+import SubtestsIcon from '../Shared/Icons/SubtestsIcon';
 import WindowsIcon from '../Shared/Icons/WindowsIcon';
+import RetriggerButton from './Retrigger/RetriggerButton';
 import RevisionRowExpandable from './RevisionRowExpandable';
+
+const revisionsRow = {
+  borderRadius: '4px 0px 0px 4px',
+  display: 'grid',
+  margin: `${Spacing.Small}px 0px`,
+  // Should be kept in sync with the gridTemplateColumns from TableHeader
+  gridTemplateColumns: '2fr 1fr 0.2fr 1fr 1fr 1fr 1fr 1fr 2fr 0.2fr',
+};
+
+const typography = {
+  fontFamily: 'SF Pro',
+  fontStyle: 'normal',
+  fontWeight: 400,
+  fontSize: '13px',
+  lineHeight: '16px',
+};
+
+const stylesLight = {
+  revisionRow: style({
+    ...revisionsRow,
+    $nest: {
+      '.base-value': {
+        backgroundColor: Colors.Background200,
+      },
+      '.cell': {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+      '.confidence': {
+        backgroundColor: Colors.Background200,
+      },
+      '.comparison-sign': {
+        backgroundColor: Colors.Background200,
+      },
+      '.delta': {
+        backgroundColor: Colors.Background200,
+      },
+      '.expand-button-container': {
+        justifyContent: 'right',
+      },
+      '.new-value': {
+        backgroundColor: Colors.Background200,
+      },
+      '.platform': {
+        backgroundColor: Colors.Background200,
+        borderRadius: '4px 0 0 4px',
+        paddingLeft: Spacing.xLarge,
+        justifyContent: 'left',
+      },
+      '.platform-container': {
+        alignItems: 'flex-end',
+        backgroundColor: Colors.Background200,
+        display: 'flex',
+      },
+      '.retrigger-button': {
+        backgroundColor: Colors.Background200,
+        borderRadius: '0px 4px 4px 0px',
+        cursor: 'not-allowed',
+      },
+      '.status': {
+        backgroundColor: Colors.Background200,
+        justifyContent: 'center',
+      },
+      '.total-runs': {
+        backgroundColor: Colors.Background200,
+        gap: '8px',
+      },
+      '.row-buttons': {
+        backgroundColor: Colors.Background200,
+        borderRadius: '0px 4px 4px 0px',
+        display: 'flex',
+        justifyContent: 'flex-end',
+        $nest: {
+          '.download': {
+            cursor: 'not-allowed',
+          },
+        },
+      },
+      '.expand-button': {
+        backgroundColor: Colors.Background300,
+      },
+    },
+  }),
+  typography: style({
+    ...typography,
+  }),
+};
+
+const stylesDark = {
+  revisionRow: style({
+    ...revisionsRow,
+    $nest: {
+      '.base-value': {
+        backgroundColor: Colors.Background200Dark,
+      },
+      '.cell': {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+      '.confidence': {
+        backgroundColor: Colors.Background200Dark,
+      },
+      '.comparison-sign': {
+        backgroundColor: Colors.Background200Dark,
+      },
+      '.delta': {
+        backgroundColor: Colors.Background200Dark,
+      },
+      '.expand-button-container': {
+        justifyContent: 'right',
+      },
+      '.new-value': {
+        backgroundColor: Colors.Background200Dark,
+      },
+      '.platform': {
+        backgroundColor: Colors.Background200Dark,
+        borderRadius: '4px 0 0 4px',
+        paddingLeft: Spacing.xLarge,
+        justifyContent: 'left',
+      },
+      '.platform-container': {
+        alignItems: 'flex-end',
+        backgroundColor: Colors.Background200Dark,
+        display: 'flex',
+      },
+      '.retrigger-button': {
+        backgroundColor: Colors.Background200Dark,
+        borderRadius: '0px 4px 4px 0px',
+        cursor: 'not-allowed',
+      },
+      '.status': {
+        backgroundColor: Colors.Background200Dark,
+        justifyContent: 'center',
+      },
+      '.total-runs': {
+        backgroundColor: Colors.Background200Dark,
+        gap: '8px',
+      },
+      '.row-buttons': {
+        backgroundColor: Colors.Background200Dark,
+        borderRadius: '0px 4px 4px 0px',
+        display: 'flex',
+        justifyContent: 'flex-end',
+        $nest: {
+          '.download': {
+            cursor: 'not-allowed',
+          },
+        },
+      },
+      '.expand-button': {
+        backgroundColor: Colors.Background100Dark,
+      },
+    },
+  }),
+  typography: style({
+    ...typography,
+  }),
+};
+
+const stylesCard = ExpandableRowStyles();
 
 function determineStatus(improvement: boolean, regression: boolean) {
   if (improvement) return 'Improvement';
@@ -31,27 +196,61 @@ function determineSign(baseMedianValue: number, newMedianValue: number) {
   return '';
 }
 
-const getPlatformInfo = (platformName: string): PlatformInfo => {
-  if (platformName.toLowerCase().includes('linux'))
-    return { shortName: 'Linux', icon: <LinuxIcon /> };
-  else if (
-    platformName.toLowerCase().includes('osx') ||
-    platformName.toLowerCase().includes('os x')
-  )
-    return { shortName: 'OSX', icon: <AppleIcon /> };
-  else if (platformName.toLowerCase().includes('windows'))
-    return { shortName: 'Windows', icon: <WindowsIcon /> };
-  else if (platformName.toLowerCase().includes('android'))
-    return { shortName: 'Android', icon: <AndroidIcon /> };
-  else
-    return {
-      shortName: Strings.components.revisionRow.platformUndefinedText,
-      icon: '',
-    };
+const platformIcons: Record<PlatformShortName, ReactNode> = {
+  Linux: <LinuxIcon />,
+  OSX: <AppleIcon />,
+  Windows: <WindowsIcon />,
+  Android: <AndroidIcon />,
+  Unspecified: '',
+};
+
+const getSubtestsCompareWithBaseLink = (result: CompareResultsItem) => {
+  const params = new URLSearchParams({
+    baseRev: result.base_rev,
+    baseRepo: result.base_repository_name,
+    newRev: result.new_rev,
+    newRepo: result.new_repository_name,
+    framework: String(result.framework_id),
+    baseParentSignature: String(result.base_signature_id),
+    newParentSignature: String(result.new_signature_id),
+  });
+
+  return `/subtestsCompareWithBase?${params.toString()}`;
+};
+
+const getSubtestsCompareOverTimeLink = (result: CompareResultsItem) => {
+  // Fetching the interval value directly from the URL avoids a
+  // spurious render due to react-router context changing. It's not usually a
+  // problem, but because this component can have a lot of instances, this is a
+  // performance problem in our case.
+  // If the process of fetching it from the URL is too costly, we might need to
+  // pass it down using the props otherwise.
+  const currentSearchParams = new URLSearchParams(location.search);
+  const interval = currentSearchParams.get('selectedTimeRange');
+  if (interval === null) {
+    // We should always have it because it's been checked in the loader already.
+    // Let's throw if it's absent so that if the loader and URL changes in the
+    // future but this path isn't changed, this will be very visible.
+    throw new Error(
+      "The parameter 'selectedTimeRange' is absent from the search parameters, this should not happen.",
+    );
+  }
+
+  const params = new URLSearchParams({
+    baseRepo: result.base_repository_name,
+    newRev: result.new_rev,
+    newRepo: result.new_repository_name,
+    framework: String(result.framework_id),
+    interval,
+    baseParentSignature: String(result.base_signature_id),
+    newParentSignature: String(result.new_signature_id),
+  });
+
+  return `/subtestsCompareOverTime?${params.toString()}`;
 };
 
 function RevisionRow(props: RevisionRowProps) {
-  const { result } = props;
+  const { result, view } = props;
   const {
     platform,
     base_median_value: baseMedianValue,
@@ -67,7 +266,8 @@ function RevisionRow(props: RevisionRowProps) {
     graphs_link: graphLink,
   } = result;
 
-  const platformInfo = getPlatformInfo(platform);
+  const platformShortName = getPlatformShortName(platform);
+  const platformIcon = platformIcons[platformShortName];
 
   const [expanded, setExpanded] = useState(false);
 
@@ -75,94 +275,16 @@ function RevisionRow(props: RevisionRowProps) {
     setExpanded(!expanded);
   };
 
-  const stylesCard = ExpandableRowStyles();
+  // Note that the return type is different depending on the view we're in
+  const subtestsCompareLink =
+    view === compareView
+      ? getSubtestsCompareWithBaseLink(result)
+      : getSubtestsCompareOverTimeLink(result);
 
   const themeMode = useAppSelector((state) => state.theme.mode);
-  const expandButtonColor =
-    themeMode == 'light' ? Colors.Background300 : Colors.Background100Dark;
-  const themeColor200 =
-    themeMode == 'light' ? Colors.Background200 : Colors.Background200Dark;
 
-  const styles = {
-    revisionRow: style({
-      borderRadius: '4px 0px 0px 4px',
-      display: 'grid',
-      margin: `${Spacing.Small}px 0px`,
-      // Should be kept in sync with the gridTemplateColumns from TableHeader
-      gridTemplateColumns: '2fr 1fr 0.2fr 1fr 1fr 1fr 1fr 1fr 2fr 0.2fr',
-      $nest: {
-        '.base-value': {
-          backgroundColor: themeColor200,
-        },
-        '.cell': {
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        },
-        '.confidence': {
-          backgroundColor: themeColor200,
-        },
-        '.comparison-sign': {
-          backgroundColor: themeColor200,
-        },
-        '.delta': {
-          backgroundColor: themeColor200,
-        },
-        '.expand-button-container': {
-          justifyContent: 'right',
-        },
-        '.new-value': {
-          backgroundColor: themeColor200,
-        },
-        '.platform': {
-          backgroundColor: themeColor200,
-          borderRadius: '4px 0 0 4px',
-          paddingLeft: Spacing.xLarge,
-          justifyContent: 'left',
-        },
-        '.platform-container': {
-          alignItems: 'flex-end',
-          backgroundColor: themeColor200,
-          display: 'flex',
-        },
-        '.retrigger-button': {
-          backgroundColor: themeColor200,
-          borderRadius: '0px 4px 4px 0px',
-          cursor: 'not-allowed',
-        },
-        '.status': {
-          backgroundColor: themeColor200,
-          justifyContent: 'center',
-        },
-        '.total-runs': {
-          backgroundColor: themeColor200,
-        },
+  const styles = themeMode === 'light' ? stylesLight : stylesDark;
 
-        '.row-buttons': {
-          backgroundColor: themeColor200,
-          borderRadius: '0px 4px 4px 0px',
-          display: 'flex',
-          justifyContent: 'flex-end',
-          $nest: {
-            '.download': {
-              cursor: 'not-allowed',
-            },
-          },
-        },
-
-        '.expand-button': {
-          backgroundColor: expandButtonColor,
-        },
-      },
-    }),
-    typography: style({
-      fontFamily: 'SF Pro',
-      fontStyle: 'normal',
-      fontWeight: 400,
-      fontSize: '13px',
-      lineHeight: '16px',
-    }),
-  };
   return (
     <>
       <div
@@ -170,10 +292,12 @@ function RevisionRow(props: RevisionRowProps) {
         role='row'
       >
         <div className='platform cell' role='cell'>
-          <div className='platform-container'>
-            {platformInfo.icon}
-            <span>{platformInfo.shortName}</span>
-          </div>
+          <Tooltip placement='bottom' title={platform} arrow>
+            <div className='platform-container'>
+              {platformIcon}
+              <span>{platformShortName}</span>
+            </div>
+          </Tooltip>
         </div>
         <div className='base-value cell' role='cell'>
           {' '}
@@ -199,33 +323,64 @@ function RevisionRow(props: RevisionRowProps) {
           {confidenceText}{' '}
         </div>
         <div className='total-runs cell' role='cell'>
-          <span>B:</span>
-          <strong> {baseRuns.length} </strong> <span> N: </span>
-          <strong> {newRuns.length} </strong>
+          <span>
+            <span title='Base runs'>B:</span>
+            <strong>{baseRuns.length}</strong>
+          </span>
+          <span>
+            <span title='New runs'>N:</span>
+            <strong>{newRuns.length}</strong>
+          </span>
         </div>
         <div className='row-buttons cell'>
+          {result.has_subtests && (
+            <div className='subtests' role='cell'>
+              <div className='subtests-link-button-container'>
+                <IconButton
+                  title={Strings.components.revisionRow.title.subtestsLink}
+                  color='primary'
+                  size='small'
+                  href={subtestsCompareLink}
+                  target='_blank'
+                >
+                  <SubtestsIcon />
+                </IconButton>
+              </div>
+            </div>
+          )}
+
           <div className='graph' role='cell'>
             <div className='graph-link-button-container'>
-              <IconButton aria-label='graph link' size='small'>
-                <Link href={graphLink} target='_blank'>
-                  <TimelineIcon />
-                </Link>
+              <IconButton
+                title={Strings.components.revisionRow.title.graphLink}
+                color='primary'
+                size='small'
+                href={graphLink}
+                target='_blank'
+              >
+                <TimelineIcon />
               </IconButton>
             </div>
           </div>
 
           <div className='download' role='cell'>
             <div className='download-button-container'>
-              <IconButton aria-label='download' size='small'>
+              <IconButton
+                title={Strings.components.revisionRow.title.downloadProfilers}
+                color='primary'
+                size='small'
+              >
                 <FileDownloadOutlinedIcon />
               </IconButton>
             </div>
           </div>
-          <div className='retrigger-button' role='cell'>
-            <div className='runs-button-container'>
-              <IconButton aria-label='retrigger button' size='small'>
-                <RefreshOutlinedIcon />
-              </IconButton>
+          <div
+            className='retrigger-button'
+            role='cell'
+            data-testid='retrigger-jobs-button'
+          >
+            <div className='retrigger-button-container'>
+              <RetriggerButton result={result} />
             </div>
           </div>
         </div>
@@ -235,27 +390,35 @@ function RevisionRow(props: RevisionRowProps) {
             onClick={toggleIsExpanded}
             data-testid='expand-revision-button'
           >
-            <IconButton aria-label='expand row' size='small'>
+            <IconButton
+              title={
+                expanded
+                  ? Strings.components.expandableRow.title.shrink
+                  : Strings.components.expandableRow.title.expand
+              }
+              color='primary'
+              size='small'
+            >
               {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
             </IconButton>
           </div>
         </div>
       </div>
-
-      <div
-        className={`content-row content-row--${
-          expanded ? 'expanded' : 'default'
-        } ${stylesCard.container} `}
-        data-testid='expanded-row-content'
-      >
-        <RevisionRowExpandable result={result} />
-      </div>
+      {expanded && (
+        <div
+          className={`content-row ${stylesCard.container}`}
+          data-testid='expanded-row-content'
+        >
+          <RevisionRowExpandable result={result} />
+        </div>
+      )}
     </>
   );
 }
 
 interface RevisionRowProps {
   result: CompareResultsItem;
+  view: typeof compareView | typeof compareOverTimeView;
 }
 
 export default RevisionRow;
