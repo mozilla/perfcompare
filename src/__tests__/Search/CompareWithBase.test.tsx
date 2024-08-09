@@ -294,6 +294,56 @@ describe('Compare With Base', () => {
     ).not.toBeInTheDocument();
   });
 
+  it('Clicking the Compare button exits edit mode', async () => {
+    renderWithCompareResultsURL(
+      <ResultsView title={Strings.metaData.pageTitle.results} />,
+    );
+    const formElement = await waitForPageReadyAndReturnForm();
+    const user = userEvent.setup({ delay: null });
+    expect(formElement).toMatchSnapshot(
+      'Initial state for the form before exiting edit mode',
+    );
+    const baseSearchContainer = document.querySelector(
+      '#base-search-container',
+    );
+
+    //Input and compare button should not be visible
+    expect(baseSearchContainer).toHaveClass('hide-container');
+    expect(
+      screen.queryByRole('button', {
+        name: /Compare/,
+      }),
+    ).not.toBeInTheDocument();
+
+    // Click the edit entry button
+    const editButton = getEditButton();
+    await user.click(editButton);
+
+    const compareButton = await screen.findByRole('button', {
+      name: /Compare/,
+    });
+
+    //Input and compare button should be visible
+    expect(baseSearchContainer).toHaveClass('show-container');
+    expect(compareButton).toBeInTheDocument();
+
+    expect(editButton).not.toBeVisible();
+
+    // Press the compare button
+    await user.click(compareButton);
+
+    expect(formElement).toMatchSnapshot('After clicking Compare button');
+
+    // The compare button should not be visible
+    expect(compareButton).not.toBeVisible();
+
+    //should see edit button again
+    expect(editButton).toBeVisible();
+
+    // The search container should be hidden
+    expect(baseSearchContainer).toHaveClass('hide-container');
+  });
+
   it('updates the framework and url when a new one is selected', async () => {
     const user = userEvent.setup({ delay: null });
     renderWithCompareResultsURL(
