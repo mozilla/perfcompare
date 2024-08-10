@@ -14,6 +14,7 @@ import {
   FetchMockSandbox,
   within,
   render,
+  waitFor,
 } from '../utils/test-utils';
 
 function setUpTestData() {
@@ -168,18 +169,18 @@ describe('Compare Over Time', () => {
       within(formElement).queryByText(/mozilla-central/i),
     ).not.toBeInTheDocument();
 
-    const newDropdown = screen.getByRole('button', {
+    const baseDropdown = screen.getByRole('button', {
       name: 'Base repository try',
     });
 
-    await user.click(newDropdown);
+    await user.click(baseDropdown);
     const mozRepoItem = await screen.findByRole('option', {
       name: 'mozilla-central',
     });
     await user.click(mozRepoItem);
     expect(mozRepoItem).toBeInTheDocument();
 
-    await user.click(newDropdown);
+    await user.click(baseDropdown);
     const autolandItem = await screen.findByRole('option', {
       name: 'autoland',
     });
@@ -495,7 +496,7 @@ describe('Compare Over Time', () => {
     expect(within(formElement).queryByRole('textbox')).not.toBeInTheDocument();
   });
 
-  it('should update revisions and time-range after user changes both in edit mode', async () => {
+  it('should update base repo, revisions and time-range after user changes them and clicks Compare in edit mode', async () => {
     renderWithCompareResultsURL(
       <OverTimeResultsView title={Strings.metaData.pageTitle.results} />,
     );
@@ -521,6 +522,17 @@ describe('Compare Over Time', () => {
     // Click the edit revision
     const editButton = getEditButton();
     await user.click(editButton);
+
+    //The base repo dropdown
+    const baseDropdown = screen.getByRole('button', {
+      name: 'Base repository try',
+    });
+
+    await user.click(baseDropdown);
+    const autolandItem = await screen.findByRole('option', {
+      name: 'autoland',
+    });
+    await user.click(autolandItem);
 
     // The new repo dropdown and search input should be visible
     expect(
@@ -548,8 +560,74 @@ describe('Compare Over Time', () => {
     });
     await user.click(last2daysItem);
 
+    const compareButton = await screen.findByRole('button', {
+      name: /Compare/,
+    });
+
+    // Press the compare button
+    await user.click(compareButton);
+
+    await waitFor(() => {
+      expect(location.href).toContain('selectedTimeRange=172800');
+    });
+
     // the updated revision and time range should be displayed
     expect(screen.getByText(/alves of coconuts/)).toBeInTheDocument();
-    expect(last2daysItem).toBeInTheDocument();
+    expect(screen.getByText(/Last 2 days/)).toBeInTheDocument();
+    expect(within(formElement).getAllByText('autoland')[0]).toBeInTheDocument();
+  });
+
+  it('should exit edit mode after clicking Compare button', async () => {
+    renderWithCompareResultsURL(
+      <OverTimeResultsView title={Strings.metaData.pageTitle.results} />,
+    );
+    const formElement = await waitForPageReadyAndReturnForm();
+    const user = userEvent.setup({ delay: null });
+    expect(formElement).toMatchSnapshot(
+      'Initial state for the form before exiting edit mode',
+    );
+
+    // the readonly should be displayed
+    const timeReadOnly = document.querySelector(
+      '#time-search-container--readonly',
+    );
+    expect(timeReadOnly).toBeInTheDocument();
+
+    //Compare should not be visible
+    expect(
+      screen.queryByRole('button', {
+        name: /Compare/,
+      }),
+    ).not.toBeInTheDocument();
+
+    // Click the edit entry button
+    const editButton = getEditButton();
+    await user.click(editButton);
+
+    const compareButton = await screen.findByRole('button', {
+      name: /Compare/,
+    });
+
+    //Inputs and compare button should be visible
+
+    expect(within(formElement).getByRole('textbox')).toBeInTheDocument();
+    expect(compareButton).toBeInTheDocument();
+
+    //hidden edit button and readOnly
+    expect(editButton).not.toBeVisible();
+    expect(timeReadOnly).not.toBeInTheDocument();
+
+    // Press the compare button
+    await user.click(compareButton);
+
+    expect(formElement).toMatchSnapshot('After clicking Compare button');
+
+    expect(compareButton).not.toBeVisible();
+
+    //should see edit button again
+    expect(editButton).toBeVisible();
+
+    // The inputs should be hidden
+    expect(within(formElement).queryByRole('textbox')).not.toBeInTheDocument();
   });
 });

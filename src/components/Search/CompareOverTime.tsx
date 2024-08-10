@@ -69,6 +69,7 @@ function CompareOverTime({
 
   const onFormSubmit = (e: React.FormEvent) => {
     const isFormReadyToBeSubmitted = inProgressRevs.length > 0;
+    setFormIsDisplayed(!isFormReadyToBeSubmitted);
 
     if (!isFormReadyToBeSubmitted) {
       e.preventDefault();
@@ -176,7 +177,6 @@ function CompareOverTime({
           onSubmit={onFormSubmit}
           className='form-wrapper'
           aria-label='Compare over time form'
-          reloadDocument={hasEditButton ?? true}
         >
           {/**** Edit Button ****/}
           <div
