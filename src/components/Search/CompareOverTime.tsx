@@ -177,7 +177,6 @@ function CompareOverTime({
           onSubmit={onFormSubmit}
           className='form-wrapper'
           aria-label='Compare over time form'
-          reloadDocument={hasEditButton ?? true}
         >
           {/**** Edit Button ****/}
           <div
