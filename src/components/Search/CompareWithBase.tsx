@@ -110,6 +110,7 @@ function CompareWithBase({
 
   const onFormSubmit = (e: React.FormEvent) => {
     const isFormReadyToBeSubmitted = baseInProgressRev !== null;
+    setFormIsDisplayed(!isFormReadyToBeSubmitted);
 
     if (!isFormReadyToBeSubmitted) {
       e.preventDefault();

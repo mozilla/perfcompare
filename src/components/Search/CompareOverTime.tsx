@@ -69,6 +69,7 @@ function CompareOverTime({
 
   const onFormSubmit = (e: React.FormEvent) => {
     const isFormReadyToBeSubmitted = inProgressRevs.length > 0;
+    setFormIsDisplayed(!isFormReadyToBeSubmitted);
 
     if (!isFormReadyToBeSubmitted) {
       e.preventDefault();
