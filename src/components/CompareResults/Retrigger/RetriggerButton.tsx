@@ -31,18 +31,25 @@ const styles = {
     fontWeight: 590,
     lineHeight: '16.5px',
     textAlign: 'left',
-    width: '111px',
+    width: '150px',
     height: '25px',
     padding: '4px 8px 4px 8px',
     gap: '4px',
     borderRadius: '4px 0px 0px 0px',
+
+    $nest: {
+      '.MuiButton-startIcon': {
+        marginRight: 0,
+      },
+    },
   }),
 };
 interface RetriggerButtonProps {
   result: CompareResultsItem;
+  variant: 'icon' | 'text';
 }
 
-function RetriggerButton({ result }: RetriggerButtonProps) {
+function RetriggerButton({ result, variant }: RetriggerButtonProps) {
   const {
     base_repository_name: baseRepository,
     base_retriggerable_job_ids: baseRetriggerableJobIds,
@@ -52,8 +59,6 @@ function RetriggerButton({ result }: RetriggerButtonProps) {
     new_rev: newRev,
     base_repository_name: baseRepo,
     new_repository_name: newRepo,
-    base_parent_signature: baseParentSignature,
-    new_parent_signature: newParentSignature,
   } = result;
 
   const [status, setStatus] = useState('pending' as Status);
@@ -173,17 +178,28 @@ function RetriggerButton({ result }: RetriggerButtonProps) {
 
   return (
     <>
-      <IconButton
-        title={Strings.components.revisionRow.title.retriggerJobs}
-        color='primary'
-        size='small'
-        onClick={() => void onRetriggerButtonClick()}
-      >
-        <RefreshOutlinedIcon />
-        {baseParentSignature || newParentSignature ? (
-          <span className={styles.retrigger}>Retrigger test</span>
-        ) : null}
-      </IconButton>
+      {variant === 'text' ? (
+        <Button
+          title={Strings.components.revisionRow.title.retriggerJobs}
+          className={styles.retrigger}
+          color='primary'
+          variant={'text'}
+          size='small'
+          onClick={() => void onRetriggerButtonClick()}
+          startIcon={<RefreshOutlinedIcon />}
+        >
+          Retrigger test
+        </Button>
+      ) : (
+        <IconButton
+          title={Strings.components.revisionRow.title.retriggerJobs}
+          color='primary'
+          size='small'
+          onClick={() => void onRetriggerButtonClick()}
+        >
+          <RefreshOutlinedIcon />
+        </IconButton>
+      )}
       <RetriggerSignInModal
         open={status === 'signin-modal'}
         onClose={() => setStatus('pending')}

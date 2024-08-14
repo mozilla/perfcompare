@@ -68,7 +68,7 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
         <div className={styles.content}>
           <SearchInput onChange={setSearchTerm} />
           <DownloadButton resultsPromise={[results]} />
-          <RetriggerButton result={results[0]} />
+          <RetriggerButton result={results[0]} variant='text' />
         </div>
       </header>
       <SubtestsResultsTable

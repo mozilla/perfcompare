@@ -128,7 +128,7 @@ describe('Retrigger', () => {
   });
 
   it('should display Sign In modal when there are no credentials', async () => {
-    render(<RetriggerButton result={result} />);
+    render(<RetriggerButton result={result} variant='icon' />);
 
     const openModalButton = await screen.findByTitle('retrigger jobs');
 
@@ -199,7 +199,7 @@ describe('Retrigger', () => {
       );
 
     setUpUserCredentials();
-    render(<RetriggerButton result={result} />);
+    render(<RetriggerButton result={result} variant='icon' />);
 
     const openModalButton = await screen.findByRole('button', {
       name: 'retrigger jobs',
