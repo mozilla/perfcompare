@@ -1299,36 +1299,6 @@ exports[`Results Table Should match snapshot 1`] = `
                         </div>
                       </div>
                       <div
-                        class="download"
-                        role="cell"
-                      >
-                        <div
-                          class="download-button-container"
-                        >
-                          <button
-                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
-                            tabindex="0"
-                            title="open the performance profile for this job"
-                            type="button"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                              data-testid="FileDownloadOutlinedIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M18 15v3H6v-3H4v3c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-3h-2zm-1-4-1.41-1.41L13 12.17V4h-2v8.17L8.41 9.59 7 11l5 5 5-5z"
-                              />
-                            </svg>
-                            <span
-                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                            />
-                          </button>
-                        </div>
-                      </div>
-                      <div
                         class="retrigger-button"
                         data-testid="retrigger-jobs-button"
                         role="cell"
@@ -1527,36 +1497,6 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
                           </a>
-                        </div>
-                      </div>
-                      <div
-                        class="download"
-                        role="cell"
-                      >
-                        <div
-                          class="download-button-container"
-                        >
-                          <button
-                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
-                            tabindex="0"
-                            title="open the performance profile for this job"
-                            type="button"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                              data-testid="FileDownloadOutlinedIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M18 15v3H6v-3H4v3c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-3h-2zm-1-4-1.41-1.41L13 12.17V4h-2v8.17L8.41 9.59 7 11l5 5 5-5z"
-                              />
-                            </svg>
-                            <span
-                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                            />
-                          </button>
                         </div>
                       </div>
                       <div
@@ -1759,36 +1699,6 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
                           </a>
-                        </div>
-                      </div>
-                      <div
-                        class="download"
-                        role="cell"
-                      >
-                        <div
-                          class="download-button-container"
-                        >
-                          <button
-                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
-                            tabindex="0"
-                            title="open the performance profile for this job"
-                            type="button"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                              data-testid="FileDownloadOutlinedIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M18 15v3H6v-3H4v3c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-3h-2zm-1-4-1.41-1.41L13 12.17V4h-2v8.17L8.41 9.59 7 11l5 5 5-5z"
-                              />
-                            </svg>
-                            <span
-                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                            />
-                          </button>
                         </div>
                       </div>
                       <div
@@ -2034,36 +1944,6 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
                           </a>
-                        </div>
-                      </div>
-                      <div
-                        class="download"
-                        role="cell"
-                      >
-                        <div
-                          class="download-button-container"
-                        >
-                          <button
-                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
-                            tabindex="0"
-                            title="open the performance profile for this job"
-                            type="button"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                              data-testid="FileDownloadOutlinedIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M18 15v3H6v-3H4v3c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-3h-2zm-1-4-1.41-1.41L13 12.17V4h-2v8.17L8.41 9.59 7 11l5 5 5-5z"
-                              />
-                            </svg>
-                            <span
-                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                            />
-                          </button>
                         </div>
                       </div>
                       <div

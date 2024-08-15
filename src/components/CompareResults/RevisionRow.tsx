@@ -3,7 +3,6 @@ import { useState, type ReactNode } from 'react';
 import AppleIcon from '@mui/icons-material/Apple';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import { IconButton } from '@mui/material';
 import Tooltip from '@mui/material/Tooltip';
@@ -359,18 +358,6 @@ function RevisionRow(props: RevisionRowProps) {
                 target='_blank'
               >
                 <TimelineIcon />
-              </IconButton>
-            </div>
-          </div>
-
-          <div className='download' role='cell'>
-            <div className='download-button-container'>
-              <IconButton
-                title={Strings.components.revisionRow.title.downloadProfilers}
-                color='primary'
-                size='small'
-              >
-                <FileDownloadOutlinedIcon />
               </IconButton>
             </div>
           </div>
