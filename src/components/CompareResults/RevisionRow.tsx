@@ -110,19 +110,20 @@ const stylesLight = {
         borderRadius: '4px',
         padding: '4px 10px',
       },
-      '.status-hint.regression': {
-        backgroundColor: '#FFE8E8',
-      },
-      '.status-hint.improvement': {
+      '.status-hint-improvement': {
         backgroundColor: '#D8EEDC',
+      },
+      '.status-hint-regression': {
+        backgroundColor: '#FFE8E8',
       },
       '.status-hint .MuiSvgIcon-root': {
         height: '16px',
       },
-      '.status-hint.improvement .MuiSvgIcon-root': {
+      '.status-hint-improvement .MuiSvgIcon-root': {
         color: '#017A40',
       },
-      '.status-hint.regression .MuiSvgIcon-root': {
+      '.status-hint-regression .MuiSvgIcon-root': {
+        // We need to move the icon a bit lower so that it _looks_ centered.
         marginTop: '2px',
         color: '#D7264C',
       },
@@ -204,20 +205,21 @@ const stylesDark = {
         borderRadius: '4px',
         padding: '4px 10px',
       },
-      '.status-hint.regression': {
-        backgroundColor: '#690F22',
-      },
-      '.status-hint.improvement': {
+      '.status-hint-improvement': {
         backgroundColor: '#004725',
         marginTop: '2px',
+      },
+      '.status-hint-regression': {
+        backgroundColor: '#690F22',
       },
       '.status-hint .MuiSvgIcon-root': {
         height: '16px',
       },
-      '.status-hint.improvement .MuiSvgIcon-root': {
+      '.status-hint-improvement .MuiSvgIcon-root': {
         color: '#4DBC87',
       },
-      '.status-hint.regression .MuiSvgIcon-root': {
+      '.status-hint-regression .MuiSvgIcon-root': {
+        // We need to move the icon a bit lower so that it _looks_ centered.
         marginTop: '2px',
         color: '#F37F98',
       },
@@ -236,9 +238,9 @@ function determineStatus(improvement: boolean, regression: boolean) {
   return '-';
 }
 
-function determineStatusHintStyle(improvement: boolean, regression: boolean) {
-  if (improvement) return 'improvement';
-  if (regression) return 'regression';
+function determineStatusHintClass(improvement: boolean, regression: boolean) {
+  if (improvement) return 'status-hint-improvement';
+  if (regression) return 'status-hint-regression';
   return '';
 }
 
@@ -364,7 +366,7 @@ function RevisionRow(props: RevisionRowProps) {
         </div>
         <div className='status cell' role='cell'>
           <span
-            className={`status-hint ${determineStatusHintStyle(
+            className={`status-hint ${determineStatusHintClass(
               improvement,
               regression,
             )}`}

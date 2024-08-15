@@ -402,7 +402,7 @@ exports[`Results View The table should match snapshot and other elements should 
     </div>
     <div>
       <div
-        class="revisionRow f1n3dbvc fp4ugv1"
+        class="revisionRow f603q1k fp4ugv1"
         role="row"
       >
         <div
@@ -460,7 +460,7 @@ exports[`Results View The table should match snapshot and other elements should 
           role="cell"
         >
           <span
-            class="status-hint improvement"
+            class="status-hint status-hint-improvement"
           >
             <svg
               aria-hidden="true"
@@ -617,7 +617,7 @@ exports[`Results View The table should match snapshot and other elements should 
         </div>
       </div>
       <div
-        class="revisionRow f1n3dbvc fp4ugv1"
+        class="revisionRow f603q1k fp4ugv1"
         role="row"
       >
         <div
@@ -674,7 +674,7 @@ exports[`Results View The table should match snapshot and other elements should 
           role="cell"
         >
           <span
-            class="status-hint regression"
+            class="status-hint status-hint-regression"
           >
             <svg
               aria-hidden="true"
@@ -831,7 +831,7 @@ exports[`Results View The table should match snapshot and other elements should 
         </div>
       </div>
       <div
-        class="revisionRow f1n3dbvc fp4ugv1"
+        class="revisionRow f603q1k fp4ugv1"
         role="row"
       >
         <div
@@ -1035,7 +1035,7 @@ exports[`Results View The table should match snapshot and other elements should 
         </div>
       </div>
       <div
-        class="revisionRow f1n3dbvc fp4ugv1"
+        class="revisionRow f603q1k fp4ugv1"
         role="row"
       >
         <div
