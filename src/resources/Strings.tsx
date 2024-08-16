@@ -104,7 +104,6 @@ export const Strings = {
       title: {
         subtestsLink: 'open the subtests for this result',
         graphLink: 'open the evolution graph for this job in treeherder',
-        downloadProfilers: 'open the performance profile for this job',
         jobLink: 'open treeherder view for',
         retriggerJobs: 'retrigger jobs',
       },

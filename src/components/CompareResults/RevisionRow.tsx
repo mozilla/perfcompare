@@ -3,7 +3,8 @@ import { useState, type ReactNode } from 'react';
 import AppleIcon from '@mui/icons-material/Apple';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import { IconButton } from '@mui/material';
 import Tooltip from '@mui/material/Tooltip';
@@ -103,6 +104,29 @@ const stylesLight = {
       '.expand-button': {
         backgroundColor: Colors.Background300,
       },
+      '.status-hint': {
+        display: 'inline-flex',
+        gap: '6px',
+        borderRadius: '4px',
+        padding: '4px 10px',
+      },
+      '.status-hint-improvement': {
+        backgroundColor: '#D8EEDC',
+      },
+      '.status-hint-regression': {
+        backgroundColor: '#FFE8E8',
+      },
+      '.status-hint .MuiSvgIcon-root': {
+        height: '16px',
+      },
+      '.status-hint-improvement .MuiSvgIcon-root': {
+        color: '#017A40',
+      },
+      '.status-hint-regression .MuiSvgIcon-root': {
+        // We need to move the icon a bit lower so that it _looks_ centered.
+        marginTop: '2px',
+        color: '#D7264C',
+      },
     },
   }),
   typography: style({
@@ -175,6 +199,30 @@ const stylesDark = {
       '.expand-button': {
         backgroundColor: Colors.Background100Dark,
       },
+      '.status-hint': {
+        display: 'inline-flex',
+        gap: '4px',
+        borderRadius: '4px',
+        padding: '4px 10px',
+      },
+      '.status-hint-improvement': {
+        backgroundColor: '#004725',
+        marginTop: '2px',
+      },
+      '.status-hint-regression': {
+        backgroundColor: '#690F22',
+      },
+      '.status-hint .MuiSvgIcon-root': {
+        height: '16px',
+      },
+      '.status-hint-improvement .MuiSvgIcon-root': {
+        color: '#4DBC87',
+      },
+      '.status-hint-regression .MuiSvgIcon-root': {
+        // We need to move the icon a bit lower so that it _looks_ centered.
+        marginTop: '2px',
+        color: '#F37F98',
+      },
     },
   }),
   typography: style({
@@ -188,6 +236,12 @@ function determineStatus(improvement: boolean, regression: boolean) {
   if (improvement) return 'Improvement';
   if (regression) return 'Regression';
   return '-';
+}
+
+function determineStatusHintClass(improvement: boolean, regression: boolean) {
+  if (improvement) return 'status-hint-improvement';
+  if (regression) return 'status-hint-regression';
+  return '';
 }
 
 function determineSign(baseMedianValue: number, newMedianValue: number) {
@@ -311,8 +365,16 @@ function RevisionRow(props: RevisionRowProps) {
           {newMedianValue} {newUnit}
         </div>
         <div className='status cell' role='cell'>
-          {' '}
-          {determineStatus(improvement, regression)}{' '}
+          <span
+            className={`status-hint ${determineStatusHintClass(
+              improvement,
+              regression,
+            )}`}
+          >
+            {improvement ? <ThumbUpIcon /> : null}
+            {regression ? <ThumbDownIcon /> : null}
+            {determineStatus(improvement, regression)}
+          </span>
         </div>
         <div className='delta cell' role='cell'>
           {' '}
@@ -359,18 +421,6 @@ function RevisionRow(props: RevisionRowProps) {
                 target='_blank'
               >
                 <TimelineIcon />
-              </IconButton>
-            </div>
-          </div>
-
-          <div className='download' role='cell'>
-            <div className='download-button-container'>
-              <IconButton
-                title={Strings.components.revisionRow.title.downloadProfilers}
-                color='primary'
-                size='small'
-              >
-                <FileDownloadOutlinedIcon />
               </IconButton>
             </div>
           </div>
