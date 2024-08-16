@@ -32,7 +32,7 @@ describe('App', () => {
     render(<App />);
 
     const link = await screen.findByRole('link', {
-      name: /File a bug on Bugzilla/,
+      name: /report it on Bugzilla/,
     });
     expect(link).toHaveAttribute(
       'href',

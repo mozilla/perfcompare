@@ -33,16 +33,16 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
         <div
           class="banner-text"
         >
-          This is an unstable pre-release version. Some features may not yet be supported.
+          This is a beta version, and we are actively addressing bugs and enhancing performance. If you experience any issues, please
            
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
             href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
             target="_blank"
           >
-            File a bug on Bugzilla.
+            report it on Bugzilla
           </a>
-           
+          . 
           Find us at
            
           <a
@@ -291,16 +291,16 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
         <div
           class="banner-text"
         >
-          This is an unstable pre-release version. Some features may not yet be supported.
+          This is a beta version, and we are actively addressing bugs and enhancing performance. If you experience any issues, please
            
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
             href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
             target="_blank"
           >
-            File a bug on Bugzilla.
+            report it on Bugzilla
           </a>
-           
+          . 
           Find us at
            
           <a
@@ -444,16 +444,16 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
         <div
           class="banner-text"
         >
-          This is an unstable pre-release version. Some features may not yet be supported.
+          This is a beta version, and we are actively addressing bugs and enhancing performance. If you experience any issues, please
            
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
             href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]"
             target="_blank"
           >
-            File a bug on Bugzilla.
+            report it on Bugzilla
           </a>
-           
+          . 
           Find us at
            
           <a
