@@ -100,13 +100,13 @@ export const SelectListRaw = {
             borderRadius: '4px',
           },
           '&:active': {
-            backgroundColor: Colors.SecondaryActive,
+            backgroundColor: Colors.SecondaryActiveDark,
             borderRadius: '4px',
           },
         },
       },
       '.item-selected': {
-        backgroundColor: Colors.SecondaryHover,
+        backgroundColor: Colors.SecondaryHoverDark,
         borderRadius: '4px',
       },
       '.revision-hash': {
