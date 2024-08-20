@@ -33,7 +33,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
         <div
           class="banner-text"
         >
-          This is a beta version, and we are actively addressing bugs and enhancing performance. If you experience any issues, please
+          This is a recently-released version, and we are actively addressing bugs and enhancing performance. If you experience any issues, please
            
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
@@ -291,7 +291,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
         <div
           class="banner-text"
         >
-          This is a beta version, and we are actively addressing bugs and enhancing performance. If you experience any issues, please
+          This is a recently-released version, and we are actively addressing bugs and enhancing performance. If you experience any issues, please
            
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
@@ -444,7 +444,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
         <div
           class="banner-text"
         >
-          This is a beta version, and we are actively addressing bugs and enhancing performance. If you experience any issues, please
+          This is a recently-released version, and we are actively addressing bugs and enhancing performance. If you experience any issues, please
            
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
