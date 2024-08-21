@@ -50,8 +50,7 @@ function ResultsView(props: ResultsViewProps) {
         <CompareOverTime
           hasEditButton={true}
           newRevs={newRevsInfo ?? []}
-          isBaseSearch={true}
-          expandBaseComponent={() => null}
+          isExpanded={true}
           frameworkIdVal={frameworkId}
           intervalValue={intervalValue}
           baseRepo={baseRepo}
