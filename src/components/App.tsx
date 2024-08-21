@@ -24,6 +24,7 @@ import { loader as compareSubtestsLoader } from './CompareResults/subtestsLoader
 import { loader as compareSubtestsOverTimeLoader } from './CompareResults/subtestsOverTimeLoader';
 import SubtestsOverTimeResultsView from './CompareResults/SubtestsResults/SubtestsOverTimeResultsView';
 import SubtestsResultsView from './CompareResults/SubtestsResults/SubtestsResultsView';
+import { loader as homeLoader } from './Search/loader';
 import SearchView from './Search/SearchView';
 import { PageError } from './Shared/PageError';
 import SnackbarCloseButton from './Shared/SnackbarCloseButton';
@@ -68,7 +69,9 @@ export const router = createBrowserRouter(
     <>
       <Route
         path='/'
+        loader={homeLoader}
         element={<SearchView title={Strings.metaData.pageTitle.search} />}
+        errorElement={<PageError title={Strings.metaData.pageTitle.search} />}
       />
 
       <Route
