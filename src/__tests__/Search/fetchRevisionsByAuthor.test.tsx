@@ -1,5 +1,6 @@
 import userEvent from '@testing-library/user-event';
 
+import { loader } from '../../components/Search/loader';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import getTestData from '../utils/fixtures';
@@ -9,6 +10,15 @@ import {
   renderWithRouter,
   FetchMockSandbox,
 } from '../utils/test-utils';
+
+async function renderSearchViewComponent() {
+  renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />, {
+    loader,
+  });
+  const title = 'Compare with a base';
+  const compTitle = await screen.findByRole('heading', { name: title });
+  expect(compTitle).toBeInTheDocument();
+}
 
 describe('SearchView/fetchRevisionsByAuthor', () => {
   it('should fetch revisions by author if searchValue is an email address', async () => {
@@ -23,7 +33,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
+    await renderSearchViewComponent();
 
     expect(screen.getAllByText('try')[0]).toBeInTheDocument();
     const searchInput = screen.getAllByRole('textbox')[0];
@@ -51,7 +61,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
+    await renderSearchViewComponent();
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'ericidle@python.com');
@@ -84,7 +94,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
+    await renderSearchViewComponent();
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'grahamchapman@python.com');
@@ -119,7 +129,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
+    await renderSearchViewComponent();
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'grahamchapman@python.com');

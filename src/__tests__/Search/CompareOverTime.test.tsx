@@ -3,8 +3,9 @@ import { ReactElement } from 'react';
 import userEvent from '@testing-library/user-event';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import { loader } from '../../components/CompareResults/overTimeLoader';
+import { loader as overTimeLoader } from '../../components/CompareResults/overTimeLoader';
 import OverTimeResultsView from '../../components/CompareResults/OverTimeResultsView';
+import { loader as searchLoader } from '../../components/Search/loader';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import getTestData from '../utils/fixtures';
@@ -36,6 +37,7 @@ function renderSearchViewComponent() {
   setUpTestData();
   return renderWithRouter(
     <SearchView title={Strings.metaData.pageTitle.search} />,
+    { loader: searchLoader },
   );
 }
 
@@ -45,19 +47,23 @@ function renderWithCompareResultsURL(component: ReactElement) {
     route: '/compare-over-time-results/',
     search:
       '?baseRepo=try&selectedTimeRange=86400&newRev=coconut&newRepo=try&framework=2',
-    loader,
+    loader: overTimeLoader,
   });
 }
 
-// Useful function utilities to get various elements in the page
-async function waitForPageReadyAndReturnForm() {
-  const formName = 'Compare over time form';
-  const overTimeTitle = Strings.components.searchDefault.overTime.title;
+async function waitForPageReady() {
+  const overTimeTitle = 'Compare over time';
   const compTitle = await screen.findByRole('heading', {
     name: overTimeTitle,
   });
 
   expect(compTitle).toBeInTheDocument();
+}
+
+// Useful function utilities to get various elements in the page
+async function waitForPageReadyAndReturnForm() {
+  await waitForPageReady();
+  const formName = 'Compare over time form';
   const formElement = await screen.findByRole('form', {
     name: formName,
   });
@@ -77,7 +83,7 @@ function getCancelButton() {
 async function expandOverTimeComponent() {
   const user = userEvent.setup({ delay: null });
   const testExpandedID = 'time-state';
-  const headerContent = screen.getByTestId(testExpandedID);
+  const headerContent = await screen.findByTestId(testExpandedID);
   await user.click(headerContent);
   expect(screen.getByTestId(testExpandedID)).toHaveClass(
     'compare-card-container--expanded',
@@ -100,15 +106,9 @@ describe('Compare Over Time', () => {
     expect(formElement).toMatchSnapshot('Initial state for the form');
   });
 
-  it('has the correct title for the component', async () => {
-    renderSearchViewComponent();
-    const title = 'Compare over time';
-    const compTitle = screen.getByRole('heading', { name: title });
-    expect(compTitle).toBeInTheDocument();
-  });
-
   it('expands on header click and closes when user clicks base component header', async () => {
     renderSearchViewComponent();
+    await waitForPageReady();
     const user = userEvent.setup({ delay: null });
 
     const testExpandedID = 'time-state';
@@ -363,6 +363,7 @@ describe('Compare Over Time', () => {
       {
         path: '/',
         element: <SearchView title={Strings.metaData.pageTitle.search} />,
+        loader: searchLoader,
       },
       { path: '/compare-over-time-results', element: <div /> },
     ]);

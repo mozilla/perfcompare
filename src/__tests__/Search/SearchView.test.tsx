@@ -1,6 +1,7 @@
 import userEvent from '@testing-library/user-event';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
+import { loader } from '../../components/Search/loader';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import getTestData from '../utils/fixtures';
@@ -50,16 +51,19 @@ async function expandWithBaseComponent() {
   );
 }
 
-function renderComponent() {
+async function renderComponent() {
   setupTestData();
-  return renderWithRouter(
-    <SearchView title={Strings.metaData.pageTitle.search} />,
-  );
+  renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />, {
+    loader,
+  });
+  const title = 'Compare with a base';
+  const compTitle = await screen.findByRole('heading', { name: title });
+  expect(compTitle).toBeInTheDocument();
 }
 
 describe('Search View', () => {
   it('renders correctly when there are no results', async () => {
-    renderComponent();
+    await renderComponent();
 
     // We have to account for the dropdown position
     // Shift focus to base search
@@ -68,14 +72,14 @@ describe('Search View', () => {
   });
 
   it('renders skip to search link correctly', async () => {
-    renderComponent();
+    await renderComponent();
     expect(
       screen.getByRole('link', { name: /skip to search/i }),
     ).toBeInTheDocument();
   });
 
   it('renders a skip link that sends the focus directly to search container', async () => {
-    renderComponent();
+    await renderComponent();
 
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
@@ -87,7 +91,7 @@ describe('Search View', () => {
 
 describe('Search Container', () => {
   it('renders compare with base', async () => {
-    renderComponent();
+    await renderComponent();
 
     const compTitle = await screen.findByRole('heading', {
       name: baseTitle,
@@ -106,7 +110,7 @@ describe('Search Container', () => {
 
 describe('Base and OverTime Search', () => {
   it('renders repository dropdown in closed condition in both Base and OverTime components', async () => {
-    renderComponent();
+    await renderComponent();
     // 'try' is selected by default and dropdown is not visible
     expect(screen.getAllByText(/try/i)[0]).toBeInTheDocument();
     expect(screen.queryByText(/mozilla-central/i)).not.toBeInTheDocument();
@@ -135,7 +139,7 @@ describe('Base and OverTime Search', () => {
   });
 
   it('renders framework dropdown in closed condition', async () => {
-    renderComponent();
+    await renderComponent();
     // 'talos' is selected by default and dropdown is not visible
     expect(screen.getAllByText(/talos/i)[0]).toBeInTheDocument();
     expect(screen.queryByText(/build_metrics/i)).not.toBeInTheDocument();
@@ -145,7 +149,7 @@ describe('Base and OverTime Search', () => {
   it('should hide search results when clicking outside of search input', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
-    renderComponent();
+    await renderComponent();
 
     // Click inside the input box to show search results.
     const searchInput = screen.getAllByRole('textbox')[0];
@@ -163,7 +167,7 @@ describe('Base and OverTime Search', () => {
   it('Should hide the search results when Escape key is pressed', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
-    renderComponent();
+    await renderComponent();
 
     // Click inside the input box to show search results.
 
@@ -182,7 +186,7 @@ describe('Base and OverTime Search', () => {
   it('Should not call fetch if search value is not a hash or email', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
-    renderComponent();
+    await renderComponent();
 
     const searchInput = screen.getAllByRole('textbox')[0];
 
@@ -230,7 +234,7 @@ describe('Base and OverTime Search', () => {
 
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
-    renderComponent();
+    await renderComponent();
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
@@ -284,7 +288,7 @@ describe('Base and OverTime Search', () => {
   it('Should clear search results if the search value is cleared', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
-    renderComponent();
+    await renderComponent();
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'terrygilliam@python.com');
@@ -307,7 +311,7 @@ describe('Base and OverTime Search', () => {
   it('should not hide search results when clicking search results', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
-    renderComponent();
+    await renderComponent();
 
     // focus input to show results
     const searchInput = screen.getAllByRole('textbox')[0];
@@ -332,7 +336,7 @@ describe('Base and OverTime Search', () => {
     (global.fetch as FetchMockSandbox).mock('*', { throws: new Error() });
     // This test will output an error to the console. Let's silence it.
     jest.spyOn(console, 'error').mockImplementation(() => {});
-    renderComponent();
+    await renderComponent();
     act(() => void jest.runAllTimers());
 
     expect(global.fetch).toHaveBeenCalledWith(
@@ -359,6 +363,7 @@ describe('Base and OverTime Search', () => {
       {
         path: '/',
         element: <SearchView title={Strings.metaData.pageTitle.search} />,
+        loader,
       },
       { path: '/compare-results', element: <div /> },
     ]);

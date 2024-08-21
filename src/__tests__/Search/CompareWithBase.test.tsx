@@ -2,8 +2,9 @@ import { ReactElement } from 'react';
 
 import userEvent from '@testing-library/user-event';
 
-import { loader } from '../../components/CompareResults/loader';
+import { loader as withBaseLoader } from '../../components/CompareResults/loader';
 import ResultsView from '../../components/CompareResults/ResultsView';
+import { loader as searchLoader } from '../../components/Search/loader';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import getTestData from '../utils/fixtures';
@@ -42,11 +43,14 @@ function setUpTestData() {
     );
 }
 
-function renderSearchViewComponent() {
+async function renderSearchViewComponent() {
   setUpTestData();
-  return renderWithRouter(
-    <SearchView title={Strings.metaData.pageTitle.search} />,
-  );
+  renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />, {
+    loader: searchLoader,
+  });
+  const title = 'Compare with a base';
+  const compTitle = await screen.findByRole('heading', { name: title });
+  expect(compTitle).toBeInTheDocument();
 }
 
 function renderWithCompareResultsURL(component: ReactElement) {
@@ -55,7 +59,7 @@ function renderWithCompareResultsURL(component: ReactElement) {
     route: '/compare-results/',
     search:
       '?baseRev=coconut&baseRepo=try&newRev=spam&newRepo=mozilla-central&framework=2',
-    loader,
+    loader: withBaseLoader,
   });
 }
 
@@ -110,15 +114,8 @@ describe('Compare With Base', () => {
     expect(formElement).toMatchSnapshot('Initial state for the form');
   });
 
-  it('has the correct title for the component', async () => {
-    renderSearchViewComponent();
-    const title = 'Compare with a base';
-    const compTitle = screen.getByRole('heading', { name: title });
-    expect(compTitle).toBeInTheDocument();
-  });
-
   it('expands when user clicks on title header', async () => {
-    renderSearchViewComponent();
+    await renderSearchViewComponent();
 
     const user = userEvent.setup({ delay: null });
     const testExpandedTimeID = 'time-state';
@@ -166,7 +163,7 @@ describe('Compare With Base', () => {
   });
 
   it('selects and displays new framework when clicked', async () => {
-    renderSearchViewComponent();
+    await renderSearchViewComponent();
     const formElement = await waitForPageReadyAndReturnForm();
     const user = userEvent.setup({ delay: null });
     expect(within(formElement).getByText(/talos/i)).toBeInTheDocument();
@@ -190,7 +187,7 @@ describe('Compare With Base', () => {
   });
 
   it('should remove the checked revision once X button is clicked', async () => {
-    renderSearchViewComponent();
+    await renderSearchViewComponent();
 
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });

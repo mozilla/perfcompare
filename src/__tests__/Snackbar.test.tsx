@@ -1,6 +1,7 @@
 import userEvent from '@testing-library/user-event';
 
 import App from '../components/App';
+import { loader } from '../components/Search/loader';
 import SearchView from '../components/Search/SearchView';
 import { Strings } from '../resources/Strings';
 import getTestData from './utils/fixtures';
@@ -70,10 +71,12 @@ describe('Snackbar', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
+    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />, {
+      loader,
+    });
 
     // focus input to show results
-    const searchInput = screen.getAllByRole('textbox')[1];
+    const searchInput = (await screen.findAllByRole('textbox'))[1];
     await user.click(searchInput);
 
     await user.click(await screen.findByTestId('checkbox-0'));
