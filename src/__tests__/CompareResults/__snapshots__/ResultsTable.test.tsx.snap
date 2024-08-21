@@ -108,6 +108,20 @@ exports[`Results Table Should match snapshot 1`] = `
               >
                 Analyze differences between specific revisions.
               </p>
+              <p
+                class="compare-card-tagline"
+              >
+                Perfherder comparisons for:
+                <a
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+                  href="https://treeherder.mozilla.org/perfherder/compare?originalProject=try&originalRevision=coconut&newProject=try&newRevision=coconut&framework=1&page=1"
+                  target="_blank"
+                  title="open treeherder view for"
+                >
+                  coconut
+                </a>
+                 
+              </p>
             </div>
             <div
               aria-label="two overlapping circles"

@@ -100,6 +100,7 @@ export const Strings = {
         graphLink: 'open the evolution graph for this job in treeherder',
         jobLink: 'open treeherder view for',
         retriggerJobs: 'retrigger jobs',
+        compareViewLink: 'open perfherder compare view for',
       },
     },
     expandableRow: {

@@ -7,7 +7,11 @@ import {
   supportedPerfdocsFrameworks,
 } from '../common/constants';
 import type { Repository, Changeset } from '../types/state';
-import type { Framework, SupportedPerfdocsFramework } from '../types/types';
+import type {
+  Framework,
+  SupportedPerfdocsFramework,
+  TimeRange,
+} from '../types/types';
 
 const truncateHash = (revision: Changeset['revision']) => revision.slice(0, 12);
 
@@ -50,6 +54,46 @@ const getTreeherderURL = (
   repository: Repository['name'],
 ) =>
   `https://treeherder.mozilla.org/jobs?repo=${repository}&revision=${revision}`;
+
+const getOldCompareWithBaseViewURL = (
+  originalProject: Repository['name'],
+  originalRevision: Changeset['revision'],
+  newProject: Repository['name'],
+  newRevision: Changeset['revision'],
+  framework: Framework['id'],
+) =>
+  `https://treeherder.mozilla.org/perfherder/compare?originalProject=${originalProject}&originalRevision=${originalRevision}&newProject=${newProject}&newRevision=${newRevision}&framework=${framework}&page=1`;
+
+const getOldSubtestsCompareWithBaseViewURL = (
+  originalProject: Repository['name'],
+  originalRevision: Changeset['revision'],
+  newProject: Repository['name'],
+  newRevision: Changeset['revision'],
+  framework: Framework['id'],
+  originalSignature: number | null,
+  newSignature: number | null,
+) =>
+  `https://treeherder.mozilla.org/perfherder/comparesubtest?originalProject=${originalProject}&originalRevision=${originalRevision}&newProject=${newProject}&newRevision=${newRevision}&framework=${framework}&originalSignature=${originalSignature}&newSignature=${newSignature}&page=1`;
+
+const getOldCompareOvertimeViewURL = (
+  originalProject: Repository['name'],
+  newProject: Repository['name'],
+  newRevision: Changeset['revision'],
+  framework: Framework['id'],
+  selectedTimeRange: TimeRange['value'],
+) =>
+  `https://treeherder.mozilla.org/perfherder/compare?originalProject=${originalProject}&newProject=${newProject}&newRevision=${newRevision}&framework=${framework}&selectedTimeRange=${selectedTimeRange}&page=1`;
+
+const getOldSubtestsCompareOvertimeViewURL = (
+  originalProject: Repository['name'],
+  newProject: Repository['name'],
+  newRevision: Changeset['revision'],
+  framework: Framework['id'],
+  selectedTimeRange: TimeRange['value'],
+  originalSignature: number | null,
+  newSignature: number | null,
+) =>
+  `https://treeherder.mozilla.org/perfherder/comparesubtest?originalProject=${originalProject}&newProject=${newProject}&newRevision=${newRevision}&framework=${framework}&selectedTimeRange=${selectedTimeRange}&originalSignature=${originalSignature}&newSignature=${newSignature}&page=1`;
 
 const createDevtoolsDocsUrl = (
   supportedFramework: string,
@@ -120,6 +164,10 @@ export {
   formatDate,
   getLatestCommitMessage,
   getTreeherderURL,
+  getOldCompareWithBaseViewURL,
+  getOldSubtestsCompareWithBaseViewURL,
+  getOldCompareOvertimeViewURL,
+  getOldSubtestsCompareOvertimeViewURL,
   setConfidenceClassName,
   swapArrayElements,
   truncateHash,
