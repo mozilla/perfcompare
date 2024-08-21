@@ -3,7 +3,6 @@ import { useState } from 'react';
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
 import { IconButton, Button } from '@mui/material';
 import { useSnackbar } from 'notistack';
-import { style } from 'typestyle';
 
 import {
   getTaskclusterCredentials,
@@ -24,26 +23,6 @@ import { RetriggerSignInModal } from './RetriggerSignInModal';
 
 type Status = 'pending' | 'signin-modal' | 'retrigger-modal';
 
-const styles = {
-  retrigger: style({
-    fontFamily: 'SF Pro',
-    fontSize: '11px',
-    fontWeight: 590,
-    lineHeight: '16.5px',
-    textAlign: 'left',
-    width: '150px',
-    height: '25px',
-    padding: '4px 8px 4px 8px',
-    gap: '4px',
-    borderRadius: '4px 0px 0px 0px',
-
-    $nest: {
-      '.MuiButton-startIcon': {
-        marginRight: 0,
-      },
-    },
-  }),
-};
 interface RetriggerButtonProps {
   result: CompareResultsItem;
   variant: 'icon' | 'text';
@@ -181,10 +160,8 @@ function RetriggerButton({ result, variant }: RetriggerButtonProps) {
       {variant === 'text' ? (
         <Button
           title={Strings.components.revisionRow.title.retriggerJobs}
-          className={styles.retrigger}
           color='primary'
-          variant={'text'}
-          size='small'
+          variant='text'
           onClick={() => void onRetriggerButtonClick()}
           startIcon={<RefreshOutlinedIcon />}
         >
