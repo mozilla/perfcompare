@@ -8,8 +8,8 @@ export const Strings = {
   },
   components: {
     topBanner: {
-      text: 'This is an unstable pre-release version. Some features may not yet be supported.',
-      linkText: 'File a bug on Bugzilla.',
+      text: 'This is a recently-released version, and we are actively addressing bugs and enhancing performance. If you experience any issues, please',
+      linkText: 'report it on Bugzilla',
       href: 'https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]',
     },
     contact: {
@@ -104,7 +104,6 @@ export const Strings = {
       title: {
         subtestsLink: 'open the subtests for this result',
         graphLink: 'open the evolution graph for this job in treeherder',
-        downloadProfilers: 'open the performance profile for this job',
         jobLink: 'open treeherder view for',
         retriggerJobs: 'retrigger jobs',
       },
