@@ -25,9 +25,10 @@ type Status = 'pending' | 'signin-modal' | 'retrigger-modal';
 
 interface RetriggerButtonProps {
   result: CompareResultsItem;
+  variant: 'icon' | 'text';
 }
 
-function RetriggerButton({ result }: RetriggerButtonProps) {
+function RetriggerButton({ result, variant }: RetriggerButtonProps) {
   const {
     base_repository_name: baseRepository,
     base_retriggerable_job_ids: baseRetriggerableJobIds,
@@ -156,14 +157,26 @@ function RetriggerButton({ result }: RetriggerButtonProps) {
 
   return (
     <>
-      <IconButton
-        title={Strings.components.revisionRow.title.retriggerJobs}
-        color='primary'
-        size='small'
-        onClick={() => void onRetriggerButtonClick()}
-      >
-        <RefreshOutlinedIcon />
-      </IconButton>
+      {variant === 'text' ? (
+        <Button
+          title={Strings.components.revisionRow.title.retriggerJobs}
+          color='primary'
+          variant='text'
+          onClick={() => void onRetriggerButtonClick()}
+          startIcon={<RefreshOutlinedIcon />}
+        >
+          Retrigger test
+        </Button>
+      ) : (
+        <IconButton
+          title={Strings.components.revisionRow.title.retriggerJobs}
+          color='primary'
+          size='small'
+          onClick={() => void onRetriggerButtonClick()}
+        >
+          <RefreshOutlinedIcon />
+        </IconButton>
+      )}
       <RetriggerSignInModal
         open={status === 'signin-modal'}
         onClose={() => setStatus('pending')}
