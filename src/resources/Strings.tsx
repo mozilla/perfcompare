@@ -8,8 +8,8 @@ export const Strings = {
   },
   components: {
     topBanner: {
-      text: 'This is an unstable pre-release version. Some features may not yet be supported.',
-      linkText: 'File a bug on Bugzilla.',
+      text: 'This is a recently-released version, and we are actively addressing bugs and enhancing performance. If you experience any issues, please',
+      linkText: 'report it on Bugzilla',
       href: 'https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=PerfCompare&status_whiteboard=[pcf]',
     },
     contact: {

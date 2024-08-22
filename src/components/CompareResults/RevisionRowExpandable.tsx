@@ -27,11 +27,16 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
     confidence_text: confidenceText,
     base_runs: baseRuns,
     new_runs: newRuns,
+    base_runs_replicates: baseRunsReplicates,
+    new_runs_replicates: newRunsReplicates,
     new_is_better: newIsBetter,
     base_app: baseApplication,
     new_app: newApplication,
   } = result;
-  const shouldDisplayGraph = shouldDisplayGraphDistribution(baseRuns, newRuns);
+  const shouldDisplayGraph = shouldDisplayGraphDistribution(
+    baseRunsReplicates.length ? baseRunsReplicates : baseRuns,
+    newRunsReplicates.length ? newRunsReplicates : newRuns,
+  );
 
   const themeMode = useAppSelector((state) => state.theme.mode);
   const themeColor200 =
