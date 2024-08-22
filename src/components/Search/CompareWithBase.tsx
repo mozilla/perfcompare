@@ -28,8 +28,8 @@ interface CompareWithBaseProps {
   baseRepo: Repository['name'];
   newRepo: Repository['name'];
   frameworkIdVal: Framework['id'];
-  isBaseSearch: null | boolean;
-  expandBaseComponent: (expanded: boolean) => void | null;
+  isExpanded: boolean;
+  setIsExpanded?: () => unknown;
 }
 
 /**
@@ -71,11 +71,11 @@ function CompareWithBase({
   hasEditButton,
   baseRev,
   newRevs,
-  isBaseSearch,
   frameworkIdVal,
   baseRepo,
   newRepo,
-  expandBaseComponent,
+  isExpanded,
+  setIsExpanded,
 }: CompareWithBaseProps) {
   const { enqueueSnackbar } = useSnackbar();
 
@@ -118,10 +118,6 @@ function CompareWithBase({
         variant: 'error',
       });
     }
-  };
-
-  const toggleIsExpanded = () => {
-    expandBaseComponent(true);
   };
 
   const handleCancel = () => {
@@ -219,13 +215,12 @@ function CompareWithBase({
     setInProgressNewRevs(newNewRevs);
   };
 
+  const expandedClass = isExpanded ? 'expanded' : 'hidden';
   return (
     <Grid className={`wrapper--withbase ${wrapperStyles.wrapper}`}>
       <div
-        className={`compare-card-container compare-card-container--${
-          isBaseSearch || isBaseSearch === null ? 'expanded' : 'hidden'
-        } ${styles.container}`}
-        onClick={toggleIsExpanded}
+        className={`compare-card-container compare-card-container--${expandedClass} ${styles.container}`}
+        onClick={setIsExpanded}
         data-testid='base-state'
       >
         <div className={`compare-card-text ${styles.cardText}`}>
@@ -241,9 +236,7 @@ function CompareWithBase({
       </div>
 
       <div
-        className={`compare-card-container content-base content-base--${
-          isBaseSearch || isBaseSearch === null ? 'expanded' : 'hidden'
-        } ${styles.container} `}
+        className={`compare-card-container content-base content-base--${expandedClass} ${styles.container}`}
       >
         <Divider className='divider' />
         <Form

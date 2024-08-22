@@ -47,8 +47,7 @@ function ResultsView(props: ResultsViewProps) {
           baseRev={baseRevInfo ?? null}
           newRevs={newRevsInfo ?? []}
           frameworkIdVal={frameworkId}
-          isBaseSearch={null}
-          expandBaseComponent={() => null}
+          isExpanded={true}
           baseRepo={baseRepo}
           newRepo={newRepo}
         />
