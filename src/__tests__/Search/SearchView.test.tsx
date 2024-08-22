@@ -1,6 +1,7 @@
 import userEvent from '@testing-library/user-event';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
+import { repoMap } from '../../common/constants';
 import { loader } from '../../components/Search/loader';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
@@ -11,6 +12,7 @@ import {
   render,
   renderWithRouter,
   waitFor,
+  within,
   FetchMockSandbox,
 } from '../utils/test-utils';
 
@@ -26,7 +28,22 @@ function setupTestData() {
         return { results: testData.filter((item) => item.author === author) };
       },
     )
-    .get('begin:https://treeherder.mozilla.org/api/project/try/push/', {
+    .get(
+      'glob:https://treeherder.mozilla.org/api/project/*/push/?revision=*',
+      (urlAsString) => {
+        const url = new URL(urlAsString);
+        const revision = url.searchParams.get('revision');
+        const repository = url.pathname.split('/')[3];
+        return {
+          results: testData.filter(
+            (item) =>
+              item.revision === revision &&
+              repoMap[item.repository_id] === repository,
+          ),
+        };
+      },
+    )
+    .get('glob:https://treeherder.mozilla.org/api/project/*/push/*', {
       results: testData,
     });
 }
@@ -51,10 +68,29 @@ async function expandWithBaseComponent() {
   );
 }
 
-async function renderComponent() {
+async function getOverTimeForm() {
+  const formName = 'Compare over time form';
+  const formElement = await screen.findByRole('form', {
+    name: formName,
+  });
+  return formElement;
+}
+
+async function getWithBaseForm() {
+  const formName = 'Compare with base form';
+  const formElement = await screen.findByRole('form', {
+    name: formName,
+  });
+  return formElement;
+}
+
+async function renderComponent(
+  options?: Partial<{ route: string; search: string }>,
+) {
   setupTestData();
   renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />, {
     loader,
+    ...options,
   });
   const title = 'Compare with a base';
   const compTitle = await screen.findByRole('heading', { name: title });
@@ -423,5 +459,137 @@ describe('Base and OverTime Search', () => {
     expect(searchParams.toString()).toEqual(
       'baseRepo=try&baseRev=coconut&framework=1&newRepo=mozilla-central&newRev=spam',
     );
+  });
+});
+
+describe('With search parameters', () => {
+  it('both search components are populated as expected when revision and repository are specified', async () => {
+    await renderComponent({ search: '?newRev=spamspam&newRepo=try' });
+    const withBaseForm = await getWithBaseForm();
+    expect(
+      within(withBaseForm).getByRole('link', { name: /spamspam/ }),
+    ).toBeInTheDocument();
+    expect(
+      within(withBaseForm).getByRole('button', { name: 'Base' }),
+    ).toHaveTextContent('try');
+    expect(
+      within(withBaseForm).getByRole('button', { name: 'Revisions' }),
+    ).toHaveTextContent('try');
+    expect(
+      within(withBaseForm).getByRole('button', { name: /Framework/ }),
+    ).toHaveTextContent('talos');
+    expect(withBaseForm).toMatchSnapshot('with base form');
+
+    await expandOverTimeComponent();
+    const overtimeForm = await getOverTimeForm();
+    expect(
+      within(overtimeForm).getByRole('link', { name: /spamspam/ }),
+    ).toBeInTheDocument();
+    expect(
+      within(overtimeForm).getByRole('button', { name: /Base repository/ }),
+    ).toHaveTextContent('try');
+    expect(
+      within(overtimeForm).getByRole('button', { name: 'Revisions' }),
+    ).toHaveTextContent('try');
+    expect(
+      within(overtimeForm).getByRole('button', { name: /Framework/ }),
+    ).toHaveTextContent('talos');
+    expect(overtimeForm).toMatchSnapshot('over time form');
+  });
+
+  it('both search components are populated as expected when revision, repository and framework are specified', async () => {
+    await renderComponent({
+      search:
+        '?newRev=spamspamspamandeggs&newRepo=autoland&frameworkName=browsertime',
+    });
+    const withBaseForm = await getWithBaseForm();
+    expect(
+      within(withBaseForm).getByRole('link', { name: /spamspamspam/ }), // Note that the revision is truncated
+    ).toBeInTheDocument();
+    expect(
+      within(withBaseForm).getByRole('button', { name: 'Base' }),
+    ).toHaveTextContent('autoland');
+    expect(
+      within(withBaseForm).getByRole('button', { name: 'Revisions' }),
+    ).toHaveTextContent('autoland');
+    expect(
+      within(withBaseForm).getByRole('button', { name: /Framework/ }),
+    ).toHaveTextContent('browsertime');
+    expect(withBaseForm).toMatchSnapshot('with base form');
+
+    await expandOverTimeComponent();
+    const overtimeForm = await getOverTimeForm();
+    expect(
+      within(overtimeForm).getByRole('link', { name: /spamspamspam/ }),
+    ).toBeInTheDocument();
+    expect(
+      within(overtimeForm).getByRole('button', { name: /Base repository/ }),
+    ).toHaveTextContent('autoland');
+    expect(
+      within(overtimeForm).getByRole('button', { name: 'Revisions' }),
+    ).toHaveTextContent('autoland');
+    expect(
+      within(overtimeForm).getByRole('button', { name: /Framework/ }),
+    ).toHaveTextContent('browsertime');
+    expect(overtimeForm).toMatchSnapshot('over time form');
+  });
+
+  it('displays the default values if some values are bogus', async () => {
+    jest.spyOn(console, 'warn').mockImplementation();
+    await renderComponent({
+      search: '?newRev=spamspamspamandeggs&newRepo=foo',
+    });
+
+    expect(console.warn).toHaveBeenCalledWith(
+      "The repository foo wasn't found in our list.",
+    );
+    const withBaseForm = await getWithBaseForm();
+    expect(withBaseForm).toMatchSnapshot('with base form');
+
+    await expandOverTimeComponent();
+    const overtimeForm = await getOverTimeForm();
+    expect(overtimeForm).toMatchSnapshot('over time form');
+  });
+
+  it('displays the default value for framework if the framework value is bogus', async () => {
+    jest.spyOn(console, 'warn').mockImplementation();
+
+    await renderComponent({
+      search: '?newRev=spamspam&newRepo=try&frameworkName=foo',
+    });
+    expect(console.warn).toHaveBeenCalledWith(
+      "The framework entry for foo wasn't found, defaulting to talos.",
+    );
+
+    const withBaseForm = await getWithBaseForm();
+    expect(
+      within(withBaseForm).getByRole('link', { name: /spamspam/ }),
+    ).toBeInTheDocument();
+    expect(
+      within(withBaseForm).getByRole('button', { name: 'Base' }),
+    ).toHaveTextContent('try');
+    expect(
+      within(withBaseForm).getByRole('button', { name: 'Revisions' }),
+    ).toHaveTextContent('try');
+    expect(
+      within(withBaseForm).getByRole('button', { name: /Framework/ }),
+    ).toHaveTextContent('talos');
+    expect(withBaseForm).toMatchSnapshot('with base form');
+
+    await expandOverTimeComponent();
+    const overtimeForm = await getOverTimeForm();
+    expect(
+      within(overtimeForm).getByRole('link', { name: /spamspam/ }),
+    ).toBeInTheDocument();
+    expect(
+      within(overtimeForm).getByRole('button', { name: /Base repository/ }),
+    ).toHaveTextContent('try');
+    expect(
+      within(overtimeForm).getByRole('button', { name: 'Revisions' }),
+    ).toHaveTextContent('try');
+    expect(
+      within(overtimeForm).getByRole('button', { name: /Framework/ }),
+    ).toHaveTextContent('talos');
+    expect(overtimeForm).toMatchSnapshot('over time form');
   });
 });
