@@ -145,7 +145,8 @@ function App() {
               {strings.text}{' '}
               <Link href={strings.href} target='_blank'>
                 {strings.linkText}
-              </Link>{' '}
+              </Link>
+              {'. '}
               {contact.text}{' '}
               <Link href={contact.href} target='_blank'>
                 {contact.linkText}

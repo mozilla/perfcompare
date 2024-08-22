@@ -430,7 +430,7 @@ function RevisionRow(props: RevisionRowProps) {
             data-testid='retrigger-jobs-button'
           >
             <div className='retrigger-button-container'>
-              <RetriggerButton result={result} />
+              <RetriggerButton result={result} variant='icon' />
             </div>
           </div>
         </div>
