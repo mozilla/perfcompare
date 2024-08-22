@@ -1,5 +1,401 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Results View Should display Base, New and Common graphs with 1 value and replicates 1`] = `
+<div
+  class="content-row container_fd0x6jr"
+  data-testid="expanded-row-content"
+>
+  <div
+    class="ff20o48"
+  >
+    <div
+      class="f19s1n7z"
+    >
+      <div
+        class="fc8wfj0"
+      >
+        <b>
+          linux1804-64-shippable-qr
+        </b>
+         
+        <br />
+      </div>
+      <div>
+        <div
+          class="fc8wfj0"
+        >
+          <hr
+            class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+          />
+           
+        </div>
+        <div
+          class="f9mtzuo"
+        >
+          <div
+            class="fnblmop"
+          >
+            <div>
+              <b>
+                Base
+                :
+              </b>
+               
+              596.87
+               
+               (
+              firefox
+              )
+            </div>
+            <div>
+              chartjs-bubble
+            </div>
+            <div>
+              <div
+                class="f1s9htso"
+              >
+                <div
+                  class="f1pfon3k"
+                >
+                  587.15
+                </div>
+                <div
+                  class="f1pfon3k"
+                >
+                  593.04
+                </div>
+                <div
+                  class="f1pfon3k"
+                >
+                  600.7
+                </div>
+                <div
+                  class="f1pfon3k"
+                >
+                  602.04
+                </div>
+              </div>
+              <div
+                class="fnujpat"
+              >
+                6.96
+                 = 
+                1.17
+                % standard deviation
+              </div>
+            </div>
+          </div>
+          <div
+            class="fnblmop"
+          >
+            <div>
+              <b>
+                New
+                :
+              </b>
+               
+              605.61
+               
+               (
+              chrome
+              )
+            </div>
+            <div>
+              chartjs-bubble
+            </div>
+            <div>
+              <div
+                class="f1s9htso"
+              >
+                <div
+                  class="f1pfon3k"
+                >
+                  605.16
+                </div>
+                <div
+                  class="f1pfon3k"
+                >
+                  605.31
+                </div>
+                <div
+                  class="f1pfon3k"
+                >
+                  605.61
+                </div>
+                <div
+                  class="f1pfon3k"
+                >
+                  605.81
+                </div>
+                <div
+                  class="f1pfon3k"
+                >
+                  607.27
+                </div>
+              </div>
+              <div
+                class="fnujpat"
+              >
+                0.84
+                 = 
+                0.14
+                % standard deviation
+              </div>
+            </div>
+          </div>
+          <div
+            class="f1w2i9df"
+          >
+            chartjs-line
+          </div>
+        </div>
+      </div>
+      <div
+        class="fc8wfj0"
+      >
+        <hr
+          class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+        />
+         
+      </div>
+      <div
+        class="fc8wfj0"
+      >
+        <b>
+          Mean Difference
+        </b>
+        : 
+        1.7
+        %
+         
+        worse
+         (
+        10.1
+        )
+      </div>
+      <div>
+        <div>
+          <b>
+            Confidence
+          </b>
+          : 
+          Low
+           
+        </div>
+        <div
+          class="fj8mg7a"
+        >
+          <b>
+            **Note
+          </b>
+          : 
+          A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+           
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Results View Should display Base, New and Common graphs with replicates 1`] = `
+<div
+  class="content-row container_fd0x6jr"
+  data-testid="expanded-row-content"
+>
+  <div
+    class="ff20o48"
+  >
+    <div
+      class="f19s1n7z"
+    >
+      <div
+        class="fc8wfj0"
+      >
+        <b>
+          linux1804-64-shippable-qr
+        </b>
+         
+        <br />
+      </div>
+      <div>
+        <div
+          class="fc8wfj0"
+        >
+          <hr
+            class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+          />
+           
+        </div>
+        <div
+          class="f9mtzuo"
+        >
+          <div
+            class="fnblmop"
+          >
+            <div>
+              <b>
+                Base
+                :
+              </b>
+               
+              596.87
+               
+               (
+              firefox
+              )
+            </div>
+            <div>
+              chartjs-bubble
+            </div>
+            <div>
+              <div
+                class="f1s9htso"
+              >
+                <div
+                  class="f1pfon3k"
+                >
+                  587.15
+                </div>
+                <div
+                  class="f1pfon3k"
+                >
+                  593.04
+                </div>
+                <div
+                  class="f1pfon3k"
+                >
+                  600.7
+                </div>
+                <div
+                  class="f1pfon3k"
+                >
+                  602.04
+                </div>
+              </div>
+              <div
+                class="fnujpat"
+              >
+                6.96
+                 = 
+                1.17
+                % standard deviation
+              </div>
+            </div>
+          </div>
+          <div
+            class="fnblmop"
+          >
+            <div>
+              <b>
+                New
+                :
+              </b>
+               
+              605.61
+               
+               (
+              chrome
+              )
+            </div>
+            <div>
+              chartjs-bubble
+            </div>
+            <div>
+              <div
+                class="f1s9htso"
+              >
+                <div
+                  class="f1pfon3k"
+                >
+                  605.16
+                </div>
+                <div
+                  class="f1pfon3k"
+                >
+                  605.31
+                </div>
+                <div
+                  class="f1pfon3k"
+                >
+                  605.61
+                </div>
+                <div
+                  class="f1pfon3k"
+                >
+                  605.81
+                </div>
+                <div
+                  class="f1pfon3k"
+                >
+                  607.27
+                </div>
+              </div>
+              <div
+                class="fnujpat"
+              >
+                0.84
+                 = 
+                0.14
+                % standard deviation
+              </div>
+            </div>
+          </div>
+          <div
+            class="f1w2i9df"
+          >
+            chartjs-line
+          </div>
+        </div>
+      </div>
+      <div
+        class="fc8wfj0"
+      >
+        <hr
+          class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+        />
+         
+      </div>
+      <div
+        class="fc8wfj0"
+      >
+        <b>
+          Mean Difference
+        </b>
+        : 
+        1.7
+        %
+         
+        worse
+         (
+        10.1
+        )
+      </div>
+      <div>
+        <div>
+          <b>
+            Confidence
+          </b>
+          : 
+          Low
+           
+        </div>
+        <div
+          class="fj8mg7a"
+        >
+          <b>
+            **Note
+          </b>
+          : 
+          A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+           
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Results View Should display Base, New and Common graphs with tooltips 1`] = `
 <div
   class="content-row container_fd0x6jr"
