@@ -137,7 +137,7 @@ export async function loader({ request }: { request: Request }) {
   const newRepoFromUrl = url.searchParams.get('newRepo') as
     | Repository['name']
     | null;
-  const intervalFromUrl = url.searchParams.get('interval');
+  const intervalFromUrl = url.searchParams.get('selectedTimeRange');
   const frameworkFromUrl = url.searchParams.get('framework');
   const baseParentSignatureFromUrl = url.searchParams.get(
     'baseParentSignature',
