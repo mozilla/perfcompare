@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import { Grid } from '@mui/material';
 import { Container } from '@mui/system';
 import { useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
@@ -55,8 +56,17 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
     }),
     content: style({
       display: 'flex',
-      justifyContent: 'flex-end',
+      justifyContent: 'space-between',
       alignItems: 'center',
+    }),
+    buttons: style({
+      display: 'flex',
+      justifyContent: 'flex-end',
+      $nest: {
+        '.MuiButtonBase-root:nth-child(2)': {
+          marginLeft: Spacing.Default,
+        },
+      },
     }),
   };
 
@@ -65,11 +75,15 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
       <header>
         <SubtestsBreadcrumbs view={view} />
         <SubtestsRevisionHeader header={subtestsHeader} />
-        <div className={styles.content}>
-          <SearchInput onChange={setSearchTerm} />
-          <DownloadButton resultsPromise={[results]} />
-          <RetriggerButton result={results[0]} variant='text' />
-        </div>
+        <Grid container className={styles.content}>
+          <Grid item md={6} xs={12}>
+            <SearchInput onChange={setSearchTerm} />
+          </Grid>
+          <Grid item className={styles.buttons} md={4}>
+            <DownloadButton resultsPromise={[results]} />
+            <RetriggerButton result={results[0]} variant='text' />
+          </Grid>
+        </Grid>
       </header>
       <SubtestsResultsTable
         filteringSearchTerm={searchTerm}
