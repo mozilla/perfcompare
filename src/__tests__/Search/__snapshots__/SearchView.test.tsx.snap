@@ -118,7 +118,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
             />
           </div>
           <div
-            class="compare-card-container content-base content-base--expanded container_f1cct50y "
+            class="compare-card-container content-base content-base--expanded container_f1cct50y"
           >
             <hr
               class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
