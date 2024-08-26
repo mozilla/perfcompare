@@ -20,134 +20,131 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
          
         <br />
       </div>
-      <div>
+      <div
+        class="fc8wfj0"
+      >
+        <hr
+          class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+        />
+      </div>
+      <div
+        class="f9mtzuo"
+      >
         <div
-          class="fc8wfj0"
+          class="fnblmop"
         >
-          <hr
-            class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
-          />
-           
+          <div>
+            <b>
+              Base
+              :
+            </b>
+             
+            596.87
+             
+             (
+            firefox
+            )
+          </div>
+          <div>
+            chartjs-bubble
+          </div>
+          <div>
+            <div
+              class="f1s9htso"
+            >
+              <div
+                class="f1pfon3k"
+              >
+                587.15
+              </div>
+              <div
+                class="f1pfon3k"
+              >
+                593.04
+              </div>
+              <div
+                class="f1pfon3k"
+              >
+                600.7
+              </div>
+              <div
+                class="f1pfon3k"
+              >
+                602.04
+              </div>
+            </div>
+            <div
+              class="fnujpat"
+            >
+              6.96
+               = 
+              1.17
+              % standard deviation
+            </div>
+          </div>
         </div>
         <div
-          class="f9mtzuo"
+          class="fnblmop"
         >
-          <div
-            class="fnblmop"
-          >
-            <div>
-              <b>
-                Base
-                :
-              </b>
-               
-              596.87
-               
-               (
-              firefox
-              )
-            </div>
-            <div>
-              chartjs-bubble
-            </div>
-            <div>
+          <div>
+            <b>
+              New
+              :
+            </b>
+             
+            605.61
+             
+             (
+            chrome
+            )
+          </div>
+          <div>
+            chartjs-bubble
+          </div>
+          <div>
+            <div
+              class="f1s9htso"
+            >
               <div
-                class="f1s9htso"
+                class="f1pfon3k"
               >
-                <div
-                  class="f1pfon3k"
-                >
-                  587.15
-                </div>
-                <div
-                  class="f1pfon3k"
-                >
-                  593.04
-                </div>
-                <div
-                  class="f1pfon3k"
-                >
-                  600.7
-                </div>
-                <div
-                  class="f1pfon3k"
-                >
-                  602.04
-                </div>
+                605.16
               </div>
               <div
-                class="fnujpat"
+                class="f1pfon3k"
               >
-                6.96
-                 = 
-                1.17
-                % standard deviation
+                605.31
               </div>
+              <div
+                class="f1pfon3k"
+              >
+                605.61
+              </div>
+              <div
+                class="f1pfon3k"
+              >
+                605.81
+              </div>
+              <div
+                class="f1pfon3k"
+              >
+                607.27
+              </div>
+            </div>
+            <div
+              class="fnujpat"
+            >
+              0.84
+               = 
+              0.14
+              % standard deviation
             </div>
           </div>
-          <div
-            class="fnblmop"
-          >
-            <div>
-              <b>
-                New
-                :
-              </b>
-               
-              605.61
-               
-               (
-              chrome
-              )
-            </div>
-            <div>
-              chartjs-bubble
-            </div>
-            <div>
-              <div
-                class="f1s9htso"
-              >
-                <div
-                  class="f1pfon3k"
-                >
-                  605.16
-                </div>
-                <div
-                  class="f1pfon3k"
-                >
-                  605.31
-                </div>
-                <div
-                  class="f1pfon3k"
-                >
-                  605.61
-                </div>
-                <div
-                  class="f1pfon3k"
-                >
-                  605.81
-                </div>
-                <div
-                  class="f1pfon3k"
-                >
-                  607.27
-                </div>
-              </div>
-              <div
-                class="fnujpat"
-              >
-                0.84
-                 = 
-                0.14
-                % standard deviation
-              </div>
-            </div>
-          </div>
-          <div
-            class="f1w2i9df"
-          >
-            chartjs-line
-          </div>
+        </div>
+        <div
+          class="f1w2i9df"
+        >
+          chartjs-line
         </div>
       </div>
       <div
@@ -156,7 +153,30 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
         <hr
           class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
         />
-         
+      </div>
+      <div
+        class="fc8wfj0"
+      >
+        <div>
+          Only one run (consider more runs for greater confidence).
+           
+        </div>
+        <div>
+          <b>
+            Base application
+          </b>
+          : 
+          firefox
+           
+        </div>
+        <div>
+          <b>
+            New application
+          </b>
+          : 
+          chrome
+           
+        </div>
       </div>
       <div
         class="fc8wfj0"
@@ -218,134 +238,131 @@ exports[`Results View Should display Base, New and Common graphs with replicates
          
         <br />
       </div>
-      <div>
+      <div
+        class="fc8wfj0"
+      >
+        <hr
+          class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+        />
+      </div>
+      <div
+        class="f9mtzuo"
+      >
         <div
-          class="fc8wfj0"
+          class="fnblmop"
         >
-          <hr
-            class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
-          />
-           
+          <div>
+            <b>
+              Base
+              :
+            </b>
+             
+            596.87
+             
+             (
+            firefox
+            )
+          </div>
+          <div>
+            chartjs-bubble
+          </div>
+          <div>
+            <div
+              class="f1s9htso"
+            >
+              <div
+                class="f1pfon3k"
+              >
+                587.15
+              </div>
+              <div
+                class="f1pfon3k"
+              >
+                593.04
+              </div>
+              <div
+                class="f1pfon3k"
+              >
+                600.7
+              </div>
+              <div
+                class="f1pfon3k"
+              >
+                602.04
+              </div>
+            </div>
+            <div
+              class="fnujpat"
+            >
+              6.96
+               = 
+              1.17
+              % standard deviation
+            </div>
+          </div>
         </div>
         <div
-          class="f9mtzuo"
+          class="fnblmop"
         >
-          <div
-            class="fnblmop"
-          >
-            <div>
-              <b>
-                Base
-                :
-              </b>
-               
-              596.87
-               
-               (
-              firefox
-              )
-            </div>
-            <div>
-              chartjs-bubble
-            </div>
-            <div>
+          <div>
+            <b>
+              New
+              :
+            </b>
+             
+            605.61
+             
+             (
+            chrome
+            )
+          </div>
+          <div>
+            chartjs-bubble
+          </div>
+          <div>
+            <div
+              class="f1s9htso"
+            >
               <div
-                class="f1s9htso"
+                class="f1pfon3k"
               >
-                <div
-                  class="f1pfon3k"
-                >
-                  587.15
-                </div>
-                <div
-                  class="f1pfon3k"
-                >
-                  593.04
-                </div>
-                <div
-                  class="f1pfon3k"
-                >
-                  600.7
-                </div>
-                <div
-                  class="f1pfon3k"
-                >
-                  602.04
-                </div>
+                605.16
               </div>
               <div
-                class="fnujpat"
+                class="f1pfon3k"
               >
-                6.96
-                 = 
-                1.17
-                % standard deviation
+                605.31
               </div>
+              <div
+                class="f1pfon3k"
+              >
+                605.61
+              </div>
+              <div
+                class="f1pfon3k"
+              >
+                605.81
+              </div>
+              <div
+                class="f1pfon3k"
+              >
+                607.27
+              </div>
+            </div>
+            <div
+              class="fnujpat"
+            >
+              0.84
+               = 
+              0.14
+              % standard deviation
             </div>
           </div>
-          <div
-            class="fnblmop"
-          >
-            <div>
-              <b>
-                New
-                :
-              </b>
-               
-              605.61
-               
-               (
-              chrome
-              )
-            </div>
-            <div>
-              chartjs-bubble
-            </div>
-            <div>
-              <div
-                class="f1s9htso"
-              >
-                <div
-                  class="f1pfon3k"
-                >
-                  605.16
-                </div>
-                <div
-                  class="f1pfon3k"
-                >
-                  605.31
-                </div>
-                <div
-                  class="f1pfon3k"
-                >
-                  605.61
-                </div>
-                <div
-                  class="f1pfon3k"
-                >
-                  605.81
-                </div>
-                <div
-                  class="f1pfon3k"
-                >
-                  607.27
-                </div>
-              </div>
-              <div
-                class="fnujpat"
-              >
-                0.84
-                 = 
-                0.14
-                % standard deviation
-              </div>
-            </div>
-          </div>
-          <div
-            class="f1w2i9df"
-          >
-            chartjs-line
-          </div>
+        </div>
+        <div
+          class="f1w2i9df"
+        >
+          chartjs-line
         </div>
       </div>
       <div
@@ -354,7 +371,30 @@ exports[`Results View Should display Base, New and Common graphs with replicates
         <hr
           class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
         />
-         
+      </div>
+      <div
+        class="fc8wfj0"
+      >
+        <div>
+          Only one run (consider more runs for greater confidence).
+           
+        </div>
+        <div>
+          <b>
+            Base application
+          </b>
+          : 
+          firefox
+           
+        </div>
+        <div>
+          <b>
+            New application
+          </b>
+          : 
+          chrome
+           
+        </div>
       </div>
       <div
         class="fc8wfj0"
@@ -416,134 +456,131 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
          
         <br />
       </div>
-      <div>
+      <div
+        class="fc8wfj0"
+      >
+        <hr
+          class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+        />
+      </div>
+      <div
+        class="f9mtzuo"
+      >
         <div
-          class="fc8wfj0"
+          class="fnblmop"
         >
-          <hr
-            class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
-          />
-           
+          <div>
+            <b>
+              Base
+              :
+            </b>
+             
+            596.87
+             
+             (
+            firefox
+            )
+          </div>
+          <div>
+            chartjs-bubble
+          </div>
+          <div>
+            <div
+              class="f1s9htso"
+            >
+              <div
+                class="f1pfon3k"
+              >
+                587.15
+              </div>
+              <div
+                class="f1pfon3k"
+              >
+                593.04
+              </div>
+              <div
+                class="f1pfon3k"
+              >
+                600.7
+              </div>
+              <div
+                class="f1pfon3k"
+              >
+                602.04
+              </div>
+            </div>
+            <div
+              class="fnujpat"
+            >
+              6.96
+               = 
+              1.17
+              % standard deviation
+            </div>
+          </div>
         </div>
         <div
-          class="f9mtzuo"
+          class="fnblmop"
         >
-          <div
-            class="fnblmop"
-          >
-            <div>
-              <b>
-                Base
-                :
-              </b>
-               
-              596.87
-               
-               (
-              firefox
-              )
-            </div>
-            <div>
-              chartjs-bubble
-            </div>
-            <div>
+          <div>
+            <b>
+              New
+              :
+            </b>
+             
+            605.61
+             
+             (
+            chrome
+            )
+          </div>
+          <div>
+            chartjs-bubble
+          </div>
+          <div>
+            <div
+              class="f1s9htso"
+            >
               <div
-                class="f1s9htso"
+                class="f1pfon3k"
               >
-                <div
-                  class="f1pfon3k"
-                >
-                  587.15
-                </div>
-                <div
-                  class="f1pfon3k"
-                >
-                  593.04
-                </div>
-                <div
-                  class="f1pfon3k"
-                >
-                  600.7
-                </div>
-                <div
-                  class="f1pfon3k"
-                >
-                  602.04
-                </div>
+                605.16
               </div>
               <div
-                class="fnujpat"
+                class="f1pfon3k"
               >
-                6.96
-                 = 
-                1.17
-                % standard deviation
+                605.31
               </div>
+              <div
+                class="f1pfon3k"
+              >
+                605.61
+              </div>
+              <div
+                class="f1pfon3k"
+              >
+                605.81
+              </div>
+              <div
+                class="f1pfon3k"
+              >
+                607.27
+              </div>
+            </div>
+            <div
+              class="fnujpat"
+            >
+              0.84
+               = 
+              0.14
+              % standard deviation
             </div>
           </div>
-          <div
-            class="fnblmop"
-          >
-            <div>
-              <b>
-                New
-                :
-              </b>
-               
-              605.61
-               
-               (
-              chrome
-              )
-            </div>
-            <div>
-              chartjs-bubble
-            </div>
-            <div>
-              <div
-                class="f1s9htso"
-              >
-                <div
-                  class="f1pfon3k"
-                >
-                  605.16
-                </div>
-                <div
-                  class="f1pfon3k"
-                >
-                  605.31
-                </div>
-                <div
-                  class="f1pfon3k"
-                >
-                  605.61
-                </div>
-                <div
-                  class="f1pfon3k"
-                >
-                  605.81
-                </div>
-                <div
-                  class="f1pfon3k"
-                >
-                  607.27
-                </div>
-              </div>
-              <div
-                class="fnujpat"
-              >
-                0.84
-                 = 
-                0.14
-                % standard deviation
-              </div>
-            </div>
-          </div>
-          <div
-            class="f1w2i9df"
-          >
-            chartjs-line
-          </div>
+        </div>
+        <div
+          class="f1w2i9df"
+        >
+          chartjs-line
         </div>
       </div>
       <div
@@ -552,7 +589,30 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
         <hr
           class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
         />
-         
+      </div>
+      <div
+        class="fc8wfj0"
+      >
+        <div>
+          Only one run (consider more runs for greater confidence).
+           
+        </div>
+        <div>
+          <b>
+            Base application
+          </b>
+          : 
+          firefox
+           
+        </div>
+        <div>
+          <b>
+            New application
+          </b>
+          : 
+          chrome
+           
+        </div>
       </div>
       <div
         class="fc8wfj0"

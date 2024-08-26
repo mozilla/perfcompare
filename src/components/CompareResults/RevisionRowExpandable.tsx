@@ -10,14 +10,6 @@ import Distribution from './Distribution';
 const strings = Strings.components.expandableRow;
 const { singleRun } = strings;
 
-function shouldDisplayGraphDistribution(
-  baseRuns: Array<number>,
-  newRuns: Array<number>,
-): boolean {
-  if (baseRuns.length > 1 || newRuns.length > 1) return true;
-  return false;
-}
-
 function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   const { result } = props;
   const {
@@ -25,18 +17,10 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
     delta_percentage: deltaPercent,
     delta_value: delta,
     confidence_text: confidenceText,
-    base_runs: baseRuns,
-    new_runs: newRuns,
-    base_runs_replicates: baseRunsReplicates,
-    new_runs_replicates: newRunsReplicates,
     new_is_better: newIsBetter,
     base_app: baseApplication,
     new_app: newApplication,
   } = result;
-  const shouldDisplayGraph = shouldDisplayGraphDistribution(
-    baseRunsReplicates.length ? baseRunsReplicates : baseRuns,
-    newRunsReplicates.length ? newRunsReplicates : newRuns,
-  );
 
   const themeMode = useAppSelector((state) => state.theme.mode);
   const themeColor200 =
@@ -70,32 +54,26 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
         <div className={`${styles.bottomSpace}`}>
           <b>{platform}</b> <br />
         </div>
-        {shouldDisplayGraph && (
-          <div>
-            <div className={`${styles.bottomSpace}`}>
-              <Divider />{' '}
-            </div>
-            <Distribution result={result} />
-          </div>
-        )}
         <div className={`${styles.bottomSpace}`}>
-          <Divider />{' '}
+          <Divider />
         </div>
-        {!shouldDisplayGraph && (
-          <div className={`${styles.bottomSpace}`}>
-            <div>{singleRun} </div>
-            {baseApplication && (
-              <div>
-                <b>Base application</b>: {baseApplication}{' '}
-              </div>
-            )}
-            {newApplication && (
-              <div>
-                <b>New application</b>: {newApplication}{' '}
-              </div>
-            )}
-          </div>
-        )}
+        <Distribution result={result} />
+        <div className={`${styles.bottomSpace}`}>
+          <Divider />
+        </div>
+        <div className={`${styles.bottomSpace}`}>
+          <div>{singleRun} </div>
+          {baseApplication && (
+            <div>
+              <b>Base application</b>: {baseApplication}{' '}
+            </div>
+          )}
+          {newApplication && (
+            <div>
+              <b>New application</b>: {newApplication}{' '}
+            </div>
+          )}
+        </div>
         <div className={`${styles.bottomSpace}`}>
           <b>Mean Difference</b>: {deltaPercent}%{' '}
           {newIsBetter ? 'better' : 'worse'} ({delta})
