@@ -54,20 +54,6 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
       margin: 0,
       marginBottom: Spacing.Medium,
     }),
-    content: style({
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-    }),
-    buttons: style({
-      display: 'flex',
-      justifyContent: 'flex-end',
-      $nest: {
-        '.MuiButtonBase-root:nth-child(2)': {
-          marginLeft: Spacing.Default,
-        },
-      },
-    }),
   };
 
   return (
@@ -75,12 +61,14 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
       <header>
         <SubtestsBreadcrumbs view={view} />
         <SubtestsRevisionHeader header={subtestsHeader} />
-        <Grid container className={styles.content}>
-          <Grid item md={6} xs={12}>
+        <Grid container spacing={1}>
+          <Grid item xs={12} md={6} sx={{ marginInlineEnd: 'auto' }}>
             <SearchInput onChange={setSearchTerm} />
           </Grid>
-          <Grid item className={styles.buttons} md={4}>
+          <Grid item xs='auto'>
             <DownloadButton resultsPromise={[results]} />
+          </Grid>
+          <Grid item xs='auto'>
             <RetriggerButton result={results[0]} variant='text' />
           </Grid>
         </Grid>
