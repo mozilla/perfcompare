@@ -3689,7 +3689,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
             />
           </div>
           <div
-            class="compare-card-container content-base content-base--expanded container_f1cct50y "
+            class="compare-card-container content-base content-base--expanded container_f1cct50y"
           >
             <hr
               class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"

@@ -88,7 +88,7 @@ export const router = createBrowserRouter(
       />
 
       <Route
-        path='/subtestsCompareWithBase'
+        path='/subtests-compare-results'
         loader={compareSubtestsLoader}
         element={
           <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />
@@ -97,7 +97,7 @@ export const router = createBrowserRouter(
       />
 
       <Route
-        path='/subtestsCompareOverTime'
+        path='/subtests-compare-over-time-results'
         loader={compareSubtestsOverTimeLoader}
         element={
           <SubtestsOverTimeResultsView
@@ -145,7 +145,8 @@ function App() {
               {strings.text}{' '}
               <Link href={strings.href} target='_blank'>
                 {strings.linkText}
-              </Link>{' '}
+              </Link>
+              {'. '}
               {contact.text}{' '}
               <Link href={contact.href} target='_blank'>
                 {contact.linkText}

@@ -76,6 +76,8 @@ export type CompareResultsItem = {
   base_repository_name: Repository['name'];
   new_runs: number[];
   base_runs: number[];
+  new_runs_replicates: number[];
+  base_runs_replicates: number[];
   is_complete: boolean;
   base_avg_value: number;
   new_avg_value: number;

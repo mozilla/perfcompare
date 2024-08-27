@@ -1,6 +1,7 @@
 import { useMemo, useState, memo } from 'react';
 
 import Box from '@mui/material/Box';
+import { Virtuoso } from 'react-virtuoso';
 
 import type { compareView, compareOverTimeView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
@@ -236,15 +237,28 @@ function ResultsTable({
         onToggleFilter={onToggleFilter}
         onClearFilter={onClearFilter}
       />
-      {processedResults.map((res) => (
-        <TableContent
-          key={res.key}
-          identifier={res.key}
-          header={res.revisionHeader}
-          results={res.value}
-          view={view}
-        />
-      ))}
+      <Virtuoso
+        useWindowScroll
+        totalCount={processedResults.length}
+        overscan={{
+          /* These values are pretty arbitrary. The goal is to have more rows
+           * rendered than the current viewport, so that when scrolling fast
+           * (but not too fast) the white checkerboarding doesn't appear.
+           */
+          main: 5000,
+          reverse: 5000,
+        }}
+        data={processedResults}
+        computeItemKey={(_, res) => res.key}
+        itemContent={(_, res) => (
+          <TableContent
+            identifier={res.key}
+            header={res.revisionHeader}
+            results={res.value}
+            view={view}
+          />
+        )}
+      />
 
       {processedResults.length == 0 && <NoResultsFound />}
     </Box>

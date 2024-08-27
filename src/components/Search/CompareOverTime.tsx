@@ -26,11 +26,10 @@ interface CompareWithTimeProps {
   newRevs: Changeset[] | [];
   frameworkIdVal: Framework['id'];
   intervalValue: TimeRange['value'];
-  isBaseSearch: null | boolean;
   newRepo: Repository['name'];
   baseRepo: Repository['name'];
-
-  expandBaseComponent: (expanded: boolean) => void;
+  isExpanded: boolean;
+  setIsExpanded?: () => unknown;
 }
 
 function CompareOverTime({
@@ -38,16 +37,14 @@ function CompareOverTime({
   newRevs,
   frameworkIdVal,
   intervalValue,
-  isBaseSearch,
   baseRepo,
   newRepo,
-  expandBaseComponent,
+  isExpanded,
+  setIsExpanded,
 }: CompareWithTimeProps) {
   const { enqueueSnackbar } = useSnackbar();
   const location = useLocation();
   const resultsView = location.pathname.includes(compareOverTimeView);
-  const searchView =
-    !isBaseSearch && isBaseSearch !== null ? 'expanded' : 'hidden';
 
   const [timeRangeValue, setTimeRangeValue] = useState(intervalValue);
   const [inProgressRevs, setInProgressRevs] = useState<Changeset[] | []>(
@@ -77,10 +74,6 @@ function CompareOverTime({
         variant: 'error',
       });
     }
-  };
-
-  const toggleIsExpanded = () => {
-    expandBaseComponent(false);
   };
 
   const handleCancel = () => {
@@ -146,13 +139,12 @@ function CompareOverTime({
     setInProgressRevs(newNewRevs);
   };
 
+  const expandedClass = isExpanded ? 'expanded' : 'hidden';
   return (
     <Grid className={`wrapper--overtime ${wrapperStyles.wrapper}`}>
       <div
-        className={`compare-card-container compare-card-container--${
-          resultsView ? 'expanded' : searchView
-        } ${styles.container}`}
-        onClick={toggleIsExpanded}
+        className={`compare-card-container compare-card-container--${expandedClass} ${styles.container}`}
+        onClick={setIsExpanded}
         data-testid='time-state'
       >
         <div className={`compare-card-text ${styles.cardText}`}>
@@ -167,9 +159,7 @@ function CompareOverTime({
         />
       </div>
       <div
-        className={`compare-card-container content-base content-base--${
-          resultsView ? 'expanded' : searchView
-        } ${styles.container} `}
+        className={`compare-card-container content-base content-base--${expandedClass} ${styles.container} `}
       >
         <Divider className='divider' />
         <Form

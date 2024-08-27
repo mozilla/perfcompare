@@ -9,6 +9,7 @@ import { SnackbarProvider } from 'notistack';
 import { Provider } from 'react-redux';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import type { LoaderFunction } from 'react-router-dom';
+import { VirtuosoMockContext } from 'react-virtuoso';
 
 import SnackbarCloseButton from '../../components/Shared/SnackbarCloseButton';
 import getProtocolTheme from '../../theme/protocolTheme';
@@ -24,15 +25,19 @@ export function render(ui: React.ReactElement, themeConfig?: ThemeConfig) {
     return (
       <StyledEngineProvider injectFirst>
         <ThemeProvider theme={theme}>
-          <SnackbarProvider
-            maxSnack={3}
-            autoHideDuration={6000}
-            action={(snackbarKey) => (
-              <SnackbarCloseButton snackbarKey={snackbarKey} />
-            )}
+          <VirtuosoMockContext.Provider
+            value={{ viewportHeight: 300, itemHeight: 100 }}
           >
-            <Provider store={store}>{children}</Provider>
-          </SnackbarProvider>
+            <SnackbarProvider
+              maxSnack={3}
+              autoHideDuration={6000}
+              action={(snackbarKey) => (
+                <SnackbarCloseButton snackbarKey={snackbarKey} />
+              )}
+            >
+              <Provider store={store}>{children}</Provider>
+            </SnackbarProvider>
+          </VirtuosoMockContext.Provider>
         </ThemeProvider>
       </StyledEngineProvider>
     );

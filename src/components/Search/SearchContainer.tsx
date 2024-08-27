@@ -14,7 +14,7 @@ const strings = Strings.components.searchDefault;
 function SearchContainer(props: SearchViewProps) {
   const themeMode = useAppSelector((state) => state.theme.mode);
   const styles = SearchContainerStyles(themeMode, /* isHome */ true);
-  const [isBaseSearch, expandBaseComponent] = useState(null as null | boolean);
+  const [isBaseSearchExpanded, setIsBaseSearchExpanded] = useState(true);
 
   return (
     <section
@@ -30,16 +30,16 @@ function SearchContainer(props: SearchViewProps) {
         hasEditButton={false}
         baseRev={null}
         newRevs={[]}
-        isBaseSearch={isBaseSearch}
-        expandBaseComponent={expandBaseComponent}
+        isExpanded={isBaseSearchExpanded}
+        setIsExpanded={() => setIsBaseSearchExpanded(true)}
         baseRepo='try'
         newRepo='try'
       />
       <CompareOverTime
         hasEditButton={false}
         newRevs={[]}
-        isBaseSearch={isBaseSearch}
-        expandBaseComponent={expandBaseComponent}
+        isExpanded={!isBaseSearchExpanded}
+        setIsExpanded={() => setIsBaseSearchExpanded(false)}
         frameworkIdVal={1 as Framework['id']}
         intervalValue={86400 as TimeRange['value']}
         baseRepo='try'

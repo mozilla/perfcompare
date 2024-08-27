@@ -236,4 +236,142 @@ describe('Results View', () => {
     );
     expect(sessionStorage.taskclusterUrl).toBe(windowOpenUrl.origin);
   });
+
+  it('Should display Base, New and Common graphs with replicates', async () => {
+    const user = userEvent.setup({ delay: null });
+
+    // We set up a compare data that has 1 result but with several runs, so that
+    // the graphs are displayed for this result.
+    const { testCompareDataWithReplicates, testData } = getTestData();
+    (window.fetch as FetchMockSandbox)
+      .get(
+        'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
+        testCompareDataWithReplicates,
+      )
+      .get('begin:https://treeherder.mozilla.org/api/project/', {
+        results: [testData[0]],
+      });
+
+    renderWithRouter(
+      <ResultsView title={Strings.metaData.pageTitle.results} />,
+      {
+        route: '/compare-results/',
+        search: '?baseRev=spam&baseRepo=mozilla-central&framework=2',
+        loader,
+      },
+    );
+
+    const expandButton = await screen.findByRole('button', {
+      name: 'expand this row',
+    });
+    await user.click(expandButton);
+    expect(await screen.findByTestId('expanded-row-content')).toMatchSnapshot();
+
+    const MockedBubble = Bubble as jest.Mock;
+
+    const bubbleProps = MockedBubble.mock.calls.map(
+      (call) => call[0] as ChartProps,
+    );
+    expect(bubbleProps[0].data.datasets[0].label).toBe('Base');
+    expect(bubbleProps[1].data.datasets[0].label).toBe('New');
+
+    expect(bubbleProps[0].data.datasets[0].data.length).toBe(4);
+    expect(bubbleProps[0].data.datasets[0].data[3]).toStrictEqual({
+      r: 10,
+      x: 602.04,
+      y: 0,
+    });
+    expect(bubbleProps[1].data.datasets[0].data.length).toBe(5);
+    expect(bubbleProps[1].data.datasets[0].data[4]).toStrictEqual({
+      r: 10,
+      x: 607.27,
+      y: 0,
+    });
+
+    const labelFunction =
+      bubbleProps[0].options?.plugins?.tooltip?.callbacks?.label;
+    expect(labelFunction).toBeDefined();
+
+    // @ts-expect-error does not affect the test coverage
+    // consider fixing it if we change the label function in the future
+    const labelResult = labelFunction({ raw: { x: 5, y: 0, r: 10 } });
+    expect(labelResult).toBe('5 ms');
+
+    const MockedLine = Line as jest.Mock;
+    const lineProps = MockedLine.mock.calls.map(
+      (call) => call[0] as ChartProps,
+    );
+    const graphTitle = lineProps[0].options?.plugins?.title?.text;
+    expect(graphTitle).toBeDefined();
+    expect(graphTitle).toBe('Runs Density Distribution');
+  });
+
+  it('Should display Base, New and Common graphs with 1 value and replicates', async () => {
+    const user = userEvent.setup({ delay: null });
+
+    // We set up a compare data that has 1 result but with several runs, so that
+    // the graphs are displayed for this result.
+    const { testCompareDataWithReplicatesOneValue, testData } = getTestData();
+    (window.fetch as FetchMockSandbox)
+      .get(
+        'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
+        testCompareDataWithReplicatesOneValue,
+      )
+      .get('begin:https://treeherder.mozilla.org/api/project/', {
+        results: [testData[0]],
+      });
+
+    renderWithRouter(
+      <ResultsView title={Strings.metaData.pageTitle.results} />,
+      {
+        route: '/compare-results/',
+        search: '?baseRev=spam&baseRepo=mozilla-central&framework=2',
+        loader,
+      },
+    );
+
+    const expandButton = await screen.findByRole('button', {
+      name: 'expand this row',
+    });
+    await user.click(expandButton);
+    expect(await screen.findByTestId('expanded-row-content')).toMatchSnapshot();
+
+    const MockedBubble = Bubble as jest.Mock;
+
+    const bubbleProps = MockedBubble.mock.calls.map(
+      (call) => call[0] as ChartProps,
+    );
+    expect(bubbleProps[0].data.datasets[0].label).toBe('Base');
+    expect(bubbleProps[1].data.datasets[0].label).toBe('New');
+
+    expect(bubbleProps[0].data.datasets[0].data.length).toBe(4);
+    expect(bubbleProps[0].data.datasets[0].data[3]).toStrictEqual({
+      r: 10,
+      x: 602.04,
+      y: 0,
+    });
+    expect(bubbleProps[1].data.datasets[0].data.length).toBe(5);
+    expect(bubbleProps[1].data.datasets[0].data[4]).toStrictEqual({
+      r: 10,
+      x: 607.27,
+      y: 0,
+    });
+
+    const labelFunction =
+      bubbleProps[0].options?.plugins?.tooltip?.callbacks?.label;
+    expect(labelFunction).toBeDefined();
+
+    // @ts-expect-error does not affect the test coverage
+    // consider fixing it if we change the label function in the future
+    const labelResult = labelFunction({ raw: { x: 5, y: 0, r: 10 } });
+    expect(labelResult).toBe('5 ms');
+
+    const MockedLine = Line as jest.Mock;
+    const lineProps = MockedLine.mock.calls.map(
+      (call) => call[0] as ChartProps,
+    );
+    const graphTitle = lineProps[0].options?.plugins?.title?.text;
+    expect(graphTitle).toBeDefined();
+    expect(graphTitle).toBe('Runs Density Distribution');
+  });
 });

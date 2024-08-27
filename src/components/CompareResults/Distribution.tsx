@@ -34,6 +34,8 @@ function Distribution(props: DistributionProps) {
   const {
     base_runs: baseRuns,
     new_runs: newRuns,
+    base_runs_replicates: baseRunsReplicates,
+    new_runs_replicates: newRunsReplicates,
     base_app: baseApplication,
     new_app: newApplication,
     base_median_value: baseMedian,
@@ -49,7 +51,10 @@ function Distribution(props: DistributionProps) {
   const baseRevisionRuns = {
     name: 'Base',
     median: baseMedian,
-    values: baseRuns,
+    values:
+      baseRunsReplicates && baseRunsReplicates.length
+        ? baseRunsReplicates
+        : baseRuns,
     application: baseApplication,
     stddev: baseStddev,
     stddevPercent: baseStddevPercent,
@@ -59,14 +64,20 @@ function Distribution(props: DistributionProps) {
   const newRevisionRuns = {
     name: 'New',
     median: newMedian,
-    values: newRuns,
+    values:
+      newRunsReplicates && newRunsReplicates.length
+        ? newRunsReplicates
+        : newRuns,
     application: newApplication,
     stddev: newStddev,
     stddevPercent: newStddevPercent,
     measurementUnit: newUnit,
   };
 
-  const [minValue, maxValue] = computeMinMax(baseRuns, newRuns);
+  const [minValue, maxValue] = computeMinMax(
+    baseRevisionRuns.values,
+    newRevisionRuns.values,
+  );
 
   return (
     <div className={styles.container}>
