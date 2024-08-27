@@ -336,7 +336,7 @@ describe('Base and OverTime Search', () => {
     act(() => void jest.runAllTimers());
 
     expect(global.fetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true',
+      'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true&count=30',
       undefined,
     );
     const errorElements = await screen.findAllByText('An error has occurred');

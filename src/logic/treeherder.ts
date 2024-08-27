@@ -189,7 +189,7 @@ function computeUrlFromSearchTermAndRepository({
     return baseUrl + '?revision=' + hash;
   }
 
-  return baseUrl + '?hide_reviewbot_pushes=true';
+  return baseUrl + '?hide_reviewbot_pushes=true&count=30';
 }
 
 // This fetches the recent revisions on a specific repository, optionally
