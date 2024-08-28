@@ -61,7 +61,7 @@ function RunValues(props: RunValuesProps) {
           ))}
         </div>
         <div className={styles.deviation}>
-          {stddev} = {stddevPercent}% standard deviation
+          {stddev} {measurementUnit} = {stddevPercent}% standard deviation
         </div>
       </div>
     </div>
