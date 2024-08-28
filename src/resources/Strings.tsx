@@ -53,7 +53,7 @@ export const Strings = {
         collapsed: {
           warnings: {
             comparison:
-              'Comparing “try” repository to any repository aside from “try” is not recommended.',
+              'Production (e.g. mozilla-central, autoland), and try branches have different performance characteristics due to build differences that can often result in misleading comparisons.',
           },
           errors: {
             notEnoughRevisions: 'Please select at least one base revision.',
