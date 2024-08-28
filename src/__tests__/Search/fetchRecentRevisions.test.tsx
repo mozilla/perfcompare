@@ -1,5 +1,6 @@
 import userEvent from '@testing-library/user-event';
 
+import { loader } from '../../components/Search/loader';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import getTestData from '../utils/fixtures';
@@ -8,6 +9,15 @@ import {
   renderWithRouter,
   FetchMockSandbox,
 } from '../utils/test-utils';
+
+async function renderSearchViewComponent() {
+  renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />, {
+    loader,
+  });
+  const title = 'Compare with a base';
+  const compTitle = await screen.findByRole('heading', { name: title });
+  expect(compTitle).toBeInTheDocument();
+}
 
 describe('Search View/fetchRecentRevisions', () => {
   it('should fetch and display recent results when repository is selected', async () => {
@@ -22,8 +32,7 @@ describe('Search View/fetchRecentRevisions', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
-
+    await renderSearchViewComponent();
     const baseRepoSelect = screen.getAllByRole('button', { name: 'Base' })[0];
     expect(baseRepoSelect).toHaveTextContent('try');
     await user.click(baseRepoSelect);
@@ -58,7 +67,7 @@ describe('Search View/fetchRecentRevisions', () => {
       },
     );
 
-    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
+    await renderSearchViewComponent();
 
     const errorMessages = await screen.findAllByText('No results found');
     expect(errorMessages).toHaveLength(3);
@@ -84,7 +93,7 @@ describe('Search View/fetchRecentRevisions', () => {
     // This test will output an error to the console. Let's silence it.
     jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
+    await renderSearchViewComponent();
 
     const errorMessages = await screen.findAllByText(errorMessage);
     expect(errorMessages).toHaveLength(3);

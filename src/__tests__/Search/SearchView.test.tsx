@@ -1,6 +1,8 @@
 import userEvent from '@testing-library/user-event';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
+import { repoMap } from '../../common/constants';
+import { loader } from '../../components/Search/loader';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import getTestData from '../utils/fixtures';
@@ -10,6 +12,7 @@ import {
   render,
   renderWithRouter,
   waitFor,
+  within,
   FetchMockSandbox,
 } from '../utils/test-utils';
 
@@ -25,7 +28,22 @@ function setupTestData() {
         return { results: testData.filter((item) => item.author === author) };
       },
     )
-    .get('begin:https://treeherder.mozilla.org/api/project/try/push/', {
+    .get(
+      'glob:https://treeherder.mozilla.org/api/project/*/push/?revision=*',
+      (urlAsString) => {
+        const url = new URL(urlAsString);
+        const revision = url.searchParams.get('revision');
+        const repository = url.pathname.split('/')[3];
+        return {
+          results: testData.filter(
+            (item) =>
+              item.revision === revision &&
+              repoMap[item.repository_id] === repository,
+          ),
+        };
+      },
+    )
+    .get('glob:https://treeherder.mozilla.org/api/project/*/push/*', {
       results: testData,
     });
 }
@@ -50,16 +68,38 @@ async function expandWithBaseComponent() {
   );
 }
 
-function renderComponent() {
+async function getOverTimeForm() {
+  const formName = 'Compare over time form';
+  const formElement = await screen.findByRole('form', {
+    name: formName,
+  });
+  return formElement;
+}
+
+async function getWithBaseForm() {
+  const formName = 'Compare with base form';
+  const formElement = await screen.findByRole('form', {
+    name: formName,
+  });
+  return formElement;
+}
+
+async function renderComponent(
+  options?: Partial<{ route: string; search: string }>,
+) {
   setupTestData();
-  return renderWithRouter(
-    <SearchView title={Strings.metaData.pageTitle.search} />,
-  );
+  renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />, {
+    loader,
+    ...options,
+  });
+  const title = 'Compare with a base';
+  const compTitle = await screen.findByRole('heading', { name: title });
+  expect(compTitle).toBeInTheDocument();
 }
 
 describe('Search View', () => {
   it('renders correctly when there are no results', async () => {
-    renderComponent();
+    await renderComponent();
 
     // We have to account for the dropdown position
     // Shift focus to base search
@@ -68,14 +108,14 @@ describe('Search View', () => {
   });
 
   it('renders skip to search link correctly', async () => {
-    renderComponent();
+    await renderComponent();
     expect(
       screen.getByRole('link', { name: /skip to search/i }),
     ).toBeInTheDocument();
   });
 
   it('renders a skip link that sends the focus directly to search container', async () => {
-    renderComponent();
+    await renderComponent();
 
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
@@ -87,7 +127,7 @@ describe('Search View', () => {
 
 describe('Search Container', () => {
   it('renders compare with base', async () => {
-    renderComponent();
+    await renderComponent();
 
     const compTitle = await screen.findByRole('heading', {
       name: baseTitle,
@@ -106,7 +146,7 @@ describe('Search Container', () => {
 
 describe('Base and OverTime Search', () => {
   it('renders repository dropdown in closed condition in both Base and OverTime components', async () => {
-    renderComponent();
+    await renderComponent();
     // 'try' is selected by default and dropdown is not visible
     expect(screen.getAllByText(/try/i)[0]).toBeInTheDocument();
     expect(screen.queryByText(/mozilla-central/i)).not.toBeInTheDocument();
@@ -135,7 +175,7 @@ describe('Base and OverTime Search', () => {
   });
 
   it('renders framework dropdown in closed condition', async () => {
-    renderComponent();
+    await renderComponent();
     // 'talos' is selected by default and dropdown is not visible
     expect(screen.getAllByText(/talos/i)[0]).toBeInTheDocument();
     expect(screen.queryByText(/build_metrics/i)).not.toBeInTheDocument();
@@ -145,7 +185,7 @@ describe('Base and OverTime Search', () => {
   it('should hide search results when clicking outside of search input', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
-    renderComponent();
+    await renderComponent();
 
     // Click inside the input box to show search results.
     const searchInput = screen.getAllByRole('textbox')[0];
@@ -163,7 +203,7 @@ describe('Base and OverTime Search', () => {
   it('Should hide the search results when Escape key is pressed', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
-    renderComponent();
+    await renderComponent();
 
     // Click inside the input box to show search results.
 
@@ -182,7 +222,7 @@ describe('Base and OverTime Search', () => {
   it('Should not call fetch if search value is not a hash or email', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
-    renderComponent();
+    await renderComponent();
 
     const searchInput = screen.getAllByRole('textbox')[0];
 
@@ -230,7 +270,7 @@ describe('Base and OverTime Search', () => {
 
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
-    renderComponent();
+    await renderComponent();
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
@@ -284,7 +324,7 @@ describe('Base and OverTime Search', () => {
   it('Should clear search results if the search value is cleared', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
-    renderComponent();
+    await renderComponent();
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'terrygilliam@python.com');
@@ -307,7 +347,7 @@ describe('Base and OverTime Search', () => {
   it('should not hide search results when clicking search results', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
-    renderComponent();
+    await renderComponent();
 
     // focus input to show results
     const searchInput = screen.getAllByRole('textbox')[0];
@@ -332,7 +372,7 @@ describe('Base and OverTime Search', () => {
     (global.fetch as FetchMockSandbox).mock('*', { throws: new Error() });
     // This test will output an error to the console. Let's silence it.
     jest.spyOn(console, 'error').mockImplementation(() => {});
-    renderComponent();
+    await renderComponent();
     act(() => void jest.runAllTimers());
 
     expect(global.fetch).toHaveBeenCalledWith(
@@ -359,6 +399,7 @@ describe('Base and OverTime Search', () => {
       {
         path: '/',
         element: <SearchView title={Strings.metaData.pageTitle.search} />,
+        loader,
       },
       { path: '/compare-results', element: <div /> },
     ]);
@@ -418,5 +459,137 @@ describe('Base and OverTime Search', () => {
     expect(searchParams.toString()).toEqual(
       'baseRepo=try&baseRev=coconut&framework=1&newRepo=mozilla-central&newRev=spam',
     );
+  });
+});
+
+describe('With search parameters', () => {
+  it('both search components are populated as expected when revision and repository are specified', async () => {
+    await renderComponent({ search: '?newRev=spamspam&newRepo=try' });
+    const withBaseForm = await getWithBaseForm();
+    expect(
+      within(withBaseForm).getByRole('link', { name: /spamspam/ }),
+    ).toBeInTheDocument();
+    expect(
+      within(withBaseForm).getByRole('button', { name: 'Base' }),
+    ).toHaveTextContent('try');
+    expect(
+      within(withBaseForm).getByRole('button', { name: 'Revisions' }),
+    ).toHaveTextContent('try');
+    expect(
+      within(withBaseForm).getByRole('button', { name: /Framework/ }),
+    ).toHaveTextContent('talos');
+    expect(withBaseForm).toMatchSnapshot('with base form');
+
+    await expandOverTimeComponent();
+    const overtimeForm = await getOverTimeForm();
+    expect(
+      within(overtimeForm).getByRole('link', { name: /spamspam/ }),
+    ).toBeInTheDocument();
+    expect(
+      within(overtimeForm).getByRole('button', { name: /Base repository/ }),
+    ).toHaveTextContent('try');
+    expect(
+      within(overtimeForm).getByRole('button', { name: 'Revisions' }),
+    ).toHaveTextContent('try');
+    expect(
+      within(overtimeForm).getByRole('button', { name: /Framework/ }),
+    ).toHaveTextContent('talos');
+    expect(overtimeForm).toMatchSnapshot('over time form');
+  });
+
+  it('both search components are populated as expected when revision, repository and framework are specified', async () => {
+    await renderComponent({
+      search:
+        '?newRev=spamspamspamandeggs&newRepo=autoland&frameworkName=browsertime',
+    });
+    const withBaseForm = await getWithBaseForm();
+    expect(
+      within(withBaseForm).getByRole('link', { name: /spamspamspam/ }), // Note that the revision is truncated
+    ).toBeInTheDocument();
+    expect(
+      within(withBaseForm).getByRole('button', { name: 'Base' }),
+    ).toHaveTextContent('autoland');
+    expect(
+      within(withBaseForm).getByRole('button', { name: 'Revisions' }),
+    ).toHaveTextContent('autoland');
+    expect(
+      within(withBaseForm).getByRole('button', { name: /Framework/ }),
+    ).toHaveTextContent('browsertime');
+    expect(withBaseForm).toMatchSnapshot('with base form');
+
+    await expandOverTimeComponent();
+    const overtimeForm = await getOverTimeForm();
+    expect(
+      within(overtimeForm).getByRole('link', { name: /spamspamspam/ }),
+    ).toBeInTheDocument();
+    expect(
+      within(overtimeForm).getByRole('button', { name: /Base repository/ }),
+    ).toHaveTextContent('autoland');
+    expect(
+      within(overtimeForm).getByRole('button', { name: 'Revisions' }),
+    ).toHaveTextContent('autoland');
+    expect(
+      within(overtimeForm).getByRole('button', { name: /Framework/ }),
+    ).toHaveTextContent('browsertime');
+    expect(overtimeForm).toMatchSnapshot('over time form');
+  });
+
+  it('displays the default values if some values are bogus', async () => {
+    jest.spyOn(console, 'warn').mockImplementation();
+    await renderComponent({
+      search: '?newRev=spamspamspamandeggs&newRepo=foo',
+    });
+
+    expect(console.warn).toHaveBeenCalledWith(
+      "The repository foo wasn't found in our list.",
+    );
+    const withBaseForm = await getWithBaseForm();
+    expect(withBaseForm).toMatchSnapshot('with base form');
+
+    await expandOverTimeComponent();
+    const overtimeForm = await getOverTimeForm();
+    expect(overtimeForm).toMatchSnapshot('over time form');
+  });
+
+  it('displays the default value for framework if the framework value is bogus', async () => {
+    jest.spyOn(console, 'warn').mockImplementation();
+
+    await renderComponent({
+      search: '?newRev=spamspam&newRepo=try&frameworkName=foo',
+    });
+    expect(console.warn).toHaveBeenCalledWith(
+      "The framework entry for foo wasn't found, defaulting to talos.",
+    );
+
+    const withBaseForm = await getWithBaseForm();
+    expect(
+      within(withBaseForm).getByRole('link', { name: /spamspam/ }),
+    ).toBeInTheDocument();
+    expect(
+      within(withBaseForm).getByRole('button', { name: 'Base' }),
+    ).toHaveTextContent('try');
+    expect(
+      within(withBaseForm).getByRole('button', { name: 'Revisions' }),
+    ).toHaveTextContent('try');
+    expect(
+      within(withBaseForm).getByRole('button', { name: /Framework/ }),
+    ).toHaveTextContent('talos');
+    expect(withBaseForm).toMatchSnapshot('with base form');
+
+    await expandOverTimeComponent();
+    const overtimeForm = await getOverTimeForm();
+    expect(
+      within(overtimeForm).getByRole('link', { name: /spamspam/ }),
+    ).toBeInTheDocument();
+    expect(
+      within(overtimeForm).getByRole('button', { name: /Base repository/ }),
+    ).toHaveTextContent('try');
+    expect(
+      within(overtimeForm).getByRole('button', { name: 'Revisions' }),
+    ).toHaveTextContent('try');
+    expect(
+      within(overtimeForm).getByRole('button', { name: /Framework/ }),
+    ).toHaveTextContent('talos');
+    expect(overtimeForm).toMatchSnapshot('over time form');
   });
 });
