@@ -89,13 +89,13 @@ function CommonGraph(props: CommonGraphProps) {
   const baseRunsDensity = Array.from(
     kde.density1d(baseRevisionRuns.values, {
       bandwidth,
-      extent: [min, max],
+      extent: [min - bandwidth, max + bandwidth],
     }),
   );
   const newRunsDensity = Array.from(
     kde.density1d(newRevisionRuns.values, {
       bandwidth,
-      extent: [min, max],
+      extent: [min - bandwidth, max + bandwidth],
     }),
   );
 
