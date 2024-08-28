@@ -170,4 +170,41 @@ describe('Search by title/test name', () => {
     await user.click(clearButton);
     expect(screen.getByText('spam')).toBeInTheDocument();
   });
+
+  it('should update the url search params properly', async () => {
+    await setupAndRenderComponent();
+
+    const searchInput = await screen.findByRole('textbox', {
+      name: /Search by title/,
+    });
+
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
+
+    // With the mock setup in this test, there are 2 results with different
+    // properties. In this test we make each of the input show and disappear in
+    // an alternance, by searching for the values in the different properties.
+    await user.type(searchInput, 'glvideo');
+    await waitFor(() =>
+      expect(screen.queryByText('a11yr')).not.toBeInTheDocument(),
+    );
+    // Make sure that the search params are updated properly.
+    expect(window.location.search).toContain('&search=glvideo');
+
+    await user.clear(searchInput);
+    expect(await screen.findByText('a11yr')).toBeInTheDocument();
+    // Clearing the search should remove the search param.
+    expect(window.location.search).not.toContain('&search');
+
+    await user.type(searchInput, 'a11yr{Enter}');
+    // With enter the update should happen instantly.
+    expect(window.location.search).toContain('&search=a11yr');
+
+    const clearButton = screen.getByRole('button', {
+      name: 'Clear the search input',
+    });
+    await user.click(clearButton);
+    // Clearing the search through button should also remove the search param.
+    expect(window.location.search).not.toContain('&search');
+  });
 });
