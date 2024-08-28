@@ -16,9 +16,12 @@ const styles = {
   }),
 };
 
-function CommonGraph(props: CommonGraphProps) {
-  const { baseRevisionRuns, newRevisionRuns, min, max } = props;
-
+function CommonGraph({
+  baseRevisionRuns,
+  newRevisionRuns,
+  min,
+  max,
+}: CommonGraphProps) {
   const options = {
     plugins: {
       legend: {
@@ -85,6 +88,10 @@ function CommonGraph(props: CommonGraphProps) {
   // Arbitrary value that seems to work OK.
   // In the future we'll want to compute a better value, see
   // https://bugzilla.mozilla.org/show_bug.cgi?id=1901248 for some ideas.
+  if (max === min) {
+    min = max - 15;
+    max = max + 15;
+  }
   const bandwidth = (max - min) / 15;
   const baseRunsDensity = Array.from(
     kde.density1d(baseRevisionRuns.values, {
