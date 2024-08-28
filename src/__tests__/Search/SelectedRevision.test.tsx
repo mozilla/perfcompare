@@ -89,7 +89,7 @@ describe('SelectedRevision', () => {
     });
     await user.click(mozRepoItem);
     const alertIcon = await screen.findByRole('img', {
-      name: 'Comparing “try” repository to any repository aside from “try” is not recommended.',
+      name: 'Production (e.g. mozilla-central, autoland), and try branches have different performance characteristics due to build differences that can often result in misleading comparisons.',
     });
     expect(alertIcon).toBeInTheDocument();
   });

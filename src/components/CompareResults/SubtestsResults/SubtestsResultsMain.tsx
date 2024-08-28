@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import { Grid } from '@mui/material';
 import { Container } from '@mui/system';
 import { useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
@@ -53,11 +54,6 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
       margin: 0,
       marginBottom: Spacing.Medium,
     }),
-    content: style({
-      display: 'flex',
-      justifyContent: 'flex-end',
-      alignItems: 'center',
-    }),
   };
 
   return (
@@ -65,11 +61,17 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
       <header>
         <SubtestsBreadcrumbs view={view} />
         <SubtestsRevisionHeader header={subtestsHeader} />
-        <div className={styles.content}>
-          <SearchInput onChange={setSearchTerm} />
-          <DownloadButton resultsPromise={[results]} />
-          <RetriggerButton result={results[0]} variant='text' />
-        </div>
+        <Grid container spacing={1}>
+          <Grid item xs={12} md={6} sx={{ marginInlineEnd: 'auto' }}>
+            <SearchInput onChange={setSearchTerm} />
+          </Grid>
+          <Grid item xs='auto'>
+            <DownloadButton resultsPromise={[results]} />
+          </Grid>
+          <Grid item xs='auto'>
+            <RetriggerButton result={results[0]} variant='text' />
+          </Grid>
+        </Grid>
       </header>
       <SubtestsResultsTable
         filteringSearchTerm={searchTerm}

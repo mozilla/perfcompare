@@ -29,7 +29,7 @@ const getPreviousCompareWithBaseURL = () => {
 
 const getPreviousCompareOverTimeURL = () => {
   const currentSearchParams = new URLSearchParams(location.search);
-  const interval = currentSearchParams.get('interval') as string;
+  const interval = currentSearchParams.get('selectedTimeRange') as string;
   const baseRepo = currentSearchParams.get('baseRepo') as string;
   const newRev = currentSearchParams.get('newRev') as string;
   const newRepo = currentSearchParams.get('newRepo') as string;

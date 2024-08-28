@@ -269,7 +269,7 @@ const getSubtestsCompareWithBaseLink = (result: CompareResultsItem) => {
     newParentSignature: String(result.new_signature_id),
   });
 
-  return `/subtestsCompareWithBase?${params.toString()}`;
+  return `/subtests-compare-results?${params.toString()}`;
 };
 
 const getSubtestsCompareOverTimeLink = (result: CompareResultsItem) => {
@@ -295,12 +295,12 @@ const getSubtestsCompareOverTimeLink = (result: CompareResultsItem) => {
     newRev: result.new_rev,
     newRepo: result.new_repository_name,
     framework: String(result.framework_id),
-    interval,
+    selectedTimeRange: interval,
     baseParentSignature: String(result.base_signature_id),
     newParentSignature: String(result.new_signature_id),
   });
 
-  return `/subtestsCompareOverTime?${params.toString()}`;
+  return `/subtests-compare-over-time-results?${params.toString()}`;
 };
 
 function RevisionRow(props: RevisionRowProps) {

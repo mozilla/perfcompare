@@ -277,11 +277,20 @@ describe('Compare With Base', () => {
     // Do the same operation with the components for the "new" revisions
     const newSearchContainer = document.querySelector('#new-search-container');
     expect(newSearchContainer).toHaveClass('hide-container');
+    expect(
+      screen.queryByRole('button', {
+        name: /Compare/,
+      }),
+    ).not.toBeInTheDocument();
 
     // Click the edit revision for new revisions
     await user.click(getEditButton());
 
     expect(newSearchContainer).toHaveClass('show-container');
+    const compareButton = screen.getByRole('button', {
+      name: /Compare/,
+    });
+    expect(compareButton).toBeInTheDocument();
 
     // Remove the new revision by clicking the X button
     await user.click(getRemoveRevisionButton(1, 'coconut'));
@@ -289,6 +298,18 @@ describe('Compare With Base', () => {
     expect(
       within(newSelectedRevision).queryByText(/no arms left/),
     ).not.toBeInTheDocument();
+
+    // Press the compare button
+    await user.click(compareButton);
+
+    expect(formElement).toMatchSnapshot('After clicking Compare button');
+
+    // The form should be back at its initial state.
+    expect(compareButton).not.toBeVisible();
+    expect(editButton).toBeVisible();
+    expect(baseSearchContainer).toHaveClass('hide-container');
+
+    await waitFor(() => expect(location.href).not.toContain('newRev=spam'));
   });
 
   it('updates the framework and url when a new one is selected', async () => {
@@ -319,56 +340,6 @@ describe('Compare With Base', () => {
     expect(list).toMatchSnapshot('after awsy is selected');
     const awsy = screen.getByText('awsy');
     expect(awsy).toBeInTheDocument();
-  });
-
-  it('should exit edit mode after clicking Compare button', async () => {
-    renderWithCompareResultsURL(
-      <ResultsView title={Strings.metaData.pageTitle.results} />,
-    );
-    const formElement = await waitForPageReadyAndReturnForm();
-    const user = userEvent.setup({ delay: null });
-    expect(formElement).toMatchSnapshot(
-      'Initial state for the form before exiting edit mode',
-    );
-    const baseSearchContainer = document.querySelector(
-      '#base-search-container',
-    );
-
-    //Input and compare button should not be visible
-    expect(baseSearchContainer).toHaveClass('hide-container');
-    expect(
-      screen.queryByRole('button', {
-        name: /Compare/,
-      }),
-    ).not.toBeInTheDocument();
-
-    // Click the edit entry button
-    const editButton = getEditButton();
-    await user.click(editButton);
-
-    const compareButton = await screen.findByRole('button', {
-      name: /Compare/,
-    });
-
-    //Input and compare button should be visible
-    expect(baseSearchContainer).toHaveClass('show-container');
-    expect(compareButton).toBeInTheDocument();
-
-    expect(editButton).not.toBeVisible();
-
-    // Press the compare button
-    await user.click(compareButton);
-
-    expect(formElement).toMatchSnapshot('After clicking Compare button');
-
-    // The compare button should not be visible
-    expect(compareButton).not.toBeVisible();
-
-    //should see edit button again
-    expect(editButton).toBeVisible();
-
-    // The search container should be hidden
-    expect(baseSearchContainer).toHaveClass('hide-container');
   });
 
   it('should move back to the previously selected base and new revisions when Cancel is clicked', async () => {

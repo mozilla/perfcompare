@@ -54,7 +54,7 @@ describe('Search View/fetchRecentRevisions', () => {
     await screen.findAllByText("you've got no arms left!");
 
     expect(global.fetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/autoland/push/?hide_reviewbot_pushes=true',
+      'https://treeherder.mozilla.org/api/project/autoland/push/?hide_reviewbot_pushes=true&count=30',
       undefined,
     );
   });
@@ -76,7 +76,7 @@ describe('Search View/fetchRecentRevisions', () => {
     expect(inputs[0]).toBeInvalid();
     expect(inputs[1]).toBeInvalid();
     expect(global.fetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true',
+      'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true&count=30',
       undefined,
     );
   });
@@ -102,7 +102,7 @@ describe('Search View/fetchRecentRevisions', () => {
     expect(inputs[0]).toBeInvalid();
     expect(inputs[1]).toBeInvalid();
     expect(global.fetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true',
+      'https://treeherder.mozilla.org/api/project/try/push/?hide_reviewbot_pushes=true&count=30',
       undefined,
     );
     expect(console.error).toHaveBeenCalledWith(
