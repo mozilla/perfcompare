@@ -115,13 +115,14 @@ function resultMatchesSearchTerm(
   result: CompareResultsItem,
   searchTerm: string,
 ) {
+  searchTerm = searchTerm.toLowerCase();
   return (
-    result.suite.includes(searchTerm) ||
-    result.extra_options.includes(searchTerm) ||
-    result.option_name.includes(searchTerm) ||
-    result.test.includes(searchTerm) ||
-    result.new_rev.includes(searchTerm) ||
-    result.platform.includes(searchTerm)
+    result.suite.toLowerCase().includes(searchTerm) ||
+    result.extra_options.toLowerCase().includes(searchTerm) ||
+    result.option_name.toLowerCase().includes(searchTerm) ||
+    result.test.toLowerCase().includes(searchTerm) ||
+    result.new_rev.toLowerCase().includes(searchTerm) ||
+    result.platform.toLowerCase().includes(searchTerm)
   );
 }
 
