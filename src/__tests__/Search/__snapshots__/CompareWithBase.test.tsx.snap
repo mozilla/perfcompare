@@ -3666,7 +3666,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
           class="MuiGrid-root wrapper--withbase fcdpsbx css-plh9qo-MuiGrid-root"
         >
           <div
-            class="compare-card-container compare-card-container--expanded container_f1cct50y"
+            class="compare-card-container compare-card-container--expanded container_fbyd6x5"
             data-testid="base-state"
           >
             <div
@@ -3689,7 +3689,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
             />
           </div>
           <div
-            class="compare-card-container content-base content-base--expanded container_f1cct50y"
+            class="compare-card-container content-base content-base--expanded container_fbyd6x5"
           >
             <hr
               class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
@@ -4099,7 +4099,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
           class="MuiGrid-root wrapper--overtime f1ucodr8 css-plh9qo-MuiGrid-root"
         >
           <div
-            class="compare-card-container compare-card-container--hidden container_f1cct50y"
+            class="compare-card-container compare-card-container--hidden container_fbyd6x5"
             data-testid="time-state"
           >
             <div
@@ -4122,7 +4122,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
             />
           </div>
           <div
-            class="compare-card-container content-base content-base--hidden container_f1cct50y "
+            class="compare-card-container content-base content-base--hidden container_fbyd6x5 "
           >
             <hr
               class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
