@@ -92,7 +92,7 @@ exports[`Results Table Should match snapshot 1`] = `
           class="MuiGrid-root wrapper--withbase fcdpsbx css-plh9qo-MuiGrid-root"
         >
           <div
-            class="compare-card-container compare-card-container--expanded container_f1cfcydl"
+            class="compare-card-container compare-card-container--expanded container_f8n2dxl"
             data-testid="base-state"
           >
             <div
@@ -115,7 +115,7 @@ exports[`Results Table Should match snapshot 1`] = `
             />
           </div>
           <div
-            class="compare-card-container content-base content-base--expanded container_f1cfcydl"
+            class="compare-card-container content-base content-base--expanded container_f8n2dxl"
           >
             <hr
               class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
