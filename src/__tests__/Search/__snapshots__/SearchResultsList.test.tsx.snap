@@ -14,7 +14,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
         Skip to search
       </button>
       <div
-        class="MuiGrid-root header-container container_f15tggp2 css-plh9qo-MuiGrid-root"
+        class="MuiGrid-root header-container container_fllbiki css-plh9qo-MuiGrid-root"
       >
         <div
           class="toggle-dark-mode f10ie5uy MuiBox-root css-0"

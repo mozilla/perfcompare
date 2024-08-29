@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/restrict-template-expressions */
 import { stylesheet } from 'typestyle';
 
 import clockDark from '../assets/clock-dark.svg';
@@ -25,6 +24,12 @@ const repoDropdownWidth = 200;
 
 export const CompareCardsStyles = (mode: string) => {
   const isTrueLight = mode == 'light' ? true : false;
+
+  const overlappingCircles = isTrueLight
+    ? overlappingCirclesLight
+    : overlappingCirclesDark;
+
+  const clock = isTrueLight ? clockLight : clockDark;
 
   const compareCardsCSS = stylesheet({
     container: {
@@ -53,12 +58,10 @@ export const CompareCardsStyles = (mode: string) => {
             : Colors.Background300Dark,
           $nest: {
             '&.compare-card-img--time': {
-              backgroundImage: `url(${isTrueLight ? clockLight : clockDark})`,
+              backgroundImage: `url(${clock.toString()})`,
             },
             '&.compare-card-img--base': {
-              backgroundImage: `url(${
-                isTrueLight ? overlappingCirclesLight : overlappingCirclesDark
-              })`,
+              backgroundImage: `url(${overlappingCircles.toString()})`,
             },
           },
         },

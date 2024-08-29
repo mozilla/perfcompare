@@ -1,15 +1,15 @@
 import { stylesheet } from 'typestyle';
 
-import { Strings } from '../resources/Strings';
+import headerBGImage from '../assets/header-background.svg';
 import { Colors } from './Colors';
 import { Spacing } from './Spacing';
-
-const strings = Strings.components.header;
 
 export const HeaderStyles = (mode: string, isHome: boolean) => {
   const isTrueLight = mode == 'light';
   const lightBg = isHome ? Colors.Background200 : '#ffffff';
   const darkBg = isHome ? Colors.Background200Dark : Colors.Background100Dark;
+
+  const headerImage = isHome ? headerBGImage : 'none';
 
   const styles = stylesheet({
     container: {
@@ -17,7 +17,7 @@ export const HeaderStyles = (mode: string, isHome: boolean) => {
       width: '100%',
       minHeight: isHome ? '357px' : '130px',
       backgroundColor: isTrueLight ? lightBg : darkBg,
-      backgroundImage: isHome ? strings.bgLink : 'none',
+      backgroundImage: `url(${headerImage.toString()})`,
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
       backgroundPositionY: 'top',
