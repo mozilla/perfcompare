@@ -45,9 +45,6 @@ export const Strings = {
       base: {
         title: 'Compare with a base',
         tagline: 'Analyze differences between specific revisions.',
-        img: 'https://user-images.githubusercontent.com/88336547/233237125-1534220b-c343-421a-9133-ce8f151cb979.png',
-        imgDark:
-          'https://user-images.githubusercontent.com/88336547/233250674-004d071a-7c23-40f4-b348-0687a3fef6e3.png',
         compareBtn: 'Compare',
         editText: 'Edit entry',
         collapsed: {
@@ -76,9 +73,6 @@ export const Strings = {
         title: 'Compare over time',
         tagline:
           'Analyze differences between revisions within a specific time range.',
-        img: 'https://user-images.githubusercontent.com/88336547/233250659-4012551b-e07a-44ce-accb-242e29d31914.png',
-        imgDark:
-          'https://user-images.githubusercontent.com/88336547/233250642-7fd7c217-e72b-4375-9078-7ed2f99cb0f7.png',
         collapsed: {
           errors: {
             notEnoughRevisions: 'Please select at least one revision.',

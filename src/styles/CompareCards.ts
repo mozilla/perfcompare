@@ -1,6 +1,5 @@
 import { stylesheet } from 'typestyle';
 
-import { Strings } from '../resources/Strings';
 import {
   FontsRaw,
   Spacing,
@@ -8,8 +7,6 @@ import {
   CardsDarkRaw,
   CardsLightRaw,
 } from '../styles';
-
-const strings = Strings.components.searchDefault;
 
 const textLightMode = {
   color: `${Colors.PrimaryText} !important`,
@@ -52,12 +49,14 @@ export const CompareCardsStyles = (mode: string) => {
           $nest: {
             '&.compare-card-img--time': {
               backgroundImage: `url(${
-                isTrueLight ? strings.overTime.img : strings.overTime.imgDark
+                isTrueLight ? '../img/clock-light.svg' : '../img/clock-dark.svg'
               })`,
             },
             '&.compare-card-img--base': {
               backgroundImage: `url(${
-                isTrueLight ? strings.base.img : strings.base.imgDark
+                isTrueLight
+                  ? '../img/overlapping-circles-light.svg'
+                  : '../img/overlapping-circles-dark.svg'
               })`,
             },
           },
