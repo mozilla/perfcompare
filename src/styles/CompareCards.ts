@@ -49,14 +49,14 @@ export const CompareCardsStyles = (mode: string) => {
           $nest: {
             '&.compare-card-img--time': {
               backgroundImage: `url(${
-                isTrueLight ? '../img/clock-light.svg' : '../img/clock-dark.svg'
+                isTrueLight ? '/clock-light.svg' : '/clock-dark.svg'
               })`,
             },
             '&.compare-card-img--base': {
               backgroundImage: `url(${
                 isTrueLight
-                  ? '../img/overlapping-circles-light.svg'
-                  : '../img/overlapping-circles-dark.svg'
+                  ? '/overlapping-circles-light.svg'
+                  : '/overlapping-circles-dark.svg'
               })`,
             },
           },
