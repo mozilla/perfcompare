@@ -1,12 +1,11 @@
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
 import { stylesheet } from 'typestyle';
 
-import {
-  FontsRaw,
-  Spacing,
-  Colors,
-  CardsDarkRaw,
-  CardsLightRaw,
-} from '../styles';
+import { FontsRaw, Spacing, Colors, CardsDarkRaw, CardsLightRaw } from '.';
+import clockDark from '../assets/clock-dark.svg';
+import clockLight from '../assets/clock-light.svg';
+import overlappingCirclesDark from '../assets/overlapping-circles-dark.svg';
+import overlappingCirclesLight from '../assets/overlapping-circles-light.svg';
 
 const textLightMode = {
   color: `${Colors.PrimaryText} !important`,
@@ -48,15 +47,11 @@ export const CompareCardsStyles = (mode: string) => {
             : Colors.Background300Dark,
           $nest: {
             '&.compare-card-img--time': {
-              backgroundImage: `url(${
-                isTrueLight ? '/clock-light.svg' : '/clock-dark.svg'
-              })`,
+              backgroundImage: `url(${isTrueLight ? clockLight : clockDark})`,
             },
             '&.compare-card-img--base': {
               backgroundImage: `url(${
-                isTrueLight
-                  ? '/overlapping-circles-light.svg'
-                  : '/overlapping-circles-dark.svg'
+                isTrueLight ? overlappingCirclesLight : overlappingCirclesDark
               })`,
             },
           },
