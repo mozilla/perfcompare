@@ -11,6 +11,7 @@ import { Await, useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
+import useRawSearchParams from '../../hooks/useRawSearchParams';
 import { Colors, Spacing } from '../../styles';
 import type { CompareResultsItem } from '../../types/state';
 import { Framework } from '../../types/types';
@@ -29,8 +30,11 @@ function ResultsMain() {
 
   const themeMode = useAppSelector((state) => state.theme.mode);
   const [searchParams, setSearchParams] = useSearchParams();
-  const [searchTerm, setSearchTerm] = useState('');
 
+  // This is our custom hook that updates the search params without a rerender.
+  const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
+  const initialSearchTerm = rawSearchParams.get('search') ?? '';
+  const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
   const [frameworkIdVal, setFrameworkIdVal] = useState(frameworkId);
 
   const themeColor100 =
@@ -61,13 +65,26 @@ function ResultsMain() {
     setSearchParams(searchParams);
   };
 
+  const onSearchTermChange = (newSearchTerm: string) => {
+    setSearchTerm(newSearchTerm);
+    if (newSearchTerm) {
+      rawSearchParams.set('search', newSearchTerm);
+    } else {
+      rawSearchParams.delete('search');
+    }
+    updateRawSearchParams(rawSearchParams);
+  };
+
   return (
     <Container className={styles.container} data-testid='results-main'>
       <header>
         <div className={styles.title}>Results</div>
         <Grid container className={styles.content} spacing={2}>
           <Grid item md={6} xs={12}>
-            <SearchInput onChange={setSearchTerm} />
+            <SearchInput
+              defaultValue={initialSearchTerm}
+              onChange={onSearchTermChange}
+            />
           </Grid>
           <Grid item xs>
             <FormControl sx={{ width: '100%' }}>
