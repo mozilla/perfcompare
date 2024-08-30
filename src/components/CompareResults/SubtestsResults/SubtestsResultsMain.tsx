@@ -7,6 +7,7 @@ import { style } from 'typestyle';
 
 import { subtestsView, subtestsOverTimeView } from '../../../common/constants';
 import { useAppSelector } from '../../../hooks/app';
+import useRawSearchParams from '../../../hooks/useRawSearchParams';
 import { Colors, Spacing } from '../../../styles';
 import type { SubtestsRevisionsHeader } from '../../../types/state';
 import DownloadButton from '.././DownloadButton';
@@ -28,7 +29,11 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
     | OvertimeLoaderReturnValue;
 
   const themeMode = useAppSelector((state) => state.theme.mode);
-  const [searchTerm, setSearchTerm] = useState('');
+
+  // This is our custom hook that updates the search params without a rerender.
+  const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
+  const initialSearchTerm = rawSearchParams.get('search') ?? '';
+  const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
 
   const subtestsHeader: SubtestsRevisionsHeader = {
     suite: results[0].suite,
@@ -56,6 +61,16 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
     }),
   };
 
+  const onSearchTermChange = (newSearchTerm: string) => {
+    setSearchTerm(newSearchTerm);
+    if (newSearchTerm) {
+      rawSearchParams.set('search', newSearchTerm);
+    } else {
+      rawSearchParams.delete('search');
+    }
+    updateRawSearchParams(rawSearchParams);
+  };
+
   return (
     <Container className={styles.container} data-testid='subtests-main'>
       <header>
@@ -63,7 +78,10 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
         <SubtestsRevisionHeader header={subtestsHeader} />
         <Grid container spacing={1}>
           <Grid item xs={12} md={6} sx={{ marginInlineEnd: 'auto' }}>
-            <SearchInput onChange={setSearchTerm} />
+            <SearchInput
+              defaultValue={initialSearchTerm}
+              onChange={onSearchTermChange}
+            />
           </Grid>
           <Grid item xs='auto'>
             <DownloadButton resultsPromise={[results]} />
