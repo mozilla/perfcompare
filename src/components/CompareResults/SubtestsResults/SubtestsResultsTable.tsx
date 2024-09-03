@@ -93,7 +93,7 @@ function resultMatchesSearchTerm(
   result: CompareResultsItem,
   searchTerm: string,
 ) {
-  return result.test.includes(searchTerm);
+  return result.test.toLowerCase().includes(searchTerm.toLowerCase());
 }
 
 function resultMatchesColumnFilter(
