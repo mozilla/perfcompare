@@ -33,6 +33,9 @@ function RunValues(props: RunValuesProps) {
     stddevPercent,
     measurementUnit,
   } = props.revisionRuns;
+
+  const unit = measurementUnit ? `${measurementUnit}` : '';
+
   return (
     <div className={styles.container}>
       {application ? (
@@ -61,7 +64,7 @@ function RunValues(props: RunValuesProps) {
           ))}
         </div>
         <div className={styles.deviation}>
-          {stddev} = {stddevPercent}% standard deviation
+          {stddev} {unit} = {stddevPercent}% standard deviation
         </div>
       </div>
     </div>

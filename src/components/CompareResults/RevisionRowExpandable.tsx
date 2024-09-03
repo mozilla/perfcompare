@@ -17,10 +17,15 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
     delta_percentage: deltaPercent,
     delta_value: delta,
     confidence_text: confidenceText,
+    base_measurement_unit: baseUnit,
+    new_measurement_unit: newUnit,
     new_is_better: newIsBetter,
     base_app: baseApplication,
     new_app: newApplication,
   } = result;
+
+  const unit = baseUnit || newUnit;
+  const deltaUnit = unit ? `${unit}` : '';
 
   const themeMode = useAppSelector((state) => state.theme.mode);
   const themeColor200 =
@@ -76,7 +81,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
         </div>
         <div className={`${styles.bottomSpace}`}>
           <b>Mean Difference</b>: {deltaPercent}%{' '}
-          {newIsBetter ? 'better' : 'worse'} ({delta})
+          {newIsBetter ? 'better' : 'worse'} ({delta} {deltaUnit})
         </div>
         {confidenceText ? (
           <div>
