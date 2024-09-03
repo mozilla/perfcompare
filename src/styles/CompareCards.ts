@@ -1,6 +1,9 @@
 import { stylesheet } from 'typestyle';
 
-import { Strings } from '../resources/Strings';
+import clockDark from '../assets/clock-dark.svg';
+import clockLight from '../assets/clock-light.svg';
+import overlappingCirclesDark from '../assets/overlapping-circles-dark.svg';
+import overlappingCirclesLight from '../assets/overlapping-circles-light.svg';
 import {
   FontsRaw,
   Spacing,
@@ -8,8 +11,6 @@ import {
   CardsDarkRaw,
   CardsLightRaw,
 } from '../styles';
-
-const strings = Strings.components.searchDefault;
 
 const textLightMode = {
   color: `${Colors.PrimaryText} !important`,
@@ -23,6 +24,12 @@ const repoDropdownWidth = 200;
 
 export const CompareCardsStyles = (mode: string) => {
   const isTrueLight = mode == 'light' ? true : false;
+
+  const overlappingCircles = isTrueLight
+    ? overlappingCirclesLight
+    : overlappingCirclesDark;
+
+  const clock = isTrueLight ? clockLight : clockDark;
 
   const compareCardsCSS = stylesheet({
     container: {
@@ -51,14 +58,10 @@ export const CompareCardsStyles = (mode: string) => {
             : Colors.Background300Dark,
           $nest: {
             '&.compare-card-img--time': {
-              backgroundImage: `url(${
-                isTrueLight ? strings.overTime.img : strings.overTime.imgDark
-              })`,
+              backgroundImage: `url(${clock.toString()})`,
             },
             '&.compare-card-img--base': {
-              backgroundImage: `url(${
-                isTrueLight ? strings.base.img : strings.base.imgDark
-              })`,
+              backgroundImage: `url(${overlappingCircles.toString()})`,
             },
           },
         },

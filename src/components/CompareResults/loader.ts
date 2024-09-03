@@ -207,8 +207,6 @@ export async function loader({ request }: { request: Request }) {
     framework: frameworkId,
   });
 
-  // For each of these requests, we get a list of 1 item because we request one
-  // specific hash.
   // TODO what happens if there's no result?
   const baseRevInfoPromise = memoizedFetchRevisionForRepository({
     repository: baseRepo,

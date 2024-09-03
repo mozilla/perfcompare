@@ -142,7 +142,7 @@ export async function loader({ request }: { request: Request }) {
   const baseParentSignatureFromUrl = url.searchParams.get(
     'baseParentSignature',
   );
-  const newParentSignatureFromUrl = url.searchParams.get('baseParentSignature');
+  const newParentSignatureFromUrl = url.searchParams.get('newParentSignature');
 
   const {
     baseRepo,

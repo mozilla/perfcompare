@@ -1,5 +1,6 @@
 import userEvent from '@testing-library/user-event';
 
+import { loader } from '../../components/Search/loader';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import getTestData from '../utils/fixtures';
@@ -9,6 +10,15 @@ import {
   act,
   FetchMockSandbox,
 } from '../utils/test-utils';
+
+async function renderSearchViewComponent() {
+  renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />, {
+    loader,
+  });
+  const title = 'Compare with a base';
+  const compTitle = await screen.findByRole('heading', { name: title });
+  expect(compTitle).toBeInTheDocument();
+}
 
 describe('Search View/fetchRevisionByID', () => {
   it('should fetch revisions by ID if searchValue is a 12 or 40 character hash', async () => {
@@ -24,7 +34,7 @@ describe('Search View/fetchRevisionByID', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
+    await renderSearchViewComponent();
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'abcdef123456');
@@ -68,7 +78,7 @@ describe('Search View/fetchRevisionByID', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
+    await renderSearchViewComponent();
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'abcdef1234567890abcdef1234567890abcdef12');
@@ -101,7 +111,7 @@ describe('Search View/fetchRevisionByID', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
+    await renderSearchViewComponent();
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'abcdef1234567890abcdef1234567890abcdef12');
@@ -136,7 +146,7 @@ describe('Search View/fetchRevisionByID', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
+    await renderSearchViewComponent();
 
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.type(searchInput, 'abcdef123456');

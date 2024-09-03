@@ -3,8 +3,9 @@ import { ReactElement } from 'react';
 import userEvent from '@testing-library/user-event';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import { loader } from '../../components/CompareResults/overTimeLoader';
+import { loader as overTimeLoader } from '../../components/CompareResults/overTimeLoader';
 import OverTimeResultsView from '../../components/CompareResults/OverTimeResultsView';
+import { loader as searchLoader } from '../../components/Search/loader';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import getTestData from '../utils/fixtures';
@@ -36,6 +37,7 @@ function renderSearchViewComponent() {
   setUpTestData();
   return renderWithRouter(
     <SearchView title={Strings.metaData.pageTitle.search} />,
+    { loader: searchLoader },
   );
 }
 
@@ -45,19 +47,23 @@ function renderWithCompareResultsURL(component: ReactElement) {
     route: '/compare-over-time-results/',
     search:
       '?baseRepo=try&selectedTimeRange=86400&newRev=coconut&newRepo=try&framework=2',
-    loader,
+    loader: overTimeLoader,
   });
 }
 
-// Useful function utilities to get various elements in the page
-async function waitForPageReadyAndReturnForm() {
-  const formName = 'Compare over time form';
-  const overTimeTitle = Strings.components.searchDefault.overTime.title;
+async function waitForPageReady() {
+  const overTimeTitle = 'Compare over time';
   const compTitle = await screen.findByRole('heading', {
     name: overTimeTitle,
   });
 
   expect(compTitle).toBeInTheDocument();
+}
+
+// Useful function utilities to get various elements in the page
+async function waitForPageReadyAndReturnForm() {
+  await waitForPageReady();
+  const formName = 'Compare over time form';
   const formElement = await screen.findByRole('form', {
     name: formName,
   });
@@ -77,7 +83,7 @@ function getCancelButton() {
 async function expandOverTimeComponent() {
   const user = userEvent.setup({ delay: null });
   const testExpandedID = 'time-state';
-  const headerContent = screen.getByTestId(testExpandedID);
+  const headerContent = await screen.findByTestId(testExpandedID);
   await user.click(headerContent);
   expect(screen.getByTestId(testExpandedID)).toHaveClass(
     'compare-card-container--expanded',
@@ -100,15 +106,9 @@ describe('Compare Over Time', () => {
     expect(formElement).toMatchSnapshot('Initial state for the form');
   });
 
-  it('has the correct title for the component', async () => {
-    renderSearchViewComponent();
-    const title = 'Compare over time';
-    const compTitle = screen.getByRole('heading', { name: title });
-    expect(compTitle).toBeInTheDocument();
-  });
-
   it('expands on header click and closes when user clicks base component header', async () => {
     renderSearchViewComponent();
+    await waitForPageReady();
     const user = userEvent.setup({ delay: null });
 
     const testExpandedID = 'time-state';
@@ -363,6 +363,7 @@ describe('Compare Over Time', () => {
       {
         path: '/',
         element: <SearchView title={Strings.metaData.pageTitle.search} />,
+        loader: searchLoader,
       },
       { path: '/compare-over-time-results', element: <div /> },
     ]);
@@ -519,6 +520,13 @@ describe('Compare Over Time', () => {
     ).not.toBeInTheDocument();
     expect(within(formElement).queryByRole('textbox')).not.toBeInTheDocument();
 
+    //Compare should not be visible
+    expect(
+      screen.queryByRole('button', {
+        name: /Compare/,
+      }),
+    ).not.toBeInTheDocument();
+
     // Click the edit revision
     const editButton = getEditButton();
     await user.click(editButton);
@@ -539,6 +547,10 @@ describe('Compare Over Time', () => {
       screen.getByRole('button', { name: 'Revisions' }),
     ).toBeInTheDocument();
     expect(within(formElement).getByRole('textbox')).toBeInTheDocument();
+    const compareButton = await screen.findByRole('button', {
+      name: /Compare/,
+    });
+    expect(compareButton).toBeInTheDocument();
 
     expect(formElement).toMatchSnapshot('After clicking edit button');
     expect(editButton).not.toBeVisible();
@@ -560,12 +572,9 @@ describe('Compare Over Time', () => {
     });
     await user.click(last2daysItem);
 
-    const compareButton = await screen.findByRole('button', {
-      name: /Compare/,
-    });
-
     // Press the compare button
     await user.click(compareButton);
+    expect(formElement).toMatchSnapshot('After clicking Compare button');
 
     await waitFor(() => {
       expect(location.href).toContain('selectedTimeRange=172800');
@@ -575,59 +584,9 @@ describe('Compare Over Time', () => {
     expect(screen.getByText(/alves of coconuts/)).toBeInTheDocument();
     expect(screen.getByText(/Last 2 days/)).toBeInTheDocument();
     expect(within(formElement).getAllByText('autoland')[0]).toBeInTheDocument();
-  });
-
-  it('should exit edit mode after clicking Compare button', async () => {
-    renderWithCompareResultsURL(
-      <OverTimeResultsView title={Strings.metaData.pageTitle.results} />,
-    );
-    const formElement = await waitForPageReadyAndReturnForm();
-    const user = userEvent.setup({ delay: null });
-    expect(formElement).toMatchSnapshot(
-      'Initial state for the form before exiting edit mode',
-    );
-
-    // the readonly should be displayed
-    const timeReadOnly = document.querySelector(
-      '#time-search-container--readonly',
-    );
-    expect(timeReadOnly).toBeInTheDocument();
-
-    //Compare should not be visible
-    expect(
-      screen.queryByRole('button', {
-        name: /Compare/,
-      }),
-    ).not.toBeInTheDocument();
-
-    // Click the edit entry button
-    const editButton = getEditButton();
-    await user.click(editButton);
-
-    const compareButton = await screen.findByRole('button', {
-      name: /Compare/,
-    });
-
-    //Inputs and compare button should be visible
-
-    expect(within(formElement).getByRole('textbox')).toBeInTheDocument();
-    expect(compareButton).toBeInTheDocument();
-
-    //hidden edit button and readOnly
-    expect(editButton).not.toBeVisible();
-    expect(timeReadOnly).not.toBeInTheDocument();
-
-    // Press the compare button
-    await user.click(compareButton);
-
-    expect(formElement).toMatchSnapshot('After clicking Compare button');
 
     expect(compareButton).not.toBeVisible();
-
-    //should see edit button again
     expect(editButton).toBeVisible();
-
-    // The inputs should be hidden
     expect(within(formElement).queryByRole('textbox')).not.toBeInTheDocument();
   });
 });

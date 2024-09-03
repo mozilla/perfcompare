@@ -8,10 +8,11 @@ import { Strings } from '../../resources/Strings';
 import { simpleDebounce } from '../../utils/simple-debounce';
 
 interface SearchInputProps {
+  defaultValue?: string;
   onChange: (searchTerm: string) => unknown;
 }
-function SearchInput({ onChange }: SearchInputProps) {
-  const [searchTerm, setSearchTerm] = useState('');
+function SearchInput({ defaultValue, onChange }: SearchInputProps) {
+  const [searchTerm, setSearchTerm] = useState(defaultValue ?? '');
 
   // By using useCallback, we ensure that we always have the same instance of
   // onDebouncedChange, so that when calling `clear` the timeout will always be

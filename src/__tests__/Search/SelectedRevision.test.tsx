@@ -1,5 +1,6 @@
 import userEvent from '@testing-library/user-event';
 
+import { loader } from '../../components/Search/loader';
 import SearchView from '../../components/Search/SearchView';
 import { Strings } from '../../resources/Strings';
 import getTestData from '../utils/fixtures';
@@ -10,8 +11,13 @@ import {
   FetchMockSandbox,
 } from '../utils/test-utils';
 
-function renderComponent() {
-  renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />);
+async function renderComponent() {
+  renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />, {
+    loader,
+  });
+  const title = 'Compare with a base';
+  const compTitle = await screen.findByRole('heading', { name: title });
+  expect(compTitle).toBeInTheDocument();
 }
 
 describe('SelectedRevision', () => {
@@ -30,7 +36,7 @@ describe('SelectedRevision', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    renderComponent();
+    await renderComponent();
     // focus input to show results
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
@@ -61,7 +67,7 @@ describe('SelectedRevision', () => {
 
   it('should show warning icon on selected try revision when try base is compared with a non try repository', async () => {
     const user = userEvent.setup({ delay: null });
-    renderComponent();
+    await renderComponent();
 
     const baseDropdown = screen.getByRole('button', { name: 'Base' });
     expect(baseDropdown).toHaveTextContent('try');
@@ -83,7 +89,7 @@ describe('SelectedRevision', () => {
     });
     await user.click(mozRepoItem);
     const alertIcon = await screen.findByRole('img', {
-      name: 'Comparing “try” repository to any repository aside from “try” is not recommended.',
+      name: 'Production (e.g. mozilla-central, autoland), and try branches have different performance characteristics due to build differences that can often result in misleading comparisons.',
     });
     expect(alertIcon).toBeInTheDocument();
   });
