@@ -7,6 +7,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import Radio from '@mui/material/Radio';
 import Typography from '@mui/material/Typography';
 import dayjs from 'dayjs';
 import { style } from 'typestyle';
@@ -20,6 +21,7 @@ interface SearchResultsListItemProps {
   item: Changeset;
   isChecked: boolean;
   onToggle: (item: Changeset) => void;
+  listItemComponent?: 'checkbox' | 'radio';
 }
 
 const styles = {
@@ -59,7 +61,9 @@ function SearchResultsListItem({
   item,
   isChecked,
   onToggle,
+  listItemComponent,
 }: SearchResultsListItemProps) {
+  const ListItemComponent = listItemComponent === 'radio' ? Radio : Checkbox;
   const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);
   const itemDate = new Date(item.push_timestamp * 1000);
@@ -82,7 +86,7 @@ function SearchResultsListItem({
           disablePadding
         >
           <ListItemIcon className='search-revision-item-icon search-revision'>
-            <Checkbox
+            <ListItemComponent
               className='search-revision-item-checkbox'
               edge='start'
               tabIndex={-1}

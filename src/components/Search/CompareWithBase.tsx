@@ -270,6 +270,7 @@ function CompareWithBase({
               setBaseRepository(repo)
             }
             formIsDisplayed={formIsDisplayed}
+            listItemComponent='radio'
           />
           <SearchComponent
             {...stringsNew}

@@ -71,7 +71,7 @@ describe('SearchResultsList', () => {
     const fleshWound = await screen.findByRole('button', {
       name: /it's just a flesh wound/,
     });
-    const fleshWoundCheckbox = within(fleshWound).getByRole('checkbox');
+    const fleshWoundCheckbox = within(fleshWound).getByRole('radio');
 
     await user.click(fleshWound);
     expect(fleshWound).toHaveClass('item-selected');
