@@ -1,18 +1,12 @@
 import FormControl from '@mui/material/FormControl';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { style, cssRule } from 'typestyle';
+import { style } from 'typestyle';
 
 import { timeRangeMap } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
-import {
-  Spacing,
-  ButtonsLightRaw,
-  ButtonsDarkRaw,
-  DropDownMenuRaw,
-  DropDownItemRaw,
-} from '../../styles';
+import { ButtonsLightRaw, ButtonsDarkRaw } from '../../styles';
 import type { TimeRange } from '../../types/types';
 
 const strings = Strings.components.searchDefault.overTime.collapsed.timeRange;
@@ -27,27 +21,6 @@ function TimeRangeDropdown({
   onChange,
 }: TimeRangeDropdownProps) {
   const mode = useAppSelector((state) => state.theme.mode);
-
-  cssRule('.MuiPopover-root', {
-    $nest: {
-      '.MuiPaper-root': {
-        flexDirection: 'column',
-        ...(mode === 'light' ? DropDownMenuRaw.Light : DropDownMenuRaw.Dark),
-        $nest: {
-          '.MuiList-root': {
-            padding: `${Spacing.Small}px ${Spacing.xSmall}px`,
-            $nest: {
-              '.MuiMenuItem-root': {
-                ...(mode === 'light'
-                  ? DropDownItemRaw.Light
-                  : DropDownItemRaw.Dark),
-              },
-            },
-          },
-        },
-      },
-    },
-  });
 
   const styles = {
     container: style({

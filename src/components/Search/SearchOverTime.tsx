@@ -3,15 +3,13 @@ import Grid from '@mui/material/Grid';
 import InputLabel from '@mui/material/InputLabel';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import { cssRule, style } from 'typestyle';
+import { style } from 'typestyle';
 
 import { compareOverTimeView, timeRanges } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import {
   Spacing,
-  DropDownMenuRaw,
-  DropDownItemRaw,
   //SearchStyles can be found in CompareCards.ts
   SearchStyles,
   Colors,
@@ -58,28 +56,6 @@ export default function SearchOverTime({
     Strings.components.searchDefault.overTime.collapsed.baseRepo;
   const stringsNew =
     Strings.components.searchDefault.overTime.collapsed.revisions;
-
-  /* These overriding rules update the theme mode by accessing the otherwise inaccessible MUI tooltip styles */
-  cssRule('.MuiPopover-root', {
-    $nest: {
-      '.MuiPaper-root': {
-        flexDirection: 'column',
-        ...(mode === 'light' ? DropDownMenuRaw.Light : DropDownMenuRaw.Dark),
-        $nest: {
-          '.MuiList-root': {
-            padding: `${Spacing.Small}px ${Spacing.xSmall}px`,
-            $nest: {
-              '.MuiMenuItem-root': {
-                ...(mode === 'light'
-                  ? DropDownItemRaw.Light
-                  : DropDownItemRaw.Dark),
-              },
-            },
-          },
-        },
-      },
-    },
-  });
 
   const timeRangeText = timeRanges.find(
     (entry) => entry.value === timeRangeValue,

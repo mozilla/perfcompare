@@ -5,17 +5,11 @@ import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import { SelectChangeEvent } from '@mui/material/Select';
 import Tooltip from '@mui/material/Tooltip';
-import { style, cssRule } from 'typestyle';
+import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
-import {
-  Spacing,
-  ButtonsLightRaw,
-  ButtonsDarkRaw,
-  DropDownMenuRaw,
-  DropDownItemRaw,
-} from '../../styles';
+import { ButtonsLightRaw, ButtonsDarkRaw } from '../../styles';
 import type { Framework } from '../../types/types';
 import FrameworkDropdown from '../Shared/FrameworkDropdown';
 
@@ -30,27 +24,6 @@ function SearchFrameworkDropdown({
 }: SearchFrameworkDropdownProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   const [frameworkIdVal, setframeWorkValue] = useState(frameworkId);
-
-  cssRule('.MuiPopover-root', {
-    $nest: {
-      '.MuiPaper-root': {
-        flexDirection: 'column',
-        ...(mode === 'light' ? DropDownMenuRaw.Light : DropDownMenuRaw.Dark),
-        $nest: {
-          '.MuiList-root': {
-            padding: `${Spacing.Small}px ${Spacing.xSmall}px`,
-            $nest: {
-              '.MuiMenuItem-root': {
-                ...(mode === 'light'
-                  ? DropDownItemRaw.Light
-                  : DropDownItemRaw.Dark),
-              },
-            },
-          },
-        },
-      },
-    },
-  });
 
   const styles = {
     container: style({
