@@ -25,6 +25,7 @@ interface SearchProps {
   labelIdInfo: string;
   onRepositoryChange: (repo: Repository['name']) => unknown;
   formIsDisplayed: boolean;
+  listItemComponent?: 'checkbox' | 'radio';
 }
 
 function SearchComponent({
@@ -41,6 +42,7 @@ function SearchComponent({
   labelIdInfo,
   onRepositoryChange,
   formIsDisplayed,
+  listItemComponent,
 }: SearchProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   //SearchStyles can be found in CompareCards.ts
@@ -104,6 +106,7 @@ function SearchComponent({
             searchType={searchType}
             repository={repository}
             onSearchResultsToggle={onSearchResultsToggle}
+            listItemComponent={listItemComponent}
           />
         </Grid>
       </Grid>
