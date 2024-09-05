@@ -52,16 +52,24 @@ function SearchComponent({
       <Grid
         item
         xs={2}
+        display='flex'
+        alignItems='center'
         className={`${isBaseComp ? 'base' : 'new'}-search-dropdown ${
           styles.dropDown
         } label-edit-wrapper`}
       >
         <InputLabel id={labelIdInfo} className='dropdown-select-label'>
           {selectLabel}
-          <Tooltip placement='top' title={tooltip}>
-            <InfoIcon fontSize='small' className='dropdown-info-icon' />
-          </Tooltip>
         </InputLabel>
+        <Tooltip
+          classes={{
+            tooltip: `tooltip-${mode === 'light' ? 'light' : 'dark'}`,
+          }}
+          placement='top'
+          title={tooltip}
+        >
+          <InfoIcon fontSize='small' className='dropdown-info-icon' />
+        </Tooltip>
       </Grid>
       {/**** Search - DropDown Section ****/}
       <Grid

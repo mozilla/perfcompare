@@ -1,6 +1,6 @@
 import { green, red } from '@mui/material/colors';
 
-import { Spacing, FontsRaw, FontSizeRaw } from '../styles';
+import { Spacing, FontsRaw, FontSizeRaw, TooltipRaw } from '../styles';
 import android from './img/android.svg';
 import high from './img/high.svg';
 import linux from './img/linux.svg';
@@ -194,13 +194,7 @@ const components = {
   MuiPopover: {
     styleOverrides: {
       root: {
-        '&.edit-revision-popover': {
-          '& .MuiPaper-root': {
-            width: '100%',
-            maxWidth: '1152px',
-            padding: '6px',
-          },
-        },
+        flexDirection: 'column',
       },
     },
   },
@@ -233,6 +227,18 @@ const components = {
       root: {
         '&.Mui-focused': {
           outline: '1px auto',
+        },
+      },
+    },
+  },
+  MuiTooltip: {
+    styleOverrides: {
+      tooltip: {
+        '&.tooltip-light': {
+          ...TooltipRaw.Light,
+        },
+        '&.tooltip-dark': {
+          ...TooltipRaw.Dark,
         },
       },
     },

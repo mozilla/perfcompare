@@ -76,28 +76,40 @@ export default function SearchOverTime({
         spacing={2}
         className={`base-repo-dropdown ${styles.dropDown}`}
       >
-        <Grid item xs>
+        <Grid item xs display='flex' alignItems='center'>
           <InputLabel
             id='base-repo-dropdown--overtime'
             className='dropdown-select-label dropdown-select-label--base'
           >
             {stringsBase.selectLabelBase}
-            <Tooltip placement='top' title={stringsBase.tooltipBase}>
-              <InfoIcon fontSize='small' className='dropdown-info-icon' />
-            </Tooltip>
           </InputLabel>
+          <Tooltip
+            classes={{
+              tooltip: `tooltip-${mode === 'light' ? 'light' : 'dark'}`,
+            }}
+            placement='top'
+            title={stringsBase.tooltipBase}
+          >
+            <InfoIcon fontSize='small' className='dropdown-info-icon' />
+          </Tooltip>
         </Grid>
 
-        <Grid item xs>
+        <Grid item xs display='flex' alignItems='center'>
           <InputLabel
             id='select-timerange-label'
             className='dropdown-select-label dropdown-select-label--time'
           >
             {timeRangeStrings.selectLabel}
-            <Tooltip placement='top' title={timeRangeStrings.tooltip}>
-              <InfoIcon fontSize='small' className='dropdown-info-icon' />
-            </Tooltip>
           </InputLabel>
+          <Tooltip
+            classes={{
+              tooltip: `tooltip-${mode === 'light' ? 'light' : 'dark'}`,
+            }}
+            placement='top'
+            title={timeRangeStrings.tooltip}
+          >
+            <InfoIcon fontSize='small' className='dropdown-info-icon' />
+          </Tooltip>
         </Grid>
       </Grid>
 
@@ -201,7 +213,13 @@ export default function SearchOverTime({
           className='dropdown-select-label'
         >
           {stringsNew.selectLabel}
-          <Tooltip placement='top' title={stringsNew.tooltip}>
+          <Tooltip
+            classes={{
+              tooltip: `tooltip-${mode === 'light' ? 'light' : 'dark'}`,
+            }}
+            placement='top'
+            title={stringsNew.tooltip}
+          >
             <InfoIcon fontSize='small' className='dropdown-info-icon' />
           </Tooltip>
         </InputLabel>

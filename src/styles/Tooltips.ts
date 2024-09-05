@@ -15,11 +15,13 @@ export const TooltipRaw = {
   Light: {
     ...ToolTipsShared,
     backgroundColor: Colors.SecondaryHover,
+    color: Colors.PrimaryText,
     boxShadow: Colors.ShadowLight,
   },
   Dark: {
     ...ToolTipsShared,
     backgroundColor: Colors.SecondaryHoverDark,
+    color: Colors.PrimaryTextDark,
     boxShadow: Colors.ShadowDark,
   },
 };

@@ -159,11 +159,11 @@ export const SearchStyles = (mode: string) => {
 
     dropDown: {
       minWidth: `${repoDropdownWidth}px`,
+      marginBottom: `${Spacing.xSmall + 2}px`,
       $nest: {
         '.dropdown-select-label,.base_label': {
           ...(isTrueLight ? FontsRaw.BodyDefault : FontsRaw.BodyDefaultDark),
           fontWeight: '600',
-          marginBottom: `${Spacing.xSmall + 2}px`,
           display: 'flex',
           alignItems: 'center',
           transform: 'unset',
