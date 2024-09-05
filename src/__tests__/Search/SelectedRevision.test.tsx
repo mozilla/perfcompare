@@ -44,7 +44,7 @@ describe('SelectedRevision', () => {
     const noArmsLeft = await screen.findByRole('button', {
       name: /you've got no arms left!/,
     });
-    const noArmsLeftCheckbox = within(noArmsLeft).getByRole('checkbox');
+    const noArmsLeftCheckbox = within(noArmsLeft).getByRole('radio');
 
     await user.click(noArmsLeft);
     expect(noArmsLeft).toHaveClass('item-selected');
