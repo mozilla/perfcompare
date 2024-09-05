@@ -93,6 +93,7 @@ function ResultsMain() {
                 size='small'
                 variant='outlined'
                 onChange={onFrameworkChange}
+                mode={themeMode}
               />
             </FormControl>
           </Grid>
