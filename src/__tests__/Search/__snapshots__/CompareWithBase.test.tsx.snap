@@ -37,7 +37,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
     class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fa8jmsp label-edit-wrapper css-dhs41p-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f5zlgu9 label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -64,7 +64,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
       id="base-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fa8jmsp small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f5zlgu9 small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="base_search-dropdown"
       >
         <div
@@ -318,7 +318,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
     class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fa8jmsp label-edit-wrapper css-dhs41p-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f5zlgu9 label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -345,7 +345,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
       id="new-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fa8jmsp small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f5zlgu9 small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown"
       >
         <div
@@ -596,7 +596,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
     </div>
   </div>
   <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fa8jmsp css-13jteey-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f5zlgu9 css-13jteey-MuiGrid-root"
   >
     <input
       name="framework"
@@ -631,7 +631,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
 >
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="4"
     role="option"
     tabindex="-1"
@@ -643,7 +643,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="13"
     role="option"
     tabindex="-1"
@@ -655,7 +655,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="2"
     role="option"
     tabindex="-1"
@@ -667,7 +667,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="12"
     role="option"
     tabindex="-1"
@@ -679,7 +679,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="16"
     role="option"
     tabindex="-1"
@@ -691,7 +691,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="11"
     role="option"
     tabindex="-1"
@@ -703,7 +703,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="15"
     role="option"
     tabindex="-1"
@@ -715,7 +715,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="6"
     role="option"
     tabindex="-1"
@@ -727,7 +727,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="10"
     role="option"
     tabindex="-1"
@@ -739,7 +739,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="true"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters Mui-selected MuiMenuItem-root MuiMenuItem-gutters Mui-selected framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters Mui-selected MuiMenuItem-root MuiMenuItem-gutters Mui-selected framework-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="1"
     role="option"
     tabindex="0"
@@ -814,7 +814,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
     class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fa8jmsp label-edit-wrapper css-dhs41p-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f5zlgu9 label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -841,7 +841,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
       id="base-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fa8jmsp small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f5zlgu9 small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="base_search-dropdown"
       >
         <div
@@ -1095,7 +1095,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
     class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fa8jmsp label-edit-wrapper css-dhs41p-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f5zlgu9 label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -1122,7 +1122,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
       id="new-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fa8jmsp small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f5zlgu9 small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown"
       >
         <div
@@ -1236,7 +1236,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
     </div>
   </div>
   <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fa8jmsp css-13jteey-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f5zlgu9 css-13jteey-MuiGrid-root"
   >
     <input
       name="framework"
@@ -1317,7 +1317,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
     class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fa8jmsp label-edit-wrapper css-dhs41p-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f5zlgu9 label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -1344,7 +1344,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
       id="base-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fa8jmsp small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f5zlgu9 small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="base_search-dropdown"
       >
         <div
@@ -1598,7 +1598,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
     class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fa8jmsp label-edit-wrapper css-dhs41p-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f5zlgu9 label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -1625,7 +1625,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
       id="new-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fa8jmsp small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f5zlgu9 small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown"
       >
         <div
@@ -1876,7 +1876,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
     </div>
   </div>
   <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fa8jmsp css-13jteey-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f5zlgu9 css-13jteey-MuiGrid-root"
   >
     <input
       name="framework"
@@ -1950,7 +1950,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
     class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fa8jmsp label-edit-wrapper css-dhs41p-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f5zlgu9 label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -1977,7 +1977,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
       id="base-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fa8jmsp small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f5zlgu9 small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="base_search-dropdown"
       >
         <div
@@ -2231,7 +2231,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
     class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fa8jmsp label-edit-wrapper css-dhs41p-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f5zlgu9 label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -2258,7 +2258,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
       id="new-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fa8jmsp small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f5zlgu9 small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown"
       >
         <div
@@ -2509,7 +2509,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
     </div>
   </div>
   <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fa8jmsp css-13jteey-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f5zlgu9 css-13jteey-MuiGrid-root"
   >
     <input
       name="framework"
@@ -2589,7 +2589,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
     class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fa8jmsp label-edit-wrapper css-dhs41p-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f5zlgu9 label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -2616,7 +2616,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
       id="base-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fa8jmsp small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f5zlgu9 small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="base_search-dropdown"
       >
         <div
@@ -2733,7 +2733,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
     class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fa8jmsp label-edit-wrapper css-dhs41p-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f5zlgu9 label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -2760,7 +2760,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
       id="new-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fa8jmsp small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f5zlgu9 small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown"
       >
         <div
@@ -3011,7 +3011,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
     </div>
   </div>
   <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fa8jmsp css-13jteey-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f5zlgu9 css-13jteey-MuiGrid-root"
   >
     <input
       name="framework"
@@ -3110,7 +3110,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
     class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fa8jmsp label-edit-wrapper css-dhs41p-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f5zlgu9 label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -3137,7 +3137,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
       id="base-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fa8jmsp small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f5zlgu9 small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="base_search-dropdown"
       >
         <div
@@ -3391,7 +3391,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
     class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fa8jmsp label-edit-wrapper css-dhs41p-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f5zlgu9 label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -3418,7 +3418,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
       id="new-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fa8jmsp small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f5zlgu9 small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown"
       >
         <div
@@ -3532,7 +3532,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
     </div>
   </div>
   <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fa8jmsp css-13jteey-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f5zlgu9 css-13jteey-MuiGrid-root"
   >
     <input
       name="framework"
@@ -3730,7 +3730,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                 class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fa8jmsp label-edit-wrapper css-dhs41p-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f5zlgu9 label-edit-wrapper css-dhs41p-MuiGrid-root"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -3757,7 +3757,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                   id="base-search-container"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fa8jmsp  -base-dropdown css-1awobkc-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f5zlgu9  -base-dropdown css-1awobkc-MuiGrid-root"
                     id="base_search-dropdown"
                   >
                     <div
@@ -3874,7 +3874,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                 class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fa8jmsp label-edit-wrapper css-dhs41p-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f5zlgu9 label-edit-wrapper css-dhs41p-MuiGrid-root"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -3901,7 +3901,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                   id="new-search-container"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fa8jmsp  -base-dropdown css-1awobkc-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f5zlgu9  -base-dropdown css-1awobkc-MuiGrid-root"
                     id="new_search-dropdown"
                   >
                     <div
@@ -4015,7 +4015,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                 </div>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fa8jmsp css-bwiycy-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f5zlgu9 css-bwiycy-MuiGrid-root"
               >
                 <div
                   class="MuiFormControl-root framework-dropdown f1ttr4cl css-1nrlq1o-MuiFormControl-root"
@@ -4167,7 +4167,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                 class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_fa8jmsp css-1e9xsub-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f5zlgu9 css-1e9xsub-MuiGrid-root"
                 >
                   <div
                     class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-1ikqdgy-MuiGrid-root"
@@ -4265,7 +4265,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                     </div>
                   </div>
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  dropDown_fa8jmsp   css-1t7ybvx-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  dropDown_f5zlgu9   css-1t7ybvx-MuiGrid-root"
                     id="time-range"
                     style="max-width: 365px;"
                   >
@@ -4310,7 +4310,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fa8jmsp css-13eijkh-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f5zlgu9 css-13eijkh-MuiGrid-root"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -4337,7 +4337,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                   id="new-search-container--time"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fa8jmsp  -new-dropdown css-1awobkc-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f5zlgu9  -new-dropdown css-1awobkc-MuiGrid-root"
                     id="new_search-dropdown--time"
                   >
                     <div
@@ -4450,7 +4450,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                 </div>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fa8jmsp css-bwiycy-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f5zlgu9 css-bwiycy-MuiGrid-root"
               >
                 <div
                   class="MuiFormControl-root framework-dropdown f1ttr4cl css-1nrlq1o-MuiFormControl-root"
@@ -4548,7 +4548,7 @@ exports[`Compare With Base updates the framework and url when a new one is selec
 >
   <li
     aria-selected="true"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters Mui-selected MuiMenuItem-root MuiMenuItem-gutters Mui-selected framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters Mui-selected MuiMenuItem-root MuiMenuItem-gutters Mui-selected framework-dropdown-item f17762yv css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="4"
     role="option"
     tabindex="0"
@@ -4569,7 +4569,7 @@ exports[`Compare With Base updates the framework and url when a new one is selec
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f17762yv css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="13"
     role="option"
     tabindex="-1"
@@ -4581,7 +4581,7 @@ exports[`Compare With Base updates the framework and url when a new one is selec
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f17762yv css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="2"
     role="option"
     tabindex="-1"
@@ -4593,7 +4593,7 @@ exports[`Compare With Base updates the framework and url when a new one is selec
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f17762yv css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="12"
     role="option"
     tabindex="-1"
@@ -4605,7 +4605,7 @@ exports[`Compare With Base updates the framework and url when a new one is selec
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f17762yv css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="16"
     role="option"
     tabindex="-1"
@@ -4617,7 +4617,7 @@ exports[`Compare With Base updates the framework and url when a new one is selec
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f17762yv css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="11"
     role="option"
     tabindex="-1"
@@ -4629,7 +4629,7 @@ exports[`Compare With Base updates the framework and url when a new one is selec
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f17762yv css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="15"
     role="option"
     tabindex="-1"
@@ -4641,7 +4641,7 @@ exports[`Compare With Base updates the framework and url when a new one is selec
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f17762yv css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="6"
     role="option"
     tabindex="-1"
@@ -4653,7 +4653,7 @@ exports[`Compare With Base updates the framework and url when a new one is selec
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f17762yv css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="10"
     role="option"
     tabindex="-1"
@@ -4665,7 +4665,7 @@ exports[`Compare With Base updates the framework and url when a new one is selec
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f17762yv css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="1"
     role="option"
     tabindex="-1"

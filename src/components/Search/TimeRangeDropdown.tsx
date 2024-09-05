@@ -6,7 +6,7 @@ import { style } from 'typestyle';
 import { timeRangeMap } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
-import { ButtonsLightRaw, ButtonsDarkRaw } from '../../styles';
+import { ButtonsLightRaw, ButtonsDarkRaw, DropDownItems } from '../../styles';
 import type { TimeRange } from '../../types/types';
 
 const strings = Strings.components.searchDefault.overTime.collapsed.timeRange;
@@ -40,6 +40,8 @@ function TimeRangeDropdown({
     const value = +event.target.value as TimeRange['value'];
     onChange(value);
   };
+  const menuItemStyles =
+    mode === 'light' ? DropDownItems.Light : DropDownItems.Dark;
 
   return (
     <>
@@ -53,12 +55,17 @@ function TimeRangeDropdown({
           variant='standard'
           onChange={(e) => void handleTimeRangeSelect(e)}
           name='selectedTimeRange'
+          MenuProps={{
+            classes: {
+              paper: `paper-repo paper-${mode === 'light' ? 'light' : 'dark'}`,
+            },
+          }}
         >
           {Object.entries(timeRangeMap).map(([value, text]) => (
             <MenuItem
               value={value}
               key={value}
-              className='timerange-dropdown-item'
+              className={`timerange-dropdown-item ${menuItemStyles}`}
             >
               {text}
             </MenuItem>

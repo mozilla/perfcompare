@@ -1,6 +1,14 @@
 import { green, red } from '@mui/material/colors';
 
-import { Spacing, FontsRaw, FontSizeRaw, TooltipRaw } from '../styles';
+import {
+  Spacing,
+  FontsRaw,
+  FontSizeRaw,
+  TooltipRaw,
+  DropDownMenuRaw,
+  DropDownItemRaw,
+  Colors,
+} from '../styles';
 import android from './img/android.svg';
 import high from './img/high.svg';
 import linux from './img/linux.svg';
@@ -65,6 +73,29 @@ const components = {
       root: {
         '&.filter-status .MuiAlert-icon': {
           paddingTop: '17px',
+        },
+        '&.paper-light': {
+          ...DropDownMenuRaw.Light,
+
+          '.dropdown-menu': {
+            ...DropDownItemRaw.Light,
+            color: red,
+          },
+        },
+        '&.paper-dark': {
+          ...DropDownMenuRaw.Dark,
+          $nest: {
+            '.MuiList-root': {
+              $nest: {
+                '.MuiMenuItem-root': {
+                  ...DropDownItemRaw.Dark,
+                },
+                '.Mui-selected': {
+                  backgroundColor: Colors.SecondaryActiveDark,
+                },
+              },
+            },
+          },
         },
       },
     },
@@ -191,13 +222,7 @@ const components = {
       },
     },
   },
-  MuiPopover: {
-    styleOverrides: {
-      root: {
-        flexDirection: 'column',
-      },
-    },
-  },
+
   MuiIconButton: {
     styleOverrides: {
       root: {

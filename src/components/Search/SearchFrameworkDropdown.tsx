@@ -69,6 +69,7 @@ function SearchFrameworkDropdown({
         labelId='select-framework-label'
         variant='standard'
         onChange={onChange}
+        mode={mode}
       />
     </FormControl>
   );

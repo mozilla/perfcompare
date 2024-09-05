@@ -2,6 +2,8 @@ import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 import { frameworkMap } from '../../common/constants';
+import { DropDownItems } from '../../styles/DropDownMenu';
+import { ThemeMode } from '../../types/state';
 import type { Framework } from '../../types/types';
 
 interface FrameworkDropdownProps {
@@ -10,6 +12,7 @@ interface FrameworkDropdownProps {
   size?: 'small' | 'medium';
   variant?: 'standard' | 'outlined' | 'filled';
   onChange?: (event: SelectChangeEvent) => void;
+  mode: ThemeMode;
 }
 
 const sortFrameworks = (
@@ -33,7 +36,11 @@ function FrameworkDropdown({
   variant,
   size,
   onChange,
+  mode,
 }: FrameworkDropdownProps) {
+  const menuItemStyles =
+    mode === 'light' ? DropDownItems.Light : DropDownItems.Dark;
+
   return (
     <Select
       data-testid='framework-select'
@@ -45,9 +52,18 @@ function FrameworkDropdown({
       variant={variant}
       size={size}
       inputProps={{ 'aria-label': 'Framework' }}
+      MenuProps={{
+        classes: {
+          paper: `paper-repo paper-${mode === 'light' ? 'light' : 'dark'}`,
+        },
+      }}
     >
       {sortedFrameworks.map(([id, name]) => (
-        <MenuItem value={id} key={name} className='framework-dropdown-item'>
+        <MenuItem
+          value={id}
+          key={name}
+          className={`framework-dropdown-item ${menuItemStyles}`}
+        >
           {name}
         </MenuItem>
       ))}
