@@ -173,9 +173,11 @@ export const SearchStyles = (mode: string) => {
         '.dropdown-info-icon': {
           marginLeft: `${Spacing.xSmall}px`,
           cursor: 'pointer',
+          width: '16px',
+          height: '16px',
         },
         '.MuiSvgIcon-root': {
-          color: isTrueLight ? Colors.IconLight : Colors.IconDark,
+          color: isTrueLight ? Colors.PrimaryText : Colors.IconDark,
         },
       },
     },
