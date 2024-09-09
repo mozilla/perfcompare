@@ -1,7 +1,7 @@
 # PerfCompare
 
-[![CircleCI](https://circleci.com/gh/mozilla/perfcompare/tree/beta.svg?style=shield)](https://circleci.com/gh/mozilla/perfcompare/tree/beta)
-[![codecov](https://codecov.io/gh/mozilla/perfcompare/branch/master/graph/badge.svg?token=XHP440JFDQ)](https://codecov.io/gh/mozilla/perfcompare)
+[![CircleCI](https://circleci.com/gh/mozilla/perfcompare/tree/main.svg?style=shield)](https://circleci.com/gh/mozilla/perfcompare/tree/main)
+[![codecov](https://codecov.io/gh/mozilla/perfcompare/branch/main/graph/badge.svg?token=XHP440JFDQ)](https://codecov.io/gh/mozilla/perfcompare)
 ![GitHub issues](https://img.shields.io/github/issues/mozilla/perfcompare)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/mozilla/perfcompare)
 
@@ -13,11 +13,10 @@ Performance Comparison Tool
 
 PerfCompare is hosted on Netlify, and is updated every time commits are pushed to the following branches:
 
-| Branch Name | URL                                               | Description                                                         |
-| ----------- | ------------------------------------------------- | ------------------------------------------------------------------- |
-| production  | https://perf.compare/                             | Production branch, updated every 1-2 weeks.                         |
-| beta        | https://beta--mozilla-perfcompare.netlify.app/    | This is the current development branch.                             |
-| staging     | https://staging--mozilla-perfcompare.netlify.app/ | Staging branch before releasing to beta (it's not in use currently) |
+| Branch Name | URL                                            | Description                                 |
+| ----------- | ---------------------------------------------- | ------------------------------------------- |
+| production  | https://perf.compare/                          | Production branch, updated every 1-2 weeks. |
+| main        | https://main--mozilla-perfcompare.netlify.app/ | This is the current development branch.     |
 
 [More information about our deployment process](./Deployment.md)
 
@@ -58,11 +57,7 @@ When submitting a pull request, please mention the issue number to link the pull
 
 #### Contributors
 
-> Submit your pull requests to the `staging` branch.
-
-#### Employees
-
-> Submit your pull requests to the `beta` branch.
+> Submit your pull requests to the `main` branch.
 
 ---
 
@@ -72,9 +67,9 @@ We recommend the following workflow to contribute to PerfCompare:
 2. To keep your fork up-to-date, use `git rebase upstream` rather than merging. This causes fewer merge conflicts and keeps the git history cleaner.
 
 ```
-# Git commands for keeping your branch up to date with the lastest master
+# Git commands for keeping your branch up to date with the latest main
 git fetch upstream
-git rebase upstream/master
+git rebase upstream/main
 git push --force origin <local branch>
 ```
 

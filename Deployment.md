@@ -2,19 +2,34 @@
 
 PerfCompare is hosted on Netlify, and is updated every time commits are pushed to the following branches:
 
-| Branch Name | URL                                               | Description                                                         |
-| ----------- | ------------------------------------------------- | ------------------------------------------------------------------- |
-| production  | https://perf.compare/                             | Production branch, updated every 1-2 weeks.                         |
-| beta        | https://beta--mozilla-perfcompare.netlify.app/    | This is the current development branch.                             |
-| staging     | https://staging--mozilla-perfcompare.netlify.app/ | Staging branch before releasing to beta (it's not in use currently) |
+| Branch Name | URL                                            | Description                                 |
+| ----------- | ---------------------------------------------- | ------------------------------------------- |
+| production  | https://perf.compare/                          | Production branch, updated every 1-2 weeks. |
+| main        | https://main--mozilla-perfcompare.netlify.app/ | This is the current development branch.     |
 
 Every pull request will be deployed as well to a separate domain, whose link will be added automatically to the PR in a comment.
 
-## How to deploy beta to production
+## How to deploy main to production
 
 The easiest by far is to
-[create a pull request on GitHub](https://github.com/mozilla/perfcompare/compare/production...beta?expand=1).
+[create a pull request on GitHub](https://github.com/mozilla/perfcompare/compare/production...main?expand=1).
 It would be nice to write down the main changes in the PR description.
+
+### Gather the main changes
+
+Here is how you can gather the changes since the last deploy:
+
+1. Gather all the code changes:
+
+```
+git fetch upstream && git log upstream/production..upstream/main --first-parent --oneline --no-decorate --format="format:[%an] %s" --reverse
+```
+
+2. You'll probably need to adjust it manually: remove some useless commits (such
+   as the dependency updates), fix some authors (as merge commits aren't always
+   using the same author as the Pull Request author).
+
+### Create a merge commit
 
 After the PR is created all checks should run. When it's ready the PR can be
 merged. Be careful to always use the **create a merge commit** functionality,
@@ -36,5 +51,5 @@ You can use the following script:
 sh bin/revert-last-deployment.sh
 ```
 
-When you're ready with a fix landed on `beta`, you can push a new version to the
+When you're ready with a fix landed on `main`, you can push a new version to the
 `production` branch as described in the first part.
