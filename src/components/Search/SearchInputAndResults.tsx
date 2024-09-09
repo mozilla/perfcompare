@@ -16,6 +16,7 @@ interface Props {
   searchType: 'base' | 'new';
   repository: Repository['name'];
   onSearchResultsToggle: (item: Changeset) => void;
+  listItemComponent?: 'checkbox' | 'radio';
 }
 
 export default function SearchInputAndResults({
@@ -25,6 +26,7 @@ export default function SearchInputAndResults({
   searchType,
   repository,
   onSearchResultsToggle,
+  listItemComponent,
 }: Props) {
   const [displayDropdown, setDisplayDropdown] = useState(false);
   const [recentRevisions, setRecentRevisions] = useState(
@@ -175,6 +177,7 @@ export default function SearchInputAndResults({
           searchResults={recentRevisions}
           displayedRevisions={displayedRevisions}
           onToggle={onSearchResultsToggle}
+          listItemComponent={listItemComponent}
         />
       )}
     </Box>
