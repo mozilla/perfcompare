@@ -11,6 +11,7 @@ interface SearchResultsListProps {
   searchResults: Changeset[];
   displayedRevisions: Changeset[];
   onToggle: (item: Changeset) => void;
+  listItemComponent?: 'checkbox' | 'radio';
 }
 
 function SearchResultsList({
@@ -18,6 +19,7 @@ function SearchResultsList({
   searchResults,
   displayedRevisions,
   onToggle,
+  listItemComponent,
 }: SearchResultsListProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = SelectListStyles(mode);
@@ -41,6 +43,7 @@ function SearchResultsList({
             item={item}
             isChecked={isInProgressChecked(item)}
             onToggle={onToggle}
+            listItemComponent={listItemComponent}
           />
         ))}
       </List>

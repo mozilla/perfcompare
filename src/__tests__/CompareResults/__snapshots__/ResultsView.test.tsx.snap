@@ -77,6 +77,7 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
               class="fnujpat"
             >
               6.96
+               
                = 
               1.17
               % standard deviation
@@ -135,6 +136,7 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
               class="fnujpat"
             >
               0.84
+               
                = 
               0.14
               % standard deviation
@@ -191,6 +193,7 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
         worse
          (
         10.1
+         
         )
       </div>
       <div>
@@ -295,6 +298,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
               class="fnujpat"
             >
               6.96
+               
                = 
               1.17
               % standard deviation
@@ -353,6 +357,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
               class="fnujpat"
             >
               0.84
+               
                = 
               0.14
               % standard deviation
@@ -409,6 +414,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
         worse
          (
         10.1
+         
         )
       </div>
       <div>
@@ -513,6 +519,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
               class="fnujpat"
             >
               6.96
+               
                = 
               1.17
               % standard deviation
@@ -571,6 +578,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
               class="fnujpat"
             >
               0.84
+               
                = 
               0.14
               % standard deviation
@@ -627,6 +635,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
         worse
          (
         10.1
+         
         )
       </div>
       <div>

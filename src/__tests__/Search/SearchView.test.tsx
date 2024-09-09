@@ -358,7 +358,7 @@ describe('Base and OverTime Search', () => {
       screen.getAllByText("it's just a flesh wound")[0],
     ).toBeInTheDocument();
     await user.click(screen.getAllByText("you've got no arms left!")[0]);
-    await user.click(screen.getAllByTestId('CheckBoxOutlineBlankIcon')[0]);
+    await user.click(screen.getAllByTestId('RadioButtonUncheckedIcon')[0]);
 
     expect(
       screen.getAllByText("you've got no arms left!")[0],
