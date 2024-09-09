@@ -12,7 +12,7 @@ const styles = {
   }),
 };
 
-function TableContent(props: TableContentProps) {
+function TableRevisionContent(props: Props) {
   const { results, header, identifier, view, rowGridTemplateColumns } = props;
 
   return (
@@ -33,7 +33,7 @@ function TableContent(props: TableContentProps) {
   );
 }
 
-interface TableContentProps {
+interface Props {
   results: CompareResultsItem[];
   header: RevisionsHeader;
   identifier: string;
@@ -41,4 +41,4 @@ interface TableContentProps {
   view: typeof compareView | typeof compareOverTimeView;
 }
 
-export default TableContent;
+export default TableRevisionContent;

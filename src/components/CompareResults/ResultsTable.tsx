@@ -10,8 +10,8 @@ import type { CompareResultsItem, RevisionsHeader } from '../../types/state';
 import type { CompareResultsTableConfig } from '../../types/types';
 import { getPlatformShortName } from '../../utils/platform';
 import NoResultsFound from './NoResultsFound';
-import TableContent from './TableContent';
 import TableHeader from './TableHeader';
+import TableRevisionContent from './TableRevisionContent';
 
 type Results = {
   key: string;
@@ -274,7 +274,7 @@ function ResultsTable({
         data={processedResults}
         computeItemKey={(_, res) => res.key}
         itemContent={(_, res) => (
-          <TableContent
+          <TableRevisionContent
             identifier={res.key}
             header={res.revisionHeader}
             results={res.value}
