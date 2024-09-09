@@ -17,7 +17,7 @@ export const stagingTaskclusterUrl =
 export const stagingClientId = 'perfcompare-staging-client';
 export const tcClientIdMap: Record<string, string> = {
   'https://perf.compare': 'perfcompare-production-client',
-  'https://beta--mozilla-perfcompare.netlify.app': 'perfcompare-beta-client',
+  'https://main--mozilla-perfcompare.netlify.app': 'perfcompare-main-client',
   'http://localhost:3000': 'perfcompare-localhost-3000-client',
 };
 
