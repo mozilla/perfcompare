@@ -15,6 +15,22 @@ The easiest by far is to
 [create a pull request on GitHub](https://github.com/mozilla/perfcompare/compare/production...main?expand=1).
 It would be nice to write down the main changes in the PR description.
 
+### Gather the main changes
+
+Here is how you can gather the changes since the last deploy:
+
+1. Gather all the code changes:
+
+```
+git fetch upstream && git log upstream/production..upstream/main --first-parent --oneline --no-decorate --format="format:[%an] %s" --reverse
+```
+
+2. You'll probably need to adjust it manually: remove some useless commits (such
+   as the dependency updates), fix some authors (as merge commits aren't always
+   using the same author as the Pull Request author).
+
+### Create a merge commit
+
 After the PR is created all checks should run. When it's ready the PR can be
 merged. Be careful to always use the **create a merge commit** functionality,
 not _squash_ or _rebase_, to keep a better history.
