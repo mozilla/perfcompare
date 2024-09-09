@@ -2,8 +2,6 @@ import { Suspense, useState } from 'react';
 
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
-import FormControl from '@mui/material/FormControl';
-import Grid from '@mui/material/Grid';
 import { Container } from '@mui/system';
 import { useSearchParams } from 'react-router-dom';
 import { Await, useLoaderData } from 'react-router-dom';
@@ -14,13 +12,10 @@ import useRawSearchParams from '../../hooks/useRawSearchParams';
 import { Colors, Spacing } from '../../styles';
 import type { CompareResultsItem } from '../../types/state';
 import { Framework } from '../../types/types';
-import FrameworkDropdown from '../Shared/FrameworkDropdown';
-import DownloadButton from './DownloadButton';
 import type { LoaderReturnValue } from './loader';
 import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeLoader';
+import ResultsControls from './ResultsControls';
 import ResultsTable from './ResultsTable';
-import RevisionSelect from './RevisionSelect';
-import SearchInput from './SearchInput';
 
 function ResultsMain() {
   const { results, view, frameworkId, generation } = useLoaderData() as
@@ -49,11 +44,6 @@ function ResultsMain() {
       margin: 0,
       marginBottom: Spacing.Medium,
     }),
-    content: style({
-      display: 'flex',
-      justifyContent: 'flex-end',
-      alignItems: 'center',
-    }),
   };
 
   const onFrameworkChange = (newFrameworkId: Framework['id']) => {
@@ -77,30 +67,13 @@ function ResultsMain() {
     <Container className={styles.container} data-testid='results-main'>
       <header>
         <div className={styles.title}>Results</div>
-        <Grid container className={styles.content} spacing={2}>
-          <Grid item md={6} xs={12}>
-            <SearchInput
-              defaultValue={initialSearchTerm}
-              onChange={onSearchTermChange}
-            />
-          </Grid>
-          <Grid item xs>
-            <FormControl sx={{ width: '100%' }}>
-              <FrameworkDropdown
-                frameworkId={frameworkIdVal}
-                size='small'
-                variant='outlined'
-                onChange={onFrameworkChange}
-              />
-            </FormControl>
-          </Grid>
-          <Grid item xs>
-            <RevisionSelect />
-          </Grid>
-          <Grid item xs>
-            <DownloadButton resultsPromise={results} />
-          </Grid>
-        </Grid>
+        <ResultsControls
+          initialSearchTerm={initialSearchTerm}
+          frameworkId={frameworkIdVal}
+          resultsPromise={results}
+          onSearchTermChange={onSearchTermChange}
+          onFrameworkChange={onFrameworkChange}
+        />
       </header>
       {/* Using a key in Suspense makes it that it displays the fallback more
           consistently.
