@@ -1,13 +1,18 @@
-import { Suspense, useState, memo } from 'react';
+import { Suspense, useState } from 'react';
 
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
-import { Await } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
+import { useLoaderData, Await } from 'react-router-dom';
 
-import type { compareView, compareOverTimeView } from '../../common/constants';
+import useRawSearchParams from '../../hooks/useRawSearchParams';
 import type { CompareResultsItem } from '../../types/state';
+import { Framework } from '../../types/types';
 import type { CompareResultsTableConfig } from '../../types/types';
 import { getPlatformShortName } from '../../utils/platform';
+import type { LoaderReturnValue } from './loader';
+import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeLoader';
+import ResultsControls from './ResultsControls';
 import TableContent from './TableContent';
 import TableHeader from './TableHeader';
 
@@ -83,19 +88,21 @@ const cellsConfiguration: CompareResultsTableConfig[] = [
   { key: 'expand', gridWidth: '0.2fr' },
 ];
 
-type Props = {
-  filteringSearchTerm: string;
-  generation: number;
-  resultsPromise: Promise<CompareResultsItem[][]>;
-  view: typeof compareView | typeof compareOverTimeView;
-};
+export default function ResultsTable() {
+  const {
+    results: resultsPromise,
+    view,
+    frameworkId,
+    generation,
+  } = useLoaderData() as LoaderReturnValue | OverTimeLoaderReturnValue;
+  const [searchParams, setSearchParams] = useSearchParams();
 
-function ResultsTable({
-  filteringSearchTerm,
-  resultsPromise,
-  view,
-  generation,
-}: Props) {
+  // This is our custom hook that updates the search params without a rerender.
+  const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
+
+  const initialSearchTerm = rawSearchParams.get('search') ?? '';
+  const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
+  const [frameworkIdVal, setFrameworkIdVal] = useState(frameworkId);
   const [tableFilters, setTableFilters] = useState(
     new Map() as Map<string, Set<string>>, // ColumnID -> Set<Values to remove>
   );
@@ -116,6 +123,23 @@ function ResultsTable({
     });
   };
 
+  const onFrameworkChange = (newFrameworkId: Framework['id']) => {
+    setFrameworkIdVal(newFrameworkId);
+
+    searchParams.set('framework', newFrameworkId.toString());
+    setSearchParams(searchParams);
+  };
+
+  const onSearchTermChange = (newSearchTerm: string) => {
+    setSearchTerm(newSearchTerm);
+    if (newSearchTerm) {
+      rawSearchParams.set('search', newSearchTerm);
+    } else {
+      rawSearchParams.delete('search');
+    }
+    updateRawSearchParams(rawSearchParams);
+  };
+
   const rowGridTemplateColumns = cellsConfiguration
     .map((config) => config.gridWidth)
     .join(' ');
@@ -126,6 +150,13 @@ function ResultsTable({
       role='table'
       sx={{ marginTop: 3, paddingBottom: 3 }}
     >
+      <ResultsControls
+        initialSearchTerm={initialSearchTerm}
+        frameworkId={frameworkIdVal}
+        resultsPromise={resultsPromise}
+        onSearchTermChange={onSearchTermChange}
+        onFrameworkChange={onFrameworkChange}
+      />
       <TableHeader
         cellsConfiguration={cellsConfiguration}
         filters={tableFilters}
@@ -149,7 +180,7 @@ function ResultsTable({
             <TableContent
               cellsConfiguration={cellsConfiguration}
               results={resolvedResults as CompareResultsItem[][]}
-              filteringSearchTerm={filteringSearchTerm}
+              filteringSearchTerm={searchTerm}
               tableFilters={tableFilters}
               view={view}
               rowGridTemplateColumns={rowGridTemplateColumns}
@@ -160,5 +191,3 @@ function ResultsTable({
     </Box>
   );
 }
-
-export default memo(ResultsTable);

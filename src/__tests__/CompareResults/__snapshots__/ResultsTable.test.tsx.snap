@@ -718,6 +718,12 @@ exports[`Results Table Should match snapshot 1`] = `
               >
                 Results
               </div>
+            </header>
+            <div
+              class="MuiBox-root css-10qup14"
+              data-testid="results-table"
+              role="table"
+            >
               <div
                 class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 f1wpas00 css-1e9xsub-MuiGrid-root"
               >
@@ -957,12 +963,6 @@ exports[`Results Table Should match snapshot 1`] = `
                   </div>
                 </div>
               </div>
-            </header>
-            <div
-              class="MuiBox-root css-10qup14"
-              data-testid="results-table"
-              role="table"
-            >
               <div
                 class="f6frt4b fr2n4tx"
                 data-testid="table-header"
