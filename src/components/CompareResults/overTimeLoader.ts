@@ -203,6 +203,7 @@ export async function loader({ request }: { request: Request }) {
 type DeferredLoaderData = {
   results: Promise<CompareResultsItem[][]>;
   baseRepo: Repository['name'];
+  baseRev: string;
   newRevs: string[];
   newRevsInfo: Changeset[];
   newRepos: Repository['name'][];

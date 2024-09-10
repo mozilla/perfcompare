@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 import { Grid, Typography } from '@mui/material';
-import { Link } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import { VariantType, useSnackbar } from 'notistack';
 import { Form } from 'react-router-dom';
@@ -14,8 +13,6 @@ import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles, SearchStyles, Spacing } from '../../styles';
 import { Changeset, Repository } from '../../types/state';
 import { Framework, TimeRange } from '../../types/types';
-import { getOldCompareOvertimeViewURL } from '../../utils/helpers';
-import { truncateHash } from '../../utils/helpers';
 import CancelAndCompareButtons from './CancelAndCompareButtons';
 import EditButton from './EditButton';
 import SearchFrameworkDropdown from './SearchFrameworkDropdown';
@@ -155,31 +152,6 @@ function CompareOverTime({
             {strings.overTime.title}
           </Typography>
           <p className='compare-card-tagline'>{strings.overTime.tagline}</p>
-          {hasEditButton && (
-            <p className='compare-card-tagline'>
-              Perfherder comparisons for:
-              {inProgressRevs.map((item) => (
-                <>
-                  <Link
-                    key={item.id}
-                    href={getOldCompareOvertimeViewURL(
-                      baseRepository,
-                      newRepository,
-                      item.revision,
-                      frameworkIdVal,
-                      timeRangeValue,
-                    )}
-                    target='_blank'
-                    title={`${
-                      Strings.components.revisionRow.title.compareViewLink
-                    } ${truncateHash(item.revision)}`}
-                  >
-                    {truncateHash(item.revision)}
-                  </Link>{' '}
-                </>
-              ))}
-            </p>
-          )}
         </div>
         <div
           className='compare-card-img compare-card-img--time'

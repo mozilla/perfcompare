@@ -6,7 +6,7 @@ import {
   memoizedFetchRevisionForRepository,
 } from '../../logic/treeherder';
 import { Changeset, CompareResultsItem, Repository } from '../../types/state';
-import { FakeCommitHash, Framework } from '../../types/types';
+import { FakeCommitHash, Framework, TimeRange } from '../../types/types';
 
 // This function checks and sanitizes the input values, then returns values that
 // we can then use in the rest of the application.
@@ -249,6 +249,7 @@ type DeferredLoaderData = {
   newRepos: Repository['name'][];
   frameworkId: Framework['id'];
   frameworkName: Framework['name'];
+  intervalValue: TimeRange['value'];
   view: typeof compareView;
   generation: number;
 };
