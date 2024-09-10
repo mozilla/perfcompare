@@ -720,7 +720,7 @@ exports[`Results Table Should match snapshot 1`] = `
               </div>
             </header>
             <div
-              class="MuiBox-root css-10qup14"
+              class="MuiBox-root css-hshm0p"
               data-testid="results-table"
               role="table"
             >
@@ -964,7 +964,7 @@ exports[`Results Table Should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="f6frt4b fr2n4tx"
+                class="f1wqnr25 fr2n4tx"
                 data-testid="table-header"
                 role="row"
               >

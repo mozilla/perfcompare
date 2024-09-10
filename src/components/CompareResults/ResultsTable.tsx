@@ -145,11 +145,7 @@ export default function ResultsTable() {
     .join(' ');
 
   return (
-    <Box
-      data-testid='results-table'
-      role='table'
-      sx={{ marginTop: 3, paddingBottom: 3 }}
-    >
+    <Box data-testid='results-table' role='table' sx={{ paddingBottom: 3 }}>
       <ResultsControls
         initialSearchTerm={initialSearchTerm}
         frameworkId={frameworkIdVal}
