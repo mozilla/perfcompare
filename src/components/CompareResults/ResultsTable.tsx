@@ -146,19 +146,28 @@ export default function ResultsTable() {
 
   return (
     <Box data-testid='results-table' role='table' sx={{ paddingBottom: 3 }}>
-      <ResultsControls
-        initialSearchTerm={initialSearchTerm}
-        frameworkId={frameworkIdVal}
-        resultsPromise={resultsPromise}
-        onSearchTermChange={onSearchTermChange}
-        onFrameworkChange={onFrameworkChange}
-      />
-      <TableHeader
-        cellsConfiguration={cellsConfiguration}
-        filters={tableFilters}
-        onToggleFilter={onToggleFilter}
-        onClearFilter={onClearFilter}
-      />
+      <Box
+        sx={{
+          position: 'sticky',
+          top: 0,
+          zIndex: 100,
+          bgcolor: 'background.default',
+        }}
+      >
+        <ResultsControls
+          initialSearchTerm={initialSearchTerm}
+          frameworkId={frameworkIdVal}
+          resultsPromise={resultsPromise}
+          onSearchTermChange={onSearchTermChange}
+          onFrameworkChange={onFrameworkChange}
+        />
+        <TableHeader
+          cellsConfiguration={cellsConfiguration}
+          filters={tableFilters}
+          onToggleFilter={onToggleFilter}
+          onClearFilter={onClearFilter}
+        />
+      </Box>
       {/* Using a key in Suspense makes it that it displays the fallback more
         consistently.
         See https://github.com/mozilla/perfcompare/pull/702#discussion_r1705274740
