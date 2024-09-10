@@ -3,7 +3,6 @@ import { useState } from 'react';
 import InfoIcon from '@mui/icons-material/InfoOutlined';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
-import { SelectChangeEvent } from '@mui/material/Select';
 import Tooltip from '@mui/material/Tooltip';
 import { style, cssRule } from 'typestyle';
 
@@ -29,7 +28,7 @@ function SearchFrameworkDropdown({
   frameworkId,
 }: SearchFrameworkDropdownProps) {
   const mode = useAppSelector((state) => state.theme.mode);
-  const [frameworkIdVal, setframeWorkValue] = useState(frameworkId);
+  const [frameworkIdVal, setFrameWorkValue] = useState(frameworkId);
 
   cssRule('.MuiPopover-root', {
     $nest: {
@@ -65,11 +64,6 @@ function SearchFrameworkDropdown({
     }),
   };
 
-  const onChange = (event: SelectChangeEvent) => {
-    const id = +event.target.value as Framework['id'];
-    setframeWorkValue(id);
-  };
-
   return (
     <FormControl className={`framework-dropdown ${styles.container}`}>
       <InputLabel id='select-framework-label' className='dropdown-select-label'>
@@ -82,7 +76,7 @@ function SearchFrameworkDropdown({
         frameworkId={frameworkIdVal}
         labelId='select-framework-label'
         variant='standard'
-        onChange={onChange}
+        onChange={setFrameWorkValue}
       />
     </FormControl>
   );
