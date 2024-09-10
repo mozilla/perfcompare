@@ -69,7 +69,7 @@ const cellsConfiguration: CompareResultsTableConfig[] = [
     disable: true,
     filter: true,
     key: 'status',
-    gridWidth: '1fr',
+    gridWidth: '1.5fr',
     possibleValues: ['No changes', 'Improvement', 'Regression'],
     matchesFunction: (result: CompareResultsItem, value: string) => {
       switch (value) {
@@ -98,7 +98,7 @@ const cellsConfiguration: CompareResultsTableConfig[] = [
       result.confidence_text === value,
   },
   { name: 'Total Runs', key: 'runs', gridWidth: '1fr' },
-  { key: 'buttons', gridWidth: '2fr' },
+  { key: 'buttons', gridWidth: '1fr' },
   { key: 'expand', gridWidth: '0.2fr' },
 ];
 

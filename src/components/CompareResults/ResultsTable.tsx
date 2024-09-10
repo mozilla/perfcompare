@@ -91,7 +91,7 @@ const cellsConfiguration: CompareResultsTableConfig[] = [
     disable: true,
     filter: true,
     key: 'status',
-    gridWidth: '1fr',
+    gridWidth: '1.5fr',
     possibleValues: ['No changes', 'Improvement', 'Regression'],
     matchesFunction: (result: CompareResultsItem, value: string) => {
       switch (value) {

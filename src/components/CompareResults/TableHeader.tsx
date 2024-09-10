@@ -134,20 +134,13 @@ function TableHeader({
           margin: 0,
           fontWeight: 700,
         },
-        '.platform-header, .subtests-header, .confidence-header': {
-          width: '120px',
+        '& .runs-header, & .platform-header': {
+          justifySelf: 'left',
+          marginLeft: 8,
         },
-        '.status-header': {
-          width: '110px',
-        },
-        '.base-header, .new-header, .delta-header': {
-          width: '85px',
-        },
-        '.confidence-header': {
-          width: '140px',
-        },
-        '.runs-header': {
-          textAlign: 'left',
+        '.subtests-header': {
+          justifySelf: 'left',
+          marginLeft: 24,
         },
       },
     }),
