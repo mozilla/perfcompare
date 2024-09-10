@@ -1,6 +1,8 @@
-import { useState, memo } from 'react';
+import { Suspense, useState, memo } from 'react';
 
 import Box from '@mui/material/Box';
+import CircularProgress from '@mui/material/CircularProgress';
+import { Await } from 'react-router-dom';
 
 import type { compareView, compareOverTimeView } from '../../common/constants';
 import type { CompareResultsItem } from '../../types/state';
@@ -83,11 +85,17 @@ const cellsConfiguration: CompareResultsTableConfig[] = [
 
 type Props = {
   filteringSearchTerm: string;
-  results: CompareResultsItem[][];
+  generation: number;
+  resultsPromise: Promise<CompareResultsItem[][]>;
   view: typeof compareView | typeof compareOverTimeView;
 };
 
-function ResultsTable({ filteringSearchTerm, results, view }: Props) {
+function ResultsTable({
+  filteringSearchTerm,
+  resultsPromise,
+  view,
+  generation,
+}: Props) {
   const [tableFilters, setTableFilters] = useState(
     new Map() as Map<string, Set<string>>, // ColumnID -> Set<Values to remove>
   );
@@ -124,14 +132,31 @@ function ResultsTable({ filteringSearchTerm, results, view }: Props) {
         onToggleFilter={onToggleFilter}
         onClearFilter={onClearFilter}
       />
-      <TableContent
-        cellsConfiguration={cellsConfiguration}
-        results={results}
-        filteringSearchTerm={filteringSearchTerm}
-        tableFilters={tableFilters}
-        view={view}
-        rowGridTemplateColumns={rowGridTemplateColumns}
-      />
+      {/* Using a key in Suspense makes it that it displays the fallback more
+        consistently.
+        See https://github.com/mozilla/perfcompare/pull/702#discussion_r1705274740
+        for more explanation (and questioning) about this issue. */}
+      <Suspense
+        fallback={
+          <Box display='flex' justifyContent='center' sx={{ marginTop: 3 }}>
+            <CircularProgress />
+          </Box>
+        }
+        key={generation}
+      >
+        <Await resolve={resultsPromise}>
+          {(resolvedResults) => (
+            <TableContent
+              cellsConfiguration={cellsConfiguration}
+              results={resolvedResults as CompareResultsItem[][]}
+              filteringSearchTerm={filteringSearchTerm}
+              tableFilters={tableFilters}
+              view={view}
+              rowGridTemplateColumns={rowGridTemplateColumns}
+            />
+          )}
+        </Await>
+      </Suspense>
     </Box>
   );
 }

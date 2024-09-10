@@ -1,16 +1,13 @@
-import { Suspense, useState } from 'react';
+import { useState } from 'react';
 
-import Box from '@mui/material/Box';
-import CircularProgress from '@mui/material/CircularProgress';
 import { Container } from '@mui/system';
 import { useSearchParams } from 'react-router-dom';
-import { Await, useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
 import useRawSearchParams from '../../hooks/useRawSearchParams';
 import { Colors, Spacing } from '../../styles';
-import type { CompareResultsItem } from '../../types/state';
 import { Framework } from '../../types/types';
 import type { LoaderReturnValue } from './loader';
 import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeLoader';
@@ -75,28 +72,12 @@ function ResultsMain() {
           onFrameworkChange={onFrameworkChange}
         />
       </header>
-      {/* Using a key in Suspense makes it that it displays the fallback more
-          consistently.
-          See https://github.com/mozilla/perfcompare/pull/702#discussion_r1705274740
-          for more explanation (and questioning) about this issue. */}
-      <Suspense
-        fallback={
-          <Box display='flex' justifyContent='center' sx={{ marginTop: 3 }}>
-            <CircularProgress />
-          </Box>
-        }
-        key={generation}
-      >
-        <Await resolve={results}>
-          {(resolvedResults) => (
-            <ResultsTable
-              filteringSearchTerm={searchTerm}
-              results={resolvedResults as CompareResultsItem[][]}
-              view={view}
-            />
-          )}
-        </Await>
-      </Suspense>
+      <ResultsTable
+        filteringSearchTerm={searchTerm}
+        resultsPromise={results}
+        view={view}
+        generation={generation}
+      />
     </Container>
   );
 }
