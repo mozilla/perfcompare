@@ -124,6 +124,11 @@ function getStyles(themeMode: string) {
   };
 }
 
+const styles = {
+  light: getStyles('light'),
+  dark: getStyles('dark'),
+};
+
 const stylesCard = ExpandableRowStyles();
 
 function determineStatus(improvement: boolean, regression: boolean) {
@@ -169,12 +174,10 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
 
   const themeMode = useAppSelector((state) => state.theme.mode);
 
-  const styles = getStyles(themeMode);
-
   return (
     <>
       <div
-        className={`revisionRow ${styles.revisionRow} ${styles.typography}`}
+        className={`revisionRow ${styles[themeMode].revisionRow} ${styles[themeMode].typography}`}
         role='row'
       >
         <div className='subtests cell' role='cell'>

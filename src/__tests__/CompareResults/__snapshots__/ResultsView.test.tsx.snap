@@ -670,7 +670,7 @@ exports[`Results View The table should match snapshot and other elements should 
   role="table"
 >
   <div
-    class="f1qjwvwg fr2n4tx"
+    class="f6frt4b fr2n4tx"
     data-testid="table-header"
     role="row"
   >
@@ -885,7 +885,7 @@ exports[`Results View The table should match snapshot and other elements should 
             </div>
             <div>
               <div
-                class="revisionRow f603q1k fp4ugv1"
+                class="revisionRow flfn61v fp4ugv1"
                 role="row"
               >
                 <div
@@ -1100,7 +1100,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f603q1k fp4ugv1"
+                class="revisionRow flfn61v fp4ugv1"
                 role="row"
               >
                 <div
@@ -1314,7 +1314,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f603q1k fp4ugv1"
+                class="revisionRow flfn61v fp4ugv1"
                 role="row"
               >
                 <div
@@ -1518,7 +1518,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f603q1k fp4ugv1"
+                class="revisionRow flfn61v fp4ugv1"
                 role="row"
               >
                 <div
