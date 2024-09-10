@@ -11,7 +11,7 @@ const styles = {
 };
 
 function SubtestsTableContent(props: SubtestsTableContentProps) {
-  const { results, identifier } = props;
+  const { results, identifier, rowGridTemplateColumns } = props;
 
   return (
     <div className={styles.tableBody} role='rowgroup'>
@@ -21,6 +21,7 @@ function SubtestsTableContent(props: SubtestsTableContentProps) {
             <SubtestsRevisionRow
               key={identifier + result.platform}
               result={result}
+              gridTemplateColumns={rowGridTemplateColumns}
             />
           ))}
       </div>
@@ -31,6 +32,7 @@ function SubtestsTableContent(props: SubtestsTableContentProps) {
 interface SubtestsTableContentProps {
   results: CompareResultsItem[];
   identifier: string;
+  rowGridTemplateColumns: string;
 }
 
 export default SubtestsTableContent;

@@ -112,13 +112,14 @@ function TableHeader({
   onToggleFilter,
   onClearFilter,
 }: TableHeaderProps) {
-  const gridWidthFirstCell = cellsConfiguration[0].gridWidth as string;
   const themeMode = useAppSelector((state) => state.theme.mode);
   const styles = {
     tableHeader: style({
       display: 'grid',
       // Should be kept in sync with the gridTemplateColumns from RevisionRow
-      gridTemplateColumns: `${gridWidthFirstCell} 1fr 0.2fr 1fr 1fr 1fr 1fr 1fr 2fr 0.2fr`,
+      gridTemplateColumns: cellsConfiguration
+        .map((config) => config.gridWidth)
+        .join(' '),
       background:
         themeMode == 'light' ? Colors.Background100 : Colors.Background300Dark,
       borderRadius: '4px',

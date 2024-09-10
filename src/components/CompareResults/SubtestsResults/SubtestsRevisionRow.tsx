@@ -5,7 +5,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import TimelineIcon from '@mui/icons-material/Timeline';
-import { IconButton } from '@mui/material';
+import { IconButton, Box } from '@mui/material';
 import { style } from 'typestyle';
 
 import { useAppSelector } from '../../../hooks/app';
@@ -18,8 +18,6 @@ const revisionsRow = {
   borderRadius: '4px 0px 0px 4px',
   display: 'grid',
   margin: `${Spacing.Small}px 0px`,
-  // Should be kept in sync with the gridTemplateColumns from TableHeader
-  gridTemplateColumns: '4fr 1fr 0.2fr 1fr 1fr 1fr 1fr 1fr 2fr 0.2fr',
 };
 
 const typography = style({
@@ -150,7 +148,7 @@ function determineSign(baseMedianValue: number, newMedianValue: number) {
 }
 
 function SubtestsRevisionRow(props: RevisionRowProps) {
-  const { result } = props;
+  const { result, gridTemplateColumns } = props;
   const {
     test,
     base_median_value: baseMedianValue,
@@ -176,8 +174,9 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
 
   return (
     <>
-      <div
+      <Box
         className={`revisionRow ${styles[themeMode].revisionRow} ${styles[themeMode].typography}`}
+        sx={{ gridTemplateColumns }}
         role='row'
       >
         <div className='subtests cell' role='cell'>
@@ -258,7 +257,7 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
             </IconButton>
           </div>
         </div>
-      </div>
+      </Box>
       {expanded && (
         <div
           className={`content-row ${stylesCard.container}`}
@@ -273,6 +272,7 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
 
 interface RevisionRowProps {
   result: CompareResultsItem;
+  gridTemplateColumns: string;
 }
 
 export default SubtestsRevisionRow;

@@ -51,14 +51,25 @@ const cellsConfiguration: CompareResultsTableConfig[] = [
   {
     name: 'Base',
     key: 'base',
+    gridWidth: '1fr',
   },
-  { key: 'comparisonSign' },
-  { name: 'New', key: 'new' },
+  {
+    key: 'comparisonSign',
+
+    gridWidth: '0.2fr',
+  },
+  {
+    name: 'New',
+    key: 'new',
+
+    gridWidth: '1fr',
+  },
   {
     name: 'Status',
     disable: true,
     filter: true,
     key: 'status',
+    gridWidth: '1fr',
     possibleValues: ['No changes', 'Improvement', 'Regression'],
     matchesFunction: (result: CompareResultsItem, value: string) => {
       switch (value) {
@@ -74,19 +85,21 @@ const cellsConfiguration: CompareResultsTableConfig[] = [
   {
     name: 'Delta(%)',
     key: 'delta',
+    gridWidth: '1fr',
   },
   {
     name: 'Confidence',
     disable: true,
     filter: true,
     key: 'confidence',
+    gridWidth: '1fr',
     possibleValues: ['Low', 'Medium', 'High'],
     matchesFunction: (result: CompareResultsItem, value: string) =>
       result.confidence_text === value,
   },
-  { name: 'Total Runs', key: 'runs' },
-  { key: 'buttons' },
-  { key: 'expand' },
+  { name: 'Total Runs', key: 'runs', gridWidth: '1fr' },
+  { key: 'buttons', gridWidth: '2fr' },
+  { key: 'expand', gridWidth: '0.2fr' },
 ];
 
 function resultMatchesSearchTerm(
@@ -181,6 +194,10 @@ function SubtestsResultsTable({
     });
   };
 
+  const rowGridTemplateColumns = cellsConfiguration
+    .map((config) => config.gridWidth)
+    .join(' ');
+
   return (
     <Box
       data-testid='subtests-results-table'
@@ -199,6 +216,7 @@ function SubtestsResultsTable({
           key={res.key}
           identifier={res.key}
           results={res.value}
+          rowGridTemplateColumns={rowGridTemplateColumns}
         />
       ))}
 
