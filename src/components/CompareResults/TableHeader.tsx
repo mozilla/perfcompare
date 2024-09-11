@@ -124,6 +124,7 @@ function TableHeader({
         themeMode == 'light' ? Colors.Background100 : Colors.Background300Dark,
       borderRadius: '4px',
       padding: Spacing.Small,
+      marginTop: Spacing.Medium,
       $nest: {
         '.cell': {
           borderBottom: 'none',
