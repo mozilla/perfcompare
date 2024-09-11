@@ -9,7 +9,7 @@ interface FrameworkDropdownProps {
   labelId?: string;
   size?: 'small' | 'medium';
   variant?: 'standard' | 'outlined' | 'filled';
-  onChange?: (event: SelectChangeEvent) => void;
+  onChange: (frameworkId: Framework['id']) => void;
 }
 
 const sortFrameworks = (
@@ -34,13 +34,18 @@ function FrameworkDropdown({
   size,
   onChange,
 }: FrameworkDropdownProps) {
+  const onValueChange = (event: SelectChangeEvent) => {
+    const id = +event.target.value as Framework['id'];
+    onChange(id);
+  };
+
   return (
     <Select
       data-testid='framework-select'
       value={frameworkId.toString()}
       labelId={labelId}
       className='framework-dropdown-select'
-      onChange={onChange}
+      onChange={onValueChange}
       name='framework'
       variant={variant}
       size={size}
