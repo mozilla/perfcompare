@@ -1,61 +1,20 @@
-import { useMemo, useState, memo } from 'react';
+import { Suspense, useState } from 'react';
 
 import Box from '@mui/material/Box';
-import { Virtuoso } from 'react-virtuoso';
+import CircularProgress from '@mui/material/CircularProgress';
+import { useSearchParams } from 'react-router-dom';
+import { useLoaderData, Await } from 'react-router-dom';
 
-import type { compareView, compareOverTimeView } from '../../common/constants';
-import { useAppSelector } from '../../hooks/app';
-import { Strings } from '../../resources/Strings';
-import type { CompareResultsItem, RevisionsHeader } from '../../types/state';
+import useRawSearchParams from '../../hooks/useRawSearchParams';
+import type { CompareResultsItem } from '../../types/state';
+import { Framework } from '../../types/types';
 import type { CompareResultsTableConfig } from '../../types/types';
 import { getPlatformShortName } from '../../utils/platform';
-import NoResultsFound from './NoResultsFound';
+import type { LoaderReturnValue } from './loader';
+import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeLoader';
+import ResultsControls from './ResultsControls';
 import TableContent from './TableContent';
 import TableHeader from './TableHeader';
-
-type Results = {
-  key: string;
-  value: CompareResultsItem[];
-  revisionHeader: RevisionsHeader;
-};
-
-function processResults(results: CompareResultsItem[]) {
-  const processedResults: Map<string, CompareResultsItem[]> = new Map<
-    string,
-    CompareResultsItem[]
-  >();
-  results.forEach((result) => {
-    const { new_rev: newRevision, header_name: header } = result;
-    const rowIdentifier = header.concat(' ', newRevision);
-    if (processedResults.has(rowIdentifier)) {
-      (processedResults.get(rowIdentifier) as CompareResultsItem[]).push(
-        result,
-      );
-    } else {
-      processedResults.set(rowIdentifier, [result]);
-    }
-  });
-  const restructuredResults: Results[] = Array.from(
-    processedResults,
-    function ([rowIdentifier, result]) {
-      return {
-        key: rowIdentifier,
-        value: result,
-        revisionHeader: {
-          suite: result[0].suite,
-          framework_id: result[0].framework_id,
-          test: result[0].test,
-          option_name: result[0].option_name,
-          extra_options: result[0].extra_options,
-          new_rev: result[0].new_rev,
-          new_repo: result[0].new_repository_name,
-        },
-      };
-    },
-  );
-
-  return restructuredResults;
-}
 
 const cellsConfiguration: CompareResultsTableConfig[] = [
   {
@@ -129,104 +88,24 @@ const cellsConfiguration: CompareResultsTableConfig[] = [
   { key: 'expand', gridWidth: '0.2fr' },
 ];
 
-function resultMatchesSearchTerm(
-  result: CompareResultsItem,
-  searchTerm: string,
-) {
-  searchTerm = searchTerm.toLowerCase();
-  return (
-    result.suite.toLowerCase().includes(searchTerm) ||
-    result.extra_options.toLowerCase().includes(searchTerm) ||
-    result.option_name.toLowerCase().includes(searchTerm) ||
-    result.test.toLowerCase().includes(searchTerm) ||
-    result.new_rev.toLowerCase().includes(searchTerm) ||
-    result.platform.toLowerCase().includes(searchTerm)
-  );
-}
+export default function ResultsTable() {
+  const {
+    results: resultsPromise,
+    view,
+    frameworkId,
+    generation,
+  } = useLoaderData() as LoaderReturnValue | OverTimeLoaderReturnValue;
+  const [searchParams, setSearchParams] = useSearchParams();
 
-function resultMatchesColumnFilter(
-  result: CompareResultsItem,
-  columnId: string,
-  uncheckedValues: Set<string>,
-): boolean {
-  const cellConfiguration = cellsConfiguration.find(
-    (cell) => cell.key === columnId,
-  );
-  if (!cellConfiguration || !cellConfiguration.filter) {
-    return true;
-  }
+  // This is our custom hook that updates the search params without a rerender.
+  const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
 
-  const { matchesFunction } = cellConfiguration;
-  for (const filterValue of uncheckedValues) {
-    if (matchesFunction(result, filterValue)) {
-      return true;
-    }
-  }
-  return false;
-}
-
-// This function filters the results array using both the searchTerm and the
-// tableFilters. The tableFilters is a map ColumnID -> Set of values to remove.
-function filterResults(
-  results: CompareResultsItem[],
-  searchTerm: string,
-  tableFilters: Map<string, Set<string>>,
-) {
-  if (!searchTerm && !tableFilters.size) {
-    return results;
-  }
-
-  return results.filter((result) => {
-    if (!resultMatchesSearchTerm(result, searchTerm)) {
-      return false;
-    }
-
-    for (const [columnId, uncheckedValues] of tableFilters) {
-      if (resultMatchesColumnFilter(result, columnId, uncheckedValues)) {
-        return false;
-      }
-    }
-
-    return true;
-  });
-}
-
-const allRevisionsOption =
-  Strings.components.comparisonRevisionDropdown.allRevisions.key;
-
-type ResultsTableProps = {
-  filteringSearchTerm: string;
-  results: CompareResultsItem[][];
-  view: typeof compareView | typeof compareOverTimeView;
-};
-
-function ResultsTable({
-  filteringSearchTerm,
-  results,
-  view,
-}: ResultsTableProps) {
-  const activeComparison = useAppSelector(
-    (state) => state.comparison.activeComparison,
-  );
-
+  const initialSearchTerm = rawSearchParams.get('search') ?? '';
+  const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
+  const [frameworkIdVal, setFrameworkIdVal] = useState(frameworkId);
   const [tableFilters, setTableFilters] = useState(
     new Map() as Map<string, Set<string>>, // ColumnID -> Set<Values to remove>
   );
-
-  const processedResults = useMemo(() => {
-    const resultsForCurrentComparison =
-      activeComparison === allRevisionsOption
-        ? results.flat()
-        : results.find((result) => result[0].new_rev === activeComparison) ??
-          [];
-
-    const filteredResults = filterResults(
-      resultsForCurrentComparison,
-      filteringSearchTerm,
-      tableFilters,
-    );
-    return processResults(filteredResults);
-  }, [results, activeComparison, filteringSearchTerm, tableFilters]);
 
   const onClearFilter = (columnId: string) => {
     setTableFilters((oldFilters) => {
@@ -244,49 +123,76 @@ function ResultsTable({
     });
   };
 
+  const onFrameworkChange = (newFrameworkId: Framework['id']) => {
+    setFrameworkIdVal(newFrameworkId);
+
+    searchParams.set('framework', newFrameworkId.toString());
+    setSearchParams(searchParams);
+  };
+
+  const onSearchTermChange = (newSearchTerm: string) => {
+    setSearchTerm(newSearchTerm);
+    if (newSearchTerm) {
+      rawSearchParams.set('search', newSearchTerm);
+    } else {
+      rawSearchParams.delete('search');
+    }
+    updateRawSearchParams(rawSearchParams);
+  };
+
   const rowGridTemplateColumns = cellsConfiguration
     .map((config) => config.gridWidth)
     .join(' ');
 
   return (
-    <Box
-      data-testid='results-table'
-      role='table'
-      sx={{ marginTop: 3, paddingBottom: 3 }}
-    >
-      <TableHeader
-        cellsConfiguration={cellsConfiguration}
-        filters={tableFilters}
-        onToggleFilter={onToggleFilter}
-        onClearFilter={onClearFilter}
-      />
-      <Virtuoso
-        useWindowScroll
-        totalCount={processedResults.length}
-        overscan={{
-          /* These values are pretty arbitrary. The goal is to have more rows
-           * rendered than the current viewport, so that when scrolling fast
-           * (but not too fast) the white checkerboarding doesn't appear.
-           */
-          main: 5000,
-          reverse: 5000,
+    <Box data-testid='results-table' role='table' sx={{ paddingBottom: 3 }}>
+      <Box
+        sx={{
+          position: 'sticky',
+          top: 0,
+          zIndex: 100,
+          bgcolor: 'background.default',
         }}
-        data={processedResults}
-        computeItemKey={(_, res) => res.key}
-        itemContent={(_, res) => (
-          <TableContent
-            identifier={res.key}
-            header={res.revisionHeader}
-            results={res.value}
-            view={view}
-            rowGridTemplateColumns={rowGridTemplateColumns}
-          />
-        )}
-      />
-
-      {processedResults.length == 0 && <NoResultsFound />}
+      >
+        <ResultsControls
+          initialSearchTerm={initialSearchTerm}
+          frameworkId={frameworkIdVal}
+          resultsPromise={resultsPromise}
+          onSearchTermChange={onSearchTermChange}
+          onFrameworkChange={onFrameworkChange}
+        />
+        <TableHeader
+          cellsConfiguration={cellsConfiguration}
+          filters={tableFilters}
+          onToggleFilter={onToggleFilter}
+          onClearFilter={onClearFilter}
+        />
+      </Box>
+      {/* Using a key in Suspense makes it that it displays the fallback more
+        consistently.
+        See https://github.com/mozilla/perfcompare/pull/702#discussion_r1705274740
+        for more explanation (and questioning) about this issue. */}
+      <Suspense
+        fallback={
+          <Box display='flex' justifyContent='center' sx={{ marginTop: 3 }}>
+            <CircularProgress />
+          </Box>
+        }
+        key={generation}
+      >
+        <Await resolve={resultsPromise}>
+          {(resolvedResults) => (
+            <TableContent
+              cellsConfiguration={cellsConfiguration}
+              results={resolvedResults as CompareResultsItem[][]}
+              filteringSearchTerm={searchTerm}
+              tableFilters={tableFilters}
+              view={view}
+              rowGridTemplateColumns={rowGridTemplateColumns}
+            />
+          )}
+        </Await>
+      </Suspense>
     </Box>
   );
 }
-
-export default memo(ResultsTable);
