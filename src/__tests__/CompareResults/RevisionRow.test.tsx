@@ -60,7 +60,13 @@ describe('<RevisionRow>', () => {
       } = getTestData();
 
       rowData.platform = platform as Platform;
-      renderWithRoute(<RevisionRow result={rowData} view={compareView} />);
+      renderWithRoute(
+        <RevisionRow
+          result={rowData}
+          view={compareView}
+          gridTemplateColumns='none'
+        />,
+      );
       const shortNameNode = await screen.findByText(shortName);
       expect(shortNameNode).toBeInTheDocument();
       const previousNode = shortNameNode.previousSibling;
