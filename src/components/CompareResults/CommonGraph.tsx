@@ -5,6 +5,7 @@ import { Line } from 'react-chartjs-2';
 import { style } from 'typestyle';
 
 import { Spacing } from '../../styles';
+import { MeasurementUnit } from '../../types/types';
 
 ChartJS.register(LinearScale, LineElement);
 
@@ -22,6 +23,9 @@ function CommonGraph({
   min,
   max,
 }: CommonGraphProps) {
+  const scaleUnit =
+    baseRevisionRuns.measurementUnit || newRevisionRuns.measurementUnit;
+
   const options = {
     plugins: {
       legend: {
@@ -45,7 +49,7 @@ function CommonGraph({
         title: {
           align: 'end' as const,
           display: true,
-          text: 'Run Result' as const,
+          text: scaleUnit || '',
         },
       },
       y: {
@@ -140,6 +144,7 @@ interface CommonGraphProps {
     values: number[];
     stddev: number;
     stddevPercent: number;
+    measurementUnit: MeasurementUnit;
   };
   newRevisionRuns: {
     name: string;
@@ -147,6 +152,7 @@ interface CommonGraphProps {
     values: number[];
     stddev: number;
     stddevPercent: number;
+    measurementUnit: MeasurementUnit;
   };
   min: number;
   max: number;

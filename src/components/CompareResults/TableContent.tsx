@@ -13,7 +13,7 @@ const styles = {
 };
 
 function TableContent(props: TableContentProps) {
-  const { results, header, identifier, view } = props;
+  const { results, header, identifier, view, rowGridTemplateColumns } = props;
 
   return (
     <div className={styles.tableBody} role='rowgroup'>
@@ -25,6 +25,7 @@ function TableContent(props: TableContentProps) {
               key={identifier + result.platform}
               result={result}
               view={view}
+              gridTemplateColumns={rowGridTemplateColumns}
             />
           ))}
       </div>
@@ -36,6 +37,7 @@ interface TableContentProps {
   results: CompareResultsItem[];
   header: RevisionsHeader;
   identifier: string;
+  rowGridTemplateColumns: string;
   view: typeof compareView | typeof compareOverTimeView;
 }
 

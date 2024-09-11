@@ -6,7 +6,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import TimelineIcon from '@mui/icons-material/Timeline';
-import { IconButton } from '@mui/material';
+import { IconButton, Box } from '@mui/material';
 import Tooltip from '@mui/material/Tooltip';
 import { style } from 'typestyle';
 
@@ -27,8 +27,6 @@ const revisionsRow = {
   borderRadius: '4px 0px 0px 4px',
   display: 'grid',
   margin: `${Spacing.Small}px 0px`,
-  // Should be kept in sync with the gridTemplateColumns from TableHeader
-  gridTemplateColumns: '2fr 1fr 0.2fr 1fr 1fr 1fr 1fr 1fr 2fr 0.2fr',
 };
 
 const typography = {
@@ -304,7 +302,7 @@ const getSubtestsCompareOverTimeLink = (result: CompareResultsItem) => {
 };
 
 function RevisionRow(props: RevisionRowProps) {
-  const { result, view } = props;
+  const { result, view, gridTemplateColumns } = props;
   const {
     platform,
     base_median_value: baseMedianValue,
@@ -341,8 +339,9 @@ function RevisionRow(props: RevisionRowProps) {
 
   return (
     <>
-      <div
+      <Box
         className={`revisionRow ${styles.revisionRow} ${styles.typography}`}
+        sx={{ gridTemplateColumns }}
         role='row'
       >
         <div className='platform cell' role='cell'>
@@ -453,7 +452,7 @@ function RevisionRow(props: RevisionRowProps) {
             </IconButton>
           </div>
         </div>
-      </div>
+      </Box>
       {expanded && (
         <div
           className={`content-row ${stylesCard.container}`}
@@ -468,6 +467,7 @@ function RevisionRow(props: RevisionRowProps) {
 
 interface RevisionRowProps {
   result: CompareResultsItem;
+  gridTemplateColumns: string;
   view: typeof compareView | typeof compareOverTimeView;
 }
 
