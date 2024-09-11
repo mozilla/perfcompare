@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
 import FormControl from '@mui/material/FormControl';
 import Grid from '@mui/material/Grid';
-import { SelectChangeEvent } from '@mui/material/Select';
 import { Container } from '@mui/system';
 import { useSearchParams } from 'react-router-dom';
 import { Await, useLoaderData } from 'react-router-dom';
@@ -57,11 +56,10 @@ function ResultsMain() {
     }),
   };
 
-  const onFrameworkChange = (event: SelectChangeEvent) => {
-    const id = +event.target.value as Framework['id'];
-    setFrameworkIdVal(id);
+  const onFrameworkChange = (newFrameworkId: Framework['id']) => {
+    setFrameworkIdVal(newFrameworkId);
 
-    searchParams.set('framework', id.toString());
+    searchParams.set('framework', newFrameworkId.toString());
     setSearchParams(searchParams);
   };
 
