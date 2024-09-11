@@ -713,45 +713,58 @@ exports[`Results Table Should match snapshot 1`] = `
             data-testid="results-main"
           >
             <header>
-              <div
-                class="fwgc60z"
-              >
-                Results 
-              </div>
-              <div
-                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-standardInfo MuiAlert-standard fwgc60z css-1poaa4u-MuiPaper-root-MuiAlert-root"
-                role="alert"
+              <h2
+                class="MuiGrid-root MuiGrid-container fau5w0k css-jryjzr-MuiGrid-root"
               >
                 <div
-                  class="MuiAlert-icon css-1ytlwq5-MuiAlert-icon"
+                  class="MuiGrid-root MuiGrid-item f1q8wx css-j8gwlw-MuiGrid-root"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
-                    data-testid="InfoOutlinedIcon"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
-                    />
-                  </svg>
+                  Results
                 </div>
                 <div
-                  class="MuiAlert-message css-1pxa9xg-MuiAlert-message"
+                  class="MuiGrid-root MuiGrid-item f1it3pp1 css-j8gwlw-MuiGrid-root"
                 >
-                  Perfherder links are available for:
-                   
-                  <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
-                    href="https://treeherder.mozilla.org/perfherder/compare?originalProject=try&originalRevision=spam&newProject=try&newRevision=spam&framework=1&page=1"
-                    target="_blank"
-                  >
-                    comparison spam
-                  </a>
-                  .
+                  Compare with a base
                 </div>
-              </div>
+              </h2>
+              <h2
+                class="MuiGrid-root MuiGrid-container fau5w0k css-jryjzr-MuiGrid-root"
+              >
+                <div
+                  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-standardInfo MuiAlert-standard f96or0t css-1poaa4u-MuiPaper-root-MuiAlert-root"
+                  role="alert"
+                >
+                  <div
+                    class="MuiAlert-icon css-1ytlwq5-MuiAlert-icon"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
+                      data-testid="InfoOutlinedIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="MuiAlert-message css-1pxa9xg-MuiAlert-message"
+                  >
+                    Perfherder links are available for:
+                     
+                    <a
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+                      href="https://treeherder.mozilla.org/perfherder/compare?originalProject=try&originalRevision=spam&newProject=try&newRevision=spam&framework=1&page=1"
+                      target="_blank"
+                    >
+                      comparison spam
+                    </a>
+                    .
+                  </div>
+                </div>
+              </h2>
             </header>
             <div
               class="MuiBox-root css-hshm0p"
