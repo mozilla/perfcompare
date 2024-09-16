@@ -2,19 +2,14 @@ import { useState } from 'react';
 
 import InfoIcon from '@mui/icons-material/InfoOutlined';
 import FormControl from '@mui/material/FormControl';
+import Grid from '@mui/material/Grid';
 import InputLabel from '@mui/material/InputLabel';
 import Tooltip from '@mui/material/Tooltip';
-import { style, cssRule } from 'typestyle';
+import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
-import {
-  Spacing,
-  ButtonsLightRaw,
-  ButtonsDarkRaw,
-  DropDownMenuRaw,
-  DropDownItemRaw,
-} from '../../styles';
+import { ButtonsLightRaw, ButtonsDarkRaw } from '../../styles';
 import type { Framework } from '../../types/types';
 import FrameworkDropdown from '../Shared/FrameworkDropdown';
 
@@ -29,27 +24,6 @@ function SearchFrameworkDropdown({
 }: SearchFrameworkDropdownProps) {
   const mode = useAppSelector((state) => state.theme.mode);
   const [frameworkIdVal, setFrameWorkValue] = useState(frameworkId);
-
-  cssRule('.MuiPopover-root', {
-    $nest: {
-      '.MuiPaper-root': {
-        flexDirection: 'column',
-        ...(mode === 'light' ? DropDownMenuRaw.Light : DropDownMenuRaw.Dark),
-        $nest: {
-          '.MuiList-root': {
-            padding: `${Spacing.Small}px ${Spacing.xSmall}px`,
-            $nest: {
-              '.MuiMenuItem-root': {
-                ...(mode === 'light'
-                  ? DropDownItemRaw.Light
-                  : DropDownItemRaw.Dark),
-              },
-            },
-          },
-        },
-      },
-    },
-  });
 
   const styles = {
     container: style({
@@ -66,16 +40,29 @@ function SearchFrameworkDropdown({
 
   return (
     <FormControl className={`framework-dropdown ${styles.container}`}>
-      <InputLabel id='select-framework-label' className='dropdown-select-label'>
-        {strings.selectLabel}
-        <Tooltip placement='top' title={strings.tooltip}>
+      <Grid item xs={2} display='flex' alignItems='center' mb={0.75}>
+        <InputLabel
+          id='select-framework-label'
+          className='dropdown-select-label'
+        >
+          {strings.selectLabel}
+        </InputLabel>
+        <Tooltip
+          classes={{
+            tooltip: `tooltip-${mode === 'light' ? 'light' : 'dark'}`,
+          }}
+          placement='top'
+          title={strings.tooltip}
+        >
           <InfoIcon fontSize='small' className='dropdown-info-icon' />
         </Tooltip>
-      </InputLabel>
+      </Grid>
+
       <FrameworkDropdown
         frameworkId={frameworkIdVal}
         labelId='select-framework-label'
         variant='standard'
+        mode={mode}
         onChange={setFrameWorkValue}
       />
     </FormControl>
