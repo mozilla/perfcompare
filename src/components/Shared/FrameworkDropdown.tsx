@@ -11,8 +11,8 @@ interface FrameworkDropdownProps {
   labelId?: string;
   size?: 'small' | 'medium';
   variant?: 'standard' | 'outlined' | 'filled';
-  onChange?: (event: SelectChangeEvent) => void;
   mode: ThemeMode;
+  onChange: (frameworkId: Framework['id']) => void;
 }
 
 const sortFrameworks = (
@@ -40,6 +40,11 @@ function FrameworkDropdown({
 }: FrameworkDropdownProps) {
   const menuItemStyles =
     mode === 'light' ? DropDownItems.Light : DropDownItems.Dark;
+  const onValueChange = (event: SelectChangeEvent) => {
+    const id = +event.target.value as Framework['id'];
+    onChange(id);
+  };
+
 
   return (
     <Select
@@ -47,7 +52,7 @@ function FrameworkDropdown({
       value={frameworkId.toString()}
       labelId={labelId}
       className='framework-dropdown-select'
-      onChange={onChange}
+      onChange={onValueChange}
       name='framework'
       variant={variant}
       size={size}

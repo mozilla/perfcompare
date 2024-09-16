@@ -112,17 +112,19 @@ function TableHeader({
   onToggleFilter,
   onClearFilter,
 }: TableHeaderProps) {
-  const gridWidthFirstCell = cellsConfiguration[0].gridWidth as string;
   const themeMode = useAppSelector((state) => state.theme.mode);
   const styles = {
     tableHeader: style({
       display: 'grid',
       // Should be kept in sync with the gridTemplateColumns from RevisionRow
-      gridTemplateColumns: `${gridWidthFirstCell} 1fr 0.2fr 1fr 1fr 1fr 1fr 1fr 2fr 0.2fr`,
+      gridTemplateColumns: cellsConfiguration
+        .map((config) => config.gridWidth)
+        .join(' '),
       background:
         themeMode == 'light' ? Colors.Background100 : Colors.Background300Dark,
       borderRadius: '4px',
       padding: Spacing.Small,
+      marginTop: Spacing.Medium,
       $nest: {
         '.cell': {
           borderBottom: 'none',
@@ -133,20 +135,13 @@ function TableHeader({
           margin: 0,
           fontWeight: 700,
         },
-        '.platform-header, .subtests-header, .confidence-header': {
-          width: '120px',
+        '& .runs-header, & .platform-header': {
+          justifySelf: 'left',
+          marginLeft: 8,
         },
-        '.status-header': {
-          width: '110px',
-        },
-        '.base-header, .new-header, .delta-header': {
-          width: '85px',
-        },
-        '.confidence-header': {
-          width: '140px',
-        },
-        '.runs-header': {
-          textAlign: 'left',
+        '.subtests-header': {
+          justifySelf: 'left',
+          marginLeft: 24,
         },
       },
     }),

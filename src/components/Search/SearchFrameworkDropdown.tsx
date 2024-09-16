@@ -4,7 +4,6 @@ import InfoIcon from '@mui/icons-material/InfoOutlined';
 import FormControl from '@mui/material/FormControl';
 import Grid from '@mui/material/Grid';
 import InputLabel from '@mui/material/InputLabel';
-import { SelectChangeEvent } from '@mui/material/Select';
 import Tooltip from '@mui/material/Tooltip';
 import { style } from 'typestyle';
 
@@ -24,7 +23,7 @@ function SearchFrameworkDropdown({
   frameworkId,
 }: SearchFrameworkDropdownProps) {
   const mode = useAppSelector((state) => state.theme.mode);
-  const [frameworkIdVal, setframeWorkValue] = useState(frameworkId);
+  const [frameworkIdVal, setFrameWorkValue] = useState(frameworkId);
 
   const styles = {
     container: style({
@@ -37,11 +36,6 @@ function SearchFrameworkDropdown({
         },
       },
     }),
-  };
-
-  const onChange = (event: SelectChangeEvent) => {
-    const id = +event.target.value as Framework['id'];
-    setframeWorkValue(id);
   };
 
   return (
@@ -68,8 +62,8 @@ function SearchFrameworkDropdown({
         frameworkId={frameworkIdVal}
         labelId='select-framework-label'
         variant='standard'
-        onChange={onChange}
         mode={mode}
+        onChange={setFrameWorkValue}
       />
     </FormControl>
   );
