@@ -77,6 +77,7 @@ export enum Colors {
 
   //icon light
   IconLight = '#5B5B66',
+  IconLightSecondary = '#FBFBFE',
 
   //icon dark
   IconDark = '#FBFBFE',

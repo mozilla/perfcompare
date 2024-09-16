@@ -2,6 +2,7 @@ import FormControl from '@mui/material/FormControl';
 import Grid from '@mui/material/Grid';
 import { style } from 'typestyle';
 
+import { useAppSelector } from '../../hooks/app';
 import type { CompareResultsItem } from '../../types/state';
 import type { Framework } from '../../types/types';
 import FrameworkDropdown from '../Shared/FrameworkDropdown';
@@ -29,6 +30,7 @@ export default function ResultsControls({
   onSearchTermChange,
   onFrameworkChange,
 }: Props) {
+  const mode = useAppSelector((state) => state.theme.mode);
   return (
     <Grid container className={controlsStyles} spacing={2}>
       <Grid item md={6} xs={12}>
@@ -43,6 +45,7 @@ export default function ResultsControls({
             frameworkId={frameworkId}
             size='small'
             variant='outlined'
+            mode={mode}
             onChange={onFrameworkChange}
           />
         </FormControl>

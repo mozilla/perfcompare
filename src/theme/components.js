@@ -76,11 +76,6 @@ const components = {
         },
         '&.paper-light': {
           ...DropDownMenuRaw.Light,
-
-          '.dropdown-menu': {
-            ...DropDownItemRaw.Light,
-            color: red,
-          },
         },
         '&.paper-dark': {
           ...DropDownMenuRaw.Dark,
@@ -258,14 +253,8 @@ const components = {
   },
   MuiTooltip: {
     styleOverrides: {
-      tooltip: {
-        '&.tooltip-light': {
-          ...TooltipRaw.Light,
-        },
-        '&.tooltip-dark': {
-          ...TooltipRaw.Dark,
-        },
-      },
+      tooltip: ({ theme }) =>
+        theme.palette.mode == 'light' ? TooltipRaw.Light : TooltipRaw.Dark,
     },
   },
 };

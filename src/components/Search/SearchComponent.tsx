@@ -65,7 +65,7 @@ function SearchComponent({
         </InputLabel>
         <Tooltip
           classes={{
-            tooltip: `tooltip-${mode === 'light' ? 'light' : 'dark'}`,
+            tooltip: `tooltip-${mode}`,
           }}
           placement='top'
           title={tooltip}

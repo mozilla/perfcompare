@@ -45,7 +45,6 @@ function FrameworkDropdown({
     onChange(id);
   };
 
-
   return (
     <Select
       data-testid='framework-select'

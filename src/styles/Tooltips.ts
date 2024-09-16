@@ -1,5 +1,3 @@
-import { style } from 'typestyle';
-
 import { Colors } from './Colors';
 import { Spacing } from './Spacing';
 
@@ -24,9 +22,4 @@ export const TooltipRaw = {
     color: Colors.PrimaryTextDark,
     boxShadow: Colors.ShadowDark,
   },
-};
-
-export const Tooltips = {
-  TooltipLight: style(TooltipRaw.Light),
-  TooltipDark: style(TooltipRaw.Dark),
 };
