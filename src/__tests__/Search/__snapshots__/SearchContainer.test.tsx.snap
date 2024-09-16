@@ -683,7 +683,8 @@ exports[`Search Containter should match snapshot 1`] = `
                 </label>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-container container_fgv7cgi show-container--time css-1ljzhs0-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-container container_fgv7cgi show-container--time
+          } css-1ljzhs0-MuiGrid-root"
                 id="new-search-container--time"
               >
                 <div

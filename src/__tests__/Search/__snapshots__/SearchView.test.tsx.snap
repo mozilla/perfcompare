@@ -762,7 +762,8 @@ exports[`Search View renders correctly when there are no results 1`] = `
                   </label>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-container container_fgv7cgi show-container--time css-1ljzhs0-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container container_fgv7cgi show-container--time
+          } css-1ljzhs0-MuiGrid-root"
                   id="new-search-container--time"
                 >
                   <div
@@ -1172,7 +1173,8 @@ exports[`With search parameters both search components are populated as expected
       </label>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_fgv7cgi show-container--time css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_fgv7cgi show-container--time
+          } css-1ljzhs0-MuiGrid-root"
       id="new-search-container--time"
     >
       <div
@@ -2216,7 +2218,8 @@ exports[`With search parameters both search components are populated as expected
       </label>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_fgv7cgi show-container--time css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_fgv7cgi show-container--time
+          } css-1ljzhs0-MuiGrid-root"
       id="new-search-container--time"
     >
       <div
@@ -3260,7 +3263,8 @@ exports[`With search parameters displays the default value for framework if the 
       </label>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_fgv7cgi show-container--time css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_fgv7cgi show-container--time
+          } css-1ljzhs0-MuiGrid-root"
       id="new-search-container--time"
     >
       <div
@@ -4304,7 +4308,8 @@ exports[`With search parameters displays the default values if some values are b
       </label>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_fgv7cgi show-container--time css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_fgv7cgi show-container--time
+          } css-1ljzhs0-MuiGrid-root"
       id="new-search-container--time"
     >
       <div

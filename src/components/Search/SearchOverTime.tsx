@@ -230,8 +230,7 @@ export default function SearchOverTime({
           container
           alignItems='flex-start'
           id='new-search-container--time'
-          className={`${styles.container} ${
-            formIsDisplayed ? 'show-container--time' : ''
+          className={`${styles.container} show-container--time
           }`}
         >
           <Grid

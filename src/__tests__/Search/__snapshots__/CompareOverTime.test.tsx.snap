@@ -203,7 +203,8 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
       </label>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_fgv7cgi show-container--time css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_fgv7cgi show-container--time
+          } css-1ljzhs0-MuiGrid-root"
       id="new-search-container--time"
     >
       <div
@@ -1012,7 +1013,8 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
       </label>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_fgv7cgi show-container--time css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_fgv7cgi show-container--time
+          } css-1ljzhs0-MuiGrid-root"
       id="new-search-container--time"
     >
       <div
@@ -1776,7 +1778,8 @@ exports[`Compare Over Time should remove the checked revision once X button is c
       </label>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_fgv7cgi show-container--time css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_fgv7cgi show-container--time
+          } css-1ljzhs0-MuiGrid-root"
       id="new-search-container--time"
     >
       <div
@@ -2613,7 +2616,8 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
       </label>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container container_fgv7cgi show-container--time css-1ljzhs0-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container container_fgv7cgi show-container--time
+          } css-1ljzhs0-MuiGrid-root"
       id="new-search-container--time"
     >
       <div
