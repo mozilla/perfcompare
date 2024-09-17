@@ -159,11 +159,11 @@ export const SearchStyles = (mode: string) => {
 
     dropDown: {
       minWidth: `${repoDropdownWidth}px`,
+      marginBottom: `${Spacing.xSmall + 2}px`,
       $nest: {
         '.dropdown-select-label,.base_label': {
           ...(isTrueLight ? FontsRaw.BodyDefault : FontsRaw.BodyDefaultDark),
           fontWeight: '600',
-          marginBottom: `${Spacing.xSmall + 2}px`,
           display: 'flex',
           alignItems: 'center',
           transform: 'unset',
@@ -173,9 +173,11 @@ export const SearchStyles = (mode: string) => {
         '.dropdown-info-icon': {
           marginLeft: `${Spacing.xSmall}px`,
           cursor: 'pointer',
+          width: '16px',
+          height: '16px',
         },
         '.MuiSvgIcon-root': {
-          color: isTrueLight ? Colors.IconLight : Colors.IconDark,
+          color: isTrueLight ? Colors.PrimaryText : Colors.IconDark,
         },
       },
     },

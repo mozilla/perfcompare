@@ -2,16 +2,10 @@ import InfoIcon from '@mui/icons-material/InfoOutlined';
 import Grid from '@mui/material/Grid';
 import InputLabel from '@mui/material/InputLabel';
 import Tooltip from '@mui/material/Tooltip';
-import { cssRule } from 'typestyle';
 
 import { compareView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
-import {
-  Spacing,
-  DropDownMenuRaw,
-  DropDownItemRaw,
-  SearchStyles,
-} from '../../styles';
+import { SearchStyles } from '../../styles';
 import type { Changeset, InputType, Repository } from '../../types/state';
 import SearchDropdown from './SearchDropdown';
 import SearchInputAndResults from './SearchInputAndResults';
@@ -55,43 +49,29 @@ function SearchComponent({
   const styles = SearchStyles(mode);
   const searchType: InputType = isBaseComp ? 'base' : 'new';
 
-  /* These overriding rules update the theme mode by accessing the otherwise inaccessible MUI tooltip styles */
-  cssRule('.MuiPopover-root', {
-    $nest: {
-      '.MuiPaper-root': {
-        flexDirection: 'column',
-        ...(mode === 'light' ? DropDownMenuRaw.Light : DropDownMenuRaw.Dark),
-        $nest: {
-          '.MuiList-root': {
-            padding: `${Spacing.Small}px ${Spacing.xSmall}px`,
-            $nest: {
-              '.MuiMenuItem-root': {
-                ...(mode === 'light'
-                  ? DropDownItemRaw.Light
-                  : DropDownItemRaw.Dark),
-              },
-            },
-          },
-        },
-      },
-    },
-  });
-
   return (
     <Grid className={styles.component}>
       <Grid
         item
         xs={2}
+        display='flex'
+        alignItems='center'
         className={`${isBaseComp ? 'base' : 'new'}-search-dropdown ${
           styles.dropDown
         } label-edit-wrapper`}
       >
         <InputLabel id={labelIdInfo} className='dropdown-select-label'>
           {selectLabel}
-          <Tooltip placement='top' title={tooltip}>
-            <InfoIcon fontSize='small' className='dropdown-info-icon' />
-          </Tooltip>
         </InputLabel>
+        <Tooltip
+          classes={{
+            tooltip: `tooltip-${mode}`,
+          }}
+          placement='top'
+          title={tooltip}
+        >
+          <InfoIcon fontSize='small' className='dropdown-info-icon' />
+        </Tooltip>
       </Grid>
       {/**** Search - DropDown Section ****/}
       <Grid

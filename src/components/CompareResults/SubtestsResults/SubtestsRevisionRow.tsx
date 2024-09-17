@@ -2,8 +2,10 @@ import { useState } from 'react';
 
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import TimelineIcon from '@mui/icons-material/Timeline';
-import { IconButton } from '@mui/material';
+import { IconButton, Box } from '@mui/material';
 import { style } from 'typestyle';
 
 import { useAppSelector } from '../../../hooks/app';
@@ -16,8 +18,6 @@ const revisionsRow = {
   borderRadius: '4px 0px 0px 4px',
   display: 'grid',
   margin: `${Spacing.Small}px 0px`,
-  // Should be kept in sync with the gridTemplateColumns from TableHeader
-  gridTemplateColumns: '4fr 1fr 0.2fr 1fr 1fr 1fr 1fr 1fr 2fr 0.2fr',
 };
 
 const typography = style({
@@ -93,11 +93,39 @@ function getStyles(themeMode: string) {
         '.expand-button': {
           backgroundColor: backgroundColorExpandButton,
         },
+        '.status-hint': {
+          display: 'inline-flex',
+          gap: '6px',
+          borderRadius: '4px',
+          padding: '4px 10px',
+        },
+        '.status-hint-improvement': {
+          backgroundColor: '#D8EEDC',
+        },
+        '.status-hint-regression': {
+          backgroundColor: '#FFE8E8',
+        },
+        '.status-hint .MuiSvgIcon-root': {
+          height: '16px',
+        },
+        '.status-hint-improvement .MuiSvgIcon-root': {
+          color: '#017A40',
+        },
+        '.status-hint-regression .MuiSvgIcon-root': {
+          // We need to move the icon a bit lower so that it _looks_ centered.
+          marginTop: '2px',
+          color: '#D7264C',
+        },
       },
     }),
     typography: typography,
   };
 }
+
+const styles = {
+  light: getStyles('light'),
+  dark: getStyles('dark'),
+};
 
 const stylesCard = ExpandableRowStyles();
 
@@ -107,6 +135,12 @@ function determineStatus(improvement: boolean, regression: boolean) {
   return '-';
 }
 
+function determineStatusHintClass(improvement: boolean, regression: boolean) {
+  if (improvement) return 'status-hint-improvement';
+  if (regression) return 'status-hint-regression';
+  return '';
+}
+
 function determineSign(baseMedianValue: number, newMedianValue: number) {
   if (baseMedianValue > newMedianValue) return '>';
   if (baseMedianValue < newMedianValue) return '<';
@@ -114,7 +148,7 @@ function determineSign(baseMedianValue: number, newMedianValue: number) {
 }
 
 function SubtestsRevisionRow(props: RevisionRowProps) {
-  const { result } = props;
+  const { result, gridTemplateColumns } = props;
   const {
     test,
     base_median_value: baseMedianValue,
@@ -138,12 +172,11 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
 
   const themeMode = useAppSelector((state) => state.theme.mode);
 
-  const styles = getStyles(themeMode);
-
   return (
     <>
-      <div
-        className={`revisionRow ${styles.revisionRow} ${styles.typography}`}
+      <Box
+        className={`revisionRow ${styles[themeMode].revisionRow} ${styles[themeMode].typography}`}
+        sx={{ gridTemplateColumns }}
         role='row'
       >
         <div className='subtests cell' role='cell'>
@@ -161,8 +194,16 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
           {newMedianValue} {newUnit}
         </div>
         <div className='status cell' role='cell'>
-          {' '}
-          {determineStatus(improvement, regression)}{' '}
+          <span
+            className={`status-hint ${determineStatusHintClass(
+              improvement,
+              regression,
+            )}`}
+          >
+            {improvement ? <ThumbUpIcon /> : null}
+            {regression ? <ThumbDownIcon /> : null}
+            {determineStatus(improvement, regression)}
+          </span>
         </div>
         <div className='delta cell' role='cell'>
           {' '}
@@ -216,7 +257,7 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
             </IconButton>
           </div>
         </div>
-      </div>
+      </Box>
       {expanded && (
         <div
           className={`content-row ${stylesCard.container}`}
@@ -231,6 +272,7 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
 
 interface RevisionRowProps {
   result: CompareResultsItem;
+  gridTemplateColumns: string;
 }
 
 export default SubtestsRevisionRow;

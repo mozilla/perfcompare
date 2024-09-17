@@ -6,15 +6,17 @@ import { Spacing } from './Spacing';
 const sharedDropDownStyles = {
   display: 'flex',
   justifyContent: 'space-between',
+  flexDirection: 'column',
   minWidth: '200px',
   borderRadius: `${Spacing.xSmall}px`,
-  marginTop: `${Spacing.xSmall}px`,
+  marginTop: `${Spacing.Small}px`,
 };
 
 const sharedListStyles = {
   border: `${Spacing.xSmall / 2}px solid transparent`,
   borderRadius: `${Spacing.xSmall}px`,
-  padding: `${Spacing.Small}px ${Spacing.xSmall}px`,
+  padding: `${Spacing.Small}px`,
+  margin: `${Spacing.xSmall}px ${Spacing.Small}px`,
 };
 
 export const DropDownMenuRaw = {
@@ -27,7 +29,7 @@ export const DropDownMenuRaw = {
 
   Dark: {
     ...sharedDropDownStyles,
-    backgroundColor: Colors.Background300Dark,
+    backgroundColor: Colors.Background200Dark,
     border: `1px solid ${Colors.Background300Dark}`,
     boxShadow: Colors.ShadowDark,
   },
@@ -42,11 +44,11 @@ export const DropDownItemRaw = {
       '&:hover': {
         backgroundColor: Colors.SecondaryHover,
       },
-      '&:active': {
+      '&.Mui-selected': {
         backgroundColor: Colors.SecondaryActive,
       },
       '&:focus': {
-        backgroundColor: Colors.SecondaryDefault,
+        backgroundColor: Colors.SecondaryActive,
         borderColor: Colors.PrimaryDefault,
       },
     },
@@ -59,12 +61,11 @@ export const DropDownItemRaw = {
       '&:hover': {
         backgroundColor: Colors.SecondaryHoverDark,
       },
-      '&:active': {
+      '&.Mui-selected': {
         backgroundColor: Colors.SecondaryActiveDark,
-        color: Colors.InvertedTextDark,
       },
       '&:focus': {
-        backgroundColor: Colors.SecondaryDark,
+        backgroundColor: Colors.SecondaryActiveDark,
         borderColor: Colors.PrimaryDark,
       },
     },
