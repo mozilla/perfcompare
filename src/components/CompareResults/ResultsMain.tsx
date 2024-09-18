@@ -1,3 +1,5 @@
+import { Fragment } from 'react';
+
 import { Link } from '@mui/material';
 import Alert from '@mui/material/Alert';
 import { Container } from '@mui/system';
@@ -47,49 +49,39 @@ function ResultsMain() {
     }),
   };
 
+  function getCompareViewURL(index: number, rev: string): string | undefined {
+    if (view === `compare-results`)
+      return getOldCompareWithBaseViewURL(
+        baseRepo,
+        baseRev,
+        newRepos[index],
+        rev,
+        frameworkId,
+      );
+    else
+      return getOldCompareOvertimeViewURL(
+        baseRepo,
+        newRepos[index],
+        rev,
+        frameworkId,
+        intervalValue,
+      );
+  }
+  console.log(newRevs);
   return (
     <Container className={styles.container} data-testid='results-main'>
       <header>
         <div className={styles.title}>Results </div>
         <Alert severity='info' className={styles.title}>
-          Perfherder links are available for the same comparisons:{' '}
-          {view === `compare-results`
-            ? newRevs.map((rev, index) => (
-                <>
-                  <Link
-                    key={rev}
-                    href={getOldCompareWithBaseViewURL(
-                      baseRepo,
-                      baseRev,
-                      newRepos[index],
-                      rev,
-                      frameworkId,
-                    )}
-                    target='_blank'
-                  >
-                    {truncateHash(rev)}
-                  </Link>
-                  {getPunctuationMark(index, newRevs)}
-                </>
-              ))
-            : newRevs.map((rev, index) => (
-                <>
-                  <Link
-                    key={rev}
-                    href={getOldCompareOvertimeViewURL(
-                      baseRepo,
-                      newRepos[index],
-                      rev,
-                      frameworkId,
-                      intervalValue,
-                    )}
-                    target='_blank'
-                  >
-                    {truncateHash(rev)}
-                  </Link>
-                  {getPunctuationMark(index, newRevs)}
-                </>
-              ))}
+          Perfherder links are available for:{' '}
+          {newRevs.map((rev, index) => (
+            <Fragment key={truncateHash(rev)}>
+              <Link href={getCompareViewURL(index, rev)} target='_blank'>
+                {`comparison ${truncateHash(rev)}`}
+              </Link>
+              {getPunctuationMark(index, newRevs)}
+            </Fragment>
+          ))}
         </Alert>
       </header>
       <ResultsTable />

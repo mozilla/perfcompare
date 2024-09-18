@@ -740,14 +740,14 @@ exports[`Results Table Should match snapshot 1`] = `
                 <div
                   class="MuiAlert-message css-1pxa9xg-MuiAlert-message"
                 >
-                  Perfherder links are available for the same comparisons:
+                  Perfherder links are available for:
                    
                   <a
                     class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
                     href="https://treeherder.mozilla.org/perfherder/compare?originalProject=try&originalRevision=spam&newProject=try&newRevision=spam&framework=1&page=1"
                     target="_blank"
                   >
-                    spam
+                    comparison spam
                   </a>
                   .
                 </div>

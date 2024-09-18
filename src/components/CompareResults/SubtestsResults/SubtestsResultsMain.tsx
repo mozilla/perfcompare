@@ -116,7 +116,7 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
         <Alert severity='info' className={styles.title}>
           A Perfherder link is available for{' '}
           <Link href={subtestsViewPerfherderURL} target='_blank'>
-            these results
+            the same results
           </Link>
           {'.'}
         </Alert>

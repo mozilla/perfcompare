@@ -50,17 +50,17 @@ describe('Revision select', () => {
     let firstRevisionHeaders = await screen.findAllByRole('link', {
       name: /bb6a5e451dac/,
     });
-    expect(firstRevisionHeaders).toHaveLength(8);
+    expect(firstRevisionHeaders).toHaveLength(9);
 
     let secondRevisionHeaders = await screen.findAllByRole('link', {
       name: /9d5066525489/,
     });
-    expect(secondRevisionHeaders).toHaveLength(7);
+    expect(secondRevisionHeaders).toHaveLength(8);
 
-    const thirdRevisionHeaders = await screen.findAllByRole('link', {
+    let thirdRevisionHeaders = await screen.findAllByRole('link', {
       name: /a998c42399a8/,
     });
-    expect(thirdRevisionHeaders).toHaveLength(7);
+    expect(thirdRevisionHeaders).toHaveLength(8);
 
     // change comparison to revision bb6a5e451dac
     const selectRevisionDropdown = within(
@@ -81,8 +81,21 @@ describe('Revision select', () => {
     firstRevisionHeaders = await screen.findAllByText(/bb6a5e451dac/, {
       selector: 'a',
     });
-    expect(firstRevisionHeaders).toHaveLength(8);
+    expect(firstRevisionHeaders).toHaveLength(9);
 
+    // Only the Perfherder link for comparison with 9d5066525489 is found
+    secondRevisionHeaders = await screen.findAllByText(/9d5066525489/, {
+      selector: 'a',
+    });
+    expect(secondRevisionHeaders).toHaveLength(1);
+
+    // Only the Perfherder link for comparison with a998c42399a8 is found
+    thirdRevisionHeaders = await screen.findAllByText(/a998c42399a8/, {
+      selector: 'a',
+    });
+    expect(thirdRevisionHeaders).toHaveLength(1);
+
+    /*
     expect(
       screen.queryAllByText(/9d5066525489/, {
         selector: 'a',
@@ -94,6 +107,7 @@ describe('Revision select', () => {
         selector: 'a',
       }),
     ).toStrictEqual([]);
+    */
 
     // Now select the second option 9d5066525489
     fireEvent.mouseDown(selectButton);
@@ -109,18 +123,32 @@ describe('Revision select', () => {
     secondRevisionHeaders = await screen.findAllByText(/9d5066525489/, {
       selector: 'a',
     });
-    expect(secondRevisionHeaders).toHaveLength(7);
+    expect(secondRevisionHeaders).toHaveLength(8);
 
-    expect(
-      screen.queryAllByText(/bb6a5e451dac/, {
-        selector: 'a',
-      }),
-    ).toStrictEqual([]);
+    // Only the Perfherder link for comparison with bb6a5e451dac is found
+    firstRevisionHeaders = await screen.findAllByText(/bb6a5e451dac/, {
+      selector: 'a',
+    });
+    expect(firstRevisionHeaders).toHaveLength(1);
 
-    expect(
-      screen.queryAllByText(/a998c42399a8/, {
-        selector: 'a',
-      }),
-    ).toStrictEqual([]);
+    // Only the Perfherder link for comparison with a998c42399a8 is found
+    thirdRevisionHeaders = await screen.findAllByText(/a998c42399a8/, {
+      selector: 'a',
+    });
+    expect(thirdRevisionHeaders).toHaveLength(1);
   });
+
+  /*
+  expect(
+    screen.queryAllByText(/bb6a5e451dac/, {
+      selector: 'a',
+    }),
+  ).toStrictEqual([]);
+
+  expect(
+    screen.queryAllByText(/a998c42399a8/, {
+      selector: 'a',
+    }),
+  ).toStrictEqual([]);
+  */
 });
