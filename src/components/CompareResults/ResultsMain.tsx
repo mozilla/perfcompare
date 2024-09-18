@@ -1,4 +1,5 @@
 import { Link } from '@mui/material';
+import Alert from '@mui/material/Alert';
 import { Container } from '@mui/system';
 import { useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
@@ -13,6 +14,10 @@ import {
 import type { LoaderReturnValue } from './loader';
 import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeLoader';
 import ResultsTable from './ResultsTable';
+
+function getPunctuationMark(index: number, newRevs: string[]) {
+  return index != newRevs.length - 1 ? ', ' : '.';
+}
 
 function ResultsMain() {
   const {
@@ -46,7 +51,7 @@ function ResultsMain() {
     <Container className={styles.container} data-testid='results-main'>
       <header>
         <div className={styles.title}>Results </div>
-        <div className={styles.title}>
+        <Alert severity='info' className={styles.title}>
           Perfherder links are available for the same comparisons:{' '}
           {view === `compare-results`
             ? newRevs.map((rev, index) => (
@@ -63,7 +68,8 @@ function ResultsMain() {
                     target='_blank'
                   >
                     {truncateHash(rev)}
-                  </Link>{' '}
+                  </Link>
+                  {getPunctuationMark(index, newRevs)}
                 </>
               ))
             : newRevs.map((rev, index) => (
@@ -80,10 +86,11 @@ function ResultsMain() {
                     target='_blank'
                   >
                     {truncateHash(rev)}
-                  </Link>{' '}
+                  </Link>
+                  {getPunctuationMark(index, newRevs)}
                 </>
               ))}
-        </div>
+        </Alert>
       </header>
       <ResultsTable />
     </Container>

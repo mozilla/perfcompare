@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { Grid } from '@mui/material';
 import { Link } from '@mui/material';
+import Alert from '@mui/material/Alert';
 import { Container } from '@mui/system';
 import { useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
@@ -9,7 +10,6 @@ import { style } from 'typestyle';
 import { subtestsView, subtestsOverTimeView } from '../../../common/constants';
 import { useAppSelector } from '../../../hooks/app';
 import useRawSearchParams from '../../../hooks/useRawSearchParams';
-import { Strings } from '../../../resources/Strings';
 import { Colors, Spacing } from '../../../styles';
 import type { SubtestsRevisionsHeader } from '../../../types/state';
 import {
@@ -82,39 +82,44 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
   };
 
   let subtestsViewPerfherderURL;
-  if (view === subtestsOverTimeView) {
-    const { intervalValue } = useLoaderData() as OvertimeLoaderReturnValue;
-    subtestsViewPerfherderURL = getOldSubtestsCompareOvertimeViewURL(
-      subtestsHeader.base_repo,
-      subtestsHeader.new_repo,
-      subtestsHeader.new_rev,
-      subtestsHeader.framework_id,
-      intervalValue,
-      subtestsHeader.base_parent_signature,
-      subtestsHeader.new_parent_signature,
-    );
-  } else
-    subtestsViewPerfherderURL = getOldSubtestsCompareWithBaseViewURL(
-      subtestsHeader.base_repo,
-      subtestsHeader.base_rev,
-      subtestsHeader.base_repo,
-      subtestsHeader.new_rev,
-      subtestsHeader.framework_id,
-      subtestsHeader.base_parent_signature,
-      subtestsHeader.new_parent_signature,
-    );
+  if (
+    subtestsHeader.base_parent_signature !== null &&
+    subtestsHeader.new_parent_signature !== null
+  ) {
+    if (view === subtestsOverTimeView) {
+      const { intervalValue } = useLoaderData() as OvertimeLoaderReturnValue;
+      subtestsViewPerfherderURL = getOldSubtestsCompareOvertimeViewURL(
+        subtestsHeader.base_repo,
+        subtestsHeader.new_repo,
+        subtestsHeader.new_rev,
+        subtestsHeader.framework_id,
+        intervalValue,
+        subtestsHeader.base_parent_signature,
+        subtestsHeader.new_parent_signature,
+      );
+    } else
+      subtestsViewPerfherderURL = getOldSubtestsCompareWithBaseViewURL(
+        subtestsHeader.base_repo,
+        subtestsHeader.base_rev,
+        subtestsHeader.base_repo,
+        subtestsHeader.new_rev,
+        subtestsHeader.framework_id,
+        subtestsHeader.base_parent_signature,
+        subtestsHeader.new_parent_signature,
+      );
+  }
 
   return (
     <Container className={styles.container} data-testid='subtests-main'>
       <header>
         <SubtestsBreadcrumbs view={view} />
-        <Link
-          href={subtestsViewPerfherderURL}
-          target='_blank'
-          title={`${Strings.components.revisionRow.title.compareViewLink} ${subtestsHeader.new_rev}`}
-        >
-          Perfherder comparison
-        </Link>{' '}
+        <Alert severity='info' className={styles.title}>
+          A Perfherder link is available for{' '}
+          <Link href={subtestsViewPerfherderURL} target='_blank'>
+            these results
+          </Link>
+          {'.'}
+        </Alert>
         <SubtestsRevisionHeader header={subtestsHeader} />
         <Grid container spacing={1}>
           <Grid item xs={12} md={6} sx={{ marginInlineEnd: 'auto' }}>

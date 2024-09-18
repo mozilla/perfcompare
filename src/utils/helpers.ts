@@ -70,8 +70,8 @@ const getOldSubtestsCompareWithBaseViewURL = (
   newProject: Repository['name'],
   newRevision: Changeset['revision'],
   framework: Framework['id'],
-  originalSignature: number | null,
-  newSignature: number | null,
+  originalSignature: number,
+  newSignature: number,
 ) =>
   `https://treeherder.mozilla.org/perfherder/comparesubtest?originalProject=${originalProject}&originalRevision=${originalRevision}&newProject=${newProject}&newRevision=${newRevision}&framework=${framework}&originalSignature=${originalSignature}&newSignature=${newSignature}&page=1`;
 
@@ -90,8 +90,8 @@ const getOldSubtestsCompareOvertimeViewURL = (
   newRevision: Changeset['revision'],
   framework: Framework['id'],
   selectedTimeRange: TimeRange['value'],
-  originalSignature: number | null,
-  newSignature: number | null,
+  originalSignature: number,
+  newSignature: number,
 ) =>
   `https://treeherder.mozilla.org/perfherder/comparesubtest?originalProject=${originalProject}&newProject=${newProject}&newRevision=${newRevision}&framework=${framework}&selectedTimeRange=${selectedTimeRange}&originalSignature=${originalSignature}&newSignature=${newSignature}&page=1`;
 

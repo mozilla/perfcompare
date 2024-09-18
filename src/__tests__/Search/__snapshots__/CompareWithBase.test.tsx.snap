@@ -2589,34 +2589,34 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
     class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f913nm1 label-edit-wrapper css-13eijkh-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f5zlgu9 label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
         id="repo-dropdown--base"
       >
         Base
-        <svg
-          aria-hidden="true"
-          aria-label="The baseline revision (no changes) your revision will be compared against."
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
-          data-mui-internal-clone-element="true"
-          data-testid="InfoOutlinedIcon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-          />
-        </svg>
       </label>
+      <svg
+        aria-hidden="true"
+        aria-label="The baseline revision (no changes) your revision will be compared against."
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+        data-mui-internal-clone-element="true"
+        data-testid="InfoOutlinedIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+        />
+      </svg>
     </div>
     <div
       class="MuiGrid-root MuiGrid-container container_fgv7cgi show-container  css-1ljzhs0-MuiGrid-root"
       id="base-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f913nm1 small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f5zlgu9 small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="base_search-dropdown"
       >
         <div
@@ -2733,34 +2733,34 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
     class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 label-edit-wrapper css-13eijkh-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f5zlgu9 label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
         id="repo-dropdown--new"
       >
         Revisions
-        <svg
-          aria-hidden="true"
-          aria-label="Revisions (typically including your changes) to compare against the selected base revision."
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
-          data-mui-internal-clone-element="true"
-          data-testid="InfoOutlinedIcon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-          />
-        </svg>
       </label>
+      <svg
+        aria-hidden="true"
+        aria-label="Revisions (typically including your changes) to compare against the selected base revision."
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+        data-mui-internal-clone-element="true"
+        data-testid="InfoOutlinedIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+        />
+      </svg>
     </div>
     <div
       class="MuiGrid-root MuiGrid-container container_fgv7cgi show-container  css-1ljzhs0-MuiGrid-root"
       id="new-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f5zlgu9 small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown"
       >
         <div
@@ -2894,7 +2894,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                 class="warning-icon"
               >
                 <svg
-                  aria-label="Comparing “try” repository to any repository aside from “try” is not recommended."
+                  aria-label="Production (e.g. mozilla-central, autoland), and try branches have different performance characteristics due to build differences that can often result in misleading comparisons."
                   class="MuiSvgIcon-root MuiSvgIcon-colorWarning MuiSvgIcon-fontSizeSmall css-1jwhf5x-MuiSvgIcon-root"
                   data-mui-internal-clone-element="true"
                   data-testid="WarningIcon"
@@ -2906,7 +2906,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                     d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
                   />
                   <title>
-                    Comparing “try” repository to any repository aside from “try” is not recommended.
+                    Production (e.g. mozilla-central, autoland), and try branches have different performance characteristics due to build differences that can often result in misleading comparisons.
                   </title>
                 </svg>
               </div>
@@ -3011,7 +3011,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
     </div>
   </div>
   <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f913nm1 css-13jteey-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f5zlgu9 css-13jteey-MuiGrid-root"
   >
     <input
       name="framework"
@@ -3110,34 +3110,34 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
     class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f913nm1 label-edit-wrapper css-13eijkh-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f5zlgu9 label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
         id="repo-dropdown--base"
       >
         Base
-        <svg
-          aria-hidden="true"
-          aria-label="The baseline revision (no changes) your revision will be compared against."
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
-          data-mui-internal-clone-element="true"
-          data-testid="InfoOutlinedIcon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-          />
-        </svg>
       </label>
+      <svg
+        aria-hidden="true"
+        aria-label="The baseline revision (no changes) your revision will be compared against."
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+        data-mui-internal-clone-element="true"
+        data-testid="InfoOutlinedIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+        />
+      </svg>
     </div>
     <div
       class="MuiGrid-root MuiGrid-container container_fgv7cgi show-container  css-1ljzhs0-MuiGrid-root"
       id="base-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f913nm1 small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f5zlgu9 small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="base_search-dropdown"
       >
         <div
@@ -3271,7 +3271,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                 class="warning-icon"
               >
                 <svg
-                  aria-label="Comparing “try” repository to any repository aside from “try” is not recommended."
+                  aria-label="Production (e.g. mozilla-central, autoland), and try branches have different performance characteristics due to build differences that can often result in misleading comparisons."
                   class="MuiSvgIcon-root MuiSvgIcon-colorWarning MuiSvgIcon-fontSizeSmall css-1jwhf5x-MuiSvgIcon-root"
                   data-mui-internal-clone-element="true"
                   data-testid="WarningIcon"
@@ -3283,7 +3283,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                     d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
                   />
                   <title>
-                    Comparing “try” repository to any repository aside from “try” is not recommended.
+                    Production (e.g. mozilla-central, autoland), and try branches have different performance characteristics due to build differences that can often result in misleading comparisons.
                   </title>
                 </svg>
               </div>
@@ -3391,34 +3391,34 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
     class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 label-edit-wrapper css-13eijkh-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f5zlgu9 label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
         id="repo-dropdown--new"
       >
         Revisions
-        <svg
-          aria-hidden="true"
-          aria-label="Revisions (typically including your changes) to compare against the selected base revision."
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
-          data-mui-internal-clone-element="true"
-          data-testid="InfoOutlinedIcon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-          />
-        </svg>
       </label>
+      <svg
+        aria-hidden="true"
+        aria-label="Revisions (typically including your changes) to compare against the selected base revision."
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+        data-mui-internal-clone-element="true"
+        data-testid="InfoOutlinedIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+        />
+      </svg>
     </div>
     <div
       class="MuiGrid-root MuiGrid-container container_fgv7cgi show-container  css-1ljzhs0-MuiGrid-root"
       id="new-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f913nm1 small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f5zlgu9 small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown"
       >
         <div
@@ -3532,7 +3532,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
     </div>
   </div>
   <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f913nm1 css-13jteey-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f5zlgu9 css-13jteey-MuiGrid-root"
   >
     <input
       name="framework"
