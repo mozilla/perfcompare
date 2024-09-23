@@ -11,30 +11,6 @@ jest.mock('../../utils/location');
 const mockedGetLocationOrigin = getLocationOrigin as jest.Mock;
 
 describe('Taskcluster Callback', () => {
-  it('should fetch access token bearer', () => {
-    (window.fetch as FetchMockSandbox).post(
-      'begin:https://firefox-ci-tc.services.mozilla.com/login/oauth/token',
-      {
-        access_token: 'RnVpOGJtdDZTb3FlWW5PVUxVclprQQ==',
-        token_type: 'Bearer',
-      },
-    );
-    sessionStorage.setItem('requestState', 'OkCrH5isZncYqeJbRDelN');
-    sessionStorage.setItem(
-      'taskclusterUrl',
-      'https://firefox-ci-tc.services.mozilla.com',
-    );
-
-    renderWithRouter(<TaskclusterCallback />, {
-      route: '/taskcluster-auth',
-      search: '?code=dwcygG5HQNaLiRe3RcTCbQ&state=OkCrH5isZncYqeJbRDelN',
-      loader,
-    });
-    mockedGetLocationOrigin.mockImplementation(() => 'http://localhost:3000');
-
-    expect(window.fetch).toHaveBeenCalledTimes(1);
-  });
-
   it('should fetch credentials with token bearer', async () => {
     // Make window.close a noop so that the component can be rendered after the
     // authentication process.
@@ -73,9 +49,15 @@ describe('Taskcluster Callback', () => {
     });
 
     expect(
-      await screen.findByText(/Getting Taskcluster credentials/),
+      await screen.findByText(/Credentials were found/),
     ).toBeInTheDocument();
 
+    expect(window.fetch).toHaveBeenCalledWith(
+      'https://firefox-ci-tc.services.mozilla.com/login/oauth/token',
+      expect.objectContaining({
+        method: 'POST',
+      }),
+    );
     expect(window.fetch).toHaveBeenLastCalledWith(
       'https://firefox-ci-tc.services.mozilla.com/login/oauth/credentials',
       {
