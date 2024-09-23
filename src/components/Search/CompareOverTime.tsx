@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Grid, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import { VariantType, useSnackbar } from 'notistack';
 import { Form } from 'react-router-dom';
@@ -40,7 +40,6 @@ function CompareOverTime({
   baseRepo,
   newRepo,
   isExpanded,
-  setIsExpanded,
 }: CompareWithTimeProps) {
   const { enqueueSnackbar } = useSnackbar();
   const location = useLocation();
@@ -142,22 +141,6 @@ function CompareOverTime({
   const expandedClass = isExpanded ? 'expanded' : 'hidden';
   return (
     <Grid className={`wrapper--overtime ${wrapperStyles.wrapper}`}>
-      <div
-        className={`compare-card-container compare-card-container--${expandedClass} ${styles.container}`}
-        onClick={setIsExpanded}
-        data-testid='time-state'
-      >
-        <div className={`compare-card-text ${styles.cardText}`}>
-          <Typography variant='h2' className='compare-card-title'>
-            {strings.overTime.title}
-          </Typography>
-          <p className='compare-card-tagline'>{strings.overTime.tagline}</p>
-        </div>
-        <div
-          className='compare-card-img compare-card-img--time'
-          aria-label='a clock'
-        />
-      </div>
       <div
         className={`compare-card-container content-base content-base--${expandedClass} ${styles.container} `}
       >

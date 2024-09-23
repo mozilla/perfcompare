@@ -1,6 +1,5 @@
 import { useState } from 'react';
 
-import { Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import { VariantType, useSnackbar } from 'notistack';
@@ -75,7 +74,6 @@ function CompareWithBase({
   baseRepo,
   newRepo,
   isExpanded,
-  setIsExpanded,
 }: CompareWithBaseProps) {
   const { enqueueSnackbar } = useSnackbar();
 
@@ -218,23 +216,6 @@ function CompareWithBase({
   const expandedClass = isExpanded ? 'expanded' : 'hidden';
   return (
     <Grid className={`wrapper--withbase ${wrapperStyles.wrapper}`}>
-      <div
-        className={`compare-card-container compare-card-container--${expandedClass} ${styles.container}`}
-        onClick={setIsExpanded}
-        data-testid='base-state'
-      >
-        <div className={`compare-card-text ${styles.cardText}`}>
-          <Typography variant='h2' className='compare-card-title'>
-            {strings.base.title}
-          </Typography>
-          <p className='compare-card-tagline'>{strings.base.tagline}</p>
-        </div>
-        <div
-          className='compare-card-img compare-card-img--base'
-          aria-label='two overlapping circles'
-        />
-      </div>
-
       <div
         className={`compare-card-container content-base content-base--${expandedClass} ${styles.container}`}
       >

@@ -92,29 +92,6 @@ exports[`Results Table Should match snapshot 1`] = `
           class="MuiGrid-root wrapper--withbase fcdpsbx css-plh9qo-MuiGrid-root"
         >
           <div
-            class="compare-card-container compare-card-container--expanded container_fbyd6x5"
-            data-testid="base-state"
-          >
-            <div
-              class="compare-card-text cardText_f17sylv5"
-            >
-              <h2
-                class="MuiTypography-root MuiTypography-h2 compare-card-title css-15umudq-MuiTypography-root"
-              >
-                Compare with a base
-              </h2>
-              <p
-                class="compare-card-tagline"
-              >
-                Analyze differences between specific revisions.
-              </p>
-            </div>
-            <div
-              aria-label="two overlapping circles"
-              class="compare-card-img compare-card-img--base"
-            />
-          </div>
-          <div
             class="compare-card-container content-base content-base--expanded container_fbyd6x5"
           >
             <hr
