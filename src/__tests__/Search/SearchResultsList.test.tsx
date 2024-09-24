@@ -140,4 +140,20 @@ describe('SearchResultsList', () => {
     await user.click(fleshWound);
     expect(fleshWound).not.toHaveClass('Mui-checked');
   });
+
+  it('Should apply dark and light mode styles when theme button is toggled', async () => {
+    await renderComponent();
+    const user = userEvent.setup({ delay: null });
+    const darkModeToggle = screen.getByRole('checkbox', {
+      name: /Dark mode switch/,
+    });
+
+    await user.click(darkModeToggle);
+    expect(screen.getByLabelText('Light mode')).toBeInTheDocument();
+    const searchInput = screen.getAllByRole('textbox')[0];
+    await user.click(searchInput);
+    const resultsList = screen.getByTestId('list-mode');
+    expect(resultsList).toMatchSnapshot('after toggling dark mode');
+    expect(resultsList).toHaveClass('results-list-dark');
+  });
 });

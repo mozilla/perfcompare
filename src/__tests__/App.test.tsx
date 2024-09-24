@@ -58,7 +58,9 @@ describe('App', () => {
 
     render(<App />);
 
-    const darkModeButton = screen.getByLabelText('Dark mode');
+    const darkModeButton = screen.getByRole('checkbox', {
+      name: /Dark mode switch/,
+    });
 
     await user.click(darkModeButton);
     expect(screen.getByLabelText('Light mode')).toBeInTheDocument();
