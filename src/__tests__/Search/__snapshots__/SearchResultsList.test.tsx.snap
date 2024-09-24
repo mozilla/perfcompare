@@ -2,7 +2,7 @@
 
 exports[`SearchResultsList Should apply dark and light mode styles when theme button is toggled: after toggling dark mode 1`] = `
 <div
-  class="ftega8j results-list-dark MuiBox-root css-y1kcm0"
+  class="fluj5ii results-list-dark MuiBox-root css-y1kcm0"
   data-testid="list-mode"
   id="search-results-list"
 >
@@ -847,7 +847,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                         </div>
                       </div>
                       <div
-                        class="f1s2hv01 results-list-light MuiBox-root css-y1kcm0"
+                        class="f7axog8 results-list-light MuiBox-root css-y1kcm0"
                         data-testid="list-mode"
                         id="search-results-list"
                       >
