@@ -53,6 +53,11 @@ export function loader({ request }: { request: Request }) {
   }
 
   const retrievalPromise = doRetrievalAndStore({ rootUrl, taskclusterCode });
+  // If rejections are not caught here, a rejection would error a test even if
+  // it's caught by an error boundary and asserted in the test. By catching it
+  // here, even doing nothing more and still returning the original promise, the
+  // test doesn't fail anymore.
+  retrievalPromise.catch(() => {});
 
   return {
     retrievalPromise,

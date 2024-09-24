@@ -132,4 +132,34 @@ describe('Taskcluster Callback', () => {
     ).toBeInTheDocument();
     expect(document.body).toMatchSnapshot();
   });
+
+  it('should show an error if it fails to fetch', async () => {
+    // Because this test will throw an error, a lot of errors will be output to
+    // the console. Let's silence them so that the test output stays clean.
+    jest.spyOn(console, 'error').mockImplementation();
+
+    const inputCode = 'RANDOM_CODE';
+    const inputState = 'RANDOM_STATE';
+
+    setup({ inputState });
+
+    (window.fetch as FetchMockSandbox).post(
+      'https://firefox-ci-tc.services.mozilla.com/login/oauth/token',
+      {
+        status: 403,
+      },
+    );
+
+    renderWithRouter(<TaskclusterCallback />, {
+      route: '/taskcluster-auth',
+      search: `?code=${inputCode}&state=${inputState}`,
+      loader,
+    });
+
+    expect(
+      await screen.findByRole('heading', {
+        name: /Error when requesting Taskcluster: \(403\) Forbidden/,
+      }),
+    ).toBeInTheDocument();
+  });
 });
