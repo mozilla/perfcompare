@@ -9,6 +9,10 @@ Performance Comparison Tool
 
 ![screenshot](screenshot.png)
 
+## Documentation
+
+Documentation for how to use PerfCompare can be found at [PerfCompare Documentation](https://docs.google.com/document/d/1cpQEZXw0M5QjmNL2F1S9NKjWmz6A9Ks7zELVNTXLeB4/edit).
+
 ## Deployments
 
 PerfCompare is hosted on Netlify, and is updated every time commits are pushed to the following branches:
