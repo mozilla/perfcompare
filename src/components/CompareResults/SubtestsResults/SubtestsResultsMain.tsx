@@ -10,12 +10,12 @@ import { style } from 'typestyle';
 import { subtestsView, subtestsOverTimeView } from '../../../common/constants';
 import { useAppSelector } from '../../../hooks/app';
 import useRawSearchParams from '../../../hooks/useRawSearchParams';
+import {
+  getPerfherderSubtestsCompareWithBaseViewURL,
+  getPerfherderSubtestsCompareOverTimeViewURL,
+} from '../../../logic/treeherder';
 import { Colors, Spacing } from '../../../styles';
 import type { SubtestsRevisionsHeader } from '../../../types/state';
-import {
-  getOldSubtestsCompareWithBaseViewURL,
-  getOldSubtestsCompareOvertimeViewURL,
-} from '../../../utils/helpers';
 import DownloadButton from '.././DownloadButton';
 import SearchInput from '.././SearchInput';
 import RetriggerButton from '../Retrigger/RetriggerButton';
@@ -88,7 +88,7 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
   ) {
     if (view === subtestsOverTimeView) {
       const { intervalValue } = useLoaderData() as OvertimeLoaderReturnValue;
-      subtestsViewPerfherderURL = getOldSubtestsCompareOvertimeViewURL(
+      subtestsViewPerfherderURL = getPerfherderSubtestsCompareOverTimeViewURL(
         subtestsHeader.base_repo,
         subtestsHeader.new_repo,
         subtestsHeader.new_rev,
@@ -98,7 +98,7 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
         subtestsHeader.new_parent_signature,
       );
     } else
-      subtestsViewPerfherderURL = getOldSubtestsCompareWithBaseViewURL(
+      subtestsViewPerfherderURL = getPerfherderSubtestsCompareWithBaseViewURL(
         subtestsHeader.base_repo,
         subtestsHeader.base_rev,
         subtestsHeader.base_repo,
