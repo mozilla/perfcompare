@@ -104,4 +104,32 @@ describe('Taskcluster Callback', () => {
 
     expect(window.close).toHaveBeenCalled();
   });
+
+  it('should show a spinner while waiting for the credentials', async () => {
+    const inputCode = 'RANDOM_CODE';
+    const inputState = 'RANDOM_STATE';
+    setup({ inputState });
+
+    const neverResolvedPromise = new Promise(() => {});
+
+    (window.fetch as FetchMockSandbox).post(
+      'https://firefox-ci-tc.services.mozilla.com/login/oauth/token',
+      neverResolvedPromise,
+    );
+
+    (window.fetch as FetchMockSandbox).get(
+      'begin:https://firefox-ci-tc.services.mozilla.com/login/oauth/credentials',
+      neverResolvedPromise,
+    );
+    renderWithRouter(<TaskclusterCallback />, {
+      route: '/taskcluster-auth',
+      search: `?code=${inputCode}&state=${inputState}`,
+      loader,
+    });
+
+    expect(
+      await screen.findByText(/Retrieving Taskcluster credentials.../),
+    ).toBeInTheDocument();
+    expect(document.body).toMatchSnapshot();
+  });
 });
