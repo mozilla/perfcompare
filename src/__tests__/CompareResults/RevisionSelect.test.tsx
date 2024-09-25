@@ -95,20 +95,6 @@ describe('Revision select', () => {
     });
     expect(thirdRevisionHeaders).toHaveLength(1);
 
-    /*
-    expect(
-      screen.queryAllByText(/9d5066525489/, {
-        selector: 'a',
-      }),
-    ).toStrictEqual([]);
-
-    expect(
-      screen.queryAllByText(/a998c42399a8/, {
-        selector: 'a',
-      }),
-    ).toStrictEqual([]);
-    */
-
     // Now select the second option 9d5066525489
     fireEvent.mouseDown(selectButton);
     listbox = within(await screen.findByRole('listbox'));
@@ -137,18 +123,4 @@ describe('Revision select', () => {
     });
     expect(thirdRevisionHeaders).toHaveLength(1);
   });
-
-  /*
-  expect(
-    screen.queryAllByText(/bb6a5e451dac/, {
-      selector: 'a',
-    }),
-  ).toStrictEqual([]);
-
-  expect(
-    screen.queryAllByText(/a998c42399a8/, {
-      selector: 'a',
-    }),
-  ).toStrictEqual([]);
-  */
 });
