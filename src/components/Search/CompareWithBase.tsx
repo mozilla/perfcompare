@@ -215,91 +215,89 @@ function CompareWithBase({
 
   const expandedClass = isExpanded ? 'expanded' : 'hidden';
   return (
-    <Grid className={`wrapper--withbase ${wrapperStyles.wrapper}`}>
-      <div
-        className={`compare-card-container content-base content-base--${expandedClass} ${styles.container}`}
+    <div
+      className={`compare-card-container content-base content-base--${expandedClass} ${styles.container} wrapper--withbase ${wrapperStyles.wrapper}`}
+    >
+      <Divider className='divider' />
+      <Form
+        action='/compare-results'
+        className='form-wrapper'
+        onSubmit={onFormSubmit}
+        aria-label='Compare with base form'
       >
-        <Divider className='divider' />
-        <Form
-          action='/compare-results'
-          className='form-wrapper'
-          onSubmit={onFormSubmit}
-          aria-label='Compare with base form'
+        {/**** Edit Button ****/}
+        <div
+          className={`edit-btn-wrapper ${
+            hasEditButton && !formIsDisplayed
+              ? 'show-edit-btn'
+              : 'hide-edit-btn'
+          }`}
         >
-          {/**** Edit Button ****/}
-          <div
-            className={`edit-btn-wrapper ${
-              hasEditButton && !formIsDisplayed
-                ? 'show-edit-btn'
-                : 'hide-edit-btn'
-            }`}
-          >
-            <EditButton onEditAction={handleEdit} mode={mode} />
-          </div>
+          <EditButton onEditAction={handleEdit} mode={mode} />
+        </div>
 
-          <SearchComponent
-            {...stringsBase}
-            isBaseComp={true}
-            isWarning={isWarning}
+        <SearchComponent
+          {...stringsBase}
+          isBaseComp={true}
+          isWarning={isWarning}
+          hasEditButton={hasEditButton}
+          displayedRevisions={baseInProgressRev ? [baseInProgressRev] : []}
+          onSearchResultsToggle={handleSearchResultsToggleBase}
+          onRemoveRevision={handleRemoveRevisionBase}
+          repository={baseRepository}
+          labelIdInfo='repo-dropdown--base'
+          onRepositoryChange={(repo: Repository['name']) =>
+            setBaseRepository(repo)
+          }
+          formIsDisplayed={formIsDisplayed}
+          listItemComponent='radio'
+        />
+        <SearchComponent
+          {...stringsNew}
+          isBaseComp={false}
+          hasEditButton={hasEditButton}
+          isWarning={isWarning}
+          displayedRevisions={newInProgressRevs}
+          onSearchResultsToggle={handleSearchResultsToggleNew}
+          onRemoveRevision={handleRemoveRevisionNew}
+          repository={newRepository}
+          labelIdInfo='repo-dropdown--new'
+          onRepositoryChange={(repo: Repository['name']) =>
+            setNewRepository(repo)
+          }
+          formIsDisplayed={formIsDisplayed}
+        />
+
+        <Grid
+          item
+          xs={2}
+          display='flex'
+          justifyContent={hasEditButton ? 'flex-end' : 'space-between'}
+          className={dropDownStyles.dropDown}
+          alignItems='flex-end'
+        >
+          {!hasEditButton && (
+            <SearchFrameworkDropdown frameworkId={frameworkIdVal} />
+          )}
+
+          {/**** Hidden Input to capture framework when user updates revisions ****/}
+          {hasEditButton && (
+            <input
+              type='hidden'
+              value={frameworkIdVal}
+              name='framework'
+            ></input>
+          )}
+
+          <CancelAndCompareButtons
+            label={strings.base.compareBtn}
+            onCancel={handleCancel}
+            hasCancelButton={hasCancelButton}
             hasEditButton={hasEditButton}
-            displayedRevisions={baseInProgressRev ? [baseInProgressRev] : []}
-            onSearchResultsToggle={handleSearchResultsToggleBase}
-            onRemoveRevision={handleRemoveRevisionBase}
-            repository={baseRepository}
-            labelIdInfo='repo-dropdown--base'
-            onRepositoryChange={(repo: Repository['name']) =>
-              setBaseRepository(repo)
-            }
-            formIsDisplayed={formIsDisplayed}
-            listItemComponent='radio'
           />
-          <SearchComponent
-            {...stringsNew}
-            isBaseComp={false}
-            hasEditButton={hasEditButton}
-            isWarning={isWarning}
-            displayedRevisions={newInProgressRevs}
-            onSearchResultsToggle={handleSearchResultsToggleNew}
-            onRemoveRevision={handleRemoveRevisionNew}
-            repository={newRepository}
-            labelIdInfo='repo-dropdown--new'
-            onRepositoryChange={(repo: Repository['name']) =>
-              setNewRepository(repo)
-            }
-            formIsDisplayed={formIsDisplayed}
-          />
-
-          <Grid
-            item
-            xs={2}
-            display='flex'
-            justifyContent={hasEditButton ? 'flex-end' : 'space-between'}
-            className={dropDownStyles.dropDown}
-            alignItems='flex-end'
-          >
-            {!hasEditButton && (
-              <SearchFrameworkDropdown frameworkId={frameworkIdVal} />
-            )}
-
-            {/**** Hidden Input to capture framework when user updates revisions ****/}
-            {hasEditButton && (
-              <input
-                type='hidden'
-                value={frameworkIdVal}
-                name='framework'
-              ></input>
-            )}
-
-            <CancelAndCompareButtons
-              label={strings.base.compareBtn}
-              onCancel={handleCancel}
-              hasCancelButton={hasCancelButton}
-              hasEditButton={hasEditButton}
-            />
-          </Grid>
-        </Form>
-      </div>
-    </Grid>
+        </Grid>
+      </Form>
+    </div>
   );
 }
 

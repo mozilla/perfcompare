@@ -140,79 +140,77 @@ function CompareOverTime({
 
   const expandedClass = isExpanded ? 'expanded' : 'hidden';
   return (
-    <Grid className={`wrapper--overtime ${wrapperStyles.wrapper}`}>
-      <div
-        className={`compare-card-container content-base content-base--${expandedClass} ${styles.container} `}
+    <div
+      className={`compare-card-container content-base content-base--${expandedClass} ${styles.container} wrapper--overtime ${wrapperStyles.wrapper}`}
+    >
+      <Divider className='divider' />
+      <Form
+        action='/compare-over-time-results'
+        onSubmit={onFormSubmit}
+        className='form-wrapper'
+        aria-label='Compare over time form'
       >
-        <Divider className='divider' />
-        <Form
-          action='/compare-over-time-results'
-          onSubmit={onFormSubmit}
-          className='form-wrapper'
-          aria-label='Compare over time form'
+        {/**** Edit Button ****/}
+        <div
+          className={`edit-btn-wrapper ${
+            hasEditButton && !formIsDisplayed
+              ? 'show-edit-btn'
+              : 'hide-edit-btn'
+          }`}
         >
-          {/**** Edit Button ****/}
-          <div
-            className={`edit-btn-wrapper ${
-              hasEditButton && !formIsDisplayed
-                ? 'show-edit-btn'
-                : 'hide-edit-btn'
-            }`}
-          >
-            <EditButton onEditAction={handleEdit} mode={mode} />
-          </div>
+          <EditButton onEditAction={handleEdit} mode={mode} />
+        </div>
 
-          <SearchOverTime
+        <SearchOverTime
+          hasEditButton={hasEditButton}
+          baseRepo={baseRepository}
+          newRepo={newRepository}
+          displayedRevisions={inProgressRevs}
+          formIsDisplayed={formIsDisplayed}
+          onRemoveRevision={handleRemoveRevision}
+          onSearchResultsToggle={handleSearchResultsToggle}
+          onBaseRepositoryChange={(repo: Repository['name']) =>
+            setBaseRepository(repo)
+          }
+          onNewRepositoryChange={(repo: Repository['name']) =>
+            setNewRepository(repo)
+          }
+          timeRangeValue={timeRangeValue}
+          onTimeRangeChange={(value: TimeRange['value']) =>
+            setTimeRangeValue(value)
+          }
+        />
+
+        <Grid
+          item
+          xs={2}
+          display='flex'
+          justifyContent={hasEditButton ? 'flex-end' : 'space-between'}
+          className={`${dropDownStyles.dropDown}`}
+          alignItems='flex-end'
+        >
+          {!hasEditButton && (
+            <SearchFrameworkDropdown frameworkId={frameworkIdVal} />
+          )}
+
+          {/**** Hidden Input to capture framework when user updates revisions ****/}
+          {hasEditButton && (
+            <input
+              value={frameworkIdVal}
+              name='framework'
+              type='hidden'
+            ></input>
+          )}
+
+          <CancelAndCompareButtons
+            label={strings.sharedCollasped.button}
+            hasCancelButton={hasCancelButton}
+            onCancel={handleCancel}
             hasEditButton={hasEditButton}
-            baseRepo={baseRepository}
-            newRepo={newRepository}
-            displayedRevisions={inProgressRevs}
-            formIsDisplayed={formIsDisplayed}
-            onRemoveRevision={handleRemoveRevision}
-            onSearchResultsToggle={handleSearchResultsToggle}
-            onBaseRepositoryChange={(repo: Repository['name']) =>
-              setBaseRepository(repo)
-            }
-            onNewRepositoryChange={(repo: Repository['name']) =>
-              setNewRepository(repo)
-            }
-            timeRangeValue={timeRangeValue}
-            onTimeRangeChange={(value: TimeRange['value']) =>
-              setTimeRangeValue(value)
-            }
           />
-
-          <Grid
-            item
-            xs={2}
-            display='flex'
-            justifyContent={hasEditButton ? 'flex-end' : 'space-between'}
-            className={`${dropDownStyles.dropDown}`}
-            alignItems='flex-end'
-          >
-            {!hasEditButton && (
-              <SearchFrameworkDropdown frameworkId={frameworkIdVal} />
-            )}
-
-            {/**** Hidden Input to capture framework when user updates revisions ****/}
-            {hasEditButton && (
-              <input
-                value={frameworkIdVal}
-                name='framework'
-                type='hidden'
-              ></input>
-            )}
-
-            <CancelAndCompareButtons
-              label={strings.sharedCollasped.button}
-              hasCancelButton={hasCancelButton}
-              onCancel={handleCancel}
-              hasEditButton={hasEditButton}
-            />
-          </Grid>
-        </Form>
-      </div>
-    </Grid>
+        </Grid>
+      </Form>
+    </div>
   );
 }
 
