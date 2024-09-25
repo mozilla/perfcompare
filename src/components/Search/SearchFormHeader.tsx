@@ -9,18 +9,12 @@ interface SearchFormHeaderProps {
   title: string;
   subtitle: string;
   ariaLabel: string;
-  setIsBaseExpanded: () => unknown;
+  onClick: () => unknown;
 }
 
 function SearchFormHeader(props: SearchFormHeaderProps) {
-  const {
-    compareType,
-    isExpanded,
-    setIsBaseExpanded,
-    title,
-    subtitle,
-    ariaLabel,
-  } = props;
+  const { compareType, isExpanded, onClick, title, subtitle, ariaLabel } =
+    props;
   const expandedClass = isExpanded ? 'expanded' : 'hidden';
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = CompareCardsStyles(mode);
@@ -28,7 +22,7 @@ function SearchFormHeader(props: SearchFormHeaderProps) {
   return (
     <div
       className={`compare-card-container compare-card-container--${expandedClass} ${styles.container}`}
-      onClick={setIsBaseExpanded}
+      onClick={onClick}
       data-testid={`${compareType}-state`}
     >
       <div className={`compare-card-text ${styles.cardText}`}>

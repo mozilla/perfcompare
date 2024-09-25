@@ -36,7 +36,7 @@ function SearchContainer(props: SearchViewProps) {
           title={strings.base.title}
           subtitle={strings.base.tagline}
           ariaLabel='two overlapping circles'
-          setIsBaseExpanded={() => setIsBaseSearchExpanded(true)}
+          onClick={() => setIsBaseSearchExpanded(true)}
         />
         {/* hard code the frameworkIdVal  because talos is the
        default framework; refer to frameworkMap in constants.ts */}
@@ -58,7 +58,7 @@ function SearchContainer(props: SearchViewProps) {
           title={strings.overTime.title}
           subtitle={strings.overTime.tagline}
           ariaLabel={'a clock'}
-          setIsBaseExpanded={() => setIsBaseSearchExpanded(false)}
+          onClick={() => setIsBaseSearchExpanded(false)}
         />
 
         <CompareOverTime
