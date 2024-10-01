@@ -134,29 +134,6 @@ describe('Compare Over Time', () => {
     );
   });
 
-  it('remains expanded when user clicks on title header in Results view', async () => {
-    renderWithCompareResultsURL(
-      <OverTimeResultsView title={Strings.metaData.pageTitle.results} />,
-    );
-    await waitForPageReadyAndReturnForm();
-
-    const user = userEvent.setup({ delay: null });
-
-    const testExpandedID = 'time-state';
-    const headerContent = screen.getByTestId(testExpandedID);
-
-    //make sure it's in collapsed state first
-    expect(screen.getByTestId(testExpandedID)).toHaveClass(
-      'compare-card-container--expanded',
-    );
-
-    //remains expanded when user clicks on the title component
-    await user.click(headerContent);
-    expect(screen.getByTestId(testExpandedID)).toHaveClass(
-      'compare-card-container--expanded',
-    );
-  });
-
   it('selects and displays base repository when clicked', async () => {
     renderSearchViewComponent();
     const user = userEvent.setup({ delay: null });

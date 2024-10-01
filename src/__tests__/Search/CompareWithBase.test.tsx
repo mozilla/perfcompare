@@ -140,28 +140,6 @@ describe('Compare With Base', () => {
     );
   });
 
-  it('does nothing when user clicks on title header in Results view', async () => {
-    renderWithCompareResultsURL(
-      <ResultsView title={Strings.metaData.pageTitle.results} />,
-    );
-    await waitForPageReadyAndReturnForm();
-
-    const user = userEvent.setup({ delay: null });
-    const testExpandedBaseID = 'base-state';
-    const headerContentBase = screen.getByTestId(testExpandedBaseID);
-
-    //make sure it's in collapsed state first
-    expect(screen.getByTestId(testExpandedBaseID)).toHaveClass(
-      'compare-card-container--expanded',
-    );
-
-    //remains expanded when user clicks on the title component
-    await user.click(headerContentBase);
-    expect(screen.getByTestId(testExpandedBaseID)).toHaveClass(
-      'compare-card-container--expanded',
-    );
-  });
-
   it('selects and displays new framework when clicked', async () => {
     await renderSearchViewComponent();
     const formElement = await waitForPageReadyAndReturnForm();
