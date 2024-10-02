@@ -156,6 +156,11 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
               tabindex="0"
             >
               Last day
+              <span
+                class="f7opyze f1np4cs0"
+              >
+                 (10/01/2024 - 10/02/2024)
+              </span>
             </div>
             <input
               aria-hidden="true"
@@ -711,6 +716,11 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
   >
     Last day
     <span
+      class="f7opyze f1np4cs0"
+    >
+       (10/01/2024 - 10/02/2024)
+    </span>
+    <span
       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
     />
   </li>
@@ -722,6 +732,11 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
     tabindex="-1"
   >
     Last 2 days
+    <span
+      class="f7opyze f1np4cs0"
+    >
+       (09/30/2024 - 10/02/2024)
+    </span>
     <span
       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
     />
@@ -735,6 +750,11 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
   >
     Last 7 days
     <span
+      class="f7opyze f1np4cs0"
+    >
+       (09/25/2024 - 10/02/2024)
+    </span>
+    <span
       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
     />
   </li>
@@ -746,6 +766,11 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
     tabindex="-1"
   >
     Last 14 days
+    <span
+      class="f7opyze f1np4cs0"
+    >
+       (09/18/2024 - 10/02/2024)
+    </span>
     <span
       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
     />
@@ -759,6 +784,11 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
   >
     Last 30 days
     <span
+      class="f7opyze f1np4cs0"
+    >
+       (09/02/2024 - 10/02/2024)
+    </span>
+    <span
       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
     />
   </li>
@@ -770,6 +800,11 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
     tabindex="-1"
   >
     Last 60 days
+    <span
+      class="f7opyze f1np4cs0"
+    >
+       (08/03/2024 - 10/02/2024)
+    </span>
     <span
       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
     />
@@ -783,6 +818,11 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
   >
     Last 90 days
     <span
+      class="f7opyze f1np4cs0"
+    >
+       (07/04/2024 - 10/02/2024)
+    </span>
+    <span
       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
     />
   </li>
@@ -794,6 +834,11 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
     tabindex="-1"
   >
     Last year
+    <span
+      class="f7opyze f1np4cs0"
+    >
+       (10/03/2023 - 10/02/2024)
+    </span>
     <span
       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
     />
@@ -966,6 +1011,11 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
               tabindex="0"
             >
               Last day
+              <span
+                class="f7opyze f1np4cs0"
+              >
+                 (10/01/2024 - 10/02/2024)
+              </span>
             </div>
             <input
               aria-hidden="true"
@@ -1731,6 +1781,11 @@ exports[`Compare Over Time should remove the checked revision once X button is c
               tabindex="0"
             >
               Last day
+              <span
+                class="f7opyze f1np4cs0"
+              >
+                 (10/01/2024 - 10/02/2024)
+              </span>
             </div>
             <input
               aria-hidden="true"
@@ -2569,6 +2624,11 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
               tabindex="0"
             >
               Last day
+              <span
+                class="f7opyze f1np4cs0"
+              >
+                 (10/01/2024 - 10/02/2024)
+              </span>
             </div>
             <input
               aria-hidden="true"
