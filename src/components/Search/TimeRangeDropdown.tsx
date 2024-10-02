@@ -6,7 +6,13 @@ import { style } from 'typestyle';
 import { timeRangeMap } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
-import { ButtonsLightRaw, ButtonsDarkRaw, DropDownItems } from '../../styles';
+import {
+  ButtonsLightRaw,
+  ButtonsDarkRaw,
+  DropDownItems,
+  DateRange,
+  FontSize,
+} from '../../styles';
 import type { TimeRange } from '../../types/types';
 
 const strings = Strings.components.searchDefault.overTime.collapsed.timeRange;
@@ -42,6 +48,20 @@ function TimeRangeDropdown({
   };
   const menuItemStyles =
     mode === 'light' ? DropDownItems.Light : DropDownItems.Dark;
+  const dateRangeStyles = mode === 'light' ? DateRange.Light : DateRange.Dark;
+
+  const displayDateRange = (value: string) => {
+    const options: Intl.DateTimeFormatOptions = {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+    };
+    const fromDate = new Date(
+      Date.now() - Number(value) * 1000,
+    ).toLocaleDateString('en-US', options);
+    const toDate = new Date(Date.now()).toLocaleDateString('en-US', options);
+    return ` (${fromDate} - ${toDate})`;
+  };
 
   return (
     <>
@@ -68,6 +88,9 @@ function TimeRangeDropdown({
               className={`timerange-dropdown-item ${menuItemStyles}`}
             >
               {text}
+              <span className={`${FontSize.Small} ${dateRangeStyles}`}>
+                {displayDateRange(value)}
+              </span>
             </MenuItem>
           ))}
         </Select>
