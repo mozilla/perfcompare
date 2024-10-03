@@ -5,7 +5,7 @@ import { Virtuoso } from 'react-virtuoso';
 import type { compareView, compareOverTimeView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
-import type { CompareResultsItem, RevisionsHeader } from '../../types/state';
+import type { CompareResultsItem } from '../../types/state';
 import type { CompareResultsTableConfig } from '../../types/types';
 import NoResultsFound from './NoResultsFound';
 import TableRevisionContent from './TableRevisionContent';
@@ -13,7 +13,6 @@ import TableRevisionContent from './TableRevisionContent';
 type ResultsForRevision = {
   key: string;
   value: CompareResultsItem[];
-  revisionHeader: RevisionsHeader;
 };
 
 function processResults(results: CompareResultsItem[]) {
@@ -38,15 +37,6 @@ function processResults(results: CompareResultsItem[]) {
       return {
         key: rowIdentifier,
         value: result,
-        revisionHeader: {
-          suite: result[0].suite,
-          framework_id: result[0].framework_id,
-          test: result[0].test,
-          option_name: result[0].option_name,
-          extra_options: result[0].extra_options,
-          new_rev: result[0].new_rev,
-          new_repo: result[0].new_repository_name,
-        },
       };
     },
   );
@@ -191,8 +181,6 @@ function TableContent({
       computeItemKey={(_, res) => res.key}
       itemContent={(_, res) => (
         <TableRevisionContent
-          identifier={res.key}
-          header={res.revisionHeader}
           results={res.value}
           view={view}
           rowGridTemplateColumns={rowGridTemplateColumns}

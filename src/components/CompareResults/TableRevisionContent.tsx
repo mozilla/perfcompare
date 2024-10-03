@@ -2,7 +2,7 @@ import { style } from 'typestyle';
 
 import type { compareView, compareOverTimeView } from '../../common/constants';
 import { Spacing } from '../../styles';
-import type { CompareResultsItem, RevisionsHeader } from '../../types/state';
+import type { CompareResultsItem } from '../../types/state';
 import RevisionHeader from './RevisionHeader';
 import RevisionRow from './RevisionRow';
 
@@ -13,16 +13,16 @@ const styles = {
 };
 
 function TableRevisionContent(props: Props) {
-  const { results, header, identifier, view, rowGridTemplateColumns } = props;
+  const { results, view, rowGridTemplateColumns } = props;
 
   return (
     <div className={styles.tableBody} role='rowgroup'>
-      <RevisionHeader header={header} />
+      <RevisionHeader result={results[0]} />
       <div>
         {results.length > 0 &&
           results.map((result) => (
             <RevisionRow
-              key={identifier + result.platform}
+              key={result.platform}
               result={result}
               view={view}
               gridTemplateColumns={rowGridTemplateColumns}
@@ -35,8 +35,6 @@ function TableRevisionContent(props: Props) {
 
 interface Props {
   results: CompareResultsItem[];
-  header: RevisionsHeader;
-  identifier: string;
   rowGridTemplateColumns: string;
   view: typeof compareView | typeof compareOverTimeView;
 }
