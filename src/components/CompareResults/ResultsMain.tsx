@@ -99,7 +99,7 @@ function ResultsMain() {
           <Grid item className={styles.title}>
             Results
           </Grid>
-          <Grid item className={styles.subtitle} role='heading'>
+          <Grid item className={styles.subtitle}>
             {subtitles[view]}
           </Grid>
         </Grid>

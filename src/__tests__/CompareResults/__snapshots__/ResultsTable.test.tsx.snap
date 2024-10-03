@@ -696,7 +696,6 @@ exports[`Results Table Should match snapshot 1`] = `
                 </div>
                 <div
                   class="MuiGrid-root MuiGrid-item f1it3pp1 css-j8gwlw-MuiGrid-root"
-                  role="heading"
                 >
                   Compare with a base
                 </div>

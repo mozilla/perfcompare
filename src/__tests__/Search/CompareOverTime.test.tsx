@@ -52,7 +52,7 @@ function renderWithCompareResultsURL(component: ReactElement) {
 }
 
 async function waitForPageReady() {
-  const overTimeTitle = 'Compare over time';
+  const overTimeTitle = /Compare over time/;
   const compTitle = await screen.findByRole('heading', {
     name: overTimeTitle,
   });

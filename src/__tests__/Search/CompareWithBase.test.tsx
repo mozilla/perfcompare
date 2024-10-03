@@ -48,7 +48,7 @@ async function renderSearchViewComponent() {
   renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />, {
     loader: searchLoader,
   });
-  const title = 'Compare with a base';
+  const title = /Compare with a base/;
   const compTitle = await screen.findByRole('heading', { name: title });
   expect(compTitle).toBeInTheDocument();
 }
@@ -66,7 +66,7 @@ function renderWithCompareResultsURL(component: ReactElement) {
 // Useful function utilities to get various elements in the page
 async function waitForPageReadyAndReturnForm() {
   const formName = 'Compare with base form';
-  const baseTitle = Strings.components.searchDefault.base.title;
+  const baseTitle = /Compare with a base/;
 
   const compTitle = await screen.findByRole('heading', {
     name: baseTitle,
