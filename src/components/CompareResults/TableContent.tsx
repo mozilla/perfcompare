@@ -171,34 +171,34 @@ function TableContent({
     cellsConfiguration,
   ]);
 
-  return (
-    <>
-      <Virtuoso
-        useWindowScroll
-        totalCount={processedResults.length}
-        overscan={{
-          /* These values are pretty arbitrary. The goal is to have more rows
-           * rendered than the current viewport, so that when scrolling fast
-           * (but not too fast) the white checkerboarding doesn't appear.
-           */
-          main: 5000,
-          reverse: 5000,
-        }}
-        data={processedResults}
-        computeItemKey={(_, res) => res.key}
-        itemContent={(_, res) => (
-          <TableRevisionContent
-            identifier={res.key}
-            header={res.revisionHeader}
-            results={res.value}
-            view={view}
-            rowGridTemplateColumns={rowGridTemplateColumns}
-          />
-        )}
-      />
+  if (!processedResults.length) {
+    return <NoResultsFound />;
+  }
 
-      {processedResults.length == 0 && <NoResultsFound />}
-    </>
+  return (
+    <Virtuoso
+      useWindowScroll
+      totalCount={processedResults.length}
+      overscan={{
+        /* These values are pretty arbitrary. The goal is to have more rows
+         * rendered than the current viewport, so that when scrolling fast
+         * (but not too fast) the white checkerboarding doesn't appear.
+         */
+        main: 5000,
+        reverse: 5000,
+      }}
+      data={processedResults}
+      computeItemKey={(_, res) => res.key}
+      itemContent={(_, res) => (
+        <TableRevisionContent
+          identifier={res.key}
+          header={res.revisionHeader}
+          results={res.value}
+          view={view}
+          rowGridTemplateColumns={rowGridTemplateColumns}
+        />
+      )}
+    />
   );
 }
 
