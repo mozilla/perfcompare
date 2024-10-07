@@ -1,8 +1,11 @@
 import { useState, type ReactNode } from 'react';
 
 import AppleIcon from '@mui/icons-material/Apple';
+import DragHandleIcon from '@mui/icons-material/DragHandle';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import TimelineIcon from '@mui/icons-material/Timeline';
@@ -51,6 +54,8 @@ const stylesLight = {
       },
       '.confidence': {
         backgroundColor: Colors.Background200,
+        justifyContent: 'initial',
+        paddingLeft: '36px'
       },
       '.comparison-sign': {
         backgroundColor: Colors.Background200,
@@ -256,6 +261,12 @@ const platformIcons: Record<PlatformShortName, ReactNode> = {
   Unspecified: '',
 };
 
+const confidenceIcons = {
+  Low: <KeyboardArrowDownIcon />,
+  Medium: <DragHandleIcon />,
+  High: <KeyboardArrowUpIcon />,
+};
+
 const getSubtestsCompareWithBaseLink = (result: CompareResultsItem) => {
   const params = new URLSearchParams({
     baseRev: result.base_rev,
@@ -381,6 +392,7 @@ function RevisionRow(props: RevisionRowProps) {
         </div>
         <div className='confidence cell' role='cell'>
           {' '}
+          {confidenceText && confidenceIcons[confidenceText]}
           {confidenceText}{' '}
         </div>
         <div className='total-runs cell' role='cell'>
