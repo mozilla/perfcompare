@@ -55,7 +55,7 @@ const stylesLight = {
       '.confidence': {
         backgroundColor: Colors.Background200,
         justifyContent: 'initial',
-        paddingLeft: '36px'
+        paddingLeft: '36px',
       },
       '.comparison-sign': {
         backgroundColor: Colors.Background200,
@@ -262,9 +262,9 @@ const platformIcons: Record<PlatformShortName, ReactNode> = {
 };
 
 const confidenceIcons = {
-  Low: <KeyboardArrowDownIcon />,
-  Medium: <DragHandleIcon />,
-  High: <KeyboardArrowUpIcon />,
+  Low: <KeyboardArrowDownIcon sx={{ color: '#D7264C' }} />,
+  Medium: <DragHandleIcon sx={{ color: '#5B5B66' }} />,
+  High: <KeyboardArrowUpIcon sx={{ color: '#017A40' }} />,
 };
 
 const getSubtestsCompareWithBaseLink = (result: CompareResultsItem) => {
