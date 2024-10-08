@@ -10,6 +10,7 @@ import type { TimeRange } from '../../types/types';
 import CompareOverTime from './CompareOverTime';
 import CompareWithBase from './CompareWithBase';
 import type { LoaderReturnValue } from './loader';
+import SearchFormHeader from './SearchFormHeader';
 
 const strings = Strings.components.searchDefault;
 
@@ -27,28 +28,50 @@ function SearchContainer(props: SearchViewProps) {
       className={styles.container}
     >
       <Typography className='search-default-title'>{strings.title}</Typography>
-      {/* hard code the frameworkIdVal  because talos is the
+
+      <div>
+        <SearchFormHeader
+          compareType={'base'}
+          isExpanded={isBaseSearchExpanded}
+          title={strings.base.title}
+          subtitle={strings.base.tagline}
+          ariaLabel='two overlapping circles'
+          onClick={() => setIsBaseSearchExpanded(true)}
+        />
+        {/* hard code the frameworkIdVal  because talos is the
        default framework; refer to frameworkMap in constants.ts */}
-      <CompareWithBase
-        frameworkIdVal={frameworkId}
-        hasEditButton={false}
-        baseRev={null}
-        newRevs={newRevInfo ? [newRevInfo] : []}
-        isExpanded={isBaseSearchExpanded}
-        setIsExpanded={() => setIsBaseSearchExpanded(true)}
-        baseRepo={newRepo}
-        newRepo={newRepo}
-      />
-      <CompareOverTime
-        hasEditButton={false}
-        newRevs={newRevInfo ? [newRevInfo] : []}
-        isExpanded={!isBaseSearchExpanded}
-        setIsExpanded={() => setIsBaseSearchExpanded(false)}
-        frameworkIdVal={frameworkId}
-        intervalValue={86400 as TimeRange['value']}
-        baseRepo={newRepo}
-        newRepo={newRepo}
-      />
+        <CompareWithBase
+          frameworkIdVal={frameworkId}
+          hasEditButton={false}
+          baseRev={null}
+          newRevs={newRevInfo ? [newRevInfo] : []}
+          isExpanded={isBaseSearchExpanded}
+          setIsExpanded={() => setIsBaseSearchExpanded(true)}
+          baseRepo={newRepo}
+          newRepo={newRepo}
+        />
+      </div>
+      <div>
+        <SearchFormHeader
+          compareType={'time'}
+          isExpanded={!isBaseSearchExpanded}
+          title={strings.overTime.title}
+          subtitle={strings.overTime.tagline}
+          ariaLabel={'a clock'}
+          onClick={() => setIsBaseSearchExpanded(false)}
+        />
+
+        <CompareOverTime
+          hasEditButton={false}
+          newRevs={newRevInfo ? [newRevInfo] : []}
+          isExpanded={!isBaseSearchExpanded}
+          setIsExpanded={() => setIsBaseSearchExpanded(false)}
+          frameworkIdVal={frameworkId}
+          intervalValue={86400 as TimeRange['value']}
+          baseRepo={newRepo}
+          newRepo={newRepo}
+        />
+      </div>
     </section>
   );
 }
