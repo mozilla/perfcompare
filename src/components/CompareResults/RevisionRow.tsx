@@ -54,8 +54,9 @@ const stylesLight = {
       },
       '.confidence': {
         backgroundColor: Colors.Background200,
-        justifyContent: 'initial',
-        paddingLeft: '36px',
+        gap: '10px',
+        justifyContent: 'start',
+        paddingInlineStart: '15%',
       },
       '.comparison-sign': {
         backgroundColor: Colors.Background200,
@@ -151,6 +152,9 @@ const stylesDark = {
       },
       '.confidence': {
         backgroundColor: Colors.Background200Dark,
+        gap: '10px',
+        justifyContent: 'start',
+        paddingInlineStart: '15%',
       },
       '.comparison-sign': {
         backgroundColor: Colors.Background200Dark,
@@ -391,9 +395,10 @@ function RevisionRow(props: RevisionRowProps) {
           {deltaPercent} %{' '}
         </div>
         <div className='confidence cell' role='cell'>
-          {' '}
-          {confidenceText && confidenceIcons[confidenceText]}
-          {confidenceText}{' '}
+          <div className='confidence-icon'>
+            {confidenceText && confidenceIcons[confidenceText]}
+          </div>
+          <div className='confidence-text'>{confidenceText}</div>
         </div>
         <div className='total-runs cell' role='cell'>
           <span>
