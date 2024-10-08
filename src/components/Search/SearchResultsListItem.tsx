@@ -9,12 +9,11 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Radio from '@mui/material/Radio';
 import Typography from '@mui/material/Typography';
-import dayjs from 'dayjs';
 import { style } from 'typestyle';
-
 import { Spacing } from '../../styles';
 import type { Changeset } from '../../types/state';
 import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
+import { Tooltip } from '@mui/material';
 
 interface SearchResultsListItemProps {
   index: number;
@@ -68,6 +67,21 @@ function SearchResultsListItem({
   const commitMessage = getLatestCommitMessage(item);
   const itemDate = new Date(item.push_timestamp * 1000);
 
+  const localDateTime = itemDate
+    .toLocaleString(undefined, {
+      year: '2-digit',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+      timeZoneName: 'short',
+    })
+    .replace(',', '') // Removes the comma between the date and time
+    .replace(/(\d{2})\/(\d{2})\/(\d{2})/, '$2/$1/$3'); // Reformat date as MM/DD/YY
+
+  const timeZone = localDateTime.split(' ').pop();
+
   const onToggleAction = () => {
     onToggle(item);
   };
@@ -110,24 +124,26 @@ function SearchResultsListItem({
                   {revisionHash}
                 </Typography>
 
-                <div className='info-caption'>
-                  <div className='info-caption-item item-author'>
-                    {' '}
-                    <MailOutlineOutlinedIcon
-                      className='mail-icon'
-                      fontSize='small'
-                    />{' '}
-                    {item.author}
-                  </div>
+                <Tooltip title={timeZone} placement='top'>
+                  <div className='info-caption'>
+                    <div className='info-caption-item item-author'>
+                      {' '}
+                      <MailOutlineOutlinedIcon
+                        className='mail-icon'
+                        fontSize='small'
+                      />{' '}
+                      {item.author}
+                    </div>
 
-                  <div className='info-caption-item item-time'>
-                    <AccessTimeOutlinedIcon
-                      className='time-icon'
-                      fontSize='small'
-                    />
-                    {String(dayjs(itemDate).format('MM/DD/YY HH:mm'))}
+                    <div className='info-caption-item item-time'>
+                      <AccessTimeOutlinedIcon
+                        className='time-icon'
+                        fontSize='small'
+                      />
+                      {localDateTime}
+                    </div>
                   </div>
-                </div>
+                </Tooltip>
               </Fragment>
             }
             secondary={`${commitMessage} `}
