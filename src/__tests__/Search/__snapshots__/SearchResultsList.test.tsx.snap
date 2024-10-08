@@ -654,9 +654,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
         >
           Compare with a base or over time
         </span>
-        <div
-          class="MuiGrid-root wrapper--withbase fcdpsbx css-plh9qo-MuiGrid-root"
-        >
+        <div>
           <div
             class="compare-card-container compare-card-container--expanded container_fbyd6x5"
             data-testid="base-state"
@@ -681,7 +679,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
             />
           </div>
           <div
-            class="compare-card-container content-base content-base--expanded container_fbyd6x5"
+            class="compare-card-container content-base content-base--expanded container_fbyd6x5 wrapper--withbase fcdpsbx"
           >
             <hr
               class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
@@ -1651,9 +1649,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
             </form>
           </div>
         </div>
-        <div
-          class="MuiGrid-root wrapper--overtime f1ucodr8 css-plh9qo-MuiGrid-root"
-        >
+        <div>
           <div
             class="compare-card-container compare-card-container--hidden container_fbyd6x5"
             data-testid="time-state"
@@ -1678,7 +1674,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
             />
           </div>
           <div
-            class="compare-card-container content-base content-base--hidden container_fbyd6x5 "
+            class="compare-card-container content-base content-base--hidden container_fbyd6x5 wrapper--overtime f1ucodr8"
           >
             <hr
               class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
