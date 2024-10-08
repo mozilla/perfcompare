@@ -1187,7 +1187,7 @@ exports[`Results Table Should match snapshot 1`] = `
                         </div>
                         <div>
                           <div
-                            class="revisionRow f1b00bec fp4ugv1 MuiBox-root css-1am90bh"
+                            class="revisionRow f1nwzic9 fp4ugv1 MuiBox-root css-1am90bh"
                             role="row"
                           >
                             <div
@@ -1274,9 +1274,26 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="confidence cell"
                               role="cell"
                             >
-                               
-                              Low
-                               
+                              <div
+                                class="confidence-icon"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vsehry-MuiSvgIcon-root"
+                                  data-testid="KeyboardArrowDownIcon"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                                  />
+                                </svg>
+                              </div>
+                              <div
+                                class="confidence-text"
+                              >
+                                Low
+                              </div>
                             </div>
                             <div
                               class="total-runs cell"
@@ -1402,7 +1419,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1b00bec fp4ugv1 MuiBox-root css-1am90bh"
+                            class="revisionRow f1nwzic9 fp4ugv1 MuiBox-root css-1am90bh"
                             role="row"
                           >
                             <div
@@ -1488,9 +1505,26 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="confidence cell"
                               role="cell"
                             >
-                               
-                              Medium
-                               
+                              <div
+                                class="confidence-icon"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-o6fkbf-MuiSvgIcon-root"
+                                  data-testid="DragHandleIcon"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    d="M20 9H4v2h16V9zM4 15h16v-2H4v2z"
+                                  />
+                                </svg>
+                              </div>
+                              <div
+                                class="confidence-text"
+                              >
+                                Medium
+                              </div>
                             </div>
                             <div
                               class="total-runs cell"
@@ -1616,7 +1650,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1b00bec fp4ugv1 MuiBox-root css-1am90bh"
+                            class="revisionRow f1nwzic9 fp4ugv1 MuiBox-root css-1am90bh"
                             role="row"
                           >
                             <div
@@ -1692,9 +1726,26 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="confidence cell"
                               role="cell"
                             >
-                               
-                              High
-                               
+                              <div
+                                class="confidence-icon"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-18c6igo-MuiSvgIcon-root"
+                                  data-testid="KeyboardArrowUpIcon"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    d="M7.41 15.41 12 10.83l4.59 4.58L18 14l-6-6-6 6z"
+                                  />
+                                </svg>
+                              </div>
+                              <div
+                                class="confidence-text"
+                              >
+                                High
+                              </div>
                             </div>
                             <div
                               class="total-runs cell"
@@ -1871,7 +1922,7 @@ exports[`Results Table Should match snapshot 1`] = `
                         </div>
                         <div>
                           <div
-                            class="revisionRow f1b00bec fp4ugv1 MuiBox-root css-1am90bh"
+                            class="revisionRow f1nwzic9 fp4ugv1 MuiBox-root css-1am90bh"
                             role="row"
                           >
                             <div
@@ -1947,8 +1998,12 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="confidence cell"
                               role="cell"
                             >
-                               
-                               
+                              <div
+                                class="confidence-icon"
+                              />
+                              <div
+                                class="confidence-text"
+                              />
                             </div>
                             <div
                               class="total-runs cell"
