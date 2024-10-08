@@ -88,11 +88,15 @@ describe('SearchResultsList', () => {
     const checkboxes1 = await screen.findAllByTestId('checkbox-1');
     await user.click(checkboxes1[0]);
 
-    expect(screen.getAllByTestId('checkbox-0')[0]).not.toHaveClass('Mui-checked');
+    expect(screen.getAllByTestId('checkbox-0')[0]).not.toHaveClass(
+      'Mui-checked',
+    );
     expect(screen.getAllByTestId('checkbox-1')[0]).toHaveClass('Mui-checked');
 
     await user.click(screen.getAllByTestId('checkbox-1')[0]);
-    expect(screen.getAllByTestId('checkbox-1')[0]).not.toHaveClass('Mui-checked');
+    expect(screen.getAllByTestId('checkbox-1')[0]).not.toHaveClass(
+      'Mui-checked',
+    );
   });
 
   it('should not allow selecting more than 3 revisions on New Search', async () => {
