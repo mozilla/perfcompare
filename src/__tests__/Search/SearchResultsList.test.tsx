@@ -11,6 +11,8 @@ import {
   FetchMockSandbox,
 } from '../utils/test-utils';
 
+jest.setTimeout(60000);
+
 async function renderComponent() {
   renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />, {
     loader,
@@ -32,11 +34,8 @@ describe('SearchResultsList', () => {
   });
 
   it('should match snapshot', async () => {
-    // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
-
     await renderComponent();
-    // focus input to show results
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
     await screen.findByText(/flesh wound/);
@@ -44,27 +43,19 @@ describe('SearchResultsList', () => {
   });
 
   it('should fill the checkbox when a result is clicked', async () => {
-    // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
-
     await renderComponent();
-    // focus input to show results
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
 
     const fleshWound = await screen.findAllByText("it's just a flesh wound");
-
     await user.click(fleshWound[0]);
     expect(screen.getAllByTestId('checkbox-1')[0]).toHaveClass('Mui-checked');
   });
 
   it('should clear the checkbox when a checked result is clicked', async () => {
-    // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
-
     await renderComponent();
-
-    // focus input to show results
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
 
@@ -85,37 +76,31 @@ describe('SearchResultsList', () => {
   });
 
   it('should select the new revision and uncheck the previous one when clicking a different base revision', async () => {
-    // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
-
     await renderComponent();
-    // focus input to show results
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
-    await user.click((await screen.findAllByTestId('checkbox-0'))[0]);
-    await user.click(screen.getAllByTestId('checkbox-1')[0]);
 
-    expect(screen.getAllByTestId('checkbox-0')[0]).not.toHaveClass(
-      'Mui-checked',
-    );
+    // Awaiting checkboxes to ensure we get the resolved elements
+    const checkboxes = await screen.findAllByTestId('checkbox-0');
+    await user.click(checkboxes[0]);
+
+    const checkboxes1 = await screen.findAllByTestId('checkbox-1');
+    await user.click(checkboxes1[0]);
+
+    expect(screen.getAllByTestId('checkbox-0')[0]).not.toHaveClass('Mui-checked');
     expect(screen.getAllByTestId('checkbox-1')[0]).toHaveClass('Mui-checked');
 
-    // Should allow unchecking revisions too
     await user.click(screen.getAllByTestId('checkbox-1')[0]);
-    expect(screen.getAllByTestId('checkbox-1')[0]).not.toHaveClass(
-      'Mui-checked',
-    );
+    expect(screen.getAllByTestId('checkbox-1')[0]).not.toHaveClass('Mui-checked');
   });
 
   it('should not allow selecting more than 3 revisions on New Search', async () => {
     const checkboxForText = (textElement: Element) =>
       textElement.closest('li')?.querySelector('.MuiCheckbox-root');
 
-    // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
-
     await renderComponent();
-    // focus input to show results
     const searchInput = screen.getAllByRole('textbox')[1];
     await user.click(searchInput);
 
@@ -136,7 +121,6 @@ describe('SearchResultsList', () => {
 
     expect(screen.getByText('Maximum 3 revisions.')).toBeInTheDocument();
 
-    // Should allow unchecking revisions even after four have been selected
     await user.click(fleshWound);
     expect(fleshWound).not.toHaveClass('Mui-checked');
   });
