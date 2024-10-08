@@ -2,6 +2,7 @@ import { Fragment } from 'react';
 
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
+import { Tooltip } from '@mui/material';
 import Checkbox from '@mui/material/Checkbox';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -10,10 +11,10 @@ import ListItemText from '@mui/material/ListItemText';
 import Radio from '@mui/material/Radio';
 import Typography from '@mui/material/Typography';
 import { style } from 'typestyle';
+
 import { Spacing } from '../../styles';
 import type { Changeset } from '../../types/state';
 import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
-import { Tooltip } from '@mui/material';
 
 interface SearchResultsListItemProps {
   index: number;
