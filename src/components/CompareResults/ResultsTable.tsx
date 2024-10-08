@@ -115,10 +115,31 @@ export default function ResultsTable() {
     });
   };
 
+  const getPossibleValues = (columnId: string): string[] | undefined => {
+    const config = cellsConfiguration.find((c) => c.key === columnId) as CompareResultsTableConfig
+    if('possibleValues' in config){
+      return config.possibleValues
+    } else{
+      return undefined
+    }
+  }
+
   const onToggleFilter = (columnId: string, filters: Set<string>) => {
+    const possibleValues = getPossibleValues(columnId)
     setTableFilters((oldFilters) => {
       const newFilters = new Map(oldFilters);
       newFilters.set(columnId, filters);
+      const uncheckedValues = newFilters.get(columnId);
+      const values = [...(uncheckedValues ?? [])];
+      const filteredSelection = possibleValues?.filter((value) => !values.includes(value))
+      const filteredValue = filteredSelection?.join(',') ?? ''
+      // when all filter selections are removed, clear out the value from search params
+      if(filteredValue === ''){
+        searchParams.delete(columnId)
+      }else{
+        searchParams.set(columnId, filteredValue)
+      }
+      setSearchParams(searchParams);
       return newFilters;
     });
   };
