@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
 import Checkbox from '@mui/material/Checkbox';
@@ -7,12 +8,13 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Radio from '@mui/material/Radio';
+import Tooltip from '@mui/material/Tooltip'; // Tooltip import
 import Typography from '@mui/material/Typography';
-import Tooltip from '@mui/material/Tooltip';  // Tooltip import
 import dayjs from 'dayjs';
-import utc from 'dayjs/plugin/utc'; // Add UTC plugin for dayjs
 import timezone from 'dayjs/plugin/timezone'; // Add timezone plugin for dayjs
+import utc from 'dayjs/plugin/utc'; // Add UTC plugin for dayjs
 import { style } from 'typestyle';
+
 import { Spacing } from '../../styles';
 import type { Changeset } from '../../types/state';
 import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
@@ -71,7 +73,7 @@ function SearchResultsListItem({
   const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);
 
-  const itemDate = dayjs(item.push_timestamp * 1000);  // Dayjs date object
+  const itemDate = dayjs(item.push_timestamp * 1000); // Dayjs date object
   const localTime = itemDate.format('MM/DD/YY HH:mm'); // Format local time
   const localTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone; // Get local time zone
   const utcTime = itemDate.utc().format('MM/DD/YY HH:mm [UTC]'); // Format as UTC
@@ -136,7 +138,8 @@ function SearchResultsListItem({
                     {/* Tooltip with UTC time */}
                     <Tooltip title={`UTC Time: ${utcTime}`}>
                       <span>
-                        {localTime} ({localTimeZone}) {/* Wrap both in a single span */}
+                        {localTime} ({localTimeZone}){' '}
+                        {/* Wrap both in a single span */}
                       </span>
                     </Tooltip>
                   </div>
