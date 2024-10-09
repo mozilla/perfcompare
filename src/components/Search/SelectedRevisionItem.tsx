@@ -11,7 +11,6 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import dayjs from 'dayjs';
 
 import { repoMap } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
@@ -51,6 +50,18 @@ function SelectedRevisionItem({
   const commitMessage = getLatestCommitMessage(item);
   const itemDate = new Date(item.push_timestamp * 1000);
   const repository = repoMap[item.repository_id] ?? 'try';
+  const localDateTime = itemDate
+    .toLocaleString(undefined, {
+      year: '2-digit',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+      timeZoneName: 'short',
+    })
+    .replace(',', '') // Removes the comma between the date and time
+    .replace(/(\d{2})\/(\d{2})\/(\d{2})/, '$2/$1/$3'); // Reformat date as MM/DD/YY
 
   return (
     <ListItem
@@ -108,7 +119,7 @@ function SelectedRevisionItem({
                     className='time-icon'
                     fontSize='small'
                   />
-                  {String(dayjs(itemDate).format('MM/DD/YY HH:mm'))}
+                  {localDateTime}
                 </div>
               </div>
             </React.Fragment>
