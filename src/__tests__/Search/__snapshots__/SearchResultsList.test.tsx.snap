@@ -70,7 +70,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
               coconut
             </span>
             <div
-              aria-label="UTC"
+              aria-label="03/29/51 24:00 UTC"
               class="info-caption"
               data-mui-internal-clone-element="true"
             >
@@ -182,7 +182,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
               spam
             </span>
             <div
-              aria-label="UTC"
+              aria-label="02/22/58 24:00 UTC"
               class="info-caption"
               data-mui-internal-clone-element="true"
             >
@@ -294,7 +294,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
               spamspam
             </span>
             <div
-              aria-label="UTC"
+              aria-label="07/29/87 24:00 UTC"
               class="info-caption"
               data-mui-internal-clone-element="true"
             >
@@ -406,7 +406,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
               spamspamspam
             </span>
             <div
-              aria-label="UTC"
+              aria-label="07/04/20 24:00 UTC"
               class="info-caption"
               data-mui-internal-clone-element="true"
             >
@@ -518,7 +518,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
               spamspamspam
             </span>
             <div
-              aria-label="UTC"
+              aria-label="04/13/22 24:00 UTC"
               class="info-caption"
               data-mui-internal-clone-element="true"
             >
@@ -923,7 +923,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                     coconut
                                   </span>
                                   <div
-                                    aria-label="UTC"
+                                    aria-label="03/29/51 24:00 UTC"
                                     class="info-caption"
                                     data-mui-internal-clone-element="true"
                                   >
@@ -1035,7 +1035,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                     spam
                                   </span>
                                   <div
-                                    aria-label="UTC"
+                                    aria-label="02/22/58 24:00 UTC"
                                     class="info-caption"
                                     data-mui-internal-clone-element="true"
                                   >
@@ -1147,7 +1147,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                     spamspam
                                   </span>
                                   <div
-                                    aria-label="UTC"
+                                    aria-label="07/29/87 24:00 UTC"
                                     class="info-caption"
                                     data-mui-internal-clone-element="true"
                                   >
@@ -1259,7 +1259,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                     spamspamspam
                                   </span>
                                   <div
-                                    aria-label="UTC"
+                                    aria-label="07/04/20 24:00 UTC"
                                     class="info-caption"
                                     data-mui-internal-clone-element="true"
                                   >
@@ -1371,7 +1371,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                     spamspamspam
                                   </span>
                                   <div
-                                    aria-label="UTC"
+                                    aria-label="04/13/22 24:00 UTC"
                                     class="info-caption"
                                     data-mui-internal-clone-element="true"
                                   >

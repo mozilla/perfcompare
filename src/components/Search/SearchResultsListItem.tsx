@@ -81,7 +81,19 @@ function SearchResultsListItem({
     .replace(',', '') // Removes the comma between the date and time
     .replace(/(\d{2})\/(\d{2})\/(\d{2})/, '$2/$1/$3'); // Reformat date as MM/DD/YY
 
-  const timeZone = localDateTime.split(' ').pop();
+  const utcDateTime = itemDate
+    .toLocaleString('en-US', {
+      year: '2-digit',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+      timeZone: 'UTC',
+      timeZoneName: 'short',
+    })
+    .replace(',', '')
+    .replace(/(\d{2})\/(\d{2})\/(\d{2})/, '$1/$2/$3');
 
   const onToggleAction = () => {
     onToggle(item);
@@ -125,7 +137,7 @@ function SearchResultsListItem({
                   {revisionHash}
                 </Typography>
 
-                <Tooltip title={timeZone} placement='top'>
+                <Tooltip title={utcDateTime} placement='top'>
                   <div className='info-caption'>
                     <div className='info-caption-item item-author'>
                       {' '}
