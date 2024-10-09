@@ -70,7 +70,7 @@ const cellsConfiguration: CompareResultsTableConfig[] = [
     gridWidth: '1fr',
   },
   {
-    key: 'comparisonSign',
+    key: 'comparisonSignstandarddeviation',
     gridWidth: '0.2fr',
   },
   {

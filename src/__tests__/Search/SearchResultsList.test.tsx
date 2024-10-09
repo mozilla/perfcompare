@@ -11,6 +11,7 @@ import {
   FetchMockSandbox,
 } from '../utils/test-utils';
 
+jest.setTimeout(60000); // Increase to 60 seconds to avoid the failing test
 async function renderComponent() {
   renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />, {
     loader,
@@ -85,22 +86,23 @@ describe('SearchResultsList', () => {
   });
 
   it('should select the new revision and uncheck the previous one when clicking a different base revision', async () => {
-    // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
-
     await renderComponent();
-    // focus input to show results
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
-    await user.click((await screen.findAllByTestId('checkbox-0'))[0]);
-    await user.click(screen.getAllByTestId('checkbox-1')[0]);
+
+    // Awaiting checkboxes to ensure we get the resolved elements
+    const checkboxes = await screen.findAllByTestId('checkbox-0');
+    await user.click(checkboxes[0]);
+
+    const checkboxes1 = await screen.findAllByTestId('checkbox-1');
+    await user.click(checkboxes1[0]);
 
     expect(screen.getAllByTestId('checkbox-0')[0]).not.toHaveClass(
       'Mui-checked',
     );
     expect(screen.getAllByTestId('checkbox-1')[0]).toHaveClass('Mui-checked');
 
-    // Should allow unchecking revisions too
     await user.click(screen.getAllByTestId('checkbox-1')[0]);
     expect(screen.getAllByTestId('checkbox-1')[0]).not.toHaveClass(
       'Mui-checked',

@@ -987,7 +987,7 @@ exports[`Results Table Should match snapshot 1`] = `
                   </div>
                 </div>
                 <div
-                  class="f1wqnr25 fr2n4tx"
+                  class="fsfjv6t fr2n4tx"
                   data-testid="table-header"
                   role="row"
                 >
@@ -1037,6 +1037,22 @@ exports[`Results Table Should match snapshot 1`] = `
                     role="columnheader"
                   >
                     New
+                  </div>
+                  <div
+                    class="cell basestandarddeviation-header"
+                    role="columnheader"
+                  >
+                    Base\`σ\`
+                  </div>
+                  <div
+                    class="cell comparisonSignstandarddeviation-header"
+                    role="columnheader"
+                  />
+                  <div
+                    class="cell newstandarddeviation-header"
+                    role="columnheader"
+                  >
+                    New\`σ\`
                   </div>
                   <div
                     class="cell status-header"
@@ -1203,7 +1219,7 @@ exports[`Results Table Should match snapshot 1`] = `
                         </div>
                         <div>
                           <div
-                            class="revisionRow f1b00bec fp4ugv1 MuiBox-root css-1am90bh"
+                            class="revisionRow f12bximn fp4ugv1 MuiBox-root css-p80lp4"
                             role="row"
                           >
                             <div
@@ -1255,6 +1271,26 @@ exports[`Results Table Should match snapshot 1`] = `
                               712.44
                                
                               ms
+                            </div>
+                            <div
+                              class="base-standard-deviation-value cell"
+                              role="cell"
+                            >
+                               
+                              0
+                               
+                            </div>
+                            <div
+                              class="comparison-sign-standard-deviation cell"
+                              role="cell"
+                            />
+                            <div
+                              class="new-standard-deviation-value cell"
+                              role="cell"
+                            >
+                               
+                              0
+                               
                             </div>
                             <div
                               class="status cell"
@@ -1418,7 +1454,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1b00bec fp4ugv1 MuiBox-root css-1am90bh"
+                            class="revisionRow f12bximn fp4ugv1 MuiBox-root css-p80lp4"
                             role="row"
                           >
                             <div
@@ -1469,6 +1505,26 @@ exports[`Results Table Should match snapshot 1`] = `
                               791.34
                                
                               ms
+                            </div>
+                            <div
+                              class="base-standard-deviation-value cell"
+                              role="cell"
+                            >
+                               
+                              0
+                               
+                            </div>
+                            <div
+                              class="comparison-sign-standard-deviation cell"
+                              role="cell"
+                            />
+                            <div
+                              class="new-standard-deviation-value cell"
+                              role="cell"
+                            >
+                               
+                              0
+                               
                             </div>
                             <div
                               class="status cell"
@@ -1632,7 +1688,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1b00bec fp4ugv1 MuiBox-root css-1am90bh"
+                            class="revisionRow f12bximn fp4ugv1 MuiBox-root css-p80lp4"
                             role="row"
                           >
                             <div
@@ -1684,6 +1740,26 @@ exports[`Results Table Should match snapshot 1`] = `
                               628.09
                                
                               ms
+                            </div>
+                            <div
+                              class="base-standard-deviation-value cell"
+                              role="cell"
+                            >
+                               
+                              0
+                               
+                            </div>
+                            <div
+                              class="comparison-sign-standard-deviation cell"
+                              role="cell"
+                            />
+                            <div
+                              class="new-standard-deviation-value cell"
+                              role="cell"
+                            >
+                               
+                              0
+                               
                             </div>
                             <div
                               class="status cell"
@@ -1887,7 +1963,7 @@ exports[`Results Table Should match snapshot 1`] = `
                         </div>
                         <div>
                           <div
-                            class="revisionRow f1b00bec fp4ugv1 MuiBox-root css-1am90bh"
+                            class="revisionRow f12bximn fp4ugv1 MuiBox-root css-p80lp4"
                             role="row"
                           >
                             <div
@@ -1939,6 +2015,26 @@ exports[`Results Table Should match snapshot 1`] = `
                               628.09
                                
                               ms
+                            </div>
+                            <div
+                              class="base-standard-deviation-value cell"
+                              role="cell"
+                            >
+                               
+                              0
+                               
+                            </div>
+                            <div
+                              class="comparison-sign-standard-deviation cell"
+                              role="cell"
+                            />
+                            <div
+                              class="new-standard-deviation-value cell"
+                              role="cell"
+                            >
+                               
+                              0
+                               
                             </div>
                             <div
                               class="status cell"
