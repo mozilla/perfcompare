@@ -109,7 +109,7 @@ export const CompareCardsStyles = (mode: string) => {
               height: 'auto',
             },
             '.form-wrapper': {
-              padding: `${Spacing.xxLarge}px ${Spacing.xxLarge + 2}px`,
+              padding: `${Spacing.xLarge}px ${Spacing.xxLarge + 2}px`,
             },
           },
         },

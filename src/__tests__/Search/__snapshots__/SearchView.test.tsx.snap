@@ -93,7 +93,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
         </span>
         <div>
           <div
-            class="compare-card-container compare-card-container--expanded container_fbyd6x5"
+            class="compare-card-container compare-card-container--expanded container_f1902ric"
             data-testid="base-state"
           >
             <div
@@ -116,7 +116,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
             />
           </div>
           <div
-            class="compare-card-container content-base content-base--expanded container_fbyd6x5 wrapper--withbase fcdpsbx"
+            class="compare-card-container content-base content-base--expanded container_f1902ric wrapper--withbase fcdpsbx"
           >
             <hr
               class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
@@ -528,7 +528,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
         </div>
         <div>
           <div
-            class="compare-card-container compare-card-container--hidden container_fbyd6x5"
+            class="compare-card-container compare-card-container--hidden container_f1902ric"
             data-testid="time-state"
           >
             <div
@@ -551,7 +551,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
             />
           </div>
           <div
-            class="compare-card-container content-base content-base--hidden container_fbyd6x5 wrapper--overtime f1ucodr8"
+            class="compare-card-container content-base content-base--hidden container_f1902ric wrapper--overtime f1ucodr8"
           >
             <hr
               class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
