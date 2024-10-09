@@ -711,6 +711,11 @@ exports[`Search View renders correctly when there are no results 1`] = `
                           tabindex="0"
                         >
                           Last day
+                          <span
+                            class="f7opyze f1np4cs0"
+                          >
+                             (10/01/2024 - 10/02/2024)
+                          </span>
                         </div>
                         <input
                           aria-hidden="true"
@@ -1122,6 +1127,11 @@ exports[`With search parameters both search components are populated as expected
               tabindex="0"
             >
               Last day
+              <span
+                class="f7opyze f1np4cs0"
+              >
+                 (10/01/2024 - 10/02/2024)
+              </span>
             </div>
             <input
               aria-hidden="true"
@@ -2167,6 +2177,11 @@ exports[`With search parameters both search components are populated as expected
               tabindex="0"
             >
               Last day
+              <span
+                class="f7opyze f1np4cs0"
+              >
+                 (10/01/2024 - 10/02/2024)
+              </span>
             </div>
             <input
               aria-hidden="true"
@@ -3212,6 +3227,11 @@ exports[`With search parameters displays the default value for framework if the 
               tabindex="0"
             >
               Last day
+              <span
+                class="f7opyze f1np4cs0"
+              >
+                 (10/01/2024 - 10/02/2024)
+              </span>
             </div>
             <input
               aria-hidden="true"
@@ -4257,6 +4277,11 @@ exports[`With search parameters displays the default values if some values are b
               tabindex="0"
             >
               Last day
+              <span
+                class="f7opyze f1np4cs0"
+              >
+                 (10/01/2024 - 10/02/2024)
+              </span>
             </div>
             <input
               aria-hidden="true"

@@ -632,6 +632,11 @@ exports[`Search Containter should match snapshot 1`] = `
                         tabindex="0"
                       >
                         Last day
+                        <span
+                          class="f7opyze f1np4cs0"
+                        >
+                           (10/01/2024 - 10/02/2024)
+                        </span>
                       </div>
                       <input
                         aria-hidden="true"
