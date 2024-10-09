@@ -226,15 +226,15 @@ function CompareWithBase({
         aria-label='Compare with base form'
       >
         {/**** Edit Button ****/}
-        <div
-          className={`edit-btn-wrapper ${
-            hasEditButton && !formIsDisplayed
-              ? 'show-edit-btn'
-              : 'hide-edit-btn'
-          }`}
-        >
-          <EditButton onEditAction={handleEdit} mode={mode} />
-        </div>
+        {hasEditButton && (
+          <div
+            className={`edit-btn-wrapper ${
+              !formIsDisplayed ? 'show-edit-btn' : 'hide-edit-btn'
+            }`}
+          >
+            <EditButton onEditAction={handleEdit} mode={mode} />
+          </div>
+        )}
 
         <SearchComponent
           {...stringsBase}
@@ -268,34 +268,33 @@ function CompareWithBase({
           formIsDisplayed={formIsDisplayed}
         />
 
-        <Grid
-          item
-          xs={2}
-          display='flex'
-          justifyContent={hasEditButton ? 'flex-end' : 'space-between'}
-          className={dropDownStyles.dropDown}
-          alignItems='flex-end'
-        >
-          {!hasEditButton && (
-            <SearchFrameworkDropdown frameworkId={frameworkIdVal} />
-          )}
+        {/* !hasEditButton means we are in Search view
+        hasCancelButton means we are in Edit mode on Results view */}
+        {(!hasEditButton || hasCancelButton) && (
+          <Grid
+            item
+            xs={2}
+            display='flex'
+            justifyContent={hasEditButton ? 'flex-end' : 'space-between'}
+            className={dropDownStyles.dropDown}
+            alignItems='flex-end'
+          >
+            {!hasEditButton && (
+              <SearchFrameworkDropdown frameworkId={frameworkIdVal} />
+            )}
 
-          {/**** Hidden Input to capture framework when user updates revisions ****/}
-          {hasEditButton && (
-            <input
-              type='hidden'
-              value={frameworkIdVal}
-              name='framework'
-            ></input>
-          )}
-
-          <CancelAndCompareButtons
-            label={strings.base.compareBtn}
-            onCancel={handleCancel}
-            hasCancelButton={hasCancelButton}
-            hasEditButton={hasEditButton}
-          />
-        </Grid>
+            <CancelAndCompareButtons
+              label={strings.base.compareBtn}
+              onCancel={handleCancel}
+              hasCancelButton={hasCancelButton}
+              hasEditButton={hasEditButton}
+            />
+          </Grid>
+        )}
+        {/**** Hidden Input to capture framework when user updates revisions ****/}
+        {hasEditButton && (
+          <input type='hidden' value={frameworkIdVal} name='framework'></input>
+        )}
       </Form>
     </div>
   );
