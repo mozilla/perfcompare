@@ -65,7 +65,7 @@ describe('SearchResultsList', () => {
     const user = userEvent.setup({ delay: null });
 
     await renderComponent();
-    
+
     // focus input to show results
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
@@ -157,7 +157,7 @@ describe('SearchResultsList', () => {
     expect(screen.getByLabelText('Light mode')).toBeInTheDocument();
     // focus input to show results
     const searchInput = screen.getAllByRole('textbox')[0];
-    
+
     await user.click(searchInput);
     const resultsList = screen.getByTestId('list-mode');
     expect(resultsList).toMatchSnapshot('after toggling dark mode');
