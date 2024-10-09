@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Grid, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import { VariantType, useSnackbar } from 'notistack';
 import { Form } from 'react-router-dom';
@@ -40,7 +40,6 @@ function CompareOverTime({
   baseRepo,
   newRepo,
   isExpanded,
-  setIsExpanded,
 }: CompareWithTimeProps) {
   const { enqueueSnackbar } = useSnackbar();
   const location = useLocation();
@@ -141,95 +140,77 @@ function CompareOverTime({
 
   const expandedClass = isExpanded ? 'expanded' : 'hidden';
   return (
-    <Grid className={`wrapper--overtime ${wrapperStyles.wrapper}`}>
-      <div
-        className={`compare-card-container compare-card-container--${expandedClass} ${styles.container}`}
-        onClick={setIsExpanded}
-        data-testid='time-state'
+    <div
+      className={`compare-card-container content-base content-base--${expandedClass} ${styles.container} wrapper--overtime ${wrapperStyles.wrapper}`}
+    >
+      <Divider className='divider' />
+      <Form
+        action='/compare-over-time-results'
+        onSubmit={onFormSubmit}
+        className='form-wrapper'
+        aria-label='Compare over time form'
       >
-        <div className={`compare-card-text ${styles.cardText}`}>
-          <Typography variant='h2' className='compare-card-title'>
-            {strings.overTime.title}
-          </Typography>
-          <p className='compare-card-tagline'>{strings.overTime.tagline}</p>
-        </div>
+        {/**** Edit Button ****/}
         <div
-          className='compare-card-img compare-card-img--time'
-          aria-label='a clock'
-        />
-      </div>
-      <div
-        className={`compare-card-container content-base content-base--${expandedClass} ${styles.container} `}
-      >
-        <Divider className='divider' />
-        <Form
-          action='/compare-over-time-results'
-          onSubmit={onFormSubmit}
-          className='form-wrapper'
-          aria-label='Compare over time form'
+          className={`edit-btn-wrapper ${
+            hasEditButton && !formIsDisplayed
+              ? 'show-edit-btn'
+              : 'hide-edit-btn'
+          }`}
         >
-          {/**** Edit Button ****/}
-          <div
-            className={`edit-btn-wrapper ${
-              hasEditButton && !formIsDisplayed
-                ? 'show-edit-btn'
-                : 'hide-edit-btn'
-            }`}
-          >
-            <EditButton onEditAction={handleEdit} mode={mode} />
-          </div>
+          <EditButton onEditAction={handleEdit} mode={mode} />
+        </div>
 
-          <SearchOverTime
+        <SearchOverTime
+          hasEditButton={hasEditButton}
+          baseRepo={baseRepository}
+          newRepo={newRepository}
+          displayedRevisions={inProgressRevs}
+          formIsDisplayed={formIsDisplayed}
+          onRemoveRevision={handleRemoveRevision}
+          onSearchResultsToggle={handleSearchResultsToggle}
+          onBaseRepositoryChange={(repo: Repository['name']) =>
+            setBaseRepository(repo)
+          }
+          onNewRepositoryChange={(repo: Repository['name']) =>
+            setNewRepository(repo)
+          }
+          timeRangeValue={timeRangeValue}
+          onTimeRangeChange={(value: TimeRange['value']) =>
+            setTimeRangeValue(value)
+          }
+        />
+
+        <Grid
+          item
+          xs={2}
+          display='flex'
+          justifyContent={hasEditButton ? 'flex-end' : 'space-between'}
+          className={`${dropDownStyles.dropDown}`}
+          alignItems='flex-end'
+        >
+          {!hasEditButton && (
+            <SearchFrameworkDropdown frameworkId={frameworkIdVal} />
+          )}
+
+          {/**** Hidden Input to capture framework when user updates revisions ****/}
+          {hasEditButton && (
+            <input
+              value={frameworkIdVal}
+              name='framework'
+              type='hidden'
+            ></input>
+          )}
+
+          <CancelAndCompareButtons
+            label={strings.sharedCollasped.button}
+            hasCancelButton={hasCancelButton}
+            onCancel={handleCancel}
             hasEditButton={hasEditButton}
-            baseRepo={baseRepository}
-            newRepo={newRepository}
-            displayedRevisions={inProgressRevs}
-            formIsDisplayed={formIsDisplayed}
-            onRemoveRevision={handleRemoveRevision}
-            onSearchResultsToggle={handleSearchResultsToggle}
-            onBaseRepositoryChange={(repo: Repository['name']) =>
-              setBaseRepository(repo)
-            }
-            onNewRepositoryChange={(repo: Repository['name']) =>
-              setNewRepository(repo)
-            }
-            timeRangeValue={timeRangeValue}
-            onTimeRangeChange={(value: TimeRange['value']) =>
-              setTimeRangeValue(value)
-            }
           />
-
-          <Grid
-            item
-            xs={2}
-            display='flex'
-            justifyContent={hasEditButton ? 'flex-end' : 'space-between'}
-            className={`${dropDownStyles.dropDown}`}
-            alignItems='flex-end'
-          >
-            {!hasEditButton && (
-              <SearchFrameworkDropdown frameworkId={frameworkIdVal} />
-            )}
-
-            {/**** Hidden Input to capture framework when user updates revisions ****/}
-            {hasEditButton && (
-              <input
-                value={frameworkIdVal}
-                name='framework'
-                type='hidden'
-              ></input>
-            )}
-
-            <CancelAndCompareButtons
-              label={strings.sharedCollasped.button}
-              hasCancelButton={hasCancelButton}
-              onCancel={handleCancel}
-              hasEditButton={hasEditButton}
-            />
-          </Grid>
-        </Form>
-      </div>
-    </Grid>
+        </Grid>
+      </Form>
+    </div>
   );
 }
 

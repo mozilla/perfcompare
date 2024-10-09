@@ -56,6 +56,10 @@ export type SubtestsRevisionsHeader = {
   extra_options: string;
   new_rev: string;
   new_repo: Repository['name'];
+  base_rev: string;
+  base_repo: Repository['name'];
+  base_parent_signature: number | null;
+  new_parent_signature: number | null;
   platform: Platform;
 };
 

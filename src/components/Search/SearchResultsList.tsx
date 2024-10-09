@@ -1,8 +1,15 @@
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
+import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
-import { SelectListStyles } from '../../styles';
+import {
+  Colors,
+  FontsRaw,
+  Spacing,
+  captionStylesLight,
+  captionStylesDark,
+} from '../../styles';
 import { Changeset } from '../../types/state';
 import SearchResultsListItem from './SearchResultsListItem';
 
@@ -14,6 +21,63 @@ interface SearchResultsListProps {
   listItemComponent?: 'checkbox' | 'radio';
 }
 
+const sharedSelectStyles = {
+  borderRadius: '4px',
+  marginTop: `${Spacing.xSmall}px`,
+  maxHeight: '285px',
+  overflow: 'auto',
+  maxWidth: '100%',
+  padding: `${Spacing.xSmall}px`,
+  border: `1px solid ${Colors.BorderDefault}`,
+  zIndex: 100,
+};
+
+function getStyles(theme: string) {
+  const backgroundColor =
+    theme === 'light' ? Colors.Background300 : Colors.Background300Dark;
+  const hoverColor =
+    theme === 'light' ? Colors.SecondaryHover : Colors.SecondaryHoverDark;
+  const activeColor =
+    theme === 'light' ? Colors.SecondaryActive : Colors.SecondaryActiveDark;
+  const captionStyle =
+    theme === 'light' ? captionStylesLight : captionStylesDark;
+
+  return style({
+    backgroundColor,
+    position: 'relative',
+    ...sharedSelectStyles,
+    $nest: {
+      '.MuiListItemButton-root': {
+        padding: `${Spacing.xSmall}px ${Spacing.Small}px`,
+        $nest: {
+          '&:hover': {
+            backgroundColor: hoverColor,
+            borderRadius: '4px',
+          },
+          '&:active': {
+            backgroundColor: activeColor,
+            borderRadius: '4px',
+          },
+        },
+      },
+      '.item-selected': {
+        backgroundColor: hoverColor,
+        borderRadius: '4px',
+      },
+      '.revision-hash': {
+        ...FontsRaw.BodyDefault,
+        marginRight: Spacing.Small,
+      },
+      '.info-caption': {
+        ...captionStyle,
+      },
+      '.MuiTypography-root': {
+        ...FontsRaw.BodyDefault,
+      },
+    },
+  });
+}
+
 function SearchResultsList({
   compact,
   searchResults,
@@ -22,7 +86,11 @@ function SearchResultsList({
   listItemComponent,
 }: SearchResultsListProps) {
   const mode = useAppSelector((state) => state.theme.mode);
-  const styles = SelectListStyles(mode);
+  const styles = {
+    light: getStyles('light'),
+    dark: getStyles('dark'),
+  };
+  // const styles = mode === 'light' ? SelectListLight : SelectListDark;
 
   const isInProgressChecked = (item: Changeset) => {
     return displayedRevisions.map((rev) => rev.id).includes(item.id);
@@ -30,7 +98,7 @@ function SearchResultsList({
 
   return (
     <Box
-      className={`${styles} results-list-${mode}`}
+      className={`${styles[mode]} results-list-${mode}`}
       id='search-results-list'
       alignItems='flex-end'
       data-testid='list-mode'
