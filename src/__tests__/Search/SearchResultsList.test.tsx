@@ -46,13 +46,12 @@ describe('SearchResultsList', () => {
   });
 
   it('should fill the checkbox when a result is clicked', async () => {
+    // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
     await renderComponent();
-    // set delay to null to prevent test time-out due to useFakeTimers
-    const searchInput = screen.getAllByRole('textbox')[0];
-
-    await user.click(searchInput);
     // focus input to show results
+    const searchInput = screen.getAllByRole('textbox')[0];
+    await user.click(searchInput);
 
     const fleshWound = await screen.findAllByText("it's just a flesh wound");
 
