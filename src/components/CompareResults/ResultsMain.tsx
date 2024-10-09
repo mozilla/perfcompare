@@ -1,6 +1,6 @@
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 
-import { Link } from '@mui/material';
+import { Input, Link } from '@mui/material';
 import { Grid } from '@mui/material';
 import Alert from '@mui/material/Alert';
 import { Container } from '@mui/system';
@@ -24,6 +24,11 @@ function getPunctuationMark(index: number, newRevs: string[]) {
 }
 
 function ResultsMain() {
+  const [resultsTitle, setResultsTitle] = useState('Results');
+
+  const handleResultsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setResultsTitle(event.target.value);
+  };
   const loaderData = useLoaderData() as
     | LoaderReturnValue
     | OverTimeLoaderReturnValue;
@@ -97,7 +102,12 @@ function ResultsMain() {
       <header>
         <Grid container className={styles.titleContainer} component='h2'>
           <Grid item className={styles.title}>
-            Results
+            <Input
+              type='text'
+              name='results-title'
+              value={resultsTitle}
+              onChange={handleResultsChange}
+            />
           </Grid>
           <Grid item className={styles.subtitle}>
             {subtitles[view]}
