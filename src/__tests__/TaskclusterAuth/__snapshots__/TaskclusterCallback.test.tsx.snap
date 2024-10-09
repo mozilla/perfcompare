@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Taskcluster Callback should show a spinner while waiting for the credentials 1`] = `
+<body>
+  <div>
+    <div
+      class="MuiBox-root css-vmdzdb"
+    >
+      <h2
+        class="MuiTypography-root MuiTypography-h2 css-15umudq-MuiTypography-root"
+      >
+        Retrieving Taskcluster credentials...
+      </h2>
+      <span
+        class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-zhs9ko-MuiCircularProgress-root"
+        role="progressbar"
+        style="width: 40px; height: 40px;"
+      >
+        <svg
+          class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
+          viewBox="22 22 44 44"
+        >
+          <circle
+            class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
+            cx="44"
+            cy="44"
+            fill="none"
+            r="20.2"
+            stroke-width="3.6"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</body>
+`;

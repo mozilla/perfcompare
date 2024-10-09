@@ -7,7 +7,32 @@ import {
   retrieveTaskclusterToken,
 } from '../../logic/taskcluster';
 
-export async function loader({ request }: { request: Request }) {
+async function doRetrievalAndStore({
+  rootUrl,
+  taskclusterCode,
+}: {
+  rootUrl: string;
+  taskclusterCode: string;
+}): Promise<void> {
+  const tokenResponse = await retrieveTaskclusterToken(
+    rootUrl,
+    taskclusterCode,
+  );
+
+  storeUserToken(rootUrl, tokenResponse);
+
+  // fetch access token with token Bearer
+  const userCredentials = await retrieveTaskclusterUserCredentials(
+    rootUrl,
+    tokenResponse.access_token,
+  );
+
+  storeUserCredentials(rootUrl, userCredentials);
+
+  window.close();
+}
+
+export function loader({ request }: { request: Request }) {
   const url = new URL(request.url);
 
   const taskclusterCode = url.searchParams.get('code') as string;
@@ -27,26 +52,16 @@ export async function loader({ request }: { request: Request }) {
     );
   }
 
-  const tokenResponse = await retrieveTaskclusterToken(
-    rootUrl,
-    taskclusterCode,
-  );
+  const retrievalPromise = doRetrievalAndStore({ rootUrl, taskclusterCode });
+  // If rejections are not caught here, a rejection would error a test even if
+  // it's caught by an error boundary and asserted in the test. By catching it
+  // here, even doing nothing more and still returning the original promise, the
+  // test doesn't fail anymore.
+  retrievalPromise.catch(() => {});
 
-  storeUserToken(rootUrl, tokenResponse);
-
-  // fetch access token with token Bearer
-  const userCredentials = await retrieveTaskclusterUserCredentials(
-    rootUrl,
-    tokenResponse.access_token,
-  );
-
-  storeUserCredentials(rootUrl, userCredentials);
-
-  window.close();
-
-  // TODO Use defer values as explained in https://reactrouter.com/en/main/guides/deferred
-  // so that the component displays while retrieving all the data
-  return userCredentials;
+  return {
+    retrievalPromise,
+  };
 }
 
-export type LoaderReturnValue = Awaited<ReturnType<typeof loader>>;
+export type LoaderReturnValue = ReturnType<typeof loader>;

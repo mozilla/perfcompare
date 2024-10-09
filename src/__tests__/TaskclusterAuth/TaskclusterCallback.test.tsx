@@ -11,38 +11,34 @@ jest.mock('../../utils/location');
 const mockedGetLocationOrigin = getLocationOrigin as jest.Mock;
 
 describe('Taskcluster Callback', () => {
-  it('should fetch access token bearer', () => {
-    (window.fetch as FetchMockSandbox).post(
-      'begin:https://firefox-ci-tc.services.mozilla.com/login/oauth/token',
-      {
-        access_token: 'RnVpOGJtdDZTb3FlWW5PVUxVclprQQ==',
-        token_type: 'Bearer',
-      },
-    );
-    sessionStorage.setItem('requestState', 'OkCrH5isZncYqeJbRDelN');
+  function setup({ inputState }: { inputState: string }) {
+    // Make window.close a noop so that the component can be rendered after the
+    // authentication process.
+    jest.spyOn(window, 'close').mockImplementation(() => {});
+
+    sessionStorage.setItem('requestState', inputState);
     sessionStorage.setItem(
       'taskclusterUrl',
       'https://firefox-ci-tc.services.mozilla.com',
     );
 
-    renderWithRouter(<TaskclusterCallback />, {
-      route: '/taskcluster-auth',
-      search: '?code=dwcygG5HQNaLiRe3RcTCbQ&state=OkCrH5isZncYqeJbRDelN',
-      loader,
-    });
     mockedGetLocationOrigin.mockImplementation(() => 'http://localhost:3000');
-
-    expect(window.fetch).toHaveBeenCalledTimes(1);
-  });
+  }
 
   it('should fetch credentials with token bearer', async () => {
-    // Make window.close a noop so that the component can be rendered after the
-    // authentication process.
-    jest.spyOn(window, 'close').mockImplementation(() => {});
+    const inputCode = 'dwcygG5HQNaLiRe3RcTCbQ';
+    const inputState = 'OkCrH5isZncYqeJbRDelN';
+    const returnedBearerToken = 'RnVpOGJtdDZTb3FlWW5PVUxVclprQQ==';
+    const returnedUserToken = 'jQWJVQdeRceT-YymPwTWagPh2PwJr0RmmZyL1uAfMSWg';
+    const returnedClientId =
+      'mozilla-auth0/ad|Mozilla-LDAP|ldapuser/perfcompare-localhost-3000-client-OCvzh5';
+
+    setup({ inputState });
+
     (window.fetch as FetchMockSandbox).post(
-      'begin:https://firefox-ci-tc.services.mozilla.com/login/oauth/token',
+      'https://firefox-ci-tc.services.mozilla.com/login/oauth/token',
       {
-        access_token: 'RnVpOGJtdDZTb3FlWW5PVUxVclprQQ==',
+        access_token: returnedBearerToken,
         token_type: 'Bearer',
       },
     );
@@ -52,48 +48,118 @@ describe('Taskcluster Callback', () => {
       {
         expires: '2024-05-20T14:07:40.828Z',
         credentials: {
-          clientId:
-            'mozilla-auth0/ad|Mozilla-LDAP|ldapuser/perfcompare-localhost-3000-client-OCvzh5',
-          accessToken: 'jQWJVQdeRceT-YymPwTWagPh2PwJr0RmmZyL1uAfMSWg',
+          clientId: returnedClientId,
+          accessToken: returnedUserToken,
         },
       },
     );
-    sessionStorage.setItem('requestState', 'OkCrH5isZncYqeJbRDelN');
-    sessionStorage.setItem(
-      'taskclusterUrl',
-      'https://firefox-ci-tc.services.mozilla.com',
-    );
-
-    mockedGetLocationOrigin.mockImplementation(() => 'http://localhost:3000');
-
     renderWithRouter(<TaskclusterCallback />, {
       route: '/taskcluster-auth',
-      search: '?code=dwcygG5HQNaLiRe3RcTCbQ&state=OkCrH5isZncYqeJbRDelN',
+      search: `?code=${inputCode}&state=${inputState}`,
       loader,
     });
 
     expect(
-      await screen.findByText(/Getting Taskcluster credentials/),
+      await screen.findByText(/Credentials were found/),
     ).toBeInTheDocument();
+
+    expect(window.fetch).toHaveBeenCalledWith(
+      'https://firefox-ci-tc.services.mozilla.com/login/oauth/token',
+      {
+        method: 'POST',
+        body: expect.any(URLSearchParams) as URLSearchParams,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      },
+    );
+    const requestBody = Object.fromEntries(
+      (window.fetch as jest.Mock).mock.calls[0][1].body as URLSearchParams,
+    );
+
+    expect(requestBody).toEqual({
+      client_id: 'perfcompare-localhost-3000-client',
+      code: inputCode,
+      grant_type: 'authorization_code',
+      redirect_uri: 'http://localhost/taskcluster-auth',
+    });
 
     expect(window.fetch).toHaveBeenLastCalledWith(
       'https://firefox-ci-tc.services.mozilla.com/login/oauth/credentials',
       {
         headers: {
-          Authorization: 'Bearer RnVpOGJtdDZTb3FlWW5PVUxVclprQQ==',
+          Authorization: `Bearer ${returnedBearerToken}`,
           'Content-Type': 'aplication/json',
         },
       },
     );
 
     expect(localStorage.userTokens).toBe(
-      '{"https://firefox-ci-tc.services.mozilla.com":{"access_token":"RnVpOGJtdDZTb3FlWW5PVUxVclprQQ==","token_type":"Bearer"}}',
+      `{"https://firefox-ci-tc.services.mozilla.com":{"access_token":"${returnedBearerToken}","token_type":"Bearer"}}`,
     );
 
     expect(localStorage.userCredentials).toBe(
-      '{"https://firefox-ci-tc.services.mozilla.com":{"expires":"2024-05-20T14:07:40.828Z","credentials":{"clientId":"mozilla-auth0/ad|Mozilla-LDAP|ldapuser/perfcompare-localhost-3000-client-OCvzh5","accessToken":"jQWJVQdeRceT-YymPwTWagPh2PwJr0RmmZyL1uAfMSWg"}}}',
+      `{"https://firefox-ci-tc.services.mozilla.com":{"expires":"2024-05-20T14:07:40.828Z","credentials":{"clientId":"${returnedClientId}","accessToken":"${returnedUserToken}"}}}`,
     );
 
     expect(window.close).toHaveBeenCalled();
+  });
+
+  it('should show a spinner while waiting for the credentials', async () => {
+    const inputCode = 'RANDOM_CODE';
+    const inputState = 'RANDOM_STATE';
+    setup({ inputState });
+
+    const neverResolvedPromise = new Promise(() => {});
+
+    (window.fetch as FetchMockSandbox).post(
+      'https://firefox-ci-tc.services.mozilla.com/login/oauth/token',
+      neverResolvedPromise,
+    );
+
+    (window.fetch as FetchMockSandbox).get(
+      'begin:https://firefox-ci-tc.services.mozilla.com/login/oauth/credentials',
+      neverResolvedPromise,
+    );
+    renderWithRouter(<TaskclusterCallback />, {
+      route: '/taskcluster-auth',
+      search: `?code=${inputCode}&state=${inputState}`,
+      loader,
+    });
+
+    expect(
+      await screen.findByText(/Retrieving Taskcluster credentials.../),
+    ).toBeInTheDocument();
+    expect(document.body).toMatchSnapshot();
+  });
+
+  it('should show an error if it fails to fetch', async () => {
+    // Because this test will throw an error, a lot of errors will be output to
+    // the console. Let's silence them so that the test output stays clean.
+    jest.spyOn(console, 'error').mockImplementation();
+
+    const inputCode = 'RANDOM_CODE';
+    const inputState = 'RANDOM_STATE';
+
+    setup({ inputState });
+
+    (window.fetch as FetchMockSandbox).post(
+      'https://firefox-ci-tc.services.mozilla.com/login/oauth/token',
+      {
+        status: 403,
+      },
+    );
+
+    renderWithRouter(<TaskclusterCallback />, {
+      route: '/taskcluster-auth',
+      search: `?code=${inputCode}&state=${inputState}`,
+      loader,
+    });
+
+    expect(
+      await screen.findByRole('heading', {
+        name: /Error when requesting Taskcluster: \(403\) Forbidden/,
+      }),
+    ).toBeInTheDocument();
   });
 });
