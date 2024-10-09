@@ -58,6 +58,9 @@ const stylesLight = {
       '.comparison-sign': {
         backgroundColor: Colors.Background200,
       },
+      '.comparison-sign-standard-deviation': {
+        backgroundColor: Colors.Background200,
+      },
       '.delta': {
         backgroundColor: Colors.Background200,
       },
@@ -157,6 +160,9 @@ const stylesDark = {
         backgroundColor: Colors.Background200Dark,
       },
       '.comparison-sign': {
+        backgroundColor: Colors.Background200Dark,
+      },
+      '.comparison-sign-standard-deviation': {
         backgroundColor: Colors.Background200Dark,
       },
       '.delta': {
@@ -390,7 +396,7 @@ function RevisionRow(props: RevisionRowProps) {
           {' '}
           {baseStandardDeviation}{' '}
         </div>
-        <div className='comparison-sign cell' role='cell'>
+        <div className='comparison-sign-standard-deviation cell' role='cell'>
           {determineStandardDeviationSign(
             baseStandardDeviation,
             newStandardDeviation,

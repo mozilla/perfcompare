@@ -54,6 +54,9 @@ function getStyles(themeMode: string) {
         '.comparison-sign': {
           backgroundColor: mainBackgroundColor,
         },
+        '.comparison-sign-standard-deviation': {
+          backgroundColor: mainBackgroundColor,
+        },
         '.delta': {
           backgroundColor: mainBackgroundColor,
         },
@@ -214,7 +217,7 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
           {' '}
           {baseStandardDeviation}{' '}
         </div>
-        <div className='comparison-sign cell' role='cell'>
+        <div className='comparison-sign-standard-deviation cell' role='cell'>
           {determineStandardDeviationSign(
             baseStandardDeviation,
             newStandardDeviation,

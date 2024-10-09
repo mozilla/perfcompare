@@ -65,6 +65,21 @@ const cellsConfiguration: CompareResultsTableConfig[] = [
     gridWidth: '1fr',
   },
   {
+    name: 'Base`σ`',
+    key: 'basestandarddeviation',
+    gridWidth: '1fr',
+  },
+  {
+    key: 'comparisonSign',
+    gridWidth: '0.2fr',
+  },
+  {
+    name: 'New`σ`',
+    key: 'newstandarddeviation',
+
+    gridWidth: '1fr',
+  },
+  {
     name: 'Status',
     disable: true,
     filter: true,
