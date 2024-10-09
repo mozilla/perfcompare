@@ -1,11 +1,10 @@
 import { Fragment, useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
 
 import { Input, Link } from '@mui/material';
 import { Grid } from '@mui/material';
 import Alert from '@mui/material/Alert';
 import { Container } from '@mui/system';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useSearchParams } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { compareView } from '../../common/constants';
@@ -51,6 +50,7 @@ function ResultsMain() {
   const { view } = useLoaderData() as
     | LoaderReturnValue
     | OverTimeLoaderReturnValue;
+
   const styles = {
     alert: style({
       width: '100%',
