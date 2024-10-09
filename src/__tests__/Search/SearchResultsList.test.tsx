@@ -34,8 +34,11 @@ describe('SearchResultsList', () => {
   });
 
   it('should match snapshot', async () => {
+    // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
+
     await renderComponent();
+    // focus input to show results
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
     await screen.findByText(/flesh wound/);
@@ -45,17 +48,25 @@ describe('SearchResultsList', () => {
   it('should fill the checkbox when a result is clicked', async () => {
     const user = userEvent.setup({ delay: null });
     await renderComponent();
+    // set delay to null to prevent test time-out due to useFakeTimers
     const searchInput = screen.getAllByRole('textbox')[0];
+
     await user.click(searchInput);
+    // focus input to show results
 
     const fleshWound = await screen.findAllByText("it's just a flesh wound");
+
     await user.click(fleshWound[0]);
     expect(screen.getAllByTestId('checkbox-1')[0]).toHaveClass('Mui-checked');
   });
 
   it('should clear the checkbox when a checked result is clicked', async () => {
+    // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
+
     await renderComponent();
+    
+    // focus input to show results
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
 
@@ -76,7 +87,10 @@ describe('SearchResultsList', () => {
   });
 
   it('should select the new revision and uncheck the previous one when clicking a different base revision', async () => {
+    // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
+
+    // focus input to show results
     await renderComponent();
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
@@ -93,6 +107,7 @@ describe('SearchResultsList', () => {
     );
     expect(screen.getAllByTestId('checkbox-1')[0]).toHaveClass('Mui-checked');
 
+    // Should allow unchecking revisions too
     await user.click(screen.getAllByTestId('checkbox-1')[0]);
     expect(screen.getAllByTestId('checkbox-1')[0]).not.toHaveClass(
       'Mui-checked',
@@ -114,6 +129,7 @@ describe('SearchResultsList', () => {
     const alvesOfCoconut = await screen.findByText(/alves of coconuts/);
 
     await user.click(noArmsLeft);
+    // Should allow unchecking revisions even after four have been selected
     await user.click(fleshWound);
     await user.click(onAHorse);
     await user.click(alvesOfCoconut);
@@ -131,6 +147,7 @@ describe('SearchResultsList', () => {
 
   it('Should apply dark and light mode styles when theme button is toggled', async () => {
     await renderComponent();
+    // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
     const darkModeToggle = screen.getByRole('checkbox', {
       name: /Dark mode switch/,
@@ -138,7 +155,9 @@ describe('SearchResultsList', () => {
 
     await user.click(darkModeToggle);
     expect(screen.getByLabelText('Light mode')).toBeInTheDocument();
+    // focus input to show results
     const searchInput = screen.getAllByRole('textbox')[0];
+    
     await user.click(searchInput);
     const resultsList = screen.getByTestId('list-mode');
     expect(resultsList).toMatchSnapshot('after toggling dark mode');
