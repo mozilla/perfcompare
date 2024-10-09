@@ -1,4 +1,5 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 import { Input, Link } from '@mui/material';
 import { Grid } from '@mui/material';
@@ -24,11 +25,20 @@ function getPunctuationMark(index: number, newRevs: string[]) {
 }
 
 function ResultsMain() {
+  const [, setSearchParams] = useSearchParams();
   const [resultsTitle, setResultsTitle] = useState('Results');
 
   const handleResultsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setResultsTitle(event.target.value);
   };
+
+  useEffect(() => {
+    setSearchParams((prev) => {
+      prev.set('title', resultsTitle);
+      return prev;
+    });
+  }, [resultsTitle, setSearchParams]);
+
   const loaderData = useLoaderData() as
     | LoaderReturnValue
     | OverTimeLoaderReturnValue;
@@ -131,5 +141,4 @@ function ResultsMain() {
     </Container>
   );
 }
-
 export default ResultsMain;
