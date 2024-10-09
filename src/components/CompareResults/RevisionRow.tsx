@@ -44,6 +44,9 @@ const stylesLight = {
       '.base-value': {
         backgroundColor: Colors.Background200,
       },
+      '.base-standard-deviation-value': {
+        backgroundColor: Colors.Background200,
+      },
       '.cell': {
         display: 'flex',
         alignItems: 'center',
@@ -62,6 +65,9 @@ const stylesLight = {
         justifyContent: 'right',
       },
       '.new-value': {
+        backgroundColor: Colors.Background200,
+      },
+      '.new-standard-deviation-value': {
         backgroundColor: Colors.Background200,
       },
       '.platform': {
@@ -139,6 +145,9 @@ const stylesDark = {
       '.base-value': {
         backgroundColor: Colors.Background200Dark,
       },
+      '.base-standard-deviation-value': {
+        backgroundColor: Colors.Background200Dark,
+      },
       '.cell': {
         display: 'flex',
         alignItems: 'center',
@@ -157,6 +166,9 @@ const stylesDark = {
         justifyContent: 'right',
       },
       '.new-value': {
+        backgroundColor: Colors.Background200Dark,
+      },
+      '.new-standard-deviation-value': {
         backgroundColor: Colors.Background200Dark,
       },
       '.platform': {
@@ -248,6 +260,15 @@ function determineSign(baseMedianValue: number, newMedianValue: number) {
   return '';
 }
 
+function determineStandardDeviationSign(
+  baseStandardDeviation: number,
+  newStandardDeviation: number,
+) {
+  if (baseStandardDeviation > newStandardDeviation) return '>';
+  if (baseStandardDeviation < newStandardDeviation) return '<';
+  return '';
+}
+
 const platformIcons: Record<PlatformShortName, ReactNode> = {
   Linux: <LinuxIcon />,
   OSX: <AppleIcon />,
@@ -316,6 +337,8 @@ function RevisionRow(props: RevisionRowProps) {
     base_runs: baseRuns,
     new_runs: newRuns,
     graphs_link: graphLink,
+    base_stddev: baseStandardDeviation,
+    new_stddev: newStandardDeviation,
   } = result;
 
   const platformShortName = getPlatformShortName(platform);
@@ -362,6 +385,20 @@ function RevisionRow(props: RevisionRowProps) {
         <div className='new-value cell' role='cell'>
           {' '}
           {newMedianValue} {newUnit}
+        </div>
+        <div className='base-standard-deviation-value cell' role='cell'>
+          {' '}
+          {baseStandardDeviation}{' '}
+        </div>
+        <div className='comparison-sign cell' role='cell'>
+          {determineStandardDeviationSign(
+            baseStandardDeviation,
+            newStandardDeviation,
+          )}
+        </div>
+        <div className='new-standard-deviation-value cell' role='cell'>
+          {' '}
+          {newStandardDeviation}{' '}
         </div>
         <div className='status cell' role='cell'>
           <span

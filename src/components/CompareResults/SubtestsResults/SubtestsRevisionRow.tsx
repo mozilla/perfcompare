@@ -40,6 +40,9 @@ function getStyles(themeMode: string) {
         '.base-value': {
           backgroundColor: mainBackgroundColor,
         },
+        '.base-standard-deviation-value': {
+          backgroundColor: mainBackgroundColor,
+        },
         '.cell': {
           display: 'flex',
           alignItems: 'center',
@@ -58,6 +61,9 @@ function getStyles(themeMode: string) {
           justifyContent: 'right',
         },
         '.new-value': {
+          backgroundColor: mainBackgroundColor,
+        },
+        '.new-standard-deviation-value': {
           backgroundColor: mainBackgroundColor,
         },
         '.subtests': {
@@ -147,6 +153,15 @@ function determineSign(baseMedianValue: number, newMedianValue: number) {
   return '';
 }
 
+function determineStandardDeviationSign(
+  baseStandardDeviation: number,
+  newStandardDeviation: number,
+) {
+  if (baseStandardDeviation > newStandardDeviation) return '>';
+  if (baseStandardDeviation < newStandardDeviation) return '<';
+  return '';
+}
+
 function SubtestsRevisionRow(props: RevisionRowProps) {
   const { result, gridTemplateColumns } = props;
   const {
@@ -162,6 +177,8 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
     base_runs: baseRuns,
     new_runs: newRuns,
     graphs_link: graphLink,
+    base_stddev: baseStandardDeviation,
+    new_stddev: newStandardDeviation,
   } = result;
 
   const [expanded, setExpanded] = useState(false);
@@ -192,6 +209,20 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
         <div className='new-value cell' role='cell'>
           {' '}
           {newMedianValue} {newUnit}
+        </div>
+        <div className='base-standard-deviation-value cell' role='cell'>
+          {' '}
+          {baseStandardDeviation}{' '}
+        </div>
+        <div className='comparison-sign cell' role='cell'>
+          {determineStandardDeviationSign(
+            baseStandardDeviation,
+            newStandardDeviation,
+          )}
+        </div>
+        <div className='new-standard-deviation-value cell' role='cell'>
+          {' '}
+          {newStandardDeviation}{' '}
         </div>
         <div className='status cell' role='cell'>
           <span
