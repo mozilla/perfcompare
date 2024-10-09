@@ -8,33 +8,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
   method="get"
 >
   <div
-    class="edit-btn-wrapper hide-edit-btn"
-  >
-    <button
-      aria-label="edit revision"
-      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1rvsmwy-MuiButtonBase-root-MuiButton-root"
-      name="edit-button"
-      tabindex="0"
-      type="button"
-    >
-      <span
-        class="MuiButton-startIcon MuiButton-iconSizeMedium css-gcc2o7-MuiButton-startIcon"
-      >
-        <img
-          alt="edit-icon"
-          class="icon icon-edit"
-          id="edit-button-icon"
-          src="pencil.svg"
-        />
-      </span>
-      Edit entry
-      <span
-        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-      />
-    </button>
-  </div>
-  <div
-    class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
+    class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
   >
     <div
       class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f5zlgu9 css-1e9xsub-MuiGrid-root"
@@ -439,7 +413,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
     </button>
   </div>
   <div
-    class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
+    class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
   >
     <div
       class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f5zlgu9 css-1e9xsub-MuiGrid-root"
@@ -668,30 +642,11 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
       </div>
     </div>
   </div>
-  <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f5zlgu9 css-13jteey-MuiGrid-root"
-  >
-    <input
-      name="framework"
-      type="hidden"
-      value="2"
-    />
-    <div
-      class="fs9pw6x cancel-compare"
-    >
-      <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pfn45j-MuiButtonBase-root-MuiButton-root"
-        id="compare-button"
-        tabindex="0"
-        type="submit"
-      >
-        Compare
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
-      </button>
-    </div>
-  </div>
+  <input
+    name="framework"
+    type="hidden"
+    value="2"
+  />
 </form>
 `;
 
@@ -844,7 +799,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
     </button>
   </div>
   <div
-    class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
+    class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
   >
     <div
       class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f5zlgu9 css-1e9xsub-MuiGrid-root"
@@ -1250,11 +1205,6 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
   <div
     class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f5zlgu9 css-13jteey-MuiGrid-root"
   >
-    <input
-      name="framework"
-      type="hidden"
-      value="2"
-    />
     <div
       class="fs9pw6x cancel-compare"
     >
@@ -1270,7 +1220,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
         />
       </button>
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-ixjjyk-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pp3xxr-MuiButtonBase-root-MuiButton-root"
         id="compare-button"
         tabindex="0"
         type="submit"
@@ -1282,6 +1232,11 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
       </button>
     </div>
   </div>
+  <input
+    name="framework"
+    type="hidden"
+    value="2"
+  />
 </form>
 `;
 
@@ -1319,7 +1274,7 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
     </button>
   </div>
   <div
-    class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
+    class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
   >
     <div
       class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f5zlgu9 css-1e9xsub-MuiGrid-root"
@@ -1548,30 +1503,11 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
       </div>
     </div>
   </div>
-  <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f5zlgu9 css-13jteey-MuiGrid-root"
-  >
-    <input
-      name="framework"
-      type="hidden"
-      value="2"
-    />
-    <div
-      class="fs9pw6x cancel-compare"
-    >
-      <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pfn45j-MuiButtonBase-root-MuiButton-root"
-        id="compare-button"
-        tabindex="0"
-        type="submit"
-      >
-        Compare
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
-      </button>
-    </div>
-  </div>
+  <input
+    name="framework"
+    type="hidden"
+    value="2"
+  />
 </form>
 `;
 
@@ -1583,33 +1519,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
   method="get"
 >
   <div
-    class="edit-btn-wrapper hide-edit-btn"
-  >
-    <button
-      aria-label="edit revision"
-      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1rvsmwy-MuiButtonBase-root-MuiButton-root"
-      name="edit-button"
-      tabindex="0"
-      type="button"
-    >
-      <span
-        class="MuiButton-startIcon MuiButton-iconSizeMedium css-gcc2o7-MuiButton-startIcon"
-      >
-        <img
-          alt="edit-icon"
-          class="icon icon-edit"
-          id="edit-button-icon"
-          src="pencil.svg"
-        />
-      </span>
-      Edit entry
-      <span
-        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-      />
-    </button>
-  </div>
-  <div
-    class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
+    class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
   >
     <div
       class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f5zlgu9 css-1e9xsub-MuiGrid-root"
@@ -2023,7 +1933,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
     </button>
   </div>
   <div
-    class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
+    class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
   >
     <div
       class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f5zlgu9 css-1e9xsub-MuiGrid-root"
@@ -2368,39 +2278,11 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
       </div>
     </div>
   </div>
-  <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f5zlgu9 css-13jteey-MuiGrid-root"
-  >
-    <input
-      name="framework"
-      type="hidden"
-      value="2"
-    />
-    <div
-      class="fs9pw6x cancel-compare"
-    >
-      <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pfn45j-MuiButtonBase-root-MuiButton-root"
-        id="compare-button"
-        tabindex="0"
-        type="submit"
-      >
-        Compare
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        >
-          <span
-            class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
-            style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
-          >
-            <span
-              class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
-            />
-          </span>
-        </span>
-      </button>
-    </div>
-  </div>
+  <input
+    name="framework"
+    type="hidden"
+    value="2"
+  />
 </form>
 `;
 
@@ -2447,7 +2329,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
     </button>
   </div>
   <div
-    class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
+    class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
   >
     <div
       class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f5zlgu9 css-1e9xsub-MuiGrid-root"
@@ -2853,11 +2735,6 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
   <div
     class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f5zlgu9 css-13jteey-MuiGrid-root"
   >
-    <input
-      name="framework"
-      type="hidden"
-      value="2"
-    />
     <div
       class="fs9pw6x cancel-compare"
     >
@@ -2873,7 +2750,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
         />
       </button>
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-ixjjyk-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pp3xxr-MuiButtonBase-root-MuiButton-root"
         id="compare-button"
         tabindex="0"
         type="submit"
@@ -2885,6 +2762,11 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
       </button>
     </div>
   </div>
+  <input
+    name="framework"
+    type="hidden"
+    value="2"
+  />
 </form>
 `;
 
@@ -2922,7 +2804,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
     </button>
   </div>
   <div
-    class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
+    class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
   >
     <div
       class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f5zlgu9 css-1e9xsub-MuiGrid-root"
@@ -3151,29 +3033,10 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
       </div>
     </div>
   </div>
-  <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f5zlgu9 css-13jteey-MuiGrid-root"
-  >
-    <input
-      name="framework"
-      type="hidden"
-      value="2"
-    />
-    <div
-      class="fs9pw6x cancel-compare"
-    >
-      <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pfn45j-MuiButtonBase-root-MuiButton-root"
-        id="compare-button"
-        tabindex="0"
-        type="submit"
-      >
-        Compare
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
-      </button>
-    </div>
-  </div>
+  <input
+    name="framework"
+    type="hidden"
+    value="2"
+  />
 </form>
 `;

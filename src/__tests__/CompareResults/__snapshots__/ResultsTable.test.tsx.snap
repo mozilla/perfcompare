@@ -127,7 +127,7 @@ exports[`Results Table Should match snapshot 1`] = `
               </button>
             </div>
             <div
-              class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
+              class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
             >
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f5zlgu9 label-edit-wrapper css-dhs41p-MuiGrid-root"
@@ -388,7 +388,7 @@ exports[`Results Table Should match snapshot 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
+              class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
             >
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f5zlgu9 label-edit-wrapper css-dhs41p-MuiGrid-root"
@@ -648,30 +648,11 @@ exports[`Results Table Should match snapshot 1`] = `
                 </div>
               </div>
             </div>
-            <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f5zlgu9 css-13jteey-MuiGrid-root"
-            >
-              <input
-                name="framework"
-                type="hidden"
-                value="1"
-              />
-              <div
-                class="fs9pw6x cancel-compare"
-              >
-                <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pfn45j-MuiButtonBase-root-MuiButton-root"
-                  id="compare-button"
-                  tabindex="0"
-                  type="submit"
-                >
-                  Compare
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </button>
-              </div>
-            </div>
+            <input
+              name="framework"
+              type="hidden"
+              value="1"
+            />
           </form>
         </div>
       </section>

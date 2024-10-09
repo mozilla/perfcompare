@@ -49,33 +49,7 @@ exports[`Search Containter should match snapshot 1`] = `
             method="get"
           >
             <div
-              class="edit-btn-wrapper hide-edit-btn"
-            >
-              <button
-                aria-label="edit revision"
-                class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1rvsmwy-MuiButtonBase-root-MuiButton-root"
-                name="edit-button"
-                tabindex="0"
-                type="button"
-              >
-                <span
-                  class="MuiButton-startIcon MuiButton-iconSizeMedium css-gcc2o7-MuiButton-startIcon"
-                >
-                  <img
-                    alt="edit-icon"
-                    class="icon icon-edit"
-                    id="edit-button-icon"
-                    src="pencil.svg"
-                  />
-                </span>
-                Edit entry
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </button>
-            </div>
-            <div
-              class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
+              class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
             >
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f5zlgu9 label-edit-wrapper css-dhs41p-MuiGrid-root"
@@ -219,7 +193,7 @@ exports[`Search Containter should match snapshot 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
+              class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
             >
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f5zlgu9 label-edit-wrapper css-dhs41p-MuiGrid-root"
@@ -484,33 +458,7 @@ exports[`Search Containter should match snapshot 1`] = `
             method="get"
           >
             <div
-              class="edit-btn-wrapper hide-edit-btn"
-            >
-              <button
-                aria-label="edit revision"
-                class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1rvsmwy-MuiButtonBase-root-MuiButton-root"
-                name="edit-button"
-                tabindex="0"
-                type="button"
-              >
-                <span
-                  class="MuiButton-startIcon MuiButton-iconSizeMedium css-gcc2o7-MuiButton-startIcon"
-                >
-                  <img
-                    alt="edit-icon"
-                    class="icon icon-edit"
-                    id="edit-button-icon"
-                    src="pencil.svg"
-                  />
-                </span>
-                Edit entry
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </button>
-            </div>
-            <div
-              class="MuiGrid-root component_fcdpsbx css-plh9qo-MuiGrid-root"
+              class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
             >
               <div
                 class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f5zlgu9 css-1e9xsub-MuiGrid-root"
