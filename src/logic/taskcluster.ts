@@ -140,8 +140,7 @@ export async function retrieveTaskclusterToken(rootUrl: string, code: string) {
   // fetch token Bearer
   const response = await fetch(url, options);
 
-  void checkTaskclusterResponse(response);
-
+  await checkTaskclusterResponse(response);
   return response.json() as Promise<TokenBearer>;
 }
 
@@ -161,8 +160,7 @@ export async function retrieveTaskclusterUserCredentials(
   // fetch Taskcluster credentials using token Bearer
   const response = await fetch(url, options);
 
-  void checkTaskclusterResponse(response);
-
+  await checkTaskclusterResponse(response);
   return response.json() as Promise<UserCredentials>;
 }
 
