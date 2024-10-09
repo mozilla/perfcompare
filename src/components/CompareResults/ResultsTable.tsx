@@ -104,7 +104,7 @@ export default function ResultsTable() {
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
   const [frameworkIdVal, setFrameworkIdVal] = useState(frameworkId);
   const [tableFilters, setTableFilters] = useState(
-    new Map([['confidence', new Set(['High'])]]) // ColumnID -> Set<Values to remove>// Default confidence filter
+    new Map([['confidence', new Set(['High'])]]), // ColumnID -> Set<Values to remove>// Default confidence filter
   );
 
   useEffect(() => {
