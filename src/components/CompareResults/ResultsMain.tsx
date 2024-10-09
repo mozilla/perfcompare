@@ -66,6 +66,12 @@ function ResultsMain() {
       letterSpacing: '-0.01em',
       margin: 0,
     }),
+    titleInput: style({
+      ...FontsRaw.HeadingXS,
+      fontWeight: 700,
+      letterSpacing: '-0.01em',
+      margin: 0,
+    }),
     subtitle: style({
       ...FontsRaw.BodyDefault,
       fontSize: '15px',
@@ -117,6 +123,7 @@ function ResultsMain() {
               name='results-title'
               value={resultsTitle}
               onChange={handleResultsChange}
+              className={styles.titleInput}
             />
           </Grid>
           <Grid item className={styles.subtitle}>
