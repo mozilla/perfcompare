@@ -108,23 +108,27 @@ export default function ResultsTable() {
   );
   const filterableKeys = ['status', 'platform', 'confidence'];
 
-  const onClearFilter = (columnId: string) => {
-    setTableFilters((oldFilters) => {
-      const newFilters = new Map(oldFilters);
-      newFilters.delete(columnId);
-      return newFilters;
-    });
-  };
-
   const getPossibleValues = (columnId: string): string[] | undefined => {
     const config = cellsConfiguration.find(
       (c) => c.key === columnId,
     ) as CompareResultsTableConfig;
     return config.possibleValues;
   };
+  const onClearFilter = (columnId: string) => {
+    const possibleValues = getPossibleValues(columnId);
+
+    setTableFilters((oldFilters) => {
+      const newFilters = new Map(oldFilters);
+      newFilters.delete(columnId);
+      const values = possibleValues?.join(',') || '';
+
+      searchParams.set(columnId, values);
+      setSearchParams(searchParams);
+      return newFilters;
+    });
+  };
 
   useEffect(() => {
-
     const initialFilters = new Map() as Map<string, Set<string>>;
     cellsConfiguration.forEach(({ key, possibleValues }) => {
       if (!filterableKeys.includes(key) || !possibleValues) return;
@@ -137,28 +141,24 @@ export default function ResultsTable() {
         const uncheckedValues = possibleValues?.filter(
           (value: string) => !checkedValues.includes(value),
         );
-       
+
         // when all filters are unchecked, persist state on reload
-        if (uncheckedValues.length === possibleValues.length) { 
+        if (uncheckedValues.length === possibleValues.length) {
           initialFilters.set(key, new Set(possibleValues));
-        } else { 
+        } else {
           initialFilters.set(key, new Set(uncheckedValues));
         }
-      
-      } else  {
+      } else {
         // when compare is done this sets default filter values to url on load
-    
+
         const values = possibleValues?.join(',') || '';
         searchParams.set(key, values);
-      initialFilters.set(key, new Set(possibleValues));
-       
+        initialFilters.set(key, new Set(possibleValues));
       }
-
     });
 
     setSearchParams(searchParams);
     setTableFilters(initialFilters);
-
   }, []);
 
   const onToggleFilter = (columnId: string, filters: Set<string>) => {
@@ -171,17 +171,16 @@ export default function ResultsTable() {
       ];
       const allUnchecked = uncheckedValues.length === possibleValues?.length;
       // remove value from params if all filter is unchecked
-      if(allUnchecked) {
+      if (allUnchecked) {
         searchParams.set(columnId, '');
-      }else{
+      } else {
         const filteredSelection = possibleValues?.filter(
           (value) => !uncheckedValues.includes(value),
         );
         const filteredValue = filteredSelection?.join(',') || '';
         searchParams.set(columnId, filteredValue);
-    
       }
-    
+
       setSearchParams(searchParams);
 
       return newFilters;
