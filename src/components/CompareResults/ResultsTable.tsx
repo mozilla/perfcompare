@@ -124,34 +124,42 @@ export default function ResultsTable() {
   };
 
   useEffect(() => {
+
     const initialFilters = new Map() as Map<string, Set<string>>;
     cellsConfiguration.forEach(({ key, possibleValues }) => {
       if (!filterableKeys.includes(key) || !possibleValues) return;
 
       const paramValue = searchParams.get(key);
 
-      if (paramValue) {
-        const checkedValues = paramValue.split(',');
+      if (paramValue !== null) {
+        const checkedValues = paramValue.split(',') || [];
 
         const uncheckedValues = possibleValues?.filter(
           (value: string) => !checkedValues.includes(value),
         );
-        if (uncheckedValues.length === possibleValues.length) {
-          initialFilters.set(key, new Set());
-          searchParams.delete(key);
-        } else {
+       
+        // when all filters are unchecked, persist state on reload
+        if (uncheckedValues.length === possibleValues.length) { 
+          initialFilters.set(key, new Set(possibleValues));
+        } else { 
           initialFilters.set(key, new Set(uncheckedValues));
         }
-
-        setSearchParams(searchParams);
-        setTableFilters(initialFilters);
-      } else {
-        searchParams.delete(key);
-        setTableFilters(initialFilters);
-        initialFilters.set(key, new Set());
+      
+      } else  {
+        // when compare is done this sets default filter values to url on load
+    
+        const values = possibleValues?.join(',') || '';
+        searchParams.set(key, values);
+      initialFilters.set(key, new Set(possibleValues));
+       
       }
+
     });
-  }, [cellsConfiguration, searchParams]);
+
+    setSearchParams(searchParams);
+    setTableFilters(initialFilters);
+
+  }, []);
 
   const onToggleFilter = (columnId: string, filters: Set<string>) => {
     const possibleValues = getPossibleValues(columnId);
@@ -161,16 +169,19 @@ export default function ResultsTable() {
       const uncheckedValues = [
         ...((newFilters.get(columnId) ?? []) as Set<string>),
       ];
-      const filteredSelection = possibleValues?.filter(
-        (value) => !uncheckedValues.includes(value),
-      );
-      const filteredValue = filteredSelection?.join(',') || '';
-      // clear out or set search params
-      if (!filteredValue) {
-        searchParams.delete(columnId);
-      } else {
+      const allUnchecked = uncheckedValues.length === possibleValues?.length;
+      // remove value from params if all filter is unchecked
+      if(allUnchecked) {
+        searchParams.set(columnId, '');
+      }else{
+        const filteredSelection = possibleValues?.filter(
+          (value) => !uncheckedValues.includes(value),
+        );
+        const filteredValue = filteredSelection?.join(',') || '';
         searchParams.set(columnId, filteredValue);
+    
       }
+    
       setSearchParams(searchParams);
 
       return newFilters;
