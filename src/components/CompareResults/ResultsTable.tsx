@@ -1,4 +1,4 @@
-import { Suspense, useState } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -103,9 +103,34 @@ export default function ResultsTable() {
   const initialSearchTerm = rawSearchParams.get('search') ?? '';
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
   const [frameworkIdVal, setFrameworkIdVal] = useState(frameworkId);
-  const [tableFilters, setTableFilters] = useState(
-    new Map() as Map<string, Set<string>>, // ColumnID -> Set<Values to remove>
-  );
+
+  const [tableFilters, setTableFilters] = useState(() => {
+    const filters = new Map();
+    for (const [key, value] of searchParams.entries()) {
+      if (key.startsWith('filter_')) {
+        const columnId = key.replace('filter_', '');
+        filters.set(columnId, new Set(value.split(',')));
+      }
+    }
+    return filters;
+  });
+
+  useEffect(() => {
+    const newSearchParams = new URLSearchParams(searchParams);
+    tableFilters.forEach((filterSet: Set<string>, columnId: string) => {
+      if (filterSet.size > 0) {
+        newSearchParams.set(
+          `filter_${columnId}`,
+          Array.from(filterSet).join(','),
+        );
+      } else {
+        newSearchParams.delete(`filter_${columnId}`);
+      }
+    });
+    if (newSearchParams.toString() !== searchParams.toString()) {
+      updateRawSearchParams(newSearchParams);
+    }
+  }, [tableFilters, searchParams, setSearchParams]);
 
   const onClearFilter = (columnId: string) => {
     setTableFilters((oldFilters) => {
