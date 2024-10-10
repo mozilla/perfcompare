@@ -107,8 +107,8 @@ export default function ResultsTable() {
   const [tableFilters, setTableFilters] = useState(() => {
     const filters = new Map();
     for (const [key, value] of searchParams.entries()) {
-      if (key.startsWith('filter_')) {
-        const columnId = key.replace('filter_', '');
+      if (key.startsWith('filterOption_')) {
+        const columnId = key.replace('filterOption_', '');
         filters.set(columnId, new Set(value.split(',')));
       }
     }
@@ -120,11 +120,11 @@ export default function ResultsTable() {
     tableFilters.forEach((filterSet: Set<string>, columnId: string) => {
       if (filterSet.size > 0) {
         newSearchParams.set(
-          `filter_${columnId}`,
+          `filterOption_${columnId}`,
           Array.from(filterSet).join(','),
         );
       } else {
-        newSearchParams.delete(`filter_${columnId}`);
+        newSearchParams.delete(`filterOption_${columnId}`);
       }
     });
     if (newSearchParams.toString() !== searchParams.toString()) {
