@@ -1,4 +1,4 @@
-import { Suspense, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -104,21 +104,78 @@ export default function ResultsTable() {
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
   const [frameworkIdVal, setFrameworkIdVal] = useState(frameworkId);
   const [tableFilters, setTableFilters] = useState(
-    new Map() as Map<string, Set<string>>, // ColumnID -> Set<Values to remove>
+    new Map(), // ColumnID -> Set<Values to remove>
   );
+  const filterableKeys = ['status', 'platform', 'confidence'];
 
+  const getPossibleValues = (columnId: string): string[] | undefined => {
+    const config = cellsConfiguration.find(
+      (c) => c.key === columnId,
+    ) as CompareResultsTableConfig;
+    return config.possibleValues;
+  };
   const onClearFilter = (columnId: string) => {
+    const possibleValues = getPossibleValues(columnId);
     setTableFilters((oldFilters) => {
       const newFilters = new Map(oldFilters);
       newFilters.delete(columnId);
+      const values = possibleValues?.join(',') || '';
+      searchParams.set(columnId, values);
+      updateRawSearchParams(searchParams);
       return newFilters;
     });
   };
 
+  useEffect(() => {
+    const initialFilters = new Map() as Map<string, Set<string>>;
+    cellsConfiguration.forEach(({ key, possibleValues }) => {
+      if (!filterableKeys.includes(key) || !possibleValues) return;
+
+      const paramValue = searchParams.get(key);
+      const checkedValues = paramValue ? paramValue.split(',') : [];
+      const uncheckedValues = possibleValues?.filter(
+        (value: string) => !checkedValues.includes(value),
+      );
+      // when all filters are unchecked, persist state on reload
+      const values =
+        uncheckedValues.length === possibleValues.length
+          ? possibleValues
+          : uncheckedValues;
+
+      if (paramValue !== null) {
+        initialFilters.set(key, new Set(values));
+      } else {
+        searchParams.set(key, possibleValues.join(','));
+        initialFilters.set(key, new Set(possibleValues));
+      }
+    });
+
+    updateRawSearchParams(searchParams);
+    setTableFilters(initialFilters);
+  }, []);
+
   const onToggleFilter = (columnId: string, filters: Set<string>) => {
+    const possibleValues = getPossibleValues(columnId);
     setTableFilters((oldFilters) => {
       const newFilters = new Map(oldFilters);
       newFilters.set(columnId, filters);
+      const uncheckedValues = [
+        ...((newFilters.get(columnId) ?? []) as Set<string>),
+      ];
+      const allUnchecked = uncheckedValues.length === possibleValues?.length;
+      // remove value from params if all filter is unchecked
+      if (allUnchecked) {
+        searchParams.set(columnId, '');
+      } else {
+        const filteredSelection = possibleValues?.filter(
+          (value) => !uncheckedValues.includes(value),
+        );
+        const filteredValue = filteredSelection?.join(',') || '';
+        searchParams.set(columnId, filteredValue);
+      }
+
+      updateRawSearchParams(searchParams);
+
       return newFilters;
     });
   };

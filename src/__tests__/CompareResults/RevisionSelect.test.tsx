@@ -15,7 +15,8 @@ import {
 function renderWithRoute(component: ReactElement) {
   return renderWithRouter(component, {
     route: '/compare-results/',
-    search: '?fakedata=true',
+    search:
+      '?fakedata=true&platform=Windows%2COSX%2CLinux%2CAndroid&status=No+changes%2CImprovement%2CRegression&confidence=Low%2CMedium%2CHigh',
     loader,
   });
 }
