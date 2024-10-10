@@ -301,17 +301,17 @@ exports[`Results View The table should match snapshot and other elements should 
         New
       </div>
       <div
-        class="cell basestandarddeviation-header"
+        class="cell baseStandardDeviation-header"
         role="columnheader"
       >
         Base\`σ\`
       </div>
       <div
-        class="cell comparisonSignstandarddeviation-header"
+        class="cell comparisonSignStandardDeviation-header"
         role="columnheader"
       />
       <div
-        class="cell newstandarddeviation-header"
+        class="cell newStandardDeviation-header"
         role="columnheader"
       >
         New\`σ\`
