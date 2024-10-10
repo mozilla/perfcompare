@@ -132,25 +132,20 @@ export default function ResultsTable() {
       if (!filterableKeys.includes(key) || !possibleValues) return;
 
       const paramValue = searchParams.get(key);
+      const checkedValues = paramValue ? paramValue.split(',') : [];
+      const uncheckedValues = possibleValues?.filter(
+        (value: string) => !checkedValues.includes(value),
+      );
+      // when all filters are unchecked, persist state on reload
+      const values =
+        uncheckedValues.length === possibleValues.length
+          ? possibleValues
+          : uncheckedValues;
 
       if (paramValue !== null) {
-        const checkedValues = paramValue.split(',') || [];
-
-        const uncheckedValues = possibleValues?.filter(
-          (value: string) => !checkedValues.includes(value),
-        );
-
-        // when all filters are unchecked, persist state on reload
-        if (uncheckedValues.length === possibleValues.length) {
-          initialFilters.set(key, new Set(possibleValues));
-        } else {
-          initialFilters.set(key, new Set(uncheckedValues));
-        }
+        initialFilters.set(key, new Set(values));
       } else {
-        // when compare is done this sets default filter values to url on load
-
-        const values = possibleValues?.join(',') || '';
-        searchParams.set(key, values);
+        searchParams.set(key, possibleValues.join(','));
         initialFilters.set(key, new Set(possibleValues));
       }
     });

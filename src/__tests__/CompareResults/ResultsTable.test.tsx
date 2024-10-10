@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react';
+import { type ReactElement } from 'react';
 
 import userEvent, { type UserEvent } from '@testing-library/user-event';
 
@@ -330,6 +330,7 @@ describe('Results Table', () => {
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Windows, -, ',
     ]);
+
     await clickMenuItem(user, /Confidence/, /Clear filters/);
     await waitFor(() => {
       expect(window.location.search).toContain(
