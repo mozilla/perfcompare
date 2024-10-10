@@ -78,6 +78,16 @@ function ResultsMain() {
       gap: '9px',
       margin: `0 0 ${Spacing.Medium}px 0`,
     }),
+    screenReaderOnly: style({
+      position: 'absolute',
+      width: '1px',
+      height: '1px',
+      margin: '-1px',
+      padding: '0',
+      overflow: 'hidden',
+      clip: 'rect(0, 0, 0, 0)',
+      border: '0',
+    }),
   };
 
   const subtitles = {
@@ -112,7 +122,11 @@ function ResultsMain() {
       <header>
         <Grid container className={styles.titleContainer} component='h2'>
           <Grid item>
+            <label htmlFor='results-title' className={styles.screenReaderOnly}>
+              Results Title
+            </label>
             <Input
+              id='results-title'
               type='text'
               name='results-title'
               value={resultsTitle}
