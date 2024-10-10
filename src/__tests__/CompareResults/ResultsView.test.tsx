@@ -50,7 +50,7 @@ describe('Results View', () => {
     const user = userEvent.setup({ delay: null });
     renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
 
-    const header = await screen.findByText('Results');
+    const header = await screen.findByLabelText('Results Title');
 
     expect(header).toBeInTheDocument();
 
@@ -67,7 +67,6 @@ describe('Results View', () => {
     await user.click(frameworkDropdown);
     expect(screen.getByText(/awsy/i)).toBeInTheDocument();
   });
-
   it('Should render revision header with link to suite docs', async () => {
     const revisionHeader: RevisionsHeader = {
       extra_options: 'e10s fission stylo webgl-ipc webrender',
