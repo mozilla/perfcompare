@@ -116,14 +116,12 @@ export default function ResultsTable() {
   };
   const onClearFilter = (columnId: string) => {
     const possibleValues = getPossibleValues(columnId);
-
     setTableFilters((oldFilters) => {
       const newFilters = new Map(oldFilters);
       newFilters.delete(columnId);
       const values = possibleValues?.join(',') || '';
-
       searchParams.set(columnId, values);
-      setSearchParams(searchParams);
+      updateRawSearchParams(searchParams);
       return newFilters;
     });
   };
@@ -157,7 +155,7 @@ export default function ResultsTable() {
       }
     });
 
-    setSearchParams(searchParams);
+    updateRawSearchParams(searchParams);
     setTableFilters(initialFilters);
   }, []);
 
@@ -181,7 +179,7 @@ export default function ResultsTable() {
         searchParams.set(columnId, filteredValue);
       }
 
-      setSearchParams(searchParams);
+      updateRawSearchParams(searchParams);
 
       return newFilters;
     });

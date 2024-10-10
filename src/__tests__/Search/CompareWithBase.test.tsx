@@ -58,7 +58,7 @@ function renderWithCompareResultsURL(component: ReactElement) {
   return renderWithRouter(component, {
     route: '/compare-results/',
     search:
-      '?baseRev=coconut&baseRepo=try&newRev=spam&newRepo=mozilla-central&framework=2',
+      '?baseRev=coconut&baseRepo=try&newRev=spam&newRepo=mozilla-central&framework=2&platform=Windows%2COSX%2CLinux%2CAndroid&status=No+changes%2CImprovement%2CRegression&confidence=Low%2CMedium%2CHigh',
     loader: withBaseLoader,
   });
 }
