@@ -1,10 +1,10 @@
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 
-import { Link } from '@mui/material';
+import { Input, Link } from '@mui/material';
 import { Grid } from '@mui/material';
 import Alert from '@mui/material/Alert';
 import { Container } from '@mui/system';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useSearchParams } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { compareView } from '../../common/constants';
@@ -24,6 +24,20 @@ function getPunctuationMark(index: number, newRevs: string[]) {
 }
 
 function ResultsMain() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [resultsTitle, setResultsTitle] = useState(
+    searchParams.get('title') || 'Results',
+  );
+
+  const handleResultsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newTitle = event.target.value;
+    setResultsTitle(newTitle);
+    setSearchParams((prev) => {
+      prev.set('title', newTitle);
+      return prev;
+    });
+  };
+
   const loaderData = useLoaderData() as
     | LoaderReturnValue
     | OverTimeLoaderReturnValue;
@@ -36,6 +50,7 @@ function ResultsMain() {
   const { view } = useLoaderData() as
     | LoaderReturnValue
     | OverTimeLoaderReturnValue;
+
   const styles = {
     alert: style({
       width: '100%',
@@ -45,7 +60,7 @@ function ResultsMain() {
       margin: '0 auto',
       marginBottom: '80px',
     }),
-    title: style({
+    titleInput: style({
       ...FontsRaw.HeadingXS,
       fontWeight: 700,
       letterSpacing: '-0.01em',
@@ -62,6 +77,16 @@ function ResultsMain() {
       alignItems: 'center',
       gap: '9px',
       margin: `0 0 ${Spacing.Medium}px 0`,
+    }),
+    screenReaderOnly: style({
+      position: 'absolute',
+      width: '1px',
+      height: '1px',
+      margin: '-1px',
+      padding: '0',
+      overflow: 'hidden',
+      clip: 'rect(0, 0, 0, 0)',
+      border: '0',
     }),
   };
 
@@ -96,8 +121,18 @@ function ResultsMain() {
     <Container className={styles.container} data-testid='results-main'>
       <header>
         <Grid container className={styles.titleContainer} component='h2'>
-          <Grid item className={styles.title}>
-            Results
+          <Grid item>
+            <label htmlFor='results-title' className={styles.screenReaderOnly}>
+              Results Title
+            </label>
+            <Input
+              id='results-title'
+              type='text'
+              name='results-title'
+              value={resultsTitle}
+              onChange={handleResultsChange}
+              className={styles.titleInput}
+            />
           </Grid>
           <Grid item className={styles.subtitle}>
             {subtitles[view]}
@@ -121,5 +156,4 @@ function ResultsMain() {
     </Container>
   );
 }
-
 export default ResultsMain;
