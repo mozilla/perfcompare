@@ -67,6 +67,7 @@ describe('Results View', () => {
     await user.click(frameworkDropdown);
     expect(screen.getByText(/awsy/i)).toBeInTheDocument();
   });
+
   it('Should render revision header with link to suite docs', async () => {
     const revisionHeader: RevisionsHeader = {
       extra_options: 'e10s fission stylo webgl-ipc webrender',
