@@ -107,9 +107,10 @@ export default function ResultsTable() {
   const [tableFilters, setTableFilters] = useState(() => {
     const filters = new Map();
     for (const [key, value] of searchParams.entries()) {
-         const columnId = key;
+      if (key.startsWith('filterOption_')) {
+        const columnId = key.replace('filterOption_', '');
         filters.set(columnId, new Set(value.split(',')));
-      
+      }
     }
     return filters;
   });
@@ -118,9 +119,12 @@ export default function ResultsTable() {
     const newSearchParams = new URLSearchParams(searchParams);
     tableFilters.forEach((filterSet: Set<string>, columnId: string) => {
       if (filterSet.size > 0) {
-        newSearchParams.set(columnId, Array.from(filterSet).join(','));
+        newSearchParams.set(
+          `filterOption_${columnId}`,
+          Array.from(filterSet).join(','),
+        );
       } else {
-        newSearchParams.delete(columnId);
+        newSearchParams.delete(`filterOption_${columnId}`);
       }
     });
     if (newSearchParams.toString() !== searchParams.toString()) {
