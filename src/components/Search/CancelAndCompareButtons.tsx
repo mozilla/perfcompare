@@ -45,12 +45,7 @@ export default function CompareButton({
           }
         >
           <Await resolve={results}>
-            <Button
-              id='compare-button'
-              color='primary'
-              type='submit'
-              sx={{ visibility: hasCancelButton ? 'visible' : 'hidden' }}
-            >
+            <Button id='compare-button' color='primary' type='submit'>
               {label}
             </Button>
           </Await>
