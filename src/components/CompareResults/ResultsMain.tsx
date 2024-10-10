@@ -60,12 +60,6 @@ function ResultsMain() {
       margin: '0 auto',
       marginBottom: '80px',
     }),
-    title: style({
-      ...FontsRaw.HeadingXS,
-      fontWeight: 700,
-      letterSpacing: '-0.01em',
-      margin: 0,
-    }),
     titleInput: style({
       ...FontsRaw.HeadingXS,
       fontWeight: 700,
@@ -117,7 +111,7 @@ function ResultsMain() {
     <Container className={styles.container} data-testid='results-main'>
       <header>
         <Grid container className={styles.titleContainer} component='h2'>
-          <Grid item className={styles.title}>
+          <Grid item>
             <Input
               type='text'
               name='results-title'
