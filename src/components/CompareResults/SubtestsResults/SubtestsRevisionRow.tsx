@@ -12,6 +12,7 @@ import { useAppSelector } from '../../../hooks/app';
 import { Strings } from '../../../resources/Strings';
 import { Colors, Spacing, ExpandableRowStyles } from '../../../styles';
 import type { CompareResultsItem } from '../../../types/state';
+import { determineStandardDeviationSign } from '../../../utils/helpers';
 import RevisionRowExpandable from '.././RevisionRowExpandable';
 
 const revisionsRow = {
@@ -40,6 +41,9 @@ function getStyles(themeMode: string) {
         '.base-value': {
           backgroundColor: mainBackgroundColor,
         },
+        '.base-standard-deviation-value': {
+          backgroundColor: mainBackgroundColor,
+        },
         '.cell': {
           display: 'flex',
           alignItems: 'center',
@@ -51,6 +55,9 @@ function getStyles(themeMode: string) {
         '.comparison-sign': {
           backgroundColor: mainBackgroundColor,
         },
+        '.comparison-sign-standard-deviation': {
+          backgroundColor: mainBackgroundColor,
+        },
         '.delta': {
           backgroundColor: mainBackgroundColor,
         },
@@ -58,6 +65,9 @@ function getStyles(themeMode: string) {
           justifyContent: 'right',
         },
         '.new-value': {
+          backgroundColor: mainBackgroundColor,
+        },
+        '.new-standard-deviation-value': {
           backgroundColor: mainBackgroundColor,
         },
         '.subtests': {
@@ -162,6 +172,8 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
     base_runs: baseRuns,
     new_runs: newRuns,
     graphs_link: graphLink,
+    base_stddev: baseStandardDeviation,
+    new_stddev: newStandardDeviation,
   } = result;
 
   const [expanded, setExpanded] = useState(false);
@@ -192,6 +204,20 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
         <div className='new-value cell' role='cell'>
           {' '}
           {newMedianValue} {newUnit}
+        </div>
+        <div className='base-standard-deviation-value cell' role='cell'>
+          {' '}
+          {baseStandardDeviation}{' '}
+        </div>
+        <div className='comparison-sign-standard-deviation cell' role='cell'>
+          {determineStandardDeviationSign(
+            baseStandardDeviation,
+            newStandardDeviation,
+          )}
+        </div>
+        <div className='new-standard-deviation-value cell' role='cell'>
+          {' '}
+          {newStandardDeviation}{' '}
         </div>
         <div className='status cell' role='cell'>
           <span
