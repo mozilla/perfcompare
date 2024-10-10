@@ -395,10 +395,8 @@ function RevisionRow(props: RevisionRowProps) {
           {deltaPercent} %{' '}
         </div>
         <div className='confidence cell' role='cell'>
-          <div className='confidence-icon'>
-            {confidenceText && confidenceIcons[confidenceText]}
-          </div>
-          <div className='confidence-text'>{confidenceText}</div>
+          {confidenceText && confidenceIcons[confidenceText]}
+          {confidenceText}
         </div>
         <div className='total-runs cell' role='cell'>
           <span>
