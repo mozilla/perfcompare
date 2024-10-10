@@ -1274,26 +1274,18 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="confidence cell"
                               role="cell"
                             >
-                              <div
-                                class="confidence-icon"
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vsehry-MuiSvgIcon-root"
+                                data-testid="KeyboardArrowDownIcon"
+                                focusable="false"
+                                viewBox="0 0 24 24"
                               >
-                                <svg
-                                  aria-hidden="true"
-                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vsehry-MuiSvgIcon-root"
-                                  data-testid="KeyboardArrowDownIcon"
-                                  focusable="false"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-                                  />
-                                </svg>
-                              </div>
-                              <div
-                                class="confidence-text"
-                              >
-                                Low
-                              </div>
+                                <path
+                                  d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                                />
+                              </svg>
+                              Low
                             </div>
                             <div
                               class="total-runs cell"
@@ -1505,26 +1497,18 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="confidence cell"
                               role="cell"
                             >
-                              <div
-                                class="confidence-icon"
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-o6fkbf-MuiSvgIcon-root"
+                                data-testid="DragHandleIcon"
+                                focusable="false"
+                                viewBox="0 0 24 24"
                               >
-                                <svg
-                                  aria-hidden="true"
-                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-o6fkbf-MuiSvgIcon-root"
-                                  data-testid="DragHandleIcon"
-                                  focusable="false"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    d="M20 9H4v2h16V9zM4 15h16v-2H4v2z"
-                                  />
-                                </svg>
-                              </div>
-                              <div
-                                class="confidence-text"
-                              >
-                                Medium
-                              </div>
+                                <path
+                                  d="M20 9H4v2h16V9zM4 15h16v-2H4v2z"
+                                />
+                              </svg>
+                              Medium
                             </div>
                             <div
                               class="total-runs cell"
@@ -1726,26 +1710,18 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="confidence cell"
                               role="cell"
                             >
-                              <div
-                                class="confidence-icon"
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-18c6igo-MuiSvgIcon-root"
+                                data-testid="KeyboardArrowUpIcon"
+                                focusable="false"
+                                viewBox="0 0 24 24"
                               >
-                                <svg
-                                  aria-hidden="true"
-                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-18c6igo-MuiSvgIcon-root"
-                                  data-testid="KeyboardArrowUpIcon"
-                                  focusable="false"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    d="M7.41 15.41 12 10.83l4.59 4.58L18 14l-6-6-6 6z"
-                                  />
-                                </svg>
-                              </div>
-                              <div
-                                class="confidence-text"
-                              >
-                                High
-                              </div>
+                                <path
+                                  d="M7.41 15.41 12 10.83l4.59 4.58L18 14l-6-6-6 6z"
+                                />
+                              </svg>
+                              High
                             </div>
                             <div
                               class="total-runs cell"
@@ -1997,14 +1973,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             <div
                               class="confidence cell"
                               role="cell"
-                            >
-                              <div
-                                class="confidence-icon"
-                              />
-                              <div
-                                class="confidence-text"
-                              />
-                            </div>
+                            />
                             <div
                               class="total-runs cell"
                               role="cell"
