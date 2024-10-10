@@ -15,6 +15,7 @@ import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { Colors, Spacing, ExpandableRowStyles } from '../../styles';
 import type { CompareResultsItem, PlatformShortName } from '../../types/state';
+import { determineStandardDeviationSign } from '../../utils/helpers';
 import { getPlatformShortName } from '../../utils/platform';
 import AndroidIcon from '../Shared/Icons/AndroidIcon';
 import LinuxIcon from '../Shared/Icons/LinuxIcon';
@@ -263,15 +264,6 @@ function determineStatusHintClass(improvement: boolean, regression: boolean) {
 function determineSign(baseMedianValue: number, newMedianValue: number) {
   if (baseMedianValue > newMedianValue) return '>';
   if (baseMedianValue < newMedianValue) return '<';
-  return '';
-}
-
-function determineStandardDeviationSign(
-  baseStandardDeviation: number,
-  newStandardDeviation: number,
-) {
-  if (baseStandardDeviation > newStandardDeviation) return '>';
-  if (baseStandardDeviation < newStandardDeviation) return '<';
   return '';
 }
 

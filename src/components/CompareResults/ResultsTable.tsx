@@ -45,16 +45,16 @@ const cellsConfiguration: CompareResultsTableConfig[] = [
   },
   {
     name: 'Base`σ`',
-    key: 'basestandarddeviation',
+    key: 'baseStandardDeviation',
     gridWidth: '1fr',
   },
   {
-    key: 'comparisonSignstandarddeviation',
+    key: 'comparisonSignStandardDeviation',
     gridWidth: '0.2fr',
   },
   {
     name: 'New`σ`',
-    key: 'newstandarddeviation',
+    key: 'newStandardDeviation',
     gridWidth: '1fr',
   },
   {
