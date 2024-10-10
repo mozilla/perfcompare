@@ -154,9 +154,7 @@ function CompareOverTime({
         {hasEditButton && (
           <div
             className={`edit-btn-wrapper ${
-              hasEditButton && !formIsDisplayed
-                ? 'show-edit-btn'
-                : 'hide-edit-btn'
+              formIsDisplayed ? 'hide-edit-btn' : 'show-edit-btn'
             }`}
           >
             <EditButton onEditAction={handleEdit} mode={mode} />
