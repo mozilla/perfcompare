@@ -189,26 +189,27 @@ export default function ResultsTable() {
         key={generation}
       >
         <Await resolve={resultsPromise}>
-          {(resolvedResults) => (
-            <TableContent
-              cellsConfiguration={cellsConfiguration}
-              results={resolvedResults
-                .flat()
-                .sort(
-                  (itemA: CompareResultsItem, itemB: CompareResultsItem) => {
-                    const itemAConfidenceText =
-                      confidenceOrder[itemA.confidence_text ?? ''] || 4;
-                    const itemBConfidenceText =
-                      confidenceOrder[itemB.confidence_text ?? ''] || 4;
-                    return itemAConfidenceText - itemBConfidenceText;
-                  },
-                )}
-              filteringSearchTerm={searchTerm}
-              tableFilters={tableFilters}
-              view={view}
-              rowGridTemplateColumns={rowGridTemplateColumns}
-            />
-          )}
+          {(resolvedResults: CompareResultsItem[][]) => {
+            const filteredResults: CompareResultsItem[] =
+              resolvedResults.flat();
+            const sortedResults = filteredResults.sort((itemA, itemB) => {
+              const itemAConfidenceText =
+                confidenceOrder[itemA.confidence_text ?? ''] || 4;
+              const itemBConfidenceText =
+                confidenceOrder[itemB.confidence_text ?? ''] || 4;
+              return itemAConfidenceText - itemBConfidenceText;
+            });
+            return (
+              <TableContent
+                cellsConfiguration={cellsConfiguration}
+                results={[sortedResults]}
+                filteringSearchTerm={searchTerm}
+                tableFilters={tableFilters}
+                view={view}
+                rowGridTemplateColumns={rowGridTemplateColumns}
+              />
+            );
+          }}
         </Await>
       </Suspense>
     </Box>
