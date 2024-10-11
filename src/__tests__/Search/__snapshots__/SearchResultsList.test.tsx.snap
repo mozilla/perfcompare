@@ -104,7 +104,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                   />
                 </svg>
                 <span
-                  aria-label="UTC Time: 03/29/51 00:00 UTC"
+                  aria-label="03/29/51 00:00 UTC"
                   class=""
                   data-mui-internal-clone-element="true"
                 >
@@ -121,7 +121,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                     style="font-weight: bold;"
                   >
                      
-                    GMT
+                    GMT+0
                   </span>
                 </span>
               </div>
@@ -233,7 +233,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                   />
                 </svg>
                 <span
-                  aria-label="UTC Time: 02/22/58 00:00 UTC"
+                  aria-label="02/22/58 00:00 UTC"
                   class=""
                   data-mui-internal-clone-element="true"
                 >
@@ -250,7 +250,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                     style="font-weight: bold;"
                   >
                      
-                    GMT
+                    GMT+0
                   </span>
                 </span>
               </div>
@@ -362,7 +362,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                   />
                 </svg>
                 <span
-                  aria-label="UTC Time: 07/29/87 00:00 UTC"
+                  aria-label="07/29/87 00:00 UTC"
                   class=""
                   data-mui-internal-clone-element="true"
                 >
@@ -379,7 +379,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                     style="font-weight: bold;"
                   >
                      
-                    GMT
+                    GMT+0
                   </span>
                 </span>
               </div>
@@ -491,7 +491,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                   />
                 </svg>
                 <span
-                  aria-label="UTC Time: 07/04/20 00:00 UTC"
+                  aria-label="07/04/20 00:00 UTC"
                   class=""
                   data-mui-internal-clone-element="true"
                 >
@@ -508,7 +508,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                     style="font-weight: bold;"
                   >
                      
-                    GMT
+                    GMT+0
                   </span>
                 </span>
               </div>
@@ -620,7 +620,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                   />
                 </svg>
                 <span
-                  aria-label="UTC Time: 04/13/22 00:00 UTC"
+                  aria-label="04/13/22 00:00 UTC"
                   class=""
                   data-mui-internal-clone-element="true"
                 >
@@ -637,7 +637,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                     style="font-weight: bold;"
                   >
                      
-                    GMT
+                    GMT+0
                   </span>
                 </span>
               </div>
@@ -1042,7 +1042,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                         />
                                       </svg>
                                       <span
-                                        aria-label="UTC Time: 03/29/51 00:00 UTC"
+                                        aria-label="03/29/51 00:00 UTC"
                                         class=""
                                         data-mui-internal-clone-element="true"
                                       >
@@ -1059,7 +1059,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                           style="font-weight: bold;"
                                         >
                                            
-                                          GMT
+                                          GMT+0
                                         </span>
                                       </span>
                                     </div>
@@ -1171,7 +1171,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                         />
                                       </svg>
                                       <span
-                                        aria-label="UTC Time: 02/22/58 00:00 UTC"
+                                        aria-label="02/22/58 00:00 UTC"
                                         class=""
                                         data-mui-internal-clone-element="true"
                                       >
@@ -1188,7 +1188,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                           style="font-weight: bold;"
                                         >
                                            
-                                          GMT
+                                          GMT+0
                                         </span>
                                       </span>
                                     </div>
@@ -1300,7 +1300,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                         />
                                       </svg>
                                       <span
-                                        aria-label="UTC Time: 07/29/87 00:00 UTC"
+                                        aria-label="07/29/87 00:00 UTC"
                                         class=""
                                         data-mui-internal-clone-element="true"
                                       >
@@ -1317,7 +1317,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                           style="font-weight: bold;"
                                         >
                                            
-                                          GMT
+                                          GMT+0
                                         </span>
                                       </span>
                                     </div>
@@ -1429,7 +1429,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                         />
                                       </svg>
                                       <span
-                                        aria-label="UTC Time: 07/04/20 00:00 UTC"
+                                        aria-label="07/04/20 00:00 UTC"
                                         class=""
                                         data-mui-internal-clone-element="true"
                                       >
@@ -1446,7 +1446,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                           style="font-weight: bold;"
                                         >
                                            
-                                          GMT
+                                          GMT+0
                                         </span>
                                       </span>
                                     </div>
@@ -1558,7 +1558,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                         />
                                       </svg>
                                       <span
-                                        aria-label="UTC Time: 04/13/22 00:00 UTC"
+                                        aria-label="04/13/22 00:00 UTC"
                                         class=""
                                         data-mui-internal-clone-element="true"
                                       >
@@ -1575,7 +1575,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                           style="font-weight: bold;"
                                         >
                                            
-                                          GMT
+                                          GMT+0
                                         </span>
                                       </span>
                                     </div>

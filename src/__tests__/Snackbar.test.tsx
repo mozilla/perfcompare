@@ -33,7 +33,6 @@ describe('Snackbar', () => {
   it('should dismiss an alert when close button is clicked', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
 
-    jest.setTimeout(60000);
     const user = userEvent.setup({ delay: null });
 
     render(<App />);

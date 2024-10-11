@@ -78,7 +78,6 @@ async function setupAndRenderComponent() {
 
 describe('Search by title/test name', () => {
   it('should filter results after a timeout or immediately with enter', async () => {
-    jest.setTimeout(60000);
     await setupAndRenderComponent();
 
     const form = await screen.findByRole('form', { name: /Search by title/ });

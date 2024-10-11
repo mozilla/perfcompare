@@ -11,8 +11,6 @@ import {
   FetchMockSandbox,
 } from '../utils/test-utils';
 
-jest.setTimeout(60000);
-
 async function renderComponent() {
   renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />, {
     loader,

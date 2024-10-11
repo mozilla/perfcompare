@@ -10,12 +10,18 @@ import ListItemText from '@mui/material/ListItemText';
 import Radio from '@mui/material/Radio';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import moment from 'moment-timezone';
+import dayjs from 'dayjs';
+import timezone from 'dayjs/plugin/timezone';
+import utc from 'dayjs/plugin/utc';
 import { style } from 'typestyle';
 
 import { Spacing } from '../../styles';
 import type { Changeset } from '../../types/state';
 import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
+
+// day.js with timezone support
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 interface SearchResultsListItemProps {
   index: number;
@@ -67,10 +73,17 @@ function SearchResultsListItem({
   const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);
 
-  const itemDate = moment.unix(item.push_timestamp);
+  const itemDate = dayjs.unix(item.push_timestamp);
+
   const date = itemDate.format('MM/DD/YY');
   const localTime = itemDate.format('HH:mm');
-  const timezoneAbbreviation = itemDate.tz(moment.tz.guess()).format('z');
+
+  // convert timezone to GMT
+  const gmtOffset = `GMT${itemDate
+    .format('Z')
+    .replace(':00', '')
+    .replace(/^([+-])0?/, '$1')}`;
+
   const utcTime = itemDate.utc().format('MM/DD/YY HH:mm [UTC]');
 
   const onToggleAction = () => {
@@ -131,20 +144,15 @@ function SearchResultsListItem({
                     />
 
                     {/* Tooltip with UTC time */}
-                    <Tooltip title={`UTC Time: ${utcTime}`}>
+                    <Tooltip title={`${utcTime}`}>
                       <span>
-                        {/* Display date without style changes */}
                         {date}{' '}
                         <span style={{ fontWeight: 'bold' }}>
                           {' '}
                           {/* Darker color for the time */}
                           {localTime}
                         </span>{' '}
-                        <span style={{ fontWeight: 'bold' }}>
-                          {' '}
-                          {/* Darker color for the timezone */}
-                          {timezoneAbbreviation}
-                        </span>
+                        <span style={{ fontWeight: 'bold' }}> {gmtOffset}</span>
                       </span>
                     </Tooltip>
                   </div>
