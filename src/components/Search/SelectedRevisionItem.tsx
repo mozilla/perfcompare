@@ -49,7 +49,13 @@ function SelectedRevisionItem({
   const styles = SelectRevsStyles(mode);
   const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);
-  const itemDate = new Date(item.push_timestamp * 1000);
+  const itemDate = dayjs(item.push_timestamp * 1000);
+  const date = itemDate.format('MM/DD/YY');
+  const localTime = itemDate.format('HH:mm');
+  const gmtOffset = itemDate.utcOffset() / 60;
+  const gmtFormatted = `GMT${gmtOffset >= 0 ? `+${gmtOffset}` : gmtOffset}`;
+  const utcTime = itemDate.utc().format('MM/DD/YY HH:mm [UTC]');
+
   const repository = repoMap[item.repository_id] ?? 'try';
 
   return (
@@ -108,7 +114,19 @@ function SelectedRevisionItem({
                     className='time-icon'
                     fontSize='small'
                   />
-                  {String(dayjs(itemDate).format('MM/DD/YY HH:mm'))}
+                  <Tooltip title={`${utcTime}`}>
+                    <span>
+                      {date}{' '}
+                      <span style={{ fontWeight: 'bold' }}>
+                        {/* Darker color for the time */}
+                        {localTime}
+                      </span>{' '}
+                      <span style={{ fontWeight: 'bold' }}>
+                        {' '}
+                        {gmtFormatted}
+                      </span>
+                    </span>
+                  </Tooltip>
                 </div>
               </div>
             </React.Fragment>
