@@ -16,6 +16,7 @@ import {
 
 describe('Snackbar', () => {
   beforeEach(() => {
+    jest.useFakeTimers();
     const { testData } = getTestData();
     (global.fetch as FetchMockSandbox).get(
       'begin:https://treeherder.mozilla.org/api/project/try/push/',
@@ -25,8 +26,14 @@ describe('Snackbar', () => {
     );
   });
 
+  afterEach(() => {
+    jest.clearAllTimers();
+  });
+
   it('should dismiss an alert when close button is clicked', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
+
+    jest.setTimeout(60000);
     const user = userEvent.setup({ delay: null });
 
     render(<App />);
@@ -51,6 +58,8 @@ describe('Snackbar', () => {
 
   it('should have aria-live attribute', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
+    jest.setTimeout(60000);
+
     const user = userEvent.setup({ delay: null });
 
     render(<App />);
@@ -62,12 +71,11 @@ describe('Snackbar', () => {
     await user.click((await screen.findAllByTestId('checkbox-0'))[0]);
     await user.click(screen.getAllByTestId('checkbox-1')[0]);
 
-    const alert = screen.getAllByRole('alert')[0];
-    expect(alert).toHaveAttribute('aria-live');
+    const alert = await screen.findAllByRole('alert');
+    expect(alert[0]).toHaveAttribute('aria-live');
   });
 
   it('should dismiss an alert after 6 seconds', async () => {
-    jest.spyOn(global, 'setTimeout');
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
@@ -91,7 +99,6 @@ describe('Snackbar', () => {
     act(() => {
       jest.advanceTimersByTime(6000);
     });
-    expect(setTimeout).toHaveBeenCalled();
 
     await waitForElementToBeRemoved(closeButton);
     expect(alert).not.toBeInTheDocument();

@@ -108,11 +108,21 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                   class=""
                   data-mui-internal-clone-element="true"
                 >
-                  03/29/51 00:00
-                   (
-                  UTC
-                  )
+                  03/29/51
                    
+                  <span
+                    style="font-weight: bold;"
+                  >
+                     
+                    00:00
+                  </span>
+                   
+                  <span
+                    style="font-weight: bold;"
+                  >
+                     
+                    GMT
+                  </span>
                 </span>
               </div>
             </div>
@@ -227,11 +237,21 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                   class=""
                   data-mui-internal-clone-element="true"
                 >
-                  02/22/58 00:00
-                   (
-                  UTC
-                  )
+                  02/22/58
                    
+                  <span
+                    style="font-weight: bold;"
+                  >
+                     
+                    00:00
+                  </span>
+                   
+                  <span
+                    style="font-weight: bold;"
+                  >
+                     
+                    GMT
+                  </span>
                 </span>
               </div>
             </div>
@@ -346,11 +366,21 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                   class=""
                   data-mui-internal-clone-element="true"
                 >
-                  07/29/87 00:00
-                   (
-                  UTC
-                  )
+                  07/29/87
                    
+                  <span
+                    style="font-weight: bold;"
+                  >
+                     
+                    00:00
+                  </span>
+                   
+                  <span
+                    style="font-weight: bold;"
+                  >
+                     
+                    GMT
+                  </span>
                 </span>
               </div>
             </div>
@@ -465,11 +495,21 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                   class=""
                   data-mui-internal-clone-element="true"
                 >
-                  07/04/20 00:00
-                   (
-                  UTC
-                  )
+                  07/04/20
                    
+                  <span
+                    style="font-weight: bold;"
+                  >
+                     
+                    00:00
+                  </span>
+                   
+                  <span
+                    style="font-weight: bold;"
+                  >
+                     
+                    GMT
+                  </span>
                 </span>
               </div>
             </div>
@@ -584,11 +624,21 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                   class=""
                   data-mui-internal-clone-element="true"
                 >
-                  04/13/22 00:00
-                   (
-                  UTC
-                  )
+                  04/13/22
                    
+                  <span
+                    style="font-weight: bold;"
+                  >
+                     
+                    00:00
+                  </span>
+                   
+                  <span
+                    style="font-weight: bold;"
+                  >
+                     
+                    GMT
+                  </span>
                 </span>
               </div>
             </div>
@@ -996,11 +1046,21 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                         class=""
                                         data-mui-internal-clone-element="true"
                                       >
-                                        03/29/51 00:00
-                                         (
-                                        UTC
-                                        )
+                                        03/29/51
                                          
+                                        <span
+                                          style="font-weight: bold;"
+                                        >
+                                           
+                                          00:00
+                                        </span>
+                                         
+                                        <span
+                                          style="font-weight: bold;"
+                                        >
+                                           
+                                          GMT
+                                        </span>
                                       </span>
                                     </div>
                                   </div>
@@ -1115,11 +1175,21 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                         class=""
                                         data-mui-internal-clone-element="true"
                                       >
-                                        02/22/58 00:00
-                                         (
-                                        UTC
-                                        )
+                                        02/22/58
                                          
+                                        <span
+                                          style="font-weight: bold;"
+                                        >
+                                           
+                                          00:00
+                                        </span>
+                                         
+                                        <span
+                                          style="font-weight: bold;"
+                                        >
+                                           
+                                          GMT
+                                        </span>
                                       </span>
                                     </div>
                                   </div>
@@ -1234,11 +1304,21 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                         class=""
                                         data-mui-internal-clone-element="true"
                                       >
-                                        07/29/87 00:00
-                                         (
-                                        UTC
-                                        )
+                                        07/29/87
                                          
+                                        <span
+                                          style="font-weight: bold;"
+                                        >
+                                           
+                                          00:00
+                                        </span>
+                                         
+                                        <span
+                                          style="font-weight: bold;"
+                                        >
+                                           
+                                          GMT
+                                        </span>
                                       </span>
                                     </div>
                                   </div>
@@ -1353,11 +1433,21 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                         class=""
                                         data-mui-internal-clone-element="true"
                                       >
-                                        07/04/20 00:00
-                                         (
-                                        UTC
-                                        )
+                                        07/04/20
                                          
+                                        <span
+                                          style="font-weight: bold;"
+                                        >
+                                           
+                                          00:00
+                                        </span>
+                                         
+                                        <span
+                                          style="font-weight: bold;"
+                                        >
+                                           
+                                          GMT
+                                        </span>
                                       </span>
                                     </div>
                                   </div>
@@ -1472,11 +1562,21 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                         class=""
                                         data-mui-internal-clone-element="true"
                                       >
-                                        04/13/22 00:00
-                                         (
-                                        UTC
-                                        )
+                                        04/13/22
                                          
+                                        <span
+                                          style="font-weight: bold;"
+                                        >
+                                           
+                                          00:00
+                                        </span>
+                                         
+                                        <span
+                                          style="font-weight: bold;"
+                                        >
+                                           
+                                          GMT
+                                        </span>
                                       </span>
                                     </div>
                                   </div>

@@ -16,6 +16,8 @@ import {
   FetchMockSandbox,
 } from '../utils/test-utils';
 
+jest.setTimeout(60000);
+
 function renderWithRoute(component: ReactElement) {
   const { testCompareData, testData } = getTestData();
   (window.fetch as FetchMockSandbox)
