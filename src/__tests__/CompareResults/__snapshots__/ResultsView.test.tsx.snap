@@ -912,7 +912,7 @@ exports[`Results View The table should match snapshot and other elements should 
       </div>
     </div>
     <div
-      class="f1wqnr25 fr2n4tx"
+      class="f1ppsmgt fr2n4tx"
       data-testid="table-header"
       role="row"
     >
@@ -962,6 +962,18 @@ exports[`Results View The table should match snapshot and other elements should 
         role="columnheader"
       >
         New
+      </div>
+      <div
+        class="cell standevbase-header"
+        role="columnheader"
+      >
+        Standard Deviation Base
+      </div>
+      <div
+        class="cell standevnew-header"
+        role="columnheader"
+      >
+        Standard Deviation New
       </div>
       <div
         class="cell status-header"
@@ -1128,7 +1140,7 @@ exports[`Results View The table should match snapshot and other elements should 
             </div>
             <div>
               <div
-                class="revisionRow f1b00bec fp4ugv1 MuiBox-root css-1am90bh"
+                class="revisionRow f15dx2nx fp4ugv1 MuiBox-root css-z81lu2"
                 role="row"
               >
                 <div
@@ -1180,6 +1192,18 @@ exports[`Results View The table should match snapshot and other elements should 
                   712.44
                    
                   ms
+                </div>
+                <div
+                  class="Standard-deviation-base cell"
+                  role="cell"
+                >
+                  0
+                </div>
+                <div
+                  class="Standard-deviation-new cell"
+                  role="cell"
+                >
+                  0
                 </div>
                 <div
                   class="status cell"
@@ -1343,7 +1367,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1b00bec fp4ugv1 MuiBox-root css-1am90bh"
+                class="revisionRow f15dx2nx fp4ugv1 MuiBox-root css-z81lu2"
                 role="row"
               >
                 <div
@@ -1394,6 +1418,18 @@ exports[`Results View The table should match snapshot and other elements should 
                   791.34
                    
                   ms
+                </div>
+                <div
+                  class="Standard-deviation-base cell"
+                  role="cell"
+                >
+                  0
+                </div>
+                <div
+                  class="Standard-deviation-new cell"
+                  role="cell"
+                >
+                  0
                 </div>
                 <div
                   class="status cell"
@@ -1557,7 +1593,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1b00bec fp4ugv1 MuiBox-root css-1am90bh"
+                class="revisionRow f15dx2nx fp4ugv1 MuiBox-root css-z81lu2"
                 role="row"
               >
                 <div
@@ -1609,6 +1645,18 @@ exports[`Results View The table should match snapshot and other elements should 
                   628.09
                    
                   ms
+                </div>
+                <div
+                  class="Standard-deviation-base cell"
+                  role="cell"
+                >
+                  0
+                </div>
+                <div
+                  class="Standard-deviation-new cell"
+                  role="cell"
+                >
+                  0
                 </div>
                 <div
                   class="status cell"
@@ -1761,7 +1809,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1b00bec fp4ugv1 MuiBox-root css-1am90bh"
+                class="revisionRow f15dx2nx fp4ugv1 MuiBox-root css-z81lu2"
                 role="row"
               >
                 <div
@@ -1813,6 +1861,18 @@ exports[`Results View The table should match snapshot and other elements should 
                   628.09
                    
                   ms
+                </div>
+                <div
+                  class="Standard-deviation-base cell"
+                  role="cell"
+                >
+                  0
+                </div>
+                <div
+                  class="Standard-deviation-new cell"
+                  role="cell"
+                >
+                  0
                 </div>
                 <div
                   class="status cell"

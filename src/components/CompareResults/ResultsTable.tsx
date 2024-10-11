@@ -46,6 +46,16 @@ const cellsConfiguration: CompareResultsTableConfig[] = [
     gridWidth: '1fr',
   },
   {
+    name: 'Standard Deviation Base',
+    key: 'standevbase',
+    gridWidth: '1fr',
+  },
+  {
+    name: 'Standard Deviation New',
+    key: 'standevnew',
+    gridWidth: '1fr',
+  },
+  {
     name: 'Status',
     disable: true,
     filter: true,
