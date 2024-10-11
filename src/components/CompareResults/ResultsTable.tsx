@@ -192,17 +192,10 @@ export default function ResultsTable() {
           {(resolvedResults: CompareResultsItem[][]) => {
             const filteredResults: CompareResultsItem[] =
               resolvedResults.flat();
-            const sortedResults = filteredResults.sort((itemA, itemB) => {
-              const itemAConfidenceText =
-                confidenceOrder[itemA.confidence_text ?? ''] || 4;
-              const itemBConfidenceText =
-                confidenceOrder[itemB.confidence_text ?? ''] || 4;
-              return itemAConfidenceText - itemBConfidenceText;
-            });
             return (
               <TableContent
                 cellsConfiguration={cellsConfiguration}
-                results={[sortedResults]}
+                results={[filteredResults]}
                 filteringSearchTerm={searchTerm}
                 tableFilters={tableFilters}
                 view={view}

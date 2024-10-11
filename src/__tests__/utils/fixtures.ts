@@ -131,7 +131,7 @@ const getTestData = () => {
       base_stddev_pct: 0.0,
       new_stddev_pct: 0.0,
       confidence: 0.05,
-      confidence_text: 'Low',
+      confidence_text: 'High',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000',
       delta_value: 7.6,
