@@ -94,7 +94,6 @@ const confidenceOrder: Record<string, number> = {
   Low: 3,
 };
 
-
 export default function ResultsTable() {
   const {
     results: resultsPromise,
@@ -112,7 +111,7 @@ export default function ResultsTable() {
   const [frameworkIdVal, setFrameworkIdVal] = useState(frameworkId);
   const [tableFilters, setTableFilters] = useState(() => {
     const initialFilters = new Map<string, Set<string>>();
-    initialFilters.set('confidence', new Set(['Low', 'Medium'])); 
+    initialFilters.set('confidence', new Set(['Low', 'Medium']));
     return initialFilters;
   });
 
@@ -191,20 +190,24 @@ export default function ResultsTable() {
       >
         <Await resolve={resultsPromise}>
           {(resolvedResults) => (
-              <TableContent
-                cellsConfiguration={cellsConfiguration}
-                results={resolvedResults
-                  .flat()
-                  .sort((itemA: CompareResultsItem, itemB: CompareResultsItem) => {
-                    const itemAConfidence_text = confidenceOrder[itemA.confidence_text ?? ''] || 4;
-                    const itemBConfidence_text = confidenceOrder[itemB.confidence_text ?? ''] || 4;
-                    return itemAConfidence_text - itemBConfidence_text;
-                  })}
-                filteringSearchTerm={searchTerm}
-                tableFilters={tableFilters}
-                view={view}
-                rowGridTemplateColumns={rowGridTemplateColumns}
-              />
+            <TableContent
+              cellsConfiguration={cellsConfiguration}
+              results={resolvedResults
+                .flat()
+                .sort(
+                  (itemA: CompareResultsItem, itemB: CompareResultsItem) => {
+                    const itemAConfidenceText =
+                      confidenceOrder[itemA.confidence_text ?? ''] || 4;
+                    const itemBConfidenceText =
+                      confidenceOrder[itemB.confidence_text ?? ''] || 4;
+                    return itemAConfidenceText - itemBConfidenceText;
+                  },
+                )}
+              filteringSearchTerm={searchTerm}
+              tableFilters={tableFilters}
+              view={view}
+              rowGridTemplateColumns={rowGridTemplateColumns}
+            />
           )}
         </Await>
       </Suspense>
