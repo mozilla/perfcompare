@@ -22,6 +22,7 @@ import {
   getLatestCommitMessage,
   getTreeherderURL,
 } from '../../utils/helpers';
+import DateTimeDisplay from './DateTimeDisplay';
 
 const base = Strings.components.searchDefault.base;
 const warning = base.collapsed.warnings.comparison;
@@ -50,18 +51,6 @@ function SelectedRevisionItem({
   const commitMessage = getLatestCommitMessage(item);
   const itemDate = new Date(item.push_timestamp * 1000);
   const repository = repoMap[item.repository_id] ?? 'try';
-  const localDateTime = itemDate
-    .toLocaleString(undefined, {
-      year: '2-digit',
-      month: '2-digit',
-      day: '2-digit',
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: false,
-      timeZoneName: 'short',
-    })
-    .replace(',', '') // Removes the comma between the date and time
-    .replace(/(\d{2})\/(\d{2})\/(\d{2})/, '$2/$1/$3'); // Reformat date as MM/DD/YY
 
   return (
     <ListItem
@@ -119,7 +108,7 @@ function SelectedRevisionItem({
                     className='time-icon'
                     fontSize='small'
                   />
-                  {localDateTime}
+                  <DateTimeDisplay itemDate={itemDate} />
                 </div>
               </div>
             </React.Fragment>

@@ -70,9 +70,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
               coconut
             </span>
             <div
-              aria-label="03/29/51 24:00 UTC"
               class="info-caption"
-              data-mui-internal-clone-element="true"
             >
               <div
                 class="info-caption-item item-author"
@@ -106,7 +104,13 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                     d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                   />
                 </svg>
-                29/03/51 24:00 UTC
+                <div
+                  aria-label="Mar 29, 51, 24:00 UTC"
+                  class=""
+                  data-mui-internal-clone-element="true"
+                >
+                  Mar 29, 51, 24:00 UTC
+                </div>
               </div>
             </div>
           </span>
@@ -182,9 +186,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
               spam
             </span>
             <div
-              aria-label="02/22/58 24:00 UTC"
               class="info-caption"
-              data-mui-internal-clone-element="true"
             >
               <div
                 class="info-caption-item item-author"
@@ -218,7 +220,13 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                     d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                   />
                 </svg>
-                22/02/58 24:00 UTC
+                <div
+                  aria-label="Feb 22, 58, 24:00 UTC"
+                  class=""
+                  data-mui-internal-clone-element="true"
+                >
+                  Feb 22, 58, 24:00 UTC
+                </div>
               </div>
             </div>
           </span>
@@ -294,9 +302,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
               spamspam
             </span>
             <div
-              aria-label="07/29/87 24:00 UTC"
               class="info-caption"
-              data-mui-internal-clone-element="true"
             >
               <div
                 class="info-caption-item item-author"
@@ -330,7 +336,13 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                     d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                   />
                 </svg>
-                29/07/87 24:00 UTC
+                <div
+                  aria-label="Jul 29, 87, 24:00 UTC"
+                  class=""
+                  data-mui-internal-clone-element="true"
+                >
+                  Jul 29, 87, 24:00 UTC
+                </div>
               </div>
             </div>
           </span>
@@ -406,9 +418,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
               spamspamspam
             </span>
             <div
-              aria-label="07/04/20 24:00 UTC"
               class="info-caption"
-              data-mui-internal-clone-element="true"
             >
               <div
                 class="info-caption-item item-author"
@@ -442,7 +452,13 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                     d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                   />
                 </svg>
-                04/07/20 24:00 UTC
+                <div
+                  aria-label="Jul 4, 20, 24:00 UTC"
+                  class=""
+                  data-mui-internal-clone-element="true"
+                >
+                  Jul 4, 20, 24:00 UTC
+                </div>
               </div>
             </div>
           </span>
@@ -518,9 +534,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
               spamspamspam
             </span>
             <div
-              aria-label="04/13/22 24:00 UTC"
               class="info-caption"
-              data-mui-internal-clone-element="true"
             >
               <div
                 class="info-caption-item item-author"
@@ -554,7 +568,13 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                     d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                   />
                 </svg>
-                13/04/22 24:00 UTC
+                <div
+                  aria-label="Apr 13, 22, 24:00 UTC"
+                  class=""
+                  data-mui-internal-clone-element="true"
+                >
+                  Apr 13, 22, 24:00 UTC
+                </div>
               </div>
             </div>
           </span>
@@ -923,9 +943,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                     coconut
                                   </span>
                                   <div
-                                    aria-label="03/29/51 24:00 UTC"
                                     class="info-caption"
-                                    data-mui-internal-clone-element="true"
                                   >
                                     <div
                                       class="info-caption-item item-author"
@@ -959,7 +977,13 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                           d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                                         />
                                       </svg>
-                                      29/03/51 24:00 UTC
+                                      <div
+                                        aria-label="Mar 29, 51, 24:00 UTC"
+                                        class=""
+                                        data-mui-internal-clone-element="true"
+                                      >
+                                        Mar 29, 51, 24:00 UTC
+                                      </div>
                                     </div>
                                   </div>
                                 </span>
@@ -1035,9 +1059,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                     spam
                                   </span>
                                   <div
-                                    aria-label="02/22/58 24:00 UTC"
                                     class="info-caption"
-                                    data-mui-internal-clone-element="true"
                                   >
                                     <div
                                       class="info-caption-item item-author"
@@ -1071,7 +1093,13 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                           d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                                         />
                                       </svg>
-                                      22/02/58 24:00 UTC
+                                      <div
+                                        aria-label="Feb 22, 58, 24:00 UTC"
+                                        class=""
+                                        data-mui-internal-clone-element="true"
+                                      >
+                                        Feb 22, 58, 24:00 UTC
+                                      </div>
                                     </div>
                                   </div>
                                 </span>
@@ -1147,9 +1175,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                     spamspam
                                   </span>
                                   <div
-                                    aria-label="07/29/87 24:00 UTC"
                                     class="info-caption"
-                                    data-mui-internal-clone-element="true"
                                   >
                                     <div
                                       class="info-caption-item item-author"
@@ -1183,7 +1209,13 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                           d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                                         />
                                       </svg>
-                                      29/07/87 24:00 UTC
+                                      <div
+                                        aria-label="Jul 29, 87, 24:00 UTC"
+                                        class=""
+                                        data-mui-internal-clone-element="true"
+                                      >
+                                        Jul 29, 87, 24:00 UTC
+                                      </div>
                                     </div>
                                   </div>
                                 </span>
@@ -1259,9 +1291,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                     spamspamspam
                                   </span>
                                   <div
-                                    aria-label="07/04/20 24:00 UTC"
                                     class="info-caption"
-                                    data-mui-internal-clone-element="true"
                                   >
                                     <div
                                       class="info-caption-item item-author"
@@ -1295,7 +1325,13 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                           d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                                         />
                                       </svg>
-                                      04/07/20 24:00 UTC
+                                      <div
+                                        aria-label="Jul 4, 20, 24:00 UTC"
+                                        class=""
+                                        data-mui-internal-clone-element="true"
+                                      >
+                                        Jul 4, 20, 24:00 UTC
+                                      </div>
                                     </div>
                                   </div>
                                 </span>
@@ -1371,9 +1407,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                     spamspamspam
                                   </span>
                                   <div
-                                    aria-label="04/13/22 24:00 UTC"
                                     class="info-caption"
-                                    data-mui-internal-clone-element="true"
                                   >
                                     <div
                                       class="info-caption-item item-author"
@@ -1407,7 +1441,13 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                           d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                                         />
                                       </svg>
-                                      13/04/22 24:00 UTC
+                                      <div
+                                        aria-label="Apr 13, 22, 24:00 UTC"
+                                        class=""
+                                        data-mui-internal-clone-element="true"
+                                      >
+                                        Apr 13, 22, 24:00 UTC
+                                      </div>
                                     </div>
                                   </div>
                                 </span>
