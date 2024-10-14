@@ -710,12 +710,16 @@ exports[`Search View renders correctly when there are no results 1`] = `
                           role="button"
                           tabindex="0"
                         >
-                          Last day
-                          <span
-                            class="f7opyze f1np4cs0"
+                          <div
+                            class="f1ubk0hm"
                           >
-                             (10/01/2024 - 10/02/2024)
-                          </span>
+                            Last day
+                            <div
+                              class="f7opyze MuiBox-root css-7d9gin"
+                            >
+                               (Oct 8, 2024 - Oct 9, 2024)
+                            </div>
+                          </div>
                         </div>
                         <input
                           aria-hidden="true"
@@ -1126,12 +1130,16 @@ exports[`With search parameters both search components are populated as expected
               role="button"
               tabindex="0"
             >
-              Last day
-              <span
-                class="f7opyze f1np4cs0"
+              <div
+                class="f1ubk0hm"
               >
-                 (10/01/2024 - 10/02/2024)
-              </span>
+                Last day
+                <div
+                  class="f7opyze MuiBox-root css-7d9gin"
+                >
+                   (Oct 8, 2024 - Oct 9, 2024)
+                </div>
+              </div>
             </div>
             <input
               aria-hidden="true"
@@ -2176,12 +2184,16 @@ exports[`With search parameters both search components are populated as expected
               role="button"
               tabindex="0"
             >
-              Last day
-              <span
-                class="f7opyze f1np4cs0"
+              <div
+                class="f1ubk0hm"
               >
-                 (10/01/2024 - 10/02/2024)
-              </span>
+                Last day
+                <div
+                  class="f7opyze MuiBox-root css-7d9gin"
+                >
+                   (Oct 8, 2024 - Oct 9, 2024)
+                </div>
+              </div>
             </div>
             <input
               aria-hidden="true"
@@ -3226,12 +3238,16 @@ exports[`With search parameters displays the default value for framework if the 
               role="button"
               tabindex="0"
             >
-              Last day
-              <span
-                class="f7opyze f1np4cs0"
+              <div
+                class="f1ubk0hm"
               >
-                 (10/01/2024 - 10/02/2024)
-              </span>
+                Last day
+                <div
+                  class="f7opyze MuiBox-root css-7d9gin"
+                >
+                   (Oct 8, 2024 - Oct 9, 2024)
+                </div>
+              </div>
             </div>
             <input
               aria-hidden="true"
@@ -4276,12 +4292,16 @@ exports[`With search parameters displays the default values if some values are b
               role="button"
               tabindex="0"
             >
-              Last day
-              <span
-                class="f7opyze f1np4cs0"
+              <div
+                class="f1ubk0hm"
               >
-                 (10/01/2024 - 10/02/2024)
-              </span>
+                Last day
+                <div
+                  class="f7opyze MuiBox-root css-7d9gin"
+                >
+                   (Oct 8, 2024 - Oct 9, 2024)
+                </div>
+              </div>
             </div>
             <input
               aria-hidden="true"

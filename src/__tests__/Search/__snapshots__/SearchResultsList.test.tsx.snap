@@ -1833,12 +1833,16 @@ exports[`SearchResultsList should match snapshot 1`] = `
                           role="button"
                           tabindex="0"
                         >
-                          Last day
-                          <span
-                            class="f7opyze f1np4cs0"
+                          <div
+                            class="f1ubk0hm"
                           >
-                             (10/01/2024 - 10/02/2024)
-                          </span>
+                            Last day
+                            <div
+                              class="f7opyze MuiBox-root css-7d9gin"
+                            >
+                               (Oct 8, 2024 - Oct 9, 2024)
+                            </div>
+                          </div>
                         </div>
                         <input
                           aria-hidden="true"
