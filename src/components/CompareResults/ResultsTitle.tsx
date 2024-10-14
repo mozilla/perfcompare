@@ -64,7 +64,11 @@ export const ResultsTitle = () => {
         <label htmlFor='results' data-testid='results-title-label'>
           {resultsTitle}
         </label>
-        <EditIcon className={styles.editIcon} onClick={handleEdit} />
+        <EditIcon
+          className={styles.editIcon}
+          data-testid='edit-icon'
+          onClick={handleEdit}
+        />
       </div>
       {isEditing && (
         <Input
