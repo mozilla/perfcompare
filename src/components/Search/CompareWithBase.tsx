@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import { Box } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import { VariantType, useSnackbar } from 'notistack';
@@ -219,83 +220,88 @@ function CompareWithBase({
       className={`compare-card-container content-base content-base--${expandedClass} ${styles.container} wrapper--withbase ${wrapperStyles.wrapper}`}
     >
       <Divider className='divider' />
-      <Form
-        action='/compare-results'
-        className='form-wrapper'
-        onSubmit={onFormSubmit}
-        aria-label='Compare with base form'
-      >
-        {/**** Edit Button ****/}
-        {hasEditButton && (
-          <div
-            className={`edit-btn-wrapper ${
-              !formIsDisplayed ? 'show-edit-btn' : 'hide-edit-btn'
-            }`}
-          >
-            <EditButton onEditAction={handleEdit} mode={mode} />
-          </div>
-        )}
+      <Box sx={{ paddingBlock: hasEditButton ? 4 : 6, paddingInline: 6 }}>
+        <Form
+          action='/compare-results'
+          onSubmit={onFormSubmit}
+          aria-label='Compare with base form'
+        >
+          {/**** Edit Button ****/}
+          {hasEditButton && (
+            <div
+              className={`edit-btn-wrapper ${
+                !formIsDisplayed ? 'show-edit-btn' : 'hide-edit-btn'
+              }`}
+            >
+              <EditButton onEditAction={handleEdit} mode={mode} />
+            </div>
+          )}
 
-        <SearchComponent
-          {...stringsBase}
-          isBaseComp={true}
-          isWarning={isWarning}
-          hasEditButton={hasEditButton}
-          displayedRevisions={baseInProgressRev ? [baseInProgressRev] : []}
-          onSearchResultsToggle={handleSearchResultsToggleBase}
-          onRemoveRevision={handleRemoveRevisionBase}
-          repository={baseRepository}
-          labelIdInfo='repo-dropdown--base'
-          onRepositoryChange={(repo: Repository['name']) =>
-            setBaseRepository(repo)
-          }
-          formIsDisplayed={formIsDisplayed}
-          listItemComponent='radio'
-        />
-        <SearchComponent
-          {...stringsNew}
-          isBaseComp={false}
-          hasEditButton={hasEditButton}
-          isWarning={isWarning}
-          displayedRevisions={newInProgressRevs}
-          onSearchResultsToggle={handleSearchResultsToggleNew}
-          onRemoveRevision={handleRemoveRevisionNew}
-          repository={newRepository}
-          labelIdInfo='repo-dropdown--new'
-          onRepositoryChange={(repo: Repository['name']) =>
-            setNewRepository(repo)
-          }
-          formIsDisplayed={formIsDisplayed}
-        />
+          <SearchComponent
+            {...stringsBase}
+            isBaseComp={true}
+            isWarning={isWarning}
+            hasEditButton={hasEditButton}
+            displayedRevisions={baseInProgressRev ? [baseInProgressRev] : []}
+            onSearchResultsToggle={handleSearchResultsToggleBase}
+            onRemoveRevision={handleRemoveRevisionBase}
+            repository={baseRepository}
+            labelIdInfo='repo-dropdown--base'
+            onRepositoryChange={(repo: Repository['name']) =>
+              setBaseRepository(repo)
+            }
+            formIsDisplayed={formIsDisplayed}
+            listItemComponent='radio'
+          />
+          <SearchComponent
+            {...stringsNew}
+            isBaseComp={false}
+            hasEditButton={hasEditButton}
+            isWarning={isWarning}
+            displayedRevisions={newInProgressRevs}
+            onSearchResultsToggle={handleSearchResultsToggleNew}
+            onRemoveRevision={handleRemoveRevisionNew}
+            repository={newRepository}
+            labelIdInfo='repo-dropdown--new'
+            onRepositoryChange={(repo: Repository['name']) =>
+              setNewRepository(repo)
+            }
+            formIsDisplayed={formIsDisplayed}
+          />
 
-        {/* !hasEditButton means we are in Search view
+          {/* !hasEditButton means we are in Search view
         hasCancelButton means we are in Edit mode on Results view */}
-        {(!hasEditButton || hasCancelButton) && (
-          <Grid
-            item
-            xs={2}
-            display='flex'
-            justifyContent={hasEditButton ? 'flex-end' : 'space-between'}
-            className={dropDownStyles.dropDown}
-            alignItems='flex-end'
-          >
-            {!hasEditButton && (
-              <SearchFrameworkDropdown frameworkId={frameworkIdVal} />
-            )}
+          {(!hasEditButton || hasCancelButton) && (
+            <Grid
+              item
+              xs={2}
+              display='flex'
+              justifyContent={hasEditButton ? 'flex-end' : 'space-between'}
+              className={dropDownStyles.dropDown}
+              alignItems='flex-end'
+            >
+              {!hasEditButton && (
+                <SearchFrameworkDropdown frameworkId={frameworkIdVal} />
+              )}
 
-            <CancelAndCompareButtons
-              label={strings.base.compareBtn}
-              onCancel={handleCancel}
-              hasCancelButton={hasCancelButton}
-              hasEditButton={hasEditButton}
-            />
-          </Grid>
-        )}
-        {/**** Hidden Input to capture framework when user updates revisions ****/}
-        {hasEditButton && (
-          <input type='hidden' value={frameworkIdVal} name='framework'></input>
-        )}
-      </Form>
+              <CancelAndCompareButtons
+                label={strings.base.compareBtn}
+                onCancel={handleCancel}
+                hasCancelButton={hasCancelButton}
+                hasEditButton={hasEditButton}
+              />
+            </Grid>
+          )}
+          {/**** Hidden Input to capture framework when user updates revisions ****/}
+          {hasEditButton && (
+            <input
+              type='hidden'
+              value={frameworkIdVal}
+              name='framework'
+            ></input>
+          )}
+        </Form>
+      </Box>
     </div>
   );
 }

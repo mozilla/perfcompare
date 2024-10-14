@@ -4,7 +4,6 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
 <form
   action="/compare-over-time-results"
   aria-label="Compare over time form"
-  class="form-wrapper"
   method="get"
 >
   <div
@@ -383,7 +382,6 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
 <form
   action="/compare-over-time-results"
   aria-label="Compare over time form"
-  class="form-wrapper"
   method="get"
 >
   <div
@@ -760,7 +758,6 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
 <form
   action="/compare-over-time-results"
   aria-label="Compare over time form"
-  class="form-wrapper"
   method="get"
 >
   <div
@@ -1244,7 +1241,6 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
 <form
   action="/compare-over-time-results"
   aria-label="Compare over time form"
-  class="form-wrapper"
   method="get"
 >
   <div
@@ -1515,7 +1511,6 @@ exports[`Compare Over Time should remove the checked revision once X button is c
 <form
   action="/compare-over-time-results"
   aria-label="Compare over time form"
-  class="form-wrapper"
   method="get"
 >
   <div
@@ -1894,7 +1889,6 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
 <form
   action="/compare-over-time-results"
   aria-label="Compare over time form"
-  class="form-wrapper"
   method="get"
 >
   <div
@@ -2290,7 +2284,6 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
 <form
   action="/compare-over-time-results"
   aria-label="Compare over time form"
-  class="form-wrapper"
   method="get"
 >
   <div
@@ -2774,7 +2767,6 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
 <form
   action="/compare-over-time-results"
   aria-label="Compare over time form"
-  class="form-wrapper"
   method="get"
 >
   <div
