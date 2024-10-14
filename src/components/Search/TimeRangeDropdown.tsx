@@ -56,11 +56,9 @@ function TimeRangeDropdown({
       month: '2-digit',
       day: '2-digit',
     };
-    const fromDate = new Date(Date.now() - value * 1000).toLocaleDateString(
-      'en-US',
-      options,
-    );
-    const toDate = new Date(Date.now()).toLocaleDateString('en-US', options);
+    const dateFormatter = new Intl.DateTimeFormat('en-US', options);
+    const fromDate = dateFormatter.format(new Date(Date.now() - value * 1000));
+    const toDate = dateFormatter.format(new Date());
     return ` (${fromDate} - ${toDate})`;
   };
 
