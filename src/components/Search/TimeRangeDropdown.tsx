@@ -1,6 +1,7 @@
 import FormControl from '@mui/material/FormControl';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { Box } from '@mui/system';
 import { style } from 'typestyle';
 
 import { timeRangeMap } from '../../common/constants';
@@ -10,7 +11,6 @@ import {
   ButtonsLightRaw,
   ButtonsDarkRaw,
   DropDownItems,
-  DateRange,
   FontSize,
 } from '../../styles';
 import type { TimeRange } from '../../types/types';
@@ -40,6 +40,13 @@ function TimeRangeDropdown({
         },
       },
     }),
+    menuItem: style({
+      display: 'block',
+    }),
+    dateRange: style({
+      display: 'flex',
+      justifyContent: 'space-between',
+    }),
   };
 
   const handleTimeRangeSelect = async (event: SelectChangeEvent) => {
@@ -48,7 +55,6 @@ function TimeRangeDropdown({
   };
   const menuItemStyles =
     mode === 'light' ? DropDownItems.Light : DropDownItems.Dark;
-  const dateRangeStyles = mode === 'light' ? DateRange.Light : DateRange.Dark;
 
   const displayDateRange = (value: number) => {
     const options: Intl.DateTimeFormatOptions = {
@@ -82,12 +88,17 @@ function TimeRangeDropdown({
             <MenuItem
               value={value}
               key={value}
-              className={`timerange-dropdown-item ${menuItemStyles}`}
+              className={`timerange-dropdown-item ${menuItemStyles} ${styles.menuItem}`}
             >
-              {text}
-              <span className={`${FontSize.Small} ${dateRangeStyles}`}>
-                {displayDateRange(Number(value))}
-              </span>
+              <div className={styles.dateRange}>
+                {text}
+                <Box
+                  sx={{ color: 'text.secondary' }}
+                  className={`${FontSize.Small}`}
+                >
+                  {displayDateRange(Number(value))}
+                </Box>
+              </div>
             </MenuItem>
           ))}
         </Select>
