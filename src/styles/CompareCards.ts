@@ -108,9 +108,6 @@ export const CompareCardsStyles = (mode: string) => {
               },
               height: 'auto',
             },
-            '.form-wrapper': {
-              padding: `${Spacing.xxLarge}px ${Spacing.xxLarge + 2}px`,
-            },
           },
         },
       },
@@ -145,6 +142,12 @@ export const SearchStyles = (mode: string) => {
   const searchCSS = stylesheet({
     component: {
       marginBottom: `${Spacing.Large}px`,
+      $nest: {
+        // the Revisions section of the search form does not need margin
+        '&:last-of-type': {
+          marginBottom: 0,
+        },
+      },
     },
 
     container: {
