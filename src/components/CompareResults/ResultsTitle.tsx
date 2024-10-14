@@ -48,7 +48,10 @@ export const ResultsTitle = () => {
   const handleEditComplete = (
     event: React.FocusEvent | React.KeyboardEvent,
   ) => {
-    if ((event as React.KeyboardEvent).key === 'Enter') {
+    if (
+      (event as React.KeyboardEvent).key === 'Enter' ||
+      event.type === 'blur'
+    ) {
       setIsEditing(false);
     }
   };
