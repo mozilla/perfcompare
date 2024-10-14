@@ -19,29 +19,6 @@ const sharedListStyles = {
   margin: `${Spacing.xSmall}px ${Spacing.Small}px`,
 };
 
-const sharedDateRangeStyles = {
-  display: 'inline-block',
-  position: 'absolute' as const,
-  right: `3rem`,
-};
-
-export const DateRangeRaw = {
-  Light: {
-    ...sharedDateRangeStyles,
-    color: Colors.SecondaryText,
-  },
-
-  Dark: {
-    ...sharedDateRangeStyles,
-    color: Colors.SecondaryTextDark,
-  },
-};
-
-export const DateRange = {
-  Light: style(DateRangeRaw.Light),
-  Dark: style(DateRangeRaw.Dark),
-};
-
 export const DropDownMenuRaw = {
   Light: {
     ...sharedDropDownStyles,
