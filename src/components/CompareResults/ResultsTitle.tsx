@@ -1,33 +1,33 @@
 import { useState } from 'react';
 
+import EditIcon from '@mui/icons-material/EditOutlined';
 import { Input } from '@mui/material';
 import { style } from 'typestyle';
 
 import useRawSearchParams from '../../hooks/useRawSearchParams';
-import { FontsRaw } from '../../styles';
+import { FontsRaw, Colors } from '../../styles';
 
 export const ResultsTitle = () => {
   const [searchParams, updateSearchParams] = useRawSearchParams();
   const [resultsTitle, setResultsTitle] = useState(
     searchParams.get('title') || 'Results',
   );
+  const [isEditing, setIsEditing] = useState(false);
 
   const styles = {
-    titleInput: style({
+    title: style({
       ...FontsRaw.HeadingXS,
       fontWeight: 700,
       letterSpacing: '-0.01em',
       margin: 0,
     }),
-    screenReaderOnly: style({
-      position: 'absolute',
-      width: '1px',
-      height: '1px',
-      margin: '-1px',
-      padding: '0',
-      overflow: 'hidden',
-      clip: 'rect(0, 0, 0, 0)',
-      border: '0',
+    editIcon: style({
+      marginLeft: '10px',
+      cursor: 'pointer',
+      color: Colors.LinkText,
+    }),
+    hide: style({
+      display: 'none',
     }),
   };
 
@@ -40,19 +40,37 @@ export const ResultsTitle = () => {
       method: 'push',
     });
   };
+
+  const handleEdit = () => {
+    setIsEditing(true);
+  };
+
+  const handleEditComplete = (
+    event: React.FocusEvent | React.KeyboardEvent,
+  ) => {
+    if ((event as React.KeyboardEvent).key === 'Enter') {
+      setIsEditing(false);
+    }
+  };
+
   return (
     <>
-      <label htmlFor='results-title' className={styles.screenReaderOnly}>
-        Results Title
-      </label>
-      <Input
-        id='results-title'
-        type='text'
-        name='results-title'
-        value={resultsTitle}
-        onChange={handleResultsChange}
-        className={styles.titleInput}
-      />
+      <div className={isEditing ? styles.hide : styles.title}>
+        <label htmlFor='results'>{resultsTitle}</label>
+        <EditIcon className={styles.editIcon} onClick={handleEdit} />
+      </div>
+      {isEditing && (
+        <Input
+          id='results'
+          type='text'
+          name='results-title'
+          value={resultsTitle}
+          onChange={handleResultsChange}
+          onBlur={handleEditComplete}
+          onKeyDown={handleEditComplete}
+          className={styles.title}
+        />
+      )}
     </>
   );
 };
