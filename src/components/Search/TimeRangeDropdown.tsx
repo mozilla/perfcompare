@@ -50,15 +50,16 @@ function TimeRangeDropdown({
     mode === 'light' ? DropDownItems.Light : DropDownItems.Dark;
   const dateRangeStyles = mode === 'light' ? DateRange.Light : DateRange.Dark;
 
-  const displayDateRange = (value: string) => {
+  const displayDateRange = (value: number) => {
     const options: Intl.DateTimeFormatOptions = {
       year: 'numeric',
       month: '2-digit',
       day: '2-digit',
     };
-    const fromDate = new Date(
-      Date.now() - Number(value) * 1000,
-    ).toLocaleDateString('en-US', options);
+    const fromDate = new Date(Date.now() - value * 1000).toLocaleDateString(
+      'en-US',
+      options,
+    );
     const toDate = new Date(Date.now()).toLocaleDateString('en-US', options);
     return ` (${fromDate} - ${toDate})`;
   };
@@ -89,7 +90,7 @@ function TimeRangeDropdown({
             >
               {text}
               <span className={`${FontSize.Small} ${dateRangeStyles}`}>
-                {displayDateRange(value)}
+                {displayDateRange(Number(value))}
               </span>
             </MenuItem>
           ))}
