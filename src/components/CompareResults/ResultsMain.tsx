@@ -1,10 +1,10 @@
-import { Fragment, useState } from 'react';
+import { Fragment } from 'react';
 
-import { Input, Link } from '@mui/material';
+import { Link } from '@mui/material';
 import { Grid } from '@mui/material';
 import Alert from '@mui/material/Alert';
 import { Container } from '@mui/system';
-import { useLoaderData, useSearchParams } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import { compareView } from '../../common/constants';
@@ -18,26 +18,13 @@ import { truncateHash } from '../../utils/helpers';
 import type { LoaderReturnValue } from './loader';
 import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeLoader';
 import ResultsTable from './ResultsTable';
+import { ResultsTitle } from './ResultsTitle';
 
 function getPunctuationMark(index: number, newRevs: string[]) {
   return index != newRevs.length - 1 ? ', ' : '.';
 }
 
 function ResultsMain() {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [resultsTitle, setResultsTitle] = useState(
-    searchParams.get('title') || 'Results',
-  );
-
-  const handleResultsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newTitle = event.target.value;
-    setResultsTitle(newTitle);
-    setSearchParams((prev) => {
-      prev.set('title', newTitle);
-      return prev;
-    });
-  };
-
   const loaderData = useLoaderData() as
     | LoaderReturnValue
     | OverTimeLoaderReturnValue;
@@ -60,12 +47,6 @@ function ResultsMain() {
       margin: '0 auto',
       marginBottom: '80px',
     }),
-    titleInput: style({
-      ...FontsRaw.HeadingXS,
-      fontWeight: 700,
-      letterSpacing: '-0.01em',
-      margin: 0,
-    }),
     subtitle: style({
       ...FontsRaw.BodyDefault,
       fontSize: '15px',
@@ -77,16 +58,6 @@ function ResultsMain() {
       alignItems: 'center',
       gap: '9px',
       margin: `0 0 ${Spacing.Medium}px 0`,
-    }),
-    screenReaderOnly: style({
-      position: 'absolute',
-      width: '1px',
-      height: '1px',
-      margin: '-1px',
-      padding: '0',
-      overflow: 'hidden',
-      clip: 'rect(0, 0, 0, 0)',
-      border: '0',
     }),
   };
 
@@ -122,17 +93,7 @@ function ResultsMain() {
       <header>
         <Grid container className={styles.titleContainer} component='h2'>
           <Grid item>
-            <label htmlFor='results-title' className={styles.screenReaderOnly}>
-              Results Title
-            </label>
-            <Input
-              id='results-title'
-              type='text'
-              name='results-title'
-              value={resultsTitle}
-              onChange={handleResultsChange}
-              className={styles.titleInput}
-            />
+            <ResultsTitle />
           </Grid>
           <Grid item className={styles.subtitle}>
             {subtitles[view]}
