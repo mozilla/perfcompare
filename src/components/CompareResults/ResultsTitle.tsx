@@ -32,18 +32,11 @@ export const ResultsTitle = () => {
   };
 
   const handleResultsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newTitle = event.target.value;
+    const newTitle = event.target.value.trim();
     setResultsTitle(newTitle);
-    const newSearchParams = new URLSearchParams(searchParams);
-    newSearchParams.set('title', newTitle);
-    updateSearchParams(newSearchParams, {
-      method: 'push',
-    });
   };
 
-  const handleEdit = () => {
-    setIsEditing(true);
-  };
+  const handleEdit = () => setIsEditing(true);
 
   const handleEditComplete = (
     event: React.FocusEvent | React.KeyboardEvent,
@@ -52,6 +45,15 @@ export const ResultsTitle = () => {
       (event as React.KeyboardEvent).key === 'Enter' ||
       event.type === 'blur'
     ) {
+      const safeTitle = resultsTitle || 'Results';
+      setResultsTitle(safeTitle);
+
+      const newSearchParams = new URLSearchParams(searchParams);
+      newSearchParams.set('title', safeTitle);
+      updateSearchParams(newSearchParams, {
+        method: 'push',
+      });
+
       setIsEditing(false);
     }
   };
