@@ -61,7 +61,9 @@ export const ResultsTitle = () => {
   return (
     <>
       <div className={isEditing ? styles.hide : styles.title}>
-        <label htmlFor='results'>{resultsTitle}</label>
+        <label htmlFor='results' data-testid='results-title-label'>
+          {resultsTitle}
+        </label>
         <EditIcon className={styles.editIcon} onClick={handleEdit} />
       </div>
       {isEditing && (
