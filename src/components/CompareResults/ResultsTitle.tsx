@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
 import { Input } from '@mui/material';
-import { useSearchParams } from 'react-router-dom';
 import { style } from 'typestyle';
 
+import useRawSearchParams from '../../hooks/useRawSearchParams';
 import { FontsRaw } from '../../styles';
 
 export const ResultsTitle = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams, updateSearchParams] = useRawSearchParams();
   const [resultsTitle, setResultsTitle] = useState(
     searchParams.get('title') || 'Results',
   );
@@ -34,9 +34,10 @@ export const ResultsTitle = () => {
   const handleResultsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newTitle = event.target.value;
     setResultsTitle(newTitle);
-    setSearchParams((prev) => {
-      prev.set('title', newTitle);
-      return prev;
+    const newSearchParams = new URLSearchParams(searchParams);
+    newSearchParams.set('title', newTitle);
+    updateSearchParams(newSearchParams, {
+      method: 'push',
     });
   };
   return (
