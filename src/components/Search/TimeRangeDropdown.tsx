@@ -52,9 +52,7 @@ function TimeRangeDropdown({
 
   const displayDateRange = (value: number) => {
     const options: Intl.DateTimeFormatOptions = {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
+      dateStyle: 'medium',
     };
     const dateFormatter = new Intl.DateTimeFormat('en-US', options);
     const fromDate = dateFormatter.format(new Date(Date.now() - value * 1000));
