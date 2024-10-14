@@ -1,11 +1,10 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { ResultsTitle } from '../../components/CompareResults/ResultsTitle';
 import useRawSearchParams from '../../hooks/useRawSearchParams';
 
 jest.mock('../../hooks/useRawSearchParams');
-jest.setTimeout(1000000);
 
 describe('Results Title', () => {
   it('renders "Results" by default when no title in URL', () => {
