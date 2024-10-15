@@ -1,4 +1,4 @@
-import { Suspense, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -107,10 +107,43 @@ export default function ResultsTable() {
     new Map() as Map<string, Set<string>>, // ColumnID -> Set<Values to remove>
   );
 
+  const accessFilterValues = () => {
+    cellsConfiguration.forEach(({ key }) => {
+      const searchValue = [...(tableFilters.get(key) ?? [])];
+
+      if (searchValue.length > 0) {
+        rawSearchParams.set(`filter-${key}`, searchValue.join(','));
+      } else {
+        rawSearchParams.delete(`filter-${key}`);
+      }
+    });
+    updateRawSearchParams(rawSearchParams);
+  };
+  const accessURlParams = () => {
+    const initialFilters = new Map() as Map<string, Set<string>>;
+    cellsConfiguration.forEach(({ key, possibleValues }) => {
+      if (!possibleValues) return;
+      const paramValue = rawSearchParams.get(`filter-${key}`);
+      initialFilters.set(key, new Set(paramValue?.split(',')));
+    });
+    setTableFilters(initialFilters);
+  };
+
+  useEffect(() => {
+    accessURlParams();
+  }, []);
+  useEffect(() => {
+    if (tableFilters.size > 0) {
+      accessFilterValues();
+    }
+  }, [tableFilters]);
+
   const onClearFilter = (columnId: string) => {
     setTableFilters((oldFilters) => {
       const newFilters = new Map(oldFilters);
       newFilters.delete(columnId);
+      rawSearchParams.delete(`filter-${columnId}`);
+      updateRawSearchParams(rawSearchParams);
       return newFilters;
     });
   };
