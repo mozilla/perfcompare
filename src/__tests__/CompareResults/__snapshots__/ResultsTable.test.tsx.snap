@@ -987,7 +987,7 @@ exports[`Results Table Should match snapshot 1`] = `
                   </div>
                 </div>
                 <div
-                  class="fsfjv6t fr2n4tx"
+                  class="fqnq6uq fr2n4tx"
                   data-testid="table-header"
                   role="row"
                 >
@@ -1042,7 +1042,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     class="cell baseStandardDeviation-header"
                     role="columnheader"
                   >
-                    Base\`σ\`
+                    Base Standard Deviation
                   </div>
                   <div
                     class="cell comparisonSignStandardDeviation-header"
@@ -1052,7 +1052,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     class="cell newStandardDeviation-header"
                     role="columnheader"
                   >
-                    New\`σ\`
+                    New Standard Deviation
                   </div>
                   <div
                     class="cell status-header"

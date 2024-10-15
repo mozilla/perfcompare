@@ -44,7 +44,7 @@ const cellsConfiguration: CompareResultsTableConfig[] = [
     gridWidth: '1fr',
   },
   {
-    name: 'Base`σ`',
+    name: 'Base Standard Deviation',
     key: 'baseStandardDeviation',
     gridWidth: '1fr',
   },
@@ -53,7 +53,7 @@ const cellsConfiguration: CompareResultsTableConfig[] = [
     gridWidth: '0.2fr',
   },
   {
-    name: 'New`σ`',
+    name: 'New Standard Deviation',
     key: 'newStandardDeviation',
     gridWidth: '1fr',
   },
