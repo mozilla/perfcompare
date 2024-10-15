@@ -29,8 +29,7 @@ function renderWithRoute(component: ReactElement) {
 
   return renderWithRouter(component, {
     route: '/compare-results/',
-    search:
-      '?baseRev=spam&baseRepo=mozilla-central&framework=2&platform=Windows%2COSX%2CLinux%2CAndroid&status=No+changes%2CImprovement%2CRegression&confidence=Low%2CMedium%2CHigh',
+    search: '?baseRev=spam&baseRepo=mozilla-central&framework=2',
     loader,
   });
 }
@@ -123,8 +122,7 @@ describe('Results View', () => {
       <ResultsView title={Strings.metaData.pageTitle.results} />,
       {
         route: '/compare-results/',
-        search:
-          '?baseRev=spam&baseRepo=mozilla-central&framework=2&platform=Windows%2COSX%2CLinux%2CAndroid&status=No+changes%2CImprovement%2CRegression&confidence=Low%2CMedium%2CHigh',
+        search: '?baseRev=spam&baseRepo=mozilla-central&framework=2',
         loader,
       },
     );
@@ -200,8 +198,7 @@ describe('Results View', () => {
       <ResultsView title={Strings.metaData.pageTitle.results} />,
       {
         route: '/compare-results/',
-        search:
-          '?baseRev=spam&baseRepo=mozilla-central&framework=2&platform=Windows%2COSX%2CLinux%2CAndroid&status=No+changes%2CImprovement%2CRegression&confidence=Low%2CMedium%2CHigh',
+        search: '?baseRev=spam&baseRepo=mozilla-central&framework=2',
         loader,
       },
     );
@@ -259,8 +256,7 @@ describe('Results View', () => {
       <ResultsView title={Strings.metaData.pageTitle.results} />,
       {
         route: '/compare-results/',
-        search:
-          '?baseRev=spam&baseRepo=mozilla-central&framework=2&platform=Windows%2COSX%2CLinux%2CAndroid&status=No+changes%2CImprovement%2CRegression&confidence=Low%2CMedium%2CHigh',
+        search: '?baseRev=spam&baseRepo=mozilla-central&framework=2',
         loader,
       },
     );
@@ -329,8 +325,7 @@ describe('Results View', () => {
       <ResultsView title={Strings.metaData.pageTitle.results} />,
       {
         route: '/compare-results/',
-        search:
-          '?baseRev=spam&baseRepo=mozilla-central&framework=2&platform=Windows%2COSX%2CLinux%2CAndroid&status=No+changes%2CImprovement%2CRegression&confidence=Low%2CMedium%2CHigh',
+        search: '?baseRev=spam&baseRepo=mozilla-central&framework=2',
         loader,
       },
     );

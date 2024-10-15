@@ -18,8 +18,7 @@ import {
 function renderWithRoute(component: ReactElement) {
   return renderWithRouter(component, {
     route: '/compare-results/',
-    search:
-      '?baseRev=spam&baseRepo=try&framework=1&platform=Windows%2COSX%2CLinux%2CAndroid&status=No+changes%2CImprovement%2CRegression&confidence=Low%2CMedium%2CHigh',
+    search: '?baseRev=spam&baseRepo=try&framework=1',
     loader,
   });
 }
@@ -112,29 +111,6 @@ describe('Results Table', () => {
     await user.keyboard('[Escape]');
   }
 
-  it('should have the default filters in the URL on initial render', async () => {
-    const { testCompareData } = getTestData();
-    testCompareData.push({
-      ...testCompareData[0],
-      platform: 'android-em-7-0-x86_64-lite-qr',
-    });
-    setupAndRender(testCompareData);
-    await screen.findByText('a11yr');
-
-    expect(summarizeVisibleRows()).toEqual([
-      'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - OSX, Improvement, Low',
-      '  - Linux, Regression, Medium',
-      '  - Windows, -, High',
-      '  - Windows, -, ',
-      '  - Android, Improvement, Low',
-    ]);
-    const defaultSearch =
-      '?baseRev=spam&baseRepo=try&framework=1&platform=Windows%2COSX%2CLinux%2CAndroid&status=No+changes%2CImprovement%2CRegression&confidence=Low%2CMedium%2CHigh';
-
-    expect(window.location.search).toEqual(defaultSearch);
-  });
-
   it('should filter on the Platform column', async () => {
     const { testCompareData } = getTestData();
     testCompareData.push({
@@ -158,9 +134,7 @@ describe('Results Table', () => {
 
     await clickMenuItem(user, /Platform/, /Windows/);
     await waitFor(() => {
-      expect(window.location.search).toContain(
-        'platform=OSX%2CLinux%2CAndroid',
-      );
+      expect(window.location.search).toContain('filter-platform=Windows');
     });
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
@@ -171,7 +145,9 @@ describe('Results Table', () => {
 
     await clickMenuItem(user, /Platform/, /Linux/);
     await waitFor(() => {
-      expect(window.location.search).toContain('platform=OSX%2CAndroid');
+      expect(window.location.search).toContain(
+        'filter-platform=Windows%2CLinux',
+      );
     });
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
@@ -180,9 +156,7 @@ describe('Results Table', () => {
     ]);
     await clickMenuItem(user, /Platform/, /Linux/);
     await waitFor(() => {
-      expect(window.location.search).toContain(
-        'platform=OSX%2CLinux%2CAndroid',
-      );
+      expect(window.location.search).toContain('filter-platform=Windows');
     });
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
@@ -192,11 +166,7 @@ describe('Results Table', () => {
     ]);
 
     await clickMenuItem(user, /Platform/, 'Clear filters');
-    await waitFor(() => {
-      expect(window.location.search).toContain(
-        'platform=Windows%2COSX%2CLinux%2CAndroid',
-      );
-    });
+
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - OSX, Improvement, Low',
@@ -208,9 +178,7 @@ describe('Results Table', () => {
 
     await clickMenuItem(user, /Platform/, /OSX/);
     await waitFor(() => {
-      expect(window.location.search).toContain(
-        'platform=Windows%2CLinux%2CAndroid',
-      );
+      expect(window.location.search).toContain('filter-platform=OSX');
     });
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
@@ -222,7 +190,7 @@ describe('Results Table', () => {
 
     await clickMenuItem(user, /Platform/, /Android/);
     await waitFor(() => {
-      expect(window.location.search).toContain('platform=Windows%2CLinux');
+      expect(window.location.search).toContain('filter-platform=OSX%2CAndroid');
     });
 
     expect(summarizeVisibleRows()).toEqual([
@@ -249,9 +217,7 @@ describe('Results Table', () => {
     const user = userEvent.setup({ delay: null });
     await clickMenuItem(user, /Status/, /No changes/);
     await waitFor(() => {
-      expect(window.location.search).toContain(
-        'status=Improvement%2CRegression',
-      );
+      expect(window.location.search).toContain('filter-status=No+changes');
     });
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
@@ -261,15 +227,11 @@ describe('Results Table', () => {
 
     await clickMenuItem(user, /Status/, /Clear filters/);
     await waitFor(() => {
-      expect(window.location.search).toContain(
-        'status=No+changes%2CImprovement%2CRegression',
-      );
+      expect(window.location.search).not.toContain('filter-status=No+changes');
     });
     await clickMenuItem(user, /Status/, /Improvement/);
     await waitFor(() => {
-      expect(window.location.search).toContain(
-        'status=No+changes%2CRegression',
-      );
+      expect(window.location.search).toContain('filter-status=Improvement');
     });
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
@@ -279,7 +241,9 @@ describe('Results Table', () => {
     ]);
     await clickMenuItem(user, /Status/, /Regression/);
     await waitFor(() => {
-      expect(window.location.search).toContain('status=No+changes');
+      expect(window.location.search).toContain(
+        'filter-status=Improvement%2CRegression',
+      );
     });
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
@@ -304,7 +268,7 @@ describe('Results Table', () => {
     const user = userEvent.setup({ delay: null });
     await clickMenuItem(user, /Confidence/, /Low/);
     await waitFor(() => {
-      expect(window.location.search).toContain('confidence=Medium%2CHigh');
+      expect(window.location.search).toContain('filter-confidence=Low');
     });
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
@@ -315,7 +279,7 @@ describe('Results Table', () => {
 
     await clickMenuItem(user, /Confidence/, /High/);
     await waitFor(() => {
-      expect(window.location.search).toContain('confidence=Medium');
+      expect(window.location.search).toContain('filter-confidence=Low%2CHigh');
     });
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
@@ -324,7 +288,9 @@ describe('Results Table', () => {
     ]);
     await clickMenuItem(user, /Confidence/, /Medium/);
     await waitFor(() => {
-      expect(window.location.search).toContain('confidence=');
+      expect(window.location.search).toContain(
+        'filter-confidence=Low%2CHigh%2CMedium',
+      );
     });
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
@@ -332,11 +298,6 @@ describe('Results Table', () => {
     ]);
 
     await clickMenuItem(user, /Confidence/, /Clear filters/);
-    await waitFor(() => {
-      expect(window.location.search).toContain(
-        'confidence=Low%2CMedium%2CHigh',
-      );
-    });
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - OSX, Improvement, Low',
@@ -346,7 +307,7 @@ describe('Results Table', () => {
     ]);
     await clickMenuItem(user, /Confidence/, /Medium/);
     await waitFor(() => {
-      expect(window.location.search).toContain('confidence=Low%2CHigh');
+      expect(window.location.search).toContain('filter-confidence=Medium');
     });
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
