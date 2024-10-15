@@ -156,7 +156,9 @@ export default function ResultsTable() {
             .filter((possibleValue) => !filters.has(possibleValue))
             .join(',');
 
-    setTableFilters((prev) => new Map(prev).set(columnId, filters));
+    setTableFilters((previousFilters) =>
+      new Map(previousFilters).set(columnId, filters),
+    );
     rawSearchParams.set(columnId, paramsValue);
     updateRawSearchParams(rawSearchParams);
   };
