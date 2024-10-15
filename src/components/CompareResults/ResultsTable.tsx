@@ -1,4 +1,4 @@
-import { Suspense, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -107,20 +107,60 @@ export default function ResultsTable() {
     new Map() as Map<string, Set<string>>, // ColumnID -> Set<Values to remove>
   );
 
-  const onClearFilter = (columnId: string) => {
-    setTableFilters((oldFilters) => {
-      const newFilters = new Map(oldFilters);
-      newFilters.delete(columnId);
-      return newFilters;
+  useEffect(() => {
+    const initialFilters = new Map<string, Set<string>>();
+
+    cellsConfiguration.forEach(({ key, possibleValues }) => {
+      if (!possibleValues) return;
+
+      const paramsValue = rawSearchParams.get(key) ?? possibleValues.join(',');
+      initialFilters.set(
+        key,
+        new Set(
+          possibleValues.filter(
+            (possibleValue) => !paramsValue.includes(possibleValue),
+          ),
+        ),
+      );
+
+      if (!rawSearchParams.has(key)) rawSearchParams.set(key, paramsValue);
     });
+
+    updateRawSearchParams(rawSearchParams);
+    setTableFilters(initialFilters);
+  }, []);
+
+  const onClearFilter = (columnId: string) => {
+    const possibleValues = cellsConfiguration.find(
+      (cell) => cell.key === columnId,
+    )?.possibleValues;
+
+    if (!possibleValues) return;
+
+    setTableFilters((filters) => (filters.delete(columnId), new Map(filters)));
+    rawSearchParams.set(columnId, possibleValues.join(','));
+    updateRawSearchParams(rawSearchParams);
   };
 
   const onToggleFilter = (columnId: string, filters: Set<string>) => {
-    setTableFilters((oldFilters) => {
-      const newFilters = new Map(oldFilters);
-      newFilters.set(columnId, filters);
-      return newFilters;
-    });
+    const possibleValues = cellsConfiguration.find(
+      (cell) => cell.key === columnId,
+    )?.possibleValues;
+
+    if (!possibleValues) return;
+
+    const paramsValue =
+      filters.size === possibleValues.length
+        ? ''
+        : possibleValues
+            .filter((possibleValue) => !filters.has(possibleValue))
+            .join(',');
+
+    setTableFilters((previousFilters) =>
+      new Map(previousFilters).set(columnId, filters),
+    );
+    rawSearchParams.set(columnId, paramsValue);
+    updateRawSearchParams(rawSearchParams);
   };
 
   const onFrameworkChange = (newFrameworkId: Framework['id']) => {
