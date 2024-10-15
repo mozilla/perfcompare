@@ -116,7 +116,11 @@ export default function ResultsTable() {
       const paramsValue = rawSearchParams.get(key) ?? possibleValues.join(',');
       initialFilters.set(
         key,
-        new Set(possibleValues.filter((v) => !paramsValue.includes(v))),
+        new Set(
+          possibleValues.filter(
+            (possibleValue) => !paramsValue.includes(possibleValue),
+          ),
+        ),
       );
 
       if (!rawSearchParams.has(key)) rawSearchParams.set(key, paramsValue);
@@ -128,7 +132,7 @@ export default function ResultsTable() {
 
   const onClearFilter = (columnId: string) => {
     const possibleValues = cellsConfiguration.find(
-      (c) => c.key === columnId,
+      (cell) => cell.key === columnId,
     )?.possibleValues;
 
     if (!possibleValues) return;
@@ -140,7 +144,7 @@ export default function ResultsTable() {
 
   const onToggleFilter = (columnId: string, filters: Set<string>) => {
     const possibleValues = cellsConfiguration.find(
-      (c) => c.key === columnId,
+      (cell) => cell.key === columnId,
     )?.possibleValues;
 
     if (!possibleValues) return;
@@ -148,7 +152,9 @@ export default function ResultsTable() {
     const paramsValue =
       filters.size === possibleValues.length
         ? ''
-        : possibleValues.filter((v) => !filters.has(v)).join(',');
+        : possibleValues
+            .filter((possibleValue) => !filters.has(possibleValue))
+            .join(',');
 
     setTableFilters((prev) => new Map(prev).set(columnId, filters));
     rawSearchParams.set(columnId, paramsValue);
