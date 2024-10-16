@@ -23,6 +23,10 @@ const lightMode = {
     secondary: Colors.SecondaryText,
     disabled: Colors.TextDisabled,
   },
+  icons: {
+    success: Colors.IconLightSuccess,
+    error: Colors.IconLightError,
+  },
 };
 
 const darkMode = {
@@ -40,6 +44,10 @@ const darkMode = {
     primary: Colors.PrimaryTextDark,
     secondary: Colors.SecondaryTextDark,
     disabled: Colors.TextDisabledDark,
+  },
+  icons: {
+    success: Colors.IconDarkSuccess,
+    error: Colors.IconDarkError,
   },
 };
 

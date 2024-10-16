@@ -265,10 +265,10 @@ const platformIcons: Record<PlatformShortName, ReactNode> = {
   Unspecified: '',
 };
 
-const confidenceIcons = {
-  Low: <KeyboardArrowDownIcon sx={{ color: '#D7264C' }} />,
-  Medium: <DragHandleIcon sx={{ color: '#5B5B66' }} />,
-  High: <KeyboardArrowUpIcon sx={{ color: '#017A40' }} />,
+const confidenceIcon = {
+  Low: <KeyboardArrowDownIcon sx={{ color: 'icons.error' }} />,
+  Medium: <DragHandleIcon sx={{ color: 'text.secondary' }} />,
+  High: <KeyboardArrowUpIcon sx={{ color: 'icons.success' }} />,
 };
 
 const getSubtestsCompareWithBaseLink = (result: CompareResultsItem) => {
@@ -395,7 +395,7 @@ function RevisionRow(props: RevisionRowProps) {
           {deltaPercent} %{' '}
         </div>
         <div className='confidence cell' role='cell'>
-          {confidenceText && confidenceIcons[confidenceText]}
+          {confidenceText && confidenceIcon[confidenceText]}
           {confidenceText}
         </div>
         <div className='total-runs cell' role='cell'>
