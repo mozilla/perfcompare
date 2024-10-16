@@ -140,8 +140,8 @@ export default function ResultsTable() {
     } else {
       rawSearchParams.delete(`filter_${columnId}`);
     }
-
     updateRawSearchParams(rawSearchParams);
+
     setTableFilters((oldFilters) => {
       const newFilters = new Map(oldFilters);
       newFilters.set(columnId, filters);

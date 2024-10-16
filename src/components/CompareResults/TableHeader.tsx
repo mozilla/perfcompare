@@ -154,6 +154,7 @@ function TableHeader({
       lineHeight: '16px',
     }),
   };
+
   return (
     <div
       className={`${styles.tableHeader} ${styles.typography}`}
