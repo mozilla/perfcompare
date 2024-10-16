@@ -5,7 +5,7 @@ import { Bubble, ChartProps, Line } from 'react-chartjs-2';
 
 import { loader } from '../../components/CompareResults/loader';
 import ResultsView from '../../components/CompareResults/ResultsView';
-import RevisionHeader from '../../components/CompareResults/RevisionHeader';
+import TestHeader from '../../components/CompareResults/TestHeader';
 import { Strings } from '../../resources/Strings';
 import type { Repository } from '../../types/state';
 import type { Framework } from '../../types/types';
@@ -80,7 +80,7 @@ describe('Results View', () => {
       test: '3DGraphics-WebGL',
     };
 
-    renderWithRoute(<RevisionHeader result={revisionHeader} />);
+    renderWithRoute(<TestHeader result={revisionHeader} withRevision={true} />);
     const linkToSuite = await screen.findByLabelText(
       'link to suite documentation',
     );
@@ -98,7 +98,7 @@ describe('Results View', () => {
       test: '3DGraphics-WebGL',
     };
 
-    renderWithRoute(<RevisionHeader result={revisionHeader} />);
+    renderWithRoute(<TestHeader result={revisionHeader} withRevision={true} />);
     await screen.findByText(/idle-bg/);
     const linkToSuite = screen.queryByLabelText('link to suite documentation');
     expect(linkToSuite).not.toBeInTheDocument();
