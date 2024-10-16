@@ -5,9 +5,8 @@ import { Bubble, ChartProps, Line } from 'react-chartjs-2';
 
 import { loader } from '../../components/CompareResults/loader';
 import ResultsView from '../../components/CompareResults/ResultsView';
-import RevisionHeader from '../../components/CompareResults/RevisionHeader';
+import TestHeader from '../../components/CompareResults/TestHeader';
 import { Strings } from '../../resources/Strings';
-import type { Repository } from '../../types/state';
 import type { Framework } from '../../types/types';
 import { getLocationOrigin } from '../../utils/location';
 import getTestData from '../utils/fixtures';
@@ -73,14 +72,12 @@ describe('Results View', () => {
     const revisionHeader = {
       extra_options: 'e10s fission stylo webgl-ipc webrender',
       framework_id: 1 as Framework['id'],
-      new_repository_name: 'mozilla-central' as Repository['name'],
-      new_rev: 'a998c42399a8fcea623690bf65bef49de20535b4',
       option_name: 'opt',
       suite: 'allyr',
       test: '3DGraphics-WebGL',
     };
 
-    renderWithRoute(<RevisionHeader result={revisionHeader} />);
+    renderWithRoute(<TestHeader result={revisionHeader} />);
     const linkToSuite = await screen.findByLabelText(
       'link to suite documentation',
     );
@@ -91,14 +88,12 @@ describe('Results View', () => {
     const revisionHeader = {
       extra_options: 'e10s fission stylo webgl-ipc webrender',
       framework_id: 10 as Framework['id'],
-      new_repository_name: 'mozilla-central' as Repository['name'],
-      new_rev: 'a998c42399a8fcea623690bf65bef49de20535b4',
       option_name: 'opt',
       suite: 'idle-bg',
       test: '3DGraphics-WebGL',
     };
 
-    renderWithRoute(<RevisionHeader result={revisionHeader} />);
+    renderWithRoute(<TestHeader result={revisionHeader} />);
     await screen.findByText(/idle-bg/);
     const linkToSuite = screen.queryByLabelText('link to suite documentation');
     expect(linkToSuite).not.toBeInTheDocument();
