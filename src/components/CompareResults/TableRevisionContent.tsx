@@ -3,36 +3,49 @@ import { style } from 'typestyle';
 import type { compareView, compareOverTimeView } from '../../common/constants';
 import { Spacing } from '../../styles';
 import type { CompareResultsItem } from '../../types/state';
-import RevisionHeader from './RevisionHeader';
+import LinkToRevision from './LinkToRevision';
 import RevisionRow from './RevisionRow';
+import TestHeader from './TestHeader';
 
+// We're using typestyle styles on purpose, to avoid the performance impact of
+// MUI's sx prop for these numerous elements.
 const styles = {
-  tableBody: style({
-    marginTop: Spacing.Large,
+  testBlock: style({
+    /* Note that this margin will be merged with the margin below */
+    marginTop: Spacing.xLarge,
   }),
+  revisionBlock: style({ marginBottom: Spacing.Large }),
 };
 
 function TableRevisionContent(props: Props) {
   const { results, view, rowGridTemplateColumns } = props;
+  // All results are for the same test, so any results hould generate the same
+  // header appropriately.
+  // Here we use the first result for the first revision.
+  //                                         First result
+  //                               Value of the tuple |
+  //                                First revision |  |
+  //                                            |  |  |
+  //                                            v  v  v
+  const representativeResultForHeader = results[0][1][0];
 
   return (
-    <div className={styles.tableBody} role='rowgroup'>
-      {/* TODO change this to a test header */}
-      <RevisionHeader result={results[0][1][0]} />
-      <div>
-        {results.length > 0 &&
-          results.map(([, listOfResults]) =>
-            // TODO add a revision header
-            listOfResults.map((result) => (
+    <div className={styles.testBlock} role='rowgroup'>
+      <TestHeader result={representativeResultForHeader} />
+      {results.length > 0 &&
+        results.map(([revision, listOfResults]) => (
+          <div className={styles.revisionBlock} key={revision}>
+            <LinkToRevision result={listOfResults[0]} />
+            {listOfResults.map((result) => (
               <RevisionRow
                 key={result.platform}
                 result={result}
                 view={view}
                 gridTemplateColumns={rowGridTemplateColumns}
               />
-            )),
-          )}
-      </div>
+            ))}
+          </div>
+        ))}
     </div>
   );
 }

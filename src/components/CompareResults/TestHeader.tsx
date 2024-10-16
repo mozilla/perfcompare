@@ -1,14 +1,9 @@
 import { Link } from '@mui/material';
 import { style } from 'typestyle';
 
-import { Strings } from '../../resources/Strings';
 import { Colors, Spacing } from '../../styles';
 import type { CompareResultsItem } from '../../types/state';
-import {
-  getTreeherderURL,
-  truncateHash,
-  getDocsURL,
-} from '../../utils/helpers';
+import { getDocsURL } from '../../utils/helpers';
 
 const styles = {
   revisionHeader: style({
@@ -16,7 +11,7 @@ const styles = {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingBottom: '12px',
+    paddingBottom: '8px',
     marginBottom: '12px',
   }),
   tagsOptions: style({
@@ -60,13 +55,7 @@ const styles = {
 
 type HeaderProperties = Pick<
   CompareResultsItem,
-  | 'extra_options'
-  | 'framework_id'
-  | 'new_repository_name'
-  | 'new_rev'
-  | 'option_name'
-  | 'suite'
-  | 'test'
+  'extra_options' | 'framework_id' | 'option_name' | 'suite' | 'test'
 >;
 
 function createTitle(
@@ -98,25 +87,17 @@ function getExtraOptions(extraOptions: string) {
   return extraOptions ? extraOptions.split(' ') : [];
 }
 
-function RevisionHeader(props: RevisionHeaderProps) {
+export default function TestHeader(props: TestHeaderProps) {
   const { result } = props;
   const { docsURL, isLinkSupported } = getDocsURL(
     result.suite,
     result.framework_id,
   );
   const extraOptions = getExtraOptions(result.extra_options);
-  const shortHash = truncateHash(result.new_rev);
   return (
     <div className={styles.revisionHeader}>
       <div className={styles.typography}>
-        <strong>{createTitle(result, docsURL, isLinkSupported)}</strong>{' '}
-        <Link
-          href={getTreeherderURL(result.new_rev, result.new_repository_name)}
-          target='_blank'
-          title={`${Strings.components.revisionRow.title.jobLink} ${shortHash}`}
-        >
-          {shortHash}
-        </Link>
+        <strong>{createTitle(result, docsURL, isLinkSupported)}</strong>
       </div>
       <div className={styles.tagsOptions}>
         <span className={styles.chip}>{result.option_name}</span>
@@ -130,8 +111,6 @@ function RevisionHeader(props: RevisionHeaderProps) {
   );
 }
 
-interface RevisionHeaderProps {
+interface TestHeaderProps {
   result: HeaderProperties;
 }
-
-export default RevisionHeader;
