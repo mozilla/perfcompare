@@ -136,9 +136,9 @@ const styles = {
 const stylesCard = ExpandableRowStyles();
 
 const confidenceIcons = {
-  Low: <KeyboardArrowDownIcon sx={{ color: '#D7264C' }} />,
-  Medium: <DragHandleIcon sx={{ color: '#5B5B66' }} />,
-  High: <KeyboardArrowUpIcon sx={{ color: '#017A40' }} />,
+  Low: <KeyboardArrowDownIcon sx={{ color: 'icons.error' }} />,
+  Medium: <DragHandleIcon sx={{ color: 'text.secondary' }} />,
+  High: <KeyboardArrowUpIcon sx={{ color: 'icons.success' }} />,
 };
 
 function determineStatus(improvement: boolean, regression: boolean) {
