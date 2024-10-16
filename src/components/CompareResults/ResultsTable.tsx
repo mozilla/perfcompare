@@ -124,32 +124,27 @@ export default function ResultsTable() {
   }, [rawSearchParams]);
 
   const onClearFilter = (columnId: string) => {
+    rawSearchParams.delete(`filter_${columnId}`);
+    updateRawSearchParams(rawSearchParams);
+
     setTableFilters((oldFilters) => {
       const newFilters = new Map(oldFilters);
       newFilters.delete(columnId);
-
-      rawSearchParams.delete(`filter_${columnId}`);
-      updateRawSearchParams(rawSearchParams);
-
       return newFilters;
     });
   };
 
   const onToggleFilter = (columnId: string, filters: Set<string>) => {
+    if (filters.size > 0) {
+      rawSearchParams.set(`filter_${columnId}`, Array.from(filters).join(','));
+    } else {
+      rawSearchParams.delete(`filter_${columnId}`);
+    }
+    updateRawSearchParams(rawSearchParams);
+
     setTableFilters((oldFilters) => {
       const newFilters = new Map(oldFilters);
       newFilters.set(columnId, filters);
-
-      if (filters.size > 0) {
-        rawSearchParams.set(
-          `filter_${columnId}`,
-          Array.from(filters).join(','),
-        );
-      } else {
-        rawSearchParams.delete(`filter_${columnId}`);
-      }
-      updateRawSearchParams(rawSearchParams);
-
       return newFilters;
     });
   };
