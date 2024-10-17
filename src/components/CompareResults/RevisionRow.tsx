@@ -272,7 +272,7 @@ function determineSign(baseMedianValue: number, newMedianValue: number) {
   return '';
 }
 
-function determineStandartDeviationSign(baseStddev: number, newStddev: number) {
+function determineStandardDeviationSign(baseStddev: number, newStddev: number) {
   if (baseStddev > newStddev) return '>';
   if (baseStddev < newStddev) return '<';
   return '';
@@ -400,7 +400,7 @@ function RevisionRow(props: RevisionRowProps) {
           {baseStddev}{' '}
         </div>
         <div className='comparison-standard-sign cell' role='cell'>
-          {determineStandartDeviationSign(baseStddev, newStddev)}
+          {determineStandardDeviationSign(baseStddev, newStddev)}
         </div>
         <div className='Standard-deviation-new cell' role='cell'>
           {' '}
