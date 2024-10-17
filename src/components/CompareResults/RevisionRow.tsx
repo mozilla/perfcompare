@@ -88,6 +88,9 @@ const stylesLight = {
         backgroundColor: Colors.Background200,
         justifyContent: 'center',
       },
+      '.comparison-standard-sign': {
+        backgroundColor: Colors.Background200,
+      },
       '.Standard-deviation-new': {
         backgroundColor: Colors.Background200,
         justifyContent: 'center',
@@ -170,10 +173,15 @@ const stylesDark = {
       '.Standard-deviation-base': {
         backgroundColor: Colors.Background200Dark,
         justifyContent: 'center',
+        textAlign: 'center',
+      },
+      '.comparison-standard-sign': {
+        backgroundColor: Colors.Background200Dark,
       },
       '.Standard-deviation-new': {
         backgroundColor: Colors.Background200Dark,
         justifyContent: 'center',
+        textAlign: 'center',
       },
       '.platform': {
         backgroundColor: Colors.Background200Dark,
@@ -261,6 +269,12 @@ function determineStatusHintClass(improvement: boolean, regression: boolean) {
 function determineSign(baseMedianValue: number, newMedianValue: number) {
   if (baseMedianValue > newMedianValue) return '>';
   if (baseMedianValue < newMedianValue) return '<';
+  return '';
+}
+
+function determineStandartDeviationSign(baseStddev: number, newStddev: number) {
+  if (baseStddev > newStddev) return '>';
+  if (baseStddev < newStddev) return '<';
   return '';
 }
 
@@ -382,10 +396,15 @@ function RevisionRow(props: RevisionRowProps) {
           {newMedianValue} {newUnit}
         </div>
         <div className='Standard-deviation-base cell' role='cell'>
-          {baseStddev}
+          {' '}
+          {baseStddev}{' '}
+        </div>
+        <div className='comparison-standard-sign cell' role='cell'>
+          {determineStandartDeviationSign(baseStddev, newStddev)}
         </div>
         <div className='Standard-deviation-new cell' role='cell'>
-          {newStddev}
+          {' '}
+          {newStddev}{' '}
         </div>
         <div className='status cell' role='cell'>
           <span

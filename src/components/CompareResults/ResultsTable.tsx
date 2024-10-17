@@ -51,6 +51,10 @@ const cellsConfiguration: CompareResultsTableConfig[] = [
     gridWidth: '1fr',
   },
   {
+    key: 'comparisonStandardSign',
+    gridWidth: '0.2fr',
+  },
+  {
     name: 'Standard Deviation New',
     key: 'standevnew',
     gridWidth: '1fr',

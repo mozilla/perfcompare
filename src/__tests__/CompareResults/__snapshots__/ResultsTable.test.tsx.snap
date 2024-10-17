@@ -987,7 +987,7 @@ exports[`Results Table Should match snapshot 1`] = `
                   </div>
                 </div>
                 <div
-                  class="f1ppsmgt fr2n4tx"
+                  class="fqnq6uq fr2n4tx"
                   data-testid="table-header"
                   role="row"
                 >
@@ -1044,6 +1044,10 @@ exports[`Results Table Should match snapshot 1`] = `
                   >
                     Standard Deviation Base
                   </div>
+                  <div
+                    class="cell comparisonStandardSign-header"
+                    role="columnheader"
+                  />
                   <div
                     class="cell standevnew-header"
                     role="columnheader"
@@ -1215,7 +1219,7 @@ exports[`Results Table Should match snapshot 1`] = `
                         </div>
                         <div>
                           <div
-                            class="revisionRow f15dx2nx fp4ugv1 MuiBox-root css-z81lu2"
+                            class="revisionRow f5kpdvl fp4ugv1 MuiBox-root css-p80lp4"
                             role="row"
                           >
                             <div
@@ -1272,13 +1276,21 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="Standard-deviation-base cell"
                               role="cell"
                             >
+                               
                               0
+                               
                             </div>
+                            <div
+                              class="comparison-standard-sign cell"
+                              role="cell"
+                            />
                             <div
                               class="Standard-deviation-new cell"
                               role="cell"
                             >
+                               
                               0
+                               
                             </div>
                             <div
                               class="status cell"
@@ -1442,7 +1454,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow f15dx2nx fp4ugv1 MuiBox-root css-z81lu2"
+                            class="revisionRow f5kpdvl fp4ugv1 MuiBox-root css-p80lp4"
                             role="row"
                           >
                             <div
@@ -1498,13 +1510,21 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="Standard-deviation-base cell"
                               role="cell"
                             >
+                               
                               0
+                               
                             </div>
+                            <div
+                              class="comparison-standard-sign cell"
+                              role="cell"
+                            />
                             <div
                               class="Standard-deviation-new cell"
                               role="cell"
                             >
+                               
                               0
+                               
                             </div>
                             <div
                               class="status cell"
@@ -1668,7 +1688,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow f15dx2nx fp4ugv1 MuiBox-root css-z81lu2"
+                            class="revisionRow f5kpdvl fp4ugv1 MuiBox-root css-p80lp4"
                             role="row"
                           >
                             <div
@@ -1725,13 +1745,21 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="Standard-deviation-base cell"
                               role="cell"
                             >
+                               
                               0
+                               
                             </div>
+                            <div
+                              class="comparison-standard-sign cell"
+                              role="cell"
+                            />
                             <div
                               class="Standard-deviation-new cell"
                               role="cell"
                             >
+                               
                               0
+                               
                             </div>
                             <div
                               class="status cell"
@@ -1935,7 +1963,7 @@ exports[`Results Table Should match snapshot 1`] = `
                         </div>
                         <div>
                           <div
-                            class="revisionRow f15dx2nx fp4ugv1 MuiBox-root css-z81lu2"
+                            class="revisionRow f5kpdvl fp4ugv1 MuiBox-root css-p80lp4"
                             role="row"
                           >
                             <div
@@ -1992,13 +2020,21 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="Standard-deviation-base cell"
                               role="cell"
                             >
+                               
                               0
+                               
                             </div>
+                            <div
+                              class="comparison-standard-sign cell"
+                              role="cell"
+                            />
                             <div
                               class="Standard-deviation-new cell"
                               role="cell"
                             >
+                               
                               0
+                               
                             </div>
                             <div
                               class="status cell"
