@@ -4,6 +4,7 @@ import { style } from 'typestyle';
 import { Colors, Spacing } from '../../styles';
 import type { CompareResultsItem } from '../../types/state';
 import { getDocsURL } from '../../utils/helpers';
+import LinkToRevision from './LinkToRevision';
 
 const styles = {
   revisionHeader: style({
@@ -55,7 +56,13 @@ const styles = {
 
 type HeaderProperties = Pick<
   CompareResultsItem,
-  'extra_options' | 'framework_id' | 'option_name' | 'suite' | 'test'
+  | 'extra_options'
+  | 'framework_id'
+  | 'option_name'
+  | 'suite'
+  | 'test'
+  | 'new_repository_name'
+  | 'new_rev'
 >;
 
 function createTitle(
@@ -88,7 +95,7 @@ function getExtraOptions(extraOptions: string) {
 }
 
 export default function TestHeader(props: TestHeaderProps) {
-  const { result } = props;
+  const { result, withRevision } = props;
   const { docsURL, isLinkSupported } = getDocsURL(
     result.suite,
     result.framework_id,
@@ -98,6 +105,12 @@ export default function TestHeader(props: TestHeaderProps) {
     <div className={styles.revisionHeader}>
       <div className={styles.typography}>
         <strong>{createTitle(result, docsURL, isLinkSupported)}</strong>
+        {withRevision && (
+          <>
+            {' '}
+            <LinkToRevision result={result} />
+          </>
+        )}
       </div>
       <div className={styles.tagsOptions}>
         <span className={styles.chip}>{result.option_name}</span>
@@ -113,4 +126,5 @@ export default function TestHeader(props: TestHeaderProps) {
 
 interface TestHeaderProps {
   result: HeaderProperties;
+  withRevision: boolean;
 }

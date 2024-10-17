@@ -19,6 +19,11 @@ const styles = {
 
 function TableRevisionContent(props: Props) {
   const { results, view, rowGridTemplateColumns } = props;
+
+  if (!results.length) {
+    return null;
+  }
+
   // All results are for the same test, so any results hould generate the same
   // header appropriately.
   // Here we use the first result for the first revision.
@@ -28,24 +33,27 @@ function TableRevisionContent(props: Props) {
   //                                            |  |  |
   //                                            v  v  v
   const representativeResultForHeader = results[0][1][0];
+  const hasMoreThanOneNewRev = results.length > 1;
 
   return (
     <div className={styles.testBlock} role='rowgroup'>
-      <TestHeader result={representativeResultForHeader} />
-      {results.length > 0 &&
-        results.map(([revision, listOfResults]) => (
-          <div className={styles.revisionBlock} key={revision}>
-            <LinkToRevision result={listOfResults[0]} />
-            {listOfResults.map((result) => (
-              <RevisionRow
-                key={result.platform}
-                result={result}
-                view={view}
-                gridTemplateColumns={rowGridTemplateColumns}
-              />
-            ))}
-          </div>
-        ))}
+      <TestHeader
+        result={representativeResultForHeader}
+        withRevision={!hasMoreThanOneNewRev}
+      />
+      {results.map(([revision, listOfResults]) => (
+        <div className={styles.revisionBlock} key={revision}>
+          {hasMoreThanOneNewRev && <LinkToRevision result={listOfResults[0]} />}
+          {listOfResults.map((result) => (
+            <RevisionRow
+              key={result.platform}
+              result={result}
+              view={view}
+              gridTemplateColumns={rowGridTemplateColumns}
+            />
+          ))}
+        </div>
+      ))}
     </div>
   );
 }
