@@ -717,7 +717,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                             <div
                               class="f7opyze MuiBox-root css-7d9gin"
                             >
-                               (Oct 8, 2024 - Oct 9, 2024)
+                              (Oct 8, 2024 - Oct 9, 2024)
                             </div>
                           </div>
                         </div>
@@ -1137,7 +1137,7 @@ exports[`With search parameters both search components are populated as expected
                 <div
                   class="f7opyze MuiBox-root css-7d9gin"
                 >
-                   (Oct 8, 2024 - Oct 9, 2024)
+                  (Oct 8, 2024 - Oct 9, 2024)
                 </div>
               </div>
             </div>
@@ -2191,7 +2191,7 @@ exports[`With search parameters both search components are populated as expected
                 <div
                   class="f7opyze MuiBox-root css-7d9gin"
                 >
-                   (Oct 8, 2024 - Oct 9, 2024)
+                  (Oct 8, 2024 - Oct 9, 2024)
                 </div>
               </div>
             </div>
@@ -3245,7 +3245,7 @@ exports[`With search parameters displays the default value for framework if the 
                 <div
                   class="f7opyze MuiBox-root css-7d9gin"
                 >
-                   (Oct 8, 2024 - Oct 9, 2024)
+                  (Oct 8, 2024 - Oct 9, 2024)
                 </div>
               </div>
             </div>
@@ -4299,7 +4299,7 @@ exports[`With search parameters displays the default values if some values are b
                 <div
                   class="f7opyze MuiBox-root css-7d9gin"
                 >
-                   (Oct 8, 2024 - Oct 9, 2024)
+                  (Oct 8, 2024 - Oct 9, 2024)
                 </div>
               </div>
             </div>
