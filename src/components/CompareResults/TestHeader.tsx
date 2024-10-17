@@ -1,14 +1,10 @@
 import { Link } from '@mui/material';
 import { style } from 'typestyle';
 
-import { Strings } from '../../resources/Strings';
 import { Colors, Spacing } from '../../styles';
-import type { RevisionsHeader } from '../../types/state';
-import {
-  getTreeherderURL,
-  truncateHash,
-  getDocsURL,
-} from '../../utils/helpers';
+import type { CompareResultsItem } from '../../types/state';
+import { getDocsURL } from '../../utils/helpers';
+import LinkToRevision from './LinkToRevision';
 
 const styles = {
   revisionHeader: style({
@@ -16,7 +12,7 @@ const styles = {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingBottom: '12px',
+    paddingBottom: '8px',
     marginBottom: '12px',
   }),
   tagsOptions: style({
@@ -58,12 +54,23 @@ const styles = {
   }),
 };
 
+type HeaderProperties = Pick<
+  CompareResultsItem,
+  | 'extra_options'
+  | 'framework_id'
+  | 'option_name'
+  | 'suite'
+  | 'test'
+  | 'new_repository_name'
+  | 'new_rev'
+>;
+
 function createTitle(
-  header: RevisionsHeader,
+  result: HeaderProperties,
   docsURL: string,
   isLinkSupported: boolean,
 ) {
-  const isTestUnavailable = header.test === '' || header.suite === header.test;
+  const isTestUnavailable = result.test === '' || result.suite === result.test;
   if (isLinkSupported) {
     return (
       <>
@@ -73,13 +80,13 @@ function createTitle(
           target='_blank'
           href={docsURL}
         >
-          {header.suite}
+          {result.suite}
         </Link>
-        {isTestUnavailable ? '' : ` ${header.test}`}
+        {isTestUnavailable ? '' : ` ${result.test}`}
       </>
     );
   } else {
-    return isTestUnavailable ? header.suite : `${header.suite} ${header.test}`;
+    return isTestUnavailable ? result.suite : `${result.suite} ${result.test}`;
   }
 }
 
@@ -87,28 +94,26 @@ function getExtraOptions(extraOptions: string) {
   return extraOptions ? extraOptions.split(' ') : [];
 }
 
-function RevisionHeader(props: RevisionHeaderProps) {
-  const { header } = props;
+export default function TestHeader(props: TestHeaderProps) {
+  const { result, withRevision } = props;
   const { docsURL, isLinkSupported } = getDocsURL(
-    header.suite,
-    header.framework_id,
+    result.suite,
+    result.framework_id,
   );
-  const extraOptions = getExtraOptions(header.extra_options);
-  const shortHash = truncateHash(header.new_rev);
+  const extraOptions = getExtraOptions(result.extra_options);
   return (
     <div className={styles.revisionHeader}>
       <div className={styles.typography}>
-        <strong>{createTitle(header, docsURL, isLinkSupported)}</strong>{' '}
-        <Link
-          href={getTreeherderURL(header.new_rev, header.new_repo)}
-          target='_blank'
-          title={`${Strings.components.revisionRow.title.jobLink} ${shortHash}`}
-        >
-          {shortHash}
-        </Link>
+        <strong>{createTitle(result, docsURL, isLinkSupported)}</strong>
+        {withRevision && (
+          <>
+            {' '}
+            <LinkToRevision result={result} />
+          </>
+        )}
       </div>
       <div className={styles.tagsOptions}>
-        <span className={styles.chip}>{header.option_name}</span>
+        <span className={styles.chip}>{result.option_name}</span>
         {extraOptions.map((option, index) => (
           <span className={styles.chip} key={index}>
             {option}
@@ -119,8 +124,7 @@ function RevisionHeader(props: RevisionHeaderProps) {
   );
 }
 
-interface RevisionHeaderProps {
-  header: RevisionsHeader;
+interface TestHeaderProps {
+  result: HeaderProperties;
+  withRevision: boolean;
 }
-
-export default RevisionHeader;

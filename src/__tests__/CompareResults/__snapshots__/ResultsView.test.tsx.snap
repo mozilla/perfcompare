@@ -1066,11 +1066,11 @@ exports[`Results View The table should match snapshot and other elements should 
           style="overflow-anchor: none;"
         >
           <div
-            class="f1otqxop"
+            class="f1d2zsj2"
             role="rowgroup"
           >
             <div
-              class="fx9q187"
+              class="fh103jg"
             >
               <div
                 class="f897l9y"
@@ -1088,7 +1088,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </strong>
                  
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f897l9y css-1qhous5-MuiTypography-root-MuiLink-root"
                   href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
                   target="_blank"
                   title="open treeherder view for spam"
@@ -1126,7 +1126,9 @@ exports[`Results View The table should match snapshot and other elements should 
                 </span>
               </div>
             </div>
-            <div>
+            <div
+              class="fcdpsbx"
+            >
               <div
                 class="revisionRow f1b00bec fp4ugv1 MuiBox-root css-1am90bh"
                 role="row"
