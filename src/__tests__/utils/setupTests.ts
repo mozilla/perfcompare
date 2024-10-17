@@ -98,7 +98,7 @@ beforeEach(function () {
 });
 
 beforeEach(() => {
-  jest.useFakeTimers();
+  jest.useFakeTimers({ now: new Date('Wed, 09 Oct 2024 12:45:17 GMT') });
   store = createStore();
 });
 

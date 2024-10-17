@@ -234,13 +234,13 @@ describe('Compare Over Time', () => {
     ).not.toBeInTheDocument();
 
     const timeRangeDropdown = screen.getByRole('button', {
-      name: 'Time range Last day',
+      name: /Time range Last day/i,
     });
 
     await user.click(timeRangeDropdown);
     expect(screen.getByRole('listbox')).toMatchSnapshot();
     const last2daysItem = screen.getByRole('option', {
-      name: 'Last 2 days',
+      name: /Last 2 days/i,
     });
 
     await user.click(last2daysItem);
@@ -450,7 +450,7 @@ describe('Compare Over Time', () => {
     ).toBeInTheDocument();
 
     expect(
-      screen.getByRole('button', { name: 'Time range Last day' }),
+      screen.getByRole('button', { name: /Time range Last day/i }),
     ).toBeInTheDocument();
 
     // The new repo dropdown and search input should be visible
@@ -541,11 +541,11 @@ describe('Compare Over Time', () => {
 
     //change time range
     const timeRangeDropdown = screen.getByRole('button', {
-      name: 'Time range Last day',
+      name: /Time range Last day/i,
     });
     await user.click(timeRangeDropdown);
     const last2daysItem = screen.getByRole('option', {
-      name: 'Last 2 days',
+      name: /Last 2 days/i,
     });
     await user.click(last2daysItem);
 
