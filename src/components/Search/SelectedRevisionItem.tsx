@@ -11,7 +11,6 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import dayjs from 'dayjs';
 
 import { repoMap } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
@@ -23,6 +22,7 @@ import {
   getLatestCommitMessage,
   getTreeherderURL,
 } from '../../utils/helpers';
+import DateTime from './DateTime';
 
 const base = Strings.components.searchDefault.base;
 const warning = base.collapsed.warnings.comparison;
@@ -49,12 +49,6 @@ function SelectedRevisionItem({
   const styles = SelectRevsStyles(mode);
   const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);
-  const itemDate = dayjs(item.push_timestamp * 1000);
-  const date = itemDate.format('MM/DD/YY');
-  const localTime = itemDate.format('HH:mm');
-  const gmtOffset = itemDate.utcOffset() / 60;
-  const gmtFormatted = `GMT${gmtOffset >= 0 ? `+${gmtOffset}` : gmtOffset}`;
-  const utcTime = itemDate.utc().format('MM/DD/YY HH:mm [UTC]');
 
   const repository = repoMap[item.repository_id] ?? 'try';
 
@@ -114,19 +108,7 @@ function SelectedRevisionItem({
                     className='time-icon'
                     fontSize='small'
                   />
-                  <Tooltip title={`${utcTime}`}>
-                    <span>
-                      {date}{' '}
-                      <span style={{ fontWeight: 'bold' }}>
-                        {/* Darker color for the time */}
-                        {localTime}
-                      </span>{' '}
-                      <span style={{ fontWeight: 'bold' }}>
-                        {' '}
-                        {gmtFormatted}
-                      </span>
-                    </span>
-                  </Tooltip>
+                  <DateTime pushTimestamp={item.push_timestamp} />
                 </div>
               </div>
             </React.Fragment>

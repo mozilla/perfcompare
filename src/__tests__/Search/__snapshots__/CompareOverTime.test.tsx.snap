@@ -628,24 +628,15 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
                         />
                       </svg>
                       <span
-                        aria-label="03/29/51 00:00 UTC"
+                        aria-label="Mar 29, 1951 0:0 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        03/29/51
+                        Mar 29, 1951
                          
-                        <span
-                          style="font-weight: bold;"
-                        >
-                          00:00
-                        </span>
+                        0:0
                          
-                        <span
-                          style="font-weight: bold;"
-                        >
-                           
-                          GMT+0
-                        </span>
+                        GMT+0
                       </span>
                     </div>
                   </div>
@@ -1226,24 +1217,15 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
                         />
                       </svg>
                       <span
-                        aria-label="03/29/51 00:00 UTC"
+                        aria-label="Mar 29, 1951 0:0 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        03/29/51
+                        Mar 29, 1951
                          
-                        <span
-                          style="font-weight: bold;"
-                        >
-                          00:00
-                        </span>
+                        0:0
                          
-                        <span
-                          style="font-weight: bold;"
-                        >
-                           
-                          GMT+0
-                        </span>
+                        GMT+0
                       </span>
                     </div>
                   </div>
@@ -1546,24 +1528,15 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
                         />
                       </svg>
                       <span
-                        aria-label="03/29/51 00:00 UTC"
+                        aria-label="Mar 29, 1951 0:0 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        03/29/51
+                        Mar 29, 1951
                          
-                        <span
-                          style="font-weight: bold;"
-                        >
-                          00:00
-                        </span>
+                        0:0
                          
-                        <span
-                          style="font-weight: bold;"
-                        >
-                           
-                          GMT+0
-                        </span>
+                        GMT+0
                       </span>
                     </div>
                   </div>
@@ -2269,24 +2242,15 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                         />
                       </svg>
                       <span
-                        aria-label="03/29/51 00:00 UTC"
+                        aria-label="Mar 29, 1951 0:0 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        03/29/51
+                        Mar 29, 1951
                          
-                        <span
-                          style="font-weight: bold;"
-                        >
-                          00:00
-                        </span>
+                        0:0
                          
-                        <span
-                          style="font-weight: bold;"
-                        >
-                           
-                          GMT+0
-                        </span>
+                        GMT+0
                       </span>
                     </div>
                   </div>
@@ -2404,24 +2368,15 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                         />
                       </svg>
                       <span
-                        aria-label="07/04/20 00:00 UTC"
+                        aria-label="Jul 4, 2020 0:0 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        07/04/20
+                        Jul 4, 2020
                          
-                        <span
-                          style="font-weight: bold;"
-                        >
-                          00:00
-                        </span>
+                        0:0
                          
-                        <span
-                          style="font-weight: bold;"
-                        >
-                           
-                          GMT+0
-                        </span>
+                        GMT+0
                       </span>
                     </div>
                   </div>
@@ -2905,24 +2860,15 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                         />
                       </svg>
                       <span
-                        aria-label="03/29/51 00:00 UTC"
+                        aria-label="Mar 29, 1951 0:0 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        03/29/51
+                        Mar 29, 1951
                          
-                        <span
-                          style="font-weight: bold;"
-                        >
-                          00:00
-                        </span>
+                        0:0
                          
-                        <span
-                          style="font-weight: bold;"
-                        >
-                           
-                          GMT+0
-                        </span>
+                        GMT+0
                       </span>
                     </div>
                   </div>
@@ -3225,24 +3171,15 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                         />
                       </svg>
                       <span
-                        aria-label="03/29/51 00:00 UTC"
+                        aria-label="Mar 29, 1951 0:0 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        03/29/51
+                        Mar 29, 1951
                          
-                        <span
-                          style="font-weight: bold;"
-                        >
-                          00:00
-                        </span>
+                        0:0
                          
-                        <span
-                          style="font-weight: bold;"
-                        >
-                           
-                          GMT+0
-                        </span>
+                        GMT+0
                       </span>
                     </div>
                   </div>

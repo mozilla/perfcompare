@@ -8,20 +8,13 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Radio from '@mui/material/Radio';
-import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import dayjs from 'dayjs';
-import timezone from 'dayjs/plugin/timezone';
-import utc from 'dayjs/plugin/utc';
 import { style } from 'typestyle';
 
 import { Spacing } from '../../styles';
 import type { Changeset } from '../../types/state';
 import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
-
-// day.js with timezone support
-dayjs.extend(utc);
-dayjs.extend(timezone);
+import DateTime from './DateTime';
 
 interface SearchResultsListItemProps {
   index: number;
@@ -72,19 +65,6 @@ function SearchResultsListItem({
   const ListItemComponent = listItemComponent === 'radio' ? Radio : Checkbox;
   const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);
-
-  const itemDate = dayjs.unix(item.push_timestamp);
-
-  const date = itemDate.format('MM/DD/YY');
-  const localTime = itemDate.format('HH:mm');
-
-  // convert timezone to GMT
-  const gmtOffset = `GMT${itemDate
-    .format('Z')
-    .replace(':00', '')
-    .replace(/^([+-])0?/, '$1')}`;
-
-  const utcTime = itemDate.utc().format('MM/DD/YY HH:mm [UTC]');
 
   const onToggleAction = () => {
     onToggle(item);
@@ -142,19 +122,7 @@ function SearchResultsListItem({
                       className='time-icon'
                       fontSize='small'
                     />
-
-                    {/* Tooltip with UTC time */}
-                    <Tooltip title={`${utcTime}`}>
-                      <span>
-                        {date}{' '}
-                        <span style={{ fontWeight: 'bold' }}>
-                          {' '}
-                          {/* Darker color for the time */}
-                          {localTime}
-                        </span>{' '}
-                        <span style={{ fontWeight: 'bold' }}> {gmtOffset}</span>
-                      </span>
-                    </Tooltip>
+                    <DateTime pushTimestamp={item.push_timestamp} />
                   </div>
                 </div>
               </Fragment>

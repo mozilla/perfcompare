@@ -1363,24 +1363,15 @@ exports[`With search parameters both search components are populated as expected
                         />
                       </svg>
                       <span
-                        aria-label="07/29/87 00:00 UTC"
+                        aria-label="Jul 29, 1987 0:0 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        07/29/87
+                        Jul 29, 1987
                          
-                        <span
-                          style="font-weight: bold;"
-                        >
-                          00:00
-                        </span>
+                        0:0
                          
-                        <span
-                          style="font-weight: bold;"
-                        >
-                           
-                          GMT+0
-                        </span>
+                        GMT+0
                       </span>
                     </div>
                   </div>
@@ -1905,24 +1896,15 @@ exports[`With search parameters both search components are populated as expected
                         />
                       </svg>
                       <span
-                        aria-label="07/29/87 00:00 UTC"
+                        aria-label="Jul 29, 1987 0:0 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        07/29/87
+                        Jul 29, 1987
                          
-                        <span
-                          style="font-weight: bold;"
-                        >
-                          00:00
-                        </span>
+                        0:0
                          
-                        <span
-                          style="font-weight: bold;"
-                        >
-                           
-                          GMT+0
-                        </span>
+                        GMT+0
                       </span>
                     </div>
                   </div>
@@ -2446,24 +2428,15 @@ exports[`With search parameters both search components are populated as expected
                         />
                       </svg>
                       <span
-                        aria-label="07/04/20 00:00 UTC"
+                        aria-label="Jul 4, 2020 0:0 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        07/04/20
+                        Jul 4, 2020
                          
-                        <span
-                          style="font-weight: bold;"
-                        >
-                          00:00
-                        </span>
+                        0:0
                          
-                        <span
-                          style="font-weight: bold;"
-                        >
-                           
-                          GMT+0
-                        </span>
+                        GMT+0
                       </span>
                     </div>
                   </div>
@@ -2988,24 +2961,15 @@ exports[`With search parameters both search components are populated as expected
                         />
                       </svg>
                       <span
-                        aria-label="07/04/20 00:00 UTC"
+                        aria-label="Jul 4, 2020 0:0 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        07/04/20
+                        Jul 4, 2020
                          
-                        <span
-                          style="font-weight: bold;"
-                        >
-                          00:00
-                        </span>
+                        0:0
                          
-                        <span
-                          style="font-weight: bold;"
-                        >
-                           
-                          GMT+0
-                        </span>
+                        GMT+0
                       </span>
                     </div>
                   </div>
@@ -3529,24 +3493,15 @@ exports[`With search parameters displays the default value for framework if the 
                         />
                       </svg>
                       <span
-                        aria-label="07/29/87 00:00 UTC"
+                        aria-label="Jul 29, 1987 0:0 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        07/29/87
+                        Jul 29, 1987
                          
-                        <span
-                          style="font-weight: bold;"
-                        >
-                          00:00
-                        </span>
+                        0:0
                          
-                        <span
-                          style="font-weight: bold;"
-                        >
-                           
-                          GMT+0
-                        </span>
+                        GMT+0
                       </span>
                     </div>
                   </div>
@@ -4071,24 +4026,15 @@ exports[`With search parameters displays the default value for framework if the 
                         />
                       </svg>
                       <span
-                        aria-label="07/29/87 00:00 UTC"
+                        aria-label="Jul 29, 1987 0:0 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        07/29/87
+                        Jul 29, 1987
                          
-                        <span
-                          style="font-weight: bold;"
-                        >
-                          00:00
-                        </span>
+                        0:0
                          
-                        <span
-                          style="font-weight: bold;"
-                        >
-                           
-                          GMT+0
-                        </span>
+                        GMT+0
                       </span>
                     </div>
                   </div>

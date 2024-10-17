@@ -104,25 +104,15 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                   />
                 </svg>
                 <span
-                  aria-label="03/29/51 00:00 UTC"
+                  aria-label="Mar 29, 1951 0:0 UTC"
                   class=""
                   data-mui-internal-clone-element="true"
                 >
-                  03/29/51
+                  Mar 29, 1951
                    
-                  <span
-                    style="font-weight: bold;"
-                  >
-                     
-                    00:00
-                  </span>
+                  0:0
                    
-                  <span
-                    style="font-weight: bold;"
-                  >
-                     
-                    GMT+0
-                  </span>
+                  GMT+0
                 </span>
               </div>
             </div>
@@ -233,25 +223,15 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                   />
                 </svg>
                 <span
-                  aria-label="02/22/58 00:00 UTC"
+                  aria-label="Feb 22, 1958 0:0 UTC"
                   class=""
                   data-mui-internal-clone-element="true"
                 >
-                  02/22/58
+                  Feb 22, 1958
                    
-                  <span
-                    style="font-weight: bold;"
-                  >
-                     
-                    00:00
-                  </span>
+                  0:0
                    
-                  <span
-                    style="font-weight: bold;"
-                  >
-                     
-                    GMT+0
-                  </span>
+                  GMT+0
                 </span>
               </div>
             </div>
@@ -362,25 +342,15 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                   />
                 </svg>
                 <span
-                  aria-label="07/29/87 00:00 UTC"
+                  aria-label="Jul 29, 1987 0:0 UTC"
                   class=""
                   data-mui-internal-clone-element="true"
                 >
-                  07/29/87
+                  Jul 29, 1987
                    
-                  <span
-                    style="font-weight: bold;"
-                  >
-                     
-                    00:00
-                  </span>
+                  0:0
                    
-                  <span
-                    style="font-weight: bold;"
-                  >
-                     
-                    GMT+0
-                  </span>
+                  GMT+0
                 </span>
               </div>
             </div>
@@ -491,25 +461,15 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                   />
                 </svg>
                 <span
-                  aria-label="07/04/20 00:00 UTC"
+                  aria-label="Jul 4, 2020 0:0 UTC"
                   class=""
                   data-mui-internal-clone-element="true"
                 >
-                  07/04/20
+                  Jul 4, 2020
                    
-                  <span
-                    style="font-weight: bold;"
-                  >
-                     
-                    00:00
-                  </span>
+                  0:0
                    
-                  <span
-                    style="font-weight: bold;"
-                  >
-                     
-                    GMT+0
-                  </span>
+                  GMT+0
                 </span>
               </div>
             </div>
@@ -620,25 +580,15 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                   />
                 </svg>
                 <span
-                  aria-label="04/13/22 00:00 UTC"
+                  aria-label="Apr 13, 2022 0:0 UTC"
                   class=""
                   data-mui-internal-clone-element="true"
                 >
-                  04/13/22
+                  Apr 13, 2022
                    
-                  <span
-                    style="font-weight: bold;"
-                  >
-                     
-                    00:00
-                  </span>
+                  0:0
                    
-                  <span
-                    style="font-weight: bold;"
-                  >
-                     
-                    GMT+0
-                  </span>
+                  GMT+0
                 </span>
               </div>
             </div>
@@ -1042,25 +992,15 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                         />
                                       </svg>
                                       <span
-                                        aria-label="03/29/51 00:00 UTC"
+                                        aria-label="Mar 29, 1951 0:0 UTC"
                                         class=""
                                         data-mui-internal-clone-element="true"
                                       >
-                                        03/29/51
+                                        Mar 29, 1951
                                          
-                                        <span
-                                          style="font-weight: bold;"
-                                        >
-                                           
-                                          00:00
-                                        </span>
+                                        0:0
                                          
-                                        <span
-                                          style="font-weight: bold;"
-                                        >
-                                           
-                                          GMT+0
-                                        </span>
+                                        GMT+0
                                       </span>
                                     </div>
                                   </div>
@@ -1171,25 +1111,15 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                         />
                                       </svg>
                                       <span
-                                        aria-label="02/22/58 00:00 UTC"
+                                        aria-label="Feb 22, 1958 0:0 UTC"
                                         class=""
                                         data-mui-internal-clone-element="true"
                                       >
-                                        02/22/58
+                                        Feb 22, 1958
                                          
-                                        <span
-                                          style="font-weight: bold;"
-                                        >
-                                           
-                                          00:00
-                                        </span>
+                                        0:0
                                          
-                                        <span
-                                          style="font-weight: bold;"
-                                        >
-                                           
-                                          GMT+0
-                                        </span>
+                                        GMT+0
                                       </span>
                                     </div>
                                   </div>
@@ -1300,25 +1230,15 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                         />
                                       </svg>
                                       <span
-                                        aria-label="07/29/87 00:00 UTC"
+                                        aria-label="Jul 29, 1987 0:0 UTC"
                                         class=""
                                         data-mui-internal-clone-element="true"
                                       >
-                                        07/29/87
+                                        Jul 29, 1987
                                          
-                                        <span
-                                          style="font-weight: bold;"
-                                        >
-                                           
-                                          00:00
-                                        </span>
+                                        0:0
                                          
-                                        <span
-                                          style="font-weight: bold;"
-                                        >
-                                           
-                                          GMT+0
-                                        </span>
+                                        GMT+0
                                       </span>
                                     </div>
                                   </div>
@@ -1429,25 +1349,15 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                         />
                                       </svg>
                                       <span
-                                        aria-label="07/04/20 00:00 UTC"
+                                        aria-label="Jul 4, 2020 0:0 UTC"
                                         class=""
                                         data-mui-internal-clone-element="true"
                                       >
-                                        07/04/20
+                                        Jul 4, 2020
                                          
-                                        <span
-                                          style="font-weight: bold;"
-                                        >
-                                           
-                                          00:00
-                                        </span>
+                                        0:0
                                          
-                                        <span
-                                          style="font-weight: bold;"
-                                        >
-                                           
-                                          GMT+0
-                                        </span>
+                                        GMT+0
                                       </span>
                                     </div>
                                   </div>
@@ -1558,25 +1468,15 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                         />
                                       </svg>
                                       <span
-                                        aria-label="04/13/22 00:00 UTC"
+                                        aria-label="Apr 13, 2022 0:0 UTC"
                                         class=""
                                         data-mui-internal-clone-element="true"
                                       >
-                                        04/13/22
+                                        Apr 13, 2022
                                          
-                                        <span
-                                          style="font-weight: bold;"
-                                        >
-                                           
-                                          00:00
-                                        </span>
+                                        0:0
                                          
-                                        <span
-                                          style="font-weight: bold;"
-                                        >
-                                           
-                                          GMT+0
-                                        </span>
+                                        GMT+0
                                       </span>
                                     </div>
                                   </div>

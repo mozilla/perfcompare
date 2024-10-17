@@ -347,24 +347,15 @@ exports[`Results Table Should match snapshot 1`] = `
                                   />
                                 </svg>
                                 <span
-                                  aria-label="03/29/51 00:00 UTC"
+                                  aria-label="Mar 29, 1951 0:0 UTC"
                                   class=""
                                   data-mui-internal-clone-element="true"
                                 >
-                                  03/29/51
+                                  Mar 29, 1951
                                    
-                                  <span
-                                    style="font-weight: bold;"
-                                  >
-                                    00:00
-                                  </span>
+                                  0:0
                                    
-                                  <span
-                                    style="font-weight: bold;"
-                                  >
-                                     
-                                    GMT+0
-                                  </span>
+                                  GMT+0
                                 </span>
                               </div>
                             </div>
@@ -627,24 +618,15 @@ exports[`Results Table Should match snapshot 1`] = `
                                   />
                                 </svg>
                                 <span
-                                  aria-label="03/29/51 00:00 UTC"
+                                  aria-label="Mar 29, 1951 0:0 UTC"
                                   class=""
                                   data-mui-internal-clone-element="true"
                                 >
-                                  03/29/51
+                                  Mar 29, 1951
                                    
-                                  <span
-                                    style="font-weight: bold;"
-                                  >
-                                    00:00
-                                  </span>
+                                  0:0
                                    
-                                  <span
-                                    style="font-weight: bold;"
-                                  >
-                                     
-                                    GMT+0
-                                  </span>
+                                  GMT+0
                                 </span>
                               </div>
                             </div>
