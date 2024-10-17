@@ -14,6 +14,7 @@ import {
   FontSize,
 } from '../../styles';
 import type { TimeRange } from '../../types/types';
+import { formatDateRange } from '../../utils/format';
 
 const strings = Strings.components.searchDefault.overTime.collapsed.timeRange;
 
@@ -56,16 +57,6 @@ function TimeRangeDropdown({
   const menuItemStyles =
     mode === 'light' ? DropDownItems.Light : DropDownItems.Dark;
 
-  const displayDateRange = (value: number) => {
-    const options: Intl.DateTimeFormatOptions = {
-      dateStyle: 'medium',
-    };
-    const dateFormatter = new Intl.DateTimeFormat('en-US', options);
-    const fromDate = dateFormatter.format(new Date(Date.now() - value * 1000));
-    const toDate = dateFormatter.format(new Date());
-    return ` (${fromDate} - ${toDate})`;
-  };
-
   return (
     <>
       <FormControl className={`timerange-dropdown ${styles.container}`}>
@@ -94,9 +85,12 @@ function TimeRangeDropdown({
                 {text}
                 <Box
                   sx={{ color: 'text.secondary' }}
-                  className={`${FontSize.Small}`}
+                  className={FontSize.Small}
                 >
-                  {displayDateRange(Number(value))}
+                  {`(${formatDateRange(
+                    new Date(Date.now() - Number(value) * 1000),
+                    new Date(),
+                  )})`}
                 </Box>
               </div>
             </MenuItem>
