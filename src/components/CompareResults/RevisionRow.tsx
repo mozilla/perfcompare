@@ -84,6 +84,17 @@ const stylesLight = {
         backgroundColor: Colors.Background200,
         justifyContent: 'center',
       },
+      '.Standard-deviation-base': {
+        backgroundColor: Colors.Background200,
+        justifyContent: 'center',
+      },
+      '.comparison-standard-sign': {
+        backgroundColor: Colors.Background200,
+      },
+      '.Standard-deviation-new': {
+        backgroundColor: Colors.Background200,
+        justifyContent: 'center',
+      },
       '.total-runs': {
         backgroundColor: Colors.Background200,
         gap: '8px',
@@ -158,6 +169,19 @@ const stylesDark = {
       },
       '.new-value': {
         backgroundColor: Colors.Background200Dark,
+      },
+      '.Standard-deviation-base': {
+        backgroundColor: Colors.Background200Dark,
+        justifyContent: 'center',
+        textAlign: 'center',
+      },
+      '.comparison-standard-sign': {
+        backgroundColor: Colors.Background200Dark,
+      },
+      '.Standard-deviation-new': {
+        backgroundColor: Colors.Background200Dark,
+        justifyContent: 'center',
+        textAlign: 'center',
       },
       '.platform': {
         backgroundColor: Colors.Background200Dark,
@@ -248,6 +272,12 @@ function determineSign(baseMedianValue: number, newMedianValue: number) {
   return '';
 }
 
+function determineStandardDeviationSign(baseStddev: number, newStddev: number) {
+  if (baseStddev > newStddev) return '>';
+  if (baseStddev < newStddev) return '<';
+  return '';
+}
+
 const platformIcons: Record<PlatformShortName, ReactNode> = {
   Linux: <LinuxIcon />,
   OSX: <AppleIcon />,
@@ -316,6 +346,8 @@ function RevisionRow(props: RevisionRowProps) {
     base_runs: baseRuns,
     new_runs: newRuns,
     graphs_link: graphLink,
+    base_stddev: baseStddev,
+    new_stddev: newStddev,
   } = result;
 
   const platformShortName = getPlatformShortName(platform);
@@ -363,6 +395,17 @@ function RevisionRow(props: RevisionRowProps) {
           {' '}
           {newMedianValue} {newUnit}
         </div>
+        <div className='Standard-deviation-base cell' role='cell'>
+          {' '}
+          {baseStddev}{' '}
+        </div>
+        <div className='comparison-standard-sign cell' role='cell'>
+          {determineStandardDeviationSign(baseStddev, newStddev)}
+        </div>
+        <div className='Standard-deviation-new cell' role='cell'>
+          {' '}
+          {newStddev}{' '}
+        </div>
         <div className='status cell' role='cell'>
           <span
             className={`status-hint ${determineStatusHintClass(
@@ -393,6 +436,7 @@ function RevisionRow(props: RevisionRowProps) {
             <strong>{newRuns.length}</strong>
           </span>
         </div>
+
         <div className='row-buttons cell'>
           {result.has_subtests && (
             <div className='subtests' role='cell'>
