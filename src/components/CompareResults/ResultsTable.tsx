@@ -103,9 +103,16 @@ export default function ResultsTable() {
   const initialSearchTerm = rawSearchParams.get('search') ?? '';
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
   const [frameworkIdVal, setFrameworkIdVal] = useState(frameworkId);
-  const [tableFilters, setTableFilters] = useState(
-    new Map() as Map<string, Set<string>>, // ColumnID -> Set<Values to remove>
-  );
+  const [tableFilters, setTableFilters] = useState(() => {
+    const initialFilters = new Map() as Map<string, Set<string>>;
+    cellsConfiguration.forEach(({ key, possibleValues }) => {
+      if (!possibleValues) return;
+      const paramValue = rawSearchParams.get(`filter-${key}`);
+      initialFilters.set(key, new Set(paramValue?.split(',')));
+    });
+
+    return initialFilters;
+  });
 
   const accessFilterValues = () => {
     cellsConfiguration.forEach(({ key }) => {
@@ -119,19 +126,7 @@ export default function ResultsTable() {
     });
     updateRawSearchParams(rawSearchParams);
   };
-  const accessURlParams = () => {
-    const initialFilters = new Map() as Map<string, Set<string>>;
-    cellsConfiguration.forEach(({ key, possibleValues }) => {
-      if (!possibleValues) return;
-      const paramValue = rawSearchParams.get(`filter-${key}`);
-      initialFilters.set(key, new Set(paramValue?.split(',')));
-    });
-    setTableFilters(initialFilters);
-  };
 
-  useEffect(() => {
-    accessURlParams();
-  }, []);
   useEffect(() => {
     if (tableFilters.size > 0) {
       accessFilterValues();
