@@ -1,4 +1,4 @@
-import { Suspense, useState } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -106,6 +106,23 @@ export default function ResultsTable() {
   const [tableFilters, setTableFilters] = useState(
     new Map() as Map<string, Set<string>>, // ColumnID -> Set<Values to remove>
   );
+
+  useEffect(() => {
+    const confidenceFilter = new Set<string>();
+    confidenceFilter.add('High'); // Default to High confidence
+
+    setTableFilters((oldFilters) => {
+      const newFilters = new Map(oldFilters);
+
+      // Ensure the 'confidence' filter is exactly set to High, removing Low and Medium if present
+      if (newFilters.has('confidence')) {
+        newFilters.delete('confidence');
+      }
+
+      newFilters.set('confidence', confidenceFilter); // Set only the "High" confidence filter
+      return newFilters;
+    });
+  }, []);
 
   const onClearFilter = (columnId: string) => {
     setTableFilters((oldFilters) => {

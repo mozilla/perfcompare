@@ -18,32 +18,35 @@ type FilterableColumnProps = {
   name: string;
   columnId: string;
   possibleValues: string[];
-  uncheckedValues?: Set<string>;
-  onToggle: (checkedValues: Set<string>) => unknown;
-  onClear: () => unknown;
+  checkedValues: Set<string>;
+  onToggle: (checkedValues: Set<string>) => void;
+  onClear: () => void;
 };
 
-function FilterableColumn({
+const FilterableColumn: React.FC<FilterableColumnProps> = ({
   name,
   columnId,
   possibleValues,
-  uncheckedValues,
+  checkedValues,
   onToggle,
   onClear,
-}: FilterableColumnProps) {
+}) => {
   const popupState = usePopupState({ variant: 'popover', popupId: columnId });
 
   const onClickFilter = (value: string) => {
-    const newUncheckedValues = new Set(uncheckedValues);
-    if (newUncheckedValues.has(value)) {
-      newUncheckedValues.delete(value);
+    const newCheckedValues = new Set(checkedValues);
+
+    // Toggle the selection state of the value
+    if (newCheckedValues.has(value)) {
+      newCheckedValues.delete(value); // Deselect
     } else {
-      newUncheckedValues.add(value);
+      newCheckedValues.add(value); // Select
     }
-    onToggle(newUncheckedValues);
+
+    onToggle(newCheckedValues); // Pass the new Set to the parent
   };
 
-  const hasFilteredValues = uncheckedValues && uncheckedValues.size;
+  const hasFilteredValues = checkedValues.size < possibleValues.length;
   const buttonAriaLabel = hasFilteredValues
     ? `${name} (Click to filter values. Some filters are active.)`
     : `${name} (Click to filter values)`;
@@ -56,7 +59,7 @@ function FilterableColumn({
         aria-label={buttonAriaLabel}
         sx={(theme) => ({
           background:
-            theme.palette.mode == 'light'
+            theme.palette.mode === 'light'
               ? Colors.Background200
               : Colors.Background200Dark,
           borderRadius: '4px',
@@ -78,8 +81,7 @@ function FilterableColumn({
           Clear filters
         </MenuItem>
         {possibleValues.map((possibleValue) => {
-          const isChecked =
-            !uncheckedValues || !uncheckedValues.has(possibleValue);
+          const isChecked = checkedValues.has(possibleValue);
           return (
             <MenuItem
               dense={true}
@@ -97,31 +99,31 @@ function FilterableColumn({
       </Menu>
     </>
   );
-}
+};
 
 type TableHeaderProps = {
   cellsConfiguration: CompareResultsTableConfig[];
   filters: Map<string, Set<string>>;
-  onToggleFilter: (columnId: string, filters: Set<string>) => unknown;
-  onClearFilter: (columnId: string) => unknown;
+  onToggleFilter: (columnId: string, filters: Set<string>) => void;
+  onClearFilter: (columnId: string) => void;
 };
 
-function TableHeader({
+const TableHeader: React.FC<TableHeaderProps> = ({
   cellsConfiguration,
   filters,
   onToggleFilter,
   onClearFilter,
-}: TableHeaderProps) {
+}) => {
   const themeMode = useAppSelector((state) => state.theme.mode);
+
   const styles = {
     tableHeader: style({
       display: 'grid',
-      // Should be kept in sync with the gridTemplateColumns from RevisionRow
       gridTemplateColumns: cellsConfiguration
         .map((config) => config.gridWidth)
         .join(' '),
       background:
-        themeMode == 'light' ? Colors.Background100 : Colors.Background300Dark,
+        themeMode === 'light' ? Colors.Background100 : Colors.Background300Dark,
       borderRadius: '4px',
       padding: Spacing.Small,
       marginTop: Spacing.Medium,
@@ -172,8 +174,13 @@ function TableHeader({
               possibleValues={header.possibleValues}
               name={header.name}
               columnId={header.key}
-              uncheckedValues={filters.get(header.key)}
-              onClear={() => onClearFilter(header.key)}
+              checkedValues={
+                filters.get(header.key) || new Set(['High']) // Default is only "High" checked
+              }
+              onClear={() => {
+                onClearFilter(header.key);
+                onToggleFilter(header.key, new Set()); // Clear all filters
+              }}
               onToggle={(checkedValues) =>
                 onToggleFilter(header.key, checkedValues)
               }
@@ -185,6 +192,6 @@ function TableHeader({
       ))}
     </div>
   );
-}
+};
 
 export default TableHeader;
