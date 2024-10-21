@@ -3621,7 +3621,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
               class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
             />
             <div
-              class="MuiBox-root css-2648yt"
+              class="MuiBox-root css-1wx1stc"
             >
               <form
                 action="/compare-results"
@@ -4033,7 +4033,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
               class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
             />
             <div
-              class="MuiBox-root css-2648yt"
+              class="MuiBox-root css-1wx1stc"
             >
               <form
                 action="/compare-over-time-results"

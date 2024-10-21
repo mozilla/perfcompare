@@ -95,7 +95,7 @@ exports[`Results Table Should match snapshot 1`] = `
             class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
           />
           <div
-            class="MuiBox-root css-19ge26a"
+            class="MuiBox-root css-1chmdug"
           >
             <form
               action="/compare-results"

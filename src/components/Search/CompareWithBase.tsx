@@ -220,7 +220,13 @@ function CompareWithBase({
       className={`compare-card-container content-base content-base--${expandedClass} ${styles.container} wrapper--withbase ${wrapperStyles.wrapper}`}
     >
       <Divider className='divider' />
-      <Box sx={{ paddingBlock: hasEditButton ? 4 : 6, paddingInline: 6 }}>
+      <Box
+        sx={{
+          paddingInline: 6,
+          paddingBlockStart: hasEditButton ? 4 : 6,
+          paddingBlockEnd: hasEditButton && formIsDisplayed ? 4 : 6,
+        }}
+      >
         <Form
           action='/compare-results'
           onSubmit={onFormSubmit}
