@@ -1,13 +1,18 @@
 import { useState } from 'react';
 
-import EditIcon from '@mui/icons-material/EditOutlined';
-import { Input } from '@mui/material';
+import { Button, Input } from '@mui/material';
 import { style } from 'typestyle';
 
 import useRawSearchParams from '../../hooks/useRawSearchParams';
 import { FontsRaw, Colors } from '../../styles';
+import pencilDark from '../../theme/img/pencil-dark.svg';
+import pencil from '../../theme/img/pencil.svg';
 
-export const ResultsTitle = () => {
+interface EditButtonProps {
+  mode: string;
+}
+
+export const ResultsTitle = ({ mode }: EditButtonProps) => {
   const [searchParams, updateSearchParams] = useRawSearchParams();
   const [resultsTitle, setResultsTitle] = useState(
     searchParams.get('title') || 'Results',
@@ -61,6 +66,15 @@ export const ResultsTitle = () => {
     }
   };
 
+  const buttonIcon = (
+    <img
+      id='edit-button-icon'
+      className='icon icon-edit'
+      src={mode === 'light' ? pencil.toString() : pencilDark.toString()}
+      alt='edit-icon'
+    />
+  );
+
   return (
     <div data-testid='results-title-component'>
       {isEditing ? (
@@ -82,10 +96,14 @@ export const ResultsTitle = () => {
       ) : (
         <>
           <span className={styles.title}>{resultsTitle}</span>
-          <EditIcon
-            className={styles.editIcon}
-            data-testid='edit-icon'
+          <Button
+            className='global-edit-button edit-revision-button'
+            name='edit-button'
+            aria-label='edit revision'
+            startIcon={buttonIcon}
             onClick={handleEdit}
+            color='primary'
+            variant='text'
           />
         </>
       )}
