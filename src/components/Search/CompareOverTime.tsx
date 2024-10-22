@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import { Box } from '@mui/material';
 import { Grid } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import { VariantType, useSnackbar } from 'notistack';
@@ -144,53 +145,71 @@ function CompareOverTime({
       className={`compare-card-container content-base content-base--${expandedClass} ${styles.container} wrapper--overtime ${wrapperStyles.wrapper}`}
     >
       <Divider className='divider' />
-      <Form
-        action='/compare-over-time-results'
-        onSubmit={onFormSubmit}
-        className='form-wrapper'
-        aria-label='Compare over time form'
+      <Box
+        sx={{
+          paddingInline: 6,
+          paddingBlockStart: hasEditButton ? 4 : 6,
+          paddingBlockEnd: hasEditButton && formIsDisplayed ? 4 : 6,
+        }}
       >
-        {/**** Edit Button ****/}
-        <div
-          className={`edit-btn-wrapper ${
-            hasEditButton && !formIsDisplayed
-              ? 'show-edit-btn'
-              : 'hide-edit-btn'
-          }`}
+        <Form
+          action='/compare-over-time-results'
+          onSubmit={onFormSubmit}
+          aria-label='Compare over time form'
         >
-          <EditButton onEditAction={handleEdit} mode={mode} />
-        </div>
+          {/**** Edit Button ****/}
+          {hasEditButton && (
+            <div
+              className={`edit-btn-wrapper ${
+                formIsDisplayed ? 'hide-edit-btn' : 'show-edit-btn'
+              }`}
+            >
+              <EditButton onEditAction={handleEdit} mode={mode} />
+            </div>
+          )}
 
-        <SearchOverTime
-          hasEditButton={hasEditButton}
-          baseRepo={baseRepository}
-          newRepo={newRepository}
-          displayedRevisions={inProgressRevs}
-          formIsDisplayed={formIsDisplayed}
-          onRemoveRevision={handleRemoveRevision}
-          onSearchResultsToggle={handleSearchResultsToggle}
-          onBaseRepositoryChange={(repo: Repository['name']) =>
-            setBaseRepository(repo)
-          }
-          onNewRepositoryChange={(repo: Repository['name']) =>
-            setNewRepository(repo)
-          }
-          timeRangeValue={timeRangeValue}
-          onTimeRangeChange={(value: TimeRange['value']) =>
-            setTimeRangeValue(value)
-          }
-        />
+          <SearchOverTime
+            hasEditButton={hasEditButton}
+            baseRepo={baseRepository}
+            newRepo={newRepository}
+            displayedRevisions={inProgressRevs}
+            formIsDisplayed={formIsDisplayed}
+            onRemoveRevision={handleRemoveRevision}
+            onSearchResultsToggle={handleSearchResultsToggle}
+            onBaseRepositoryChange={(repo: Repository['name']) =>
+              setBaseRepository(repo)
+            }
+            onNewRepositoryChange={(repo: Repository['name']) =>
+              setNewRepository(repo)
+            }
+            timeRangeValue={timeRangeValue}
+            onTimeRangeChange={(value: TimeRange['value']) =>
+              setTimeRangeValue(value)
+            }
+          />
 
-        <Grid
-          item
-          xs={2}
-          display='flex'
-          justifyContent={hasEditButton ? 'flex-end' : 'space-between'}
-          className={`${dropDownStyles.dropDown}`}
-          alignItems='flex-end'
-        >
-          {!hasEditButton && (
-            <SearchFrameworkDropdown frameworkId={frameworkIdVal} />
+          {/* !hasEditButton means we are in Search view
+        hasCancelButton means we are in Edit mode on Results view */}
+          {(!hasEditButton || hasCancelButton) && (
+            <Grid
+              item
+              xs={2}
+              display='flex'
+              justifyContent={hasEditButton ? 'flex-end' : 'space-between'}
+              className={`${dropDownStyles.dropDown}`}
+              alignItems='flex-end'
+            >
+              {!hasEditButton && (
+                <SearchFrameworkDropdown frameworkId={frameworkIdVal} />
+              )}
+
+              <CancelAndCompareButtons
+                label={strings.sharedCollasped.button}
+                hasCancelButton={hasCancelButton}
+                onCancel={handleCancel}
+                hasEditButton={hasEditButton}
+              />
+            </Grid>
           )}
 
           {/**** Hidden Input to capture framework when user updates revisions ****/}
@@ -201,15 +220,8 @@ function CompareOverTime({
               type='hidden'
             ></input>
           )}
-
-          <CancelAndCompareButtons
-            label={strings.sharedCollasped.button}
-            hasCancelButton={hasCancelButton}
-            onCancel={handleCancel}
-            hasEditButton={hasEditButton}
-          />
-        </Grid>
-      </Form>
+        </Form>
+      </Box>
     </div>
   );
 }
