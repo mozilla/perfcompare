@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-import { Button, Input } from '@mui/material';
+import { Button, IconButton, Input } from '@mui/material';
 import { style } from 'typestyle';
 
 import useRawSearchParams from '../../hooks/useRawSearchParams';
-import { FontsRaw, Colors } from '../../styles';
+import { FontsRaw } from '../../styles';
 import pencilDark from '../../theme/img/pencil-dark.svg';
 import pencil from '../../theme/img/pencil.svg';
 
@@ -89,15 +89,16 @@ export const ResultsTitle = ({ mode }: EditButtonProps) => {
       ) : (
         <>
           <span className={styles.title}>{resultsTitle}</span>
-          <Button
-            className='global-edit-button edit-revision-button'
-            name='edit-button'
-            aria-label='edit revision'
-            startIcon={buttonIcon}
-            onClick={handleEdit}
-            color='primary'
-            variant='text'
-          />
+          <IconButton onClick={handleEdit} aria-label='edit the title'>
+            <Button
+              className='global-edit-button edit-revision-button'
+              name='edit-button'
+              aria-label='edit revision'
+              startIcon={buttonIcon}
+              color='primary'
+              variant='text'
+            />
+          </IconButton>
         </>
       )}
     </div>
