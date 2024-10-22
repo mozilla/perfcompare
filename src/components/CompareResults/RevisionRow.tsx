@@ -265,7 +265,7 @@ const platformIcons: Record<PlatformShortName, ReactNode> = {
   Unspecified: '',
 };
 
-const confidenceIcon = {
+const confidenceIcons = {
   Low: <KeyboardArrowDownIcon sx={{ color: 'icons.error' }} />,
   Medium: <DragHandleIcon sx={{ color: 'text.secondary' }} />,
   High: <KeyboardArrowUpIcon sx={{ color: 'icons.success' }} />,
@@ -395,7 +395,7 @@ function RevisionRow(props: RevisionRowProps) {
           {deltaPercent} %{' '}
         </div>
         <div className='confidence cell' role='cell'>
-          {confidenceText && confidenceIcon[confidenceText]}
+          {confidenceText && confidenceIcons[confidenceText]}
           {confidenceText}
         </div>
         <div className='total-runs cell' role='cell'>
