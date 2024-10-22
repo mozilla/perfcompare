@@ -74,7 +74,7 @@ const cellsConfiguration: CompareResultsTableConfig[] = [
     filter: true,
     key: 'confidence',
     gridWidth: '1fr',
-    possibleValues: ['Low', 'Medium', 'High'],
+    possibleValues: ['High', 'Medium', 'Low'],
     matchesFunction: (result: CompareResultsItem, value: string) =>
       result.confidence_text === value,
   },
@@ -87,6 +87,12 @@ const cellsConfiguration: CompareResultsTableConfig[] = [
   { key: 'buttons', gridWidth: '2fr' },
   { key: 'expand', gridWidth: '0.2fr' },
 ];
+
+const confidenceOrder: Record<string, number> = {
+  High: 1,
+  Medium: 2,
+  Low: 3,
+};
 
 export default function ResultsTable() {
   const {
@@ -103,9 +109,11 @@ export default function ResultsTable() {
   const initialSearchTerm = rawSearchParams.get('search') ?? '';
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
   const [frameworkIdVal, setFrameworkIdVal] = useState(frameworkId);
-  const [tableFilters, setTableFilters] = useState(
-    new Map() as Map<string, Set<string>>, // ColumnID -> Set<Values to remove>
-  );
+  const [tableFilters, setTableFilters] = useState(() => {
+    const initialFilters = new Map<string, Set<string>>();
+    initialFilters.set('confidence', new Set(['Low', 'Medium']));
+    return initialFilters;
+  });
 
   const onClearFilter = (columnId: string) => {
     setTableFilters((oldFilters) => {
@@ -181,16 +189,20 @@ export default function ResultsTable() {
         key={generation}
       >
         <Await resolve={resultsPromise}>
-          {(resolvedResults) => (
-            <TableContent
-              cellsConfiguration={cellsConfiguration}
-              results={resolvedResults as CompareResultsItem[][]}
-              filteringSearchTerm={searchTerm}
-              tableFilters={tableFilters}
-              view={view}
-              rowGridTemplateColumns={rowGridTemplateColumns}
-            />
-          )}
+          {(resolvedResults: CompareResultsItem[][]) => {
+            const filteredResults: CompareResultsItem[] =
+              resolvedResults.flat();
+            return (
+              <TableContent
+                cellsConfiguration={cellsConfiguration}
+                results={[filteredResults]}
+                filteringSearchTerm={searchTerm}
+                tableFilters={tableFilters}
+                view={view}
+                rowGridTemplateColumns={rowGridTemplateColumns}
+              />
+            );
+          }}
         </Await>
       </Suspense>
     </Box>
