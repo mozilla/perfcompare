@@ -93,7 +93,7 @@ function ResultsMain() {
       <header>
         <Grid container className={styles.titleContainer} component='h2'>
           <Grid item>
-            <ResultsTitle />
+            <ResultsTitle mode={themeMode} />
           </Grid>
           <Grid item className={styles.subtitle}>
             {subtitles[view]}
