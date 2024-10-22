@@ -1,7 +1,10 @@
 import { useState } from 'react';
 
+import DragHandleIcon from '@mui/icons-material/DragHandle';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import TimelineIcon from '@mui/icons-material/Timeline';
@@ -47,6 +50,9 @@ function getStyles(themeMode: string) {
         },
         '.confidence': {
           backgroundColor: mainBackgroundColor,
+          gap: '10px',
+          justifyContent: 'start',
+          paddingInlineStart: '15%',
         },
         '.comparison-sign': {
           backgroundColor: mainBackgroundColor,
@@ -129,6 +135,12 @@ const styles = {
 
 const stylesCard = ExpandableRowStyles();
 
+const confidenceIcons = {
+  Low: <KeyboardArrowDownIcon sx={{ color: 'icons.error' }} />,
+  Medium: <DragHandleIcon sx={{ color: 'text.secondary' }} />,
+  High: <KeyboardArrowUpIcon sx={{ color: 'icons.success' }} />,
+};
+
 function determineStatus(improvement: boolean, regression: boolean) {
   if (improvement) return 'Improvement';
   if (regression) return 'Regression';
@@ -210,8 +222,8 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
           {deltaPercent} %{' '}
         </div>
         <div className='confidence cell' role='cell'>
-          {' '}
-          {confidenceText}{' '}
+          {confidenceText && confidenceIcons[confidenceText]}
+          {confidenceText}
         </div>
         <div className='total-runs cell' role='cell'>
           <span>

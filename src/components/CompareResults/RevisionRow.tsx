@@ -1,8 +1,11 @@
 import { useState, type ReactNode } from 'react';
 
 import AppleIcon from '@mui/icons-material/Apple';
+import DragHandleIcon from '@mui/icons-material/DragHandle';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import TimelineIcon from '@mui/icons-material/Timeline';
@@ -51,6 +54,9 @@ const stylesLight = {
       },
       '.confidence': {
         backgroundColor: Colors.Background200,
+        gap: '10px',
+        justifyContent: 'start',
+        paddingInlineStart: '15%',
       },
       '.comparison-sign': {
         backgroundColor: Colors.Background200,
@@ -146,6 +152,9 @@ const stylesDark = {
       },
       '.confidence': {
         backgroundColor: Colors.Background200Dark,
+        gap: '10px',
+        justifyContent: 'start',
+        paddingInlineStart: '15%',
       },
       '.comparison-sign': {
         backgroundColor: Colors.Background200Dark,
@@ -254,6 +263,12 @@ const platformIcons: Record<PlatformShortName, ReactNode> = {
   Windows: <WindowsIcon />,
   Android: <AndroidIcon />,
   Unspecified: '',
+};
+
+const confidenceIcons = {
+  Low: <KeyboardArrowDownIcon sx={{ color: 'icons.error' }} />,
+  Medium: <DragHandleIcon sx={{ color: 'text.secondary' }} />,
+  High: <KeyboardArrowUpIcon sx={{ color: 'icons.success' }} />,
 };
 
 const getSubtestsCompareWithBaseLink = (result: CompareResultsItem) => {
@@ -380,8 +395,8 @@ function RevisionRow(props: RevisionRowProps) {
           {deltaPercent} %{' '}
         </div>
         <div className='confidence cell' role='cell'>
-          {' '}
-          {confidenceText}{' '}
+          {confidenceText && confidenceIcons[confidenceText]}
+          {confidenceText}
         </div>
         <div className='total-runs cell' role='cell'>
           <span>

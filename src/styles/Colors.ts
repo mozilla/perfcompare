@@ -78,9 +78,13 @@ export enum Colors {
   //icon light
   IconLight = '#5B5B66',
   IconLightSecondary = '#FBFBFE',
+  IconLightSuccess = '#017A40',
+  IconLightError = '#D7264C',
 
   //icon dark
   IconDark = '#FBFBFE',
+  IconDarkSuccess = '#4DBC87',
+  IconDarkError = '#F37F98',
 }
 
 export const background = (mode: string) => {
