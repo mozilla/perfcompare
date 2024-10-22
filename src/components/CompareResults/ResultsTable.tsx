@@ -103,9 +103,14 @@ export default function ResultsTable() {
   const initialSearchTerm = rawSearchParams.get('search') ?? '';
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
   const [frameworkIdVal, setFrameworkIdVal] = useState(frameworkId);
-  const [tableFilters, setTableFilters] = useState(
-    new Map() as Map<string, Set<string>>, // ColumnID -> Set<Values to remove>
-  );
+  const [tableFilters, setTableFilters] = useState(() => {
+    const initialFilters = new Map<string, Set<string>>(); // ColumnID -> Set<Values to remove>
+
+    // set the default filter for "Confidence" to "High"
+    initialFilters.set('confidence', new Set(['High']));
+
+    return initialFilters;
+  });
 
   const onClearFilter = (columnId: string) => {
     setTableFilters((oldFilters) => {

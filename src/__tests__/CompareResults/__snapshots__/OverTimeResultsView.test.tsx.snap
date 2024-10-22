@@ -259,14 +259,14 @@ exports[`Results View The table should match snapshot and other elements should 
       >
         <button
           aria-haspopup="true"
-          aria-label="Platform (Click to filter values)"
+          aria-label="Platform (Click to filter values. Some filters are active.)"
           class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-gsklu7-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >
           Platform
           <svg
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-reqpbo-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeSmall css-1yguepm-MuiSvgIcon-root"
             data-testid="FilterListIcon"
             focusable="false"
             role="img"
@@ -276,7 +276,7 @@ exports[`Results View The table should match snapshot and other elements should 
               d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"
             />
             <title>
-              No active filters
+              Some filters are active
             </title>
           </svg>
           <span
@@ -306,14 +306,14 @@ exports[`Results View The table should match snapshot and other elements should 
       >
         <button
           aria-haspopup="true"
-          aria-label="Status (Click to filter values)"
+          aria-label="Status (Click to filter values. Some filters are active.)"
           class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-gsklu7-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >
           Status
           <svg
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-reqpbo-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeSmall css-1yguepm-MuiSvgIcon-root"
             data-testid="FilterListIcon"
             focusable="false"
             role="img"
@@ -323,7 +323,7 @@ exports[`Results View The table should match snapshot and other elements should 
               d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"
             />
             <title>
-              No active filters
+              Some filters are active
             </title>
           </svg>
           <span
@@ -343,14 +343,14 @@ exports[`Results View The table should match snapshot and other elements should 
       >
         <button
           aria-haspopup="true"
-          aria-label="Confidence (Click to filter values)"
+          aria-label="Confidence (Click to filter values. Some filters are active.)"
           class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-gsklu7-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >
           Confidence
           <svg
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-reqpbo-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeSmall css-1yguepm-MuiSvgIcon-root"
             data-testid="FilterListIcon"
             focusable="false"
             role="img"
@@ -360,7 +360,7 @@ exports[`Results View The table should match snapshot and other elements should 
               d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"
             />
             <title>
-              No active filters
+              Some filters are active
             </title>
           </svg>
           <span
@@ -808,210 +808,6 @@ exports[`Results View The table should match snapshot and other elements should 
                       <a
                         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                         href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2Cedcc6311f15bdf7924ef3f0ccfd8b47ce1892212%2C1%2C1&timerange=5184000"
-                        tabindex="0"
-                        target="_blank"
-                        title="open the evolution graph for this job in treeherder"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                          data-testid="TimelineIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2z"
-                          />
-                        </svg>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </a>
-                    </div>
-                  </div>
-                  <div
-                    class="retrigger-button"
-                    data-testid="retrigger-jobs-button"
-                    role="cell"
-                  >
-                    <div
-                      class="retrigger-button-container"
-                    >
-                      <button
-                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
-                        tabindex="0"
-                        title="retrigger jobs"
-                        type="button"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                          data-testid="RefreshOutlinedIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
-                          />
-                        </svg>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="expand-button cell"
-                  role="cell"
-                >
-                  <div
-                    class="expand-button-container"
-                    data-testid="expand-revision-button"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
-                      tabindex="0"
-                      title="expand this row"
-                      type="button"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                        data-testid="ExpandMoreIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                        />
-                      </svg>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="revisionRow f1b00bec fp4ugv1 MuiBox-root css-1am90bh"
-                role="row"
-              >
-                <div
-                  class="platform cell"
-                  role="cell"
-                >
-                  <div
-                    aria-label="windows10-64-shippable-qr"
-                    class="platform-container"
-                    data-mui-internal-clone-element="true"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 30 30"
-                    >
-                      <path
-                        d="M13.875 7.719l-2.281 7.906s-2.594-1.813-4.5-1.625c-1.875 0.188-4.406 1.125-4.406 1.125l2.313-7.969s4.781-2.563 8.875 0.563zM12.813 16.375l2.281-7.844c0.688 0.469 1.906 1.313 3.875 1.563 1.969 0.219 5.031-1.031 5.031-1.031l-2.281 7.906c-0.344 0.125-1.781 0.938-4.406 1.094-2.656 0.156-4.5-1.688-4.5-1.688zM0 24.469l2.281-7.969s2.563-1.188 4.719-1.031c2.125 0.125 3.844 1.313 4.188 1.594l-2.281 7.969s-2.625-1.719-4.438-1.563-3.406 0.469-4.469 1zM10.125 25.719l2.281-7.906s2.438 1.594 4.031 1.531c1.594-0.031 2.688-0.125 4.844-0.969h0.031c-0.156 0.406-2.281 7.844-2.281 7.844s-2.5 1.188-4.813 1.063c-2.281-0.094-3.656-1.406-4.094-1.563z"
-                      />
-                       
-                    </svg>
-                    <span>
-                      Windows
-                    </span>
-                  </div>
-                </div>
-                <div
-                  class="base-value cell"
-                  role="cell"
-                >
-                   
-                  643.54
-                   
-                  ms
-                   
-                </div>
-                <div
-                  class="comparison-sign cell"
-                  role="cell"
-                >
-                  &gt;
-                </div>
-                <div
-                  class="new-value cell"
-                  role="cell"
-                >
-                   
-                  628.09
-                   
-                  ms
-                </div>
-                <div
-                  class="status cell"
-                  role="cell"
-                >
-                  <span
-                    class="status-hint "
-                  >
-                    -
-                  </span>
-                </div>
-                <div
-                  class="delta cell"
-                  role="cell"
-                >
-                   
-                  -2.4
-                   %
-                   
-                </div>
-                <div
-                  class="confidence cell"
-                  role="cell"
-                >
-                   
-                  High
-                   
-                </div>
-                <div
-                  class="total-runs cell"
-                  role="cell"
-                >
-                  <span>
-                    <span
-                      title="Base runs"
-                    >
-                      B:
-                    </span>
-                    <strong>
-                      1
-                    </strong>
-                  </span>
-                  <span>
-                    <span
-                      title="New runs"
-                    >
-                      N:
-                    </span>
-                    <strong>
-                      1
-                    </strong>
-                  </span>
-                </div>
-                <div
-                  class="row-buttons cell"
-                >
-                  <div
-                    class="graph"
-                    role="cell"
-                  >
-                    <div
-                      class="graph-link-button-container"
-                    >
-                      <a
-                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
-                        href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C3a6d4b6178678c3113c980b378bb83b2629926a0%2C1%2C1&timerange=5184000"
                         tabindex="0"
                         target="_blank"
                         title="open the evolution graph for this job in treeherder"
