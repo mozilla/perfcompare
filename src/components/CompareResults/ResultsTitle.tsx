@@ -26,6 +26,11 @@ export const ResultsTitle = ({ mode }: EditButtonProps) => {
       letterSpacing: '-0.01em',
       margin: 0,
     }),
+    titleWrapper: style({
+      alignItems: 'center',
+      display: 'flex',
+      gap: '10px',
+    }),
     screenReaderOnly: style({
       position: 'absolute',
       left: '-9999px',
@@ -87,19 +92,23 @@ export const ResultsTitle = ({ mode }: EditButtonProps) => {
           />
         </>
       ) : (
-        <>
+        <div className={styles.titleWrapper}>
           <span className={styles.title}>{resultsTitle}</span>
-          <IconButton onClick={handleEdit} aria-label='edit the title'>
+          <IconButton
+            onClick={handleEdit}
+            aria-label='edit the title'
+            style={{ backgroundColor: 'red', width: 'fit-content' }}
+          >
             <Button
               className='global-edit-button edit-revision-button'
               name='edit-button'
               aria-label='edit revision'
-              startIcon={buttonIcon}
+              endIcon={buttonIcon}
               color='primary'
               variant='text'
             />
           </IconButton>
-        </>
+        </div>
       )}
     </div>
   );
