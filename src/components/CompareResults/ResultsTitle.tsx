@@ -49,10 +49,17 @@ export const ResultsTitle = ({ mode }: EditButtonProps) => {
   const handleEditComplete = (
     event: React.FocusEvent | React.KeyboardEvent,
   ) => {
-    if (
-      (event as React.KeyboardEvent).key === 'Enter' ||
-      event.type === 'blur'
-    ) {
+    if ((event as React.KeyboardEvent).key === 'Escape') {
+      const title = searchParams.get('title');
+      setResultsTitle(title || 'Results');
+      setIsEditing(false);
+      return;
+    }
+
+    const isDoneEditing =
+      (event as React.KeyboardEvent).key === 'Enter' || event.type === 'blur';
+
+    if (isDoneEditing) {
       const safeTitle = resultsTitle || 'Results';
       setResultsTitle(safeTitle);
 
