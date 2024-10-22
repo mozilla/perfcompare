@@ -26,8 +26,11 @@ export const ResultsTitle = () => {
       cursor: 'pointer',
       color: Colors.LinkText,
     }),
-    hide: style({
-      display: 'none',
+    screenReaderOnly: style({
+      position: 'absolute',
+      left: '-9999px',
+      overflow: 'hidden',
+      whiteSpace: 'nowrap',
     }),
   };
 
@@ -61,16 +64,21 @@ export const ResultsTitle = () => {
   return (
     <div data-testid='results-title-component'>
       {isEditing ? (
-        <Input
-          id='results'
-          type='text'
-          name='results-title'
-          value={resultsTitle}
-          onChange={handleResultsChange}
-          onBlur={handleEditComplete}
-          onKeyDown={handleEditComplete}
-          className={styles.title}
-        />
+        <>
+          <label htmlFor='results' className={styles.screenReaderOnly}>
+            Results Title
+          </label>
+          <Input
+            id='results'
+            type='text'
+            name='results-title'
+            value={resultsTitle}
+            onChange={handleResultsChange}
+            onBlur={handleEditComplete}
+            onKeyDown={handleEditComplete}
+            className={styles.title}
+          />
+        </>
       ) : (
         <>
           <span>{resultsTitle}</span>
