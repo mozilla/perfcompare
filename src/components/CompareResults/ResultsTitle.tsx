@@ -26,11 +26,6 @@ export const ResultsTitle = ({ mode }: EditButtonProps) => {
       letterSpacing: '-0.01em',
       margin: 0,
     }),
-    editIcon: style({
-      marginLeft: '10px',
-      cursor: 'pointer',
-      color: Colors.LinkText,
-    }),
     screenReaderOnly: style({
       position: 'absolute',
       left: '-9999px',
