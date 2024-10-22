@@ -81,7 +81,7 @@ export const ResultsTitle = () => {
         </>
       ) : (
         <>
-          <span>{resultsTitle}</span>
+          <span className={styles.title}>{resultsTitle}</span>
           <EditIcon
             className={styles.editIcon}
             data-testid='edit-icon'
