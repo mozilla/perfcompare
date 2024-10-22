@@ -63,8 +63,6 @@ export const ResultsTitle = ({ mode }: EditButtonProps) => {
 
   const buttonIcon = (
     <img
-      id='edit-button-icon'
-      className='icon icon-edit'
       src={mode === 'light' ? pencil.toString() : pencilDark.toString()}
       alt='edit-icon'
     />
