@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { IconButton, Input } from '@mui/material';
 import { style } from 'typestyle';
@@ -18,6 +18,7 @@ export const ResultsTitle = ({ mode }: EditButtonProps) => {
     searchParams.get('title') || 'Results',
   );
   const [isEditing, setIsEditing] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const styles = {
     title: style({
@@ -80,6 +81,13 @@ export const ResultsTitle = ({ mode }: EditButtonProps) => {
     />
   );
 
+  useEffect(() => {
+    if (isEditing && inputRef.current) {
+      inputRef.current.focus();
+      inputRef.current.select();
+    }
+  }, [isEditing]);
+
   return (
     <div data-testid='results-title-component'>
       {isEditing ? (
@@ -90,6 +98,7 @@ export const ResultsTitle = ({ mode }: EditButtonProps) => {
           <Input
             id='results'
             type='text'
+            inputRef={inputRef}
             name='results-title'
             value={resultsTitle}
             onChange={handleResultsChange}
