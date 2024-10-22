@@ -107,6 +107,8 @@ export default function ResultsTable() {
     new Map() as Map<string, Set<string>>, // ColumnID -> Set<Values to remove>
   );
 
+  // This useEffect is to extract filter params from the URL (via rawSearchParams)
+  // and updates the tableFilters state.
   useEffect(() => {
     const filters = Array.from(rawSearchParams.entries())
       .filter(([key]) => key.startsWith('filter'))
