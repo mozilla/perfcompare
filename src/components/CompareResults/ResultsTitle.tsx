@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Button, IconButton, Input } from '@mui/material';
+import { IconButton, Input } from '@mui/material';
 import { style } from 'typestyle';
 
 import useRawSearchParams from '../../hooks/useRawSearchParams';
@@ -94,19 +94,8 @@ export const ResultsTitle = ({ mode }: EditButtonProps) => {
       ) : (
         <div className={styles.titleWrapper}>
           <span className={styles.title}>{resultsTitle}</span>
-          <IconButton
-            onClick={handleEdit}
-            aria-label='edit the title'
-            style={{ backgroundColor: 'red', width: 'fit-content' }}
-          >
-            <Button
-              className='global-edit-button edit-revision-button'
-              name='edit-button'
-              aria-label='edit revision'
-              endIcon={buttonIcon}
-              color='primary'
-              variant='text'
-            />
+          <IconButton onClick={handleEdit} aria-label='edit the title'>
+            {buttonIcon}
           </IconButton>
         </div>
       )}
