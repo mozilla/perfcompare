@@ -59,7 +59,7 @@ export const ResultsTitle = () => {
   };
 
   return (
-    <>
+    <div data-testid='results-title-component'>
       {isEditing ? (
         <Input
           id='results'
@@ -72,15 +72,15 @@ export const ResultsTitle = () => {
           className={styles.title}
         />
       ) : (
-        <div>
-          <span data-testid='results-title-label'>{resultsTitle}</span>
+        <>
+          <span>{resultsTitle}</span>
           <EditIcon
             className={styles.editIcon}
             data-testid='edit-icon'
             onClick={handleEdit}
           />
-        </div>
+        </>
       )}
-    </>
+    </div>
   );
 };
