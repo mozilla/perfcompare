@@ -60,17 +60,7 @@ export const ResultsTitle = () => {
 
   return (
     <>
-      <div className={isEditing ? styles.hide : styles.title}>
-        <label htmlFor='results' data-testid='results-title-label'>
-          {resultsTitle}
-        </label>
-        <EditIcon
-          className={styles.editIcon}
-          data-testid='edit-icon'
-          onClick={handleEdit}
-        />
-      </div>
-      {isEditing && (
+      {isEditing ? (
         <Input
           id='results'
           type='text'
@@ -81,6 +71,15 @@ export const ResultsTitle = () => {
           onKeyDown={handleEditComplete}
           className={styles.title}
         />
+      ) : (
+        <div>
+          <span data-testid='results-title-label'>{resultsTitle}</span>
+          <EditIcon
+            className={styles.editIcon}
+            data-testid='edit-icon'
+            onClick={handleEdit}
+          />
+        </div>
       )}
     </>
   );
