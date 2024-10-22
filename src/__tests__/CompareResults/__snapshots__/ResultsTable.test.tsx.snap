@@ -2127,3 +2127,531 @@ exports[`Results Table Should match snapshot 1`] = `
   </div>
 </body>
 `;
+
+exports[`Results Table should render different blocks when rendering several revisions 1`] = `
+<div
+  class="f1d2zsj2"
+  role="rowgroup"
+>
+  <div
+    class="fh103jg"
+  >
+    <div
+      class="f897l9y"
+    >
+      <strong>
+        <a
+          aria-label="link to suite documentation"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
+          href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
+          target="_blank"
+        >
+          a11yr
+        </a>
+         dhtml.html
+      </strong>
+    </div>
+    <div
+      class="f1oxa67k"
+    >
+      <span
+        class="f1rpr1m5"
+      >
+        opt
+      </span>
+      <span
+        class="f1rpr1m5"
+      >
+        e10s
+      </span>
+      <span
+        class="f1rpr1m5"
+      >
+        fission
+      </span>
+      <span
+        class="f1rpr1m5"
+      >
+        stylo
+      </span>
+      <span
+        class="f1rpr1m5"
+      >
+        webrender
+      </span>
+    </div>
+  </div>
+  <div
+    class="fcdpsbx"
+  >
+    <a
+      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f897l9y css-1qhous5-MuiTypography-root-MuiLink-root"
+      href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
+      target="_blank"
+      title="open treeherder view for spam"
+    >
+      spam
+    </a>
+    <div
+      class="revisionRow f1nwzic9 fp4ugv1 MuiBox-root css-1am90bh"
+      role="row"
+    >
+      <div
+        class="platform cell"
+        role="cell"
+      >
+        <div
+          aria-label="macosx1015-64-shippable-qr"
+          class="platform-container"
+          data-mui-internal-clone-element="true"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+            data-testid="AppleIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"
+            />
+          </svg>
+          <span>
+            OSX
+          </span>
+        </div>
+      </div>
+      <div
+        class="base-value cell"
+        role="cell"
+      >
+         
+        704.84
+         
+        ms
+         
+      </div>
+      <div
+        class="comparison-sign cell"
+        role="cell"
+      >
+        &lt;
+      </div>
+      <div
+        class="new-value cell"
+        role="cell"
+      >
+         
+        712.44
+         
+        ms
+      </div>
+      <div
+        class="status cell"
+        role="cell"
+      >
+        <span
+          class="status-hint status-hint-improvement"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+            data-testid="ThumbUpIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"
+            />
+          </svg>
+          Improvement
+        </span>
+      </div>
+      <div
+        class="delta cell"
+        role="cell"
+      >
+         
+        1.08
+         %
+         
+      </div>
+      <div
+        class="confidence cell"
+        role="cell"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vsehry-MuiSvgIcon-root"
+          data-testid="KeyboardArrowDownIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+          />
+        </svg>
+        Low
+      </div>
+      <div
+        class="total-runs cell"
+        role="cell"
+      >
+        <span>
+          <span
+            title="Base runs"
+          >
+            B:
+          </span>
+          <strong>
+            1
+          </strong>
+        </span>
+        <span>
+          <span
+            title="New runs"
+          >
+            N:
+          </span>
+          <strong>
+            1
+          </strong>
+        </span>
+      </div>
+      <div
+        class="row-buttons cell"
+      >
+        <div
+          class="graph"
+          role="cell"
+        >
+          <div
+            class="graph-link-button-container"
+          >
+            <a
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
+              href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000"
+              tabindex="0"
+              target="_blank"
+              title="open the evolution graph for this job in treeherder"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                data-testid="TimelineIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2z"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+        </div>
+        <div
+          class="retrigger-button"
+          data-testid="retrigger-jobs-button"
+          role="cell"
+        >
+          <div
+            class="retrigger-button-container"
+          >
+            <button
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
+              tabindex="0"
+              title="retrigger jobs"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                data-testid="RefreshOutlinedIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="expand-button cell"
+        role="cell"
+      >
+        <div
+          class="expand-button-container"
+          data-testid="expand-revision-button"
+        >
+          <button
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
+            tabindex="0"
+            title="expand this row"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+              data-testid="ExpandMoreIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="fcdpsbx"
+  >
+    <a
+      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f897l9y css-1qhous5-MuiTypography-root-MuiLink-root"
+      href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=devilrabbit"
+      target="_blank"
+      title="open treeherder view for devilrabbit"
+    >
+      devilrabbit
+    </a>
+    <div
+      class="revisionRow f1nwzic9 fp4ugv1 MuiBox-root css-1am90bh"
+      role="row"
+    >
+      <div
+        class="platform cell"
+        role="cell"
+      >
+        <div
+          aria-label="macosx1015-64-shippable-qr"
+          class="platform-container"
+          data-mui-internal-clone-element="true"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+            data-testid="AppleIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"
+            />
+          </svg>
+          <span>
+            OSX
+          </span>
+        </div>
+      </div>
+      <div
+        class="base-value cell"
+        role="cell"
+      >
+         
+        704.84
+         
+        ms
+         
+      </div>
+      <div
+        class="comparison-sign cell"
+        role="cell"
+      >
+        &lt;
+      </div>
+      <div
+        class="new-value cell"
+        role="cell"
+      >
+         
+        712.44
+         
+        ms
+      </div>
+      <div
+        class="status cell"
+        role="cell"
+      >
+        <span
+          class="status-hint status-hint-improvement"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+            data-testid="ThumbUpIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"
+            />
+          </svg>
+          Improvement
+        </span>
+      </div>
+      <div
+        class="delta cell"
+        role="cell"
+      >
+         
+        1.08
+         %
+         
+      </div>
+      <div
+        class="confidence cell"
+        role="cell"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vsehry-MuiSvgIcon-root"
+          data-testid="KeyboardArrowDownIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+          />
+        </svg>
+        Low
+      </div>
+      <div
+        class="total-runs cell"
+        role="cell"
+      >
+        <span>
+          <span
+            title="Base runs"
+          >
+            B:
+          </span>
+          <strong>
+            1
+          </strong>
+        </span>
+        <span>
+          <span
+            title="New runs"
+          >
+            N:
+          </span>
+          <strong>
+            1
+          </strong>
+        </span>
+      </div>
+      <div
+        class="row-buttons cell"
+      >
+        <div
+          class="graph"
+          role="cell"
+        >
+          <div
+            class="graph-link-button-container"
+          >
+            <a
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
+              href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=1e32960788ea&highlightedRevisions=6a1f133815a1&series=mozilla-central%2C9daea6258ae244039eb2390f3eab7935994cbb0e%2C1%2C1&timerange=5184000"
+              tabindex="0"
+              target="_blank"
+              title="open the evolution graph for this job in treeherder"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                data-testid="TimelineIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2z"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+        </div>
+        <div
+          class="retrigger-button"
+          data-testid="retrigger-jobs-button"
+          role="cell"
+        >
+          <div
+            class="retrigger-button-container"
+          >
+            <button
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
+              tabindex="0"
+              title="retrigger jobs"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                data-testid="RefreshOutlinedIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="expand-button cell"
+        role="cell"
+      >
+        <div
+          class="expand-button-container"
+          data-testid="expand-revision-button"
+        >
+          <button
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
+            tabindex="0"
+            title="expand this row"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+              data-testid="ExpandMoreIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
