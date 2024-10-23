@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense, useState } from 'react';
 
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -6,6 +6,7 @@ import { useSearchParams } from 'react-router-dom';
 import { useLoaderData, Await } from 'react-router-dom';
 
 import useRawSearchParams from '../../hooks/useRawSearchParams';
+import useTableFilters from '../../hooks/useTableFilters';
 import type { CompareResultsItem } from '../../types/state';
 import { Framework } from '../../types/types';
 import type { CompareResultsTableConfig } from '../../types/types';
@@ -100,56 +101,13 @@ export default function ResultsTable() {
   // This is our custom hook that updates the search params without a rerender.
   const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
 
+  // This is our custom hook that manages table filters
+  // and provides methods for clearing and toggling them.
+  const { tableFilters, onClearFilter, onToggleFilter } = useTableFilters();
+
   const initialSearchTerm = rawSearchParams.get('search') ?? '';
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
   const [frameworkIdVal, setFrameworkIdVal] = useState(frameworkId);
-  const [tableFilters, setTableFilters] = useState(
-    new Map() as Map<string, Set<string>>, // ColumnID -> Set<Values to remove>
-  );
-
-  // This useEffect is to extract filter params from the URL (via rawSearchParams)
-  // and updates the tableFilters state.
-  useEffect(() => {
-    const filters = Array.from(rawSearchParams.entries())
-      .filter(([key]) => key.startsWith('filter'))
-      .reduce((accumulator: Map<string, Set<string>>, [key, value]) => {
-        const columnId = key.split('_')[1];
-        if (!accumulator.has(columnId)) {
-          accumulator.set(columnId, new Set());
-        }
-        const valuesArray = value.split(',').map((item) => item.trim());
-        valuesArray.forEach((item) => accumulator.get(columnId)?.add(item));
-        return accumulator;
-      }, new Map<string, Set<string>>());
-
-    setTableFilters(filters);
-  }, [rawSearchParams]);
-
-  const onClearFilter = (columnId: string) => {
-    rawSearchParams.delete(`filter_${columnId}`);
-    updateRawSearchParams(rawSearchParams);
-
-    setTableFilters((oldFilters) => {
-      const newFilters = new Map(oldFilters);
-      newFilters.delete(columnId);
-      return newFilters;
-    });
-  };
-
-  const onToggleFilter = (columnId: string, filters: Set<string>) => {
-    if (filters.size > 0) {
-      rawSearchParams.set(`filter_${columnId}`, Array.from(filters).join(','));
-    } else {
-      rawSearchParams.delete(`filter_${columnId}`);
-    }
-    updateRawSearchParams(rawSearchParams);
-
-    setTableFilters((oldFilters) => {
-      const newFilters = new Map(oldFilters);
-      newFilters.set(columnId, filters);
-      return newFilters;
-    });
-  };
 
   const onFrameworkChange = (newFrameworkId: Framework['id']) => {
     setFrameworkIdVal(newFrameworkId);
