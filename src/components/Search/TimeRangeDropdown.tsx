@@ -44,6 +44,9 @@ function TimeRangeDropdown({
     menuItem: style({
       display: 'block',
     }),
+    // This extra flexible div is needed, so that the information looks the same in
+    // both the MenuItem (in the dropdown options) and the SelectedItem (in
+    // the dropdown, when the dropdown is closed).
     dateRange: style({
       display: 'flex',
       justifyContent: 'space-between',
