@@ -19,7 +19,7 @@ export type CompareResultsTableConfig =
       matchesFunction: (result: CompareResultsItem, value: string) => boolean;
     };
 
-export type ConfidenceText = 'High' | 'Medium' | 'Low';
+export type ConfidenceText = 'High' | 'Medium' | 'Low' | '';
 
 export type MeasurementUnit =
   | 'W'

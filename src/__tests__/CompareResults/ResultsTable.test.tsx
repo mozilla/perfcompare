@@ -123,7 +123,7 @@ describe('Results Table', () => {
       '  - OSX, Improvement, Low',
       '  - Linux, Regression, Medium',
       '  - Windows, -, High',
-      '  - Windows, -, ',
+      '  - Windows, -, -',
       '  - Android, Improvement, Low',
     ]);
 
@@ -156,7 +156,7 @@ describe('Results Table', () => {
       '  - OSX, Improvement, Low',
       '  - Linux, Regression, Medium',
       '  - Windows, -, High',
-      '  - Windows, -, ',
+      '  - Windows, -, -',
       '  - Android, Improvement, Low',
     ]);
 
@@ -165,7 +165,7 @@ describe('Results Table', () => {
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Linux, Regression, Medium',
       '  - Windows, -, High',
-      '  - Windows, -, ',
+      '  - Windows, -, -',
       '  - Android, Improvement, Low',
     ]);
 
@@ -174,7 +174,7 @@ describe('Results Table', () => {
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Linux, Regression, Medium',
       '  - Windows, -, High',
-      '  - Windows, -, ',
+      '  - Windows, -, -',
     ]);
   });
 
@@ -188,7 +188,7 @@ describe('Results Table', () => {
       '  - OSX, Improvement, Low',
       '  - Linux, Regression, Medium',
       '  - Windows, -, High',
-      '  - Windows, -, ',
+      '  - Windows, -, -',
     ]);
 
     const user = userEvent.setup({ delay: null });
@@ -205,13 +205,13 @@ describe('Results Table', () => {
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Linux, Regression, Medium',
       '  - Windows, -, High',
-      '  - Windows, -, ',
+      '  - Windows, -, -',
     ]);
     await clickMenuItem(user, /Status/, /Regression/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Windows, -, High',
-      '  - Windows, -, ',
+      '  - Windows, -, -',
     ]);
   });
 
@@ -225,7 +225,7 @@ describe('Results Table', () => {
       '  - OSX, Improvement, Low',
       '  - Linux, Regression, Medium',
       '  - Windows, -, High',
-      '  - Windows, -, ',
+      '  - Windows, -, -',
     ]);
 
     const user = userEvent.setup({ delay: null });
@@ -234,20 +234,20 @@ describe('Results Table', () => {
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Linux, Regression, Medium',
       '  - Windows, -, High',
-      '  - Windows, -, ',
+      '  - Windows, -, -',
     ]);
 
     await clickMenuItem(user, /Confidence/, /High/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Linux, Regression, Medium',
-      '  - Windows, -, ',
+      '  - Windows, -, -',
     ]);
 
     await clickMenuItem(user, /Confidence/, /Medium/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Windows, -, ',
+      '  - Windows, -, -',
     ]);
 
     await clickMenuItem(user, /Confidence/, /Clear filters/);
@@ -256,7 +256,15 @@ describe('Results Table', () => {
       '  - OSX, Improvement, Low',
       '  - Linux, Regression, Medium',
       '  - Windows, -, High',
-      '  - Windows, -, ',
+      '  - Windows, -, -',
+    ]);
+
+    await clickMenuItem(user, /Confidence/, /No value/);
+    expect(summarizeVisibleRows()).toEqual([
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - OSX, Improvement, Low',
+      '  - Linux, Regression, Medium',
+      '  - Windows, -, High',
     ]);
   });
 });
