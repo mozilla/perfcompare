@@ -1200,7 +1200,9 @@ exports[`Results View The table should match snapshot and other elements should 
                 <div
                   class="confidence cell"
                   role="cell"
-                />
+                >
+                  -
+                </div>
                 <div
                   class="total-runs cell"
                   role="cell"

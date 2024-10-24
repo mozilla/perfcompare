@@ -396,7 +396,7 @@ function RevisionRow(props: RevisionRowProps) {
         </div>
         <div className='confidence cell' role='cell'>
           {confidenceText && confidenceIcons[confidenceText]}
-          {confidenceText}
+          {confidenceText || '-'}
         </div>
         <div className='total-runs cell' role='cell'>
           <span>
