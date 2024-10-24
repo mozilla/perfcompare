@@ -7,6 +7,7 @@ export type CompareResultsTableConfig =
       key: string;
       disable?: boolean;
       gridWidth?: string;
+      possibleValues?: undefined;
     }
   | {
       name: string;
