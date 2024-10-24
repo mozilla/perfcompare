@@ -38,16 +38,6 @@ export type RevisionsData = {
   extra_options: string;
 };
 
-export type RevisionsHeader = {
-  suite: string;
-  framework_id: Framework['id'];
-  test: string;
-  option_name: string;
-  extra_options: string;
-  new_rev: string;
-  new_repo: Repository['name'];
-};
-
 export type SubtestsRevisionsHeader = {
   suite: string;
   framework_id: Framework['id'];

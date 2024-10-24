@@ -5,53 +5,85 @@ import { Virtuoso } from 'react-virtuoso';
 import type { compareView, compareOverTimeView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
-import type { CompareResultsItem, RevisionsHeader } from '../../types/state';
+import type { CompareResultsItem } from '../../types/state';
 import type { CompareResultsTableConfig } from '../../types/types';
 import NoResultsFound from './NoResultsFound';
 import TableRevisionContent from './TableRevisionContent';
 
-type ResultsForRevision = {
-  key: string;
-  value: CompareResultsItem[];
-  revisionHeader: RevisionsHeader;
-};
+// The data structure returned by processResults may look complex at first, so
+// here are some extra explanation.
+// In short it's a list of results, grouped first by tests, and then by revisions.
+// This mimics the view we want to generate in the results page.
+// We're using plain arrays to make it easier to iterate. This way the arrays are
+// generated just once. There are 2 types of arrays in this structure:
+// * the arrays that can grow with more results, more revisions, and more tests;
+// * and the arrays of only 2 elements, that represent a key with its value.
+// The arrays of the first type contain tuples, whose value is another array.
+//
+// Here is how this can look like:
+// results = [
+//   [ "header test 1", [
+//     [ "revision1", [
+//       { ...result1 },
+//       { ...result2 },
+//       ...
+//     ]],
+//     [ "revision2, [
+//       ...
+//     ]],
+//  ]],
+//  ["header test 2", [ ... ]],
+//  ["header test 3", [ ... ]],
+// ];
 
-function processResults(results: CompareResultsItem[]) {
-  const processedResults: Map<string, CompareResultsItem[]> = new Map<
+// This is the partial type that only contains the list of results grouped by revision.
+//                                        revision      list of results for one test and revision
+//                                              |               |
+//                                              v               v
+type ListOfResultsGroupedByRevisions = Array<[string, CompareResultsItem[]]>;
+
+// This is the full type containing the list of all results grouped by test
+// first, and by revisions second.
+//  Test header (test name, options, etc)  All results for this header
+//     |                                    |
+//     v                                    v
+type ListOfResultsGroupedByTest = Array<
+  [string, ListOfResultsGroupedByRevisions]
+>;
+
+function processResults(
+  results: CompareResultsItem[],
+): ListOfResultsGroupedByTest {
+  // This map will make it possible to group all results by test header first,
+  // and by revision then.
+  // Map<header, Map<revision, array of results>>
+  const processedResults: Map<
     string,
-    CompareResultsItem[]
-  >();
-  results.forEach((result) => {
-    const { new_rev: newRevision, header_name: header } = result;
-    const rowIdentifier = header.concat(' ', newRevision);
-    if (processedResults.has(rowIdentifier)) {
-      (processedResults.get(rowIdentifier) as CompareResultsItem[]).push(
-        result,
-      );
-    } else {
-      processedResults.set(rowIdentifier, [result]);
-    }
-  });
-  const restructuredResults: ResultsForRevision[] = Array.from(
-    processedResults,
-    function ([rowIdentifier, result]) {
-      return {
-        key: rowIdentifier,
-        value: result,
-        revisionHeader: {
-          suite: result[0].suite,
-          framework_id: result[0].framework_id,
-          test: result[0].test,
-          option_name: result[0].option_name,
-          extra_options: result[0].extra_options,
-          new_rev: result[0].new_rev,
-          new_repo: result[0].new_repository_name,
-        },
-      };
-    },
-  );
+    Map<string, CompareResultsItem[]>
+  > = new Map();
 
-  return restructuredResults;
+  for (const result of results) {
+    const { new_rev: newRevision, header_name: header } = result;
+
+    let resultsForHeader = processedResults.get(header);
+    if (!resultsForHeader) {
+      resultsForHeader = new Map();
+      processedResults.set(header, resultsForHeader);
+    }
+
+    const resultsForRevision = resultsForHeader.get(newRevision);
+    if (!resultsForRevision) {
+      resultsForHeader.set(newRevision, [result]);
+    } else {
+      resultsForRevision.push(result);
+    }
+  }
+
+  // This command converts the Map of maps in an array of arrays.
+  return Array.from(processedResults, ([header, resultsForHeader]) => [
+    header,
+    [...resultsForHeader],
+  ]);
 }
 
 function resultMatchesSearchTerm(
@@ -171,34 +203,32 @@ function TableContent({
     cellsConfiguration,
   ]);
 
-  return (
-    <>
-      <Virtuoso
-        useWindowScroll
-        totalCount={processedResults.length}
-        overscan={{
-          /* These values are pretty arbitrary. The goal is to have more rows
-           * rendered than the current viewport, so that when scrolling fast
-           * (but not too fast) the white checkerboarding doesn't appear.
-           */
-          main: 5000,
-          reverse: 5000,
-        }}
-        data={processedResults}
-        computeItemKey={(_, res) => res.key}
-        itemContent={(_, res) => (
-          <TableRevisionContent
-            identifier={res.key}
-            header={res.revisionHeader}
-            results={res.value}
-            view={view}
-            rowGridTemplateColumns={rowGridTemplateColumns}
-          />
-        )}
-      />
+  if (!processedResults.length) {
+    return <NoResultsFound />;
+  }
 
-      {processedResults.length == 0 && <NoResultsFound />}
-    </>
+  return (
+    <Virtuoso
+      useWindowScroll
+      totalCount={processedResults.length}
+      overscan={{
+        /* These values are pretty arbitrary. The goal is to have more rows
+         * rendered than the current viewport, so that when scrolling fast
+         * (but not too fast) the white checkerboarding doesn't appear.
+         */
+        main: 5000,
+        reverse: 5000,
+      }}
+      data={processedResults}
+      computeItemKey={(_, [header]) => header}
+      itemContent={(_, [, resultsForHeader]) => (
+        <TableRevisionContent
+          results={resultsForHeader}
+          view={view}
+          rowGridTemplateColumns={rowGridTemplateColumns}
+        />
+      )}
+    />
   );
 }
 
