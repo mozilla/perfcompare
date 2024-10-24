@@ -9,7 +9,6 @@ export const comparisonResults: CompareResultsItem[] = [
     framework_id: 1,
     platform: 'macosx1015-64-shippable-qr',
     suite: 'a11yr',
-    is_empty: false,
     header_name: 'a11yr opt e10s fission stylo webrender',
     base_repository_name: 'mozilla-central',
     new_repository_name: 'mozilla-central',
@@ -61,7 +60,6 @@ export const comparisonResults: CompareResultsItem[] = [
     framework_id: 1,
     platform: 'linux1804-64-shippable-qr',
     suite: 'a11yr',
-    is_empty: false,
     header_name: 'a11yr opt e10s fission stylo webrender',
     base_repository_name: 'mozilla-central',
     new_repository_name: 'mozilla-central',
@@ -113,7 +111,6 @@ export const comparisonResults: CompareResultsItem[] = [
     framework_id: 1,
     platform: 'windows10-64-shippable-qr',
     suite: 'a11yr',
-    is_empty: false,
     header_name: 'a11yr opt e10s fission stylo webrender',
     base_repository_name: 'mozilla-central',
     new_repository_name: 'mozilla-central',
@@ -165,7 +162,6 @@ export const comparisonResults: CompareResultsItem[] = [
     framework_id: 1,
     platform: 'macosx1015-64-shippable-qr',
     suite: 'a11yr',
-    is_empty: false,
     header_name: 'a11yr opt e10s fission stylo webrender-sw',
     base_repository_name: 'mozilla-central',
     new_repository_name: 'mozilla-central',
@@ -217,7 +213,6 @@ export const comparisonResults: CompareResultsItem[] = [
     framework_id: 1,
     platform: 'linux1804-64-shippable-qr',
     suite: 'a11yr',
-    is_empty: false,
     header_name: 'a11yr opt e10s fission stylo webrender-sw',
     base_repository_name: 'mozilla-central',
     new_repository_name: 'mozilla-central',
@@ -269,7 +264,6 @@ export const comparisonResults: CompareResultsItem[] = [
     framework_id: 1,
     platform: 'windows10-64-shippable-qr',
     suite: 'a11yr',
-    is_empty: false,
     header_name: 'a11yr opt e10s fission stylo webrender-sw',
     base_repository_name: 'mozilla-central',
     new_repository_name: 'mozilla-central',
@@ -321,7 +315,6 @@ export const comparisonResults: CompareResultsItem[] = [
     framework_id: 1,
     platform: 'macosx1015-64-shippable-qr',
     suite: 'cpstartup',
-    is_empty: false,
     header_name:
       'cpstartup content-process-startup opt e10s fission stylo webrender-sw',
     base_repository_name: 'mozilla-central',
@@ -374,7 +367,6 @@ export const comparisonResults: CompareResultsItem[] = [
     framework_id: 1,
     platform: 'linux1804-64-shippable-qr',
     suite: 'cpstartup',
-    is_empty: false,
     header_name:
       'cpstartup content-process-startup opt e10s fission stylo webrender-sw',
     base_repository_name: 'mozilla-central',
@@ -427,7 +419,6 @@ export const comparisonResults: CompareResultsItem[] = [
     framework_id: 1,
     platform: 'windows10-64-shippable-qr',
     suite: 'cpstartup',
-    is_empty: false,
     header_name:
       'cpstartup content-process-startup opt e10s fission stylo webrender-sw',
     base_repository_name: 'mozilla-central',
@@ -480,7 +471,6 @@ export const comparisonResults: CompareResultsItem[] = [
     framework_id: 1,
     platform: 'macosx1015-64-shippable-qr',
     suite: 'glvideo',
-    is_empty: false,
     header_name:
       'glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webgl-ipc webrender',
     base_repository_name: 'mozilla-central',
@@ -533,7 +523,6 @@ export const comparisonResults: CompareResultsItem[] = [
     framework_id: 1,
     platform: 'windows10-64-ref-hw-2017-qr',
     suite: 'glvideo',
-    is_empty: false,
     header_name:
       'glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webgl-ipc webrender',
     base_repository_name: 'mozilla-central',
@@ -586,7 +575,6 @@ export const comparisonResults: CompareResultsItem[] = [
     framework_id: 1,
     platform: 'linux1804-64-shippable-qr',
     suite: 'glvideo',
-    is_empty: false,
     header_name:
       'glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webgl-ipc webrender',
     base_repository_name: 'mozilla-central',
@@ -639,7 +627,6 @@ export const comparisonResults: CompareResultsItem[] = [
     framework_id: 1,
     platform: 'windows10-64-shippable-qr',
     suite: 'glvideo',
-    is_empty: false,
     header_name:
       'glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webgl-ipc webrender',
     base_repository_name: 'mozilla-central',
@@ -692,7 +679,6 @@ export const comparisonResults: CompareResultsItem[] = [
     framework_id: 1,
     platform: 'macosx1015-64-shippable-qr',
     suite: 'glvideo',
-    is_empty: false,
     header_name:
       'glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webrender',
     base_repository_name: 'mozilla-central',
@@ -745,7 +731,6 @@ export const comparisonResults: CompareResultsItem[] = [
     framework_id: 1,
     platform: 'linux1804-64-shippable-qr',
     suite: 'glvideo',
-    is_empty: false,
     header_name:
       'glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webrender',
     base_repository_name: 'mozilla-central',
@@ -798,7 +783,6 @@ export const comparisonResults: CompareResultsItem[] = [
     framework_id: 1,
     platform: 'windows10-64-shippable-qr',
     suite: 'glvideo',
-    is_empty: false,
     header_name:
       'glvideo Mean tick time across 100 ticks:  opt e10s fission stylo webrender',
     base_repository_name: 'mozilla-central',
@@ -851,7 +835,6 @@ export const comparisonResults: CompareResultsItem[] = [
     framework_id: 1,
     platform: 'macosx1015-64-shippable-qr',
     suite: 'kraken',
-    is_empty: false,
     header_name: 'kraken opt e10s fission stylo webrender',
     base_repository_name: 'mozilla-central',
     new_repository_name: 'mozilla-central',
@@ -903,7 +886,6 @@ export const comparisonResults: CompareResultsItem[] = [
     framework_id: 1,
     platform: 'linux1804-64-shippable-qr',
     suite: 'kraken',
-    is_empty: false,
     header_name: 'kraken opt e10s fission stylo webrender',
     base_repository_name: 'mozilla-central',
     new_repository_name: 'mozilla-central',
@@ -955,7 +937,6 @@ export const comparisonResults: CompareResultsItem[] = [
     framework_id: 1,
     platform: 'windows10-64-shippable-qr',
     suite: 'kraken',
-    is_empty: false,
     header_name: 'kraken opt e10s fission stylo webrender',
     base_repository_name: 'mozilla-central',
     new_repository_name: 'mozilla-central',
@@ -1007,7 +988,6 @@ export const comparisonResults: CompareResultsItem[] = [
     framework_id: 1,
     platform: 'macosx1015-64-shippable-qr',
     suite: 'motionmark_webgl',
-    is_empty: false,
     header_name:
       'motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webgl-ipc webrender',
     base_repository_name: 'mozilla-central',
@@ -1060,7 +1040,6 @@ export const comparisonResults: CompareResultsItem[] = [
     framework_id: 1,
     platform: 'windows10-64-ref-hw-2017-qr',
     suite: 'motionmark_webgl',
-    is_empty: false,
     header_name:
       'motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webgl-ipc webrender',
     base_repository_name: 'mozilla-central',
@@ -1113,7 +1092,6 @@ export const comparisonResults: CompareResultsItem[] = [
     framework_id: 1,
     platform: 'linux1804-64-shippable-qr',
     suite: 'motionmark_webgl',
-    is_empty: false,
     header_name:
       'motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webgl-ipc webrender',
     base_repository_name: 'mozilla-central',
@@ -1166,7 +1144,6 @@ export const comparisonResults: CompareResultsItem[] = [
     framework_id: 1,
     platform: 'windows10-64-shippable-qr',
     suite: 'motionmark_webgl',
-    is_empty: false,
     header_name:
       'motionmark_webgl 3DGraphics-WebGL opt e10s fission stylo webgl-ipc webrender',
     base_repository_name: 'mozilla-central',
