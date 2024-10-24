@@ -32,7 +32,7 @@ exports[`Search Containter should match snapshot 1`] = `
             </p>
           </div>
           <div
-            aria-label="two overlapping circles"
+            aria-hidden="true"
             class="compare-card-img compare-card-img--base"
           />
         </div>
@@ -444,7 +444,7 @@ exports[`Search Containter should match snapshot 1`] = `
             </p>
           </div>
           <div
-            aria-label="a clock"
+            aria-hidden="true"
             class="compare-card-img compare-card-img--time"
           />
         </div>

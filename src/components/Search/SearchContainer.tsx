@@ -35,7 +35,6 @@ function SearchContainer(props: SearchViewProps) {
           isExpanded={isBaseSearchExpanded}
           title={strings.base.title}
           subtitle={strings.base.tagline}
-          ariaLabel='two overlapping circles'
           onClick={() => setIsBaseSearchExpanded(true)}
         />
         {/* hard code the frameworkIdVal  because talos is the
@@ -57,7 +56,6 @@ function SearchContainer(props: SearchViewProps) {
           isExpanded={!isBaseSearchExpanded}
           title={strings.overTime.title}
           subtitle={strings.overTime.tagline}
-          ariaLabel={'a clock'}
           onClick={() => setIsBaseSearchExpanded(false)}
         />
 

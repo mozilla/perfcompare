@@ -111,7 +111,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
               </p>
             </div>
             <div
-              aria-label="two overlapping circles"
+              aria-hidden="true"
               class="compare-card-img compare-card-img--base"
             />
           </div>
@@ -523,7 +523,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
               </p>
             </div>
             <div
-              aria-label="a clock"
+              aria-hidden="true"
               class="compare-card-img compare-card-img--time"
             />
           </div>
