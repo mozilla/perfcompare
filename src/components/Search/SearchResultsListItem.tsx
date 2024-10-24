@@ -9,12 +9,12 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Radio from '@mui/material/Radio';
 import Typography from '@mui/material/Typography';
-import dayjs from 'dayjs';
 import { style } from 'typestyle';
 
 import { Spacing } from '../../styles';
 import type { Changeset } from '../../types/state';
 import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
+import DateTime from './DateTime';
 
 interface SearchResultsListItemProps {
   index: number;
@@ -34,7 +34,6 @@ const styles = {
       '.search-revision-item-icon': {
         minWidth: '0',
       },
-
       '.MuiListItemText-primary': {
         display: 'flex',
         justifyContent: 'space-between',
@@ -66,7 +65,6 @@ function SearchResultsListItem({
   const ListItemComponent = listItemComponent === 'radio' ? Radio : Checkbox;
   const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);
-  const itemDate = new Date(item.push_timestamp * 1000);
 
   const onToggleAction = () => {
     onToggle(item);
@@ -112,7 +110,6 @@ function SearchResultsListItem({
 
                 <div className='info-caption'>
                   <div className='info-caption-item item-author'>
-                    {' '}
                     <MailOutlineOutlinedIcon
                       className='mail-icon'
                       fontSize='small'
@@ -125,7 +122,7 @@ function SearchResultsListItem({
                       className='time-icon'
                       fontSize='small'
                     />
-                    {String(dayjs(itemDate).format('MM/DD/YY HH:mm'))}
+                    <DateTime pushTimestamp={item.push_timestamp} />
                   </div>
                 </div>
               </Fragment>

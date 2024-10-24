@@ -75,7 +75,6 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
               <div
                 class="info-caption-item item-author"
               >
-                 
                 <svg
                   aria-hidden="true"
                   class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
@@ -104,7 +103,17 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                     d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                   />
                 </svg>
-                03/29/51 00:00
+                <span
+                  aria-label="Mar 29, 1951 0:0 UTC"
+                  class=""
+                  data-mui-internal-clone-element="true"
+                >
+                  Mar 29, 1951
+                   
+                  0:0
+                   
+                  GMT+0
+                </span>
               </div>
             </div>
           </span>
@@ -185,7 +194,6 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
               <div
                 class="info-caption-item item-author"
               >
-                 
                 <svg
                   aria-hidden="true"
                   class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
@@ -214,7 +222,17 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                     d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                   />
                 </svg>
-                02/22/58 00:00
+                <span
+                  aria-label="Feb 22, 1958 0:0 UTC"
+                  class=""
+                  data-mui-internal-clone-element="true"
+                >
+                  Feb 22, 1958
+                   
+                  0:0
+                   
+                  GMT+0
+                </span>
               </div>
             </div>
           </span>
@@ -295,7 +313,6 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
               <div
                 class="info-caption-item item-author"
               >
-                 
                 <svg
                   aria-hidden="true"
                   class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
@@ -324,7 +341,17 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                     d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                   />
                 </svg>
-                07/29/87 00:00
+                <span
+                  aria-label="Jul 29, 1987 0:0 UTC"
+                  class=""
+                  data-mui-internal-clone-element="true"
+                >
+                  Jul 29, 1987
+                   
+                  0:0
+                   
+                  GMT+0
+                </span>
               </div>
             </div>
           </span>
@@ -405,7 +432,6 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
               <div
                 class="info-caption-item item-author"
               >
-                 
                 <svg
                   aria-hidden="true"
                   class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
@@ -434,7 +460,17 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                     d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                   />
                 </svg>
-                07/04/20 00:00
+                <span
+                  aria-label="Jul 4, 2020 0:0 UTC"
+                  class=""
+                  data-mui-internal-clone-element="true"
+                >
+                  Jul 4, 2020
+                   
+                  0:0
+                   
+                  GMT+0
+                </span>
               </div>
             </div>
           </span>
@@ -515,7 +551,6 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
               <div
                 class="info-caption-item item-author"
               >
-                 
                 <svg
                   aria-hidden="true"
                   class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
@@ -544,7 +579,17 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
                     d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                   />
                 </svg>
-                04/13/22 00:00
+                <span
+                  aria-label="Apr 13, 2022 0:0 UTC"
+                  class=""
+                  data-mui-internal-clone-element="true"
+                >
+                  Apr 13, 2022
+                   
+                  0:0
+                   
+                  GMT+0
+                </span>
               </div>
             </div>
           </span>
@@ -894,7 +939,6 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                       <div
                                         class="info-caption-item item-author"
                                       >
-                                         
                                         <svg
                                           aria-hidden="true"
                                           class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
@@ -923,7 +967,17 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                             d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                                           />
                                         </svg>
-                                        03/29/51 00:00
+                                        <span
+                                          aria-label="Mar 29, 1951 0:0 UTC"
+                                          class=""
+                                          data-mui-internal-clone-element="true"
+                                        >
+                                          Mar 29, 1951
+                                           
+                                          0:0
+                                           
+                                          GMT+0
+                                        </span>
                                       </div>
                                     </div>
                                   </span>
@@ -1004,7 +1058,6 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                       <div
                                         class="info-caption-item item-author"
                                       >
-                                         
                                         <svg
                                           aria-hidden="true"
                                           class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
@@ -1033,7 +1086,17 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                             d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                                           />
                                         </svg>
-                                        02/22/58 00:00
+                                        <span
+                                          aria-label="Feb 22, 1958 0:0 UTC"
+                                          class=""
+                                          data-mui-internal-clone-element="true"
+                                        >
+                                          Feb 22, 1958
+                                           
+                                          0:0
+                                           
+                                          GMT+0
+                                        </span>
                                       </div>
                                     </div>
                                   </span>
@@ -1114,7 +1177,6 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                       <div
                                         class="info-caption-item item-author"
                                       >
-                                         
                                         <svg
                                           aria-hidden="true"
                                           class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
@@ -1143,7 +1205,17 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                             d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                                           />
                                         </svg>
-                                        07/29/87 00:00
+                                        <span
+                                          aria-label="Jul 29, 1987 0:0 UTC"
+                                          class=""
+                                          data-mui-internal-clone-element="true"
+                                        >
+                                          Jul 29, 1987
+                                           
+                                          0:0
+                                           
+                                          GMT+0
+                                        </span>
                                       </div>
                                     </div>
                                   </span>
@@ -1224,7 +1296,6 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                       <div
                                         class="info-caption-item item-author"
                                       >
-                                         
                                         <svg
                                           aria-hidden="true"
                                           class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
@@ -1253,7 +1324,17 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                             d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                                           />
                                         </svg>
-                                        07/04/20 00:00
+                                        <span
+                                          aria-label="Jul 4, 2020 0:0 UTC"
+                                          class=""
+                                          data-mui-internal-clone-element="true"
+                                        >
+                                          Jul 4, 2020
+                                           
+                                          0:0
+                                           
+                                          GMT+0
+                                        </span>
                                       </div>
                                     </div>
                                   </span>
@@ -1334,7 +1415,6 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                       <div
                                         class="info-caption-item item-author"
                                       >
-                                         
                                         <svg
                                           aria-hidden="true"
                                           class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
@@ -1363,7 +1443,17 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                             d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                                           />
                                         </svg>
-                                        04/13/22 00:00
+                                        <span
+                                          aria-label="Apr 13, 2022 0:0 UTC"
+                                          class=""
+                                          data-mui-internal-clone-element="true"
+                                        >
+                                          Apr 13, 2022
+                                           
+                                          0:0
+                                           
+                                          GMT+0
+                                        </span>
                                       </div>
                                     </div>
                                   </span>

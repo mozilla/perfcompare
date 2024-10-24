@@ -11,7 +11,6 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import dayjs from 'dayjs';
 
 import { repoMap } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
@@ -23,6 +22,7 @@ import {
   getLatestCommitMessage,
   getTreeherderURL,
 } from '../../utils/helpers';
+import DateTime from './DateTime';
 
 const base = Strings.components.searchDefault.base;
 const warning = base.collapsed.warnings.comparison;
@@ -49,7 +49,7 @@ function SelectedRevisionItem({
   const styles = SelectRevsStyles(mode);
   const revisionHash = truncateHash(item.revision);
   const commitMessage = getLatestCommitMessage(item);
-  const itemDate = new Date(item.push_timestamp * 1000);
+
   const repository = repoMap[item.repository_id] ?? 'try';
 
   return (
@@ -108,7 +108,7 @@ function SelectedRevisionItem({
                     className='time-icon'
                     fontSize='small'
                   />
-                  {String(dayjs(itemDate).format('MM/DD/YY HH:mm'))}
+                  <DateTime pushTimestamp={item.push_timestamp} />
                 </div>
               </div>
             </React.Fragment>

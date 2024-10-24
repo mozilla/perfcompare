@@ -46,7 +46,6 @@ describe('SearchResultsList', () => {
   it('should fill the checkbox when a result is clicked', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
-
     await renderComponent();
     // focus input to show results
     const searchInput = screen.getAllByRole('textbox')[0];
@@ -88,12 +87,17 @@ describe('SearchResultsList', () => {
     // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
 
-    await renderComponent();
     // focus input to show results
+    await renderComponent();
     const searchInput = screen.getAllByRole('textbox')[0];
     await user.click(searchInput);
-    await user.click((await screen.findAllByTestId('checkbox-0'))[0]);
-    await user.click(screen.getAllByTestId('checkbox-1')[0]);
+
+    // Awaiting checkboxes to ensure we get the resolved elements
+    const checkboxes = await screen.findAllByTestId('checkbox-0');
+    await user.click(checkboxes[0]);
+
+    const checkboxes1 = await screen.findAllByTestId('checkbox-1');
+    await user.click(checkboxes1[0]);
 
     expect(screen.getAllByTestId('checkbox-0')[0]).not.toHaveClass(
       'Mui-checked',
@@ -111,11 +115,8 @@ describe('SearchResultsList', () => {
     const checkboxForText = (textElement: Element) =>
       textElement.closest('li')?.querySelector('.MuiCheckbox-root');
 
-    // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
-
     await renderComponent();
-    // focus input to show results
     const searchInput = screen.getAllByRole('textbox')[1];
     await user.click(searchInput);
 
@@ -125,6 +126,7 @@ describe('SearchResultsList', () => {
     const alvesOfCoconut = await screen.findByText(/alves of coconuts/);
 
     await user.click(noArmsLeft);
+    // Should allow unchecking revisions even after four have been selected
     await user.click(fleshWound);
     await user.click(onAHorse);
     await user.click(alvesOfCoconut);
@@ -136,13 +138,13 @@ describe('SearchResultsList', () => {
 
     expect(screen.getByText('Maximum 3 revisions.')).toBeInTheDocument();
 
-    // Should allow unchecking revisions even after four have been selected
     await user.click(fleshWound);
     expect(fleshWound).not.toHaveClass('Mui-checked');
   });
 
   it('Should apply dark and light mode styles when theme button is toggled', async () => {
     await renderComponent();
+    // set delay to null to prevent test time-out due to useFakeTimers
     const user = userEvent.setup({ delay: null });
     const darkModeToggle = screen.getByRole('checkbox', {
       name: /Dark mode switch/,
@@ -150,7 +152,9 @@ describe('SearchResultsList', () => {
 
     await user.click(darkModeToggle);
     expect(screen.getByLabelText('Light mode')).toBeInTheDocument();
+    // focus input to show results
     const searchInput = screen.getAllByRole('textbox')[0];
+
     await user.click(searchInput);
     const resultsList = screen.getByTestId('list-mode');
     expect(resultsList).toMatchSnapshot('after toggling dark mode');
