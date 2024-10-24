@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react';
+import { type ReactElement } from 'react';
 
 import userEvent, { type UserEvent } from '@testing-library/user-event';
 
@@ -72,6 +72,7 @@ describe('Results Table', () => {
         titleElement.textContent,
         ...optionsElements.map((element) => element.textContent),
       ].join(' ');
+
       result.push(title);
       const rows = within(group).getAllByRole('row');
       for (const row of rows) {
@@ -118,6 +119,7 @@ describe('Results Table', () => {
     setupAndRender(testCompareData);
 
     await screen.findByText('a11yr');
+
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - OSX, Improvement, Low',
@@ -128,7 +130,9 @@ describe('Results Table', () => {
     ]);
 
     const user = userEvent.setup({ delay: null });
+
     await clickMenuItem(user, /Platform/, /Windows/);
+
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - OSX, Improvement, Low',
@@ -137,12 +141,14 @@ describe('Results Table', () => {
     ]);
 
     await clickMenuItem(user, /Platform/, /Linux/);
+
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - OSX, Improvement, Low',
       '  - Android, Improvement, Low',
     ]);
     await clickMenuItem(user, /Platform/, /Linux/);
+
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - OSX, Improvement, Low',
@@ -151,6 +157,7 @@ describe('Results Table', () => {
     ]);
 
     await clickMenuItem(user, /Platform/, 'Clear filters');
+
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - OSX, Improvement, Low',
@@ -161,6 +168,7 @@ describe('Results Table', () => {
     ]);
 
     await clickMenuItem(user, /Platform/, /OSX/);
+
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Linux, Regression, Medium',
@@ -170,6 +178,7 @@ describe('Results Table', () => {
     ]);
 
     await clickMenuItem(user, /Platform/, /Android/);
+
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Linux, Regression, Medium',
@@ -193,6 +202,7 @@ describe('Results Table', () => {
 
     const user = userEvent.setup({ delay: null });
     await clickMenuItem(user, /Status/, /No changes/);
+
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - OSX, Improvement, Low',
@@ -200,7 +210,9 @@ describe('Results Table', () => {
     ]);
 
     await clickMenuItem(user, /Status/, /Clear filters/);
+
     await clickMenuItem(user, /Status/, /Improvement/);
+
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Linux, Regression, Medium',
@@ -208,6 +220,7 @@ describe('Results Table', () => {
       '  - Windows, -, ',
     ]);
     await clickMenuItem(user, /Status/, /Regression/);
+
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Windows, -, High',
@@ -230,6 +243,7 @@ describe('Results Table', () => {
 
     const user = userEvent.setup({ delay: null });
     await clickMenuItem(user, /Confidence/, /Low/);
+
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Linux, Regression, Medium',
@@ -238,13 +252,14 @@ describe('Results Table', () => {
     ]);
 
     await clickMenuItem(user, /Confidence/, /High/);
+
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Linux, Regression, Medium',
       '  - Windows, -, ',
     ]);
-
     await clickMenuItem(user, /Confidence/, /Medium/);
+
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Windows, -, ',
@@ -255,6 +270,14 @@ describe('Results Table', () => {
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - OSX, Improvement, Low',
       '  - Linux, Regression, Medium',
+      '  - Windows, -, High',
+      '  - Windows, -, ',
+    ]);
+    await clickMenuItem(user, /Confidence/, /Medium/);
+
+    expect(summarizeVisibleRows()).toEqual([
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - OSX, Improvement, Low',
       '  - Windows, -, High',
       '  - Windows, -, ',
     ]);
