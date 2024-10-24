@@ -2,14 +2,19 @@ import { type ReactNode } from 'react';
 
 import AppleIcon from '@mui/icons-material/Apple';
 import { Link } from '@mui/material';
+import { useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
 
+import { frameworkMap } from '../../../common/constants';
+import { subtestsView, subtestsOverTimeView } from '../../../common/constants';
+import { timeRangeMap } from '../../../common/constants';
 import { Strings } from '../../../resources/Strings';
 import { Colors, Spacing } from '../../../styles';
 import type {
   SubtestsRevisionsHeader,
   PlatformShortName,
 } from '../../../types/state';
+import { Changeset, Repository } from '../../../types/state';
 import {
   getTreeherderURL,
   truncateHash,
@@ -19,6 +24,7 @@ import { getPlatformShortName } from '../../../utils/platform';
 import AndroidIcon from '../../Shared/Icons/AndroidIcon';
 import LinuxIcon from '../../Shared/Icons/LinuxIcon';
 import WindowsIcon from '../../Shared/Icons/WindowsIcon';
+import { LoaderReturnValue as OvertimeLoaderReturnValue } from '../subtestsOverTimeLoader';
 
 const styles = {
   revisionHeader: style({
@@ -87,12 +93,37 @@ function getSuite(
   }
 }
 
+function getRevLink(
+  rev: Changeset['revision'],
+  repo: Repository['name'],
+  text: string,
+) {
+  const shortHash = truncateHash(rev);
+  return (
+    <>
+      {` ${text} (${repo}) `}
+      <Link
+        href={getTreeherderURL(rev, repo)}
+        target='_blank'
+        title={`${Strings.components.revisionRow.title.jobLink} ${shortHash}`}
+      >
+        {shortHash}
+      </Link>
+    </>
+  );
+}
+
+function getTimeRange(repo: Repository['name']) {
+  const { intervalValue } = useLoaderData() as OvertimeLoaderReturnValue;
+  return ` Base (${repo}) ${timeRangeMap[intervalValue]} `;
+}
+
 function getExtraOptions(extraOptions: string) {
   return extraOptions ? extraOptions.split(' ') : [];
 }
 
 function SubtestsRevisionHeader(props: SubtestsRevisionHeaderProps) {
-  const { header } = props;
+  const { header, view } = props;
   const { docsURL, isLinkSupported } = getDocsURL(
     header.suite,
     header.framework_id,
@@ -108,19 +139,19 @@ function SubtestsRevisionHeader(props: SubtestsRevisionHeaderProps) {
   const platformShortName = getPlatformShortName(header.platform);
   const platformIcon = platformIcons[platformShortName];
   const extraOptions = getExtraOptions(header.extra_options);
-  const shortHash = truncateHash(header.new_rev);
+  const framework = frameworkMap[header.framework_id];
+  const baseInfo =
+    view === subtestsView
+      ? getRevLink(header.base_rev, header.base_repo, 'Base')
+      : getTimeRange(header.base_repo);
+
   return (
     <div className={styles.revisionHeader}>
       <div className={styles.typography}>
-        <strong>{getSuite(header, docsURL, isLinkSupported)}</strong> |{' '}
-        <Link
-          href={getTreeherderURL(header.new_rev, header.new_repo)}
-          target='_blank'
-          title={`${Strings.components.revisionRow.title.jobLink} ${shortHash}`}
-        >
-          {shortHash}
-        </Link>{' '}
-        | {platformIcon} <span>{platformShortName}</span> |{' '}
+        <strong>{getSuite(header, docsURL, isLinkSupported)}</strong> |
+        {baseInfo}
+        {getRevLink(header.new_rev, header.new_repo, '- New')} | {framework} |{' '}
+        {platformIcon} <span>{platformShortName}</span> |{' '}
       </div>
       <div className={styles.tagsOptions}>
         <span className={styles.chip}>{header.option_name}</span>
@@ -136,6 +167,7 @@ function SubtestsRevisionHeader(props: SubtestsRevisionHeaderProps) {
 
 interface SubtestsRevisionHeaderProps {
   header: SubtestsRevisionsHeader;
+  view: typeof subtestsView | typeof subtestsOverTimeView;
 }
 
 export default SubtestsRevisionHeader;
