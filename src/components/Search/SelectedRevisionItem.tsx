@@ -11,7 +11,6 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import dayjs from 'dayjs';
 
 import { repoMap } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
@@ -23,6 +22,7 @@ import {
   getLatestCommitMessage,
   getTreeherderURL,
 } from '../../utils/helpers';
+import DateTimeDisplay from './DateTimeDisplay';
 
 const base = Strings.components.searchDefault.base;
 const warning = base.collapsed.warnings.comparison;
@@ -108,7 +108,7 @@ function SelectedRevisionItem({
                     className='time-icon'
                     fontSize='small'
                   />
-                  {String(dayjs(itemDate).format('MM/DD/YY HH:mm'))}
+                  <DateTimeDisplay itemDate={itemDate} />
                 </div>
               </div>
             </React.Fragment>

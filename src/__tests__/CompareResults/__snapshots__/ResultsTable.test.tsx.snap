@@ -348,7 +348,13 @@ exports[`Results Table Should match snapshot 1`] = `
                                       d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                                     />
                                   </svg>
-                                  03/29/51 00:00
+                                  <div
+                                    aria-label="Mar 29, 51, 24:00 UTC"
+                                    class=""
+                                    data-mui-internal-clone-element="true"
+                                  >
+                                    Mar 29, 51, 24:00 UTC
+                                  </div>
                                 </div>
                               </div>
                             </span>
@@ -609,7 +615,13 @@ exports[`Results Table Should match snapshot 1`] = `
                                       d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                                     />
                                   </svg>
-                                  03/29/51 00:00
+                                  <div
+                                    aria-label="Mar 29, 51, 24:00 UTC"
+                                    class=""
+                                    data-mui-internal-clone-element="true"
+                                  >
+                                    Mar 29, 51, 24:00 UTC
+                                  </div>
                                 </div>
                               </div>
                             </span>
@@ -771,7 +783,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             aria-invalid="false"
                             aria-label="Search by title, platform, revision or options"
                             class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-rg83rj-MuiInputBase-input-MuiOutlinedInput-input"
-                            id=":r4:"
+                            id=":r6:"
                             placeholder="Search results"
                             type="text"
                             value=""
