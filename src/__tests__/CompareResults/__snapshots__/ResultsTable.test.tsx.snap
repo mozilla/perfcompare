@@ -674,9 +674,35 @@ exports[`Results Table Should match snapshot 1`] = `
                 class="MuiGrid-root MuiGrid-container fau5w0k css-jryjzr-MuiGrid-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item f1q8wx css-j8gwlw-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item css-j8gwlw-MuiGrid-root"
                 >
-                  Results
+                  <div
+                    data-testid="results-title-component"
+                  >
+                    <div
+                      class="f1v35uxs"
+                    >
+                      <span
+                        class="f1q8wx"
+                      >
+                        Results
+                      </span>
+                      <button
+                        aria-label="edit the title"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1qlpk5e-MuiButtonBase-root-MuiIconButton-root"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <img
+                          alt="edit-icon"
+                          src="pencil.svg"
+                        />
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </button>
+                    </div>
+                  </div>
                 </div>
                 <div
                   class="MuiGrid-root MuiGrid-item f1it3pp1 css-j8gwlw-MuiGrid-root"
