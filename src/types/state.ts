@@ -98,7 +98,6 @@ export type CompareResultsItem = {
   delta_percentage: number;
   magnitude: number;
   is_improvement: boolean;
-  is_empty: boolean;
   test: string;
   option_name: string;
   extra_options: string;
