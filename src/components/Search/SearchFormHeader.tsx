@@ -8,13 +8,11 @@ interface SearchFormHeaderProps {
   isExpanded: boolean;
   title: string;
   subtitle: string;
-  ariaLabel: string;
   onClick: () => unknown;
 }
 
 function SearchFormHeader(props: SearchFormHeaderProps) {
-  const { compareType, isExpanded, onClick, title, subtitle, ariaLabel } =
-    props;
+  const { compareType, isExpanded, onClick, title, subtitle } = props;
   const expandedClass = isExpanded ? 'expanded' : 'hidden';
   const mode = useAppSelector((state) => state.theme.mode);
   const styles = CompareCardsStyles(mode);
@@ -33,7 +31,7 @@ function SearchFormHeader(props: SearchFormHeaderProps) {
       </div>
       <div
         className={`compare-card-img compare-card-img--${compareType}`}
-        aria-label={ariaLabel}
+        aria-hidden={true}
       />
     </div>
   );
