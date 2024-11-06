@@ -24,7 +24,7 @@ function TableRevisionContent(props: Props) {
     return null;
   }
 
-  // All results are for the same test, so any results hould generate the same
+  // All results are for the same test, so any result should generate the same
   // header appropriately.
   // Here we use the first result for the first revision.
   //                                         First result
