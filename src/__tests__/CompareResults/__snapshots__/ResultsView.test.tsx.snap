@@ -73,6 +73,19 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
                 602.04
               </div>
             </div>
+            <div>
+              <b>
+                Mean
+              </b>
+              : 
+              595.73
+               
+              <b>
+                Median
+              </b>
+              : 
+              596.87
+            </div>
             <div
               class="fnujpat"
             >
@@ -132,6 +145,19 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
                 607.27
               </div>
             </div>
+            <div>
+              <b>
+                Mean
+              </b>
+              : 
+              605.83
+               
+              <b>
+                Median
+              </b>
+              : 
+              605.61
+            </div>
             <div
               class="fnujpat"
             >
@@ -180,11 +206,9 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
            
         </div>
       </div>
-      <div
-        class="fc8wfj0"
-      >
+      <div>
         <b>
-          Mean Difference
+          Difference of means
         </b>
         : 
         1.7
@@ -195,6 +219,16 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
         10.1
          
         )
+      </div>
+      <div>
+        <b>
+          Difference of medians
+        </b>
+        : 
+        8.74
+         (
+        1.46
+        %)
       </div>
       <div>
         <div>
@@ -294,6 +328,19 @@ exports[`Results View Should display Base, New and Common graphs with replicates
                 602.04
               </div>
             </div>
+            <div>
+              <b>
+                Mean
+              </b>
+              : 
+              595.73
+               
+              <b>
+                Median
+              </b>
+              : 
+              596.87
+            </div>
             <div
               class="fnujpat"
             >
@@ -353,6 +400,19 @@ exports[`Results View Should display Base, New and Common graphs with replicates
                 607.27
               </div>
             </div>
+            <div>
+              <b>
+                Mean
+              </b>
+              : 
+              605.83
+               
+              <b>
+                Median
+              </b>
+              : 
+              605.61
+            </div>
             <div
               class="fnujpat"
             >
@@ -401,11 +461,9 @@ exports[`Results View Should display Base, New and Common graphs with replicates
            
         </div>
       </div>
-      <div
-        class="fc8wfj0"
-      >
+      <div>
         <b>
-          Mean Difference
+          Difference of means
         </b>
         : 
         1.7
@@ -416,6 +474,16 @@ exports[`Results View Should display Base, New and Common graphs with replicates
         10.1
          
         )
+      </div>
+      <div>
+        <b>
+          Difference of medians
+        </b>
+        : 
+        8.74
+         (
+        1.46
+        %)
       </div>
       <div>
         <div>
@@ -515,6 +583,19 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
                 602.04
               </div>
             </div>
+            <div>
+              <b>
+                Mean
+              </b>
+              : 
+              595.73
+               
+              <b>
+                Median
+              </b>
+              : 
+              596.87
+            </div>
             <div
               class="fnujpat"
             >
@@ -574,6 +655,19 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
                 607.27
               </div>
             </div>
+            <div>
+              <b>
+                Mean
+              </b>
+              : 
+              605.83
+               
+              <b>
+                Median
+              </b>
+              : 
+              605.61
+            </div>
             <div
               class="fnujpat"
             >
@@ -622,11 +716,9 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
            
         </div>
       </div>
-      <div
-        class="fc8wfj0"
-      >
+      <div>
         <b>
-          Mean Difference
+          Difference of means
         </b>
         : 
         1.7
@@ -637,6 +729,16 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
         10.1
          
         )
+      </div>
+      <div>
+        <b>
+          Difference of medians
+        </b>
+        : 
+        8.74
+         (
+        1.46
+        %)
       </div>
       <div>
         <div>

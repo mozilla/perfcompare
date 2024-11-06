@@ -17,6 +17,8 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
     delta_percentage: deltaPercent,
     delta_value: delta,
     confidence_text: confidenceText,
+    base_median_value: baseMedian,
+    new_median_value: newMedian,
     base_measurement_unit: baseUnit,
     new_measurement_unit: newUnit,
     new_is_better: newIsBetter,
@@ -78,9 +80,13 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
             </div>
           )}
         </div>
-        <div className={`${styles.bottomSpace}`}>
-          <b>Mean Difference</b>: {deltaPercent}%{' '}
+        <div>
+          <b>Difference of means</b>: {deltaPercent}%{' '}
           {newIsBetter ? 'better' : 'worse'} ({delta} {deltaUnit})
+        </div>
+        <div>
+          <b>Difference of medians</b>: {(newMedian - baseMedian).toFixed(2)} (
+          {(((newMedian - baseMedian) / baseMedian) * 100).toFixed(2)}%)
         </div>
         {confidenceText ? (
           <div>
