@@ -3,6 +3,7 @@ import Grid from '@mui/material/Grid';
 import InputLabel from '@mui/material/InputLabel';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
+import { Box } from '@mui/system';
 import { style } from 'typestyle';
 
 import { compareOverTimeView, timeRanges } from '../../common/constants';
@@ -13,9 +14,11 @@ import {
   //SearchStyles can be found in CompareCards.ts
   SearchStyles,
   Colors,
+  FontSize,
 } from '../../styles';
 import { Changeset, Repository } from '../../types/state';
 import { TimeRange } from '../../types/types';
+import { formatDateRange } from '../../utils/format';
 import SearchDropdown from './SearchDropdown';
 import SearchInputAndResults from './SearchInputAndResults';
 import SelectedRevisions from './SelectedRevisions';
@@ -148,14 +151,22 @@ export default function SearchOverTime({
             style={{ maxWidth: hasEditButton ? '415px' : '365px' }}
             className={`new-search-dropdown  ${readOnlyStyles}`}
           >
-            <Typography
-              component='span'
-              variant='body2'
-              color='text.primary'
-              alignItems='center'
-            >
-              {timeRangeText}
-            </Typography>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <Typography
+                component='span'
+                variant='body2'
+                color='text.primary'
+                alignItems='center'
+              >
+                {timeRangeText}
+              </Typography>
+              <Box sx={{ color: 'text.secondary' }} className={FontSize.Small}>
+                {`(${formatDateRange(
+                  new Date(Date.now() - Number(timeRangeValue) * 1000),
+                  new Date(),
+                )})`}
+              </Box>
+            </div>
           </Grid>
         </Grid>
       )}

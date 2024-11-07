@@ -704,7 +704,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
               </p>
             </div>
             <div
-              aria-label="two overlapping circles"
+              aria-hidden="true"
               class="compare-card-img compare-card-img--base"
             />
           </div>
@@ -1706,7 +1706,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
               </p>
             </div>
             <div
-              aria-label="a clock"
+              aria-hidden="true"
               class="compare-card-img compare-card-img--time"
             />
           </div>
@@ -1846,7 +1846,16 @@ exports[`SearchResultsList should match snapshot 1`] = `
                             role="button"
                             tabindex="0"
                           >
-                            Last day
+                            <div
+                              class="f1ubk0hm"
+                            >
+                              Last day
+                              <div
+                                class="f7opyze MuiBox-root css-7d9gin"
+                              >
+                                (Oct 8, 2024 - Oct 9, 2024)
+                              </div>
+                            </div>
                           </div>
                           <input
                             aria-hidden="true"

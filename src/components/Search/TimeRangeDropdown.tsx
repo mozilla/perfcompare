@@ -1,13 +1,20 @@
 import FormControl from '@mui/material/FormControl';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { Box } from '@mui/system';
 import { style } from 'typestyle';
 
 import { timeRangeMap } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
-import { ButtonsLightRaw, ButtonsDarkRaw, DropDownItems } from '../../styles';
+import {
+  ButtonsLightRaw,
+  ButtonsDarkRaw,
+  DropDownItems,
+  FontSize,
+} from '../../styles';
 import type { TimeRange } from '../../types/types';
+import { formatDateRange } from '../../utils/format';
 
 const strings = Strings.components.searchDefault.overTime.collapsed.timeRange;
 
@@ -33,6 +40,16 @@ function TimeRangeDropdown({
             : ButtonsDarkRaw.Dropdown),
         },
       },
+    }),
+    menuItem: style({
+      display: 'block',
+    }),
+    // This extra flexible div is needed, so that the information looks the same in
+    // both the MenuItem (in the dropdown options) and the SelectedItem (in
+    // the dropdown, when the dropdown is closed).
+    dateRange: style({
+      display: 'flex',
+      justifyContent: 'space-between',
     }),
   };
 
@@ -65,9 +82,20 @@ function TimeRangeDropdown({
             <MenuItem
               value={value}
               key={value}
-              className={`timerange-dropdown-item ${menuItemStyles}`}
+              className={`timerange-dropdown-item ${menuItemStyles} ${styles.menuItem}`}
             >
-              {text}
+              <div className={styles.dateRange}>
+                {text}
+                <Box
+                  sx={{ color: 'text.secondary' }}
+                  className={FontSize.Small}
+                >
+                  {`(${formatDateRange(
+                    new Date(Date.now() - Number(value) * 1000),
+                    new Date(),
+                  )})`}
+                </Box>
+              </div>
             </MenuItem>
           ))}
         </Select>

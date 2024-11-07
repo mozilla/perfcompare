@@ -75,7 +75,6 @@ export async function fetchCompareResults({
     new_repository: newRepo,
     new_revision: newRev,
     framework: String(framework),
-    interval: '86400',
     no_subtests: 'true',
   });
   const url = `${treeherderBaseURL}/api/perfcompare/results/?${searchParams.toString()}`;
