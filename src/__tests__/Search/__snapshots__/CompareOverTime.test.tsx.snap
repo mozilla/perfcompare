@@ -128,7 +128,16 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
               role="button"
               tabindex="0"
             >
-              Last day
+              <div
+                class="f1ubk0hm"
+              >
+                Last day
+                <div
+                  class="f7opyze MuiBox-root css-7d9gin"
+                >
+                  (Oct 8, 2024 - Oct 9, 2024)
+                </div>
+              </div>
             </div>
             <input
               aria-hidden="true"
@@ -481,11 +490,20 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  flie9py css-1t7ybvx-MuiGrid-root"
         style="max-width: 415px;"
       >
-        <span
-          class="MuiTypography-root MuiTypography-body2 css-11g6e76-MuiTypography-root"
+        <div
+          style="display: flex; justify-content: space-between;"
         >
-          Last day
-        </span>
+          <span
+            class="MuiTypography-root MuiTypography-body2 css-11g6e76-MuiTypography-root"
+          >
+            Last day
+          </span>
+          <div
+            class="f7opyze MuiBox-root css-7d9gin"
+          >
+            (Oct 8, 2024 - Oct 9, 2024)
+          </div>
+        </div>
       </div>
     </div>
     <div
@@ -599,7 +617,13 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
                           d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                         />
                       </svg>
-                      03/29/51 00:00
+                      <div
+                        aria-label="Mar 29, 51, 24:00 UTC"
+                        class=""
+                        data-mui-internal-clone-element="true"
+                      >
+                        Mar 29, 51, 24:00 UTC
+                      </div>
                     </div>
                   </div>
                 </span>
@@ -657,96 +681,168 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
 >
   <li
     aria-selected="true"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters Mui-selected MuiMenuItem-root MuiMenuItem-gutters Mui-selected timerange-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters Mui-selected MuiMenuItem-root MuiMenuItem-gutters Mui-selected timerange-dropdown-item fi0qnjm fcmecz0 css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="86400"
     role="option"
     tabindex="0"
   >
-    Last day
+    <div
+      class="f1ubk0hm"
+    >
+      Last day
+      <div
+        class="f7opyze MuiBox-root css-7d9gin"
+      >
+        (Oct 8, 2024 - Oct 9, 2024)
+      </div>
+    </div>
     <span
       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
     />
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fi0qnjm fcmecz0 css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="172800"
     role="option"
     tabindex="-1"
   >
-    Last 2 days
+    <div
+      class="f1ubk0hm"
+    >
+      Last 2 days
+      <div
+        class="f7opyze MuiBox-root css-7d9gin"
+      >
+        (Oct 7, 2024 - Oct 9, 2024)
+      </div>
+    </div>
     <span
       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
     />
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fi0qnjm fcmecz0 css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="604800"
     role="option"
     tabindex="-1"
   >
-    Last 7 days
+    <div
+      class="f1ubk0hm"
+    >
+      Last 7 days
+      <div
+        class="f7opyze MuiBox-root css-7d9gin"
+      >
+        (Oct 2, 2024 - Oct 9, 2024)
+      </div>
+    </div>
     <span
       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
     />
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fi0qnjm fcmecz0 css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="1209600"
     role="option"
     tabindex="-1"
   >
-    Last 14 days
+    <div
+      class="f1ubk0hm"
+    >
+      Last 14 days
+      <div
+        class="f7opyze MuiBox-root css-7d9gin"
+      >
+        (Sep 25, 2024 - Oct 9, 2024)
+      </div>
+    </div>
     <span
       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
     />
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fi0qnjm fcmecz0 css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="2592000"
     role="option"
     tabindex="-1"
   >
-    Last 30 days
+    <div
+      class="f1ubk0hm"
+    >
+      Last 30 days
+      <div
+        class="f7opyze MuiBox-root css-7d9gin"
+      >
+        (Sep 9, 2024 - Oct 9, 2024)
+      </div>
+    </div>
     <span
       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
     />
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fi0qnjm fcmecz0 css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="5184000"
     role="option"
     tabindex="-1"
   >
-    Last 60 days
+    <div
+      class="f1ubk0hm"
+    >
+      Last 60 days
+      <div
+        class="f7opyze MuiBox-root css-7d9gin"
+      >
+        (Aug 10, 2024 - Oct 9, 2024)
+      </div>
+    </div>
     <span
       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
     />
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fi0qnjm fcmecz0 css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="7776000"
     role="option"
     tabindex="-1"
   >
-    Last 90 days
+    <div
+      class="f1ubk0hm"
+    >
+      Last 90 days
+      <div
+        class="f7opyze MuiBox-root css-7d9gin"
+      >
+        (Jul 11, 2024 - Oct 9, 2024)
+      </div>
+    </div>
     <span
       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
     />
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fi0qnjm fcmecz0 css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="31536000"
     role="option"
     tabindex="-1"
   >
-    Last year
+    <div
+      class="f1ubk0hm"
+    >
+      Last year
+      <div
+        class="f7opyze MuiBox-root css-7d9gin"
+      >
+        (Oct 10, 2023 - Oct 9, 2024)
+      </div>
+    </div>
     <span
       class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
     />
@@ -917,7 +1013,16 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
               role="button"
               tabindex="0"
             >
-              Last day
+              <div
+                class="f1ubk0hm"
+              >
+                Last day
+                <div
+                  class="f7opyze MuiBox-root css-7d9gin"
+                >
+                  (Oct 8, 2024 - Oct 9, 2024)
+                </div>
+              </div>
             </div>
             <input
               aria-hidden="true"
@@ -1158,7 +1263,13 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
                           d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                         />
                       </svg>
-                      03/29/51 00:00
+                      <div
+                        aria-label="Mar 29, 51, 24:00 UTC"
+                        class=""
+                        data-mui-internal-clone-element="true"
+                      >
+                        Mar 29, 51, 24:00 UTC
+                      </div>
                     </div>
                   </div>
                 </span>
@@ -1340,11 +1451,20 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  flie9py css-1t7ybvx-MuiGrid-root"
         style="max-width: 415px;"
       >
-        <span
-          class="MuiTypography-root MuiTypography-body2 css-11g6e76-MuiTypography-root"
+        <div
+          style="display: flex; justify-content: space-between;"
         >
-          Last day
-        </span>
+          <span
+            class="MuiTypography-root MuiTypography-body2 css-11g6e76-MuiTypography-root"
+          >
+            Last day
+          </span>
+          <div
+            class="f7opyze MuiBox-root css-7d9gin"
+          >
+            (Oct 8, 2024 - Oct 9, 2024)
+          </div>
+        </div>
       </div>
     </div>
     <div
@@ -1458,7 +1578,13 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
                           d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                         />
                       </svg>
-                      03/29/51 00:00
+                      <div
+                        aria-label="Mar 29, 51, 24:00 UTC"
+                        class=""
+                        data-mui-internal-clone-element="true"
+                      >
+                        Mar 29, 51, 24:00 UTC
+                      </div>
                     </div>
                   </div>
                 </span>
@@ -1635,7 +1761,16 @@ exports[`Compare Over Time should remove the checked revision once X button is c
               role="button"
               tabindex="0"
             >
-              Last day
+              <div
+                class="f1ubk0hm"
+              >
+                Last day
+                <div
+                  class="f7opyze MuiBox-root css-7d9gin"
+                >
+                  (Oct 8, 2024 - Oct 9, 2024)
+                </div>
+              </div>
             </div>
             <input
               aria-hidden="true"
@@ -1997,11 +2132,20 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  flie9py css-1t7ybvx-MuiGrid-root"
         style="max-width: 415px;"
       >
-        <span
-          class="MuiTypography-root MuiTypography-body2 css-11g6e76-MuiTypography-root"
+        <div
+          style="display: flex; justify-content: space-between;"
         >
-          Last 2 days
-        </span>
+          <span
+            class="MuiTypography-root MuiTypography-body2 css-11g6e76-MuiTypography-root"
+          >
+            Last 2 days
+          </span>
+          <div
+            class="f7opyze MuiBox-root css-7d9gin"
+          >
+            (Oct 7, 2024 - Oct 9, 2024)
+          </div>
+        </div>
       </div>
     </div>
     <div
@@ -2115,7 +2259,13 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                           d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                         />
                       </svg>
-                      03/29/51 00:00
+                      <div
+                        aria-label="Mar 29, 51, 24:00 UTC"
+                        class=""
+                        data-mui-internal-clone-element="true"
+                      >
+                        Mar 29, 51, 24:00 UTC
+                      </div>
                     </div>
                   </div>
                 </span>
@@ -2231,7 +2381,13 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                           d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                         />
                       </svg>
-                      07/04/20 00:00
+                      <div
+                        aria-label="Jul 4, 20, 24:00 UTC"
+                        class=""
+                        data-mui-internal-clone-element="true"
+                      >
+                        Jul 4, 20, 24:00 UTC
+                      </div>
                     </div>
                   </div>
                 </span>
@@ -2443,7 +2599,16 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
               role="button"
               tabindex="0"
             >
-              Last day
+              <div
+                class="f1ubk0hm"
+              >
+                Last day
+                <div
+                  class="f7opyze MuiBox-root css-7d9gin"
+                >
+                  (Oct 8, 2024 - Oct 9, 2024)
+                </div>
+              </div>
             </div>
             <input
               aria-hidden="true"
@@ -2684,7 +2849,13 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                           d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                         />
                       </svg>
-                      03/29/51 00:00
+                      <div
+                        aria-label="Mar 29, 51, 24:00 UTC"
+                        class=""
+                        data-mui-internal-clone-element="true"
+                      >
+                        Mar 29, 51, 24:00 UTC
+                      </div>
                     </div>
                   </div>
                 </span>
@@ -2866,11 +3037,20 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  flie9py css-1t7ybvx-MuiGrid-root"
         style="max-width: 415px;"
       >
-        <span
-          class="MuiTypography-root MuiTypography-body2 css-11g6e76-MuiTypography-root"
+        <div
+          style="display: flex; justify-content: space-between;"
         >
-          Last day
-        </span>
+          <span
+            class="MuiTypography-root MuiTypography-body2 css-11g6e76-MuiTypography-root"
+          >
+            Last day
+          </span>
+          <div
+            class="f7opyze MuiBox-root css-7d9gin"
+          >
+            (Oct 8, 2024 - Oct 9, 2024)
+          </div>
+        </div>
       </div>
     </div>
     <div
@@ -2984,7 +3164,13 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                           d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
                         />
                       </svg>
-                      03/29/51 00:00
+                      <div
+                        aria-label="Mar 29, 51, 24:00 UTC"
+                        class=""
+                        data-mui-internal-clone-element="true"
+                      >
+                        Mar 29, 51, 24:00 UTC
+                      </div>
                     </div>
                   </div>
                 </span>

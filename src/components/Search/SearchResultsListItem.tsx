@@ -9,12 +9,12 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Radio from '@mui/material/Radio';
 import Typography from '@mui/material/Typography';
-import dayjs from 'dayjs';
 import { style } from 'typestyle';
 
 import { Spacing } from '../../styles';
 import type { Changeset } from '../../types/state';
 import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
+import DateTimeDisplay from './DateTimeDisplay';
 
 interface SearchResultsListItemProps {
   index: number;
@@ -109,7 +109,6 @@ function SearchResultsListItem({
                 >
                   {revisionHash}
                 </Typography>
-
                 <div className='info-caption'>
                   <div className='info-caption-item item-author'>
                     {' '}
@@ -125,7 +124,7 @@ function SearchResultsListItem({
                       className='time-icon'
                       fontSize='small'
                     />
-                    {String(dayjs(itemDate).format('MM/DD/YY HH:mm'))}
+                    <DateTimeDisplay itemDate={itemDate} />
                   </div>
                 </div>
               </Fragment>

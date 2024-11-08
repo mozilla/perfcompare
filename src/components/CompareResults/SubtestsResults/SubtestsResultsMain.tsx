@@ -120,7 +120,7 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
           </Link>
           {'.'}
         </Alert>
-        <SubtestsRevisionHeader header={subtestsHeader} />
+        <SubtestsRevisionHeader header={subtestsHeader} view={view} />
         <Grid container spacing={1}>
           <Grid item xs={12} md={6} sx={{ marginInlineEnd: 'auto' }}>
             <SearchInput

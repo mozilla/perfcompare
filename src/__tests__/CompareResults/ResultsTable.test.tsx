@@ -73,13 +73,27 @@ describe('Results Table', () => {
         ...optionsElements.map((element) => element.textContent),
       ].join(' ');
       result.push(title);
-      const rows = within(group).getAllByRole('row');
-      for (const row of rows) {
-        const rowString = ['.platform span', '.status', '.confidence']
-          .map((selector) => row.querySelector(selector)!.textContent!.trim())
-          .join(', ');
 
-        result.push('  - ' + rowString);
+      const revisionGroups = Array.from(group.children).slice(
+        1,
+      ) as HTMLElement[];
+
+      for (const revisionGroup of revisionGroups) {
+        const maybeLink = within(revisionGroup).queryByRole('link', {
+          name: /open treeherder view/,
+        });
+        if (maybeLink) {
+          result.push('  rev: ' + maybeLink.textContent!);
+        }
+
+        const rows = within(revisionGroup).getAllByRole('row');
+        for (const row of rows) {
+          const rowString = ['.platform span', '.status', '.confidence']
+            .map((selector) => row.querySelector(selector)!.textContent!.trim())
+            .join(', ');
+
+          result.push('  - ' + rowString);
+        }
       }
     }
 
@@ -108,6 +122,25 @@ describe('Results Table', () => {
     await user.click(menuItem);
     await user.keyboard('[Escape]');
   }
+
+  it('should render different blocks when rendering several revisions', async () => {
+    const { testCompareData } = getTestData();
+    const simplerTestCompareData = [
+      testCompareData[0],
+      { ...testCompareData[0], new_rev: 'devilrabbit' },
+    ];
+
+    setupAndRender(simplerTestCompareData);
+    await screen.findByText('a11yr');
+    expect(summarizeVisibleRows()).toEqual([
+      'a11yr dhtml.html opt e10s fission stylo webrender',
+      '  rev: spam',
+      '  - OSX, Improvement, Low',
+      '  rev: devilrabbit',
+      '  - OSX, Improvement, Low',
+    ]);
+    expect(screen.getByRole('rowgroup')).toMatchSnapshot();
+  });
 
   it('should filter on the Platform column', async () => {
     const { testCompareData } = getTestData();
