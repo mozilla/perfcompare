@@ -1989,7 +1989,9 @@ exports[`Results Table Should match snapshot 1`] = `
                             <div
                               class="confidence cell"
                               role="cell"
-                            />
+                            >
+                              -
+                            </div>
                             <div
                               class="total-runs cell"
                               role="cell"
