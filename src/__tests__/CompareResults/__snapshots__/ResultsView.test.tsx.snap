@@ -237,7 +237,9 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
           </b>
           : 
           Low
-           
+           (
+          2.89
+          )
         </div>
         <div
           class="fj8mg7a"
@@ -492,7 +494,9 @@ exports[`Results View Should display Base, New and Common graphs with replicates
           </b>
           : 
           Low
-           
+           (
+          2.89
+          )
         </div>
         <div
           class="fj8mg7a"
@@ -747,7 +751,9 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
           </b>
           : 
           Low
-           
+           (
+          2.89
+          )
         </div>
         <div
           class="fj8mg7a"

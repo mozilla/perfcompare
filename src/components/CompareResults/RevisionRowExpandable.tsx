@@ -25,6 +25,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
     new_is_better: newIsBetter,
     base_app: baseApplication,
     new_app: newApplication,
+    more_runs_are_needed: moreRunsAreNeeded,
   } = result;
 
   const unit = baseUnit || newUnit;
@@ -69,7 +70,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
           <Divider />
         </div>
         <div className={`${styles.bottomSpace}`}>
-          <div>{singleRun} </div>
+          {moreRunsAreNeeded && <div>{singleRun} </div>}
           {baseApplication && (
             <div>
               <b>Base application</b>: {baseApplication}{' '}
