@@ -17,6 +17,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
     delta_percentage: deltaPercent,
     delta_value: delta,
     confidence_text: confidenceText,
+    confidence: confidenceValue,
     base_median_value: baseMedian,
     new_median_value: newMedian,
     base_measurement_unit: baseUnit,
@@ -91,7 +92,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
         {confidenceText ? (
           <div>
             <div>
-              <b>Confidence</b>: {confidenceText}{' '}
+              <b>Confidence</b>: {confidenceText} ({confidenceValue || ''})
             </div>
             <div className={styles.note}>
               <b>**Note</b>: {strings[confidenceText]}{' '}
