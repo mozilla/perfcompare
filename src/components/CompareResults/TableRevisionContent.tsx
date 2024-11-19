@@ -2,41 +2,69 @@ import { style } from 'typestyle';
 
 import type { compareView, compareOverTimeView } from '../../common/constants';
 import { Spacing } from '../../styles';
-import type { CompareResultsItem, RevisionsHeader } from '../../types/state';
-import RevisionHeader from './RevisionHeader';
+import type { CompareResultsItem } from '../../types/state';
+import LinkToRevision from './LinkToRevision';
 import RevisionRow from './RevisionRow';
+import TestHeader from './TestHeader';
 
+// We're using typestyle styles on purpose, to avoid the performance impact of
+// MUI's sx prop for these numerous elements.
 const styles = {
-  tableBody: style({
-    marginTop: Spacing.Large,
+  testBlock: style({
+    /* Note that this margin will be merged with the margin below */
+    marginTop: Spacing.xLarge,
   }),
+  revisionBlock: style({ marginBottom: Spacing.Large }),
 };
 
 function TableRevisionContent(props: Props) {
-  const { results, header, identifier, view, rowGridTemplateColumns } = props;
+  const { results, view, rowGridTemplateColumns } = props;
+
+  if (!results.length) {
+    return null;
+  }
+
+  // All results are for the same test, so any result should generate the same
+  // header appropriately.
+  // Here we use the first result for the first revision.
+  //                                         First result
+  //                               Value of the tuple |
+  //                                First revision |  |
+  //                                            |  |  |
+  //                                            v  v  v
+  const representativeResultForHeader = results[0][1][0];
+  const hasMoreThanOneNewRev = results.length > 1;
 
   return (
-    <div className={styles.tableBody} role='rowgroup'>
-      <RevisionHeader header={header} />
-      <div>
-        {results.length > 0 &&
-          results.map((result) => (
+    <div className={styles.testBlock} role='rowgroup'>
+      <TestHeader
+        result={representativeResultForHeader}
+        withRevision={!hasMoreThanOneNewRev}
+      />
+      {results.map(([revision, listOfResults]) => (
+        <div className={styles.revisionBlock} key={revision}>
+          {hasMoreThanOneNewRev && <LinkToRevision result={listOfResults[0]} />}
+          {listOfResults.map((result) => (
             <RevisionRow
-              key={identifier + result.platform}
+              key={result.platform}
               result={result}
               view={view}
               gridTemplateColumns={rowGridTemplateColumns}
             />
           ))}
-      </div>
+        </div>
+      ))}
     </div>
   );
 }
 
 interface Props {
-  results: CompareResultsItem[];
-  header: RevisionsHeader;
-  identifier: string;
+  // "results" contains all results for just one test, grouped by revisions.
+  //
+  //              revision        list of results for one test and revision
+  //                 |               |
+  //                 v               v
+  results: Array<[string, CompareResultsItem[]]>;
   rowGridTemplateColumns: string;
   view: typeof compareView | typeof compareOverTimeView;
 }

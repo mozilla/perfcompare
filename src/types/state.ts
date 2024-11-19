@@ -38,16 +38,6 @@ export type RevisionsData = {
   extra_options: string;
 };
 
-export type RevisionsHeader = {
-  suite: string;
-  framework_id: Framework['id'];
-  test: string;
-  option_name: string;
-  extra_options: string;
-  new_rev: string;
-  new_repo: Repository['name'];
-};
-
 export type SubtestsRevisionsHeader = {
   suite: string;
   framework_id: Framework['id'];
@@ -107,7 +97,7 @@ export type CompareResultsItem = {
   is_regression: boolean;
   is_meaningful: boolean;
   more_runs_are_needed: boolean;
-  /* 
+  /*
   Each test has a signature and each signature may or may not have a parent_signature.
   If a signature has a parent_signature then we are looking at a subtest. For regular tests this field will be null.
   */

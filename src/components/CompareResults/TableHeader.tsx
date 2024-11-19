@@ -1,6 +1,7 @@
 import CheckIcon from '@mui/icons-material/Check';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import {
@@ -43,6 +44,13 @@ function FilterableColumn({
     onToggle(newUncheckedValues);
   };
 
+  const onClickOnlyFilter = (value: string) => {
+    const newUncheckedValues = new Set(
+      possibleValues.filter((possibleValue) => possibleValue !== value),
+    );
+    onToggle(newUncheckedValues);
+  };
+
   const hasFilteredValues = uncheckedValues && uncheckedValues.size;
   const buttonAriaLabel = hasFilteredValues
     ? `${name} (Click to filter values. Some filters are active.)`
@@ -75,8 +83,19 @@ function FilterableColumn({
       </Button>
       <Menu {...bindMenu(popupState)}>
         <MenuItem dense={true} onClick={onClear}>
-          Clear filters
+          Select all values
         </MenuItem>
+        <Divider />
+        {possibleValues.map((possibleValue) => (
+          <MenuItem
+            dense={true}
+            key={possibleValue}
+            onClick={() => onClickOnlyFilter(possibleValue)}
+          >
+            Select only “{possibleValue}”
+          </MenuItem>
+        ))}
+        <Divider />
         {possibleValues.map((possibleValue) => {
           const isChecked =
             !uncheckedValues || !uncheckedValues.has(possibleValue);
