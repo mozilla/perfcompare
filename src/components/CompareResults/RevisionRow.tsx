@@ -335,6 +335,7 @@ function RevisionRow(props: RevisionRowProps) {
 
   const platformShortName = getPlatformShortName(platform);
   const platformIcon = platformIcons[platformShortName];
+  const androidPlatform: PlatformShortName = 'Android';
 
   const [expanded, setExpanded] = useState(false);
 
@@ -364,6 +365,12 @@ function RevisionRow(props: RevisionRowProps) {
             <div className='platform-container'>
               {platformIcon}
               <span>{platformShortName}</span>
+              {platformShortName === androidPlatform && (
+                <span>
+                  &nbsp;
+                  {platform.split('-')[2]}
+                </span>
+              )}
             </div>
           </Tooltip>
         </div>
