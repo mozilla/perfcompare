@@ -1,6 +1,7 @@
 import userEvent from '@testing-library/user-event';
 
 import { loader } from '../../components/CompareResults/subtestsLoader';
+import SubtestsOverTimeResultsView from '../../components/CompareResults/SubtestsResults/SubtestsOverTimeResultsView';
 import SubtestsResultsMain from '../../components/CompareResults/SubtestsResults/SubtestsResultsMain';
 import SubtestsResultsView from '../../components/CompareResults/SubtestsResults/SubtestsResultsView';
 import { Strings } from '../../resources/Strings';
@@ -53,6 +54,24 @@ describe('SubtestsResultsView Component Tests', () => {
     const subTestsMain = await screen.findByTestId('subtests-main');
 
     expect(subTestsMain).toBeInTheDocument();
+  });
+
+  it('should confirm that the subtests heading is present', async () => {
+    const { subtestsResult } = getTestData();
+    (window.fetch as FetchMockSandbox).get(
+      'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
+      subtestsResult,
+    );
+    renderWithRouter(<SubtestsResultsMain view={'subtests-results'} />, {
+      route: '/subtestsCompareWithBase',
+      search:
+        '?baseRev=d775409d7c6abb76362a3430e9880ec032ad4679&baseRepo=mozilla-central&newRev=22f4cf67e8ad76b5ab2a00b97837d1d920b8c2b7&newRepo=mozilla-central&framework=1&baseParentSignature=4769486&newParentSignature=4769486',
+      loader,
+    });
+
+    const subTestsHeading = await screen.findByText('Subtests');
+
+    expect(subTestsHeading).toBeInTheDocument();
   });
 
   it('should display breadcrumbs for easy navigation', async () => {
@@ -178,5 +197,32 @@ describe('SubtestsResultsView Component Tests', () => {
 
     expect(createObjectURLMock).toHaveBeenCalled();
     expect(revokeObjectURLMock).toHaveBeenCalledWith('blob:');
+  });
+});
+
+describe('SubtestsViewCompareOverTime Component Tests', () => {
+  it('should render the subtests over time results view and match snapshot', async () => {
+    const { subtestsResult } = getTestData();
+    (window.fetch as FetchMockSandbox).get(
+      'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
+      subtestsResult,
+    );
+    renderWithRouter(
+      <SubtestsOverTimeResultsView
+        title={Strings.metaData.pageTitle.subtests}
+      />,
+      {
+        route: '/subtests-compare-over-time-results/',
+        search:
+          '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&selectedTimeRange=86400&baseParentSignature=4774487&newParentSignature=4774487',
+        loader,
+      },
+    );
+
+    expect(
+      await screen.findByTestId(
+        'beta-version-subtests-compare-over-time-results',
+      ),
+    ).toMatchSnapshot();
   });
 });

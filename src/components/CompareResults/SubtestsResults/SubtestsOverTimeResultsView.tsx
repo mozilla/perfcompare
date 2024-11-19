@@ -26,7 +26,10 @@ function SubtestsResultsView(props: SubtestsResultsViewProps) {
   }, [title]);
 
   return (
-    <div className={styles.container}>
+    <div
+      data-testid='beta-version-subtests-compare-over-time-results'
+      className={styles.container}
+    >
       <PerfCompareHeader />
       <Grid container alignItems='center' justifyContent='center'>
         <Grid item xs={12}>
