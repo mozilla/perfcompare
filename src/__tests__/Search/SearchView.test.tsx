@@ -22,9 +22,9 @@ function setupTestData() {
   const { testData } = getTestData();
   (global.fetch as FetchMockSandbox)
     .get(
-      'begin:https://treeherder.mozilla.org/api/project/try/push/?author=',
+      'begin:https://treeherder.mozilla.org/api/project/try/push/?author_contains=',
       (url) => {
-        const author = new URL(url).searchParams.get('author');
+        const author = new URL(url).searchParams.get('author_contains');
         return { results: testData.filter((item) => item.author === author) };
       },
     )
@@ -219,51 +219,6 @@ describe('Base and OverTime Search', () => {
     expect(comment[0]).not.toBeInTheDocument();
   });
 
-  it('Should not call fetch if search value is not a hash or email', async () => {
-    // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
-    await renderComponent();
-
-    const searchInput = screen.getAllByRole('textbox')[0];
-
-    // We're running fake timers after each user action, because the input
-    // normally waits 500ms before doing requests. Because we want to test the
-    // requests, we have to run the timers to properly assess the result.
-    // They're all wrapped in "act" because they might also trigger state
-    // changes and rerenders.
-    await user.type(searchInput, 'coconut');
-    act(() => void jest.runAllTimers());
-    await user.clear(searchInput);
-    act(() => void jest.runAllTimers());
-
-    await user.type(searchInput, 'spam@eggs');
-    act(() => void jest.runAllTimers());
-    await user.clear(searchInput);
-    act(() => void jest.runAllTimers());
-
-    await user.type(searchInput, 'spamspamspamand@eggs.');
-    act(() => void jest.runAllTimers());
-    await user.clear(searchInput);
-    act(() => void jest.runAllTimers());
-
-    await user.type(searchInput, 'iamalmostlongenoughtobeahashbutnotquite');
-    act(() => void jest.runAllTimers());
-
-    expect(
-      await screen.findByText(
-        'Search must be a 12- or 40-character hash, or email address',
-      ),
-    ).toBeInTheDocument();
-
-    // fetch is called 6 times:
-    // - 3 times on initial load: one for each input, that is 2 in "compare with
-    //   base", 1 in "compare over time"
-    // - 3 times from the user interaction: 1 time for each "clear", because the
-    //   other user interactons are invalid and therefore don't trigger any
-    //   fetches (this is the goal for this test).
-    expect(global.fetch).toHaveBeenCalledTimes(6);
-  });
-
   it('Should debounce user interaction', async () => {
     // Contrary to the previous test, the timers are not run so that we can test
     // the debounce behavior.
@@ -279,20 +234,6 @@ describe('Base and OverTime Search', () => {
     await screen.findByText('She turned me into a newt!');
 
     await user.type(searchInput, 'johncleese');
-    // No error appears while the user type.
-    expect(
-      screen.queryByText(
-        'Search must be a 12- or 40-character hash, or email address',
-      ),
-    ).not.toBeInTheDocument();
-
-    // But this appears after a while.
-    expect(
-      await screen.findByText(
-        'Search must be a 12- or 40-character hash, or email address',
-      ),
-    ).toBeInTheDocument();
-
     await user.type(searchInput, '@python.co');
     await user.type(searchInput, 'm');
 
@@ -311,11 +252,11 @@ describe('Base and OverTime Search', () => {
     // - once for coconut@python.com
     // The call to coconut@python.co was debounced.
     expect(global.fetch).not.toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/try/push/?author=johncleese%40python.co',
+      'https://treeherder.mozilla.org/api/project/try/push/?author_contains=johncleese%40python.co',
       undefined,
     );
     expect(global.fetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/try/push/?author=johncleese%40python.com',
+      'https://treeherder.mozilla.org/api/project/try/push/?author_contains=johncleese%40python.com',
       undefined,
     );
     expect(global.fetch).toHaveBeenCalledTimes(4);
@@ -331,7 +272,7 @@ describe('Base and OverTime Search', () => {
     act(() => void jest.runAllTimers());
 
     expect(global.fetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/try/push/?author=terrygilliam%40python.com',
+      'https://treeherder.mozilla.org/api/project/try/push/?author_contains=terrygilliam%40python.com',
       undefined,
     );
 
