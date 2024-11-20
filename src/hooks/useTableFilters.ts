@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 
 import useRawSearchParams from './useRawSearchParams';
 
@@ -6,25 +6,25 @@ const useTableFilters = () => {
   // This is our custom hook that updates the search params without a rerender.
   const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
 
-  const [tableFilters, setTableFilters] = useState(
-    new Map() as Map<string, Set<string>>, // ColumnID -> Set<Values to remove>
-  );
+  // This function collects the table filters from the search params. It will
+  // only be called once at mount time.
+  const getInitialTableFilters = () => {
+    const result: Map<string, Set<string>> = new Map();
+    for (const [param, paramValue] of rawSearchParams.entries()) {
+      if (!param.startsWith('filter_')) {
+        continue;
+      }
 
-  useMemo(() => {
-    const filters = Array.from(rawSearchParams.entries())
-      .filter(([key]) => key.startsWith('filter'))
-      .reduce((accumulator: Map<string, Set<string>>, [key, value]) => {
-        const columnId = key.split('_')[1];
-        if (!accumulator.has(columnId)) {
-          accumulator.set(columnId, new Set());
-        }
-        const valuesArray = value.split(',').map((item) => item.trim());
-        valuesArray.forEach((item) => accumulator.get(columnId)?.add(item));
-        return accumulator;
-      }, new Map<string, Set<string>>());
+      const columnId = param.slice('filter_'.length);
+      const configuredValues = paramValue.split(',').map((item) => item.trim());
 
-    setTableFilters(filters);
-  }, [rawSearchParams]);
+      result.set(columnId, new Set(configuredValues));
+    }
+
+    return result;
+  };
+
+  const [tableFilters, setTableFilters] = useState(getInitialTableFilters);
 
   const onClearFilter = (columnId: string) => {
     rawSearchParams.delete(`filter_${columnId}`);
