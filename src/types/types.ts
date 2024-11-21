@@ -1,6 +1,17 @@
 import { CompareResultsItem } from './state';
 
-export type CompareResultsTableConfig =
+export type CompareResultsTableFilterableCell = {
+  name: string;
+  key: string;
+  disable?: boolean;
+  filter: true;
+  possibleValues: string[];
+  gridWidth?: string;
+  // This function returns whether this result matches the value for this column.
+  matchesFunction: (result: CompareResultsItem, value: string) => boolean;
+};
+
+export type CompareResultsTableCell =
   | {
       name?: string;
       filter?: false;
@@ -8,16 +19,9 @@ export type CompareResultsTableConfig =
       disable?: boolean;
       gridWidth?: string;
     }
-  | {
-      name: string;
-      key: string;
-      disable?: boolean;
-      filter: true;
-      possibleValues: string[];
-      gridWidth?: string;
-      // This function returns whether this result matches the value for this column.
-      matchesFunction: (result: CompareResultsItem, value: string) => boolean;
-    };
+  | CompareResultsTableFilterableCell;
+
+export type CompareResultsTableConfig = CompareResultsTableCell[];
 
 export type ConfidenceText = 'High' | 'Medium' | 'Low' | '';
 

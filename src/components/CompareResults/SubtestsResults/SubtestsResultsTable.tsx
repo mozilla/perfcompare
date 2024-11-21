@@ -42,7 +42,7 @@ function processResults(results: CompareResultsItem[]) {
   return restructuredResults;
 }
 
-const cellsConfiguration: CompareResultsTableConfig[] = [
+const cellsConfiguration: CompareResultsTableConfig = [
   {
     name: 'Subtests',
     key: 'subtests',

@@ -13,12 +13,15 @@ import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
 import { Colors, Spacing } from '../../styles';
-import type { CompareResultsTableConfig } from '../../types/types';
+import type {
+  CompareResultsTableConfig,
+  CompareResultsTableFilterableCell,
+} from '../../types/types';
 
 type FilterableColumnProps = {
   name: string;
   columnId: string;
-  possibleValues: string[];
+  possibleValues: CompareResultsTableFilterableCell['possibleValues'];
   uncheckedValues?: Set<string>;
   onToggle: (checkedValues: Set<string>) => unknown;
   onClear: () => unknown;
@@ -119,7 +122,7 @@ function FilterableColumn({
 }
 
 type TableHeaderProps = {
-  cellsConfiguration: CompareResultsTableConfig[];
+  cellsConfiguration: CompareResultsTableConfig;
   filters: Map<string, Set<string>>;
   onToggleFilter: (columnId: string, filters: Set<string>) => unknown;
   onClearFilter: (columnId: string) => unknown;

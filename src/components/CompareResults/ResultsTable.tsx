@@ -16,7 +16,7 @@ import ResultsControls from './ResultsControls';
 import TableContent from './TableContent';
 import TableHeader from './TableHeader';
 
-const cellsConfiguration: CompareResultsTableConfig[] = [
+const cellsConfiguration: CompareResultsTableConfig = [
   {
     name: 'Platform',
     disable: true,
