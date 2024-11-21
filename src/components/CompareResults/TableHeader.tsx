@@ -49,7 +49,9 @@ function FilterableColumn({
 
   const onClickOnlyFilter = (value: string) => {
     const newUncheckedValues = new Set(
-      possibleValues.filter((possibleValue) => possibleValue !== value),
+      possibleValues
+        .filter(({ label }) => label !== value)
+        .map(({ label }) => label),
     );
     onToggle(newUncheckedValues);
   };
@@ -92,27 +94,29 @@ function FilterableColumn({
         {possibleValues.map((possibleValue) => (
           <MenuItem
             dense={true}
-            key={possibleValue}
-            onClick={() => onClickOnlyFilter(possibleValue)}
+            key={possibleValue.key}
+            onClick={() => onClickOnlyFilter(possibleValue.label)}
           >
-            Select only “{possibleValue}”
+            Select only “{possibleValue.label}”
           </MenuItem>
         ))}
         <Divider />
         {possibleValues.map((possibleValue) => {
           const isChecked =
-            !uncheckedValues || !uncheckedValues.has(possibleValue);
+            !uncheckedValues || !uncheckedValues.has(possibleValue.label);
           return (
             <MenuItem
               dense={true}
-              key={possibleValue}
+              key={possibleValue.key}
               role='menuitemcheckbox'
               aria-checked={isChecked ? 'true' : 'false'}
-              aria-label={`${possibleValue}${isChecked ? ' (selected)' : ''}`}
-              onClick={() => onClickFilter(possibleValue)}
+              aria-label={`${possibleValue.label}${
+                isChecked ? ' (selected)' : ''
+              }`}
+              onClick={() => onClickFilter(possibleValue.label)}
             >
               {isChecked ? <CheckIcon fontSize='small' /> : null}
-              {possibleValue}
+              {possibleValue.label}
             </MenuItem>
           );
         })}

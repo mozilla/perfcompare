@@ -23,7 +23,12 @@ const cellsConfiguration: CompareResultsTableConfig = [
     filter: true,
     key: 'platform',
     gridWidth: '2fr',
-    possibleValues: ['Windows', 'OSX', 'Linux', 'Android'],
+    possibleValues: [
+      { label: 'Windows', key: 'windows' },
+      { label: 'OSX', key: 'osx' },
+      { label: 'Linux', key: 'linux' },
+      { label: 'Android', key: 'android' },
+    ],
     matchesFunction: (result: CompareResultsItem, value: string) => {
       const platformName = getPlatformShortName(result.platform);
       return platformName === value;
@@ -51,7 +56,11 @@ const cellsConfiguration: CompareResultsTableConfig = [
     filter: true,
     key: 'status',
     gridWidth: '1.5fr',
-    possibleValues: ['No changes', 'Improvement', 'Regression'],
+    possibleValues: [
+      { label: 'No changes', key: 'none' },
+      { label: 'Improvement', key: 'improvement' },
+      { label: 'Regression', key: 'regression' },
+    ],
     matchesFunction: (result: CompareResultsItem, value: string) => {
       switch (value) {
         case 'Improvement':
@@ -74,7 +83,12 @@ const cellsConfiguration: CompareResultsTableConfig = [
     filter: true,
     key: 'confidence',
     gridWidth: '1fr',
-    possibleValues: ['No value', 'Low', 'Medium', 'High'],
+    possibleValues: [
+      { label: 'No value', key: 'none' },
+      { label: 'Low', key: 'low' },
+      { label: 'Medium', key: 'medium' },
+      { label: 'High', key: 'high' },
+    ],
     matchesFunction: (result: CompareResultsItem, value: string) => {
       switch (value) {
         case 'No value':

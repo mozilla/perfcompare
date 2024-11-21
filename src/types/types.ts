@@ -5,7 +5,7 @@ export type CompareResultsTableFilterableCell = {
   key: string;
   disable?: boolean;
   filter: true;
-  possibleValues: string[];
+  possibleValues: Array<{ label: string; key: string }>;
   gridWidth?: string;
   // This function returns whether this result matches the value for this column.
   matchesFunction: (result: CompareResultsItem, value: string) => boolean;
