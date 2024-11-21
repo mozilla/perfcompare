@@ -923,13 +923,12 @@ exports[`Results View The table should match snapshot and other elements should 
         <button
           aria-haspopup="true"
           aria-label="Platform (Click to filter values)"
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-gsklu7-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-1iwl4xb-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >
-          Platform
           <svg
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-reqpbo-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-5c1f8z-MuiSvgIcon-root"
             data-testid="FilterListIcon"
             focusable="false"
             role="img"
@@ -941,6 +940,25 @@ exports[`Results View The table should match snapshot and other elements should 
             <title>
               No active filters
             </title>
+          </svg>
+          Platform
+          <div
+            class="f7j1bxg"
+          >
+            (
+            4
+            )
+          </div>
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-127uiuf-MuiSvgIcon-root"
+            data-testid="KeyboardArrowDownIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+            />
           </svg>
           <span
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -970,13 +988,12 @@ exports[`Results View The table should match snapshot and other elements should 
         <button
           aria-haspopup="true"
           aria-label="Status (Click to filter values)"
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-gsklu7-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-1iwl4xb-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >
-          Status
           <svg
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-reqpbo-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-5c1f8z-MuiSvgIcon-root"
             data-testid="FilterListIcon"
             focusable="false"
             role="img"
@@ -988,6 +1005,25 @@ exports[`Results View The table should match snapshot and other elements should 
             <title>
               No active filters
             </title>
+          </svg>
+          Status
+          <div
+            class="f7j1bxg"
+          >
+            (
+            3
+            )
+          </div>
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-127uiuf-MuiSvgIcon-root"
+            data-testid="KeyboardArrowDownIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+            />
           </svg>
           <span
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -1007,13 +1043,12 @@ exports[`Results View The table should match snapshot and other elements should 
         <button
           aria-haspopup="true"
           aria-label="Confidence (Click to filter values)"
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-gsklu7-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-1iwl4xb-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >
-          Confidence
           <svg
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-reqpbo-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-5c1f8z-MuiSvgIcon-root"
             data-testid="FilterListIcon"
             focusable="false"
             role="img"
@@ -1025,6 +1060,25 @@ exports[`Results View The table should match snapshot and other elements should 
             <title>
               No active filters
             </title>
+          </svg>
+          Confidence
+          <div
+            class="f7j1bxg"
+          >
+            (
+            4
+            )
+          </div>
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-127uiuf-MuiSvgIcon-root"
+            data-testid="KeyboardArrowDownIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+            />
           </svg>
           <span
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"

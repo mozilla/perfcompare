@@ -1,5 +1,6 @@
 import CheckIcon from '@mui/icons-material/Check';
 import FilterListIcon from '@mui/icons-material/FilterList';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Menu from '@mui/material/Menu';
@@ -32,7 +33,20 @@ function FilterableColumn({
   onToggle,
   onClear,
 }: FilterableColumnProps) {
+  const filterCountStyle = style({
+    paddingLeft: `${Spacing.xSmall}px`,
+  });
   const popupState = usePopupState({ variant: 'popover', popupId: columnId });
+  //this returns number of possible values that are checked
+  const possibleCheckedValues = possibleValues.reduce(
+    (count: number, value) => {
+      if (!uncheckedValues?.has(value)) {
+        count++;
+      }
+      return count;
+    },
+    0,
+  );
 
   const onClickFilter = (value: string) => {
     const newUncheckedValues = new Set(uncheckedValues);
@@ -67,19 +81,22 @@ function FilterableColumn({
             theme.palette.mode == 'light'
               ? Colors.Background200
               : Colors.Background200Dark,
-          borderRadius: '4px',
+          borderRadius: 0.5,
           fontSize: 'inherit',
+          padding: '6px 12px',
         })}
       >
-        {name}
         <FilterListIcon
           fontSize='small'
           color={hasFilteredValues ? 'primary' : 'inherit'}
-          sx={{ marginInlineStart: 1 }}
+          sx={{ marginInlineStart: 1, marginRight: 0.5, marginLeft: 0 }}
           titleAccess={
             hasFilteredValues ? 'Some filters are active' : 'No active filters'
           }
         />
+        {name}
+        <div className={filterCountStyle}>({possibleCheckedValues})</div>
+        <KeyboardArrowDownIcon sx={{ marginLeft: 1 }} />
       </Button>
       <Menu {...bindMenu(popupState)}>
         <MenuItem dense={true} onClick={onClear}>
