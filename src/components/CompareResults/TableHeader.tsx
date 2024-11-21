@@ -37,21 +37,21 @@ function FilterableColumn({
 }: FilterableColumnProps) {
   const popupState = usePopupState({ variant: 'popover', popupId: columnId });
 
-  const onClickFilter = (value: string) => {
+  const onClickFilter = (valueKey: string) => {
     const newUncheckedValues = new Set(uncheckedValues);
-    if (newUncheckedValues.has(value)) {
-      newUncheckedValues.delete(value);
+    if (newUncheckedValues.has(valueKey)) {
+      newUncheckedValues.delete(valueKey);
     } else {
-      newUncheckedValues.add(value);
+      newUncheckedValues.add(valueKey);
     }
     onToggle(newUncheckedValues);
   };
 
-  const onClickOnlyFilter = (value: string) => {
+  const onClickOnlyFilter = (valueKey: string) => {
     const newUncheckedValues = new Set(
       possibleValues
-        .filter(({ label }) => label !== value)
-        .map(({ label }) => label),
+        .filter(({ key }) => key !== valueKey)
+        .map(({ key }) => key),
     );
     onToggle(newUncheckedValues);
   };
@@ -95,7 +95,7 @@ function FilterableColumn({
           <MenuItem
             dense={true}
             key={possibleValue.key}
-            onClick={() => onClickOnlyFilter(possibleValue.label)}
+            onClick={() => onClickOnlyFilter(possibleValue.key)}
           >
             Select only “{possibleValue.label}”
           </MenuItem>
@@ -103,7 +103,7 @@ function FilterableColumn({
         <Divider />
         {possibleValues.map((possibleValue) => {
           const isChecked =
-            !uncheckedValues || !uncheckedValues.has(possibleValue.label);
+            !uncheckedValues || !uncheckedValues.has(possibleValue.key);
           return (
             <MenuItem
               dense={true}
@@ -113,7 +113,7 @@ function FilterableColumn({
               aria-label={`${possibleValue.label}${
                 isChecked ? ' (selected)' : ''
               }`}
-              onClick={() => onClickFilter(possibleValue.label)}
+              onClick={() => onClickFilter(possibleValue.key)}
             >
               {isChecked ? <CheckIcon fontSize='small' /> : null}
               {possibleValue.label}

@@ -29,9 +29,12 @@ const cellsConfiguration: CompareResultsTableConfig = [
       { label: 'Linux', key: 'linux' },
       { label: 'Android', key: 'android' },
     ],
-    matchesFunction: (result: CompareResultsItem, value: string) => {
+    matchesFunction(result, valueKey) {
+      const label = this.possibleValues.find(
+        ({ key }) => key === valueKey,
+      )?.label;
       const platformName = getPlatformShortName(result.platform);
-      return platformName === value;
+      return platformName === label;
     },
   },
   {
@@ -61,11 +64,11 @@ const cellsConfiguration: CompareResultsTableConfig = [
       { label: 'Improvement', key: 'improvement' },
       { label: 'Regression', key: 'regression' },
     ],
-    matchesFunction: (result: CompareResultsItem, value: string) => {
-      switch (value) {
-        case 'Improvement':
+    matchesFunction(result, valueKey) {
+      switch (valueKey) {
+        case 'improvement':
           return result.is_improvement;
-        case 'Regression':
+        case 'regression':
           return result.is_regression;
         default:
           return !result.is_improvement && !result.is_regression;
@@ -89,12 +92,16 @@ const cellsConfiguration: CompareResultsTableConfig = [
       { label: 'Medium', key: 'medium' },
       { label: 'High', key: 'high' },
     ],
-    matchesFunction: (result: CompareResultsItem, value: string) => {
-      switch (value) {
-        case 'No value':
+    matchesFunction(result, valueKey) {
+      switch (valueKey) {
+        case 'none':
           return !result.confidence_text;
-        default:
-          return result.confidence_text === value;
+        default: {
+          const label = this.possibleValues.find(
+            ({ key }) => key === valueKey,
+          )?.label;
+          return result.confidence_text === label;
+        }
       }
     },
   },

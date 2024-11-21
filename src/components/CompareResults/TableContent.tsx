@@ -114,9 +114,8 @@ function resultMatchesColumnFilter(
     return true;
   }
 
-  const { matchesFunction } = cellConfiguration;
-  for (const filterValue of uncheckedValues) {
-    if (matchesFunction(result, filterValue)) {
+  for (const filterValueKey of uncheckedValues) {
+    if (cellConfiguration.matchesFunction(result, filterValueKey)) {
       return true;
     }
   }
