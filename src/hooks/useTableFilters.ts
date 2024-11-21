@@ -1,8 +1,17 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 
+import type {
+  CompareResultsTableConfig,
+  CompareResultsTableCell,
+} from '../types/types';
 import useRawSearchParams from './useRawSearchParams';
 
-const useTableFilters = () => {
+const useTableFilters = (cellsConfiguration: CompareResultsTableConfig) => {
+  const columnIdToConfiguration: Map<string, CompareResultsTableCell> = useMemo(
+    () => new Map(cellsConfiguration.map((val) => [val.key, val])),
+    [cellsConfiguration],
+  );
+
   // This is our custom hook that updates the search params without a rerender.
   const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
 
@@ -16,6 +25,13 @@ const useTableFilters = () => {
       }
 
       const columnId = param.slice('filter_'.length);
+      const cellConfiguration = columnIdToConfiguration.get(columnId);
+      if (!cellConfiguration || !cellConfiguration.filter) {
+        // The columnId passed as a parameter doesn't exist or isn't a
+        // filterable column, ignore it.
+        continue;
+      }
+
       const configuredValues = paramValue.split(',').map((item) => item.trim());
 
       result.set(columnId, new Set(configuredValues));
