@@ -94,9 +94,15 @@ const cellsConfiguration: CompareResultsTableConfig[] = [
     filter: true,
     key: 'confidence',
     gridWidth: '1fr',
-    possibleValues: ['Low', 'Medium', 'High'],
-    matchesFunction: (result: CompareResultsItem, value: string) =>
-      result.confidence_text === value,
+    possibleValues: ['No value', 'Low', 'Medium', 'High'],
+    matchesFunction: (result: CompareResultsItem, value: string) => {
+      switch (value) {
+        case 'No value':
+          return !result.confidence_text;
+        default:
+          return result.confidence_text === value;
+      }
+    },
   },
   { name: 'Total Runs', key: 'runs', gridWidth: '1fr' },
   { key: 'buttons', gridWidth: '1fr' },
