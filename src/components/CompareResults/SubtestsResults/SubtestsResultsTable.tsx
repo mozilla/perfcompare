@@ -43,7 +43,7 @@ function processResults(results: CompareResultsItem[]) {
   return restructuredResults;
 }
 
-const cellsConfiguration: CompareResultsTableConfig[] = [
+const cellsConfiguration: CompareResultsTableConfig = [
   {
     name: 'Subtests',
     key: 'subtests',
@@ -71,12 +71,16 @@ const cellsConfiguration: CompareResultsTableConfig[] = [
     filter: true,
     key: 'status',
     gridWidth: '1.5fr',
-    possibleValues: ['No changes', 'Improvement', 'Regression'],
-    matchesFunction: (result: CompareResultsItem, value: string) => {
-      switch (value) {
-        case 'Improvement':
+    possibleValues: [
+      { label: 'No changes', key: 'none' },
+      { label: 'Improvement', key: 'improvement' },
+      { label: 'Regression', key: 'regression' },
+    ],
+    matchesFunction(result, valueKey) {
+      switch (valueKey) {
+        case 'improvement':
           return result.is_improvement;
-        case 'Regression':
+        case 'regression':
           return result.is_regression;
         default:
           return !result.is_improvement && !result.is_regression;
@@ -94,13 +98,22 @@ const cellsConfiguration: CompareResultsTableConfig[] = [
     filter: true,
     key: 'confidence',
     gridWidth: '1fr',
-    possibleValues: ['No value', 'Low', 'Medium', 'High'],
-    matchesFunction: (result: CompareResultsItem, value: string) => {
-      switch (value) {
-        case 'No value':
+    possibleValues: [
+      { label: 'No value', key: 'none' },
+      { label: 'Low', key: 'low' },
+      { label: 'Medium', key: 'medium' },
+      { label: 'High', key: 'high' },
+    ],
+    matchesFunction(result, valueKey) {
+      switch (valueKey) {
+        case 'none':
           return !result.confidence_text;
-        default:
-          return result.confidence_text === value;
+        default: {
+          const label = this.possibleValues.find(
+            ({ key }) => key === valueKey,
+          )?.label;
+          return result.confidence_text === label;
+        }
       }
     },
   },
@@ -128,9 +141,8 @@ function resultMatchesColumnFilter(
     return true;
   }
 
-  const { matchesFunction } = cellConfiguration;
   for (const filterValue of uncheckedValues) {
-    if (matchesFunction(result, filterValue)) {
+    if (cellConfiguration.matchesFunction(result, filterValue)) {
       return true;
     }
   }

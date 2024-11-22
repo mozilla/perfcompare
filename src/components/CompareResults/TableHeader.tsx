@@ -13,12 +13,15 @@ import { style } from 'typestyle';
 
 import { useAppSelector } from '../../hooks/app';
 import { Colors, Spacing } from '../../styles';
-import type { CompareResultsTableConfig } from '../../types/types';
+import type {
+  CompareResultsTableConfig,
+  CompareResultsTableFilterableCell,
+} from '../../types/types';
 
 type FilterableColumnProps = {
   name: string;
   columnId: string;
-  possibleValues: string[];
+  possibleValues: CompareResultsTableFilterableCell['possibleValues'];
   uncheckedValues?: Set<string>;
   onToggle: (checkedValues: Set<string>) => unknown;
   onClear: () => unknown;
@@ -34,19 +37,21 @@ function FilterableColumn({
 }: FilterableColumnProps) {
   const popupState = usePopupState({ variant: 'popover', popupId: columnId });
 
-  const onClickFilter = (value: string) => {
+  const onClickFilter = (valueKey: string) => {
     const newUncheckedValues = new Set(uncheckedValues);
-    if (newUncheckedValues.has(value)) {
-      newUncheckedValues.delete(value);
+    if (newUncheckedValues.has(valueKey)) {
+      newUncheckedValues.delete(valueKey);
     } else {
-      newUncheckedValues.add(value);
+      newUncheckedValues.add(valueKey);
     }
     onToggle(newUncheckedValues);
   };
 
-  const onClickOnlyFilter = (value: string) => {
+  const onClickOnlyFilter = (valueKey: string) => {
     const newUncheckedValues = new Set(
-      possibleValues.filter((possibleValue) => possibleValue !== value),
+      possibleValues
+        .filter(({ key }) => key !== valueKey)
+        .map(({ key }) => key),
     );
     onToggle(newUncheckedValues);
   };
@@ -89,27 +94,29 @@ function FilterableColumn({
         {possibleValues.map((possibleValue) => (
           <MenuItem
             dense={true}
-            key={possibleValue}
-            onClick={() => onClickOnlyFilter(possibleValue)}
+            key={possibleValue.key}
+            onClick={() => onClickOnlyFilter(possibleValue.key)}
           >
-            Select only “{possibleValue}”
+            Select only “{possibleValue.label}”
           </MenuItem>
         ))}
         <Divider />
         {possibleValues.map((possibleValue) => {
           const isChecked =
-            !uncheckedValues || !uncheckedValues.has(possibleValue);
+            !uncheckedValues || !uncheckedValues.has(possibleValue.key);
           return (
             <MenuItem
               dense={true}
-              key={possibleValue}
+              key={possibleValue.key}
               role='menuitemcheckbox'
               aria-checked={isChecked ? 'true' : 'false'}
-              aria-label={`${possibleValue}${isChecked ? ' (selected)' : ''}`}
-              onClick={() => onClickFilter(possibleValue)}
+              aria-label={`${possibleValue.label}${
+                isChecked ? ' (selected)' : ''
+              }`}
+              onClick={() => onClickFilter(possibleValue.key)}
             >
               {isChecked ? <CheckIcon fontSize='small' /> : null}
-              {possibleValue}
+              {possibleValue.label}
             </MenuItem>
           );
         })}
@@ -119,7 +126,7 @@ function FilterableColumn({
 }
 
 type TableHeaderProps = {
-  cellsConfiguration: CompareResultsTableConfig[];
+  cellsConfiguration: CompareResultsTableConfig;
   filters: Map<string, Set<string>>;
   onToggleFilter: (columnId: string, filters: Set<string>) => unknown;
   onClearFilter: (columnId: string) => unknown;
