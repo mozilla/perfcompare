@@ -20,7 +20,6 @@ import { getPlatformShortName } from '../../utils/platform';
 const cellsConfiguration: CompareResultsTableConfig = [
   {
     name: 'Platform',
-    disable: true,
     filter: true,
     key: 'platform',
     gridWidth: '2fr',
@@ -56,7 +55,6 @@ const cellsConfiguration: CompareResultsTableConfig = [
   },
   {
     name: 'Status',
-    disable: true,
     filter: true,
     key: 'status',
     gridWidth: '1.5fr',
@@ -83,7 +81,6 @@ const cellsConfiguration: CompareResultsTableConfig = [
   },
   {
     name: 'Confidence',
-    disable: true,
     filter: true,
     key: 'confidence',
     gridWidth: '1.5fr',
