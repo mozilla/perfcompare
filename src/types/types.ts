@@ -3,10 +3,9 @@ import { CompareResultsItem } from './state';
 export type CompareResultsTableFilterableCell = {
   name: string;
   key: string;
-  disable?: boolean;
   filter: true;
   possibleValues: Array<{ label: string; key: string }>;
-  gridWidth?: string;
+  gridWidth: string;
   // This function returns whether this result matches the value for this column.
   matchesFunction: (
     this: CompareResultsTableFilterableCell,
@@ -20,7 +19,6 @@ export type CompareResultsTableCell =
       name?: string;
       filter?: false;
       key: string;
-      disable?: boolean;
       gridWidth?: string;
     }
   | CompareResultsTableFilterableCell;
