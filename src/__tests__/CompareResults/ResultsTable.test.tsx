@@ -35,6 +35,71 @@ function setupAndRender(testCompareData: CompareResultsItem[]) {
   renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
 }
 
+// This handy function parses the results page and returns an array of visible
+// rows. It makes it easy to assert visible rows when filtering them in a
+// user-friendly way without using snapshots.
+function summarizeVisibleRows() {
+  const rowGroups = screen.getAllByRole('rowgroup');
+  const result = [];
+
+  for (const group of rowGroups) {
+    const titleElement = group.firstElementChild!.firstElementChild!;
+    const optionsElements = Array.from(
+      titleElement.nextElementSibling!.children,
+    );
+    const title = [
+      titleElement.textContent,
+      ...optionsElements.map((element) => element.textContent),
+    ].join(' ');
+    result.push(title);
+
+    const revisionGroups = Array.from(group.children).slice(1) as HTMLElement[];
+
+    for (const revisionGroup of revisionGroups) {
+      const maybeLink = within(revisionGroup).queryByRole('link', {
+        name: /open treeherder view/,
+      });
+      if (maybeLink) {
+        result.push('  rev: ' + maybeLink.textContent!);
+      }
+
+      const rows = within(revisionGroup).getAllByRole('row');
+      for (const row of rows) {
+        const rowString = ['.platform span', '.status', '.confidence']
+          .map((selector) => row.querySelector(selector)!.textContent!.trim())
+          .join(', ');
+
+        result.push('  - ' + rowString);
+      }
+    }
+  }
+
+  return result;
+}
+
+async function clickMenuItem(
+  user: UserEvent,
+  menuMatcher: string | RegExp,
+  itemMatcher: string | RegExp,
+) {
+  const platformColumnButton = screen.getByRole('button', {
+    name: menuMatcher,
+  });
+  await user.click(platformColumnButton);
+
+  const menu = screen.getByRole('menu');
+  let menuItem = within(menu).queryByRole('menuitemcheckbox', {
+    name: itemMatcher,
+  });
+  if (!menuItem) {
+    menuItem = within(menu).getByRole('menuitem', {
+      name: itemMatcher,
+    });
+  }
+  await user.click(menuItem);
+  await user.keyboard('[Escape]');
+}
+
 describe('Results Table', () => {
   it('Should match snapshot', async () => {
     const { testCompareData } = getTestData();
@@ -55,73 +120,6 @@ describe('Results Table', () => {
     setupAndRender([]);
     expect(await screen.findByText(/No results found/)).toBeInTheDocument();
   });
-
-  // This handy function parses the results page and returns an array of visible
-  // rows. It makes it easy to assert visible rows when filtering them in a
-  // user-friendly way without using snapshots.
-  function summarizeVisibleRows() {
-    const rowGroups = screen.getAllByRole('rowgroup');
-    const result = [];
-
-    for (const group of rowGroups) {
-      const titleElement = group.firstElementChild!.firstElementChild!;
-      const optionsElements = Array.from(
-        titleElement.nextElementSibling!.children,
-      );
-      const title = [
-        titleElement.textContent,
-        ...optionsElements.map((element) => element.textContent),
-      ].join(' ');
-      result.push(title);
-
-      const revisionGroups = Array.from(group.children).slice(
-        1,
-      ) as HTMLElement[];
-
-      for (const revisionGroup of revisionGroups) {
-        const maybeLink = within(revisionGroup).queryByRole('link', {
-          name: /open treeherder view/,
-        });
-        if (maybeLink) {
-          result.push('  rev: ' + maybeLink.textContent!);
-        }
-
-        const rows = within(revisionGroup).getAllByRole('row');
-        for (const row of rows) {
-          const rowString = ['.platform span', '.status', '.confidence']
-            .map((selector) => row.querySelector(selector)!.textContent!.trim())
-            .join(', ');
-
-          result.push('  - ' + rowString);
-        }
-      }
-    }
-
-    return result;
-  }
-
-  async function clickMenuItem(
-    user: UserEvent,
-    menuMatcher: string | RegExp,
-    itemMatcher: string | RegExp,
-  ) {
-    const platformColumnButton = screen.getByRole('button', {
-      name: menuMatcher,
-    });
-    await user.click(platformColumnButton);
-
-    const menu = screen.getByRole('menu');
-    let menuItem = within(menu).queryByRole('menuitemcheckbox', {
-      name: itemMatcher,
-    });
-    if (!menuItem) {
-      menuItem = within(menu).getByRole('menuitem', {
-        name: itemMatcher,
-      });
-    }
-    await user.click(menuItem);
-    await user.keyboard('[Escape]');
-  }
 
   it('should render different blocks when rendering several revisions', async () => {
     const { testCompareData } = getTestData();
