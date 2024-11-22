@@ -280,7 +280,7 @@ exports[`Results View The table should match snapshot and other elements should 
           </svg>
           Platform
           <div
-            class="f7j1bxg"
+            class="MuiBox-root css-1srs1xm"
           >
             (
             4
@@ -345,7 +345,7 @@ exports[`Results View The table should match snapshot and other elements should 
           </svg>
           Status
           <div
-            class="f7j1bxg"
+            class="MuiBox-root css-1srs1xm"
           >
             (
             3
@@ -400,7 +400,7 @@ exports[`Results View The table should match snapshot and other elements should 
           </svg>
           Confidence
           <div
-            class="f7j1bxg"
+            class="MuiBox-root css-1srs1xm"
           >
             (
             4

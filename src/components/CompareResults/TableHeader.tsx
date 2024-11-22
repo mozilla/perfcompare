@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import { Box } from '@mui/system';
 import {
   usePopupState,
   bindTrigger,
@@ -36,20 +37,10 @@ function FilterableColumn({
   onToggle,
   onClear,
 }: FilterableColumnProps) {
-  const filterCountStyle = style({
-    paddingLeft: `${Spacing.xSmall}px`,
-  });
+  const themeMode = useAppSelector((state) => state.theme.mode);
   const popupState = usePopupState({ variant: 'popover', popupId: columnId });
-  //this returns number of possible values that are checked
-  const possibleCheckedValues = possibleValues.reduce(
-    (count: number, value) => {
-      if (!uncheckedValues?.has(value)) {
-        count++;
-      }
-      return count;
-    },
-    0,
-  );
+  const possibleCheckedValues =
+    possibleValues.length - (uncheckedValues?.size || 0);
 
   const onClickFilter = (valueKey: string) => {
     const newUncheckedValues = new Set(uncheckedValues);
@@ -100,7 +91,15 @@ function FilterableColumn({
           }
         />
         {name}
-        <div className={filterCountStyle}>({possibleCheckedValues})</div>
+        <Box
+          sx={{
+            paddingLeft: 0.5,
+            color: themeMode == 'light' ? Colors.LinkText : Colors.LinkTextDark,
+            fontWeight: 800,
+          }}
+        >
+          ({possibleCheckedValues})
+        </Box>
         <KeyboardArrowDownIcon sx={{ marginLeft: 1 }} />
       </Button>
       <Menu {...bindMenu(popupState)}>

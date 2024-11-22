@@ -1014,7 +1014,7 @@ exports[`Results Table Should match snapshot 1`] = `
                       </svg>
                       Platform
                       <div
-                        class="f7j1bxg"
+                        class="MuiBox-root css-1srs1xm"
                       >
                         (
                         4
@@ -1079,7 +1079,7 @@ exports[`Results Table Should match snapshot 1`] = `
                       </svg>
                       Status
                       <div
-                        class="f7j1bxg"
+                        class="MuiBox-root css-1srs1xm"
                       >
                         (
                         3
@@ -1134,7 +1134,7 @@ exports[`Results Table Should match snapshot 1`] = `
                       </svg>
                       Confidence
                       <div
-                        class="f7j1bxg"
+                        class="MuiBox-root css-1srs1xm"
                       >
                         (
                         4
