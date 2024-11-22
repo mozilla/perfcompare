@@ -6,6 +6,7 @@ import { useSearchParams } from 'react-router-dom';
 import { useLoaderData, Await } from 'react-router-dom';
 
 import useRawSearchParams from '../../hooks/useRawSearchParams';
+import useTableFilters from '../../hooks/useTableFilters';
 import type { CompareResultsItem } from '../../types/state';
 import { Framework } from '../../types/types';
 import type { CompareResultsTableConfig } from '../../types/types';
@@ -127,28 +128,13 @@ export default function ResultsTable() {
   // This is our custom hook that updates the search params without a rerender.
   const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
 
+  // This is our custom hook that manages table filters
+  // and provides methods for clearing and toggling them.
+  const { tableFilters, onClearFilter, onToggleFilter } = useTableFilters();
+
   const initialSearchTerm = rawSearchParams.get('search') ?? '';
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
   const [frameworkIdVal, setFrameworkIdVal] = useState(frameworkId);
-  const [tableFilters, setTableFilters] = useState(
-    new Map() as Map<string, Set<string>>, // ColumnID -> Set<Values to remove>
-  );
-
-  const onClearFilter = (columnId: string) => {
-    setTableFilters((oldFilters) => {
-      const newFilters = new Map(oldFilters);
-      newFilters.delete(columnId);
-      return newFilters;
-    });
-  };
-
-  const onToggleFilter = (columnId: string, filters: Set<string>) => {
-    setTableFilters((oldFilters) => {
-      const newFilters = new Map(oldFilters);
-      newFilters.set(columnId, filters);
-      return newFilters;
-    });
-  };
 
   const onFrameworkChange = (newFrameworkId: Framework['id']) => {
     setFrameworkIdVal(newFrameworkId);

@@ -1,7 +1,8 @@
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 
 import Box from '@mui/material/Box';
 
+import useTableFilters from '../../../hooks/useTableFilters';
 import type { CompareResultsItem } from '../../../types/state';
 import type { CompareResultsTableConfig } from '../../../types/types';
 import NoResultsFound from '.././NoResultsFound';
@@ -183,9 +184,9 @@ function SubtestsResultsTable({
   filteringSearchTerm,
   results,
 }: ResultsTableProps) {
-  const [tableFilters, setTableFilters] = useState(
-    new Map() as Map<string, Set<string>>, // ColumnID -> Set<Values to remove>
-  );
+  // This is our custom hook that manages table filters
+  // and provides methods for clearing and toggling them.
+  const { tableFilters, onClearFilter, onToggleFilter } = useTableFilters();
 
   const processedResults = useMemo(() => {
     const filteredResults = filterResults(
@@ -195,22 +196,6 @@ function SubtestsResultsTable({
     );
     return processResults(filteredResults);
   }, [results, filteringSearchTerm, tableFilters]);
-
-  const onClearFilter = (columnId: string) => {
-    setTableFilters((oldFilters) => {
-      const newFilters = new Map(oldFilters);
-      newFilters.delete(columnId);
-      return newFilters;
-    });
-  };
-
-  const onToggleFilter = (columnId: string, filters: Set<string>) => {
-    setTableFilters((oldFilters) => {
-      const newFilters = new Map(oldFilters);
-      newFilters.set(columnId, filters);
-      return newFilters;
-    });
-  };
 
   const rowGridTemplateColumns = cellsConfiguration
     .map((config) => config.gridWidth)
