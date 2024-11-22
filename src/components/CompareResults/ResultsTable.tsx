@@ -6,6 +6,7 @@ import { useSearchParams } from 'react-router-dom';
 import { useLoaderData, Await } from 'react-router-dom';
 
 import useRawSearchParams from '../../hooks/useRawSearchParams';
+import useTableFilters from '../../hooks/useTableFilters';
 import type { CompareResultsItem } from '../../types/state';
 import { Framework } from '../../types/types';
 import type { CompareResultsTableConfig } from '../../types/types';
@@ -16,17 +17,25 @@ import ResultsControls from './ResultsControls';
 import TableContent from './TableContent';
 import TableHeader from './TableHeader';
 
-const cellsConfiguration: CompareResultsTableConfig[] = [
+const cellsConfiguration: CompareResultsTableConfig = [
   {
     name: 'Platform',
     disable: true,
     filter: true,
     key: 'platform',
     gridWidth: '2fr',
-    possibleValues: ['Windows', 'OSX', 'Linux', 'Android'],
-    matchesFunction: (result: CompareResultsItem, value: string) => {
+    possibleValues: [
+      { label: 'Windows', key: 'windows' },
+      { label: 'OSX', key: 'osx' },
+      { label: 'Linux', key: 'linux' },
+      { label: 'Android', key: 'android' },
+    ],
+    matchesFunction(result, valueKey) {
+      const label = this.possibleValues.find(
+        ({ key }) => key === valueKey,
+      )?.label;
       const platformName = getPlatformShortName(result.platform);
-      return platformName === value;
+      return platformName === label;
     },
   },
   {
@@ -51,12 +60,16 @@ const cellsConfiguration: CompareResultsTableConfig[] = [
     filter: true,
     key: 'status',
     gridWidth: '1.5fr',
-    possibleValues: ['No changes', 'Improvement', 'Regression'],
-    matchesFunction: (result: CompareResultsItem, value: string) => {
-      switch (value) {
-        case 'Improvement':
+    possibleValues: [
+      { label: 'No changes', key: 'none' },
+      { label: 'Improvement', key: 'improvement' },
+      { label: 'Regression', key: 'regression' },
+    ],
+    matchesFunction(result, valueKey) {
+      switch (valueKey) {
+        case 'improvement':
           return result.is_improvement;
-        case 'Regression':
+        case 'regression':
           return result.is_regression;
         default:
           return !result.is_improvement && !result.is_regression;
@@ -74,13 +87,22 @@ const cellsConfiguration: CompareResultsTableConfig[] = [
     filter: true,
     key: 'confidence',
     gridWidth: '1fr',
-    possibleValues: ['No value', 'Low', 'Medium', 'High'],
-    matchesFunction: (result: CompareResultsItem, value: string) => {
-      switch (value) {
-        case 'No value':
+    possibleValues: [
+      { label: 'No value', key: 'none' },
+      { label: 'Low', key: 'low' },
+      { label: 'Medium', key: 'medium' },
+      { label: 'High', key: 'high' },
+    ],
+    matchesFunction(result, valueKey) {
+      switch (valueKey) {
+        case 'none':
           return !result.confidence_text;
-        default:
-          return result.confidence_text === value;
+        default: {
+          const label = this.possibleValues.find(
+            ({ key }) => key === valueKey,
+          )?.label;
+          return result.confidence_text === label;
+        }
       }
     },
   },
@@ -106,28 +128,13 @@ export default function ResultsTable() {
   // This is our custom hook that updates the search params without a rerender.
   const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
 
+  // This is our custom hook that manages table filters
+  // and provides methods for clearing and toggling them.
+  const { tableFilters, onClearFilter, onToggleFilter } = useTableFilters();
+
   const initialSearchTerm = rawSearchParams.get('search') ?? '';
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
   const [frameworkIdVal, setFrameworkIdVal] = useState(frameworkId);
-  const [tableFilters, setTableFilters] = useState(
-    new Map() as Map<string, Set<string>>, // ColumnID -> Set<Values to remove>
-  );
-
-  const onClearFilter = (columnId: string) => {
-    setTableFilters((oldFilters) => {
-      const newFilters = new Map(oldFilters);
-      newFilters.delete(columnId);
-      return newFilters;
-    });
-  };
-
-  const onToggleFilter = (columnId: string, filters: Set<string>) => {
-    setTableFilters((oldFilters) => {
-      const newFilters = new Map(oldFilters);
-      newFilters.set(columnId, filters);
-      return newFilters;
-    });
-  };
 
   const onFrameworkChange = (newFrameworkId: Framework['id']) => {
     setFrameworkIdVal(newFrameworkId);

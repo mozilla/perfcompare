@@ -1,7 +1,8 @@
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 
 import Box from '@mui/material/Box';
 
+import useTableFilters from '../../../hooks/useTableFilters';
 import type { CompareResultsItem } from '../../../types/state';
 import type { CompareResultsTableConfig } from '../../../types/types';
 import NoResultsFound from '.././NoResultsFound';
@@ -42,7 +43,7 @@ function processResults(results: CompareResultsItem[]) {
   return restructuredResults;
 }
 
-const cellsConfiguration: CompareResultsTableConfig[] = [
+const cellsConfiguration: CompareResultsTableConfig = [
   {
     name: 'Subtests',
     key: 'subtests',
@@ -70,12 +71,16 @@ const cellsConfiguration: CompareResultsTableConfig[] = [
     filter: true,
     key: 'status',
     gridWidth: '1.5fr',
-    possibleValues: ['No changes', 'Improvement', 'Regression'],
-    matchesFunction: (result: CompareResultsItem, value: string) => {
-      switch (value) {
-        case 'Improvement':
+    possibleValues: [
+      { label: 'No changes', key: 'none' },
+      { label: 'Improvement', key: 'improvement' },
+      { label: 'Regression', key: 'regression' },
+    ],
+    matchesFunction(result, valueKey) {
+      switch (valueKey) {
+        case 'improvement':
           return result.is_improvement;
-        case 'Regression':
+        case 'regression':
           return result.is_regression;
         default:
           return !result.is_improvement && !result.is_regression;
@@ -93,13 +98,22 @@ const cellsConfiguration: CompareResultsTableConfig[] = [
     filter: true,
     key: 'confidence',
     gridWidth: '1fr',
-    possibleValues: ['No value', 'Low', 'Medium', 'High'],
-    matchesFunction: (result: CompareResultsItem, value: string) => {
-      switch (value) {
-        case 'No value':
+    possibleValues: [
+      { label: 'No value', key: 'none' },
+      { label: 'Low', key: 'low' },
+      { label: 'Medium', key: 'medium' },
+      { label: 'High', key: 'high' },
+    ],
+    matchesFunction(result, valueKey) {
+      switch (valueKey) {
+        case 'none':
           return !result.confidence_text;
-        default:
-          return result.confidence_text === value;
+        default: {
+          const label = this.possibleValues.find(
+            ({ key }) => key === valueKey,
+          )?.label;
+          return result.confidence_text === label;
+        }
       }
     },
   },
@@ -127,9 +141,8 @@ function resultMatchesColumnFilter(
     return true;
   }
 
-  const { matchesFunction } = cellConfiguration;
   for (const filterValue of uncheckedValues) {
-    if (matchesFunction(result, filterValue)) {
+    if (cellConfiguration.matchesFunction(result, filterValue)) {
       return true;
     }
   }
@@ -171,9 +184,9 @@ function SubtestsResultsTable({
   filteringSearchTerm,
   results,
 }: ResultsTableProps) {
-  const [tableFilters, setTableFilters] = useState(
-    new Map() as Map<string, Set<string>>, // ColumnID -> Set<Values to remove>
-  );
+  // This is our custom hook that manages table filters
+  // and provides methods for clearing and toggling them.
+  const { tableFilters, onClearFilter, onToggleFilter } = useTableFilters();
 
   const processedResults = useMemo(() => {
     const filteredResults = filterResults(
@@ -183,22 +196,6 @@ function SubtestsResultsTable({
     );
     return processResults(filteredResults);
   }, [results, filteringSearchTerm, tableFilters]);
-
-  const onClearFilter = (columnId: string) => {
-    setTableFilters((oldFilters) => {
-      const newFilters = new Map(oldFilters);
-      newFilters.delete(columnId);
-      return newFilters;
-    });
-  };
-
-  const onToggleFilter = (columnId: string, filters: Set<string>) => {
-    setTableFilters((oldFilters) => {
-      const newFilters = new Map(oldFilters);
-      newFilters.set(columnId, filters);
-      return newFilters;
-    });
-  };
 
   const rowGridTemplateColumns = cellsConfiguration
     .map((config) => config.gridWidth)
