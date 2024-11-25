@@ -78,7 +78,6 @@ function FilterableColumn({
               ? Colors.Background200
               : Colors.Background200Dark,
           borderRadius: 0.5,
-          fontSize: 'inherit',
           padding: '6px 12px',
         })}
       >
