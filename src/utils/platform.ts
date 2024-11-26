@@ -13,3 +13,11 @@ export const getPlatformShortName = (
   if (platformName.toLowerCase().includes('android')) return 'Android';
   return 'Unspecified';
 };
+
+export const getPlatformVersion = (platformName: string): string | null => {
+  // Example of adroid platform
+  // android-hw-p6-13-0-android-aarch64-shippable-qr
+  if (platformName.toLowerCase().includes('android'))
+    return platformName.split('-')[2];
+  return null;
+};

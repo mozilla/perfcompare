@@ -18,7 +18,7 @@ import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { Colors, Spacing, ExpandableRowStyles } from '../../styles';
 import type { CompareResultsItem, PlatformShortName } from '../../types/state';
-import { getPlatformShortName } from '../../utils/platform';
+import { getPlatformShortName, getPlatformVersion } from '../../utils/platform';
 import AndroidIcon from '../Shared/Icons/AndroidIcon';
 import LinuxIcon from '../Shared/Icons/LinuxIcon';
 import SubtestsIcon from '../Shared/Icons/SubtestsIcon';
@@ -366,10 +366,7 @@ function RevisionRow(props: RevisionRowProps) {
               {platformIcon}
               <span>{platformShortName}</span>
               {platformShortName === androidPlatform && (
-                <span>
-                  &nbsp;
-                  {platform.split('-')[2]}
-                </span>
+                <span>&nbsp;{getPlatformVersion(platform)}</span>
               )}
             </div>
           </Tooltip>
