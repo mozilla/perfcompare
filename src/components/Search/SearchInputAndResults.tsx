@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import Box from '@mui/material/Box';
 
 import { fetchRecentRevisions } from '../../logic/treeherder';
+import { Strings } from '../../resources/Strings';
 import type { Changeset, Repository } from '../../types/state';
 import { simpleDebounce } from '../../utils/simple-debounce';
 import SearchInput from './SearchInput';
@@ -67,13 +68,15 @@ export default function SearchInputAndResults({
 
   const searchRecentRevisions = useCallback(
     async (searchTerm: string) => {
+      // searchTerm must contain at least three characters
       // If the searchTerm doesn't look like a hash, then we assume it might be an author.
       // If it looks like a hash, then we assume it's a hash.
       // NOTE: In the future we might want to be more clever and request both
       // endpoints even when it looks like a hash. For example a request such as "ade" could
       // return results for an author named "adenot" _and_  results for a hash "ade821ac".
       // In that case it would be better to show the results for the author.
-      const authorInfoMatch = /[^0-9a-fA-F]/;
+      const authorInfoMatch = /^(?=.*[^0-9a-fA-F]).{3,}$/;
+      const minimumCharacterLength = /^.{3,}$/;
 
       // Reset various states
       setSearchError(null);
@@ -87,8 +90,12 @@ export default function SearchInputAndResults({
         searchParameters = { repository };
       } else if (authorInfoMatch.test(searchTerm)) {
         searchParameters = { repository, author: searchTerm };
-      } else {
+      } else if (minimumCharacterLength.test(searchTerm)) {
         searchParameters = { repository, hash: searchTerm };
+      } else {
+        setSearchError(Strings.errors.warningText);
+        setRecentRevisions(null);
+        return;
       }
 
       // Keep the current searchTerm in ref so that we can use it when the

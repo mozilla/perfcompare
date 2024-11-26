@@ -147,4 +147,8 @@ export const Strings = {
       },
     },
   },
+  errors: {
+    warningText:
+      'The search input must be a minimum of three characters in length.',
+  },
 };
