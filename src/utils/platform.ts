@@ -14,10 +14,12 @@ export const getPlatformShortName = (
   return 'Unspecified';
 };
 
-export const getPlatformVersion = (platformName: string): string | null => {
-  // Example of adroid platform
+export const getPlatformAndVersion = (platform: string): string => {
+  const platformShortName = getPlatformShortName(platform);
+  // Example of android platform, the split is specific for this platform
+  // Other platforms are built differently
   // android-hw-p6-13-0-android-aarch64-shippable-qr
-  if (platformName.toLowerCase().includes('android'))
-    return platformName.split('-')[2];
-  return null;
+  if (platformShortName === 'Android')
+    return `${platformShortName}\u00a0${platform.split('-')[2]}`;
+  return platformShortName;
 };
