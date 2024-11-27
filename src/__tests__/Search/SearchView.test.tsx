@@ -241,7 +241,7 @@ describe('Base and OverTime Search', () => {
 
     expect(
       await screen.findByText(
-        'The search input must be a minimum of three characters in length.',
+        'The search input must be at least three characters.',
       ),
     ).toBeInTheDocument();
 
@@ -271,15 +271,13 @@ describe('Base and OverTime Search', () => {
     await user.type(searchInput, 'jo');
     // No error appears while the user type.
     expect(
-      screen.queryByText(
-        'The search input must be a minimum of three characters in length.',
-      ),
+      screen.queryByText('The search input must be at least three characters.'),
     ).not.toBeInTheDocument();
 
     // But this appears after a while.
     expect(
       await screen.findByText(
-        'The search input must be a minimum of three characters in length.',
+        'The search input must be at least three characters.',
       ),
     ).toBeInTheDocument();
     await user.type(searchInput, 'hncleese');
