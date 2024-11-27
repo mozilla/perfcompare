@@ -116,6 +116,15 @@ const swapArrayElements = <T>(
   return array;
 };
 
+const determineStandardDeviationSign = (
+  baseStandardDeviation: number,
+  newStandardDeviation: number,
+) => {
+  if (baseStandardDeviation > newStandardDeviation) return '>';
+  if (baseStandardDeviation < newStandardDeviation) return '<';
+  return '';
+};
+
 export {
   formatDate,
   getLatestCommitMessage,
@@ -124,4 +133,5 @@ export {
   swapArrayElements,
   truncateHash,
   getDocsURL,
+  determineStandardDeviationSign,
 };

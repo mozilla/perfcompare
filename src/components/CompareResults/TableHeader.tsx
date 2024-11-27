@@ -151,6 +151,7 @@ function TableHeader({
       borderRadius: '4px',
       padding: Spacing.Small,
       marginTop: Spacing.Medium,
+      textAlign: 'center',
       $nest: {
         '.cell': {
           borderBottom: 'none',
