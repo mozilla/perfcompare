@@ -1,3 +1,5 @@
+import { ElementType } from 'react';
+
 import userEvent from '@testing-library/user-event';
 
 import { loader } from '../../components/CompareResults/subtestsLoader';
@@ -16,75 +18,54 @@ import {
 jest.mock('../../utils/location');
 const mockedGetLocationOrigin = getLocationOrigin as jest.Mock;
 
+const setup = ({
+  Component,
+  componentProps = {},
+  route,
+  search,
+}: {
+  Component: ElementType;
+  componentProps?: Record<string, string>;
+  route: string;
+  search: string;
+}): void => {
+  // Mock fetch data
+  const { subtestsResult } = getTestData();
+  (window.fetch as FetchMockSandbox).get(
+    'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
+    subtestsResult,
+  );
+  // Render the component with routing
+  renderWithRouter(<Component {...componentProps} />, {
+    route,
+    search,
+    loader,
+  });
+};
+
 describe('SubtestsResultsView Component Tests', () => {
   it('should render the subtests results view and match snapshot', async () => {
-    const { subtestsResult } = getTestData();
-    (window.fetch as FetchMockSandbox).get(
-      'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
-      subtestsResult,
-    );
-    renderWithRouter(
-      <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />,
-      {
-        route: '/subtests-compare-results/',
-        search:
-          '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&baseParentSignature=4774487&newParentSignature=4774487',
-        loader,
-      },
-    );
-
-    expect(
-      await screen.findByTestId('beta-version-compare-subtests-results'),
-    ).toMatchSnapshot();
-  });
-
-  it('should confirm the presence of main content in the view', async () => {
-    const { subtestsResult } = getTestData();
-    (window.fetch as FetchMockSandbox).get(
-      'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
-      subtestsResult,
-    );
-    renderWithRouter(<SubtestsResultsMain view={'subtests-results'} />, {
-      route: '/subtestsCompareWithBase',
+    setup({
+      Component: SubtestsResultsView,
+      componentProps: { title: Strings.metaData.pageTitle.subtests },
+      route: '/subtests-compare-results/',
       search:
-        '?baseRev=d775409d7c6abb76362a3430e9880ec032ad4679&baseRepo=mozilla-central&newRev=22f4cf67e8ad76b5ab2a00b97837d1d920b8c2b7&newRepo=mozilla-central&framework=1&baseParentSignature=4769486&newParentSignature=4769486',
-      loader,
+        '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&baseParentSignature=4774487&newParentSignature=4774487',
     });
 
-    const subTestsMain = await screen.findByTestId('subtests-main');
-
-    expect(subTestsMain).toBeInTheDocument();
-  });
-
-  it('should confirm that the subtests heading is present', async () => {
-    const { subtestsResult } = getTestData();
-    (window.fetch as FetchMockSandbox).get(
-      'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
-      subtestsResult,
-    );
-    renderWithRouter(<SubtestsResultsMain view={'subtests-results'} />, {
-      route: '/subtestsCompareWithBase',
-      search:
-        '?baseRev=d775409d7c6abb76362a3430e9880ec032ad4679&baseRepo=mozilla-central&newRev=22f4cf67e8ad76b5ab2a00b97837d1d920b8c2b7&newRepo=mozilla-central&framework=1&baseParentSignature=4769486&newParentSignature=4769486',
-      loader,
-    });
-
-    const subTestsHeading = await screen.findByText('Subtests');
-
-    expect(subTestsHeading).toBeInTheDocument();
+    await screen.findByText('dhtml.html');
+    expect(await screen.findByText('Home')).toBeInTheDocument();
+    expect(await screen.findByText('All results')).toBeInTheDocument();
+    expect(document.body).toMatchSnapshot();
   });
 
   it('should display breadcrumbs for easy navigation', async () => {
-    const { subtestsResult } = getTestData();
-    (window.fetch as FetchMockSandbox).get(
-      'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
-      subtestsResult,
-    );
-    renderWithRouter(<SubtestsResultsMain view={'subtests-results'} />, {
+    setup({
+      Component: SubtestsResultsMain,
+      componentProps: { view: 'subtests-results' },
       route: '/subtestsCompareWithBase',
       search:
         '?baseRev=d775409d7c6abb76362a3430e9880ec032ad4679&baseRepo=mozilla-central&newRev=22f4cf67e8ad76b5ab2a00b97837d1d920b8c2b7&newRepo=mozilla-central&framework=1&baseParentSignature=4769486&newParentSignature=4769486',
-      loader,
     });
 
     const homeBreadcrumb = await screen.findByText('Home');
@@ -94,47 +75,22 @@ describe('SubtestsResultsView Component Tests', () => {
     expect(resultsBreadcrumb).toBeInTheDocument();
   });
 
-  it('should confirm that the subtests results table is displayed', async () => {
-    const { subtestsResult } = getTestData();
-    (window.fetch as FetchMockSandbox).get(
-      'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
-      subtestsResult,
-    );
-    renderWithRouter(<SubtestsResultsMain view={'subtests-results'} />, {
-      route: '/subtestsCompareWithBase',
-      search:
-        '?baseRev=d775409d7c6abb76362a3430e9880ec032ad4679&baseRepo=mozilla-central&newRev=22f4cf67e8ad76b5ab2a00b97837d1d920b8c2b7&newRepo=mozilla-central&framework=1&baseParentSignature=4769486&newParentSignature=4769486',
-      loader,
-    });
-
-    const table = await screen.findByTestId('subtests-results-table');
-
-    expect(table).toBeInTheDocument();
-  });
-
   it('should request authorization code when "Retrigger" button is clicked', async () => {
     const user = userEvent.setup({ delay: null });
-
-    const { subtestsResult } = getTestData();
-    (window.fetch as FetchMockSandbox).get(
-      'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
-      subtestsResult,
-    );
 
     jest.spyOn(window, 'alert').mockImplementation();
     const mockedWindowAlert = window.alert as jest.Mock;
     jest.spyOn(window, 'open').mockImplementation();
     const mockedWindowOpen = window.open as jest.Mock;
 
-    renderWithRouter(
-      <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />,
-      {
-        route: '/subtests-compare-results/',
-        search:
-          '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&baseParentSignature=4774487&newParentSignature=4774487',
-        loader,
-      },
-    );
+    setup({
+      Component: SubtestsResultsView,
+      componentProps: { title: Strings.metaData.pageTitle.subtests },
+      route: '/subtests-compare-results/',
+      search:
+        '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&baseParentSignature=4774487&newParentSignature=4774487',
+    });
+
     const retriggerButton = await screen.findByRole('button', {
       name: 'Retrigger test',
     });
@@ -178,20 +134,15 @@ describe('SubtestsResultsView Component Tests', () => {
     global.URL.revokeObjectURL = revokeObjectURLMock;
 
     // Render the component
-    const { subtestsResult } = getTestData();
-    (window.fetch as FetchMockSandbox).get(
-      'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
-      subtestsResult,
-    );
-    renderWithRouter(
-      <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />,
-      {
-        route: '/subtests-compare-results/',
-        search:
-          '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&baseParentSignature=4774487&newParentSignature=4774487',
-        loader,
-      },
-    );
+
+    setup({
+      Component: SubtestsResultsView,
+      componentProps: { title: Strings.metaData.pageTitle.subtests },
+      route: '/subtests-compare-results/',
+      search:
+        '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&baseParentSignature=4774487&newParentSignature=4774487',
+    });
+
     const button = await screen.findByText('Download JSON');
     await user.click(button);
 
@@ -202,27 +153,15 @@ describe('SubtestsResultsView Component Tests', () => {
 
 describe('SubtestsViewCompareOverTime Component Tests', () => {
   it('should render the subtests over time results view and match snapshot', async () => {
-    const { subtestsResult } = getTestData();
-    (window.fetch as FetchMockSandbox).get(
-      'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
-      subtestsResult,
-    );
-    renderWithRouter(
-      <SubtestsOverTimeResultsView
-        title={Strings.metaData.pageTitle.subtests}
-      />,
-      {
-        route: '/subtests-compare-over-time-results/',
-        search:
-          '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&selectedTimeRange=86400&baseParentSignature=4774487&newParentSignature=4774487',
-        loader,
-      },
-    );
+    setup({
+      Component: SubtestsOverTimeResultsView,
+      componentProps: { title: Strings.metaData.pageTitle.subtests },
+      route: '/subtests-compare-over-time-results/',
+      search:
+        '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&selectedTimeRange=86400&baseParentSignature=4774487&newParentSignature=4774487',
+    });
 
-    expect(
-      await screen.findByTestId(
-        'beta-version-subtests-compare-over-time-results',
-      ),
-    ).toMatchSnapshot();
+    await screen.findByText('dhtml.html');
+    expect(document.body).toMatchSnapshot();
   });
 });
