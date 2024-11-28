@@ -210,36 +210,38 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
         <b>
           Difference of means
         </b>
-        : 
+        :
+         
         1.7
         %
-         
+         
         worse
          (
         10.1
-         
         )
       </div>
       <div>
         <b>
           Difference of medians
         </b>
-        : 
-        8.74
-         (
+        :
+         
         1.46
-        %)
+        %
+         
+        (
+        8.74
+        )
       </div>
       <div>
         <div>
           <b>
             Confidence
           </b>
-          : 
+          :
+           
           Low
-           (
-          2.89
-          )
+           (2.89)
         </div>
         <div
           class="fj8mg7a"
@@ -467,36 +469,38 @@ exports[`Results View Should display Base, New and Common graphs with replicates
         <b>
           Difference of means
         </b>
-        : 
+        :
+         
         1.7
         %
-         
+         
         worse
          (
         10.1
-         
         )
       </div>
       <div>
         <b>
           Difference of medians
         </b>
-        : 
-        8.74
-         (
+        :
+         
         1.46
-        %)
+        %
+         
+        (
+        8.74
+        )
       </div>
       <div>
         <div>
           <b>
             Confidence
           </b>
-          : 
+          :
+           
           Low
-           (
-          2.89
-          )
+           (2.89)
         </div>
         <div
           class="fj8mg7a"
@@ -724,36 +728,38 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
         <b>
           Difference of means
         </b>
-        : 
+        :
+         
         1.7
         %
-         
+         
         worse
          (
         10.1
-         
         )
       </div>
       <div>
         <b>
           Difference of medians
         </b>
-        : 
-        8.74
-         (
+        :
+         
         1.46
-        %)
+        %
+         
+        (
+        8.74
+        )
       </div>
       <div>
         <div>
           <b>
             Confidence
           </b>
-          : 
+          :
+           
           Low
-           (
-          2.89
-          )
+           (2.89)
         </div>
         <div
           class="fj8mg7a"

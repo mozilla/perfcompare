@@ -22,14 +22,22 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
     new_median_value: newMedian,
     base_measurement_unit: baseUnit,
     new_measurement_unit: newUnit,
-    new_is_better: newIsBetter,
     base_app: baseApplication,
     new_app: newApplication,
     more_runs_are_needed: moreRunsAreNeeded,
+    lower_is_better: lowerIsBetter,
   } = result;
 
   const unit = baseUnit || newUnit;
   const deltaUnit = unit ? `${unit}` : '';
+  let medianDifference = NaN as unknown;
+  let medianPercentage = NaN as unknown;
+  if (baseMedian && newMedian) {
+    medianDifference = (newMedian - baseMedian).toFixed(2);
+    medianPercentage = (((newMedian - baseMedian) / baseMedian) * 100).toFixed(
+      2,
+    );
+  }
 
   const themeMode = useAppSelector((state) => state.theme.mode);
   const themeColor200 =
@@ -83,17 +91,24 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
           )}
         </div>
         <div>
-          <b>Difference of means</b>: {deltaPercent}%{' '}
-          {newIsBetter ? 'better' : 'worse'} ({delta} {deltaUnit})
+          <b>Difference of means</b>:{'\u00a0'}
+          {deltaPercent}%{'\u00a0'}
+          {lowerIsBetter ? 'better' : 'worse'} ({delta}
+          {deltaUnit ? '\u00a0' + deltaUnit : null})
         </div>
-        <div>
-          <b>Difference of medians</b>: {(newMedian - baseMedian).toFixed(2)} (
-          {(((newMedian - baseMedian) / baseMedian) * 100).toFixed(2)}%)
-        </div>
+        {newMedian && baseMedian ? (
+          <div>
+            <b>Difference of medians</b>:{'\u00a0'}
+            {medianPercentage as string}%{'\u00a0'}({medianDifference as string}
+            {deltaUnit ? '\u00a0' + deltaUnit : null})
+          </div>
+        ) : null}
         {confidenceText ? (
           <div>
             <div>
-              <b>Confidence</b>: {confidenceText} ({confidenceValue || ''})
+              <b>Confidence</b>:{'\u00a0'}
+              {confidenceText}
+              {confidenceValue ? '\u00a0' + `(${confidenceValue})` : null}
             </div>
             <div className={styles.note}>
               <b>**Note</b>: {strings[confidenceText]}{' '}
