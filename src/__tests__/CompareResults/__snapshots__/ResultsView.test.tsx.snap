@@ -215,7 +215,7 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
         1.7
         %
          
-        worse
+        better
          (
         10.1
         )
@@ -474,7 +474,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
         1.7
         %
          
-        worse
+        better
          (
         10.1
         )
@@ -733,7 +733,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
         1.7
         %
          
-        worse
+        better
          (
         10.1
         )
