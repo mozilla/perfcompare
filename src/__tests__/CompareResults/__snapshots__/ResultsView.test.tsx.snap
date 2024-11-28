@@ -77,13 +77,16 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
               <b>
                 Mean
               </b>
-              : 
+              :
+               
               595.73
-               
+              ,
+               
               <b>
                 Median
               </b>
-              : 
+              :
+               
               596.87
             </div>
             <div
@@ -149,13 +152,16 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
               <b>
                 Mean
               </b>
-              : 
+              :
+               
               605.83
-               
+              ,
+               
               <b>
                 Median
               </b>
-              : 
+              :
+               
               605.61
             </div>
             <div
@@ -336,13 +342,16 @@ exports[`Results View Should display Base, New and Common graphs with replicates
               <b>
                 Mean
               </b>
-              : 
+              :
+               
               595.73
-               
+              ,
+               
               <b>
                 Median
               </b>
-              : 
+              :
+               
               596.87
             </div>
             <div
@@ -408,13 +417,16 @@ exports[`Results View Should display Base, New and Common graphs with replicates
               <b>
                 Mean
               </b>
-              : 
+              :
+               
               605.83
-               
+              ,
+               
               <b>
                 Median
               </b>
-              : 
+              :
+               
               605.61
             </div>
             <div
@@ -595,13 +607,16 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
               <b>
                 Mean
               </b>
-              : 
+              :
+               
               595.73
-               
+              ,
+               
               <b>
                 Median
               </b>
-              : 
+              :
+               
               596.87
             </div>
             <div
@@ -667,13 +682,16 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
               <b>
                 Mean
               </b>
-              : 
+              :
+               
               605.83
-               
+              ,
+               
               <b>
                 Median
               </b>
-              : 
+              :
+               
               605.61
             </div>
             <div

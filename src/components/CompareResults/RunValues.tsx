@@ -65,7 +65,12 @@ function RunValues(props: RunValuesProps) {
           ))}
         </div>
         <div>
-          <b>Mean</b>: {avg} <b>Median</b>: {median}
+          <b>Mean</b>:{'\u00a0'}
+          {avg}
+          {measurementUnit},{'\u00a0'}
+          <b>Median</b>:{'\u00a0'}
+          {median}
+          {measurementUnit}
         </div>
         <div className={styles.deviation}>
           {stddev} {unit} = {stddevPercent}% standard deviation
