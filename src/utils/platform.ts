@@ -19,7 +19,7 @@ export const getPlatformAndVersion = (platform: string): string => {
   // Example of android platform, the split is specific for this platform
   // Other platforms are built differently
   // android-hw-p6-13-0-android-aarch64-shippable-qr
-  if (platformShortName === 'Android')
+  if (platform.startsWith('android-hw-'))
     return `${platformShortName}\u00a0${platform.split('-')[2]}`;
   return platformShortName;
 };

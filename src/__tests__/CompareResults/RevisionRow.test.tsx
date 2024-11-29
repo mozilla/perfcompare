@@ -44,7 +44,7 @@ describe('<RevisionRow>', () => {
     },
     {
       platform: 'android-5-0-aarch64-release',
-      shortName: 'Android 0',
+      shortName: 'Android',
       hasIcon: true,
     },
     {

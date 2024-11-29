@@ -169,7 +169,7 @@ describe('Results Table', () => {
       '  - Linux, Regression, Medium',
       '  - Windows, -, High',
       '  - Windows, -, -',
-      '  - Android\u00a07, Improvement, Low',
+      '  - Android, Improvement, Low',
     ]);
 
     expect(summarizeTableFiltersFromUrl()).toEqual({});
@@ -180,7 +180,7 @@ describe('Results Table', () => {
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - OSX, Improvement, Low',
       '  - Linux, Regression, Medium',
-      '  - Android\u00a07, Improvement, Low',
+      '  - Android, Improvement, Low',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['osx', 'linux', 'android'],
@@ -190,7 +190,7 @@ describe('Results Table', () => {
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - OSX, Improvement, Low',
-      '  - Android\u00a07, Improvement, Low',
+      '  - Android, Improvement, Low',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['osx', 'android'],
@@ -201,7 +201,7 @@ describe('Results Table', () => {
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - OSX, Improvement, Low',
       '  - Linux, Regression, Medium',
-      '  - Android\u00a07, Improvement, Low',
+      '  - Android, Improvement, Low',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['osx', 'linux', 'android'],
@@ -214,7 +214,7 @@ describe('Results Table', () => {
       '  - Linux, Regression, Medium',
       '  - Windows, -, High',
       '  - Windows, -, -',
-      '  - Android\u00a07, Improvement, Low',
+      '  - Android, Improvement, Low',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({});
 
@@ -224,7 +224,7 @@ describe('Results Table', () => {
       '  - Linux, Regression, Medium',
       '  - Windows, -, High',
       '  - Windows, -, -',
-      '  - Android\u00a07, Improvement, Low',
+      '  - Android, Improvement, Low',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['windows', 'linux', 'android'],
@@ -244,7 +244,7 @@ describe('Results Table', () => {
     await clickMenuItem(user, /Platform/, /Select only.*Android/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android\u00a07, Improvement, Low',
+      '  - Android, Improvement, Low',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['android'],
