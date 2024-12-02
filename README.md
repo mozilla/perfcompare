@@ -11,7 +11,7 @@ Performance Comparison Tool
 
 ## Documentation
 
-Documentation for how to use PerfCompare can be found in Firefox Source Docs under Performance Testing at [PerfCompare](https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html).
+Documentation for how to use PerfCompare can be found in the [Firefox Source Docs under Performance Testing at PerfCompare](https://firefox-source-docs.mozilla.org/testing/perfdocs/perfcompare.html).
 
 ## Deployments
 
