@@ -927,23 +927,10 @@ exports[`Results View The table should match snapshot and other elements should 
           tabindex="0"
           type="button"
         >
-          <svg
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-5c1f8z-MuiSvgIcon-root"
-            data-testid="FilterListIcon"
-            focusable="false"
-            role="img"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"
-            />
-            <title>
-              No active filters
-            </title>
-          </svg>
           Platform
           <div
-            class="MuiBox-root css-1srs1xm"
+            aria-label="4 items selected"
+            class="MuiBox-root css-aylo6m"
           >
             (
             4
@@ -951,7 +938,7 @@ exports[`Results View The table should match snapshot and other elements should 
           </div>
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-127uiuf-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1y8w1r3-MuiSvgIcon-root"
             data-testid="KeyboardArrowDownIcon"
             focusable="false"
             viewBox="0 0 24 24"
@@ -992,23 +979,10 @@ exports[`Results View The table should match snapshot and other elements should 
           tabindex="0"
           type="button"
         >
-          <svg
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-5c1f8z-MuiSvgIcon-root"
-            data-testid="FilterListIcon"
-            focusable="false"
-            role="img"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"
-            />
-            <title>
-              No active filters
-            </title>
-          </svg>
           Status
           <div
-            class="MuiBox-root css-1srs1xm"
+            aria-label="3 items selected"
+            class="MuiBox-root css-aylo6m"
           >
             (
             3
@@ -1016,7 +990,7 @@ exports[`Results View The table should match snapshot and other elements should 
           </div>
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-127uiuf-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1y8w1r3-MuiSvgIcon-root"
             data-testid="KeyboardArrowDownIcon"
             focusable="false"
             viewBox="0 0 24 24"
@@ -1047,23 +1021,10 @@ exports[`Results View The table should match snapshot and other elements should 
           tabindex="0"
           type="button"
         >
-          <svg
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-5c1f8z-MuiSvgIcon-root"
-            data-testid="FilterListIcon"
-            focusable="false"
-            role="img"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"
-            />
-            <title>
-              No active filters
-            </title>
-          </svg>
           Confidence
           <div
-            class="MuiBox-root css-1srs1xm"
+            aria-label="4 items selected"
+            class="MuiBox-root css-aylo6m"
           >
             (
             4
@@ -1071,7 +1032,7 @@ exports[`Results View The table should match snapshot and other elements should 
           </div>
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-127uiuf-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1y8w1r3-MuiSvgIcon-root"
             data-testid="KeyboardArrowDownIcon"
             focusable="false"
             viewBox="0 0 24 24"
