@@ -130,7 +130,8 @@ export default function ResultsTable() {
 
   // This is our custom hook that manages table filters
   // and provides methods for clearing and toggling them.
-  const { tableFilters, onClearFilter, onToggleFilter } = useTableFilters();
+  const { tableFilters, onClearFilter, onToggleFilter } =
+    useTableFilters(cellsConfiguration);
 
   const initialSearchTerm = rawSearchParams.get('search') ?? '';
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
