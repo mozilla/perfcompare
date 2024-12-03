@@ -48,6 +48,11 @@ describe('<RevisionRow>', () => {
       hasIcon: true,
     },
     {
+      platform: 'android-hw-p6-13-0-android-aarch64-shippable-qr',
+      shortName: 'Android p6',
+      hasIcon: true,
+    },
+    {
       platform: 'i am not an operating system',
       shortName: 'Unspecified',
       hasIcon: false,
