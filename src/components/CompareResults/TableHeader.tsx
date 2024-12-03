@@ -203,7 +203,7 @@ function TableHeader({
           className={`cell ${header.key}-header`}
           role='columnheader'
         >
-          {header.filter ? (
+          {'filter' in header ? (
             <FilterableColumn
               possibleValues={header.possibleValues}
               name={header.name}

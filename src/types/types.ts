@@ -1,8 +1,13 @@
 import { CompareResultsItem } from './state';
 
-export type CompareResultsTableFilterableCell = {
-  name: string;
+type BasicCell = {
+  name?: string;
   key: string;
+  gridWidth: string;
+};
+
+type FilterableCell = {
+  name: string;
   filter: true;
   possibleValues: Array<{ label: string; key: string }>;
   gridWidth: string;
@@ -14,14 +19,21 @@ export type CompareResultsTableFilterableCell = {
   ) => boolean;
 };
 
+type SortableCell = {
+  name: string;
+  sortFunction: (
+    resultA: CompareResultsItem,
+    resultB: CompareResultsItem,
+  ) => number;
+};
+
+export type CompareResultsTableFilterableCell = BasicCell & FilterableCell;
+
 export type CompareResultsTableCell =
-  | {
-      name?: string;
-      filter?: false;
-      key: string;
-      gridWidth?: string;
-    }
-  | CompareResultsTableFilterableCell;
+  | BasicCell
+  | (BasicCell & SortableCell)
+  | CompareResultsTableFilterableCell
+  | (CompareResultsTableFilterableCell & SortableCell);
 
 export type CompareResultsTableConfig = CompareResultsTableCell[];
 

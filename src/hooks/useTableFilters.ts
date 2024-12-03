@@ -60,7 +60,7 @@ const useTableFilters = (cellsConfiguration: CompareResultsTableConfig) => {
 
       const columnId = param.slice('filter_'.length);
       const cellConfiguration = columnIdToConfiguration.get(columnId);
-      if (!cellConfiguration || !cellConfiguration.filter) {
+      if (!cellConfiguration || !('filter' in cellConfiguration)) {
         // The columnId passed as a parameter doesn't exist or isn't a
         // filterable column, ignore it.
         continue;
@@ -98,7 +98,7 @@ const useTableFilters = (cellsConfiguration: CompareResultsTableConfig) => {
 
   const onToggleFilter = (columnId: string, filters: Set<string>) => {
     const cellConfiguration = columnIdToConfiguration.get(columnId);
-    if (!cellConfiguration || !cellConfiguration.filter) {
+    if (!cellConfiguration || !('filter' in cellConfiguration)) {
       // The columnId passed as a parameter doesn't exist or isn't a
       // filterable column, ignore it.
       console.error(
