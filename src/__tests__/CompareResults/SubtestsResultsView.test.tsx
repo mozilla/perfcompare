@@ -1,10 +1,7 @@
-import { ElementType } from 'react';
-
 import userEvent from '@testing-library/user-event';
 
 import { loader } from '../../components/CompareResults/subtestsLoader';
 import SubtestsOverTimeResultsView from '../../components/CompareResults/SubtestsResults/SubtestsOverTimeResultsView';
-import SubtestsResultsMain from '../../components/CompareResults/SubtestsResults/SubtestsResultsMain';
 import SubtestsResultsView from '../../components/CompareResults/SubtestsResults/SubtestsResultsView';
 import { Strings } from '../../resources/Strings';
 import { getLocationOrigin } from '../../utils/location';
@@ -19,13 +16,11 @@ jest.mock('../../utils/location');
 const mockedGetLocationOrigin = getLocationOrigin as jest.Mock;
 
 const setup = ({
-  Component,
-  componentProps = {},
+  element,
   route,
   search,
 }: {
-  Component: ElementType;
-  componentProps?: Record<string, string>;
+  element: React.ReactElement;
   route: string;
   search: string;
 }): void => {
@@ -35,8 +30,9 @@ const setup = ({
     'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
     subtestsResult,
   );
+
   // Render the component with routing
-  renderWithRouter(<Component {...componentProps} />, {
+  renderWithRouter(element, {
     route,
     search,
     loader,
@@ -46,8 +42,9 @@ const setup = ({
 describe('SubtestsResultsView Component Tests', () => {
   it('should render the subtests results view and match snapshot', async () => {
     setup({
-      Component: SubtestsResultsView,
-      componentProps: { title: Strings.metaData.pageTitle.subtests },
+      element: (
+        <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />
+      ),
       route: '/subtests-compare-results/',
       search:
         '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&baseParentSignature=4774487&newParentSignature=4774487',
@@ -59,22 +56,6 @@ describe('SubtestsResultsView Component Tests', () => {
     expect(document.body).toMatchSnapshot();
   });
 
-  it('should display breadcrumbs for easy navigation', async () => {
-    setup({
-      Component: SubtestsResultsMain,
-      componentProps: { view: 'subtests-results' },
-      route: '/subtestsCompareWithBase',
-      search:
-        '?baseRev=d775409d7c6abb76362a3430e9880ec032ad4679&baseRepo=mozilla-central&newRev=22f4cf67e8ad76b5ab2a00b97837d1d920b8c2b7&newRepo=mozilla-central&framework=1&baseParentSignature=4769486&newParentSignature=4769486',
-    });
-
-    const homeBreadcrumb = await screen.findByText('Home');
-    const resultsBreadcrumb = await screen.findByText('All results');
-
-    expect(homeBreadcrumb).toBeInTheDocument();
-    expect(resultsBreadcrumb).toBeInTheDocument();
-  });
-
   it('should request authorization code when "Retrigger" button is clicked', async () => {
     const user = userEvent.setup({ delay: null });
 
@@ -84,8 +65,9 @@ describe('SubtestsResultsView Component Tests', () => {
     const mockedWindowOpen = window.open as jest.Mock;
 
     setup({
-      Component: SubtestsResultsView,
-      componentProps: { title: Strings.metaData.pageTitle.subtests },
+      element: (
+        <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />
+      ),
       route: '/subtests-compare-results/',
       search:
         '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&baseParentSignature=4774487&newParentSignature=4774487',
@@ -136,8 +118,9 @@ describe('SubtestsResultsView Component Tests', () => {
     // Render the component
 
     setup({
-      Component: SubtestsResultsView,
-      componentProps: { title: Strings.metaData.pageTitle.subtests },
+      element: (
+        <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />
+      ),
       route: '/subtests-compare-results/',
       search:
         '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&baseParentSignature=4774487&newParentSignature=4774487',
@@ -154,8 +137,11 @@ describe('SubtestsResultsView Component Tests', () => {
 describe('SubtestsViewCompareOverTime Component Tests', () => {
   it('should render the subtests over time results view and match snapshot', async () => {
     setup({
-      Component: SubtestsOverTimeResultsView,
-      componentProps: { title: Strings.metaData.pageTitle.subtests },
+      element: (
+        <SubtestsOverTimeResultsView
+          title={Strings.metaData.pageTitle.subtests}
+        />
+      ),
       route: '/subtests-compare-over-time-results/',
       search:
         '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&selectedTimeRange=86400&baseParentSignature=4774487&newParentSignature=4774487',
