@@ -88,6 +88,9 @@ const cellsConfiguration: CompareResultsTableConfig = [
     name: 'Delta',
     key: 'delta',
     gridWidth: '1fr',
+    sortFunction(resultA, resultB) {
+      return resultA.delta_percentage - resultB.delta_percentage;
+    },
   },
   {
     name: 'Confidence',
@@ -111,6 +114,17 @@ const cellsConfiguration: CompareResultsTableConfig = [
           return result.confidence_text === label;
         }
       }
+    },
+    sortFunction(resultA, resultB) {
+      const confidenceA =
+        resultA.confidence_text && resultA.confidence !== null
+          ? resultA.confidence
+          : -1;
+      const confidenceB =
+        resultB.confidence_text && resultB.confidence !== null
+          ? resultB.confidence
+          : -1;
+      return confidenceA - confidenceB;
     },
   },
   { name: 'Total Runs', key: 'runs', gridWidth: '1fr' },
