@@ -1,4 +1,6 @@
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import StraightIcon from '@mui/icons-material/Straight';
+import SwapVert from '@mui/icons-material/SwapVert';
 import { ListItemIcon, ListItemText } from '@mui/material';
 import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
@@ -18,7 +20,47 @@ import { Colors, Spacing } from '../../styles';
 import type {
   CompareResultsTableConfig,
   CompareResultsTableFilterableCell,
+  CompareResultsTableCell,
 } from '../../types/types';
+
+function SortDirectionIcon({
+  columnName,
+  sortDirection,
+}: {
+  columnName: string;
+  sortDirection: SortableColumnProps['sortDirection'];
+}) {
+  const commonStyle = { marginInlineEnd: 1, marginInlineStart: -0.5 };
+  switch (sortDirection) {
+    case 'asc':
+      return (
+        <StraightIcon
+          titleAccess={`Sorted by ${columnName} in ascending order`}
+          fontSize='small'
+          sx={commonStyle}
+        />
+      );
+    case 'desc':
+      return (
+        <StraightIcon
+          titleAccess={`Sorted by ${columnName} in descending order`}
+          fontSize='small'
+          sx={{
+            ...commonStyle,
+            transform: 'scale(-1)',
+          }}
+        />
+      );
+    default:
+      return (
+        <SwapVert
+          titleAccess={`Not sorted by ${columnName}`}
+          fontSize='small'
+          sx={commonStyle}
+        />
+      );
+  }
+}
 
 type FilterableColumnProps = {
   name: string;
@@ -138,6 +180,57 @@ function FilterableColumn({
   );
 }
 
+type SortableColumnProps = {
+  name: string;
+  sortDirection: 'asc' | 'desc' | null;
+  onToggle: (sortDirection: SortableColumnProps['sortDirection']) => void;
+};
+
+function SortableColumn({
+  name,
+  sortDirection,
+  onToggle,
+}: SortableColumnProps) {
+  const buttonAriaLabel = sortDirection
+    ? `${name} (Currently sorted by this column. Click to change)`
+    : `${name} (Click to sort by this column)`;
+
+  function onButtonClick() {
+    let newSortDirection: typeof sortDirection;
+    switch (sortDirection) {
+      case 'asc':
+        newSortDirection = 'desc';
+        break;
+      case 'desc':
+        newSortDirection = null;
+        break;
+      default:
+        newSortDirection = 'asc';
+    }
+
+    onToggle(newSortDirection);
+  }
+
+  return (
+    <Button
+      color='secondary'
+      aria-label={buttonAriaLabel}
+      sx={(theme) => ({
+        background:
+          theme.palette.mode == 'light'
+            ? Colors.Background200
+            : Colors.Background200Dark,
+        borderRadius: 0.5,
+        padding: '6px 12px',
+      })}
+      onClick={onButtonClick}
+    >
+      <SortDirectionIcon columnName={name} sortDirection={sortDirection} />
+      {name}
+    </Button>
+  );
+}
+
 type TableHeaderProps = {
   cellsConfiguration: CompareResultsTableConfig;
 
@@ -148,7 +241,7 @@ type TableHeaderProps = {
 
   // Sort properties
   sortColumn: null | string;
-  sortDirection: 'asc' | 'desc' | null;
+  sortDirection: SortableColumnProps['sortDirection'];
   onToggleSort: (
     columnId: string,
     sortDirection: TableHeaderProps['sortDirection'],
@@ -160,6 +253,9 @@ function TableHeader({
   filters,
   onToggleFilter,
   onClearFilter,
+  sortColumn,
+  sortDirection,
+  onToggleSort,
 }: TableHeaderProps) {
   const themeMode = useAppSelector((state) => state.theme.mode);
   const styles = {
@@ -205,6 +301,37 @@ function TableHeader({
     }),
   };
 
+  function renderColumnHeader(header: CompareResultsTableCell) {
+    if ('filter' in header) {
+      return (
+        <FilterableColumn
+          possibleValues={header.possibleValues}
+          name={header.name}
+          columnId={header.key}
+          uncheckedValues={filters.get(header.key)}
+          onClear={() => onClearFilter(header.key)}
+          onToggle={(checkedValues) =>
+            onToggleFilter(header.key, checkedValues)
+          }
+        />
+      );
+    }
+
+    if ('sortFunction' in header) {
+      return (
+        <SortableColumn
+          name={header.name}
+          sortDirection={header.key === sortColumn ? sortDirection : null}
+          onToggle={(newSortDirection) =>
+            onToggleSort(header.key, newSortDirection)
+          }
+        />
+      );
+    }
+
+    return header.name;
+  }
+
   return (
     <div
       className={`${styles.tableHeader} ${styles.typography}`}
@@ -217,20 +344,7 @@ function TableHeader({
           className={`cell ${header.key}-header`}
           role='columnheader'
         >
-          {'filter' in header ? (
-            <FilterableColumn
-              possibleValues={header.possibleValues}
-              name={header.name}
-              columnId={header.key}
-              uncheckedValues={filters.get(header.key)}
-              onClear={() => onClearFilter(header.key)}
-              onToggle={(checkedValues) =>
-                onToggleFilter(header.key, checkedValues)
-              }
-            />
-          ) : (
-            header.name
-          )}
+          {renderColumnHeader(header)}
         </div>
       ))}
     </div>
