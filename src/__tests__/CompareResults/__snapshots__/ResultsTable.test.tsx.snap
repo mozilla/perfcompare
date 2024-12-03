@@ -1201,7 +1201,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="fcdpsbx"
                         >
                           <div
-                            class="revisionRow f1nwzic9 fp4ugv1 MuiBox-root css-1am90bh"
+                            class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
                             role="row"
                           >
                             <div
@@ -1425,7 +1425,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1nwzic9 fp4ugv1 MuiBox-root css-1am90bh"
+                            class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
                             role="row"
                           >
                             <div
@@ -1648,7 +1648,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1nwzic9 fp4ugv1 MuiBox-root css-1am90bh"
+                            class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
                             role="row"
                           >
                             <div
@@ -1914,7 +1914,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="fcdpsbx"
                         >
                           <div
-                            class="revisionRow f1nwzic9 fp4ugv1 MuiBox-root css-1am90bh"
+                            class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
                             role="row"
                           >
                             <div
@@ -2195,7 +2195,7 @@ exports[`Results Table should render different blocks when rendering several rev
       spam
     </a>
     <div
-      class="revisionRow f1nwzic9 fp4ugv1 MuiBox-root css-1am90bh"
+      class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
       role="row"
     >
       <div
@@ -2431,7 +2431,7 @@ exports[`Results Table should render different blocks when rendering several rev
       devilrabbit
     </a>
     <div
-      class="revisionRow f1nwzic9 fp4ugv1 MuiBox-root css-1am90bh"
+      class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
       role="row"
     >
       <div
