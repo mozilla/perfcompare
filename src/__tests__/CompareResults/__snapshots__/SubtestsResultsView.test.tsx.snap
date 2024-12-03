@@ -872,7 +872,6 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
   <div>
     <div
       class="fcndgf6"
-      data-testid="beta-version-subtests-compare-over-time-results"
     >
       <div
         class="MuiGrid-root header-container container_f1ocj467 css-plh9qo-MuiGrid-root"
@@ -1154,7 +1153,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                           aria-invalid="false"
                           aria-label="Search by title, platform, revision or options"
                           class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-rg83rj-MuiInputBase-input-MuiOutlinedInput-input"
-                          id=":rc:"
+                          id=":r9:"
                           placeholder="Search results"
                           type="text"
                           value=""
