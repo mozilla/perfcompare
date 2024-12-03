@@ -36,6 +36,11 @@ const cellsConfiguration: CompareResultsTableConfig = [
       const platformName = getPlatformShortName(result.platform);
       return platformName === label;
     },
+    sortFunction(resultA, resultB) {
+      const platformA = getPlatformShortName(resultA.platform);
+      const platformB = getPlatformShortName(resultB.platform);
+      return platformA.localeCompare(platformB);
+    },
   },
   {
     name: 'Base',
@@ -78,6 +83,9 @@ const cellsConfiguration: CompareResultsTableConfig = [
     name: 'Delta',
     key: 'delta',
     gridWidth: '1fr',
+    sortFunction(resultA, resultB) {
+      return resultA.delta_percentage - resultB.delta_percentage;
+    },
   },
   {
     name: 'Confidence',
@@ -101,6 +109,9 @@ const cellsConfiguration: CompareResultsTableConfig = [
           return result.confidence_text === label;
         }
       }
+    },
+    sortFunction(resultA, resultB) {
+      return (resultA.confidence || 0) - (resultB.confidence || 0);
     },
   },
   {
