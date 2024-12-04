@@ -399,7 +399,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
               role="table"
             >
               <div
-                class="f1b5h15m fr2n4tx"
+                class="fkzbi14 fr2n4tx"
                 data-testid="table-header"
                 role="row"
               >
@@ -519,351 +519,319 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 />
               </div>
               <div
-                class="f1otqxop"
-                role="rowgroup"
+                class="revisionRow fieq49k fp4ugv1 MuiBox-root css-14ka4hc"
+                role="row"
               >
-                <div>
+                <div
+                  class="subtests cell"
+                  role="cell"
+                >
+                  dhtml.html
+                </div>
+                <div
+                  class="base-value cell"
+                  role="cell"
+                >
+                   
+                  971.38
+                   
+                  ms
+                   
+                </div>
+                <div
+                  class="comparison-sign cell"
+                  role="cell"
+                >
+                  &lt;
+                </div>
+                <div
+                  class="new-value cell"
+                  role="cell"
+                >
+                   
+                  982.41
+                   
+                  ms
+                </div>
+                <div
+                  class="status cell"
+                  role="cell"
+                >
+                  <span
+                    class="status-hint "
+                  >
+                    -
+                  </span>
+                </div>
+                <div
+                  class="delta cell"
+                  role="cell"
+                >
+                   
+                  1.14
+                   %
+                   
+                </div>
+                <div
+                  class="confidence cell"
+                  role="cell"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vsehry-MuiSvgIcon-root"
+                    data-testid="KeyboardArrowDownIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                    />
+                  </svg>
+                  Low
+                </div>
+                <div
+                  class="total-runs cell"
+                  role="cell"
+                >
+                  <span>
+                    <span
+                      title="Base runs"
+                    >
+                      B:
+                    </span>
+                    <strong>
+                      2
+                    </strong>
+                  </span>
+                  <span>
+                    <span
+                      title="New runs"
+                    >
+                      N:
+                    </span>
+                    <strong>
+                      2
+                    </strong>
+                  </span>
+                </div>
+                <div
+                  class="row-buttons cell"
+                >
                   <div
-                    class="revisionRow fovsk7x fp4ugv1 MuiBox-root css-14ka4hc"
-                    role="row"
+                    class="graph"
+                    role="cell"
                   >
                     <div
-                      class="subtests cell"
-                      role="cell"
+                      class="graph-link-button-container"
                     >
-                      <div
-                        class="subtests-container"
+                      <a
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
+                        href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2C5c47b31c38f7214a07fad2e0d41fb901cdc18eae%2C1%2C1&timerange=604800"
+                        tabindex="0"
+                        target="_blank"
+                        title="open the evolution graph for this job in treeherder"
                       >
-                        dhtml.html
-                      </div>
-                    </div>
-                    <div
-                      class="base-value cell"
-                      role="cell"
-                    >
-                       
-                      971.38
-                       
-                      ms
-                       
-                    </div>
-                    <div
-                      class="comparison-sign cell"
-                      role="cell"
-                    >
-                      &lt;
-                    </div>
-                    <div
-                      class="new-value cell"
-                      role="cell"
-                    >
-                       
-                      982.41
-                       
-                      ms
-                    </div>
-                    <div
-                      class="status cell"
-                      role="cell"
-                    >
-                      <span
-                        class="status-hint "
-                      >
-                        -
-                      </span>
-                    </div>
-                    <div
-                      class="delta cell"
-                      role="cell"
-                    >
-                       
-                      1.14
-                       %
-                       
-                    </div>
-                    <div
-                      class="confidence cell"
-                      role="cell"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vsehry-MuiSvgIcon-root"
-                        data-testid="KeyboardArrowDownIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-                        />
-                      </svg>
-                      Low
-                    </div>
-                    <div
-                      class="total-runs cell"
-                      role="cell"
-                    >
-                      <span>
-                        <span
-                          title="Base runs"
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                          data-testid="TimelineIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
                         >
-                          B:
-                        </span>
-                        <strong>
-                          2
-                        </strong>
-                      </span>
-                      <span>
-                        <span
-                          title="New runs"
-                        >
-                          N:
-                        </span>
-                        <strong>
-                          2
-                        </strong>
-                      </span>
-                    </div>
-                    <div
-                      class="row-buttons cell"
-                    >
-                      <div
-                        class="graph"
-                        role="cell"
-                      >
-                        <div
-                          class="graph-link-button-container"
-                        >
-                          <a
-                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
-                            href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2C5c47b31c38f7214a07fad2e0d41fb901cdc18eae%2C1%2C1&timerange=604800"
-                            tabindex="0"
-                            target="_blank"
-                            title="open the evolution graph for this job in treeherder"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                              data-testid="TimelineIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2z"
-                              />
-                            </svg>
-                            <span
-                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                            />
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="expand-button cell"
-                      role="cell"
-                    >
-                      <div
-                        class="expand-button-container"
-                        data-testid="expand-subtests-row-button"
-                      >
-                        <button
-                          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
-                          tabindex="0"
-                          title="expand this row"
-                          type="button"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                            data-testid="ExpandMoreIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                            />
-                          </svg>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          <path
+                            d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2z"
                           />
-                        </button>
-                      </div>
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </a>
                     </div>
                   </div>
                 </div>
+                <div
+                  class="expand-button cell"
+                  role="cell"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
+                    tabindex="0"
+                    title="expand this row"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                      data-testid="ExpandMoreIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                      />
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
               </div>
               <div
-                class="f1otqxop"
-                role="rowgroup"
+                class="revisionRow fieq49k fp4ugv1 MuiBox-root css-14ka4hc"
+                role="row"
               >
-                <div>
+                <div
+                  class="subtests cell"
+                  role="cell"
+                >
+                  tablemutation.html
+                </div>
+                <div
+                  class="base-value cell"
+                  role="cell"
+                >
+                   
+                  316.35
+                   
+                  ms
+                   
+                </div>
+                <div
+                  class="comparison-sign cell"
+                  role="cell"
+                >
+                  &lt;
+                </div>
+                <div
+                  class="new-value cell"
+                  role="cell"
+                >
+                   
+                  319.45
+                   
+                  ms
+                </div>
+                <div
+                  class="status cell"
+                  role="cell"
+                >
+                  <span
+                    class="status-hint "
+                  >
+                    -
+                  </span>
+                </div>
+                <div
+                  class="delta cell"
+                  role="cell"
+                >
+                   
+                  0.98
+                   %
+                   
+                </div>
+                <div
+                  class="confidence cell"
+                  role="cell"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vsehry-MuiSvgIcon-root"
+                    data-testid="KeyboardArrowDownIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                    />
+                  </svg>
+                  Low
+                </div>
+                <div
+                  class="total-runs cell"
+                  role="cell"
+                >
+                  <span>
+                    <span
+                      title="Base runs"
+                    >
+                      B:
+                    </span>
+                    <strong>
+                      2
+                    </strong>
+                  </span>
+                  <span>
+                    <span
+                      title="New runs"
+                    >
+                      N:
+                    </span>
+                    <strong>
+                      2
+                    </strong>
+                  </span>
+                </div>
+                <div
+                  class="row-buttons cell"
+                >
                   <div
-                    class="revisionRow fovsk7x fp4ugv1 MuiBox-root css-14ka4hc"
-                    role="row"
+                    class="graph"
+                    role="cell"
                   >
                     <div
-                      class="subtests cell"
-                      role="cell"
+                      class="graph-link-button-container"
                     >
-                      <div
-                        class="subtests-container"
+                      <a
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
+                        href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2Ccc1b54585c7d1baaadf9d23164e2ad31c9cb07a3%2C1%2C1&timerange=604800"
+                        tabindex="0"
+                        target="_blank"
+                        title="open the evolution graph for this job in treeherder"
                       >
-                        tablemutation.html
-                      </div>
-                    </div>
-                    <div
-                      class="base-value cell"
-                      role="cell"
-                    >
-                       
-                      316.35
-                       
-                      ms
-                       
-                    </div>
-                    <div
-                      class="comparison-sign cell"
-                      role="cell"
-                    >
-                      &lt;
-                    </div>
-                    <div
-                      class="new-value cell"
-                      role="cell"
-                    >
-                       
-                      319.45
-                       
-                      ms
-                    </div>
-                    <div
-                      class="status cell"
-                      role="cell"
-                    >
-                      <span
-                        class="status-hint "
-                      >
-                        -
-                      </span>
-                    </div>
-                    <div
-                      class="delta cell"
-                      role="cell"
-                    >
-                       
-                      0.98
-                       %
-                       
-                    </div>
-                    <div
-                      class="confidence cell"
-                      role="cell"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vsehry-MuiSvgIcon-root"
-                        data-testid="KeyboardArrowDownIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-                        />
-                      </svg>
-                      Low
-                    </div>
-                    <div
-                      class="total-runs cell"
-                      role="cell"
-                    >
-                      <span>
-                        <span
-                          title="Base runs"
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                          data-testid="TimelineIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
                         >
-                          B:
-                        </span>
-                        <strong>
-                          2
-                        </strong>
-                      </span>
-                      <span>
-                        <span
-                          title="New runs"
-                        >
-                          N:
-                        </span>
-                        <strong>
-                          2
-                        </strong>
-                      </span>
-                    </div>
-                    <div
-                      class="row-buttons cell"
-                    >
-                      <div
-                        class="graph"
-                        role="cell"
-                      >
-                        <div
-                          class="graph-link-button-container"
-                        >
-                          <a
-                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
-                            href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2Ccc1b54585c7d1baaadf9d23164e2ad31c9cb07a3%2C1%2C1&timerange=604800"
-                            tabindex="0"
-                            target="_blank"
-                            title="open the evolution graph for this job in treeherder"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                              data-testid="TimelineIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2z"
-                              />
-                            </svg>
-                            <span
-                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                            />
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="expand-button cell"
-                      role="cell"
-                    >
-                      <div
-                        class="expand-button-container"
-                        data-testid="expand-subtests-row-button"
-                      >
-                        <button
-                          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
-                          tabindex="0"
-                          title="expand this row"
-                          type="button"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                            data-testid="ExpandMoreIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                            />
-                          </svg>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          <path
+                            d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2z"
                           />
-                        </button>
-                      </div>
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </a>
                     </div>
                   </div>
+                </div>
+                <div
+                  class="expand-button cell"
+                  role="cell"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
+                    tabindex="0"
+                    title="expand this row"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                      data-testid="ExpandMoreIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                      />
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
               </div>
             </div>
@@ -1267,7 +1235,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
               role="table"
             >
               <div
-                class="f1b5h15m fr2n4tx"
+                class="fkzbi14 fr2n4tx"
                 data-testid="table-header"
                 role="row"
               >
@@ -1387,351 +1355,319 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 />
               </div>
               <div
-                class="f1otqxop"
-                role="rowgroup"
+                class="revisionRow fieq49k fp4ugv1 MuiBox-root css-14ka4hc"
+                role="row"
               >
-                <div>
+                <div
+                  class="subtests cell"
+                  role="cell"
+                >
+                  dhtml.html
+                </div>
+                <div
+                  class="base-value cell"
+                  role="cell"
+                >
+                   
+                  971.38
+                   
+                  ms
+                   
+                </div>
+                <div
+                  class="comparison-sign cell"
+                  role="cell"
+                >
+                  &lt;
+                </div>
+                <div
+                  class="new-value cell"
+                  role="cell"
+                >
+                   
+                  982.41
+                   
+                  ms
+                </div>
+                <div
+                  class="status cell"
+                  role="cell"
+                >
+                  <span
+                    class="status-hint "
+                  >
+                    -
+                  </span>
+                </div>
+                <div
+                  class="delta cell"
+                  role="cell"
+                >
+                   
+                  1.14
+                   %
+                   
+                </div>
+                <div
+                  class="confidence cell"
+                  role="cell"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vsehry-MuiSvgIcon-root"
+                    data-testid="KeyboardArrowDownIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                    />
+                  </svg>
+                  Low
+                </div>
+                <div
+                  class="total-runs cell"
+                  role="cell"
+                >
+                  <span>
+                    <span
+                      title="Base runs"
+                    >
+                      B:
+                    </span>
+                    <strong>
+                      2
+                    </strong>
+                  </span>
+                  <span>
+                    <span
+                      title="New runs"
+                    >
+                      N:
+                    </span>
+                    <strong>
+                      2
+                    </strong>
+                  </span>
+                </div>
+                <div
+                  class="row-buttons cell"
+                >
                   <div
-                    class="revisionRow fovsk7x fp4ugv1 MuiBox-root css-14ka4hc"
-                    role="row"
+                    class="graph"
+                    role="cell"
                   >
                     <div
-                      class="subtests cell"
-                      role="cell"
+                      class="graph-link-button-container"
                     >
-                      <div
-                        class="subtests-container"
+                      <a
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
+                        href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2C5c47b31c38f7214a07fad2e0d41fb901cdc18eae%2C1%2C1&timerange=604800"
+                        tabindex="0"
+                        target="_blank"
+                        title="open the evolution graph for this job in treeherder"
                       >
-                        dhtml.html
-                      </div>
-                    </div>
-                    <div
-                      class="base-value cell"
-                      role="cell"
-                    >
-                       
-                      971.38
-                       
-                      ms
-                       
-                    </div>
-                    <div
-                      class="comparison-sign cell"
-                      role="cell"
-                    >
-                      &lt;
-                    </div>
-                    <div
-                      class="new-value cell"
-                      role="cell"
-                    >
-                       
-                      982.41
-                       
-                      ms
-                    </div>
-                    <div
-                      class="status cell"
-                      role="cell"
-                    >
-                      <span
-                        class="status-hint "
-                      >
-                        -
-                      </span>
-                    </div>
-                    <div
-                      class="delta cell"
-                      role="cell"
-                    >
-                       
-                      1.14
-                       %
-                       
-                    </div>
-                    <div
-                      class="confidence cell"
-                      role="cell"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vsehry-MuiSvgIcon-root"
-                        data-testid="KeyboardArrowDownIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-                        />
-                      </svg>
-                      Low
-                    </div>
-                    <div
-                      class="total-runs cell"
-                      role="cell"
-                    >
-                      <span>
-                        <span
-                          title="Base runs"
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                          data-testid="TimelineIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
                         >
-                          B:
-                        </span>
-                        <strong>
-                          2
-                        </strong>
-                      </span>
-                      <span>
-                        <span
-                          title="New runs"
-                        >
-                          N:
-                        </span>
-                        <strong>
-                          2
-                        </strong>
-                      </span>
-                    </div>
-                    <div
-                      class="row-buttons cell"
-                    >
-                      <div
-                        class="graph"
-                        role="cell"
-                      >
-                        <div
-                          class="graph-link-button-container"
-                        >
-                          <a
-                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
-                            href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2C5c47b31c38f7214a07fad2e0d41fb901cdc18eae%2C1%2C1&timerange=604800"
-                            tabindex="0"
-                            target="_blank"
-                            title="open the evolution graph for this job in treeherder"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                              data-testid="TimelineIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2z"
-                              />
-                            </svg>
-                            <span
-                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                            />
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="expand-button cell"
-                      role="cell"
-                    >
-                      <div
-                        class="expand-button-container"
-                        data-testid="expand-subtests-row-button"
-                      >
-                        <button
-                          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
-                          tabindex="0"
-                          title="expand this row"
-                          type="button"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                            data-testid="ExpandMoreIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                            />
-                          </svg>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          <path
+                            d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2z"
                           />
-                        </button>
-                      </div>
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </a>
                     </div>
                   </div>
                 </div>
+                <div
+                  class="expand-button cell"
+                  role="cell"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
+                    tabindex="0"
+                    title="expand this row"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                      data-testid="ExpandMoreIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                      />
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
               </div>
               <div
-                class="f1otqxop"
-                role="rowgroup"
+                class="revisionRow fieq49k fp4ugv1 MuiBox-root css-14ka4hc"
+                role="row"
               >
-                <div>
+                <div
+                  class="subtests cell"
+                  role="cell"
+                >
+                  tablemutation.html
+                </div>
+                <div
+                  class="base-value cell"
+                  role="cell"
+                >
+                   
+                  316.35
+                   
+                  ms
+                   
+                </div>
+                <div
+                  class="comparison-sign cell"
+                  role="cell"
+                >
+                  &lt;
+                </div>
+                <div
+                  class="new-value cell"
+                  role="cell"
+                >
+                   
+                  319.45
+                   
+                  ms
+                </div>
+                <div
+                  class="status cell"
+                  role="cell"
+                >
+                  <span
+                    class="status-hint "
+                  >
+                    -
+                  </span>
+                </div>
+                <div
+                  class="delta cell"
+                  role="cell"
+                >
+                   
+                  0.98
+                   %
+                   
+                </div>
+                <div
+                  class="confidence cell"
+                  role="cell"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vsehry-MuiSvgIcon-root"
+                    data-testid="KeyboardArrowDownIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                    />
+                  </svg>
+                  Low
+                </div>
+                <div
+                  class="total-runs cell"
+                  role="cell"
+                >
+                  <span>
+                    <span
+                      title="Base runs"
+                    >
+                      B:
+                    </span>
+                    <strong>
+                      2
+                    </strong>
+                  </span>
+                  <span>
+                    <span
+                      title="New runs"
+                    >
+                      N:
+                    </span>
+                    <strong>
+                      2
+                    </strong>
+                  </span>
+                </div>
+                <div
+                  class="row-buttons cell"
+                >
                   <div
-                    class="revisionRow fovsk7x fp4ugv1 MuiBox-root css-14ka4hc"
-                    role="row"
+                    class="graph"
+                    role="cell"
                   >
                     <div
-                      class="subtests cell"
-                      role="cell"
+                      class="graph-link-button-container"
                     >
-                      <div
-                        class="subtests-container"
+                      <a
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
+                        href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2Ccc1b54585c7d1baaadf9d23164e2ad31c9cb07a3%2C1%2C1&timerange=604800"
+                        tabindex="0"
+                        target="_blank"
+                        title="open the evolution graph for this job in treeherder"
                       >
-                        tablemutation.html
-                      </div>
-                    </div>
-                    <div
-                      class="base-value cell"
-                      role="cell"
-                    >
-                       
-                      316.35
-                       
-                      ms
-                       
-                    </div>
-                    <div
-                      class="comparison-sign cell"
-                      role="cell"
-                    >
-                      &lt;
-                    </div>
-                    <div
-                      class="new-value cell"
-                      role="cell"
-                    >
-                       
-                      319.45
-                       
-                      ms
-                    </div>
-                    <div
-                      class="status cell"
-                      role="cell"
-                    >
-                      <span
-                        class="status-hint "
-                      >
-                        -
-                      </span>
-                    </div>
-                    <div
-                      class="delta cell"
-                      role="cell"
-                    >
-                       
-                      0.98
-                       %
-                       
-                    </div>
-                    <div
-                      class="confidence cell"
-                      role="cell"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vsehry-MuiSvgIcon-root"
-                        data-testid="KeyboardArrowDownIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-                        />
-                      </svg>
-                      Low
-                    </div>
-                    <div
-                      class="total-runs cell"
-                      role="cell"
-                    >
-                      <span>
-                        <span
-                          title="Base runs"
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                          data-testid="TimelineIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
                         >
-                          B:
-                        </span>
-                        <strong>
-                          2
-                        </strong>
-                      </span>
-                      <span>
-                        <span
-                          title="New runs"
-                        >
-                          N:
-                        </span>
-                        <strong>
-                          2
-                        </strong>
-                      </span>
-                    </div>
-                    <div
-                      class="row-buttons cell"
-                    >
-                      <div
-                        class="graph"
-                        role="cell"
-                      >
-                        <div
-                          class="graph-link-button-container"
-                        >
-                          <a
-                            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
-                            href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2Ccc1b54585c7d1baaadf9d23164e2ad31c9cb07a3%2C1%2C1&timerange=604800"
-                            tabindex="0"
-                            target="_blank"
-                            title="open the evolution graph for this job in treeherder"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                              data-testid="TimelineIcon"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2z"
-                              />
-                            </svg>
-                            <span
-                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                            />
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="expand-button cell"
-                      role="cell"
-                    >
-                      <div
-                        class="expand-button-container"
-                        data-testid="expand-subtests-row-button"
-                      >
-                        <button
-                          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
-                          tabindex="0"
-                          title="expand this row"
-                          type="button"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                            data-testid="ExpandMoreIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                            />
-                          </svg>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          <path
+                            d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2z"
                           />
-                        </button>
-                      </div>
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </a>
                     </div>
                   </div>
+                </div>
+                <div
+                  class="expand-button cell"
+                  role="cell"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
+                    tabindex="0"
+                    title="expand this row"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                      data-testid="ExpandMoreIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                      />
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
               </div>
             </div>

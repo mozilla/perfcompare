@@ -132,7 +132,10 @@ describe('Results View', () => {
       name: 'expand this row',
     });
     await user.click(expandButton);
-    expect(await screen.findByTestId('expanded-row-content')).toMatchSnapshot();
+    await screen.findByText(testCompareDataWithMultipleRuns[0].platform);
+    // TODO In the future it would be good to name this section with an
+    // aria-label for example, which would help accessibility AND this test.
+    expect(screen.getAllByRole('row')[1].nextSibling).toMatchSnapshot();
 
     const MockedBubble = Bubble as jest.Mock;
 
@@ -266,7 +269,11 @@ describe('Results View', () => {
       name: 'expand this row',
     });
     await user.click(expandButton);
-    expect(await screen.findByTestId('expanded-row-content')).toMatchSnapshot();
+
+    await screen.findByText(testCompareDataWithReplicates[0].platform);
+    // TODO In the future it would be good to name this section with an
+    // aria-label for example, which would help accessibility AND this test.
+    expect(screen.getAllByRole('row')[1].nextSibling).toMatchSnapshot();
 
     const MockedBubble = Bubble as jest.Mock;
 
@@ -335,7 +342,11 @@ describe('Results View', () => {
       name: 'expand this row',
     });
     await user.click(expandButton);
-    expect(await screen.findByTestId('expanded-row-content')).toMatchSnapshot();
+
+    await screen.findByText(testCompareDataWithReplicatesOneValue[0].platform);
+    // TODO In the future it would be good to name this section with an
+    // aria-label for example, which would help accessibility AND this test.
+    expect(screen.getAllByRole('row')[1].nextSibling).toMatchSnapshot();
 
     const MockedBubble = Bubble as jest.Mock;
 

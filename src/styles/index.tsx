@@ -15,7 +15,6 @@ export * from './Tooltips';
 
 //contains the SearchStyles
 export * from './CompareCards';
-export * from './ExpandableRow';
 export * from './SelectedRevsStyle';
 export * from './AccessibilityComponents';
 export * from './Header';

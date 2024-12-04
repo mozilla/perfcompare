@@ -166,13 +166,13 @@ function TableHeader({
           margin: 0,
           fontWeight: 700,
         },
-        '& .runs-header, & .platform-header': {
-          justifySelf: 'left',
-          marginLeft: 8,
-        },
         '.subtests-header': {
-          justifySelf: 'left',
-          marginLeft: 24,
+          justifySelf: 'start',
+          paddingInlineStart: Spacing.Medium, // Synchronize with the subtests row
+        },
+        '.platform-header': {
+          justifySelf: 'start',
+          paddingInlineStart: Spacing.xLarge, // Synchronize with the platform row
         },
       },
     }),

@@ -13,7 +13,7 @@ import { style } from 'typestyle';
 
 import { useAppSelector } from '../../../hooks/app';
 import { Strings } from '../../../resources/Strings';
-import { Colors, Spacing, ExpandableRowStyles } from '../../../styles';
+import { Colors, Spacing } from '../../../styles';
 import type { CompareResultsItem } from '../../../types/state';
 import RevisionRowExpandable from '.././RevisionRowExpandable';
 
@@ -51,17 +51,10 @@ function getStyles(themeMode: string) {
           justifyContent: 'start',
           paddingInlineStart: '15%',
         },
-        '.expand-button-container': {
-          justifyContent: 'right',
-        },
         '.subtests': {
           borderRadius: '4px 0 0 4px',
-          paddingLeft: Spacing.xLarge,
+          paddingLeft: Spacing.Medium, // Synchronize with its header
           justifyContent: 'left',
-        },
-        '.subtests-container': {
-          alignItems: 'flex-end',
-          display: 'flex',
         },
         '.status': {
           justifyContent: 'center',
@@ -73,11 +66,6 @@ function getStyles(themeMode: string) {
           borderRadius: '0px 4px 4px 0px',
           display: 'flex',
           justifyContent: 'flex-end',
-          $nest: {
-            '.download': {
-              cursor: 'not-allowed',
-            },
-          },
         },
         '.expand-button': {
           backgroundColor: backgroundColorExpandButton,
@@ -115,8 +103,6 @@ const styles = {
   light: getStyles('light'),
   dark: getStyles('dark'),
 };
-
-const stylesCard = ExpandableRowStyles();
 
 const confidenceIcons = {
   Low: <KeyboardArrowDownIcon sx={{ color: 'icons.error' }} />,
@@ -175,7 +161,7 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
         role='row'
       >
         <div className='subtests cell' role='cell'>
-          <div className='subtests-container'>{test}</div>
+          {test}
         </div>
         <div className='base-value cell' role='cell'>
           {' '}
@@ -234,33 +220,21 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
           </div>
         </div>
         <div className='expand-button cell' role='cell'>
-          <div
-            className='expand-button-container'
+          <IconButton
+            title={
+              expanded
+                ? Strings.components.expandableRow.title.shrink
+                : Strings.components.expandableRow.title.expand
+            }
+            color='primary'
+            size='small'
             onClick={toggleIsExpanded}
-            data-testid='expand-subtests-row-button'
           >
-            <IconButton
-              title={
-                expanded
-                  ? Strings.components.expandableRow.title.shrink
-                  : Strings.components.expandableRow.title.expand
-              }
-              color='primary'
-              size='small'
-            >
-              {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-            </IconButton>
-          </div>
+            {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+          </IconButton>
         </div>
       </Box>
-      {expanded && (
-        <div
-          className={`content-row ${stylesCard.container}`}
-          data-testid='expanded-row-content'
-        >
-          <RevisionRowExpandable result={result} />
-        </div>
-      )}
+      {expanded && <RevisionRowExpandable result={result} />}
     </>
   );
 }

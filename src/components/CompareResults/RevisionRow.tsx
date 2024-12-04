@@ -16,7 +16,7 @@ import { style } from 'typestyle';
 import { compareView, compareOverTimeView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
-import { Colors, Spacing, ExpandableRowStyles } from '../../styles';
+import { Colors, Spacing } from '../../styles';
 import type { CompareResultsItem, PlatformShortName } from '../../types/state';
 import {
   getPlatformShortName,
@@ -143,7 +143,7 @@ const stylesDark = {
       },
       '.platform': {
         borderRadius: '4px 0 0 4px',
-        paddingLeft: Spacing.xLarge,
+        paddingLeft: Spacing.xLarge, // Synchronize with its header
         justifyContent: 'left',
       },
       '.platform-container': {
@@ -203,8 +203,6 @@ const stylesDark = {
     ...typography,
   }),
 };
-
-const stylesCard = ExpandableRowStyles();
 
 function determineStatus(improvement: boolean, regression: boolean) {
   if (improvement) return 'Improvement';
@@ -435,14 +433,7 @@ function RevisionRow(props: RevisionRowProps) {
           </div>
         </div>
       </Box>
-      {expanded && (
-        <div
-          className={`content-row ${stylesCard.container}`}
-          data-testid='expanded-row-content'
-        >
-          <RevisionRowExpandable result={result} />
-        </div>
-      )}
+      {expanded && <RevisionRowExpandable result={result} />}
     </>
   );
 }
