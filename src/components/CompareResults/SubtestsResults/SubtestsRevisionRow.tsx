@@ -20,7 +20,7 @@ import RevisionRowExpandable from '.././RevisionRowExpandable';
 const revisionsRow = {
   borderRadius: '4px 0px 0px 4px',
   display: 'grid',
-  margin: `${Spacing.Small}px 0px`,
+  margin: `${Spacing.Small}px 0px 0px 0px`,
 };
 
 const typography = style({

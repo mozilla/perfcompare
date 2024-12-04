@@ -6,7 +6,7 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
   data-testid="expanded-row-content"
 >
   <div
-    class="ff20o48"
+    class="f1e1ayr9"
   >
     <div
       class="f19s1n7z"
@@ -227,7 +227,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
   data-testid="expanded-row-content"
 >
   <div
-    class="ff20o48"
+    class="f1e1ayr9"
   >
     <div
       class="f19s1n7z"
@@ -448,7 +448,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
   data-testid="expanded-row-content"
 >
   <div
-    class="ff20o48"
+    class="f1e1ayr9"
   >
     <div
       class="f19s1n7z"
@@ -1145,7 +1145,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="fcdpsbx"
             >
               <div
-                class="revisionRow f1nwzic9 fp4ugv1 MuiBox-root css-1am90bh"
+                class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
                 role="row"
               >
                 <div
@@ -1369,7 +1369,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1nwzic9 fp4ugv1 MuiBox-root css-1am90bh"
+                class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
                 role="row"
               >
                 <div
@@ -1592,7 +1592,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1nwzic9 fp4ugv1 MuiBox-root css-1am90bh"
+                class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
                 role="row"
               >
                 <div
@@ -1805,7 +1805,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1nwzic9 fp4ugv1 MuiBox-root css-1am90bh"
+                class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
                 role="row"
               >
                 <div

@@ -37,7 +37,6 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
     expandedRow: style({
       backgroundColor: themeColor200,
       padding: Spacing.Medium,
-      marginBottom: Spacing.Small,
       width: '97%',
     }),
     content: style({
