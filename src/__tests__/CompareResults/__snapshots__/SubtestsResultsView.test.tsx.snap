@@ -399,7 +399,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
               role="table"
             >
               <div
-                class="f1q18ou0 fr2n4tx"
+                class="f1b5h15m fr2n4tx"
                 data-testid="table-header"
                 role="row"
               >
@@ -465,7 +465,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="cell delta-header"
                   role="columnheader"
                 >
-                  Delta(%)
+                  Delta
                 </div>
                 <div
                   class="cell confidence-header"
@@ -524,7 +524,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
               >
                 <div>
                   <div
-                    class="revisionRow fzrkdgz fp4ugv1 MuiBox-root css-1c7o0c7"
+                    class="revisionRow fzrkdgz fp4ugv1 MuiBox-root css-14ka4hc"
                     role="row"
                   >
                     <div
@@ -698,7 +698,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
               >
                 <div>
                   <div
-                    class="revisionRow fzrkdgz fp4ugv1 MuiBox-root css-1c7o0c7"
+                    class="revisionRow fzrkdgz fp4ugv1 MuiBox-root css-14ka4hc"
                     role="row"
                   >
                     <div
@@ -1267,7 +1267,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
               role="table"
             >
               <div
-                class="f1q18ou0 fr2n4tx"
+                class="f1b5h15m fr2n4tx"
                 data-testid="table-header"
                 role="row"
               >
@@ -1333,7 +1333,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="cell delta-header"
                   role="columnheader"
                 >
-                  Delta(%)
+                  Delta
                 </div>
                 <div
                   class="cell confidence-header"
@@ -1392,7 +1392,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
               >
                 <div>
                   <div
-                    class="revisionRow fzrkdgz fp4ugv1 MuiBox-root css-1c7o0c7"
+                    class="revisionRow fzrkdgz fp4ugv1 MuiBox-root css-14ka4hc"
                     role="row"
                   >
                     <div
@@ -1566,7 +1566,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
               >
                 <div>
                   <div
-                    class="revisionRow fzrkdgz fp4ugv1 MuiBox-root css-1c7o0c7"
+                    class="revisionRow fzrkdgz fp4ugv1 MuiBox-root css-14ka4hc"
                     role="row"
                   >
                     <div

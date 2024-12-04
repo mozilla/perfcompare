@@ -154,7 +154,7 @@ function TableHeader({
       background:
         themeMode == 'light' ? Colors.Background100 : Colors.Background300Dark,
       borderRadius: '4px',
-      padding: Spacing.Small,
+      paddingBlock: Spacing.Small,
       marginTop: Spacing.Medium,
       $nest: {
         '.cell': {

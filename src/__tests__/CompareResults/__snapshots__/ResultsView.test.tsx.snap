@@ -1074,7 +1074,7 @@ exports[`Results View The table should match snapshot and other elements should 
       </div>
     </div>
     <div
-      class="f1wqnr25 fr2n4tx"
+      class="fjfyf82 fr2n4tx"
       data-testid="table-header"
       role="row"
     >
@@ -1170,7 +1170,7 @@ exports[`Results View The table should match snapshot and other elements should 
         class="cell delta-header"
         role="columnheader"
       >
-        Delta(%)
+        Delta
       </div>
       <div
         class="cell confidence-header"
@@ -1307,7 +1307,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="fcdpsbx"
             >
               <div
-                class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
+                class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1txhl5e"
                 role="row"
               >
                 <div
@@ -1531,7 +1531,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
+                class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1txhl5e"
                 role="row"
               >
                 <div
@@ -1754,7 +1754,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
+                class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1txhl5e"
                 role="row"
               >
                 <div
@@ -1967,7 +1967,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
+                class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1txhl5e"
                 role="row"
               >
                 <div

@@ -86,7 +86,7 @@ const cellsConfiguration: CompareResultsTableConfig = [
     },
   },
   {
-    name: 'Delta(%)',
+    name: 'Delta',
     key: 'delta',
     gridWidth: '1fr',
   },
@@ -95,7 +95,7 @@ const cellsConfiguration: CompareResultsTableConfig = [
     disable: true,
     filter: true,
     key: 'confidence',
-    gridWidth: '1fr',
+    gridWidth: '1.5fr',
     possibleValues: [
       { label: 'No value', key: 'none' },
       { label: 'Low', key: 'low' },
@@ -116,8 +116,9 @@ const cellsConfiguration: CompareResultsTableConfig = [
     },
   },
   { name: 'Total Runs', key: 'runs', gridWidth: '1fr' },
-  { key: 'buttons', gridWidth: '1fr' },
-  { key: 'expand', gridWidth: '0.2fr' },
+  // The 2 icons are 24px wide, and they have 5px padding.
+  { key: 'buttons', gridWidth: '34px' },
+  { key: 'expand', gridWidth: '34px' },
 ];
 
 function resultMatchesSearchTerm(
