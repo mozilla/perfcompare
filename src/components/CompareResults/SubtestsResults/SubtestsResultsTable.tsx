@@ -11,23 +11,21 @@ import SubtestsTableContent from './SubtestsTableContent';
 
 type SubtestsResults = {
   key: string;
+  // By construction, there should be only one item in the array. But if more
+  // than one subtests share the same name, then there will be more than one item.
+  // Can this happen? We're not sure.
   value: CompareResultsItem[];
 };
 
 function processResults(results: CompareResultsItem[]) {
-  const processedResults: Map<string, CompareResultsItem[]> = new Map<
-    string,
-    CompareResultsItem[]
-  >();
+  const processedResults = new Map<string, CompareResultsItem[]>();
   results.forEach((result) => {
-    const { new_rev: newRevision, header_name: header } = result;
-    const rowIdentifier = header.concat(' ', newRevision);
-    if (processedResults.has(rowIdentifier)) {
-      (processedResults.get(rowIdentifier) as CompareResultsItem[]).push(
-        result,
-      );
+    const { header_name: header } = result;
+    const processedResult = processedResults.get(header);
+    if (processedResult) {
+      processedResult.push(result);
     } else {
-      processedResults.set(rowIdentifier, [result]);
+      processedResults.set(header, [result]);
     }
   });
   const restructuredResults: SubtestsResults[] = Array.from(
