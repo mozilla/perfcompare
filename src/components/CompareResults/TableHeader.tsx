@@ -83,13 +83,13 @@ function FilterableColumn({
         <Box
           sx={{
             paddingInlineStart: 0.5,
-            color: hasFilteredValues ? 'primary' : 'inherit',
+            color: 'primary.main',
           }}
           aria-label={`${possibleCheckedValues} items selected`}
         >
           ({possibleCheckedValues})
         </Box>
-        <KeyboardArrowDownIcon sx={{ marginInlineStart: 1 }} />
+        <KeyboardArrowDownIcon />
       </Button>
       <Menu {...bindMenu(popupState)}>
         <MenuItem dense={true} onClick={onClear}>

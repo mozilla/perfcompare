@@ -267,7 +267,7 @@ exports[`Results View The table should match snapshot and other elements should 
           Platform
           <div
             aria-label="4 items selected"
-            class="MuiBox-root css-aylo6m"
+            class="MuiBox-root css-18uhbjh"
           >
             (
             4
@@ -275,7 +275,7 @@ exports[`Results View The table should match snapshot and other elements should 
           </div>
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1y8w1r3-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
             data-testid="KeyboardArrowDownIcon"
             focusable="false"
             viewBox="0 0 24 24"
@@ -319,7 +319,7 @@ exports[`Results View The table should match snapshot and other elements should 
           Status
           <div
             aria-label="3 items selected"
-            class="MuiBox-root css-aylo6m"
+            class="MuiBox-root css-18uhbjh"
           >
             (
             3
@@ -327,7 +327,7 @@ exports[`Results View The table should match snapshot and other elements should 
           </div>
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1y8w1r3-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
             data-testid="KeyboardArrowDownIcon"
             focusable="false"
             viewBox="0 0 24 24"
@@ -361,7 +361,7 @@ exports[`Results View The table should match snapshot and other elements should 
           Confidence
           <div
             aria-label="4 items selected"
-            class="MuiBox-root css-aylo6m"
+            class="MuiBox-root css-18uhbjh"
           >
             (
             4
@@ -369,7 +369,7 @@ exports[`Results View The table should match snapshot and other elements should 
           </div>
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1y8w1r3-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
             data-testid="KeyboardArrowDownIcon"
             focusable="false"
             viewBox="0 0 24 24"
