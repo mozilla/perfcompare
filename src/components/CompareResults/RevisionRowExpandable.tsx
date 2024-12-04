@@ -30,8 +30,8 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
 
   const unit = baseUnit || newUnit;
   const deltaUnit = unit ? `${unit}` : '';
-  let medianDifference = NaN as unknown;
-  let medianPercentage = NaN as unknown;
+  let medianDifference = '';
+  let medianPercentage = '';
   if (baseMedian && newMedian) {
     medianDifference = (newMedian - baseMedian).toFixed(2);
     medianPercentage = (((newMedian - baseMedian) / baseMedian) * 100).toFixed(
@@ -99,7 +99,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
         {newMedian && baseMedian ? (
           <div>
             <b>Difference of medians</b>:{'\u00a0'}
-            {medianPercentage as string}%{'\u00a0'}({medianDifference as string}
+            {medianPercentage}%{'\u00a0'}({medianDifference}
             {deltaUnit ? '\u00a0' + deltaUnit : null})
           </div>
         ) : null}
