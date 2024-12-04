@@ -1,9 +1,10 @@
 import CheckIcon from '@mui/icons-material/Check';
-import FilterListIcon from '@mui/icons-material/FilterList';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import { Box } from '@mui/system';
 import {
   usePopupState,
   bindTrigger,
@@ -36,6 +37,8 @@ function FilterableColumn({
   onClear,
 }: FilterableColumnProps) {
   const popupState = usePopupState({ variant: 'popover', popupId: columnId });
+  const possibleCheckedValues =
+    possibleValues.length - (uncheckedValues?.size || 0);
 
   const onClickFilter = (valueKey: string) => {
     const newUncheckedValues = new Set(uncheckedValues);
@@ -72,19 +75,21 @@ function FilterableColumn({
             theme.palette.mode == 'light'
               ? Colors.Background200
               : Colors.Background200Dark,
-          borderRadius: '4px',
-          fontSize: 'inherit',
+          borderRadius: 0.5,
+          padding: '6px 12px',
         })}
       >
         {name}
-        <FilterListIcon
-          fontSize='small'
-          color={hasFilteredValues ? 'primary' : 'inherit'}
-          sx={{ marginInlineStart: 1 }}
-          titleAccess={
-            hasFilteredValues ? 'Some filters are active' : 'No active filters'
-          }
-        />
+        <Box
+          sx={{
+            paddingInlineStart: 0.5,
+            color: 'primary.main',
+          }}
+          aria-label={`${possibleCheckedValues} items selected`}
+        >
+          ({possibleCheckedValues})
+        </Box>
+        <KeyboardArrowDownIcon />
       </Button>
       <Menu {...bindMenu(popupState)}>
         <MenuItem dense={true} onClick={onClear}>
