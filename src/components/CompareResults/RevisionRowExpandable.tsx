@@ -26,6 +26,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
     new_app: newApplication,
     more_runs_are_needed: moreRunsAreNeeded,
     lower_is_better: lowerIsBetter,
+    new_is_better: newIsBetter,
   } = result;
 
   const unit = baseUnit || newUnit;
@@ -91,9 +92,12 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
           )}
         </div>
         <div>
+          <b>Comparison result</b>: {newIsBetter ? 'better' : 'worse'} (
+          {lowerIsBetter ? 'lower' : 'higher'} is better)
+        </div>
+        <div>
           <b>Difference of means</b>:{'\u00a0'}
-          {deltaPercent}%{'\u00a0'}
-          {lowerIsBetter ? 'better' : 'worse'} ({delta}
+          {deltaPercent}%{'\u00a0'}({delta}
           {deltaUnit ? '\u00a0' + deltaUnit : null})
         </div>
         {newMedian && baseMedian ? (

@@ -214,6 +214,16 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
       </div>
       <div>
         <b>
+          Comparison result
+        </b>
+        : 
+        worse
+         (
+        lower
+         is better)
+      </div>
+      <div>
+        <b>
           Difference of means
         </b>
         :
@@ -221,8 +231,7 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
         1.7
         %
          
-        better
-         (
+        (
         10.1
         )
       </div>
@@ -479,6 +488,16 @@ exports[`Results View Should display Base, New and Common graphs with replicates
       </div>
       <div>
         <b>
+          Comparison result
+        </b>
+        : 
+        worse
+         (
+        lower
+         is better)
+      </div>
+      <div>
+        <b>
           Difference of means
         </b>
         :
@@ -486,8 +505,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
         1.7
         %
          
-        better
-         (
+        (
         10.1
         )
       </div>
@@ -744,6 +762,16 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
       </div>
       <div>
         <b>
+          Comparison result
+        </b>
+        : 
+        worse
+         (
+        lower
+         is better)
+      </div>
+      <div>
+        <b>
           Difference of means
         </b>
         :
@@ -751,8 +779,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
         1.7
         %
          
-        better
-         (
+        (
         10.1
         )
       </div>
