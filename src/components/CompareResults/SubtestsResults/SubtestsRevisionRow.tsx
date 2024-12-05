@@ -39,54 +39,37 @@ function getStyles(themeMode: string) {
   return {
     revisionRow: style({
       ...revisionsRow,
+      backgroundColor: mainBackgroundColor,
       $nest: {
-        '.base-value': {
-          backgroundColor: mainBackgroundColor,
-        },
         '.cell': {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
         },
         '.confidence': {
-          backgroundColor: mainBackgroundColor,
           gap: '10px',
           justifyContent: 'start',
           paddingInlineStart: '15%',
         },
-        '.comparison-sign': {
-          backgroundColor: mainBackgroundColor,
-        },
-        '.delta': {
-          backgroundColor: mainBackgroundColor,
-        },
         '.expand-button-container': {
           justifyContent: 'right',
         },
-        '.new-value': {
-          backgroundColor: mainBackgroundColor,
-        },
         '.subtests': {
-          backgroundColor: mainBackgroundColor,
           borderRadius: '4px 0 0 4px',
           paddingLeft: Spacing.xLarge,
           justifyContent: 'left',
         },
         '.subtests-container': {
           alignItems: 'flex-end',
-          backgroundColor: mainBackgroundColor,
           display: 'flex',
         },
         '.status': {
-          backgroundColor: mainBackgroundColor,
           justifyContent: 'center',
         },
         '.total-runs': {
-          backgroundColor: mainBackgroundColor,
           gap: '8px',
         },
         '.row-buttons': {
-          backgroundColor: mainBackgroundColor,
           borderRadius: '0px 4px 4px 0px',
           display: 'flex',
           justifyContent: 'flex-end',

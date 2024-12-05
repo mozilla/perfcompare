@@ -46,59 +46,41 @@ const typography = {
 const stylesLight = {
   revisionRow: style({
     ...revisionsRow,
+    backgroundColor: Colors.Background200,
     $nest: {
-      '.base-value': {
-        backgroundColor: Colors.Background200,
-      },
       '.cell': {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
       },
       '.confidence': {
-        backgroundColor: Colors.Background200,
         gap: '10px',
         justifyContent: 'start',
         paddingInlineStart: '15%',
       },
-      '.comparison-sign': {
-        backgroundColor: Colors.Background200,
-      },
-      '.delta': {
-        backgroundColor: Colors.Background200,
-      },
       '.expand-button-container': {
         justifyContent: 'right',
       },
-      '.new-value': {
-        backgroundColor: Colors.Background200,
-      },
       '.platform': {
-        backgroundColor: Colors.Background200,
         borderRadius: '4px 0 0 4px',
         paddingLeft: Spacing.xLarge,
         justifyContent: 'left',
       },
       '.platform-container': {
         alignItems: 'flex-end',
-        backgroundColor: Colors.Background200,
         display: 'flex',
       },
       '.retrigger-button': {
-        backgroundColor: Colors.Background200,
         borderRadius: '0px 4px 4px 0px',
         cursor: 'not-allowed',
       },
       '.status': {
-        backgroundColor: Colors.Background200,
         justifyContent: 'center',
       },
       '.total-runs': {
-        backgroundColor: Colors.Background200,
         gap: '8px',
       },
       '.row-buttons': {
-        backgroundColor: Colors.Background200,
         borderRadius: '0px 4px 4px 0px',
         display: 'flex',
         justifyContent: 'flex-end',
@@ -144,59 +126,41 @@ const stylesLight = {
 const stylesDark = {
   revisionRow: style({
     ...revisionsRow,
+    backgroundColor: Colors.Background200Dark,
     $nest: {
-      '.base-value': {
-        backgroundColor: Colors.Background200Dark,
-      },
       '.cell': {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
       },
       '.confidence': {
-        backgroundColor: Colors.Background200Dark,
         gap: '10px',
         justifyContent: 'start',
         paddingInlineStart: '15%',
       },
-      '.comparison-sign': {
-        backgroundColor: Colors.Background200Dark,
-      },
-      '.delta': {
-        backgroundColor: Colors.Background200Dark,
-      },
       '.expand-button-container': {
         justifyContent: 'right',
       },
-      '.new-value': {
-        backgroundColor: Colors.Background200Dark,
-      },
       '.platform': {
-        backgroundColor: Colors.Background200Dark,
         borderRadius: '4px 0 0 4px',
         paddingLeft: Spacing.xLarge,
         justifyContent: 'left',
       },
       '.platform-container': {
         alignItems: 'flex-end',
-        backgroundColor: Colors.Background200Dark,
         display: 'flex',
       },
       '.retrigger-button': {
-        backgroundColor: Colors.Background200Dark,
         borderRadius: '0px 4px 4px 0px',
         cursor: 'not-allowed',
       },
       '.status': {
-        backgroundColor: Colors.Background200Dark,
         justifyContent: 'center',
       },
       '.total-runs': {
-        backgroundColor: Colors.Background200Dark,
         gap: '8px',
       },
       '.row-buttons': {
-        backgroundColor: Colors.Background200Dark,
         borderRadius: '0px 4px 4px 0px',
         display: 'flex',
         justifyContent: 'flex-end',
