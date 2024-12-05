@@ -63,6 +63,9 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
       fontSize: '10px',
       textTransform: 'uppercase',
     }),
+    whiteSpace: style({
+      whiteSpace: 'nowrap',
+    }),
   };
 
   return (
@@ -91,28 +94,26 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
             </div>
           )}
         </div>
-        <div>
+        <div className={`${styles.whiteSpace}`}>
           <b>Comparison result</b>: {newIsBetter ? 'better' : 'worse'} (
           {lowerIsBetter ? 'lower' : 'higher'} is better)
         </div>
-        <div>
-          <b>Difference of means</b>:{'\u00a0'}
-          {deltaPercent}%{'\u00a0'}({delta}
-          {deltaUnit ? '\u00a0' + deltaUnit : null})
+        <div className={`${styles.whiteSpace}`}>
+          <b>Difference of means</b>: {deltaPercent}% ({delta}
+          {deltaUnit ? ' ' + deltaUnit : null})
         </div>
         {newMedian && baseMedian ? (
-          <div>
-            <b>Difference of medians</b>:{'\u00a0'}
-            {medianPercentage}%{'\u00a0'}({medianDifference}
-            {deltaUnit ? '\u00a0' + deltaUnit : null})
+          <div className={`${styles.whiteSpace}`}>
+            <b>Difference of medians</b>: {medianPercentage}% (
+            {medianDifference}
+            {deltaUnit ? ' ' + deltaUnit : null})
           </div>
         ) : null}
         {confidenceText ? (
           <div>
-            <div>
-              <b>Confidence</b>:{'\u00a0'}
-              {confidenceText}
-              {confidenceValue ? '\u00a0' + `(${confidenceValue})` : null}
+            <div className={`${styles.whiteSpace}`}>
+              <b>Confidence</b>: {confidenceText}
+              {confidenceValue ? ' ' + `(${confidenceValue})` : null}
             </div>
             <div className={styles.note}>
               <b>**Note</b>: {strings[confidenceText]}{' '}
@@ -120,7 +121,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
           </div>
         ) : (
           <div>
-            <div>
+            <div className={`${styles.whiteSpace}`}>
               <b>Confidence</b>: Not available{' '}
             </div>
           </div>
