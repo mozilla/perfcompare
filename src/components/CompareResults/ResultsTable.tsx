@@ -178,6 +178,9 @@ export default function ResultsTable() {
           filters={tableFilters}
           onToggleFilter={onToggleFilter}
           onClearFilter={onClearFilter}
+          sortDirection={null}
+          sortColumn={null}
+          onToggleSort={() => {}}
         />
       </Box>
       {/* Using a key in Suspense makes it that it displays the fallback more
