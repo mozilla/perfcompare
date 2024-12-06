@@ -17,15 +17,28 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
     delta_percentage: deltaPercent,
     delta_value: delta,
     confidence_text: confidenceText,
+    confidence: confidenceValue,
+    base_median_value: baseMedian,
+    new_median_value: newMedian,
     base_measurement_unit: baseUnit,
     new_measurement_unit: newUnit,
-    new_is_better: newIsBetter,
     base_app: baseApplication,
     new_app: newApplication,
+    more_runs_are_needed: moreRunsAreNeeded,
+    lower_is_better: lowerIsBetter,
+    new_is_better: newIsBetter,
   } = result;
 
   const unit = baseUnit || newUnit;
   const deltaUnit = unit ? `${unit}` : '';
+  let medianDifference = '';
+  let medianPercentage = '';
+  if (baseMedian && newMedian) {
+    medianDifference = (newMedian - baseMedian).toFixed(2);
+    medianPercentage = (((newMedian - baseMedian) / baseMedian) * 100).toFixed(
+      2,
+    );
+  }
 
   const themeMode = useAppSelector((state) => state.theme.mode);
   const themeColor200 =
@@ -37,7 +50,6 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
     expandedRow: style({
       backgroundColor: themeColor200,
       padding: Spacing.Medium,
-      marginBottom: Spacing.Small,
       width: '97%',
     }),
     content: style({
@@ -50,6 +62,9 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
     note: style({
       fontSize: '10px',
       textTransform: 'uppercase',
+    }),
+    whiteSpace: style({
+      whiteSpace: 'nowrap',
     }),
   };
 
@@ -67,7 +82,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
           <Divider />
         </div>
         <div className={`${styles.bottomSpace}`}>
-          <div>{singleRun} </div>
+          {moreRunsAreNeeded && <div>{singleRun} </div>}
           {baseApplication && (
             <div>
               <b>Base application</b>: {baseApplication}{' '}
@@ -79,14 +94,26 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
             </div>
           )}
         </div>
-        <div className={`${styles.bottomSpace}`}>
-          <b>Mean Difference</b>: {deltaPercent}%{' '}
-          {newIsBetter ? 'better' : 'worse'} ({delta} {deltaUnit})
+        <div className={`${styles.whiteSpace}`}>
+          <b>Comparison result</b>: {newIsBetter ? 'better' : 'worse'} (
+          {lowerIsBetter ? 'lower' : 'higher'} is better)
         </div>
+        <div className={`${styles.whiteSpace}`}>
+          <b>Difference of means</b>: {deltaPercent}% ({delta}
+          {deltaUnit ? ' ' + deltaUnit : null})
+        </div>
+        {newMedian && baseMedian ? (
+          <div className={`${styles.whiteSpace}`}>
+            <b>Difference of medians</b>: {medianPercentage}% (
+            {medianDifference}
+            {deltaUnit ? ' ' + deltaUnit : null})
+          </div>
+        ) : null}
         {confidenceText ? (
           <div>
-            <div>
-              <b>Confidence</b>: {confidenceText}{' '}
+            <div className={`${styles.whiteSpace}`}>
+              <b>Confidence</b>: {confidenceText}
+              {confidenceValue ? ' ' + `(${confidenceValue})` : null}
             </div>
             <div className={styles.note}>
               <b>**Note</b>: {strings[confidenceText]}{' '}
@@ -94,7 +121,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
           </div>
         ) : (
           <div>
-            <div>
+            <div className={`${styles.whiteSpace}`}>
               <b>Confidence</b>: Not available{' '}
             </div>
           </div>

@@ -148,6 +148,6 @@ export const Strings = {
     },
   },
   errors: {
-    warningText: 'Search must be a 12- or 40-character hash, or email address',
+    warningText: 'The search input must be at least three characters.',
   },
 };

@@ -18,7 +18,10 @@ import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { Colors, Spacing, ExpandableRowStyles } from '../../styles';
 import type { CompareResultsItem, PlatformShortName } from '../../types/state';
-import { getPlatformShortName } from '../../utils/platform';
+import {
+  getPlatformShortName,
+  getPlatformAndVersion,
+} from '../../utils/platform';
 import AndroidIcon from '../Shared/Icons/AndroidIcon';
 import LinuxIcon from '../Shared/Icons/LinuxIcon';
 import SubtestsIcon from '../Shared/Icons/SubtestsIcon';
@@ -29,7 +32,7 @@ import RevisionRowExpandable from './RevisionRowExpandable';
 const revisionsRow = {
   borderRadius: '4px 0px 0px 4px',
   display: 'grid',
-  margin: `${Spacing.Small}px 0px`,
+  margin: `${Spacing.Small}px 0px 0px 0px`,
 };
 
 const typography = {
@@ -320,9 +323,9 @@ function RevisionRow(props: RevisionRowProps) {
   const { result, view, gridTemplateColumns } = props;
   const {
     platform,
-    base_median_value: baseMedianValue,
+    base_avg_value: baseAvgValue,
     base_measurement_unit: baseUnit,
-    new_median_value: newMedianValue,
+    new_avg_value: newAvgValue,
     new_measurement_unit: newUnit,
     is_improvement: improvement,
     is_regression: regression,
@@ -363,20 +366,20 @@ function RevisionRow(props: RevisionRowProps) {
           <Tooltip placement='bottom' title={platform} arrow>
             <div className='platform-container'>
               {platformIcon}
-              <span>{platformShortName}</span>
+              <span>{getPlatformAndVersion(platform)}</span>
             </div>
           </Tooltip>
         </div>
         <div className='base-value cell' role='cell'>
           {' '}
-          {baseMedianValue} {baseUnit}{' '}
+          {baseAvgValue} {baseUnit}{' '}
         </div>
         <div className='comparison-sign cell' role='cell'>
-          {determineSign(baseMedianValue, newMedianValue)}
+          {determineSign(baseAvgValue, newAvgValue)}
         </div>
         <div className='new-value cell' role='cell'>
           {' '}
-          {newMedianValue} {newUnit}
+          {newAvgValue} {newUnit}
         </div>
         <div className='status cell' role='cell'>
           <span

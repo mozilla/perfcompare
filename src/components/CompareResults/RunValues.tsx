@@ -26,6 +26,7 @@ const styles = {
 function RunValues(props: RunValuesProps) {
   const {
     name,
+    avg,
     median,
     values,
     application,
@@ -63,6 +64,14 @@ function RunValues(props: RunValuesProps) {
             </div>
           ))}
         </div>
+        <div>
+          <b>Mean</b>:{'\u00a0'}
+          {avg}
+          {measurementUnit},{'\u00a0'}
+          <b>Median</b>:{'\u00a0'}
+          {median}
+          {measurementUnit}
+        </div>
         <div className={styles.deviation}>
           {stddev} {unit} = {stddevPercent}% standard deviation
         </div>
@@ -73,6 +82,7 @@ function RunValues(props: RunValuesProps) {
 interface RunValuesProps {
   revisionRuns: {
     name: string;
+    avg: number;
     median: number;
     values: number[];
     application: string;

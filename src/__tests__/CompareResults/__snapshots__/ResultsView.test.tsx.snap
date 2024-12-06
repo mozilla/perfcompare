@@ -6,7 +6,7 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
   data-testid="expanded-row-content"
 >
   <div
-    class="ff20o48"
+    class="f1e1ayr9"
   >
     <div
       class="f19s1n7z"
@@ -73,6 +73,22 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
                 602.04
               </div>
             </div>
+            <div>
+              <b>
+                Mean
+              </b>
+              :
+               
+              595.73
+              ,
+               
+              <b>
+                Median
+              </b>
+              :
+               
+              596.87
+            </div>
             <div
               class="fnujpat"
             >
@@ -132,6 +148,22 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
                 607.27
               </div>
             </div>
+            <div>
+              <b>
+                Mean
+              </b>
+              :
+               
+              605.83
+              ,
+               
+              <b>
+                Median
+              </b>
+              :
+               
+              605.61
+            </div>
             <div
               class="fnujpat"
             >
@@ -181,29 +213,51 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
         </div>
       </div>
       <div
-        class="fc8wfj0"
+        class="fheif50"
       >
         <b>
-          Mean Difference
+          Comparison result
+        </b>
+        : 
+        worse
+         (
+        lower
+         is better)
+      </div>
+      <div
+        class="fheif50"
+      >
+        <b>
+          Difference of means
         </b>
         : 
         1.7
-        %
-         
-        worse
-         (
+        % (
         10.1
-         
+        )
+      </div>
+      <div
+        class="fheif50"
+      >
+        <b>
+          Difference of medians
+        </b>
+        : 
+        1.46
+        % (
+        8.74
         )
       </div>
       <div>
-        <div>
+        <div
+          class="fheif50"
+        >
           <b>
             Confidence
           </b>
           : 
           Low
-           
+           (2.89)
         </div>
         <div
           class="fj8mg7a"
@@ -227,7 +281,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
   data-testid="expanded-row-content"
 >
   <div
-    class="ff20o48"
+    class="f1e1ayr9"
   >
     <div
       class="f19s1n7z"
@@ -294,6 +348,22 @@ exports[`Results View Should display Base, New and Common graphs with replicates
                 602.04
               </div>
             </div>
+            <div>
+              <b>
+                Mean
+              </b>
+              :
+               
+              595.73
+              ,
+               
+              <b>
+                Median
+              </b>
+              :
+               
+              596.87
+            </div>
             <div
               class="fnujpat"
             >
@@ -353,6 +423,22 @@ exports[`Results View Should display Base, New and Common graphs with replicates
                 607.27
               </div>
             </div>
+            <div>
+              <b>
+                Mean
+              </b>
+              :
+               
+              605.83
+              ,
+               
+              <b>
+                Median
+              </b>
+              :
+               
+              605.61
+            </div>
             <div
               class="fnujpat"
             >
@@ -402,29 +488,51 @@ exports[`Results View Should display Base, New and Common graphs with replicates
         </div>
       </div>
       <div
-        class="fc8wfj0"
+        class="fheif50"
       >
         <b>
-          Mean Difference
+          Comparison result
+        </b>
+        : 
+        worse
+         (
+        lower
+         is better)
+      </div>
+      <div
+        class="fheif50"
+      >
+        <b>
+          Difference of means
         </b>
         : 
         1.7
-        %
-         
-        worse
-         (
+        % (
         10.1
-         
+        )
+      </div>
+      <div
+        class="fheif50"
+      >
+        <b>
+          Difference of medians
+        </b>
+        : 
+        1.46
+        % (
+        8.74
         )
       </div>
       <div>
-        <div>
+        <div
+          class="fheif50"
+        >
           <b>
             Confidence
           </b>
           : 
           Low
-           
+           (2.89)
         </div>
         <div
           class="fj8mg7a"
@@ -448,7 +556,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
   data-testid="expanded-row-content"
 >
   <div
-    class="ff20o48"
+    class="f1e1ayr9"
   >
     <div
       class="f19s1n7z"
@@ -515,6 +623,22 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
                 602.04
               </div>
             </div>
+            <div>
+              <b>
+                Mean
+              </b>
+              :
+               
+              595.73
+              ,
+               
+              <b>
+                Median
+              </b>
+              :
+               
+              596.87
+            </div>
             <div
               class="fnujpat"
             >
@@ -574,6 +698,22 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
                 607.27
               </div>
             </div>
+            <div>
+              <b>
+                Mean
+              </b>
+              :
+               
+              605.83
+              ,
+               
+              <b>
+                Median
+              </b>
+              :
+               
+              605.61
+            </div>
             <div
               class="fnujpat"
             >
@@ -623,29 +763,51 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
         </div>
       </div>
       <div
-        class="fc8wfj0"
+        class="fheif50"
       >
         <b>
-          Mean Difference
+          Comparison result
+        </b>
+        : 
+        worse
+         (
+        lower
+         is better)
+      </div>
+      <div
+        class="fheif50"
+      >
+        <b>
+          Difference of means
         </b>
         : 
         1.7
-        %
-         
-        worse
-         (
+        % (
         10.1
-         
+        )
+      </div>
+      <div
+        class="fheif50"
+      >
+        <b>
+          Difference of medians
+        </b>
+        : 
+        1.46
+        % (
+        8.74
         )
       </div>
       <div>
-        <div>
+        <div
+          class="fheif50"
+        >
           <b>
             Confidence
           </b>
           : 
           Low
-           
+           (2.89)
         </div>
         <div
           class="fj8mg7a"
@@ -923,24 +1085,29 @@ exports[`Results View The table should match snapshot and other elements should 
         <button
           aria-haspopup="true"
           aria-label="Platform (Click to filter values)"
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-gsklu7-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >
           Platform
+          <div
+            aria-label="4 items selected"
+            class="MuiBox-root css-18uhbjh"
+          >
+            (
+            4
+            )
+          </div>
           <svg
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-reqpbo-MuiSvgIcon-root"
-            data-testid="FilterListIcon"
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+            data-testid="KeyboardArrowDownIcon"
             focusable="false"
-            role="img"
             viewBox="0 0 24 24"
           >
             <path
-              d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"
+              d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
             />
-            <title>
-              No active filters
-            </title>
           </svg>
           <span
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -970,24 +1137,29 @@ exports[`Results View The table should match snapshot and other elements should 
         <button
           aria-haspopup="true"
           aria-label="Status (Click to filter values)"
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-gsklu7-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >
           Status
+          <div
+            aria-label="3 items selected"
+            class="MuiBox-root css-18uhbjh"
+          >
+            (
+            3
+            )
+          </div>
           <svg
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-reqpbo-MuiSvgIcon-root"
-            data-testid="FilterListIcon"
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+            data-testid="KeyboardArrowDownIcon"
             focusable="false"
-            role="img"
             viewBox="0 0 24 24"
           >
             <path
-              d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"
+              d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
             />
-            <title>
-              No active filters
-            </title>
           </svg>
           <span
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -1007,24 +1179,29 @@ exports[`Results View The table should match snapshot and other elements should 
         <button
           aria-haspopup="true"
           aria-label="Confidence (Click to filter values)"
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-gsklu7-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >
           Confidence
+          <div
+            aria-label="4 items selected"
+            class="MuiBox-root css-18uhbjh"
+          >
+            (
+            4
+            )
+          </div>
           <svg
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-reqpbo-MuiSvgIcon-root"
-            data-testid="FilterListIcon"
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+            data-testid="KeyboardArrowDownIcon"
             focusable="false"
-            role="img"
             viewBox="0 0 24 24"
           >
             <path
-              d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"
+              d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
             />
-            <title>
-              No active filters
-            </title>
           </svg>
           <span
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -1130,7 +1307,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="fcdpsbx"
             >
               <div
-                class="revisionRow f1nwzic9 fp4ugv1 MuiBox-root css-1am90bh"
+                class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
                 role="row"
               >
                 <div
@@ -1354,7 +1531,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1nwzic9 fp4ugv1 MuiBox-root css-1am90bh"
+                class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
                 role="row"
               >
                 <div
@@ -1577,7 +1754,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1nwzic9 fp4ugv1 MuiBox-root css-1am90bh"
+                class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
                 role="row"
               >
                 <div
@@ -1790,7 +1967,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1nwzic9 fp4ugv1 MuiBox-root css-1am90bh"
+                class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
                 role="row"
               >
                 <div

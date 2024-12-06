@@ -102,7 +102,7 @@ function resultMatchesSearchTerm(
 }
 
 function resultMatchesColumnFilter(
-  cellsConfiguration: CompareResultsTableConfig[],
+  cellsConfiguration: CompareResultsTableConfig,
   result: CompareResultsItem,
   columnId: string,
   uncheckedValues: Set<string>,
@@ -114,9 +114,8 @@ function resultMatchesColumnFilter(
     return true;
   }
 
-  const { matchesFunction } = cellConfiguration;
-  for (const filterValue of uncheckedValues) {
-    if (matchesFunction(result, filterValue)) {
+  for (const filterValueKey of uncheckedValues) {
+    if (cellConfiguration.matchesFunction(result, filterValueKey)) {
       return true;
     }
   }
@@ -126,7 +125,7 @@ function resultMatchesColumnFilter(
 // This function filters the results array using both the searchTerm and the
 // tableFilters. The tableFilters is a map ColumnID -> Set of values to remove.
 function filterResults(
-  cellsConfiguration: CompareResultsTableConfig[],
+  cellsConfiguration: CompareResultsTableConfig,
   results: CompareResultsItem[],
   searchTerm: string,
   tableFilters: Map<string, Set<string>>,
@@ -161,7 +160,7 @@ const allRevisionsOption =
   Strings.components.comparisonRevisionDropdown.allRevisions.key;
 
 type Props = {
-  cellsConfiguration: CompareResultsTableConfig[];
+  cellsConfiguration: CompareResultsTableConfig;
   results: CompareResultsItem[][];
   filteringSearchTerm: string;
   tableFilters: Map<string, Set<string>>; // ColumnID -> Set<Values to remove>

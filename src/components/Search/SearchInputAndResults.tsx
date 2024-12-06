@@ -68,9 +68,14 @@ export default function SearchInputAndResults({
 
   const searchRecentRevisions = useCallback(
     async (searchTerm: string) => {
-      const emailMatch = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      const longHashMatch = /\b[a-f0-9]{40}\b/;
-      const shortHashMatch = /\b[a-f0-9]{12}\b/;
+      // The search input must be at least three characters.
+      // If the searchTerm doesn't look like a hash, then we assume it might be an author.
+      // If it looks like a hash, then we assume it's a hash.
+      // NOTE: In the future we might want to be more clever and request both
+      // endpoints even when it looks like a hash. For example a request such as "ade" could
+      // return results for an author named "adenot" _and_  results for a hash "ade821ac".
+      // In that case it would be better to show the results for the author.
+      const authorInfoMatch = /[^0-9a-fA-F]/;
 
       // Reset various states
       setSearchError(null);
@@ -82,17 +87,14 @@ export default function SearchInputAndResults({
       let searchParameters;
       if (!searchTerm) {
         searchParameters = { repository };
-      } else if (emailMatch.test(searchTerm)) {
-        searchParameters = { repository, author: searchTerm };
-      } else if (
-        longHashMatch.test(searchTerm) ||
-        shortHashMatch.test(searchTerm)
-      ) {
-        searchParameters = { repository, hash: searchTerm };
-      } else {
+      } else if (searchTerm.length < 3) {
         setSearchError(Strings.errors.warningText);
         setRecentRevisions(null);
         return;
+      } else if (authorInfoMatch.test(searchTerm)) {
+        searchParameters = { repository, author: searchTerm };
+      } else {
+        searchParameters = { repository, hash: searchTerm };
       }
 
       // Keep the current searchTerm in ref so that we can use it when the

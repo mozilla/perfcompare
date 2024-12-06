@@ -181,7 +181,7 @@ function computeUrlFromSearchTermAndRepository({
   const baseUrl = `${treeherderBaseURL}/api/project/${repository}/push/`;
 
   if (author) {
-    return baseUrl + '?author=' + encodeURIComponent(author);
+    return baseUrl + '?author_contains=' + encodeURIComponent(author);
   }
 
   if (hash) {
