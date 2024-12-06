@@ -983,7 +983,7 @@ exports[`Results Table Should match snapshot 1`] = `
                   </div>
                 </div>
                 <div
-                  class="f1wqnr25 fr2n4tx"
+                  class="f1upmfeo fr2n4tx"
                   data-testid="table-header"
                   role="row"
                 >
@@ -1079,7 +1079,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     class="cell delta-header"
                     role="columnheader"
                   >
-                    Delta(%)
+                    Delta
                   </div>
                   <div
                     class="cell confidence-header"
@@ -1216,7 +1216,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="fcdpsbx"
                         >
                           <div
-                            class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
+                            class="revisionRow f19d5lu7 fp4ugv1 MuiBox-root css-1txhl5e"
                             role="row"
                           >
                             <div
@@ -1440,7 +1440,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
+                            class="revisionRow f19d5lu7 fp4ugv1 MuiBox-root css-1txhl5e"
                             role="row"
                           >
                             <div
@@ -1663,7 +1663,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
+                            class="revisionRow f19d5lu7 fp4ugv1 MuiBox-root css-1txhl5e"
                             role="row"
                           >
                             <div
@@ -1929,7 +1929,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="fcdpsbx"
                         >
                           <div
-                            class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
+                            class="revisionRow f19d5lu7 fp4ugv1 MuiBox-root css-1txhl5e"
                             role="row"
                           >
                             <div
@@ -2210,7 +2210,7 @@ exports[`Results Table should render different blocks when rendering several rev
       spam
     </a>
     <div
-      class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
+      class="revisionRow f19d5lu7 fp4ugv1 MuiBox-root css-1txhl5e"
       role="row"
     >
       <div
@@ -2446,7 +2446,7 @@ exports[`Results Table should render different blocks when rendering several rev
       devilrabbit
     </a>
     <div
-      class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
+      class="revisionRow f19d5lu7 fp4ugv1 MuiBox-root css-1txhl5e"
       role="row"
     >
       <div

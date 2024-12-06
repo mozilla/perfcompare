@@ -77,7 +77,7 @@ const cellsConfiguration: CompareResultsTableConfig = [
     },
   },
   {
-    name: 'Delta(%)',
+    name: 'Delta',
     key: 'delta',
     gridWidth: '1fr',
   },
@@ -86,7 +86,7 @@ const cellsConfiguration: CompareResultsTableConfig = [
     disable: true,
     filter: true,
     key: 'confidence',
-    gridWidth: '1fr',
+    gridWidth: '1.5fr',
     possibleValues: [
       { label: 'No value', key: 'none' },
       { label: 'Low', key: 'low' },
@@ -112,8 +112,9 @@ const cellsConfiguration: CompareResultsTableConfig = [
 
     gridWidth: '1fr',
   },
-  { key: 'buttons', gridWidth: '2fr' },
-  { key: 'expand', gridWidth: '0.2fr' },
+  // We use the real pixel value for the buttons, so that everything is better aligned.
+  { key: 'buttons', gridWidth: `calc(3.5 * 34px)` }, // 2 or 3 buttons, so at least 3*34px, but give more so that it can "breathe"
+  { key: 'expand', gridWidth: '34px' }, // 1 button
 ];
 
 export default function ResultsTable() {

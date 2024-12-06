@@ -50,11 +50,13 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
     expandedRow: style({
       backgroundColor: themeColor200,
       padding: Spacing.Medium,
-      width: '97%',
+      borderRadius: `0px 0px ${Spacing.Small}px ${Spacing.Small}px`,
+      marginInlineEnd: 34 /* This value needs to be synchronized with the expand icon size. */,
     }),
     content: style({
       backgroundColor: contentThemeColor,
       padding: Spacing.Medium,
+      borderRadius: Spacing.xSmall,
     }),
     bottomSpace: style({
       paddingBottom: Spacing.Small,
