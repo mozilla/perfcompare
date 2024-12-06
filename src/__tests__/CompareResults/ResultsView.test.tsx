@@ -51,7 +51,7 @@ describe('Results View', () => {
     const user = userEvent.setup({ delay: null });
     renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
 
-    const header = await screen.findByText('Results');
+    const header = await screen.findByTestId('results-title-component');
 
     expect(header).toBeInTheDocument();
 

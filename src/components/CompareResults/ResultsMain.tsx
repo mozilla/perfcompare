@@ -18,6 +18,7 @@ import { truncateHash } from '../../utils/helpers';
 import type { LoaderReturnValue } from './loader';
 import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeLoader';
 import ResultsTable from './ResultsTable';
+import { ResultsTitle } from './ResultsTitle';
 
 function getPunctuationMark(index: number, newRevs: string[]) {
   return index != newRevs.length - 1 ? ', ' : '.';
@@ -36,6 +37,7 @@ function ResultsMain() {
   const { view } = useLoaderData() as
     | LoaderReturnValue
     | OverTimeLoaderReturnValue;
+
   const styles = {
     alert: style({
       width: '100%',
@@ -44,12 +46,6 @@ function ResultsMain() {
       backgroundColor: themeColor100,
       margin: '0 auto',
       marginBottom: '80px',
-    }),
-    title: style({
-      ...FontsRaw.HeadingXS,
-      fontWeight: 700,
-      letterSpacing: '-0.01em',
-      margin: 0,
     }),
     subtitle: style({
       ...FontsRaw.BodyDefault,
@@ -96,8 +92,8 @@ function ResultsMain() {
     <Container className={styles.container} data-testid='results-main'>
       <header>
         <Grid container className={styles.titleContainer} component='h2'>
-          <Grid item className={styles.title}>
-            Results
+          <Grid item>
+            <ResultsTitle mode={themeMode} />
           </Grid>
           <Grid item className={styles.subtitle}>
             {subtitles[view]}
@@ -121,5 +117,4 @@ function ResultsMain() {
     </Container>
   );
 }
-
 export default ResultsMain;
