@@ -136,9 +136,19 @@ function FilterableColumn({
 
 type TableHeaderProps = {
   cellsConfiguration: CompareResultsTableConfig;
+
+  // Filter properties
   filters: Map<string, Set<string>>;
   onToggleFilter: (columnId: string, filters: Set<string>) => unknown;
   onClearFilter: (columnId: string) => unknown;
+
+  // Sort properties
+  sortColumn: null | string;
+  sortDirection: 'asc' | 'desc' | null;
+  onToggleSort: (
+    columnId: string,
+    sortDirection: TableHeaderProps['sortDirection'],
+  ) => void;
 };
 
 function TableHeader({
