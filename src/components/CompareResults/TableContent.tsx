@@ -110,7 +110,7 @@ function resultMatchesColumnFilter(
   const cellConfiguration = cellsConfiguration.find(
     (cell) => cell.key === columnId,
   );
-  if (!cellConfiguration || !cellConfiguration.filter) {
+  if (!cellConfiguration || !('filter' in cellConfiguration)) {
     return true;
   }
 

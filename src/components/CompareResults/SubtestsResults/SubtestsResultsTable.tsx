@@ -3,6 +3,7 @@ import { useMemo } from 'react';
 import Box from '@mui/material/Box';
 
 import useTableFilters from '../../../hooks/useTableFilters';
+import useTableSort from '../../../hooks/useTableSort';
 import type { CompareResultsItem } from '../../../types/state';
 import type { CompareResultsTableConfig } from '../../../types/types';
 import NoResultsFound from '.././NoResultsFound';
@@ -65,7 +66,6 @@ const cellsConfiguration: CompareResultsTableConfig = [
   },
   {
     name: 'Status',
-    disable: true,
     filter: true,
     key: 'status',
     gridWidth: '1.5fr',
@@ -89,10 +89,12 @@ const cellsConfiguration: CompareResultsTableConfig = [
     name: 'Delta',
     key: 'delta',
     gridWidth: '1fr',
+    sortFunction(resultA, resultB) {
+      return resultA.delta_percentage - resultB.delta_percentage;
+    },
   },
   {
     name: 'Confidence',
-    disable: true,
     filter: true,
     key: 'confidence',
     gridWidth: '1.5fr',
@@ -113,6 +115,9 @@ const cellsConfiguration: CompareResultsTableConfig = [
           return result.confidence_text === label;
         }
       }
+    },
+    sortFunction(resultA, resultB) {
+      return (resultA.confidence || 0) - (resultB.confidence || 0);
     },
   },
   { name: 'Total Runs', key: 'runs', gridWidth: '1fr' },
@@ -136,7 +141,7 @@ function resultMatchesColumnFilter(
   const cellConfiguration = cellsConfiguration.find(
     (cell) => cell.key === columnId,
   );
-  if (!cellConfiguration || !cellConfiguration.filter) {
+  if (!cellConfiguration || !('filter' in cellConfiguration)) {
     return true;
   }
 
@@ -187,6 +192,7 @@ function SubtestsResultsTable({
   // and provides methods for clearing and toggling them.
   const { tableFilters, onClearFilter, onToggleFilter } =
     useTableFilters(cellsConfiguration);
+  const { sortColumn, sortDirection, onToggleSort } = useTableSort();
 
   const processedResults = useMemo(() => {
     const filteredResults = filterResults(
@@ -213,6 +219,9 @@ function SubtestsResultsTable({
         filters={tableFilters}
         onToggleFilter={onToggleFilter}
         onClearFilter={onClearFilter}
+        sortColumn={sortColumn}
+        sortDirection={sortDirection}
+        onToggleSort={onToggleSort}
       />
       {processedResults.map((res) => (
         <SubtestsTableContent

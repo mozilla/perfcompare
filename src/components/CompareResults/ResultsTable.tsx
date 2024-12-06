@@ -20,7 +20,6 @@ import TableHeader from './TableHeader';
 const cellsConfiguration: CompareResultsTableConfig = [
   {
     name: 'Platform',
-    disable: true,
     filter: true,
     key: 'platform',
     gridWidth: '2fr',
@@ -36,6 +35,11 @@ const cellsConfiguration: CompareResultsTableConfig = [
       )?.label;
       const platformName = getPlatformShortName(result.platform);
       return platformName === label;
+    },
+    sortFunction(resultA, resultB) {
+      const platformA = getPlatformShortName(resultA.platform);
+      const platformB = getPlatformShortName(resultB.platform);
+      return platformA.localeCompare(platformB);
     },
   },
   {
@@ -56,7 +60,6 @@ const cellsConfiguration: CompareResultsTableConfig = [
   },
   {
     name: 'Status',
-    disable: true,
     filter: true,
     key: 'status',
     gridWidth: '1.5fr',
@@ -80,10 +83,12 @@ const cellsConfiguration: CompareResultsTableConfig = [
     name: 'Delta',
     key: 'delta',
     gridWidth: '1fr',
+    sortFunction(resultA, resultB) {
+      return resultA.delta_percentage - resultB.delta_percentage;
+    },
   },
   {
     name: 'Confidence',
-    disable: true,
     filter: true,
     key: 'confidence',
     gridWidth: '1.5fr',
@@ -104,6 +109,9 @@ const cellsConfiguration: CompareResultsTableConfig = [
           return result.confidence_text === label;
         }
       }
+    },
+    sortFunction(resultA, resultB) {
+      return (resultA.confidence || 0) - (resultB.confidence || 0);
     },
   },
   {
@@ -181,6 +189,9 @@ export default function ResultsTable() {
           filters={tableFilters}
           onToggleFilter={onToggleFilter}
           onClearFilter={onClearFilter}
+          sortDirection={null}
+          sortColumn={null}
+          onToggleSort={() => {}}
         />
       </Box>
       {/* Using a key in Suspense makes it that it displays the fallback more
