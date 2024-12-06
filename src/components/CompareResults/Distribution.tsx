@@ -38,6 +38,8 @@ function Distribution(props: DistributionProps) {
     new_runs_replicates: newRunsReplicates,
     base_app: baseApplication,
     new_app: newApplication,
+    base_avg_value: baseAvg,
+    new_avg_value: newAvg,
     base_median_value: baseMedian,
     new_median_value: newMedian,
     base_stddev: baseStddev,
@@ -50,6 +52,7 @@ function Distribution(props: DistributionProps) {
 
   const baseRevisionRuns = {
     name: 'Base',
+    avg: baseAvg,
     median: baseMedian,
     values:
       baseRunsReplicates && baseRunsReplicates.length
@@ -63,6 +66,7 @@ function Distribution(props: DistributionProps) {
 
   const newRevisionRuns = {
     name: 'New',
+    avg: newAvg,
     median: newMedian,
     values:
       newRunsReplicates && newRunsReplicates.length
