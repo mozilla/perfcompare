@@ -82,6 +82,7 @@ export type CompareResultsItem = {
   base_stddev_pct: number;
   new_stddev_pct: number;
   new_is_better: boolean;
+  lower_is_better: boolean;
   confidence: number | null;
   confidence_text: ConfidenceText | null;
   delta_value: number;

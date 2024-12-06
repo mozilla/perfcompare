@@ -73,6 +73,22 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
                 602.04
               </div>
             </div>
+            <div>
+              <b>
+                Mean
+              </b>
+              :
+               
+              595.73
+              ,
+               
+              <b>
+                Median
+              </b>
+              :
+               
+              596.87
+            </div>
             <div
               class="fnujpat"
             >
@@ -132,6 +148,22 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
                 607.27
               </div>
             </div>
+            <div>
+              <b>
+                Mean
+              </b>
+              :
+               
+              605.83
+              ,
+               
+              <b>
+                Median
+              </b>
+              :
+               
+              605.61
+            </div>
             <div
               class="fnujpat"
             >
@@ -181,29 +213,51 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
         </div>
       </div>
       <div
-        class="fc8wfj0"
+        class="fheif50"
       >
         <b>
-          Mean Difference
+          Comparison result
+        </b>
+        : 
+        worse
+         (
+        lower
+         is better)
+      </div>
+      <div
+        class="fheif50"
+      >
+        <b>
+          Difference of means
         </b>
         : 
         1.7
-        %
-         
-        worse
-         (
+        % (
         10.1
-         
+        )
+      </div>
+      <div
+        class="fheif50"
+      >
+        <b>
+          Difference of medians
+        </b>
+        : 
+        1.46
+        % (
+        8.74
         )
       </div>
       <div>
-        <div>
+        <div
+          class="fheif50"
+        >
           <b>
             Confidence
           </b>
           : 
           Low
-           
+           (2.89)
         </div>
         <div
           class="fj8mg7a"
@@ -294,6 +348,22 @@ exports[`Results View Should display Base, New and Common graphs with replicates
                 602.04
               </div>
             </div>
+            <div>
+              <b>
+                Mean
+              </b>
+              :
+               
+              595.73
+              ,
+               
+              <b>
+                Median
+              </b>
+              :
+               
+              596.87
+            </div>
             <div
               class="fnujpat"
             >
@@ -353,6 +423,22 @@ exports[`Results View Should display Base, New and Common graphs with replicates
                 607.27
               </div>
             </div>
+            <div>
+              <b>
+                Mean
+              </b>
+              :
+               
+              605.83
+              ,
+               
+              <b>
+                Median
+              </b>
+              :
+               
+              605.61
+            </div>
             <div
               class="fnujpat"
             >
@@ -402,29 +488,51 @@ exports[`Results View Should display Base, New and Common graphs with replicates
         </div>
       </div>
       <div
-        class="fc8wfj0"
+        class="fheif50"
       >
         <b>
-          Mean Difference
+          Comparison result
+        </b>
+        : 
+        worse
+         (
+        lower
+         is better)
+      </div>
+      <div
+        class="fheif50"
+      >
+        <b>
+          Difference of means
         </b>
         : 
         1.7
-        %
-         
-        worse
-         (
+        % (
         10.1
-         
+        )
+      </div>
+      <div
+        class="fheif50"
+      >
+        <b>
+          Difference of medians
+        </b>
+        : 
+        1.46
+        % (
+        8.74
         )
       </div>
       <div>
-        <div>
+        <div
+          class="fheif50"
+        >
           <b>
             Confidence
           </b>
           : 
           Low
-           
+           (2.89)
         </div>
         <div
           class="fj8mg7a"
@@ -515,6 +623,22 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
                 602.04
               </div>
             </div>
+            <div>
+              <b>
+                Mean
+              </b>
+              :
+               
+              595.73
+              ,
+               
+              <b>
+                Median
+              </b>
+              :
+               
+              596.87
+            </div>
             <div
               class="fnujpat"
             >
@@ -574,6 +698,22 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
                 607.27
               </div>
             </div>
+            <div>
+              <b>
+                Mean
+              </b>
+              :
+               
+              605.83
+              ,
+               
+              <b>
+                Median
+              </b>
+              :
+               
+              605.61
+            </div>
             <div
               class="fnujpat"
             >
@@ -623,29 +763,51 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
         </div>
       </div>
       <div
-        class="fc8wfj0"
+        class="fheif50"
       >
         <b>
-          Mean Difference
+          Comparison result
+        </b>
+        : 
+        worse
+         (
+        lower
+         is better)
+      </div>
+      <div
+        class="fheif50"
+      >
+        <b>
+          Difference of means
         </b>
         : 
         1.7
-        %
-         
-        worse
-         (
+        % (
         10.1
-         
+        )
+      </div>
+      <div
+        class="fheif50"
+      >
+        <b>
+          Difference of medians
+        </b>
+        : 
+        1.46
+        % (
+        8.74
         )
       </div>
       <div>
-        <div>
+        <div
+          class="fheif50"
+        >
           <b>
             Confidence
           </b>
           : 
           Low
-           
+           (2.89)
         </div>
         <div
           class="fj8mg7a"

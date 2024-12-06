@@ -323,9 +323,9 @@ function RevisionRow(props: RevisionRowProps) {
   const { result, view, gridTemplateColumns } = props;
   const {
     platform,
-    base_median_value: baseMedianValue,
+    base_avg_value: baseAvgValue,
     base_measurement_unit: baseUnit,
-    new_median_value: newMedianValue,
+    new_avg_value: newAvgValue,
     new_measurement_unit: newUnit,
     is_improvement: improvement,
     is_regression: regression,
@@ -372,14 +372,14 @@ function RevisionRow(props: RevisionRowProps) {
         </div>
         <div className='base-value cell' role='cell'>
           {' '}
-          {baseMedianValue} {baseUnit}{' '}
+          {baseAvgValue} {baseUnit}{' '}
         </div>
         <div className='comparison-sign cell' role='cell'>
-          {determineSign(baseMedianValue, newMedianValue)}
+          {determineSign(baseAvgValue, newAvgValue)}
         </div>
         <div className='new-value cell' role='cell'>
           {' '}
-          {newMedianValue} {newUnit}
+          {newAvgValue} {newUnit}
         </div>
         <div className='status cell' role='cell'>
           <span
