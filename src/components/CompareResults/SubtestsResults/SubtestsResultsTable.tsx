@@ -3,6 +3,7 @@ import { useMemo } from 'react';
 import Box from '@mui/material/Box';
 
 import useTableFilters from '../../../hooks/useTableFilters';
+import useTableSort from '../../../hooks/useTableSort';
 import type { CompareResultsItem } from '../../../types/state';
 import type { CompareResultsTableConfig } from '../../../types/types';
 import NoResultsFound from '.././NoResultsFound';
@@ -191,6 +192,7 @@ function SubtestsResultsTable({
   // and provides methods for clearing and toggling them.
   const { tableFilters, onClearFilter, onToggleFilter } =
     useTableFilters(cellsConfiguration);
+  const { sortColumn, sortDirection, onToggleSort } = useTableSort();
 
   const processedResults = useMemo(() => {
     const filteredResults = filterResults(
@@ -217,6 +219,9 @@ function SubtestsResultsTable({
         filters={tableFilters}
         onToggleFilter={onToggleFilter}
         onClearFilter={onClearFilter}
+        sortColumn={sortColumn}
+        sortDirection={sortDirection}
+        onToggleSort={onToggleSort}
       />
       {processedResults.map((res) => (
         <SubtestsTableContent

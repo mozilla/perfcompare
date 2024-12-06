@@ -137,7 +137,7 @@ function FilterableColumn({
 type SortableColumnProps = {
   name: string;
   sortDirection: 'asc' | 'desc' | null;
-  onToggle: (sortDirection: SortableColumnProps['sortDirection']) => unknown;
+  onToggle: (sortDirection: SortableColumnProps['sortDirection']) => void;
 };
 
 function SortableColumn({
@@ -216,9 +216,19 @@ function SortableColumn({
 
 type TableHeaderProps = {
   cellsConfiguration: CompareResultsTableConfig;
+
+  // Filter properties
   filters: Map<string, Set<string>>;
   onToggleFilter: (columnId: string, filters: Set<string>) => unknown;
   onClearFilter: (columnId: string) => unknown;
+
+  // Sort properties
+  sortColumn: null | string;
+  sortDirection: SortableColumnProps['sortDirection'];
+  onToggleSort: (
+    columnId: string,
+    sortDirection: TableHeaderProps['sortDirection'],
+  ) => void;
 };
 
 function TableHeader({
@@ -226,6 +236,9 @@ function TableHeader({
   filters,
   onToggleFilter,
   onClearFilter,
+  sortColumn,
+  sortDirection,
+  onToggleSort,
 }: TableHeaderProps) {
   const themeMode = useAppSelector((state) => state.theme.mode);
   const styles = {
@@ -290,11 +303,9 @@ function TableHeader({
       return (
         <SortableColumn
           name={header.name}
-          sortDirection={null}
-          onToggle={
-            (/*sortDirection*/) => {
-              /* TODO */
-            }
+          sortDirection={header.key === sortColumn ? sortDirection : null}
+          onToggle={(newSortDirection) =>
+            onToggleSort(header.key, newSortDirection)
           }
         />
       );
