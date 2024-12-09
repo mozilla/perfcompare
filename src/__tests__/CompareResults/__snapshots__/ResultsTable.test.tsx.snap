@@ -1240,7 +1240,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                   />
                                 </svg>
                                 <span>
-                                  OSX
+                                  OSX 1015
                                 </span>
                               </div>
                             </div>
@@ -1463,7 +1463,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                   />
                                 </svg>
                                 <span>
-                                  Linux
+                                  Linux 1804
                                 </span>
                               </div>
                             </div>
@@ -1687,7 +1687,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                    
                                 </svg>
                                 <span>
-                                  Windows
+                                  Windows 10
                                 </span>
                               </div>
                             </div>
@@ -1953,7 +1953,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                    
                                 </svg>
                                 <span>
-                                  Windows
+                                  Windows 10
                                 </span>
                               </div>
                             </div>
@@ -2234,7 +2234,7 @@ exports[`Results Table should render different blocks when rendering several rev
             />
           </svg>
           <span>
-            OSX
+            OSX 1015
           </span>
         </div>
       </div>
@@ -2470,7 +2470,7 @@ exports[`Results Table should render different blocks when rendering several rev
             />
           </svg>
           <span>
-            OSX
+            OSX 1015
           </span>
         </div>
       </div>
