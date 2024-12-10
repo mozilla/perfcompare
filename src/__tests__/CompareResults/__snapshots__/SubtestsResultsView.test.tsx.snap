@@ -411,7 +411,31 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="cell subtests-header"
                   role="columnheader"
                 >
-                  Subtests
+                  <button
+                    aria-label="Subtests (Click to sort by this column)"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <svg
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+                      data-testid="SwapVertIcon"
+                      focusable="false"
+                      role="img"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
+                      />
+                      <title>
+                        Not sorted by Subtests
+                      </title>
+                    </svg>
+                    Subtests
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <div
                   class="cell base-header"
@@ -726,14 +750,14 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="subtests cell"
                   role="cell"
                 >
-                  tablemutation.html
+                  improvement.html
                 </div>
                 <div
                   class="base-value cell"
                   role="cell"
                 >
                    
-                  316.35
+                  971.38
                    
                   ms
                    
@@ -749,7 +773,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                    
-                  319.45
+                  982.41
                    
                   ms
                 </div>
@@ -758,9 +782,20 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                   <div
-                    class="status-hint  MuiBox-root css-1dj4wrv"
+                    class="status-hint status-hint-improvement MuiBox-root css-1h9ue86"
                   >
-                    -
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-colorSuccess MuiSvgIcon-fontSizeMedium css-116ao24-MuiSvgIcon-root"
+                      data-testid="ThumbUpIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"
+                      />
+                    </svg>
+                    Improvement
                   </div>
                 </div>
                 <div
@@ -768,7 +803,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                    
-                  0.98
+                  1.14
                    %
                    
                 </div>
@@ -826,7 +861,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                     >
                       <a
                         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
-                        href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2Ccc1b54585c7d1baaadf9d23164e2ad31c9cb07a3%2C1%2C1&timerange=604800"
+                        href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2C5c47b31c38f7214a07fad2e0d41fb901cdc18eae%2C1%2C1&timerange=604800"
                         tabindex="0"
                         target="_blank"
                         title="open the evolution graph for this job in treeherder"
@@ -1053,14 +1088,14 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="subtests cell"
                   role="cell"
                 >
-                  improvement.html
+                  tablemutation.html
                 </div>
                 <div
                   class="base-value cell"
                   role="cell"
                 >
                    
-                  971.38
+                  316.35
                    
                   ms
                    
@@ -1076,7 +1111,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                    
-                  982.41
+                  319.45
                    
                   ms
                 </div>
@@ -1085,20 +1120,9 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                   <div
-                    class="status-hint status-hint-improvement MuiBox-root css-1h9ue86"
+                    class="status-hint  MuiBox-root css-1dj4wrv"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorSuccess MuiSvgIcon-fontSizeMedium css-116ao24-MuiSvgIcon-root"
-                      data-testid="ThumbUpIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"
-                      />
-                    </svg>
-                    Improvement
+                    -
                   </div>
                 </div>
                 <div
@@ -1106,7 +1130,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                    
-                  1.14
+                  0.98
                    %
                    
                 </div>
@@ -1164,7 +1188,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                     >
                       <a
                         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
-                        href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2C5c47b31c38f7214a07fad2e0d41fb901cdc18eae%2C1%2C1&timerange=604800"
+                        href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2Ccc1b54585c7d1baaadf9d23164e2ad31c9cb07a3%2C1%2C1&timerange=604800"
                         tabindex="0"
                         target="_blank"
                         title="open the evolution graph for this job in treeherder"
@@ -1627,7 +1651,31 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="cell subtests-header"
                   role="columnheader"
                 >
-                  Subtests
+                  <button
+                    aria-label="Subtests (Click to sort by this column)"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <svg
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+                      data-testid="SwapVertIcon"
+                      focusable="false"
+                      role="img"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
+                      />
+                      <title>
+                        Not sorted by Subtests
+                      </title>
+                    </svg>
+                    Subtests
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <div
                   class="cell base-header"
@@ -1942,14 +1990,14 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="subtests cell"
                   role="cell"
                 >
-                  tablemutation.html
+                  improvement.html
                 </div>
                 <div
                   class="base-value cell"
                   role="cell"
                 >
                    
-                  316.35
+                  971.38
                    
                   ms
                    
@@ -1965,7 +2013,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                    
-                  319.45
+                  982.41
                    
                   ms
                 </div>
@@ -1974,9 +2022,20 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                   <div
-                    class="status-hint  MuiBox-root css-1dj4wrv"
+                    class="status-hint status-hint-improvement MuiBox-root css-1h9ue86"
                   >
-                    -
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-colorSuccess MuiSvgIcon-fontSizeMedium css-116ao24-MuiSvgIcon-root"
+                      data-testid="ThumbUpIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"
+                      />
+                    </svg>
+                    Improvement
                   </div>
                 </div>
                 <div
@@ -1984,7 +2043,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                    
-                  0.98
+                  1.14
                    %
                    
                 </div>
@@ -2042,7 +2101,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                     >
                       <a
                         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
-                        href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2Ccc1b54585c7d1baaadf9d23164e2ad31c9cb07a3%2C1%2C1&timerange=604800"
+                        href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2C5c47b31c38f7214a07fad2e0d41fb901cdc18eae%2C1%2C1&timerange=604800"
                         tabindex="0"
                         target="_blank"
                         title="open the evolution graph for this job in treeherder"
@@ -2269,14 +2328,14 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="subtests cell"
                   role="cell"
                 >
-                  improvement.html
+                  tablemutation.html
                 </div>
                 <div
                   class="base-value cell"
                   role="cell"
                 >
                    
-                  971.38
+                  316.35
                    
                   ms
                    
@@ -2292,7 +2351,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                    
-                  982.41
+                  319.45
                    
                   ms
                 </div>
@@ -2301,20 +2360,9 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                   <div
-                    class="status-hint status-hint-improvement MuiBox-root css-1h9ue86"
+                    class="status-hint  MuiBox-root css-1dj4wrv"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorSuccess MuiSvgIcon-fontSizeMedium css-116ao24-MuiSvgIcon-root"
-                      data-testid="ThumbUpIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"
-                      />
-                    </svg>
-                    Improvement
+                    -
                   </div>
                 </div>
                 <div
@@ -2322,7 +2370,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                    
-                  1.14
+                  0.98
                    %
                    
                 </div>
@@ -2380,7 +2428,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                     >
                       <a
                         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
-                        href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2C5c47b31c38f7214a07fad2e0d41fb901cdc18eae%2C1%2C1&timerange=604800"
+                        href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2Ccc1b54585c7d1baaadf9d23164e2ad31c9cb07a3%2C1%2C1&timerange=604800"
                         tabindex="0"
                         target="_blank"
                         title="open the evolution graph for this job in treeherder"
