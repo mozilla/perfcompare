@@ -181,7 +181,6 @@ const stylesDark = {
       },
       '.status-hint-improvement': {
         backgroundColor: '#004725',
-        marginTop: '2px',
       },
       '.status-hint-regression': {
         backgroundColor: '#690F22',

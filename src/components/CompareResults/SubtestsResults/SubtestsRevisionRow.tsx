@@ -36,6 +36,7 @@ function getStyles(themeMode: string) {
     themeMode === 'light' ? Colors.Background200 : Colors.Background200Dark;
   const backgroundColorExpandButton =
     themeMode === 'light' ? Colors.Background300 : Colors.Background100Dark;
+
   return {
     revisionRow: style({
       ...revisionsRow,
@@ -76,22 +77,17 @@ function getStyles(themeMode: string) {
           borderRadius: '4px',
           padding: '4px 10px',
         },
-        '.status-hint-improvement': {
-          backgroundColor: '#D8EEDC',
-        },
-        '.status-hint-regression': {
-          backgroundColor: '#FFE8E8',
-        },
+
         '.status-hint .MuiSvgIcon-root': {
           height: '16px',
         },
         '.status-hint-improvement .MuiSvgIcon-root': {
-          color: '#017A40',
+          color: '#4DBC87',
         },
         '.status-hint-regression .MuiSvgIcon-root': {
           // We need to move the icon a bit lower so that it _looks_ centered.
           marginTop: '2px',
-          color: '#D7264C',
+          color: '#F37F98',
         },
       },
     }),
@@ -181,8 +177,8 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
               regression,
             )}`}
           >
-            {improvement ? <ThumbUpIcon /> : null}
-            {regression ? <ThumbDownIcon /> : null}
+            {improvement ? <ThumbUpIcon color='success' /> : null}
+            {regression ? <ThumbDownIcon color='success' /> : null}
             {determineStatus(improvement, regression)}
           </span>
         </div>
