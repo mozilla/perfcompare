@@ -7,6 +7,9 @@ import { Container } from '@mui/system';
 import { useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
 
+import type { LoaderReturnValue } from './loader';
+import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeLoader';
+import ResultsTable from './ResultsTable';
 import { compareView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import {
@@ -15,9 +18,6 @@ import {
 } from '../../logic/treeherder';
 import { Colors, FontsRaw, Spacing } from '../../styles';
 import { truncateHash } from '../../utils/helpers';
-import type { LoaderReturnValue } from './loader';
-import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeLoader';
-import ResultsTable from './ResultsTable';
 
 function getPunctuationMark(index: number, newRevs: string[]) {
   return index != newRevs.length - 1 ? ', ' : '.';

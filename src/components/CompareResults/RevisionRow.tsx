@@ -13,6 +13,8 @@ import { IconButton, Box } from '@mui/material';
 import Tooltip from '@mui/material/Tooltip';
 import { style } from 'typestyle';
 
+import RetriggerButton from './Retrigger/RetriggerButton';
+import RevisionRowExpandable from './RevisionRowExpandable';
 import { compareView, compareOverTimeView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
@@ -26,8 +28,6 @@ import AndroidIcon from '../Shared/Icons/AndroidIcon';
 import LinuxIcon from '../Shared/Icons/LinuxIcon';
 import SubtestsIcon from '../Shared/Icons/SubtestsIcon';
 import WindowsIcon from '../Shared/Icons/WindowsIcon';
-import RetriggerButton from './Retrigger/RetriggerButton';
-import RevisionRowExpandable from './RevisionRowExpandable';
 
 const revisionsRow = {
   borderRadius: '4px 0px 0px 4px',

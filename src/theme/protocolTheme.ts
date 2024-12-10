@@ -3,9 +3,9 @@
 import { createTheme, Theme } from '@mui/material/styles';
 
 import { Colors } from '../styles';
-import type { ThemeMode } from '../types/state';
 import components from './components';
 import typography from './typography';
+import type { ThemeMode } from '../types/state';
 
 const lightMode = {
   background: {

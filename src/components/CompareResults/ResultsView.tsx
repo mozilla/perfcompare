@@ -4,13 +4,13 @@ import Grid from '@mui/material/Grid';
 import { useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
 
+import type { LoaderReturnValue } from './loader';
+import ResultsMain from './ResultsMain';
 import { useAppSelector } from '../../hooks/app';
 import { SearchContainerStyles, background } from '../../styles';
 import CompareWithBase from '../Search/CompareWithBase';
 import { LinkToHome } from '../Shared/LinkToHome';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
-import type { LoaderReturnValue } from './loader';
-import ResultsMain from './ResultsMain';
 
 interface ResultsViewProps {
   title: string;

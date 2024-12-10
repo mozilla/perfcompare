@@ -53,7 +53,7 @@ function TimeRangeDropdown({
     }),
   };
 
-  const handleTimeRangeSelect = async (event: SelectChangeEvent) => {
+  const handleTimeRangeSelect = (event: SelectChangeEvent) => {
     const value = +event.target.value as TimeRange['value'];
     onChange(value);
   };

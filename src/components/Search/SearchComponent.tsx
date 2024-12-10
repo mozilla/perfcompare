@@ -3,13 +3,13 @@ import Grid from '@mui/material/Grid';
 import InputLabel from '@mui/material/InputLabel';
 import Tooltip from '@mui/material/Tooltip';
 
+import SearchDropdown from './SearchDropdown';
+import SearchInputAndResults from './SearchInputAndResults';
+import SelectedRevisions from './SelectedRevisions';
 import { compareView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { SearchStyles } from '../../styles';
 import type { Changeset, InputType, Repository } from '../../types/state';
-import SearchDropdown from './SearchDropdown';
-import SearchInputAndResults from './SearchInputAndResults';
-import SelectedRevisions from './SelectedRevisions';
 
 interface SearchProps {
   hasEditButton: boolean;

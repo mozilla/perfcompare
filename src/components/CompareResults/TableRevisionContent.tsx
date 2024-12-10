@@ -1,11 +1,11 @@
 import { style } from 'typestyle';
 
-import type { compareView, compareOverTimeView } from '../../common/constants';
-import { Spacing } from '../../styles';
-import type { CompareResultsItem } from '../../types/state';
 import LinkToRevision from './LinkToRevision';
 import RevisionRow from './RevisionRow';
 import TestHeader from './TestHeader';
+import type { compareView, compareOverTimeView } from '../../common/constants';
+import { Spacing } from '../../styles';
+import type { CompareResultsItem } from '../../types/state';
 
 // We're using typestyle styles on purpose, to avoid the performance impact of
 // MUI's sx prop for these numerous elements.

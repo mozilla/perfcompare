@@ -1,8 +1,8 @@
 import { style } from 'typestyle';
 
+import GraphDistribution from './GraphDistribution';
 import { Spacing } from '../../styles';
 import { MeasurementUnit } from '../../types/types';
-import GraphDistribution from './GraphDistribution';
 
 const styles = {
   container: style({

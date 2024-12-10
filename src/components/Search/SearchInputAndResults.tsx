@@ -2,12 +2,12 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 
 import Box from '@mui/material/Box';
 
+import SearchInput from './SearchInput';
+import SearchResultsList from './SearchResultsList';
 import { fetchRecentRevisions } from '../../logic/treeherder';
 import { Strings } from '../../resources/Strings';
 import type { Changeset, Repository } from '../../types/state';
 import { simpleDebounce } from '../../utils/simple-debounce';
-import SearchInput from './SearchInput';
-import SearchResultsList from './SearchResultsList';
 
 interface Props {
   compact: boolean;

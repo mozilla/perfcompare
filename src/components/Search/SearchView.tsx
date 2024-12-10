@@ -2,12 +2,12 @@ import { useRef, useEffect } from 'react';
 
 import { style } from 'typestyle';
 
+import SearchContainer from './SearchContainer';
 import { useAppSelector } from '../../hooks/app';
 import { background } from '../../styles';
 import { skipLink } from '../../styles';
 import SkipLink from '../Accessibility/SkipLink';
 import PerfCompareHeader from '../Shared/PerfCompareHeader';
-import SearchContainer from './SearchContainer';
 
 function SearchView(props: SearchViewProps) {
   const containerRef = useRef(null);

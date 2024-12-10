@@ -30,7 +30,7 @@ function SearchDropdown({
   const size = compact ? 'small' : undefined;
   const mode = useAppSelector((state) => state.theme.mode);
 
-  const handleRepoSelect = async (event: SelectChangeEvent) => {
+  const handleRepoSelect = (event: SelectChangeEvent) => {
     const selectedRepository = event.target.value as Repository['name'];
     onChange(selectedRepository);
   };

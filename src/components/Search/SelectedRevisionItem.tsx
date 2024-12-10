@@ -12,6 +12,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 
+import DateTimeDisplay from './DateTimeDisplay';
 import { repoMap } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
@@ -22,7 +23,6 @@ import {
   getLatestCommitMessage,
   getTreeherderURL,
 } from '../../utils/helpers';
-import DateTimeDisplay from './DateTimeDisplay';
 
 const base = Strings.components.searchDefault.base;
 const warning = base.collapsed.warnings.comparison;

@@ -3,10 +3,10 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
+import ToggleDarkMode from './ToggleDarkModeButton';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { HeaderStyles } from '../../styles';
-import ToggleDarkMode from './ToggleDarkModeButton';
 
 interface PerfCompareHeaderProps {
   isHome?: boolean;

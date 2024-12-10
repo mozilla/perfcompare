@@ -6,6 +6,10 @@ import Typography from '@mui/material/Typography';
 import { Box } from '@mui/system';
 import { style } from 'typestyle';
 
+import SearchDropdown from './SearchDropdown';
+import SearchInputAndResults from './SearchInputAndResults';
+import SelectedRevisions from './SelectedRevisions';
+import TimeRangeDropdown from './TimeRangeDropdown';
 import { compareOverTimeView, timeRanges } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
@@ -19,10 +23,6 @@ import {
 import { Changeset, Repository } from '../../types/state';
 import { TimeRange } from '../../types/types';
 import { formatDateRange } from '../../utils/format';
-import SearchDropdown from './SearchDropdown';
-import SearchInputAndResults from './SearchInputAndResults';
-import SelectedRevisions from './SelectedRevisions';
-import TimeRangeDropdown from './TimeRangeDropdown';
 
 interface SearchProps {
   hasEditButton: boolean;
