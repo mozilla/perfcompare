@@ -497,11 +497,25 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 >
                   <button
                     aria-haspopup="true"
-                    aria-label="Confidence (Click to filter values)"
+                    aria-label="Confidence (Click to filter and sort values)"
                     class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
+                    <svg
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+                      data-testid="SwapVertIcon"
+                      focusable="false"
+                      role="img"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
+                      />
+                      <title>
+                        Not sorted by Confidence
+                      </title>
+                    </svg>
                     Confidence
                     <div
                       aria-label="4 items selected"
@@ -1695,11 +1709,25 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 >
                   <button
                     aria-haspopup="true"
-                    aria-label="Confidence (Click to filter values)"
+                    aria-label="Confidence (Click to filter and sort values)"
                     class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
+                    <svg
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+                      data-testid="SwapVertIcon"
+                      focusable="false"
+                      role="img"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
+                      />
+                      <title>
+                        Not sorted by Confidence
+                      </title>
+                    </svg>
                     Confidence
                     <div
                       aria-label="4 items selected"
