@@ -1,6 +1,6 @@
-import CheckIcon from '@mui/icons-material/Check';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Button from '@mui/material/Button';
+import Checkbox from '@mui/material/Checkbox';
 import Divider from '@mui/material/Divider';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -120,8 +120,7 @@ function FilterableColumn({
               }`}
               onClick={() => onClickFilter(possibleValue.key)}
             >
-              {isChecked ? <CheckIcon fontSize='small' /> : null}
-              {possibleValue.label}
+              <Checkbox checked={isChecked} /> {possibleValue.label}
             </MenuItem>
           );
         })}
