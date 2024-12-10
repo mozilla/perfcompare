@@ -53,7 +53,7 @@ function ToggleDarkMode() {
           labelPlacement='start'
           control={
             <Switch
-              checked={theme == 'dark' ?? true}
+              checked={theme == 'dark'}
               onChange={toggleColorMode}
               className='toggle-switch toggle-dark-mode'
               name='toggle-dark-mode'
