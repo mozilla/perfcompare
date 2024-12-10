@@ -1,9 +1,11 @@
 import CheckIcon from '@mui/icons-material/Check';
+import ClearIcon from '@mui/icons-material/Clear';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import StraightIcon from '@mui/icons-material/Straight';
 import SwapVert from '@mui/icons-material/SwapVert';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
+import ListItemIcon from '@mui/material/ListItemIcon';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Box } from '@mui/system';
@@ -64,10 +66,17 @@ function SortDirectionIcon({
 type FilterableColumnProps = {
   name: string;
   columnId: string;
+
+  /* Properties for filtering */
   possibleValues: CompareResultsTableFilterableCell['possibleValues'];
   uncheckedValues?: Set<string>;
-  onToggle: (checkedValues: Set<string>) => unknown;
-  onClear: () => unknown;
+  onToggleFilter: (checkedValues: Set<string>) => unknown;
+  onClearFilter: () => unknown;
+
+  /* Properties for sorting */
+  hasSort: boolean;
+  sortDirection: SortableColumnProps['sortDirection'];
+  onToggleSort: (sortDirection: FilterableColumnProps['sortDirection']) => void;
 };
 
 function FilterableColumn({
@@ -75,8 +84,11 @@ function FilterableColumn({
   columnId,
   possibleValues,
   uncheckedValues,
-  onToggle,
-  onClear,
+  onToggleFilter,
+  onClearFilter,
+  hasSort,
+  sortDirection,
+  onToggleSort,
 }: FilterableColumnProps) {
   const popupState = usePopupState({ variant: 'popover', popupId: columnId });
   const possibleCheckedValues =
@@ -89,7 +101,7 @@ function FilterableColumn({
     } else {
       newUncheckedValues.add(valueKey);
     }
-    onToggle(newUncheckedValues);
+    onToggleFilter(newUncheckedValues);
   };
 
   const onClickOnlyFilter = (valueKey: string) => {
@@ -98,13 +110,16 @@ function FilterableColumn({
         .filter(({ key }) => key !== valueKey)
         .map(({ key }) => key),
     );
-    onToggle(newUncheckedValues);
+    onToggleFilter(newUncheckedValues);
   };
 
   const hasFilteredValues = uncheckedValues && uncheckedValues.size;
+  const baseAriaLabelText = hasSort
+    ? 'Click to filter and sort values'
+    : 'Click to filter values';
   const buttonAriaLabel = hasFilteredValues
-    ? `${name} (Click to filter values. Some filters are active.)`
-    : `${name} (Click to filter values)`;
+    ? `${name} (${baseAriaLabelText}. Some filters are active.)`
+    : `${name} (${baseAriaLabelText})`;
 
   return (
     <>
@@ -121,6 +136,9 @@ function FilterableColumn({
           padding: '6px 12px',
         })}
       >
+        {hasSort ? (
+          <SortDirectionIcon columnName={name} sortDirection={sortDirection} />
+        ) : null}
         {name}
         <Box
           sx={{
@@ -134,7 +152,60 @@ function FilterableColumn({
         <KeyboardArrowDownIcon />
       </Button>
       <Menu {...bindMenu(popupState)}>
-        <MenuItem dense={true} onClick={onClear}>
+        {/* ------ Start of sort options ------ */}
+        {hasSort
+          ? /* The MenuList MUI API doesn't support fragments, that's why we use
+             * an array here. */
+            [
+              <MenuItem
+                key='clear'
+                dense={true}
+                onClick={() => {
+                  onToggleSort(null);
+                  popupState.close();
+                }}
+              >
+                <ListItemIcon>
+                  <ClearIcon titleAccess='' fontSize='small' />
+                </ListItemIcon>
+                Clear sort
+              </MenuItem>,
+              <MenuItem
+                key='ascend'
+                dense={true}
+                onClick={() => {
+                  onToggleSort('asc');
+                  popupState.close();
+                }}
+              >
+                <ListItemIcon>
+                  <StraightIcon titleAccess='' fontSize='small' />
+                </ListItemIcon>
+                Sort ascending
+              </MenuItem>,
+              <MenuItem
+                key='ascend'
+                dense={true}
+                onClick={() => {
+                  onToggleSort('desc');
+                  popupState.close();
+                }}
+              >
+                <ListItemIcon>
+                  <StraightIcon
+                    titleAccess=''
+                    fontSize='small'
+                    sx={{ transform: 'scale(-1)' }}
+                  />
+                </ListItemIcon>
+                Sort descending
+              </MenuItem>,
+              <Divider key='divider' />,
+            ]
+          : null}
+        {/* ------ End of sort options ------ */}
+        {/* ------ Start of filter options ------ */}
+        <MenuItem dense={true} onClick={onClearFilter}>
           Select all values
         </MenuItem>
         <Divider />
@@ -167,6 +238,7 @@ function FilterableColumn({
             </MenuItem>
           );
         })}
+        {/* ------ End of filtering options ------ */}
       </Menu>
     </>
   );
@@ -300,9 +372,14 @@ function TableHeader({
           name={header.name}
           columnId={header.key}
           uncheckedValues={filters.get(header.key)}
-          onClear={() => onClearFilter(header.key)}
-          onToggle={(checkedValues) =>
+          onClearFilter={() => onClearFilter(header.key)}
+          onToggleFilter={(checkedValues) =>
             onToggleFilter(header.key, checkedValues)
+          }
+          hasSort={'sortFunction' in header}
+          sortDirection={header.key === sortColumn ? sortDirection : null}
+          onToggleSort={(newSortDirection) =>
+            onToggleSort(header.key, newSortDirection)
           }
         />
       );
