@@ -42,11 +42,18 @@ function processResults(results: CompareResultsItem[]) {
   return restructuredResults;
 }
 
+const stringComparisonCollator = new Intl.Collator('en', {
+  numeric: true,
+  sensitivity: 'base',
+});
 const cellsConfiguration: CompareResultsTableConfig = [
   {
     name: 'Subtests',
     key: 'subtests',
     gridWidth: '4fr',
+    sortFunction(resultA, resultB) {
+      return stringComparisonCollator.compare(resultA.test, resultB.test);
+    },
   },
   {
     name: 'Base',
@@ -187,6 +194,44 @@ function filterResults(
   });
 }
 
+// This function sorts the results array in accordance to the specified column
+// and direction. If no column is specified, the first column (the subtests)
+// is used.
+function sortResults(
+  results: CompareResultsItem[],
+  columnId: string | null,
+  direction: 'asc' | 'desc' | null,
+) {
+  let cellConfiguration;
+  if (columnId && direction) {
+    cellConfiguration = cellsConfiguration.find(
+      (cell) => cell.key === columnId,
+    );
+  }
+
+  if (!cellConfiguration) {
+    cellConfiguration = cellsConfiguration[0];
+  }
+
+  if (!('sortFunction' in cellConfiguration)) {
+    console.warn(
+      `No sortFunction information for the cellConfiguration ${String(
+        cellConfiguration.name ?? columnId,
+      )}`,
+    );
+    return results;
+  }
+
+  const { sortFunction } = cellConfiguration;
+  const directionedSortFunction =
+    direction === 'desc'
+      ? (itemA: CompareResultsItem, itemB: CompareResultsItem) =>
+          sortFunction(itemB, itemA)
+      : sortFunction;
+
+  return results.toSorted(directionedSortFunction);
+}
+
 type ResultsTableProps = {
   filteringSearchTerm: string;
   results: CompareResultsItem[];
@@ -202,14 +247,17 @@ function SubtestsResultsTable({
     useTableFilters(cellsConfiguration);
   const { sortColumn, sortDirection, onToggleSort } = useTableSort();
 
-  const processedResults = useMemo(() => {
-    const filteredResults = filterResults(
-      results,
-      filteringSearchTerm,
-      tableFilters,
-    );
-    return processResults(filteredResults);
+  const filteredResults = useMemo(() => {
+    return filterResults(results, filteringSearchTerm, tableFilters);
   }, [results, filteringSearchTerm, tableFilters]);
+
+  const filteredAndSortedResults = useMemo(() => {
+    return sortResults(filteredResults, sortColumn, sortDirection);
+  }, [sortColumn, sortDirection, filteredResults]);
+
+  const processedResults = useMemo(() => {
+    return processResults(filteredAndSortedResults);
+  }, [filteredAndSortedResults]);
 
   const rowGridTemplateColumns = cellsConfiguration
     .map((config) => config.gridWidth)
