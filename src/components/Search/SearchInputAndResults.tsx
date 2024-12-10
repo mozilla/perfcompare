@@ -120,8 +120,8 @@ export default function SearchInputAndResults({
           typeof e === 'string'
             ? e
             : e instanceof Error
-            ? e.message
-            : `Unknown error: ${String(e)}`;
+              ? e.message
+              : `Unknown error: ${String(e)}`;
         setSearchError(strError || 'An error has occurred');
         setRecentRevisions(null);
       }
