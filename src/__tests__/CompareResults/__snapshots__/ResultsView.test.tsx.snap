@@ -922,7 +922,7 @@ exports[`Results View The table should match snapshot and other elements should 
               aria-haspopup="listbox"
               aria-label="Framework"
               aria-labelledby="mui-component-select-framework"
-              class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-jaypmb-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+              class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1m7ne2w-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
               id="mui-component-select-framework"
               role="button"
               tabindex="0"
@@ -977,7 +977,7 @@ exports[`Results View The table should match snapshot and other elements should 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-jaypmb-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+              class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1m7ne2w-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
               role="button"
               tabindex="0"
             >
@@ -2168,7 +2168,7 @@ exports[`Results View renders framework dropdown in closed condition 1`] = `
   aria-haspopup="listbox"
   aria-label="Framework"
   aria-labelledby="mui-component-select-framework"
-  class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-jaypmb-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+  class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1m7ne2w-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
   id="mui-component-select-framework"
   role="button"
   tabindex="0"
