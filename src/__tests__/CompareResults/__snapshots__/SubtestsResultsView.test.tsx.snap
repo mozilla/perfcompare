@@ -399,7 +399,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
               role="table"
             >
               <div
-                class="fkzbi14 fr2n4tx"
+                class="f17xhuv9 fr2n4tx"
                 data-testid="table-header"
                 role="row"
               >
@@ -407,7 +407,31 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="cell subtests-header"
                   role="columnheader"
                 >
-                  Subtests
+                  <button
+                    aria-label="Subtests (Click to sort by this column)"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <svg
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+                      data-testid="SwapVertIcon"
+                      focusable="false"
+                      role="img"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
+                      />
+                      <title>
+                        Not sorted by Subtests
+                      </title>
+                    </svg>
+                    Subtests
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <div
                   class="cell base-header"
@@ -465,7 +489,31 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="cell delta-header"
                   role="columnheader"
                 >
-                  Delta
+                  <button
+                    aria-label="Delta (Click to sort by this column)"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <svg
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+                      data-testid="SwapVertIcon"
+                      focusable="false"
+                      role="img"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
+                      />
+                      <title>
+                        Not sorted by Delta
+                      </title>
+                    </svg>
+                    Delta
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <div
                   class="cell confidence-header"
@@ -473,11 +521,25 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 >
                   <button
                     aria-haspopup="true"
-                    aria-label="Confidence (Click to filter values)"
+                    aria-label="Confidence (Click to filter and sort values)"
                     class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
+                    <svg
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+                      data-testid="SwapVertIcon"
+                      focusable="false"
+                      role="img"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
+                      />
+                      <title>
+                        Not sorted by Confidence
+                      </title>
+                    </svg>
                     Confidence
                     <div
                       aria-label="4 items selected"
@@ -519,7 +581,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 />
               </div>
               <div
-                class="revisionRow fieq49k fp4ugv1 MuiBox-root css-14ka4hc"
+                class="revisionRow fieq49k fp4ugv1 MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -677,7 +739,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow fieq49k fp4ugv1 MuiBox-root css-14ka4hc"
+                class="revisionRow fieq49k fp4ugv1 MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -1235,7 +1297,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
               role="table"
             >
               <div
-                class="fkzbi14 fr2n4tx"
+                class="f17xhuv9 fr2n4tx"
                 data-testid="table-header"
                 role="row"
               >
@@ -1243,7 +1305,31 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="cell subtests-header"
                   role="columnheader"
                 >
-                  Subtests
+                  <button
+                    aria-label="Subtests (Click to sort by this column)"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <svg
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+                      data-testid="SwapVertIcon"
+                      focusable="false"
+                      role="img"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
+                      />
+                      <title>
+                        Not sorted by Subtests
+                      </title>
+                    </svg>
+                    Subtests
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <div
                   class="cell base-header"
@@ -1301,7 +1387,31 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="cell delta-header"
                   role="columnheader"
                 >
-                  Delta
+                  <button
+                    aria-label="Delta (Click to sort by this column)"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <svg
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+                      data-testid="SwapVertIcon"
+                      focusable="false"
+                      role="img"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
+                      />
+                      <title>
+                        Not sorted by Delta
+                      </title>
+                    </svg>
+                    Delta
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <div
                   class="cell confidence-header"
@@ -1309,11 +1419,25 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 >
                   <button
                     aria-haspopup="true"
-                    aria-label="Confidence (Click to filter values)"
+                    aria-label="Confidence (Click to filter and sort values)"
                     class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
+                    <svg
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+                      data-testid="SwapVertIcon"
+                      focusable="false"
+                      role="img"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
+                      />
+                      <title>
+                        Not sorted by Confidence
+                      </title>
+                    </svg>
                     Confidence
                     <div
                       aria-label="4 items selected"
@@ -1355,7 +1479,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 />
               </div>
               <div
-                class="revisionRow fieq49k fp4ugv1 MuiBox-root css-14ka4hc"
+                class="revisionRow fieq49k fp4ugv1 MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -1513,7 +1637,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow fieq49k fp4ugv1 MuiBox-root css-14ka4hc"
+                class="revisionRow fieq49k fp4ugv1 MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
