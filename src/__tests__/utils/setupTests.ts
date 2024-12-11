@@ -32,8 +32,8 @@ if ('TextDecoder' in global) {
 
 // @ts-expect-error TextDecoder from node and TextDecoder from JavaScript are
 // not 100% compatible, but they're a reasonable approximation.
-global.TextDecoder = TextDecoder;
-global.TextEncoder = TextEncoder;
+globalThis.TextDecoder = TextDecoder;
+globalThis.TextEncoder = TextEncoder;
 
 let store: Store;
 

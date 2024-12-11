@@ -2,13 +2,13 @@ import { useMemo, memo } from 'react';
 
 import { Virtuoso } from 'react-virtuoso';
 
+import NoResultsFound from './NoResultsFound';
+import TableRevisionContent from './TableRevisionContent';
 import type { compareView, compareOverTimeView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import type { CompareResultsItem } from '../../types/state';
 import type { CompareResultsTableConfig } from '../../types/types';
-import NoResultsFound from './NoResultsFound';
-import TableRevisionContent from './TableRevisionContent';
 
 // The data structure returned by processResults may look complex at first, so
 // here are some extra explanation.
@@ -184,8 +184,8 @@ function TableContent({
     const resultsForCurrentComparison =
       activeComparison === allRevisionsOption
         ? results.flat()
-        : results.find((result) => result[0].new_rev === activeComparison) ??
-          [];
+        : (results.find((result) => result[0].new_rev === activeComparison) ??
+          []);
 
     const filteredResults = filterResults(
       cellsConfiguration,

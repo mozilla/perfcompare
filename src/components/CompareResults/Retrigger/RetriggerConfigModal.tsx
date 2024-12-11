@@ -8,8 +8,8 @@ import {
   Grid,
 } from '@mui/material';
 
-import { Strings } from '../../../resources/Strings';
 import { CenteredModal } from './CenteredModal';
+import { Strings } from '../../../resources/Strings';
 
 const retriggerStrings = Strings.components.retrigger.config;
 

@@ -2,6 +2,7 @@ import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import { style } from 'typestyle';
 
+import SearchResultsListItem from './SearchResultsListItem';
 import { useAppSelector } from '../../hooks/app';
 import {
   Colors,
@@ -11,7 +12,6 @@ import {
   captionStylesDark,
 } from '../../styles';
 import { Changeset } from '../../types/state';
-import SearchResultsListItem from './SearchResultsListItem';
 
 interface SearchResultsListProps {
   compact: boolean;

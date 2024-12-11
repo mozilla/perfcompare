@@ -1,9 +1,9 @@
 import { style } from 'typestyle';
 
-import { Spacing } from '../../styles';
-import type { CompareResultsItem } from '../../types/state';
 import CommonGraph from './CommonGraph';
 import RunValues from './RunValues';
+import { Spacing } from '../../styles';
+import type { CompareResultsItem } from '../../types/state';
 
 const styles = {
   container: style({

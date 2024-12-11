@@ -2,12 +2,12 @@ import { useMemo } from 'react';
 
 import Box from '@mui/material/Box';
 
+import SubtestsTableContent from './SubtestsTableContent';
+import NoResultsFound from '.././NoResultsFound';
+import TableHeader from '.././TableHeader';
 import useTableFilters from '../../../hooks/useTableFilters';
 import type { CompareResultsItem } from '../../../types/state';
 import type { CompareResultsTableConfig } from '../../../types/types';
-import NoResultsFound from '.././NoResultsFound';
-import TableHeader from '.././TableHeader';
-import SubtestsTableContent from './SubtestsTableContent';
 
 type SubtestsResults = {
   key: string;

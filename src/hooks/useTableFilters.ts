@@ -1,10 +1,10 @@
 import { useState, useMemo } from 'react';
 
+import useRawSearchParams from './useRawSearchParams';
 import type {
   CompareResultsTableConfig,
   CompareResultsTableCell,
 } from '../types/types';
-import useRawSearchParams from './useRawSearchParams';
 
 // This hook handles the state that handles table filtering, and also takes care
 // of handling the URL parameters that mirror this state.

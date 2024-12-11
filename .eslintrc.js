@@ -56,7 +56,6 @@ module.exports = {
       extends: [
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
-        'airbnb-typescript',
         'plugin:import/typescript',
         'prettier',
       ],
@@ -88,6 +87,8 @@ module.exports = {
         '@typescript-eslint/no-unsafe-member-access': 'off',
         // We can be less strict in tests about non-null assertions, to make it easier.
         '@typescript-eslint/no-non-null-assertion': 'off',
+        // In tests we can accept that async functions do not have await directives.
+        '@typescript-eslint/require-await': 'off',
 
         // This disallows using direct Node properties (eg: firstChild), but we have
         // legitimate uses:

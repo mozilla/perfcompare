@@ -11,11 +11,11 @@ import TimelineIcon from '@mui/icons-material/Timeline';
 import { IconButton, Box } from '@mui/material';
 import { style } from 'typestyle';
 
+import RevisionRowExpandable from '.././RevisionRowExpandable';
 import { useAppSelector } from '../../../hooks/app';
 import { Strings } from '../../../resources/Strings';
 import { Colors, Spacing } from '../../../styles';
 import type { CompareResultsItem } from '../../../types/state';
-import RevisionRowExpandable from '.././RevisionRowExpandable';
 
 const revisionsRow = {
   borderRadius: '4px 0px 0px 4px',

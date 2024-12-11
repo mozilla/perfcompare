@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-duplicate-enum-values */
 export enum Colors {
   //button colors light theme
   PrimaryDefault = '#0060df',

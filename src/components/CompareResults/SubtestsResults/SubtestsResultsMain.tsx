@@ -7,6 +7,11 @@ import { Container } from '@mui/system';
 import { useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
 
+import SubtestsBreadcrumbs from './SubtestsBreadcrumbs';
+import SubtestsResultsTable from './SubtestsResultsTable';
+import SubtestsRevisionHeader from './SubtestsRevisionHeader';
+import DownloadButton from '.././DownloadButton';
+import SearchInput from '.././SearchInput';
 import { subtestsView, subtestsOverTimeView } from '../../../common/constants';
 import { useAppSelector } from '../../../hooks/app';
 import useRawSearchParams from '../../../hooks/useRawSearchParams';
@@ -16,14 +21,9 @@ import {
 } from '../../../logic/treeherder';
 import { Colors, Spacing } from '../../../styles';
 import type { SubtestsRevisionsHeader } from '../../../types/state';
-import DownloadButton from '.././DownloadButton';
-import SearchInput from '.././SearchInput';
 import RetriggerButton from '../Retrigger/RetriggerButton';
 import { LoaderReturnValue } from '../subtestsLoader';
 import { LoaderReturnValue as OvertimeLoaderReturnValue } from '../subtestsOverTimeLoader';
-import SubtestsBreadcrumbs from './SubtestsBreadcrumbs';
-import SubtestsResultsTable from './SubtestsResultsTable';
-import SubtestsRevisionHeader from './SubtestsRevisionHeader';
 
 type SubtestsResultsMainProps = {
   view: typeof subtestsView | typeof subtestsOverTimeView;

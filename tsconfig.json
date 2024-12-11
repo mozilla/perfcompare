@@ -12,7 +12,7 @@
     "skipLibCheck": true, // skip type checking of default library declaration files
     "strict": true,
     "strictNullChecks": true, // enable strict null checks as a best practice
-    "target": "es2022" // specify ECMAScript target version
+    "target": "es2023" // specify ECMAScript target version
   },
   "include": ["./src/", "./@types/"],
   "exclude": ["node_modules"]

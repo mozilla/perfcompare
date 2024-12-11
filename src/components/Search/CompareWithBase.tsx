@@ -7,15 +7,15 @@ import { VariantType, useSnackbar } from 'notistack';
 import { Form } from 'react-router-dom';
 import { style } from 'typestyle';
 
+import CancelAndCompareButtons from './CancelAndCompareButtons';
+import EditButton from './EditButton';
+import SearchComponent from './SearchComponent';
+import SearchFrameworkDropdown from './SearchFrameworkDropdown';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles, SearchStyles, Spacing } from '../../styles';
 import type { Changeset, Repository } from '../../types/state';
 import { Framework } from '../../types/types';
-import CancelAndCompareButtons from './CancelAndCompareButtons';
-import EditButton from './EditButton';
-import SearchComponent from './SearchComponent';
-import SearchFrameworkDropdown from './SearchFrameworkDropdown';
 
 const strings = Strings.components.searchDefault;
 const stringsBase = Strings.components.searchDefault.base.collapsed.base;

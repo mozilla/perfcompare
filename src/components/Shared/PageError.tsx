@@ -3,10 +3,10 @@ import { useEffect } from 'react';
 import { useRouteError } from 'react-router-dom';
 import { style } from 'typestyle';
 
-import { useAppSelector } from '../../hooks/app';
-import { SearchContainerStyles, background } from '../../styles';
 import { LinkToHome } from './LinkToHome';
 import PerfCompareHeader from './PerfCompareHeader';
+import { useAppSelector } from '../../hooks/app';
+import { SearchContainerStyles, background } from '../../styles';
 
 interface PageErrorProps {
   title: string;

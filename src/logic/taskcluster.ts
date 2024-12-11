@@ -3,13 +3,13 @@
 import jsone from 'json-e';
 import { Hooks } from 'taskcluster-client-web';
 
-import { JobInformation } from '../types/api';
-import { UserCredentials, TokenBearer } from '../types/types';
-import { getLocationOrigin } from '../utils/location';
 import {
   waitForStorageEvent,
   retrieveUserCredentials,
 } from './credentials-storage';
+import { JobInformation } from '../types/api';
+import { UserCredentials, TokenBearer } from '../types/types';
+import { getLocationOrigin } from '../utils/location';
 
 export const prodTaskclusterUrl = 'https://firefox-ci-tc.services.mozilla.com';
 export const stagingTaskclusterUrl =
