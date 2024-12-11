@@ -104,7 +104,7 @@ const cellsConfiguration: CompareResultsTableConfig = [
     name: 'Confidence',
     filter: true,
     key: 'confidence',
-    gridWidth: '1.5fr',
+    gridWidth: '1.8fr',
     possibleValues: [
       { label: 'No value', key: 'none' },
       { label: 'Low', key: 'low' },
