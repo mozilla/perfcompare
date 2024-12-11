@@ -245,7 +245,8 @@ function SubtestsResultsTable({
   // and provides methods for clearing and toggling them.
   const { tableFilters, onClearFilter, onToggleFilter } =
     useTableFilters(cellsConfiguration);
-  const { sortColumn, sortDirection, onToggleSort } = useTableSort();
+  const { sortColumn, sortDirection, onToggleSort } =
+    useTableSort(cellsConfiguration);
 
   const filteredResults = useMemo(() => {
     return filterResults(results, filteringSearchTerm, tableFilters);
