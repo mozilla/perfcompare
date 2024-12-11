@@ -349,8 +349,8 @@ function RevisionRow(props: RevisionRowProps) {
               regression,
             )}`}
           >
-            {improvement ? <ThumbUpIcon /> : null}
-            {regression ? <ThumbDownIcon /> : null}
+            {improvement ? <ThumbUpIcon color='success' /> : null}
+            {regression ? <ThumbDownIcon color='error' /> : null}
             {determineStatus(improvement, regression)}
           </span>
         </div>
