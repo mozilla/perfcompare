@@ -403,7 +403,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
               role="table"
             >
               <div
-                class="f1fd041n fr2n4tx"
+                class="f1ptnq46 fr2n4tx"
                 data-testid="table-header"
                 role="row"
               >
@@ -585,7 +585,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 />
               </div>
               <div
-                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-14ka4hc"
+                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -743,7 +743,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-14ka4hc"
+                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -912,7 +912,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-14ka4hc"
+                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -1081,7 +1081,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-14ka4hc"
+                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -1643,7 +1643,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
               role="table"
             >
               <div
-                class="f1fd041n fr2n4tx"
+                class="f1ptnq46 fr2n4tx"
                 data-testid="table-header"
                 role="row"
               >
@@ -1825,7 +1825,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 />
               </div>
               <div
-                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-14ka4hc"
+                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -1983,7 +1983,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-14ka4hc"
+                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -2152,7 +2152,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-14ka4hc"
+                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -2321,7 +2321,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-14ka4hc"
+                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
