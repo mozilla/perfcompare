@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import React from 'react';
 
 import { Grid } from '@mui/material';
 import { Link } from '@mui/material';
@@ -11,6 +12,7 @@ import SubtestsBreadcrumbs from './SubtestsBreadcrumbs';
 import SubtestsResultsTable from './SubtestsResultsTable';
 import SubtestsRevisionHeader from './SubtestsRevisionHeader';
 import DownloadButton from '.././DownloadButton';
+import NoResultsFound from '.././NoResultsFound';
 import SearchInput from '.././SearchInput';
 import { subtestsView, subtestsOverTimeView } from '../../../common/constants';
 import { useAppSelector } from '../../../hooks/app';
@@ -41,21 +43,6 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
   const initialSearchTerm = rawSearchParams.get('search') ?? '';
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
 
-  const subtestsHeader: SubtestsRevisionsHeader = {
-    suite: results[0].suite,
-    framework_id: results[0].framework_id,
-    test: results[0].test,
-    option_name: results[0].option_name,
-    extra_options: results[0].extra_options,
-    new_rev: results[0].new_rev,
-    new_repo: results[0].new_repository_name,
-    base_rev: results[0].base_rev,
-    base_repo: results[0].base_repository_name,
-    base_parent_signature: results[0].base_parent_signature,
-    new_parent_signature: results[0].base_parent_signature,
-    platform: results[0].platform,
-  };
-
   const themeColor100 =
     themeMode === 'light' ? Colors.Background300 : Colors.Background100Dark;
 
@@ -79,6 +66,34 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
       rawSearchParams.delete('search');
     }
     updateRawSearchParams(rawSearchParams);
+  };
+
+  if (!results.length) {
+    return (
+      <React.Fragment>
+        <Container className={styles.container} data-testid='subtests-main'>
+          <header>
+            <SubtestsBreadcrumbs view={view} />
+            <NoResultsFound />
+          </header>
+        </Container>
+      </React.Fragment>
+    );
+  }
+
+  const subtestsHeader: SubtestsRevisionsHeader = {
+    suite: results[0].suite,
+    framework_id: results[0].framework_id,
+    test: results[0].test,
+    option_name: results[0].option_name,
+    extra_options: results[0].extra_options,
+    new_rev: results[0].new_rev,
+    new_repo: results[0].new_repository_name,
+    base_rev: results[0].base_rev,
+    base_repo: results[0].base_repository_name,
+    base_parent_signature: results[0].base_parent_signature,
+    new_parent_signature: results[0].base_parent_signature,
+    platform: results[0].platform,
   };
 
   let subtestsViewPerfherderURL;

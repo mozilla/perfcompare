@@ -3,7 +3,6 @@ import { useMemo } from 'react';
 import Box from '@mui/material/Box';
 
 import SubtestsTableContent from './SubtestsTableContent';
-import NoResultsFound from '.././NoResultsFound';
 import TableHeader from '.././TableHeader';
 import useTableFilters from '../../../hooks/useTableFilters';
 import type { CompareResultsItem } from '../../../types/state';
@@ -222,8 +221,6 @@ function SubtestsResultsTable({
           rowGridTemplateColumns={rowGridTemplateColumns}
         />
       ))}
-
-      {processedResults.length == 0 && <NoResultsFound />}
     </Box>
   );
 }
