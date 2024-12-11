@@ -16,6 +16,23 @@ export const getPlatformShortName = (
 
 export const getPlatformAndVersion = (platform: string): string => {
   const platformShortName = getPlatformShortName(platform);
+
+  if (platform.startsWith('windows'))
+    return `${platformShortName}\u00a0${platform
+      .split('-')[0]
+      .replace('windows', '')}`;
+  if (platform.startsWith('win'))
+    return `${platformShortName}\u00a0${platform
+      .split('-')[0]
+      .replace('win', '')}`;
+  if (platform.startsWith('macosx'))
+    return `${platformShortName}\u00a0${platform
+      .split('-')[0]
+      .replace('macosx', '')}`;
+  if (platform.startsWith('linux'))
+    return `${platformShortName}\u00a0${platform
+      .split('-')[0]
+      .replace('linux', '')}`;
   // Example of android platform, the split is specific for this platform
   // Other platforms are built differently
   // android-hw-p6-13-0-android-aarch64-shippable-qr
