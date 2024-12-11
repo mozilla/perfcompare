@@ -249,6 +249,12 @@ const components = {
           outline: '1px auto',
         },
       },
+      select: {
+        '&:focus': {
+          backgroundColor: Colors.Background300Dark,
+          borderRadius: '4px',
+        },
+      },
     },
   },
   MuiTooltip: {
