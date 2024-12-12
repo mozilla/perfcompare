@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import React from 'react';
 
 import { Grid } from '@mui/material';
 import { Link } from '@mui/material';
@@ -70,14 +69,14 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
 
   if (!results.length) {
     return (
-      <React.Fragment>
+      <>
         <Container className={styles.container} data-testid='subtests-main'>
           <header>
             <SubtestsBreadcrumbs view={view} />
             <NoResultsFound />
           </header>
         </Container>
-      </React.Fragment>
+      </>
     );
   }
 
