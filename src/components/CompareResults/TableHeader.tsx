@@ -156,6 +156,7 @@ function TableHeader({
       borderRadius: '4px',
       paddingBlock: Spacing.Small,
       marginTop: Spacing.Medium,
+      marginBottom: Spacing.Large,
       $nest: {
         '.cell': {
           borderBottom: 'none',

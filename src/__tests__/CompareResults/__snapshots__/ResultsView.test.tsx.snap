@@ -1059,7 +1059,7 @@ exports[`Results View The table should match snapshot and other elements should 
       </div>
     </div>
     <div
-      class="f1upmfeo fr2n4tx"
+      class="f75bkdv fr2n4tx"
       data-testid="table-header"
       role="row"
     >
@@ -1228,7 +1228,7 @@ exports[`Results View The table should match snapshot and other elements should 
           style="overflow-anchor: none;"
         >
           <div
-            class="f1d2zsj2"
+            class="f1k5y3nc"
             role="rowgroup"
           >
             <div
@@ -1289,7 +1289,7 @@ exports[`Results View The table should match snapshot and other elements should 
               </div>
             </div>
             <div
-              class="fcdpsbx"
+              class="fw0pvlu"
             >
               <div
                 class="revisionRow f19d5lu7 fp4ugv1 MuiBox-root css-1txhl5e"
