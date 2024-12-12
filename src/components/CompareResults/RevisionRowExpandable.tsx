@@ -71,7 +71,11 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   };
 
   return (
-    <div className={`${styles.expandedRow}`}>
+    <div
+      id='revision-row-expandable'
+      aria-label='revision-row'
+      className={`${styles.expandedRow}`}
+    >
       <div className={`${styles.content}`}>
         <div className={`${styles.bottomSpace}`}>
           <b>{platform}</b> <br />
