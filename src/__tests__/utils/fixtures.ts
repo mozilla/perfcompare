@@ -2288,7 +2288,7 @@ const getTestData = () => {
     },
   ];
 
-  const subtestsResult = [
+  const subtestsResult: CompareResultsItem[] = [
     {
       base_rev: 'd775409d7c6abb76362a3430e9880ec032ad4679',
       new_rev: '22f4cf67e8ad76b5ab2a00b97837d1d920b8c2b7',
@@ -2338,6 +2338,8 @@ const getTestData = () => {
       base_signature_id: 4769487,
       new_signature_id: 4769487,
       has_subtests: false,
+      new_runs_replicates: [],
+      base_runs_replicates: [],
     },
     {
       base_rev: 'd775409d7c6abb76362a3430e9880ec032ad4679',
@@ -2388,8 +2390,11 @@ const getTestData = () => {
       base_signature_id: 4769488,
       new_signature_id: 4769488,
       has_subtests: false,
+      new_runs_replicates: [],
+      base_runs_replicates: [],
     },
   ];
+
   return {
     testCompareData,
     subtestsResult,

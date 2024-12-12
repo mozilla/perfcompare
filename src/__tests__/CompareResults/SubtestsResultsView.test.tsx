@@ -4,6 +4,7 @@ import { loader } from '../../components/CompareResults/subtestsLoader';
 import SubtestsOverTimeResultsView from '../../components/CompareResults/SubtestsResults/SubtestsOverTimeResultsView';
 import SubtestsResultsView from '../../components/CompareResults/SubtestsResults/SubtestsResultsView';
 import { Strings } from '../../resources/Strings';
+import type { CompareResultsItem } from '../../types/state';
 import { getLocationOrigin } from '../../utils/location';
 import getTestData from '../utils/fixtures';
 import {
@@ -19,13 +20,14 @@ const setup = ({
   element,
   route,
   search,
+  subtestsResult,
 }: {
   element: React.ReactElement;
   route: string;
   search: string;
+  subtestsResult: CompareResultsItem[];
 }): void => {
   // Mock fetch data
-  const { subtestsResult } = getTestData();
   (window.fetch as FetchMockSandbox).get(
     'begin:https://treeherder.mozilla.org/api/perfcompare/results/',
     subtestsResult,
@@ -41,6 +43,7 @@ const setup = ({
 
 describe('SubtestsResultsView Component Tests', () => {
   it('should render the subtests results view and match snapshot', async () => {
+    const { subtestsResult } = getTestData();
     setup({
       element: (
         <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />
@@ -48,6 +51,7 @@ describe('SubtestsResultsView Component Tests', () => {
       route: '/subtests-compare-results/',
       search:
         '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&baseParentSignature=4774487&newParentSignature=4774487',
+      subtestsResult,
     });
 
     await screen.findByText('dhtml.html');
@@ -57,6 +61,7 @@ describe('SubtestsResultsView Component Tests', () => {
   });
 
   it('should request authorization code when "Retrigger" button is clicked', async () => {
+    const { subtestsResult } = getTestData();
     const user = userEvent.setup({ delay: null });
 
     jest.spyOn(window, 'alert').mockImplementation();
@@ -71,6 +76,7 @@ describe('SubtestsResultsView Component Tests', () => {
       route: '/subtests-compare-results/',
       search:
         '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&baseParentSignature=4774487&newParentSignature=4774487',
+      subtestsResult,
     });
 
     const retriggerButton = await screen.findByRole('button', {
@@ -116,7 +122,7 @@ describe('SubtestsResultsView Component Tests', () => {
     global.URL.revokeObjectURL = revokeObjectURLMock;
 
     // Render the component
-
+    const { subtestsResult } = getTestData();
     setup({
       element: (
         <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />
@@ -124,6 +130,7 @@ describe('SubtestsResultsView Component Tests', () => {
       route: '/subtests-compare-results/',
       search:
         '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&baseParentSignature=4774487&newParentSignature=4774487',
+      subtestsResult,
     });
 
     const button = await screen.findByText('Download JSON');
@@ -132,10 +139,24 @@ describe('SubtestsResultsView Component Tests', () => {
     expect(createObjectURLMock).toHaveBeenCalled();
     expect(revokeObjectURLMock).toHaveBeenCalledWith('blob:');
   });
+
+  it('Display message for not finding results', async () => {
+    setup({
+      element: (
+        <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />
+      ),
+      route: '/subtests-compare-results/',
+      search:
+        '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&baseParentSignature=4774487&newParentSignature=4774487',
+      subtestsResult: [],
+    });
+    expect(await screen.findByText(/No results found/)).toBeInTheDocument();
+  });
 });
 
 describe('SubtestsViewCompareOverTime Component Tests', () => {
   it('should render the subtests over time results view and match snapshot', async () => {
+    const { subtestsResult } = getTestData();
     setup({
       element: (
         <SubtestsOverTimeResultsView
@@ -145,6 +166,7 @@ describe('SubtestsViewCompareOverTime Component Tests', () => {
       route: '/subtests-compare-over-time-results/',
       search:
         '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&selectedTimeRange=86400&baseParentSignature=4774487&newParentSignature=4774487',
+      subtestsResult,
     });
 
     await screen.findByText('dhtml.html');
