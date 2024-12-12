@@ -181,7 +181,6 @@ const stylesDark = {
       },
       '.status-hint-improvement': {
         backgroundColor: '#004725',
-        marginTop: '2px',
       },
       '.status-hint-regression': {
         backgroundColor: '#690F22',
@@ -350,8 +349,8 @@ function RevisionRow(props: RevisionRowProps) {
               regression,
             )}`}
           >
-            {improvement ? <ThumbUpIcon /> : null}
-            {regression ? <ThumbDownIcon /> : null}
+            {improvement ? <ThumbUpIcon color='success' /> : null}
+            {regression ? <ThumbDownIcon color='error' /> : null}
             {determineStatus(improvement, regression)}
           </span>
         </div>
