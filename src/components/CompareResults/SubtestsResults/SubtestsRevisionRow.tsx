@@ -81,13 +81,10 @@ function getStyles(themeMode: string) {
         '.status-hint .MuiSvgIcon-root': {
           height: '16px',
         },
-        '.status-hint-improvement .MuiSvgIcon-root': {
-          color: '#4DBC87',
-        },
+
         '.status-hint-regression .MuiSvgIcon-root': {
           // We need to move the icon a bit lower so that it _looks_ centered.
           marginTop: '2px',
-          color: '#F37F98',
         },
       },
     }),
@@ -171,7 +168,14 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
           {newMedianValue} {newUnit}
         </div>
         <div className='status cell' role='cell'>
-          <span
+          <Box
+            sx={{
+              bgcolor: improvement
+                ? 'status.improvement'
+                : regression
+                  ? 'status.regression'
+                  : 'none',
+            }}
             className={`status-hint ${determineStatusHintClass(
               improvement,
               regression,
@@ -180,7 +184,7 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
             {improvement ? <ThumbUpIcon color='success' /> : null}
             {regression ? <ThumbDownIcon color='error' /> : null}
             {determineStatus(improvement, regression)}
-          </span>
+          </Box>
         </div>
         <div className='delta cell' role='cell'>
           {' '}

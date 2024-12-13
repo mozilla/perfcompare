@@ -519,7 +519,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 />
               </div>
               <div
-                class="revisionRow f7pctsc fp4ugv1 MuiBox-root css-14ka4hc"
+                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-14ka4hc"
                 role="row"
               >
                 <div
@@ -557,11 +557,11 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="status cell"
                   role="cell"
                 >
-                  <span
-                    class="status-hint "
+                  <div
+                    class="status-hint  MuiBox-root css-1dj4wrv"
                   >
                     -
-                  </span>
+                  </div>
                 </div>
                 <div
                   class="delta cell"
@@ -677,7 +677,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow f7pctsc fp4ugv1 MuiBox-root css-14ka4hc"
+                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-14ka4hc"
                 role="row"
               >
                 <div
@@ -715,11 +715,11 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="status cell"
                   role="cell"
                 >
-                  <span
-                    class="status-hint "
+                  <div
+                    class="status-hint  MuiBox-root css-1dj4wrv"
                   >
                     -
-                  </span>
+                  </div>
                 </div>
                 <div
                   class="delta cell"
@@ -1355,7 +1355,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 />
               </div>
               <div
-                class="revisionRow f7pctsc fp4ugv1 MuiBox-root css-14ka4hc"
+                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-14ka4hc"
                 role="row"
               >
                 <div
@@ -1393,11 +1393,11 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="status cell"
                   role="cell"
                 >
-                  <span
-                    class="status-hint "
+                  <div
+                    class="status-hint  MuiBox-root css-1dj4wrv"
                   >
                     -
-                  </span>
+                  </div>
                 </div>
                 <div
                   class="delta cell"
@@ -1513,7 +1513,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow f7pctsc fp4ugv1 MuiBox-root css-14ka4hc"
+                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-14ka4hc"
                 role="row"
               >
                 <div
@@ -1551,11 +1551,11 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="status cell"
                   role="cell"
                 >
-                  <span
-                    class="status-hint "
+                  <div
+                    class="status-hint  MuiBox-root css-1dj4wrv"
                   >
                     -
-                  </span>
+                  </div>
                 </div>
                 <div
                   class="delta cell"

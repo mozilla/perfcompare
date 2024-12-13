@@ -47,12 +47,16 @@ export enum Colors {
   Background100 = '#f0f0f4',
   Background200 = '#f9f9fb',
   Background300 = '#ffffff',
+  Background400 = '#FFE8E8',
+  Background500 = '#D8EEDC',
   BackgroundScrim = '#5b5b66 40%',
 
   //background colors dark theme
   Background100Dark = '#1c1b22',
   Background200Dark = '#2b2a33',
   Background300Dark = '#42414d',
+  Background400Dark = '#690F22',
+  Background500Dark = '#004725',
   BackgroundScrimDark = '#5b5b66 45%',
 
   //border colors light theme
