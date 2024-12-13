@@ -399,7 +399,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
               role="table"
             >
               <div
-                class="fkzbi14 fr2n4tx"
+                class="f1fd041n fr2n4tx"
                 data-testid="table-header"
                 role="row"
               >
@@ -1235,7 +1235,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
               role="table"
             >
               <div
-                class="fkzbi14 fr2n4tx"
+                class="f1fd041n fr2n4tx"
                 data-testid="table-header"
                 role="row"
               >
