@@ -1,8 +1,19 @@
 {
   "name": "perfcompare",
   "version": "0.9.0",
-  "homepage": "./",
   "private": true,
+  "engines": {
+    "node": ">= 20"
+  },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": ">= 20"
+    },
+    "packageManager": {
+      "name": "npm"
+    }
+  },
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
