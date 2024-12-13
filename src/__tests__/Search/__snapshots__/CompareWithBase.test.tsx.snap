@@ -215,9 +215,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
+              class="selectedRevision_f1lvjifu MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -310,9 +308,6 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </div>
           </li>
         </ul>
@@ -502,9 +497,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
+              class="selectedRevision_f1lvjifu MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -597,9 +590,6 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </div>
           </li>
         </ul>
@@ -984,9 +974,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
+              class="selectedRevision_f1lvjifu MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -1079,9 +1067,6 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </div>
           </li>
         </ul>
@@ -1464,9 +1449,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
+              class="selectedRevision_f1lvjifu MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -1559,9 +1542,6 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </div>
           </li>
         </ul>
@@ -1751,9 +1731,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
+              class="selectedRevision_f1lvjifu MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -1846,9 +1824,6 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </div>
           </li>
         </ul>
@@ -2108,9 +2083,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
+              class="selectedRevision_f1lvjifu MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -2203,9 +2176,6 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </div>
           </li>
         </ul>
@@ -2395,9 +2365,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
+              class="selectedRevision_f1lvjifu MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -2490,9 +2458,6 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </div>
           </li>
         </ul>
@@ -2883,9 +2848,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
+              class="selectedRevision_f1lvjifu MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -2978,9 +2941,6 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </div>
           </li>
         </ul>
@@ -3265,9 +3225,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
+              class="selectedRevision_f1lvjifu MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -3360,9 +3318,6 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </div>
           </li>
         </ul>
