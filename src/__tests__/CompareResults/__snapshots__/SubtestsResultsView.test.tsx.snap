@@ -1,5 +1,311 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`SubtestsResultsView Component Tests can sort the table and persist the information to the URL 1`] = `
+<button
+  aria-label="Delta (Click to sort by this column)"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+  tabindex="0"
+  type="button"
+>
+  <svg
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+    data-testid="SwapVertIcon"
+    focusable="false"
+    role="img"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
+    />
+    <title>
+      Not sorted by Delta
+    </title>
+  </svg>
+  Delta
+  <span
+    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+  />
+</button>
+`;
+
+exports[`SubtestsResultsView Component Tests can sort the table and persist the information to the URL 2`] = `
+<button
+  aria-label="Delta (Currently sorted by this column. Click to change)"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+  tabindex="0"
+  type="button"
+>
+  <svg
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+    data-testid="StraightIcon"
+    focusable="false"
+    role="img"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 6.83 9.41 8.41 8 7l4-4 4 4-1.41 1.41L13 6.83V21h-2z"
+    />
+    <title>
+      Sorted by Delta in ascending order
+    </title>
+  </svg>
+  Delta
+  <span
+    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+  >
+    <span
+      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+      style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+    >
+      <span
+        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+      />
+    </span>
+  </span>
+</button>
+`;
+
+exports[`SubtestsResultsView Component Tests can sort the table and persist the information to the URL 3`] = `
+<button
+  aria-label="Delta (Currently sorted by this column. Click to change)"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+  tabindex="0"
+  type="button"
+>
+  <svg
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1bpn2x6-MuiSvgIcon-root"
+    data-testid="StraightIcon"
+    focusable="false"
+    role="img"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 6.83 9.41 8.41 8 7l4-4 4 4-1.41 1.41L13 6.83V21h-2z"
+    />
+    <title>
+      Sorted by Delta in descending order
+    </title>
+  </svg>
+  Delta
+  <span
+    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+  >
+    <span
+      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+      style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+    >
+      <span
+        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+      />
+    </span>
+    <span
+      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+      style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+    >
+      <span
+        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+      />
+    </span>
+  </span>
+</button>
+`;
+
+exports[`SubtestsResultsView Component Tests can sort the table and persist the information to the URL 4`] = `
+<button
+  aria-label="Delta (Click to sort by this column)"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+  tabindex="0"
+  type="button"
+>
+  <svg
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+    data-testid="SwapVertIcon"
+    focusable="false"
+    role="img"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
+    />
+    <title>
+      Not sorted by Delta
+    </title>
+  </svg>
+  Delta
+  <span
+    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+  >
+    <span
+      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+      style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+    >
+      <span
+        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+      />
+    </span>
+    <span
+      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+      style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+    >
+      <span
+        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+      />
+    </span>
+  </span>
+</button>
+`;
+
+exports[`SubtestsResultsView Component Tests can sort the table and persist the information to the URL 5`] = `
+<button
+  aria-haspopup="true"
+  aria-label="Confidence (Click to filter and sort values)"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-91jdnd-MuiButtonBase-root-MuiButton-root"
+  tabindex="0"
+  type="button"
+>
+  <svg
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+    data-testid="StraightIcon"
+    focusable="false"
+    role="img"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 6.83 9.41 8.41 8 7l4-4 4 4-1.41 1.41L13 6.83V21h-2z"
+    />
+    <title>
+      Sorted by Confidence in ascending order
+    </title>
+  </svg>
+  Confidence
+  <div
+    aria-label="4 items selected"
+    class="MuiBox-root css-18uhbjh"
+  >
+    (
+    4
+    )
+  </div>
+  <svg
+    aria-hidden="true"
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+    data-testid="KeyboardArrowDownIcon"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+    />
+  </svg>
+  <span
+    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+  >
+    <span
+      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+      style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+    >
+      <span
+        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+      />
+    </span>
+  </span>
+</button>
+`;
+
+exports[`SubtestsResultsView Component Tests can sort the table and persist the information to the URL 6`] = `
+<button
+  aria-haspopup="true"
+  aria-label="Confidence (Click to filter and sort values)"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-91jdnd-MuiButtonBase-root-MuiButton-root"
+  tabindex="0"
+  type="button"
+>
+  <svg
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+    data-testid="SwapVertIcon"
+    focusable="false"
+    role="img"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
+    />
+    <title>
+      Not sorted by Confidence
+    </title>
+  </svg>
+  Confidence
+  <div
+    aria-label="4 items selected"
+    class="MuiBox-root css-18uhbjh"
+  >
+    (
+    4
+    )
+  </div>
+  <svg
+    aria-hidden="true"
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+    data-testid="KeyboardArrowDownIcon"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+    />
+  </svg>
+  <span
+    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+  >
+    <span
+      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+      style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+    >
+      <span
+        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+      />
+    </span>
+  </span>
+</button>
+`;
+
+exports[`SubtestsResultsView Component Tests can sort the table and persist the information to the URL 7`] = `
+<button
+  aria-label="Subtests (Currently sorted by this column. Click to change)"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+  tabindex="0"
+  type="button"
+>
+  <svg
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+    data-testid="StraightIcon"
+    focusable="false"
+    role="img"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 6.83 9.41 8.41 8 7l4-4 4 4-1.41 1.41L13 6.83V21h-2z"
+    />
+    <title>
+      Sorted by Subtests in ascending order
+    </title>
+  </svg>
+  Subtests
+  <span
+    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+  >
+    <span
+      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+      style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+    >
+      <span
+        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+      />
+    </span>
+  </span>
+</button>
+`;
+
 exports[`SubtestsResultsView Component Tests should render the subtests results view and match snapshot 1`] = `
 <body>
   <div>
@@ -1539,7 +1845,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                           aria-invalid="false"
                           aria-label="Search by title, platform, revision or options"
                           class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-rg83rj-MuiInputBase-input-MuiOutlinedInput-input"
-                          id=":r9:"
+                          id=":rc:"
                           placeholder="Search results"
                           type="text"
                           value=""
