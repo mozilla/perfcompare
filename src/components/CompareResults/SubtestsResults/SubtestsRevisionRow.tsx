@@ -36,6 +36,7 @@ function getStyles(themeMode: string) {
     themeMode === 'light' ? Colors.Background200 : Colors.Background200Dark;
   const backgroundColorExpandButton =
     themeMode === 'light' ? Colors.Background300 : Colors.Background100Dark;
+
   return {
     revisionRow: style({
       ...revisionsRow,
@@ -76,22 +77,14 @@ function getStyles(themeMode: string) {
           borderRadius: '4px',
           padding: '4px 10px',
         },
-        '.status-hint-improvement': {
-          backgroundColor: '#D8EEDC',
-        },
-        '.status-hint-regression': {
-          backgroundColor: '#FFE8E8',
-        },
+
         '.status-hint .MuiSvgIcon-root': {
           height: '16px',
         },
-        '.status-hint-improvement .MuiSvgIcon-root': {
-          color: '#017A40',
-        },
+
         '.status-hint-regression .MuiSvgIcon-root': {
           // We need to move the icon a bit lower so that it _looks_ centered.
           marginTop: '2px',
-          color: '#D7264C',
         },
       },
     }),
@@ -175,16 +168,23 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
           {newMedianValue} {newUnit}
         </div>
         <div className='status cell' role='cell'>
-          <span
+          <Box
+            sx={{
+              bgcolor: improvement
+                ? 'status.improvement'
+                : regression
+                  ? 'status.regression'
+                  : 'none',
+            }}
             className={`status-hint ${determineStatusHintClass(
               improvement,
               regression,
             )}`}
           >
-            {improvement ? <ThumbUpIcon /> : null}
-            {regression ? <ThumbDownIcon /> : null}
+            {improvement ? <ThumbUpIcon color='success' /> : null}
+            {regression ? <ThumbDownIcon color='error' /> : null}
             {determineStatus(improvement, regression)}
-          </span>
+          </Box>
         </div>
         <div className='delta cell' role='cell'>
           {' '}

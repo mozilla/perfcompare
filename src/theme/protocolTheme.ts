@@ -27,6 +27,10 @@ const lightMode = {
     success: Colors.IconLightSuccess,
     error: Colors.IconLightError,
   },
+  status: {
+    improvement: Colors.Background500,
+    regression: Colors.Background400,
+  },
 };
 
 const darkMode = {
@@ -48,6 +52,10 @@ const darkMode = {
   icons: {
     success: Colors.IconDarkSuccess,
     error: Colors.IconDarkError,
+  },
+  status: {
+    improvement: Colors.Background500Dark,
+    regression: Colors.Background400Dark,
   },
 };
 

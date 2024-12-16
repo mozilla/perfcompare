@@ -1292,7 +1292,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="fw0pvlu"
             >
               <div
-                class="revisionRow f19d5lu7 fp4ugv1 MuiBox-root css-1txhl5e"
+                class="revisionRow fqyfrhr fp4ugv1 MuiBox-root css-1txhl5e"
                 role="row"
               >
                 <div
@@ -1349,12 +1349,12 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="status cell"
                   role="cell"
                 >
-                  <span
-                    class="status-hint status-hint-improvement"
+                  <div
+                    class="status-hint status-hint-improvement MuiBox-root css-1h9ue86"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                      class="MuiSvgIcon-root MuiSvgIcon-colorSuccess MuiSvgIcon-fontSizeMedium css-116ao24-MuiSvgIcon-root"
                       data-testid="ThumbUpIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
@@ -1364,7 +1364,7 @@ exports[`Results View The table should match snapshot and other elements should 
                       />
                     </svg>
                     Improvement
-                  </span>
+                  </div>
                 </div>
                 <div
                   class="delta cell"
@@ -1516,7 +1516,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f19d5lu7 fp4ugv1 MuiBox-root css-1txhl5e"
+                class="revisionRow fqyfrhr fp4ugv1 MuiBox-root css-1txhl5e"
                 role="row"
               >
                 <div
@@ -1572,12 +1572,12 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="status cell"
                   role="cell"
                 >
-                  <span
-                    class="status-hint status-hint-regression"
+                  <div
+                    class="status-hint status-hint-regression MuiBox-root css-ucc9gw"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                      class="MuiSvgIcon-root MuiSvgIcon-colorError MuiSvgIcon-fontSizeMedium css-1uz6t4g-MuiSvgIcon-root"
                       data-testid="ThumbDownIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
@@ -1587,7 +1587,7 @@ exports[`Results View The table should match snapshot and other elements should 
                       />
                     </svg>
                     Regression
-                  </span>
+                  </div>
                 </div>
                 <div
                   class="delta cell"
@@ -1739,7 +1739,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f19d5lu7 fp4ugv1 MuiBox-root css-1txhl5e"
+                class="revisionRow fqyfrhr fp4ugv1 MuiBox-root css-1txhl5e"
                 role="row"
               >
                 <div
@@ -1796,11 +1796,11 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="status cell"
                   role="cell"
                 >
-                  <span
-                    class="status-hint "
+                  <div
+                    class="status-hint  MuiBox-root css-1dj4wrv"
                   >
                     -
-                  </span>
+                  </div>
                 </div>
                 <div
                   class="delta cell"
@@ -1952,7 +1952,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f19d5lu7 fp4ugv1 MuiBox-root css-1txhl5e"
+                class="revisionRow fqyfrhr fp4ugv1 MuiBox-root css-1txhl5e"
                 role="row"
               >
                 <div
@@ -2009,11 +2009,11 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="status cell"
                   role="cell"
                 >
-                  <span
-                    class="status-hint "
+                  <div
+                    class="status-hint  MuiBox-root css-1dj4wrv"
                   >
                     -
-                  </span>
+                  </div>
                 </div>
                 <div
                   class="delta cell"
