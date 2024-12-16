@@ -2224,7 +2224,7 @@ exports[`Results Table should render different blocks when rendering several rev
             />
           </svg>
           <span>
-            OSX 1015
+            OS X 10.15
           </span>
         </div>
       </div>
@@ -2460,7 +2460,7 @@ exports[`Results Table should render different blocks when rendering several rev
             />
           </svg>
           <span>
-            OSX 1015
+            OS X 10.15
           </span>
         </div>
       </div>

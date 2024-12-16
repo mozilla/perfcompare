@@ -19,6 +19,7 @@ const osMapping = {
   linux1804: 'Linux 18.04',
   linux2204: 'Linux 22.04',
   osx: 'OS X',
+  macosx1014: 'OS X 10.14',
   macosx1015: 'OS X 10.15',
   macosx1100: 'OS X 11',
   macosx1300: 'macOS 13',

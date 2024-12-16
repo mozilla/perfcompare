@@ -29,12 +29,12 @@ describe('<RevisionRow>', () => {
   it.each([
     {
       platform: 'linux1804-32-shippable-qr',
-      shortName: 'Linux 1804',
+      shortName: 'Linux 18.04',
       hasIcon: true,
     },
     {
       platform: 'macosx1014-64-shippable-qr',
-      shortName: 'OSX 1014',
+      shortName: 'OS X 10.14',
       hasIcon: true,
     },
     {
