@@ -1,5 +1,5 @@
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
+import { ListItemIcon, ListItemText } from '@mui/material';
 import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
 import Divider from '@mui/material/Divider';
@@ -111,7 +111,7 @@ function FilterableColumn({
           const isChecked =
             !uncheckedValues || !uncheckedValues.has(possibleValue.key);
           return (
-            <ListItemButton
+            <MenuItem
               dense
               key={possibleValue.key}
               role='menuitemcheckbox'
@@ -120,22 +120,17 @@ function FilterableColumn({
                 isChecked ? ' (selected)' : ''
               }`}
               onClick={() => onClickFilter(possibleValue.key)}
-              sx={{ paddingTop: 0, paddingBottom: 0 }}
             >
-              <ListItemIcon sx={{ minWidth: '0' }}>
+              <ListItemIcon>
                 <Checkbox
-                  edge='start'
                   checked={isChecked}
                   tabIndex={-1}
                   disableRipple
-                  sx={{
-                    width: Spacing.xLarge,
-                    height: Spacing.xLarge,
-                  }}
+                  sx={{ padding: 0 }}
                 />
               </ListItemIcon>
-              <ListItemText primary={`${possibleValue.label}`} />
-            </ListItemButton>
+              <ListItemText primary={possibleValue.label} />
+            </MenuItem>
           );
         })}
       </Menu>
