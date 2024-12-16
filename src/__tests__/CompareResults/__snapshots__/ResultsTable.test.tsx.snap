@@ -1240,7 +1240,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                   />
                                 </svg>
                                 <span>
-                                  OSX 1015
+                                  OS X 10.15
                                 </span>
                               </div>
                             </div>
@@ -1463,7 +1463,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                   />
                                 </svg>
                                 <span>
-                                  Linux 1804
+                                  Linux 18.04
                                 </span>
                               </div>
                             </div>
@@ -1687,7 +1687,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                    
                                 </svg>
                                 <span>
-                                  Windows 10
+                                  Windows 10
                                 </span>
                               </div>
                             </div>
@@ -1953,7 +1953,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                    
                                 </svg>
                                 <span>
-                                  Windows 10
+                                  Windows 10
                                 </span>
                               </div>
                             </div>
