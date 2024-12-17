@@ -71,6 +71,11 @@ function SearchDropdown({
               paper: `paper-repo paper-${mode === 'light' ? 'light' : 'dark'}`,
             },
           }}
+          inputProps={{
+            classes: {
+              select: mode === 'light' ? 'select-light' : 'select-dark',
+            },
+          }}
         >
           {Object.keys(repoMap).map((key) => (
             <MenuItem

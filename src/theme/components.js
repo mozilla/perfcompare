@@ -250,9 +250,21 @@ const components = {
         },
       },
       select: {
-        '&:focus': {
-          backgroundColor: Colors.Background300Dark,
-          borderRadius: '4px',
+        '&.select-light': {
+          '&:focus': {
+            backgroundColor: Colors.SecondaryDefault,
+          },
+          '&:hover': {
+            backgroundColor: Colors.SecondaryHover,
+          },
+        },
+        '&.select-dark': {
+          '&:focus': {
+            backgroundColor: Colors.Background300Dark,
+          },
+          '&:hover': {
+            backgroundColor: Colors.SecondaryHoverDark,
+          },
         },
       },
     },
