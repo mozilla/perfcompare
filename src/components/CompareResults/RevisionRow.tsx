@@ -417,6 +417,8 @@ function RevisionRow(props: RevisionRowProps) {
               }
               color='primary'
               size='small'
+              aria-expanded={expanded}
+              aria-controls='revision-row-expandable'
             >
               {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
             </IconButton>

@@ -1,8 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Results View Should display Base, New and Common graphs with 1 value and replicates 1`] = `
-<div
-  class="fgv9bhz"
+<section
+  aria-label="Revision Row Details"
+  class="fgv9bhz MuiBox-root css-0"
+  id="revision-row-expandable"
 >
   <div
     class="fp3h4kr"
@@ -267,12 +269,14 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
       </div>
     </div>
   </div>
-</div>
+</section>
 `;
 
 exports[`Results View Should display Base, New and Common graphs with replicates 1`] = `
-<div
-  class="fgv9bhz"
+<section
+  aria-label="Revision Row Details"
+  class="fgv9bhz MuiBox-root css-0"
+  id="revision-row-expandable"
 >
   <div
     class="fp3h4kr"
@@ -537,12 +541,14 @@ exports[`Results View Should display Base, New and Common graphs with replicates
       </div>
     </div>
   </div>
-</div>
+</section>
 `;
 
 exports[`Results View Should display Base, New and Common graphs with tooltips 1`] = `
-<div
-  class="fgv9bhz"
+<section
+  aria-label="Revision Row Details"
+  class="fgv9bhz MuiBox-root css-0"
+  id="revision-row-expandable"
 >
   <div
     class="fp3h4kr"
@@ -807,7 +813,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
       </div>
     </div>
   </div>
-</div>
+</section>
 `;
 
 exports[`Results View The table should match snapshot and other elements should be present in the page 1`] = `
@@ -922,7 +928,7 @@ exports[`Results View The table should match snapshot and other elements should 
               aria-haspopup="listbox"
               aria-label="Framework"
               aria-labelledby="mui-component-select-framework"
-              class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-jaypmb-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+              class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1m7ne2w-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
               id="mui-component-select-framework"
               role="button"
               tabindex="0"
@@ -977,7 +983,7 @@ exports[`Results View The table should match snapshot and other elements should 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-jaypmb-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+              class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1m7ne2w-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
               role="button"
               tabindex="0"
             >
@@ -1492,6 +1498,8 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
+                      aria-controls="revision-row-expandable"
+                      aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
                       title="expand this row"
@@ -1715,6 +1723,8 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
+                      aria-controls="revision-row-expandable"
+                      aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
                       title="expand this row"
@@ -1928,6 +1938,8 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
+                      aria-controls="revision-row-expandable"
+                      aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
                       title="expand this row"
@@ -2130,6 +2142,8 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
+                      aria-controls="revision-row-expandable"
+                      aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
                       title="expand this row"
@@ -2168,7 +2182,7 @@ exports[`Results View renders framework dropdown in closed condition 1`] = `
   aria-haspopup="listbox"
   aria-label="Framework"
   aria-labelledby="mui-component-select-framework"
-  class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-jaypmb-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+  class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1m7ne2w-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
   id="mui-component-select-framework"
   role="button"
   tabindex="0"
