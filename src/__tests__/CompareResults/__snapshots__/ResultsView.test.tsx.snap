@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Results View Should display Base, New and Common graphs with 1 value and replicates 1`] = `
-<div
-  aria-label="revision-row"
-  class="fgv9bhz"
+<section
+  aria-label="Revision Row Details"
+  class="fgv9bhz MuiBox-root css-0"
   id="revision-row-expandable"
 >
   <div
@@ -269,13 +269,13 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
       </div>
     </div>
   </div>
-</div>
+</section>
 `;
 
 exports[`Results View Should display Base, New and Common graphs with replicates 1`] = `
-<div
-  aria-label="revision-row"
-  class="fgv9bhz"
+<section
+  aria-label="Revision Row Details"
+  class="fgv9bhz MuiBox-root css-0"
   id="revision-row-expandable"
 >
   <div
@@ -541,13 +541,13 @@ exports[`Results View Should display Base, New and Common graphs with replicates
       </div>
     </div>
   </div>
-</div>
+</section>
 `;
 
 exports[`Results View Should display Base, New and Common graphs with tooltips 1`] = `
-<div
-  aria-label="revision-row"
-  class="fgv9bhz"
+<section
+  aria-label="Revision Row Details"
+  class="fgv9bhz MuiBox-root css-0"
   id="revision-row-expandable"
 >
   <div
@@ -813,7 +813,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
       </div>
     </div>
   </div>
-</div>
+</section>
 `;
 
 exports[`Results View The table should match snapshot and other elements should be present in the page 1`] = `
