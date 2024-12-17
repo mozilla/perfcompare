@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import { style } from 'typestyle';
 
@@ -71,9 +72,10 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   };
 
   return (
-    <div
+    <Box
       id='revision-row-expandable'
-      aria-label='revision-row'
+      aria-label='Revision Row Details'
+      component={'section'}
       className={`${styles.expandedRow}`}
     >
       <div className={`${styles.content}`}>
@@ -133,7 +135,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
           </div>
         )}
       </div>
-    </div>
+    </Box>
   );
 }
 
