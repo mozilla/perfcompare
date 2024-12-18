@@ -13,7 +13,7 @@ exports[`Revision select Should change 'All revisions' option to bb6a5e451dac 1`
         <div
           aria-expanded="false"
           aria-haspopup="listbox"
-          class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1t9vfv4-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+          class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-p78ayq-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
           role="button"
           tabindex="0"
         >

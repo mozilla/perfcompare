@@ -4,8 +4,7 @@ export const SelectStyles = {
   light: {
     '&:focus': {
       backgroundColor: Colors.SecondaryDefault,
-      paddingTop: '0px',
-      paddingBottom: '0px',
+      minWidth: '160px',
     },
     '&:hover': {
       backgroundColor: Colors.SecondaryHover,
@@ -16,8 +15,7 @@ export const SelectStyles = {
   dark: {
     '&:focus': {
       backgroundColor: Colors.Background300Dark,
-      paddingTop: '0px',
-      paddingBottom: '0px',
+      minWidth: '160px',
     },
     '&:hover': {
       backgroundColor: Colors.SecondaryHoverDark,
