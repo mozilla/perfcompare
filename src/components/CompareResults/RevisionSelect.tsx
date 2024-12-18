@@ -33,7 +33,6 @@ function RevisionSelect() {
   const handlerChangeComparison = (option: string) => {
     dispatch(updateComparison({ activeComparison: option }));
   };
-  const mode = useAppSelector((state) => state.theme.mode);
 
   return (
     <Box data-testid={'revision-select'}>
@@ -56,11 +55,6 @@ function RevisionSelect() {
         }}
         onChange={(event) => handlerChangeComparison(event.target.value)}
         value={activeComparison}
-        inputProps={{
-          classes: {
-            select: mode === 'light' ? 'select-light' : 'select-dark',
-          },
-        }}
       >
         <MenuItem value={allRevisionsOption.key}>
           {allRevisionsOption.text}

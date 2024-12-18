@@ -77,11 +77,6 @@ function TimeRangeDropdown({
               paper: `paper-repo paper-${mode === 'light' ? 'light' : 'dark'}`,
             },
           }}
-          inputProps={{
-            classes: {
-              select: mode === 'light' ? 'select-light' : 'select-dark',
-            },
-          }}
         >
           {Object.entries(timeRangeMap).map(([value, text]) => (
             <MenuItem

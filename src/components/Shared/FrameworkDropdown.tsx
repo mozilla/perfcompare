@@ -61,9 +61,6 @@ function FrameworkDropdown({
         },
       }}
       inputProps={{
-        classes: {
-          select: mode === 'light' ? 'select-light' : 'select-dark',
-        },
         'aria-label': 'Framework',
       }}
     >

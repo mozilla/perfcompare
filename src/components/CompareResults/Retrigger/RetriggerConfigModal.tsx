@@ -9,7 +9,6 @@ import {
 } from '@mui/material';
 
 import { CenteredModal } from './CenteredModal';
-import { useAppSelector } from '../../../hooks/app';
 import { Strings } from '../../../resources/Strings';
 
 const retriggerStrings = Strings.components.retrigger.config;
@@ -21,7 +20,6 @@ function RetriggerCountSelect({
   prefix: string;
   label: string;
 }) {
-  const mode = useAppSelector((state) => state.theme.mode);
   return (
     <FormControl sx={{ width: '100%' }}>
       <InputLabel id={`${prefix}-retrigger-count-label`}>{label}</InputLabel>
@@ -31,11 +29,6 @@ function RetriggerCountSelect({
         defaultValue={0}
         label={label}
         sx={{ height: 32 }}
-        inputProps={{
-          classes: {
-            select: mode === 'light' ? 'select-light' : 'select-dark',
-          },
-        }}
       >
         {Array.from({ length: 10 }).map((_, count) => (
           <MenuItem key={count} value={count}>
