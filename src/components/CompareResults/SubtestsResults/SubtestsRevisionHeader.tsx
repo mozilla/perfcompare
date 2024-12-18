@@ -20,7 +20,10 @@ import {
   truncateHash,
   getDocsURL,
 } from '../../../utils/helpers';
-import { getPlatformShortName } from '../../../utils/platform';
+import {
+  getPlatformAndVersion,
+  getPlatformShortName,
+} from '../../../utils/platform';
 import AndroidIcon from '../../Shared/Icons/AndroidIcon';
 import LinuxIcon from '../../Shared/Icons/LinuxIcon';
 import WindowsIcon from '../../Shared/Icons/WindowsIcon';
@@ -151,7 +154,8 @@ function SubtestsRevisionHeader(props: SubtestsRevisionHeaderProps) {
         <strong>{getSuite(header, docsURL, isLinkSupported)}</strong> |
         {baseInfo}
         {getRevLink(header.new_rev, header.new_repo, '- New')} | {framework} |{' '}
-        {platformIcon} <span>{platformShortName}</span> |{' '}
+        {platformIcon}
+        <span>{getPlatformAndVersion(header.platform)}</span> |{' '}
       </div>
       <div className={styles.tagsOptions}>
         <span className={styles.chip}>{header.option_name}</span>
