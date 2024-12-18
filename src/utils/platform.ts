@@ -1,4 +1,5 @@
 import type { PlatformShortName } from '../types/state';
+import { PlatformOS } from '../types/types';
 
 export const getPlatformShortName = (
   platformName: string,
@@ -35,7 +36,7 @@ const osMapping = {
 };
 
 const extractPlatformWithOs = (platform: string) => {
-  const name = osMapping[platform.split('-')[0]] as string;
+  const name = osMapping[platform.split('-')[0] as PlatformOS];
 
   if (name) return name;
 
