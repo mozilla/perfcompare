@@ -291,7 +291,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           </div>
                         </div>
                         <div
-                          class="selectedRevision_f1lvjifu MuiBox-root css-0"
+                          class="selectedRevision_fg76eil MuiBox-root css-0"
                         >
                           <div
                             class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -553,7 +553,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           </div>
                         </div>
                         <div
-                          class="selectedRevision_f1lvjifu MuiBox-root css-0"
+                          class="selectedRevision_fg76eil MuiBox-root css-0"
                         >
                           <div
                             class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
