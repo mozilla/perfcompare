@@ -114,6 +114,25 @@ export type FilteredResults = {
   isFiltered: boolean;
 };
 
+export type PlatformOS =
+  | 'linux64'
+  | 'linux1804'
+  | 'linux2204'
+  | 'osx'
+  | 'macosx1014'
+  | 'macosx1015'
+  | 'macosx1100'
+  | 'macosx1300'
+  | 'macosx1400'
+  | 'macosx1470'
+  | 'win32'
+  | 'win64'
+  | 'windows7'
+  | 'windows10'
+  | 'windows11'
+  | 'windows2012'
+  | 'windows';
+
 // TODO: Needs review: as new platforms are available the type will need updates
 export type Platform =
   | 'linux32'
