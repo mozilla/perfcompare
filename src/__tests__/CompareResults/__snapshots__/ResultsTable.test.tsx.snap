@@ -981,146 +981,251 @@ exports[`Results Table Should match snapshot 1`] = `
                     class="cell platform-header"
                     role="columnheader"
                   >
-                    <button
-                      aria-haspopup="true"
-                      aria-label="Platform (Click to filter values)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
+                    <div
+                      class="f1vwntit"
                     >
-                      Platform
-                      <div
-                        aria-label="4 items selected"
-                        class="MuiBox-root css-18uhbjh"
+                      <button
+                        aria-haspopup="true"
+                        aria-label="Platform (Click to filter values)"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+                        tabindex="0"
+                        type="button"
                       >
-                        (
-                        4
-                        )
-                      </div>
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                        data-testid="KeyboardArrowDownIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                        Platform
+                        <div
+                          aria-label="4 items selected"
+                          class="MuiBox-root css-18uhbjh"
+                        >
+                          (
+                          4
+                          )
+                        </div>
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                          data-testid="KeyboardArrowDownIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </svg>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
+                      </button>
+                    </div>
                   </div>
                   <div
                     class="cell base-header"
                     role="columnheader"
                   >
-                    Base
+                    <div
+                      class="f1vwntit"
+                    >
+                      Base
+                      <svg
+                        aria-hidden="true"
+                        aria-label="A summary of all values from Base runs using a median."
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+                        data-mui-internal-clone-element="true"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                        />
+                      </svg>
+                    </div>
                   </div>
                   <div
                     class="cell comparisonSign-header"
                     role="columnheader"
-                  />
+                  >
+                    <div
+                      class="f1vwntit"
+                    />
+                  </div>
                   <div
                     class="cell new-header"
                     role="columnheader"
                   >
-                    New
+                    <div
+                      class="f1vwntit"
+                    >
+                      New
+                      <svg
+                        aria-hidden="true"
+                        aria-label="A summary of all values from New runs using a median."
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+                        data-mui-internal-clone-element="true"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                        />
+                      </svg>
+                    </div>
                   </div>
                   <div
                     class="cell status-header"
                     role="columnheader"
                   >
-                    <button
-                      aria-haspopup="true"
-                      aria-label="Status (Click to filter values)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
+                    <div
+                      class="f1vwntit"
                     >
-                      Status
-                      <div
-                        aria-label="3 items selected"
-                        class="MuiBox-root css-18uhbjh"
+                      <button
+                        aria-haspopup="true"
+                        aria-label="Status (Click to filter values)"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+                        tabindex="0"
+                        type="button"
                       >
-                        (
-                        3
-                        )
-                      </div>
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                        data-testid="KeyboardArrowDownIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                        Status
+                        <div
+                          aria-label="3 items selected"
+                          class="MuiBox-root css-18uhbjh"
+                        >
+                          (
+                          3
+                          )
+                        </div>
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                          data-testid="KeyboardArrowDownIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </svg>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
+                      </button>
+                    </div>
                   </div>
                   <div
                     class="cell delta-header"
                     role="columnheader"
                   >
-                    Delta
+                    <div
+                      class="f1vwntit"
+                    >
+                      Delta
+                      <svg
+                        aria-hidden="true"
+                        aria-label="The percentage difference between the Base and New values"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+                        data-mui-internal-clone-element="true"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                        />
+                      </svg>
+                    </div>
                   </div>
                   <div
                     class="cell confidence-header"
                     role="columnheader"
                   >
-                    <button
-                      aria-haspopup="true"
-                      aria-label="Confidence (Click to filter values)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
+                    <div
+                      class="f1vwntit"
                     >
-                      Confidence
-                      <div
-                        aria-label="4 items selected"
-                        class="MuiBox-root css-18uhbjh"
+                      <button
+                        aria-haspopup="true"
+                        aria-label="Confidence (Click to filter values)"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+                        tabindex="0"
+                        type="button"
                       >
-                        (
-                        4
-                        )
-                      </div>
+                        Confidence
+                        <div
+                          aria-label="4 items selected"
+                          class="MuiBox-root css-18uhbjh"
+                        >
+                          (
+                          4
+                          )
+                        </div>
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                          data-testid="KeyboardArrowDownIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </button>
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                        data-testid="KeyboardArrowDownIcon"
+                        aria-label="Calculated using a Student's T-test comparison. Low is anything under a T value of 3, Medium is between 3 and 5, and High is anything higher than 5."
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+                        data-mui-internal-clone-element="true"
+                        data-testid="InfoOutlinedIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
                         <path
-                          d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
                         />
                       </svg>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
+                    </div>
                   </div>
                   <div
                     class="cell runs-header"
                     role="columnheader"
                   >
-                    Total Runs
+                    <div
+                      class="f1vwntit"
+                    >
+                      Total Runs
+                      <svg
+                        aria-hidden="true"
+                        aria-label="The total number of tasks/jobs that ran for this metric."
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
+                        data-mui-internal-clone-element="true"
+                        data-testid="InfoOutlinedIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                        />
+                      </svg>
+                    </div>
                   </div>
                   <div
                     class="cell buttons-header"
                     role="columnheader"
-                  />
+                  >
+                    <div
+                      class="f1vwntit"
+                    />
+                  </div>
                   <div
                     class="cell expand-header"
                     role="columnheader"
-                  />
+                  >
+                    <div
+                      class="f1vwntit"
+                    />
+                  </div>
                 </div>
               </div>
               <div
@@ -1157,6 +1262,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
                                 href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
                                 target="_blank"
+                                title="Link to suite documentation  "
                               >
                                 a11yr
                               </a>
@@ -1890,6 +1996,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
                                 href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
                                 target="_blank"
+                                title="Link to suite documentation  "
                               >
                                 a11yr
                               </a>
@@ -2152,6 +2259,7 @@ exports[`Results Table should render different blocks when rendering several rev
           class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
           href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
           target="_blank"
+          title="Link to suite documentation  "
         >
           a11yr
         </a>

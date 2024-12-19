@@ -101,6 +101,7 @@ export const Strings = {
         jobLink: 'open treeherder view for',
         retriggerJobs: 'retrigger jobs',
         compareViewLink: 'open perfherder compare view for',
+        suiteLink: 'Link to suite documentation  ',
       },
     },
     expandableRow: {

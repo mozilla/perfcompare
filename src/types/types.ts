@@ -7,6 +7,8 @@ export type CompareResultsTableFilterableCell = {
   filter: true;
   possibleValues: Array<{ label: string; key: string }>;
   gridWidth?: string;
+  tooltip?: boolean;
+  tooltipContent?: string;
   // This function returns whether this result matches the value for this column.
   matchesFunction: (
     this: CompareResultsTableFilterableCell,
@@ -22,6 +24,8 @@ export type CompareResultsTableCell =
       key: string;
       disable?: boolean;
       gridWidth?: string;
+      tooltip?: boolean;
+      tooltipContent?: string;
     }
   | CompareResultsTableFilterableCell;
 
