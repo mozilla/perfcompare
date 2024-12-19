@@ -79,6 +79,7 @@ function createTitle(
           underline='hover'
           target='_blank'
           href={docsURL}
+          title='Link to suite documentation'
         >
           {result.suite}
         </Link>
