@@ -47,10 +47,6 @@ export const DropDownItemRaw = {
       '&.Mui-selected': {
         backgroundColor: Colors.SecondaryActive,
       },
-      '&:focus': {
-        backgroundColor: Colors.SecondaryActive,
-        borderColor: Colors.PrimaryDefault,
-      },
     },
   },
 
@@ -63,10 +59,6 @@ export const DropDownItemRaw = {
       },
       '&.Mui-selected': {
         backgroundColor: Colors.SecondaryActiveDark,
-      },
-      '&:focus': {
-        backgroundColor: Colors.SecondaryActiveDark,
-        borderColor: Colors.PrimaryDark,
       },
     },
   },

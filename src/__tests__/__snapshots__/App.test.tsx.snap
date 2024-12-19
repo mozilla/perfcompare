@@ -9,7 +9,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
       role="alert"
     />
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-standardWarning MuiAlert-standard fld8l4l css-5u2mp1-MuiPaper-root-MuiAlert-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-standardWarning MuiAlert-standard fld8l4l css-4haoe5-MuiPaper-root-MuiAlert-root"
       role="alert"
     >
       <div
@@ -267,7 +267,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
       role="alert"
     />
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-standardWarning MuiAlert-standard fld8l4l css-5u2mp1-MuiPaper-root-MuiAlert-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-standardWarning MuiAlert-standard fld8l4l css-4haoe5-MuiPaper-root-MuiAlert-root"
       role="alert"
     >
       <div
@@ -420,7 +420,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
       role="alert"
     />
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-standardWarning MuiAlert-standard fld8l4l css-5u2mp1-MuiPaper-root-MuiAlert-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-standardWarning MuiAlert-standard fld8l4l css-4haoe5-MuiPaper-root-MuiAlert-root"
       role="alert"
     >
       <div
