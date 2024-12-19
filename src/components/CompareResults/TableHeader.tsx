@@ -1,13 +1,14 @@
-import ClearIcon from '@mui/icons-material/Clear';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import StraightIcon from '@mui/icons-material/Straight';
 import SwapVert from '@mui/icons-material/SwapVert';
 import { ListItemIcon, ListItemText } from '@mui/material';
 import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
 import Checkbox from '@mui/material/Checkbox';
 import Divider from '@mui/material/Divider';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import { SxProps, Theme } from '@mui/material/styles';
 import { Box } from '@mui/system';
 import {
   usePopupState,
@@ -27,18 +28,19 @@ import type {
 function SortDirectionIcon({
   columnName,
   sortDirection,
+  sx,
 }: {
   columnName: string;
-  sortDirection: SortableColumnProps['sortDirection'];
+  sortDirection: SortableColumnHeaderProps['sortDirection'];
+  sx?: SxProps<Theme>;
 }) {
-  const commonStyle = { marginInlineEnd: 1, marginInlineStart: -0.5 };
   switch (sortDirection) {
     case 'asc':
       return (
         <StraightIcon
           titleAccess={`Sorted by ${columnName} in ascending order`}
           fontSize='small'
-          sx={commonStyle}
+          sx={sx}
         />
       );
     case 'desc':
@@ -47,7 +49,7 @@ function SortDirectionIcon({
           titleAccess={`Sorted by ${columnName} in descending order`}
           fontSize='small'
           sx={{
-            ...commonStyle,
+            ...sx,
             transform: 'scale(-1)',
           }}
         />
@@ -57,13 +59,13 @@ function SortDirectionIcon({
         <SwapVert
           titleAccess={`Not sorted by ${columnName}`}
           fontSize='small'
-          sx={commonStyle}
+          sx={sx}
         />
       );
   }
 }
 
-type FilterableColumnProps = {
+type FilterableColumnHeaderProps = {
   name: string;
   columnId: string;
 
@@ -72,24 +74,16 @@ type FilterableColumnProps = {
   uncheckedValues?: Set<string>;
   onToggleFilter: (checkedValues: Set<string>) => unknown;
   onClearFilter: () => unknown;
-
-  /* Properties for sorting */
-  hasSort: boolean;
-  sortDirection: SortableColumnProps['sortDirection'];
-  onToggleSort: (sortDirection: FilterableColumnProps['sortDirection']) => void;
 };
 
-function FilterableColumn({
+function FilterableColumnHeader({
   name,
   columnId,
   possibleValues,
   uncheckedValues,
   onToggleFilter,
   onClearFilter,
-  hasSort,
-  sortDirection,
-  onToggleSort,
-}: FilterableColumnProps) {
+}: FilterableColumnHeaderProps) {
   const popupState = usePopupState({ variant: 'popover', popupId: columnId });
   const possibleCheckedValues =
     possibleValues.length - (uncheckedValues?.size || 0);
@@ -114,27 +108,19 @@ function FilterableColumn({
   };
 
   const hasFilteredValues = uncheckedValues && uncheckedValues.size;
-  const baseAriaLabelText = hasSort
-    ? 'Click to filter and sort values'
-    : 'Click to filter values';
   const buttonAriaLabel = hasFilteredValues
-    ? `${name} (${baseAriaLabelText}. Some filters are active.)`
-    : `${name} (${baseAriaLabelText})`;
+    ? `${name} (Click to filter values. Some filters are active.)`
+    : `${name} (Click to filter values)`;
 
   return (
     <>
       <Button
-        color='tableHeaderButton'
         {...bindTrigger(popupState)}
+        color='tableHeaderButton'
+        size='small'
         aria-label={buttonAriaLabel}
-        sx={{
-          borderRadius: 0.5,
-          padding: '6px 12px',
-        }}
+        sx={{ paddingInline: 1.5 }}
       >
-        {hasSort ? (
-          <SortDirectionIcon columnName={name} sortDirection={sortDirection} />
-        ) : null}
         {name}
         <Box
           sx={{
@@ -145,62 +131,9 @@ function FilterableColumn({
         >
           ({possibleCheckedValues})
         </Box>
-        <KeyboardArrowDownIcon />
+        <KeyboardArrowDownIcon fontSize='small' />
       </Button>
       <Menu {...bindMenu(popupState)}>
-        {/* ------ Start of sort options ------ */}
-        {hasSort
-          ? /* The MenuList MUI API doesn't support fragments, that's why we use
-             * an array here. */
-            [
-              <MenuItem
-                key='clear'
-                dense={true}
-                onClick={() => {
-                  onToggleSort(null);
-                  popupState.close();
-                }}
-              >
-                <ListItemIcon>
-                  <ClearIcon titleAccess='' fontSize='small' />
-                </ListItemIcon>
-                Clear sort
-              </MenuItem>,
-              <MenuItem
-                key='ascend'
-                dense={true}
-                onClick={() => {
-                  onToggleSort('asc');
-                  popupState.close();
-                }}
-              >
-                <ListItemIcon>
-                  <StraightIcon titleAccess='' fontSize='small' />
-                </ListItemIcon>
-                Sort ascending
-              </MenuItem>,
-              <MenuItem
-                key='descend'
-                dense={true}
-                onClick={() => {
-                  onToggleSort('desc');
-                  popupState.close();
-                }}
-              >
-                <ListItemIcon>
-                  <StraightIcon
-                    titleAccess=''
-                    fontSize='small'
-                    sx={{ transform: 'scale(-1)' }}
-                  />
-                </ListItemIcon>
-                Sort descending
-              </MenuItem>,
-              <Divider key='divider' />,
-            ]
-          : null}
-        {/* ------ End of sort options ------ */}
-        {/* ------ Start of filter options ------ */}
         <MenuItem dense={true} onClick={onClearFilter}>
           Select all values
         </MenuItem>
@@ -241,23 +174,24 @@ function FilterableColumn({
             </MenuItem>
           );
         })}
-        {/* ------ End of filtering options ------ */}
       </Menu>
     </>
   );
 }
 
-type SortableColumnProps = {
+type SortableColumnHeaderProps = {
   name: string;
+  displayLabel: boolean;
   sortDirection: 'asc' | 'desc' | null;
-  onToggle: (sortDirection: SortableColumnProps['sortDirection']) => void;
+  onToggle: (sortDirection: SortableColumnHeaderProps['sortDirection']) => void;
 };
 
-function SortableColumn({
+function SortableColumnHeader({
   name,
+  displayLabel,
   sortDirection,
   onToggle,
-}: SortableColumnProps) {
+}: SortableColumnHeaderProps) {
   const buttonAriaLabel = sortDirection
     ? `${name} (Currently sorted by this column. Click to change)`
     : `${name} (Click to sort by this column)`;
@@ -278,22 +212,30 @@ function SortableColumn({
     onToggle(newSortDirection);
   }
 
+  // MUI sets a minWidth of 40px using 2 classes, it's not appropriate for icons and difficult to override without !important.
+  const inlineStyle = displayLabel
+    ? { padding: '6px 12px' }
+    : { padding: 0, minWidth: '24px !important' };
+  // Have some margin between the icon and the text, and some less margin at the
+  // start, but only when there's some actual text.
+  const inlineIconStyle = displayLabel
+    ? { marginInlineEnd: 1, marginInlineStart: -0.5 }
+    : null;
+
   return (
     <Button
-      color='secondary'
+      color='tableHeaderButton'
       aria-label={buttonAriaLabel}
-      sx={(theme) => ({
-        background:
-          theme.palette.mode == 'light'
-            ? Colors.Background200
-            : Colors.Background200Dark,
-        borderRadius: 0.5,
-        padding: '6px 12px',
-      })}
+      size='small'
       onClick={onButtonClick}
+      sx={inlineStyle}
     >
-      <SortDirectionIcon columnName={name} sortDirection={sortDirection} />
-      {name}
+      <SortDirectionIcon
+        columnName={name}
+        sortDirection={sortDirection}
+        sx={inlineIconStyle}
+      />
+      {displayLabel ? name : null}
     </Button>
   );
 }
@@ -308,7 +250,7 @@ type TableHeaderProps = {
 
   // Sort properties
   sortColumn: null | string;
-  sortDirection: SortableColumnProps['sortDirection'];
+  sortDirection: SortableColumnHeaderProps['sortDirection'];
   onToggleSort: (
     columnId: string,
     sortDirection: TableHeaderProps['sortDirection'],
@@ -369,9 +311,51 @@ function TableHeader({
   };
 
   function renderColumnHeader(header: CompareResultsTableColumn) {
+    if ('sortFunction' in header && 'filter' in header) {
+      return (
+        <ButtonGroup
+          variant='contained'
+          color='tableHeaderButton'
+          disableElevation
+        >
+          <SortableColumnHeader
+            name={header.name}
+            displayLabel={false}
+            sortDirection={header.key === sortColumn ? sortDirection : null}
+            onToggle={(newSortDirection) =>
+              onToggleSort(header.key, newSortDirection)
+            }
+          />
+          <FilterableColumnHeader
+            possibleValues={header.possibleValues}
+            name={header.name}
+            columnId={header.key}
+            uncheckedValues={filters.get(header.key)}
+            onClearFilter={() => onClearFilter(header.key)}
+            onToggleFilter={(checkedValues) =>
+              onToggleFilter(header.key, checkedValues)
+            }
+          />
+        </ButtonGroup>
+      );
+    }
+
+    if ('sortFunction' in header) {
+      return (
+        <SortableColumnHeader
+          name={header.name}
+          displayLabel={true}
+          sortDirection={header.key === sortColumn ? sortDirection : null}
+          onToggle={(newSortDirection) =>
+            onToggleSort(header.key, newSortDirection)
+          }
+        />
+      );
+    }
+
     if ('filter' in header) {
       return (
-        <FilterableColumn
+        <FilterableColumnHeader
           possibleValues={header.possibleValues}
           name={header.name}
           columnId={header.key}
@@ -379,23 +363,6 @@ function TableHeader({
           onClearFilter={() => onClearFilter(header.key)}
           onToggleFilter={(checkedValues) =>
             onToggleFilter(header.key, checkedValues)
-          }
-          hasSort={'sortFunction' in header}
-          sortDirection={header.key === sortColumn ? sortDirection : null}
-          onToggleSort={(newSortDirection) =>
-            onToggleSort(header.key, newSortDirection)
-          }
-        />
-      );
-    }
-
-    if ('sortFunction' in header) {
-      return (
-        <SortableColumn
-          name={header.name}
-          sortDirection={header.key === sortColumn ? sortDirection : null}
-          onToggle={(newSortDirection) =>
-            onToggleSort(header.key, newSortDirection)
           }
         />
       );

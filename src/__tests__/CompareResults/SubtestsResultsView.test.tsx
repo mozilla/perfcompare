@@ -233,11 +233,10 @@ describe('SubtestsResultsView Component Tests', () => {
     expectParameterToHaveValue('sort', 'delta|desc');
 
     // Sort by Confidence ascending
-    const confidenceButton = screen.getByRole('button', { name: /Confidence/ });
+    const confidenceButton = screen.getByRole('button', {
+      name: /Confidence.*sort/,
+    });
     await user.click(confidenceButton);
-    await user.click(
-      await screen.findByRole('menuitem', { name: /Sort ascending/ }),
-    );
     expect(summarizeVisibleRows()).toEqual([
       'tablemutation.html: 0.98 %, Low',
       'dhtml.html: 1.14 %, Low',
