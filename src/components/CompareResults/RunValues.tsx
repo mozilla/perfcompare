@@ -3,6 +3,7 @@ import { style } from 'typestyle';
 import GraphDistribution from './GraphDistribution';
 import { Spacing } from '../../styles';
 import { MeasurementUnit } from '../../types/types';
+import { formatNumber } from './../../utils/format';
 
 const styles = {
   container: style({
@@ -41,11 +42,12 @@ function RunValues(props: RunValuesProps) {
     <div className={styles.container}>
       {application ? (
         <div>
-          <b>{name}:</b> {median} {measurementUnit} ({application})
+          <b>{name}:</b> {formatNumber(median)} {measurementUnit} ({application}
+          )
         </div>
       ) : (
         <div>
-          <b>{name}:</b> {median} {measurementUnit}
+          <b>{name}:</b> {formatNumber(median)} {measurementUnit}
         </div>
       )}
       <div>
@@ -60,16 +62,16 @@ function RunValues(props: RunValuesProps) {
         <div className={styles.values}>
           {values.map((value, index) => (
             <div key={`${index}`} className={styles.value}>
-              {value}
+              {formatNumber(value)}
             </div>
           ))}
         </div>
         <div>
           <b>Mean</b>:{'\u00a0'}
-          {avg}
+          {formatNumber(avg)}
           {measurementUnit},{'\u00a0'}
           <b>Median</b>:{'\u00a0'}
-          {median}
+          {formatNumber(median)}
           {measurementUnit}
         </div>
         <div className={styles.deviation}>
