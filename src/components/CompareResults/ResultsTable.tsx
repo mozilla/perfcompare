@@ -42,6 +42,8 @@ const columnsConfiguration: CompareResultsTableConfig = [
     name: 'Base',
     key: 'base',
     gridWidth: '1fr',
+    tooltip: true,
+    tooltipContent: 'A summary of all values from Base runs using a median.',
   },
   {
     key: 'comparisonSign',
@@ -51,8 +53,9 @@ const columnsConfiguration: CompareResultsTableConfig = [
   {
     name: 'New',
     key: 'new',
-
     gridWidth: '1fr',
+    tooltip: true,
+    tooltipContent: 'A summary of all values from New runs using a median.',
   },
   {
     name: 'Status',
@@ -90,6 +93,9 @@ const columnsConfiguration: CompareResultsTableConfig = [
     filter: true,
     key: 'confidence',
     gridWidth: '1.5fr',
+    tooltip: true,
+    tooltipContent:
+      "Calculated using a Student's T-test comparison. Low is anything under a T value of 3, Medium is between 3 and 5, and High is anything higher than 5.",
     possibleValues: [
       { label: 'No value', key: 'none' },
       { label: 'Low', key: 'low' },
@@ -123,8 +129,9 @@ const columnsConfiguration: CompareResultsTableConfig = [
   {
     name: 'Total Runs',
     key: 'runs',
-
     gridWidth: '1fr',
+    tooltip: true,
+    tooltipContent: 'The total number of tasks/jobs that ran for this metric.',
   },
   // We use the real pixel value for the buttons, so that everything is better aligned.
   { key: 'buttons', gridWidth: `calc(3.5 * 34px)` }, // 2 or 3 buttons, so at least 3*34px, but give more so that it can "breathe"

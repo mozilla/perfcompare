@@ -1,7 +1,8 @@
+import InfoIcon from '@mui/icons-material/InfoOutlined';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import StraightIcon from '@mui/icons-material/Straight';
 import SwapVert from '@mui/icons-material/SwapVert';
-import { ListItemIcon, ListItemText } from '@mui/material';
+import { ListItemIcon, ListItemText, Tooltip } from '@mui/material';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Checkbox from '@mui/material/Checkbox';
@@ -307,6 +308,11 @@ function TableHeader({
       fontWeight: 590,
       fontSize: '13px',
       lineHeight: '16px',
+    }),
+    headerBox: style({
+      display: 'flex',
+      alignItems: 'center',
+      gap: Spacing.xSmall,
     }),
   };
 

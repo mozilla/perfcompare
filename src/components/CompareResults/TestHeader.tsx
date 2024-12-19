@@ -2,6 +2,7 @@ import { Link } from '@mui/material';
 import { style } from 'typestyle';
 
 import LinkToRevision from './LinkToRevision';
+import { Strings } from '../../resources/Strings';
 import { Colors, Spacing } from '../../styles';
 import type { CompareResultsItem } from '../../types/state';
 import { getDocsURL } from '../../utils/helpers';
@@ -79,7 +80,7 @@ function createTitle(
           underline='hover'
           target='_blank'
           href={docsURL}
-          title='Link to suite documentation'
+          title={Strings.components.revisionRow.title.suiteLink}
         >
           {result.suite}
         </Link>
