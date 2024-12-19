@@ -80,7 +80,11 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 >
                   <li
                     class="MuiBreadcrumbs-li"
-                  />
+                  >
+                    <span
+                      role="presentation"
+                    />
+                  </li>
                   <li
                     aria-hidden="true"
                     class="MuiBreadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
@@ -1262,7 +1266,11 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 >
                   <li
                     class="MuiBreadcrumbs-li"
-                  />
+                  >
+                    <span
+                      role="presentation"
+                    />
+                  </li>
                   <li
                     aria-hidden="true"
                     class="MuiBreadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
