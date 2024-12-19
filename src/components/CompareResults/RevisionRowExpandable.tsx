@@ -31,12 +31,17 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
     new_is_better: newIsBetter,
   } = result;
 
+  const NumberFormat = (value: number) => {
+    return new Intl.NumberFormat('en-US', {
+      maximumFractionDigits: 2,
+    }).format(value);
+  };
   const unit = baseUnit || newUnit;
   const deltaUnit = unit ? `${unit}` : '';
   let medianDifference = '';
   let medianPercentage = '';
   if (baseMedian && newMedian) {
-    medianDifference = (newMedian - baseMedian).toFixed(2);
+    medianDifference = NumberFormat(newMedian - baseMedian);
     medianPercentage = (((newMedian - baseMedian) / baseMedian) * 100).toFixed(
       2,
     );
