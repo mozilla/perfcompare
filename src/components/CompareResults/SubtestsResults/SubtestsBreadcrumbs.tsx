@@ -59,8 +59,9 @@ function SubtestsBreadcrumbs({ view }: SubtestsBreadcrumbsProps) {
         marginBottom: 3,
       }}
     >
-      [<></>,<Link href='/'>Home</Link>,
-      <Link href={allResultsURL}>All results</Link>, ]
+      <span role='presentation'></span>
+      <Link href='/'>Home</Link>
+      <Link href={allResultsURL}>All results</Link>
     </Breadcrumbs>
   );
 }
