@@ -1,5 +1,6 @@
+import InfoIcon from '@mui/icons-material/InfoOutlined';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { ListItemIcon, ListItemText } from '@mui/material';
+import { ListItemIcon, ListItemText, Tooltip } from '@mui/material';
 import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
 import Divider from '@mui/material/Divider';
@@ -193,6 +194,11 @@ function TableHeader({
       fontSize: '13px',
       lineHeight: '16px',
     }),
+    headerBox: style({
+      display: 'flex',
+      alignItems: 'center',
+      gap: Spacing.xSmall,
+    }),
   };
 
   return (
@@ -207,20 +213,32 @@ function TableHeader({
           className={`cell ${header.key}-header`}
           role='columnheader'
         >
-          {header.filter ? (
-            <FilterableColumn
-              possibleValues={header.possibleValues}
-              name={header.name}
-              columnId={header.key}
-              uncheckedValues={filters.get(header.key)}
-              onClear={() => onClearFilter(header.key)}
-              onToggle={(checkedValues) =>
-                onToggleFilter(header.key, checkedValues)
-              }
-            />
-          ) : (
-            header.name
-          )}
+          <div className={styles.headerBox}>
+            {header.filter ? (
+              <FilterableColumn
+                possibleValues={header.possibleValues}
+                name={header.name}
+                columnId={header.key}
+                uncheckedValues={filters.get(header.key)}
+                onClear={() => onClearFilter(header.key)}
+                onToggle={(checkedValues) =>
+                  onToggleFilter(header.key, checkedValues)
+                }
+              />
+            ) : (
+              header.name
+            )}
+            {header?.tooltip && (
+              <Tooltip
+                title={header.tooltipContent}
+                placement='top'
+                arrow
+                classes={{ tooltip: styles.typography }}
+              >
+                <InfoIcon fontSize='small' className='dropdown-info-icon' />
+              </Tooltip>
+            )}
+          </div>
         </div>
       ))}
     </div>
