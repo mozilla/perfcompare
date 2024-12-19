@@ -23,7 +23,7 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
     </div>
   </div>
   <div
-    class="selectedRevision_fg76eil MuiBox-root css-0"
+    class="selectedRevision_fd452xz MuiBox-root css-0"
   >
     <div
       class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
