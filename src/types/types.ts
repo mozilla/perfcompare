@@ -1,12 +1,16 @@
 import { CompareResultsItem } from './state';
 
-export type CompareResultsTableFilterableCell = {
-  name: string;
+type BasicCell = {
+  name?: string;
   key: string;
-  disable?: boolean;
+  gridWidth: string;
+};
+
+type FilterableCell = {
+  name: string;
   filter: true;
   possibleValues: Array<{ label: string; key: string }>;
-  gridWidth?: string;
+  gridWidth: string;
   // This function returns whether this result matches the value for this column.
   matchesFunction: (
     this: CompareResultsTableFilterableCell,
@@ -15,15 +19,21 @@ export type CompareResultsTableFilterableCell = {
   ) => boolean;
 };
 
+type SortableCell = {
+  name: string;
+  sortFunction: (
+    resultA: CompareResultsItem,
+    resultB: CompareResultsItem,
+  ) => number;
+};
+
+export type CompareResultsTableFilterableCell = BasicCell & FilterableCell;
+
 export type CompareResultsTableCell =
-  | {
-      name?: string;
-      filter?: false;
-      key: string;
-      disable?: boolean;
-      gridWidth?: string;
-    }
-  | CompareResultsTableFilterableCell;
+  | BasicCell
+  | (BasicCell & SortableCell)
+  | CompareResultsTableFilterableCell
+  | (CompareResultsTableFilterableCell & SortableCell);
 
 export type CompareResultsTableConfig = CompareResultsTableCell[];
 
