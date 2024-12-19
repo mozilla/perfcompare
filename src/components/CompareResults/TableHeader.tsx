@@ -20,7 +20,7 @@ import { useAppSelector } from '../../hooks/app';
 import { Colors, Spacing } from '../../styles';
 import type {
   CompareResultsTableConfig,
-  CompareResultsTableFilterableCell,
+  FilterableCell,
   CompareResultsTableCell,
 } from '../../types/types';
 
@@ -68,7 +68,7 @@ type FilterableColumnProps = {
   columnId: string;
 
   /* Properties for filtering */
-  possibleValues: CompareResultsTableFilterableCell['possibleValues'];
+  possibleValues: FilterableCell['possibleValues'];
   uncheckedValues?: Set<string>;
   onToggleFilter: (checkedValues: Set<string>) => unknown;
   onClearFilter: () => unknown;
