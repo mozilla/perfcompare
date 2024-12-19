@@ -3,7 +3,7 @@ import { useState, useMemo } from 'react';
 import useRawSearchParams from './useRawSearchParams';
 import type {
   CompareResultsTableConfig,
-  CompareResultsTableCell,
+  CompareResultsTableColumn,
 } from '../types/types';
 
 // This hook handles the state that handles table filtering, and also takes care
@@ -29,11 +29,12 @@ import type {
 //
 // In the future we'd like the state to contains the selected items instead.
 
-const useTableFilters = (cellsConfiguration: CompareResultsTableConfig) => {
-  const columnIdToConfiguration: Map<string, CompareResultsTableCell> = useMemo(
-    () => new Map(cellsConfiguration.map((val) => [val.key, val])),
-    [cellsConfiguration],
-  );
+const useTableFilters = (columnsConfiguration: CompareResultsTableConfig) => {
+  const columnIdToConfiguration: Map<string, CompareResultsTableColumn> =
+    useMemo(
+      () => new Map(columnsConfiguration.map((val) => [val.key, val])),
+      [columnsConfiguration],
+    );
 
   const filterValuesBySet = (
     values: Array<{ key: string }>,
@@ -59,8 +60,8 @@ const useTableFilters = (cellsConfiguration: CompareResultsTableConfig) => {
       }
 
       const columnId = param.slice('filter_'.length);
-      const cellConfiguration = columnIdToConfiguration.get(columnId);
-      if (!cellConfiguration || !('filter' in cellConfiguration)) {
+      const columnConfiguration = columnIdToConfiguration.get(columnId);
+      if (!columnConfiguration || !('filter' in columnConfiguration)) {
         // The columnId passed as a parameter doesn't exist or isn't a
         // filterable column, ignore it.
         continue;
@@ -73,7 +74,7 @@ const useTableFilters = (cellsConfiguration: CompareResultsTableConfig) => {
       // URL, that is we compute the difference. Remember that the state holds
       // the unchecked values (currently).
       const uncheckedValueKeys = filterValuesBySet(
-        cellConfiguration.possibleValues,
+        columnConfiguration.possibleValues,
         configuredValuesSet,
       );
 
@@ -97,12 +98,12 @@ const useTableFilters = (cellsConfiguration: CompareResultsTableConfig) => {
   };
 
   const onToggleFilter = (columnId: string, filters: Set<string>) => {
-    const cellConfiguration = columnIdToConfiguration.get(columnId);
-    if (!cellConfiguration || !('filter' in cellConfiguration)) {
+    const columnConfiguration = columnIdToConfiguration.get(columnId);
+    if (!columnConfiguration || !('filter' in columnConfiguration)) {
       // The columnId passed as a parameter doesn't exist or isn't a
       // filterable column, ignore it.
       console.error(
-        "The user toggled a filter that's not available in the cellConfiguration, it's likely a bug.",
+        "The user toggled a filter that's not available in the columnConfiguration, it's likely a bug.",
       );
       return;
     }
@@ -111,7 +112,7 @@ const useTableFilters = (cellsConfiguration: CompareResultsTableConfig) => {
       // We need to compute which values are not stored in the state. They are
       // the values that should be present in the URL.
       const checkedValueKeys = filterValuesBySet(
-        cellConfiguration.possibleValues,
+        columnConfiguration.possibleValues,
         filters,
       );
 

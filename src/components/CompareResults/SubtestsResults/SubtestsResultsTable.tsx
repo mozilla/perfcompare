@@ -46,7 +46,7 @@ const stringComparisonCollator = new Intl.Collator('en', {
   numeric: true,
   sensitivity: 'base',
 });
-const cellsConfiguration: CompareResultsTableConfig = [
+const columnsConfiguration: CompareResultsTableConfig = [
   {
     name: 'Subtests',
     key: 'subtests',
@@ -153,15 +153,15 @@ function resultMatchesColumnFilter(
   columnId: string,
   uncheckedValues: Set<string>,
 ): boolean {
-  const cellConfiguration = cellsConfiguration.find(
-    (cell) => cell.key === columnId,
+  const columnConfiguration = columnsConfiguration.find(
+    (column) => column.key === columnId,
   );
-  if (!cellConfiguration || !('filter' in cellConfiguration)) {
+  if (!columnConfiguration || !('filter' in columnConfiguration)) {
     return true;
   }
 
   for (const filterValue of uncheckedValues) {
-    if (cellConfiguration.matchesFunction(result, filterValue)) {
+    if (columnConfiguration.matchesFunction(result, filterValue)) {
       return true;
     }
   }
@@ -202,27 +202,27 @@ function sortResults(
   columnId: string | null,
   direction: 'asc' | 'desc' | null,
 ) {
-  let cellConfiguration;
+  let columnConfiguration;
   if (columnId && direction) {
-    cellConfiguration = cellsConfiguration.find(
-      (cell) => cell.key === columnId,
+    columnConfiguration = columnsConfiguration.find(
+      (column) => column.key === columnId,
     );
   }
 
-  if (!cellConfiguration) {
-    cellConfiguration = cellsConfiguration[0];
+  if (!columnConfiguration) {
+    columnConfiguration = columnsConfiguration[0];
   }
 
-  if (!('sortFunction' in cellConfiguration)) {
+  if (!('sortFunction' in columnConfiguration)) {
     console.warn(
-      `No sortFunction information for the cellConfiguration ${String(
-        cellConfiguration.name ?? columnId,
+      `No sortFunction information for the columnConfiguration ${String(
+        columnConfiguration.name ?? columnId,
       )}`,
     );
     return results;
   }
 
-  const { sortFunction } = cellConfiguration;
+  const { sortFunction } = columnConfiguration;
   const directionedSortFunction =
     direction === 'desc'
       ? (itemA: CompareResultsItem, itemB: CompareResultsItem) =>
@@ -244,9 +244,9 @@ function SubtestsResultsTable({
   // This is our custom hook that manages table filters
   // and provides methods for clearing and toggling them.
   const { tableFilters, onClearFilter, onToggleFilter } =
-    useTableFilters(cellsConfiguration);
+    useTableFilters(columnsConfiguration);
   const { sortColumn, sortDirection, onToggleSort } =
-    useTableSort(cellsConfiguration);
+    useTableSort(columnsConfiguration);
 
   const filteredResults = useMemo(() => {
     return filterResults(results, filteringSearchTerm, tableFilters);
@@ -260,7 +260,7 @@ function SubtestsResultsTable({
     return processResults(filteredAndSortedResults);
   }, [filteredAndSortedResults]);
 
-  const rowGridTemplateColumns = cellsConfiguration
+  const rowGridTemplateColumns = columnsConfiguration
     .map((config) => config.gridWidth)
     .join(' ');
 
@@ -270,9 +270,9 @@ function SubtestsResultsTable({
       role='table'
       sx={{ marginTop: 3, paddingBottom: 3 }}
     >
-      {/* Using the same TableHeader component as the CompareResults components but with different cellsConfiguration */}
+      {/* Using the same TableHeader component as the CompareResults components but with different columnsConfiguration */}
       <TableHeader
-        cellsConfiguration={cellsConfiguration}
+        columnsConfiguration={columnsConfiguration}
         filters={tableFilters}
         onToggleFilter={onToggleFilter}
         onClearFilter={onClearFilter}

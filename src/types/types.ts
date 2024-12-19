@@ -3,7 +3,7 @@ import { CompareResultsItem } from './state';
 /* --- Types for configuring the behavior and styles of the results tables columns --- */
 
 // A basic column, without special properties.
-export interface BasicCell {
+export interface BasicColumn {
   // The label that will be shown in the header.
   name?: string;
   // A unique key that will be used in arrays when rendering, or saving state.
@@ -13,7 +13,7 @@ export interface BasicCell {
 }
 
 // This interface is used for a column that can be filtered.
-interface FilterableCellMixin {
+interface FilterableColumnMixin {
   name: string;
   // Always true for filterable columns.
   filter: true;
@@ -21,14 +21,14 @@ interface FilterableCellMixin {
   possibleValues: Array<{ label: string; key: string }>;
   // This function returns whether this result matches the value for this column.
   matchesFunction: (
-    this: FilterableCellMixin,
+    this: FilterableColumnMixin,
     result: CompareResultsItem,
     value: string,
   ) => boolean;
 }
 
 // This interface is used for a column that can be sorted.
-interface SortableCellMixin {
+interface SortableColumnMixin {
   name: string;
   sortFunction: (
     resultA: CompareResultsItem,
@@ -36,24 +36,25 @@ interface SortableCellMixin {
   ) => number;
 }
 
-// These types represent actual column types, by mixing a BasicCell with the
+// These types represent actual column types, by mixing a BasicColumn with the
 // mixins for Filterable and Sortable columns.
 // The "&" intersection works better than interface "extends" here, because the
 // "name" property has different types in the interfaces, so Typescript bails
 // out when using "extends".
-export type FilterableCell = BasicCell & FilterableCellMixin;
-export type SortableCell = BasicCell & SortableCellMixin;
-export type FilterableAndSortableCell = FilterableCell & SortableCellMixin;
+export type FilterableColumn = BasicColumn & FilterableColumnMixin;
+export type SortableColumn = BasicColumn & SortableColumnMixin;
+export type FilterableAndSortableColumn = FilterableColumn &
+  SortableColumnMixin;
 
 // A column can be one of these types.
-export type CompareResultsTableCell =
-  | BasicCell
-  | FilterableCell
-  | SortableCell
-  | FilterableAndSortableCell;
+export type CompareResultsTableColumn =
+  | BasicColumn
+  | FilterableColumn
+  | SortableColumn
+  | FilterableAndSortableColumn;
 
 // The full configuration for a results table.
-export type CompareResultsTableConfig = CompareResultsTableCell[];
+export type CompareResultsTableConfig = CompareResultsTableColumn[];
 
 /* --- End of types for configuring the behavior and styles of the results tables columns --- */
 
