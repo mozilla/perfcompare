@@ -506,7 +506,7 @@ exports[`Results View The table should match snapshot and other elements should 
                       />
                     </svg>
                     <span>
-                      OSX
+                      OS X 10.15
                     </span>
                   </div>
                 </div>
@@ -729,7 +729,7 @@ exports[`Results View The table should match snapshot and other elements should 
                       />
                     </svg>
                     <span>
-                      Linux
+                      Linux 18.04
                     </span>
                   </div>
                 </div>
@@ -953,7 +953,7 @@ exports[`Results View The table should match snapshot and other elements should 
                        
                     </svg>
                     <span>
-                      Windows
+                      Windows 10
                     </span>
                   </div>
                 </div>
@@ -1166,7 +1166,7 @@ exports[`Results View The table should match snapshot and other elements should 
                        
                     </svg>
                     <span>
-                      Windows
+                      Windows 10
                     </span>
                   </div>
                 </div>
