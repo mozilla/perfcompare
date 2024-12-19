@@ -20,8 +20,8 @@ import { useAppSelector } from '../../hooks/app';
 import { Colors, Spacing } from '../../styles';
 import type {
   CompareResultsTableConfig,
-  FilterableCell,
-  CompareResultsTableCell,
+  FilterableColumn,
+  CompareResultsTableColumn,
 } from '../../types/types';
 
 function SortDirectionIcon({
@@ -68,7 +68,7 @@ type FilterableColumnProps = {
   columnId: string;
 
   /* Properties for filtering */
-  possibleValues: FilterableCell['possibleValues'];
+  possibleValues: FilterableColumn['possibleValues'];
   uncheckedValues?: Set<string>;
   onToggleFilter: (checkedValues: Set<string>) => unknown;
   onClearFilter: () => unknown;
@@ -303,7 +303,7 @@ function SortableColumn({
 }
 
 type TableHeaderProps = {
-  cellsConfiguration: CompareResultsTableConfig;
+  columnsConfiguration: CompareResultsTableConfig;
 
   // Filter properties
   filters: Map<string, Set<string>>;
@@ -320,7 +320,7 @@ type TableHeaderProps = {
 };
 
 function TableHeader({
-  cellsConfiguration,
+  columnsConfiguration,
   filters,
   onToggleFilter,
   onClearFilter,
@@ -333,7 +333,7 @@ function TableHeader({
     tableHeader: style({
       display: 'grid',
       // Should be kept in sync with the gridTemplateColumns from RevisionRow
-      gridTemplateColumns: cellsConfiguration
+      gridTemplateColumns: columnsConfiguration
         .map((config) => config.gridWidth)
         .join(' '),
       background:
@@ -372,7 +372,7 @@ function TableHeader({
     }),
   };
 
-  function renderColumnHeader(header: CompareResultsTableCell) {
+  function renderColumnHeader(header: CompareResultsTableColumn) {
     if ('filter' in header) {
       return (
         <FilterableColumn
@@ -414,7 +414,7 @@ function TableHeader({
       data-testid='table-header'
       role='row'
     >
-      {cellsConfiguration.map((header) => (
+      {columnsConfiguration.map((header) => (
         <div
           key={`${header.key}`}
           className={`cell ${header.key}-header`}
