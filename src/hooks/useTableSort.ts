@@ -11,7 +11,7 @@ import type { CompareResultsTableConfig } from '../types/types';
 // * otherwise, a single sort parameter contains both the column and the
 // direction, separated by a character |.
 
-const useTableSort = (cellsConfiguration: CompareResultsTableConfig) => {
+const useTableSort = (columnsConfiguration: CompareResultsTableConfig) => {
   // This is our custom hook that updates the search params without a rerender.
   const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
 
@@ -22,10 +22,10 @@ const useTableSort = (cellsConfiguration: CompareResultsTableConfig) => {
       return [null, null];
     }
 
-    const cellConfiguration = cellsConfiguration.find(
+    const columnConfiguration = columnsConfiguration.find(
       (column) => column.key === columnId,
     );
-    if (!cellConfiguration) {
+    if (!columnConfiguration) {
       console.warn(`The column ${columnId} is unknown, reseting the sort.`);
       return [null, null];
     }
@@ -35,7 +35,7 @@ const useTableSort = (cellsConfiguration: CompareResultsTableConfig) => {
     }
 
     return [columnId, direction];
-  }, [sortFromUrl, cellsConfiguration]);
+  }, [sortFromUrl, columnsConfiguration]);
 
   const [sortDirection, setSortDirection] = useState(
     direction as 'asc' | 'desc' | null,
