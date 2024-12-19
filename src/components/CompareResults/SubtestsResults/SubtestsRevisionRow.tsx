@@ -16,6 +16,7 @@ import { useAppSelector } from '../../../hooks/app';
 import { Strings } from '../../../resources/Strings';
 import { Colors, Spacing } from '../../../styles';
 import type { CompareResultsItem } from '../../../types/state';
+import { formatNumber } from './../../../utils/format';
 
 const revisionsRow = {
   borderRadius: '4px 0px 0px 4px',
@@ -159,14 +160,14 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
         </div>
         <div className='base-value cell' role='cell'>
           {' '}
-          {baseMedianValue} {baseUnit}{' '}
+          {formatNumber(baseMedianValue)} {baseUnit}{' '}
         </div>
         <div className='comparison-sign cell' role='cell'>
           {determineSign(baseMedianValue, newMedianValue)}
         </div>
         <div className='new-value cell' role='cell'>
           {' '}
-          {newMedianValue} {newUnit}
+          {formatNumber(newMedianValue)} {newUnit}
         </div>
         <div className='status cell' role='cell'>
           <Box
