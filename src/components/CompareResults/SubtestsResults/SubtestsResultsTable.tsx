@@ -6,6 +6,7 @@ import SubtestsTableContent from './SubtestsTableContent';
 import NoResultsFound from '.././NoResultsFound';
 import TableHeader from '.././TableHeader';
 import useTableFilters from '../../../hooks/useTableFilters';
+import useTableSort from '../../../hooks/useTableSort';
 import type { CompareResultsItem } from '../../../types/state';
 import type { CompareResultsTableConfig } from '../../../types/types';
 
@@ -41,11 +42,18 @@ function processResults(results: CompareResultsItem[]) {
   return restructuredResults;
 }
 
+const stringComparisonCollator = new Intl.Collator('en', {
+  numeric: true,
+  sensitivity: 'base',
+});
 const cellsConfiguration: CompareResultsTableConfig = [
   {
     name: 'Subtests',
     key: 'subtests',
     gridWidth: '4fr',
+    sortFunction(resultA, resultB) {
+      return stringComparisonCollator.compare(resultA.test, resultB.test);
+    },
   },
   {
     name: 'Base',
@@ -65,7 +73,6 @@ const cellsConfiguration: CompareResultsTableConfig = [
   },
   {
     name: 'Status',
-    disable: true,
     filter: true,
     key: 'status',
     gridWidth: '1.5fr',
@@ -89,13 +96,15 @@ const cellsConfiguration: CompareResultsTableConfig = [
     name: 'Delta',
     key: 'delta',
     gridWidth: '1fr',
+    sortFunction(resultA, resultB) {
+      return resultA.delta_percentage - resultB.delta_percentage;
+    },
   },
   {
     name: 'Confidence',
-    disable: true,
     filter: true,
     key: 'confidence',
-    gridWidth: '1.5fr',
+    gridWidth: '1.8fr',
     possibleValues: [
       { label: 'No value', key: 'none' },
       { label: 'Low', key: 'low' },
@@ -113,6 +122,17 @@ const cellsConfiguration: CompareResultsTableConfig = [
           return result.confidence_text === label;
         }
       }
+    },
+    sortFunction(resultA, resultB) {
+      const confidenceA =
+        resultA.confidence_text && resultA.confidence !== null
+          ? resultA.confidence
+          : -1;
+      const confidenceB =
+        resultB.confidence_text && resultB.confidence !== null
+          ? resultB.confidence
+          : -1;
+      return confidenceA - confidenceB;
     },
   },
   { name: 'Total Runs', key: 'runs', gridWidth: '1fr' },
@@ -136,7 +156,7 @@ function resultMatchesColumnFilter(
   const cellConfiguration = cellsConfiguration.find(
     (cell) => cell.key === columnId,
   );
-  if (!cellConfiguration || !cellConfiguration.filter) {
+  if (!cellConfiguration || !('filter' in cellConfiguration)) {
     return true;
   }
 
@@ -174,6 +194,44 @@ function filterResults(
   });
 }
 
+// This function sorts the results array in accordance to the specified column
+// and direction. If no column is specified, the first column (the subtests)
+// is used.
+function sortResults(
+  results: CompareResultsItem[],
+  columnId: string | null,
+  direction: 'asc' | 'desc' | null,
+) {
+  let cellConfiguration;
+  if (columnId && direction) {
+    cellConfiguration = cellsConfiguration.find(
+      (cell) => cell.key === columnId,
+    );
+  }
+
+  if (!cellConfiguration) {
+    cellConfiguration = cellsConfiguration[0];
+  }
+
+  if (!('sortFunction' in cellConfiguration)) {
+    console.warn(
+      `No sortFunction information for the cellConfiguration ${String(
+        cellConfiguration.name ?? columnId,
+      )}`,
+    );
+    return results;
+  }
+
+  const { sortFunction } = cellConfiguration;
+  const directionedSortFunction =
+    direction === 'desc'
+      ? (itemA: CompareResultsItem, itemB: CompareResultsItem) =>
+          sortFunction(itemB, itemA)
+      : sortFunction;
+
+  return results.toSorted(directionedSortFunction);
+}
+
 type ResultsTableProps = {
   filteringSearchTerm: string;
   results: CompareResultsItem[];
@@ -187,15 +245,20 @@ function SubtestsResultsTable({
   // and provides methods for clearing and toggling them.
   const { tableFilters, onClearFilter, onToggleFilter } =
     useTableFilters(cellsConfiguration);
+  const { sortColumn, sortDirection, onToggleSort } =
+    useTableSort(cellsConfiguration);
+
+  const filteredResults = useMemo(() => {
+    return filterResults(results, filteringSearchTerm, tableFilters);
+  }, [results, filteringSearchTerm, tableFilters]);
+
+  const filteredAndSortedResults = useMemo(() => {
+    return sortResults(filteredResults, sortColumn, sortDirection);
+  }, [sortColumn, sortDirection, filteredResults]);
 
   const processedResults = useMemo(() => {
-    const filteredResults = filterResults(
-      results,
-      filteringSearchTerm,
-      tableFilters,
-    );
-    return processResults(filteredResults);
-  }, [results, filteringSearchTerm, tableFilters]);
+    return processResults(filteredAndSortedResults);
+  }, [filteredAndSortedResults]);
 
   const rowGridTemplateColumns = cellsConfiguration
     .map((config) => config.gridWidth)
@@ -213,6 +276,9 @@ function SubtestsResultsTable({
         filters={tableFilters}
         onToggleFilter={onToggleFilter}
         onClearFilter={onClearFilter}
+        sortColumn={sortColumn}
+        sortDirection={sortDirection}
+        onToggleSort={onToggleSort}
       />
       {processedResults.map((res) => (
         <SubtestsTableContent
