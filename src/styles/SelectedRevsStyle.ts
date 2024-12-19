@@ -52,19 +52,11 @@ export const SelectRevsStyles = (mode: string) => {
       },
     },
 
-    listItemButton: {
-      cursor: 'auto !important',
-      padding: '0 !important',
-      alignItems: 'flex-start !important',
-      $nest: {
-        '&:hover': {
-          backgroundColor: 'transparent !important',
-        },
+    selectedRevision: {
+      display: 'flex',
 
-        '.search-revision-item-icon': {
-          minWidth: '0',
-          marginLeft: `${Spacing.Small + 6}px`,
-        },
+      minWidth: '0px',
+      $nest: {
         '.search-revision-item-text': {
           margin: 0,
           minWidth: '434px',
@@ -93,7 +85,6 @@ export const SelectRevsStyles = (mode: string) => {
                 ? Colors.SecondaryText
                 : Colors.SecondaryTextDark,
             },
-
             svg: {
               marginRight: `${Spacing.xSmall}px`,
               fontSize: '1rem',

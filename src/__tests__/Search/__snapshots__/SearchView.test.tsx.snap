@@ -1250,9 +1250,7 @@ exports[`With search parameters both search components are populated as expected
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
+              class="selectedRevision_fg76eil MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -1345,9 +1343,6 @@ exports[`With search parameters both search components are populated as expected
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </div>
           </li>
         </ul>
@@ -1752,9 +1747,7 @@ exports[`With search parameters both search components are populated as expected
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
+              class="selectedRevision_fg76eil MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -1847,9 +1840,6 @@ exports[`With search parameters both search components are populated as expected
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </div>
           </li>
         </ul>
@@ -2262,9 +2252,7 @@ exports[`With search parameters both search components are populated as expected
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
+              class="selectedRevision_fg76eil MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -2357,9 +2345,6 @@ exports[`With search parameters both search components are populated as expected
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </div>
           </li>
         </ul>
@@ -2764,9 +2749,7 @@ exports[`With search parameters both search components are populated as expected
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
+              class="selectedRevision_fg76eil MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -2859,9 +2842,6 @@ exports[`With search parameters both search components are populated as expected
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </div>
           </li>
         </ul>
@@ -3274,9 +3254,7 @@ exports[`With search parameters displays the default value for framework if the 
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
+              class="selectedRevision_fg76eil MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -3369,9 +3347,6 @@ exports[`With search parameters displays the default value for framework if the 
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </div>
           </li>
         </ul>
@@ -3776,9 +3751,7 @@ exports[`With search parameters displays the default value for framework if the 
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
+              class="selectedRevision_fg76eil MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -3871,9 +3844,6 @@ exports[`With search parameters displays the default value for framework if the 
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </div>
           </li>
         </ul>
