@@ -12,6 +12,7 @@ export * from './Switch';
 export * from './Banner';
 export * from './Document';
 export * from './Tooltips';
+export * from './Select';
 
 //contains the SearchStyles
 export * from './CompareCards';
