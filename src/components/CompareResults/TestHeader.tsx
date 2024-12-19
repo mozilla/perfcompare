@@ -7,7 +7,6 @@ import { Colors, Spacing } from '../../styles';
 import type { CompareResultsItem } from '../../types/state';
 import { getDocsURL } from '../../utils/helpers';
 
-
 const styles = {
   revisionHeader: style({
     borderBottom: `0.5px solid ${Colors.BorderDropdownMenu}`,

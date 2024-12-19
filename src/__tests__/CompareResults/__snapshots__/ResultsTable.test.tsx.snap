@@ -1121,7 +1121,7 @@ exports[`Results Table Should match snapshot 1`] = `
                       Delta
                       <svg
                         aria-hidden="true"
-                        aria-label="The percentage differnce between the Base and New values"
+                        aria-label="The percentage difference between the Base and New values"
                         class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall dropdown-info-icon css-1mecf1h-MuiSvgIcon-root"
                         data-mui-internal-clone-element="true"
                         data-testid="InfoOutlinedIcon"
@@ -1262,7 +1262,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
                                 href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
                                 target="_blank"
-                                title="Link to suite documentation"
+                                title="Link to suite documentation  "
                               >
                                 a11yr
                               </a>
@@ -1996,7 +1996,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
                                 href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
                                 target="_blank"
-                                title="Link to suite documentation"
+                                title="Link to suite documentation  "
                               >
                                 a11yr
                               </a>
@@ -2259,7 +2259,7 @@ exports[`Results Table should render different blocks when rendering several rev
           class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
           href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
           target="_blank"
-          title="Link to suite documentation"
+          title="Link to suite documentation  "
         >
           a11yr
         </a>
