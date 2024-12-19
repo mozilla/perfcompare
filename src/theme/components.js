@@ -17,6 +17,7 @@ import med from './img/med.svg';
 import osx from './img/osx.svg';
 import windows from './img/windows.svg';
 import zap from './img/zap-10.svg';
+import { SelectStyles } from '../styles/Select';
 
 const components = {
   MuiButton: {
@@ -249,6 +250,8 @@ const components = {
           outline: '1px auto',
         },
       },
+      select: ({ theme }) =>
+        theme.palette.mode == 'light' ? SelectStyles.light : SelectStyles.dark,
     },
   },
   MuiTooltip: {

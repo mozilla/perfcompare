@@ -55,11 +55,13 @@ function FrameworkDropdown({
       name='framework'
       variant={variant}
       size={size}
-      inputProps={{ 'aria-label': 'Framework' }}
       MenuProps={{
         classes: {
           paper: `paper-repo paper-${mode === 'light' ? 'light' : 'dark'}`,
         },
+      }}
+      inputProps={{
+        'aria-label': 'Framework',
       }}
     >
       {sortedFrameworks.map(([id, name]) => (
