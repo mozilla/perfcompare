@@ -1296,6 +1296,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
                     href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
                     target="_blank"
+                    title="Link to suite documentation"
                   >
                     a11yr
                   </a>

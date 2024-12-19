@@ -1210,6 +1210,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
                                 href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
                                 target="_blank"
+                                title="Link to suite documentation"
                               >
                                 a11yr
                               </a>
@@ -1943,6 +1944,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
                                 href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
                                 target="_blank"
+                                title="Link to suite documentation"
                               >
                                 a11yr
                               </a>
@@ -2452,6 +2454,7 @@ exports[`Results Table should render different blocks when rendering several rev
           class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-g8z9fn-MuiTypography-root-MuiLink-root"
           href="https://firefox-source-docs.mozilla.org/testing/perfdocs/talos.html#a11yr"
           target="_blank"
+          title="Link to suite documentation"
         >
           a11yr
         </a>
