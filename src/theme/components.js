@@ -8,6 +8,7 @@ import {
   DropDownMenuRaw,
   DropDownItemRaw,
   Colors,
+  Select,
 } from '../styles';
 import android from './img/android.svg';
 import high from './img/high.svg';
@@ -17,7 +18,6 @@ import med from './img/med.svg';
 import osx from './img/osx.svg';
 import windows from './img/windows.svg';
 import zap from './img/zap-10.svg';
-import { SelectStyles } from '../styles/Select';
 
 const components = {
   MuiButton: {
@@ -251,7 +251,7 @@ const components = {
         },
       },
       select: ({ theme }) =>
-        theme.palette.mode == 'light' ? SelectStyles.light : SelectStyles.dark,
+        theme.palette.mode == 'light' ? Select.light : Select.dark,
     },
   },
   MuiTooltip: {

@@ -1,6 +1,6 @@
 import { Colors } from './Colors';
 
-export const SelectStyles = {
+export const Select = {
   light: {
     '&:focus': {
       backgroundColor: Colors.SecondaryDefault,
@@ -8,8 +8,6 @@ export const SelectStyles = {
     },
     '&:hover': {
       backgroundColor: Colors.SecondaryHover,
-      paddingTop: '0px',
-      paddingBottom: '0px',
     },
   },
   dark: {
@@ -19,8 +17,6 @@ export const SelectStyles = {
     },
     '&:hover': {
       backgroundColor: Colors.SecondaryHoverDark,
-      paddingTop: '0px',
-      paddingBottom: '0px',
     },
   },
 };

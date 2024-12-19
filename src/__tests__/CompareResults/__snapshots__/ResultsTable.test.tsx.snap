@@ -173,7 +173,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-labelledby="repo-dropdown--base"
-                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-7e0ft7-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1gwhubl-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                           role="button"
                           tabindex="0"
                         >
@@ -435,7 +435,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-labelledby="repo-dropdown--new"
-                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-7e0ft7-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1gwhubl-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                           role="button"
                           tabindex="0"
                         >
@@ -836,7 +836,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           aria-haspopup="listbox"
                           aria-label="Framework"
                           aria-labelledby="mui-component-select-framework"
-                          class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-p78ayq-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                          class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1lxcv05-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
                           id="mui-component-select-framework"
                           role="button"
                           tabindex="0"
@@ -891,7 +891,7 @@ exports[`Results Table Should match snapshot 1`] = `
                         <div
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-p78ayq-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                          class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1lxcv05-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
                           role="button"
                           tabindex="0"
                         >
