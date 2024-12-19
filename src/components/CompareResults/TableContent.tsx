@@ -102,20 +102,20 @@ function resultMatchesSearchTerm(
 }
 
 function resultMatchesColumnFilter(
-  cellsConfiguration: CompareResultsTableConfig,
+  columnsConfiguration: CompareResultsTableConfig,
   result: CompareResultsItem,
   columnId: string,
   uncheckedValues: Set<string>,
 ): boolean {
-  const cellConfiguration = cellsConfiguration.find(
-    (cell) => cell.key === columnId,
+  const columnConfiguration = columnsConfiguration.find(
+    (column) => column.key === columnId,
   );
-  if (!cellConfiguration || !cellConfiguration.filter) {
+  if (!columnConfiguration || !('filter' in columnConfiguration)) {
     return true;
   }
 
   for (const filterValueKey of uncheckedValues) {
-    if (cellConfiguration.matchesFunction(result, filterValueKey)) {
+    if (columnConfiguration.matchesFunction(result, filterValueKey)) {
       return true;
     }
   }
@@ -125,7 +125,7 @@ function resultMatchesColumnFilter(
 // This function filters the results array using both the searchTerm and the
 // tableFilters. The tableFilters is a map ColumnID -> Set of values to remove.
 function filterResults(
-  cellsConfiguration: CompareResultsTableConfig,
+  columnsConfiguration: CompareResultsTableConfig,
   results: CompareResultsItem[],
   searchTerm: string,
   tableFilters: Map<string, Set<string>>,
@@ -142,7 +142,7 @@ function filterResults(
     for (const [columnId, uncheckedValues] of tableFilters) {
       if (
         resultMatchesColumnFilter(
-          cellsConfiguration,
+          columnsConfiguration,
           result,
           columnId,
           uncheckedValues,
@@ -160,7 +160,7 @@ const allRevisionsOption =
   Strings.components.comparisonRevisionDropdown.allRevisions.key;
 
 type Props = {
-  cellsConfiguration: CompareResultsTableConfig;
+  columnsConfiguration: CompareResultsTableConfig;
   results: CompareResultsItem[][];
   filteringSearchTerm: string;
   tableFilters: Map<string, Set<string>>; // ColumnID -> Set<Values to remove>
@@ -169,7 +169,7 @@ type Props = {
 };
 
 function TableContent({
-  cellsConfiguration,
+  columnsConfiguration,
   results,
   filteringSearchTerm,
   tableFilters,
@@ -188,7 +188,7 @@ function TableContent({
           []);
 
     const filteredResults = filterResults(
-      cellsConfiguration,
+      columnsConfiguration,
       resultsForCurrentComparison,
       filteringSearchTerm,
       tableFilters,
@@ -199,7 +199,7 @@ function TableContent({
     activeComparison,
     filteringSearchTerm,
     tableFilters,
-    cellsConfiguration,
+    columnsConfiguration,
   ]);
 
   if (!processedResults.length) {

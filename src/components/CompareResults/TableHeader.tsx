@@ -1,8 +1,10 @@
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import StraightIcon from '@mui/icons-material/Straight';
+import SwapVert from '@mui/icons-material/SwapVert';
 import { ListItemIcon, ListItemText } from '@mui/material';
-import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
 import Divider from '@mui/material/Divider';
+import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Box } from '@mui/system';
@@ -17,26 +19,64 @@ import { useAppSelector } from '../../hooks/app';
 import { Colors, Spacing } from '../../styles';
 import type {
   CompareResultsTableConfig,
-  CompareResultsTableFilterableCell,
+  FilterableColumn,
+  CompareResultsTableColumn,
 } from '../../types/types';
 
-type FilterableColumnProps = {
+function SortDirectionIcon({
+  columnName,
+  sortDirection,
+}: {
+  columnName: string;
+  sortDirection: SortableColumnHeaderProps['sortDirection'];
+}) {
+  switch (sortDirection) {
+    case 'asc':
+      return (
+        <StraightIcon
+          titleAccess={`Sorted by ${columnName} in ascending order`}
+          fontSize='small'
+        />
+      );
+    case 'desc':
+      return (
+        <StraightIcon
+          titleAccess={`Sorted by ${columnName} in descending order`}
+          fontSize='small'
+          sx={{
+            transform: 'scale(-1)',
+          }}
+        />
+      );
+    default:
+      return (
+        <SwapVert
+          titleAccess={`Not sorted by ${columnName}`}
+          fontSize='small'
+        />
+      );
+  }
+}
+
+type FilterableColumnHeaderProps = {
   name: string;
   columnId: string;
-  possibleValues: CompareResultsTableFilterableCell['possibleValues'];
+
+  /* Properties for filtering */
+  possibleValues: FilterableColumn['possibleValues'];
   uncheckedValues?: Set<string>;
-  onToggle: (checkedValues: Set<string>) => unknown;
-  onClear: () => unknown;
+  onToggleFilter: (checkedValues: Set<string>) => unknown;
+  onClearFilter: () => unknown;
 };
 
-function FilterableColumn({
+function FilterableColumnHeader({
   name,
   columnId,
   possibleValues,
   uncheckedValues,
-  onToggle,
-  onClear,
-}: FilterableColumnProps) {
+  onToggleFilter,
+  onClearFilter,
+}: FilterableColumnHeaderProps) {
   const popupState = usePopupState({ variant: 'popover', popupId: columnId });
   const possibleCheckedValues =
     possibleValues.length - (uncheckedValues?.size || 0);
@@ -48,7 +88,7 @@ function FilterableColumn({
     } else {
       newUncheckedValues.add(valueKey);
     }
-    onToggle(newUncheckedValues);
+    onToggleFilter(newUncheckedValues);
   };
 
   const onClickOnlyFilter = (valueKey: string) => {
@@ -57,7 +97,7 @@ function FilterableColumn({
         .filter(({ key }) => key !== valueKey)
         .map(({ key }) => key),
     );
-    onToggle(newUncheckedValues);
+    onToggleFilter(newUncheckedValues);
   };
 
   const hasFilteredValues = uncheckedValues && uncheckedValues.size;
@@ -67,33 +107,25 @@ function FilterableColumn({
 
   return (
     <>
-      <Button
-        color='secondary'
-        {...bindTrigger(popupState)}
-        aria-label={buttonAriaLabel}
-        sx={(theme) => ({
-          background:
-            theme.palette.mode == 'light'
-              ? Colors.Background200
-              : Colors.Background200Dark,
-          borderRadius: 0.5,
-          padding: '6px 12px',
-        })}
+      {name}
+      <Box
+        sx={{
+          paddingInlineStart: 0.5,
+          color: 'primary.main',
+        }}
+        aria-label={`${possibleCheckedValues} items selected`}
       >
-        {name}
-        <Box
-          sx={{
-            paddingInlineStart: 0.5,
-            color: 'primary.main',
-          }}
-          aria-label={`${possibleCheckedValues} items selected`}
-        >
-          ({possibleCheckedValues})
-        </Box>
-        <KeyboardArrowDownIcon />
-      </Button>
+        ({possibleCheckedValues})
+      </Box>
+      <IconButton
+        {...bindTrigger(popupState)}
+        size='small'
+        aria-label={buttonAriaLabel}
+      >
+        <KeyboardArrowDownIcon fontSize='small' />
+      </IconButton>
       <Menu {...bindMenu(popupState)}>
-        <MenuItem dense={true} onClick={onClear}>
+        <MenuItem dense={true} onClick={onClearFilter}>
           Select all values
         </MenuItem>
         <Divider />
@@ -138,25 +170,80 @@ function FilterableColumn({
   );
 }
 
+type SortableColumnHeaderProps = {
+  name: string;
+  sortDirection: 'asc' | 'desc' | null;
+  onToggle: (sortDirection: SortableColumnHeaderProps['sortDirection']) => void;
+};
+
+function SortableColumnHeader({
+  name,
+  sortDirection,
+  onToggle,
+}: SortableColumnHeaderProps) {
+  const buttonAriaLabel = sortDirection
+    ? `${name} (Currently sorted by this column. Click to change)`
+    : `${name} (Click to sort by this column)`;
+
+  function onButtonClick() {
+    let newSortDirection: typeof sortDirection;
+    switch (sortDirection) {
+      case 'asc':
+        newSortDirection = 'desc';
+        break;
+      case 'desc':
+        newSortDirection = null;
+        break;
+      default:
+        newSortDirection = 'asc';
+    }
+
+    onToggle(newSortDirection);
+  }
+
+  return (
+    <IconButton
+      aria-label={buttonAriaLabel}
+      size='small'
+      onClick={onButtonClick}
+    >
+      <SortDirectionIcon columnName={name} sortDirection={sortDirection} />
+    </IconButton>
+  );
+}
+
 type TableHeaderProps = {
-  cellsConfiguration: CompareResultsTableConfig;
+  columnsConfiguration: CompareResultsTableConfig;
+
+  // Filter properties
   filters: Map<string, Set<string>>;
   onToggleFilter: (columnId: string, filters: Set<string>) => unknown;
   onClearFilter: (columnId: string) => unknown;
+
+  // Sort properties
+  sortColumn: null | string;
+  sortDirection: SortableColumnHeaderProps['sortDirection'];
+  onToggleSort: (
+    columnId: string,
+    sortDirection: TableHeaderProps['sortDirection'],
+  ) => void;
 };
 
 function TableHeader({
-  cellsConfiguration,
+  columnsConfiguration,
   filters,
   onToggleFilter,
   onClearFilter,
+  sortColumn,
+  sortDirection,
+  onToggleSort,
 }: TableHeaderProps) {
   const themeMode = useAppSelector((state) => state.theme.mode);
   const styles = {
     tableHeader: style({
       display: 'grid',
       // Should be kept in sync with the gridTemplateColumns from RevisionRow
-      gridTemplateColumns: cellsConfiguration
+      gridTemplateColumns: columnsConfiguration
         .map((config) => config.gridWidth)
         .join(' '),
       background:
@@ -195,32 +282,49 @@ function TableHeader({
     }),
   };
 
+  function renderColumnHeader(header: CompareResultsTableColumn) {
+    return (
+      <>
+        {'filter' in header ? (
+          <FilterableColumnHeader
+            possibleValues={header.possibleValues}
+            name={header.name}
+            columnId={header.key}
+            uncheckedValues={filters.get(header.key)}
+            onClearFilter={() => onClearFilter(header.key)}
+            onToggleFilter={(checkedValues) =>
+              onToggleFilter(header.key, checkedValues)
+            }
+          />
+        ) : (
+          header.name
+        )}
+        {'sortFunction' in header ? (
+          <SortableColumnHeader
+            name={header.name}
+            sortDirection={header.key === sortColumn ? sortDirection : null}
+            onToggle={(newSortDirection) =>
+              onToggleSort(header.key, newSortDirection)
+            }
+          />
+        ) : null}
+      </>
+    );
+  }
+
   return (
     <div
       className={`${styles.tableHeader} ${styles.typography}`}
       data-testid='table-header'
       role='row'
     >
-      {cellsConfiguration.map((header) => (
+      {columnsConfiguration.map((header) => (
         <div
           key={`${header.key}`}
           className={`cell ${header.key}-header`}
           role='columnheader'
         >
-          {header.filter ? (
-            <FilterableColumn
-              possibleValues={header.possibleValues}
-              name={header.name}
-              columnId={header.key}
-              uncheckedValues={filters.get(header.key)}
-              onClear={() => onClearFilter(header.key)}
-              onToggle={(checkedValues) =>
-                onToggleFilter(header.key, checkedValues)
-              }
-            />
-          ) : (
-            header.name
-          )}
+          {renderColumnHeader(header)}
         </div>
       ))}
     </div>

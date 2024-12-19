@@ -1,5 +1,311 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`SubtestsResultsView Component Tests can sort the table and persist the information to the URL 1`] = `
+<button
+  aria-label="Delta (Click to sort by this column)"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+  tabindex="0"
+  type="button"
+>
+  <svg
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+    data-testid="SwapVertIcon"
+    focusable="false"
+    role="img"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
+    />
+    <title>
+      Not sorted by Delta
+    </title>
+  </svg>
+  Delta
+  <span
+    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+  />
+</button>
+`;
+
+exports[`SubtestsResultsView Component Tests can sort the table and persist the information to the URL 2`] = `
+<button
+  aria-label="Delta (Currently sorted by this column. Click to change)"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+  tabindex="0"
+  type="button"
+>
+  <svg
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+    data-testid="StraightIcon"
+    focusable="false"
+    role="img"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 6.83 9.41 8.41 8 7l4-4 4 4-1.41 1.41L13 6.83V21h-2z"
+    />
+    <title>
+      Sorted by Delta in ascending order
+    </title>
+  </svg>
+  Delta
+  <span
+    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+  >
+    <span
+      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+      style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+    >
+      <span
+        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+      />
+    </span>
+  </span>
+</button>
+`;
+
+exports[`SubtestsResultsView Component Tests can sort the table and persist the information to the URL 3`] = `
+<button
+  aria-label="Delta (Currently sorted by this column. Click to change)"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+  tabindex="0"
+  type="button"
+>
+  <svg
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1bpn2x6-MuiSvgIcon-root"
+    data-testid="StraightIcon"
+    focusable="false"
+    role="img"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 6.83 9.41 8.41 8 7l4-4 4 4-1.41 1.41L13 6.83V21h-2z"
+    />
+    <title>
+      Sorted by Delta in descending order
+    </title>
+  </svg>
+  Delta
+  <span
+    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+  >
+    <span
+      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+      style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+    >
+      <span
+        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+      />
+    </span>
+    <span
+      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+      style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+    >
+      <span
+        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+      />
+    </span>
+  </span>
+</button>
+`;
+
+exports[`SubtestsResultsView Component Tests can sort the table and persist the information to the URL 4`] = `
+<button
+  aria-label="Delta (Click to sort by this column)"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+  tabindex="0"
+  type="button"
+>
+  <svg
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+    data-testid="SwapVertIcon"
+    focusable="false"
+    role="img"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
+    />
+    <title>
+      Not sorted by Delta
+    </title>
+  </svg>
+  Delta
+  <span
+    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+  >
+    <span
+      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+      style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+    >
+      <span
+        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+      />
+    </span>
+    <span
+      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+      style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+    >
+      <span
+        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+      />
+    </span>
+  </span>
+</button>
+`;
+
+exports[`SubtestsResultsView Component Tests can sort the table and persist the information to the URL 5`] = `
+<button
+  aria-haspopup="true"
+  aria-label="Confidence (Click to filter and sort values)"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+  tabindex="0"
+  type="button"
+>
+  <svg
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+    data-testid="StraightIcon"
+    focusable="false"
+    role="img"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 6.83 9.41 8.41 8 7l4-4 4 4-1.41 1.41L13 6.83V21h-2z"
+    />
+    <title>
+      Sorted by Confidence in ascending order
+    </title>
+  </svg>
+  Confidence
+  <div
+    aria-label="4 items selected"
+    class="MuiBox-root css-18uhbjh"
+  >
+    (
+    4
+    )
+  </div>
+  <svg
+    aria-hidden="true"
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+    data-testid="KeyboardArrowDownIcon"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+    />
+  </svg>
+  <span
+    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+  >
+    <span
+      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+      style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+    >
+      <span
+        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+      />
+    </span>
+  </span>
+</button>
+`;
+
+exports[`SubtestsResultsView Component Tests can sort the table and persist the information to the URL 6`] = `
+<button
+  aria-haspopup="true"
+  aria-label="Confidence (Click to filter and sort values)"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+  tabindex="0"
+  type="button"
+>
+  <svg
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+    data-testid="SwapVertIcon"
+    focusable="false"
+    role="img"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
+    />
+    <title>
+      Not sorted by Confidence
+    </title>
+  </svg>
+  Confidence
+  <div
+    aria-label="4 items selected"
+    class="MuiBox-root css-18uhbjh"
+  >
+    (
+    4
+    )
+  </div>
+  <svg
+    aria-hidden="true"
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+    data-testid="KeyboardArrowDownIcon"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+    />
+  </svg>
+  <span
+    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+  >
+    <span
+      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+      style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+    >
+      <span
+        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+      />
+    </span>
+  </span>
+</button>
+`;
+
+exports[`SubtestsResultsView Component Tests can sort the table and persist the information to the URL 7`] = `
+<button
+  aria-label="Subtests (Currently sorted by this column. Click to change)"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+  tabindex="0"
+  type="button"
+>
+  <svg
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+    data-testid="StraightIcon"
+    focusable="false"
+    role="img"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 6.83 9.41 8.41 8 7l4-4 4 4-1.41 1.41L13 6.83V21h-2z"
+    />
+    <title>
+      Sorted by Subtests in ascending order
+    </title>
+  </svg>
+  Subtests
+  <span
+    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+  >
+    <span
+      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+      style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+    >
+      <span
+        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+      />
+    </span>
+  </span>
+</button>
+`;
+
 exports[`SubtestsResultsView Component Tests should render the subtests results view and match snapshot 1`] = `
 <body>
   <div>
@@ -399,7 +705,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
               role="table"
             >
               <div
-                class="f1fd041n fr2n4tx"
+                class="f1ptnq46 fr2n4tx"
                 data-testid="table-header"
                 role="row"
               >
@@ -407,7 +713,31 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="cell subtests-header"
                   role="columnheader"
                 >
-                  Subtests
+                  <button
+                    aria-label="Subtests (Click to sort by this column)"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <svg
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+                      data-testid="SwapVertIcon"
+                      focusable="false"
+                      role="img"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
+                      />
+                      <title>
+                        Not sorted by Subtests
+                      </title>
+                    </svg>
+                    Subtests
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <div
                   class="cell base-header"
@@ -465,7 +795,31 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="cell delta-header"
                   role="columnheader"
                 >
-                  Delta
+                  <button
+                    aria-label="Delta (Click to sort by this column)"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <svg
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+                      data-testid="SwapVertIcon"
+                      focusable="false"
+                      role="img"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
+                      />
+                      <title>
+                        Not sorted by Delta
+                      </title>
+                    </svg>
+                    Delta
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <div
                   class="cell confidence-header"
@@ -473,11 +827,25 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 >
                   <button
                     aria-haspopup="true"
-                    aria-label="Confidence (Click to filter values)"
+                    aria-label="Confidence (Click to filter and sort values)"
                     class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
+                    <svg
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+                      data-testid="SwapVertIcon"
+                      focusable="false"
+                      role="img"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
+                      />
+                      <title>
+                        Not sorted by Confidence
+                      </title>
+                    </svg>
                     Confidence
                     <div
                       aria-label="4 items selected"
@@ -519,7 +887,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 />
               </div>
               <div
-                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-14ka4hc"
+                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -677,21 +1045,21 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-14ka4hc"
+                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
                   class="subtests cell"
                   role="cell"
                 >
-                  tablemutation.html
+                  improvement.html
                 </div>
                 <div
                   class="base-value cell"
                   role="cell"
                 >
                    
-                  316.35
+                  971.38
                    
                   ms
                    
@@ -707,7 +1075,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                    
-                  319.45
+                  982.41
                    
                   ms
                 </div>
@@ -716,9 +1084,20 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                   <div
-                    class="status-hint  MuiBox-root css-1dj4wrv"
+                    class="status-hint status-hint-improvement MuiBox-root css-1h9ue86"
                   >
-                    -
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-colorSuccess MuiSvgIcon-fontSizeMedium css-116ao24-MuiSvgIcon-root"
+                      data-testid="ThumbUpIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"
+                      />
+                    </svg>
+                    Improvement
                   </div>
                 </div>
                 <div
@@ -726,7 +1105,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                    
-                  0.98
+                  1.44
                    %
                    
                 </div>
@@ -784,7 +1163,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                     >
                       <a
                         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
-                        href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2Ccc1b54585c7d1baaadf9d23164e2ad31c9cb07a3%2C1%2C1&timerange=604800"
+                        href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2C5c47b31c38f7214a07fad2e0d41fb901cdc18eae%2C1%2C1&timerange=604800"
                         tabindex="0"
                         target="_blank"
                         title="open the evolution graph for this job in treeherder"
@@ -835,7 +1214,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-14ka4hc"
+                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -895,7 +1274,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                    
-                  1.14
+                  1.04
                    %
                    
                 </div>
@@ -1004,21 +1383,21 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-14ka4hc"
+                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
                   class="subtests cell"
                   role="cell"
                 >
-                  improvement.html
+                  tablemutation.html
                 </div>
                 <div
                   class="base-value cell"
                   role="cell"
                 >
                    
-                  971.38
+                  316.35
                    
                   ms
                    
@@ -1034,7 +1413,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                    
-                  982.41
+                  319.45
                    
                   ms
                 </div>
@@ -1043,20 +1422,9 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                   <div
-                    class="status-hint status-hint-improvement MuiBox-root css-1h9ue86"
+                    class="status-hint  MuiBox-root css-1dj4wrv"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorSuccess MuiSvgIcon-fontSizeMedium css-116ao24-MuiSvgIcon-root"
-                      data-testid="ThumbUpIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"
-                      />
-                    </svg>
-                    Improvement
+                    -
                   </div>
                 </div>
                 <div
@@ -1064,7 +1432,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                    
-                  1.14
+                  0.98
                    %
                    
                 </div>
@@ -1122,7 +1490,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                     >
                       <a
                         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
-                        href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2C5c47b31c38f7214a07fad2e0d41fb901cdc18eae%2C1%2C1&timerange=604800"
+                        href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2Ccc1b54585c7d1baaadf9d23164e2ad31c9cb07a3%2C1%2C1&timerange=604800"
                         tabindex="0"
                         target="_blank"
                         title="open the evolution graph for this job in treeherder"
@@ -1469,7 +1837,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                           aria-invalid="false"
                           aria-label="Search by title, platform, revision or options"
                           class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-rg83rj-MuiInputBase-input-MuiOutlinedInput-input"
-                          id=":r9:"
+                          id=":rc:"
                           placeholder="Search results"
                           type="text"
                           value=""
@@ -1573,7 +1941,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
               role="table"
             >
               <div
-                class="f1fd041n fr2n4tx"
+                class="f1ptnq46 fr2n4tx"
                 data-testid="table-header"
                 role="row"
               >
@@ -1581,7 +1949,31 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="cell subtests-header"
                   role="columnheader"
                 >
-                  Subtests
+                  <button
+                    aria-label="Subtests (Click to sort by this column)"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <svg
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+                      data-testid="SwapVertIcon"
+                      focusable="false"
+                      role="img"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
+                      />
+                      <title>
+                        Not sorted by Subtests
+                      </title>
+                    </svg>
+                    Subtests
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <div
                   class="cell base-header"
@@ -1639,7 +2031,31 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="cell delta-header"
                   role="columnheader"
                 >
-                  Delta
+                  <button
+                    aria-label="Delta (Click to sort by this column)"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <svg
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+                      data-testid="SwapVertIcon"
+                      focusable="false"
+                      role="img"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
+                      />
+                      <title>
+                        Not sorted by Delta
+                      </title>
+                    </svg>
+                    Delta
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <div
                   class="cell confidence-header"
@@ -1647,11 +2063,25 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 >
                   <button
                     aria-haspopup="true"
-                    aria-label="Confidence (Click to filter values)"
+                    aria-label="Confidence (Click to filter and sort values)"
                     class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
+                    <svg
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+                      data-testid="SwapVertIcon"
+                      focusable="false"
+                      role="img"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
+                      />
+                      <title>
+                        Not sorted by Confidence
+                      </title>
+                    </svg>
                     Confidence
                     <div
                       aria-label="4 items selected"
@@ -1693,7 +2123,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 />
               </div>
               <div
-                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-14ka4hc"
+                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -1851,21 +2281,21 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-14ka4hc"
+                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
                   class="subtests cell"
                   role="cell"
                 >
-                  tablemutation.html
+                  improvement.html
                 </div>
                 <div
                   class="base-value cell"
                   role="cell"
                 >
                    
-                  316.35
+                  971.38
                    
                   ms
                    
@@ -1881,7 +2311,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                    
-                  319.45
+                  982.41
                    
                   ms
                 </div>
@@ -1890,9 +2320,20 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                   <div
-                    class="status-hint  MuiBox-root css-1dj4wrv"
+                    class="status-hint status-hint-improvement MuiBox-root css-1h9ue86"
                   >
-                    -
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-colorSuccess MuiSvgIcon-fontSizeMedium css-116ao24-MuiSvgIcon-root"
+                      data-testid="ThumbUpIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"
+                      />
+                    </svg>
+                    Improvement
                   </div>
                 </div>
                 <div
@@ -1900,7 +2341,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                    
-                  0.98
+                  1.44
                    %
                    
                 </div>
@@ -1958,7 +2399,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                     >
                       <a
                         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
-                        href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2Ccc1b54585c7d1baaadf9d23164e2ad31c9cb07a3%2C1%2C1&timerange=604800"
+                        href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2C5c47b31c38f7214a07fad2e0d41fb901cdc18eae%2C1%2C1&timerange=604800"
                         tabindex="0"
                         target="_blank"
                         title="open the evolution graph for this job in treeherder"
@@ -2009,7 +2450,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-14ka4hc"
+                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -2069,7 +2510,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                    
-                  1.14
+                  1.04
                    %
                    
                 </div>
@@ -2178,21 +2619,21 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-14ka4hc"
+                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
                   class="subtests cell"
                   role="cell"
                 >
-                  improvement.html
+                  tablemutation.html
                 </div>
                 <div
                   class="base-value cell"
                   role="cell"
                 >
                    
-                  971.38
+                  316.35
                    
                   ms
                    
@@ -2208,7 +2649,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                    
-                  982.41
+                  319.45
                    
                   ms
                 </div>
@@ -2217,20 +2658,9 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                   <div
-                    class="status-hint status-hint-improvement MuiBox-root css-1h9ue86"
+                    class="status-hint  MuiBox-root css-1dj4wrv"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorSuccess MuiSvgIcon-fontSizeMedium css-116ao24-MuiSvgIcon-root"
-                      data-testid="ThumbUpIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"
-                      />
-                    </svg>
-                    Improvement
+                    -
                   </div>
                 </div>
                 <div
@@ -2238,7 +2668,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                    
-                  1.14
+                  0.98
                    %
                    
                 </div>
@@ -2296,7 +2726,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                     >
                       <a
                         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
-                        href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2C5c47b31c38f7214a07fad2e0d41fb901cdc18eae%2C1%2C1&timerange=604800"
+                        href="https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2Ccc1b54585c7d1baaadf9d23164e2ad31c9cb07a3%2C1%2C1&timerange=604800"
                         tabindex="0"
                         target="_blank"
                         title="open the evolution graph for this job in treeherder"
