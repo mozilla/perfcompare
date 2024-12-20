@@ -173,7 +173,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-labelledby="repo-dropdown--base"
-                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-7e0ft7-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1gwhubl-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                           role="button"
                           tabindex="0"
                         >
@@ -291,7 +291,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           </div>
                         </div>
                         <div
-                          class="selectedRevision_fg76eil MuiBox-root css-0"
+                          class="selectedRevision_fd452xz MuiBox-root css-0"
                         >
                           <div
                             class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -435,7 +435,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-labelledby="repo-dropdown--new"
-                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-7e0ft7-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1gwhubl-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                           role="button"
                           tabindex="0"
                         >
@@ -553,7 +553,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           </div>
                         </div>
                         <div
-                          class="selectedRevision_fg76eil MuiBox-root css-0"
+                          class="selectedRevision_fd452xz MuiBox-root css-0"
                         >
                           <div
                             class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -836,7 +836,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           aria-haspopup="listbox"
                           aria-label="Framework"
                           aria-labelledby="mui-component-select-framework"
-                          class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-p78ayq-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                          class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1lxcv05-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
                           id="mui-component-select-framework"
                           role="button"
                           tabindex="0"
@@ -891,7 +891,7 @@ exports[`Results Table Should match snapshot 1`] = `
                         <div
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-p78ayq-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                          class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1lxcv05-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
                           role="button"
                           tabindex="0"
                         >
@@ -984,7 +984,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     <button
                       aria-haspopup="true"
                       aria-label="Platform (Click to filter values)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-91jdnd-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -1036,7 +1036,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     <button
                       aria-haspopup="true"
                       aria-label="Status (Click to filter values)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-91jdnd-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -1078,7 +1078,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     <button
                       aria-haspopup="true"
                       aria-label="Confidence (Click to filter values)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-91jdnd-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >

@@ -54,7 +54,8 @@ export const SelectRevsStyles = (mode: string) => {
 
     selectedRevision: {
       display: 'flex',
-
+      alignItems: 'flex-start',
+      flexGrow: 1,
       minWidth: '0px',
       $nest: {
         '.search-revision-item-text': {
@@ -95,6 +96,7 @@ export const SelectRevsStyles = (mode: string) => {
             },
           },
         },
+
         button: {
           padding: 2,
           marginTop: -2,

@@ -922,7 +922,7 @@ exports[`Results View The table should match snapshot and other elements should 
               aria-haspopup="listbox"
               aria-label="Framework"
               aria-labelledby="mui-component-select-framework"
-              class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-p78ayq-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+              class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1lxcv05-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
               id="mui-component-select-framework"
               role="button"
               tabindex="0"
@@ -977,7 +977,7 @@ exports[`Results View The table should match snapshot and other elements should 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-p78ayq-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+              class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1lxcv05-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
               role="button"
               tabindex="0"
             >
@@ -1070,7 +1070,7 @@ exports[`Results View The table should match snapshot and other elements should 
         <button
           aria-haspopup="true"
           aria-label="Platform (Click to filter values)"
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-91jdnd-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >
@@ -1122,7 +1122,7 @@ exports[`Results View The table should match snapshot and other elements should 
         <button
           aria-haspopup="true"
           aria-label="Status (Click to filter values)"
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-91jdnd-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >
@@ -1164,7 +1164,7 @@ exports[`Results View The table should match snapshot and other elements should 
         <button
           aria-haspopup="true"
           aria-label="Confidence (Click to filter values)"
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-91jdnd-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >
@@ -2168,7 +2168,7 @@ exports[`Results View renders framework dropdown in closed condition 1`] = `
   aria-haspopup="listbox"
   aria-label="Framework"
   aria-labelledby="mui-component-select-framework"
-  class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-p78ayq-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+  class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1lxcv05-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
   id="mui-component-select-framework"
   role="button"
   tabindex="0"
