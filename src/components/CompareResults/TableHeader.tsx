@@ -124,17 +124,13 @@ function FilterableColumn({
   return (
     <>
       <Button
-        color='secondary'
+        color='tableHeaderButton'
         {...bindTrigger(popupState)}
         aria-label={buttonAriaLabel}
-        sx={(theme) => ({
-          background:
-            theme.palette.mode == 'light'
-              ? Colors.Background200
-              : Colors.Background200Dark,
+        sx={{
           borderRadius: 0.5,
           padding: '6px 12px',
-        })}
+        }}
       >
         {hasSort ? (
           <SortDirectionIcon columnName={name} sortDirection={sortDirection} />
