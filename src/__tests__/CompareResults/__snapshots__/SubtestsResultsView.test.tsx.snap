@@ -439,31 +439,15 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 <div
                   class="cell base-header"
                   role="columnheader"
-                >
-                  <div
-                    class="f1vwntit"
-                  >
-                    Base
-                  </div>
-                </div>
+                />
                 <div
                   class="cell comparisonSign-header"
                   role="columnheader"
-                >
-                  <div
-                    class="f1vwntit"
-                  />
-                </div>
+                />
                 <div
                   class="cell new-header"
                   role="columnheader"
-                >
-                  <div
-                    class="f1vwntit"
-                  >
-                    New
-                  </div>
-                </div>
+                />
                 <div
                   class="cell status-header"
                   role="columnheader"
@@ -475,38 +459,30 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                     tabindex="0"
                     type="button"
                   >
-                    <button
-                      aria-haspopup="true"
-                      aria-label="Status (Click to filter values)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
+                    Status
+                    <div
+                      aria-label="3 items selected"
+                      class="MuiBox-root css-18uhbjh"
                     >
-                      Status
-                      <div
-                        aria-label="3 items selected"
-                        class="MuiBox-root css-18uhbjh"
-                      >
-                        (
-                        3
-                        )
-                      </div>
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                        data-testid="KeyboardArrowDownIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-                        />
-                      </svg>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      (
+                      3
+                      )
+                    </div>
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                      data-testid="KeyboardArrowDownIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
                       />
-                    </button>
-                  </div>
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <div
                   class="cell delta-header"
@@ -577,58 +553,38 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                       tabindex="0"
                       type="button"
                     >
-                      Confidence
-                      <div
-                        aria-label="4 items selected"
-                        class="MuiBox-root css-18uhbjh"
-                      >
-                        (
-                        4
-                        )
-                      </div>
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                        data-testid="KeyboardArrowDownIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-                        />
-                      </svg>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      (
+                      4
+                      )
+                    </div>
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                      data-testid="KeyboardArrowDownIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
                       />
-                    </button>
-                  </div>
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <div
                   class="cell runs-header"
                   role="columnheader"
-                >
-                  <div
-                    class="f1vwntit"
-                  >
-                    Total Runs
-                  </div>
-                </div>
+                />
                 <div
                   class="cell buttons-header"
                   role="columnheader"
-                >
-                  <div
-                    class="f1vwntit"
-                  />
-                </div>
+                />
                 <div
                   class="cell expand-header"
                   role="columnheader"
-                >
-                  <div
-                    class="f1vwntit"
-                  />
-                </div>
+                />
               </div>
               <div
                 class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
@@ -2073,31 +2029,15 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 <div
                   class="cell base-header"
                   role="columnheader"
-                >
-                  <div
-                    class="f1vwntit"
-                  >
-                    Base
-                  </div>
-                </div>
+                />
                 <div
                   class="cell comparisonSign-header"
                   role="columnheader"
-                >
-                  <div
-                    class="f1vwntit"
-                  />
-                </div>
+                />
                 <div
                   class="cell new-header"
                   role="columnheader"
-                >
-                  <div
-                    class="f1vwntit"
-                  >
-                    New
-                  </div>
-                </div>
+                />
                 <div
                   class="cell status-header"
                   role="columnheader"
@@ -2109,38 +2049,30 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                     tabindex="0"
                     type="button"
                   >
-                    <button
-                      aria-haspopup="true"
-                      aria-label="Status (Click to filter values)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
+                    Status
+                    <div
+                      aria-label="3 items selected"
+                      class="MuiBox-root css-18uhbjh"
                     >
-                      Status
-                      <div
-                        aria-label="3 items selected"
-                        class="MuiBox-root css-18uhbjh"
-                      >
-                        (
-                        3
-                        )
-                      </div>
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                        data-testid="KeyboardArrowDownIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-                        />
-                      </svg>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      (
+                      3
+                      )
+                    </div>
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                      data-testid="KeyboardArrowDownIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
                       />
-                    </button>
-                  </div>
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <div
                   class="cell delta-header"
@@ -2211,58 +2143,38 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                       tabindex="0"
                       type="button"
                     >
-                      Confidence
-                      <div
-                        aria-label="4 items selected"
-                        class="MuiBox-root css-18uhbjh"
-                      >
-                        (
-                        4
-                        )
-                      </div>
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                        data-testid="KeyboardArrowDownIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-                        />
-                      </svg>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      (
+                      4
+                      )
+                    </div>
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                      data-testid="KeyboardArrowDownIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
                       />
-                    </button>
-                  </div>
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <div
                   class="cell runs-header"
                   role="columnheader"
-                >
-                  <div
-                    class="f1vwntit"
-                  >
-                    Total Runs
-                  </div>
-                </div>
+                />
                 <div
                   class="cell buttons-header"
                   role="columnheader"
-                >
-                  <div
-                    class="f1vwntit"
-                  />
-                </div>
+                />
                 <div
                   class="cell expand-header"
                   role="columnheader"
-                >
-                  <div
-                    class="f1vwntit"
-                  />
-                </div>
+                />
               </div>
               <div
                 class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"

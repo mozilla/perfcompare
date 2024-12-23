@@ -72,6 +72,7 @@ function createTitle(
   isLinkSupported: boolean,
 ) {
   const isTestUnavailable = result.test === '' || result.suite === result.test;
+  const suiteLink = Strings.components.revisionRow.title.suiteLink;
   if (isLinkSupported) {
     return (
       <>
@@ -80,7 +81,7 @@ function createTitle(
           underline='hover'
           target='_blank'
           href={docsURL}
-          title={Strings.components.revisionRow.title.suiteLink}
+          title={suiteLink}
         >
           {result.suite}
         </Link>
