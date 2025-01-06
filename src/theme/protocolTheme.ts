@@ -3,9 +3,9 @@
 import { createTheme, Theme } from '@mui/material/styles';
 
 import { Colors } from '../styles';
-import type { ThemeMode } from '../types/state';
 import components from './components';
 import typography from './typography';
+import type { ThemeMode } from '../types/state';
 
 const lightMode = {
   background: {
@@ -18,6 +18,10 @@ const lightMode = {
     main: Colors.SecondaryDefault,
     dark: Colors.SecondaryHover,
   },
+  tableHeaderButton: {
+    main: Colors.Background200,
+    dark: Colors.SecondaryHover,
+  },
   text: {
     primary: Colors.PrimaryText,
     secondary: Colors.SecondaryText,
@@ -26,6 +30,10 @@ const lightMode = {
   icons: {
     success: Colors.IconLightSuccess,
     error: Colors.IconLightError,
+  },
+  status: {
+    improvement: Colors.Background500,
+    regression: Colors.Background400,
   },
 };
 
@@ -40,6 +48,10 @@ const darkMode = {
     main: Colors.Background300Dark,
     dark: Colors.SecondaryHoverDark,
   },
+  tableHeaderButton: {
+    main: Colors.Background200Dark,
+    dark: Colors.SecondaryHoverDark,
+  },
   text: {
     primary: Colors.PrimaryTextDark,
     secondary: Colors.SecondaryTextDark,
@@ -48,6 +60,10 @@ const darkMode = {
   icons: {
     success: Colors.IconDarkSuccess,
     error: Colors.IconDarkError,
+  },
+  status: {
+    improvement: Colors.Background500Dark,
+    regression: Colors.Background400Dark,
   },
 };
 
@@ -70,3 +86,16 @@ const getProtocolTheme = (storedMode: string) => {
   return { protocolTheme };
 };
 export default getProtocolTheme;
+
+// Make the new palette entry tableHeaderButton usable in the rest of the code
+// See https://mui.com/material-ui/customization/palette/#typescript
+declare module '@mui/material/Button' {
+  interface ButtonPropsColorOverrides {
+    tableHeaderButton: true;
+  }
+}
+declare module '@mui/material/ButtonGroup' {
+  interface ButtonGroupPropsColorOverrides {
+    tableHeaderButton: true;
+  }
+}

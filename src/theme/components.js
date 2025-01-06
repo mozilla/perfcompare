@@ -8,6 +8,7 @@ import {
   DropDownMenuRaw,
   DropDownItemRaw,
   Colors,
+  Select,
 } from '../styles';
 import android from './img/android.svg';
 import high from './img/high.svg';
@@ -249,6 +250,8 @@ const components = {
           outline: '1px auto',
         },
       },
+      select: ({ theme }) =>
+        theme.palette.mode == 'light' ? Select.light : Select.dark,
     },
   },
   MuiTooltip: {

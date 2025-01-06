@@ -1,20 +1,23 @@
 import { style } from 'typestyle';
 
-import type { compareView, compareOverTimeView } from '../../common/constants';
-import { Spacing } from '../../styles';
-import type { CompareResultsItem } from '../../types/state';
 import LinkToRevision from './LinkToRevision';
 import RevisionRow from './RevisionRow';
 import TestHeader from './TestHeader';
+import type { compareView, compareOverTimeView } from '../../common/constants';
+import { Spacing } from '../../styles';
+import type { CompareResultsItem } from '../../types/state';
 
 // We're using typestyle styles on purpose, to avoid the performance impact of
 // MUI's sx prop for these numerous elements.
+// Also note that we're using paddings, not margins. Indeed Virtuoso can't
+// compute properly the heights of the elements if we're using margins, but
+// paddings work fine.
 const styles = {
   testBlock: style({
-    /* Note that this margin will be merged with the margin below */
-    marginTop: Spacing.xLarge,
+    /* Note that this padding will be added to the padding below */
+    paddingTop: Spacing.Small,
   }),
-  revisionBlock: style({ marginBottom: Spacing.Large }),
+  revisionBlock: style({ paddingBottom: Spacing.Large }),
 };
 
 function TableRevisionContent(props: Props) {

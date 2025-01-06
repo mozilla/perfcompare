@@ -2,13 +2,13 @@ import FormControl from '@mui/material/FormControl';
 import Grid from '@mui/material/Grid';
 import { style } from 'typestyle';
 
+import DownloadButton from './DownloadButton';
+import RevisionSelect from './RevisionSelect';
+import SearchInput from './SearchInput';
 import { useAppSelector } from '../../hooks/app';
 import type { CompareResultsItem } from '../../types/state';
 import type { Framework } from '../../types/types';
 import FrameworkDropdown from '../Shared/FrameworkDropdown';
-import DownloadButton from './DownloadButton';
-import RevisionSelect from './RevisionSelect';
-import SearchInput from './SearchInput';
 
 const controlsStyles = style({
   display: 'flex',

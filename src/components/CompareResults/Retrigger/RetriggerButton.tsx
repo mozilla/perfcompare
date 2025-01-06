@@ -4,6 +4,8 @@ import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
 import { IconButton, Button } from '@mui/material';
 import { useSnackbar } from 'notistack';
 
+import { RetriggerConfigModal } from './RetriggerConfigModal';
+import { RetriggerSignInModal } from './RetriggerSignInModal';
 import {
   getTaskclusterCredentials,
   getTaskclusterParams,
@@ -18,8 +20,6 @@ import { Strings } from '../../../resources/Strings';
 import { CompareResultsItem } from '../../../types/state';
 import { getTreeherderURL } from '../../../utils/helpers';
 import SnackbarCloseButton from '../../Shared/SnackbarCloseButton';
-import { RetriggerConfigModal } from './RetriggerConfigModal';
-import { RetriggerSignInModal } from './RetriggerSignInModal';
 
 type Status = 'pending' | 'signin-modal' | 'retrigger-modal';
 
@@ -66,7 +66,7 @@ function RetriggerButton({ result, variant }: RetriggerButtonProps) {
     return config;
   };
 
-  const onRetriggerButtonClick = async () => {
+  const onRetriggerButtonClick = () => {
     const credentials = getTaskclusterCredentials();
     if (!credentials) {
       setStatus('signin-modal');

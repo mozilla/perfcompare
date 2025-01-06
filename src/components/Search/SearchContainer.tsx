@@ -3,14 +3,14 @@ import React, { useState } from 'react';
 import Typography from '@mui/material/Typography';
 import { useLoaderData } from 'react-router-dom';
 
-import { useAppSelector } from '../../hooks/app';
-import { Strings } from '../../resources/Strings';
-import { SearchContainerStyles } from '../../styles';
-import type { TimeRange } from '../../types/types';
 import CompareOverTime from './CompareOverTime';
 import CompareWithBase from './CompareWithBase';
 import type { LoaderReturnValue } from './loader';
 import SearchFormHeader from './SearchFormHeader';
+import { useAppSelector } from '../../hooks/app';
+import { Strings } from '../../resources/Strings';
+import { SearchContainerStyles } from '../../styles';
+import type { TimeRange } from '../../types/types';
 
 const strings = Strings.components.searchDefault;
 

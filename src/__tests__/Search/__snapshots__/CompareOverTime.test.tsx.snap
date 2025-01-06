@@ -79,7 +79,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="base-repo-dropdown--overtime mui-component-select-baseRepo"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ykx700-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               id="mui-component-select-baseRepo"
               role="button"
               tabindex="0"
@@ -123,7 +123,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="select-timerange-label mui-component-select-selectedTimeRange"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ykx700-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               id="mui-component-select-selectedTimeRange"
               role="button"
               tabindex="0"
@@ -204,7 +204,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--overtime"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ykx700-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="button"
               tabindex="0"
             >
@@ -341,7 +341,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
           aria-haspopup="listbox"
           aria-label="Framework"
           aria-labelledby="select-framework-label mui-component-select-framework"
-          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ykx700-MuiSelect-select-MuiInputBase-input-MuiInput-input"
           id="mui-component-select-framework"
           role="button"
           tabindex="0"
@@ -560,9 +560,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
+              class="selectedRevision_fd452xz MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -655,9 +653,6 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </div>
           </li>
         </ul>
@@ -681,7 +676,7 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
 >
   <li
     aria-selected="true"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters Mui-selected MuiMenuItem-root MuiMenuItem-gutters Mui-selected timerange-dropdown-item fi0qnjm fcmecz0 css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters Mui-selected MuiMenuItem-root MuiMenuItem-gutters Mui-selected timerange-dropdown-item f1xucsdf fcmecz0 css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="86400"
     role="option"
     tabindex="0"
@@ -702,7 +697,7 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fi0qnjm fcmecz0 css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item f1xucsdf fcmecz0 css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="172800"
     role="option"
     tabindex="-1"
@@ -723,7 +718,7 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fi0qnjm fcmecz0 css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item f1xucsdf fcmecz0 css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="604800"
     role="option"
     tabindex="-1"
@@ -744,7 +739,7 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fi0qnjm fcmecz0 css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item f1xucsdf fcmecz0 css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="1209600"
     role="option"
     tabindex="-1"
@@ -765,7 +760,7 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fi0qnjm fcmecz0 css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item f1xucsdf fcmecz0 css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="2592000"
     role="option"
     tabindex="-1"
@@ -786,7 +781,7 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fi0qnjm fcmecz0 css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item f1xucsdf fcmecz0 css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="5184000"
     role="option"
     tabindex="-1"
@@ -807,7 +802,7 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fi0qnjm fcmecz0 css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item f1xucsdf fcmecz0 css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="7776000"
     role="option"
     tabindex="-1"
@@ -828,7 +823,7 @@ exports[`Compare Over Time selects and displays new time range when clicked 1`] 
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item fi0qnjm fcmecz0 css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters timerange-dropdown-item f1xucsdf fcmecz0 css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="31536000"
     role="option"
     tabindex="-1"
@@ -964,7 +959,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="base-repo-dropdown--overtime mui-component-select-baseRepo"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1gwhubl-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               id="mui-component-select-baseRepo"
               role="button"
               tabindex="0"
@@ -1008,7 +1003,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="select-timerange-label mui-component-select-selectedTimeRange"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ykx700-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               id="mui-component-select-selectedTimeRange"
               role="button"
               tabindex="0"
@@ -1089,7 +1084,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--overtime"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1gwhubl-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="button"
               tabindex="0"
             >
@@ -1206,9 +1201,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
+              class="selectedRevision_fd452xz MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -1301,9 +1294,6 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </div>
           </li>
         </ul>
@@ -1521,9 +1511,7 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
+              class="selectedRevision_fd452xz MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -1616,9 +1604,6 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </div>
           </li>
         </ul>
@@ -1712,7 +1697,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="base-repo-dropdown--overtime mui-component-select-baseRepo"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ykx700-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               id="mui-component-select-baseRepo"
               role="button"
               tabindex="0"
@@ -1756,7 +1741,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="select-timerange-label mui-component-select-selectedTimeRange"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ykx700-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               id="mui-component-select-selectedTimeRange"
               role="button"
               tabindex="0"
@@ -1837,7 +1822,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--overtime"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ykx700-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="button"
               tabindex="0"
             >
@@ -1974,7 +1959,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
           aria-haspopup="listbox"
           aria-label="Framework"
           aria-labelledby="select-framework-label mui-component-select-framework"
-          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ykx700-MuiSelect-select-MuiInputBase-input-MuiInput-input"
           id="mui-component-select-framework"
           role="button"
           tabindex="0"
@@ -2202,9 +2187,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
+              class="selectedRevision_fd452xz MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -2297,9 +2280,6 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </div>
           </li>
           <li
@@ -2324,9 +2304,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
+              class="selectedRevision_fd452xz MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -2419,9 +2397,6 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </div>
           </li>
         </ul>
@@ -2550,7 +2525,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="base-repo-dropdown--overtime mui-component-select-baseRepo"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1gwhubl-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               id="mui-component-select-baseRepo"
               role="button"
               tabindex="0"
@@ -2594,7 +2569,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="select-timerange-label mui-component-select-selectedTimeRange"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ykx700-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               id="mui-component-select-selectedTimeRange"
               role="button"
               tabindex="0"
@@ -2675,7 +2650,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--overtime"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1gwhubl-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="button"
               tabindex="0"
             >
@@ -2792,9 +2767,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
+              class="selectedRevision_fd452xz MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -2887,9 +2860,6 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </div>
           </li>
         </ul>
@@ -3107,9 +3077,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
+              class="selectedRevision_fd452xz MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -3202,9 +3170,6 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </div>
           </li>
         </ul>

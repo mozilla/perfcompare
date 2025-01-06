@@ -2,273 +2,268 @@
 
 exports[`Results View Should display Base, New and Common graphs with 1 value and replicates 1`] = `
 <div
-  class="content-row container_fd0x6jr"
-  data-testid="expanded-row-content"
+  class="fgv9bhz"
 >
   <div
-    class="f1e1ayr9"
+    class="fp3h4kr"
   >
     <div
-      class="f19s1n7z"
+      class="fc8wfj0"
+    >
+      <b>
+        linux1804-64-shippable-qr
+      </b>
+       
+      <br />
+    </div>
+    <div
+      class="fc8wfj0"
+    >
+      <hr
+        class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+      />
+    </div>
+    <div
+      class="f9mtzuo"
     >
       <div
-        class="fc8wfj0"
+        class="fnblmop"
       >
-        <b>
-          linux1804-64-shippable-qr
-        </b>
-         
-        <br />
-      </div>
-      <div
-        class="fc8wfj0"
-      >
-        <hr
-          class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
-        />
-      </div>
-      <div
-        class="f9mtzuo"
-      >
-        <div
-          class="fnblmop"
-        >
+        <div>
+          <b>
+            Base
+            :
+          </b>
+           
+          596.87
+           
+           (
+          firefox
+          )
+        </div>
+        <div>
+          chartjs-bubble
+        </div>
+        <div>
+          <div
+            class="f1s9htso"
+          >
+            <div
+              class="f1pfon3k"
+            >
+              587.15
+            </div>
+            <div
+              class="f1pfon3k"
+            >
+              593.04
+            </div>
+            <div
+              class="f1pfon3k"
+            >
+              600.7
+            </div>
+            <div
+              class="f1pfon3k"
+            >
+              602.04
+            </div>
+          </div>
           <div>
             <b>
-              Base
-              :
+              Mean
             </b>
-             
+            :
+             
+            595.73
+            ,
+             
+            <b>
+              Median
+            </b>
+            :
+             
             596.87
+          </div>
+          <div
+            class="fnujpat"
+          >
+            6.96
              
-             (
-            firefox
-            )
-          </div>
-          <div>
-            chartjs-bubble
-          </div>
-          <div>
-            <div
-              class="f1s9htso"
-            >
-              <div
-                class="f1pfon3k"
-              >
-                587.15
-              </div>
-              <div
-                class="f1pfon3k"
-              >
-                593.04
-              </div>
-              <div
-                class="f1pfon3k"
-              >
-                600.7
-              </div>
-              <div
-                class="f1pfon3k"
-              >
-                602.04
-              </div>
-            </div>
-            <div>
-              <b>
-                Mean
-              </b>
-              :
-               
-              595.73
-              ,
-               
-              <b>
-                Median
-              </b>
-              :
-               
-              596.87
-            </div>
-            <div
-              class="fnujpat"
-            >
-              6.96
-               
-               = 
-              1.17
-              % standard deviation
-            </div>
+             = 
+            1.17
+            % standard deviation
           </div>
         </div>
-        <div
-          class="fnblmop"
-        >
-          <div>
-            <b>
-              New
-              :
-            </b>
-             
-            605.61
-             
-             (
-            chrome
-            )
-          </div>
-          <div>
-            chartjs-bubble
-          </div>
-          <div>
+      </div>
+      <div
+        class="fnblmop"
+      >
+        <div>
+          <b>
+            New
+            :
+          </b>
+           
+          605.61
+           
+           (
+          chrome
+          )
+        </div>
+        <div>
+          chartjs-bubble
+        </div>
+        <div>
+          <div
+            class="f1s9htso"
+          >
             <div
-              class="f1s9htso"
+              class="f1pfon3k"
             >
-              <div
-                class="f1pfon3k"
-              >
-                605.16
-              </div>
-              <div
-                class="f1pfon3k"
-              >
-                605.31
-              </div>
-              <div
-                class="f1pfon3k"
-              >
-                605.61
-              </div>
-              <div
-                class="f1pfon3k"
-              >
-                605.81
-              </div>
-              <div
-                class="f1pfon3k"
-              >
-                607.27
-              </div>
+              605.16
             </div>
-            <div>
-              <b>
-                Mean
-              </b>
-              :
-               
-              605.83
-              ,
-               
-              <b>
-                Median
-              </b>
-              :
-               
+            <div
+              class="f1pfon3k"
+            >
+              605.31
+            </div>
+            <div
+              class="f1pfon3k"
+            >
               605.61
             </div>
             <div
-              class="fnujpat"
+              class="f1pfon3k"
             >
-              0.84
-               
-               = 
-              0.14
-              % standard deviation
+              605.81
+            </div>
+            <div
+              class="f1pfon3k"
+            >
+              607.27
             </div>
           </div>
-        </div>
-        <div
-          class="f1w2i9df"
-        >
-          chartjs-line
-        </div>
-      </div>
-      <div
-        class="fc8wfj0"
-      >
-        <hr
-          class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
-        />
-      </div>
-      <div
-        class="fc8wfj0"
-      >
-        <div>
-          Only one run (consider more runs for greater confidence).
-           
-        </div>
-        <div>
-          <b>
-            Base application
-          </b>
-          : 
-          firefox
-           
-        </div>
-        <div>
-          <b>
-            New application
-          </b>
-          : 
-          chrome
-           
+          <div>
+            <b>
+              Mean
+            </b>
+            :
+             
+            605.83
+            ,
+             
+            <b>
+              Median
+            </b>
+            :
+             
+            605.61
+          </div>
+          <div
+            class="fnujpat"
+          >
+            0.84
+             
+             = 
+            0.14
+            % standard deviation
+          </div>
         </div>
       </div>
       <div
-        class="fheif50"
+        class="f1w2i9df"
       >
-        <b>
-          Comparison result
-        </b>
-        : 
-        worse
-         (
-        lower
-         is better)
+        chartjs-line
       </div>
-      <div
-        class="fheif50"
-      >
-        <b>
-          Difference of means
-        </b>
-        : 
-        1.7
-        % (
-        10.1
-        )
-      </div>
-      <div
-        class="fheif50"
-      >
-        <b>
-          Difference of medians
-        </b>
-        : 
-        1.46
-        % (
-        8.74
-        )
+    </div>
+    <div
+      class="fc8wfj0"
+    >
+      <hr
+        class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+      />
+    </div>
+    <div
+      class="fc8wfj0"
+    >
+      <div>
+        Only one run (consider more runs for greater confidence).
+         
       </div>
       <div>
-        <div
-          class="fheif50"
-        >
-          <b>
-            Confidence
-          </b>
-          : 
-          Low
-           (2.89)
-        </div>
-        <div
-          class="fj8mg7a"
-        >
-          <b>
-            **Note
-          </b>
-          : 
-          A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
-           
-        </div>
+        <b>
+          Base application
+        </b>
+        : 
+        firefox
+         
+      </div>
+      <div>
+        <b>
+          New application
+        </b>
+        : 
+        chrome
+         
+      </div>
+    </div>
+    <div
+      class="fheif50"
+    >
+      <b>
+        Comparison result
+      </b>
+      : 
+      worse
+       (
+      lower
+       is better)
+    </div>
+    <div
+      class="fheif50"
+    >
+      <b>
+        Difference of means
+      </b>
+      : 
+      1.7
+      % (
+      10.1
+      )
+    </div>
+    <div
+      class="fheif50"
+    >
+      <b>
+        Difference of medians
+      </b>
+      : 
+      1.46
+      % (
+      8.74
+      )
+    </div>
+    <div>
+      <div
+        class="fheif50"
+      >
+        <b>
+          Confidence
+        </b>
+        : 
+        Low
+         (2.89)
+      </div>
+      <div
+        class="fj8mg7a"
+      >
+        <b>
+          **Note
+        </b>
+        : 
+        A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+         
       </div>
     </div>
   </div>
@@ -277,273 +272,268 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
 
 exports[`Results View Should display Base, New and Common graphs with replicates 1`] = `
 <div
-  class="content-row container_fd0x6jr"
-  data-testid="expanded-row-content"
+  class="fgv9bhz"
 >
   <div
-    class="f1e1ayr9"
+    class="fp3h4kr"
   >
     <div
-      class="f19s1n7z"
+      class="fc8wfj0"
+    >
+      <b>
+        linux1804-64-shippable-qr
+      </b>
+       
+      <br />
+    </div>
+    <div
+      class="fc8wfj0"
+    >
+      <hr
+        class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+      />
+    </div>
+    <div
+      class="f9mtzuo"
     >
       <div
-        class="fc8wfj0"
+        class="fnblmop"
       >
-        <b>
-          linux1804-64-shippable-qr
-        </b>
-         
-        <br />
-      </div>
-      <div
-        class="fc8wfj0"
-      >
-        <hr
-          class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
-        />
-      </div>
-      <div
-        class="f9mtzuo"
-      >
-        <div
-          class="fnblmop"
-        >
+        <div>
+          <b>
+            Base
+            :
+          </b>
+           
+          596.87
+           
+           (
+          firefox
+          )
+        </div>
+        <div>
+          chartjs-bubble
+        </div>
+        <div>
+          <div
+            class="f1s9htso"
+          >
+            <div
+              class="f1pfon3k"
+            >
+              587.15
+            </div>
+            <div
+              class="f1pfon3k"
+            >
+              593.04
+            </div>
+            <div
+              class="f1pfon3k"
+            >
+              600.7
+            </div>
+            <div
+              class="f1pfon3k"
+            >
+              602.04
+            </div>
+          </div>
           <div>
             <b>
-              Base
-              :
+              Mean
             </b>
-             
+            :
+             
+            595.73
+            ,
+             
+            <b>
+              Median
+            </b>
+            :
+             
             596.87
+          </div>
+          <div
+            class="fnujpat"
+          >
+            6.96
              
-             (
-            firefox
-            )
-          </div>
-          <div>
-            chartjs-bubble
-          </div>
-          <div>
-            <div
-              class="f1s9htso"
-            >
-              <div
-                class="f1pfon3k"
-              >
-                587.15
-              </div>
-              <div
-                class="f1pfon3k"
-              >
-                593.04
-              </div>
-              <div
-                class="f1pfon3k"
-              >
-                600.7
-              </div>
-              <div
-                class="f1pfon3k"
-              >
-                602.04
-              </div>
-            </div>
-            <div>
-              <b>
-                Mean
-              </b>
-              :
-               
-              595.73
-              ,
-               
-              <b>
-                Median
-              </b>
-              :
-               
-              596.87
-            </div>
-            <div
-              class="fnujpat"
-            >
-              6.96
-               
-               = 
-              1.17
-              % standard deviation
-            </div>
+             = 
+            1.17
+            % standard deviation
           </div>
         </div>
-        <div
-          class="fnblmop"
-        >
-          <div>
-            <b>
-              New
-              :
-            </b>
-             
-            605.61
-             
-             (
-            chrome
-            )
-          </div>
-          <div>
-            chartjs-bubble
-          </div>
-          <div>
+      </div>
+      <div
+        class="fnblmop"
+      >
+        <div>
+          <b>
+            New
+            :
+          </b>
+           
+          605.61
+           
+           (
+          chrome
+          )
+        </div>
+        <div>
+          chartjs-bubble
+        </div>
+        <div>
+          <div
+            class="f1s9htso"
+          >
             <div
-              class="f1s9htso"
+              class="f1pfon3k"
             >
-              <div
-                class="f1pfon3k"
-              >
-                605.16
-              </div>
-              <div
-                class="f1pfon3k"
-              >
-                605.31
-              </div>
-              <div
-                class="f1pfon3k"
-              >
-                605.61
-              </div>
-              <div
-                class="f1pfon3k"
-              >
-                605.81
-              </div>
-              <div
-                class="f1pfon3k"
-              >
-                607.27
-              </div>
+              605.16
             </div>
-            <div>
-              <b>
-                Mean
-              </b>
-              :
-               
-              605.83
-              ,
-               
-              <b>
-                Median
-              </b>
-              :
-               
+            <div
+              class="f1pfon3k"
+            >
+              605.31
+            </div>
+            <div
+              class="f1pfon3k"
+            >
               605.61
             </div>
             <div
-              class="fnujpat"
+              class="f1pfon3k"
             >
-              0.84
-               
-               = 
-              0.14
-              % standard deviation
+              605.81
+            </div>
+            <div
+              class="f1pfon3k"
+            >
+              607.27
             </div>
           </div>
-        </div>
-        <div
-          class="f1w2i9df"
-        >
-          chartjs-line
-        </div>
-      </div>
-      <div
-        class="fc8wfj0"
-      >
-        <hr
-          class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
-        />
-      </div>
-      <div
-        class="fc8wfj0"
-      >
-        <div>
-          Only one run (consider more runs for greater confidence).
-           
-        </div>
-        <div>
-          <b>
-            Base application
-          </b>
-          : 
-          firefox
-           
-        </div>
-        <div>
-          <b>
-            New application
-          </b>
-          : 
-          chrome
-           
+          <div>
+            <b>
+              Mean
+            </b>
+            :
+             
+            605.83
+            ,
+             
+            <b>
+              Median
+            </b>
+            :
+             
+            605.61
+          </div>
+          <div
+            class="fnujpat"
+          >
+            0.84
+             
+             = 
+            0.14
+            % standard deviation
+          </div>
         </div>
       </div>
       <div
-        class="fheif50"
+        class="f1w2i9df"
       >
-        <b>
-          Comparison result
-        </b>
-        : 
-        worse
-         (
-        lower
-         is better)
+        chartjs-line
       </div>
-      <div
-        class="fheif50"
-      >
-        <b>
-          Difference of means
-        </b>
-        : 
-        1.7
-        % (
-        10.1
-        )
-      </div>
-      <div
-        class="fheif50"
-      >
-        <b>
-          Difference of medians
-        </b>
-        : 
-        1.46
-        % (
-        8.74
-        )
+    </div>
+    <div
+      class="fc8wfj0"
+    >
+      <hr
+        class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+      />
+    </div>
+    <div
+      class="fc8wfj0"
+    >
+      <div>
+        Only one run (consider more runs for greater confidence).
+         
       </div>
       <div>
-        <div
-          class="fheif50"
-        >
-          <b>
-            Confidence
-          </b>
-          : 
-          Low
-           (2.89)
-        </div>
-        <div
-          class="fj8mg7a"
-        >
-          <b>
-            **Note
-          </b>
-          : 
-          A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
-           
-        </div>
+        <b>
+          Base application
+        </b>
+        : 
+        firefox
+         
+      </div>
+      <div>
+        <b>
+          New application
+        </b>
+        : 
+        chrome
+         
+      </div>
+    </div>
+    <div
+      class="fheif50"
+    >
+      <b>
+        Comparison result
+      </b>
+      : 
+      worse
+       (
+      lower
+       is better)
+    </div>
+    <div
+      class="fheif50"
+    >
+      <b>
+        Difference of means
+      </b>
+      : 
+      1.7
+      % (
+      10.1
+      )
+    </div>
+    <div
+      class="fheif50"
+    >
+      <b>
+        Difference of medians
+      </b>
+      : 
+      1.46
+      % (
+      8.74
+      )
+    </div>
+    <div>
+      <div
+        class="fheif50"
+      >
+        <b>
+          Confidence
+        </b>
+        : 
+        Low
+         (2.89)
+      </div>
+      <div
+        class="fj8mg7a"
+      >
+        <b>
+          **Note
+        </b>
+        : 
+        A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+         
       </div>
     </div>
   </div>
@@ -552,273 +542,268 @@ exports[`Results View Should display Base, New and Common graphs with replicates
 
 exports[`Results View Should display Base, New and Common graphs with tooltips 1`] = `
 <div
-  class="content-row container_fd0x6jr"
-  data-testid="expanded-row-content"
+  class="fgv9bhz"
 >
   <div
-    class="f1e1ayr9"
+    class="fp3h4kr"
   >
     <div
-      class="f19s1n7z"
+      class="fc8wfj0"
+    >
+      <b>
+        linux1804-64-shippable-qr
+      </b>
+       
+      <br />
+    </div>
+    <div
+      class="fc8wfj0"
+    >
+      <hr
+        class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+      />
+    </div>
+    <div
+      class="f9mtzuo"
     >
       <div
-        class="fc8wfj0"
+        class="fnblmop"
       >
-        <b>
-          linux1804-64-shippable-qr
-        </b>
-         
-        <br />
-      </div>
-      <div
-        class="fc8wfj0"
-      >
-        <hr
-          class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
-        />
-      </div>
-      <div
-        class="f9mtzuo"
-      >
-        <div
-          class="fnblmop"
-        >
+        <div>
+          <b>
+            Base
+            :
+          </b>
+           
+          596.87
+           
+           (
+          firefox
+          )
+        </div>
+        <div>
+          chartjs-bubble
+        </div>
+        <div>
+          <div
+            class="f1s9htso"
+          >
+            <div
+              class="f1pfon3k"
+            >
+              587.15
+            </div>
+            <div
+              class="f1pfon3k"
+            >
+              593.04
+            </div>
+            <div
+              class="f1pfon3k"
+            >
+              600.7
+            </div>
+            <div
+              class="f1pfon3k"
+            >
+              602.04
+            </div>
+          </div>
           <div>
             <b>
-              Base
-              :
+              Mean
             </b>
-             
+            :
+             
+            595.73
+            ,
+             
+            <b>
+              Median
+            </b>
+            :
+             
             596.87
+          </div>
+          <div
+            class="fnujpat"
+          >
+            6.96
              
-             (
-            firefox
-            )
-          </div>
-          <div>
-            chartjs-bubble
-          </div>
-          <div>
-            <div
-              class="f1s9htso"
-            >
-              <div
-                class="f1pfon3k"
-              >
-                587.15
-              </div>
-              <div
-                class="f1pfon3k"
-              >
-                593.04
-              </div>
-              <div
-                class="f1pfon3k"
-              >
-                600.7
-              </div>
-              <div
-                class="f1pfon3k"
-              >
-                602.04
-              </div>
-            </div>
-            <div>
-              <b>
-                Mean
-              </b>
-              :
-               
-              595.73
-              ,
-               
-              <b>
-                Median
-              </b>
-              :
-               
-              596.87
-            </div>
-            <div
-              class="fnujpat"
-            >
-              6.96
-               
-               = 
-              1.17
-              % standard deviation
-            </div>
+             = 
+            1.17
+            % standard deviation
           </div>
         </div>
-        <div
-          class="fnblmop"
-        >
-          <div>
-            <b>
-              New
-              :
-            </b>
-             
-            605.61
-             
-             (
-            chrome
-            )
-          </div>
-          <div>
-            chartjs-bubble
-          </div>
-          <div>
+      </div>
+      <div
+        class="fnblmop"
+      >
+        <div>
+          <b>
+            New
+            :
+          </b>
+           
+          605.61
+           
+           (
+          chrome
+          )
+        </div>
+        <div>
+          chartjs-bubble
+        </div>
+        <div>
+          <div
+            class="f1s9htso"
+          >
             <div
-              class="f1s9htso"
+              class="f1pfon3k"
             >
-              <div
-                class="f1pfon3k"
-              >
-                605.16
-              </div>
-              <div
-                class="f1pfon3k"
-              >
-                605.31
-              </div>
-              <div
-                class="f1pfon3k"
-              >
-                605.61
-              </div>
-              <div
-                class="f1pfon3k"
-              >
-                605.81
-              </div>
-              <div
-                class="f1pfon3k"
-              >
-                607.27
-              </div>
+              605.16
             </div>
-            <div>
-              <b>
-                Mean
-              </b>
-              :
-               
-              605.83
-              ,
-               
-              <b>
-                Median
-              </b>
-              :
-               
+            <div
+              class="f1pfon3k"
+            >
+              605.31
+            </div>
+            <div
+              class="f1pfon3k"
+            >
               605.61
             </div>
             <div
-              class="fnujpat"
+              class="f1pfon3k"
             >
-              0.84
-               
-               = 
-              0.14
-              % standard deviation
+              605.81
+            </div>
+            <div
+              class="f1pfon3k"
+            >
+              607.27
             </div>
           </div>
-        </div>
-        <div
-          class="f1w2i9df"
-        >
-          chartjs-line
-        </div>
-      </div>
-      <div
-        class="fc8wfj0"
-      >
-        <hr
-          class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
-        />
-      </div>
-      <div
-        class="fc8wfj0"
-      >
-        <div>
-          Only one run (consider more runs for greater confidence).
-           
-        </div>
-        <div>
-          <b>
-            Base application
-          </b>
-          : 
-          firefox
-           
-        </div>
-        <div>
-          <b>
-            New application
-          </b>
-          : 
-          chrome
-           
+          <div>
+            <b>
+              Mean
+            </b>
+            :
+             
+            605.83
+            ,
+             
+            <b>
+              Median
+            </b>
+            :
+             
+            605.61
+          </div>
+          <div
+            class="fnujpat"
+          >
+            0.84
+             
+             = 
+            0.14
+            % standard deviation
+          </div>
         </div>
       </div>
       <div
-        class="fheif50"
+        class="f1w2i9df"
       >
-        <b>
-          Comparison result
-        </b>
-        : 
-        worse
-         (
-        lower
-         is better)
+        chartjs-line
       </div>
-      <div
-        class="fheif50"
-      >
-        <b>
-          Difference of means
-        </b>
-        : 
-        1.7
-        % (
-        10.1
-        )
-      </div>
-      <div
-        class="fheif50"
-      >
-        <b>
-          Difference of medians
-        </b>
-        : 
-        1.46
-        % (
-        8.74
-        )
+    </div>
+    <div
+      class="fc8wfj0"
+    >
+      <hr
+        class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+      />
+    </div>
+    <div
+      class="fc8wfj0"
+    >
+      <div>
+        Only one run (consider more runs for greater confidence).
+         
       </div>
       <div>
-        <div
-          class="fheif50"
-        >
-          <b>
-            Confidence
-          </b>
-          : 
-          Low
-           (2.89)
-        </div>
-        <div
-          class="fj8mg7a"
-        >
-          <b>
-            **Note
-          </b>
-          : 
-          A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
-           
-        </div>
+        <b>
+          Base application
+        </b>
+        : 
+        firefox
+         
+      </div>
+      <div>
+        <b>
+          New application
+        </b>
+        : 
+        chrome
+         
+      </div>
+    </div>
+    <div
+      class="fheif50"
+    >
+      <b>
+        Comparison result
+      </b>
+      : 
+      worse
+       (
+      lower
+       is better)
+    </div>
+    <div
+      class="fheif50"
+    >
+      <b>
+        Difference of means
+      </b>
+      : 
+      1.7
+      % (
+      10.1
+      )
+    </div>
+    <div
+      class="fheif50"
+    >
+      <b>
+        Difference of medians
+      </b>
+      : 
+      1.46
+      % (
+      8.74
+      )
+    </div>
+    <div>
+      <div
+        class="fheif50"
+      >
+        <b>
+          Confidence
+        </b>
+        : 
+        Low
+         (2.89)
+      </div>
+      <div
+        class="fj8mg7a"
+      >
+        <b>
+          **Note
+        </b>
+        : 
+        A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+         
       </div>
     </div>
   </div>
@@ -937,7 +922,7 @@ exports[`Results View The table should match snapshot and other elements should 
               aria-haspopup="listbox"
               aria-label="Framework"
               aria-labelledby="mui-component-select-framework"
-              class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-jaypmb-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+              class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1lxcv05-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
               id="mui-component-select-framework"
               role="button"
               tabindex="0"
@@ -992,7 +977,7 @@ exports[`Results View The table should match snapshot and other elements should 
             <div
               aria-expanded="false"
               aria-haspopup="listbox"
-              class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-jaypmb-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+              class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1lxcv05-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
               role="button"
               tabindex="0"
             >
@@ -1074,7 +1059,7 @@ exports[`Results View The table should match snapshot and other elements should 
       </div>
     </div>
     <div
-      class="f1wqnr25 fr2n4tx"
+      class="f75bkdv fr2n4tx"
       data-testid="table-header"
       role="row"
     >
@@ -1085,7 +1070,7 @@ exports[`Results View The table should match snapshot and other elements should 
         <button
           aria-haspopup="true"
           aria-label="Platform (Click to filter values)"
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-uajdoe-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >
@@ -1137,7 +1122,7 @@ exports[`Results View The table should match snapshot and other elements should 
         <button
           aria-haspopup="true"
           aria-label="Status (Click to filter values)"
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-uajdoe-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >
@@ -1170,7 +1155,7 @@ exports[`Results View The table should match snapshot and other elements should 
         class="cell delta-header"
         role="columnheader"
       >
-        Delta(%)
+        Delta
       </div>
       <div
         class="cell confidence-header"
@@ -1179,7 +1164,7 @@ exports[`Results View The table should match snapshot and other elements should 
         <button
           aria-haspopup="true"
           aria-label="Confidence (Click to filter values)"
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-uajdoe-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >
@@ -1243,7 +1228,7 @@ exports[`Results View The table should match snapshot and other elements should 
           style="overflow-anchor: none;"
         >
           <div
-            class="f1d2zsj2"
+            class="f1k5y3nc"
             role="rowgroup"
           >
             <div
@@ -1304,10 +1289,10 @@ exports[`Results View The table should match snapshot and other elements should 
               </div>
             </div>
             <div
-              class="fcdpsbx"
+              class="fw0pvlu"
             >
               <div
-                class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
+                class="revisionRow fqyfrhr fp4ugv1 MuiBox-root css-1txhl5e"
                 role="row"
               >
                 <div
@@ -1364,12 +1349,12 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="status cell"
                   role="cell"
                 >
-                  <span
-                    class="status-hint status-hint-improvement"
+                  <div
+                    class="status-hint status-hint-improvement MuiBox-root css-1h9ue86"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                      class="MuiSvgIcon-root MuiSvgIcon-colorSuccess MuiSvgIcon-fontSizeMedium css-116ao24-MuiSvgIcon-root"
                       data-testid="ThumbUpIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
@@ -1379,7 +1364,7 @@ exports[`Results View The table should match snapshot and other elements should 
                       />
                     </svg>
                     Improvement
-                  </span>
+                  </div>
                 </div>
                 <div
                   class="delta cell"
@@ -1531,7 +1516,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
+                class="revisionRow fqyfrhr fp4ugv1 MuiBox-root css-1txhl5e"
                 role="row"
               >
                 <div
@@ -1587,12 +1572,12 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="status cell"
                   role="cell"
                 >
-                  <span
-                    class="status-hint status-hint-regression"
+                  <div
+                    class="status-hint status-hint-regression MuiBox-root css-ucc9gw"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                      class="MuiSvgIcon-root MuiSvgIcon-colorError MuiSvgIcon-fontSizeMedium css-1uz6t4g-MuiSvgIcon-root"
                       data-testid="ThumbDownIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
@@ -1602,7 +1587,7 @@ exports[`Results View The table should match snapshot and other elements should 
                       />
                     </svg>
                     Regression
-                  </span>
+                  </div>
                 </div>
                 <div
                   class="delta cell"
@@ -1754,7 +1739,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
+                class="revisionRow fqyfrhr fp4ugv1 MuiBox-root css-1txhl5e"
                 role="row"
               >
                 <div
@@ -1811,11 +1796,11 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="status cell"
                   role="cell"
                 >
-                  <span
-                    class="status-hint "
+                  <div
+                    class="status-hint  MuiBox-root css-1dj4wrv"
                   >
                     -
-                  </span>
+                  </div>
                 </div>
                 <div
                   class="delta cell"
@@ -1967,7 +1952,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
+                class="revisionRow fqyfrhr fp4ugv1 MuiBox-root css-1txhl5e"
                 role="row"
               >
                 <div
@@ -2024,11 +2009,11 @@ exports[`Results View The table should match snapshot and other elements should 
                   class="status cell"
                   role="cell"
                 >
-                  <span
-                    class="status-hint "
+                  <div
+                    class="status-hint  MuiBox-root css-1dj4wrv"
                   >
                     -
-                  </span>
+                  </div>
                 </div>
                 <div
                   class="delta cell"
@@ -2183,7 +2168,7 @@ exports[`Results View renders framework dropdown in closed condition 1`] = `
   aria-haspopup="listbox"
   aria-label="Framework"
   aria-labelledby="mui-component-select-framework"
-  class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-jaypmb-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+  class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1lxcv05-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
   id="mui-component-select-framework"
   role="button"
   tabindex="0"

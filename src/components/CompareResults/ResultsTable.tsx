@@ -5,22 +5,21 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { useSearchParams } from 'react-router-dom';
 import { useLoaderData, Await } from 'react-router-dom';
 
+import type { LoaderReturnValue } from './loader';
+import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeLoader';
+import ResultsControls from './ResultsControls';
+import TableContent from './TableContent';
+import TableHeader from './TableHeader';
 import useRawSearchParams from '../../hooks/useRawSearchParams';
 import useTableFilters from '../../hooks/useTableFilters';
 import type { CompareResultsItem } from '../../types/state';
 import { Framework } from '../../types/types';
 import type { CompareResultsTableConfig } from '../../types/types';
 import { getPlatformShortName } from '../../utils/platform';
-import type { LoaderReturnValue } from './loader';
-import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeLoader';
-import ResultsControls from './ResultsControls';
-import TableContent from './TableContent';
-import TableHeader from './TableHeader';
 
-const cellsConfiguration: CompareResultsTableConfig = [
+const columnsConfiguration: CompareResultsTableConfig = [
   {
     name: 'Platform',
-    disable: true,
     filter: true,
     key: 'platform',
     gridWidth: '2fr',
@@ -56,7 +55,6 @@ const cellsConfiguration: CompareResultsTableConfig = [
   },
   {
     name: 'Status',
-    disable: true,
     filter: true,
     key: 'status',
     gridWidth: '1.5fr',
@@ -77,16 +75,15 @@ const cellsConfiguration: CompareResultsTableConfig = [
     },
   },
   {
-    name: 'Delta(%)',
+    name: 'Delta',
     key: 'delta',
     gridWidth: '1fr',
   },
   {
     name: 'Confidence',
-    disable: true,
     filter: true,
     key: 'confidence',
-    gridWidth: '1fr',
+    gridWidth: '1.5fr',
     possibleValues: [
       { label: 'No value', key: 'none' },
       { label: 'Low', key: 'low' },
@@ -112,8 +109,9 @@ const cellsConfiguration: CompareResultsTableConfig = [
 
     gridWidth: '1fr',
   },
-  { key: 'buttons', gridWidth: '2fr' },
-  { key: 'expand', gridWidth: '0.2fr' },
+  // We use the real pixel value for the buttons, so that everything is better aligned.
+  { key: 'buttons', gridWidth: `calc(3.5 * 34px)` }, // 2 or 3 buttons, so at least 3*34px, but give more so that it can "breathe"
+  { key: 'expand', gridWidth: '34px' }, // 1 button
 ];
 
 export default function ResultsTable() {
@@ -131,7 +129,7 @@ export default function ResultsTable() {
   // This is our custom hook that manages table filters
   // and provides methods for clearing and toggling them.
   const { tableFilters, onClearFilter, onToggleFilter } =
-    useTableFilters(cellsConfiguration);
+    useTableFilters(columnsConfiguration);
 
   const initialSearchTerm = rawSearchParams.get('search') ?? '';
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
@@ -154,7 +152,7 @@ export default function ResultsTable() {
     updateRawSearchParams(rawSearchParams);
   };
 
-  const rowGridTemplateColumns = cellsConfiguration
+  const rowGridTemplateColumns = columnsConfiguration
     .map((config) => config.gridWidth)
     .join(' ');
 
@@ -176,10 +174,13 @@ export default function ResultsTable() {
           onFrameworkChange={onFrameworkChange}
         />
         <TableHeader
-          cellsConfiguration={cellsConfiguration}
+          columnsConfiguration={columnsConfiguration}
           filters={tableFilters}
           onToggleFilter={onToggleFilter}
           onClearFilter={onClearFilter}
+          sortDirection={null}
+          sortColumn={null}
+          onToggleSort={() => {}}
         />
       </Box>
       {/* Using a key in Suspense makes it that it displays the fallback more
@@ -197,7 +198,7 @@ export default function ResultsTable() {
         <Await resolve={resultsPromise}>
           {(resolvedResults) => (
             <TableContent
-              cellsConfiguration={cellsConfiguration}
+              columnsConfiguration={columnsConfiguration}
               results={resolvedResults as CompareResultsItem[][]}
               filteringSearchTerm={searchTerm}
               tableFilters={tableFilters}

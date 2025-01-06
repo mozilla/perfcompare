@@ -4,14 +4,14 @@ import { CloseOutlined } from '@mui/icons-material';
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
 import WarningIcon from '@mui/icons-material/Warning';
-import { Link } from '@mui/material';
+import { Box, Link } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 
+import DateTimeDisplay from './DateTimeDisplay';
 import { repoMap } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
@@ -22,7 +22,6 @@ import {
   getLatestCommitMessage,
   getTreeherderURL,
 } from '../../utils/helpers';
-import DateTimeDisplay from './DateTimeDisplay';
 
 const base = Strings.components.searchDefault.base;
 const warning = base.collapsed.warnings.comparison;
@@ -73,7 +72,7 @@ function SelectedRevisionItem({
           </div>
         )}
       </div>
-      <ListItemButton className={styles.listItemButton}>
+      <Box className={styles.selectedRevision}>
         <ListItemText
           className='search-revision-item-text'
           primary={
@@ -125,7 +124,7 @@ function SelectedRevisionItem({
         >
           <CloseOutlined fontSize='small' data-testid='close-icon' />
         </IconButton>
-      </ListItemButton>
+      </Box>
     </ListItem>
   );
 }

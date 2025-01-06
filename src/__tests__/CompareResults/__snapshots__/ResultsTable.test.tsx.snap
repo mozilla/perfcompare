@@ -173,7 +173,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-labelledby="repo-dropdown--base"
-                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1gwhubl-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                           role="button"
                           tabindex="0"
                         >
@@ -291,9 +291,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           </div>
                         </div>
                         <div
-                          class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-                          role="button"
-                          tabindex="0"
+                          class="selectedRevision_fd452xz MuiBox-root css-0"
                         >
                           <div
                             class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -386,9 +384,6 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
                           </button>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
                         </div>
                       </li>
                     </ul>
@@ -440,7 +435,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-labelledby="repo-dropdown--new"
-                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                          class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1gwhubl-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                           role="button"
                           tabindex="0"
                         >
@@ -558,9 +553,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           </div>
                         </div>
                         <div
-                          class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-                          role="button"
-                          tabindex="0"
+                          class="selectedRevision_fd452xz MuiBox-root css-0"
                         >
                           <div
                             class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -653,9 +646,6 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                             />
                           </button>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                          />
                         </div>
                       </li>
                     </ul>
@@ -700,7 +690,7 @@ exports[`Results Table Should match snapshot 1`] = `
                 class="MuiGrid-root MuiGrid-container fau5w0k css-jryjzr-MuiGrid-root"
               >
                 <div
-                  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-standardInfo MuiAlert-standard f96or0t css-1poaa4u-MuiPaper-root-MuiAlert-root"
+                  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-standardInfo MuiAlert-standard f96or0t css-1faa8kc-MuiPaper-root-MuiAlert-root"
                   role="alert"
                 >
                   <div
@@ -846,7 +836,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           aria-haspopup="listbox"
                           aria-label="Framework"
                           aria-labelledby="mui-component-select-framework"
-                          class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-jaypmb-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                          class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1lxcv05-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
                           id="mui-component-select-framework"
                           role="button"
                           tabindex="0"
@@ -901,7 +891,7 @@ exports[`Results Table Should match snapshot 1`] = `
                         <div
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-jaypmb-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                          class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1lxcv05-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
                           role="button"
                           tabindex="0"
                         >
@@ -983,7 +973,7 @@ exports[`Results Table Should match snapshot 1`] = `
                   </div>
                 </div>
                 <div
-                  class="f1wqnr25 fr2n4tx"
+                  class="f75bkdv fr2n4tx"
                   data-testid="table-header"
                   role="row"
                 >
@@ -994,7 +984,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     <button
                       aria-haspopup="true"
                       aria-label="Platform (Click to filter values)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-uajdoe-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -1046,7 +1036,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     <button
                       aria-haspopup="true"
                       aria-label="Status (Click to filter values)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-uajdoe-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -1079,7 +1069,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     class="cell delta-header"
                     role="columnheader"
                   >
-                    Delta(%)
+                    Delta
                   </div>
                   <div
                     class="cell confidence-header"
@@ -1088,7 +1078,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     <button
                       aria-haspopup="true"
                       aria-label="Confidence (Click to filter values)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-l63e0u-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-uajdoe-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -1152,7 +1142,7 @@ exports[`Results Table Should match snapshot 1`] = `
                       style="overflow-anchor: none;"
                     >
                       <div
-                        class="f1d2zsj2"
+                        class="f1k5y3nc"
                         role="rowgroup"
                       >
                         <div
@@ -1213,10 +1203,10 @@ exports[`Results Table Should match snapshot 1`] = `
                           </div>
                         </div>
                         <div
-                          class="fcdpsbx"
+                          class="fw0pvlu"
                         >
                           <div
-                            class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
+                            class="revisionRow fqyfrhr fp4ugv1 MuiBox-root css-1txhl5e"
                             role="row"
                           >
                             <div
@@ -1273,12 +1263,12 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="status cell"
                               role="cell"
                             >
-                              <span
-                                class="status-hint status-hint-improvement"
+                              <div
+                                class="status-hint status-hint-improvement MuiBox-root css-1h9ue86"
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                                  class="MuiSvgIcon-root MuiSvgIcon-colorSuccess MuiSvgIcon-fontSizeMedium css-116ao24-MuiSvgIcon-root"
                                   data-testid="ThumbUpIcon"
                                   focusable="false"
                                   viewBox="0 0 24 24"
@@ -1288,7 +1278,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                   />
                                 </svg>
                                 Improvement
-                              </span>
+                              </div>
                             </div>
                             <div
                               class="delta cell"
@@ -1440,7 +1430,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
+                            class="revisionRow fqyfrhr fp4ugv1 MuiBox-root css-1txhl5e"
                             role="row"
                           >
                             <div
@@ -1496,12 +1486,12 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="status cell"
                               role="cell"
                             >
-                              <span
-                                class="status-hint status-hint-regression"
+                              <div
+                                class="status-hint status-hint-regression MuiBox-root css-ucc9gw"
                               >
                                 <svg
                                   aria-hidden="true"
-                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                                  class="MuiSvgIcon-root MuiSvgIcon-colorError MuiSvgIcon-fontSizeMedium css-1uz6t4g-MuiSvgIcon-root"
                                   data-testid="ThumbDownIcon"
                                   focusable="false"
                                   viewBox="0 0 24 24"
@@ -1511,7 +1501,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                   />
                                 </svg>
                                 Regression
-                              </span>
+                              </div>
                             </div>
                             <div
                               class="delta cell"
@@ -1663,7 +1653,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
+                            class="revisionRow fqyfrhr fp4ugv1 MuiBox-root css-1txhl5e"
                             role="row"
                           >
                             <div
@@ -1720,11 +1710,11 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="status cell"
                               role="cell"
                             >
-                              <span
-                                class="status-hint "
+                              <div
+                                class="status-hint  MuiBox-root css-1dj4wrv"
                               >
                                 -
-                              </span>
+                              </div>
                             </div>
                             <div
                               class="delta cell"
@@ -1885,7 +1875,7 @@ exports[`Results Table Should match snapshot 1`] = `
                       style="overflow-anchor: none;"
                     >
                       <div
-                        class="f1d2zsj2"
+                        class="f1k5y3nc"
                         role="rowgroup"
                       >
                         <div
@@ -1926,10 +1916,10 @@ exports[`Results Table Should match snapshot 1`] = `
                           </div>
                         </div>
                         <div
-                          class="fcdpsbx"
+                          class="fw0pvlu"
                         >
                           <div
-                            class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
+                            class="revisionRow fqyfrhr fp4ugv1 MuiBox-root css-1txhl5e"
                             role="row"
                           >
                             <div
@@ -1986,11 +1976,11 @@ exports[`Results Table Should match snapshot 1`] = `
                               class="status cell"
                               role="cell"
                             >
-                              <span
-                                class="status-hint "
+                              <div
+                                class="status-hint  MuiBox-root css-1dj4wrv"
                               >
                                 -
-                              </span>
+                              </div>
                             </div>
                             <div
                               class="delta cell"
@@ -2147,7 +2137,7 @@ exports[`Results Table Should match snapshot 1`] = `
 
 exports[`Results Table should render different blocks when rendering several revisions 1`] = `
 <div
-  class="f1d2zsj2"
+  class="f1k5y3nc"
   role="rowgroup"
 >
   <div
@@ -2199,7 +2189,7 @@ exports[`Results Table should render different blocks when rendering several rev
     </div>
   </div>
   <div
-    class="fcdpsbx"
+    class="fw0pvlu"
   >
     <a
       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f897l9y css-1qhous5-MuiTypography-root-MuiLink-root"
@@ -2210,7 +2200,7 @@ exports[`Results Table should render different blocks when rendering several rev
       spam
     </a>
     <div
-      class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
+      class="revisionRow fqyfrhr fp4ugv1 MuiBox-root css-1txhl5e"
       role="row"
     >
       <div
@@ -2267,12 +2257,12 @@ exports[`Results Table should render different blocks when rendering several rev
         class="status cell"
         role="cell"
       >
-        <span
-          class="status-hint status-hint-improvement"
+        <div
+          class="status-hint status-hint-improvement MuiBox-root css-1h9ue86"
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-colorSuccess MuiSvgIcon-fontSizeMedium css-116ao24-MuiSvgIcon-root"
             data-testid="ThumbUpIcon"
             focusable="false"
             viewBox="0 0 24 24"
@@ -2282,7 +2272,7 @@ exports[`Results Table should render different blocks when rendering several rev
             />
           </svg>
           Improvement
-        </span>
+        </div>
       </div>
       <div
         class="delta cell"
@@ -2435,7 +2425,7 @@ exports[`Results Table should render different blocks when rendering several rev
     </div>
   </div>
   <div
-    class="fcdpsbx"
+    class="fw0pvlu"
   >
     <a
       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f897l9y css-1qhous5-MuiTypography-root-MuiLink-root"
@@ -2446,7 +2436,7 @@ exports[`Results Table should render different blocks when rendering several rev
       devilrabbit
     </a>
     <div
-      class="revisionRow f1b695ll fp4ugv1 MuiBox-root css-1am90bh"
+      class="revisionRow fqyfrhr fp4ugv1 MuiBox-root css-1txhl5e"
       role="row"
     >
       <div
@@ -2503,12 +2493,12 @@ exports[`Results Table should render different blocks when rendering several rev
         class="status cell"
         role="cell"
       >
-        <span
-          class="status-hint status-hint-improvement"
+        <div
+          class="status-hint status-hint-improvement MuiBox-root css-1h9ue86"
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-colorSuccess MuiSvgIcon-fontSizeMedium css-116ao24-MuiSvgIcon-root"
             data-testid="ThumbUpIcon"
             focusable="false"
             viewBox="0 0 24 24"
@@ -2518,7 +2508,7 @@ exports[`Results Table should render different blocks when rendering several rev
             />
           </svg>
           Improvement
-        </span>
+        </div>
       </div>
       <div
         class="delta cell"

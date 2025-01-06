@@ -1,10 +1,10 @@
 import { Link } from '@mui/material';
 import { style } from 'typestyle';
 
+import LinkToRevision from './LinkToRevision';
 import { Colors, Spacing } from '../../styles';
 import type { CompareResultsItem } from '../../types/state';
 import { getDocsURL } from '../../utils/helpers';
-import LinkToRevision from './LinkToRevision';
 
 const styles = {
   revisionHeader: style({

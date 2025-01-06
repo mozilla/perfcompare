@@ -77,7 +77,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--base"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1gwhubl-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="button"
               tabindex="0"
             >
@@ -215,9 +215,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
+              class="selectedRevision_fd452xz MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -310,9 +308,6 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </div>
           </li>
         </ul>
@@ -364,7 +359,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--new"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1gwhubl-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="button"
               tabindex="0"
             >
@@ -502,9 +497,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
+              class="selectedRevision_fd452xz MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -597,9 +590,6 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </div>
           </li>
         </ul>
@@ -623,7 +613,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
 >
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="4"
     role="option"
     tabindex="-1"
@@ -635,7 +625,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="13"
     role="option"
     tabindex="-1"
@@ -647,7 +637,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="2"
     role="option"
     tabindex="-1"
@@ -659,7 +649,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="12"
     role="option"
     tabindex="-1"
@@ -671,7 +661,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="16"
     role="option"
     tabindex="-1"
@@ -683,7 +673,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="11"
     role="option"
     tabindex="-1"
@@ -695,7 +685,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="15"
     role="option"
     tabindex="-1"
@@ -707,7 +697,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="6"
     role="option"
     tabindex="-1"
@@ -719,7 +709,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="10"
     role="option"
     tabindex="-1"
@@ -731,7 +721,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="true"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters Mui-selected MuiMenuItem-root MuiMenuItem-gutters Mui-selected framework-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters Mui-selected MuiMenuItem-root MuiMenuItem-gutters Mui-selected framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="1"
     role="option"
     tabindex="0"
@@ -846,7 +836,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--base"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1gwhubl-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="button"
               tabindex="0"
             >
@@ -984,9 +974,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
+              class="selectedRevision_fd452xz MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -1079,9 +1067,6 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </div>
           </li>
         </ul>
@@ -1133,7 +1118,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--new"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1gwhubl-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="button"
               tabindex="0"
             >
@@ -1326,7 +1311,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--base"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1gwhubl-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="button"
               tabindex="0"
             >
@@ -1464,9 +1449,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
+              class="selectedRevision_fd452xz MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -1559,9 +1542,6 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </div>
           </li>
         </ul>
@@ -1613,7 +1593,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--new"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1gwhubl-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="button"
               tabindex="0"
             >
@@ -1751,9 +1731,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
+              class="selectedRevision_fd452xz MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -1846,9 +1824,6 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </div>
           </li>
         </ul>
@@ -1970,7 +1945,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--base"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1gwhubl-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="button"
               tabindex="0"
             >
@@ -2108,9 +2083,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
+              class="selectedRevision_fd452xz MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -2203,9 +2176,6 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </div>
           </li>
         </ul>
@@ -2257,7 +2227,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--new"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1gwhubl-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="button"
               tabindex="0"
             >
@@ -2395,9 +2365,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
+              class="selectedRevision_fd452xz MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -2490,9 +2458,6 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </div>
           </li>
         </ul>
@@ -2601,7 +2566,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--base"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1gwhubl-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="button"
               tabindex="0"
             >
@@ -2745,7 +2710,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--new"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1gwhubl-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="button"
               tabindex="0"
             >
@@ -2883,9 +2848,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
+              class="selectedRevision_fd452xz MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -2978,9 +2941,6 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </div>
           </li>
         </ul>
@@ -3127,7 +3087,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--base"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1gwhubl-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="button"
               tabindex="0"
             >
@@ -3265,9 +3225,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
               </div>
             </div>
             <div
-              class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters listItemButton_fj5g6dj css-1g1bko9-MuiButtonBase-root-MuiListItemButton-root"
-              role="button"
-              tabindex="0"
+              class="selectedRevision_fd452xz MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -3360,9 +3318,6 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </div>
           </li>
         </ul>
@@ -3414,7 +3369,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-labelledby="repo-dropdown--new"
-              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-v8lh20-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+              class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input MuiInputBase-inputSizeSmall css-1gwhubl-MuiSelect-select-MuiInputBase-input-MuiInput-input"
               role="button"
               tabindex="0"
             >
@@ -3727,7 +3682,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                             aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-labelledby="repo-dropdown--base"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ykx700-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                             role="button"
                             tabindex="0"
                           >
@@ -3871,7 +3826,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                             aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-labelledby="repo-dropdown--new"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ykx700-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                             role="button"
                             tabindex="0"
                           >
@@ -4009,7 +3964,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                         aria-haspopup="listbox"
                         aria-label="Framework"
                         aria-labelledby="select-framework-label mui-component-select-framework"
-                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ykx700-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                         id="mui-component-select-framework"
                         role="button"
                         tabindex="0"
@@ -4167,7 +4122,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                             aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-labelledby="base-repo-dropdown--overtime mui-component-select-baseRepo"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ykx700-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                             id="mui-component-select-baseRepo"
                             role="button"
                             tabindex="0"
@@ -4211,7 +4166,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                             aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-labelledby="select-timerange-label mui-component-select-selectedTimeRange"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ykx700-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                             id="mui-component-select-selectedTimeRange"
                             role="button"
                             tabindex="0"
@@ -4292,7 +4247,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                             aria-expanded="false"
                             aria-haspopup="listbox"
                             aria-labelledby="repo-dropdown--overtime"
-                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                            class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ykx700-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                             role="button"
                             tabindex="0"
                           >
@@ -4429,7 +4384,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                         aria-haspopup="listbox"
                         aria-label="Framework"
                         aria-labelledby="select-framework-label mui-component-select-framework"
-                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-edng3m-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                        class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1ykx700-MuiSelect-select-MuiInputBase-input-MuiInput-input"
                         id="mui-component-select-framework"
                         role="button"
                         tabindex="0"
@@ -4490,7 +4445,7 @@ exports[`Compare With Base updates the framework and url when a new one is selec
 >
   <li
     aria-selected="true"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters Mui-selected MuiMenuItem-root MuiMenuItem-gutters Mui-selected framework-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters Mui-selected MuiMenuItem-root MuiMenuItem-gutters Mui-selected framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="4"
     role="option"
     tabindex="0"
@@ -4511,7 +4466,7 @@ exports[`Compare With Base updates the framework and url when a new one is selec
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="13"
     role="option"
     tabindex="-1"
@@ -4523,7 +4478,7 @@ exports[`Compare With Base updates the framework and url when a new one is selec
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="2"
     role="option"
     tabindex="-1"
@@ -4535,7 +4490,7 @@ exports[`Compare With Base updates the framework and url when a new one is selec
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="12"
     role="option"
     tabindex="-1"
@@ -4547,7 +4502,7 @@ exports[`Compare With Base updates the framework and url when a new one is selec
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="16"
     role="option"
     tabindex="-1"
@@ -4559,7 +4514,7 @@ exports[`Compare With Base updates the framework and url when a new one is selec
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="11"
     role="option"
     tabindex="-1"
@@ -4571,7 +4526,7 @@ exports[`Compare With Base updates the framework and url when a new one is selec
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="15"
     role="option"
     tabindex="-1"
@@ -4583,7 +4538,7 @@ exports[`Compare With Base updates the framework and url when a new one is selec
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="6"
     role="option"
     tabindex="-1"
@@ -4595,7 +4550,7 @@ exports[`Compare With Base updates the framework and url when a new one is selec
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="10"
     role="option"
     tabindex="-1"
@@ -4607,7 +4562,7 @@ exports[`Compare With Base updates the framework and url when a new one is selec
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item fi0qnjm css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="1"
     role="option"
     tabindex="-1"

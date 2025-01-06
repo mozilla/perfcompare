@@ -7,11 +7,11 @@ import { useDispatch } from 'react-redux';
 import { useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
 
+import type { LoaderReturnValue } from './loader';
 import { useAppSelector } from '../../hooks/app';
 import { updateComparison } from '../../reducers/ComparisonSlice';
 import { Strings } from '../../resources/Strings';
 import { truncateHash } from '../../utils/helpers';
-import type { LoaderReturnValue } from './loader';
 
 const styles = {
   box: style({

@@ -11,11 +11,11 @@ import TimelineIcon from '@mui/icons-material/Timeline';
 import { IconButton, Box } from '@mui/material';
 import { style } from 'typestyle';
 
+import RevisionRowExpandable from '.././RevisionRowExpandable';
 import { useAppSelector } from '../../../hooks/app';
 import { Strings } from '../../../resources/Strings';
-import { Colors, Spacing, ExpandableRowStyles } from '../../../styles';
+import { Colors, Spacing } from '../../../styles';
 import type { CompareResultsItem } from '../../../types/state';
-import RevisionRowExpandable from '.././RevisionRowExpandable';
 
 const revisionsRow = {
   borderRadius: '4px 0px 0px 4px',
@@ -36,65 +36,37 @@ function getStyles(themeMode: string) {
     themeMode === 'light' ? Colors.Background200 : Colors.Background200Dark;
   const backgroundColorExpandButton =
     themeMode === 'light' ? Colors.Background300 : Colors.Background100Dark;
+
   return {
     revisionRow: style({
       ...revisionsRow,
+      backgroundColor: mainBackgroundColor,
       $nest: {
-        '.base-value': {
-          backgroundColor: mainBackgroundColor,
-        },
         '.cell': {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
         },
         '.confidence': {
-          backgroundColor: mainBackgroundColor,
           gap: '10px',
           justifyContent: 'start',
           paddingInlineStart: '15%',
         },
-        '.comparison-sign': {
-          backgroundColor: mainBackgroundColor,
-        },
-        '.delta': {
-          backgroundColor: mainBackgroundColor,
-        },
-        '.expand-button-container': {
-          justifyContent: 'right',
-        },
-        '.new-value': {
-          backgroundColor: mainBackgroundColor,
-        },
         '.subtests': {
-          backgroundColor: mainBackgroundColor,
           borderRadius: '4px 0 0 4px',
-          paddingLeft: Spacing.xLarge,
+          paddingLeft: Spacing.Medium, // Synchronize with its header
           justifyContent: 'left',
         },
-        '.subtests-container': {
-          alignItems: 'flex-end',
-          backgroundColor: mainBackgroundColor,
-          display: 'flex',
-        },
         '.status': {
-          backgroundColor: mainBackgroundColor,
           justifyContent: 'center',
         },
         '.total-runs': {
-          backgroundColor: mainBackgroundColor,
           gap: '8px',
         },
         '.row-buttons': {
-          backgroundColor: mainBackgroundColor,
           borderRadius: '0px 4px 4px 0px',
           display: 'flex',
           justifyContent: 'flex-end',
-          $nest: {
-            '.download': {
-              cursor: 'not-allowed',
-            },
-          },
         },
         '.expand-button': {
           backgroundColor: backgroundColorExpandButton,
@@ -105,22 +77,14 @@ function getStyles(themeMode: string) {
           borderRadius: '4px',
           padding: '4px 10px',
         },
-        '.status-hint-improvement': {
-          backgroundColor: '#D8EEDC',
-        },
-        '.status-hint-regression': {
-          backgroundColor: '#FFE8E8',
-        },
+
         '.status-hint .MuiSvgIcon-root': {
           height: '16px',
         },
-        '.status-hint-improvement .MuiSvgIcon-root': {
-          color: '#017A40',
-        },
+
         '.status-hint-regression .MuiSvgIcon-root': {
           // We need to move the icon a bit lower so that it _looks_ centered.
           marginTop: '2px',
-          color: '#D7264C',
         },
       },
     }),
@@ -132,8 +96,6 @@ const styles = {
   light: getStyles('light'),
   dark: getStyles('dark'),
 };
-
-const stylesCard = ExpandableRowStyles();
 
 const confidenceIcons = {
   Low: <KeyboardArrowDownIcon sx={{ color: 'icons.error' }} />,
@@ -192,7 +154,7 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
         role='row'
       >
         <div className='subtests cell' role='cell'>
-          <div className='subtests-container'>{test}</div>
+          {test}
         </div>
         <div className='base-value cell' role='cell'>
           {' '}
@@ -206,16 +168,23 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
           {newMedianValue} {newUnit}
         </div>
         <div className='status cell' role='cell'>
-          <span
+          <Box
+            sx={{
+              bgcolor: improvement
+                ? 'status.improvement'
+                : regression
+                  ? 'status.regression'
+                  : 'none',
+            }}
             className={`status-hint ${determineStatusHintClass(
               improvement,
               regression,
             )}`}
           >
-            {improvement ? <ThumbUpIcon /> : null}
-            {regression ? <ThumbDownIcon /> : null}
+            {improvement ? <ThumbUpIcon color='success' /> : null}
+            {regression ? <ThumbDownIcon color='error' /> : null}
             {determineStatus(improvement, regression)}
-          </span>
+          </Box>
         </div>
         <div className='delta cell' role='cell'>
           {' '}
@@ -251,33 +220,21 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
           </div>
         </div>
         <div className='expand-button cell' role='cell'>
-          <div
-            className='expand-button-container'
+          <IconButton
+            title={
+              expanded
+                ? Strings.components.expandableRow.title.shrink
+                : Strings.components.expandableRow.title.expand
+            }
+            color='primary'
+            size='small'
             onClick={toggleIsExpanded}
-            data-testid='expand-subtests-row-button'
           >
-            <IconButton
-              title={
-                expanded
-                  ? Strings.components.expandableRow.title.shrink
-                  : Strings.components.expandableRow.title.expand
-              }
-              color='primary'
-              size='small'
-            >
-              {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-            </IconButton>
-          </div>
+            {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+          </IconButton>
         </div>
       </Box>
-      {expanded && (
-        <div
-          className={`content-row ${stylesCard.container}`}
-          data-testid='expanded-row-content'
-        >
-          <RevisionRowExpandable result={result} />
-        </div>
-      )}
+      {expanded && <RevisionRowExpandable result={result} />}
     </>
   );
 }

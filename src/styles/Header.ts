@@ -1,8 +1,8 @@
 import { stylesheet } from 'typestyle';
 
-import headerBGImage from '../assets/header-background.svg';
 import { Colors } from './Colors';
 import { Spacing } from './Spacing';
+import headerBGImage from '../assets/header-background.svg';
 
 export const HeaderStyles = (mode: string, isHome: boolean) => {
   const isTrueLight = mode == 'light';

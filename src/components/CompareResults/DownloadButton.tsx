@@ -61,7 +61,8 @@ function generateJsonDataFromComparisonResults(
     activeComparison ===
     Strings.components.comparisonRevisionDropdown.allRevisions.key
       ? results.flat()
-      : results.find((result) => result[0].new_rev === activeComparison) ?? [];
+      : (results.find((result) => result[0].new_rev === activeComparison) ??
+        []);
   return JSON.stringify(
     formatDownloadData(resultsForCurrentComparison),
     null,

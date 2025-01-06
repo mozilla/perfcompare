@@ -13,10 +13,12 @@ import { IconButton, Box } from '@mui/material';
 import Tooltip from '@mui/material/Tooltip';
 import { style } from 'typestyle';
 
+import RetriggerButton from './Retrigger/RetriggerButton';
+import RevisionRowExpandable from './RevisionRowExpandable';
 import { compareView, compareOverTimeView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
-import { Colors, Spacing, ExpandableRowStyles } from '../../styles';
+import { Colors, Spacing } from '../../styles';
 import type { CompareResultsItem, PlatformShortName } from '../../types/state';
 import {
   getPlatformShortName,
@@ -26,8 +28,6 @@ import AndroidIcon from '../Shared/Icons/AndroidIcon';
 import LinuxIcon from '../Shared/Icons/LinuxIcon';
 import SubtestsIcon from '../Shared/Icons/SubtestsIcon';
 import WindowsIcon from '../Shared/Icons/WindowsIcon';
-import RetriggerButton from './Retrigger/RetriggerButton';
-import RevisionRowExpandable from './RevisionRowExpandable';
 
 const revisionsRow = {
   borderRadius: '4px 0px 0px 4px',
@@ -46,59 +46,41 @@ const typography = {
 const stylesLight = {
   revisionRow: style({
     ...revisionsRow,
+    backgroundColor: Colors.Background200,
     $nest: {
-      '.base-value': {
-        backgroundColor: Colors.Background200,
-      },
       '.cell': {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
       },
       '.confidence': {
-        backgroundColor: Colors.Background200,
         gap: '10px',
         justifyContent: 'start',
         paddingInlineStart: '15%',
       },
-      '.comparison-sign': {
-        backgroundColor: Colors.Background200,
-      },
-      '.delta': {
-        backgroundColor: Colors.Background200,
-      },
       '.expand-button-container': {
         justifyContent: 'right',
       },
-      '.new-value': {
-        backgroundColor: Colors.Background200,
-      },
       '.platform': {
-        backgroundColor: Colors.Background200,
         borderRadius: '4px 0 0 4px',
         paddingLeft: Spacing.xLarge,
         justifyContent: 'left',
       },
       '.platform-container': {
         alignItems: 'flex-end',
-        backgroundColor: Colors.Background200,
         display: 'flex',
       },
       '.retrigger-button': {
-        backgroundColor: Colors.Background200,
         borderRadius: '0px 4px 4px 0px',
         cursor: 'not-allowed',
       },
       '.status': {
-        backgroundColor: Colors.Background200,
         justifyContent: 'center',
       },
       '.total-runs': {
-        backgroundColor: Colors.Background200,
         gap: '8px',
       },
       '.row-buttons': {
-        backgroundColor: Colors.Background200,
         borderRadius: '0px 4px 4px 0px',
         display: 'flex',
         justifyContent: 'flex-end',
@@ -117,22 +99,14 @@ const stylesLight = {
         borderRadius: '4px',
         padding: '4px 10px',
       },
-      '.status-hint-improvement': {
-        backgroundColor: '#D8EEDC',
-      },
-      '.status-hint-regression': {
-        backgroundColor: '#FFE8E8',
-      },
+
       '.status-hint .MuiSvgIcon-root': {
         height: '16px',
       },
-      '.status-hint-improvement .MuiSvgIcon-root': {
-        color: '#017A40',
-      },
+
       '.status-hint-regression .MuiSvgIcon-root': {
         // We need to move the icon a bit lower so that it _looks_ centered.
         marginTop: '2px',
-        color: '#D7264C',
       },
     },
   }),
@@ -144,59 +118,41 @@ const stylesLight = {
 const stylesDark = {
   revisionRow: style({
     ...revisionsRow,
+    backgroundColor: Colors.Background200Dark,
     $nest: {
-      '.base-value': {
-        backgroundColor: Colors.Background200Dark,
-      },
       '.cell': {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
       },
       '.confidence': {
-        backgroundColor: Colors.Background200Dark,
         gap: '10px',
         justifyContent: 'start',
         paddingInlineStart: '15%',
       },
-      '.comparison-sign': {
-        backgroundColor: Colors.Background200Dark,
-      },
-      '.delta': {
-        backgroundColor: Colors.Background200Dark,
-      },
       '.expand-button-container': {
         justifyContent: 'right',
       },
-      '.new-value': {
-        backgroundColor: Colors.Background200Dark,
-      },
       '.platform': {
-        backgroundColor: Colors.Background200Dark,
         borderRadius: '4px 0 0 4px',
-        paddingLeft: Spacing.xLarge,
+        paddingLeft: Spacing.xLarge, // Synchronize with its header
         justifyContent: 'left',
       },
       '.platform-container': {
         alignItems: 'flex-end',
-        backgroundColor: Colors.Background200Dark,
         display: 'flex',
       },
       '.retrigger-button': {
-        backgroundColor: Colors.Background200Dark,
         borderRadius: '0px 4px 4px 0px',
         cursor: 'not-allowed',
       },
       '.status': {
-        backgroundColor: Colors.Background200Dark,
         justifyContent: 'center',
       },
       '.total-runs': {
-        backgroundColor: Colors.Background200Dark,
         gap: '8px',
       },
       '.row-buttons': {
-        backgroundColor: Colors.Background200Dark,
         borderRadius: '0px 4px 4px 0px',
         display: 'flex',
         justifyContent: 'flex-end',
@@ -215,23 +171,14 @@ const stylesDark = {
         borderRadius: '4px',
         padding: '4px 10px',
       },
-      '.status-hint-improvement': {
-        backgroundColor: '#004725',
-        marginTop: '2px',
-      },
-      '.status-hint-regression': {
-        backgroundColor: '#690F22',
-      },
+
       '.status-hint .MuiSvgIcon-root': {
         height: '16px',
       },
-      '.status-hint-improvement .MuiSvgIcon-root': {
-        color: '#4DBC87',
-      },
+
       '.status-hint-regression .MuiSvgIcon-root': {
         // We need to move the icon a bit lower so that it _looks_ centered.
         marginTop: '2px',
-        color: '#F37F98',
       },
     },
   }),
@@ -239,8 +186,6 @@ const stylesDark = {
     ...typography,
   }),
 };
-
-const stylesCard = ExpandableRowStyles();
 
 function determineStatus(improvement: boolean, regression: boolean) {
   if (improvement) return 'Improvement';
@@ -382,16 +327,23 @@ function RevisionRow(props: RevisionRowProps) {
           {newAvgValue} {newUnit}
         </div>
         <div className='status cell' role='cell'>
-          <span
+          <Box
+            sx={{
+              bgcolor: improvement
+                ? 'status.improvement'
+                : regression
+                  ? 'status.regression'
+                  : 'none',
+            }}
             className={`status-hint ${determineStatusHintClass(
               improvement,
               regression,
             )}`}
           >
-            {improvement ? <ThumbUpIcon /> : null}
-            {regression ? <ThumbDownIcon /> : null}
+            {improvement ? <ThumbUpIcon color='success' /> : null}
+            {regression ? <ThumbDownIcon color='error' /> : null}
             {determineStatus(improvement, regression)}
-          </span>
+          </Box>
         </div>
         <div className='delta cell' role='cell'>
           {' '}
@@ -471,14 +423,7 @@ function RevisionRow(props: RevisionRowProps) {
           </div>
         </div>
       </Box>
-      {expanded && (
-        <div
-          className={`content-row ${stylesCard.container}`}
-          data-testid='expanded-row-content'
-        >
-          <RevisionRowExpandable result={result} />
-        </div>
-      )}
+      {expanded && <RevisionRowExpandable result={result} />}
     </>
   );
 }

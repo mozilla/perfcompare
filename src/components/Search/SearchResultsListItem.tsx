@@ -11,10 +11,10 @@ import Radio from '@mui/material/Radio';
 import Typography from '@mui/material/Typography';
 import { style } from 'typestyle';
 
+import DateTimeDisplay from './DateTimeDisplay';
 import { Spacing } from '../../styles';
 import type { Changeset } from '../../types/state';
 import { truncateHash, getLatestCommitMessage } from '../../utils/helpers';
-import DateTimeDisplay from './DateTimeDisplay';
 
 interface SearchResultsListItemProps {
   index: number;

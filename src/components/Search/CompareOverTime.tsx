@@ -8,16 +8,16 @@ import { Form } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { style } from 'typestyle';
 
+import CancelAndCompareButtons from './CancelAndCompareButtons';
+import EditButton from './EditButton';
+import SearchFrameworkDropdown from './SearchFrameworkDropdown';
+import SearchOverTime from './SearchOverTime';
 import { compareOverTimeView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { CompareCardsStyles, SearchStyles, Spacing } from '../../styles';
 import { Changeset, Repository } from '../../types/state';
 import { Framework, TimeRange } from '../../types/types';
-import CancelAndCompareButtons from './CancelAndCompareButtons';
-import EditButton from './EditButton';
-import SearchFrameworkDropdown from './SearchFrameworkDropdown';
-import SearchOverTime from './SearchOverTime';
 
 const strings = Strings.components.searchDefault;
 const stringsOverTime = Strings.components.searchDefault.overTime;
