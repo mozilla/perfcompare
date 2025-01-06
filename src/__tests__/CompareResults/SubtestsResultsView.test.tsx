@@ -41,6 +41,32 @@ const setup = ({
   });
 };
 
+// This handy function parses the results page and returns an array of visible
+// rows. It makes it easy to assert visible rows when filtering them in a
+// user-friendly way without using snapshots.
+function summarizeVisibleRows() {
+  const rows = screen.getAllByRole('row');
+  const result = [];
+  for (const row of rows) {
+    const subtest = row.querySelector('.subtests')?.textContent;
+    if (!subtest) {
+      continue;
+    }
+
+    const rowString = ['.delta', '.confidence']
+      .map((selector) => row.querySelector(selector)!.textContent!.trim())
+      .join(', ');
+    result.push(`${subtest}: ${rowString}`);
+  }
+  return result;
+}
+
+function expectParameterToHaveValue(parameter: string, expectedValue: string) {
+  const searchParams = new URLSearchParams(window.location.search);
+  const currentValue = searchParams.get(parameter);
+  expect(currentValue).toEqual(expectedValue);
+}
+
 describe('SubtestsResultsView Component Tests', () => {
   it('should render the subtests results view and match snapshot', async () => {
     const { subtestsResult } = getTestData();
@@ -151,6 +177,151 @@ describe('SubtestsResultsView Component Tests', () => {
       subtestsResult: [],
     });
     expect(await screen.findByText(/No results found/)).toBeInTheDocument();
+  });
+
+  describe('table sorting', () => {
+    async function setupForSorting({
+      extraParameters,
+    }: Partial<{
+      extraParameters: string;
+    }> = {}) {
+      let searchParameters =
+        '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&baseParentSignature=4774487&newParentSignature=4774487';
+      if (extraParameters) {
+        searchParameters += '&' + extraParameters;
+      }
+
+      // Render the component
+      const { subtestsResult } = getTestData();
+      setup({
+        element: (
+          <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />
+        ),
+        route: '/subtests-compare-results/',
+        search: searchParameters,
+        subtestsResult,
+      });
+      await screen.findByText('dhtml.html');
+    }
+
+    it('can sort the table and persist the information to the URL', async () => {
+      await setupForSorting();
+      // Initial view (alphabetical ordered, even if "sort by subtests" isn't specified
+      expect(summarizeVisibleRows()).toEqual([
+        'dhtml.html: 1.14 %, Low',
+        'improvement.html: 1.44 %, Low',
+        'regression.html: 1.04 %, High',
+        'tablemutation.html: 0.98 %, Low',
+      ]);
+
+      // Sort by Delta
+      const user = userEvent.setup({ delay: null });
+      const deltaButton = screen.getByRole('button', { name: /Delta/ });
+      expect(deltaButton).toMatchSnapshot();
+      expect(window.location.search).not.toContain('sort=');
+      // Sort ascending
+      await user.click(deltaButton);
+      expect(summarizeVisibleRows()).toEqual([
+        'tablemutation.html: 0.98 %, Low',
+        'regression.html: 1.04 %, High',
+        'dhtml.html: 1.14 %, Low',
+        'improvement.html: 1.44 %, Low',
+      ]);
+      // It should have the "ascending" SVG.
+      expect(deltaButton).toMatchSnapshot();
+      // It should be persisted in the URL
+      expectParameterToHaveValue('sort', 'delta|asc');
+
+      // Sort descending
+      await user.click(deltaButton);
+      expect(summarizeVisibleRows()).toEqual([
+        'improvement.html: 1.44 %, Low',
+        'dhtml.html: 1.14 %, Low',
+        'regression.html: 1.04 %, High',
+        'tablemutation.html: 0.98 %, Low',
+      ]);
+      // It should have the "descending" SVG.
+      expect(deltaButton).toMatchSnapshot();
+      // It should be persisted in the URL
+      expectParameterToHaveValue('sort', 'delta|desc');
+
+      // Sort by Confidence ascending
+      const confidenceButton = screen.getByRole('button', {
+        name: /Confidence.*sort/,
+      });
+      await user.click(confidenceButton);
+      expect(summarizeVisibleRows()).toEqual([
+        'tablemutation.html: 0.98 %, Low',
+        'dhtml.html: 1.14 %, Low',
+        'improvement.html: 1.44 %, Low',
+        'regression.html: 1.04 %, High',
+      ]);
+      // It should have the "no sort" SVG.
+      expect(deltaButton).toMatchSnapshot();
+      // It should have the "ascending" SVG.
+      expect(confidenceButton).toMatchSnapshot();
+      // It should be persisted in the URL
+      expectParameterToHaveValue('sort', 'confidence|asc');
+
+      // Sort by subtest name ascending
+      const subtestsButton = screen.getByRole('button', { name: /Subtests/ });
+      await user.click(subtestsButton);
+      expect(summarizeVisibleRows()).toEqual([
+        'dhtml.html: 1.14 %, Low',
+        'improvement.html: 1.44 %, Low',
+        'regression.html: 1.04 %, High',
+        'tablemutation.html: 0.98 %, Low',
+      ]);
+      // It should have the "no sort" SVG.
+      expect(confidenceButton).toMatchSnapshot();
+      // It should have the "ascending" SVG.
+      expect(subtestsButton).toMatchSnapshot();
+      // It should be persisted in the URL
+      expectParameterToHaveValue('sort', 'subtests|asc');
+
+      // Clickince twice more should reset the URL.
+      await user.click(subtestsButton);
+      await user.click(subtestsButton);
+      expect(window.location.search).not.toContain('sort=');
+    });
+
+    it('initializes the sort from the URL at load time for an ascending sort', async () => {
+      await setupForSorting({ extraParameters: 'sort=delta|asc' });
+      await screen.findByText('dhtml.html');
+      expect(summarizeVisibleRows()).toEqual([
+        'tablemutation.html: 0.98 %, Low',
+        'regression.html: 1.04 %, High',
+        'dhtml.html: 1.14 %, Low',
+        'improvement.html: 1.44 %, Low',
+      ]);
+      // It should have the "ascending" SVG.
+      expect(screen.getByRole('button', { name: /Delta/ })).toMatchSnapshot();
+    });
+
+    it('initializes the sort from the URL at load time for an implicit ascending sort', async () => {
+      await setupForSorting({ extraParameters: 'sort=delta' });
+      await screen.findByText('dhtml.html');
+      expect(summarizeVisibleRows()).toEqual([
+        'tablemutation.html: 0.98 %, Low',
+        'regression.html: 1.04 %, High',
+        'dhtml.html: 1.14 %, Low',
+        'improvement.html: 1.44 %, Low',
+      ]);
+      // It should have the "ascending" SVG.
+      expect(screen.getByRole('button', { name: /Delta/ })).toMatchSnapshot();
+    });
+
+    it('initializes the sort from the URL at load time for a descending sort', async () => {
+      await setupForSorting({ extraParameters: 'sort=delta|desc' });
+      expect(summarizeVisibleRows()).toEqual([
+        'improvement.html: 1.44 %, Low',
+        'dhtml.html: 1.14 %, Low',
+        'regression.html: 1.04 %, High',
+        'tablemutation.html: 0.98 %, Low',
+      ]);
+      // It should have the "descending" SVG.
+      expect(screen.getByRole('button', { name: /Delta/ })).toMatchSnapshot();
+    });
   });
 });
 

@@ -17,10 +17,9 @@ import { Framework } from '../../types/types';
 import type { CompareResultsTableConfig } from '../../types/types';
 import { getPlatformShortName } from '../../utils/platform';
 
-const cellsConfiguration: CompareResultsTableConfig = [
+const columnsConfiguration: CompareResultsTableConfig = [
   {
     name: 'Platform',
-    disable: true,
     filter: true,
     key: 'platform',
     gridWidth: '2fr',
@@ -56,7 +55,6 @@ const cellsConfiguration: CompareResultsTableConfig = [
   },
   {
     name: 'Status',
-    disable: true,
     filter: true,
     key: 'status',
     gridWidth: '1.5fr',
@@ -83,7 +81,6 @@ const cellsConfiguration: CompareResultsTableConfig = [
   },
   {
     name: 'Confidence',
-    disable: true,
     filter: true,
     key: 'confidence',
     gridWidth: '1.5fr',
@@ -132,7 +129,7 @@ export default function ResultsTable() {
   // This is our custom hook that manages table filters
   // and provides methods for clearing and toggling them.
   const { tableFilters, onClearFilter, onToggleFilter } =
-    useTableFilters(cellsConfiguration);
+    useTableFilters(columnsConfiguration);
 
   const initialSearchTerm = rawSearchParams.get('search') ?? '';
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
@@ -155,7 +152,7 @@ export default function ResultsTable() {
     updateRawSearchParams(rawSearchParams);
   };
 
-  const rowGridTemplateColumns = cellsConfiguration
+  const rowGridTemplateColumns = columnsConfiguration
     .map((config) => config.gridWidth)
     .join(' ');
 
@@ -177,10 +174,13 @@ export default function ResultsTable() {
           onFrameworkChange={onFrameworkChange}
         />
         <TableHeader
-          cellsConfiguration={cellsConfiguration}
+          columnsConfiguration={columnsConfiguration}
           filters={tableFilters}
           onToggleFilter={onToggleFilter}
           onClearFilter={onClearFilter}
+          sortDirection={null}
+          sortColumn={null}
+          onToggleSort={() => {}}
         />
       </Box>
       {/* Using a key in Suspense makes it that it displays the fallback more
@@ -198,7 +198,7 @@ export default function ResultsTable() {
         <Await resolve={resultsPromise}>
           {(resolvedResults) => (
             <TableContent
-              cellsConfiguration={cellsConfiguration}
+              columnsConfiguration={columnsConfiguration}
               results={resolvedResults as CompareResultsItem[][]}
               filteringSearchTerm={searchTerm}
               tableFilters={tableFilters}
