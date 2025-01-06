@@ -5,7 +5,7 @@ import { style } from 'typestyle';
 
 import { repoMap } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
-import { ButtonsLightRaw, ButtonsDarkRaw, DropDownItems } from '../../styles';
+import { ButtonsLightRaw, ButtonsDarkRaw } from '../../styles';
 import { InputType, Repository } from '../../types/state';
 
 interface SearchDropdownProps {
@@ -49,9 +49,6 @@ function SearchDropdown({
     }),
   };
 
-  const menuItemStyles =
-    mode === 'light' ? DropDownItems.Light : DropDownItems.Dark;
-
   return (
     <>
       <FormControl
@@ -77,7 +74,7 @@ function SearchDropdown({
               id={repoMap[key]}
               value={repoMap[key]}
               key={repoMap[key]}
-              className={`${searchType}Repository ${menuItemStyles}`}
+              className={`${searchType}Repository`}
             >
               {repoMap[key]}
             </MenuItem>
