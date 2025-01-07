@@ -1103,13 +1103,13 @@ exports[`Results View The table should match snapshot and other elements should 
         class="cell base-header"
         role="columnheader"
       >
-        <span
+        <div
           aria-label="A summary of all values from Base runs using a median."
-          class="MuiTypography-root MuiTypography-body1 css-aoj5st-MuiTypography-root"
+          class="MuiBox-root css-4g6ai3"
           data-mui-internal-clone-element="true"
         >
           Base
-        </span>
+        </div>
       </div>
       <div
         class="cell comparisonSign-header"
@@ -1119,13 +1119,13 @@ exports[`Results View The table should match snapshot and other elements should 
         class="cell new-header"
         role="columnheader"
       >
-        <span
+        <div
           aria-label="A summary of all values from New runs using a median."
-          class="MuiTypography-root MuiTypography-body1 css-aoj5st-MuiTypography-root"
+          class="MuiBox-root css-4g6ai3"
           data-mui-internal-clone-element="true"
         >
           New
-        </span>
+        </div>
       </div>
       <div
         class="cell status-header"
@@ -1262,13 +1262,13 @@ exports[`Results View The table should match snapshot and other elements should 
         class="cell runs-header"
         role="columnheader"
       >
-        <span
+        <div
           aria-label="The total number of tasks/jobs that ran for this metric."
-          class="MuiTypography-root MuiTypography-body1 css-aoj5st-MuiTypography-root"
+          class="MuiBox-root css-4g6ai3"
           data-mui-internal-clone-element="true"
         >
           Total Runs
-        </span>
+        </div>
       </div>
       <div
         class="cell buttons-header"

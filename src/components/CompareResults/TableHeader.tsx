@@ -1,7 +1,7 @@
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import StraightIcon from '@mui/icons-material/Straight';
 import SwapVert from '@mui/icons-material/SwapVert';
-import { ListItemIcon, ListItemText, Tooltip, Typography } from '@mui/material';
+import { ListItemIcon, ListItemText, Tooltip, Box } from '@mui/material';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Checkbox from '@mui/material/Checkbox';
@@ -9,7 +9,6 @@ import Divider from '@mui/material/Divider';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { SxProps, Theme } from '@mui/material/styles';
-import { Box } from '@mui/system';
 import {
   usePopupState,
   bindTrigger,
@@ -121,14 +120,7 @@ function FilterableColumnHeader({
         aria-label={buttonAriaLabel}
         sx={{ paddingInline: 1.5 }}
       >
-        {tooltipContent ? (
-          <Tooltip title={tooltipContent} placement='top' arrow>
-            <Typography sx={{ cursor: 'pointer' }}>{name}</Typography>
-          </Tooltip>
-        ) : (
-          <>{name}</>
-        )}
-
+        {name}
         <Box
           sx={{
             paddingInlineStart: 0.5,
@@ -318,21 +310,50 @@ function TableHeader({
   };
 
   function renderColumnHeader(header: CompareResultsTableColumn) {
-    if ('sortFunction' in header && 'filter' in header) {
-      return (
-        <ButtonGroup
-          variant='contained'
-          color='tableHeaderButton'
-          disableElevation
-        >
+    const content = (() => {
+      if ('sortFunction' in header && 'filter' in header) {
+        return (
+          <ButtonGroup
+            variant='contained'
+            color='tableHeaderButton'
+            disableElevation
+          >
+            <SortableColumnHeader
+              name={header.name}
+              displayLabel={false}
+              sortDirection={header.key === sortColumn ? sortDirection : null}
+              onToggle={(newSortDirection) =>
+                onToggleSort(header.key, newSortDirection)
+              }
+            />
+            <FilterableColumnHeader
+              possibleValues={header.possibleValues}
+              name={header.name}
+              columnId={header.key}
+              uncheckedValues={filters.get(header.key)}
+              onClearFilter={() => onClearFilter(header.key)}
+              onToggleFilter={(checkedValues) =>
+                onToggleFilter(header.key, checkedValues)
+              }
+            />
+          </ButtonGroup>
+        );
+      }
+      if ('sortFunction' in header) {
+        return (
           <SortableColumnHeader
             name={header.name}
-            displayLabel={false}
+            displayLabel={true}
             sortDirection={header.key === sortColumn ? sortDirection : null}
             onToggle={(newSortDirection) =>
               onToggleSort(header.key, newSortDirection)
             }
           />
+        );
+      }
+
+      if ('filter' in header) {
+        return (
           <FilterableColumnHeader
             possibleValues={header.possibleValues}
             name={header.name}
@@ -343,39 +364,23 @@ function TableHeader({
               onToggleFilter(header.key, checkedValues)
             }
           />
-        </ButtonGroup>
-      );
-    }
+        );
+      }
 
-    if ('sortFunction' in header) {
-      return (
-        <SortableColumnHeader
-          name={header.name}
-          displayLabel={true}
-          sortDirection={header.key === sortColumn ? sortDirection : null}
-          onToggle={(newSortDirection) =>
-            onToggleSort(header.key, newSortDirection)
-          }
-        />
-      );
-    }
-
-    if ('filter' in header) {
-      return (
-        <FilterableColumnHeader
-          possibleValues={header.possibleValues}
-          name={header.name}
-          columnId={header.key}
-          uncheckedValues={filters.get(header.key)}
-          onClearFilter={() => onClearFilter(header.key)}
-          onToggleFilter={(checkedValues) =>
-            onToggleFilter(header.key, checkedValues)
-          }
-        />
-      );
-    }
-
-    return header.name;
+      return header.name;
+    })();
+    return header.tooltip ? (
+      <Tooltip
+        title={header.tooltip}
+        placement='top'
+        arrow
+        classes={{ tooltip: styles.typography }}
+      >
+        <Box sx={{ cursor: 'pointer' }}>{content}</Box>
+      </Tooltip>
+    ) : (
+      content
+    );
   }
 
   return (

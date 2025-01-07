@@ -439,7 +439,9 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 <div
                   class="cell base-header"
                   role="columnheader"
-                />
+                >
+                  Base
+                </div>
                 <div
                   class="cell comparisonSign-header"
                   role="columnheader"
@@ -447,7 +449,9 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 <div
                   class="cell new-header"
                   role="columnheader"
-                />
+                >
+                  New
+                </div>
                 <div
                   class="cell status-header"
                   role="columnheader"
@@ -553,30 +557,38 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                       tabindex="0"
                       type="button"
                     >
-                      (
-                      4
-                      )
-                    </div>
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                      data-testid="KeyboardArrowDownIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                      Confidence
+                      <div
+                        aria-label="4 items selected"
+                        class="MuiBox-root css-18uhbjh"
+                      >
+                        (
+                        4
+                        )
+                      </div>
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                        data-testid="KeyboardArrowDownIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                        />
+                      </svg>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
-                    </svg>
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                    />
-                  </button>
+                    </button>
+                  </div>
                 </div>
                 <div
                   class="cell runs-header"
                   role="columnheader"
-                />
+                >
+                  Total Runs
+                </div>
                 <div
                   class="cell buttons-header"
                   role="columnheader"
@@ -2029,7 +2041,9 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 <div
                   class="cell base-header"
                   role="columnheader"
-                />
+                >
+                  Base
+                </div>
                 <div
                   class="cell comparisonSign-header"
                   role="columnheader"
@@ -2037,7 +2051,9 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 <div
                   class="cell new-header"
                   role="columnheader"
-                />
+                >
+                  New
+                </div>
                 <div
                   class="cell status-header"
                   role="columnheader"
@@ -2143,30 +2159,38 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                       tabindex="0"
                       type="button"
                     >
-                      (
-                      4
-                      )
-                    </div>
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                      data-testid="KeyboardArrowDownIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                      Confidence
+                      <div
+                        aria-label="4 items selected"
+                        class="MuiBox-root css-18uhbjh"
+                      >
+                        (
+                        4
+                        )
+                      </div>
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                        data-testid="KeyboardArrowDownIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                        />
+                      </svg>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
-                    </svg>
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                    />
-                  </button>
+                    </button>
+                  </div>
                 </div>
                 <div
                   class="cell runs-header"
                   role="columnheader"
-                />
+                >
+                  Total Runs
+                </div>
                 <div
                   class="cell buttons-header"
                   role="columnheader"
