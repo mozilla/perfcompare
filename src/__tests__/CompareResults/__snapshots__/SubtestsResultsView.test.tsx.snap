@@ -1298,7 +1298,7 @@ exports[`SubtestsResultsView Component Tests table sorting can sort the table an
   type="button"
 >
   <svg
-    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1bpn2x6-MuiSvgIcon-root"
     data-testid="StraightIcon"
     focusable="false"
     role="img"
@@ -1308,7 +1308,7 @@ exports[`SubtestsResultsView Component Tests table sorting can sort the table an
       d="M11 6.83 9.41 8.41 8 7l4-4 4 4-1.41 1.41L13 6.83V21h-2z"
     />
     <title>
-      Sorted by Delta in ascending order
+      Sorted by Delta in descending order
     </title>
   </svg>
   Delta
@@ -1335,7 +1335,7 @@ exports[`SubtestsResultsView Component Tests table sorting can sort the table an
   type="button"
 >
   <svg
-    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1bpn2x6-MuiSvgIcon-root"
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
     data-testid="StraightIcon"
     focusable="false"
     role="img"
@@ -1345,7 +1345,7 @@ exports[`SubtestsResultsView Component Tests table sorting can sort the table an
       d="M11 6.83 9.41 8.41 8 7l4-4 4 4-1.41 1.41L13 6.83V21h-2z"
     />
     <title>
-      Sorted by Delta in descending order
+      Sorted by Delta in ascending order
     </title>
   </svg>
   Delta
@@ -1425,7 +1425,7 @@ exports[`SubtestsResultsView Component Tests table sorting can sort the table an
   type="button"
 >
   <svg
-    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1mecf1h-MuiSvgIcon-root"
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-jmu928-MuiSvgIcon-root"
     data-testid="StraightIcon"
     focusable="false"
     role="img"
@@ -1435,7 +1435,7 @@ exports[`SubtestsResultsView Component Tests table sorting can sort the table an
       d="M11 6.83 9.41 8.41 8 7l4-4 4 4-1.41 1.41L13 6.83V21h-2z"
     />
     <title>
-      Sorted by Confidence in ascending order
+      Sorted by Confidence in descending order
     </title>
   </svg>
   <span
@@ -1497,7 +1497,7 @@ exports[`SubtestsResultsView Component Tests table sorting can sort the table an
   type="button"
 >
   <svg
-    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1bpn2x6-MuiSvgIcon-root"
     data-testid="StraightIcon"
     focusable="false"
     role="img"
@@ -1507,7 +1507,7 @@ exports[`SubtestsResultsView Component Tests table sorting can sort the table an
       d="M11 6.83 9.41 8.41 8 7l4-4 4 4-1.41 1.41L13 6.83V21h-2z"
     />
     <title>
-      Sorted by Subtests in ascending order
+      Sorted by Subtests in descending order
     </title>
   </svg>
   Subtests
@@ -1523,6 +1523,34 @@ exports[`SubtestsResultsView Component Tests table sorting can sort the table an
       />
     </span>
   </span>
+</button>
+`;
+
+exports[`SubtestsResultsView Component Tests table sorting initializes the sort from the URL at load time for a ascending sort 1`] = `
+<button
+  aria-label="Delta (Currently sorted by this column. Click to change)"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-1awls4w-MuiButtonBase-root-MuiButton-root"
+  tabindex="0"
+  type="button"
+>
+  <svg
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+    data-testid="StraightIcon"
+    focusable="false"
+    role="img"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 6.83 9.41 8.41 8 7l4-4 4 4-1.41 1.41L13 6.83V21h-2z"
+    />
+    <title>
+      Sorted by Delta in ascending order
+    </title>
+  </svg>
+  Delta
+  <span
+    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+  />
 </button>
 `;
 
@@ -1554,7 +1582,7 @@ exports[`SubtestsResultsView Component Tests table sorting initializes the sort 
 </button>
 `;
 
-exports[`SubtestsResultsView Component Tests table sorting initializes the sort from the URL at load time for an ascending sort 1`] = `
+exports[`SubtestsResultsView Component Tests table sorting initializes the sort from the URL at load time for an implicit descending sort 1`] = `
 <button
   aria-label="Delta (Currently sorted by this column. Click to change)"
   class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-1awls4w-MuiButtonBase-root-MuiButton-root"
@@ -1562,7 +1590,7 @@ exports[`SubtestsResultsView Component Tests table sorting initializes the sort 
   type="button"
 >
   <svg
-    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1bpn2x6-MuiSvgIcon-root"
     data-testid="StraightIcon"
     focusable="false"
     role="img"
@@ -1572,35 +1600,7 @@ exports[`SubtestsResultsView Component Tests table sorting initializes the sort 
       d="M11 6.83 9.41 8.41 8 7l4-4 4 4-1.41 1.41L13 6.83V21h-2z"
     />
     <title>
-      Sorted by Delta in ascending order
-    </title>
-  </svg>
-  Delta
-  <span
-    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-  />
-</button>
-`;
-
-exports[`SubtestsResultsView Component Tests table sorting initializes the sort from the URL at load time for an implicit ascending sort 1`] = `
-<button
-  aria-label="Delta (Currently sorted by this column. Click to change)"
-  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-1awls4w-MuiButtonBase-root-MuiButton-root"
-  tabindex="0"
-  type="button"
->
-  <svg
-    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
-    data-testid="StraightIcon"
-    focusable="false"
-    role="img"
-    viewBox="0 0 24 24"
-  >
-    <path
-      d="M11 6.83 9.41 8.41 8 7l4-4 4 4-1.41 1.41L13 6.83V21h-2z"
-    />
-    <title>
-      Sorted by Delta in ascending order
+      Sorted by Delta in descending order
     </title>
   </svg>
   Delta

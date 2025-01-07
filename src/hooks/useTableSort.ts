@@ -31,7 +31,7 @@ const useTableSort = (columnsConfiguration: CompareResultsTableConfig) => {
     }
 
     if (direction !== 'asc' && direction !== 'desc') {
-      return [columnId, 'asc'];
+      return [columnId, 'desc'];
     }
 
     return [columnId, direction];
