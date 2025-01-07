@@ -104,6 +104,22 @@ function resultMatchesSearchTerm(
   );
 }
 
+const stringComparisonCollator = new Intl.Collator('en', {
+  numeric: true,
+  sensitivity: 'base',
+});
+// The default sort orders by header_name (which is a concatenation of suite,
+// test and options), and platform, so that the order is stable when reloading
+// the page.
+function defaultSortFunction(
+  itemA: CompareResultsItem,
+  itemB: CompareResultsItem,
+) {
+  const keyA = itemA.header_name + ' ' + itemA.platform;
+  const keyB = itemB.header_name + ' ' + itemB.platform;
+  return stringComparisonCollator.compare(keyA, keyB);
+}
+
 // This function sorts the results array in accordance to the specified column
 // and direction. If no column is specified, the first column (the subtests)
 // is used.
@@ -113,27 +129,28 @@ function sortResults(
   columnId: string | null,
   direction: 'asc' | 'desc' | null,
 ) {
-  let columnConfiguration;
+  let sortFunction = defaultSortFunction;
+
+  let columnConfiguration: CompareResultsTableConfig[number] | undefined;
   if (columnId && direction) {
     columnConfiguration = columnsConfiguration.find(
       (column) => column.key === columnId,
     );
   }
 
-  if (!columnConfiguration) {
-    columnConfiguration = columnsConfiguration[0];
+  if (columnConfiguration) {
+    if (!('sortFunction' in columnConfiguration)) {
+      console.warn(
+        `No sortFunction information for the columnConfiguration ${String(
+          columnConfiguration.name ?? columnId,
+        )}`,
+      );
+      return results;
+    }
+
+    sortFunction = columnConfiguration.sortFunction;
   }
 
-  if (!('sortFunction' in columnConfiguration)) {
-    console.warn(
-      `No sortFunction information for the columnConfiguration ${String(
-        columnConfiguration.name ?? columnId,
-      )}`,
-    );
-    return results;
-  }
-
-  const { sortFunction } = columnConfiguration;
   const directionedSortFunction =
     direction === 'desc'
       ? (itemA: CompareResultsItem, itemB: CompareResultsItem) =>
