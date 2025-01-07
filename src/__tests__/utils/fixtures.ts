@@ -2478,8 +2478,8 @@ const getTestData = () => {
       confidence_text: 'Low',
       graphs_link:
         'https://treeherder.mozilla.org/perfherder/graphs?highlightedRevisions=d775409d7c6a&highlightedRevisions=22f4cf67e8ad&series=mozilla-central%2C5c47b31c38f7214a07fad2e0d41fb901cdc18eae%2C1%2C1&timerange=604800',
-      delta_value: 13.03,
-      delta_percentage: 1.44,
+      delta_value: -13.03,
+      delta_percentage: -1.44,
       magnitude: 5.68,
       new_is_better: false,
       lower_is_better: true,

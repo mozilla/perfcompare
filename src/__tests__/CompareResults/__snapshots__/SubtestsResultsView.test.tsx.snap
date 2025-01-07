@@ -818,7 +818,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                    
-                  1.44
+                  -1.44
                    %
                    
                 </div>
@@ -2421,7 +2421,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                    
-                  1.44
+                  -1.44
                    %
                    
                 </div>
