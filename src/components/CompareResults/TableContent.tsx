@@ -104,31 +104,76 @@ function resultMatchesSearchTerm(
   );
 }
 
+// This function sorts the results array in accordance to the specified column
+// and direction. If no column is specified, the first column (the subtests)
+// is used.
+function sortResults(
+  columnsConfiguration: CompareResultsTableConfig,
+  results: CompareResultsItem[],
+  columnId: string | null,
+  direction: 'asc' | 'desc' | null,
+) {
+  let columnConfiguration;
+  if (columnId && direction) {
+    columnConfiguration = columnsConfiguration.find(
+      (column) => column.key === columnId,
+    );
+  }
+
+  if (!columnConfiguration) {
+    columnConfiguration = columnsConfiguration[0];
+  }
+
+  if (!('sortFunction' in columnConfiguration)) {
+    console.warn(
+      `No sortFunction information for the columnConfiguration ${String(
+        columnConfiguration.name ?? columnId,
+      )}`,
+    );
+    return results;
+  }
+
+  const { sortFunction } = columnConfiguration;
+  const directionedSortFunction =
+    direction === 'desc'
+      ? (itemA: CompareResultsItem, itemB: CompareResultsItem) =>
+          sortFunction(itemB, itemA)
+      : sortFunction;
+
+  return results.toSorted(directionedSortFunction);
+}
+
 const allRevisionsOption =
   Strings.components.comparisonRevisionDropdown.allRevisions.key;
 
 type Props = {
   columnsConfiguration: CompareResultsTableConfig;
   results: CompareResultsItem[][];
-  filteringSearchTerm: string;
-  tableFilters: Map<string, Set<string>>; // ColumnID -> Set<Values to remove>
   view: typeof compareView | typeof compareOverTimeView;
   rowGridTemplateColumns: string;
+  // Filtering properties
+  filteringSearchTerm: string;
+  tableFilters: Map<string, Set<string>>; // ColumnID -> Set<Values to remove>
+  // Sort properties
+  sortColumn: null | string;
+  sortDirection: 'asc' | 'desc' | null;
 };
 
 function TableContent({
   columnsConfiguration,
   results,
-  filteringSearchTerm,
-  tableFilters,
   view,
   rowGridTemplateColumns,
+  filteringSearchTerm,
+  tableFilters,
+  sortColumn,
+  sortDirection,
 }: Props) {
   const activeComparison = useAppSelector(
     (state) => state.comparison.activeComparison,
   );
 
-  const processedResults = useMemo(() => {
+  const filteredResults = useMemo(() => {
     const resultsForCurrentComparison =
       activeComparison === allRevisionsOption
         ? results.flat()
@@ -142,7 +187,7 @@ function TableContent({
       tableFilters,
       resultMatchesSearchTerm,
     );
-    return processResults(filteredResults);
+    return filteredResults;
   }, [
     results,
     activeComparison,
@@ -151,9 +196,22 @@ function TableContent({
     columnsConfiguration,
   ]);
 
-  if (!processedResults.length) {
+  if (!filteredResults.length) {
     return <NoResultsFound />;
   }
+
+  const sortedResults = useMemo(() => {
+    return sortResults(
+      columnsConfiguration,
+      filteredResults,
+      sortColumn,
+      sortDirection,
+    );
+  }, [columnsConfiguration, filteredResults, sortColumn, sortDirection]);
+
+  const processedResults = useMemo(() => {
+    return processResults(sortedResults);
+  }, [sortedResults]);
 
   return (
     <Virtuoso

@@ -219,10 +219,12 @@ export default function ResultsTable() {
             <TableContent
               columnsConfiguration={columnsConfiguration}
               results={resolvedResults as CompareResultsItem[][]}
-              filteringSearchTerm={searchTerm}
-              tableFilters={tableFilters}
               view={view}
               rowGridTemplateColumns={rowGridTemplateColumns}
+              filteringSearchTerm={searchTerm}
+              tableFilters={tableFilters}
+              sortColumn={sortColumn}
+              sortDirection={sortDirection}
             />
           )}
         </Await>
