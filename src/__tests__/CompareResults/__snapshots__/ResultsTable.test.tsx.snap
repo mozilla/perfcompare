@@ -1069,43 +1069,96 @@ exports[`Results Table Should match snapshot 1`] = `
                     class="cell delta-header"
                     role="columnheader"
                   >
-                    Delta
+                    <button
+                      aria-label="Delta (Click to sort by this column)"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-1awls4w-MuiButtonBase-root-MuiButton-root"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <svg
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+                        data-testid="SwapVertIcon"
+                        focusable="false"
+                        role="img"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
+                        />
+                        <title>
+                          Not sorted by Delta
+                        </title>
+                      </svg>
+                      Delta
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
                   </div>
                   <div
                     class="cell confidence-header"
                     role="columnheader"
                   >
-                    <button
-                      aria-haspopup="true"
-                      aria-label="Confidence (Click to filter values)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-uajdoe-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
+                    <div
+                      class="MuiButtonGroup-root MuiButtonGroup-contained MuiButtonGroup-disableElevation css-t8t4s9-MuiButtonGroup-root"
+                      role="group"
                     >
-                      Confidence
-                      <div
-                        aria-label="4 items selected"
-                        class="MuiBox-root css-18uhbjh"
+                      <button
+                        aria-label="Confidence (Click to sort by this column)"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton css-gknth7-MuiButtonBase-root-MuiButton-root"
+                        tabindex="0"
+                        type="button"
                       >
-                        (
-                        4
-                        )
-                      </div>
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                        data-testid="KeyboardArrowDownIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                        <svg
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1mecf1h-MuiSvgIcon-root"
+                          data-testid="SwapVertIcon"
+                          focusable="false"
+                          role="img"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
+                          />
+                          <title>
+                            Not sorted by Confidence
+                          </title>
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </svg>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
+                      </button>
+                      <button
+                        aria-haspopup="true"
+                        aria-label="Confidence (Click to filter values)"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton css-uajdoe-MuiButtonBase-root-MuiButton-root"
+                        tabindex="0"
+                        type="button"
+                      >
+                        Confidence
+                        <div
+                          aria-label="4 items selected"
+                          class="MuiBox-root css-18uhbjh"
+                        >
+                          (
+                          4
+                          )
+                        </div>
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                          data-testid="KeyboardArrowDownIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </button>
+                    </div>
                   </div>
                   <div
                     class="cell runs-header"

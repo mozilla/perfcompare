@@ -12,6 +12,7 @@ import TableContent from './TableContent';
 import TableHeader from './TableHeader';
 import useRawSearchParams from '../../hooks/useRawSearchParams';
 import useTableFilters from '../../hooks/useTableFilters';
+import useTableSort from '../../hooks/useTableSort';
 import type { CompareResultsItem } from '../../types/state';
 import { Framework } from '../../types/types';
 import type { CompareResultsTableConfig } from '../../types/types';
@@ -78,6 +79,11 @@ const columnsConfiguration: CompareResultsTableConfig = [
     name: 'Delta',
     key: 'delta',
     gridWidth: '1fr',
+    sortFunction(resultA, resultB) {
+      return (
+        Math.abs(resultA.delta_percentage) - Math.abs(resultB.delta_percentage)
+      );
+    },
   },
   {
     name: 'Confidence',
@@ -101,6 +107,17 @@ const columnsConfiguration: CompareResultsTableConfig = [
           return result.confidence_text === label;
         }
       }
+    },
+    sortFunction(resultA, resultB) {
+      const confidenceA =
+        resultA.confidence_text && resultA.confidence !== null
+          ? resultA.confidence
+          : -1;
+      const confidenceB =
+        resultB.confidence_text && resultB.confidence !== null
+          ? resultB.confidence
+          : -1;
+      return confidenceA - confidenceB;
     },
   },
   {
@@ -130,6 +147,8 @@ export default function ResultsTable() {
   // and provides methods for clearing and toggling them.
   const { tableFilters, onClearFilter, onToggleFilter } =
     useTableFilters(columnsConfiguration);
+  const { sortColumn, sortDirection, onToggleSort } =
+    useTableSort(columnsConfiguration);
 
   const initialSearchTerm = rawSearchParams.get('search') ?? '';
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
@@ -178,9 +197,9 @@ export default function ResultsTable() {
           filters={tableFilters}
           onToggleFilter={onToggleFilter}
           onClearFilter={onClearFilter}
-          sortDirection={null}
-          sortColumn={null}
-          onToggleSort={() => {}}
+          sortColumn={sortColumn}
+          sortDirection={sortDirection}
+          onToggleSort={onToggleSort}
         />
       </Box>
       {/* Using a key in Suspense makes it that it displays the fallback more
