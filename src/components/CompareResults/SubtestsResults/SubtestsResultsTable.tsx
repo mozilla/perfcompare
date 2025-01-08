@@ -97,7 +97,9 @@ const columnsConfiguration: CompareResultsTableConfig = [
     key: 'delta',
     gridWidth: '1fr',
     sortFunction(resultA, resultB) {
-      return resultA.delta_percentage - resultB.delta_percentage;
+      return (
+        Math.abs(resultA.delta_percentage) - Math.abs(resultB.delta_percentage)
+      );
     },
   },
   {

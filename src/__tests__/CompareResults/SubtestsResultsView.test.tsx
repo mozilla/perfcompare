@@ -209,7 +209,7 @@ describe('SubtestsResultsView Component Tests', () => {
       // Initial view (alphabetical ordered, even if "sort by subtests" isn't specified
       expect(summarizeVisibleRows()).toEqual([
         'dhtml.html: 1.14 %, Low',
-        'improvement.html: 1.44 %, Low',
+        'improvement.html: -1.44 %, Low',
         'regression.html: 1.04 %, High',
         'tablemutation.html: 0.98 %, Low',
       ]);
@@ -219,23 +219,10 @@ describe('SubtestsResultsView Component Tests', () => {
       const deltaButton = screen.getByRole('button', { name: /Delta/ });
       expect(deltaButton).toMatchSnapshot();
       expect(window.location.search).not.toContain('sort=');
-      // Sort ascending
-      await user.click(deltaButton);
-      expect(summarizeVisibleRows()).toEqual([
-        'tablemutation.html: 0.98 %, Low',
-        'regression.html: 1.04 %, High',
-        'dhtml.html: 1.14 %, Low',
-        'improvement.html: 1.44 %, Low',
-      ]);
-      // It should have the "ascending" SVG.
-      expect(deltaButton).toMatchSnapshot();
-      // It should be persisted in the URL
-      expectParameterToHaveValue('sort', 'delta|asc');
-
       // Sort descending
       await user.click(deltaButton);
       expect(summarizeVisibleRows()).toEqual([
-        'improvement.html: 1.44 %, Low',
+        'improvement.html: -1.44 %, Low',
         'dhtml.html: 1.14 %, Low',
         'regression.html: 1.04 %, High',
         'tablemutation.html: 0.98 %, Low',
@@ -245,39 +232,52 @@ describe('SubtestsResultsView Component Tests', () => {
       // It should be persisted in the URL
       expectParameterToHaveValue('sort', 'delta|desc');
 
-      // Sort by Confidence ascending
+      // Sort ascending
+      await user.click(deltaButton);
+      expect(summarizeVisibleRows()).toEqual([
+        'tablemutation.html: 0.98 %, Low',
+        'regression.html: 1.04 %, High',
+        'dhtml.html: 1.14 %, Low',
+        'improvement.html: -1.44 %, Low',
+      ]);
+      // It should have the "ascending" SVG.
+      expect(deltaButton).toMatchSnapshot();
+      // It should be persisted in the URL
+      expectParameterToHaveValue('sort', 'delta|asc');
+
+      // Sort by Confidence descending
       const confidenceButton = screen.getByRole('button', {
         name: /Confidence.*sort/,
       });
       await user.click(confidenceButton);
       expect(summarizeVisibleRows()).toEqual([
-        'tablemutation.html: 0.98 %, Low',
-        'dhtml.html: 1.14 %, Low',
-        'improvement.html: 1.44 %, Low',
         'regression.html: 1.04 %, High',
+        'improvement.html: -1.44 %, Low',
+        'dhtml.html: 1.14 %, Low',
+        'tablemutation.html: 0.98 %, Low',
       ]);
       // It should have the "no sort" SVG.
       expect(deltaButton).toMatchSnapshot();
-      // It should have the "ascending" SVG.
+      // It should have the "descending" SVG.
       expect(confidenceButton).toMatchSnapshot();
       // It should be persisted in the URL
-      expectParameterToHaveValue('sort', 'confidence|asc');
+      expectParameterToHaveValue('sort', 'confidence|desc');
 
-      // Sort by subtest name ascending
+      // Sort by subtest name descending
       const subtestsButton = screen.getByRole('button', { name: /Subtests/ });
       await user.click(subtestsButton);
       expect(summarizeVisibleRows()).toEqual([
-        'dhtml.html: 1.14 %, Low',
-        'improvement.html: 1.44 %, Low',
-        'regression.html: 1.04 %, High',
         'tablemutation.html: 0.98 %, Low',
+        'regression.html: 1.04 %, High',
+        'improvement.html: -1.44 %, Low',
+        'dhtml.html: 1.14 %, Low',
       ]);
       // It should have the "no sort" SVG.
       expect(confidenceButton).toMatchSnapshot();
-      // It should have the "ascending" SVG.
+      // It should have the "descending" SVG.
       expect(subtestsButton).toMatchSnapshot();
       // It should be persisted in the URL
-      expectParameterToHaveValue('sort', 'subtests|asc');
+      expectParameterToHaveValue('sort', 'subtests|desc');
 
       // Clickince twice more should reset the URL.
       await user.click(subtestsButton);
@@ -285,36 +285,36 @@ describe('SubtestsResultsView Component Tests', () => {
       expect(window.location.search).not.toContain('sort=');
     });
 
-    it('initializes the sort from the URL at load time for an ascending sort', async () => {
+    it('initializes the sort from the URL at load time for a ascending sort', async () => {
       await setupForSorting({ extraParameters: 'sort=delta|asc' });
       await screen.findByText('dhtml.html');
       expect(summarizeVisibleRows()).toEqual([
         'tablemutation.html: 0.98 %, Low',
         'regression.html: 1.04 %, High',
         'dhtml.html: 1.14 %, Low',
-        'improvement.html: 1.44 %, Low',
+        'improvement.html: -1.44 %, Low',
       ]);
       // It should have the "ascending" SVG.
       expect(screen.getByRole('button', { name: /Delta/ })).toMatchSnapshot();
     });
 
-    it('initializes the sort from the URL at load time for an implicit ascending sort', async () => {
+    it('initializes the sort from the URL at load time for an implicit descending sort', async () => {
       await setupForSorting({ extraParameters: 'sort=delta' });
       await screen.findByText('dhtml.html');
       expect(summarizeVisibleRows()).toEqual([
-        'tablemutation.html: 0.98 %, Low',
-        'regression.html: 1.04 %, High',
+        'improvement.html: -1.44 %, Low',
         'dhtml.html: 1.14 %, Low',
-        'improvement.html: 1.44 %, Low',
+        'regression.html: 1.04 %, High',
+        'tablemutation.html: 0.98 %, Low',
       ]);
-      // It should have the "ascending" SVG.
+      // It should have the "descending" SVG.
       expect(screen.getByRole('button', { name: /Delta/ })).toMatchSnapshot();
     });
 
     it('initializes the sort from the URL at load time for a descending sort', async () => {
       await setupForSorting({ extraParameters: 'sort=delta|desc' });
       expect(summarizeVisibleRows()).toEqual([
-        'improvement.html: 1.44 %, Low',
+        'improvement.html: -1.44 %, Low',
         'dhtml.html: 1.14 %, Low',
         'regression.html: 1.04 %, High',
         'tablemutation.html: 0.98 %, Low',
