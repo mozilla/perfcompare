@@ -6,7 +6,6 @@ export * from './ResponsiveStyle';
 export * from './ScreenSize';
 export * from './Spacing';
 export * from './Input';
-export * from './DropDownMenu';
 export * from './SelectList';
 export * from './Switch';
 export * from './Banner';
