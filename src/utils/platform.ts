@@ -1,5 +1,4 @@
 import type { PlatformShortName } from '../types/state';
-import { PlatformOS } from '../types/types';
 
 export const getPlatformShortName = (
   platformName: string,
@@ -15,6 +14,8 @@ export const getPlatformShortName = (
   return 'Unspecified';
 };
 
+// Link to the os examples that were used
+// https://github.com/mozilla/treeherder/blob/master/ui/helpers/constants.js#L29
 const osMapping = {
   linux64: 'Linux x64',
   linux1804: 'Linux 18.04',
@@ -35,22 +36,27 @@ const osMapping = {
   windows: 'Windows',
 };
 
-const extractPlatformWithOs = (platform: string) => {
-  const name = osMapping[platform.split('-')[0] as PlatformOS];
+type PlatformOS = keyof typeof osMapping;
 
-  if (name) return name;
+const extractPlatformWithOs = (platform: string) => {
+  const system = platform.split('-')[0];
+
+  if (system in osMapping) {
+    return osMapping[system as PlatformOS];
+  }
 
   return getPlatformShortName(platform);
 };
 
 export const getPlatformAndVersion = (platform: string): string => {
-  const platformShortName = getPlatformShortName(platform);
-
   // Example of android platform, the split is specific for this platform
   // Other platforms are built differently
   // android-hw-p6-13-0-android-aarch64-shippable-qr
-  if (platform.startsWith('android-hw-'))
+  if (platform.startsWith('android-hw-')) {
+    const platformShortName = getPlatformShortName(platform);
+
     return `${platformShortName}\u00a0${platform.split('-')[2]}`;
+  }
 
   return extractPlatformWithOs(platform);
 };
