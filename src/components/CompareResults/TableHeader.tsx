@@ -199,14 +199,14 @@ function SortableColumnHeader({
   function onButtonClick() {
     let newSortDirection: typeof sortDirection;
     switch (sortDirection) {
-      case 'asc':
-        newSortDirection = 'desc';
-        break;
       case 'desc':
+        newSortDirection = 'asc';
+        break;
+      case 'asc':
         newSortDirection = null;
         break;
       default:
-        newSortDirection = 'asc';
+        newSortDirection = 'desc';
     }
 
     onToggle(newSortDirection);
