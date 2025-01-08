@@ -65,7 +65,7 @@ function summarizeVisibleRows() {
 
       const rows = within(revisionGroup).getAllByRole('row');
       for (const row of rows) {
-        const rowString = ['.platform span', '.status', '.confidence']
+        const rowString = ['.platform span', '.status', '.delta', '.confidence']
           .map((selector) => row.querySelector(selector)!.textContent!.trim())
           .join(', ');
 
@@ -147,9 +147,9 @@ describe('Results Table', () => {
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html opt e10s fission stylo webrender',
       '  rev: spam',
-      '  - OS X 10.15, Improvement, Low',
+      '  - OS X 10.15, Improvement, 1.08 %, Low',
       '  rev: devilrabbit',
-      '  - OS X 10.15, Improvement, Low',
+      '  - OS X 10.15, Improvement, 1.08 %, Low',
     ]);
     expect(screen.getByRole('rowgroup')).toMatchSnapshot();
   });
@@ -165,11 +165,11 @@ describe('Results Table', () => {
     await screen.findByText('a11yr');
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, Improvement, Low',
-      '  - Linux 18.04, Regression, Medium',
-      '  - OS X 10.15, Improvement, Low',
-      '  - Windows 10, -, -',
-      '  - Windows 10, -, High',
+      '  - Android, Improvement, 1.08 %, Low',
+      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - OS X 10.15, Improvement, 1.08 %, Low',
+      '  - Windows 10, -, -24 %, -',
+      '  - Windows 10, -, -2.4 %, High',
     ]);
 
     expect(summarizeTableFiltersFromUrl()).toEqual({});
@@ -178,9 +178,9 @@ describe('Results Table', () => {
     await clickMenuItem(user, 'Platform', /Windows/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, Improvement, Low',
-      '  - Linux 18.04, Regression, Medium',
-      '  - OS X 10.15, Improvement, Low',
+      '  - Android, Improvement, 1.08 %, Low',
+      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - OS X 10.15, Improvement, 1.08 %, Low',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['osx', 'linux', 'android'],
@@ -189,8 +189,8 @@ describe('Results Table', () => {
     await clickMenuItem(user, 'Platform', /Linux/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, Improvement, Low',
-      '  - OS X 10.15, Improvement, Low',
+      '  - Android, Improvement, 1.08 %, Low',
+      '  - OS X 10.15, Improvement, 1.08 %, Low',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['osx', 'android'],
@@ -199,9 +199,9 @@ describe('Results Table', () => {
     await clickMenuItem(user, 'Platform', /Linux/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, Improvement, Low',
-      '  - Linux 18.04, Regression, Medium',
-      '  - OS X 10.15, Improvement, Low',
+      '  - Android, Improvement, 1.08 %, Low',
+      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - OS X 10.15, Improvement, 1.08 %, Low',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['osx', 'linux', 'android'],
@@ -210,21 +210,21 @@ describe('Results Table', () => {
     await clickMenuItem(user, 'Platform', 'Select all values');
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, Improvement, Low',
-      '  - Linux 18.04, Regression, Medium',
-      '  - OS X 10.15, Improvement, Low',
-      '  - Windows 10, -, -',
-      '  - Windows 10, -, High',
+      '  - Android, Improvement, 1.08 %, Low',
+      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - OS X 10.15, Improvement, 1.08 %, Low',
+      '  - Windows 10, -, -24 %, -',
+      '  - Windows 10, -, -2.4 %, High',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({});
 
     await clickMenuItem(user, 'Platform', /macOS/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, Improvement, Low',
-      '  - Linux 18.04, Regression, Medium',
-      '  - Windows 10, -, -',
-      '  - Windows 10, -, High',
+      '  - Android, Improvement, 1.08 %, Low',
+      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - Windows 10, -, -24 %, -',
+      '  - Windows 10, -, -2.4 %, High',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['windows', 'linux', 'android'],
@@ -233,9 +233,9 @@ describe('Results Table', () => {
     await clickMenuItem(user, 'Platform', /Android/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, Medium',
-      '  - Windows 10, -, -',
-      '  - Windows 10, -, High',
+      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - Windows 10, -, -24 %, -',
+      '  - Windows 10, -, -2.4 %, High',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['windows', 'linux'],
@@ -244,7 +244,7 @@ describe('Results Table', () => {
     await clickMenuItem(user, 'Platform', /Select only.*Android/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Android, Improvement, Low',
+      '  - Android, Improvement, 1.08 %, Low',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['android'],
@@ -258,10 +258,10 @@ describe('Results Table', () => {
     await screen.findByText('a11yr');
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, Medium',
-      '  - OS X 10.15, Improvement, Low',
-      '  - Windows 10, -, -',
-      '  - Windows 10, -, High',
+      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - OS X 10.15, Improvement, 1.08 %, Low',
+      '  - Windows 10, -, -24 %, -',
+      '  - Windows 10, -, -2.4 %, High',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({});
 
@@ -269,8 +269,8 @@ describe('Results Table', () => {
     await clickMenuItem(user, 'Status', /No changes/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, Medium',
-      '  - OS X 10.15, Improvement, Low',
+      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - OS X 10.15, Improvement, 1.08 %, Low',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       status: ['improvement', 'regression'],
@@ -280,9 +280,9 @@ describe('Results Table', () => {
     await clickMenuItem(user, 'Status', /Improvement/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, Medium',
-      '  - Windows 10, -, -',
-      '  - Windows 10, -, High',
+      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - Windows 10, -, -24 %, -',
+      '  - Windows 10, -, -2.4 %, High',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       status: ['none', 'regression'],
@@ -291,8 +291,8 @@ describe('Results Table', () => {
     await clickMenuItem(user, 'Status', /Regression/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Windows 10, -, -',
-      '  - Windows 10, -, High',
+      '  - Windows 10, -, -24 %, -',
+      '  - Windows 10, -, -2.4 %, High',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       status: ['none'],
@@ -301,7 +301,7 @@ describe('Results Table', () => {
     await clickMenuItem(user, 'Status', /Select only.*Regression/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, Medium',
+      '  - Linux 18.04, Regression, 1.85 %, Medium',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       status: ['regression'],
@@ -315,10 +315,10 @@ describe('Results Table', () => {
     await screen.findByText('a11yr');
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, Medium',
-      '  - OS X 10.15, Improvement, Low',
-      '  - Windows 10, -, -',
-      '  - Windows 10, -, High',
+      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - OS X 10.15, Improvement, 1.08 %, Low',
+      '  - Windows 10, -, -24 %, -',
+      '  - Windows 10, -, -2.4 %, High',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({});
 
@@ -326,9 +326,9 @@ describe('Results Table', () => {
     await clickMenuItem(user, 'Confidence', /Low/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, Medium',
-      '  - Windows 10, -, -',
-      '  - Windows 10, -, High',
+      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - Windows 10, -, -24 %, -',
+      '  - Windows 10, -, -2.4 %, High',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       confidence: ['none', 'medium', 'high'],
@@ -337,8 +337,8 @@ describe('Results Table', () => {
     await clickMenuItem(user, 'Confidence', /High/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, Medium',
-      '  - Windows 10, -, -',
+      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - Windows 10, -, -24 %, -',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       confidence: ['none', 'medium'],
@@ -347,7 +347,7 @@ describe('Results Table', () => {
     await clickMenuItem(user, 'Confidence', /Medium/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Windows 10, -, -',
+      '  - Windows 10, -, -24 %, -',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       confidence: ['none'],
@@ -356,19 +356,19 @@ describe('Results Table', () => {
     await clickMenuItem(user, 'Confidence', /Select all values/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, Medium',
-      '  - OS X 10.15, Improvement, Low',
-      '  - Windows 10, -, -',
-      '  - Windows 10, -, High',
+      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - OS X 10.15, Improvement, 1.08 %, Low',
+      '  - Windows 10, -, -24 %, -',
+      '  - Windows 10, -, -2.4 %, High',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({});
 
     await clickMenuItem(user, 'Confidence', /No value/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Linux 18.04, Regression, Medium',
-      '  - OS X 10.15, Improvement, Low',
-      '  - Windows 10, -, High',
+      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - OS X 10.15, Improvement, 1.08 %, Low',
+      '  - Windows 10, -, -2.4 %, High',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       confidence: ['low', 'medium', 'high'],
@@ -377,7 +377,7 @@ describe('Results Table', () => {
     await clickMenuItem(user, 'Confidence', /Select only.*High/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - Windows 10, -, High',
+      '  - Windows 10, -, -2.4 %, High',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       confidence: ['high'],
