@@ -6,7 +6,10 @@ import { loader } from '../../components/CompareResults/loader';
 import ResultsView from '../../components/CompareResults/ResultsView';
 import { Strings } from '../../resources/Strings';
 import type { CompareResultsItem } from '../../types/state';
-import getTestData from '../utils/fixtures';
+import getTestData, {
+  augmentCompareDataWithSeveralTests,
+  augmentCompareDataWithSeveralRevisions,
+} from '../utils/fixtures';
 import {
   renderWithRouter,
   screen,
@@ -14,15 +17,20 @@ import {
   FetchMockSandbox,
 } from '../utils/test-utils';
 
-function renderWithRoute(component: ReactElement) {
+function renderWithRoute(component: ReactElement, extraParameters?: string) {
   return renderWithRouter(component, {
     route: '/compare-results/',
-    search: '?baseRev=spam&baseRepo=try&framework=1',
+    search:
+      '?baseRev=spam&baseRepo=try&framework=1' +
+      (extraParameters ? '&' + extraParameters : ''),
     loader,
   });
 }
 
-function setupAndRender(testCompareData: CompareResultsItem[]) {
+function setupAndRender(
+  testCompareData: CompareResultsItem[],
+  extraParameters?: string,
+) {
   const { testData } = getTestData();
   (window.fetch as FetchMockSandbox)
     .get(
@@ -32,7 +40,10 @@ function setupAndRender(testCompareData: CompareResultsItem[]) {
     .get('begin:https://treeherder.mozilla.org/api/project/', {
       results: [testData[0]],
     });
-  renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
+  renderWithRoute(
+    <ResultsView title={Strings.metaData.pageTitle.results} />,
+    extraParameters,
+  );
 }
 
 // This handy function parses the results page and returns an array of visible
@@ -89,6 +100,12 @@ function summarizeTableFiltersFromUrl() {
     result[key.slice('filter_'.length)] = values;
   }
   return result;
+}
+
+function expectParameterToHaveValue(parameter: string, expectedValue: string) {
+  const searchParams = new URLSearchParams(window.location.search);
+  const currentValue = searchParams.get(parameter);
+  expect(currentValue).toEqual(expectedValue);
 }
 
 async function clickMenuItem(
@@ -382,5 +399,191 @@ describe('Results Table', () => {
     expect(summarizeTableFiltersFromUrl()).toEqual({
       confidence: ['high'],
     });
+  });
+
+  it('can sort the table and persist the sort parameters to the URL', async () => {
+    const { testCompareData } = getTestData();
+    const testCompareDataForSorting = augmentCompareDataWithSeveralRevisions(
+      augmentCompareDataWithSeveralTests(testCompareData),
+    );
+    setupAndRender(testCompareDataForSorting);
+    await screen.findByText('dhtml.html');
+
+    // This is the initial situation.
+    expect(summarizeVisibleRows()).toEqual([
+      'a11yr aria.html opt e10s fission stylo webrender',
+      '  rev: spam',
+      '  - Linux 18.04, Regression, 1.97 %, Medium',
+      '  - OS X 10.15, Improvement, 1.2 %, Low',
+      '  - Windows 10, -, -23.88 %, -',
+      '  - Windows 10, -, -2.28 %, High',
+      '  rev: tictactoe',
+      '  - Linux 18.04, Regression, 2.05 %, Medium',
+      '  - OS X 10.15, Improvement, 1.28 %, Low',
+      '  - Windows 10, -, -23.8 %, -',
+      '  - Windows 10, -, -2.2 %, High',
+      'a11yr dhtml.html opt e10s fission stylo webrender',
+      '  rev: spam',
+      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - OS X 10.15, Improvement, 1.08 %, Low',
+      '  - Windows 10, -, -24 %, -',
+      '  - Windows 10, -, -2.4 %, High',
+      '  rev: tictactoe',
+      '  - Linux 18.04, Regression, 1.93 %, Medium',
+      '  - OS X 10.15, Improvement, 1.16 %, Low',
+      '  - Windows 10, -, -23.92 %, -',
+      '  - Windows 10, -, -2.32 %, High',
+    ]);
+    expect(window.location.search).not.toContain('sort=');
+
+    // Sort by Delta
+    const user = userEvent.setup({ delay: null });
+    const deltaButton = screen.getByRole('button', { name: /Delta/ });
+    expect(deltaButton).toMatchSnapshot();
+    // Sort descending
+    await user.click(deltaButton);
+    expect(summarizeVisibleRows()).toEqual([
+      'a11yr dhtml.html opt e10s fission stylo webrender',
+      '  rev: spam',
+      '  - Windows 10, -, -24 %, -',
+      '  - Windows 10, -, -2.4 %, High',
+      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - OS X 10.15, Improvement, 1.08 %, Low',
+      '  rev: tictactoe',
+      '  - Windows 10, -, -23.92 %, -',
+      '  - Windows 10, -, -2.32 %, High',
+      '  - Linux 18.04, Regression, 1.93 %, Medium',
+      '  - OS X 10.15, Improvement, 1.16 %, Low',
+      'a11yr aria.html opt e10s fission stylo webrender',
+      '  rev: spam',
+      '  - Windows 10, -, -23.88 %, -',
+      '  - Windows 10, -, -2.28 %, High',
+      '  - Linux 18.04, Regression, 1.97 %, Medium',
+      '  - OS X 10.15, Improvement, 1.2 %, Low',
+      '  rev: tictactoe',
+      '  - Windows 10, -, -23.8 %, -',
+      '  - Windows 10, -, -2.2 %, High',
+      '  - Linux 18.04, Regression, 2.05 %, Medium',
+      '  - OS X 10.15, Improvement, 1.28 %, Low',
+    ]);
+    // It should have the "descending" SVG.
+    expect(deltaButton).toMatchSnapshot();
+    // It should be persisted in the URL
+    expectParameterToHaveValue('sort', 'delta|desc');
+
+    // sort ascending
+    await user.click(deltaButton);
+    expect(summarizeVisibleRows()).toEqual([
+      'a11yr dhtml.html opt e10s fission stylo webrender',
+      '  rev: spam',
+      '  - OS X 10.15, Improvement, 1.08 %, Low',
+      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - Windows 10, -, -2.4 %, High',
+      '  - Windows 10, -, -24 %, -',
+      '  rev: tictactoe',
+      '  - OS X 10.15, Improvement, 1.16 %, Low',
+      '  - Linux 18.04, Regression, 1.93 %, Medium',
+      '  - Windows 10, -, -2.32 %, High',
+      '  - Windows 10, -, -23.92 %, -',
+      'a11yr aria.html opt e10s fission stylo webrender',
+      '  rev: spam',
+      '  - OS X 10.15, Improvement, 1.2 %, Low',
+      '  - Linux 18.04, Regression, 1.97 %, Medium',
+      '  - Windows 10, -, -2.28 %, High',
+      '  - Windows 10, -, -23.88 %, -',
+      '  rev: tictactoe',
+      '  - OS X 10.15, Improvement, 1.28 %, Low',
+      '  - Linux 18.04, Regression, 2.05 %, Medium',
+      '  - Windows 10, -, -2.2 %, High',
+      '  - Windows 10, -, -23.8 %, -',
+    ]);
+    // It should have the "ascending" SVG.
+    expect(deltaButton).toMatchSnapshot();
+    // It should be persisted in the URL
+    expectParameterToHaveValue('sort', 'delta|asc');
+
+    // Sort by Confidence descending
+    const confidenceButton = screen.getByRole('button', {
+      name: /Confidence.*sort/,
+    });
+    await user.click(confidenceButton);
+    expect(summarizeVisibleRows()).toEqual([
+      'a11yr aria.html opt e10s fission stylo webrender',
+      '  rev: tictactoe',
+      '  - Windows 10, -, -2.2 %, High',
+      '  - Linux 18.04, Regression, 2.05 %, Medium',
+      '  - OS X 10.15, Improvement, 1.28 %, Low',
+      '  - Windows 10, -, -23.8 %, -',
+      '  rev: spam',
+      '  - Windows 10, -, -2.28 %, High',
+      '  - Linux 18.04, Regression, 1.97 %, Medium',
+      '  - OS X 10.15, Improvement, 1.2 %, Low',
+      '  - Windows 10, -, -23.88 %, -',
+      'a11yr dhtml.html opt e10s fission stylo webrender',
+      '  rev: tictactoe',
+      '  - Windows 10, -, -2.32 %, High',
+      '  - Linux 18.04, Regression, 1.93 %, Medium',
+      '  - OS X 10.15, Improvement, 1.16 %, Low',
+      '  - Windows 10, -, -23.92 %, -',
+      '  rev: spam',
+      '  - Windows 10, -, -2.4 %, High',
+      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - OS X 10.15, Improvement, 1.08 %, Low',
+      '  - Windows 10, -, -24 %, -',
+    ]);
+    // It should have the "no sort" SVG.
+    expect(deltaButton).toMatchSnapshot();
+    // It should have the "descending" SVG.
+    expect(confidenceButton).toMatchSnapshot();
+    // It should be persisted in the URL
+    expectParameterToHaveValue('sort', 'confidence|desc');
+  });
+
+  it('can load the sort parameters from the URL for an ascending sort', async () => {
+    const { testCompareData } = getTestData();
+    setupAndRender(testCompareData, 'sort=delta|asc');
+    await screen.findByText('dhtml.html');
+
+    // It should have the "ascending" SVG.
+    const deltaButton = screen.getByRole('button', { name: /Delta/ });
+    expect(deltaButton).toMatchSnapshot();
+
+    expect(summarizeVisibleRows()).toEqual([
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - OS X 10.15, Improvement, 1.08 %, Low',
+      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - Windows 10, -, -2.4 %, High',
+      '  - Windows 10, -, -24 %, -',
+    ]);
+
+    // And clicking the button once should move it back to the initial state.
+    const user = userEvent.setup({ delay: null });
+    await user.click(deltaButton);
+    expect(summarizeVisibleRows()).toEqual([
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - OS X 10.15, Improvement, 1.08 %, Low',
+      '  - Windows 10, -, -24 %, -',
+      '  - Windows 10, -, -2.4 %, High',
+    ]);
+    expect(window.location.search).not.toContain('sort=');
+  });
+
+  it('can load the sort parameters from the URL for a descending sort', async () => {
+    const { testCompareData } = getTestData();
+    setupAndRender(testCompareData, 'sort=delta|desc');
+    await screen.findByText('dhtml.html');
+
+    // It should have the "descending" SVG.
+    const deltaButton = screen.getByRole('button', { name: /Delta/ });
+    expect(deltaButton).toMatchSnapshot();
+
+    expect(summarizeVisibleRows()).toEqual([
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - Windows 10, -, -24 %, -',
+      '  - Windows 10, -, -2.4 %, High',
+      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - OS X 10.15, Improvement, 1.08 %, Low',
+    ]);
   });
 });

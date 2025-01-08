@@ -685,3 +685,56 @@ const getTestData = () => {
   };
 };
 export default getTestData;
+
+// This function is used to reduce the number of digits after doing calculations
+// on floats, so that we don't end up in a large count of digits in the UI.
+// In the future we'll probably want to handle that when rendering the UI instead.
+function roundAtDigit(val: number, digit: number) {
+  const multiplier = Math.pow(10, digit);
+  return Math.round(val * multiplier) / multiplier;
+}
+
+// This function takes an array of result items, and adds to it a copy of these
+// items where the test name is changed. It also changes the delta and
+// confidence values so that a sorting operation can distinguish them.
+export function augmentCompareDataWithSeveralTests(
+  testCompareData: CompareResultsItem[],
+): CompareResultsItem[] {
+  const testCompareDataWithSeveralTests = [
+    ...testCompareData,
+    // Add items with the same revision but a different test
+    ...testCompareData.map((item) => ({
+      ...item,
+      test: 'aria.html',
+      header_name: `${item.suite} aria.html ${item.option_name} ${item.extra_options}`,
+      // Different delta and confidence values, with some arbitrary changes
+      delta_value: item.delta_value + 1.2,
+      delta_percentage: roundAtDigit(item.delta_percentage + 0.12, 2),
+      confidence: item.confidence !== null ? item.confidence + 0.02 : null,
+    })),
+  ];
+
+  return testCompareDataWithSeveralTests;
+}
+
+// This function takes an array of result items, and adds to it a copy of these
+// items where the "new" revision is changed. It also changes the delta and
+// confidence values so that a sorting operation can distinguish them.
+export function augmentCompareDataWithSeveralRevisions(
+  testCompareData: CompareResultsItem[],
+): CompareResultsItem[] {
+  const testCompareDataWithSeveralRevisions = [
+    ...testCompareData,
+    // Add items with the same tests, but a different revision
+    ...testCompareData.map((item) => ({
+      ...item,
+      new_rev: 'tictactoe',
+      // Different delta and confidence values, with some arbitrary changes
+      delta_value: item.delta_value + 0.8,
+      delta_percentage: roundAtDigit(item.delta_percentage + 0.08, 2),
+      confidence: item.confidence !== null ? item.confidence + 0.015 : null,
+    })),
+  ];
+
+  return testCompareDataWithSeveralRevisions;
+}

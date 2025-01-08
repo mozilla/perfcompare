@@ -2188,6 +2188,253 @@ exports[`Results Table Should match snapshot 1`] = `
 </body>
 `;
 
+exports[`Results Table can load the sort parameters from the URL for a descending sort 1`] = `
+<button
+  aria-label="Delta (Currently sorted by this column. Click to change)"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-1awls4w-MuiButtonBase-root-MuiButton-root"
+  tabindex="0"
+  type="button"
+>
+  <svg
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1bpn2x6-MuiSvgIcon-root"
+    data-testid="StraightIcon"
+    focusable="false"
+    role="img"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 6.83 9.41 8.41 8 7l4-4 4 4-1.41 1.41L13 6.83V21h-2z"
+    />
+    <title>
+      Sorted by Delta in descending order
+    </title>
+  </svg>
+  Delta
+  <span
+    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+  />
+</button>
+`;
+
+exports[`Results Table can load the sort parameters from the URL for an ascending sort 1`] = `
+<button
+  aria-label="Delta (Currently sorted by this column. Click to change)"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-1awls4w-MuiButtonBase-root-MuiButton-root"
+  tabindex="0"
+  type="button"
+>
+  <svg
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+    data-testid="StraightIcon"
+    focusable="false"
+    role="img"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 6.83 9.41 8.41 8 7l4-4 4 4-1.41 1.41L13 6.83V21h-2z"
+    />
+    <title>
+      Sorted by Delta in ascending order
+    </title>
+  </svg>
+  Delta
+  <span
+    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+  />
+</button>
+`;
+
+exports[`Results Table can sort the table and persist the sort parameters to the URL 1`] = `
+<button
+  aria-label="Delta (Click to sort by this column)"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-1awls4w-MuiButtonBase-root-MuiButton-root"
+  tabindex="0"
+  type="button"
+>
+  <svg
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+    data-testid="SwapVertIcon"
+    focusable="false"
+    role="img"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
+    />
+    <title>
+      Not sorted by Delta
+    </title>
+  </svg>
+  Delta
+  <span
+    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+  />
+</button>
+`;
+
+exports[`Results Table can sort the table and persist the sort parameters to the URL 2`] = `
+<button
+  aria-label="Delta (Currently sorted by this column. Click to change)"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-1awls4w-MuiButtonBase-root-MuiButton-root"
+  tabindex="0"
+  type="button"
+>
+  <svg
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1bpn2x6-MuiSvgIcon-root"
+    data-testid="StraightIcon"
+    focusable="false"
+    role="img"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 6.83 9.41 8.41 8 7l4-4 4 4-1.41 1.41L13 6.83V21h-2z"
+    />
+    <title>
+      Sorted by Delta in descending order
+    </title>
+  </svg>
+  Delta
+  <span
+    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+  >
+    <span
+      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+      style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+    >
+      <span
+        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+      />
+    </span>
+  </span>
+</button>
+`;
+
+exports[`Results Table can sort the table and persist the sort parameters to the URL 3`] = `
+<button
+  aria-label="Delta (Currently sorted by this column. Click to change)"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-1awls4w-MuiButtonBase-root-MuiButton-root"
+  tabindex="0"
+  type="button"
+>
+  <svg
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+    data-testid="StraightIcon"
+    focusable="false"
+    role="img"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 6.83 9.41 8.41 8 7l4-4 4 4-1.41 1.41L13 6.83V21h-2z"
+    />
+    <title>
+      Sorted by Delta in ascending order
+    </title>
+  </svg>
+  Delta
+  <span
+    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+  >
+    <span
+      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+      style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+    >
+      <span
+        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+      />
+    </span>
+    <span
+      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+      style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+    >
+      <span
+        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+      />
+    </span>
+  </span>
+</button>
+`;
+
+exports[`Results Table can sort the table and persist the sort parameters to the URL 4`] = `
+<button
+  aria-label="Delta (Click to sort by this column)"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-1awls4w-MuiButtonBase-root-MuiButton-root"
+  tabindex="0"
+  type="button"
+>
+  <svg
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+    data-testid="SwapVertIcon"
+    focusable="false"
+    role="img"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
+    />
+    <title>
+      Not sorted by Delta
+    </title>
+  </svg>
+  Delta
+  <span
+    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+  >
+    <span
+      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+      style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+    >
+      <span
+        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+      />
+    </span>
+    <span
+      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+      style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+    >
+      <span
+        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+      />
+    </span>
+  </span>
+</button>
+`;
+
+exports[`Results Table can sort the table and persist the sort parameters to the URL 5`] = `
+<button
+  aria-label="Confidence (Currently sorted by this column. Click to change)"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton css-gknth7-MuiButtonBase-root-MuiButton-root"
+  tabindex="0"
+  type="button"
+>
+  <svg
+    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-jmu928-MuiSvgIcon-root"
+    data-testid="StraightIcon"
+    focusable="false"
+    role="img"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M11 6.83 9.41 8.41 8 7l4-4 4 4-1.41 1.41L13 6.83V21h-2z"
+    />
+    <title>
+      Sorted by Confidence in descending order
+    </title>
+  </svg>
+  <span
+    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+  >
+    <span
+      class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+      style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+    >
+      <span
+        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+      />
+    </span>
+  </span>
+</button>
+`;
+
 exports[`Results Table should render different blocks when rendering several revisions 1`] = `
 <div
   class="f1k5y3nc"
