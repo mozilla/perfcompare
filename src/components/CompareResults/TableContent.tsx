@@ -7,6 +7,7 @@ import TableRevisionContent from './TableRevisionContent';
 import type { compareView, compareOverTimeView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { filterResults } from '../../hooks/useTableFilters';
+import { sortResults } from '../../hooks/useTableSort';
 import { Strings } from '../../resources/Strings';
 import type { CompareResultsItem } from '../../types/state';
 import type { CompareResultsTableConfig } from '../../types/types';
@@ -120,46 +121,6 @@ function defaultSortFunction(
   return stringComparisonCollator.compare(keyA, keyB);
 }
 
-// This function sorts the results array in accordance to the specified column
-// and direction. If no column is specified, the first column (the subtests)
-// is used.
-function sortResults(
-  columnsConfiguration: CompareResultsTableConfig,
-  results: CompareResultsItem[],
-  columnId: string | null,
-  direction: 'asc' | 'desc' | null,
-) {
-  let sortFunction = defaultSortFunction;
-
-  let columnConfiguration: CompareResultsTableConfig[number] | undefined;
-  if (columnId && direction) {
-    columnConfiguration = columnsConfiguration.find(
-      (column) => column.key === columnId,
-    );
-  }
-
-  if (columnConfiguration) {
-    if (!('sortFunction' in columnConfiguration)) {
-      console.warn(
-        `No sortFunction information for the columnConfiguration ${String(
-          columnConfiguration.name ?? columnId,
-        )}`,
-      );
-      return results;
-    }
-
-    sortFunction = columnConfiguration.sortFunction;
-  }
-
-  const directionedSortFunction =
-    direction === 'desc'
-      ? (itemA: CompareResultsItem, itemB: CompareResultsItem) =>
-          sortFunction(itemB, itemA)
-      : sortFunction;
-
-  return results.toSorted(directionedSortFunction);
-}
-
 const allRevisionsOption =
   Strings.components.comparisonRevisionDropdown.allRevisions.key;
 
@@ -223,6 +184,7 @@ function TableContent({
       filteredResults,
       sortColumn,
       sortDirection,
+      defaultSortFunction,
     );
   }, [columnsConfiguration, filteredResults, sortColumn, sortDirection]);
 

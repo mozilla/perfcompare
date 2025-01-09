@@ -6,7 +6,7 @@ import SubtestsTableContent from './SubtestsTableContent';
 import NoResultsFound from '.././NoResultsFound';
 import TableHeader from '.././TableHeader';
 import useTableFilters, { filterResults } from '../../../hooks/useTableFilters';
-import useTableSort from '../../../hooks/useTableSort';
+import useTableSort, { sortResults } from '../../../hooks/useTableSort';
 import type { CompareResultsItem } from '../../../types/state';
 import type { CompareResultsTableConfig } from '../../../types/types';
 
@@ -46,14 +46,19 @@ const stringComparisonCollator = new Intl.Collator('en', {
   numeric: true,
   sensitivity: 'base',
 });
+function defaultSortFunction(
+  resultA: CompareResultsItem,
+  resultB: CompareResultsItem,
+) {
+  return stringComparisonCollator.compare(resultA.test, resultB.test);
+}
+
 const columnsConfiguration: CompareResultsTableConfig = [
   {
     name: 'Subtests',
     key: 'subtests',
     gridWidth: '4fr',
-    sortFunction(resultA, resultB) {
-      return stringComparisonCollator.compare(resultA.test, resultB.test);
-    },
+    sortFunction: defaultSortFunction,
   },
   {
     name: 'Base',
@@ -150,44 +155,6 @@ function resultMatchesSearchTerm(
   return result.test.toLowerCase().includes(searchTerm.toLowerCase());
 }
 
-// This function sorts the results array in accordance to the specified column
-// and direction. If no column is specified, the first column (the subtests)
-// is used.
-function sortResults(
-  results: CompareResultsItem[],
-  columnId: string | null,
-  direction: 'asc' | 'desc' | null,
-) {
-  let columnConfiguration;
-  if (columnId && direction) {
-    columnConfiguration = columnsConfiguration.find(
-      (column) => column.key === columnId,
-    );
-  }
-
-  if (!columnConfiguration) {
-    columnConfiguration = columnsConfiguration[0];
-  }
-
-  if (!('sortFunction' in columnConfiguration)) {
-    console.warn(
-      `No sortFunction information for the columnConfiguration ${String(
-        columnConfiguration.name ?? columnId,
-      )}`,
-    );
-    return results;
-  }
-
-  const { sortFunction } = columnConfiguration;
-  const directionedSortFunction =
-    direction === 'desc'
-      ? (itemA: CompareResultsItem, itemB: CompareResultsItem) =>
-          sortFunction(itemB, itemA)
-      : sortFunction;
-
-  return results.toSorted(directionedSortFunction);
-}
-
 type ResultsTableProps = {
   filteringSearchTerm: string;
   results: CompareResultsItem[];
@@ -215,7 +182,13 @@ function SubtestsResultsTable({
   }, [results, filteringSearchTerm, tableFilters]);
 
   const filteredAndSortedResults = useMemo(() => {
-    return sortResults(filteredResults, sortColumn, sortDirection);
+    return sortResults(
+      columnsConfiguration,
+      filteredResults,
+      sortColumn,
+      sortDirection,
+      defaultSortFunction,
+    );
   }, [sortColumn, sortDirection, filteredResults]);
 
   const processedResults = useMemo(() => {
