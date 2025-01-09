@@ -6,6 +6,7 @@ import NoResultsFound from './NoResultsFound';
 import TableRevisionContent from './TableRevisionContent';
 import type { compareView, compareOverTimeView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
+import { filterResults } from '../../hooks/useTableFilters';
 import { Strings } from '../../resources/Strings';
 import type { CompareResultsItem } from '../../types/state';
 import type { CompareResultsTableConfig } from '../../types/types';
@@ -86,6 +87,8 @@ function processResults(
   ]);
 }
 
+// This function implements the simple string search. It is passed to
+// filterResults.
 function resultMatchesSearchTerm(
   result: CompareResultsItem,
   searchTerm: string,
@@ -99,61 +102,6 @@ function resultMatchesSearchTerm(
     result.new_rev.toLowerCase().includes(searchTerm) ||
     result.platform.toLowerCase().includes(searchTerm)
   );
-}
-
-function resultMatchesColumnFilter(
-  columnsConfiguration: CompareResultsTableConfig,
-  result: CompareResultsItem,
-  columnId: string,
-  uncheckedValues: Set<string>,
-): boolean {
-  const columnConfiguration = columnsConfiguration.find(
-    (column) => column.key === columnId,
-  );
-  if (!columnConfiguration || !('filter' in columnConfiguration)) {
-    return true;
-  }
-
-  for (const filterValueKey of uncheckedValues) {
-    if (columnConfiguration.matchesFunction(result, filterValueKey)) {
-      return true;
-    }
-  }
-  return false;
-}
-
-// This function filters the results array using both the searchTerm and the
-// tableFilters. The tableFilters is a map ColumnID -> Set of values to remove.
-function filterResults(
-  columnsConfiguration: CompareResultsTableConfig,
-  results: CompareResultsItem[],
-  searchTerm: string,
-  tableFilters: Map<string, Set<string>>,
-) {
-  if (!searchTerm && !tableFilters.size) {
-    return results;
-  }
-
-  return results.filter((result) => {
-    if (!resultMatchesSearchTerm(result, searchTerm)) {
-      return false;
-    }
-
-    for (const [columnId, uncheckedValues] of tableFilters) {
-      if (
-        resultMatchesColumnFilter(
-          columnsConfiguration,
-          result,
-          columnId,
-          uncheckedValues,
-        )
-      ) {
-        return false;
-      }
-    }
-
-    return true;
-  });
 }
 
 const allRevisionsOption =
@@ -192,6 +140,7 @@ function TableContent({
       resultsForCurrentComparison,
       filteringSearchTerm,
       tableFilters,
+      resultMatchesSearchTerm,
     );
     return processResults(filteredResults);
   }, [
