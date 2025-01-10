@@ -10,7 +10,11 @@ import { formatNumber } from './../../utils/format';
 
 const strings = Strings.components.expandableRow;
 const { singleRun } = strings;
-
+const NumberFormat = (value: number) => {
+  return new Intl.NumberFormat('en-US', {
+    maximumFractionDigits: 2,
+  }).format(value);
+};
 function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   const { result, id } = props;
 
@@ -31,11 +35,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
     new_is_better: newIsBetter,
   } = result;
 
-  const NumberFormat = (value: number) => {
-    return new Intl.NumberFormat('en-US', {
-      maximumFractionDigits: 2,
-    }).format(value);
-  };
+ 
   const unit = baseUnit || newUnit;
   const deltaUnit = unit ? `${unit}` : '';
   let medianDifference = '';
