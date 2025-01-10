@@ -35,7 +35,6 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
     new_is_better: newIsBetter,
   } = result;
 
- 
   const unit = baseUnit || newUnit;
   const deltaUnit = unit ? `${unit}` : '';
   let medianDifference = '';
