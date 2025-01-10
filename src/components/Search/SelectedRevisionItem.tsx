@@ -36,8 +36,6 @@ interface SelectedRevisionItemProps {
   onRemoveRevision: (item: Changeset) => void;
 }
 
-
-
 function SelectedRevisionItem({
   index,
   item,

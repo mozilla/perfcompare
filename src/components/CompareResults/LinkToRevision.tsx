@@ -26,19 +26,19 @@ export default function LinkToRevision(props: LinkToRevisionProps) {
   const shortHash = truncateHash(result.new_rev);
   return (
     <>
-    <Link
-      href={getTreeherderURL(result.new_rev, result.new_repository_name)}
-      target='_blank'
-      title={`${Strings.components.revisionRow.title.jobLink} ${shortHash}`}
-      className={styles.typography}
-    >
-      {shortHash}
-    </Link>
-       <CopyIcon
-       text={shortHash}
-       arialLabel='Copy the revision to the clipboard'
-     />
-     </>
+      <Link
+        href={getTreeherderURL(result.new_rev, result.new_repository_name)}
+        target='_blank'
+        title={`${Strings.components.revisionRow.title.jobLink} ${shortHash}`}
+        className={styles.typography}
+      >
+        {shortHash}
+      </Link>
+      <CopyIcon
+        text={shortHash}
+        arialLabel='Copy the revision to the clipboard'
+      />
+    </>
   );
 }
 
