@@ -514,7 +514,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
           </button>
-        </div>
+        </span>
       </div>
       <div
         class="cell runs-header"

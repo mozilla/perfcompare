@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import StraightIcon from '@mui/icons-material/Straight';
 import SwapVert from '@mui/icons-material/SwapVert';
@@ -310,50 +312,23 @@ function TableHeader({
   };
 
   function renderColumnHeader(header: CompareResultsTableColumn) {
-    const content = (() => {
-      if ('sortFunction' in header && 'filter' in header) {
-        return (
-          <ButtonGroup
-            variant='contained'
-            color='tableHeaderButton'
-            disableElevation
-          >
-            <SortableColumnHeader
-              name={header.name}
-              displayLabel={false}
-              sortDirection={header.key === sortColumn ? sortDirection : null}
-              onToggle={(newSortDirection) =>
-                onToggleSort(header.key, newSortDirection)
-              }
-            />
-            <FilterableColumnHeader
-              possibleValues={header.possibleValues}
-              name={header.name}
-              columnId={header.key}
-              uncheckedValues={filters.get(header.key)}
-              onClearFilter={() => onClearFilter(header.key)}
-              onToggleFilter={(checkedValues) =>
-                onToggleFilter(header.key, checkedValues)
-              }
-            />
-          </ButtonGroup>
-        );
-      }
-      if ('sortFunction' in header) {
-        return (
+    let content: ReactNode = header.name;
+
+    if ('sortFunction' in header && 'filter' in header) {
+      content = (
+        <ButtonGroup
+          variant='contained'
+          color='tableHeaderButton'
+          disableElevation
+        >
           <SortableColumnHeader
             name={header.name}
-            displayLabel={true}
+            displayLabel={false}
             sortDirection={header.key === sortColumn ? sortDirection : null}
             onToggle={(newSortDirection) =>
               onToggleSort(header.key, newSortDirection)
             }
           />
-        );
-      }
-
-      if ('filter' in header) {
-        return (
           <FilterableColumnHeader
             possibleValues={header.possibleValues}
             name={header.name}
@@ -364,23 +339,51 @@ function TableHeader({
               onToggleFilter(header.key, checkedValues)
             }
           />
-        );
-      }
+        </ButtonGroup>
+      );
+    } else if ('sortFunction' in header) {
+      content = (
+        <SortableColumnHeader
+          name={header.name}
+          displayLabel={true}
+          sortDirection={header.key === sortColumn ? sortDirection : null}
+          onToggle={(newSortDirection) =>
+            onToggleSort(header.key, newSortDirection)
+          }
+        />
+      );
+    } else if ('filter' in header) {
+      content = (
+        <FilterableColumnHeader
+          possibleValues={header.possibleValues}
+          name={header.name}
+          columnId={header.key}
+          uncheckedValues={filters.get(header.key)}
+          onClearFilter={() => onClearFilter(header.key)}
+          onToggleFilter={(checkedValues) =>
+            onToggleFilter(header.key, checkedValues)
+          }
+        />
+      );
+    }
 
-      return header.name;
-    })();
-    return header.tooltip ? (
-      <Tooltip
-        title={header.tooltip}
-        placement='top'
-        arrow
-        classes={{ tooltip: styles.typography }}
-      >
-        <Box sx={{ cursor: 'pointer' }}>{content}</Box>
-      </Tooltip>
-    ) : (
-      content
-    );
+    if (header.tooltip) {
+      return (
+        <Tooltip
+          title={header.tooltip}
+          placement='top'
+          arrow
+          classes={{ tooltip: styles.typography }}
+        >
+          {/* Box is used because tooltip expects a single valid element but sometimes content is a string */}
+          <Box component='span' sx={{ cursor: 'pointer' }}>
+            {content}
+          </Box>
+        </Tooltip>
+      );
+    }
+
+    return content;
   }
 
   return (
