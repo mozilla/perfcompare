@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
 
 import DragHandleIcon from '@mui/icons-material/DragHandle';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
@@ -122,6 +122,7 @@ function determineSign(baseMedianValue: number, newMedianValue: number) {
 }
 
 function SubtestsRevisionRow(props: RevisionRowProps) {
+  const id = useId();
   const { result, gridTemplateColumns } = props;
   const {
     test,
@@ -234,7 +235,7 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
           </IconButton>
         </div>
       </Box>
-      {expanded && <RevisionRowExpandable result={result} />}
+      {expanded && <RevisionRowExpandable id={id} result={result} />}
     </>
   );
 }
