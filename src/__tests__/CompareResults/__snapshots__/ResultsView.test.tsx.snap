@@ -3,8 +3,8 @@
 exports[`Results View Should display Base, New and Common graphs with 1 value and replicates 1`] = `
 <section
   aria-label="Revision Row Details"
-  class="fgv9bhz MuiBox-root css-0"
-  id="revision-row-expandable"
+  class="fgv9bhz"
+  id=":r3d:"
 >
   <div
     class="fp3h4kr"
@@ -275,8 +275,8 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
 exports[`Results View Should display Base, New and Common graphs with replicates 1`] = `
 <section
   aria-label="Revision Row Details"
-  class="fgv9bhz MuiBox-root css-0"
-  id="revision-row-expandable"
+  class="fgv9bhz"
+  id=":r32:"
 >
   <div
     class="fp3h4kr"
@@ -547,8 +547,8 @@ exports[`Results View Should display Base, New and Common graphs with replicates
 exports[`Results View Should display Base, New and Common graphs with tooltips 1`] = `
 <section
   aria-label="Revision Row Details"
-  class="fgv9bhz MuiBox-root css-0"
-  id="revision-row-expandable"
+  class="fgv9bhz"
+  id=":r1l:"
 >
   <div
     class="fp3h4kr"
@@ -1550,7 +1550,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls="revision-row-expandable"
+                      aria-controls=":r7:"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
@@ -1776,7 +1776,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls="revision-row-expandable"
+                      aria-controls=":rb:"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
@@ -1980,7 +1980,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls="revision-row-expandable"
+                      aria-controls=":rf:"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
@@ -2195,7 +2195,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls="revision-row-expandable"
+                      aria-controls=":rj:"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
