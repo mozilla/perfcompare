@@ -8,7 +8,7 @@ export const getPlatformShortName = (
     platformName.toLowerCase().includes('osx') ||
     platformName.toLowerCase().includes('os x')
   )
-    return 'OSX';
+    return 'macOS';
   if (platformName.toLowerCase().includes('windows')) return 'Windows';
   if (platformName.toLowerCase().includes('android')) return 'Android';
   return 'Unspecified';

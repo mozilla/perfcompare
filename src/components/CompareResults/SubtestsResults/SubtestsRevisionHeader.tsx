@@ -133,7 +133,7 @@ function SubtestsRevisionHeader(props: SubtestsRevisionHeaderProps) {
   );
   const platformIcons: Record<PlatformShortName, ReactNode> = {
     Linux: <LinuxIcon />,
-    OSX: <AppleIcon />,
+    macOS: <AppleIcon />,
     Windows: <WindowsIcon />,
     Android: <AndroidIcon />,
     Unspecified: '',
