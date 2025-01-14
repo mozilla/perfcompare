@@ -42,7 +42,7 @@ const columnsConfiguration: CompareResultsTableConfig = [
     name: 'Base',
     key: 'base',
     gridWidth: '1fr',
-    tooltip: 'A summary of all values from Base runs using a median.',
+    tooltip: 'A summary of all values from Base runs using a mean.',
   },
   {
     key: 'comparisonSign',
@@ -53,7 +53,7 @@ const columnsConfiguration: CompareResultsTableConfig = [
     name: 'New',
     key: 'new',
     gridWidth: '1fr',
-    tooltip: 'A summary of all values from New runs using a median.',
+    tooltip: 'A summary of all values from New runs using a mean.',
   },
   {
     name: 'Status',

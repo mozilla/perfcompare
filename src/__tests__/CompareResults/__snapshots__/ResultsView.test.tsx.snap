@@ -1104,7 +1104,7 @@ exports[`Results View The table should match snapshot and other elements should 
         role="columnheader"
       >
         <span
-          aria-label="A summary of all values from Base runs using a median."
+          aria-label="A summary of all values from Base runs using a mean."
           class="MuiBox-root css-4g6ai3"
           data-mui-internal-clone-element="true"
         >
@@ -1120,7 +1120,7 @@ exports[`Results View The table should match snapshot and other elements should 
         role="columnheader"
       >
         <span
-          aria-label="A summary of all values from New runs using a median."
+          aria-label="A summary of all values from New runs using a mean."
           class="MuiBox-root css-4g6ai3"
           data-mui-internal-clone-element="true"
         >
