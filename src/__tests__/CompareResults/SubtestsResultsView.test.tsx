@@ -279,13 +279,13 @@ describe('SubtestsResultsView Component Tests', () => {
       // It should be persisted in the URL
       expectParameterToHaveValue('sort', 'subtests|desc');
 
-      // Clickince twice more should reset the URL.
+      // Clicking twice more should reset the URL.
       await user.click(subtestsButton);
       await user.click(subtestsButton);
       expect(window.location.search).not.toContain('sort=');
     });
 
-    it('initializes the sort from the URL at load time for a ascending sort', async () => {
+    it('initializes the sort from the URL at load time for an ascending sort', async () => {
       await setupForSorting({ extraParameters: 'sort=delta|asc' });
       await screen.findByText('dhtml.html');
       expect(summarizeVisibleRows()).toEqual([
