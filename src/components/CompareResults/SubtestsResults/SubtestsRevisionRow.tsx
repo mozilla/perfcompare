@@ -230,6 +230,8 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
             color='primary'
             size='small'
             onClick={toggleIsExpanded}
+            aria-expanded={expanded}
+            aria-controls={id}
           >
             {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
           </IconButton>

@@ -734,6 +734,8 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                   <button
+                    aria-controls=":r3:"
+                    aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
                     title="expand this row"
@@ -903,6 +905,8 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                   <button
+                    aria-controls=":r4:"
+                    aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
                     title="expand this row"
@@ -1072,6 +1076,8 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                   <button
+                    aria-controls=":r5:"
+                    aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
                     title="expand this row"
@@ -1230,6 +1236,8 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                   <button
+                    aria-controls=":r6:"
+                    aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
                     title="expand this row"
@@ -2336,6 +2344,8 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                   <button
+                    aria-controls=":r1k:"
+                    aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
                     title="expand this row"
@@ -2505,6 +2515,8 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                   <button
+                    aria-controls=":r1l:"
+                    aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
                     title="expand this row"
@@ -2674,6 +2686,8 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                   <button
+                    aria-controls=":r1m:"
+                    aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
                     title="expand this row"
@@ -2832,6 +2846,8 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                   <button
+                    aria-controls=":r1n:"
+                    aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
                     title="expand this row"

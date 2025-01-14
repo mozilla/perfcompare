@@ -139,6 +139,8 @@ exports[`SubtestsRevisionRow Component renders the component with correct data 1
         role="cell"
       >
         <button
+          aria-controls=":r0:"
+          aria-expanded="false"
           class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
           tabindex="0"
           title="expand this row"
