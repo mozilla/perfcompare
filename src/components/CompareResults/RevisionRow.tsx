@@ -207,7 +207,7 @@ function determineSign(baseMedianValue: number, newMedianValue: number) {
 
 const platformIcons: Record<PlatformShortName, ReactNode> = {
   Linux: <LinuxIcon />,
-  OSX: <AppleIcon />,
+  macOS: <AppleIcon />,
   Windows: <WindowsIcon />,
   Android: <AndroidIcon />,
   Unspecified: '',

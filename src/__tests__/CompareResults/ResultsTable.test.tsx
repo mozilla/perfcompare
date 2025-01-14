@@ -218,7 +218,7 @@ describe('Results Table', () => {
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({});
 
-    await clickMenuItem(user, /Platform/, /OSX/);
+    await clickMenuItem(user, /Platform/, /macOS/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Linux 18.04, Regression, Medium',
