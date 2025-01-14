@@ -42,7 +42,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   if (baseMedian && newMedian) {
     medianDifference = numberFormat(newMedian - baseMedian);
     medianPercentage = numberFormat(
-      (((newMedian - baseMedian) / baseMedian) * 100),
+      ((newMedian - baseMedian) / baseMedian) * 100,
     );
   }
 
