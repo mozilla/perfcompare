@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import SubtestsTableContent from './SubtestsTableContent';
 import NoResultsFound from '.././NoResultsFound';
 import TableHeader from '.././TableHeader';
-import useTableFilters from '../../../hooks/useTableFilters';
+import useTableFilters, { filterResults } from '../../../hooks/useTableFilters';
 import useTableSort from '../../../hooks/useTableSort';
 import type { CompareResultsItem } from '../../../types/state';
 import type { CompareResultsTableConfig } from '../../../types/types';
@@ -150,52 +150,6 @@ function resultMatchesSearchTerm(
   return result.test.toLowerCase().includes(searchTerm.toLowerCase());
 }
 
-function resultMatchesColumnFilter(
-  result: CompareResultsItem,
-  columnId: string,
-  uncheckedValues: Set<string>,
-): boolean {
-  const columnConfiguration = columnsConfiguration.find(
-    (column) => column.key === columnId,
-  );
-  if (!columnConfiguration || !('filter' in columnConfiguration)) {
-    return true;
-  }
-
-  for (const filterValue of uncheckedValues) {
-    if (columnConfiguration.matchesFunction(result, filterValue)) {
-      return true;
-    }
-  }
-  return false;
-}
-
-// This function filters the results array using both the searchTerm and the
-// tableFilters. The tableFilters is a map ColumnID -> Set of values to remove.
-function filterResults(
-  results: CompareResultsItem[],
-  searchTerm: string,
-  tableFilters: Map<string, Set<string>>,
-) {
-  if (!searchTerm && !tableFilters.size) {
-    return results;
-  }
-
-  return results.filter((result) => {
-    if (!resultMatchesSearchTerm(result, searchTerm)) {
-      return false;
-    }
-
-    for (const [columnId, uncheckedValues] of tableFilters) {
-      if (resultMatchesColumnFilter(result, columnId, uncheckedValues)) {
-        return false;
-      }
-    }
-
-    return true;
-  });
-}
-
 // This function sorts the results array in accordance to the specified column
 // and direction. If no column is specified, the first column (the subtests)
 // is used.
@@ -251,7 +205,13 @@ function SubtestsResultsTable({
     useTableSort(columnsConfiguration);
 
   const filteredResults = useMemo(() => {
-    return filterResults(results, filteringSearchTerm, tableFilters);
+    return filterResults(
+      columnsConfiguration,
+      results,
+      filteringSearchTerm,
+      tableFilters,
+      resultMatchesSearchTerm,
+    );
   }, [results, filteringSearchTerm, tableFilters]);
 
   const filteredAndSortedResults = useMemo(() => {
