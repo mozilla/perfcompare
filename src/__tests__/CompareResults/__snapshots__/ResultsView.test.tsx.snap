@@ -37,7 +37,7 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
             :
           </b>
            
-          596.87
+          595.73
            
            (
           firefox
@@ -107,7 +107,7 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
             :
           </b>
            
-          605.61
+          605.83
            
            (
           chrome
@@ -309,7 +309,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
             :
           </b>
            
-          596.87
+          595.73
            
            (
           firefox
@@ -379,7 +379,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
             :
           </b>
            
-          605.61
+          605.83
            
            (
           chrome
@@ -581,7 +581,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
             :
           </b>
            
-          596.87
+          595.73
            
            (
           firefox
@@ -651,7 +651,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
             :
           </b>
            
-          605.61
+          605.83
            
            (
           chrome

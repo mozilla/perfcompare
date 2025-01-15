@@ -42,8 +42,7 @@ function RunValues(props: RunValuesProps) {
     <div className={styles.container}>
       {application ? (
         <div>
-          <b>{name}:</b> {formatNumber(median)} {measurementUnit} ({application}
-          )
+          <b>{name}:</b> {formatNumber(avg)} {measurementUnit} ({application})
         </div>
       ) : (
         <div>
