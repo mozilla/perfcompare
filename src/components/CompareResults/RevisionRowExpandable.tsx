@@ -11,7 +11,8 @@ const strings = Strings.components.expandableRow;
 const { singleRun } = strings;
 
 function RevisionRowExpandable(props: RevisionRowExpandableProps) {
-  const { result } = props;
+  const { result, id } = props;
+
   const {
     platform,
     delta_percentage: deltaPercent,
@@ -71,7 +72,11 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   };
 
   return (
-    <div className={`${styles.expandedRow}`}>
+    <section
+      id={id}
+      aria-label='Revision Row Details'
+      className={`${styles.expandedRow}`}
+    >
       <div className={`${styles.content}`}>
         <div className={`${styles.bottomSpace}`}>
           <b>{platform}</b> <br />
@@ -129,12 +134,13 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 }
 
 interface RevisionRowExpandableProps {
   result: CompareResultsItem;
+  id: string;
 }
 
 export default RevisionRowExpandable;

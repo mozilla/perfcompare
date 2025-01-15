@@ -1,8 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Results View Should display Base, New and Common graphs with 1 value and replicates 1`] = `
-<div
+<section
+  aria-label="Revision Row Details"
   class="fgv9bhz"
+  id=":r4g:"
 >
   <div
     class="fp3h4kr"
@@ -267,12 +269,14 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
       </div>
     </div>
   </div>
-</div>
+</section>
 `;
 
 exports[`Results View Should display Base, New and Common graphs with replicates 1`] = `
-<div
+<section
+  aria-label="Revision Row Details"
   class="fgv9bhz"
+  id=":r40:"
 >
   <div
     class="fp3h4kr"
@@ -537,12 +541,14 @@ exports[`Results View Should display Base, New and Common graphs with replicates
       </div>
     </div>
   </div>
-</div>
+</section>
 `;
 
 exports[`Results View Should display Base, New and Common graphs with tooltips 1`] = `
-<div
+<section
+  aria-label="Revision Row Details"
   class="fgv9bhz"
+  id=":r24:"
 >
   <div
     class="fp3h4kr"
@@ -807,7 +813,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
       </div>
     </div>
   </div>
-</div>
+</section>
 `;
 
 exports[`Results View The table should match snapshot and other elements should be present in the page 1`] = `
@@ -1575,6 +1581,8 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
+                      aria-controls=":rc:"
+                      aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
                       title="expand this row"
@@ -1799,6 +1807,8 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
+                      aria-controls=":rg:"
+                      aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
                       title="expand this row"
@@ -2001,6 +2011,8 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
+                      aria-controls=":rk:"
+                      aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
                       title="expand this row"
@@ -2214,6 +2226,8 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
+                      aria-controls=":ro:"
+                      aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
                       title="expand this row"

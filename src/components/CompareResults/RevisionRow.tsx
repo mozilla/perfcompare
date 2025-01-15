@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react';
+import { useId, useState, type ReactNode } from 'react';
 
 import AppleIcon from '@mui/icons-material/Apple';
 import DragHandleIcon from '@mui/icons-material/DragHandle';
@@ -265,6 +265,7 @@ const getSubtestsCompareOverTimeLink = (result: CompareResultsItem) => {
 };
 
 function RevisionRow(props: RevisionRowProps) {
+  const id = useId();
   const { result, view, gridTemplateColumns } = props;
   const {
     platform,
@@ -417,13 +418,15 @@ function RevisionRow(props: RevisionRowProps) {
               }
               color='primary'
               size='small'
+              aria-expanded={expanded}
+              aria-controls={id}
             >
               {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
             </IconButton>
           </div>
         </div>
       </Box>
-      {expanded && <RevisionRowExpandable result={result} />}
+      {expanded && <RevisionRowExpandable id={id} result={result} />}
     </>
   );
 }
