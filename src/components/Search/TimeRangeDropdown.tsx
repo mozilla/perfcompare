@@ -7,12 +7,7 @@ import { style } from 'typestyle';
 import { timeRangeMap } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
-import {
-  ButtonsLightRaw,
-  ButtonsDarkRaw,
-  DropDownItems,
-  FontSize,
-} from '../../styles';
+import { ButtonsLightRaw, ButtonsDarkRaw, FontSize } from '../../styles';
 import type { TimeRange } from '../../types/types';
 import { formatDateRange } from '../../utils/format';
 
@@ -57,8 +52,6 @@ function TimeRangeDropdown({
     const value = +event.target.value as TimeRange['value'];
     onChange(value);
   };
-  const menuItemStyles =
-    mode === 'light' ? DropDownItems.Light : DropDownItems.Dark;
 
   return (
     <>
@@ -82,7 +75,7 @@ function TimeRangeDropdown({
             <MenuItem
               value={value}
               key={value}
-              className={`timerange-dropdown-item ${menuItemStyles} ${styles.menuItem}`}
+              className={`timerange-dropdown-item ${styles.menuItem}`}
             >
               <div className={styles.dateRange}>
                 {text}

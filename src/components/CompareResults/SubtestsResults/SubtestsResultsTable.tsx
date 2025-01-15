@@ -5,8 +5,8 @@ import Box from '@mui/material/Box';
 import SubtestsTableContent from './SubtestsTableContent';
 import NoResultsFound from '.././NoResultsFound';
 import TableHeader from '.././TableHeader';
-import useTableFilters from '../../../hooks/useTableFilters';
-import useTableSort from '../../../hooks/useTableSort';
+import useTableFilters, { filterResults } from '../../../hooks/useTableFilters';
+import useTableSort, { sortResults } from '../../../hooks/useTableSort';
 import type { CompareResultsItem } from '../../../types/state';
 import type { CompareResultsTableConfig } from '../../../types/types';
 
@@ -46,14 +46,19 @@ const stringComparisonCollator = new Intl.Collator('en', {
   numeric: true,
   sensitivity: 'base',
 });
+function defaultSortFunction(
+  resultA: CompareResultsItem,
+  resultB: CompareResultsItem,
+) {
+  return stringComparisonCollator.compare(resultA.test, resultB.test);
+}
+
 const columnsConfiguration: CompareResultsTableConfig = [
   {
     name: 'Subtests',
     key: 'subtests',
     gridWidth: '4fr',
-    sortFunction(resultA, resultB) {
-      return stringComparisonCollator.compare(resultA.test, resultB.test);
-    },
+    sortFunction: defaultSortFunction,
   },
   {
     name: 'Base',
@@ -97,7 +102,9 @@ const columnsConfiguration: CompareResultsTableConfig = [
     key: 'delta',
     gridWidth: '1fr',
     sortFunction(resultA, resultB) {
-      return resultA.delta_percentage - resultB.delta_percentage;
+      return (
+        Math.abs(resultA.delta_percentage) - Math.abs(resultB.delta_percentage)
+      );
     },
   },
   {
@@ -148,90 +155,6 @@ function resultMatchesSearchTerm(
   return result.test.toLowerCase().includes(searchTerm.toLowerCase());
 }
 
-function resultMatchesColumnFilter(
-  result: CompareResultsItem,
-  columnId: string,
-  uncheckedValues: Set<string>,
-): boolean {
-  const columnConfiguration = columnsConfiguration.find(
-    (column) => column.key === columnId,
-  );
-  if (!columnConfiguration || !('filter' in columnConfiguration)) {
-    return true;
-  }
-
-  for (const filterValue of uncheckedValues) {
-    if (columnConfiguration.matchesFunction(result, filterValue)) {
-      return true;
-    }
-  }
-  return false;
-}
-
-// This function filters the results array using both the searchTerm and the
-// tableFilters. The tableFilters is a map ColumnID -> Set of values to remove.
-function filterResults(
-  results: CompareResultsItem[],
-  searchTerm: string,
-  tableFilters: Map<string, Set<string>>,
-) {
-  if (!searchTerm && !tableFilters.size) {
-    return results;
-  }
-
-  return results.filter((result) => {
-    if (!resultMatchesSearchTerm(result, searchTerm)) {
-      return false;
-    }
-
-    for (const [columnId, uncheckedValues] of tableFilters) {
-      if (resultMatchesColumnFilter(result, columnId, uncheckedValues)) {
-        return false;
-      }
-    }
-
-    return true;
-  });
-}
-
-// This function sorts the results array in accordance to the specified column
-// and direction. If no column is specified, the first column (the subtests)
-// is used.
-function sortResults(
-  results: CompareResultsItem[],
-  columnId: string | null,
-  direction: 'asc' | 'desc' | null,
-) {
-  let columnConfiguration;
-  if (columnId && direction) {
-    columnConfiguration = columnsConfiguration.find(
-      (column) => column.key === columnId,
-    );
-  }
-
-  if (!columnConfiguration) {
-    columnConfiguration = columnsConfiguration[0];
-  }
-
-  if (!('sortFunction' in columnConfiguration)) {
-    console.warn(
-      `No sortFunction information for the columnConfiguration ${String(
-        columnConfiguration.name ?? columnId,
-      )}`,
-    );
-    return results;
-  }
-
-  const { sortFunction } = columnConfiguration;
-  const directionedSortFunction =
-    direction === 'desc'
-      ? (itemA: CompareResultsItem, itemB: CompareResultsItem) =>
-          sortFunction(itemB, itemA)
-      : sortFunction;
-
-  return results.toSorted(directionedSortFunction);
-}
-
 type ResultsTableProps = {
   filteringSearchTerm: string;
   results: CompareResultsItem[];
@@ -249,11 +172,23 @@ function SubtestsResultsTable({
     useTableSort(columnsConfiguration);
 
   const filteredResults = useMemo(() => {
-    return filterResults(results, filteringSearchTerm, tableFilters);
+    return filterResults(
+      columnsConfiguration,
+      results,
+      filteringSearchTerm,
+      tableFilters,
+      resultMatchesSearchTerm,
+    );
   }, [results, filteringSearchTerm, tableFilters]);
 
   const filteredAndSortedResults = useMemo(() => {
-    return sortResults(filteredResults, sortColumn, sortDirection);
+    return sortResults(
+      columnsConfiguration,
+      filteredResults,
+      sortColumn,
+      sortDirection,
+      defaultSortFunction,
+    );
   }, [sortColumn, sortDirection, filteredResults]);
 
   const processedResults = useMemo(() => {

@@ -2,7 +2,6 @@ import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 import { frameworkMap } from '../../common/constants';
-import { DropDownItems } from '../../styles/DropDownMenu';
 import { ThemeMode } from '../../types/state';
 import type { Framework } from '../../types/types';
 
@@ -38,8 +37,6 @@ function FrameworkDropdown({
   onChange,
   mode,
 }: FrameworkDropdownProps) {
-  const menuItemStyles =
-    mode === 'light' ? DropDownItems.Light : DropDownItems.Dark;
   const onValueChange = (event: SelectChangeEvent) => {
     const id = +event.target.value as Framework['id'];
     onChange(id);
@@ -65,11 +62,7 @@ function FrameworkDropdown({
       }}
     >
       {sortedFrameworks.map(([id, name]) => (
-        <MenuItem
-          value={id}
-          key={name}
-          className={`framework-dropdown-item ${menuItemStyles}`}
-        >
+        <MenuItem value={id} key={name} className={`framework-dropdown-item`}>
           {name}
         </MenuItem>
       ))}

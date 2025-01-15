@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 
 import useRawSearchParams from './useRawSearchParams';
+import type { CompareResultsItem } from '../types/state';
 import type { CompareResultsTableConfig } from '../types/types';
 
 // This hook handles the state that handles table sorting, and also takes care
@@ -31,7 +32,7 @@ const useTableSort = (columnsConfiguration: CompareResultsTableConfig) => {
     }
 
     if (direction !== 'asc' && direction !== 'desc') {
-      return [columnId, 'asc'];
+      return [columnId, 'desc'];
     }
 
     return [columnId, direction];
@@ -62,3 +63,47 @@ const useTableSort = (columnsConfiguration: CompareResultsTableConfig) => {
 };
 
 export default useTableSort;
+
+// This function sorts the results array in accordance to the specified column
+// and direction. If no column is specified, the first column (the subtests)
+// is used.
+export function sortResults(
+  columnsConfiguration: CompareResultsTableConfig,
+  results: CompareResultsItem[],
+  columnId: string | null,
+  direction: 'asc' | 'desc' | null,
+  defaultSortFunction: (
+    resultA: CompareResultsItem,
+    resultB: CompareResultsItem,
+  ) => number,
+) {
+  let sortFunction = defaultSortFunction;
+
+  let columnConfiguration: CompareResultsTableConfig[number] | undefined;
+  if (columnId && direction) {
+    columnConfiguration = columnsConfiguration.find(
+      (column) => column.key === columnId,
+    );
+  }
+
+  if (columnConfiguration) {
+    if (!('sortFunction' in columnConfiguration)) {
+      console.warn(
+        `No sortFunction information for the columnConfiguration ${String(
+          columnConfiguration.name ?? columnId,
+        )}`,
+      );
+      return results;
+    }
+
+    sortFunction = columnConfiguration.sortFunction;
+  }
+
+  const directionedSortFunction =
+    direction === 'desc'
+      ? (itemA: CompareResultsItem, itemB: CompareResultsItem) =>
+          sortFunction(itemB, itemA)
+      : sortFunction;
+
+  return results.toSorted(directionedSortFunction);
+}

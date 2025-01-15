@@ -121,7 +121,7 @@ export type SelectedRevisionsState = {
 
 export type PlatformShortName =
   | 'Linux'
-  | 'OSX'
+  | 'macOS'
   | 'Windows'
   | 'Android'
   | 'Unspecified';

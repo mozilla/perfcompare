@@ -613,7 +613,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
 >
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="4"
     role="option"
     tabindex="-1"
@@ -625,7 +625,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="13"
     role="option"
     tabindex="-1"
@@ -637,7 +637,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="2"
     role="option"
     tabindex="-1"
@@ -649,7 +649,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="12"
     role="option"
     tabindex="-1"
@@ -661,7 +661,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="16"
     role="option"
     tabindex="-1"
@@ -673,7 +673,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="11"
     role="option"
     tabindex="-1"
@@ -685,7 +685,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="15"
     role="option"
     tabindex="-1"
@@ -697,7 +697,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="6"
     role="option"
     tabindex="-1"
@@ -709,7 +709,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="10"
     role="option"
     tabindex="-1"
@@ -721,7 +721,7 @@ exports[`Compare With Base selects and displays new framework when clicked 1`] =
   </li>
   <li
     aria-selected="true"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters Mui-selected MuiMenuItem-root MuiMenuItem-gutters Mui-selected framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters Mui-selected MuiMenuItem-root MuiMenuItem-gutters Mui-selected framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="1"
     role="option"
     tabindex="0"
@@ -4445,7 +4445,7 @@ exports[`Compare With Base updates the framework and url when a new one is selec
 >
   <li
     aria-selected="true"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters Mui-selected MuiMenuItem-root MuiMenuItem-gutters Mui-selected framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters Mui-selected MuiMenuItem-root MuiMenuItem-gutters Mui-selected framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="4"
     role="option"
     tabindex="0"
@@ -4466,7 +4466,7 @@ exports[`Compare With Base updates the framework and url when a new one is selec
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="13"
     role="option"
     tabindex="-1"
@@ -4478,7 +4478,7 @@ exports[`Compare With Base updates the framework and url when a new one is selec
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="2"
     role="option"
     tabindex="-1"
@@ -4490,7 +4490,7 @@ exports[`Compare With Base updates the framework and url when a new one is selec
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="12"
     role="option"
     tabindex="-1"
@@ -4502,7 +4502,7 @@ exports[`Compare With Base updates the framework and url when a new one is selec
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="16"
     role="option"
     tabindex="-1"
@@ -4514,7 +4514,7 @@ exports[`Compare With Base updates the framework and url when a new one is selec
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="11"
     role="option"
     tabindex="-1"
@@ -4526,7 +4526,7 @@ exports[`Compare With Base updates the framework and url when a new one is selec
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="15"
     role="option"
     tabindex="-1"
@@ -4538,7 +4538,7 @@ exports[`Compare With Base updates the framework and url when a new one is selec
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="6"
     role="option"
     tabindex="-1"
@@ -4550,7 +4550,7 @@ exports[`Compare With Base updates the framework and url when a new one is selec
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="10"
     role="option"
     tabindex="-1"
@@ -4562,7 +4562,7 @@ exports[`Compare With Base updates the framework and url when a new one is selec
   </li>
   <li
     aria-selected="false"
-    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item f1xucsdf css-56615l-MuiButtonBase-root-MuiMenuItem-root"
+    class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters framework-dropdown-item css-56615l-MuiButtonBase-root-MuiMenuItem-root"
     data-value="1"
     role="option"
     tabindex="-1"

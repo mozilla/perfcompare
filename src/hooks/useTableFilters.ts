@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 
 import useRawSearchParams from './useRawSearchParams';
+import type { CompareResultsItem } from '../types/state';
 import type {
   CompareResultsTableConfig,
   CompareResultsTableColumn,
@@ -133,3 +134,63 @@ const useTableFilters = (columnsConfiguration: CompareResultsTableConfig) => {
 };
 
 export default useTableFilters;
+
+/* --- Functions used to implement the filtering --- */
+function resultMatchesColumnFilter(
+  columnsConfiguration: CompareResultsTableConfig,
+  result: CompareResultsItem,
+  columnId: string,
+  uncheckedValues: Set<string>,
+): boolean {
+  const columnConfiguration = columnsConfiguration.find(
+    (column) => column.key === columnId,
+  );
+  if (!columnConfiguration || !('filter' in columnConfiguration)) {
+    return true;
+  }
+
+  for (const filterValueKey of uncheckedValues) {
+    if (columnConfiguration.matchesFunction(result, filterValueKey)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+// This function filters the results array using both the searchTerm and the
+// tableFilters. The tableFilters is a map ColumnID -> Set of values to remove.
+export function filterResults(
+  columnsConfiguration: CompareResultsTableConfig,
+  results: CompareResultsItem[],
+  searchTerm: string,
+  tableFilters: Map<string, Set<string>>,
+  resultMatchesSearchTerm: (
+    result: CompareResultsItem,
+    searchTerm: string,
+  ) => boolean,
+) {
+  if (!searchTerm && !tableFilters.size) {
+    return results;
+  }
+
+  return results.filter((result) => {
+    if (!resultMatchesSearchTerm(result, searchTerm)) {
+      return false;
+    }
+
+    for (const [columnId, uncheckedValues] of tableFilters) {
+      if (
+        resultMatchesColumnFilter(
+          columnsConfiguration,
+          result,
+          columnId,
+          uncheckedValues,
+        )
+      ) {
+        return false;
+      }
+    }
+
+    return true;
+  });
+}

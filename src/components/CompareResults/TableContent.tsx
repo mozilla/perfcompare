@@ -6,6 +6,8 @@ import NoResultsFound from './NoResultsFound';
 import TableRevisionContent from './TableRevisionContent';
 import type { compareView, compareOverTimeView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
+import { filterResults } from '../../hooks/useTableFilters';
+import { sortResults } from '../../hooks/useTableSort';
 import { Strings } from '../../resources/Strings';
 import type { CompareResultsItem } from '../../types/state';
 import type { CompareResultsTableConfig } from '../../types/types';
@@ -86,6 +88,8 @@ function processResults(
   ]);
 }
 
+// This function implements the simple string search. It is passed to
+// filterResults.
 function resultMatchesSearchTerm(
   result: CompareResultsItem,
   searchTerm: string,
@@ -101,59 +105,20 @@ function resultMatchesSearchTerm(
   );
 }
 
-function resultMatchesColumnFilter(
-  columnsConfiguration: CompareResultsTableConfig,
-  result: CompareResultsItem,
-  columnId: string,
-  uncheckedValues: Set<string>,
-): boolean {
-  const columnConfiguration = columnsConfiguration.find(
-    (column) => column.key === columnId,
-  );
-  if (!columnConfiguration || !('filter' in columnConfiguration)) {
-    return true;
-  }
-
-  for (const filterValueKey of uncheckedValues) {
-    if (columnConfiguration.matchesFunction(result, filterValueKey)) {
-      return true;
-    }
-  }
-  return false;
-}
-
-// This function filters the results array using both the searchTerm and the
-// tableFilters. The tableFilters is a map ColumnID -> Set of values to remove.
-function filterResults(
-  columnsConfiguration: CompareResultsTableConfig,
-  results: CompareResultsItem[],
-  searchTerm: string,
-  tableFilters: Map<string, Set<string>>,
+const stringComparisonCollator = new Intl.Collator('en', {
+  numeric: true,
+  sensitivity: 'base',
+});
+// The default sort orders by header_name (which is a concatenation of suite,
+// test and options), and platform, so that the order is stable when reloading
+// the page.
+function defaultSortFunction(
+  itemA: CompareResultsItem,
+  itemB: CompareResultsItem,
 ) {
-  if (!searchTerm && !tableFilters.size) {
-    return results;
-  }
-
-  return results.filter((result) => {
-    if (!resultMatchesSearchTerm(result, searchTerm)) {
-      return false;
-    }
-
-    for (const [columnId, uncheckedValues] of tableFilters) {
-      if (
-        resultMatchesColumnFilter(
-          columnsConfiguration,
-          result,
-          columnId,
-          uncheckedValues,
-        )
-      ) {
-        return false;
-      }
-    }
-
-    return true;
-  });
+  const keyA = itemA.header_name + ' ' + itemA.platform;
+  const keyB = itemB.header_name + ' ' + itemB.platform;
+  return stringComparisonCollator.compare(keyA, keyB);
 }
 
 const allRevisionsOption =
@@ -162,25 +127,31 @@ const allRevisionsOption =
 type Props = {
   columnsConfiguration: CompareResultsTableConfig;
   results: CompareResultsItem[][];
-  filteringSearchTerm: string;
-  tableFilters: Map<string, Set<string>>; // ColumnID -> Set<Values to remove>
   view: typeof compareView | typeof compareOverTimeView;
   rowGridTemplateColumns: string;
+  // Filtering properties
+  filteringSearchTerm: string;
+  tableFilters: Map<string, Set<string>>; // ColumnID -> Set<Values to remove>
+  // Sort properties
+  sortColumn: null | string;
+  sortDirection: 'asc' | 'desc' | null;
 };
 
 function TableContent({
   columnsConfiguration,
   results,
-  filteringSearchTerm,
-  tableFilters,
   view,
   rowGridTemplateColumns,
+  filteringSearchTerm,
+  tableFilters,
+  sortColumn,
+  sortDirection,
 }: Props) {
   const activeComparison = useAppSelector(
     (state) => state.comparison.activeComparison,
   );
 
-  const processedResults = useMemo(() => {
+  const filteredResults = useMemo(() => {
     const resultsForCurrentComparison =
       activeComparison === allRevisionsOption
         ? results.flat()
@@ -192,8 +163,9 @@ function TableContent({
       resultsForCurrentComparison,
       filteringSearchTerm,
       tableFilters,
+      resultMatchesSearchTerm,
     );
-    return processResults(filteredResults);
+    return filteredResults;
   }, [
     results,
     activeComparison,
@@ -202,9 +174,23 @@ function TableContent({
     columnsConfiguration,
   ]);
 
-  if (!processedResults.length) {
+  if (!filteredResults.length) {
     return <NoResultsFound />;
   }
+
+  const sortedResults = useMemo(() => {
+    return sortResults(
+      columnsConfiguration,
+      filteredResults,
+      sortColumn,
+      sortDirection,
+      defaultSortFunction,
+    );
+  }, [columnsConfiguration, filteredResults, sortColumn, sortDirection]);
+
+  const processedResults = useMemo(() => {
+    return processResults(sortedResults);
+  }, [sortedResults]);
 
   return (
     <Virtuoso
