@@ -42,6 +42,7 @@ const columnsConfiguration: CompareResultsTableConfig = [
     name: 'Base',
     key: 'base',
     gridWidth: '1fr',
+    tooltip: 'A summary of all values from Base runs using a mean.',
   },
   {
     key: 'comparisonSign',
@@ -51,8 +52,8 @@ const columnsConfiguration: CompareResultsTableConfig = [
   {
     name: 'New',
     key: 'new',
-
     gridWidth: '1fr',
+    tooltip: 'A summary of all values from New runs using a mean.',
   },
   {
     name: 'Status',
@@ -84,12 +85,15 @@ const columnsConfiguration: CompareResultsTableConfig = [
         Math.abs(resultA.delta_percentage) - Math.abs(resultB.delta_percentage)
       );
     },
+    tooltip: 'The percentage difference between the Base and New values',
   },
   {
     name: 'Confidence',
     filter: true,
     key: 'confidence',
     gridWidth: '1.5fr',
+    tooltip:
+      "Calculated using a Student's T-test comparison. Low is anything under a T value of 3, Medium is between 3 and 5, and High is anything higher than 5.",
     possibleValues: [
       { label: 'No value', key: 'none' },
       { label: 'Low', key: 'low' },
@@ -123,8 +127,8 @@ const columnsConfiguration: CompareResultsTableConfig = [
   {
     name: 'Total Runs',
     key: 'runs',
-
     gridWidth: '1fr',
+    tooltip: 'The total number of tasks/jobs that ran for this metric.',
   },
   // We use the real pixel value for the buttons, so that everything is better aligned.
   { key: 'buttons', gridWidth: `calc(3.5 * 34px)` }, // 2 or 3 buttons, so at least 3*34px, but give more so that it can "breathe"
