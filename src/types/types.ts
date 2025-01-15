@@ -10,6 +10,7 @@ export interface BasicColumn {
   key: string;
   // Used in the grid CSS property to configure the width of the column.
   gridWidth: string;
+  tooltip?: string;
 }
 
 // This interface is used for a column that can be filtered.

@@ -1,7 +1,9 @@
+import { ReactNode } from 'react';
+
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import StraightIcon from '@mui/icons-material/Straight';
 import SwapVert from '@mui/icons-material/SwapVert';
-import { ListItemIcon, ListItemText } from '@mui/material';
+import { ListItemIcon, ListItemText, Tooltip, Box } from '@mui/material';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Checkbox from '@mui/material/Checkbox';
@@ -9,7 +11,6 @@ import Divider from '@mui/material/Divider';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { SxProps, Theme } from '@mui/material/styles';
-import { Box } from '@mui/system';
 import {
   usePopupState,
   bindTrigger,
@@ -311,8 +312,10 @@ function TableHeader({
   };
 
   function renderColumnHeader(header: CompareResultsTableColumn) {
+    let content: ReactNode = header.name;
+
     if ('sortFunction' in header && 'filter' in header) {
-      return (
+      content = (
         <ButtonGroup
           variant='contained'
           color='tableHeaderButton'
@@ -338,10 +341,8 @@ function TableHeader({
           />
         </ButtonGroup>
       );
-    }
-
-    if ('sortFunction' in header) {
-      return (
+    } else if ('sortFunction' in header) {
+      content = (
         <SortableColumnHeader
           name={header.name}
           displayLabel={true}
@@ -351,10 +352,8 @@ function TableHeader({
           }
         />
       );
-    }
-
-    if ('filter' in header) {
-      return (
+    } else if ('filter' in header) {
+      content = (
         <FilterableColumnHeader
           possibleValues={header.possibleValues}
           name={header.name}
@@ -368,7 +367,23 @@ function TableHeader({
       );
     }
 
-    return header.name;
+    if (header.tooltip) {
+      return (
+        <Tooltip
+          title={header.tooltip}
+          placement='top'
+          arrow
+          classes={{ tooltip: styles.typography }}
+        >
+          {/* Box is used because tooltip expects a single valid element but sometimes content is a string */}
+          <Box component='span' sx={{ cursor: 'pointer' }}>
+            {content}
+          </Box>
+        </Tooltip>
+      );
+    }
+
+    return content;
   }
 
   return (
