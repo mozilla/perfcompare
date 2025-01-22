@@ -264,7 +264,7 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
           **Note
         </b>
         : 
-        A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+        The results were obtained using the Student’s T-test. A T-value exceeding 5 indicates high confidence, values between 3 and 5 suggest medium confidence, and values below 3 reflect low confidence.
          
       </div>
     </div>
@@ -536,7 +536,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
           **Note
         </b>
         : 
-        A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+        The results were obtained using the Student’s T-test. A T-value exceeding 5 indicates high confidence, values between 3 and 5 suggest medium confidence, and values below 3 reflect low confidence.
          
       </div>
     </div>
@@ -808,7 +808,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
           **Note
         </b>
         : 
-        A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+        The results were obtained using the Student’s T-test. A T-value exceeding 5 indicates high confidence, values between 3 and 5 suggest medium confidence, and values below 3 reflect low confidence.
          
       </div>
     </div>
