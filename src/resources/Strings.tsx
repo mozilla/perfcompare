@@ -110,10 +110,8 @@ export const Strings = {
         shrink: 'shrink this row',
       },
       singleRun: 'Only one run (consider more runs for greater confidence).',
-      Low: "A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.",
-      Medium:
-        "A value of 'med' indicates uncertainty that there is a significant change. If you haven't already, consider retriggering the job to be more sure.",
-      High: "A value of 'high' indicates more confidence that there is a significant change, however you should check the historical record for the test by looking at the graph to be more sure (some noisy tests can provide inconsistent results).",
+      confidenceNote:
+        'The results were obtained using the Student’s T-test. A T-value exceeding 5 indicates high confidence, values between 3 and 5 suggest medium confidence, and values below 3 reflect low confidence.',
     },
     noResultsFound: {
       mainMessage: 'No results found',

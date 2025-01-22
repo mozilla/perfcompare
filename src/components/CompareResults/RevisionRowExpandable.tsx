@@ -8,7 +8,7 @@ import { Colors, Spacing } from '../../styles';
 import type { CompareResultsItem } from '../../types/state';
 
 const strings = Strings.components.expandableRow;
-const { singleRun } = strings;
+const { singleRun, confidenceNote } = strings;
 
 function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   const { result, id } = props;
@@ -123,7 +123,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
               {confidenceValue ? ' ' + `(${confidenceValue})` : null}
             </div>
             <div className={styles.note}>
-              <b>**Note</b>: {strings[confidenceText]}{' '}
+              <b>**Note</b>: {confidenceNote}{' '}
             </div>
           </div>
         ) : (
