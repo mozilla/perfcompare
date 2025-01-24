@@ -3,12 +3,12 @@
   "version": "0.9.0",
   "private": true,
   "engines": {
-    "node": ">= 20"
+    "node": ">= 20 < 21"
   },
   "devEngines": {
     "runtime": {
       "name": "node",
-      "version": ">= 20"
+      "version": ">= 20 < 21"
     },
     "packageManager": {
       "name": "npm"
