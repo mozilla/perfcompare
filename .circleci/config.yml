@@ -3,9 +3,14 @@ orbs:
   node: circleci/node@5.1.0
   codecov: codecov/codecov@3.2.2
 
+executors:
+  node:
+    docker:
+      - image: cimg/node:20.18
+
 jobs:
   tests:
-    executor: node/default
+    executor: node
     steps:
       - checkout
       - node/install-packages
@@ -20,7 +25,7 @@ jobs:
       - codecov/upload
 
   lint:
-    executor: node/default
+    executor: node
     steps:
       - checkout
       - node/install-packages
@@ -32,7 +37,7 @@ jobs:
           command: npm run format:check
 
   typescript:
-    executor: node/default
+    executor: node
     steps:
       - checkout
       - node/install-packages
