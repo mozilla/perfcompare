@@ -154,6 +154,9 @@ describe('Search by title/test name', () => {
     await user.type(searchInput, 'WEBGL');
     expect(await screen.findByText('swallowbird')).toBeInTheDocument();
     expect(screen.queryByText('spam')).not.toBeInTheDocument();
+
+    await user.type(searchInput, 'XXX');
+    expect(await screen.findByText('No results found')).toBeInTheDocument();
   });
 
   it('should reset the search input after clicking on the clear button', async () => {
