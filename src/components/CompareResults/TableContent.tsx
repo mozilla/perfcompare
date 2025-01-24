@@ -174,10 +174,6 @@ function TableContent({
     columnsConfiguration,
   ]);
 
-  if (!filteredResults.length) {
-    return <NoResultsFound />;
-  }
-
   const sortedResults = useMemo(() => {
     return sortResults(
       columnsConfiguration,
@@ -191,6 +187,10 @@ function TableContent({
   const processedResults = useMemo(() => {
     return processResults(sortedResults);
   }, [sortedResults]);
+
+  if (!filteredResults.length) {
+    return <NoResultsFound />;
+  }
 
   return (
     <Virtuoso
