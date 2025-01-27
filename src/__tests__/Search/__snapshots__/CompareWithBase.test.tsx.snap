@@ -234,27 +234,31 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                     >
                       coconut
                     </a>
-                    <button
-                      aria-label="Copy the revision to the clipboard"
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-vpdfv9-MuiButtonBase-root-MuiIconButton-root"
-                      tabindex="0"
-                      type="button"
+                    <span
+                      class="MuiBox-root css-79elbk"
                     >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
-                        data-testid="ContentCopyIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
+                      <button
+                        aria-label="Copy the revision to the clipboard"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                        tabindex="0"
+                        type="button"
                       >
-                        <path
-                          d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
+                          data-testid="ContentCopyIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </svg>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
+                      </button>
+                    </span>
                   </span>
                   <div
                     class="info-caption"
@@ -537,27 +541,31 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                     >
                       coconut
                     </a>
-                    <button
-                      aria-label="Copy the revision to the clipboard"
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-vpdfv9-MuiButtonBase-root-MuiIconButton-root"
-                      tabindex="0"
-                      type="button"
+                    <span
+                      class="MuiBox-root css-79elbk"
                     >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
-                        data-testid="ContentCopyIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
+                      <button
+                        aria-label="Copy the revision to the clipboard"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                        tabindex="0"
+                        type="button"
                       >
-                        <path
-                          d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
+                          data-testid="ContentCopyIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </svg>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
+                      </button>
+                    </span>
                   </span>
                   <div
                     class="info-caption"
@@ -1035,27 +1043,31 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                     >
                       coconut
                     </a>
-                    <button
-                      aria-label="Copy the revision to the clipboard"
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-vpdfv9-MuiButtonBase-root-MuiIconButton-root"
-                      tabindex="0"
-                      type="button"
+                    <span
+                      class="MuiBox-root css-79elbk"
                     >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
-                        data-testid="ContentCopyIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
+                      <button
+                        aria-label="Copy the revision to the clipboard"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                        tabindex="0"
+                        type="button"
                       >
-                        <path
-                          d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
+                          data-testid="ContentCopyIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </svg>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
+                      </button>
+                    </span>
                   </span>
                   <div
                     class="info-caption"
@@ -1531,27 +1543,31 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                     >
                       coconut
                     </a>
-                    <button
-                      aria-label="Copy the revision to the clipboard"
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-vpdfv9-MuiButtonBase-root-MuiIconButton-root"
-                      tabindex="0"
-                      type="button"
+                    <span
+                      class="MuiBox-root css-79elbk"
                     >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
-                        data-testid="ContentCopyIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
+                      <button
+                        aria-label="Copy the revision to the clipboard"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                        tabindex="0"
+                        type="button"
                       >
-                        <path
-                          d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
+                          data-testid="ContentCopyIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </svg>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
+                      </button>
+                    </span>
                   </span>
                   <div
                     class="info-caption"
@@ -1834,27 +1850,31 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                     >
                       coconut
                     </a>
-                    <button
-                      aria-label="Copy the revision to the clipboard"
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-vpdfv9-MuiButtonBase-root-MuiIconButton-root"
-                      tabindex="0"
-                      type="button"
+                    <span
+                      class="MuiBox-root css-79elbk"
                     >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
-                        data-testid="ContentCopyIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
+                      <button
+                        aria-label="Copy the revision to the clipboard"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                        tabindex="0"
+                        type="button"
                       >
-                        <path
-                          d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
+                          data-testid="ContentCopyIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </svg>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
+                      </button>
+                    </span>
                   </span>
                   <div
                     class="info-caption"
@@ -2207,27 +2227,31 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                     >
                       coconut
                     </a>
-                    <button
-                      aria-label="Copy the revision to the clipboard"
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-vpdfv9-MuiButtonBase-root-MuiIconButton-root"
-                      tabindex="0"
-                      type="button"
+                    <span
+                      class="MuiBox-root css-79elbk"
                     >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
-                        data-testid="ContentCopyIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
+                      <button
+                        aria-label="Copy the revision to the clipboard"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                        tabindex="0"
+                        type="button"
                       >
-                        <path
-                          d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
+                          data-testid="ContentCopyIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </svg>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
+                      </button>
+                    </span>
                   </span>
                   <div
                     class="info-caption"
@@ -2510,27 +2534,31 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                     >
                       coconut
                     </a>
-                    <button
-                      aria-label="Copy the revision to the clipboard"
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-vpdfv9-MuiButtonBase-root-MuiIconButton-root"
-                      tabindex="0"
-                      type="button"
+                    <span
+                      class="MuiBox-root css-79elbk"
                     >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
-                        data-testid="ContentCopyIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
+                      <button
+                        aria-label="Copy the revision to the clipboard"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                        tabindex="0"
+                        type="button"
                       >
-                        <path
-                          d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
+                          data-testid="ContentCopyIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </svg>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
+                      </button>
+                    </span>
                   </span>
                   <div
                     class="info-caption"
@@ -3014,27 +3042,31 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                     >
                       coconut
                     </a>
-                    <button
-                      aria-label="Copy the revision to the clipboard"
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-vpdfv9-MuiButtonBase-root-MuiIconButton-root"
-                      tabindex="0"
-                      type="button"
+                    <span
+                      class="MuiBox-root css-79elbk"
                     >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
-                        data-testid="ContentCopyIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
+                      <button
+                        aria-label="Copy the revision to the clipboard"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                        tabindex="0"
+                        type="button"
                       >
-                        <path
-                          d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
+                          data-testid="ContentCopyIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </svg>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
+                      </button>
+                    </span>
                   </span>
                   <div
                     class="info-caption"
@@ -3412,27 +3444,31 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                     >
                       coconut
                     </a>
-                    <button
-                      aria-label="Copy the revision to the clipboard"
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-vpdfv9-MuiButtonBase-root-MuiIconButton-root"
-                      tabindex="0"
-                      type="button"
+                    <span
+                      class="MuiBox-root css-79elbk"
                     >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
-                        data-testid="ContentCopyIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
+                      <button
+                        aria-label="Copy the revision to the clipboard"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                        tabindex="0"
+                        type="button"
                       >
-                        <path
-                          d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
+                          data-testid="ContentCopyIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </svg>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
+                      </button>
+                    </span>
                   </span>
                   <div
                     class="info-caption"
