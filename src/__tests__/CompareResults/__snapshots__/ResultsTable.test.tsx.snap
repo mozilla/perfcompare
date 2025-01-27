@@ -310,6 +310,31 @@ exports[`Results Table Should match snapshot 1`] = `
                                 >
                                   coconut
                                 </a>
+                                <span
+                                  class="MuiBox-root css-79elbk"
+                                >
+                                  <button
+                                    aria-label="Copy the revision to the clipboard"
+                                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                                    tabindex="0"
+                                    type="button"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
+                                      data-testid="ContentCopyIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                                      />
+                                    </svg>
+                                    <span
+                                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                    />
+                                  </button>
+                                </span>
                               </span>
                               <div
                                 class="info-caption"
@@ -572,6 +597,31 @@ exports[`Results Table Should match snapshot 1`] = `
                                 >
                                   coconut
                                 </a>
+                                <span
+                                  class="MuiBox-root css-79elbk"
+                                >
+                                  <button
+                                    aria-label="Copy the revision to the clipboard"
+                                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                                    tabindex="0"
+                                    type="button"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
+                                      data-testid="ContentCopyIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                                      />
+                                    </svg>
+                                    <span
+                                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                    />
+                                  </button>
+                                </span>
                               </span>
                               <div
                                 class="info-caption"
@@ -1255,6 +1305,31 @@ exports[`Results Table Should match snapshot 1`] = `
                             >
                               spam
                             </a>
+                            <span
+                              class="MuiBox-root css-79elbk"
+                            >
+                              <button
+                                aria-label="Copy the revision to the clipboard"
+                                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
+                                  data-testid="ContentCopyIcon"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                                  />
+                                </svg>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </span>
                           </div>
                           <div
                             class="f1oxa67k"
@@ -1995,6 +2070,31 @@ exports[`Results Table Should match snapshot 1`] = `
                             >
                               spam
                             </a>
+                            <span
+                              class="MuiBox-root css-79elbk"
+                            >
+                              <button
+                                aria-label="Copy the revision to the clipboard"
+                                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
+                                  data-testid="ContentCopyIcon"
+                                  focusable="false"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                                  />
+                                </svg>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </span>
                           </div>
                           <div
                             class="f1oxa67k"
@@ -2540,6 +2640,31 @@ exports[`Results Table should render different blocks when rendering several rev
     >
       spam
     </a>
+    <span
+      class="MuiBox-root css-79elbk"
+    >
+      <button
+        aria-label="Copy the revision to the clipboard"
+        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+        tabindex="0"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
+          data-testid="ContentCopyIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+          />
+        </svg>
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </button>
+    </span>
     <div
       class="revisionRow fqyfrhr fp4ugv1 MuiBox-root css-1txhl5e"
       role="row"
@@ -2778,6 +2903,31 @@ exports[`Results Table should render different blocks when rendering several rev
     >
       devilrabbit
     </a>
+    <span
+      class="MuiBox-root css-79elbk"
+    >
+      <button
+        aria-label="Copy the revision to the clipboard"
+        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+        tabindex="0"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
+          data-testid="ContentCopyIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+          />
+        </svg>
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </button>
+    </span>
     <div
       class="revisionRow fqyfrhr fp4ugv1 MuiBox-root css-1txhl5e"
       role="row"
