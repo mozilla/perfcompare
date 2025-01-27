@@ -20,6 +20,7 @@ import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { Colors, Spacing } from '../../styles';
 import type { CompareResultsItem, PlatformShortName } from '../../types/state';
+import { formatNumber } from '../../utils/format';
 import {
   getPlatformShortName,
   getPlatformAndVersion,
@@ -318,14 +319,14 @@ function RevisionRow(props: RevisionRowProps) {
         </div>
         <div className='base-value cell' role='cell'>
           {' '}
-          {baseAvgValue} {baseUnit}{' '}
+          {formatNumber(baseAvgValue)} {baseUnit}{' '}
         </div>
         <div className='comparison-sign cell' role='cell'>
           {determineSign(baseAvgValue, newAvgValue)}
         </div>
         <div className='new-value cell' role='cell'>
           {' '}
-          {newAvgValue} {newUnit}
+          {formatNumber(newAvgValue)} {newUnit}
         </div>
         <div className='status cell' role='cell'>
           <Box

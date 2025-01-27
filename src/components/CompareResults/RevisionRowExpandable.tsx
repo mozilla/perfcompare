@@ -6,9 +6,16 @@ import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
 import { Colors, Spacing } from '../../styles';
 import type { CompareResultsItem } from '../../types/state';
+import { formatNumber } from './../../utils/format';
 
 const strings = Strings.components.expandableRow;
 const { singleRun } = strings;
+
+const numberFormatterTwoDigits = new Intl.NumberFormat('en-US', {
+  maximumFractionDigits: 2,
+});
+const formatNumberTwoDigits = (value: number) =>
+  numberFormatterTwoDigits.format(value);
 
 function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   const { result, id } = props;
@@ -35,9 +42,9 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   let medianDifference = '';
   let medianPercentage = '';
   if (baseMedian && newMedian) {
-    medianDifference = (newMedian - baseMedian).toFixed(2);
-    medianPercentage = (((newMedian - baseMedian) / baseMedian) * 100).toFixed(
-      2,
+    medianDifference = formatNumberTwoDigits(newMedian - baseMedian);
+    medianPercentage = formatNumberTwoDigits(
+      ((newMedian - baseMedian) / baseMedian) * 100,
     );
   }
 
@@ -106,7 +113,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
           {lowerIsBetter ? 'lower' : 'higher'} is better)
         </div>
         <div className={`${styles.whiteSpace}`}>
-          <b>Difference of means</b>: {deltaPercent}% ({delta}
+          <b>Difference of means</b>: {deltaPercent}% ({formatNumber(delta)}
           {deltaUnit ? ' ' + deltaUnit : null})
         </div>
         {newMedian && baseMedian ? (
