@@ -15,14 +15,14 @@ interface PerfCompareHeaderProps {
   isHome?: boolean;
   handleShowInput: () => void;
   onChange: (value: string) => void;
-  editTitleInput?: boolean;
+  editTitleInputVisible?: boolean;
 }
 
 const strings = Strings.components.header;
 
 function PerfCompareHeader({
   isHome,
-  editTitleInput,
+  editTitleInputVisible,
   handleShowInput,
   onChange,
 }: PerfCompareHeaderProps) {
@@ -32,7 +32,7 @@ function PerfCompareHeader({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    maxWidth: '472px',
+    maxWidth: '500px',
     margin: '0 auto',
   };
 
@@ -51,14 +51,51 @@ function PerfCompareHeader({
   );
 
   const editTitleText = 'Edit title';
-  const cancelText = 'Cancel';
-  //add save button and text here for edit title
+
+  const renderEditSaveCancelBtns = () => {
+    return (
+      <>
+        {editTitleInputVisible ? (
+          <>
+            <Button
+              name='cancel-title'
+              aria-label='cancel title'
+              className='cancel-btn'
+              variant='text'
+              onClick={handleShowInput}
+            >
+              Cancel
+            </Button>
+            <Button
+              name='save-title'
+              aria-label='save title'
+              className='save-btn'
+              variant='text'
+            >
+              Save
+            </Button>
+          </>
+        ) : (
+          <Button
+            name='edit-title'
+            aria-label='edit title'
+            startIcon={buttonIcon}
+            className='edit-title-btn'
+            variant='text'
+            onClick={handleShowInput}
+          >
+            {editTitleText}
+          </Button>
+        )}
+      </>
+    );
+  };
 
   return (
     <Grid className={`header-container ${styles.container}`}>
       <ToggleDarkMode />
       <Box className='header-text' sx={isHome ? homePageSx : resultPageSx}>
-        {editTitleInput ? (
+        {editTitleInputVisible ? (
           <EditTitleInput compact={isHome ?? false} onChange={onChange} />
         ) : (
           <Typography
@@ -72,20 +109,7 @@ function PerfCompareHeader({
           </Typography>
         )}
 
-        {isHome ? (
-          ''
-        ) : (
-          <Button
-            name='edit-title'
-            aria-label='edit title'
-            startIcon={editTitleInput ? null : buttonIcon}
-            className='start-btn'
-            variant='text'
-            onClick={handleShowInput}
-          >
-            {editTitleInput ? cancelText : editTitleText}
-          </Button>
-        )}
+        {isHome ? '' : renderEditSaveCancelBtns()}
         {isHome ? (
           <>
             <Typography

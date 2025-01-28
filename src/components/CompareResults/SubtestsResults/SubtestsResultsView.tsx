@@ -25,10 +25,10 @@ function SubtestsResultsView(props: ResultsViewProps) {
     document.title = title;
   }, [title]);
 
-  const [editTitleInput, showEditTitleInput] = useState(false);
+  const [editTitleInputVisible, showEditTitleInput] = useState(false);
 
   const handleEditInputToggle = () => {
-    showEditTitleInput(!editTitleInput);
+    showEditTitleInput(!editTitleInputVisible);
   };
 
   const onValueChange = (value: string) => {
@@ -43,7 +43,7 @@ function SubtestsResultsView(props: ResultsViewProps) {
     >
       <PerfCompareHeader
         handleShowInput={handleEditInputToggle}
-        editTitleInput={editTitleInput}
+        editTitleInputVisible={editTitleInputVisible}
         onChange={onValueChange}
       />
       <Grid container alignItems='center' justifyContent='center'>
