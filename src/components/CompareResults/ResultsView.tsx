@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import Grid from '@mui/material/Grid';
 import { useLoaderData } from 'react-router-dom';
@@ -30,6 +30,17 @@ function ResultsView(props: ResultsViewProps) {
 
   const sectionStyles = SearchContainerStyles(themeMode, /* isHome */ false);
 
+  const [editTitleInput, showEditTitleInput] = useState(false);
+
+  const handleEditInputToggle = () => {
+    showEditTitleInput(!editTitleInput);
+  };
+
+  const onValueChange = (value: string) => {
+    console.log(value);
+    //add logic to save in the url
+  };
+
   useEffect(() => {
     document.title = title;
   }, [title]);
@@ -39,7 +50,13 @@ function ResultsView(props: ResultsViewProps) {
       className={styles.container}
       data-testid='beta-version-compare-results'
     >
-      <PerfCompareHeader isHome={false} />
+      <PerfCompareHeader
+        isHome={false}
+        handleShowInput={handleEditInputToggle}
+        editTitleInput={editTitleInput}
+        onChange={onValueChange}
+      />
+
       <section className={sectionStyles.container}>
         <LinkToHome />
         <CompareWithBase
