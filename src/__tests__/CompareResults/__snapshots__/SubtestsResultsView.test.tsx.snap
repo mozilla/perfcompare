@@ -8,10 +8,10 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
       data-testid="beta-version-compare-subtests-results"
     >
       <div
-        class="MuiGrid-root header-container container_f1ocj467 css-plh9qo-MuiGrid-root"
+        class="MuiGrid-root header-container container_f1fpfdfq css-plh9qo-MuiGrid-root"
       >
         <div
-          class="toggle-dark-mode fkud7h4 MuiBox-root css-0"
+          class="toggle-dark-mode f10ie5uy MuiBox-root css-0"
         >
           <div
             class="MuiFormGroup-root css-dmmspl-MuiFormGroup-root"
@@ -44,7 +44,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 />
               </span>
               <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-smpupv-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-13qdlub-MuiTypography-root"
               >
                 Dark mode
               </span>
@@ -52,13 +52,35 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
           </div>
         </div>
         <div
-          class="header-text MuiBox-root css-0"
+          class="header-text MuiBox-root css-1abz91g"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-eaa0qe-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-ewqp8h-MuiTypography-root"
           >
             PerfCompare
           </h1>
+          <button
+            aria-label="edit title"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation start-btn css-1rvsmwy-MuiButtonBase-root-MuiButton-root"
+            name="edit-title"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-startIcon MuiButton-iconSizeMedium css-gcc2o7-MuiButton-startIcon"
+            >
+              <img
+                alt="edit-icon"
+                class="icon icon-edit"
+                id="edit-title-icon"
+                src="pencil.svg"
+              />
+            </span>
+            Edit title
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </button>
         </div>
       </div>
       <div
@@ -73,7 +95,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
           >
             <header>
               <nav
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-dr2htm-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-arz7ur-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -177,7 +199,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 class="fcqhb81"
               >
                 <div
-                  class="f1mgfhdi"
+                  class="f897l9y"
                 >
                   <strong>
                     <a
@@ -402,7 +424,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
               role="table"
             >
               <div
-                class="f1ptnq46 f19sido0"
+                class="f1ptnq46 fr2n4tx"
                 data-testid="table-header"
                 role="row"
               >
@@ -440,13 +462,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="cell base-header"
                   role="columnheader"
                 >
-                  <span
-                    aria-label="A summary of all values from Base runs using a mean."
-                    class="MuiBox-root css-4g6ai3"
-                    data-mui-internal-clone-element="true"
-                  >
-                    Base
-                  </span>
+                  Base
                 </div>
                 <div
                   class="cell comparisonSign-header"
@@ -456,13 +472,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="cell new-header"
                   role="columnheader"
                 >
-                  <span
-                    aria-label="A summary of all values from New runs using a mean."
-                    class="MuiBox-root css-4g6ai3"
-                    data-mui-internal-clone-element="true"
-                  >
-                    New
-                  </span>
+                  New
                 </div>
                 <div
                   class="cell status-header"
@@ -472,7 +482,6 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                     aria-haspopup="true"
                     aria-label="Status (Click to filter values)"
                     class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-uajdoe-MuiButtonBase-root-MuiButton-root"
-                    data-mui-internal-clone-element="true"
                     tabindex="0"
                     type="button"
                   >
@@ -505,37 +514,31 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="cell delta-header"
                   role="columnheader"
                 >
-                  <span
-                    aria-label="The percentage difference between the Base and New values"
-                    class="MuiBox-root css-4g6ai3"
-                    data-mui-internal-clone-element="true"
+                  <button
+                    aria-label="Delta (Click to sort by this column)"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-1awls4w-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
                   >
-                    <button
-                      aria-label="Delta (Click to sort by this column)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-1awls4w-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
+                    <svg
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+                      data-testid="SwapVertIcon"
+                      focusable="false"
+                      role="img"
+                      viewBox="0 0 24 24"
                     >
-                      <svg
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
-                        data-testid="SwapVertIcon"
-                        focusable="false"
-                        role="img"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
-                        />
-                        <title>
-                          Not sorted by Delta
-                        </title>
-                      </svg>
-                      Delta
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      <path
+                        d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
                       />
-                    </button>
-                  </span>
+                      <title>
+                        Not sorted by Delta
+                      </title>
+                    </svg>
+                    Delta
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <div
                   class="cell confidence-header"
@@ -572,8 +575,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                     <button
                       aria-haspopup="true"
                       aria-label="Confidence (Click to filter values)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-uajdoe-MuiButtonBase-root-MuiButton-root"
-                      data-mui-internal-clone-element="true"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton css-uajdoe-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -607,13 +609,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="cell runs-header"
                   role="columnheader"
                 >
-                  <span
-                    aria-label="The total number of tasks/jobs that ran for this metric."
-                    class="MuiBox-root css-4g6ai3"
-                    data-mui-internal-clone-element="true"
-                  >
-                    Total Runs
-                  </span>
+                  Total Runs
                 </div>
                 <div
                   class="cell buttons-header"
@@ -625,7 +621,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 />
               </div>
               <div
-                class="revisionRow f15pv6go f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -760,7 +756,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                   <button
-                    aria-controls=":r9:"
+                    aria-controls=":r3:"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -785,7 +781,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow f15pv6go f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -799,7 +795,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                    
-                  973.66
+                  971.38
                    
                   ms
                    
@@ -815,7 +811,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                    
-                  984.16
+                  982.41
                    
                   ms
                 </div>
@@ -877,7 +873,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                       B:
                     </span>
                     <strong>
-                      3
+                      2
                     </strong>
                   </span>
                   <span>
@@ -887,7 +883,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                       N:
                     </span>
                     <strong>
-                      3
+                      2
                     </strong>
                   </span>
                 </div>
@@ -931,7 +927,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                   <button
-                    aria-controls=":ra:"
+                    aria-controls=":r4:"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -956,7 +952,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow f15pv6go f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -1102,7 +1098,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                   <button
-                    aria-controls=":rb:"
+                    aria-controls=":r5:"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -1127,7 +1123,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow f15pv6go f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -1262,7 +1258,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                   <button
-                    aria-controls=":rc:"
+                    aria-controls=":r6:"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -1652,10 +1648,10 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
       class="fcndgf6"
     >
       <div
-        class="MuiGrid-root header-container container_f1ocj467 css-plh9qo-MuiGrid-root"
+        class="MuiGrid-root header-container container_f1fpfdfq css-plh9qo-MuiGrid-root"
       >
         <div
-          class="toggle-dark-mode fkud7h4 MuiBox-root css-0"
+          class="toggle-dark-mode f10ie5uy MuiBox-root css-0"
         >
           <div
             class="MuiFormGroup-root css-dmmspl-MuiFormGroup-root"
@@ -1688,7 +1684,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 />
               </span>
               <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-smpupv-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-13qdlub-MuiTypography-root"
               >
                 Dark mode
               </span>
@@ -1696,13 +1692,35 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
           </div>
         </div>
         <div
-          class="header-text MuiBox-root css-0"
+          class="header-text MuiBox-root css-1abz91g"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-eaa0qe-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-ewqp8h-MuiTypography-root"
           >
             PerfCompare
           </h1>
+          <button
+            aria-label="edit title"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation start-btn css-1rvsmwy-MuiButtonBase-root-MuiButton-root"
+            name="edit-title"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-startIcon MuiButton-iconSizeMedium css-gcc2o7-MuiButton-startIcon"
+            >
+              <img
+                alt="edit-icon"
+                class="icon icon-edit"
+                id="edit-title-icon"
+                src="pencil.svg"
+              />
+            </span>
+            Edit title
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </button>
         </div>
       </div>
       <div
@@ -1717,7 +1735,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
           >
             <header>
               <nav
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-dr2htm-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-arz7ur-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -1821,7 +1839,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 class="fcqhb81"
               >
                 <div
-                  class="f1mgfhdi"
+                  class="f897l9y"
                 >
                   <strong>
                     <a
@@ -1934,7 +1952,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                           aria-invalid="false"
                           aria-label="Search by title, platform, revision or options"
                           class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-rg83rj-MuiInputBase-input-MuiOutlinedInput-input"
-                          id=":r2r:"
+                          id=":r1h:"
                           placeholder="Search results"
                           type="text"
                           value=""
@@ -2038,7 +2056,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
               role="table"
             >
               <div
-                class="f1ptnq46 f19sido0"
+                class="f1ptnq46 fr2n4tx"
                 data-testid="table-header"
                 role="row"
               >
@@ -2076,13 +2094,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="cell base-header"
                   role="columnheader"
                 >
-                  <span
-                    aria-label="A summary of all values from Base runs using a mean."
-                    class="MuiBox-root css-4g6ai3"
-                    data-mui-internal-clone-element="true"
-                  >
-                    Base
-                  </span>
+                  Base
                 </div>
                 <div
                   class="cell comparisonSign-header"
@@ -2092,13 +2104,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="cell new-header"
                   role="columnheader"
                 >
-                  <span
-                    aria-label="A summary of all values from New runs using a mean."
-                    class="MuiBox-root css-4g6ai3"
-                    data-mui-internal-clone-element="true"
-                  >
-                    New
-                  </span>
+                  New
                 </div>
                 <div
                   class="cell status-header"
@@ -2108,7 +2114,6 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                     aria-haspopup="true"
                     aria-label="Status (Click to filter values)"
                     class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-uajdoe-MuiButtonBase-root-MuiButton-root"
-                    data-mui-internal-clone-element="true"
                     tabindex="0"
                     type="button"
                   >
@@ -2141,37 +2146,31 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="cell delta-header"
                   role="columnheader"
                 >
-                  <span
-                    aria-label="The percentage difference between the Base and New values"
-                    class="MuiBox-root css-4g6ai3"
-                    data-mui-internal-clone-element="true"
+                  <button
+                    aria-label="Delta (Click to sort by this column)"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-1awls4w-MuiButtonBase-root-MuiButton-root"
+                    tabindex="0"
+                    type="button"
                   >
-                    <button
-                      aria-label="Delta (Click to sort by this column)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-1awls4w-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
+                    <svg
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
+                      data-testid="SwapVertIcon"
+                      focusable="false"
+                      role="img"
+                      viewBox="0 0 24 24"
                     >
-                      <svg
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
-                        data-testid="SwapVertIcon"
-                        focusable="false"
-                        role="img"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
-                        />
-                        <title>
-                          Not sorted by Delta
-                        </title>
-                      </svg>
-                      Delta
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      <path
+                        d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
                       />
-                    </button>
-                  </span>
+                      <title>
+                        Not sorted by Delta
+                      </title>
+                    </svg>
+                    Delta
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
                 <div
                   class="cell confidence-header"
@@ -2208,8 +2207,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                     <button
                       aria-haspopup="true"
                       aria-label="Confidence (Click to filter values)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-uajdoe-MuiButtonBase-root-MuiButton-root"
-                      data-mui-internal-clone-element="true"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton css-uajdoe-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -2243,13 +2241,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="cell runs-header"
                   role="columnheader"
                 >
-                  <span
-                    aria-label="The total number of tasks/jobs that ran for this metric."
-                    class="MuiBox-root css-4g6ai3"
-                    data-mui-internal-clone-element="true"
-                  >
-                    Total Runs
-                  </span>
+                  Total Runs
                 </div>
                 <div
                   class="cell buttons-header"
@@ -2261,7 +2253,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 />
               </div>
               <div
-                class="revisionRow f15pv6go f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -2396,7 +2388,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                   <button
-                    aria-controls=":r34:"
+                    aria-controls=":r1k:"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -2421,7 +2413,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow f15pv6go f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -2435,7 +2427,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                    
-                  973.66
+                  971.38
                    
                   ms
                    
@@ -2451,7 +2443,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                    
-                  984.16
+                  982.41
                    
                   ms
                 </div>
@@ -2513,7 +2505,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                       B:
                     </span>
                     <strong>
-                      3
+                      2
                     </strong>
                   </span>
                   <span>
@@ -2523,7 +2515,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                       N:
                     </span>
                     <strong>
-                      3
+                      2
                     </strong>
                   </span>
                 </div>
@@ -2567,7 +2559,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                   <button
-                    aria-controls=":r35:"
+                    aria-controls=":r1l:"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -2592,7 +2584,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow f15pv6go f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -2738,7 +2730,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                   <button
-                    aria-controls=":r36:"
+                    aria-controls=":r1m:"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -2763,7 +2755,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow f15pv6go f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -2898,7 +2890,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                   <button
-                    aria-controls=":r37:"
+                    aria-controls=":r1n:"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
