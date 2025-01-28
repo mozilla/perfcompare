@@ -51,7 +51,6 @@ function ResultsView(props: ResultsViewProps) {
       data-testid='beta-version-compare-results'
     >
       <PerfCompareHeader
-        isHome={false}
         handleShowInput={handleEditInputToggle}
         editTitleInput={editTitleInput}
         onChange={onValueChange}
