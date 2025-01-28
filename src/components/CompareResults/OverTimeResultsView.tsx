@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import Grid from '@mui/material/Grid';
 import { useLoaderData } from 'react-router-dom';
@@ -16,14 +16,8 @@ interface ResultsViewProps {
   title: string;
 }
 function ResultsView(props: ResultsViewProps) {
-  const {
-    newRevsInfo,
-    frameworkId,
-    intervalValue,
-
-    baseRepo,
-    newRepos,
-  } = useLoaderData() as LoaderReturnValue;
+  const { newRevsInfo, frameworkId, intervalValue, baseRepo, newRepos } =
+    useLoaderData() as LoaderReturnValue;
   const newRepo = newRepos[0];
   const { title } = props;
   const themeMode = useAppSelector((state) => state.theme.mode);
@@ -34,6 +28,16 @@ function ResultsView(props: ResultsViewProps) {
   };
 
   const sectionStyles = SearchContainerStyles(themeMode, /* isHome */ false);
+  const [editTitleInput, showEditTitleInput] = useState(false);
+
+  const handleEditInputToggle = () => {
+    showEditTitleInput(!editTitleInput);
+  };
+
+  const onValueChange = (value: string) => {
+    console.log(value);
+    //add logic to save in the url
+  };
 
   useEffect(() => {
     document.title = title;
@@ -44,7 +48,11 @@ function ResultsView(props: ResultsViewProps) {
       className={styles.container}
       data-testid='beta-version-compare-overtime-results'
     >
-      <PerfCompareHeader />
+      <PerfCompareHeader
+        handleShowInput={handleEditInputToggle}
+        editTitleInput={editTitleInput}
+        onChange={onValueChange}
+      />
       <section className={sectionStyles.container}>
         <LinkToHome />
         <CompareOverTime

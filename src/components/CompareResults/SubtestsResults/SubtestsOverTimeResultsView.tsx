@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import Grid from '@mui/material/Grid';
 import { style } from 'typestyle';
@@ -25,9 +25,24 @@ function SubtestsResultsView(props: SubtestsResultsViewProps) {
     document.title = title;
   }, [title]);
 
+  const [editTitleInput, showEditTitleInput] = useState(false);
+
+  const handleEditInputToggle = () => {
+    showEditTitleInput(!editTitleInput);
+  };
+
+  const onValueChange = (value: string) => {
+    console.log(value);
+    //add logic to save in the url
+  };
+
   return (
     <div className={styles.container}>
-      <PerfCompareHeader />
+      <PerfCompareHeader
+        handleShowInput={handleEditInputToggle}
+        editTitleInput={editTitleInput}
+        onChange={onValueChange}
+      />
       <Grid container alignItems='center' justifyContent='center'>
         <Grid item xs={12}>
           <SubtestsResultsMain view={subtestsOverTimeView} />
