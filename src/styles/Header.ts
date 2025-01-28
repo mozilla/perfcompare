@@ -22,13 +22,6 @@ export const HeaderStyles = (mode: string, isHome: boolean) => {
       backgroundRepeat: 'no-repeat',
       backgroundPositionY: 'top',
       $nest: {
-        '.header-text': {
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          maxWidth: '472px',
-          margin: '0 auto',
-        },
         '.perfcompare-header': {
           marginBottom: isHome
             ? `${Spacing.Large}px`
