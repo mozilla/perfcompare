@@ -58,7 +58,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
           </div>
         </div>
         <div
-          class="header-text MuiBox-root css-3l5fdl"
+          class="header-text MuiBox-root css-16997s6"
         >
           <h1
             class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-1nxyst5-MuiTypography-root"
