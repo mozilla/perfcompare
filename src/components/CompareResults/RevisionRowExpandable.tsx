@@ -9,7 +9,7 @@ import type { CompareResultsItem } from '../../types/state';
 import { formatNumber } from './../../utils/format';
 
 const strings = Strings.components.expandableRow;
-const { singleRun } = strings;
+const { singleRun, confidenceNote } = strings;
 
 const numberFormatterTwoDigits = new Intl.NumberFormat('en-US', {
   maximumFractionDigits: 2,
@@ -130,7 +130,7 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
               {confidenceValue ? ' ' + `(${confidenceValue})` : null}
             </div>
             <div className={styles.note}>
-              <b>**Note</b>: {strings[confidenceText]}{' '}
+              <b>**Note</b>: {confidenceNote}{' '}
             </div>
           </div>
         ) : (
