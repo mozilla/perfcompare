@@ -534,6 +534,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   <button
                     aria-label="Copy the revision to the clipboard"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                    data-testid="copy-icon"
                     tabindex="0"
                     type="button"
                   >

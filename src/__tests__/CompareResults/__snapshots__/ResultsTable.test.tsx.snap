@@ -316,6 +316,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                   <button
                                     aria-label="Copy the revision to the clipboard"
                                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                                    data-testid="copy-icon"
                                     tabindex="0"
                                     type="button"
                                   >
@@ -603,6 +604,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                   <button
                                     aria-label="Copy the revision to the clipboard"
                                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                                    data-testid="copy-icon"
                                     tabindex="0"
                                     type="button"
                                   >
@@ -1308,6 +1310,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               <button
                                 aria-label="Copy the revision to the clipboard"
                                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                                data-testid="copy-icon"
                                 tabindex="0"
                                 type="button"
                               >
@@ -2073,6 +2076,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               <button
                                 aria-label="Copy the revision to the clipboard"
                                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                                data-testid="copy-icon"
                                 tabindex="0"
                                 type="button"
                               >
@@ -2643,6 +2647,7 @@ exports[`Results Table should render different blocks when rendering several rev
       <button
         aria-label="Copy the revision to the clipboard"
         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+        data-testid="copy-icon"
         tabindex="0"
         type="button"
       >
@@ -2906,6 +2911,7 @@ exports[`Results Table should render different blocks when rendering several rev
       <button
         aria-label="Copy the revision to the clipboard"
         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+        data-testid="copy-icon"
         tabindex="0"
         type="button"
       >

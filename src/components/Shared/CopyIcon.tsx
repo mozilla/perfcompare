@@ -35,12 +35,13 @@ const CopyIcon = ({ text, arialLabel }: CopyIconProps) => {
       {copied && (
         <Typography
           sx={{
-            fontSize: '0.7rem',
+            fontSize: '0.75rem',
             position: 'absolute',
             top: '-1rem',
           }}
           variant='body2'
           color='text.primary'
+          data-testid='copied-text'
         >
           Copied
         </Typography>
@@ -50,6 +51,7 @@ const CopyIcon = ({ text, arialLabel }: CopyIconProps) => {
         size='small'
         aria-label={arialLabel}
         onClick={handleClick}
+        data-testid='copy-icon'
       >
         <ContentCopy fontSize='inherit' />
       </IconButton>

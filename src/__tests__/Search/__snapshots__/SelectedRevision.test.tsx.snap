@@ -48,6 +48,7 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
             <button
               aria-label="Copy the revision to the clipboard"
               class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+              data-testid="copy-icon"
               tabindex="0"
               type="button"
             >

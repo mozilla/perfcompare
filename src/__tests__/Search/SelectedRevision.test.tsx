@@ -93,4 +93,18 @@ describe('SelectedRevision', () => {
     });
     expect(alertIcon).toBeInTheDocument();
   });
+
+  it('should copy hash number when copyicon is clicked', async () => {
+    const user = userEvent.setup({ delay: null });
+    await renderComponent();
+    const searchInput = screen.getAllByRole('textbox')[0];
+    await user.click(searchInput);
+    const noArmsLeft = await screen.findByRole('button', {
+      name: /you've got no arms left!/,
+    });
+    await user.click(noArmsLeft);
+    const copyIcon = screen.getByTestId('copy-icon');
+    await user.click(copyIcon);
+    expect(screen.getByText('Copied')).toBeInTheDocument();
+  });
 });
