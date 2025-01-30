@@ -107,4 +107,32 @@ describe('SelectedRevision', () => {
     await user.click(copyIcon);
     expect(screen.getByText('Copied')).toBeInTheDocument();
   });
+
+  it('should handle copy failure when clipboard API fails', async () => {
+    const user = userEvent.setup({ delay: null });
+    await renderComponent();
+    const searchInput = screen.getAllByRole('textbox')[0];
+    await user.click(searchInput);
+    const noArmsLeft = await screen.findByRole('button', {
+      name: /you've got no arms left!/,
+    });
+    await user.click(noArmsLeft);
+    const consoleErrorSpy = jest
+      .spyOn(console, 'error')
+      .mockImplementation(() => {});
+    // Mock clipboard writeText to throw an error
+    jest
+      .spyOn(navigator.clipboard, 'writeText')
+      .mockRejectedValue(new Error('Clipboard write failed'));
+    const copyIcon = screen.getByTestId('copy-icon');
+    await user.click(copyIcon);
+
+    expect(consoleErrorSpy).toHaveBeenCalledWith(
+      'Failed to copy text to clipboard:',
+      expect.any(Error),
+    );
+
+    // Restore clipboard function after test
+    jest.restoreAllMocks();
+  });
 });
