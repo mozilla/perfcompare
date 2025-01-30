@@ -585,6 +585,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
                       <button
                         aria-label="Copy the revision to the clipboard"
                         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="copy-icon"
                         tabindex="0"
                         type="button"
                       >
@@ -1251,6 +1252,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
                       <button
                         aria-label="Copy the revision to the clipboard"
                         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="copy-icon"
                         tabindex="0"
                         type="button"
                       >
@@ -1586,6 +1588,7 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
                       <button
                         aria-label="Copy the revision to the clipboard"
                         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="copy-icon"
                         tabindex="0"
                         type="button"
                       >
@@ -2287,6 +2290,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                       <button
                         aria-label="Copy the revision to the clipboard"
                         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="copy-icon"
                         tabindex="0"
                         type="button"
                       >
@@ -2429,6 +2433,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                       <button
                         aria-label="Copy the revision to the clipboard"
                         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="copy-icon"
                         tabindex="0"
                         type="button"
                       >
@@ -2917,6 +2922,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                       <button
                         aria-label="Copy the revision to the clipboard"
                         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="copy-icon"
                         tabindex="0"
                         type="button"
                       >
@@ -3252,6 +3258,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                       <button
                         aria-label="Copy the revision to the clipboard"
                         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="copy-icon"
                         tabindex="0"
                         type="button"
                       >

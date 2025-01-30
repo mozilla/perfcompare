@@ -240,6 +240,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                       <button
                         aria-label="Copy the revision to the clipboard"
                         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="copy-icon"
                         tabindex="0"
                         type="button"
                       >
@@ -547,6 +548,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                       <button
                         aria-label="Copy the revision to the clipboard"
                         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="copy-icon"
                         tabindex="0"
                         type="button"
                       >
@@ -1049,6 +1051,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                       <button
                         aria-label="Copy the revision to the clipboard"
                         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="copy-icon"
                         tabindex="0"
                         type="button"
                       >
@@ -1549,6 +1552,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                       <button
                         aria-label="Copy the revision to the clipboard"
                         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="copy-icon"
                         tabindex="0"
                         type="button"
                       >
@@ -1856,6 +1860,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                       <button
                         aria-label="Copy the revision to the clipboard"
                         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="copy-icon"
                         tabindex="0"
                         type="button"
                       >
@@ -2233,6 +2238,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                       <button
                         aria-label="Copy the revision to the clipboard"
                         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="copy-icon"
                         tabindex="0"
                         type="button"
                       >
@@ -2540,6 +2546,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                       <button
                         aria-label="Copy the revision to the clipboard"
                         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="copy-icon"
                         tabindex="0"
                         type="button"
                       >
@@ -3048,6 +3055,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                       <button
                         aria-label="Copy the revision to the clipboard"
                         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="copy-icon"
                         tabindex="0"
                         type="button"
                       >
@@ -3450,6 +3458,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                       <button
                         aria-label="Copy the revision to the clipboard"
                         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                        data-testid="copy-icon"
                         tabindex="0"
                         type="button"
                       >
