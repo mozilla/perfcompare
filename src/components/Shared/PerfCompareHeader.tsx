@@ -13,26 +13,33 @@ import EditTitleInput from '../CompareResults/EditTitleInput';
 
 interface PerfCompareHeaderProps {
   isHome?: boolean;
+  comparisonTitleName?: string;
+  titleError?: boolean;
   handleShowInput: () => void;
   onChange: (value: string) => void;
-  editTitleInputVisible?: boolean;
+  onSave: () => void;
+  editComparisonTitleInputVisible?: boolean;
 }
 
 const strings = Strings.components.header;
 
 function PerfCompareHeader({
   isHome,
-  editTitleInputVisible,
+  comparisonTitleName,
+  editComparisonTitleInputVisible,
   handleShowInput,
   onChange,
+  onSave,
+  titleError,
 }: PerfCompareHeaderProps) {
   const themeMode = useAppSelector((state) => state.theme.mode);
   const styles = HeaderStyles(themeMode, isHome ?? false);
+  const titleErrorMessage = titleError ? 'Title cannot be empty' : null;
   const homePageSx = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    maxWidth: '500px',
+    maxWidth: '700px',
     margin: '0 auto',
   };
 
@@ -52,10 +59,19 @@ function PerfCompareHeader({
 
   const editTitleText = 'Edit title';
 
+  const deSlugify = (slug: string | undefined) => {
+    if (!slug) return '';
+    return slug
+      .replace(/-/g, ' ')
+      .replace(/\b\w/g, (char) => char.toUpperCase());
+  };
+
+  const deSlugifiedTitle = deSlugify(comparisonTitleName);
+
   const renderEditSaveCancelBtns = () => {
     return (
       <>
-        {editTitleInputVisible ? (
+        {editComparisonTitleInputVisible ? (
           <>
             <Button
               name='cancel-title'
@@ -71,6 +87,7 @@ function PerfCompareHeader({
               aria-label='save title'
               className='save-btn'
               variant='text'
+              onClick={onSave}
             >
               Save
             </Button>
@@ -91,12 +108,16 @@ function PerfCompareHeader({
     );
   };
 
-  return (
-    <Grid className={`header-container ${styles.container}`}>
-      <ToggleDarkMode />
-      <Box className='header-text' sx={isHome ? homePageSx : resultPageSx}>
-        {editTitleInputVisible ? (
-          <EditTitleInput compact={isHome ?? false} onChange={onChange} />
+  const renderDefaultPerfCompareHeaderOrInput = () => {
+    return (
+      <>
+        {editComparisonTitleInputVisible ? (
+          <EditTitleInput
+            titleError={titleErrorMessage}
+            comparisonTitleName={deSlugifiedTitle}
+            compact={isHome ?? false}
+            onChange={onChange}
+          />
         ) : (
           <Typography
             variant='h1'
@@ -110,6 +131,31 @@ function PerfCompareHeader({
         )}
 
         {isHome ? '' : renderEditSaveCancelBtns()}
+      </>
+    );
+  };
+
+  return (
+    <Grid className={`header-container ${styles.container}`}>
+      <ToggleDarkMode />
+      <Box className='header-text' sx={isHome ? homePageSx : resultPageSx}>
+        {comparisonTitleName && !editComparisonTitleInputVisible ? (
+          <>
+            <Typography
+              variant='h1'
+              align='center'
+              gutterBottom
+              pr={1}
+              className='perfcompare-header'
+            >
+              {deSlugifiedTitle}
+            </Typography>
+            {renderEditSaveCancelBtns()}
+          </>
+        ) : (
+          renderDefaultPerfCompareHeaderOrInput()
+        )}
+
         {isHome ? (
           <>
             <Typography

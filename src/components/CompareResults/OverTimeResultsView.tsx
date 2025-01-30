@@ -28,10 +28,11 @@ function ResultsView(props: ResultsViewProps) {
   };
 
   const sectionStyles = SearchContainerStyles(themeMode, /* isHome */ false);
-  const [editTitleInputVisible, showEditTitleInput] = useState(false);
+  const [editComparisonTitleInputVisible, showEditComparisonTitle] =
+    useState(false);
 
   const handleEditInputToggle = () => {
-    showEditTitleInput(!editTitleInputVisible);
+    showEditComparisonTitle(!editComparisonTitleInputVisible);
   };
 
   const onValueChange = (value: string) => {
@@ -50,8 +51,9 @@ function ResultsView(props: ResultsViewProps) {
     >
       <PerfCompareHeader
         handleShowInput={handleEditInputToggle}
-        editTitleInputVisible={editTitleInputVisible}
+        editComparisonTitleInputVisible={editComparisonTitleInputVisible}
         onChange={onValueChange}
+        onSave={() => {}}
       />
       <section className={sectionStyles.container}>
         <LinkToHome />
