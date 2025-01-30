@@ -35,6 +35,7 @@ function SearchView(props: SearchViewProps) {
         onChange={() => {}}
         handleShowInput={() => {}}
         isHome
+        onSave={() => {}}
       />
       <SearchContainer containerRef={containerRef} />
     </div>
