@@ -104,7 +104,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
           </div>
         </div>
         <div
-          class="header-text MuiBox-root css-5d99ji"
+          class="header-text MuiBox-root css-v042va"
         >
           <h1
             class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-ewqp8h-MuiTypography-root"
@@ -384,7 +384,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
           </div>
         </div>
         <div
-          class="header-text MuiBox-root css-5d99ji"
+          class="header-text MuiBox-root css-v042va"
         >
           <h1
             class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-ewqp8h-MuiTypography-root"
@@ -559,7 +559,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
           </div>
         </div>
         <div
-          class="header-text MuiBox-root css-5d99ji"
+          class="header-text MuiBox-root css-v042va"
         >
           <h1
             class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-ewqp8h-MuiTypography-root"
