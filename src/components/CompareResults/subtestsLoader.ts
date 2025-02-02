@@ -143,7 +143,7 @@ export async function loader({ request }: { request: Request }) {
     newParentSignature: newParentSignatureFromUrl,
   });
 
-  const results = await fetchSubtestsCompareResults({
+  const results = fetchSubtestsCompareResults({
     baseRev,
     baseRepo,
     newRev,
