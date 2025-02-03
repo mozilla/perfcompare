@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 import Grid from '@mui/material/Grid';
 import { useLoaderData } from 'react-router-dom';
@@ -28,17 +28,6 @@ function ResultsView(props: ResultsViewProps) {
   };
 
   const sectionStyles = SearchContainerStyles(themeMode, /* isHome */ false);
-  const [editComparisonTitleInputVisible, showEditComparisonTitle] =
-    useState(false);
-
-  const handleEditInputToggle = () => {
-    showEditComparisonTitle(!editComparisonTitleInputVisible);
-  };
-
-  const onValueChange = (value: string) => {
-    console.log(value);
-    //add logic to save in the url
-  };
 
   useEffect(() => {
     document.title = title;
@@ -49,12 +38,7 @@ function ResultsView(props: ResultsViewProps) {
       className={styles.container}
       data-testid='beta-version-compare-overtime-results'
     >
-      <PerfCompareHeader
-        handleShowInput={handleEditInputToggle}
-        editComparisonTitleInputVisible={editComparisonTitleInputVisible}
-        onChange={onValueChange}
-        onSave={() => {}}
-      />
+      <PerfCompareHeader />
       <section className={sectionStyles.container}>
         <LinkToHome />
         <CompareOverTime
