@@ -31,12 +31,7 @@ function SearchView(props: SearchViewProps) {
           Skip to search
         </button>
       </SkipLink>
-      <PerfCompareHeader
-        onChange={() => {}}
-        handleShowInput={() => {}}
-        isHome
-        onSave={() => {}}
-      />
+      <PerfCompareHeader isHome />
       <SearchContainer containerRef={containerRef} />
     </div>
   );

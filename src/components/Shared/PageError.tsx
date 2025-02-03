@@ -31,11 +31,7 @@ export function PageError({ title }: PageErrorProps) {
 
   return (
     <div className={styles.container}>
-      <PerfCompareHeader
-        onChange={() => {}}
-        handleShowInput={() => {}}
-        onSave={() => {}}
-      />
+      <PerfCompareHeader />
       <section className={sectionStyles.container}>
         <LinkToHome />
         <p>Error: {error.message}</p>
