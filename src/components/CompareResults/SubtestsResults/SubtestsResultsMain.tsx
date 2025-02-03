@@ -20,7 +20,10 @@ import {
   getPerfherderSubtestsCompareOverTimeViewURL,
 } from '../../../logic/treeherder';
 import { Colors, Spacing } from '../../../styles';
-import type { SubtestsRevisionsHeader } from '../../../types/state';
+import type {
+  SubtestsRevisionsHeader,
+  CompareResultsItem,
+} from '../../../types/state';
 import RetriggerButton from '../Retrigger/RetriggerButton';
 import { LoaderReturnValue } from '../subtestsLoader';
 import { LoaderReturnValue as OvertimeLoaderReturnValue } from '../subtestsOverTimeLoader';
@@ -40,9 +43,11 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
   const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
   const initialSearchTerm = rawSearchParams.get('search') ?? '';
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
-  const [resolvedResults, setResolvedResults] = useState([]);
+  const [resolvedResults, setResolvedResults] = useState<CompareResultsItem[]>(
+    [],
+  );
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
   useEffect(() => {
     let isMounted = true;
 
@@ -55,7 +60,7 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
       })
       .catch((err) => {
         if (isMounted) {
-          setError(err);
+          setError(err as string);
           setIsLoading(false);
         }
       });
