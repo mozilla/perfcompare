@@ -63,7 +63,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
         class="MuiGrid-root header-container container_f1fpfdfq css-plh9qo-MuiGrid-root"
       >
         <div
-          class="toggle-dark-mode f10ie5uy MuiBox-root css-0"
+          class="toggle-dark-mode fkud7h4 MuiBox-root css-0"
         >
           <div
             class="MuiFormGroup-root css-dmmspl-MuiFormGroup-root"
@@ -96,7 +96,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
                 />
               </span>
               <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-13qdlub-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-smpupv-MuiTypography-root"
               >
                 Dark mode
               </span>
@@ -104,39 +104,17 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
           </div>
         </div>
         <div
-          class="header-text MuiBox-root css-v042va"
+          class="header-text MuiBox-root css-0"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-ewqp8h-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-16sjvzh-MuiTypography-root"
           >
             PerfCompare
           </h1>
-          <button
-            aria-label="edit title"
-            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation edit-title-btn css-1rvsmwy-MuiButtonBase-root-MuiButton-root"
-            name="edit-title"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="MuiButton-startIcon MuiButton-iconSizeMedium css-gcc2o7-MuiButton-startIcon"
-            >
-              <img
-                alt="edit-icon"
-                class="icon icon-edit"
-                id="edit-title-icon"
-                src="pencil.svg"
-              />
-            </span>
-            Edit title
-            <span
-              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-            />
-          </button>
         </div>
       </div>
       <section
-        class="container_fk3n580"
+        class="container_fdgf30v"
       >
         <a
           aria-label="link to home"
@@ -343,7 +321,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
         class="MuiGrid-root header-container container_f1fpfdfq css-plh9qo-MuiGrid-root"
       >
         <div
-          class="toggle-dark-mode f10ie5uy MuiBox-root css-0"
+          class="toggle-dark-mode fkud7h4 MuiBox-root css-0"
         >
           <div
             class="MuiFormGroup-root css-dmmspl-MuiFormGroup-root"
@@ -376,7 +354,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
                 />
               </span>
               <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-13qdlub-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-smpupv-MuiTypography-root"
               >
                 Dark mode
               </span>
@@ -384,39 +362,17 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
           </div>
         </div>
         <div
-          class="header-text MuiBox-root css-v042va"
+          class="header-text MuiBox-root css-0"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-ewqp8h-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-16sjvzh-MuiTypography-root"
           >
             PerfCompare
           </h1>
-          <button
-            aria-label="edit title"
-            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation edit-title-btn css-1rvsmwy-MuiButtonBase-root-MuiButton-root"
-            name="edit-title"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="MuiButton-startIcon MuiButton-iconSizeMedium css-gcc2o7-MuiButton-startIcon"
-            >
-              <img
-                alt="edit-icon"
-                class="icon icon-edit"
-                id="edit-title-icon"
-                src="pencil.svg"
-              />
-            </span>
-            Edit title
-            <span
-              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-            />
-          </button>
         </div>
       </div>
       <section
-        class="container_fk3n580"
+        class="container_fdgf30v"
       >
         <a
           aria-label="link to home"
@@ -518,7 +474,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
         class="MuiGrid-root header-container container_f1fpfdfq css-plh9qo-MuiGrid-root"
       >
         <div
-          class="toggle-dark-mode f10ie5uy MuiBox-root css-0"
+          class="toggle-dark-mode fkud7h4 MuiBox-root css-0"
         >
           <div
             class="MuiFormGroup-root css-dmmspl-MuiFormGroup-root"
@@ -551,7 +507,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
                 />
               </span>
               <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-13qdlub-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-smpupv-MuiTypography-root"
               >
                 Dark mode
               </span>
@@ -559,39 +515,17 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
           </div>
         </div>
         <div
-          class="header-text MuiBox-root css-v042va"
+          class="header-text MuiBox-root css-0"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-ewqp8h-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-16sjvzh-MuiTypography-root"
           >
             PerfCompare
           </h1>
-          <button
-            aria-label="edit title"
-            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation edit-title-btn css-1rvsmwy-MuiButtonBase-root-MuiButton-root"
-            name="edit-title"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="MuiButton-startIcon MuiButton-iconSizeMedium css-gcc2o7-MuiButton-startIcon"
-            >
-              <img
-                alt="edit-icon"
-                class="icon icon-edit"
-                id="edit-title-icon"
-                src="pencil.svg"
-              />
-            </span>
-            Edit title
-            <span
-              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-            />
-          </button>
         </div>
       </div>
       <section
-        class="container_fk3n580"
+        class="container_fdgf30v"
       >
         <a
           aria-label="link to home"
