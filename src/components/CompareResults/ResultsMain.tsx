@@ -99,16 +99,24 @@ function ResultsMain() {
   }
 
   /********** Edit Results Title Section **********/
-  const [editComparisonTitleInputVisible, showEditComparisonTitle] =
-    useState(false);
-  const [titleError, setTitleError] = useState(false);
   const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
-  const initialComparisonTitle = rawSearchParams.get('title') ?? '';
+  const initialComparisonTitle = rawSearchParams.get('title') ?? 'Results';
   const [comparisonTitleName, setComparisonTitleName] = useState(
     initialComparisonTitle,
   );
+  const [previousComparisonTitle, setPreviousComparisonTitle] =
+    useState('Results');
+  const [editComparisonTitleInputVisible, showEditComparisonTitle] =
+    useState(false);
+  const [titleError, setTitleError] = useState(false);
 
   const handleEditInputToggle = () => {
+    if (editComparisonTitleInputVisible) {
+      setComparisonTitleName(previousComparisonTitle); //revert to previous title
+    } else {
+      setPreviousComparisonTitle(comparisonTitleName); //store current title as previous state
+    }
+
     showEditComparisonTitle(!editComparisonTitleInputVisible);
   };
 
@@ -126,7 +134,9 @@ function ResultsMain() {
   };
 
   const onComparisonTitleChange = (value: string) => {
+    // setPreviousComparisonTitle(comparisonTitleName);
     setComparisonTitleName(value);
+
     if (comparisonTitleName) {
       const slug = slugifyComparisonTitle(comparisonTitleName);
       rawSearchParams.set('title', slug);
@@ -143,14 +153,15 @@ function ResultsMain() {
     setTitleError(true);
   };
 
-  const deSlugify = (slug: string | undefined) => {
-    if (!slug) return '';
-    return slug
-      .replace(/-/g, ' ')
-      .replace(/\b\w/g, (char) => char.toUpperCase());
-  };
+  //save for next commit
+  // const deSlugify = (slug: string | undefined) => {
+  //   if (!slug) return '';
+  //   return slug
+  //     .replace(/-/g, ' ')
+  //     .replace(/\b\w/g, (char) => char.toUpperCase());
+  // };
 
-  const deSlugifiedTitle = deSlugify(comparisonTitleName);
+  // const deSlugifiedTitle = deSlugify(comparisonTitleName);
 
   const renderEditSaveCancelBtns = () => {
     return (
@@ -210,15 +221,13 @@ function ResultsMain() {
         {editComparisonTitleInputVisible ? (
           <EditTitleInput
             titleError={titleErrorMessage}
-            comparisonTitleName={deSlugifiedTitle}
             compact={true}
             onChange={onComparisonTitleChange}
+            value={comparisonTitleName}
           />
         ) : (
           <Grid component='h2' item className={styles.title}>
-            {comparisonTitleName && !editComparisonTitleInputVisible
-              ? deSlugifiedTitle
-              : 'Results'}
+            {comparisonTitleName}
           </Grid>
         )}
 

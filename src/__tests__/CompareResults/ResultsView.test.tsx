@@ -386,4 +386,70 @@ describe('Results View', () => {
     expect(graphTitle).toBeDefined();
     expect(graphTitle).toBe('Runs Density Distribution');
   });
+
+  it('Should show the input and cancel and save button when the user click edit title button', async () => {
+    const user = userEvent.setup({ delay: null });
+
+    renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
+
+    const editTitleButton = await screen.findByRole('button', {
+      name: 'edit title',
+    });
+    await user.click(editTitleButton);
+
+    const cancelButton = await screen.findByRole('button', {
+      name: 'cancel title',
+    });
+    const saveButton = await screen.findByRole('button', {
+      name: 'save title',
+    });
+
+    const editTitleInput = screen.getByRole('textbox', {
+      name: 'Write a title for this comparison',
+    });
+
+    expect(cancelButton).toBeInTheDocument();
+    expect(saveButton).toBeInTheDocument();
+    expect(editTitleInput).toBeInTheDocument();
+  });
+
+  it('Should hide the input and show previous title when the user clicks cancel button', async () => {
+    const user = userEvent.setup({ delay: null });
+
+    renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
+
+    await screen.findByRole('heading', { name: 'Results' });
+    expect(screen.getByText('Results')).toBeInTheDocument();
+
+    const editTitleButton = await screen.findByRole('button', {
+      name: 'edit title',
+    });
+    await user.click(editTitleButton);
+    expect(screen.queryByText('Results')).not.toBeInTheDocument();
+
+    const cancelButton = await screen.findByRole('button', {
+      name: 'cancel title',
+    });
+
+    await user.click(cancelButton);
+
+    const editTitleInput = screen.queryByRole('textbox', {
+      name: 'Write a title for this comparison',
+    });
+
+    expect(editTitleInput).not.toBeInTheDocument();
+
+    //input new title and then hit cancel
+    await user.click(editTitleButton);
+    const editTitleInput2 = screen.getByRole('textbox', {
+      name: 'Write a title for this comparison',
+    });
+    await user.type(editTitleInput2, 'New Title');
+    await user.click(cancelButton);
+    expect(screen.queryByText('New Title')).not.toBeInTheDocument();
+    await screen.findByRole('heading', {
+      name: 'Results',
+    });
+    expect(screen.getByText('Results')).toBeInTheDocument();
+  });
 });

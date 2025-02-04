@@ -4,13 +4,13 @@ import TextField from '@mui/material/TextField';
 interface EditTitleInputProps {
   compact: boolean;
   titleError: string | null;
-  comparisonTitleName: string | undefined;
+  value: string;
   onChange: (titleText: string) => unknown;
 }
 
 function EditTitleInput({
   compact,
-  comparisonTitleName,
+  value,
   onChange,
   titleError,
 }: EditTitleInputProps) {
@@ -21,19 +21,16 @@ function EditTitleInput({
     <FormControl fullWidth sx={{ paddingRight: 1 }}>
       <TextField
         fullWidth
-        placeholder={
-          comparisonTitleName ? comparisonTitleName : inputPlaceholder
-        }
+        placeholder={inputPlaceholder}
         inputProps={{
-          'aria-label': comparisonTitleName
-            ? comparisonTitleName
-            : inputPlaceholder,
+          'aria-label': inputPlaceholder,
         }}
         id='results-title-input'
         onChange={(e) => onChange(e.currentTarget.value)}
         size={size}
         className='edit-results-title-text-field'
         error={Boolean(titleError)}
+        value={value}
       />
     </FormControl>
   );
