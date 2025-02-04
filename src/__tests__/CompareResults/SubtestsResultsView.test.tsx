@@ -179,6 +179,22 @@ describe('SubtestsResultsView Component Tests', () => {
     expect(await screen.findByText(/No results found/)).toBeInTheDocument();
   });
 
+  it('Displays error message when a parameter is missing from URL', async () => {
+    setup({
+      element: (
+        <SubtestsResultsView title={Strings.metaData.pageTitle.subtests} />
+      ),
+      route: '/subtests-compare-results/',
+      search:
+        '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&framework=1&baseParentSignature=4774487&newParentSignature=4774487',
+      subtestsResult: [],
+    });
+
+    expect(
+      await screen.findByText(/Error: The parameter newRepo is missing./),
+    ).toBeInTheDocument();
+  });
+
   describe('table sorting', () => {
     async function setupForSorting({
       extraParameters,
