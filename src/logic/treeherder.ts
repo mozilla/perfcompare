@@ -6,7 +6,7 @@ import { Framework, TimeRange } from '../types/types';
 
 // This file contains functions to request the Treeherder API
 
-export const treeherderBaseURL = 'http://localhost:5000';
+export const treeherderBaseURL = 'https://treeherder.mozilla.org';
 
 type FetchProps = {
   baseRepo: Repository['name'];
