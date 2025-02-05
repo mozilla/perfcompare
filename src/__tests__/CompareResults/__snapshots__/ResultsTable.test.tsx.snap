@@ -233,10 +233,10 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                             <input
                               aria-invalid="false"
-                              aria-label="Search base by ID number or author email"
+                              aria-label="Search base by ID number, author email or bug number"
                               class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-jrmsot-MuiInputBase-input-MuiOutlinedInput-input"
                               id="search-base-input"
-                              placeholder="Search base by ID number or author email"
+                              placeholder="Search base by ID number, author email or bug number"
                               type="text"
                               value=""
                             />
@@ -523,10 +523,10 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                             <input
                               aria-invalid="false"
-                              aria-label="Search revision by ID number or author email"
+                              aria-label="Search revision by ID number, author email or bug number"
                               class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-jrmsot-MuiInputBase-input-MuiOutlinedInput-input"
                               id="search-new-input"
-                              placeholder="Search revision by ID number or author email"
+                              placeholder="Search revision by ID number, author email or bug number"
                               type="text"
                               value=""
                             />
