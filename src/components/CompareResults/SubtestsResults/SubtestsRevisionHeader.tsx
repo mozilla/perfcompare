@@ -78,6 +78,7 @@ function getSuite(
   docsURL: string,
   isLinkSupported: boolean,
 ) {
+  const suiteLink = Strings.components.revisionRow.title.suiteLink;
   if (isLinkSupported) {
     return (
       <>
@@ -86,6 +87,7 @@ function getSuite(
           underline='hover'
           target='_blank'
           href={docsURL}
+          title={suiteLink}
         >
           {header.suite}
         </Link>
