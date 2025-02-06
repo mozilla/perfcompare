@@ -440,7 +440,13 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="cell base-header"
                   role="columnheader"
                 >
-                  Base
+                  <span
+                    aria-label="A summary of all values from Base runs using a mean."
+                    class="MuiBox-root css-4g6ai3"
+                    data-mui-internal-clone-element="true"
+                  >
+                    Base
+                  </span>
                 </div>
                 <div
                   class="cell comparisonSign-header"
@@ -450,7 +456,13 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="cell new-header"
                   role="columnheader"
                 >
-                  New
+                  <span
+                    aria-label="A summary of all values from New runs using a mean."
+                    class="MuiBox-root css-4g6ai3"
+                    data-mui-internal-clone-element="true"
+                  >
+                    New
+                  </span>
                 </div>
                 <div
                   class="cell status-header"
@@ -492,48 +504,19 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="cell delta-header"
                   role="columnheader"
                 >
-                  <button
-                    aria-label="Delta (Click to sort by this column)"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-1awls4w-MuiButtonBase-root-MuiButton-root"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <svg
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
-                      data-testid="SwapVertIcon"
-                      focusable="false"
-                      role="img"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
-                      />
-                      <title>
-                        Not sorted by Delta
-                      </title>
-                    </svg>
-                    Delta
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                    />
-                  </button>
-                </div>
-                <div
-                  class="cell confidence-header"
-                  role="columnheader"
-                >
-                  <div
-                    class="MuiButtonGroup-root MuiButtonGroup-contained MuiButtonGroup-disableElevation css-t8t4s9-MuiButtonGroup-root"
-                    role="group"
+                  <span
+                    aria-label="The percentage difference between the Base and New values"
+                    class="MuiBox-root css-4g6ai3"
+                    data-mui-internal-clone-element="true"
                   >
                     <button
-                      aria-label="Confidence (Click to sort by this column)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton css-gknth7-MuiButtonBase-root-MuiButton-root"
+                      aria-label="Delta (Click to sort by this column)"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-1awls4w-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
                       <svg
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1mecf1h-MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
                         data-testid="SwapVertIcon"
                         focusable="false"
                         role="img"
@@ -543,51 +526,98 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                           d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
                         />
                         <title>
-                          Not sorted by Confidence
+                          Not sorted by Delta
                         </title>
                       </svg>
+                      Delta
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </button>
-                    <button
-                      aria-haspopup="true"
-                      aria-label="Confidence (Click to filter values)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton css-uajdoe-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
+                  </span>
+                </div>
+                <div
+                  class="cell confidence-header"
+                  role="columnheader"
+                >
+                  <span
+                    aria-label="Calculated using a Student's T-test comparison. Low is anything under a T value of 3, Medium is between 3 and 5, and High is anything higher than 5."
+                    class="MuiBox-root css-4g6ai3"
+                    data-mui-internal-clone-element="true"
+                  >
+                    <div
+                      class="MuiButtonGroup-root MuiButtonGroup-contained MuiButtonGroup-disableElevation css-t8t4s9-MuiButtonGroup-root"
+                      role="group"
                     >
-                      Confidence
-                      <div
-                        aria-label="4 items selected"
-                        class="MuiBox-root css-18uhbjh"
+                      <button
+                        aria-label="Confidence (Click to sort by this column)"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton css-gknth7-MuiButtonBase-root-MuiButton-root"
+                        tabindex="0"
+                        type="button"
                       >
-                        (
-                        4
-                        )
-                      </div>
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                        data-testid="KeyboardArrowDownIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                        <svg
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1mecf1h-MuiSvgIcon-root"
+                          data-testid="SwapVertIcon"
+                          focusable="false"
+                          role="img"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
+                          />
+                          <title>
+                            Not sorted by Confidence
+                          </title>
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </svg>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
-                  </div>
+                      </button>
+                      <button
+                        aria-haspopup="true"
+                        aria-label="Confidence (Click to filter values)"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton css-uajdoe-MuiButtonBase-root-MuiButton-root"
+                        tabindex="0"
+                        type="button"
+                      >
+                        Confidence
+                        <div
+                          aria-label="4 items selected"
+                          class="MuiBox-root css-18uhbjh"
+                        >
+                          (
+                          4
+                          )
+                        </div>
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                          data-testid="KeyboardArrowDownIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </button>
+                    </div>
+                  </span>
                 </div>
                 <div
                   class="cell runs-header"
                   role="columnheader"
                 >
-                  Total Runs
+                  <span
+                    aria-label="The total number of tasks/jobs that ran for this metric."
+                    class="MuiBox-root css-4g6ai3"
+                    data-mui-internal-clone-element="true"
+                  >
+                    Total Runs
+                  </span>
                 </div>
                 <div
                   class="cell buttons-header"
@@ -734,7 +764,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                   <button
-                    aria-controls=":r3:"
+                    aria-controls=":r8:"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -905,7 +935,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                   <button
-                    aria-controls=":r4:"
+                    aria-controls=":r9:"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -1076,7 +1106,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                   <button
-                    aria-controls=":r5:"
+                    aria-controls=":ra:"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -1236,7 +1266,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                   <button
-                    aria-controls=":r6:"
+                    aria-controls=":rb:"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -1908,7 +1938,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                           aria-invalid="false"
                           aria-label="Search by title, platform, revision or options"
                           class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-rg83rj-MuiInputBase-input-MuiOutlinedInput-input"
-                          id=":r1h:"
+                          id=":r2k:"
                           placeholder="Search results"
                           type="text"
                           value=""
@@ -2050,7 +2080,13 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="cell base-header"
                   role="columnheader"
                 >
-                  Base
+                  <span
+                    aria-label="A summary of all values from Base runs using a mean."
+                    class="MuiBox-root css-4g6ai3"
+                    data-mui-internal-clone-element="true"
+                  >
+                    Base
+                  </span>
                 </div>
                 <div
                   class="cell comparisonSign-header"
@@ -2060,7 +2096,13 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="cell new-header"
                   role="columnheader"
                 >
-                  New
+                  <span
+                    aria-label="A summary of all values from New runs using a mean."
+                    class="MuiBox-root css-4g6ai3"
+                    data-mui-internal-clone-element="true"
+                  >
+                    New
+                  </span>
                 </div>
                 <div
                   class="cell status-header"
@@ -2102,48 +2144,19 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="cell delta-header"
                   role="columnheader"
                 >
-                  <button
-                    aria-label="Delta (Click to sort by this column)"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-1awls4w-MuiButtonBase-root-MuiButton-root"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <svg
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
-                      data-testid="SwapVertIcon"
-                      focusable="false"
-                      role="img"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
-                      />
-                      <title>
-                        Not sorted by Delta
-                      </title>
-                    </svg>
-                    Delta
-                    <span
-                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                    />
-                  </button>
-                </div>
-                <div
-                  class="cell confidence-header"
-                  role="columnheader"
-                >
-                  <div
-                    class="MuiButtonGroup-root MuiButtonGroup-contained MuiButtonGroup-disableElevation css-t8t4s9-MuiButtonGroup-root"
-                    role="group"
+                  <span
+                    aria-label="The percentage difference between the Base and New values"
+                    class="MuiBox-root css-4g6ai3"
+                    data-mui-internal-clone-element="true"
                   >
                     <button
-                      aria-label="Confidence (Click to sort by this column)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton css-gknth7-MuiButtonBase-root-MuiButton-root"
+                      aria-label="Delta (Click to sort by this column)"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-1awls4w-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
                       <svg
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1mecf1h-MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-xzeo75-MuiSvgIcon-root"
                         data-testid="SwapVertIcon"
                         focusable="false"
                         role="img"
@@ -2153,51 +2166,98 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                           d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
                         />
                         <title>
-                          Not sorted by Confidence
+                          Not sorted by Delta
                         </title>
                       </svg>
+                      Delta
                       <span
                         class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </button>
-                    <button
-                      aria-haspopup="true"
-                      aria-label="Confidence (Click to filter values)"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton css-uajdoe-MuiButtonBase-root-MuiButton-root"
-                      tabindex="0"
-                      type="button"
+                  </span>
+                </div>
+                <div
+                  class="cell confidence-header"
+                  role="columnheader"
+                >
+                  <span
+                    aria-label="Calculated using a Student's T-test comparison. Low is anything under a T value of 3, Medium is between 3 and 5, and High is anything higher than 5."
+                    class="MuiBox-root css-4g6ai3"
+                    data-mui-internal-clone-element="true"
+                  >
+                    <div
+                      class="MuiButtonGroup-root MuiButtonGroup-contained MuiButtonGroup-disableElevation css-t8t4s9-MuiButtonGroup-root"
+                      role="group"
                     >
-                      Confidence
-                      <div
-                        aria-label="4 items selected"
-                        class="MuiBox-root css-18uhbjh"
+                      <button
+                        aria-label="Confidence (Click to sort by this column)"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton css-gknth7-MuiButtonBase-root-MuiButton-root"
+                        tabindex="0"
+                        type="button"
                       >
-                        (
-                        4
-                        )
-                      </div>
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                        data-testid="KeyboardArrowDownIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                        <svg
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1mecf1h-MuiSvgIcon-root"
+                          data-testid="SwapVertIcon"
+                          focusable="false"
+                          role="img"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
+                          />
+                          <title>
+                            Not sorted by Confidence
+                          </title>
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
-                      </svg>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
-                  </div>
+                      </button>
+                      <button
+                        aria-haspopup="true"
+                        aria-label="Confidence (Click to filter values)"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton css-uajdoe-MuiButtonBase-root-MuiButton-root"
+                        tabindex="0"
+                        type="button"
+                      >
+                        Confidence
+                        <div
+                          aria-label="4 items selected"
+                          class="MuiBox-root css-18uhbjh"
+                        >
+                          (
+                          4
+                          )
+                        </div>
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                          data-testid="KeyboardArrowDownIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </button>
+                    </div>
+                  </span>
                 </div>
                 <div
                   class="cell runs-header"
                   role="columnheader"
                 >
-                  Total Runs
+                  <span
+                    aria-label="The total number of tasks/jobs that ran for this metric."
+                    class="MuiBox-root css-4g6ai3"
+                    data-mui-internal-clone-element="true"
+                  >
+                    Total Runs
+                  </span>
                 </div>
                 <div
                   class="cell buttons-header"
@@ -2344,7 +2404,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                   <button
-                    aria-controls=":r1k:"
+                    aria-controls=":r2s:"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -2515,7 +2575,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                   <button
-                    aria-controls=":r1l:"
+                    aria-controls=":r2t:"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -2686,7 +2746,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                   <button
-                    aria-controls=":r1m:"
+                    aria-controls=":r2u:"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -2846,7 +2906,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                   <button
-                    aria-controls=":r1n:"
+                    aria-controls=":r2v:"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
