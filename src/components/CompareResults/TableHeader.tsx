@@ -134,7 +134,7 @@ function FilterableColumnHeader({
         </Box>
         <KeyboardArrowDownIcon />
       </Button>
-      <Menu {...bindMenu(popupState)}>
+      <Menu sx={{ zIndex: 2000 }} {...bindMenu(popupState)}>
         <MenuItem dense={true} onClick={onClearFilter}>
           Select all values
         </MenuItem>
