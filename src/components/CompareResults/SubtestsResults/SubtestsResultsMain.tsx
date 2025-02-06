@@ -50,16 +50,12 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
   useEffect(() => {
     let isMounted = true;
 
-    results
-      .then((data) => {
-        if (isMounted) {
-          setResolvedResults(data);
-          setIsLoading(false);
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+    void results.then((data) => {
+      if (isMounted) {
+        setResolvedResults(data);
+        setIsLoading(false);
+      }
+    });
 
     return () => {
       isMounted = false;
