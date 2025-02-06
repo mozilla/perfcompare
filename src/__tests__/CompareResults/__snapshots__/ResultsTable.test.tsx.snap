@@ -673,7 +673,7 @@ exports[`Results Table Should match snapshot 1`] = `
           >
             <header>
               <div
-                class="MuiGrid-root MuiGrid-container css-190mbnk-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-container css-1dbf8c7-MuiGrid-root"
               >
                 <h2
                   class="MuiGrid-root MuiGrid-item f1q8wx css-j8gwlw-MuiGrid-root"
@@ -691,7 +691,7 @@ exports[`Results Table Should match snapshot 1`] = `
                     class="MuiButton-startIcon MuiButton-iconSizeMedium css-gcc2o7-MuiButton-startIcon"
                   >
                     <img
-                      alt="edit-icon"
+                      alt="edit-title-icon"
                       class="icon icon-edit"
                       id="edit-title-icon"
                       src="pencil.svg"
@@ -709,7 +709,7 @@ exports[`Results Table Should match snapshot 1`] = `
                 </h2>
               </div>
               <div
-                class="MuiGrid-root MuiGrid-container css-190mbnk-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-container css-1dbf8c7-MuiGrid-root"
               >
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-standardInfo MuiAlert-standard f96or0t css-ab9tfo-MuiPaper-root-MuiAlert-root"

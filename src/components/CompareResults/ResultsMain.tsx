@@ -1,7 +1,6 @@
 import { Fragment, useState } from 'react';
 
-import { Button, Link } from '@mui/material';
-import { Grid } from '@mui/material';
+import { Button, Grid, Link } from '@mui/material';
 import Alert from '@mui/material/Alert';
 import { Container } from '@mui/system';
 import { useLoaderData } from 'react-router-dom';
@@ -68,7 +67,7 @@ function ResultsMain() {
     alignItems: 'center',
     gap: '9px',
     margin: `0 0 ${Spacing.Medium}px 0`,
-    maxWidth: '568px',
+    //PR notes: removed the maxWidth sinec it interfered with styles
   };
 
   const subtitles = {
@@ -108,7 +107,6 @@ function ResultsMain() {
     useState('Results');
   const [editComparisonTitleInputVisible, showEditComparisonTitle] =
     useState(false);
-  const [titleError, setTitleError] = useState(false);
 
   const handleEditInputToggle = () => {
     if (editComparisonTitleInputVisible) {
@@ -121,126 +119,80 @@ function ResultsMain() {
   };
 
   const slugifyComparisonTitle = (title: string) => {
-    title
-      /**
-       *please see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize#examples
-       */
-      .normalize('NFD') // Normalize to decompose diacritics (e.g., é -> e)
-      .replace(/[\u0300-\u036f]/g, '') // Remove accents
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, '-') // Convert non-alphanumeric to hyphen
-      .replace(/^-+|-+$/g, ''); // Trim hyphens from start and end
-    return title;
+    return (
+      title
+        /**
+         *please see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize#examples
+         */
+        .normalize('NFD') // Normalize to decompose diacritics (e.g., é -> e)
+        .replace(/[\u0300-\u036f]/g, '') // Remove accents
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-') // Convert non-alphanumeric to hyphen
+        .replace(/^-+|-+$/g, '') // Trim hyphens from start and end
+    );
   };
 
   const onComparisonTitleChange = (value: string) => {
-    // setPreviousComparisonTitle(comparisonTitleName);
+    //PR notes: fix for truncated letter at the end of entry
+    const slug = slugifyComparisonTitle(value);
+    rawSearchParams.set('title', slug);
     setComparisonTitleName(value);
-
-    if (comparisonTitleName) {
-      const slug = slugifyComparisonTitle(comparisonTitleName);
-      rawSearchParams.set('title', slug);
-    } else {
-      rawSearchParams.delete('title');
-    }
   };
 
   const OnComparisonTitleSave = () => {
-    if (comparisonTitleName) {
-      updateRawSearchParams(rawSearchParams);
-      showEditComparisonTitle(!editComparisonTitleInputVisible);
-    }
-    setTitleError(true);
+    updateRawSearchParams(rawSearchParams);
+    showEditComparisonTitle(!editComparisonTitleInputVisible);
   };
 
-  //save for next commit
-  // const deSlugify = (slug: string | undefined) => {
-  //   if (!slug) return '';
-  //   return slug
-  //     .replace(/-/g, ' ')
-  //     .replace(/\b\w/g, (char) => char.toUpperCase());
-  // };
-
-  // const deSlugifiedTitle = deSlugify(comparisonTitleName);
-
-  const renderEditSaveCancelBtns = () => {
-    return (
-      <>
-        {editComparisonTitleInputVisible ? (
-          <>
-            <Button
-              name='cancel-title'
-              aria-label='cancel title'
-              className='cancel-btn'
-              variant='text'
-              onClick={handleEditInputToggle}
-            >
-              Cancel
-            </Button>
-            <Button
-              name='save-title'
-              aria-label='save title'
-              className='save-btn'
-              variant='text'
-              onClick={OnComparisonTitleSave}
-            >
-              Save
-            </Button>
-          </>
-        ) : (
-          <Button
-            name='edit-title'
-            aria-label='edit title'
-            startIcon={buttonIcon}
-            className='edit-title-btn'
-            variant='text'
-            onClick={handleEditInputToggle}
-            sx={{ fontSize: '0.75rem' }}
-          >
-            Edit title
-          </Button>
-        )}
-      </>
-    );
+  //PR notes: enabled function to de-slugify the title and only capitalize the first letter
+  const deSlugify = (slug: string | undefined) => {
+    if (!slug) return '';
+    return slug.replace(/-/g, ' ').replace(/^\w/, (char) => char.toUpperCase());
   };
+
+  const deSlugifiedTitle = deSlugify(comparisonTitleName);
 
   const buttonIcon = (
     <img
       id='edit-title-icon'
       className='icon icon-edit'
       src={themeMode === 'light' ? pencil.toString() : pencilDark.toString()}
-      alt='edit-icon'
+      alt='edit-title-icon'
     />
   );
-
-  const titleErrorMessage = titleError ? 'Title cannot be empty' : null;
-
-  const renderResultsTableTitleOrInput = () => {
-    return (
-      <>
-        {editComparisonTitleInputVisible ? (
-          <EditTitleInput
-            titleError={titleErrorMessage}
-            compact={true}
-            onChange={onComparisonTitleChange}
-            value={comparisonTitleName}
-          />
-        ) : (
-          <Grid component='h2' item className={styles.title}>
-            {comparisonTitleName}
-          </Grid>
-        )}
-
-        {renderEditSaveCancelBtns()}
-      </>
-    );
-  };
 
   return (
     <Container className={styles.container} data-testid='results-main'>
       <header>
         <Grid container sx={titleContainerSx}>
-          {renderResultsTableTitleOrInput()}
+          <>
+            {editComparisonTitleInputVisible ? (
+              <EditTitleInput
+                compact={true}
+                onChange={onComparisonTitleChange}
+                onSave={OnComparisonTitleSave}
+                handleToggle={handleEditInputToggle}
+                value={deSlugifiedTitle}
+              />
+            ) : (
+              <>
+                <Grid component='h2' item className={styles.title}>
+                  {deSlugifiedTitle}
+                </Grid>
+                <Button
+                  name='edit-title'
+                  aria-label='edit title'
+                  startIcon={buttonIcon}
+                  className='edit-title-btn'
+                  variant='text'
+                  onClick={handleEditInputToggle}
+                  sx={{ fontSize: '0.75rem' }}
+                >
+                  Edit title
+                </Button>
+              </>
+            )}
+          </>
           <Grid component='h2' item className={styles.subtitle}>
             {subtitles[view]}
           </Grid>
