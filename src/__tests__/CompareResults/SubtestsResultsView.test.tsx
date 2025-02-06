@@ -343,4 +343,25 @@ describe('SubtestsViewCompareOverTime Component Tests', () => {
     await screen.findByText('dhtml.html');
     expect(document.body).toMatchSnapshot();
   });
+
+  it('should render the subtests over time results view and match snapshot when there is an error', async () => {
+    setup({
+      element: (
+        <SubtestsOverTimeResultsView
+          title={Strings.metaData.pageTitle.subtests}
+        />
+      ),
+      route: '/subtests-compare-over-time-results/',
+      search:
+        '?baseRev=f49863193c13c1def4db2dd3ea9c5d6bd9d517a7&baseRepo=mozilla-central&newRev=2cb6128d7dca8c9a9266b3505d64d55ac1bcc8a8&newRepo=mozilla-central&framework=1&selectedTimeRange=86400&newParentSignature=4774487',
+      subtestsResult: [],
+    });
+
+    expect(
+      await screen.findByText(
+        /Error: The parameter baseParentSignature is missing./,
+      ),
+    ).toBeInTheDocument();
+    expect(document.body).toMatchSnapshot();
+  });
 });
