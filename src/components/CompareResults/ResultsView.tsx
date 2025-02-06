@@ -40,6 +40,7 @@ function ResultsView(props: ResultsViewProps) {
       data-testid='beta-version-compare-results'
     >
       <PerfCompareHeader />
+
       <section className={sectionStyles.container}>
         <LinkToHome />
         <CompareWithBase

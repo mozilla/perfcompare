@@ -1,0 +1,106 @@
+import { useEffect, useState, useCallback } from 'react';
+
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import FormControl from '@mui/material/FormControl';
+import TextField from '@mui/material/TextField';
+
+interface EditTitleInputProps {
+  compact: boolean;
+  value: string;
+  handleToggle: () => unknown;
+  onChange: (titleText: string) => unknown;
+  onSave: () => unknown;
+}
+
+function EditTitleInput({
+  compact,
+  value,
+  onChange,
+  onSave,
+  handleToggle,
+}: EditTitleInputProps) {
+  const size = compact ? 'small' : undefined;
+  const inputPlaceholder = 'Write a title for this comparison';
+  //PR notes: moved title error and message state to the edit input component
+  const [titleError, setTitleError] = useState(false);
+  const titleErrorMsg = 'Title cannot be empty';
+
+  //PR notes: added keypress event listener to handle escape key
+  const handleEscKeypress = useCallback((e: KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      handleToggle();
+    }
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleEscKeypress);
+    return () => {
+      document.removeEventListener('keydown', handleEscKeypress);
+    };
+  }, [handleEscKeypress]);
+
+  return (
+    //PR notes: added form element to handle form submission and enter key
+    <form>
+      <FormControl
+        fullWidth
+        sx={{ flexDirection: 'row', width: 'auto' }}
+        focused
+      >
+        <TextField
+          sx={{ minWidth: '568PX' }}
+          placeholder={inputPlaceholder}
+          inputProps={{
+            'aria-label': inputPlaceholder,
+          }}
+          id='results-title-input'
+          onChange={(e) => {
+            setTitleError(false);
+            onChange(e.target.value);
+          }}
+          size={size}
+          className='edit-results-title-text-field'
+          error={titleError}
+          value={value}
+          helperText={titleError ? titleErrorMsg : ''}
+          FormHelperTextProps={{ sx: { padding: 0, margin: 0 } }}
+        />
+        <Box
+          className='edit-title-btns'
+          sx={{ display: 'flex', justifyContent: 'flex-end', paddingLeft: 1 }}
+        >
+          {/* PR notes: added cancel and save buttons to edit TitleInput */}
+          <Button
+            name='cancel-title'
+            aria-label='cancel title'
+            className='cancel-btn'
+            variant='text'
+            onClick={handleToggle}
+          >
+            Cancel
+          </Button>
+          <Button
+            name='save-title'
+            aria-label='save title'
+            className='save-btn'
+            variant='text'
+            type='submit'
+            onClick={(e) => {
+              if (!value.trim()) {
+                e.preventDefault();
+                setTitleError(true);
+              } else {
+                onSave();
+              }
+            }}
+          >
+            Save
+          </Button>
+        </Box>
+      </FormControl>
+    </form>
+  );
+}
+
+export default EditTitleInput;

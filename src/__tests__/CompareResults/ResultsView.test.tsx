@@ -386,4 +386,91 @@ describe('Results View', () => {
     expect(graphTitle).toBeDefined();
     expect(graphTitle).toBe('Runs Density Distribution');
   });
+
+  it('Should show the input, cancel and save button when the user click edit title button', async () => {
+    const user = userEvent.setup({ delay: null });
+
+    renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
+
+    const editTitleButton = await screen.findByRole('button', {
+      name: 'edit title',
+    });
+
+    await user.click(editTitleButton);
+
+    const cancelButton = await screen.findByRole('button', {
+      name: 'cancel title',
+    });
+    const saveButton = await screen.findByRole('button', {
+      name: 'save title',
+    });
+
+    const editTitleInput = screen.getByRole('textbox', {
+      name: 'Write a title for this comparison',
+    });
+
+    expect(cancelButton).toBeInTheDocument();
+    expect(saveButton).toBeInTheDocument();
+    expect(editTitleInput).toBeInTheDocument();
+  });
+
+  it('Should hide the input and show default title when the user clicks cancel button', async () => {
+    const user = userEvent.setup({ delay: null });
+
+    renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
+
+    await screen.findByRole('heading', { name: 'Results' });
+
+    const editTitleButton = await screen.findByRole('button', {
+      name: 'edit title',
+    });
+
+    await user.click(editTitleButton);
+
+    expect(screen.queryByText('Results')).not.toBeInTheDocument();
+
+    const cancelButton = await screen.findByRole('button', {
+      name: 'cancel title',
+    });
+
+    await user.click(cancelButton);
+
+    const editTitleInput = screen.queryByRole('textbox', {
+      name: 'Write a title for this comparison',
+    });
+
+    expect(editTitleInput).not.toBeInTheDocument();
+    expect(screen.getByText('Results')).toBeInTheDocument();
+  });
+
+  it('Should show the previous title after the user inputs a new title and clicks the cancel button', async () => {
+    const user = userEvent.setup({ delay: null });
+
+    renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
+
+    await screen.findByRole('heading', { name: 'Results' });
+
+    const editTitleButton = await screen.findByRole('button', {
+      name: 'edit title',
+    });
+
+    await user.click(editTitleButton);
+
+    const cancelButton = await screen.findByRole('button', {
+      name: 'cancel title',
+    });
+
+    const editTitleInput = screen.getByRole('textbox', {
+      name: 'Write a title for this comparison',
+    });
+
+    await user.type(editTitleInput, 'New Title');
+    await user.click(cancelButton);
+
+    expect(screen.queryByText('New Title')).not.toBeInTheDocument();
+    await screen.findByRole('heading', {
+      name: 'Results',
+    });
+    expect(screen.getByText('Results')).toBeInTheDocument();
+  });
 });

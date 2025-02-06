@@ -8,7 +8,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
       data-testid="beta-version-compare-subtests-results"
     >
       <div
-        class="MuiGrid-root header-container container_f1ocj467 css-plh9qo-MuiGrid-root"
+        class="MuiGrid-root header-container container_f1fpfdfq css-plh9qo-MuiGrid-root"
       >
         <div
           class="toggle-dark-mode f10ie5uy MuiBox-root css-0"
@@ -55,7 +55,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
           class="header-text MuiBox-root css-0"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-160ox9e-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-ewqp8h-MuiTypography-root"
           >
             PerfCompare
           </h1>
@@ -1626,7 +1626,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
       class="fcndgf6"
     >
       <div
-        class="MuiGrid-root header-container container_f1ocj467 css-plh9qo-MuiGrid-root"
+        class="MuiGrid-root header-container container_f1fpfdfq css-plh9qo-MuiGrid-root"
       >
         <div
           class="toggle-dark-mode f10ie5uy MuiBox-root css-0"
@@ -1673,7 +1673,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
           class="header-text MuiBox-root css-0"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-160ox9e-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-ewqp8h-MuiTypography-root"
           >
             PerfCompare
           </h1>
