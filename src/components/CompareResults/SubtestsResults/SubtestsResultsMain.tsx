@@ -47,7 +47,6 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
     [],
   );
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
   useEffect(() => {
     let isMounted = true;
 
@@ -59,20 +58,13 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
         }
       })
       .catch((err) => {
-        if (isMounted) {
-          setError(err as string);
-          setIsLoading(false);
-        }
+        console.error(err);
       });
 
     return () => {
       isMounted = false;
     };
   }, []);
-
-  if (error) {
-    throw new Error(error);
-  }
 
   const themeColor100 =
     themeMode === 'light' ? Colors.Background300 : Colors.Background100Dark;
