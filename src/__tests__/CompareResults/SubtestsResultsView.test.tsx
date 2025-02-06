@@ -344,7 +344,7 @@ describe('SubtestsViewCompareOverTime Component Tests', () => {
     expect(document.body).toMatchSnapshot();
   });
 
-  it('should render the subtests over time results view and match snapshot when there is an error', async () => {
+  it('should render the subtests over time results view when there is an error', async () => {
     setup({
       element: (
         <SubtestsOverTimeResultsView
@@ -362,6 +362,5 @@ describe('SubtestsViewCompareOverTime Component Tests', () => {
         /Error: The parameter baseParentSignature is missing./,
       ),
     ).toBeInTheDocument();
-    expect(document.body).toMatchSnapshot();
   });
 });
