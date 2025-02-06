@@ -40,7 +40,7 @@ const typography = {
   fontFamily: 'SF Pro',
   fontStyle: 'normal',
   fontWeight: 400,
-  fontSize: '13px',
+  fontSize: '16px',
   lineHeight: '1.5',
 };
 
