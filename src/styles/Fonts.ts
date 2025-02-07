@@ -20,7 +20,7 @@ const sharedFontStyles = {
 export const FontsRaw = {
   HeadingDefault: {
     ...sharedFontStyles,
-    lineHeight: '22px',
+    lineHeight: '1.5',
     fontWeight: '600',
     fontSize: '17px',
     fontFamily: 'SF Pro',
@@ -29,14 +29,14 @@ export const FontsRaw = {
 
   HeadingXS: {
     ...sharedFontStyles,
-    lineHeight: '28px',
+    lineHeight: '1.5',
     fontSize: '24px',
     fontFamily: 'Metropolis',
   },
 
   BodyDefault: {
     ...sharedFontStyles,
-    lineHeight: '16px',
+    lineHeight: '1.5',
     fontWeight: '400',
     fontSize: '14px',
     fontFamily: 'SF Pro',
@@ -44,7 +44,7 @@ export const FontsRaw = {
 
   BodySmall: {
     ...sharedFontStyles,
-    lineHeight: '14px',
+    lineHeight: '1.5',
     fontWeight: '400',
     fontSize: '12px',
     fontFamily: 'SF Pro',
@@ -54,7 +54,7 @@ export const FontsRaw = {
 
   HeadingDefaultDark: {
     ...sharedFontStyles,
-    lineHeight: '22px',
+    lineHeight: '1.5',
     fontWeight: '600',
     fontSize: '17px',
     fontFamily: 'SF Pro',
@@ -62,14 +62,14 @@ export const FontsRaw = {
 
   HeadingXSDark: {
     ...sharedFontStyles,
-    lineHeight: '28px',
+    lineHeight: '1.5',
     fontSize: '24px',
     fontFamily: 'Metropolis',
   },
 
   BodyDefaultDark: {
     ...sharedFontStyles,
-    lineHeight: '16px',
+    lineHeight: '1.5',
     fontWeight: '400',
     fontSize: '14px',
     fontFamily: 'SF Pro',
@@ -77,7 +77,7 @@ export const FontsRaw = {
 
   BodySmallDark: {
     ...sharedFontStyles,
-    lineHeight: '14px',
+    lineHeight: '1.5',
     fontWeight: '400',
     fontSize: '12px',
     fontFamily: 'SF Pro',

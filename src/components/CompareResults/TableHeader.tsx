@@ -307,7 +307,7 @@ function TableHeader({
       fontStyle: 'normal',
       fontWeight: 590,
       fontSize: '13px',
-      lineHeight: '16px',
+      lineHeight: '1.5',
     }),
   };
 

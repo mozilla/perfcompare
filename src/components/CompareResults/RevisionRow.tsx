@@ -41,7 +41,7 @@ const typography = {
   fontStyle: 'normal',
   fontWeight: 400,
   fontSize: '13px',
-  lineHeight: '16px',
+  lineHeight: '1.5',
 };
 
 const stylesLight = {
