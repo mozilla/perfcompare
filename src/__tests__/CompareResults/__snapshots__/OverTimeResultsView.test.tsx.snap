@@ -249,7 +249,7 @@ exports[`Results View The table should match snapshot and other elements should 
       </div>
     </div>
     <div
-      class="f75bkdv fr2n4tx"
+      class="f75bkdv f19sido0"
       data-testid="table-header"
       role="row"
     >
@@ -508,7 +508,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="fh103jg"
             >
               <div
-                class="f897l9y"
+                class="f1mgfhdi"
               >
                 <strong>
                   <a
@@ -524,7 +524,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </strong>
                  
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f897l9y css-1qhous5-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1mgfhdi css-1qhous5-MuiTypography-root-MuiLink-root"
                   href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
                   target="_blank"
                   title="open treeherder view for spam"
@@ -566,7 +566,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="fw0pvlu"
             >
               <div
-                class="revisionRow fqyfrhr fp4ugv1 MuiBox-root css-1txhl5e"
+                class="revisionRow fqyfrhr f1vh4jdk MuiBox-root css-1txhl5e"
                 role="row"
               >
                 <div
@@ -791,7 +791,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow fqyfrhr fp4ugv1 MuiBox-root css-1txhl5e"
+                class="revisionRow fqyfrhr f1vh4jdk MuiBox-root css-1txhl5e"
                 role="row"
               >
                 <div
@@ -1017,7 +1017,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow fqyfrhr fp4ugv1 MuiBox-root css-1txhl5e"
+                class="revisionRow fqyfrhr f1vh4jdk MuiBox-root css-1txhl5e"
                 role="row"
               >
                 <div
@@ -1221,7 +1221,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow fqyfrhr fp4ugv1 MuiBox-root css-1txhl5e"
+                class="revisionRow fqyfrhr f1vh4jdk MuiBox-root css-1txhl5e"
                 role="row"
               >
                 <div

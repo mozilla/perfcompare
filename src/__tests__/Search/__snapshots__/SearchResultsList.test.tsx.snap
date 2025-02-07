@@ -2,7 +2,7 @@
 
 exports[`SearchResultsList Should apply dark and light mode styles when theme button is toggled: after toggling dark mode 1`] = `
 <div
-  class="fluj5ii results-list-dark MuiBox-root css-y1kcm0"
+  class="fcrjm0d results-list-dark MuiBox-root css-y1kcm0"
   data-testid="list-mode"
   id="search-results-list"
 >
@@ -62,7 +62,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
           class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
         >
           <span
-            class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-6bdtsh-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-4an9f3-MuiTypography-root"
           >
             <span
               class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
@@ -178,7 +178,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
           class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
         >
           <span
-            class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-6bdtsh-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-4an9f3-MuiTypography-root"
           >
             <span
               class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
@@ -294,7 +294,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
           class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
         >
           <span
-            class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-6bdtsh-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-4an9f3-MuiTypography-root"
           >
             <span
               class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
@@ -410,7 +410,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
           class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
         >
           <span
-            class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-6bdtsh-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-4an9f3-MuiTypography-root"
           >
             <span
               class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
@@ -526,7 +526,7 @@ exports[`SearchResultsList Should apply dark and light mode styles when theme bu
           class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
         >
           <span
-            class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-6bdtsh-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-4an9f3-MuiTypography-root"
           >
             <span
               class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
@@ -610,7 +610,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
         class="MuiGrid-root header-container container_fllbiki css-plh9qo-MuiGrid-root"
       >
         <div
-          class="toggle-dark-mode f10ie5uy MuiBox-root css-0"
+          class="toggle-dark-mode fc950xb MuiBox-root css-0"
         >
           <div
             class="MuiFormGroup-root css-dmmspl-MuiFormGroup-root"
@@ -643,7 +643,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                 />
               </span>
               <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-13qdlub-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1m50to5-MuiTypography-root"
               >
                 Dark mode
               </span>
@@ -659,7 +659,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
             PerfCompare
           </h1>
           <div
-            class="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-tagline css-hbzfo1-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-tagline css-1bmo7ho-MuiTypography-root"
           >
             Analyze results of performance tests to detect regressions and identify opportunities for improvement.
           </div>
@@ -676,11 +676,11 @@ exports[`SearchResultsList should match snapshot 1`] = `
         </div>
       </div>
       <section
-        class="container_fsocifg"
+        class="container_fwl891g"
         data-testid="search-section"
       >
         <span
-          class="MuiTypography-root MuiTypography-body1 search-default-title css-13qdlub-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 search-default-title css-1m50to5-MuiTypography-root"
         >
           Compare with a base or over time
         </span>
@@ -690,10 +690,10 @@ exports[`SearchResultsList should match snapshot 1`] = `
             data-testid="base-state"
           >
             <div
-              class="compare-card-text cardText_f17sylv5"
+              class="compare-card-text cardText_fpjtghi"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h2 compare-card-title css-15umudq-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h2 compare-card-title css-gja6vo-MuiTypography-root"
               >
                 Compare with a base
               </h2>
@@ -726,7 +726,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                   class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f5zlgu9 label-edit-wrapper css-dhs41p-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1mtgqas label-edit-wrapper css-dhs41p-MuiGrid-root"
                   >
                     <label
                       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -753,7 +753,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     id="base-search-container"
                   >
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f5zlgu9  -base-dropdown css-1awobkc-MuiGrid-root"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1mtgqas  -base-dropdown css-1awobkc-MuiGrid-root"
                       id="base_search-dropdown"
                     >
                       <div
@@ -801,7 +801,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                         class="MuiBox-root css-0"
                       >
                         <div
-                          class="MuiFormControl-root MuiFormControl-fullWidth fj0l9jr css-q8hpuo-MuiFormControl-root"
+                          class="MuiFormControl-root MuiFormControl-fullWidth f9bdc42 css-q8hpuo-MuiFormControl-root"
                         >
                           <div
                             class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -851,7 +851,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                           </div>
                         </div>
                         <div
-                          class="f7axog8 results-list-light MuiBox-root css-y1kcm0"
+                          class="f18x92i7 results-list-light MuiBox-root css-y1kcm0"
                           data-testid="list-mode"
                           id="search-results-list"
                         >
@@ -911,7 +911,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                   class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
                                 >
                                   <span
-                                    class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-6bdtsh-MuiTypography-root"
+                                    class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-4an9f3-MuiTypography-root"
                                   >
                                     <span
                                       class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
@@ -1027,7 +1027,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                   class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
                                 >
                                   <span
-                                    class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-6bdtsh-MuiTypography-root"
+                                    class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-4an9f3-MuiTypography-root"
                                   >
                                     <span
                                       class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
@@ -1143,7 +1143,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                   class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
                                 >
                                   <span
-                                    class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-6bdtsh-MuiTypography-root"
+                                    class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-4an9f3-MuiTypography-root"
                                   >
                                     <span
                                       class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
@@ -1259,7 +1259,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                   class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
                                 >
                                   <span
-                                    class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-6bdtsh-MuiTypography-root"
+                                    class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-4an9f3-MuiTypography-root"
                                   >
                                     <span
                                       class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
@@ -1375,7 +1375,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                                   class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
                                 >
                                   <span
-                                    class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-6bdtsh-MuiTypography-root"
+                                    class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-4an9f3-MuiTypography-root"
                                   >
                                     <span
                                       class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
@@ -1448,7 +1448,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     data-testid="base-selected-revision"
                   >
                     <div
-                      class="box_fobrng5 base-box MuiBox-root css-0"
+                      class="box_f1yxlro0 base-box MuiBox-root css-0"
                     >
                       <ul
                         class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -1460,7 +1460,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                   class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f5zlgu9 label-edit-wrapper css-dhs41p-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1mtgqas label-edit-wrapper css-dhs41p-MuiGrid-root"
                   >
                     <label
                       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -1487,7 +1487,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     id="new-search-container"
                   >
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f5zlgu9  -base-dropdown css-1awobkc-MuiGrid-root"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1mtgqas  -base-dropdown css-1awobkc-MuiGrid-root"
                       id="new_search-dropdown"
                     >
                       <div
@@ -1535,7 +1535,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                         class="MuiBox-root css-0"
                       >
                         <div
-                          class="MuiFormControl-root MuiFormControl-fullWidth fj0l9jr css-q8hpuo-MuiFormControl-root"
+                          class="MuiFormControl-root MuiFormControl-fullWidth f9bdc42 css-q8hpuo-MuiFormControl-root"
                         >
                           <div
                             class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -1592,7 +1592,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     data-testid="new-selected-revision"
                   >
                     <div
-                      class="box_fobrng5 new-box MuiBox-root css-0"
+                      class="box_f1yxlro0 new-box MuiBox-root css-0"
                     >
                       <ul
                         class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -1601,7 +1601,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f5zlgu9 css-bwiycy-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1mtgqas css-bwiycy-MuiGrid-root"
                 >
                   <div
                     class="MuiFormControl-root framework-dropdown f1ttr4cl css-1nrlq1o-MuiFormControl-root"
@@ -1692,10 +1692,10 @@ exports[`SearchResultsList should match snapshot 1`] = `
             data-testid="time-state"
           >
             <div
-              class="compare-card-text cardText_f17sylv5"
+              class="compare-card-text cardText_fpjtghi"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h2 compare-card-title css-15umudq-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h2 compare-card-title css-gja6vo-MuiTypography-root"
               >
                 Compare over time
               </h2>
@@ -1728,7 +1728,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                   class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f5zlgu9 css-1e9xsub-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f1mtgqas css-1e9xsub-MuiGrid-root"
                   >
                     <div
                       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-1ikqdgy-MuiGrid-root"
@@ -1826,7 +1826,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  dropDown_f5zlgu9   css-1t7ybvx-MuiGrid-root"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  dropDown_f1mtgqas   css-1t7ybvx-MuiGrid-root"
                       id="time-range"
                       style="max-width: 365px;"
                     >
@@ -1880,7 +1880,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f5zlgu9 css-13eijkh-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1mtgqas css-13eijkh-MuiGrid-root"
                   >
                     <label
                       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -1908,7 +1908,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     id="new-search-container--time"
                   >
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f5zlgu9  -new-dropdown css-1awobkc-MuiGrid-root"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1mtgqas  -new-dropdown css-1awobkc-MuiGrid-root"
                       id="new_search-dropdown--time"
                     >
                       <div
@@ -1956,7 +1956,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                         class="MuiBox-root css-0"
                       >
                         <div
-                          class="MuiFormControl-root MuiFormControl-fullWidth fj0l9jr css-q8hpuo-MuiFormControl-root"
+                          class="MuiFormControl-root MuiFormControl-fullWidth f9bdc42 css-q8hpuo-MuiFormControl-root"
                         >
                           <div
                             class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -2012,7 +2012,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
                   >
                     <div
-                      class="box_fobrng5 new-box MuiBox-root css-0"
+                      class="box_f1yxlro0 new-box MuiBox-root css-0"
                     >
                       <ul
                         class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -2021,7 +2021,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f5zlgu9 css-bwiycy-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1mtgqas css-bwiycy-MuiGrid-root"
                 >
                   <div
                     class="MuiFormControl-root framework-dropdown f1ttr4cl css-1nrlq1o-MuiFormControl-root"
