@@ -1,7 +1,9 @@
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
+import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 
+import CommonGraph from './CommonGraph';
 import Distribution from './Distribution';
 import { Strings } from '../../resources/Strings';
 import { Spacing } from '../../styles';
@@ -21,6 +23,10 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
   const { result, id } = props;
 
   const {
+    base_runs: baseRuns,
+    new_runs: newRuns,
+    base_runs_replicates: baseRunsReplicates,
+    new_runs_replicates: newRunsReplicates,
     platform,
     delta_percentage: deltaPercent,
     delta_value: delta,
@@ -48,6 +54,14 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
     );
   }
 
+  const baseValues =
+    baseRunsReplicates && baseRunsReplicates.length
+      ? baseRunsReplicates
+      : baseRuns;
+
+  const newValues =
+    newRunsReplicates && newRunsReplicates.length ? newRunsReplicates : newRuns;
+
   return (
     <Box
       component='section'
@@ -71,55 +85,69 @@ function RevisionRowExpandable(props: RevisionRowExpandableProps) {
         }}
       >
         <b>{platform}</b>
-        <Distribution result={result} />
-        <div>
-          {moreRunsAreNeeded && <div>{singleRun} </div>}
-          {baseApplication && (
+        <Grid container spacing={2}>
+          <Grid size={8}>
+            <Stack spacing={2}>
+              <CommonGraph
+                baseValues={baseValues}
+                newValues={newValues}
+                unit={baseUnit || newUnit}
+              />
+              <Distribution result={result} />
+            </Stack>
+          </Grid>
+          <Grid size={4}>
             <div>
-              <b>Base application</b>: {baseApplication}{' '}
-            </div>
-          )}
-          {newApplication && (
-            <div>
-              <b>New application</b>: {newApplication}{' '}
-            </div>
-          )}
-          <Box sx={{ whiteSpace: 'nowrap', marginTop: 1 }}>
-            <b>Comparison result</b>: {newIsBetter ? 'better' : 'worse'} (
-            {lowerIsBetter ? 'lower' : 'higher'} is better)
-          </Box>
-          <Box sx={{ whiteSpace: 'nowrap' }}>
-            <b>Difference of means</b>: {deltaPercent}% ({formatNumber(delta)}
-            {deltaUnit ? ' ' + deltaUnit : null})
-          </Box>
-          {newMedian && baseMedian ? (
-            <Box sx={{ whiteSpace: 'nowrap' }}>
-              <b>Difference of medians</b>: {medianPercentage}% (
-              {medianDifference}
-              {deltaUnit ? ' ' + deltaUnit : null})
-            </Box>
-          ) : null}
-          {confidenceText ? (
-            <div>
+              {moreRunsAreNeeded && <div>{singleRun} </div>}
+              {baseApplication && (
+                <div>
+                  <b>Base application</b>: {baseApplication}{' '}
+                </div>
+              )}
+              {newApplication && (
+                <div>
+                  <b>New application</b>: {newApplication}{' '}
+                </div>
+              )}
+              <Box sx={{ whiteSpace: 'nowrap', marginTop: 1 }}>
+                <b>Comparison result</b>: {newIsBetter ? 'better' : 'worse'} (
+                {lowerIsBetter ? 'lower' : 'higher'} is better)
+              </Box>
               <Box sx={{ whiteSpace: 'nowrap' }}>
-                <b>Confidence</b>: {confidenceText}
-                {confidenceValue ? ' ' + `(${confidenceValue})` : null}
+                <b>Difference of means</b>: {deltaPercent}% (
+                {formatNumber(delta)}
+                {deltaUnit ? ' ' + deltaUnit : null})
               </Box>
-              <Box
-                sx={{
-                  fontSize: '10px',
-                  textTransform: 'uppercase',
-                }}
-              >
-                <b>**Note</b>: {confidenceNote}{' '}
-              </Box>
+              {newMedian && baseMedian ? (
+                <Box sx={{ whiteSpace: 'nowrap' }}>
+                  <b>Difference of medians</b>: {medianPercentage}% (
+                  {medianDifference}
+                  {deltaUnit ? ' ' + deltaUnit : null})
+                </Box>
+              ) : null}
+              {confidenceText ? (
+                <div>
+                  <Box sx={{ whiteSpace: 'nowrap' }}>
+                    <b>Confidence</b>: {confidenceText}
+                    {confidenceValue ? ' ' + `(${confidenceValue})` : null}
+                  </Box>
+                  <Box
+                    sx={{
+                      fontSize: '10px',
+                      textTransform: 'uppercase',
+                    }}
+                  >
+                    <b>**Note</b>: {confidenceNote}{' '}
+                  </Box>
+                </div>
+              ) : (
+                <Box sx={{ whiteSpace: 'nowrap' }}>
+                  <b>Confidence</b>: Not available{' '}
+                </Box>
+              )}
             </div>
-          ) : (
-            <Box sx={{ whiteSpace: 'nowrap' }}>
-              <b>Confidence</b>: Not available{' '}
-            </Box>
-          )}
-        </div>
+          </Grid>
+        </Grid>
       </Stack>
     </Box>
   );
