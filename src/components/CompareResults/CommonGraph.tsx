@@ -9,12 +9,13 @@ import {
   type TooltipModel,
 } from 'chart.js';
 import 'chart.js/auto';
+import ZoomPlugin from 'chartjs-plugin-zoom';
 import * as kde from 'fast-kde';
 import { Line } from 'react-chartjs-2';
 
 import { Colors } from '../../styles/Colors';
 
-ChartJS.register(LinearScale, LineElement);
+ChartJS.register(LinearScale, LineElement, ZoomPlugin);
 
 // This computes the min, max and the KDE bandwidth from a list of numbers.
 function computeStatisticsForRuns(data: number[]) {
@@ -88,9 +89,29 @@ function CommonGraph({ baseValues, newValues, unit }: CommonGraphProps) {
   const min = computeMin(statsForBase?.min, statsForNew?.min) * 0.95;
   const max = computeMax(statsForBase?.max, statsForNew?.max) * 1.05;
 
+  //////////////////// START FAST KDE ////////////////////////
+  // So that the 2 KDE graphs are visually comparable, it's important to use the
+  // same bandwidth for both.
+  const bandwidth = computeMin(statsForBase?.bandwidth, statsForNew?.bandwidth);
+
+  const baseRunsDensity = Array.from(
+    kde.density1d(baseValues, {
+      bandwidth,
+      extent: [min, max],
+    }),
+  );
+  const newRunsDensity = Array.from(
+    kde.density1d(newValues, {
+      bandwidth,
+      extent: [min, max],
+    }),
+  );
+  //////////////////// END FAST KDE   ////////////////////////
+
   // The KDE line chart and categorical bubble chart share an x-axis but use
   // entirely different y-scales, making the composition flexible but
   // non-trivial.
+
   const options = {
     // Make the chart responsive to container size
     responsive: true,
@@ -186,6 +207,31 @@ function CommonGraph({ baseValues, newValues, unit }: CommonGraphProps) {
         padding: 10,
         boxPadding: 4,
       },
+      zoom: {
+        zoom: {
+          mode: 'x',
+          drag: {
+            enabled: true,
+            borderWidth: 1,
+            backgroundColor: 'rgba(225,225,225,0.5)',
+          },
+          wheel: {
+            enabled: true,
+            speed: 0.2,
+          },
+          pinch: {
+            enabled: true,
+          },
+        },
+        pan: {
+          enabled: true,
+          mode: 'x',
+          modifierKey: 'ctrl',
+        },
+        limits: {
+          x: { min: 'original', max: 'original', minRange: bandwidth },
+        },
+      },
     },
     scales: {
       x: {
@@ -275,25 +321,6 @@ function CommonGraph({ baseValues, newValues, unit }: CommonGraphProps) {
   });
 
   const allValuesData = [...baseValuesData, ...newValuesData];
-
-  //////////////////// START FAST KDE ////////////////////////
-  // So that the 2 KDE graphs are visually comparable, it's important to use the
-  // same bandwidth for both.
-  const bandwidth = computeMin(statsForBase?.bandwidth, statsForNew?.bandwidth);
-
-  const baseRunsDensity = Array.from(
-    kde.density1d(baseValues, {
-      bandwidth,
-      extent: [min, max],
-    }),
-  );
-  const newRunsDensity = Array.from(
-    kde.density1d(newValues, {
-      bandwidth,
-      extent: [min, max],
-    }),
-  );
-  //////////////////// END FAST KDE   ////////////////////////
 
   const data = {
     datasets: [
