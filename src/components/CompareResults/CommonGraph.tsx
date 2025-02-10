@@ -1,5 +1,6 @@
 import { Chart as ChartJS, LineElement, LinearScale } from 'chart.js';
 import 'chart.js/auto';
+import ZoomPlugin from 'chartjs-plugin-zoom';
 import * as kde from 'fast-kde';
 import { Line } from 'react-chartjs-2';
 import { style } from 'typestyle';
@@ -7,7 +8,7 @@ import { style } from 'typestyle';
 import { Spacing } from '../../styles';
 import { MeasurementUnit } from '../../types/types';
 
-ChartJS.register(LinearScale, LineElement);
+ChartJS.register(LinearScale, LineElement, ZoomPlugin);
 
 const styles = {
   container: style({
@@ -26,6 +27,29 @@ function CommonGraph({
   const scaleUnit =
     baseRevisionRuns.measurementUnit || newRevisionRuns.measurementUnit;
 
+  //////////////////// START FAST KDE ////////////////////////
+  // Arbitrary value that seems to work OK.
+  // In the future we'll want to compute a better value, see
+  // https://bugzilla.mozilla.org/show_bug.cgi?id=1901248 for some ideas.
+  if (max === min) {
+    min = max - 15;
+    max = max + 15;
+  }
+  const bandwidth = (max - min) / 15;
+  const baseRunsDensity = Array.from(
+    kde.density1d(baseRevisionRuns.values, {
+      bandwidth,
+      extent: [min - bandwidth, max + bandwidth],
+    }),
+  );
+  const newRunsDensity = Array.from(
+    kde.density1d(newRevisionRuns.values, {
+      bandwidth,
+      extent: [min - bandwidth, max + bandwidth],
+    }),
+  );
+  //////////////////// END FAST KDE   ////////////////////////
+
   const options = {
     plugins: {
       legend: {
@@ -36,6 +60,31 @@ function CommonGraph({
         align: 'start' as const,
         display: true,
         text: 'Runs Density Distribution',
+      },
+      zoom: {
+        zoom: {
+          mode: 'x',
+          drag: {
+            enabled: true,
+            borderWidth: 1,
+            backgroundColor: 'rgba(225,225,225,0.5)',
+          },
+          wheel: {
+            enabled: true,
+            speed: 0.2,
+          },
+          pinch: {
+            enabled: true,
+          },
+        },
+        pan: {
+          enabled: true,
+          mode: 'x',
+          modifierKey: 'ctrl',
+        },
+        limits: {
+          x: { min: 'original', max: 'original', minRange: bandwidth },
+        },
       },
     },
     responsive: true,
@@ -87,30 +136,6 @@ function CommonGraph({
       intersect: false,
     },
   };
-
-  //////////////////// START FAST KDE ////////////////////////
-  // Arbitrary value that seems to work OK.
-  // In the future we'll want to compute a better value, see
-  // https://bugzilla.mozilla.org/show_bug.cgi?id=1901248 for some ideas.
-  if (max === min) {
-    min = max - 15;
-    max = max + 15;
-  }
-  const bandwidth = (max - min) / 15;
-  const baseRunsDensity = Array.from(
-    kde.density1d(baseRevisionRuns.values, {
-      bandwidth,
-      extent: [min - bandwidth, max + bandwidth],
-    }),
-  );
-  const newRunsDensity = Array.from(
-    kde.density1d(newRevisionRuns.values, {
-      bandwidth,
-      extent: [min - bandwidth, max + bandwidth],
-    }),
-  );
-
-  //////////////////// END FAST KDE   ////////////////////////
 
   const data = {
     datasets: [
