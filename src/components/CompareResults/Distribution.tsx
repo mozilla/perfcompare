@@ -7,7 +7,9 @@ import type { CompareResultsItem } from '../../types/state';
 
 const styles = {
   container: style({
-    display: 'flex',
+    display: 'grid',
+    gap: Spacing.xLarge,
+    gridTemplateColumns: '28% 28% 1fr',
     marginBottom: Spacing.Medium,
   }),
 };
