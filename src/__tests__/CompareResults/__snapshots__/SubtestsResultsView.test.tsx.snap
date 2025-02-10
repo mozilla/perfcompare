@@ -773,7 +773,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                    
-                  971.38
+                  973.66
                    
                   ms
                    
@@ -789,7 +789,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                    
-                  982.41
+                  984.16
                    
                   ms
                 </div>
@@ -851,7 +851,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                       B:
                     </span>
                     <strong>
-                      2
+                      3
                     </strong>
                   </span>
                   <span>
@@ -861,7 +861,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                       N:
                     </span>
                     <strong>
-                      2
+                      3
                     </strong>
                   </span>
                 </div>
@@ -2383,7 +2383,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                    
-                  971.38
+                  973.66
                    
                   ms
                    
@@ -2399,7 +2399,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                    
-                  982.41
+                  984.16
                    
                   ms
                 </div>
@@ -2461,7 +2461,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                       B:
                     </span>
                     <strong>
-                      2
+                      3
                     </strong>
                   </span>
                   <span>
@@ -2471,7 +2471,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                       N:
                     </span>
                     <strong>
-                      2
+                      3
                     </strong>
                   </span>
                 </div>
