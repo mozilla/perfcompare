@@ -127,9 +127,9 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
   const { result, gridTemplateColumns } = props;
   const {
     test,
-    base_median_value: baseMedianValue,
+    base_avg_value: baseAvgValue,
     base_measurement_unit: baseUnit,
-    new_median_value: newMedianValue,
+    new_avg_value: newAvgValue,
     new_measurement_unit: newUnit,
     is_improvement: improvement,
     is_regression: regression,
@@ -160,14 +160,14 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
         </div>
         <div className='base-value cell' role='cell'>
           {' '}
-          {formatNumber(baseMedianValue)} {baseUnit}{' '}
+          {formatNumber(baseAvgValue)} {baseUnit}{' '}
         </div>
         <div className='comparison-sign cell' role='cell'>
-          {determineSign(baseMedianValue, newMedianValue)}
+          {determineSign(baseAvgValue, newAvgValue)}
         </div>
         <div className='new-value cell' role='cell'>
           {' '}
-          {formatNumber(newMedianValue)} {newUnit}
+          {formatNumber(newAvgValue)} {newUnit}
         </div>
         <div className='status cell' role='cell'>
           <Box
