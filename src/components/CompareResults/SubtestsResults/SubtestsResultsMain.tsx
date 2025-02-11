@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-import { Grid } from '@mui/material';
+import { Grid, Skeleton, Stack } from '@mui/material';
 import { Link } from '@mui/material';
 import Alert from '@mui/material/Alert';
 import { Container } from '@mui/system';
@@ -11,7 +11,6 @@ import SubtestsBreadcrumbs from './SubtestsBreadcrumbs';
 import SubtestsResultsTable from './SubtestsResultsTable';
 import SubtestsRevisionHeader from './SubtestsRevisionHeader';
 import DownloadButton from '.././DownloadButton';
-import NoResultsFound from '.././NoResultsFound';
 import SearchInput from '.././SearchInput';
 import { subtestsView, subtestsOverTimeView } from '../../../common/constants';
 import { useAppSelector } from '../../../hooks/app';
@@ -21,7 +20,10 @@ import {
   getPerfherderSubtestsCompareOverTimeViewURL,
 } from '../../../logic/treeherder';
 import { Colors, Spacing } from '../../../styles';
-import type { SubtestsRevisionsHeader } from '../../../types/state';
+import type {
+  SubtestsRevisionsHeader,
+  CompareResultsItem,
+} from '../../../types/state';
 import RetriggerButton from '../Retrigger/RetriggerButton';
 import { LoaderReturnValue } from '../subtestsLoader';
 import { LoaderReturnValue as OvertimeLoaderReturnValue } from '../subtestsOverTimeLoader';
@@ -41,6 +43,24 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
   const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
   const initialSearchTerm = rawSearchParams.get('search') ?? '';
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
+  const [resolvedResults, setResolvedResults] = useState<CompareResultsItem[]>(
+    [],
+  );
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    let isMounted = true;
+
+    void results.then((data) => {
+      if (isMounted) {
+        setResolvedResults(data);
+        setIsLoading(false);
+      }
+    });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   const themeColor100 =
     themeMode === 'light' ? Colors.Background300 : Colors.Background100Dark;
@@ -67,32 +87,71 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
     updateRawSearchParams(rawSearchParams);
   };
 
-  if (!results.length) {
+  if (!resolvedResults.length) {
     return (
       <>
         <Container className={styles.container} data-testid='subtests-main'>
-          <header>
-            <SubtestsBreadcrumbs view={view} />
-            <NoResultsFound />
-          </header>
+          {isLoading ? (
+            <>
+              <header>
+                <SubtestsBreadcrumbs view={view} />
+
+                <Alert severity='info' className={styles.title}>
+                  A Perfherder link is available for the same results
+                  {'.'}
+                </Alert>
+                <Stack spacing={1} sx={{ marginBottom: '12px' }}>
+                  <Skeleton
+                    variant='rounded'
+                    sx={{ fontSize: '2.11rem' }}
+                    animation='pulse'
+                  />
+                </Stack>
+
+                <Grid container spacing={1}>
+                  <Grid item xs={12} md={6} sx={{ marginInlineEnd: 'auto' }}>
+                    <SearchInput
+                      defaultValue={initialSearchTerm}
+                      onChange={onSearchTermChange}
+                    />
+                  </Grid>
+                  <Grid item xs='auto'>
+                    <DownloadButton resultsPromise={[resolvedResults]} />
+                  </Grid>
+                  <Grid item xs='auto'>
+                    <RetriggerButton variant='text' />
+                  </Grid>
+                </Grid>
+              </header>
+              <SubtestsResultsTable
+                filteringSearchTerm={searchTerm}
+                isLoading={isLoading}
+              />
+            </>
+          ) : (
+            <SubtestsResultsTable
+              filteringSearchTerm={searchTerm}
+              isLoading={isLoading}
+            />
+          )}
         </Container>
       </>
     );
   }
 
   const subtestsHeader: SubtestsRevisionsHeader = {
-    suite: results[0].suite,
-    framework_id: results[0].framework_id,
-    test: results[0].test,
-    option_name: results[0].option_name,
-    extra_options: results[0].extra_options,
-    new_rev: results[0].new_rev,
-    new_repo: results[0].new_repository_name,
-    base_rev: results[0].base_rev,
-    base_repo: results[0].base_repository_name,
-    base_parent_signature: results[0].base_parent_signature,
-    new_parent_signature: results[0].base_parent_signature,
-    platform: results[0].platform,
+    suite: resolvedResults[0].suite,
+    framework_id: resolvedResults[0].framework_id,
+    test: resolvedResults[0].test,
+    option_name: resolvedResults[0].option_name,
+    extra_options: resolvedResults[0].extra_options,
+    new_rev: resolvedResults[0].new_rev,
+    new_repo: resolvedResults[0].new_repository_name,
+    base_rev: resolvedResults[0].base_rev,
+    base_repo: resolvedResults[0].base_repository_name,
+    base_parent_signature: resolvedResults[0].base_parent_signature,
+    new_parent_signature: resolvedResults[0].base_parent_signature,
+    platform: resolvedResults[0].platform,
   };
 
   let subtestsViewPerfherderURL;
@@ -143,16 +202,16 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
             />
           </Grid>
           <Grid item xs='auto'>
-            <DownloadButton resultsPromise={[results]} />
+            <DownloadButton resultsPromise={[resolvedResults]} />
           </Grid>
           <Grid item xs='auto'>
-            <RetriggerButton result={results[0]} variant='text' />
+            <RetriggerButton result={resolvedResults[0]} variant='text' />
           </Grid>
         </Grid>
       </header>
       <SubtestsResultsTable
         filteringSearchTerm={searchTerm}
-        results={results}
+        results={resolvedResults}
       />
     </Container>
   );

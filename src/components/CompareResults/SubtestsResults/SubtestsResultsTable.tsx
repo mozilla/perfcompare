@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 
 import Box from '@mui/material/Box';
+import CircularProgress from '@mui/material/CircularProgress';
 
 import SubtestsTableContent from './SubtestsTableContent';
 import NoResultsFound from '.././NoResultsFound';
@@ -157,12 +158,14 @@ function resultMatchesSearchTerm(
 
 type ResultsTableProps = {
   filteringSearchTerm: string;
-  results: CompareResultsItem[];
+  results?: CompareResultsItem[];
+  isLoading?: boolean;
 };
 
 function SubtestsResultsTable({
   filteringSearchTerm,
-  results,
+  results = [],
+  isLoading = false,
 }: ResultsTableProps) {
   // This is our custom hook that manages table filters
   // and provides methods for clearing and toggling them.
@@ -223,8 +226,12 @@ function SubtestsResultsTable({
           rowGridTemplateColumns={rowGridTemplateColumns}
         />
       ))}
-
-      {processedResults.length == 0 && <NoResultsFound />}
+      {isLoading && (
+        <Box display='flex' justifyContent='center' sx={{ marginTop: 3 }}>
+          <CircularProgress />
+        </Box>
+      )}
+      {processedResults.length == 0 && !isLoading && <NoResultsFound />}
     </Box>
   );
 }
