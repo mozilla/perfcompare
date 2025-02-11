@@ -1,8 +1,12 @@
+import { useState } from 'react';
+
+import { Button } from '@mui/material';
 import { style } from 'typestyle';
 
 import GraphDistribution from './GraphDistribution';
 import { Spacing } from '../../styles';
 import { MeasurementUnit } from '../../types/types';
+import { formatNumber } from './../../utils/format';
 
 const styles = {
   container: style({
@@ -12,6 +16,7 @@ const styles = {
   values: style({
     display: 'flex',
     flexWrap: 'wrap',
+    alignItems: 'center',
     marginBottom: Spacing.Small,
     width: '300px',
   }),
@@ -36,16 +41,24 @@ function RunValues(props: RunValuesProps) {
   } = props.revisionRuns;
 
   const unit = measurementUnit ? `${measurementUnit}` : '';
+  const displayedValues = 100;
+  const firstValues = values.slice(0, displayedValues);
+  const lastValues = values.slice(displayedValues);
+
+  const [expanded, setExpanded] = useState(false);
+  const toggleIsExpanded = () => {
+    setExpanded(!expanded);
+  };
 
   return (
     <div className={styles.container}>
       {application ? (
         <div>
-          <b>{name}:</b> {median} {measurementUnit} ({application})
+          <b>{name}:</b> {formatNumber(avg)} {measurementUnit} ({application})
         </div>
       ) : (
         <div>
-          <b>{name}:</b> {median} {measurementUnit}
+          <b>{name}:</b> {formatNumber(avg)} {measurementUnit}
         </div>
       )}
       <div>
@@ -58,18 +71,30 @@ function RunValues(props: RunValuesProps) {
       </div>
       <div>
         <div className={styles.values}>
-          {values.map((value, index) => (
+          {firstValues.map((value, index) => (
             <div key={`${index}`} className={styles.value}>
-              {value}
+              {formatNumber(value)}
             </div>
           ))}
+          {expanded
+            ? lastValues.map((value, index) => (
+                <div key={`${index}`} className={styles.value}>
+                  {value}
+                </div>
+              ))
+            : null}
+          {lastValues.length ? (
+            <Button variant='text' size='small' onClick={toggleIsExpanded}>
+              {expanded ? 'Show less' : `Show ${lastValues.length} more`}
+            </Button>
+          ) : null}
         </div>
         <div>
           <b>Mean</b>:{'\u00a0'}
-          {avg}
+          {formatNumber(avg)}
           {measurementUnit},{'\u00a0'}
           <b>Median</b>:{'\u00a0'}
-          {median}
+          {formatNumber(median)}
           {measurementUnit}
         </div>
         <div className={styles.deviation}>

@@ -37,7 +37,7 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
             :
           </b>
            
-          596.87
+          595.73
            
            (
           firefox
@@ -48,7 +48,7 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
         </div>
         <div>
           <div
-            class="f1s9htso"
+            class="fyll6k4"
           >
             <div
               class="f1pfon3k"
@@ -107,7 +107,7 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
             :
           </b>
            
-          605.61
+          605.83
            
            (
           chrome
@@ -118,7 +118,7 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
         </div>
         <div>
           <div
-            class="f1s9htso"
+            class="fyll6k4"
           >
             <div
               class="f1pfon3k"
@@ -264,7 +264,7 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
           **Note
         </b>
         : 
-        A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+        The results were obtained using the Student’s T-test. A T-value exceeding 5 indicates high confidence, values between 3 and 5 suggest medium confidence, and values below 3 reflect low confidence.
          
       </div>
     </div>
@@ -309,7 +309,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
             :
           </b>
            
-          596.87
+          595.73
            
            (
           firefox
@@ -320,7 +320,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
         </div>
         <div>
           <div
-            class="f1s9htso"
+            class="fyll6k4"
           >
             <div
               class="f1pfon3k"
@@ -379,7 +379,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
             :
           </b>
            
-          605.61
+          605.83
            
            (
           chrome
@@ -390,7 +390,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
         </div>
         <div>
           <div
-            class="f1s9htso"
+            class="fyll6k4"
           >
             <div
               class="f1pfon3k"
@@ -536,7 +536,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
           **Note
         </b>
         : 
-        A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+        The results were obtained using the Student’s T-test. A T-value exceeding 5 indicates high confidence, values between 3 and 5 suggest medium confidence, and values below 3 reflect low confidence.
          
       </div>
     </div>
@@ -581,7 +581,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
             :
           </b>
            
-          596.87
+          595.73
            
            (
           firefox
@@ -592,7 +592,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
         </div>
         <div>
           <div
-            class="f1s9htso"
+            class="fyll6k4"
           >
             <div
               class="f1pfon3k"
@@ -651,7 +651,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
             :
           </b>
            
-          605.61
+          605.83
            
            (
           chrome
@@ -662,7 +662,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
         </div>
         <div>
           <div
-            class="f1s9htso"
+            class="fyll6k4"
           >
             <div
               class="f1pfon3k"
@@ -808,7 +808,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
           **Note
         </b>
         : 
-        A value of 'low' suggests less confidence that there is a sustained, significant change between the two revisions.
+        The results were obtained using the Student’s T-test. A T-value exceeding 5 indicates high confidence, values between 3 and 5 suggest medium confidence, and values below 3 reflect low confidence.
          
       </div>
     </div>
