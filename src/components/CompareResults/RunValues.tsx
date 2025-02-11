@@ -85,7 +85,7 @@ function RunValues(props: RunValuesProps) {
             : null}
           {lastValues.length ? (
             <Button variant='text' size='small' onClick={toggleIsExpanded}>
-              {expanded ? 'Show less' : 'Show more'}
+              {expanded ? 'Show less' : `Show ${lastValues.length} more`}
             </Button>
           ) : null}
         </div>

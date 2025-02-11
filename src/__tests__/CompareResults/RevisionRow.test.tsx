@@ -90,7 +90,7 @@ describe('<RevisionRow>', () => {
 });
 
 describe('Expanded row', () => {
-  it('should display "Show more" for base runs when row is expanded', async () => {
+  it('should display "Show 39 more" and "Show less" for base runs when row is expanded', async () => {
     const user = userEvent.setup({ delay: null });
     const { testCompareDataWithReplicatesMultipleValues: rowData } =
       getTestData();
@@ -106,28 +106,9 @@ describe('Expanded row', () => {
     const expandRowButton = await screen.findByTestId(/ExpandMoreIcon/);
     await user.click(expandRowButton);
 
-    const showMoreButton = await screen.findByText(/Show more/);
+    const showMoreButton = await screen.findByText(/Show 39 more/);
 
     expect(showMoreButton).toBeInTheDocument();
-  });
-
-  it('should display "Show less" for base runs after all the values were displayed', async () => {
-    const user = userEvent.setup({ delay: null });
-    const { testCompareDataWithReplicatesMultipleValues: rowData } =
-      getTestData();
-
-    renderWithRoute(
-      <RevisionRow
-        result={rowData[0] as CompareResultsItem}
-        view={compareView}
-        gridTemplateColumns='none'
-      />,
-    );
-
-    const expandRowButton = await screen.findByTestId(/ExpandMoreIcon/);
-    await user.click(expandRowButton);
-
-    const showMoreButton = await screen.findByText(/Show more/);
     await user.click(showMoreButton);
 
     const showLessButton = await screen.findByText(/Show less/);
