@@ -18,9 +18,12 @@ interface GraphContextRaw {
 }
 
 function GraphDistribution(props: GraphDistributionProps) {
-  const { name, values, min, max } = props;
+  const { name, baseValues, newValues, min, max } = props;
 
-  const graphData = values.map((v) => {
+  const baseData = baseValues.map((v) => {
+    return { x: v, y: 1, r: 10 };
+  });
+  const newData = newValues.map((v) => {
     return { x: v, y: 0, r: 10 };
   });
 
@@ -82,7 +85,8 @@ function GraphDistribution(props: GraphDistributionProps) {
 
 interface GraphDistributionProps {
   name: string;
-  values: number[];
+  baseValues: number[];
+  newValues: number[];
   min: number;
   max: number;
 }

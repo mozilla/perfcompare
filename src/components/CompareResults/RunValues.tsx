@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { Button } from '@mui/material';
 import { style } from 'typestyle';
 
-import GraphDistribution from './GraphDistribution';
 import { Spacing } from '../../styles';
 import { MeasurementUnit } from '../../types/types';
 import { formatNumber } from './../../utils/format';
@@ -55,14 +54,7 @@ function RunValues(props: RunValuesProps) {
           <b>{name}:</b> {formatNumber(avg)} {measurementUnit}
         </div>
       )}
-      <div>
-        <GraphDistribution
-          name={name}
-          values={values}
-          min={props.min}
-          max={props.max}
-        />
-      </div>
+      <div></div>
       <div>
         <div className={styles.values}>
           {firstValues.map((value, index) => (

@@ -1,6 +1,7 @@
 import { style } from 'typestyle';
 
 import CommonGraph from './CommonGraph';
+import GraphDistribution from './GraphDistribution';
 import RunValues from './RunValues';
 import { Spacing } from '../../styles';
 import type { CompareResultsItem } from '../../types/state';
@@ -10,6 +11,10 @@ const styles = {
     display: 'grid',
     gap: Spacing.xLarge,
     gridTemplateColumns: '28% 28% 1fr',
+    gridTemplateAreas: `
+      'unifiedGraph unifiedGraph kdeGraph'
+      'valuesBase   valuesNew    kdeGraph'
+    `,
     marginBottom: Spacing.Medium,
   }),
 };
@@ -52,41 +57,46 @@ function Distribution(props: DistributionProps) {
     new_measurement_unit: newUnit,
   } = result;
 
+  const baseValues =
+    baseRunsReplicates && baseRunsReplicates.length
+      ? baseRunsReplicates
+      : baseRuns;
+
   const baseRevisionRuns = {
     name: 'Base',
     avg: baseAvg,
     median: baseMedian,
-    values:
-      baseRunsReplicates && baseRunsReplicates.length
-        ? baseRunsReplicates
-        : baseRuns,
+    values: baseValues,
     application: baseApplication,
     stddev: baseStddev,
     stddevPercent: baseStddevPercent,
     measurementUnit: baseUnit,
   };
 
+  const newValues =
+    newRunsReplicates && newRunsReplicates.length ? newRunsReplicates : newRuns;
+
   const newRevisionRuns = {
     name: 'New',
     avg: newAvg,
     median: newMedian,
-    values:
-      newRunsReplicates && newRunsReplicates.length
-        ? newRunsReplicates
-        : newRuns,
+    values: newValues,
     application: newApplication,
     stddev: newStddev,
     stddevPercent: newStddevPercent,
     measurementUnit: newUnit,
   };
 
-  const [minValue, maxValue] = computeMinMax(
-    baseRevisionRuns.values,
-    newRevisionRuns.values,
-  );
+  const [minValue, maxValue] = computeMinMax(baseValues, newValues);
 
   return (
     <div className={styles.container}>
+      <GraphDistribution
+        baseValues={baseValues}
+        newValues={newValues}
+        min={minValue}
+        max={maxValue}
+      />
       <RunValues
         revisionRuns={baseRevisionRuns}
         min={minValue}
