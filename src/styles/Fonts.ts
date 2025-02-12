@@ -38,7 +38,7 @@ export const FontsRaw = {
     ...sharedFontStyles,
     lineHeight: '16px',
     fontWeight: '400',
-    fontSize: '14px',
+    fontSize: '16px',
     fontFamily: 'SF Pro',
   },
 

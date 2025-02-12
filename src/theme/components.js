@@ -151,6 +151,7 @@ const components = {
       body1: {
         ...FontsRaw.BodyDefault,
       },
+      body2: { fontSize: '16px' },
       root: {
         '&.perfcompare-header': {
           '&:after': {
