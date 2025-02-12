@@ -36,7 +36,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
     class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1mtgqas label-edit-wrapper css-dhs41p-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fgr49yr label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -63,7 +63,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
       id="base-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1mtgqas small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fgr49yr small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="base_search-dropdown"
       >
         <div
@@ -111,7 +111,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiFormControl-root MuiFormControl-fullWidth f9bdc42 css-q8hpuo-MuiFormControl-root"
+            class="MuiFormControl-root MuiFormControl-fullWidth f11r6mh1 css-q8hpuo-MuiFormControl-root"
           >
             <div
               class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -168,7 +168,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
       data-testid="base-selected-revision"
     >
       <div
-        class="box_f1yxlro0 base-box MuiBox-root css-0"
+        class="box_ffdb50n base-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -215,13 +215,13 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
               </div>
             </div>
             <div
-              class="selectedRevision_f1jffy9s MuiBox-root css-0"
+              class="selectedRevision_fmpcdiu MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-4an9f3-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-10rb10z-MuiTypography-root"
                 >
                   <span
                     class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
@@ -318,7 +318,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
     class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1mtgqas label-edit-wrapper css-dhs41p-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fgr49yr label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -345,7 +345,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
       id="new-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1mtgqas small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fgr49yr small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown"
       >
         <div
@@ -393,7 +393,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiFormControl-root MuiFormControl-fullWidth f9bdc42 css-q8hpuo-MuiFormControl-root"
+            class="MuiFormControl-root MuiFormControl-fullWidth f11r6mh1 css-q8hpuo-MuiFormControl-root"
           >
             <div
               class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -450,7 +450,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
       data-testid="new-selected-revision"
     >
       <div
-        class="box_f1yxlro0 new-box MuiBox-root css-0"
+        class="box_ffdb50n new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -497,13 +497,13 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
               </div>
             </div>
             <div
-              class="selectedRevision_f1jffy9s MuiBox-root css-0"
+              class="selectedRevision_fmpcdiu MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-4an9f3-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-10rb10z-MuiTypography-root"
                 >
                   <span
                     class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
@@ -795,7 +795,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
     class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1mtgqas label-edit-wrapper css-dhs41p-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fgr49yr label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -822,7 +822,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
       id="base-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1mtgqas small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fgr49yr small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="base_search-dropdown"
       >
         <div
@@ -870,7 +870,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiFormControl-root MuiFormControl-fullWidth f9bdc42 css-q8hpuo-MuiFormControl-root"
+            class="MuiFormControl-root MuiFormControl-fullWidth f11r6mh1 css-q8hpuo-MuiFormControl-root"
           >
             <div
               class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -927,7 +927,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
       data-testid="base-selected-revision"
     >
       <div
-        class="box_f1yxlro0 base-box MuiBox-root css-0"
+        class="box_ffdb50n base-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -974,13 +974,13 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               </div>
             </div>
             <div
-              class="selectedRevision_f1jffy9s MuiBox-root css-0"
+              class="selectedRevision_fmpcdiu MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-4an9f3-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-10rb10z-MuiTypography-root"
                 >
                   <span
                     class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
@@ -1077,7 +1077,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
     class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1mtgqas label-edit-wrapper css-dhs41p-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fgr49yr label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -1104,7 +1104,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
       id="new-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1mtgqas small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fgr49yr small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown"
       >
         <div
@@ -1152,7 +1152,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiFormControl-root MuiFormControl-fullWidth f9bdc42 css-q8hpuo-MuiFormControl-root"
+            class="MuiFormControl-root MuiFormControl-fullWidth f11r6mh1 css-q8hpuo-MuiFormControl-root"
           >
             <div
               class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -1209,7 +1209,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
       data-testid="new-selected-revision"
     >
       <div
-        class="box_f1yxlro0 new-box MuiBox-root css-0"
+        class="box_ffdb50n new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -1270,7 +1270,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
     class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1mtgqas label-edit-wrapper css-dhs41p-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fgr49yr label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -1297,7 +1297,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
       id="base-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1mtgqas small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fgr49yr small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="base_search-dropdown"
       >
         <div
@@ -1345,7 +1345,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiFormControl-root MuiFormControl-fullWidth f9bdc42 css-q8hpuo-MuiFormControl-root"
+            class="MuiFormControl-root MuiFormControl-fullWidth f11r6mh1 css-q8hpuo-MuiFormControl-root"
           >
             <div
               class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -1402,7 +1402,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
       data-testid="base-selected-revision"
     >
       <div
-        class="box_f1yxlro0 base-box MuiBox-root css-0"
+        class="box_ffdb50n base-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -1449,13 +1449,13 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               </div>
             </div>
             <div
-              class="selectedRevision_f1jffy9s MuiBox-root css-0"
+              class="selectedRevision_fmpcdiu MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-4an9f3-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-10rb10z-MuiTypography-root"
                 >
                   <span
                     class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
@@ -1552,7 +1552,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
     class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1mtgqas label-edit-wrapper css-dhs41p-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fgr49yr label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -1579,7 +1579,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
       id="new-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1mtgqas small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fgr49yr small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown"
       >
         <div
@@ -1627,7 +1627,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiFormControl-root MuiFormControl-fullWidth f9bdc42 css-q8hpuo-MuiFormControl-root"
+            class="MuiFormControl-root MuiFormControl-fullWidth f11r6mh1 css-q8hpuo-MuiFormControl-root"
           >
             <div
               class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -1684,7 +1684,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
       data-testid="new-selected-revision"
     >
       <div
-        class="box_f1yxlro0 new-box MuiBox-root css-0"
+        class="box_ffdb50n new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -1731,13 +1731,13 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               </div>
             </div>
             <div
-              class="selectedRevision_f1jffy9s MuiBox-root css-0"
+              class="selectedRevision_fmpcdiu MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-4an9f3-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-10rb10z-MuiTypography-root"
                 >
                   <span
                     class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
@@ -1831,7 +1831,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
     </div>
   </div>
   <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1mtgqas css-13jteey-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fgr49yr css-13jteey-MuiGrid-root"
   >
     <div
       class="fs9pw6x cancel-compare"
@@ -1904,7 +1904,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
     class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1mtgqas label-edit-wrapper css-dhs41p-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fgr49yr label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -1931,7 +1931,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
       id="base-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1mtgqas small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fgr49yr small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="base_search-dropdown"
       >
         <div
@@ -1979,7 +1979,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiFormControl-root MuiFormControl-fullWidth f9bdc42 css-q8hpuo-MuiFormControl-root"
+            class="MuiFormControl-root MuiFormControl-fullWidth f11r6mh1 css-q8hpuo-MuiFormControl-root"
           >
             <div
               class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -2036,7 +2036,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
       data-testid="base-selected-revision"
     >
       <div
-        class="box_f1yxlro0 base-box MuiBox-root css-0"
+        class="box_ffdb50n base-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -2083,13 +2083,13 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
               </div>
             </div>
             <div
-              class="selectedRevision_f1jffy9s MuiBox-root css-0"
+              class="selectedRevision_fmpcdiu MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-4an9f3-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-10rb10z-MuiTypography-root"
                 >
                   <span
                     class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
@@ -2186,7 +2186,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
     class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1mtgqas label-edit-wrapper css-dhs41p-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fgr49yr label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -2213,7 +2213,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
       id="new-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1mtgqas small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fgr49yr small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown"
       >
         <div
@@ -2261,7 +2261,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiFormControl-root MuiFormControl-fullWidth f9bdc42 css-q8hpuo-MuiFormControl-root"
+            class="MuiFormControl-root MuiFormControl-fullWidth f11r6mh1 css-q8hpuo-MuiFormControl-root"
           >
             <div
               class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -2318,7 +2318,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
       data-testid="new-selected-revision"
     >
       <div
-        class="box_f1yxlro0 new-box MuiBox-root css-0"
+        class="box_ffdb50n new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -2365,13 +2365,13 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
               </div>
             </div>
             <div
-              class="selectedRevision_f1jffy9s MuiBox-root css-0"
+              class="selectedRevision_fmpcdiu MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-4an9f3-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-10rb10z-MuiTypography-root"
                 >
                   <span
                     class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
@@ -2525,7 +2525,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
     class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1mtgqas label-edit-wrapper css-dhs41p-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fgr49yr label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -2552,7 +2552,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
       id="base-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1mtgqas small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fgr49yr small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="base_search-dropdown"
       >
         <div
@@ -2600,7 +2600,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiFormControl-root MuiFormControl-fullWidth f9bdc42 css-q8hpuo-MuiFormControl-root"
+            class="MuiFormControl-root MuiFormControl-fullWidth f11r6mh1 css-q8hpuo-MuiFormControl-root"
           >
             <div
               class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -2657,7 +2657,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
       data-testid="base-selected-revision"
     >
       <div
-        class="box_f1yxlro0 base-box MuiBox-root css-0"
+        class="box_ffdb50n base-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -2669,7 +2669,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
     class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1mtgqas label-edit-wrapper css-dhs41p-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fgr49yr label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -2696,7 +2696,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
       id="new-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1mtgqas small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fgr49yr small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown"
       >
         <div
@@ -2744,7 +2744,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiFormControl-root MuiFormControl-fullWidth f9bdc42 css-q8hpuo-MuiFormControl-root"
+            class="MuiFormControl-root MuiFormControl-fullWidth f11r6mh1 css-q8hpuo-MuiFormControl-root"
           >
             <div
               class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -2801,7 +2801,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
       data-testid="new-selected-revision"
     >
       <div
-        class="box_f1yxlro0 new-box MuiBox-root css-0"
+        class="box_ffdb50n new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -2848,13 +2848,13 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
               </div>
             </div>
             <div
-              class="selectedRevision_f1jffy9s MuiBox-root css-0"
+              class="selectedRevision_fmpcdiu MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-4an9f3-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-10rb10z-MuiTypography-root"
                 >
                   <span
                     class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
@@ -2948,7 +2948,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
     </div>
   </div>
   <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1mtgqas css-13jteey-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fgr49yr css-13jteey-MuiGrid-root"
   >
     <div
       class="fs9pw6x cancel-compare"
@@ -3046,7 +3046,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
     class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1mtgqas label-edit-wrapper css-dhs41p-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fgr49yr label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -3073,7 +3073,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
       id="base-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1mtgqas small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fgr49yr small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="base_search-dropdown"
       >
         <div
@@ -3121,7 +3121,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiFormControl-root MuiFormControl-fullWidth f9bdc42 css-q8hpuo-MuiFormControl-root"
+            class="MuiFormControl-root MuiFormControl-fullWidth f11r6mh1 css-q8hpuo-MuiFormControl-root"
           >
             <div
               class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -3178,7 +3178,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
       data-testid="base-selected-revision"
     >
       <div
-        class="box_f1yxlro0 base-box MuiBox-root css-0"
+        class="box_ffdb50n base-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -3225,13 +3225,13 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
               </div>
             </div>
             <div
-              class="selectedRevision_f1jffy9s MuiBox-root css-0"
+              class="selectedRevision_fmpcdiu MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-4an9f3-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-10rb10z-MuiTypography-root"
                 >
                   <span
                     class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
@@ -3328,7 +3328,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
     class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1mtgqas label-edit-wrapper css-dhs41p-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fgr49yr label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -3355,7 +3355,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
       id="new-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1mtgqas small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fgr49yr small compare-results-base-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown"
       >
         <div
@@ -3403,7 +3403,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiFormControl-root MuiFormControl-fullWidth f9bdc42 css-q8hpuo-MuiFormControl-root"
+            class="MuiFormControl-root MuiFormControl-fullWidth f11r6mh1 css-q8hpuo-MuiFormControl-root"
           >
             <div
               class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -3460,7 +3460,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
       data-testid="new-selected-revision"
     >
       <div
-        class="box_f1yxlro0 new-box MuiBox-root css-0"
+        class="box_ffdb50n new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -3469,7 +3469,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
     </div>
   </div>
   <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1mtgqas css-13jteey-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fgr49yr css-13jteey-MuiGrid-root"
   >
     <div
       class="fs9pw6x cancel-compare"
@@ -3525,7 +3525,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
         class="MuiGrid-root header-container container_fllbiki css-plh9qo-MuiGrid-root"
       >
         <div
-          class="toggle-dark-mode fc950xb MuiBox-root css-0"
+          class="toggle-dark-mode fkud7h4 MuiBox-root css-0"
         >
           <div
             class="MuiFormGroup-root css-dmmspl-MuiFormGroup-root"
@@ -3558,7 +3558,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                 />
               </span>
               <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1m50to5-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-smpupv-MuiTypography-root"
               >
                 Dark mode
               </span>
@@ -3569,12 +3569,12 @@ exports[`Compare With Base should remove the checked revision once X button is c
           class="header-text MuiBox-root css-0"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-160ox9e-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-eaa0qe-MuiTypography-root"
           >
             PerfCompare
           </h1>
           <div
-            class="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-tagline css-1bmo7ho-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-tagline css-gfol4k-MuiTypography-root"
           >
             Analyze results of performance tests to detect regressions and identify opportunities for improvement.
           </div>
@@ -3591,11 +3591,11 @@ exports[`Compare With Base should remove the checked revision once X button is c
         </div>
       </div>
       <section
-        class="container_fwl891g"
+        class="container_fyuz3mb"
         data-testid="search-section"
       >
         <span
-          class="MuiTypography-root MuiTypography-body1 search-default-title css-1m50to5-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 search-default-title css-smpupv-MuiTypography-root"
         >
           Compare with a base or over time
         </span>
@@ -3605,7 +3605,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
             data-testid="base-state"
           >
             <div
-              class="compare-card-text cardText_fpjtghi"
+              class="compare-card-text cardText_fuie4ja"
             >
               <h2
                 class="MuiTypography-root MuiTypography-h2 compare-card-title css-gja6vo-MuiTypography-root"
@@ -3641,7 +3641,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                   class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1mtgqas label-edit-wrapper css-dhs41p-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fgr49yr label-edit-wrapper css-dhs41p-MuiGrid-root"
                   >
                     <label
                       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -3668,7 +3668,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                     id="base-search-container"
                   >
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1mtgqas  -base-dropdown css-1awobkc-MuiGrid-root"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_fgr49yr  -base-dropdown css-1awobkc-MuiGrid-root"
                       id="base_search-dropdown"
                     >
                       <div
@@ -3716,7 +3716,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                         class="MuiBox-root css-0"
                       >
                         <div
-                          class="MuiFormControl-root MuiFormControl-fullWidth f9bdc42 css-q8hpuo-MuiFormControl-root"
+                          class="MuiFormControl-root MuiFormControl-fullWidth f11r6mh1 css-q8hpuo-MuiFormControl-root"
                         >
                           <div
                             class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -3773,7 +3773,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                     data-testid="base-selected-revision"
                   >
                     <div
-                      class="box_f1yxlro0 base-box MuiBox-root css-0"
+                      class="box_ffdb50n base-box MuiBox-root css-0"
                     >
                       <ul
                         class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -3785,7 +3785,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                   class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1mtgqas label-edit-wrapper css-dhs41p-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fgr49yr label-edit-wrapper css-dhs41p-MuiGrid-root"
                   >
                     <label
                       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -3812,7 +3812,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                     id="new-search-container"
                   >
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1mtgqas  -base-dropdown css-1awobkc-MuiGrid-root"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fgr49yr  -base-dropdown css-1awobkc-MuiGrid-root"
                       id="new_search-dropdown"
                     >
                       <div
@@ -3860,7 +3860,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                         class="MuiBox-root css-0"
                       >
                         <div
-                          class="MuiFormControl-root MuiFormControl-fullWidth f9bdc42 css-q8hpuo-MuiFormControl-root"
+                          class="MuiFormControl-root MuiFormControl-fullWidth f11r6mh1 css-q8hpuo-MuiFormControl-root"
                         >
                           <div
                             class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -3917,7 +3917,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                     data-testid="new-selected-revision"
                   >
                     <div
-                      class="box_f1yxlro0 new-box MuiBox-root css-0"
+                      class="box_ffdb50n new-box MuiBox-root css-0"
                     >
                       <ul
                         class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -3926,7 +3926,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1mtgqas css-bwiycy-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fgr49yr css-bwiycy-MuiGrid-root"
                 >
                   <div
                     class="MuiFormControl-root framework-dropdown f1ttr4cl css-1nrlq1o-MuiFormControl-root"
@@ -4017,7 +4017,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
             data-testid="time-state"
           >
             <div
-              class="compare-card-text cardText_fpjtghi"
+              class="compare-card-text cardText_fuie4ja"
             >
               <h2
                 class="MuiTypography-root MuiTypography-h2 compare-card-title css-gja6vo-MuiTypography-root"
@@ -4053,7 +4053,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                   class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f1mtgqas css-1e9xsub-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_fgr49yr css-1e9xsub-MuiGrid-root"
                   >
                     <div
                       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-1ikqdgy-MuiGrid-root"
@@ -4151,7 +4151,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                       </div>
                     </div>
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  dropDown_f1mtgqas   css-1t7ybvx-MuiGrid-root"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  dropDown_fgr49yr   css-1t7ybvx-MuiGrid-root"
                       id="time-range"
                       style="max-width: 365px;"
                     >
@@ -4205,7 +4205,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                     </div>
                   </div>
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1mtgqas css-13eijkh-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fgr49yr css-13eijkh-MuiGrid-root"
                   >
                     <label
                       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -4233,7 +4233,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                     id="new-search-container--time"
                   >
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1mtgqas  -new-dropdown css-1awobkc-MuiGrid-root"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_fgr49yr  -new-dropdown css-1awobkc-MuiGrid-root"
                       id="new_search-dropdown--time"
                     >
                       <div
@@ -4281,7 +4281,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                         class="MuiBox-root css-0"
                       >
                         <div
-                          class="MuiFormControl-root MuiFormControl-fullWidth f9bdc42 css-q8hpuo-MuiFormControl-root"
+                          class="MuiFormControl-root MuiFormControl-fullWidth f11r6mh1 css-q8hpuo-MuiFormControl-root"
                         >
                           <div
                             class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -4337,7 +4337,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                     class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
                   >
                     <div
-                      class="box_f1yxlro0 new-box MuiBox-root css-0"
+                      class="box_ffdb50n new-box MuiBox-root css-0"
                     >
                       <ul
                         class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -4346,7 +4346,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1mtgqas css-bwiycy-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_fgr49yr css-bwiycy-MuiGrid-root"
                 >
                   <div
                     class="MuiFormControl-root framework-dropdown f1ttr4cl css-1nrlq1o-MuiFormControl-root"

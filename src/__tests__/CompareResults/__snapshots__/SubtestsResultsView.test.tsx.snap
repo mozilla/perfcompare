@@ -11,7 +11,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
         class="MuiGrid-root header-container container_f1ocj467 css-plh9qo-MuiGrid-root"
       >
         <div
-          class="toggle-dark-mode fc950xb MuiBox-root css-0"
+          class="toggle-dark-mode fkud7h4 MuiBox-root css-0"
         >
           <div
             class="MuiFormGroup-root css-dmmspl-MuiFormGroup-root"
@@ -44,7 +44,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 />
               </span>
               <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1m50to5-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-smpupv-MuiTypography-root"
               >
                 Dark mode
               </span>
@@ -55,7 +55,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
           class="header-text MuiBox-root css-0"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-160ox9e-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-eaa0qe-MuiTypography-root"
           >
             PerfCompare
           </h1>
@@ -73,7 +73,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
           >
             <header>
               <nav
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1tbt47c-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-dr2htm-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -1659,7 +1659,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
         class="MuiGrid-root header-container container_f1ocj467 css-plh9qo-MuiGrid-root"
       >
         <div
-          class="toggle-dark-mode fc950xb MuiBox-root css-0"
+          class="toggle-dark-mode fkud7h4 MuiBox-root css-0"
         >
           <div
             class="MuiFormGroup-root css-dmmspl-MuiFormGroup-root"
@@ -1692,7 +1692,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 />
               </span>
               <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1m50to5-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-smpupv-MuiTypography-root"
               >
                 Dark mode
               </span>
@@ -1703,7 +1703,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
           class="header-text MuiBox-root css-0"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-160ox9e-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-eaa0qe-MuiTypography-root"
           >
             PerfCompare
           </h1>
@@ -1721,7 +1721,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
           >
             <header>
               <nav
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1tbt47c-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-dr2htm-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
