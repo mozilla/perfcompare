@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
+import { Form } from 'react-router-dom';
 
 interface EditTitleInputProps {
   compact: boolean;
@@ -22,11 +23,9 @@ function EditTitleInput({
 }: EditTitleInputProps) {
   const size = compact ? 'small' : undefined;
   const inputPlaceholder = 'Write a title for this comparison';
-  //PR notes: moved title error and message state to the edit input component
   const [titleError, setTitleError] = useState(false);
   const titleErrorMsg = 'Title cannot be empty';
 
-  //PR notes: added keypress event listener to handle escape key
   const handleEscKeypress = useCallback((e: KeyboardEvent) => {
     if (e.key === 'Escape') {
       handleToggle();
@@ -40,9 +39,24 @@ function EditTitleInput({
     };
   }, [handleEscKeypress]);
 
+  //Pr notes: added to better handle form submission and error
+  const onSaveSubmit = (e: React.FormEvent) => {
+    if (!value.trim()) {
+      e.preventDefault();
+      setTitleError(true);
+      return;
+    }
+    e.preventDefault();
+    onSave();
+  };
+
   return (
-    //PR notes: added form element to handle form submission and enter key
-    <form>
+    //PR notes: changed to Form from react router dom to handle form submission and enter key
+    <Form
+      className='edit-title-form'
+      aria-label='edit results table title'
+      onSubmit={onSaveSubmit}
+    >
       <FormControl
         fullWidth
         sx={{ flexDirection: 'row', width: 'auto' }}
@@ -70,7 +84,6 @@ function EditTitleInput({
           className='edit-title-btns'
           sx={{ display: 'flex', justifyContent: 'flex-end', paddingLeft: 1 }}
         >
-          {/* PR notes: added cancel and save buttons to edit TitleInput */}
           <Button
             name='cancel-title'
             aria-label='cancel title'
@@ -86,20 +99,12 @@ function EditTitleInput({
             className='save-btn'
             variant='text'
             type='submit'
-            onClick={(e) => {
-              if (!value.trim()) {
-                e.preventDefault();
-                setTitleError(true);
-              } else {
-                onSave();
-              }
-            }}
           >
             Save
           </Button>
         </Box>
       </FormControl>
-    </form>
+    </Form>
   );
 }
 

@@ -144,7 +144,6 @@ function ResultsMain() {
     showEditComparisonTitle(!editComparisonTitleInputVisible);
   };
 
-  //PR notes: enabled function to de-slugify the title and only capitalize the first letter
   const deSlugify = (slug: string | undefined) => {
     if (!slug) return '';
     return slug.replace(/-/g, ' ').replace(/^\w/, (char) => char.toUpperCase());

@@ -385,44 +385,4 @@ describe('Compare With Base', () => {
       within(newSelectedRevision).getByText(/no arms left/),
     ).toBeInTheDocument();
   });
-
-  // eslint-disable-next-line jest/no-disabled-tests
-  it.skip('Should show the new title and slugified title in the url when the user clicks the save button', async () => {
-    const user = userEvent.setup({ delay: null });
-    renderWithCompareResultsURL(
-      <ResultsView title={Strings.metaData.pageTitle.results} />,
-    );
-
-    await waitForPageReadyAndReturnForm();
-
-    await screen.findByRole('heading', { name: 'Results' });
-    expect(screen.getByText('Results')).toBeInTheDocument();
-
-    const editTitleButton = await screen.findByRole('button', {
-      name: 'edit title',
-    });
-    await user.click(editTitleButton);
-    expect(screen.queryByText('Results')).not.toBeInTheDocument();
-
-    const saveButton = await screen.findByRole('button', {
-      name: 'save title',
-    });
-
-    const editTitleInput = screen.getByRole('textbox', {
-      name: 'Write a title for this comparison',
-    });
-    const titleName = 'New title';
-
-    await user.type(editTitleInput, titleName);
-    await user.click(saveButton);
-
-    expect(screen.queryByText('Results')).not.toBeInTheDocument();
-    await screen.findByRole('heading', {
-      name: titleName,
-    });
-    expect(screen.getByText(titleName)).toBeInTheDocument();
-    await waitFor(() => {
-      expect(location.href).toContain('title=new-title');
-    });
-  });
 });

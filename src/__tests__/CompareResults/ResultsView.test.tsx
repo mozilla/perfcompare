@@ -15,6 +15,7 @@ import {
   renderWithRouter,
   screen,
   FetchMockSandbox,
+  waitFor,
 } from '../utils/test-utils';
 
 function renderWithRoute(component: ReactElement) {
@@ -472,5 +473,49 @@ describe('Results View', () => {
       name: 'Results',
     });
     expect(screen.getByText('Results')).toBeInTheDocument();
+  });
+
+  //PR notes: moved this test to results view instead
+  it('Should update url with slugified title and the table with the new title', async () => {
+    const user = userEvent.setup({ delay: null });
+
+    renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
+
+    await screen.findByRole('heading', { name: 'Results' });
+    expect(screen.getByText('Results')).toBeInTheDocument();
+
+    const editTitleButton = await screen.findByRole('button', {
+      name: 'edit title',
+    });
+    await user.click(editTitleButton);
+    const formName = 'edit results table title';
+    const form = await screen.findByRole('form', {
+      name: formName,
+    });
+    expect(form).toBeInTheDocument();
+
+    const saveButton = await screen.findByRole('button', {
+      name: 'save title',
+    });
+    const editTitleInput = screen.getByRole('textbox', {
+      name: 'Write a title for this comparison',
+    });
+    const titleName = 'New title';
+    await user.clear(editTitleInput);
+    await user.type(editTitleInput, titleName);
+
+    await user.click(saveButton);
+    await waitFor(async () => {
+      expect(window.location.pathname).toEqual('/compare-results/');
+    });
+
+    expect(form).toMatchSnapshot('After clicking the Save button');
+
+    //this fixes not wrapped in act error for updates
+    await waitFor(() => {
+      expect(location.href).toContain('title=new-title');
+    });
+    expect(screen.queryByText('Results')).not.toBeInTheDocument();
+    expect(screen.getByText(titleName)).toBeInTheDocument();
   });
 });
