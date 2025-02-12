@@ -124,7 +124,7 @@ function FilterableColumnHeader({
           color='tableHeaderButton'
           size='small'
           aria-label={buttonAriaLabel}
-          sx={{ paddingInline: 1.5 }}
+          sx={{ paddingInline: 1.5, fontSize: '16px' }}
         >
           {name}
           <Box
@@ -140,12 +140,17 @@ function FilterableColumnHeader({
         </Button>
       </Tooltip>
       <Menu {...bindMenu(popupState)}>
-        <MenuItem dense={true} onClick={onClearFilter}>
+        <MenuItem
+          dense={true}
+          onClick={onClearFilter}
+          sx={{ fontSize: '16px' }}
+        >
           Select all values
         </MenuItem>
         <Divider />
         {possibleValues.map((possibleValue) => (
           <MenuItem
+            sx={{ fontSize: '16px' }}
             dense={true}
             key={possibleValue.key}
             onClick={() => onClickOnlyFilter(possibleValue.key)}
@@ -220,8 +225,8 @@ function SortableColumnHeader({
 
   // MUI sets a minWidth of 40px using 2 classes, it's not appropriate for icons and difficult to override without !important.
   const inlineStyle = displayLabel
-    ? { padding: '6px 12px' }
-    : { padding: 0, minWidth: '24px !important' };
+    ? { padding: '6px 12px', fontSize: '16px' }
+    : { padding: 0, minWidth: '24px !important', fontSize: '16px' };
   // Have some margin between the icon and the text, and some less margin at the
   // start, but only when there's some actual text.
   const inlineIconStyle = displayLabel
@@ -311,7 +316,7 @@ function TableHeader({
       fontFamily: 'SF Pro',
       fontStyle: 'normal',
       fontWeight: 590,
-      fontSize: '13px',
+      fontSize: '16px',
       lineHeight: '1.5',
     }),
   };
