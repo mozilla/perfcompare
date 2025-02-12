@@ -78,7 +78,6 @@ export const SelectRevsStyles = (mode: string) => {
           ...(isTrueLight ? captionStylesLight : captionStylesDark),
           $nest: {
             '.info-caption-item': {
-              ...FontsRaw.BodySmallDark,
               display: 'flex',
               alignItems: 'center',
               fontSize: '11px',
