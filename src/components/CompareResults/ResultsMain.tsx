@@ -54,7 +54,6 @@ function ResultsMain() {
     subtitle: style({
       ...FontsRaw.BodyDefault,
       fontSize: '15px',
-      lineHeight: '1.5',
       borderLeft: '1px solid #5B5B66',
       paddingLeft: '9px',
     }),
