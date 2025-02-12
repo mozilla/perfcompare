@@ -1,8 +1,11 @@
 import { ReactElement } from 'react';
 
+import userEvent from '@testing-library/user-event';
+
 import { compareView } from '../../common/constants';
 import { loader } from '../../components/CompareResults/loader';
 import RevisionRow from '../../components/CompareResults/RevisionRow';
+import { CompareResultsItem } from '../../types/state';
 import { Platform } from '../../types/types';
 import getTestData from '../utils/fixtures';
 import {
@@ -84,4 +87,32 @@ describe('<RevisionRow>', () => {
       /* eslint-enable */
     },
   );
+});
+
+describe('Expanded row', () => {
+  it('should display "Show 39 more" and "Show less" for base runs when row is expanded', async () => {
+    const user = userEvent.setup({ delay: null });
+    const { testCompareDataWithReplicatesMultipleValues: rowData } =
+      getTestData();
+
+    renderWithRoute(
+      <RevisionRow
+        result={rowData[0] as CompareResultsItem}
+        view={compareView}
+        gridTemplateColumns='none'
+      />,
+    );
+
+    const expandRowButton = await screen.findByTestId(/ExpandMoreIcon/);
+    await user.click(expandRowButton);
+
+    const showMoreButton = await screen.findByText(/Show 39 more/);
+
+    expect(showMoreButton).toBeInTheDocument();
+    await user.click(showMoreButton);
+
+    const showLessButton = await screen.findByText(/Show less/);
+
+    expect(showLessButton).toBeInTheDocument();
+  });
 });
