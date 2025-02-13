@@ -103,11 +103,6 @@ function CommonGraph({
           beginAtZero: true,
           display: true,
         },
-        title: {
-          align: 'end' as const,
-          display: true,
-          text: 'Run Density' as const,
-        },
       },
     },
     elements: {
