@@ -1,23 +1,10 @@
-import { style } from 'typestyle';
+import Box from '@mui/material/Box';
 
 import CommonGraph from './CommonGraph';
 import GraphDistribution from './GraphDistribution';
 import RunValues from './RunValues';
 import { Spacing } from '../../styles';
 import type { CompareResultsItem } from '../../types/state';
-
-const styles = {
-  container: style({
-    display: 'grid',
-    gap: Spacing.xLarge,
-    gridTemplateColumns: '28% 28% 1fr',
-    gridTemplateAreas: `
-      'unifiedGraph unifiedGraph kdeGraph'
-      'valuesBase   valuesNew    kdeGraph'
-    `,
-    marginBottom: Spacing.Medium,
-  }),
-};
 
 function computeMinMax(
   baseRuns: number[],
@@ -88,28 +75,68 @@ function Distribution(props: DistributionProps) {
   };
 
   const [minValue, maxValue] = computeMinMax(baseValues, newValues);
-
+  const scaleUnit = baseUnit || newUnit;
   return (
-    <div className={styles.container}>
-      <GraphDistribution
-        baseValues={baseValues}
-        newValues={newValues}
-        min={minValue}
-        max={maxValue}
-      />
-      <RunValues
-        revisionRuns={baseRevisionRuns}
-        min={minValue}
-        max={maxValue}
-      />
-      <RunValues revisionRuns={newRevisionRuns} min={minValue} max={maxValue} />
-      <CommonGraph
-        baseRevisionRuns={baseRevisionRuns}
-        newRevisionRuns={newRevisionRuns}
-        min={minValue}
-        max={maxValue}
-      />
-    </div>
+    <Box
+      sx={{
+        display: 'grid',
+        gap: 4,
+        gridTemplateColumns: '28% 28% 1fr',
+        gridTemplateAreas: `
+          'unifiedGraph unifiedGraph kdeGraph'
+          'valuesBase   valuesNew    kdeGraph'
+        `,
+        marginBottom: 2,
+      }}
+    >
+      <Box
+        sx={{
+          gridArea: 'unifiedGraph',
+        }}
+      >
+        <GraphDistribution
+          baseValues={baseValues}
+          newValues={newValues}
+          min={minValue}
+          max={maxValue}
+          unit={scaleUnit}
+        />
+      </Box>
+      <Box
+        sx={{
+          gridArea: 'valuesBase',
+        }}
+      >
+        <RunValues
+          revisionRuns={baseRevisionRuns}
+          min={minValue}
+          max={maxValue}
+        />
+      </Box>
+      <Box
+        sx={{
+          gridArea: 'valuesNew',
+        }}
+      >
+        <RunValues
+          revisionRuns={newRevisionRuns}
+          min={minValue}
+          max={maxValue}
+        />
+      </Box>
+      <Box
+        sx={{
+          gridArea: 'kdeGraph',
+        }}
+      >
+        <CommonGraph
+          baseRevisionRuns={baseRevisionRuns}
+          newRevisionRuns={newRevisionRuns}
+          min={minValue}
+          max={maxValue}
+        />
+      </Box>
+    </Box>
   );
 }
 
