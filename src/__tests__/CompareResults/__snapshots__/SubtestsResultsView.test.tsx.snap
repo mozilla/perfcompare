@@ -11,7 +11,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
         class="MuiGrid-root header-container container_f1ocj467 css-plh9qo-MuiGrid-root"
       >
         <div
-          class="toggle-dark-mode f10ie5uy MuiBox-root css-0"
+          class="toggle-dark-mode fkud7h4 MuiBox-root css-0"
         >
           <div
             class="MuiFormGroup-root css-dmmspl-MuiFormGroup-root"
@@ -44,7 +44,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 />
               </span>
               <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-13qdlub-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-smpupv-MuiTypography-root"
               >
                 Dark mode
               </span>
@@ -55,7 +55,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
           class="header-text MuiBox-root css-0"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-160ox9e-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-eaa0qe-MuiTypography-root"
           >
             PerfCompare
           </h1>
@@ -73,7 +73,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
           >
             <header>
               <nav
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-arz7ur-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-dr2htm-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -177,7 +177,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 class="fcqhb81"
               >
                 <div
-                  class="f897l9y"
+                  class="f1mgfhdi"
                 >
                   <strong>
                     <a
@@ -402,7 +402,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
               role="table"
             >
               <div
-                class="f1ptnq46 fr2n4tx"
+                class="f1ptnq46 f19sido0"
                 data-testid="table-header"
                 role="row"
               >
@@ -629,7 +629,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 />
               </div>
               <div
-                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
+                class="revisionRow f15pv6go f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -789,7 +789,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
+                class="revisionRow f15pv6go f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -960,7 +960,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
+                class="revisionRow f15pv6go f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -1131,7 +1131,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
+                class="revisionRow f15pv6go f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -1659,7 +1659,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
         class="MuiGrid-root header-container container_f1ocj467 css-plh9qo-MuiGrid-root"
       >
         <div
-          class="toggle-dark-mode f10ie5uy MuiBox-root css-0"
+          class="toggle-dark-mode fkud7h4 MuiBox-root css-0"
         >
           <div
             class="MuiFormGroup-root css-dmmspl-MuiFormGroup-root"
@@ -1692,7 +1692,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 />
               </span>
               <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-13qdlub-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-smpupv-MuiTypography-root"
               >
                 Dark mode
               </span>
@@ -1703,7 +1703,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
           class="header-text MuiBox-root css-0"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-160ox9e-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-eaa0qe-MuiTypography-root"
           >
             PerfCompare
           </h1>
@@ -1721,7 +1721,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
           >
             <header>
               <nav
-                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-arz7ur-MuiTypography-root-MuiBreadcrumbs-root"
+                class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-dr2htm-MuiTypography-root-MuiBreadcrumbs-root"
               >
                 <ol
                   class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -1825,7 +1825,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 class="fcqhb81"
               >
                 <div
-                  class="f897l9y"
+                  class="f1mgfhdi"
                 >
                   <strong>
                     <a
@@ -2042,7 +2042,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
               role="table"
             >
               <div
-                class="f1ptnq46 fr2n4tx"
+                class="f1ptnq46 f19sido0"
                 data-testid="table-header"
                 role="row"
               >
@@ -2269,7 +2269,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 />
               </div>
               <div
-                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
+                class="revisionRow f15pv6go f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -2429,7 +2429,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
+                class="revisionRow f15pv6go f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -2600,7 +2600,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
+                class="revisionRow f15pv6go f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -2771,7 +2771,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow f15pv6go fp4ugv1 MuiBox-root css-ux85ba"
+                class="revisionRow f15pv6go f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div

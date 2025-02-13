@@ -63,7 +63,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
         class="MuiGrid-root header-container container_f1ocj467 css-plh9qo-MuiGrid-root"
       >
         <div
-          class="toggle-dark-mode f10ie5uy MuiBox-root css-0"
+          class="toggle-dark-mode fkud7h4 MuiBox-root css-0"
         >
           <div
             class="MuiFormGroup-root css-dmmspl-MuiFormGroup-root"
@@ -96,7 +96,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
                 />
               </span>
               <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-13qdlub-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-smpupv-MuiTypography-root"
               >
                 Dark mode
               </span>
@@ -107,14 +107,14 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
           class="header-text MuiBox-root css-0"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-160ox9e-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-eaa0qe-MuiTypography-root"
           >
             PerfCompare
           </h1>
         </div>
       </div>
       <section
-        class="container_fk3n580"
+        class="container_fdgf30v"
       >
         <a
           aria-label="link to home"
@@ -321,7 +321,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
         class="MuiGrid-root header-container container_f1ocj467 css-plh9qo-MuiGrid-root"
       >
         <div
-          class="toggle-dark-mode f10ie5uy MuiBox-root css-0"
+          class="toggle-dark-mode fkud7h4 MuiBox-root css-0"
         >
           <div
             class="MuiFormGroup-root css-dmmspl-MuiFormGroup-root"
@@ -354,7 +354,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
                 />
               </span>
               <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-13qdlub-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-smpupv-MuiTypography-root"
               >
                 Dark mode
               </span>
@@ -365,14 +365,14 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
           class="header-text MuiBox-root css-0"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-160ox9e-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-eaa0qe-MuiTypography-root"
           >
             PerfCompare
           </h1>
         </div>
       </div>
       <section
-        class="container_fk3n580"
+        class="container_fdgf30v"
       >
         <a
           aria-label="link to home"
@@ -474,7 +474,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
         class="MuiGrid-root header-container container_f1ocj467 css-plh9qo-MuiGrid-root"
       >
         <div
-          class="toggle-dark-mode f10ie5uy MuiBox-root css-0"
+          class="toggle-dark-mode fkud7h4 MuiBox-root css-0"
         >
           <div
             class="MuiFormGroup-root css-dmmspl-MuiFormGroup-root"
@@ -507,7 +507,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
                 />
               </span>
               <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-13qdlub-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-smpupv-MuiTypography-root"
               >
                 Dark mode
               </span>
@@ -518,14 +518,14 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
           class="header-text MuiBox-root css-0"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-160ox9e-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-eaa0qe-MuiTypography-root"
           >
             PerfCompare
           </h1>
         </div>
       </div>
       <section
-        class="container_fk3n580"
+        class="container_fdgf30v"
       >
         <a
           aria-label="link to home"

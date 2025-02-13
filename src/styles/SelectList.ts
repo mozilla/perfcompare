@@ -1,5 +1,4 @@
 import { Colors } from './Colors';
-import { FontsRaw } from './Fonts';
 import { Spacing } from './Spacing';
 
 const sharedCaptionStyles = {
@@ -17,7 +16,6 @@ export const captionStylesLight = {
 
   $nest: {
     '.info-caption-item': {
-      ...FontsRaw.BodySmallDark,
       display: 'flex',
       alignItems: 'center',
       fontSize: '11px',
@@ -32,7 +30,6 @@ export const captionStylesDark = {
 
   $nest: {
     '.info-caption-item': {
-      ...FontsRaw.BodySmall,
       display: 'flex',
       alignItems: 'center',
       fontSize: '11px',

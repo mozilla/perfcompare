@@ -51,7 +51,7 @@ const styles = {
     fontStyle: 'normal',
     fontWeight: 590,
     fontSize: '15px',
-    lineHeight: '20px',
+    lineHeight: '1.5',
   }),
 };
 

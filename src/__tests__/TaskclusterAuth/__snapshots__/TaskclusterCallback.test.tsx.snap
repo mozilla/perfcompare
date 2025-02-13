@@ -7,7 +7,7 @@ exports[`Taskcluster Callback should show a spinner while waiting for the creden
       class="MuiBox-root css-vmdzdb"
     >
       <h2
-        class="MuiTypography-root MuiTypography-h2 css-15umudq-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h2 css-gja6vo-MuiTypography-root"
       >
         Retrieving Taskcluster credentials...
       </h2>
