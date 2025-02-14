@@ -191,7 +191,6 @@ function TableContent({
   if (!filteredResults.length) {
     return <NoResultsFound />;
   }
-console.log(processedResults)
   return (
     <Virtuoso
       useWindowScroll

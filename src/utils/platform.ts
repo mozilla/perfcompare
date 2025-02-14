@@ -9,7 +9,7 @@ export const getPlatformShortName = (
     platformName.toLowerCase().includes('os x')
   )
     return 'macOS';
-  if (platformName.toLowerCase().includes('win')) return 'Windows';
+  if (platformName.toLowerCase().startsWith('win')) return 'Windows';
   if (platformName.toLowerCase().includes('android')) return 'Android';
   return 'Unspecified';
 };
@@ -20,10 +20,10 @@ const osMapping = {
   linux64: 'Linux x64',
   linux1804: 'Linux 18.04',
   linux2204: 'Linux 22.04',
-  osx: 'OS X',
-  macosx1014: 'OS X 10.14',
-  macosx1015: 'OS X 10.15',
-  macosx1100: 'OS X 11',
+  osx: 'macOS',
+  macosx1014: 'macOS 10.14',
+  macosx1015: 'macOS 10.15',
+  macosx1100: 'macOS 11',
   macosx1300: 'macOS 13',
   macosx1400: 'macOS 14.00',
   macosx1470: 'macOS 14.70',
