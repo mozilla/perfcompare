@@ -1536,7 +1536,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                   />
                                 </svg>
                                 <span>
-                                  OS X 10.15
+                                  macOS 10.15
                                 </span>
                               </div>
                             </div>
@@ -2562,7 +2562,7 @@ exports[`Results Table should render different blocks when rendering several rev
             />
           </svg>
           <span>
-            OS X 10.15
+            macOS 10.15
           </span>
         </div>
       </div>
@@ -2800,7 +2800,7 @@ exports[`Results Table should render different blocks when rendering several rev
             />
           </svg>
           <span>
-            OS X 10.15
+            macOS 10.15
           </span>
         </div>
       </div>
