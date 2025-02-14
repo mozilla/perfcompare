@@ -30,6 +30,7 @@ function GraphDistribution(props: GraphDistributionProps) {
   const graphData = [...baseData, ...newData];
 
   const options = {
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         display: false,
@@ -44,16 +45,23 @@ function GraphDistribution(props: GraphDistributionProps) {
     },
     scales: {
       x: {
+        type: 'linear',
+        suggestedMin: min,
+        suggestedMax: max,
         grid: {
           display: false,
         },
-        suggestedMin: min,
-        suggestedMax: max,
+        title: {
+          align: 'end' as const,
+          display: true,
+          text: unit,
+        },
       },
       y: {
         type: 'category',
         labels: ['Base', 'New'],
         offset: true,
+        display: false,
       },
     },
     elements: {
@@ -66,7 +74,6 @@ function GraphDistribution(props: GraphDistributionProps) {
   const data = {
     datasets: [
       {
-        label: name,
         data: graphData,
         backgroundColor: (context: ScriptableContext<'bubble'>) =>
           (context.raw as { y: 'Base' | 'New' }).y === 'Base'
