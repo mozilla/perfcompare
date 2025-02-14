@@ -25,7 +25,7 @@ const columnsConfiguration: CompareResultsTableConfig = [
     key: 'platform',
     gridWidth: '2fr',
     possibleValues: [
-      { label: 'Windows', key: 'windows' },
+      { label: 'Windows', key: 'win' },
       { label: 'macOS', key: 'osx' },
       { label: 'Linux', key: 'linux' },
       { label: 'Android', key: 'android' },
