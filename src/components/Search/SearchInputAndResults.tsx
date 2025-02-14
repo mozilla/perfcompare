@@ -75,7 +75,7 @@ export default function SearchInputAndResults({
       // endpoints even when it looks like a hash. For example a request such as "ade" could
       // return results for an author named "adenot" _and_  results for a hash "ade821ac".
       // In that case it would be better to show the results for the author.
-      const authorInfoMatch = /[^0-9a-fA-F]/;
+      const isHash = /^(?=.*[a-f])[a-f0-9]{4,40}$/i;
 
       // Reset various states
       setSearchError(null);
@@ -85,16 +85,17 @@ export default function SearchInputAndResults({
       const thisRequestId = ++requestsCounterRef.current;
 
       let searchParameters;
+      // we have to find a way to return hash if hash is searched and other fields when they are searched.
       if (!searchTerm) {
         searchParameters = { repository };
       } else if (searchTerm.length < 3) {
         setSearchError(Strings.errors.warningText);
         setRecentRevisions(null);
         return;
-      } else if (authorInfoMatch.test(searchTerm)) {
-        searchParameters = { repository, author: searchTerm };
-      } else {
+      } else if (isHash.test(searchTerm)) {
         searchParameters = { repository, hash: searchTerm };
+      } else {
+        searchParameters = { repository, search: searchTerm };
       }
 
       // Keep the current searchTerm in ref so that we can use it when the
