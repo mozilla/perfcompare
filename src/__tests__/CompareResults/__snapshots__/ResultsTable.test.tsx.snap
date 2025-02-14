@@ -985,6 +985,7 @@ exports[`Results Table Should match snapshot 1`] = `
                       aria-haspopup="true"
                       aria-label="Platform (Click to filter values)"
                       class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-uajdoe-MuiButtonBase-root-MuiButton-root"
+                      data-mui-internal-clone-element="true"
                       tabindex="0"
                       type="button"
                     >
@@ -1049,6 +1050,7 @@ exports[`Results Table Should match snapshot 1`] = `
                       aria-haspopup="true"
                       aria-label="Status (Click to filter values)"
                       class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-uajdoe-MuiButtonBase-root-MuiButton-root"
+                      data-mui-internal-clone-element="true"
                       tabindex="0"
                       type="button"
                     >
@@ -1117,72 +1119,67 @@ exports[`Results Table Should match snapshot 1`] = `
                     class="cell confidence-header"
                     role="columnheader"
                   >
-                    <span
-                      aria-label="Calculated using a Student's T-test comparison. Low is anything under a T value of 3, Medium is between 3 and 5, and High is anything higher than 5."
-                      class="MuiBox-root css-4g6ai3"
-                      data-mui-internal-clone-element="true"
+                    <div
+                      class="MuiButtonGroup-root MuiButtonGroup-contained MuiButtonGroup-disableElevation css-t8t4s9-MuiButtonGroup-root"
+                      role="group"
                     >
-                      <div
-                        class="MuiButtonGroup-root MuiButtonGroup-contained MuiButtonGroup-disableElevation css-t8t4s9-MuiButtonGroup-root"
-                        role="group"
+                      <button
+                        aria-label="Confidence (Click to sort by this column)"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton css-gknth7-MuiButtonBase-root-MuiButton-root"
+                        tabindex="0"
+                        type="button"
                       >
-                        <button
-                          aria-label="Confidence (Click to sort by this column)"
-                          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton css-gknth7-MuiButtonBase-root-MuiButton-root"
-                          tabindex="0"
-                          type="button"
+                        <svg
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1mecf1h-MuiSvgIcon-root"
+                          data-testid="SwapVertIcon"
+                          focusable="false"
+                          role="img"
+                          viewBox="0 0 24 24"
                         >
-                          <svg
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1mecf1h-MuiSvgIcon-root"
-                            data-testid="SwapVertIcon"
-                            focusable="false"
-                            role="img"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
-                            />
-                            <title>
-                              Not sorted by Confidence
-                            </title>
-                          </svg>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          <path
+                            d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
                           />
-                        </button>
-                        <button
-                          aria-haspopup="true"
-                          aria-label="Confidence (Click to filter values)"
-                          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton css-uajdoe-MuiButtonBase-root-MuiButton-root"
-                          tabindex="0"
-                          type="button"
+                          <title>
+                            Not sorted by Confidence
+                          </title>
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </button>
+                      <button
+                        aria-haspopup="true"
+                        aria-label="Confidence (Click to filter values)"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-uajdoe-MuiButtonBase-root-MuiButton-root"
+                        data-mui-internal-clone-element="true"
+                        tabindex="0"
+                        type="button"
+                      >
+                        Confidence
+                        <div
+                          aria-label="4 items selected"
+                          class="MuiBox-root css-18uhbjh"
                         >
-                          Confidence
-                          <div
-                            aria-label="4 items selected"
-                            class="MuiBox-root css-18uhbjh"
-                          >
-                            (
-                            4
-                            )
-                          </div>
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                            data-testid="KeyboardArrowDownIcon"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-                            />
-                          </svg>
-                          <span
-                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          (
+                          4
+                          )
+                        </div>
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+                          data-testid="KeyboardArrowDownIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
                           />
-                        </button>
-                      </div>
-                    </span>
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </button>
+                    </div>
                   </div>
                   <div
                     class="cell runs-header"
@@ -1489,7 +1486,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls=":rc:"
+                                  aria-controls=":re:"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -1715,7 +1712,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls=":rg:"
+                                  aria-controls=":ri:"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -1930,7 +1927,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls=":rk:"
+                                  aria-controls=":rm:"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -2188,7 +2185,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 data-testid="expand-revision-button"
                               >
                                 <button
-                                  aria-controls=":ro:"
+                                  aria-controls=":rq:"
                                   aria-expanded="false"
                                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                                   tabindex="0"
@@ -2741,7 +2738,7 @@ exports[`Results Table should render different blocks when rendering several rev
           data-testid="expand-revision-button"
         >
           <button
-            aria-controls=":r1k:"
+            aria-controls=":r1q:"
             aria-expanded="false"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
             tabindex="0"
@@ -2979,7 +2976,7 @@ exports[`Results Table should render different blocks when rendering several rev
           data-testid="expand-revision-button"
         >
           <button
-            aria-controls=":r1o:"
+            aria-controls=":r1u:"
             aria-expanded="false"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
             tabindex="0"
