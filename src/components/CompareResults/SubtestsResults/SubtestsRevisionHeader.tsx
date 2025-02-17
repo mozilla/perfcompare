@@ -2,6 +2,7 @@ import { type ReactNode } from 'react';
 
 import AppleIcon from '@mui/icons-material/Apple';
 import { Link } from '@mui/material';
+import Tooltip from '@mui/material/Tooltip';
 import { useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
 
@@ -156,8 +157,13 @@ function SubtestsRevisionHeader(props: SubtestsRevisionHeaderProps) {
         <strong>{getSuite(header, docsURL, isLinkSupported)}</strong> |
         {baseInfo}
         {getRevLink(header.new_rev, header.new_repo, '- New')} | {framework} |{' '}
-        {platformIcon}
-        <span>{getPlatformAndVersion(header.platform)}</span> |{' '}
+        <Tooltip placement='bottom' title={header.platform} arrow>
+          <span>
+            {platformIcon}
+            <span>{getPlatformAndVersion(header.platform)}</span>
+          </span>
+        </Tooltip>{' '}
+        |{' '}
       </div>
       <div className={styles.tagsOptions}>
         <span className={styles.chip}>{header.option_name}</span>
