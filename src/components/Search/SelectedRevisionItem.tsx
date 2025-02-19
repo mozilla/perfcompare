@@ -22,6 +22,7 @@ import {
   getLatestCommitMessage,
   getTreeherderURL,
 } from '../../utils/helpers';
+import CopyIcon from '../Shared/CopyIcon';
 
 const base = Strings.components.searchDefault.base;
 const warning = base.collapsed.warnings.comparison;
@@ -92,7 +93,12 @@ function SelectedRevisionItem({
                 >
                   {revisionHash}
                 </Link>
+                <CopyIcon
+                  text={revisionHash}
+                  arialLabel='Copy the revision to the clipboard'
+                />
               </Typography>
+
               <div className='info-caption'>
                 <div className='info-caption-item item-author'>
                   {' '}
