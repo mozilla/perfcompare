@@ -157,13 +157,17 @@ function SubtestsRevisionHeader(props: SubtestsRevisionHeaderProps) {
         <strong>{getSuite(header, docsURL, isLinkSupported)}</strong> |
         {baseInfo}
         {getRevLink(header.new_rev, header.new_repo, '- New')} | {framework} |{' '}
-        <Tooltip placement='bottom' title={header.platform} arrow>
+        <Tooltip
+          style={{ cursor: 'pointer' }}
+          placement='bottom'
+          title={header.platform}
+          arrow
+        >
           <span>
             {platformIcon}
             <span>{getPlatformAndVersion(header.platform)}</span>
           </span>
-        </Tooltip>{' '}
-        |{' '}
+        </Tooltip>
       </div>
       <div className={styles.tagsOptions}>
         <span className={styles.chip}>{header.option_name}</span>
