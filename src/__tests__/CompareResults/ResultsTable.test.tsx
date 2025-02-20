@@ -164,9 +164,9 @@ describe('Results Table', () => {
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html opt e10s fission stylo webrender',
       '  rev: spam',
-      '  - OS X 10.15, Improvement, 1.08 %, Low',
+      '  - macOS 10.15, Improvement, 1.08 %, Low',
       '  rev: devilrabbit',
-      '  - OS X 10.15, Improvement, 1.08 %, Low',
+      '  - macOS 10.15, Improvement, 1.08 %, Low',
     ]);
     expect(screen.getByRole('rowgroup')).toMatchSnapshot();
   });
@@ -184,7 +184,7 @@ describe('Results Table', () => {
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Android, Improvement, 1.08 %, Low',
       '  - Linux 18.04, Regression, 1.85 %, Medium',
-      '  - OS X 10.15, Improvement, 1.08 %, Low',
+      '  - macOS 10.15, Improvement, 1.08 %, Low',
       '  - Windows 10, -, -24 %, -',
       '  - Windows 10, -, -2.4 %, High',
     ]);
@@ -197,7 +197,7 @@ describe('Results Table', () => {
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Android, Improvement, 1.08 %, Low',
       '  - Linux 18.04, Regression, 1.85 %, Medium',
-      '  - OS X 10.15, Improvement, 1.08 %, Low',
+      '  - macOS 10.15, Improvement, 1.08 %, Low',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['osx', 'linux', 'android'],
@@ -207,7 +207,7 @@ describe('Results Table', () => {
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Android, Improvement, 1.08 %, Low',
-      '  - OS X 10.15, Improvement, 1.08 %, Low',
+      '  - macOS 10.15, Improvement, 1.08 %, Low',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['osx', 'android'],
@@ -218,7 +218,7 @@ describe('Results Table', () => {
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Android, Improvement, 1.08 %, Low',
       '  - Linux 18.04, Regression, 1.85 %, Medium',
-      '  - OS X 10.15, Improvement, 1.08 %, Low',
+      '  - macOS 10.15, Improvement, 1.08 %, Low',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       platform: ['osx', 'linux', 'android'],
@@ -229,7 +229,7 @@ describe('Results Table', () => {
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Android, Improvement, 1.08 %, Low',
       '  - Linux 18.04, Regression, 1.85 %, Medium',
-      '  - OS X 10.15, Improvement, 1.08 %, Low',
+      '  - macOS 10.15, Improvement, 1.08 %, Low',
       '  - Windows 10, -, -24 %, -',
       '  - Windows 10, -, -2.4 %, High',
     ]);
@@ -276,7 +276,7 @@ describe('Results Table', () => {
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Linux 18.04, Regression, 1.85 %, Medium',
-      '  - OS X 10.15, Improvement, 1.08 %, Low',
+      '  - macOS 10.15, Improvement, 1.08 %, Low',
       '  - Windows 10, -, -24 %, -',
       '  - Windows 10, -, -2.4 %, High',
     ]);
@@ -287,7 +287,7 @@ describe('Results Table', () => {
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Linux 18.04, Regression, 1.85 %, Medium',
-      '  - OS X 10.15, Improvement, 1.08 %, Low',
+      '  - macOS 10.15, Improvement, 1.08 %, Low',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       status: ['improvement', 'regression'],
@@ -333,7 +333,7 @@ describe('Results Table', () => {
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Linux 18.04, Regression, 1.85 %, Medium',
-      '  - OS X 10.15, Improvement, 1.08 %, Low',
+      '  - macOS 10.15, Improvement, 1.08 %, Low',
       '  - Windows 10, -, -24 %, -',
       '  - Windows 10, -, -2.4 %, High',
     ]);
@@ -374,7 +374,7 @@ describe('Results Table', () => {
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Linux 18.04, Regression, 1.85 %, Medium',
-      '  - OS X 10.15, Improvement, 1.08 %, Low',
+      '  - macOS 10.15, Improvement, 1.08 %, Low',
       '  - Windows 10, -, -24 %, -',
       '  - Windows 10, -, -2.4 %, High',
     ]);
@@ -384,7 +384,7 @@ describe('Results Table', () => {
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Linux 18.04, Regression, 1.85 %, Medium',
-      '  - OS X 10.15, Improvement, 1.08 %, Low',
+      '  - macOS 10.15, Improvement, 1.08 %, Low',
       '  - Windows 10, -, -2.4 %, High',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
@@ -414,23 +414,23 @@ describe('Results Table', () => {
       'a11yr aria.html opt e10s fission stylo webrender',
       '  rev: spam',
       '  - Linux 18.04, Regression, 1.97 %, Medium',
-      '  - OS X 10.15, Improvement, 1.2 %, Low',
+      '  - macOS 10.15, Improvement, 1.2 %, Low',
       '  - Windows 10, -, -23.88 %, -',
       '  - Windows 10, -, -2.28 %, High',
       '  rev: tictactoe',
       '  - Linux 18.04, Regression, 2.05 %, Medium',
-      '  - OS X 10.15, Improvement, 1.28 %, Low',
+      '  - macOS 10.15, Improvement, 1.28 %, Low',
       '  - Windows 10, -, -23.8 %, -',
       '  - Windows 10, -, -2.2 %, High',
       'a11yr dhtml.html opt e10s fission stylo webrender',
       '  rev: spam',
       '  - Linux 18.04, Regression, 1.85 %, Medium',
-      '  - OS X 10.15, Improvement, 1.08 %, Low',
+      '  - macOS 10.15, Improvement, 1.08 %, Low',
       '  - Windows 10, -, -24 %, -',
       '  - Windows 10, -, -2.4 %, High',
       '  rev: tictactoe',
       '  - Linux 18.04, Regression, 1.93 %, Medium',
-      '  - OS X 10.15, Improvement, 1.16 %, Low',
+      '  - macOS 10.15, Improvement, 1.16 %, Low',
       '  - Windows 10, -, -23.92 %, -',
       '  - Windows 10, -, -2.32 %, High',
     ]);
@@ -448,23 +448,23 @@ describe('Results Table', () => {
       '  - Windows 10, -, -24 %, -',
       '  - Windows 10, -, -2.4 %, High',
       '  - Linux 18.04, Regression, 1.85 %, Medium',
-      '  - OS X 10.15, Improvement, 1.08 %, Low',
+      '  - macOS 10.15, Improvement, 1.08 %, Low',
       '  rev: tictactoe',
       '  - Windows 10, -, -23.92 %, -',
       '  - Windows 10, -, -2.32 %, High',
       '  - Linux 18.04, Regression, 1.93 %, Medium',
-      '  - OS X 10.15, Improvement, 1.16 %, Low',
+      '  - macOS 10.15, Improvement, 1.16 %, Low',
       'a11yr aria.html opt e10s fission stylo webrender',
       '  rev: spam',
       '  - Windows 10, -, -23.88 %, -',
       '  - Windows 10, -, -2.28 %, High',
       '  - Linux 18.04, Regression, 1.97 %, Medium',
-      '  - OS X 10.15, Improvement, 1.2 %, Low',
+      '  - macOS 10.15, Improvement, 1.2 %, Low',
       '  rev: tictactoe',
       '  - Windows 10, -, -23.8 %, -',
       '  - Windows 10, -, -2.2 %, High',
       '  - Linux 18.04, Regression, 2.05 %, Medium',
-      '  - OS X 10.15, Improvement, 1.28 %, Low',
+      '  - macOS 10.15, Improvement, 1.28 %, Low',
     ]);
     // It should have the "descending" SVG.
     expect(deltaButton).toMatchSnapshot();
@@ -476,23 +476,23 @@ describe('Results Table', () => {
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html opt e10s fission stylo webrender',
       '  rev: spam',
-      '  - OS X 10.15, Improvement, 1.08 %, Low',
+      '  - macOS 10.15, Improvement, 1.08 %, Low',
       '  - Linux 18.04, Regression, 1.85 %, Medium',
       '  - Windows 10, -, -2.4 %, High',
       '  - Windows 10, -, -24 %, -',
       '  rev: tictactoe',
-      '  - OS X 10.15, Improvement, 1.16 %, Low',
+      '  - macOS 10.15, Improvement, 1.16 %, Low',
       '  - Linux 18.04, Regression, 1.93 %, Medium',
       '  - Windows 10, -, -2.32 %, High',
       '  - Windows 10, -, -23.92 %, -',
       'a11yr aria.html opt e10s fission stylo webrender',
       '  rev: spam',
-      '  - OS X 10.15, Improvement, 1.2 %, Low',
+      '  - macOS 10.15, Improvement, 1.2 %, Low',
       '  - Linux 18.04, Regression, 1.97 %, Medium',
       '  - Windows 10, -, -2.28 %, High',
       '  - Windows 10, -, -23.88 %, -',
       '  rev: tictactoe',
-      '  - OS X 10.15, Improvement, 1.28 %, Low',
+      '  - macOS 10.15, Improvement, 1.28 %, Low',
       '  - Linux 18.04, Regression, 2.05 %, Medium',
       '  - Windows 10, -, -2.2 %, High',
       '  - Windows 10, -, -23.8 %, -',
@@ -512,23 +512,23 @@ describe('Results Table', () => {
       '  rev: tictactoe',
       '  - Windows 10, -, -2.2 %, High',
       '  - Linux 18.04, Regression, 2.05 %, Medium',
-      '  - OS X 10.15, Improvement, 1.28 %, Low',
+      '  - macOS 10.15, Improvement, 1.28 %, Low',
       '  - Windows 10, -, -23.8 %, -',
       '  rev: spam',
       '  - Windows 10, -, -2.28 %, High',
       '  - Linux 18.04, Regression, 1.97 %, Medium',
-      '  - OS X 10.15, Improvement, 1.2 %, Low',
+      '  - macOS 10.15, Improvement, 1.2 %, Low',
       '  - Windows 10, -, -23.88 %, -',
       'a11yr dhtml.html opt e10s fission stylo webrender',
       '  rev: tictactoe',
       '  - Windows 10, -, -2.32 %, High',
       '  - Linux 18.04, Regression, 1.93 %, Medium',
-      '  - OS X 10.15, Improvement, 1.16 %, Low',
+      '  - macOS 10.15, Improvement, 1.16 %, Low',
       '  - Windows 10, -, -23.92 %, -',
       '  rev: spam',
       '  - Windows 10, -, -2.4 %, High',
       '  - Linux 18.04, Regression, 1.85 %, Medium',
-      '  - OS X 10.15, Improvement, 1.08 %, Low',
+      '  - macOS 10.15, Improvement, 1.08 %, Low',
       '  - Windows 10, -, -24 %, -',
     ]);
     // It should have the "no sort" SVG.
@@ -550,7 +550,7 @@ describe('Results Table', () => {
 
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
-      '  - OS X 10.15, Improvement, 1.08 %, Low',
+      '  - macOS 10.15, Improvement, 1.08 %, Low',
       '  - Linux 18.04, Regression, 1.85 %, Medium',
       '  - Windows 10, -, -2.4 %, High',
       '  - Windows 10, -, -24 %, -',
@@ -562,7 +562,7 @@ describe('Results Table', () => {
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Linux 18.04, Regression, 1.85 %, Medium',
-      '  - OS X 10.15, Improvement, 1.08 %, Low',
+      '  - macOS 10.15, Improvement, 1.08 %, Low',
       '  - Windows 10, -, -24 %, -',
       '  - Windows 10, -, -2.4 %, High',
     ]);
@@ -583,7 +583,7 @@ describe('Results Table', () => {
       '  - Windows 10, -, -24 %, -',
       '  - Windows 10, -, -2.4 %, High',
       '  - Linux 18.04, Regression, 1.85 %, Medium',
-      '  - OS X 10.15, Improvement, 1.08 %, Low',
+      '  - macOS 10.15, Improvement, 1.08 %, Low',
     ]);
   });
 });

@@ -37,7 +37,7 @@ describe('<RevisionRow>', () => {
     },
     {
       platform: 'macosx1014-64-shippable-qr',
-      shortName: 'OS X 10.14',
+      shortName: 'macOS 10.14',
       hasIcon: true,
     },
     {
