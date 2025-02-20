@@ -217,6 +217,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                     aria-label="linux1804-64-shippable-qr"
                     class=""
                     data-mui-internal-clone-element="true"
+                    style="cursor: pointer;"
                   >
                     <svg
                       aria-hidden="true"
@@ -232,9 +233,6 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                       Linux 18.04
                     </span>
                   </span>
-                   
-                  |
-                   
                 </div>
                 <div
                   class="f1oxa67k"
@@ -1865,6 +1863,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                     aria-label="linux1804-64-shippable-qr"
                     class=""
                     data-mui-internal-clone-element="true"
+                    style="cursor: pointer;"
                   >
                     <svg
                       aria-hidden="true"
@@ -1880,9 +1879,6 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                       Linux 18.04
                     </span>
                   </span>
-                   
-                  |
-                   
                 </div>
                 <div
                   class="f1oxa67k"

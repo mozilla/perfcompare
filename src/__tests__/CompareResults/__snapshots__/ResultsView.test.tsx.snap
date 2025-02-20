@@ -1476,6 +1476,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     aria-label="linux1804-64-shippable-qr"
                     class="platform-container"
                     data-mui-internal-clone-element="true"
+                    style="cursor: pointer;"
                   >
                     <svg
                       aria-hidden="true"
@@ -1701,6 +1702,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     aria-label="macosx1015-64-shippable-qr"
                     class="platform-container"
                     data-mui-internal-clone-element="true"
+                    style="cursor: pointer;"
                   >
                     <svg
                       aria-hidden="true"
@@ -1927,6 +1929,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     aria-label="windows10-64-qr"
                     class="platform-container"
                     data-mui-internal-clone-element="true"
+                    style="cursor: pointer;"
                   >
                     <svg
                       aria-hidden="true"
@@ -2131,6 +2134,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     aria-label="windows10-64-shippable-qr"
                     class="platform-container"
                     data-mui-internal-clone-element="true"
+                    style="cursor: pointer;"
                   >
                     <svg
                       aria-hidden="true"
