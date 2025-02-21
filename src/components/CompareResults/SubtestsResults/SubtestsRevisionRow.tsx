@@ -22,6 +22,7 @@ const revisionsRow = {
   borderRadius: '4px 0px 0px 4px',
   display: 'grid',
   margin: `${Spacing.Small}px 0px 0px 0px`,
+  alignItems: 'center',
 };
 
 const typography = style({
@@ -86,6 +87,11 @@ function getStyles(themeMode: string) {
         '.status-hint-regression .MuiSvgIcon-root': {
           // We need to move the icon a bit lower so that it _looks_ centered.
           marginTop: '2px',
+        },
+        '.overflowing-text': {
+          whiteSpace: 'nowrap',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
         },
       },
     }),
@@ -155,7 +161,12 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
         sx={{ gridTemplateColumns }}
         role='row'
       >
-        <div className='subtests cell' role='cell'>
+        <div
+          title={test}
+          style={{ overflow: 'hidden' }}
+          className='subtests overflowing-text'
+          role='cell'
+        >
           {test}
         </div>
         <div className='base-value cell' role='cell'>
