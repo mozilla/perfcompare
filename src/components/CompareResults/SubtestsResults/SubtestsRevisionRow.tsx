@@ -176,7 +176,7 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
           {' '}
           {formatNumber(baseAvgValue)} {baseUnit}
           {getBrowserDisplay(baseApp, newApp, expanded) && (
-            <span>({baseApp})</span>
+            <span style={{ fontSize: '11.5px' }}>({baseApp})</span>
           )}
         </div>
         <div className='comparison-sign cell' role='cell'>
@@ -185,7 +185,7 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
         <div className='browser-name cell' role='cell'>
           {formatNumber(newAvgValue)} {newUnit}
           {getBrowserDisplay(baseApp, newApp, expanded) && (
-            <span>({newApp})</span>
+            <span style={{ fontSize: '11.5px' }}>({newApp})</span>
           )}
         </div>
         <div className='status cell' role='cell'>
