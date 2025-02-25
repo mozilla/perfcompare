@@ -720,7 +720,7 @@ exports[`Results Table Should match snapshot 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-z2teic-MuiGrid-root"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthLg f2ayd27 css-1oqqzyl-MuiContainer-root"
+            class="MuiContainer-root MuiContainer-maxWidthLg fjvfn2t css-1oqqzyl-MuiContainer-root"
             data-testid="results-main"
           >
             <header>
@@ -742,7 +742,7 @@ exports[`Results Table Should match snapshot 1`] = `
                 class="MuiGrid-root MuiGrid-container fau5w0k css-jryjzr-MuiGrid-root"
               >
                 <div
-                  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-standardInfo MuiAlert-standard f96or0t css-ab9tfo-MuiPaper-root-MuiAlert-root"
+                  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-standardInfo MuiAlert-standard f1q43ty0 css-ab9tfo-MuiPaper-root-MuiAlert-root"
                   role="alert"
                 >
                   <div
@@ -1281,7 +1281,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="fh103jg"
                         >
                           <div
-                            class="f1mgfhdi"
+                            class="f1l733lh"
                           >
                             <strong>
                               <a
@@ -1365,7 +1365,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="fw0pvlu"
                         >
                           <div
-                            class="revisionRow fqyfrhr f1dlt78d MuiBox-root css-1txhl5e"
+                            class="revisionRow f1a1n1ir f1dlt78d MuiBox-root css-1txhl5e"
                             role="row"
                           >
                             <div
@@ -1591,7 +1591,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow fqyfrhr f1dlt78d MuiBox-root css-1txhl5e"
+                            class="revisionRow f1a1n1ir f1dlt78d MuiBox-root css-1txhl5e"
                             role="row"
                           >
                             <div
@@ -1818,7 +1818,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow fqyfrhr f1dlt78d MuiBox-root css-1txhl5e"
+                            class="revisionRow f1a1n1ir f1dlt78d MuiBox-root css-1txhl5e"
                             role="row"
                           >
                             <div
@@ -2050,7 +2050,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="fh103jg"
                         >
                           <div
-                            class="f1mgfhdi"
+                            class="f1l733lh"
                           >
                             <strong>
                               <a
@@ -2114,7 +2114,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="fw0pvlu"
                         >
                           <div
-                            class="revisionRow fqyfrhr f1dlt78d MuiBox-root css-1txhl5e"
+                            class="revisionRow f1a1n1ir f1dlt78d MuiBox-root css-1txhl5e"
                             role="row"
                           >
                             <div
@@ -2589,7 +2589,7 @@ exports[`Results Table should render different blocks when rendering several rev
     class="fh103jg"
   >
     <div
-      class="f1mgfhdi"
+      class="f1l733lh"
     >
       <strong>
         <a
@@ -2672,7 +2672,7 @@ exports[`Results Table should render different blocks when rendering several rev
       </button>
     </span>
     <div
-      class="revisionRow fqyfrhr f1dlt78d MuiBox-root css-1txhl5e"
+      class="revisionRow f1a1n1ir f1dlt78d MuiBox-root css-1txhl5e"
       role="row"
     >
       <div
@@ -2937,7 +2937,7 @@ exports[`Results Table should render different blocks when rendering several rev
       </button>
     </span>
     <div
-      class="revisionRow fqyfrhr f1dlt78d MuiBox-root css-1txhl5e"
+      class="revisionRow f1a1n1ir f1dlt78d MuiBox-root css-1txhl5e"
       role="row"
     >
       <div
