@@ -116,8 +116,6 @@ const swapArrayElements = <T>(
   return array;
 };
 
-
-
 export {
   formatDate,
   getLatestCommitMessage,

@@ -631,7 +631,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 />
               </div>
               <div
-                class="revisionRow f1wrecgx f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow f12szk76 f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -642,14 +642,13 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   dhtml.html
                 </div>
                 <div
-                  class="base-value cell"
+                  class="browser-name cell"
                   role="cell"
                 >
                    
                   971.38
                    
                   ms
-                   
                 </div>
                 <div
                   class="comparison-sign cell"
@@ -658,10 +657,9 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   &lt;
                 </div>
                 <div
-                  class="new-value cell"
+                  class="browser-name cell"
                   role="cell"
                 >
-                   
                   982.41
                    
                   ms
@@ -792,7 +790,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow f1wrecgx f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow f12szk76 f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -803,14 +801,13 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   improvement.html
                 </div>
                 <div
-                  class="base-value cell"
+                  class="browser-name cell"
                   role="cell"
                 >
                    
                   973.66
                    
                   ms
-                   
                 </div>
                 <div
                   class="comparison-sign cell"
@@ -819,10 +816,9 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   &lt;
                 </div>
                 <div
-                  class="new-value cell"
+                  class="browser-name cell"
                   role="cell"
                 >
-                   
                   984.16
                    
                   ms
@@ -964,7 +960,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow f1wrecgx f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow f12szk76 f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -975,14 +971,13 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   regression.html
                 </div>
                 <div
-                  class="base-value cell"
+                  class="browser-name cell"
                   role="cell"
                 >
                    
                   971.38
                    
                   ms
-                   
                 </div>
                 <div
                   class="comparison-sign cell"
@@ -991,10 +986,9 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   &lt;
                 </div>
                 <div
-                  class="new-value cell"
+                  class="browser-name cell"
                   role="cell"
                 >
-                   
                   982.41
                    
                   ms
@@ -1136,7 +1130,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow f1wrecgx f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow f12szk76 f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -1147,14 +1141,13 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   tablemutation.html
                 </div>
                 <div
-                  class="base-value cell"
+                  class="browser-name cell"
                   role="cell"
                 >
                    
                   316.35
                    
                   ms
-                   
                 </div>
                 <div
                   class="comparison-sign cell"
@@ -1163,10 +1156,9 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   &lt;
                 </div>
                 <div
-                  class="new-value cell"
+                  class="browser-name cell"
                   role="cell"
                 >
-                   
                   319.45
                    
                   ms
@@ -2277,7 +2269,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 />
               </div>
               <div
-                class="revisionRow f1wrecgx f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow f12szk76 f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -2288,14 +2280,13 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   dhtml.html
                 </div>
                 <div
-                  class="base-value cell"
+                  class="browser-name cell"
                   role="cell"
                 >
                    
                   971.38
                    
                   ms
-                   
                 </div>
                 <div
                   class="comparison-sign cell"
@@ -2304,10 +2295,9 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   &lt;
                 </div>
                 <div
-                  class="new-value cell"
+                  class="browser-name cell"
                   role="cell"
                 >
-                   
                   982.41
                    
                   ms
@@ -2438,7 +2428,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow f1wrecgx f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow f12szk76 f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -2449,14 +2439,13 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   improvement.html
                 </div>
                 <div
-                  class="base-value cell"
+                  class="browser-name cell"
                   role="cell"
                 >
                    
                   973.66
                    
                   ms
-                   
                 </div>
                 <div
                   class="comparison-sign cell"
@@ -2465,10 +2454,9 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   &lt;
                 </div>
                 <div
-                  class="new-value cell"
+                  class="browser-name cell"
                   role="cell"
                 >
-                   
                   984.16
                    
                   ms
@@ -2610,7 +2598,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow f1wrecgx f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow f12szk76 f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -2621,14 +2609,13 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   regression.html
                 </div>
                 <div
-                  class="base-value cell"
+                  class="browser-name cell"
                   role="cell"
                 >
                    
                   971.38
                    
                   ms
-                   
                 </div>
                 <div
                   class="comparison-sign cell"
@@ -2637,10 +2624,9 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   &lt;
                 </div>
                 <div
-                  class="new-value cell"
+                  class="browser-name cell"
                   role="cell"
                 >
-                   
                   982.41
                    
                   ms
@@ -2782,7 +2768,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow f1wrecgx f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow f12szk76 f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -2793,14 +2779,13 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   tablemutation.html
                 </div>
                 <div
-                  class="base-value cell"
+                  class="browser-name cell"
                   role="cell"
                 >
                    
                   316.35
                    
                   ms
-                   
                 </div>
                 <div
                   class="comparison-sign cell"
@@ -2809,10 +2794,9 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   &lt;
                 </div>
                 <div
-                  class="new-value cell"
+                  class="browser-name cell"
                   role="cell"
                 >
-                   
                   319.45
                    
                   ms

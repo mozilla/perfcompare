@@ -340,20 +340,19 @@ function RevisionRow(props: RevisionRowProps) {
           </Tooltip>
         </div>
         <div className='browser-name cell' role='cell'>
-
-            {formatNumber(baseAvgValue)} {baseUnit}
-            {getBrowserDisplay(baseApp, newApp, expanded) && (
-              <span>({baseApp})</span>
-            )}
+          {formatNumber(baseAvgValue)} {baseUnit}
+          {getBrowserDisplay(baseApp, newApp, expanded) && (
+            <span>({baseApp})</span>
+          )}
         </div>
         <div className='comparison-sign cell' role='cell'>
           {determineSign(baseAvgValue, newAvgValue)}
         </div>
         <div className='browser-name cell' role='cell'>
-            {formatNumber(newAvgValue)} {newUnit}
-            {getBrowserDisplay(baseApp, newApp, expanded) && (
-              <span>({newApp})</span>
-            )}
+          {formatNumber(newAvgValue)} {newUnit}
+          {getBrowserDisplay(baseApp, newApp, expanded) && (
+            <span>({newApp})</span>
+          )}
         </div>
         <div className='status cell' role='cell'>
           <Box

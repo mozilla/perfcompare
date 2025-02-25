@@ -4,7 +4,7 @@ exports[`SubtestsRevisionRow Component renders the component with correct data 1
 <body>
   <div>
     <div
-      class="revisionRow f1wrecgx f1vh4jdk MuiBox-root css-1ykk23q"
+      class="revisionRow f12szk76 f1vh4jdk MuiBox-root css-1ykk23q"
       role="row"
     >
       <div
@@ -15,14 +15,13 @@ exports[`SubtestsRevisionRow Component renders the component with correct data 1
         dhtml.html
       </div>
       <div
-        class="base-value cell"
+        class="browser-name cell"
         role="cell"
       >
          
         971.38
          
         ms
-         
       </div>
       <div
         class="comparison-sign cell"
@@ -31,10 +30,9 @@ exports[`SubtestsRevisionRow Component renders the component with correct data 1
         &lt;
       </div>
       <div
-        class="new-value cell"
+        class="browser-name cell"
         role="cell"
       >
-         
         982.41
          
         ms

@@ -19,7 +19,6 @@ import type { CompareResultsItem } from '../../../types/state';
 import { getBrowserDisplay } from '../../../utils/platform';
 import { formatNumber } from './../../../utils/format';
 
-
 const revisionsRow = {
   borderRadius: '4px 0px 0px 4px',
   display: 'grid',
@@ -177,8 +176,8 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
           {' '}
           {formatNumber(baseAvgValue)} {baseUnit}
           {getBrowserDisplay(baseApp, newApp, expanded) && (
-              <span>({baseApp})</span>
-            )}
+            <span>({baseApp})</span>
+          )}
         </div>
         <div className='comparison-sign cell' role='cell'>
           {determineSign(baseAvgValue, newAvgValue)}
@@ -186,8 +185,8 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
         <div className='browser-name cell' role='cell'>
           {formatNumber(newAvgValue)} {newUnit}
           {getBrowserDisplay(baseApp, newApp, expanded) && (
-              <span>({newApp})</span>
-            )}
+            <span>({newApp})</span>
+          )}
         </div>
         <div className='status cell' role='cell'>
           <Box
