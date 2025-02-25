@@ -50,6 +50,10 @@ function RunValues(props: RunValuesProps) {
     setExpanded(!expanded);
   };
 
+  const onCopyValues = () => {
+    void navigator.clipboard.writeText(values.toString());
+  };
+
   return (
     <div className={styles.container}>
       {application ? (
@@ -88,6 +92,11 @@ function RunValues(props: RunValuesProps) {
               {expanded ? 'Show less' : `Show ${lastValues.length} more`}
             </Button>
           ) : null}
+          {values.length && (
+            <Button variant='text' size='small' onClick={onCopyValues}>
+              Copy results
+            </Button>
+          )}
         </div>
         <div>
           <b>Mean</b>:{'\u00a0'}

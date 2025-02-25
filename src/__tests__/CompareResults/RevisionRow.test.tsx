@@ -37,7 +37,7 @@ describe('<RevisionRow>', () => {
     },
     {
       platform: 'macosx1014-64-shippable-qr',
-      shortName: 'OS X 10.14',
+      shortName: 'macOS 10.14',
       hasIcon: true,
     },
     {
@@ -114,5 +114,30 @@ describe('Expanded row', () => {
     const showLessButton = await screen.findByText(/Show less/);
 
     expect(showLessButton).toBeInTheDocument();
+  });
+
+  it('should copy run values when "Copy values" is clicked', async () => {
+    const writeTextMock = jest
+      .spyOn(navigator.clipboard, 'writeText')
+      .mockResolvedValue();
+    const user = userEvent.setup({ delay: null });
+    const { testCompareData } = getTestData();
+    const baseRuns = testCompareData[0].base_runs.toString();
+
+    renderWithRoute(
+      <RevisionRow
+        result={testCompareData[0]}
+        view={compareView}
+        gridTemplateColumns='none'
+      />,
+    );
+
+    const expandRowButton = await screen.findByTestId(/ExpandMoreIcon/);
+    await user.click(expandRowButton);
+
+    const copyResultsButton = await screen.findAllByText('Copy results');
+    await user.click(copyResultsButton[0]);
+
+    expect(writeTextMock).toHaveBeenCalledWith(baseRuns);
   });
 });
