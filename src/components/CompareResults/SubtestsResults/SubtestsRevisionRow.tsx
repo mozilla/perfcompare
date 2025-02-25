@@ -29,6 +29,8 @@ const typography = style({
   fontStyle: 'normal',
   fontWeight: 400,
   fontSize: '16px',
+  whiteSpace: 'nowrap',
+  padding: `${Spacing.xSmall}px ${Spacing.Small}px`,
   lineHeight: '1.5',
 });
 
