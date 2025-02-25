@@ -42,11 +42,13 @@ function ResultsMain() {
   const styles = {
     alert: style({
       width: '100%',
+      fontSize: '16px',
     }),
     container: style({
       backgroundColor: themeColor100,
       margin: '0 auto',
       marginBottom: '80px',
+      maxWidth: 'xl',
     }),
     title: style({
       ...FontsRaw.HeadingXS,
