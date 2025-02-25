@@ -68,6 +68,8 @@ export const getBrowserDisplay = (
 ) => {
   if (expanded || !baseApp || !newApp) return false;
   return !(
-    baseApp.toLowerCase() === 'firefox' && newApp.toLowerCase() === 'firefox'
+    (baseApp.toLowerCase() === 'firefox' &&
+      newApp.toLowerCase() === 'firefox') ||
+    (baseApp.toLowerCase() === 'fenix' && newApp.toLowerCase() === 'fenix')
   );
 };
