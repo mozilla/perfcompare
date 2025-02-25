@@ -50,10 +50,12 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
       backgroundColor: themeColor100,
       margin: '0 auto',
       marginBottom: '80px',
+      maxWidth: 'xl',
     }),
     title: style({
       margin: 0,
       marginBottom: Spacing.Medium,
+      fontSize: '16px',
     }),
   };
 
