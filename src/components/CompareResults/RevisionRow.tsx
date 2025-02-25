@@ -24,6 +24,7 @@ import { formatNumber } from '../../utils/format';
 import {
   getPlatformShortName,
   getPlatformAndVersion,
+  getBrowserDisplay,
 } from '../../utils/platform';
 import AndroidIcon from '../Shared/Icons/AndroidIcon';
 import LinuxIcon from '../Shared/Icons/LinuxIcon';
@@ -109,7 +110,7 @@ const stylesLight = {
         // We need to move the icon a bit lower so that it _looks_ centered.
         marginTop: '2px',
       },
-      '.app-name': {
+      '.browser-name': {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -187,6 +188,13 @@ const stylesDark = {
       '.status-hint-regression .MuiSvgIcon-root': {
         // We need to move the icon a bit lower so that it _looks_ centered.
         marginTop: '2px',
+      },
+      '.browser-name': {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column',
+        padding: '10px 0px',
       },
     },
   }),
@@ -301,17 +309,6 @@ function RevisionRow(props: RevisionRowProps) {
     setExpanded(!expanded);
   };
 
-  const getAppDisplay = (
-    baseApp: string,
-    newApp: string,
-    expanded: boolean,
-  ) => {
-    if (expanded || !baseApp || !newApp) return false;
-    return !(
-      baseApp.toLowerCase() === 'firefox' && newApp.toLowerCase() === 'firefox'
-    );
-  };
-
   // Note that the return type is different depending on the view we're in
   const subtestsCompareLink =
     view === compareView
@@ -342,24 +339,21 @@ function RevisionRow(props: RevisionRowProps) {
             </div>
           </Tooltip>
         </div>
-        <div className='base-value cell' role='cell'>
-          <div className={expanded ? '' : 'app-name'}>
+        <div className='browser-name cell' role='cell'>
+
             {formatNumber(baseAvgValue)} {baseUnit}
-            {getAppDisplay(baseApp, newApp, expanded) && (
+            {getBrowserDisplay(baseApp, newApp, expanded) && (
               <span>({baseApp})</span>
             )}
-          </div>
         </div>
         <div className='comparison-sign cell' role='cell'>
           {determineSign(baseAvgValue, newAvgValue)}
         </div>
-        <div className='new-value cell' role='cell'>
-          <div className={expanded ? '' : 'app-name'}>
+        <div className='browser-name cell' role='cell'>
             {formatNumber(newAvgValue)} {newUnit}
-            {getAppDisplay(baseApp, newApp, expanded) && (
+            {getBrowserDisplay(baseApp, newApp, expanded) && (
               <span>({newApp})</span>
             )}
-          </div>
         </div>
         <div className='status cell' role='cell'>
           <Box
