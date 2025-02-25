@@ -109,6 +109,13 @@ const stylesLight = {
         // We need to move the icon a bit lower so that it _looks_ centered.
         marginTop: '2px',
       },
+      '.app-name': {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column',
+        padding: '10px 0px',
+      },
     },
   }),
   typography: style({
@@ -281,6 +288,8 @@ function RevisionRow(props: RevisionRowProps) {
     base_runs: baseRuns,
     new_runs: newRuns,
     graphs_link: graphLink,
+    base_app: baseApp,
+    new_app: newApp,
   } = result;
 
   const platformShortName = getPlatformShortName(platform);
@@ -290,6 +299,17 @@ function RevisionRow(props: RevisionRowProps) {
 
   const toggleIsExpanded = () => {
     setExpanded(!expanded);
+  };
+
+  const getAppDisplay = (
+    baseApp: string,
+    newApp: string,
+    expanded: boolean,
+  ) => {
+    if (expanded || !baseApp || !newApp) return false;
+    return !(
+      baseApp.toLowerCase() === 'firefox' && newApp.toLowerCase() === 'firefox'
+    );
   };
 
   // Note that the return type is different depending on the view we're in
@@ -323,15 +343,23 @@ function RevisionRow(props: RevisionRowProps) {
           </Tooltip>
         </div>
         <div className='base-value cell' role='cell'>
-          {' '}
-          {formatNumber(baseAvgValue)} {baseUnit}{' '}
+          <div className={expanded ? '' : 'app-name'}>
+            {formatNumber(baseAvgValue)} {baseUnit}
+            {getAppDisplay(baseApp, newApp, expanded) && (
+              <span>({baseApp})</span>
+            )}
+          </div>
         </div>
         <div className='comparison-sign cell' role='cell'>
           {determineSign(baseAvgValue, newAvgValue)}
         </div>
         <div className='new-value cell' role='cell'>
-          {' '}
-          {formatNumber(newAvgValue)} {newUnit}
+          <div className={expanded ? '' : 'app-name'}>
+            {formatNumber(newAvgValue)} {newUnit}
+            {getAppDisplay(baseApp, newApp, expanded) && (
+              <span>({newApp})</span>
+            )}
+          </div>
         </div>
         <div className='status cell' role='cell'>
           <Box
