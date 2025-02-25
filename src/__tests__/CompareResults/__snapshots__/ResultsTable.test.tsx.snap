@@ -1365,7 +1365,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="fw0pvlu"
                         >
                           <div
-                            class="revisionRow fqyfrhr f1vh4jdk MuiBox-root css-1txhl5e"
+                            class="revisionRow ft4jzth f1vh4jdk MuiBox-root css-1txhl5e"
                             role="row"
                           >
                             <div
@@ -1393,14 +1393,12 @@ exports[`Results Table Should match snapshot 1`] = `
                               </div>
                             </div>
                             <div
-                              class="base-value cell"
+                              class="browser-name cell"
                               role="cell"
                             >
-                               
                               776.97
                                
                               ms
-                               
                             </div>
                             <div
                               class="comparison-sign cell"
@@ -1409,10 +1407,9 @@ exports[`Results Table Should match snapshot 1`] = `
                               &lt;
                             </div>
                             <div
-                              class="new-value cell"
+                              class="browser-name cell"
                               role="cell"
                             >
-                               
                               791.34
                                
                               ms
@@ -1590,7 +1587,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow fqyfrhr f1vh4jdk MuiBox-root css-1txhl5e"
+                            class="revisionRow ft4jzth f1vh4jdk MuiBox-root css-1txhl5e"
                             role="row"
                           >
                             <div
@@ -1619,14 +1616,12 @@ exports[`Results Table Should match snapshot 1`] = `
                               </div>
                             </div>
                             <div
-                              class="base-value cell"
+                              class="browser-name cell"
                               role="cell"
                             >
-                               
                               704.84
                                
                               ms
-                               
                             </div>
                             <div
                               class="comparison-sign cell"
@@ -1635,10 +1630,9 @@ exports[`Results Table Should match snapshot 1`] = `
                               &lt;
                             </div>
                             <div
-                              class="new-value cell"
+                              class="browser-name cell"
                               role="cell"
                             >
-                               
                               712.44
                                
                               ms
@@ -1816,7 +1810,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow fqyfrhr f1vh4jdk MuiBox-root css-1txhl5e"
+                            class="revisionRow ft4jzth f1vh4jdk MuiBox-root css-1txhl5e"
                             role="row"
                           >
                             <div
@@ -1845,14 +1839,12 @@ exports[`Results Table Should match snapshot 1`] = `
                               </div>
                             </div>
                             <div
-                              class="base-value cell"
+                              class="browser-name cell"
                               role="cell"
                             >
-                               
                               643.54
                                
                               ms
-                               
                             </div>
                             <div
                               class="comparison-sign cell"
@@ -1861,10 +1853,9 @@ exports[`Results Table Should match snapshot 1`] = `
                               &gt;
                             </div>
                             <div
-                              class="new-value cell"
+                              class="browser-name cell"
                               role="cell"
                             >
-                               
                               628.09
                                
                               ms
@@ -2111,7 +2102,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="fw0pvlu"
                         >
                           <div
-                            class="revisionRow fqyfrhr f1vh4jdk MuiBox-root css-1txhl5e"
+                            class="revisionRow ft4jzth f1vh4jdk MuiBox-root css-1txhl5e"
                             role="row"
                           >
                             <div
@@ -2140,14 +2131,12 @@ exports[`Results Table Should match snapshot 1`] = `
                               </div>
                             </div>
                             <div
-                              class="base-value cell"
+                              class="browser-name cell"
                               role="cell"
                             >
-                               
                               643.54
                                
                               ms
-                               
                             </div>
                             <div
                               class="comparison-sign cell"
@@ -2156,10 +2145,9 @@ exports[`Results Table Should match snapshot 1`] = `
                               &gt;
                             </div>
                             <div
-                              class="new-value cell"
+                              class="browser-name cell"
                               role="cell"
                             >
-                               
                               628.09
                                
                               ms
@@ -2668,7 +2656,7 @@ exports[`Results Table should render different blocks when rendering several rev
       </button>
     </span>
     <div
-      class="revisionRow fqyfrhr f1vh4jdk MuiBox-root css-1txhl5e"
+      class="revisionRow ft4jzth f1vh4jdk MuiBox-root css-1txhl5e"
       role="row"
     >
       <div
@@ -2697,14 +2685,12 @@ exports[`Results Table should render different blocks when rendering several rev
         </div>
       </div>
       <div
-        class="base-value cell"
+        class="browser-name cell"
         role="cell"
       >
-         
         704.84
          
         ms
-         
       </div>
       <div
         class="comparison-sign cell"
@@ -2713,10 +2699,9 @@ exports[`Results Table should render different blocks when rendering several rev
         &lt;
       </div>
       <div
-        class="new-value cell"
+        class="browser-name cell"
         role="cell"
       >
-         
         712.44
          
         ms
@@ -2932,7 +2917,7 @@ exports[`Results Table should render different blocks when rendering several rev
       </button>
     </span>
     <div
-      class="revisionRow fqyfrhr f1vh4jdk MuiBox-root css-1txhl5e"
+      class="revisionRow ft4jzth f1vh4jdk MuiBox-root css-1txhl5e"
       role="row"
     >
       <div
@@ -2961,14 +2946,12 @@ exports[`Results Table should render different blocks when rendering several rev
         </div>
       </div>
       <div
-        class="base-value cell"
+        class="browser-name cell"
         role="cell"
       >
-         
         704.84
          
         ms
-         
       </div>
       <div
         class="comparison-sign cell"
@@ -2977,10 +2960,9 @@ exports[`Results Table should render different blocks when rendering several rev
         &lt;
       </div>
       <div
-        class="new-value cell"
+        class="browser-name cell"
         role="cell"
       >
-         
         712.44
          
         ms
