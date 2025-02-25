@@ -58,6 +58,9 @@ function getStyles(themeMode: string) {
           borderRadius: '4px 0 0 4px',
           paddingLeft: Spacing.Medium, // Synchronize with its header
           justifyContent: 'left',
+          whiteSpace: 'nowrap',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
         },
         '.status': {
           justifyContent: 'center',
@@ -87,11 +90,6 @@ function getStyles(themeMode: string) {
         '.status-hint-regression .MuiSvgIcon-root': {
           // We need to move the icon a bit lower so that it _looks_ centered.
           marginTop: '2px',
-        },
-        '.overflowing-text': {
-          whiteSpace: 'nowrap',
-          overflow: 'hidden',
-          textOverflow: 'ellipsis',
         },
       },
     }),
@@ -161,12 +159,7 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
         sx={{ gridTemplateColumns }}
         role='row'
       >
-        <div
-          title={test}
-          style={{ overflow: 'hidden' }}
-          className='subtests overflowing-text'
-          role='cell'
-        >
+        <div title={test} className='subtests' role='cell'>
           {test}
         </div>
         <div className='base-value cell' role='cell'>

@@ -4,13 +4,12 @@ exports[`SubtestsRevisionRow Component renders the component with correct data 1
 <body>
   <div>
     <div
-      class="revisionRow f3czsqg f1vh4jdk MuiBox-root css-1ykk23q"
+      class="revisionRow f1wrecgx f1vh4jdk MuiBox-root css-1ykk23q"
       role="row"
     >
       <div
-        class="subtests overflowing-text"
+        class="subtests"
         role="cell"
-        style="overflow: hidden;"
         title="dhtml.html"
       >
         dhtml.html
