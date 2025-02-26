@@ -22,6 +22,7 @@ const revisionsRow = {
   borderRadius: '4px 0px 0px 4px',
   display: 'grid',
   margin: `${Spacing.Small}px 0px 0px 0px`,
+  alignItems: 'center',
 };
 
 const typography = style({
@@ -57,6 +58,9 @@ function getStyles(themeMode: string) {
           borderRadius: '4px 0 0 4px',
           paddingLeft: Spacing.Medium, // Synchronize with its header
           justifyContent: 'left',
+          whiteSpace: 'nowrap',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
         },
         '.status': {
           justifyContent: 'center',
@@ -155,7 +159,7 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
         sx={{ gridTemplateColumns }}
         role='row'
       >
-        <div className='subtests cell' role='cell'>
+        <div title={test} className='subtests' role='cell'>
           {test}
         </div>
         <div className='base-value cell' role='cell'>
