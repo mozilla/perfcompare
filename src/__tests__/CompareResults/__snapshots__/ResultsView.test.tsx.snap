@@ -876,6 +876,88 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
 </section>
 `;
 
+exports[`Results View Should update url with slugified title and the table with the new title: After clicking the Save button 1`] = `
+<form
+  action="/compare-results/?baseRev=spam&baseRepo=mozilla-central&framework=2"
+  aria-label="edit results table title"
+  class="edit-title-form"
+  method="get"
+>
+  <div
+    class="MuiFormControl-root MuiFormControl-fullWidth css-1xzgzyi-MuiFormControl-root"
+  >
+    <div
+      class="MuiFormControl-root MuiTextField-root edit-results-title-text-field css-xm4vlt-MuiFormControl-root-MuiTextField-root"
+    >
+      <div
+        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-n4ux5c-MuiInputBase-root-MuiOutlinedInput-root"
+      >
+        <input
+          aria-invalid="false"
+          aria-label="Write a title for this comparison"
+          class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1ajdsht-MuiInputBase-input-MuiOutlinedInput-input"
+          id="results-title-input"
+          placeholder="Write a title for this comparison"
+          type="text"
+          value="New title"
+        />
+        <fieldset
+          aria-hidden="true"
+          class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+        >
+          <legend
+            class="css-ihdtdm"
+          >
+            <span
+              class="notranslate"
+            >
+              ​
+            </span>
+          </legend>
+        </fieldset>
+      </div>
+    </div>
+    <div
+      class="edit-title-btns MuiBox-root css-58oy1n"
+    >
+      <button
+        aria-label="cancel title"
+        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation cancel-btn css-1rvsmwy-MuiButtonBase-root-MuiButton-root"
+        name="cancel-title"
+        tabindex="0"
+        type="button"
+      >
+        Cancel
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </button>
+      <button
+        aria-label="save title"
+        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation save-btn css-1rvsmwy-MuiButtonBase-root-MuiButton-root"
+        name="save-title"
+        tabindex="0"
+        type="submit"
+      >
+        Save
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        >
+          <span
+            class="css-y4cjyz-MuiTouchRipple-ripple MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+            style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+          >
+            <span
+              class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+            />
+          </span>
+        </span>
+      </button>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`Results View The table should match snapshot and other elements should be present in the page 1`] = `
 <div
   class="MuiBox-root css-hshm0p"
