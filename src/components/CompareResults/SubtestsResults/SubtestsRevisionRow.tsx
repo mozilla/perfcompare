@@ -28,7 +28,9 @@ const typography = style({
   fontFamily: 'SF Pro',
   fontStyle: 'normal',
   fontWeight: 400,
-  fontSize: '13px',
+  fontSize: '16px',
+  whiteSpace: 'nowrap',
+  padding: `${Spacing.xSmall}px ${Spacing.Small}px`,
   lineHeight: '1.5',
 });
 
