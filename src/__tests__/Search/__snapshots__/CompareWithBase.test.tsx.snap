@@ -3827,7 +3827,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
           class="header-text MuiBox-root css-0"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-eaa0qe-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-160ox9e-MuiTypography-root"
           >
             PerfCompare
           </h1>
@@ -3866,7 +3866,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
               class="compare-card-text cardText_fsmdlf1"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h2 compare-card-title css-gja6vo-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h2 compare-card-title css-15umudq-MuiTypography-root"
               >
                 Compare with a base
               </h2>
@@ -4279,7 +4279,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
               class="compare-card-text cardText_fsmdlf1"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h2 compare-card-title css-gja6vo-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h2 compare-card-title css-15umudq-MuiTypography-root"
               >
                 Compare over time
               </h2>
