@@ -95,6 +95,30 @@ const getTestData = () => {
       push_timestamp: 1649808000,
       repository_id: 77,
     },
+    {
+      id: 6,
+      revision: 'ed24spamspamspamspamandeggs',
+      author: 'nathanniy@python.com',
+      revisions: [
+        {
+          result_set_id: 6,
+          repository_id: 77,
+          revision: 'spam',
+          author: 'nathanniy@python.com',
+          comments: 'Bug 123456 Fuzzy She turned me into a newt!\n',
+        },
+        {
+          result_set_id: 5,
+          repository_id: 77,
+          revision: 'spam',
+          author: 'nathanniy@python.com',
+          comments: 'Bug 2345667 Fuzzy It got better...\n',
+        },
+      ],
+      revision_count: 1,
+      push_timestamp: 1649808222,
+      repository_id: 77,
+    },
   ];
 
   const testCompareData: CompareResultsItem[] = [
