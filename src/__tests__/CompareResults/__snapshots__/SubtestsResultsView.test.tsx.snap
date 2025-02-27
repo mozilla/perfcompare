@@ -625,12 +625,13 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 />
               </div>
               <div
-                class="revisionRow f15pv6go f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow f1wrecgx f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
-                  class="subtests cell"
+                  class="subtests"
                   role="cell"
+                  title="dhtml.html"
                 >
                   dhtml.html
                 </div>
@@ -785,12 +786,13 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow f15pv6go f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow f1wrecgx f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
-                  class="subtests cell"
+                  class="subtests"
                   role="cell"
+                  title="improvement.html"
                 >
                   improvement.html
                 </div>
@@ -956,12 +958,13 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow f15pv6go f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow f1wrecgx f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
-                  class="subtests cell"
+                  class="subtests"
                   role="cell"
+                  title="regression.html"
                 >
                   regression.html
                 </div>
@@ -1127,12 +1130,13 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow f15pv6go f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow f1wrecgx f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
-                  class="subtests cell"
+                  class="subtests"
                   role="cell"
+                  title="tablemutation.html"
                 >
                   tablemutation.html
                 </div>
@@ -2261,12 +2265,13 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 />
               </div>
               <div
-                class="revisionRow f15pv6go f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow f1wrecgx f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
-                  class="subtests cell"
+                  class="subtests"
                   role="cell"
+                  title="dhtml.html"
                 >
                   dhtml.html
                 </div>
@@ -2421,12 +2426,13 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow f15pv6go f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow f1wrecgx f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
-                  class="subtests cell"
+                  class="subtests"
                   role="cell"
+                  title="improvement.html"
                 >
                   improvement.html
                 </div>
@@ -2592,12 +2598,13 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow f15pv6go f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow f1wrecgx f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
-                  class="subtests cell"
+                  class="subtests"
                   role="cell"
+                  title="regression.html"
                 >
                   regression.html
                 </div>
@@ -2763,12 +2770,13 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow f15pv6go f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow f1wrecgx f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
-                  class="subtests cell"
+                  class="subtests"
                   role="cell"
+                  title="tablemutation.html"
                 >
                   tablemutation.html
                 </div>
