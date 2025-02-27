@@ -26,7 +26,6 @@ function PerfCompareHeader({ isHome }: PerfCompareHeaderProps) {
           variant='h1'
           align='center'
           gutterBottom
-          pr={isHome ? '0' : 1}
           className='perfcompare-header'
         >
           {strings.title}

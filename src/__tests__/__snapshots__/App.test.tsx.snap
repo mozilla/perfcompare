@@ -60,7 +60,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
       class="fcndgf6"
     >
       <div
-        class="MuiGrid-root header-container container_f1fpfdfq css-plh9qo-MuiGrid-root"
+        class="MuiGrid-root header-container container_f1ocj467 css-plh9qo-MuiGrid-root"
       >
         <div
           class="toggle-dark-mode fkud7h4 MuiBox-root css-0"
@@ -107,7 +107,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
           class="header-text MuiBox-root css-0"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-16sjvzh-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-eaa0qe-MuiTypography-root"
           >
             PerfCompare
           </h1>
@@ -318,7 +318,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
       class="fcndgf6"
     >
       <div
-        class="MuiGrid-root header-container container_f1fpfdfq css-plh9qo-MuiGrid-root"
+        class="MuiGrid-root header-container container_f1ocj467 css-plh9qo-MuiGrid-root"
       >
         <div
           class="toggle-dark-mode fkud7h4 MuiBox-root css-0"
@@ -365,7 +365,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
           class="header-text MuiBox-root css-0"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-16sjvzh-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-eaa0qe-MuiTypography-root"
           >
             PerfCompare
           </h1>
@@ -471,7 +471,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
       class="fcndgf6"
     >
       <div
-        class="MuiGrid-root header-container container_f1fpfdfq css-plh9qo-MuiGrid-root"
+        class="MuiGrid-root header-container container_f1ocj467 css-plh9qo-MuiGrid-root"
       >
         <div
           class="toggle-dark-mode fkud7h4 MuiBox-root css-0"
@@ -518,7 +518,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
           class="header-text MuiBox-root css-0"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-16sjvzh-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-eaa0qe-MuiTypography-root"
           >
             PerfCompare
           </h1>

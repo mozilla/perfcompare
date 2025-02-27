@@ -887,7 +887,7 @@ exports[`Results View Should update url with slugified title and the table with 
     class="MuiFormControl-root MuiFormControl-fullWidth css-1xzgzyi-MuiFormControl-root"
   >
     <div
-      class="MuiFormControl-root MuiTextField-root edit-results-title-text-field css-xm4vlt-MuiFormControl-root-MuiTextField-root"
+      class="MuiFormControl-root MuiTextField-root edit-results-title-text-field css-dlsp48-MuiFormControl-root-MuiTextField-root"
     >
       <div
         class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-n4ux5c-MuiInputBase-root-MuiOutlinedInput-root"

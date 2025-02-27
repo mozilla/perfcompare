@@ -63,7 +63,8 @@ function EditTitleInput({
         focused
       >
         <TextField
-          sx={{ minWidth: '568PX' }}
+          sx={{ minWidth: '568px' }}
+          onFocus={(e) => e.currentTarget.select()}
           placeholder={inputPlaceholder}
           inputProps={{
             'aria-label': inputPlaceholder,
