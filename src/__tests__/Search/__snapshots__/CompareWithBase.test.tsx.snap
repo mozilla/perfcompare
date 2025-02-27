@@ -3756,7 +3756,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
         Skip to search
       </button>
       <div
-        class="MuiGrid-root header-container container_f1xxoeij css-plh9qo-MuiGrid-root"
+        class="MuiGrid-root header-container container_fllbiki css-plh9qo-MuiGrid-root"
       >
         <div
           class="toggle-dark-mode fkud7h4 MuiBox-root css-0"
@@ -3803,7 +3803,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
           class="header-text MuiBox-root css-0"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-121gvx4-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-header css-eaa0qe-MuiTypography-root"
           >
             PerfCompare
           </h1>
