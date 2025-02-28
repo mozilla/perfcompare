@@ -45,7 +45,6 @@ function ResultsMain() {
       backgroundColor: themeColor100,
       margin: '0 auto',
       marginBottom: '80px',
-      maxWidth: 'xl',
     }),
     title: style({
       ...FontsRaw.HeadingXS,
@@ -94,7 +93,7 @@ function ResultsMain() {
   }
 
   return (
-    <Container className={styles.container} data-testid='results-main'>
+    <Container maxWidth={false} sx={{maxWidth: '1300px'}} className={styles.container} data-testid='results-main'>
       <header>
         <Grid container className={styles.titleContainer} component='h2'>
           <Grid item className={styles.title}>
