@@ -72,7 +72,12 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
   if (!results.length) {
     return (
       <>
-        <Container maxWidth={false} sx={{maxWidth: '1300px'}} className={styles.container} data-testid='subtests-main'>
+        <Container
+          maxWidth={false}
+          sx={{ maxWidth: '1300px' }}
+          className={styles.container}
+          data-testid='subtests-main'
+        >
           <header>
             <SubtestsBreadcrumbs view={view} />
             <NoResultsFound />
@@ -126,7 +131,12 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
   }
 
   return (
-    <Container maxWidth={false} sx={{maxWidth: '1300px'}} className={styles.container} data-testid='subtests-main'>
+    <Container
+      maxWidth={false}
+      sx={{ maxWidth: '1300px' }}
+      className={styles.container}
+      data-testid='subtests-main'
+    >
       <header>
         <SubtestsBreadcrumbs view={view} />
         <Alert severity='info' className={styles.title}>
