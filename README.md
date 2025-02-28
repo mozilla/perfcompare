@@ -29,8 +29,7 @@ PerfCompare is hosted on Netlify, and is updated every time commits are pushed t
 ### Requirements
 
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-- [nodejs](https://nodejs.org/en/download/), version 20. Note that version 22 is
-  known to produce test errors.
+- [nodejs](https://nodejs.org/en/download/), version 22.
 
 ### Installation
 
