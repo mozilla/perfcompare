@@ -631,13 +631,13 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 />
               </div>
               <div
-                class="revisionRow f12szk76 f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow fhk0jq3 f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
                   class="subtests"
                   role="cell"
-                  title="dhtml.html"
+                  title="browser.html"
                 >
                   browser.html
                 </div>
@@ -790,7 +790,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                   <button
-                    aria-controls=":r9:"
+                    aria-controls=":ra:"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -815,12 +815,13 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow f12szk76 f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow fhk0jq3 f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
-                  class="subtests cell"
+                  class="subtests"
                   role="cell"
+                  title="dhtml.html"
                 >
                   dhtml.html
                 </div>
@@ -948,7 +949,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                   <button
-                    aria-controls=":ra:"
+                    aria-controls=":rb:"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -973,7 +974,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow f12szk76 f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow fhk0jq3 f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -1118,7 +1119,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                   <button
-                    aria-controls=":rb:"
+                    aria-controls=":rc:"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -1143,7 +1144,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow f12szk76 f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow fhk0jq3 f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -1288,7 +1289,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                   <button
-                    aria-controls=":rc:"
+                    aria-controls=":rd:"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -1313,7 +1314,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                 </div>
               </div>
               <div
-                class="revisionRow f12szk76 f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow fhk0jq3 f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -1447,7 +1448,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   role="cell"
                 >
                   <button
-                    aria-controls=":rd:"
+                    aria-controls=":re:"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -2125,7 +2126,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                           aria-invalid="false"
                           aria-label="Search by title, platform, revision or options"
                           class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd css-rg83rj-MuiInputBase-input-MuiOutlinedInput-input"
-                          id=":r32:"
+                          id=":r3a:"
                           placeholder="Search results"
                           type="text"
                           value=""
@@ -2452,13 +2453,13 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 />
               </div>
               <div
-                class="revisionRow f12szk76 f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow fhk0jq3 f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
                   class="subtests"
                   role="cell"
-                  title="dhtml.html"
+                  title="browser.html"
                 >
                   browser.html
                 </div>
@@ -2611,7 +2612,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                   <button
-                    aria-controls=":r3b:"
+                    aria-controls=":r3j:"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -2636,12 +2637,13 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow f12szk76 f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow fhk0jq3 f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
-                  class="subtests cell"
+                  class="subtests"
                   role="cell"
+                  title="dhtml.html"
                 >
                   dhtml.html
                 </div>
@@ -2769,7 +2771,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                   <button
-                    aria-controls=":r3c:"
+                    aria-controls=":r3k:"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -2794,7 +2796,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow f12szk76 f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow fhk0jq3 f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -2939,7 +2941,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                   <button
-                    aria-controls=":r3d:"
+                    aria-controls=":r3l:"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -2964,7 +2966,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow f12szk76 f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow fhk0jq3 f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -3109,7 +3111,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                   <button
-                    aria-controls=":r3e:"
+                    aria-controls=":r3m:"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
@@ -3134,7 +3136,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                 </div>
               </div>
               <div
-                class="revisionRow f12szk76 f1vh4jdk MuiBox-root css-ux85ba"
+                class="revisionRow fhk0jq3 f1vh4jdk MuiBox-root css-ux85ba"
                 role="row"
               >
                 <div
@@ -3268,7 +3270,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   role="cell"
                 >
                   <button
-                    aria-controls=":r3f:"
+                    aria-controls=":r3n:"
                     aria-expanded="false"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                     tabindex="0"
