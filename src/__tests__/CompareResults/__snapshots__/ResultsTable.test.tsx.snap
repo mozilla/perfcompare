@@ -1376,6 +1376,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 aria-label="linux1804-64-shippable-qr"
                                 class="platform-container"
                                 data-mui-internal-clone-element="true"
+                                style="cursor: pointer;"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -1601,6 +1602,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 aria-label="macosx1015-64-shippable-qr"
                                 class="platform-container"
                                 data-mui-internal-clone-element="true"
+                                style="cursor: pointer;"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -1827,6 +1829,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 aria-label="windows10-64-shippable-qr"
                                 class="platform-container"
                                 data-mui-internal-clone-element="true"
+                                style="cursor: pointer;"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -2122,6 +2125,7 @@ exports[`Results Table Should match snapshot 1`] = `
                                 aria-label="windows10-64-qr"
                                 class="platform-container"
                                 data-mui-internal-clone-element="true"
+                                style="cursor: pointer;"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -2679,6 +2683,7 @@ exports[`Results Table should render different blocks when rendering several rev
           aria-label="macosx1015-64-shippable-qr"
           class="platform-container"
           data-mui-internal-clone-element="true"
+          style="cursor: pointer;"
         >
           <svg
             aria-hidden="true"
@@ -2943,6 +2948,7 @@ exports[`Results Table should render different blocks when rendering several rev
           aria-label="macosx1015-64-shippable-qr"
           class="platform-container"
           data-mui-internal-clone-element="true"
+          style="cursor: pointer;"
         >
           <svg
             aria-hidden="true"

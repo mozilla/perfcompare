@@ -2,6 +2,7 @@ import { type ReactNode } from 'react';
 
 import AppleIcon from '@mui/icons-material/Apple';
 import { Link } from '@mui/material';
+import Tooltip from '@mui/material/Tooltip';
 import { useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
 
@@ -78,6 +79,7 @@ function getSuite(
   docsURL: string,
   isLinkSupported: boolean,
 ) {
+  const suiteLink = Strings.components.revisionRow.title.suiteLink;
   if (isLinkSupported) {
     return (
       <>
@@ -86,6 +88,7 @@ function getSuite(
           underline='hover'
           target='_blank'
           href={docsURL}
+          title={suiteLink}
         >
           {header.suite}
         </Link>
@@ -154,8 +157,17 @@ function SubtestsRevisionHeader(props: SubtestsRevisionHeaderProps) {
         <strong>{getSuite(header, docsURL, isLinkSupported)}</strong> |
         {baseInfo}
         {getRevLink(header.new_rev, header.new_repo, '- New')} | {framework} |{' '}
-        {platformIcon}
-        <span>{getPlatformAndVersion(header.platform)}</span> |{' '}
+        <Tooltip
+          style={{ cursor: 'pointer' }}
+          placement='bottom'
+          title={header.platform}
+          arrow
+        >
+          <span>
+            {platformIcon}
+            <span>{getPlatformAndVersion(header.platform)}</span>
+          </span>
+        </Tooltip>
       </div>
       <div className={styles.tagsOptions}>
         <span className={styles.chip}>{header.option_name}</span>
