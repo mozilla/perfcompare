@@ -60,3 +60,15 @@ export const getPlatformAndVersion = (platform: string): string => {
 
   return extractPlatformWithOs(platform);
 };
+export const getBrowserDisplay = (
+  baseApp: string,
+  newApp: string,
+  expanded: boolean,
+) => {
+  if (expanded || !baseApp || !newApp) return false;
+  return !(
+    (baseApp.toLowerCase() === 'firefox' &&
+      newApp.toLowerCase() === 'firefox') ||
+    (baseApp.toLowerCase() === 'fenix' && newApp.toLowerCase() === 'fenix')
+  );
+};
