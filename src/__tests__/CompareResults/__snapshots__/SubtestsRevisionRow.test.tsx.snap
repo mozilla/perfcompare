@@ -1,5 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`SubtestsRevisionRow Component renders browser name when base and new apps are different 1`] = `
+<body>
+  <div />
+</body>
+`;
+
+exports[`SubtestsRevisionRow Component renders doesnt render browser name when base and new apps are firefox or fenix 1`] = `
+<body>
+  <div />
+</body>
+`;
+
 exports[`SubtestsRevisionRow Component renders the component with correct data 1`] = `
 <body>
   <div>
@@ -15,14 +27,13 @@ exports[`SubtestsRevisionRow Component renders the component with correct data 1
         dhtml.html
       </div>
       <div
-        class="base-value cell"
+        class="browser-name cell"
         role="cell"
       >
          
         971.38
          
         ms
-         
       </div>
       <div
         class="comparison-sign cell"
@@ -31,10 +42,9 @@ exports[`SubtestsRevisionRow Component renders the component with correct data 1
         &lt;
       </div>
       <div
-        class="new-value cell"
+        class="browser-name cell"
         role="cell"
       >
-         
         982.41
          
         ms
