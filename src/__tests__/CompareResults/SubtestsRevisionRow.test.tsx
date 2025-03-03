@@ -72,4 +72,34 @@ describe('SubtestsRevisionRow Component', () => {
     await screen.findByText('improvement.html');
     expect(await screen.findByText('Improvement')).toBeInTheDocument();
   });
+
+  it('renders browser name when base and new apps are different', async () => {
+    const { subtestsResult } = getTestData();
+    const mockGridTemplateColumns = '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr';
+    renderWithRoute(
+      <SubtestsRevisionRow
+        result={subtestsResult[4]}
+        gridTemplateColumns={mockGridTemplateColumns}
+      />,
+    );
+
+    expect(document.body).toMatchSnapshot();
+    expect(await screen.findByText(/firefox/i)).toBeInTheDocument();
+    expect(await screen.findByText(/chrome/i)).toBeInTheDocument();
+  });
+
+  it('renders doesnt render browser name when base and new apps are firefox or fenix', async () => {
+    const { subtestsResult } = getTestData();
+    const mockGridTemplateColumns = '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr';
+    renderWithRoute(
+      <SubtestsRevisionRow
+        result={subtestsResult[0]}
+        gridTemplateColumns={mockGridTemplateColumns}
+      />,
+    );
+
+    expect(document.body).toMatchSnapshot();
+    expect(screen.queryByText(/firefox/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/chrome/i)).not.toBeInTheDocument();
+  });
 });

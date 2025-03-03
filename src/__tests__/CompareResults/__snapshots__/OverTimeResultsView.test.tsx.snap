@@ -589,7 +589,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="fw0pvlu"
             >
               <div
-                class="revisionRow fqyfrhr f1vh4jdk MuiBox-root css-1txhl5e"
+                class="revisionRow ft4jzth f1vh4jdk MuiBox-root css-1txhl5e"
                 role="row"
               >
                 <div
@@ -618,14 +618,12 @@ exports[`Results View The table should match snapshot and other elements should 
                   </div>
                 </div>
                 <div
-                  class="base-value cell"
+                  class="browser-name cell"
                   role="cell"
                 >
-                   
                   776.97
                    
                   ms
-                   
                 </div>
                 <div
                   class="comparison-sign cell"
@@ -634,10 +632,9 @@ exports[`Results View The table should match snapshot and other elements should 
                   &lt;
                 </div>
                 <div
-                  class="new-value cell"
+                  class="browser-name cell"
                   role="cell"
                 >
-                   
                   791.34
                    
                   ms
@@ -815,7 +812,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow fqyfrhr f1vh4jdk MuiBox-root css-1txhl5e"
+                class="revisionRow ft4jzth f1vh4jdk MuiBox-root css-1txhl5e"
                 role="row"
               >
                 <div
@@ -845,14 +842,12 @@ exports[`Results View The table should match snapshot and other elements should 
                   </div>
                 </div>
                 <div
-                  class="base-value cell"
+                  class="browser-name cell"
                   role="cell"
                 >
-                   
                   704.84
                    
                   ms
-                   
                 </div>
                 <div
                   class="comparison-sign cell"
@@ -861,10 +856,9 @@ exports[`Results View The table should match snapshot and other elements should 
                   &lt;
                 </div>
                 <div
-                  class="new-value cell"
+                  class="browser-name cell"
                   role="cell"
                 >
-                   
                   712.44
                    
                   ms
@@ -1042,7 +1036,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow fqyfrhr f1vh4jdk MuiBox-root css-1txhl5e"
+                class="revisionRow ft4jzth f1vh4jdk MuiBox-root css-1txhl5e"
                 role="row"
               >
                 <div
@@ -1072,14 +1066,12 @@ exports[`Results View The table should match snapshot and other elements should 
                   </div>
                 </div>
                 <div
-                  class="base-value cell"
+                  class="browser-name cell"
                   role="cell"
                 >
-                   
                   643.54
                    
                   ms
-                   
                 </div>
                 <div
                   class="comparison-sign cell"
@@ -1088,10 +1080,9 @@ exports[`Results View The table should match snapshot and other elements should 
                   &gt;
                 </div>
                 <div
-                  class="new-value cell"
+                  class="browser-name cell"
                   role="cell"
                 >
-                   
                   628.09
                    
                   ms
@@ -1247,7 +1238,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow fqyfrhr f1vh4jdk MuiBox-root css-1txhl5e"
+                class="revisionRow ft4jzth f1vh4jdk MuiBox-root css-1txhl5e"
                 role="row"
               >
                 <div
@@ -1277,14 +1268,12 @@ exports[`Results View The table should match snapshot and other elements should 
                   </div>
                 </div>
                 <div
-                  class="base-value cell"
+                  class="browser-name cell"
                   role="cell"
                 >
-                   
                   643.54
                    
                   ms
-                   
                 </div>
                 <div
                   class="comparison-sign cell"
@@ -1293,10 +1282,9 @@ exports[`Results View The table should match snapshot and other elements should 
                   &gt;
                 </div>
                 <div
-                  class="new-value cell"
+                  class="browser-name cell"
                   role="cell"
                 >
-                   
                   628.09
                    
                   ms
