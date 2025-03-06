@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useRef, useState } from 'react';
 
 import { Button, Grid, Link } from '@mui/material';
 import Alert from '@mui/material/Alert';
@@ -66,7 +66,6 @@ function ResultsMain() {
     alignItems: 'center',
     gap: '9px',
     margin: `0 0 ${Spacing.Medium}px 0`,
-    //PR notes: removed the maxWidth sinec it interfered with styles
   };
 
   const subtitles = {
@@ -102,60 +101,34 @@ function ResultsMain() {
   const [comparisonTitleName, setComparisonTitleName] = useState(
     initialComparisonTitle,
   );
-  const [previousComparisonTitle, setPreviousComparisonTitle] =
-    useState('Results');
-  const [editComparisonTitleInputVisible, showEditComparisonTitle] =
+  const previousComparisonTitleRef = useRef('Results');
+  const [editComparisonTitleInputVisible, showEditComparisonTitleInput] =
     useState(false);
 
-  const handleEditInputToggle = () => {
-    if (editComparisonTitleInputVisible) {
-      setComparisonTitleName(previousComparisonTitle); //revert to previous title
-    } else {
-      setPreviousComparisonTitle(comparisonTitleName); //store current title as previous state
-    }
-
-    showEditComparisonTitle(!editComparisonTitleInputVisible);
+  const onEditButtonClick = () => {
+    showEditComparisonTitleInput(true);
+    previousComparisonTitleRef.current = comparisonTitleName;
   };
 
-  const slugifyComparisonTitle = (title: string) => {
-    return (
-      title
-        /**
-         *please see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize#examples
-         */
-        .normalize('NFD') // Normalize to decompose diacritics (e.g., é -> e)
-        .replace(/[\u0300-\u036f]/g, '') // Remove accents
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, '-') // Convert non-alphanumeric to hyphen
-        .replace(/^-+|-+$/g, '') // Trim hyphens from start and end
-    );
+  const onCancelButtonClick = () => {
+    showEditComparisonTitleInput(false);
+    setComparisonTitleName(previousComparisonTitleRef.current);
   };
 
   const onComparisonTitleChange = (value: string) => {
-    //PR notes: fix for truncated letter at the end of entry
-    const slug = slugifyComparisonTitle(value);
-    rawSearchParams.set('title', slug);
     setComparisonTitleName(value);
   };
 
-  const OnComparisonTitleSave = () => {
+  const onSaveButtonClick = () => {
+    rawSearchParams.set('title', comparisonTitleName);
     updateRawSearchParams(rawSearchParams);
-    showEditComparisonTitle(!editComparisonTitleInputVisible);
+    showEditComparisonTitleInput(false);
   };
-
-  const deSlugify = (slug: string | undefined) => {
-    if (!slug) return '';
-    return slug.replace(/-/g, ' ').replace(/^\w/, (char) => char.toUpperCase());
-  };
-
-  const deSlugifiedTitle = deSlugify(comparisonTitleName);
 
   const buttonIcon = (
     <img
-      id='edit-title-icon'
-      className='icon icon-edit'
       src={themeMode === 'light' ? pencil.toString() : pencilDark.toString()}
-      alt='edit-title-icon'
+      role='presentation'
     />
   );
 
@@ -163,34 +136,30 @@ function ResultsMain() {
     <Container className={styles.container} data-testid='results-main'>
       <header>
         <Grid container sx={titleContainerSx}>
-          <>
-            {editComparisonTitleInputVisible ? (
-              <EditTitleInput
-                compact={true}
-                onChange={onComparisonTitleChange}
-                onSave={OnComparisonTitleSave}
-                handleToggle={handleEditInputToggle}
-                value={deSlugifiedTitle}
-              />
-            ) : (
-              <>
-                <Grid component='h2' item className={styles.title}>
-                  {deSlugifiedTitle}
-                </Grid>
-                <Button
-                  name='edit-title'
-                  aria-label='edit title'
-                  startIcon={buttonIcon}
-                  className='edit-title-btn'
-                  variant='text'
-                  onClick={handleEditInputToggle}
-                  sx={{ fontSize: '0.75rem' }}
-                >
-                  Edit title
-                </Button>
-              </>
-            )}
-          </>
+          {editComparisonTitleInputVisible ? (
+            <EditTitleInput
+              compact={true}
+              onChange={onComparisonTitleChange}
+              onSave={onSaveButtonClick}
+              onCancel={onCancelButtonClick}
+              value={comparisonTitleName}
+            />
+          ) : (
+            <>
+              <Grid component='h2' item className={styles.title}>
+                {comparisonTitleName}
+              </Grid>
+              <Button
+                startIcon={buttonIcon}
+                variant='text'
+                onClick={onEditButtonClick}
+                sx={{ fontSize: '0.75rem' }}
+              >
+                Edit title
+              </Button>
+            </>
+          )}
+
           <Grid component='h2' item className={styles.subtitle}>
             {subtitles[view]}
           </Grid>

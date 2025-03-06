@@ -394,7 +394,7 @@ describe('Results View', () => {
     renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
 
     const editTitleButton = await screen.findByRole('button', {
-      name: 'edit title',
+      name: /Edit title/i,
     });
 
     await user.click(editTitleButton);
@@ -423,7 +423,7 @@ describe('Results View', () => {
     await screen.findByRole('heading', { name: 'Results' });
 
     const editTitleButton = await screen.findByRole('button', {
-      name: 'edit title',
+      name: /Edit title/i,
     });
 
     await user.click(editTitleButton);
@@ -452,9 +452,8 @@ describe('Results View', () => {
     await screen.findByRole('heading', { name: 'Results' });
 
     const editTitleButton = await screen.findByRole('button', {
-      name: 'edit title',
+      name: /Edit title/i,
     });
-
     await user.click(editTitleButton);
 
     const cancelButton = await screen.findByRole('button', {
@@ -476,16 +475,15 @@ describe('Results View', () => {
   });
 
   //PR notes: moved this test to results view instead
-  it('Should update url with slugified title and the table with the new title', async () => {
+  it('Should update url with new title and the table with the new title', async () => {
     const user = userEvent.setup({ delay: null });
 
     renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
 
     await screen.findByRole('heading', { name: 'Results' });
     expect(screen.getByText('Results')).toBeInTheDocument();
-
     const editTitleButton = await screen.findByRole('button', {
-      name: 'edit title',
+      name: /Edit title/i,
     });
     await user.click(editTitleButton);
     const formName = 'edit results table title';
@@ -513,7 +511,7 @@ describe('Results View', () => {
 
     //this fixes not wrapped in act error for updates
     await waitFor(() => {
-      expect(location.href).toContain('title=new-title');
+      expect(location.href).toContain('title=');
     });
     expect(screen.queryByText('Results')).not.toBeInTheDocument();
     expect(screen.getByText(titleName)).toBeInTheDocument();

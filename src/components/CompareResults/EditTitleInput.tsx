@@ -9,7 +9,7 @@ import { Form } from 'react-router-dom';
 interface EditTitleInputProps {
   compact: boolean;
   value: string;
-  handleToggle: () => unknown;
+  onCancel: () => unknown;
   onChange: (titleText: string) => unknown;
   onSave: () => unknown;
 }
@@ -19,7 +19,7 @@ function EditTitleInput({
   value,
   onChange,
   onSave,
-  handleToggle,
+  onCancel,
 }: EditTitleInputProps) {
   const size = compact ? 'small' : undefined;
   const inputPlaceholder = 'Write a title for this comparison';
@@ -28,7 +28,7 @@ function EditTitleInput({
 
   const handleEscKeypress = useCallback((e: KeyboardEvent) => {
     if (e.key === 'Escape') {
-      handleToggle();
+      onCancel();
     }
   }, []);
 
@@ -90,7 +90,7 @@ function EditTitleInput({
             aria-label='cancel title'
             className='cancel-btn'
             variant='text'
-            onClick={handleToggle}
+            onClick={onCancel}
           >
             Cancel
           </Button>
