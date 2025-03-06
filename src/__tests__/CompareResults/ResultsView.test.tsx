@@ -400,10 +400,10 @@ describe('Results View', () => {
     await user.click(editTitleButton);
 
     const cancelButton = await screen.findByRole('button', {
-      name: 'cancel title',
+      name: /Cancel/i,
     });
     const saveButton = await screen.findByRole('button', {
-      name: 'save title',
+      name: /Save/i,
     });
 
     const editTitleInput = screen.getByRole('textbox', {
@@ -431,7 +431,7 @@ describe('Results View', () => {
     expect(screen.queryByText('Results')).not.toBeInTheDocument();
 
     const cancelButton = await screen.findByRole('button', {
-      name: 'cancel title',
+      name: /Cancel/i,
     });
 
     await user.click(cancelButton);
@@ -457,7 +457,7 @@ describe('Results View', () => {
     await user.click(editTitleButton);
 
     const cancelButton = await screen.findByRole('button', {
-      name: 'cancel title',
+      name: /Cancel/i,
     });
 
     const editTitleInput = screen.getByRole('textbox', {
@@ -493,7 +493,7 @@ describe('Results View', () => {
     expect(form).toBeInTheDocument();
 
     const saveButton = await screen.findByRole('button', {
-      name: 'save title',
+      name: /Save/i,
     });
     const editTitleInput = screen.getByRole('textbox', {
       name: 'Write a title for this comparison',

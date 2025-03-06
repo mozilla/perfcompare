@@ -16,7 +16,7 @@ import {
   getPerfherderCompareWithBaseViewURL,
   getPerfherderCompareOverTimeViewURL,
 } from '../../logic/treeherder';
-import { Colors, FontsRaw, Spacing } from '../../styles';
+import { Colors, FontsRaw, FontSizeRaw, Spacing } from '../../styles';
 import pencilDark from '../../theme/img/pencil-dark.svg';
 import pencil from '../../theme/img/pencil.svg';
 import { truncateHash } from '../../utils/helpers';
@@ -153,7 +153,7 @@ function ResultsMain() {
                 startIcon={buttonIcon}
                 variant='text'
                 onClick={onEditButtonClick}
-                sx={{ fontSize: '0.75rem' }}
+                sx={{ fontSize: FontSizeRaw.xSmall.fontSize }}
               >
                 Edit title
               </Button>
