@@ -876,7 +876,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
 </section>
 `;
 
-exports[`Results View Should update url with slugified title and the table with the new title: After clicking the Save button 1`] = `
+exports[`Results View Should update url with new title and the table with the new title: After clicking the Save button 1`] = `
 <form
   action="/compare-results/?baseRev=spam&baseRepo=mozilla-central&framework=2"
   aria-label="edit results table title"
