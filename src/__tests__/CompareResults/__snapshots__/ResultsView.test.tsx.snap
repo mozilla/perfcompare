@@ -878,10 +878,8 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
 
 exports[`Results View Should update url with new title and the table with the new title: After clicking the Save button 1`] = `
 <form
-  action="/compare-results/?baseRev=spam&baseRepo=mozilla-central&framework=2"
   aria-label="edit results table title"
   class="edit-title-form"
-  method="get"
 >
   <div
     class="MuiFormControl-root MuiFormControl-fullWidth css-1xzgzyi-MuiFormControl-root"
@@ -921,9 +919,7 @@ exports[`Results View Should update url with new title and the table with the ne
       class="edit-title-btns MuiBox-root css-58oy1n"
     >
       <button
-        aria-label="cancel title"
-        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation cancel-btn css-1rvsmwy-MuiButtonBase-root-MuiButton-root"
-        name="cancel-title"
+        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation css-1rvsmwy-MuiButtonBase-root-MuiButton-root"
         tabindex="0"
         type="button"
       >
@@ -933,9 +929,7 @@ exports[`Results View Should update url with new title and the table with the ne
         />
       </button>
       <button
-        aria-label="save title"
-        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation save-btn css-1rvsmwy-MuiButtonBase-root-MuiButton-root"
-        name="save-title"
+        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation css-1rvsmwy-MuiButtonBase-root-MuiButton-root"
         tabindex="0"
         type="submit"
       >

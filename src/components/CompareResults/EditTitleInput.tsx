@@ -1,10 +1,9 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
-import { Form } from 'react-router-dom';
 
 interface EditTitleInputProps {
   compact: boolean;
@@ -26,20 +25,19 @@ function EditTitleInput({
   const [titleError, setTitleError] = useState(false);
   const titleErrorMsg = 'Title cannot be empty';
 
-  const handleEscKeypress = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      onCancel();
-    }
-  }, []);
-
   useEffect(() => {
+    const handleEscKeypress = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onCancel();
+      }
+    };
+
     document.addEventListener('keydown', handleEscKeypress);
     return () => {
       document.removeEventListener('keydown', handleEscKeypress);
     };
-  }, [handleEscKeypress]);
+  }, [onCancel]);
 
-  //Pr notes: added to better handle form submission and error
   const onSaveSubmit = (e: React.FormEvent) => {
     if (!value.trim()) {
       e.preventDefault();
@@ -51,8 +49,7 @@ function EditTitleInput({
   };
 
   return (
-    //PR notes: changed to Form from react router dom to handle form submission and enter key
-    <Form
+    <form
       className='edit-title-form'
       aria-label='edit results table title'
       onSubmit={onSaveSubmit}
@@ -85,27 +82,15 @@ function EditTitleInput({
           className='edit-title-btns'
           sx={{ display: 'flex', justifyContent: 'flex-end', paddingLeft: 1 }}
         >
-          <Button
-            name='cancel-title'
-            aria-label='cancel title'
-            className='cancel-btn'
-            variant='text'
-            onClick={onCancel}
-          >
+          <Button variant='text' onClick={onCancel}>
             Cancel
           </Button>
-          <Button
-            name='save-title'
-            aria-label='save title'
-            className='save-btn'
-            variant='text'
-            type='submit'
-          >
+          <Button variant='text' type='submit'>
             Save
           </Button>
         </Box>
       </FormControl>
-    </Form>
+    </form>
   );
 }
 
