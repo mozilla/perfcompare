@@ -373,11 +373,11 @@ exports[`Results Table Should match snapshot 1`] = `
                                     />
                                   </svg>
                                   <div
-                                    aria-label="Mar 29, 51, 00:00 UTC"
+                                    aria-label="Mar 29, 51, 24:00 UTC"
                                     class=""
                                     data-mui-internal-clone-element="true"
                                   >
-                                    Mar 29, 51, 00:00 UTC
+                                    Mar 29, 51, 24:00 UTC
                                   </div>
                                 </div>
                               </div>
@@ -661,11 +661,11 @@ exports[`Results Table Should match snapshot 1`] = `
                                     />
                                   </svg>
                                   <div
-                                    aria-label="Mar 29, 51, 00:00 UTC"
+                                    aria-label="Mar 29, 51, 24:00 UTC"
                                     class=""
                                     data-mui-internal-clone-element="true"
                                   >
-                                    Mar 29, 51, 00:00 UTC
+                                    Mar 29, 51, 24:00 UTC
                                   </div>
                                 </div>
                               </div>
@@ -731,27 +731,9 @@ exports[`Results Table Should match snapshot 1`] = `
                   class="MuiGrid-root MuiGrid-item f1sq1266 css-j8gwlw-MuiGrid-root"
                 >
                   Results
-                </h2>
-                <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation css-757951-MuiButtonBase-root-MuiButton-root"
-                  tabindex="0"
-                  type="button"
-                >
-                  <span
-                    class="MuiButton-startIcon MuiButton-iconSizeMedium css-gcc2o7-MuiButton-startIcon"
-                  >
-                    <img
-                      role="presentation"
-                      src="pencil.svg"
-                    />
-                  </span>
-                  Edit title
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </button>
-                <h2
-                  class="MuiGrid-root MuiGrid-item f1rv70v6 css-j8gwlw-MuiGrid-root"
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-item f1s36cwx css-j8gwlw-MuiGrid-root"
                 >
                   Compare with a base
                 </h2>
@@ -1315,7 +1297,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </strong>
                              
                             <a
-                              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1mgfhdi css-1qhous5-MuiTypography-root-MuiLink-root"
+                              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-1qhous5-MuiTypography-root-MuiLink-root"
                               href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
                               target="_blank"
                               title="open treeherder view for spam"
@@ -2084,7 +2066,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </strong>
                              
                             <a
-                              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1mgfhdi css-1qhous5-MuiTypography-root-MuiLink-root"
+                              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-1qhous5-MuiTypography-root-MuiLink-root"
                               href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
                               target="_blank"
                               title="open treeherder view for spam"
@@ -2656,7 +2638,7 @@ exports[`Results Table should render different blocks when rendering several rev
     class="fw0pvlu"
   >
     <a
-      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1mgfhdi css-1qhous5-MuiTypography-root-MuiLink-root"
+      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-1qhous5-MuiTypography-root-MuiLink-root"
       href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
       target="_blank"
       title="open treeherder view for spam"
@@ -2921,7 +2903,7 @@ exports[`Results Table should render different blocks when rendering several rev
     class="fw0pvlu"
   >
     <a
-      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1mgfhdi css-1qhous5-MuiTypography-root-MuiLink-root"
+      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-1qhous5-MuiTypography-root-MuiLink-root"
       href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=devilrabbit"
       target="_blank"
       title="open treeherder view for devilrabbit"

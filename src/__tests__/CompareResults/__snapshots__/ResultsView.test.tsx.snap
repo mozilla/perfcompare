@@ -1473,7 +1473,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </strong>
                  
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1mgfhdi css-1qhous5-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-1qhous5-MuiTypography-root-MuiLink-root"
                   href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
                   target="_blank"
                   title="open treeherder view for spam"
