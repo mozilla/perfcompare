@@ -29,7 +29,8 @@ const typography = style({
   fontFamily: 'SF Pro',
   fontStyle: 'normal',
   fontWeight: 400,
-  fontSize: '13px',
+  fontSize: '16px',
+  whiteSpace: 'nowrap',
   lineHeight: '1.5',
 });
 
@@ -48,6 +49,7 @@ function getStyles(themeMode: string) {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          padding: `${Spacing.xSmall}px ${Spacing.Small}px`,
         },
         '.confidence': {
           gap: '10px',
