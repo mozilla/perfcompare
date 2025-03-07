@@ -373,11 +373,11 @@ exports[`Results Table Should match snapshot 1`] = `
                                     />
                                   </svg>
                                   <div
-                                    aria-label="Mar 29, 51, 00:00 UTC"
+                                    aria-label="Mar 29, 51, 24:00 UTC"
                                     class=""
                                     data-mui-internal-clone-element="true"
                                   >
-                                    Mar 29, 51, 00:00 UTC
+                                    Mar 29, 51, 24:00 UTC
                                   </div>
                                 </div>
                               </div>
@@ -661,11 +661,11 @@ exports[`Results Table Should match snapshot 1`] = `
                                     />
                                   </svg>
                                   <div
-                                    aria-label="Mar 29, 51, 00:00 UTC"
+                                    aria-label="Mar 29, 51, 24:00 UTC"
                                     class=""
                                     data-mui-internal-clone-element="true"
                                   >
-                                    Mar 29, 51, 00:00 UTC
+                                    Mar 29, 51, 24:00 UTC
                                   </div>
                                 </div>
                               </div>
@@ -1365,7 +1365,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="fw0pvlu"
                         >
                           <div
-                            class="revisionRow ft4jzth f1vh4jdk MuiBox-root css-1txhl5e"
+                            class="revisionRow fqyfrhr f1vh4jdk MuiBox-root css-1txhl5e"
                             role="row"
                           >
                             <div
@@ -1394,7 +1394,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               </div>
                             </div>
                             <div
-                              class="browser-name cell"
+                              class="fmc7z2v cell"
                               role="cell"
                             >
                               776.97
@@ -1408,7 +1408,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               &lt;
                             </div>
                             <div
-                              class="browser-name cell"
+                              class="fmc7z2v cell"
                               role="cell"
                             >
                               791.34
@@ -1588,7 +1588,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow ft4jzth f1vh4jdk MuiBox-root css-1txhl5e"
+                            class="revisionRow fqyfrhr f1vh4jdk MuiBox-root css-1txhl5e"
                             role="row"
                           >
                             <div
@@ -1618,7 +1618,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               </div>
                             </div>
                             <div
-                              class="browser-name cell"
+                              class="fmc7z2v cell"
                               role="cell"
                             >
                               704.84
@@ -1632,7 +1632,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               &lt;
                             </div>
                             <div
-                              class="browser-name cell"
+                              class="fmc7z2v cell"
                               role="cell"
                             >
                               712.44
@@ -1812,7 +1812,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </div>
                           </div>
                           <div
-                            class="revisionRow ft4jzth f1vh4jdk MuiBox-root css-1txhl5e"
+                            class="revisionRow fqyfrhr f1vh4jdk MuiBox-root css-1txhl5e"
                             role="row"
                           >
                             <div
@@ -1842,7 +1842,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               </div>
                             </div>
                             <div
-                              class="browser-name cell"
+                              class="fmc7z2v cell"
                               role="cell"
                             >
                               643.54
@@ -1856,7 +1856,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               &gt;
                             </div>
                             <div
-                              class="browser-name cell"
+                              class="fmc7z2v cell"
                               role="cell"
                             >
                               628.09
@@ -2105,7 +2105,7 @@ exports[`Results Table Should match snapshot 1`] = `
                           class="fw0pvlu"
                         >
                           <div
-                            class="revisionRow ft4jzth f1vh4jdk MuiBox-root css-1txhl5e"
+                            class="revisionRow fqyfrhr f1vh4jdk MuiBox-root css-1txhl5e"
                             role="row"
                           >
                             <div
@@ -2135,7 +2135,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               </div>
                             </div>
                             <div
-                              class="browser-name cell"
+                              class="fmc7z2v cell"
                               role="cell"
                             >
                               643.54
@@ -2149,7 +2149,7 @@ exports[`Results Table Should match snapshot 1`] = `
                               &gt;
                             </div>
                             <div
-                              class="browser-name cell"
+                              class="fmc7z2v cell"
                               role="cell"
                             >
                               628.09
@@ -2660,7 +2660,7 @@ exports[`Results Table should render different blocks when rendering several rev
       </button>
     </span>
     <div
-      class="revisionRow ft4jzth f1vh4jdk MuiBox-root css-1txhl5e"
+      class="revisionRow fqyfrhr f1vh4jdk MuiBox-root css-1txhl5e"
       role="row"
     >
       <div
@@ -2690,7 +2690,7 @@ exports[`Results Table should render different blocks when rendering several rev
         </div>
       </div>
       <div
-        class="browser-name cell"
+        class="fmc7z2v cell"
         role="cell"
       >
         704.84
@@ -2704,7 +2704,7 @@ exports[`Results Table should render different blocks when rendering several rev
         &lt;
       </div>
       <div
-        class="browser-name cell"
+        class="fmc7z2v cell"
         role="cell"
       >
         712.44
@@ -2922,7 +2922,7 @@ exports[`Results Table should render different blocks when rendering several rev
       </button>
     </span>
     <div
-      class="revisionRow ft4jzth f1vh4jdk MuiBox-root css-1txhl5e"
+      class="revisionRow fqyfrhr f1vh4jdk MuiBox-root css-1txhl5e"
       role="row"
     >
       <div
@@ -2952,7 +2952,7 @@ exports[`Results Table should render different blocks when rendering several rev
         </div>
       </div>
       <div
-        class="browser-name cell"
+        class="fmc7z2v cell"
         role="cell"
       >
         704.84
@@ -2966,7 +2966,7 @@ exports[`Results Table should render different blocks when rendering several rev
         &lt;
       </div>
       <div
-        class="browser-name cell"
+        class="fmc7z2v cell"
         role="cell"
       >
         712.44

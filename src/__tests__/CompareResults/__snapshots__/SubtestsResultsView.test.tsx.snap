@@ -645,12 +645,11 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="browser-name cell"
                   role="cell"
                 >
-                   
                   973.66
                    
                   ms
                   <span
-                    style="font-size: 11.5px;"
+                    class="fq5j3k2"
                   >
                     (
                     firefox
@@ -671,7 +670,7 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                    
                   ms
                   <span
-                    style="font-size: 11.5px;"
+                    class="fq5j3k2"
                   >
                     (
                     chrome
@@ -829,7 +828,6 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="browser-name cell"
                   role="cell"
                 >
-                   
                   971.38
                    
                   ms
@@ -988,7 +986,6 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="browser-name cell"
                   role="cell"
                 >
-                   
                   973.66
                    
                   ms
@@ -1158,7 +1155,6 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="browser-name cell"
                   role="cell"
                 >
-                   
                   971.38
                    
                   ms
@@ -1328,7 +1324,6 @@ exports[`SubtestsResultsView Component Tests should render the subtests results 
                   class="browser-name cell"
                   role="cell"
                 >
-                   
                   316.35
                    
                   ms
@@ -2467,12 +2462,11 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="browser-name cell"
                   role="cell"
                 >
-                   
                   973.66
                    
                   ms
                   <span
-                    style="font-size: 11.5px;"
+                    class="fq5j3k2"
                   >
                     (
                     firefox
@@ -2493,7 +2487,7 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                    
                   ms
                   <span
-                    style="font-size: 11.5px;"
+                    class="fq5j3k2"
                   >
                     (
                     chrome
@@ -2651,7 +2645,6 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="browser-name cell"
                   role="cell"
                 >
-                   
                   971.38
                    
                   ms
@@ -2810,7 +2803,6 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="browser-name cell"
                   role="cell"
                 >
-                   
                   973.66
                    
                   ms
@@ -2980,7 +2972,6 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="browser-name cell"
                   role="cell"
                 >
-                   
                   971.38
                    
                   ms
@@ -3150,7 +3141,6 @@ exports[`SubtestsViewCompareOverTime Component Tests should render the subtests 
                   class="browser-name cell"
                   role="cell"
                 >
-                   
                   316.35
                    
                   ms

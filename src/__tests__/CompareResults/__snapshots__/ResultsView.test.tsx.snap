@@ -1465,7 +1465,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="fw0pvlu"
             >
               <div
-                class="revisionRow ft4jzth f1vh4jdk MuiBox-root css-1txhl5e"
+                class="revisionRow fqyfrhr f1vh4jdk MuiBox-root css-1txhl5e"
                 role="row"
               >
                 <div
@@ -1494,7 +1494,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   </div>
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="fmc7z2v cell"
                   role="cell"
                 >
                   776.97
@@ -1508,7 +1508,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   &lt;
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="fmc7z2v cell"
                   role="cell"
                 >
                   791.34
@@ -1688,7 +1688,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow ft4jzth f1vh4jdk MuiBox-root css-1txhl5e"
+                class="revisionRow fqyfrhr f1vh4jdk MuiBox-root css-1txhl5e"
                 role="row"
               >
                 <div
@@ -1718,7 +1718,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   </div>
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="fmc7z2v cell"
                   role="cell"
                 >
                   704.84
@@ -1732,7 +1732,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   &lt;
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="fmc7z2v cell"
                   role="cell"
                 >
                   712.44
@@ -1912,7 +1912,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow ft4jzth f1vh4jdk MuiBox-root css-1txhl5e"
+                class="revisionRow fqyfrhr f1vh4jdk MuiBox-root css-1txhl5e"
                 role="row"
               >
                 <div
@@ -1942,7 +1942,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   </div>
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="fmc7z2v cell"
                   role="cell"
                 >
                   643.54
@@ -1956,7 +1956,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   &gt;
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="fmc7z2v cell"
                   role="cell"
                 >
                   628.09
@@ -2114,7 +2114,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow ft4jzth f1vh4jdk MuiBox-root css-1txhl5e"
+                class="revisionRow fqyfrhr f1vh4jdk MuiBox-root css-1txhl5e"
                 role="row"
               >
                 <div
@@ -2144,7 +2144,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   </div>
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="fmc7z2v cell"
                   role="cell"
                 >
                   643.54
@@ -2158,7 +2158,7 @@ exports[`Results View The table should match snapshot and other elements should 
                   &gt;
                 </div>
                 <div
-                  class="browser-name cell"
+                  class="fmc7z2v cell"
                   role="cell"
                 >
                   628.09
