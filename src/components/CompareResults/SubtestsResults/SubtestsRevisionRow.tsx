@@ -14,7 +14,7 @@ import { style } from 'typestyle';
 import RevisionRowExpandable from '.././RevisionRowExpandable';
 import { useAppSelector } from '../../../hooks/app';
 import { Strings } from '../../../resources/Strings';
-import { Colors, Spacing } from '../../../styles';
+import { Colors, FontSize, Spacing } from '../../../styles';
 import type { CompareResultsItem } from '../../../types/state';
 import { getBrowserDisplay } from '../../../utils/platform';
 import { formatNumber } from './../../../utils/format';
@@ -175,10 +175,9 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
           {test}
         </div>
         <div className='browser-name cell' role='cell'>
-          {' '}
           {formatNumber(baseAvgValue)} {baseUnit}
           {getBrowserDisplay(baseApp, newApp, expanded) && (
-            <span style={{ fontSize: '11.5px' }}>({baseApp})</span>
+            <span className={FontSize.xSmall}>({baseApp})</span>
           )}
         </div>
         <div className='comparison-sign cell' role='cell'>
@@ -187,7 +186,7 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
         <div className='browser-name cell' role='cell'>
           {formatNumber(newAvgValue)} {newUnit}
           {getBrowserDisplay(baseApp, newApp, expanded) && (
-            <span style={{ fontSize: '11.5px' }}>({newApp})</span>
+            <span className={FontSize.xSmall}>({newApp})</span>
           )}
         </div>
         <div className='status cell' role='cell'>

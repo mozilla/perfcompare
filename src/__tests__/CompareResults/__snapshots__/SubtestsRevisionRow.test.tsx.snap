@@ -30,7 +30,6 @@ exports[`SubtestsRevisionRow Component renders the component with correct data 1
         class="browser-name cell"
         role="cell"
       >
-         
         971.38
          
         ms
