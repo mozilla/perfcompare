@@ -642,11 +642,11 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
                         />
                       </svg>
                       <div
-                        aria-label="Mar 29, 51, 24:00 UTC"
+                        aria-label="Mar 29, 51, 00:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Mar 29, 51, 24:00 UTC
+                        Mar 29, 51, 00:00 UTC
                       </div>
                     </div>
                   </div>
@@ -1309,11 +1309,11 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
                         />
                       </svg>
                       <div
-                        aria-label="Mar 29, 51, 24:00 UTC"
+                        aria-label="Mar 29, 51, 00:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Mar 29, 51, 24:00 UTC
+                        Mar 29, 51, 00:00 UTC
                       </div>
                     </div>
                   </div>
@@ -1645,11 +1645,11 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
                         />
                       </svg>
                       <div
-                        aria-label="Mar 29, 51, 24:00 UTC"
+                        aria-label="Mar 29, 51, 00:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Mar 29, 51, 24:00 UTC
+                        Mar 29, 51, 00:00 UTC
                       </div>
                     </div>
                   </div>
@@ -2347,11 +2347,11 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                         />
                       </svg>
                       <div
-                        aria-label="Mar 29, 51, 24:00 UTC"
+                        aria-label="Mar 29, 51, 00:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Mar 29, 51, 24:00 UTC
+                        Mar 29, 51, 00:00 UTC
                       </div>
                     </div>
                   </div>
@@ -2490,11 +2490,11 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                         />
                       </svg>
                       <div
-                        aria-label="Jul 4, 20, 24:00 UTC"
+                        aria-label="Jul 4, 20, 00:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Jul 4, 20, 24:00 UTC
+                        Jul 4, 20, 00:00 UTC
                       </div>
                     </div>
                   </div>
@@ -2979,11 +2979,11 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                         />
                       </svg>
                       <div
-                        aria-label="Mar 29, 51, 24:00 UTC"
+                        aria-label="Mar 29, 51, 00:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Mar 29, 51, 24:00 UTC
+                        Mar 29, 51, 00:00 UTC
                       </div>
                     </div>
                   </div>
@@ -3315,11 +3315,11 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
                         />
                       </svg>
                       <div
-                        aria-label="Mar 29, 51, 24:00 UTC"
+                        aria-label="Mar 29, 51, 00:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Mar 29, 51, 24:00 UTC
+                        Mar 29, 51, 00:00 UTC
                       </div>
                     </div>
                   </div>
