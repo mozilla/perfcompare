@@ -107,11 +107,11 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
               />
             </svg>
             <div
-              aria-label="Mar 29, 51, 24:00 UTC"
+              aria-label="Mar 29, 51, 00:00 UTC"
               class=""
               data-mui-internal-clone-element="true"
             >
-              Mar 29, 51, 24:00 UTC
+              Mar 29, 51, 00:00 UTC
             </div>
           </div>
         </div>
