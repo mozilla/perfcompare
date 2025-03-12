@@ -8,6 +8,7 @@ import TextField from '@mui/material/TextField';
 interface EditTitleInputProps {
   compact: boolean;
   value: string;
+  refInput: React.RefObject<HTMLInputElement>;
   onCancel: () => unknown;
   onChange: (titleText: string) => unknown;
   onSave: () => unknown;
@@ -16,6 +17,7 @@ interface EditTitleInputProps {
 function EditTitleInput({
   compact,
   value,
+  refInput,
   onChange,
   onSave,
   onCancel,
@@ -60,6 +62,7 @@ function EditTitleInput({
         focused
       >
         <TextField
+          inputRef={refInput}
           sx={{ minWidth: '568px' }}
           onFocus={(e) => e.currentTarget.select()}
           placeholder={inputPlaceholder}

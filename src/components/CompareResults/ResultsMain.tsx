@@ -1,4 +1,4 @@
-import { Fragment, useRef, useState } from 'react';
+import { Fragment, useRef, useEffect, useState } from 'react';
 
 import { Button, Grid, Link } from '@mui/material';
 import Alert from '@mui/material/Alert';
@@ -103,8 +103,16 @@ function ResultsMain() {
     initialComparisonTitle,
   );
   const previousComparisonTitleRef = useRef('Results');
+  const editTitleInputRef = useRef<HTMLInputElement>(null);
   const [editComparisonTitleInputVisible, showEditComparisonTitleInput] =
     useState(false);
+
+  useEffect(() => {
+    if (editComparisonTitleInputVisible && editTitleInputRef.current) {
+      editTitleInputRef.current.focus();
+      editTitleInputRef.current.select();
+    }
+  }, [editComparisonTitleInputVisible]);
 
   const onEditButtonClick = () => {
     showEditComparisonTitleInput(true);
@@ -139,6 +147,7 @@ function ResultsMain() {
         <Grid container sx={titleContainerSx}>
           {editComparisonTitleInputVisible ? (
             <EditTitleInput
+              refInput={editTitleInputRef}
               compact={true}
               onChange={onComparisonTitleChange}
               onSave={onSaveButtonClick}
