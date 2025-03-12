@@ -94,8 +94,9 @@ function ResultsMain() {
       );
     }
   }
-
+  /************************************************/
   /********** Edit Results Title Section **********/
+  /************************************************/
   const [rawSearchParams, updateRawSearchParams] = useRawSearchParams();
   const initialComparisonTitle = rawSearchParams.get('title') ?? 'Results';
   const [comparisonTitleName, setComparisonTitleName] = useState(

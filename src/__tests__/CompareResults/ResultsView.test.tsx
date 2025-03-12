@@ -474,7 +474,28 @@ describe('Results View', () => {
     expect(screen.getByText('Results')).toBeInTheDocument();
   });
 
-  //PR notes: moved this test to results view instead
+  it("Should show error message when the input is empty and the user clicks the 'Save' button", async () => {
+    const user = userEvent.setup({ delay: null });
+    renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
+    await screen.findByRole('heading', { name: 'Results' });
+    const editTitleButton = await screen.findByRole('button', {
+      name: /Edit title/i,
+    });
+    await user.click(editTitleButton);
+
+    const saveButton = await screen.findByRole('button', {
+      name: /Save/i,
+    });
+    const editTitleInput = screen.getByRole('textbox', {
+      name: 'Write a title for this comparison',
+    });
+
+    await user.clear(editTitleInput);
+    await user.click(saveButton);
+
+    expect(screen.getByText('Title cannot be empty')).toBeInTheDocument();
+  });
+
   it('Should update url with new title and the table with the new title', async () => {
     const user = userEvent.setup({ delay: null });
 
