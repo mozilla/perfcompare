@@ -194,7 +194,7 @@ exports[`Results View Should display Base, New and Common graphs with 1 value an
         </div>
       </div>
       <div
-        class="f1w2i9df"
+        class="fyc4e7p"
       >
         chartjs-line
       </div>
@@ -486,7 +486,7 @@ exports[`Results View Should display Base, New and Common graphs with replicates
         </div>
       </div>
       <div
-        class="f1w2i9df"
+        class="fyc4e7p"
       >
         chartjs-line
       </div>
@@ -778,7 +778,7 @@ exports[`Results View Should display Base, New and Common graphs with tooltips 1
         </div>
       </div>
       <div
-        class="f1w2i9df"
+        class="fyc4e7p"
       >
         chartjs-line
       </div>
