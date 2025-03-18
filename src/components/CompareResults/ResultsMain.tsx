@@ -102,7 +102,7 @@ function ResultsMain() {
   const [comparisonTitleName, setComparisonTitleName] = useState(
     initialComparisonTitle,
   );
-  const previousComparisonTitleRef = useRef('Results');
+  const previousComparisonTitleRef = useRef(initialComparisonTitle);
   const editTitleInputRef = useRef<HTMLInputElement>(null);
   const [editComparisonTitleInputVisible, showEditComparisonTitleInput] =
     useState(false);
@@ -148,7 +148,6 @@ function ResultsMain() {
           {editComparisonTitleInputVisible ? (
             <EditTitleInput
               refInput={editTitleInputRef}
-              compact={true}
               onChange={onComparisonTitleChange}
               onSave={onSaveButtonClick}
               onCancel={onCancelButtonClick}

@@ -6,7 +6,6 @@ import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 
 interface EditTitleInputProps {
-  compact: boolean;
   value: string;
   refInput: React.RefObject<HTMLInputElement>;
   onCancel: () => unknown;
@@ -15,14 +14,12 @@ interface EditTitleInputProps {
 }
 
 function EditTitleInput({
-  compact,
   value,
   refInput,
   onChange,
   onSave,
   onCancel,
 }: EditTitleInputProps) {
-  const size = compact ? 'small' : undefined;
   const inputPlaceholder = 'Write a title for this comparison';
   const [titleError, setTitleError] = useState(false);
   const titleErrorMsg = 'Title cannot be empty';
@@ -41,12 +38,11 @@ function EditTitleInput({
   }, [onCancel]);
 
   const onSaveSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
     if (!value.trim()) {
-      e.preventDefault();
       setTitleError(true);
       return;
     }
-    e.preventDefault();
     onSave();
   };
 
@@ -74,7 +70,7 @@ function EditTitleInput({
             setTitleError(false);
             onChange(e.target.value);
           }}
-          size={size}
+          size='small'
           className='edit-results-title-text-field'
           error={titleError}
           value={value}
