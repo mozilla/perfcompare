@@ -16,14 +16,8 @@ interface ResultsViewProps {
   title: string;
 }
 function ResultsView(props: ResultsViewProps) {
-  const {
-    newRevsInfo,
-    frameworkId,
-    intervalValue,
-
-    baseRepo,
-    newRepos,
-  } = useLoaderData() as LoaderReturnValue;
+  const { newRevsInfo, frameworkId, intervalValue, baseRepo, newRepos } =
+    useLoaderData() as LoaderReturnValue;
   const newRepo = newRepos[0];
   const { title } = props;
   const themeMode = useAppSelector((state) => state.theme.mode);
