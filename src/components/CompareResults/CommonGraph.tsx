@@ -13,7 +13,7 @@ const styles = {
   container: style({
     display: 'flex',
     marginBottom: Spacing.Medium,
-    width: '100%',
+    width: '390px',
   }),
 };
 
