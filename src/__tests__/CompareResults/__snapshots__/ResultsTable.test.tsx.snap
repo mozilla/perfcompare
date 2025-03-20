@@ -731,8 +731,26 @@ exports[`Results Table Should match snapshot 1`] = `
                   class="MuiGrid-root MuiGrid-item f1sq1266 css-j8gwlw-MuiGrid-root"
                 >
                   Results
-                </div>
-                <div
+                </h2>
+                <button
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation css-757951-MuiButtonBase-root-MuiButton-root"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiButton-startIcon MuiButton-iconSizeMedium css-gcc2o7-MuiButton-startIcon"
+                  >
+                    <img
+                      role="presentation"
+                      src="pencil.svg"
+                    />
+                  </span>
+                  Edit title
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </button>
+                <h2
                   class="MuiGrid-root MuiGrid-item f1s36cwx css-j8gwlw-MuiGrid-root"
                 >
                   Compare with a base
