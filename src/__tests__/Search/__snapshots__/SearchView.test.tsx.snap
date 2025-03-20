@@ -1250,7 +1250,7 @@ exports[`With search parameters both search components are populated as expected
               </div>
             </div>
             <div
-              class="selectedRevision_fmpcdiu MuiBox-root css-0"
+              class="selectedRevision_fmygokg MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -1332,11 +1332,11 @@ exports[`With search parameters both search components are populated as expected
                         />
                       </svg>
                       <div
-                        aria-label="Jul 29, 87, 00:00 UTC"
+                        aria-label="Jul 29, 87, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Jul 29, 87, 00:00 UTC
+                        Jul 29, 87, 24:00 UTC
                       </div>
                     </div>
                   </div>
@@ -1773,7 +1773,7 @@ exports[`With search parameters both search components are populated as expected
               </div>
             </div>
             <div
-              class="selectedRevision_fmpcdiu MuiBox-root css-0"
+              class="selectedRevision_fmygokg MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -1855,11 +1855,11 @@ exports[`With search parameters both search components are populated as expected
                         />
                       </svg>
                       <div
-                        aria-label="Jul 29, 87, 00:00 UTC"
+                        aria-label="Jul 29, 87, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Jul 29, 87, 00:00 UTC
+                        Jul 29, 87, 24:00 UTC
                       </div>
                     </div>
                   </div>
@@ -2304,7 +2304,7 @@ exports[`With search parameters both search components are populated as expected
               </div>
             </div>
             <div
-              class="selectedRevision_fmpcdiu MuiBox-root css-0"
+              class="selectedRevision_fmygokg MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -2386,11 +2386,11 @@ exports[`With search parameters both search components are populated as expected
                         />
                       </svg>
                       <div
-                        aria-label="Jul 4, 20, 00:00 UTC"
+                        aria-label="Jul 4, 20, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Jul 4, 20, 00:00 UTC
+                        Jul 4, 20, 24:00 UTC
                       </div>
                     </div>
                   </div>
@@ -2827,7 +2827,7 @@ exports[`With search parameters both search components are populated as expected
               </div>
             </div>
             <div
-              class="selectedRevision_fmpcdiu MuiBox-root css-0"
+              class="selectedRevision_fmygokg MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -2909,11 +2909,11 @@ exports[`With search parameters both search components are populated as expected
                         />
                       </svg>
                       <div
-                        aria-label="Jul 4, 20, 00:00 UTC"
+                        aria-label="Jul 4, 20, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Jul 4, 20, 00:00 UTC
+                        Jul 4, 20, 24:00 UTC
                       </div>
                     </div>
                   </div>
@@ -3358,7 +3358,7 @@ exports[`With search parameters displays the default value for framework if the 
               </div>
             </div>
             <div
-              class="selectedRevision_fmpcdiu MuiBox-root css-0"
+              class="selectedRevision_fmygokg MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -3440,11 +3440,11 @@ exports[`With search parameters displays the default value for framework if the 
                         />
                       </svg>
                       <div
-                        aria-label="Jul 29, 87, 00:00 UTC"
+                        aria-label="Jul 29, 87, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Jul 29, 87, 00:00 UTC
+                        Jul 29, 87, 24:00 UTC
                       </div>
                     </div>
                   </div>
@@ -3881,7 +3881,7 @@ exports[`With search parameters displays the default value for framework if the 
               </div>
             </div>
             <div
-              class="selectedRevision_fmpcdiu MuiBox-root css-0"
+              class="selectedRevision_fmygokg MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -3963,11 +3963,11 @@ exports[`With search parameters displays the default value for framework if the 
                         />
                       </svg>
                       <div
-                        aria-label="Jul 29, 87, 00:00 UTC"
+                        aria-label="Jul 29, 87, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Jul 29, 87, 00:00 UTC
+                        Jul 29, 87, 24:00 UTC
                       </div>
                     </div>
                   </div>
