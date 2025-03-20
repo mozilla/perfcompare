@@ -63,7 +63,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
         class="MuiGrid-root header-container container_f1ocj467 css-plh9qo-MuiGrid-root"
       >
         <div
-          class="toggle-dark-mode fgk3bh6 MuiBox-root css-0"
+          class="toggle-dark-mode fkud7h4 MuiBox-root css-0"
         >
           <div
             class="MuiFormGroup-root css-dmmspl-MuiFormGroup-root"
@@ -96,7 +96,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
                 />
               </span>
               <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-5pr40k-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-smpupv-MuiTypography-root"
               >
                 Dark mode
               </span>
@@ -321,7 +321,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
         class="MuiGrid-root header-container container_f1ocj467 css-plh9qo-MuiGrid-root"
       >
         <div
-          class="toggle-dark-mode fgk3bh6 MuiBox-root css-0"
+          class="toggle-dark-mode fkud7h4 MuiBox-root css-0"
         >
           <div
             class="MuiFormGroup-root css-dmmspl-MuiFormGroup-root"
@@ -354,7 +354,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
                 />
               </span>
               <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-5pr40k-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-smpupv-MuiTypography-root"
               >
                 Dark mode
               </span>
@@ -474,7 +474,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
         class="MuiGrid-root header-container container_f1ocj467 css-plh9qo-MuiGrid-root"
       >
         <div
-          class="toggle-dark-mode fgk3bh6 MuiBox-root css-0"
+          class="toggle-dark-mode fkud7h4 MuiBox-root css-0"
         >
           <div
             class="MuiFormGroup-root css-dmmspl-MuiFormGroup-root"
@@ -507,7 +507,7 @@ exports[`App CompareResults or CompareOverTime loader Should render an error pag
                 />
               </span>
               <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-5pr40k-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-smpupv-MuiTypography-root"
               >
                 Dark mode
               </span>

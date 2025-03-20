@@ -16,23 +16,23 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
     value="try"
   />
   <div
-    class="repo_fkd3ycy"
+    class="repo_f1bx8by5"
   >
     <div>
       try
     </div>
   </div>
   <div
-    class="selectedRevision_f1h5nweo MuiBox-root css-0"
+    class="selectedRevision_fmpcdiu MuiBox-root css-0"
   >
     <div
       class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
     >
       <span
-        class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-4q8oy7-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-10rb10z-MuiTypography-root"
       >
         <span
-          class="MuiTypography-root MuiTypography-body2 revision-hash css-eqisi8-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
         >
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
@@ -115,7 +115,7 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
         </div>
       </span>
       <span
-        class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-jxfi63-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-163o6oo-MuiTypography-root"
       >
         you've got no arms left! 
       </span>

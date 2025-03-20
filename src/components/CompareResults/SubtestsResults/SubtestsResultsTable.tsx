@@ -57,7 +57,7 @@ const columnsConfiguration: CompareResultsTableConfig = [
   {
     name: 'Subtests',
     key: 'subtests',
-    gridWidth: '3fr',
+    gridWidth: '4fr',
     sortFunction: defaultSortFunction,
   },
   {

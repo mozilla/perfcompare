@@ -50,7 +50,7 @@ const styles = {
     fontFamily: 'SF Pro',
     fontStyle: 'normal',
     fontWeight: 590,
-    fontSize: '16px',
+    fontSize: '15px',
     lineHeight: '1.5',
   }),
 };

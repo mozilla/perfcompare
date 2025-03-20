@@ -249,7 +249,7 @@ exports[`Results View The table should match snapshot and other elements should 
       </div>
     </div>
     <div
-      class="f75bkdv f1l733lh"
+      class="f75bkdv f19sido0"
       data-testid="table-header"
       role="row"
     >
@@ -260,7 +260,7 @@ exports[`Results View The table should match snapshot and other elements should 
         <button
           aria-haspopup="true"
           aria-label="Platform (Click to filter values)"
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-12sme9p-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-uajdoe-MuiButtonBase-root-MuiButton-root"
           data-mui-internal-clone-element="true"
           tabindex="0"
           type="button"
@@ -325,7 +325,7 @@ exports[`Results View The table should match snapshot and other elements should 
         <button
           aria-haspopup="true"
           aria-label="Status (Click to filter values)"
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-12sme9p-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-uajdoe-MuiButtonBase-root-MuiButton-root"
           data-mui-internal-clone-element="true"
           tabindex="0"
           type="button"
@@ -366,7 +366,7 @@ exports[`Results View The table should match snapshot and other elements should 
         >
           <button
             aria-label="Delta (Click to sort by this column)"
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-lq49bj-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-1awls4w-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
@@ -401,7 +401,7 @@ exports[`Results View The table should match snapshot and other elements should 
         >
           <button
             aria-label="Confidence (Click to sort by this column)"
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton css-1r5r0xg-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton css-gknth7-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
@@ -426,7 +426,7 @@ exports[`Results View The table should match snapshot and other elements should 
           <button
             aria-haspopup="true"
             aria-label="Confidence (Click to filter values)"
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-12sme9p-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-uajdoe-MuiButtonBase-root-MuiButton-root"
             data-mui-internal-clone-element="true"
             tabindex="0"
             type="button"
@@ -505,7 +505,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="fh103jg"
             >
               <div
-                class="f1l733lh"
+                class="f1mgfhdi"
               >
                 <strong>
                   <a
@@ -521,7 +521,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </strong>
                  
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1l733lh css-1qhous5-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1mgfhdi css-1qhous5-MuiTypography-root-MuiLink-root"
                   href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
                   target="_blank"
                   title="open treeherder view for spam"
@@ -589,7 +589,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="fw0pvlu"
             >
               <div
-                class="revisionRow f1a1n1ir f1dlt78d MuiBox-root css-1txhl5e"
+                class="revisionRow fqyfrhr f1vh4jdk MuiBox-root css-1txhl5e"
                 role="row"
               >
                 <div
@@ -815,7 +815,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1a1n1ir f1dlt78d MuiBox-root css-1txhl5e"
+                class="revisionRow fqyfrhr f1vh4jdk MuiBox-root css-1txhl5e"
                 role="row"
               >
                 <div
@@ -1042,7 +1042,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1a1n1ir f1dlt78d MuiBox-root css-1txhl5e"
+                class="revisionRow fqyfrhr f1vh4jdk MuiBox-root css-1txhl5e"
                 role="row"
               >
                 <div
@@ -1247,7 +1247,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow f1a1n1ir f1dlt78d MuiBox-root css-1txhl5e"
+                class="revisionRow fqyfrhr f1vh4jdk MuiBox-root css-1txhl5e"
                 role="row"
               >
                 <div

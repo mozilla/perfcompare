@@ -124,7 +124,7 @@ function FilterableColumnHeader({
           color='tableHeaderButton'
           size='small'
           aria-label={buttonAriaLabel}
-          sx={{ paddingInline: 1.5, fontSize: '16px' }}
+          sx={{ paddingInline: 1.5 }}
         >
           {name}
           <Box
@@ -140,17 +140,12 @@ function FilterableColumnHeader({
         </Button>
       </Tooltip>
       <Menu {...bindMenu(popupState)}>
-        <MenuItem
-          dense={true}
-          onClick={onClearFilter}
-          sx={{ fontSize: '16px' }}
-        >
+        <MenuItem dense={true} onClick={onClearFilter}>
           Select all values
         </MenuItem>
         <Divider />
         {possibleValues.map((possibleValue) => (
           <MenuItem
-            sx={{ fontSize: '16px' }}
             dense={true}
             key={possibleValue.key}
             onClick={() => onClickOnlyFilter(possibleValue.key)}
@@ -225,8 +220,8 @@ function SortableColumnHeader({
 
   // MUI sets a minWidth of 40px using 2 classes, it's not appropriate for icons and difficult to override without !important.
   const inlineStyle = displayLabel
-    ? { padding: '6px 12px', fontSize: '16px' }
-    : { padding: 0, minWidth: '24px !important', fontSize: '16px' };
+    ? { padding: '6px 12px' }
+    : { padding: 0, minWidth: '24px !important' };
   // Have some margin between the icon and the text, and some less margin at the
   // start, but only when there's some actual text.
   const inlineIconStyle = displayLabel
@@ -316,7 +311,7 @@ function TableHeader({
       fontFamily: 'SF Pro',
       fontStyle: 'normal',
       fontWeight: 590,
-      fontSize: '16px',
+      fontSize: '13px',
       lineHeight: '1.5',
     }),
   };
@@ -381,7 +376,12 @@ function TableHeader({
     // we don't want to show tooltip in filterable columns again
     if (header.tooltip && !('filter' in header)) {
       return (
-        <Tooltip title={header.tooltip} placement='top' arrow>
+        <Tooltip
+          title={header.tooltip}
+          placement='top'
+          arrow
+          classes={{ tooltip: styles.typography }}
+        >
           {/* Box is used because tooltip expects a single valid element but sometimes content is a string */}
           <Box component='span' sx={{ cursor: 'pointer' }}>
             {content}
