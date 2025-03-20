@@ -249,7 +249,7 @@ exports[`Results View The table should match snapshot and other elements should 
       </div>
     </div>
     <div
-      class="f75bkdv fr2n4tx"
+      class="f75bkdv f19sido0"
       data-testid="table-header"
       role="row"
     >
@@ -261,6 +261,7 @@ exports[`Results View The table should match snapshot and other elements should 
           aria-haspopup="true"
           aria-label="Platform (Click to filter values)"
           class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-uajdoe-MuiButtonBase-root-MuiButton-root"
+          data-mui-internal-clone-element="true"
           tabindex="0"
           type="button"
         >
@@ -325,6 +326,7 @@ exports[`Results View The table should match snapshot and other elements should 
           aria-haspopup="true"
           aria-label="Status (Click to filter values)"
           class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-uajdoe-MuiButtonBase-root-MuiButton-root"
+          data-mui-internal-clone-element="true"
           tabindex="0"
           type="button"
         >
@@ -393,72 +395,67 @@ exports[`Results View The table should match snapshot and other elements should 
         class="cell confidence-header"
         role="columnheader"
       >
-        <span
-          aria-label="Calculated using a Student's T-test comparison. Low is anything under a T value of 3, Medium is between 3 and 5, and High is anything higher than 5."
-          class="MuiBox-root css-4g6ai3"
-          data-mui-internal-clone-element="true"
+        <div
+          class="MuiButtonGroup-root MuiButtonGroup-contained MuiButtonGroup-disableElevation css-t8t4s9-MuiButtonGroup-root"
+          role="group"
         >
-          <div
-            class="MuiButtonGroup-root MuiButtonGroup-contained MuiButtonGroup-disableElevation css-t8t4s9-MuiButtonGroup-root"
-            role="group"
+          <button
+            aria-label="Confidence (Click to sort by this column)"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton css-gknth7-MuiButtonBase-root-MuiButton-root"
+            tabindex="0"
+            type="button"
           >
-            <button
-              aria-label="Confidence (Click to sort by this column)"
-              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton css-gknth7-MuiButtonBase-root-MuiButton-root"
-              tabindex="0"
-              type="button"
+            <svg
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1mecf1h-MuiSvgIcon-root"
+              data-testid="SwapVertIcon"
+              focusable="false"
+              role="img"
+              viewBox="0 0 24 24"
             >
-              <svg
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1mecf1h-MuiSvgIcon-root"
-                data-testid="SwapVertIcon"
-                focusable="false"
-                role="img"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
-                />
-                <title>
-                  Not sorted by Confidence
-                </title>
-              </svg>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              <path
+                d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3 5 6.99h3V14h2V6.99h3L9 3z"
               />
-            </button>
-            <button
-              aria-haspopup="true"
-              aria-label="Confidence (Click to filter values)"
-              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton css-uajdoe-MuiButtonBase-root-MuiButton-root"
-              tabindex="0"
-              type="button"
+              <title>
+                Not sorted by Confidence
+              </title>
+            </svg>
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            aria-haspopup="true"
+            aria-label="Confidence (Click to filter values)"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedTableHeaderButton MuiButton-root MuiButton-contained MuiButton-containedTableHeaderButton MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-disableElevation css-uajdoe-MuiButtonBase-root-MuiButton-root"
+            data-mui-internal-clone-element="true"
+            tabindex="0"
+            type="button"
+          >
+            Confidence
+            <div
+              aria-label="4 items selected"
+              class="MuiBox-root css-18uhbjh"
             >
-              Confidence
-              <div
-                aria-label="4 items selected"
-                class="MuiBox-root css-18uhbjh"
-              >
-                (
-                4
-                )
-              </div>
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
-                data-testid="KeyboardArrowDownIcon"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-                />
-              </svg>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              (
+              4
+              )
+            </div>
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+              data-testid="KeyboardArrowDownIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
               />
-            </button>
-          </div>
-        </span>
+            </svg>
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </button>
+        </div>
       </div>
       <div
         class="cell runs-header"
@@ -508,7 +505,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="fh103jg"
             >
               <div
-                class="f897l9y"
+                class="f1mgfhdi"
               >
                 <strong>
                   <a
@@ -524,13 +521,39 @@ exports[`Results View The table should match snapshot and other elements should 
                 </strong>
                  
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f897l9y css-1qhous5-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways f1mgfhdi css-1qhous5-MuiTypography-root-MuiLink-root"
                   href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
                   target="_blank"
                   title="open treeherder view for spam"
                 >
                   spam
                 </a>
+                <span
+                  class="MuiBox-root css-79elbk"
+                >
+                  <button
+                    aria-label="Copy the revision to the clipboard"
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+                    data-testid="copy-icon"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
+                      data-testid="ContentCopyIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                      />
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                </span>
               </div>
               <div
                 class="f1oxa67k"
@@ -566,7 +589,7 @@ exports[`Results View The table should match snapshot and other elements should 
               class="fw0pvlu"
             >
               <div
-                class="revisionRow fqyfrhr fp4ugv1 MuiBox-root css-1txhl5e"
+                class="revisionRow fqyfrhr f1vh4jdk MuiBox-root css-1txhl5e"
                 role="row"
               >
                 <div
@@ -577,6 +600,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     aria-label="linux1804-64-shippable-qr"
                     class="platform-container"
                     data-mui-internal-clone-element="true"
+                    style="cursor: pointer;"
                   >
                     <svg
                       aria-hidden="true"
@@ -765,7 +789,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls=":ra:"
+                      aria-controls=":rc:"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
@@ -791,7 +815,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow fqyfrhr fp4ugv1 MuiBox-root css-1txhl5e"
+                class="revisionRow fqyfrhr f1vh4jdk MuiBox-root css-1txhl5e"
                 role="row"
               >
                 <div
@@ -802,6 +826,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     aria-label="macosx1015-64-shippable-qr"
                     class="platform-container"
                     data-mui-internal-clone-element="true"
+                    style="cursor: pointer;"
                   >
                     <svg
                       aria-hidden="true"
@@ -815,7 +840,7 @@ exports[`Results View The table should match snapshot and other elements should 
                       />
                     </svg>
                     <span>
-                      OS X 10.15
+                      macOS 10.15
                     </span>
                   </div>
                 </div>
@@ -991,7 +1016,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls=":re:"
+                      aria-controls=":rg:"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
@@ -1017,7 +1042,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow fqyfrhr fp4ugv1 MuiBox-root css-1txhl5e"
+                class="revisionRow fqyfrhr f1vh4jdk MuiBox-root css-1txhl5e"
                 role="row"
               >
                 <div
@@ -1028,6 +1053,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     aria-label="windows10-64-qr"
                     class="platform-container"
                     data-mui-internal-clone-element="true"
+                    style="cursor: pointer;"
                   >
                     <svg
                       aria-hidden="true"
@@ -1195,7 +1221,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls=":ri:"
+                      aria-controls=":rk:"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"
@@ -1221,7 +1247,7 @@ exports[`Results View The table should match snapshot and other elements should 
                 </div>
               </div>
               <div
-                class="revisionRow fqyfrhr fp4ugv1 MuiBox-root css-1txhl5e"
+                class="revisionRow fqyfrhr f1vh4jdk MuiBox-root css-1txhl5e"
                 role="row"
               >
                 <div
@@ -1232,6 +1258,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     aria-label="windows10-64-shippable-qr"
                     class="platform-container"
                     data-mui-internal-clone-element="true"
+                    style="cursor: pointer;"
                   >
                     <svg
                       aria-hidden="true"
@@ -1410,7 +1437,7 @@ exports[`Results View The table should match snapshot and other elements should 
                     data-testid="expand-revision-button"
                   >
                     <button
-                      aria-controls=":rm:"
+                      aria-controls=":ro:"
                       aria-expanded="false"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-1itd531-MuiButtonBase-root-MuiIconButton-root"
                       tabindex="0"

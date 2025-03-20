@@ -150,6 +150,7 @@ const components = {
     styleOverrides: {
       body1: {
         ...FontsRaw.BodyDefault,
+        lineHeight: '1.5',
       },
       root: {
         '&.perfcompare-header': {

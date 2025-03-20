@@ -20,7 +20,6 @@ const sharedFontStyles = {
 export const FontsRaw = {
   HeadingDefault: {
     ...sharedFontStyles,
-    lineHeight: '22px',
     fontWeight: '600',
     fontSize: '17px',
     fontFamily: 'SF Pro',
@@ -29,24 +28,14 @@ export const FontsRaw = {
 
   HeadingXS: {
     ...sharedFontStyles,
-    lineHeight: '28px',
     fontSize: '24px',
     fontFamily: 'Metropolis',
   },
 
   BodyDefault: {
     ...sharedFontStyles,
-    lineHeight: '16px',
     fontWeight: '400',
     fontSize: '14px',
-    fontFamily: 'SF Pro',
-  },
-
-  BodySmall: {
-    ...sharedFontStyles,
-    lineHeight: '14px',
-    fontWeight: '400',
-    fontSize: '12px',
     fontFamily: 'SF Pro',
   },
 
@@ -54,7 +43,6 @@ export const FontsRaw = {
 
   HeadingDefaultDark: {
     ...sharedFontStyles,
-    lineHeight: '22px',
     fontWeight: '600',
     fontSize: '17px',
     fontFamily: 'SF Pro',
@@ -62,24 +50,14 @@ export const FontsRaw = {
 
   HeadingXSDark: {
     ...sharedFontStyles,
-    lineHeight: '28px',
     fontSize: '24px',
     fontFamily: 'Metropolis',
   },
 
   BodyDefaultDark: {
     ...sharedFontStyles,
-    lineHeight: '16px',
     fontWeight: '400',
     fontSize: '14px',
-    fontFamily: 'SF Pro',
-  },
-
-  BodySmallDark: {
-    ...sharedFontStyles,
-    lineHeight: '14px',
-    fontWeight: '400',
-    fontSize: '12px',
     fontFamily: 'SF Pro',
   },
 };
@@ -88,11 +66,9 @@ export const Fonts = {
   HeadingDefault: style(FontsRaw.HeadingDefault),
   HeadingXS: style(FontsRaw.HeadingXS),
   BodyDefault: style(FontsRaw.BodyDefault),
-  BodySmall: style(FontsRaw.BodySmall),
   HeadingDefaultDark: style(FontsRaw.HeadingDefaultDark),
   HeadingXSDark: style(FontsRaw.HeadingXSDark),
   BodyDefaultDark: style(FontsRaw.BodyDefaultDark),
-  BodySmallDark: style(FontsRaw.BodySmallDark),
 };
 
 export const FontSizeRaw = {

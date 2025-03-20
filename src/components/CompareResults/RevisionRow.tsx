@@ -41,7 +41,7 @@ const typography = {
   fontStyle: 'normal',
   fontWeight: 400,
   fontSize: '13px',
-  lineHeight: '16px',
+  lineHeight: '1.5',
 };
 
 const stylesLight = {
@@ -310,7 +310,12 @@ function RevisionRow(props: RevisionRowProps) {
         role='row'
       >
         <div className='platform cell' role='cell'>
-          <Tooltip placement='bottom' title={platform} arrow>
+          <Tooltip
+            style={{ cursor: 'pointer' }}
+            placement='bottom'
+            title={platform}
+            arrow
+          >
             <div className='platform-container'>
               {platformIcon}
               <span>{getPlatformAndVersion(platform)}</span>

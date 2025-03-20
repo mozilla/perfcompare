@@ -10,10 +10,12 @@ const typography: TypographyOptions = {
   h1: {
     fontFamily: 'Zilla Slab',
     fontSize: h1Size,
+    lineHeight: '1.5',
   },
   h2: {
     ...FontsRaw.HeadingDefault,
     ...FontSizeRaw.xxLarge,
+    lineHeight: '1.5',
   },
   button: {
     textTransform: 'none',

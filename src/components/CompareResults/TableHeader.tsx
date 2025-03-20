@@ -75,6 +75,7 @@ type FilterableColumnHeaderProps = {
   uncheckedValues?: Set<string>;
   onToggleFilter: (checkedValues: Set<string>) => unknown;
   onClearFilter: () => unknown;
+  tooltip?: string;
 };
 
 function FilterableColumnHeader({
@@ -84,6 +85,7 @@ function FilterableColumnHeader({
   uncheckedValues,
   onToggleFilter,
   onClearFilter,
+  tooltip,
 }: FilterableColumnHeaderProps) {
   const popupState = usePopupState({ variant: 'popover', popupId: columnId });
   const possibleCheckedValues =
@@ -115,25 +117,28 @@ function FilterableColumnHeader({
 
   return (
     <>
-      <Button
-        {...bindTrigger(popupState)}
-        color='tableHeaderButton'
-        size='small'
-        aria-label={buttonAriaLabel}
-        sx={{ paddingInline: 1.5 }}
-      >
-        {name}
-        <Box
-          sx={{
-            paddingInlineStart: 0.5,
-            color: 'primary.main',
-          }}
-          aria-label={`${possibleCheckedValues} items selected`}
+      {/* setting tooltip in button will stop the overlay on filtermenu and also prevent tooltip from popping up when filter menu is open and active */}
+      <Tooltip title={tooltip} placement='top' arrow>
+        <Button
+          {...bindTrigger(popupState)}
+          color='tableHeaderButton'
+          size='small'
+          aria-label={buttonAriaLabel}
+          sx={{ paddingInline: 1.5 }}
         >
-          ({possibleCheckedValues})
-        </Box>
-        <KeyboardArrowDownIcon />
-      </Button>
+          {name}
+          <Box
+            sx={{
+              paddingInlineStart: 0.5,
+              color: 'primary.main',
+            }}
+            aria-label={`${possibleCheckedValues} items selected`}
+          >
+            ({possibleCheckedValues})
+          </Box>
+          <KeyboardArrowDownIcon />
+        </Button>
+      </Tooltip>
       <Menu {...bindMenu(popupState)}>
         <MenuItem dense={true} onClick={onClearFilter}>
           Select all values
@@ -307,7 +312,7 @@ function TableHeader({
       fontStyle: 'normal',
       fontWeight: 590,
       fontSize: '13px',
-      lineHeight: '16px',
+      lineHeight: '1.5',
     }),
   };
 
@@ -338,6 +343,7 @@ function TableHeader({
             onToggleFilter={(checkedValues) =>
               onToggleFilter(header.key, checkedValues)
             }
+            tooltip={header.tooltip}
           />
         </ButtonGroup>
       );
@@ -363,11 +369,12 @@ function TableHeader({
           onToggleFilter={(checkedValues) =>
             onToggleFilter(header.key, checkedValues)
           }
+          tooltip={header.tooltip}
         />
       );
     }
-
-    if (header.tooltip) {
+    // we don't want to show tooltip in filterable columns again
+    if (header.tooltip && !('filter' in header)) {
       return (
         <Tooltip
           title={header.tooltip}

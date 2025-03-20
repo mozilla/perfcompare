@@ -23,13 +23,13 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
     </div>
   </div>
   <div
-    class="selectedRevision_fd452xz MuiBox-root css-0"
+    class="selectedRevision_fmpcdiu MuiBox-root css-0"
   >
     <div
       class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
     >
       <span
-        class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-6bdtsh-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-10rb10z-MuiTypography-root"
       >
         <span
           class="MuiTypography-root MuiTypography-body2 revision-hash css-1lnwygr-MuiTypography-root"
@@ -42,6 +42,32 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
           >
             coconut
           </a>
+          <span
+            class="MuiBox-root css-79elbk"
+          >
+            <button
+              aria-label="Copy the revision to the clipboard"
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1c5fh40-MuiButtonBase-root-MuiIconButton-root"
+              data-testid="copy-icon"
+              tabindex="0"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-2fbsan-MuiSvgIcon-root"
+                data-testid="ContentCopyIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+          </span>
         </span>
         <div
           class="info-caption"
@@ -79,11 +105,11 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
               />
             </svg>
             <div
-              aria-label="Mar 29, 51, 24:00 UTC"
+              aria-label="Mar 29, 51, 00:00 UTC"
               class=""
               data-mui-internal-clone-element="true"
             >
-              Mar 29, 51, 24:00 UTC
+              Mar 29, 51, 00:00 UTC
             </div>
           </div>
         </div>
