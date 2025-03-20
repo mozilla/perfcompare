@@ -188,7 +188,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
               value="try"
             />
             <div
-              class="repo_f1bx8by5"
+              class="repo_f2su5sh"
             >
               <div>
                 try
@@ -215,7 +215,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
               </div>
             </div>
             <div
-              class="selectedRevision_fmpcdiu MuiBox-root css-0"
+              class="selectedRevision_f6nu0fb MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -496,7 +496,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
               value="try"
             />
             <div
-              class="repo_f1bx8by5"
+              class="repo_f2su5sh"
             >
               <div>
                 try
@@ -523,7 +523,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
               </div>
             </div>
             <div
-              class="selectedRevision_fmpcdiu MuiBox-root css-0"
+              class="selectedRevision_f6nu0fb MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -999,7 +999,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               value="try"
             />
             <div
-              class="repo_f1bx8by5"
+              class="repo_f2su5sh"
             >
               <div>
                 try
@@ -1026,7 +1026,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               </div>
             </div>
             <div
-              class="selectedRevision_fmpcdiu MuiBox-root css-0"
+              class="selectedRevision_f6nu0fb MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -1500,7 +1500,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               value="try"
             />
             <div
-              class="repo_f1bx8by5"
+              class="repo_f2su5sh"
             >
               <div>
                 try
@@ -1527,7 +1527,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               </div>
             </div>
             <div
-              class="selectedRevision_fmpcdiu MuiBox-root css-0"
+              class="selectedRevision_f6nu0fb MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -1808,7 +1808,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               value="try"
             />
             <div
-              class="repo_f1bx8by5"
+              class="repo_f2su5sh"
             >
               <div>
                 try
@@ -1835,7 +1835,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               </div>
             </div>
             <div
-              class="selectedRevision_fmpcdiu MuiBox-root css-0"
+              class="selectedRevision_f6nu0fb MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -2186,7 +2186,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
               value="try"
             />
             <div
-              class="repo_f1bx8by5"
+              class="repo_f2su5sh"
             >
               <div>
                 try
@@ -2213,7 +2213,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
               </div>
             </div>
             <div
-              class="selectedRevision_fmpcdiu MuiBox-root css-0"
+              class="selectedRevision_f6nu0fb MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -2494,7 +2494,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
               value="try"
             />
             <div
-              class="repo_f1bx8by5"
+              class="repo_f2su5sh"
             >
               <div>
                 try
@@ -2521,7 +2521,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
               </div>
             </div>
             <div
-              class="selectedRevision_fmpcdiu MuiBox-root css-0"
+              class="selectedRevision_f6nu0fb MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -3003,7 +3003,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
               value="try"
             />
             <div
-              class="repo_f1bx8by5"
+              class="repo_f2su5sh"
             >
               <div>
                 try
@@ -3030,7 +3030,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
               </div>
             </div>
             <div
-              class="selectedRevision_fmpcdiu MuiBox-root css-0"
+              class="selectedRevision_f6nu0fb MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -3406,7 +3406,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
               value="try"
             />
             <div
-              class="repo_f1bx8by5"
+              class="repo_f2su5sh"
             >
               <div>
                 try
@@ -3433,7 +3433,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
               </div>
             </div>
             <div
-              class="selectedRevision_fmpcdiu MuiBox-root css-0"
+              class="selectedRevision_f6nu0fb MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"

@@ -284,14 +284,14 @@ exports[`Results Table Should match snapshot 1`] = `
                           value="try"
                         />
                         <div
-                          class="repo_f1bx8by5"
+                          class="repo_f2su5sh"
                         >
                           <div>
                             try
                           </div>
                         </div>
                         <div
-                          class="selectedRevision_fmpcdiu MuiBox-root css-0"
+                          class="selectedRevision_f6nu0fb MuiBox-root css-0"
                         >
                           <div
                             class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -572,14 +572,14 @@ exports[`Results Table Should match snapshot 1`] = `
                           value="try"
                         />
                         <div
-                          class="repo_f1bx8by5"
+                          class="repo_f2su5sh"
                         >
                           <div>
                             try
                           </div>
                         </div>
                         <div
-                          class="selectedRevision_fmpcdiu MuiBox-root css-0"
+                          class="selectedRevision_f6nu0fb MuiBox-root css-0"
                         >
                           <div
                             class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
