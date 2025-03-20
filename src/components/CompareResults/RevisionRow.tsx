@@ -40,7 +40,7 @@ const typography = {
   fontFamily: 'SF Pro',
   fontStyle: 'normal',
   fontWeight: 400,
-  fontSize: '13px',
+  fontSize: '16px',
   lineHeight: '1.5',
 };
 
@@ -51,6 +51,7 @@ const stylesLight = {
     $nest: {
       '.cell': {
         display: 'flex',
+        padding: `${Spacing.xSmall}px ${Spacing.Small}px`,
         alignItems: 'center',
         justifyContent: 'center',
       },
@@ -124,6 +125,7 @@ const stylesDark = {
       '.cell': {
         display: 'flex',
         alignItems: 'center',
+        padding: `${Spacing.xSmall}px ${Spacing.Small}px`,
         justifyContent: 'center',
       },
       '.confidence': {

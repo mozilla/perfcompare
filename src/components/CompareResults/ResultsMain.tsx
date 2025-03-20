@@ -42,6 +42,7 @@ function ResultsMain() {
   const styles = {
     alert: style({
       width: '100%',
+      fontSize: '16px',
     }),
     container: style({
       backgroundColor: themeColor100,
@@ -56,7 +57,7 @@ function ResultsMain() {
     }),
     subtitle: style({
       ...FontsRaw.BodyDefault,
-      fontSize: '15px',
+      fontSize: '16px',
       borderLeft: '1px solid #5B5B66',
       paddingLeft: '9px',
     }),
@@ -142,7 +143,12 @@ function ResultsMain() {
   );
 
   return (
-    <Container className={styles.container} data-testid='results-main'>
+    <Container
+      maxWidth={false}
+      sx={{ maxWidth: '1300px' }}
+      className={styles.container}
+      data-testid='results-main'
+    >
       <header>
         <Grid container sx={titleContainerSx}>
           {editComparisonTitleInputVisible ? (

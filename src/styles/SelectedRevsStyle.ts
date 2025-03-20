@@ -15,7 +15,6 @@ export const SelectRevsStyles = (mode: string) => {
   const styles = stylesheet({
     box: {
       height: 'auto',
-      border: 'none',
       padding: 0,
       marginTop: `${Spacing.xSmall + 2}px`,
 
@@ -43,7 +42,7 @@ export const SelectRevsStyles = (mode: string) => {
     },
 
     repo: {
-      minWidth: '191px',
+      minWidth: '125px',
       display: 'flex',
       $nest: {
         '.warning-icon': {
@@ -55,16 +54,21 @@ export const SelectRevsStyles = (mode: string) => {
     selectedRevision: {
       display: 'flex',
       alignItems: 'flex-start',
+      justifyContent: 'space-between',
       flexGrow: 1,
       minWidth: '0px',
+      gap: `${Spacing.Small}px`,
       $nest: {
         '.search-revision-item-text': {
           margin: 0,
-          minWidth: '434px',
+          flex: 1,
         },
 
         '.revision-hash': {
+          display: 'flex',
+          flexShrink: 0,
           minWidth: '147px',
+          textAlign: 'center',
         },
 
         '.MuiListItemText-primary': {
@@ -73,14 +77,17 @@ export const SelectRevsStyles = (mode: string) => {
           marginBottom: `${Spacing.xSmall}px`,
           alignItems: 'center',
           overflow: 'visible',
+          flexGrow: 1,
         },
         '.info-caption': {
+          flex: 2,
+          textAlign: 'right',
           ...(isTrueLight ? captionStylesLight : captionStylesDark),
+          fontSize: FontSizeRaw.Normal.fontSize,
           $nest: {
             '.info-caption-item': {
               display: 'flex',
               alignItems: 'center',
-              fontSize: '11px',
               color: isTrueLight
                 ? Colors.SecondaryText
                 : Colors.SecondaryTextDark,
@@ -91,7 +98,6 @@ export const SelectRevsStyles = (mode: string) => {
             },
             '.item-author': {
               marginRight: `${Spacing.xSmall + 1}px`,
-              fontSize: FontSizeRaw.Small.fontSize,
             },
           },
         },
@@ -99,6 +105,7 @@ export const SelectRevsStyles = (mode: string) => {
         button: {
           padding: 2,
           marginTop: -2,
+          flexShrink: 0,
           $nest: {
             '&.close-button': {
               marginLeft: `${Spacing.Large}px`,
