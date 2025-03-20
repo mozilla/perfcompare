@@ -7,7 +7,6 @@ const sharedCaptionStyles = {
   justifyContent: 'space-between',
   borderRadius: '8px',
   padding: `${Spacing.xSmall / 2}px ${Spacing.Small}px`,
-  minWidth: '284px',
 };
 
 export const captionStylesLight = {

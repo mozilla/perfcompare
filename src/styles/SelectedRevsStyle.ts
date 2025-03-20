@@ -43,7 +43,7 @@ export const SelectRevsStyles = (mode: string) => {
     },
 
     repo: {
-      minWidth: '191px',
+      minWidth: '140px',
       display: 'flex',
       $nest: {
         '.warning-icon': {
@@ -76,11 +76,11 @@ export const SelectRevsStyles = (mode: string) => {
         },
         '.info-caption': {
           ...(isTrueLight ? captionStylesLight : captionStylesDark),
+          fontSize: FontSizeRaw.Normal.fontSize,
           $nest: {
             '.info-caption-item': {
               display: 'flex',
               alignItems: 'center',
-              fontSize: '11px',
               color: isTrueLight
                 ? Colors.SecondaryText
                 : Colors.SecondaryTextDark,
@@ -91,7 +91,6 @@ export const SelectRevsStyles = (mode: string) => {
             },
             '.item-author': {
               marginRight: `${Spacing.xSmall + 1}px`,
-              fontSize: FontSizeRaw.Small.fontSize,
             },
           },
         },
