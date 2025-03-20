@@ -294,7 +294,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
       class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
     >
       <div
-        class="box_fma0usl new-box MuiBox-root css-0"
+        class="box_f1wdk99e new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -533,7 +533,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
       class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
     >
       <div
-        class="box_fma0usl new-box MuiBox-root css-0"
+        class="box_f1wdk99e new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -553,14 +553,14 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
               value="try"
             />
             <div
-              class="repo_f2su5sh"
+              class="repo_fkd3ycy"
             >
               <div>
                 try
               </div>
             </div>
             <div
-              class="selectedRevision_f6nu0fb MuiBox-root css-0"
+              class="selectedRevision_f1h5nweo MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -1200,7 +1200,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
       class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
     >
       <div
-        class="box_fma0usl new-box MuiBox-root css-0"
+        class="box_f1wdk99e new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -1220,14 +1220,14 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
               value="try"
             />
             <div
-              class="repo_f2su5sh"
+              class="repo_fkd3ycy"
             >
               <div>
                 try
               </div>
             </div>
             <div
-              class="selectedRevision_f6nu0fb MuiBox-root css-0"
+              class="selectedRevision_f1h5nweo MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -1536,7 +1536,7 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
       class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
     >
       <div
-        class="box_fma0usl new-box MuiBox-root css-0"
+        class="box_f1wdk99e new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -1556,14 +1556,14 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
               value="try"
             />
             <div
-              class="repo_f2su5sh"
+              class="repo_fkd3ycy"
             >
               <div>
                 try
               </div>
             </div>
             <div
-              class="selectedRevision_f6nu0fb MuiBox-root css-0"
+              class="selectedRevision_f1h5nweo MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -1990,7 +1990,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
       class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
     >
       <div
-        class="box_fma0usl new-box MuiBox-root css-0"
+        class="box_f1wdk99e new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -2238,7 +2238,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
       class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
     >
       <div
-        class="box_fma0usl new-box MuiBox-root css-0"
+        class="box_f1wdk99e new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -2258,14 +2258,14 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
               value="try"
             />
             <div
-              class="repo_f2su5sh"
+              class="repo_fkd3ycy"
             >
               <div>
                 try
               </div>
             </div>
             <div
-              class="selectedRevision_f6nu0fb MuiBox-root css-0"
+              class="selectedRevision_f1h5nweo MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -2401,14 +2401,14 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
               value="autoland"
             />
             <div
-              class="repo_f2su5sh"
+              class="repo_fkd3ycy"
             >
               <div>
                 autoland
               </div>
             </div>
             <div
-              class="selectedRevision_f6nu0fb MuiBox-root css-0"
+              class="selectedRevision_f1h5nweo MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -2870,7 +2870,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
       class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
     >
       <div
-        class="box_fma0usl new-box MuiBox-root css-0"
+        class="box_f1wdk99e new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -2890,14 +2890,14 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
               value="try"
             />
             <div
-              class="repo_f2su5sh"
+              class="repo_fkd3ycy"
             >
               <div>
                 try
               </div>
             </div>
             <div
-              class="selectedRevision_f6nu0fb MuiBox-root css-0"
+              class="selectedRevision_f1h5nweo MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -3206,7 +3206,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
       class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
     >
       <div
-        class="box_fma0usl new-box MuiBox-root css-0"
+        class="box_f1wdk99e new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -3226,14 +3226,14 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
               value="try"
             />
             <div
-              class="repo_f2su5sh"
+              class="repo_fkd3ycy"
             >
               <div>
                 try
               </div>
             </div>
             <div
-              class="selectedRevision_f6nu0fb MuiBox-root css-0"
+              class="selectedRevision_f1h5nweo MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"

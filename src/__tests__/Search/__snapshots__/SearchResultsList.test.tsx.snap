@@ -1448,7 +1448,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     data-testid="base-selected-revision"
                   >
                     <div
-                      class="box_fma0usl base-box MuiBox-root css-0"
+                      class="box_f1wdk99e base-box MuiBox-root css-0"
                     >
                       <ul
                         class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -1592,7 +1592,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     data-testid="new-selected-revision"
                   >
                     <div
-                      class="box_fma0usl new-box MuiBox-root css-0"
+                      class="box_f1wdk99e new-box MuiBox-root css-0"
                     >
                       <ul
                         class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -2012,7 +2012,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
                   >
                     <div
-                      class="box_fma0usl new-box MuiBox-root css-0"
+                      class="box_f1wdk99e new-box MuiBox-root css-0"
                     >
                       <ul
                         class="MuiList-root MuiList-padding css-h4y409-MuiList-root"

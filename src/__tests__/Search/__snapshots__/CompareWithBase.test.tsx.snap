@@ -168,7 +168,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
       data-testid="base-selected-revision"
     >
       <div
-        class="box_fma0usl base-box MuiBox-root css-0"
+        class="box_f1wdk99e base-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -188,7 +188,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
               value="try"
             />
             <div
-              class="repo_f2su5sh"
+              class="repo_fkd3ycy"
             >
               <div>
                 try
@@ -215,7 +215,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
               </div>
             </div>
             <div
-              class="selectedRevision_f6nu0fb MuiBox-root css-0"
+              class="selectedRevision_f1h5nweo MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -476,7 +476,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
       data-testid="new-selected-revision"
     >
       <div
-        class="box_fma0usl new-box MuiBox-root css-0"
+        class="box_f1wdk99e new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -496,7 +496,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
               value="try"
             />
             <div
-              class="repo_f2su5sh"
+              class="repo_fkd3ycy"
             >
               <div>
                 try
@@ -523,7 +523,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
               </div>
             </div>
             <div
-              class="selectedRevision_f6nu0fb MuiBox-root css-0"
+              class="selectedRevision_f1h5nweo MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -979,7 +979,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
       data-testid="base-selected-revision"
     >
       <div
-        class="box_fma0usl base-box MuiBox-root css-0"
+        class="box_f1wdk99e base-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -999,7 +999,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               value="try"
             />
             <div
-              class="repo_f2su5sh"
+              class="repo_fkd3ycy"
             >
               <div>
                 try
@@ -1026,7 +1026,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               </div>
             </div>
             <div
-              class="selectedRevision_f6nu0fb MuiBox-root css-0"
+              class="selectedRevision_f1h5nweo MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -1287,7 +1287,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
       data-testid="new-selected-revision"
     >
       <div
-        class="box_fma0usl new-box MuiBox-root css-0"
+        class="box_f1wdk99e new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -1480,7 +1480,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
       data-testid="base-selected-revision"
     >
       <div
-        class="box_fma0usl base-box MuiBox-root css-0"
+        class="box_f1wdk99e base-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -1500,7 +1500,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               value="try"
             />
             <div
-              class="repo_f2su5sh"
+              class="repo_fkd3ycy"
             >
               <div>
                 try
@@ -1527,7 +1527,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               </div>
             </div>
             <div
-              class="selectedRevision_f6nu0fb MuiBox-root css-0"
+              class="selectedRevision_f1h5nweo MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -1788,7 +1788,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
       data-testid="new-selected-revision"
     >
       <div
-        class="box_fma0usl new-box MuiBox-root css-0"
+        class="box_f1wdk99e new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -1808,7 +1808,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               value="try"
             />
             <div
-              class="repo_f2su5sh"
+              class="repo_fkd3ycy"
             >
               <div>
                 try
@@ -1835,7 +1835,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               </div>
             </div>
             <div
-              class="selectedRevision_f6nu0fb MuiBox-root css-0"
+              class="selectedRevision_f1h5nweo MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -2166,7 +2166,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
       data-testid="base-selected-revision"
     >
       <div
-        class="box_fma0usl base-box MuiBox-root css-0"
+        class="box_f1wdk99e base-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -2186,7 +2186,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
               value="try"
             />
             <div
-              class="repo_f2su5sh"
+              class="repo_fkd3ycy"
             >
               <div>
                 try
@@ -2213,7 +2213,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
               </div>
             </div>
             <div
-              class="selectedRevision_f6nu0fb MuiBox-root css-0"
+              class="selectedRevision_f1h5nweo MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -2474,7 +2474,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
       data-testid="new-selected-revision"
     >
       <div
-        class="box_fma0usl new-box MuiBox-root css-0"
+        class="box_f1wdk99e new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -2494,7 +2494,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
               value="try"
             />
             <div
-              class="repo_f2su5sh"
+              class="repo_fkd3ycy"
             >
               <div>
                 try
@@ -2521,7 +2521,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
               </div>
             </div>
             <div
-              class="selectedRevision_f6nu0fb MuiBox-root css-0"
+              class="selectedRevision_f1h5nweo MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -2839,7 +2839,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
       data-testid="base-selected-revision"
     >
       <div
-        class="box_fma0usl base-box MuiBox-root css-0"
+        class="box_f1wdk99e base-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -2983,7 +2983,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
       data-testid="new-selected-revision"
     >
       <div
-        class="box_fma0usl new-box MuiBox-root css-0"
+        class="box_f1wdk99e new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -3003,7 +3003,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
               value="try"
             />
             <div
-              class="repo_f2su5sh"
+              class="repo_fkd3ycy"
             >
               <div>
                 try
@@ -3030,7 +3030,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
               </div>
             </div>
             <div
-              class="selectedRevision_f6nu0fb MuiBox-root css-0"
+              class="selectedRevision_f1h5nweo MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -3386,7 +3386,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
       data-testid="base-selected-revision"
     >
       <div
-        class="box_fma0usl base-box MuiBox-root css-0"
+        class="box_f1wdk99e base-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -3406,7 +3406,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
               value="try"
             />
             <div
-              class="repo_f2su5sh"
+              class="repo_fkd3ycy"
             >
               <div>
                 try
@@ -3433,7 +3433,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
               </div>
             </div>
             <div
-              class="selectedRevision_f6nu0fb MuiBox-root css-0"
+              class="selectedRevision_f1h5nweo MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -3694,7 +3694,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
       data-testid="new-selected-revision"
     >
       <div
-        class="box_fma0usl new-box MuiBox-root css-0"
+        class="box_f1wdk99e new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -4007,7 +4007,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                     data-testid="base-selected-revision"
                   >
                     <div
-                      class="box_fma0usl base-box MuiBox-root css-0"
+                      class="box_f1wdk99e base-box MuiBox-root css-0"
                     >
                       <ul
                         class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -4151,7 +4151,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                     data-testid="new-selected-revision"
                   >
                     <div
-                      class="box_fma0usl new-box MuiBox-root css-0"
+                      class="box_f1wdk99e new-box MuiBox-root css-0"
                     >
                       <ul
                         class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -4571,7 +4571,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                     class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
                   >
                     <div
-                      class="box_fma0usl new-box MuiBox-root css-0"
+                      class="box_f1wdk99e new-box MuiBox-root css-0"
                     >
                       <ul
                         class="MuiList-root MuiList-padding css-h4y409-MuiList-root"

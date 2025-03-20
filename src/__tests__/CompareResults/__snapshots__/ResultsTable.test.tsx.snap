@@ -264,7 +264,7 @@ exports[`Results Table Should match snapshot 1`] = `
                   data-testid="base-selected-revision"
                 >
                   <div
-                    class="box_fma0usl base-box MuiBox-root css-0"
+                    class="box_f1wdk99e base-box MuiBox-root css-0"
                   >
                     <ul
                       class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -284,14 +284,14 @@ exports[`Results Table Should match snapshot 1`] = `
                           value="try"
                         />
                         <div
-                          class="repo_f2su5sh"
+                          class="repo_fkd3ycy"
                         >
                           <div>
                             try
                           </div>
                         </div>
                         <div
-                          class="selectedRevision_f6nu0fb MuiBox-root css-0"
+                          class="selectedRevision_f1h5nweo MuiBox-root css-0"
                         >
                           <div
                             class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
@@ -552,7 +552,7 @@ exports[`Results Table Should match snapshot 1`] = `
                   data-testid="new-selected-revision"
                 >
                   <div
-                    class="box_fma0usl new-box MuiBox-root css-0"
+                    class="box_f1wdk99e new-box MuiBox-root css-0"
                   >
                     <ul
                       class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -572,14 +572,14 @@ exports[`Results Table Should match snapshot 1`] = `
                           value="try"
                         />
                         <div
-                          class="repo_f2su5sh"
+                          class="repo_fkd3ycy"
                         >
                           <div>
                             try
                           </div>
                         </div>
                         <div
-                          class="selectedRevision_f6nu0fb MuiBox-root css-0"
+                          class="selectedRevision_f1h5nweo MuiBox-root css-0"
                         >
                           <div
                             class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
