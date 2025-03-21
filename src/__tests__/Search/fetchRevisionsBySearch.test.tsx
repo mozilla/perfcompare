@@ -20,7 +20,7 @@ async function renderSearchViewComponent() {
   expect(compTitle).toBeInTheDocument();
 }
 
-describe('SearchView/fetchRevisionsByAuthor', () => {
+describe('SearchView/fetchRevisions', () => {
   it('should fetch revisions by author if searchValue is an email address', async () => {
     const { testData } = getTestData();
     (global.fetch as FetchMockSandbox).get(
@@ -40,7 +40,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     await user.type(searchInput, 'johncleese@python.com');
     act(() => void jest.runAllTimers());
     expect(global.fetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/try/push/?author_contains=johncleese%40python.com',
+      'https://treeherder.mozilla.org/api/project/try/push/?search=johncleese%40python.com',
       undefined,
     );
 
@@ -50,11 +50,69 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     ).toBeInTheDocument();
   });
 
+  it('should fetch revisions by bug number', async () => {
+    const { testData } = getTestData();
+    (global.fetch as FetchMockSandbox).get(
+      'glob:https://treeherder.mozilla.org/api/project/*/push/*',
+      {
+        results: testData,
+      },
+    );
+
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
+
+    await renderSearchViewComponent();
+
+    expect(screen.getAllByText('try')[0]).toBeInTheDocument();
+    const searchInput = screen.getAllByRole('textbox')[0];
+    await user.type(searchInput, '123456');
+    act(() => void jest.runAllTimers());
+    expect(global.fetch).toHaveBeenCalledWith(
+      'https://treeherder.mozilla.org/api/project/try/push/?search=123456',
+      undefined,
+    );
+
+    await screen.findAllByText('Bug 123456 Fuzzy She turned me into a newt!');
+    expect(
+      screen.getAllByText("it's just a flesh wound")[0],
+    ).toBeInTheDocument();
+  });
+
+  it('should fetch revisions by phrase', async () => {
+    const { testData } = getTestData();
+    (global.fetch as FetchMockSandbox).get(
+      'glob:https://treeherder.mozilla.org/api/project/*/push/*',
+      {
+        results: testData,
+      },
+    );
+
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
+
+    await renderSearchViewComponent();
+
+    expect(screen.getAllByText('try')[0]).toBeInTheDocument();
+    const searchInput = screen.getAllByRole('textbox')[0];
+    await user.type(searchInput, 'Fuzzy');
+    act(() => void jest.runAllTimers());
+    expect(global.fetch).toHaveBeenCalledWith(
+      'https://treeherder.mozilla.org/api/project/try/push/?search=Fuzzy',
+      undefined,
+    );
+
+    await screen.findAllByText('Bug 123456 Fuzzy She turned me into a newt!');
+    expect(
+      screen.getAllByText("it's just a flesh wound")[0],
+    ).toBeInTheDocument();
+  });
+
   it('should reject fetchRevisionsByAuthor if fetch returns no results', async () => {
     (global.fetch as FetchMockSandbox).get(
       'glob:https://treeherder.mozilla.org/api/project/*/push/*',
       (url) => ({
-        results: url.includes('?author') ? [] : getTestData().testData,
+        results: url.includes('?search') ? [] : getTestData().testData,
       }),
     );
 
@@ -68,7 +126,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     act(() => void jest.runAllTimers());
 
     expect(global.fetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/try/push/?author_contains=ericidle%40python.com',
+      'https://treeherder.mozilla.org/api/project/try/push/?search=ericidle%40python.com',
       undefined,
     );
 
@@ -81,7 +139,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     (global.fetch as FetchMockSandbox).get(
       'glob:https://treeherder.mozilla.org/api/project/*/push/*',
       (url) =>
-        url.includes('?author')
+        url.includes('?search')
           ? {
               throws: new Error(errorMessage),
             }
@@ -101,7 +159,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     act(() => void jest.runAllTimers());
 
     expect(global.fetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/try/push/?author_contains=grahamchapman%40python.com',
+      'https://treeherder.mozilla.org/api/project/try/push/?search=grahamchapman%40python.com',
       undefined,
     );
     expect(await screen.findByText(errorMessage)).toBeInTheDocument();
@@ -116,7 +174,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     (global.fetch as FetchMockSandbox).get(
       'glob:https://treeherder.mozilla.org/api/project/*/push/*',
       (url) =>
-        url.includes('?author')
+        url.includes('?search')
           ? {
               throws: new Error(),
             }
@@ -136,7 +194,7 @@ describe('SearchView/fetchRevisionsByAuthor', () => {
     act(() => void jest.runAllTimers());
 
     expect(global.fetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/try/push/?author_contains=grahamchapman%40python.com',
+      'https://treeherder.mozilla.org/api/project/try/push/?search=grahamchapman%40python.com',
       undefined,
     );
     expect(

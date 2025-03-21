@@ -233,10 +233,10 @@ exports[`Search View renders correctly when there are no results 1`] = `
                               </div>
                               <input
                                 aria-invalid="false"
-                                aria-label="Search base by ID number or author email"
+                                aria-label="Search base by ID number, author email or bug number"
                                 class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                                 id="search-base-input"
-                                placeholder="Search base by ID number or author email"
+                                placeholder="Search base by ID number, author email or bug number"
                                 type="text"
                                 value=""
                               />
@@ -377,10 +377,10 @@ exports[`Search View renders correctly when there are no results 1`] = `
                               </div>
                               <input
                                 aria-invalid="false"
-                                aria-label="Search revision by ID number or author email"
+                                aria-label="Search revision by ID number, author email or bug number"
                                 class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                                 id="search-new-input"
-                                placeholder="Search revision by ID number or author email"
+                                placeholder="Search revision by ID number, author email or bug number"
                                 type="text"
                                 value=""
                               />
@@ -798,10 +798,10 @@ exports[`Search View renders correctly when there are no results 1`] = `
                               </div>
                               <input
                                 aria-invalid="false"
-                                aria-label="Search revision by ID number or author email"
+                                aria-label="Search revision by ID number, author email or bug number"
                                 class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                                 id="search-new-input"
-                                placeholder="Search revision by ID number or author email"
+                                placeholder="Search revision by ID number, author email or bug number"
                                 type="text"
                                 value=""
                               />
@@ -1192,10 +1192,10 @@ exports[`With search parameters both search components are populated as expected
                 </div>
                 <input
                   aria-invalid="false"
-                  aria-label="Search revision by ID number or author email"
+                  aria-label="Search revision by ID number, author email or bug number"
                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-new-input"
-                  placeholder="Search revision by ID number or author email"
+                  placeholder="Search revision by ID number, author email or bug number"
                   type="text"
                   value=""
                 />
@@ -1570,10 +1570,10 @@ exports[`With search parameters both search components are populated as expected
                 </div>
                 <input
                   aria-invalid="false"
-                  aria-label="Search base by ID number or author email"
+                  aria-label="Search base by ID number, author email or bug number"
                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-base-input"
-                  placeholder="Search base by ID number or author email"
+                  placeholder="Search base by ID number, author email or bug number"
                   type="text"
                   value=""
                 />
@@ -1714,10 +1714,10 @@ exports[`With search parameters both search components are populated as expected
                 </div>
                 <input
                   aria-invalid="false"
-                  aria-label="Search revision by ID number or author email"
+                  aria-label="Search revision by ID number, author email or bug number"
                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-new-input"
-                  placeholder="Search revision by ID number or author email"
+                  placeholder="Search revision by ID number, author email or bug number"
                   type="text"
                   value=""
                 />
@@ -2246,10 +2246,10 @@ exports[`With search parameters both search components are populated as expected
                 </div>
                 <input
                   aria-invalid="false"
-                  aria-label="Search revision by ID number or author email"
+                  aria-label="Search revision by ID number, author email or bug number"
                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-new-input"
-                  placeholder="Search revision by ID number or author email"
+                  placeholder="Search revision by ID number, author email or bug number"
                   type="text"
                   value=""
                 />
@@ -2624,10 +2624,10 @@ exports[`With search parameters both search components are populated as expected
                 </div>
                 <input
                   aria-invalid="false"
-                  aria-label="Search base by ID number or author email"
+                  aria-label="Search base by ID number, author email or bug number"
                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-base-input"
-                  placeholder="Search base by ID number or author email"
+                  placeholder="Search base by ID number, author email or bug number"
                   type="text"
                   value=""
                 />
@@ -2768,10 +2768,10 @@ exports[`With search parameters both search components are populated as expected
                 </div>
                 <input
                   aria-invalid="false"
-                  aria-label="Search revision by ID number or author email"
+                  aria-label="Search revision by ID number, author email or bug number"
                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-new-input"
-                  placeholder="Search revision by ID number or author email"
+                  placeholder="Search revision by ID number, author email or bug number"
                   type="text"
                   value=""
                 />
@@ -3300,10 +3300,10 @@ exports[`With search parameters displays the default value for framework if the 
                 </div>
                 <input
                   aria-invalid="false"
-                  aria-label="Search revision by ID number or author email"
+                  aria-label="Search revision by ID number, author email or bug number"
                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-new-input"
-                  placeholder="Search revision by ID number or author email"
+                  placeholder="Search revision by ID number, author email or bug number"
                   type="text"
                   value=""
                 />
@@ -3678,10 +3678,10 @@ exports[`With search parameters displays the default value for framework if the 
                 </div>
                 <input
                   aria-invalid="false"
-                  aria-label="Search base by ID number or author email"
+                  aria-label="Search base by ID number, author email or bug number"
                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-base-input"
-                  placeholder="Search base by ID number or author email"
+                  placeholder="Search base by ID number, author email or bug number"
                   type="text"
                   value=""
                 />
@@ -3822,10 +3822,10 @@ exports[`With search parameters displays the default value for framework if the 
                 </div>
                 <input
                   aria-invalid="false"
-                  aria-label="Search revision by ID number or author email"
+                  aria-label="Search revision by ID number, author email or bug number"
                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-new-input"
-                  placeholder="Search revision by ID number or author email"
+                  placeholder="Search revision by ID number, author email or bug number"
                   type="text"
                   value=""
                 />
@@ -4354,10 +4354,10 @@ exports[`With search parameters displays the default values if some values are b
                 </div>
                 <input
                   aria-invalid="false"
-                  aria-label="Search revision by ID number or author email"
+                  aria-label="Search revision by ID number, author email or bug number"
                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-new-input"
-                  placeholder="Search revision by ID number or author email"
+                  placeholder="Search revision by ID number, author email or bug number"
                   type="text"
                   value=""
                 />
@@ -4588,10 +4588,10 @@ exports[`With search parameters displays the default values if some values are b
                 </div>
                 <input
                   aria-invalid="false"
-                  aria-label="Search base by ID number or author email"
+                  aria-label="Search base by ID number, author email or bug number"
                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-base-input"
-                  placeholder="Search base by ID number or author email"
+                  placeholder="Search base by ID number, author email or bug number"
                   type="text"
                   value=""
                 />
@@ -4732,10 +4732,10 @@ exports[`With search parameters displays the default values if some values are b
                 </div>
                 <input
                   aria-invalid="false"
-                  aria-label="Search revision by ID number or author email"
+                  aria-label="Search revision by ID number, author email or bug number"
                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-new-input"
-                  placeholder="Search revision by ID number or author email"
+                  placeholder="Search revision by ID number, author email or bug number"
                   type="text"
                   value=""
                 />
