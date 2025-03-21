@@ -3,25 +3,18 @@ import { useState } from 'react';
 import { Button } from '@mui/material';
 import { style } from 'typestyle';
 
-import GraphDistribution from './GraphDistribution';
 import { Spacing } from '../../styles';
 import { MeasurementUnit } from '../../types/types';
 import { formatNumber } from './../../utils/format';
 
 const styles = {
-  container: style({
-    width: '300px',
-    marginRight: Spacing.xLarge,
-  }),
   values: style({
     display: 'flex',
     flexWrap: 'wrap',
     alignItems: 'center',
     marginBottom: Spacing.Small,
     width: '300px',
-  }),
-  value: style({
-    marginRight: Spacing.xSmall,
+    gap: Spacing.xSmall,
   }),
   deviation: style({
     textTransform: 'uppercase',
@@ -55,7 +48,7 @@ function RunValues(props: RunValuesProps) {
   };
 
   return (
-    <div className={styles.container}>
+    <>
       {application ? (
         <div>
           <b>{name}:</b> {formatNumber(avg)} {measurementUnit} ({application})
@@ -65,26 +58,15 @@ function RunValues(props: RunValuesProps) {
           <b>{name}:</b> {formatNumber(avg)} {measurementUnit}
         </div>
       )}
-      <div>
-        <GraphDistribution
-          name={name}
-          values={values}
-          min={props.min}
-          max={props.max}
-        />
-      </div>
+      <div></div>
       <div>
         <div className={styles.values}>
           {firstValues.map((value, index) => (
-            <div key={`${index}`} className={styles.value}>
-              {formatNumber(value)}
-            </div>
+            <div key={`${index}`}>{formatNumber(value)}</div>
           ))}
           {expanded
             ? lastValues.map((value, index) => (
-                <div key={`${index}`} className={styles.value}>
-                  {value}
-                </div>
+                <div key={`${index}`}>{value}</div>
               ))
             : null}
           {lastValues.length ? (
@@ -110,7 +92,7 @@ function RunValues(props: RunValuesProps) {
           {stddev} {unit} = {stddevPercent}% standard deviation
         </div>
       </div>
-    </div>
+    </>
   );
 }
 interface RunValuesProps {
