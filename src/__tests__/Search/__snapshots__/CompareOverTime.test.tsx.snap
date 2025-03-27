@@ -245,7 +245,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
               class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
             >
               <div
-                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-193b4t-MuiInputBase-root-MuiOutlinedInput-root"
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-error MuiInputBase-formControl MuiInputBase-adornedStart css-193b4t-MuiInputBase-root-MuiOutlinedInput-root"
               >
                 <div
                   class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
@@ -263,7 +263,8 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
                   </svg>
                 </div>
                 <input
-                  aria-invalid="false"
+                  aria-describedby="search-new-input-helper-text"
+                  aria-invalid="true"
                   aria-label="Search revision by ID number, author email or bug number"
                   class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1rgu65m-MuiInputBase-input-MuiOutlinedInput-input"
                   id="search-new-input"
@@ -286,6 +287,12 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
                   </legend>
                 </fieldset>
               </div>
+              <p
+                class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-1ut8mn8-MuiFormHelperText-root"
+                id="search-new-input-helper-text"
+              >
+                Error when requesting treeherder: (404) Not Found
+              </p>
             </div>
           </div>
         </div>
