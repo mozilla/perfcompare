@@ -6,7 +6,8 @@ import { Framework, TimeRange } from '../types/types';
 
 // This file contains functions to request the Treeherder API
 
-export const treeherderBaseURL = 'https://prototype.treeherder.nonprod.cloudops.mozgcp.net';
+export const treeherderBaseURL =
+  'https://prototype.treeherder.nonprod.cloudops.mozgcp.net';
 
 type FetchProps = {
   baseRepo: Repository['name'];
