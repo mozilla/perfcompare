@@ -39,7 +39,8 @@ function CommonGraph({
       },
     },
     responsive: true,
-    maintainAspectRatio: false,
+    maintainAspectRatio: true,
+    aspectRatio: 1.7,
     scales: {
       x: {
         grid: {
