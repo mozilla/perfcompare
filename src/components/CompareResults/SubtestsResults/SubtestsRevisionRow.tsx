@@ -14,8 +14,9 @@ import { style } from 'typestyle';
 import RevisionRowExpandable from '.././RevisionRowExpandable';
 import { useAppSelector } from '../../../hooks/app';
 import { Strings } from '../../../resources/Strings';
-import { Colors, Spacing } from '../../../styles';
+import { Colors, FontSize, Spacing } from '../../../styles';
 import type { CompareResultsItem } from '../../../types/state';
+import { getBrowserDisplay } from '../../../utils/platform';
 import { formatNumber } from './../../../utils/format';
 
 const revisionsRow = {
@@ -93,6 +94,13 @@ function getStyles(themeMode: string) {
           // We need to move the icon a bit lower so that it _looks_ centered.
           marginTop: '2px',
         },
+        '.browser-name': {
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexDirection: 'column',
+          padding: '10px 0px',
+        },
       },
     }),
     typography: typography,
@@ -144,6 +152,8 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
     base_runs: baseRuns,
     new_runs: newRuns,
     graphs_link: graphLink,
+    base_app: baseApp,
+    new_app: newApp,
   } = result;
 
   const [expanded, setExpanded] = useState(false);
@@ -164,16 +174,20 @@ function SubtestsRevisionRow(props: RevisionRowProps) {
         <div title={test} className='subtests' role='cell'>
           {test}
         </div>
-        <div className='base-value cell' role='cell'>
-          {' '}
-          {formatNumber(baseAvgValue)} {baseUnit}{' '}
+        <div className='browser-name cell' role='cell'>
+          {formatNumber(baseAvgValue)} {baseUnit}
+          {getBrowserDisplay(baseApp, newApp, expanded) && (
+            <span className={FontSize.xSmall}>({baseApp})</span>
+          )}
         </div>
         <div className='comparison-sign cell' role='cell'>
           {determineSign(baseAvgValue, newAvgValue)}
         </div>
-        <div className='new-value cell' role='cell'>
-          {' '}
+        <div className='browser-name cell' role='cell'>
           {formatNumber(newAvgValue)} {newUnit}
+          {getBrowserDisplay(baseApp, newApp, expanded) && (
+            <span className={FontSize.xSmall}>({newApp})</span>
+          )}
         </div>
         <div className='status cell' role='cell'>
           <Box
