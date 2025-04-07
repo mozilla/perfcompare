@@ -181,22 +181,19 @@ export async function loader({ request }: { request: Request }) {
     };
   }
 
-  const baseRevFromUrl = url.searchParams.get('baseRev');
+  let baseRevFromUrl = url.searchParams.get('baseRev');
+  let newRevsFromUrl = url.searchParams.getAll('newRev');
   const baseHashFromUrl = url.searchParams.get('originalHash');
-  if (baseRevFromUrl == null && baseHashFromUrl != null) {
-    const promises = await fetchRevisionFromHash(baseHashFromUrl, 'try');
-    console.log(promises);
+  const newHashFromUrl = url.searchParams.get('newHash');
+  if (baseHashFromUrl && newHashFromUrl) {
+    const commits_from_hashes = await fetchRevisionFromHash(baseHashFromUrl, newHashFromUrl, 'try');
+    baseRevFromUrl = commits_from_hashes.originalRevision
+    newRevsFromUrl = [commits_from_hashes.newRevision]
   }
 
   const baseRepoFromUrl = url.searchParams.get('baseRepo') as
     | Repository['name']
     | null;
-  const newRevsFromUrl = url.searchParams.getAll('newRev');
-  const newHashFromUrl = url.searchParams.get('newHash');
-  if (newRevsFromUrl == null && newHashFromUrl != null) {
-    const promises = await fetchRevisionFromHash(newHashFromUrl, 'try');
-    console.log(promises);
-  }
   const newReposFromUrl = url.searchParams.getAll(
     'newRepo',
   ) as Repository['name'][];

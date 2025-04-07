@@ -67,13 +67,15 @@ async function fetchFromTreeherder(url: string) {
 
 // This fetches the revision with the hash inside the ./mach try perf pushed job
 export async function fetchRevisionFromHash(
-  hash_to_commit: string,
-  repo: string,
-) {
+    baseHash: string,
+    newHash: string,
+    repo: string,
+  ) {
   const searchParams = new URLSearchParams({
-    hash: String(hash_to_commit),
+    baseHash: baseHash,
+    newHash: newHash
   });
-  const url = `${treeherderBaseURL}/api/project/${repo}/push/commit_from_hash/?${searchParams.toString()}`;
+  const url = `${treeherderBaseURL}/api/project/${repo}/hash/tocommit/?${searchParams.toString()}`;
   const response = await fetchFromTreeherder(url);
   return response.json() as Promise<CommitToHash[]>;
 }
