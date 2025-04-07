@@ -109,6 +109,10 @@ export type CompareResultsItem = {
   has_subtests: boolean;
 };
 
+export type CommitToHash = {
+  revision: string;
+}
+
 export type InputType = 'base' | 'new';
 
 export type ThemeMode = 'light' | 'dark';
