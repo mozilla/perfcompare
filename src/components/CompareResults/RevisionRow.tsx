@@ -18,12 +18,13 @@ import RevisionRowExpandable from './RevisionRowExpandable';
 import { compareView, compareOverTimeView } from '../../common/constants';
 import { useAppSelector } from '../../hooks/app';
 import { Strings } from '../../resources/Strings';
-import { Colors, Spacing } from '../../styles';
+import { Colors, FontSize, Spacing } from '../../styles';
 import type { CompareResultsItem, PlatformShortName } from '../../types/state';
 import { formatNumber } from '../../utils/format';
 import {
   getPlatformShortName,
   getPlatformAndVersion,
+  getBrowserDisplay,
 } from '../../utils/platform';
 import AndroidIcon from '../Shared/Icons/AndroidIcon';
 import LinuxIcon from '../Shared/Icons/LinuxIcon';
@@ -40,9 +41,17 @@ const typography = {
   fontFamily: 'SF Pro',
   fontStyle: 'normal',
   fontWeight: 400,
-  fontSize: '13px',
+  fontSize: '16px',
   lineHeight: '1.5',
 };
+
+const browserName = style({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexDirection: 'column',
+  padding: '10px 0px',
+});
 
 const stylesLight = {
   revisionRow: style({
@@ -51,6 +60,7 @@ const stylesLight = {
     $nest: {
       '.cell': {
         display: 'flex',
+        padding: `${Spacing.xSmall}px ${Spacing.Small}px`,
         alignItems: 'center',
         justifyContent: 'center',
       },
@@ -124,6 +134,7 @@ const stylesDark = {
       '.cell': {
         display: 'flex',
         alignItems: 'center',
+        padding: `${Spacing.xSmall}px ${Spacing.Small}px`,
         justifyContent: 'center',
       },
       '.confidence': {
@@ -281,6 +292,8 @@ function RevisionRow(props: RevisionRowProps) {
     base_runs: baseRuns,
     new_runs: newRuns,
     graphs_link: graphLink,
+    base_app: baseApp,
+    new_app: newApp,
   } = result;
 
   const platformShortName = getPlatformShortName(platform);
@@ -322,16 +335,20 @@ function RevisionRow(props: RevisionRowProps) {
             </div>
           </Tooltip>
         </div>
-        <div className='base-value cell' role='cell'>
-          {' '}
-          {formatNumber(baseAvgValue)} {baseUnit}{' '}
+        <div className={`${browserName} cell`} role='cell'>
+          {formatNumber(baseAvgValue)} {baseUnit}
+          {getBrowserDisplay(baseApp, newApp, expanded) && (
+            <span className={FontSize.xSmall}>({baseApp})</span>
+          )}
         </div>
         <div className='comparison-sign cell' role='cell'>
           {determineSign(baseAvgValue, newAvgValue)}
         </div>
-        <div className='new-value cell' role='cell'>
-          {' '}
+        <div className={`${browserName} cell`} role='cell'>
           {formatNumber(newAvgValue)} {newUnit}
+          {getBrowserDisplay(baseApp, newApp, expanded) && (
+            <span className={FontSize.xSmall}>({newApp})</span>
+          )}
         </div>
         <div className='status cell' role='cell'>
           <Box
