@@ -1412,14 +1412,12 @@ exports[`Results Table Should match snapshot 1`] = `
                               </div>
                             </div>
                             <div
-                              class="base-value cell"
+                              class="fmc7z2v cell"
                               role="cell"
                             >
-                               
                               776.97
                                
                               ms
-                               
                             </div>
                             <div
                               class="comparison-sign cell"
@@ -1428,10 +1426,9 @@ exports[`Results Table Should match snapshot 1`] = `
                               &lt;
                             </div>
                             <div
-                              class="new-value cell"
+                              class="fmc7z2v cell"
                               role="cell"
                             >
-                               
                               791.34
                                
                               ms
@@ -1639,14 +1636,12 @@ exports[`Results Table Should match snapshot 1`] = `
                               </div>
                             </div>
                             <div
-                              class="base-value cell"
+                              class="fmc7z2v cell"
                               role="cell"
                             >
-                               
                               704.84
                                
                               ms
-                               
                             </div>
                             <div
                               class="comparison-sign cell"
@@ -1655,10 +1650,9 @@ exports[`Results Table Should match snapshot 1`] = `
                               &lt;
                             </div>
                             <div
-                              class="new-value cell"
+                              class="fmc7z2v cell"
                               role="cell"
                             >
-                               
                               712.44
                                
                               ms
@@ -1866,14 +1860,12 @@ exports[`Results Table Should match snapshot 1`] = `
                               </div>
                             </div>
                             <div
-                              class="base-value cell"
+                              class="fmc7z2v cell"
                               role="cell"
                             >
-                               
                               643.54
                                
                               ms
-                               
                             </div>
                             <div
                               class="comparison-sign cell"
@@ -1882,10 +1874,9 @@ exports[`Results Table Should match snapshot 1`] = `
                               &gt;
                             </div>
                             <div
-                              class="new-value cell"
+                              class="fmc7z2v cell"
                               role="cell"
                             >
-                               
                               628.09
                                
                               ms
@@ -2162,14 +2153,12 @@ exports[`Results Table Should match snapshot 1`] = `
                               </div>
                             </div>
                             <div
-                              class="base-value cell"
+                              class="fmc7z2v cell"
                               role="cell"
                             >
-                               
                               643.54
                                
                               ms
-                               
                             </div>
                             <div
                               class="comparison-sign cell"
@@ -2178,10 +2167,9 @@ exports[`Results Table Should match snapshot 1`] = `
                               &gt;
                             </div>
                             <div
-                              class="new-value cell"
+                              class="fmc7z2v cell"
                               role="cell"
                             >
-                               
                               628.09
                                
                               ms
@@ -2720,14 +2708,12 @@ exports[`Results Table should render different blocks when rendering several rev
         </div>
       </div>
       <div
-        class="base-value cell"
+        class="fmc7z2v cell"
         role="cell"
       >
-         
         704.84
          
         ms
-         
       </div>
       <div
         class="comparison-sign cell"
@@ -2736,10 +2722,9 @@ exports[`Results Table should render different blocks when rendering several rev
         &lt;
       </div>
       <div
-        class="new-value cell"
+        class="fmc7z2v cell"
         role="cell"
       >
-         
         712.44
          
         ms
@@ -2985,14 +2970,12 @@ exports[`Results Table should render different blocks when rendering several rev
         </div>
       </div>
       <div
-        class="base-value cell"
+        class="fmc7z2v cell"
         role="cell"
       >
-         
         704.84
          
         ms
-         
       </div>
       <div
         class="comparison-sign cell"
@@ -3001,10 +2984,9 @@ exports[`Results Table should render different blocks when rendering several rev
         &lt;
       </div>
       <div
-        class="new-value cell"
+        class="fmc7z2v cell"
         role="cell"
       >
-         
         712.44
          
         ms
