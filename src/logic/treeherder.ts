@@ -1,7 +1,12 @@
 import moize from 'moize';
 
 import { JobInformation } from '../types/api';
-import { CompareResultsItem, Repository, Changeset } from '../types/state';
+import {
+  CompareResultsItem,
+  Repository,
+  Changeset,
+  CommitToHash,
+} from '../types/state';
 import { Framework, TimeRange } from '../types/types';
 
 // This file contains functions to request the Treeherder API
@@ -58,6 +63,19 @@ async function fetchFromTreeherder(url: string) {
     }
   }
   return response;
+}
+
+// This fetches the revision with the hash inside the ./mach try perf pushed job
+export async function fetchRevisionFromHash(
+  hash_to_commit: string,
+  repo: string,
+) {
+  const searchParams = new URLSearchParams({
+    hash: String(hash_to_commit),
+  });
+  const url = `${treeherderBaseURL}/api/project/${repo}/push/commit_from_hash/?${searchParams.toString()}`;
+  const response = await fetchFromTreeherder(url);
+  return response.json() as Promise<CommitToHash[]>;
 }
 
 // This fetches data from the Treeherder API /api/perfcompare/results.
