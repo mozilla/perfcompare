@@ -664,7 +664,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
             Analyze results of performance tests to detect regressions and identify opportunities for improvement.
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation learn-more-btn css-pp3xxr-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation learn-more-btn css-6hc3gy-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
@@ -794,7 +794,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f18mez9x   css-17gmabg-MuiGrid-root"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f1yel07   css-17gmabg-MuiGrid-root"
                       id="base_search-input"
                     >
                       <div
@@ -1528,7 +1528,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f18mez9x   css-17gmabg-MuiGrid-root"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f1yel07   css-17gmabg-MuiGrid-root"
                       id="new_search-input"
                     >
                       <div
@@ -1670,7 +1670,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     class="fs9pw6x cancel-compare"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pp3xxr-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-6hc3gy-MuiButtonBase-root-MuiButton-root"
                       id="compare-button"
                       tabindex="0"
                       type="submit"
@@ -1828,7 +1828,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     <div
                       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  dropDown_frp1utb   css-1t7ybvx-MuiGrid-root"
                       id="time-range"
-                      style="max-width: 365px;"
+                      style="max-width: 430px;"
                     >
                       <div
                         class="MuiFormControl-root timerange-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
@@ -1949,7 +1949,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                       </div>
                     </div>
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f18mez9x   css-17gmabg-MuiGrid-root"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f1yel07   css-17gmabg-MuiGrid-root"
                       id="new_search-input--time"
                     >
                       <div
@@ -2090,7 +2090,7 @@ exports[`SearchResultsList should match snapshot 1`] = `
                     class="fs9pw6x cancel-compare"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pp3xxr-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-6hc3gy-MuiButtonBase-root-MuiButton-root"
                       id="compare-button"
                       tabindex="0"
                       type="submit"

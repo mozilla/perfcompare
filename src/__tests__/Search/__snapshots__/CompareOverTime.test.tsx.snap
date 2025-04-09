@@ -110,7 +110,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  dropDown_frp1utb   css-1t7ybvx-MuiGrid-root"
         id="time-range"
-        style="max-width: 365px;"
+        style="max-width: 430px;"
       >
         <div
           class="MuiFormControl-root timerange-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
@@ -231,7 +231,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f18mez9x   css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f1yel07   css-17gmabg-MuiGrid-root"
         id="new_search-input--time"
       >
         <div
@@ -372,7 +372,7 @@ exports[`Compare Over Time renders correctly in Search View: Initial state for t
       class="fs9pw6x cancel-compare"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pp3xxr-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-6hc3gy-MuiButtonBase-root-MuiButton-root"
         id="compare-button"
         tabindex="0"
         type="submit"
@@ -398,7 +398,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
   >
     <button
       aria-label="edit revision"
-      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1rvsmwy-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-nrxrys-MuiButtonBase-root-MuiButton-root"
       name="edit-button"
       tabindex="0"
       type="button"
@@ -478,7 +478,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
     >
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true base-search-dropdown flie9py dropDown_frp1utb  compare-over-time-results-base-dropdown css-1t7ybvx-MuiGrid-root"
-        style="max-width: 415px;"
+        style="max-width: 430px;"
       >
         <span
           class="MuiTypography-root MuiTypography-body2 css-163bcq3-MuiTypography-root"
@@ -488,7 +488,7 @@ exports[`Compare Over Time renders correctly when there are no results: Initial 
       </div>
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  flie9py css-1t7ybvx-MuiGrid-root"
-        style="max-width: 415px;"
+        style="max-width: 430px;"
       >
         <div
           style="display: flex; justify-content: space-between;"
@@ -885,7 +885,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
   >
     <button
       aria-label="edit revision"
-      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1rvsmwy-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-nrxrys-MuiButtonBase-root-MuiButton-root"
       name="edit-button"
       tabindex="0"
       type="button"
@@ -975,7 +975,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true base-search-dropdown css-1t7ybvx-MuiGrid-root"
         id="base_search-dropdown--time"
-        style="max-width: 415px;"
+        style="max-width: 430px;"
       >
         <div
           class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
@@ -1019,7 +1019,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown small dropDown_frp1utb   css-1t7ybvx-MuiGrid-root"
         id="time-range"
-        style="max-width: 415px;"
+        style="max-width: 430px;"
       >
         <div
           class="MuiFormControl-root timerange-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
@@ -1140,7 +1140,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f18mez9x big  css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f1yel07 big  css-17gmabg-MuiGrid-root"
         id="new_search-input--time"
       >
         <div
@@ -1365,7 +1365,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
       class="fs9pw6x cancel-compare"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-button css-iendvr-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-button css-1y7fc34-MuiButtonBase-root-MuiButton-root"
         name="cancel-button"
         tabindex="0"
         type="button"
@@ -1376,7 +1376,7 @@ exports[`Compare Over Time should have an edit mode in Results View: After click
         />
       </button>
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pp3xxr-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-6hc3gy-MuiButtonBase-root-MuiButton-root"
         id="compare-button"
         tabindex="0"
         type="submit"
@@ -1407,7 +1407,7 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
   >
     <button
       aria-label="edit revision"
-      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1rvsmwy-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-nrxrys-MuiButtonBase-root-MuiButton-root"
       name="edit-button"
       tabindex="0"
       type="button"
@@ -1487,7 +1487,7 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
     >
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true base-search-dropdown flie9py dropDown_frp1utb  compare-over-time-results-base-dropdown css-1t7ybvx-MuiGrid-root"
-        style="max-width: 415px;"
+        style="max-width: 430px;"
       >
         <span
           class="MuiTypography-root MuiTypography-body2 css-163bcq3-MuiTypography-root"
@@ -1497,7 +1497,7 @@ exports[`Compare Over Time should have an edit mode in Results View: Initial sta
       </div>
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  flie9py css-1t7ybvx-MuiGrid-root"
-        style="max-width: 415px;"
+        style="max-width: 430px;"
       >
         <div
           style="display: flex; justify-content: space-between;"
@@ -1815,7 +1815,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  dropDown_frp1utb   css-1t7ybvx-MuiGrid-root"
         id="time-range"
-        style="max-width: 365px;"
+        style="max-width: 430px;"
       >
         <div
           class="MuiFormControl-root timerange-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
@@ -1936,7 +1936,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f18mez9x   css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f1yel07   css-17gmabg-MuiGrid-root"
         id="new_search-input--time"
       >
         <div
@@ -2077,7 +2077,7 @@ exports[`Compare Over Time should remove the checked revision once X button is c
       class="fs9pw6x cancel-compare"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pp3xxr-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-6hc3gy-MuiButtonBase-root-MuiButton-root"
         id="compare-button"
         tabindex="0"
         type="submit"
@@ -2103,7 +2103,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
   >
     <button
       aria-label="edit revision"
-      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1rvsmwy-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-nrxrys-MuiButtonBase-root-MuiButton-root"
       name="edit-button"
       tabindex="0"
       type="button"
@@ -2192,7 +2192,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
     >
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true base-search-dropdown flie9py dropDown_frp1utb  compare-over-time-results-base-dropdown css-1t7ybvx-MuiGrid-root"
-        style="max-width: 415px;"
+        style="max-width: 430px;"
       >
         <span
           class="MuiTypography-root MuiTypography-body2 css-163bcq3-MuiTypography-root"
@@ -2202,7 +2202,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
       </div>
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  flie9py css-1t7ybvx-MuiGrid-root"
-        style="max-width: 415px;"
+        style="max-width: 430px;"
       >
         <div
           style="display: flex; justify-content: space-between;"
@@ -2567,7 +2567,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
   >
     <button
       aria-label="edit revision"
-      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1rvsmwy-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-nrxrys-MuiButtonBase-root-MuiButton-root"
       name="edit-button"
       tabindex="0"
       type="button"
@@ -2657,7 +2657,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true base-search-dropdown css-1t7ybvx-MuiGrid-root"
         id="base_search-dropdown--time"
-        style="max-width: 415px;"
+        style="max-width: 430px;"
       >
         <div
           class="MuiFormControl-root search-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
@@ -2701,7 +2701,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown small dropDown_frp1utb   css-1t7ybvx-MuiGrid-root"
         id="time-range"
-        style="max-width: 415px;"
+        style="max-width: 430px;"
       >
         <div
           class="MuiFormControl-root timerange-dropdown f1o9jg5h css-1nrlq1o-MuiFormControl-root"
@@ -2822,7 +2822,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f18mez9x big  css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f1yel07 big  css-17gmabg-MuiGrid-root"
         id="new_search-input--time"
       >
         <div
@@ -3047,7 +3047,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
       class="fs9pw6x cancel-compare"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-button css-iendvr-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation cancel-button css-1y7fc34-MuiButtonBase-root-MuiButton-root"
         name="cancel-button"
         tabindex="0"
         type="button"
@@ -3058,7 +3058,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
         />
       </button>
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-pp3xxr-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-6hc3gy-MuiButtonBase-root-MuiButton-root"
         id="compare-button"
         tabindex="0"
         type="submit"
@@ -3089,7 +3089,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
   >
     <button
       aria-label="edit revision"
-      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-1rvsmwy-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation global-edit-button edit-revision-button css-nrxrys-MuiButtonBase-root-MuiButton-root"
       name="edit-button"
       tabindex="0"
       type="button"
@@ -3169,7 +3169,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
     >
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true base-search-dropdown flie9py dropDown_frp1utb  compare-over-time-results-base-dropdown css-1t7ybvx-MuiGrid-root"
-        style="max-width: 415px;"
+        style="max-width: 430px;"
       >
         <span
           class="MuiTypography-root MuiTypography-body2 css-163bcq3-MuiTypography-root"
@@ -3179,7 +3179,7 @@ exports[`Compare Over Time should update base repo, revisions and time-range aft
       </div>
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  flie9py css-1t7ybvx-MuiGrid-root"
-        style="max-width: 415px;"
+        style="max-width: 430px;"
       >
         <div
           style="display: flex; justify-content: space-between;"

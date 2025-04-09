@@ -32,7 +32,7 @@ const components = {
           width: '100%',
           justifyContent: 'end',
           fontSize: FontSizeRaw.xSmall.fontSize,
-          maxWidth: '100px',
+          maxWidth: '105px',
           padding: `${Spacing.xSmall}px ${Spacing.Small}px`,
           backgroundColor: 'transparent',
           '&:hover': {

@@ -192,7 +192,7 @@ export const SearchStyles = (mode: string) => {
       left: '288px',
       $nest: {
         '&.big': {
-          left: '212px',
+          left: '276px',
           minWidth: `${850 - repoDropdownWidth - Spacing.Default}px`,
         },
         '&.base-search-input--mobile, &.new-search-input--mobile': {
