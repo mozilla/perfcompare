@@ -152,7 +152,7 @@ const components = {
         ...FontsRaw.BodyDefault,
         lineHeight: '1.5',
       },
-      body2: { fontSize: '16px' },
+      body2: { fontSize: FontSizeRaw.Normal.fontSize },
       root: {
         '&.perfcompare-header': {
           '&:after': {

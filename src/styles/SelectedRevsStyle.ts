@@ -62,6 +62,7 @@ export const SelectRevsStyles = (mode: string) => {
         '.search-revision-item-text': {
           margin: 0,
           flex: 1,
+          fontSize: FontSizeRaw.Normal.fontSize,
         },
 
         '.revision-hash': {
@@ -80,8 +81,10 @@ export const SelectRevsStyles = (mode: string) => {
           flexGrow: 1,
         },
         '.info-caption': {
-          flex: 2,
-          textAlign: 'right',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          maxWidth: '100%',
+          marginLeft: `${Spacing.Small}px`,
           ...(isTrueLight ? captionStylesLight : captionStylesDark),
           fontSize: FontSizeRaw.Normal.fontSize,
           $nest: {
@@ -97,6 +100,8 @@ export const SelectRevsStyles = (mode: string) => {
               fontSize: '1rem',
             },
             '.item-author': {
+              maxWidth: '100%',
+              overflow: 'hidden',
               marginRight: `${Spacing.xSmall + 1}px`,
             },
           },

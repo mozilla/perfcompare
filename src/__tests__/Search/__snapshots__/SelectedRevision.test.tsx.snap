@@ -23,16 +23,16 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
     </div>
   </div>
   <div
-    class="selectedRevision_f1h5nweo MuiBox-root css-0"
+    class="selectedRevision_fubtarc MuiBox-root css-0"
   >
     <div
       class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
     >
       <span
-        class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-4q8oy7-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-7p9rhm-MuiTypography-root"
       >
         <span
-          class="MuiTypography-root MuiTypography-body2 revision-hash css-eqisi8-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body2 revision-hash css-1kaxyiw-MuiTypography-root"
         >
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
@@ -69,13 +69,12 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
             </button>
           </span>
         </span>
-        <div
-          class="info-caption"
+        <span
+          class="MuiTypography-root MuiTypography-body2 info-caption css-1e2mg7s-MuiTypography-root"
         >
-          <div
+          <span
             class="info-caption-item item-author"
           >
-             
             <svg
               aria-hidden="true"
               class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
@@ -87,11 +86,15 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
                 d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
               />
             </svg>
-             
-            johncleese@python.com
-          </div>
-          <div
+            <span
+              style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; display: inline-block; max-width: 100%;"
+            >
+              johncleese@python.com
+            </span>
+          </span>
+          <span
             class="info-caption-item item-time"
+            style="display: flex; align-items: center; margin-left: 8px;"
           >
             <svg
               aria-hidden="true"
@@ -111,11 +114,11 @@ exports[`SelectedRevision should show the selected checked revisions once a resu
             >
               Mar 29, 51, 00:00 UTC
             </div>
-          </div>
-        </div>
+          </span>
+        </span>
       </span>
       <span
-        class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-jxfi63-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-16ejnil-MuiTypography-root"
       >
         you've got no arms left! 
       </span>

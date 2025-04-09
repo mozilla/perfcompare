@@ -20,7 +20,8 @@ const textDarkMode = {
   color: `${Colors.PrimaryTextDark} !important`,
 };
 
-const repoDropdownWidth = 200;
+const repoDropdownWidth = 239;
+const searchInputWidth = 588;
 
 export const CompareCardsStyles = (mode: string) => {
   const isTrueLight = mode == 'light' ? true : false;
@@ -186,9 +187,9 @@ export const SearchStyles = (mode: string) => {
     },
 
     baseSearchInput: {
-      minWidth: '530px',
+      minWidth: `${searchInputWidth}px`,
       position: 'absolute',
-      left: '220px',
+      left: '288px',
       $nest: {
         '&.big': {
           left: '212px',

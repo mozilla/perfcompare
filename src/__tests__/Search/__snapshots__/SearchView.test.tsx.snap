@@ -17,7 +17,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
         class="MuiGrid-root header-container container_fllbiki css-plh9qo-MuiGrid-root"
       >
         <div
-          class="toggle-dark-mode fgk3bh6 MuiBox-root css-0"
+          class="toggle-dark-mode f1y1dem6 MuiBox-root css-0"
         >
           <div
             class="MuiFormGroup-root css-dmmspl-MuiFormGroup-root"
@@ -50,7 +50,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                 />
               </span>
               <span
-                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-5pr40k-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-1k2yhz0-MuiTypography-root"
               >
                 Dark mode
               </span>
@@ -66,7 +66,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
             PerfCompare
           </h1>
           <div
-            class="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-tagline css-hqwb90-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter MuiTypography-gutterBottom perfcompare-tagline css-1nsmgxl-MuiTypography-root"
           >
             Analyze results of performance tests to detect regressions and identify opportunities for improvement.
           </div>
@@ -83,11 +83,11 @@ exports[`Search View renders correctly when there are no results 1`] = `
         </div>
       </div>
       <section
-        class="container_fyuz3mb"
+        class="container_fwc27mb"
         data-testid="search-section"
       >
         <span
-          class="MuiTypography-root MuiTypography-body1 search-default-title css-5pr40k-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 search-default-title css-1k2yhz0-MuiTypography-root"
         >
           Compare with a base or over time
         </span>
@@ -97,7 +97,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
             data-testid="base-state"
           >
             <div
-              class="compare-card-text cardText_fqwx59w"
+              class="compare-card-text cardText_fsmdlf1"
             >
               <h2
                 class="MuiTypography-root MuiTypography-h2 compare-card-title css-gja6vo-MuiTypography-root"
@@ -133,7 +133,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                   class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1sh1skx label-edit-wrapper css-dhs41p-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_frp1utb label-edit-wrapper css-dhs41p-MuiGrid-root"
                   >
                     <label
                       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -160,7 +160,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                     id="base-search-container"
                   >
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1sh1skx  -base-dropdown css-1awobkc-MuiGrid-root"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_frp1utb  -base-dropdown css-1awobkc-MuiGrid-root"
                       id="base_search-dropdown"
                     >
                       <div
@@ -201,14 +201,14 @@ exports[`Search View renders correctly when there are no results 1`] = `
                       </div>
                     </div>
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f7qwsv0   css-17gmabg-MuiGrid-root"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f18mez9x   css-17gmabg-MuiGrid-root"
                       id="base_search-input"
                     >
                       <div
                         class="MuiBox-root css-0"
                       >
                         <div
-                          class="MuiFormControl-root MuiFormControl-fullWidth f6q7umf css-q8hpuo-MuiFormControl-root"
+                          class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-q8hpuo-MuiFormControl-root"
                         >
                           <div
                             class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -265,7 +265,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                     data-testid="base-selected-revision"
                   >
                     <div
-                      class="box_f1wdk99e base-box MuiBox-root css-0"
+                      class="box_f9k3p52 base-box MuiBox-root css-0"
                     >
                       <ul
                         class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -277,7 +277,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                   class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1sh1skx label-edit-wrapper css-dhs41p-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb label-edit-wrapper css-dhs41p-MuiGrid-root"
                   >
                     <label
                       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -304,7 +304,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                     id="new-search-container"
                   >
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1sh1skx  -base-dropdown css-1awobkc-MuiGrid-root"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb  -base-dropdown css-1awobkc-MuiGrid-root"
                       id="new_search-dropdown"
                     >
                       <div
@@ -345,14 +345,14 @@ exports[`Search View renders correctly when there are no results 1`] = `
                       </div>
                     </div>
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f7qwsv0   css-17gmabg-MuiGrid-root"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f18mez9x   css-17gmabg-MuiGrid-root"
                       id="new_search-input"
                     >
                       <div
                         class="MuiBox-root css-0"
                       >
                         <div
-                          class="MuiFormControl-root MuiFormControl-fullWidth f6q7umf css-q8hpuo-MuiFormControl-root"
+                          class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-q8hpuo-MuiFormControl-root"
                         >
                           <div
                             class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -409,7 +409,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                     data-testid="new-selected-revision"
                   >
                     <div
-                      class="box_f1wdk99e new-box MuiBox-root css-0"
+                      class="box_f9k3p52 new-box MuiBox-root css-0"
                     >
                       <ul
                         class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -418,7 +418,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1sh1skx css-bwiycy-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_frp1utb css-bwiycy-MuiGrid-root"
                 >
                   <div
                     class="MuiFormControl-root framework-dropdown f1ttr4cl css-1nrlq1o-MuiFormControl-root"
@@ -509,7 +509,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
             data-testid="time-state"
           >
             <div
-              class="compare-card-text cardText_fqwx59w"
+              class="compare-card-text cardText_fsmdlf1"
             >
               <h2
                 class="MuiTypography-root MuiTypography-h2 compare-card-title css-gja6vo-MuiTypography-root"
@@ -545,7 +545,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                   class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
                 >
                   <div
-                    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f1sh1skx css-1e9xsub-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_frp1utb css-1e9xsub-MuiGrid-root"
                   >
                     <div
                       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-1ikqdgy-MuiGrid-root"
@@ -643,7 +643,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                       </div>
                     </div>
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  dropDown_f1sh1skx   css-1t7ybvx-MuiGrid-root"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  dropDown_frp1utb   css-1t7ybvx-MuiGrid-root"
                       id="time-range"
                       style="max-width: 365px;"
                     >
@@ -697,7 +697,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                     </div>
                   </div>
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1sh1skx css-13eijkh-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb css-13eijkh-MuiGrid-root"
                   >
                     <label
                       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -725,7 +725,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                     id="new-search-container--time"
                   >
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1sh1skx  -new-dropdown css-1awobkc-MuiGrid-root"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb  -new-dropdown css-1awobkc-MuiGrid-root"
                       id="new_search-dropdown--time"
                     >
                       <div
@@ -766,14 +766,14 @@ exports[`Search View renders correctly when there are no results 1`] = `
                       </div>
                     </div>
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f7qwsv0   css-17gmabg-MuiGrid-root"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f18mez9x   css-17gmabg-MuiGrid-root"
                       id="new_search-input--time"
                     >
                       <div
                         class="MuiBox-root css-0"
                       >
                         <div
-                          class="MuiFormControl-root MuiFormControl-fullWidth f6q7umf css-q8hpuo-MuiFormControl-root"
+                          class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-q8hpuo-MuiFormControl-root"
                         >
                           <div
                             class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -829,7 +829,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                     class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
                   >
                     <div
-                      class="box_f1wdk99e new-box MuiBox-root css-0"
+                      class="box_f9k3p52 new-box MuiBox-root css-0"
                     >
                       <ul
                         class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -838,7 +838,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1sh1skx css-bwiycy-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_frp1utb css-bwiycy-MuiGrid-root"
                 >
                   <div
                     class="MuiFormControl-root framework-dropdown f1ttr4cl css-1nrlq1o-MuiFormControl-root"
@@ -939,7 +939,7 @@ exports[`With search parameters both search components are populated as expected
     class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f1sh1skx css-1e9xsub-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_frp1utb css-1e9xsub-MuiGrid-root"
     >
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-1ikqdgy-MuiGrid-root"
@@ -1037,7 +1037,7 @@ exports[`With search parameters both search components are populated as expected
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  dropDown_f1sh1skx   css-1t7ybvx-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  dropDown_frp1utb   css-1t7ybvx-MuiGrid-root"
         id="time-range"
         style="max-width: 365px;"
       >
@@ -1091,7 +1091,7 @@ exports[`With search parameters both search components are populated as expected
       </div>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1sh1skx css-13eijkh-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb css-13eijkh-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -1119,7 +1119,7 @@ exports[`With search parameters both search components are populated as expected
       id="new-search-container--time"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1sh1skx  -new-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb  -new-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown--time"
       >
         <div
@@ -1160,14 +1160,14 @@ exports[`With search parameters both search components are populated as expected
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f7qwsv0   css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f18mez9x   css-17gmabg-MuiGrid-root"
         id="new_search-input--time"
       >
         <div
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiFormControl-root MuiFormControl-fullWidth f6q7umf css-q8hpuo-MuiFormControl-root"
+            class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-q8hpuo-MuiFormControl-root"
           >
             <div
               class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -1223,7 +1223,7 @@ exports[`With search parameters both search components are populated as expected
       class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
     >
       <div
-        class="box_f1wdk99e new-box MuiBox-root css-0"
+        class="box_f9k3p52 new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -1250,16 +1250,16 @@ exports[`With search parameters both search components are populated as expected
               </div>
             </div>
             <div
-              class="selectedRevision_f1h5nweo MuiBox-root css-0"
+              class="selectedRevision_fubtarc MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-4q8oy7-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-7p9rhm-MuiTypography-root"
                 >
                   <span
-                    class="MuiTypography-root MuiTypography-body2 revision-hash css-eqisi8-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 revision-hash css-1kaxyiw-MuiTypography-root"
                   >
                     <a
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
@@ -1296,13 +1296,12 @@ exports[`With search parameters both search components are populated as expected
                       </button>
                     </span>
                   </span>
-                  <div
-                    class="info-caption"
+                  <span
+                    class="MuiTypography-root MuiTypography-body2 info-caption css-1e2mg7s-MuiTypography-root"
                   >
-                    <div
+                    <span
                       class="info-caption-item item-author"
                     >
-                       
                       <svg
                         aria-hidden="true"
                         class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
@@ -1314,11 +1313,15 @@ exports[`With search parameters both search components are populated as expected
                           d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
                         />
                       </svg>
-                       
-                      terrygilliam@python.com
-                    </div>
-                    <div
+                      <span
+                        style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; display: inline-block; max-width: 100%;"
+                      >
+                        terrygilliam@python.com
+                      </span>
+                    </span>
+                    <span
                       class="info-caption-item item-time"
+                      style="display: flex; align-items: center; margin-left: 8px;"
                     >
                       <svg
                         aria-hidden="true"
@@ -1338,11 +1341,11 @@ exports[`With search parameters both search components are populated as expected
                       >
                         Jul 29, 87, 00:00 UTC
                       </div>
-                    </div>
-                  </div>
+                    </span>
+                  </span>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-jxfi63-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-16ejnil-MuiTypography-root"
                 >
                   What, ridden on a horse? 
                 </span>
@@ -1376,7 +1379,7 @@ exports[`With search parameters both search components are populated as expected
     </div>
   </div>
   <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1sh1skx css-bwiycy-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_frp1utb css-bwiycy-MuiGrid-root"
   >
     <div
       class="MuiFormControl-root framework-dropdown f1ttr4cl css-1nrlq1o-MuiFormControl-root"
@@ -1470,7 +1473,7 @@ exports[`With search parameters both search components are populated as expected
     class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1sh1skx label-edit-wrapper css-dhs41p-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_frp1utb label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -1497,7 +1500,7 @@ exports[`With search parameters both search components are populated as expected
       id="base-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1sh1skx  -base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_frp1utb  -base-dropdown css-1awobkc-MuiGrid-root"
         id="base_search-dropdown"
       >
         <div
@@ -1538,14 +1541,14 @@ exports[`With search parameters both search components are populated as expected
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f7qwsv0   css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f18mez9x   css-17gmabg-MuiGrid-root"
         id="base_search-input"
       >
         <div
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiFormControl-root MuiFormControl-fullWidth f6q7umf css-q8hpuo-MuiFormControl-root"
+            class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-q8hpuo-MuiFormControl-root"
           >
             <div
               class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -1602,7 +1605,7 @@ exports[`With search parameters both search components are populated as expected
       data-testid="base-selected-revision"
     >
       <div
-        class="box_f1wdk99e base-box MuiBox-root css-0"
+        class="box_f9k3p52 base-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -1614,7 +1617,7 @@ exports[`With search parameters both search components are populated as expected
     class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1sh1skx label-edit-wrapper css-dhs41p-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -1641,7 +1644,7 @@ exports[`With search parameters both search components are populated as expected
       id="new-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1sh1skx  -base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb  -base-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown"
       >
         <div
@@ -1682,14 +1685,14 @@ exports[`With search parameters both search components are populated as expected
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f7qwsv0   css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f18mez9x   css-17gmabg-MuiGrid-root"
         id="new_search-input"
       >
         <div
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiFormControl-root MuiFormControl-fullWidth f6q7umf css-q8hpuo-MuiFormControl-root"
+            class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-q8hpuo-MuiFormControl-root"
           >
             <div
               class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -1746,7 +1749,7 @@ exports[`With search parameters both search components are populated as expected
       data-testid="new-selected-revision"
     >
       <div
-        class="box_f1wdk99e new-box MuiBox-root css-0"
+        class="box_f9k3p52 new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -1773,16 +1776,16 @@ exports[`With search parameters both search components are populated as expected
               </div>
             </div>
             <div
-              class="selectedRevision_f1h5nweo MuiBox-root css-0"
+              class="selectedRevision_fubtarc MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-4q8oy7-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-7p9rhm-MuiTypography-root"
                 >
                   <span
-                    class="MuiTypography-root MuiTypography-body2 revision-hash css-eqisi8-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 revision-hash css-1kaxyiw-MuiTypography-root"
                   >
                     <a
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
@@ -1819,13 +1822,12 @@ exports[`With search parameters both search components are populated as expected
                       </button>
                     </span>
                   </span>
-                  <div
-                    class="info-caption"
+                  <span
+                    class="MuiTypography-root MuiTypography-body2 info-caption css-1e2mg7s-MuiTypography-root"
                   >
-                    <div
+                    <span
                       class="info-caption-item item-author"
                     >
-                       
                       <svg
                         aria-hidden="true"
                         class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
@@ -1837,11 +1839,15 @@ exports[`With search parameters both search components are populated as expected
                           d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
                         />
                       </svg>
-                       
-                      terrygilliam@python.com
-                    </div>
-                    <div
+                      <span
+                        style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; display: inline-block; max-width: 100%;"
+                      >
+                        terrygilliam@python.com
+                      </span>
+                    </span>
+                    <span
                       class="info-caption-item item-time"
+                      style="display: flex; align-items: center; margin-left: 8px;"
                     >
                       <svg
                         aria-hidden="true"
@@ -1861,11 +1867,11 @@ exports[`With search parameters both search components are populated as expected
                       >
                         Jul 29, 87, 00:00 UTC
                       </div>
-                    </div>
-                  </div>
+                    </span>
+                  </span>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-jxfi63-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-16ejnil-MuiTypography-root"
                 >
                   What, ridden on a horse? 
                 </span>
@@ -1899,7 +1905,7 @@ exports[`With search parameters both search components are populated as expected
     </div>
   </div>
   <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1sh1skx css-bwiycy-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_frp1utb css-bwiycy-MuiGrid-root"
   >
     <div
       class="MuiFormControl-root framework-dropdown f1ttr4cl css-1nrlq1o-MuiFormControl-root"
@@ -1993,7 +1999,7 @@ exports[`With search parameters both search components are populated as expected
     class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f1sh1skx css-1e9xsub-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_frp1utb css-1e9xsub-MuiGrid-root"
     >
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-1ikqdgy-MuiGrid-root"
@@ -2091,7 +2097,7 @@ exports[`With search parameters both search components are populated as expected
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  dropDown_f1sh1skx   css-1t7ybvx-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  dropDown_frp1utb   css-1t7ybvx-MuiGrid-root"
         id="time-range"
         style="max-width: 365px;"
       >
@@ -2145,7 +2151,7 @@ exports[`With search parameters both search components are populated as expected
       </div>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1sh1skx css-13eijkh-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb css-13eijkh-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -2173,7 +2179,7 @@ exports[`With search parameters both search components are populated as expected
       id="new-search-container--time"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1sh1skx  -new-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb  -new-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown--time"
       >
         <div
@@ -2214,14 +2220,14 @@ exports[`With search parameters both search components are populated as expected
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f7qwsv0   css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f18mez9x   css-17gmabg-MuiGrid-root"
         id="new_search-input--time"
       >
         <div
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiFormControl-root MuiFormControl-fullWidth f6q7umf css-q8hpuo-MuiFormControl-root"
+            class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-q8hpuo-MuiFormControl-root"
           >
             <div
               class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -2277,7 +2283,7 @@ exports[`With search parameters both search components are populated as expected
       class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
     >
       <div
-        class="box_f1wdk99e new-box MuiBox-root css-0"
+        class="box_f9k3p52 new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -2304,16 +2310,16 @@ exports[`With search parameters both search components are populated as expected
               </div>
             </div>
             <div
-              class="selectedRevision_f1h5nweo MuiBox-root css-0"
+              class="selectedRevision_fubtarc MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-4q8oy7-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-7p9rhm-MuiTypography-root"
                 >
                   <span
-                    class="MuiTypography-root MuiTypography-body2 revision-hash css-eqisi8-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 revision-hash css-1kaxyiw-MuiTypography-root"
                   >
                     <a
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
@@ -2350,13 +2356,12 @@ exports[`With search parameters both search components are populated as expected
                       </button>
                     </span>
                   </span>
-                  <div
-                    class="info-caption"
+                  <span
+                    class="MuiTypography-root MuiTypography-body2 info-caption css-1e2mg7s-MuiTypography-root"
                   >
-                    <div
+                    <span
                       class="info-caption-item item-author"
                     >
-                       
                       <svg
                         aria-hidden="true"
                         class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
@@ -2368,11 +2373,15 @@ exports[`With search parameters both search components are populated as expected
                           d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
                         />
                       </svg>
-                       
-                      michaelpalin@python.com
-                    </div>
-                    <div
+                      <span
+                        style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; display: inline-block; max-width: 100%;"
+                      >
+                        michaelpalin@python.com
+                      </span>
+                    </span>
+                    <span
                       class="info-caption-item item-time"
+                      style="display: flex; align-items: center; margin-left: 8px;"
                     >
                       <svg
                         aria-hidden="true"
@@ -2392,11 +2401,11 @@ exports[`With search parameters both search components are populated as expected
                       >
                         Jul 4, 20, 00:00 UTC
                       </div>
-                    </div>
-                  </div>
+                    </span>
+                  </span>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-jxfi63-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-16ejnil-MuiTypography-root"
                 >
                   You've got two empty 'alves of coconuts and you're bangin' 'em togetha 
                 </span>
@@ -2430,7 +2439,7 @@ exports[`With search parameters both search components are populated as expected
     </div>
   </div>
   <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1sh1skx css-bwiycy-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_frp1utb css-bwiycy-MuiGrid-root"
   >
     <div
       class="MuiFormControl-root framework-dropdown f1ttr4cl css-1nrlq1o-MuiFormControl-root"
@@ -2524,7 +2533,7 @@ exports[`With search parameters both search components are populated as expected
     class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1sh1skx label-edit-wrapper css-dhs41p-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_frp1utb label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -2551,7 +2560,7 @@ exports[`With search parameters both search components are populated as expected
       id="base-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1sh1skx  -base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_frp1utb  -base-dropdown css-1awobkc-MuiGrid-root"
         id="base_search-dropdown"
       >
         <div
@@ -2592,14 +2601,14 @@ exports[`With search parameters both search components are populated as expected
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f7qwsv0   css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f18mez9x   css-17gmabg-MuiGrid-root"
         id="base_search-input"
       >
         <div
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiFormControl-root MuiFormControl-fullWidth f6q7umf css-q8hpuo-MuiFormControl-root"
+            class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-q8hpuo-MuiFormControl-root"
           >
             <div
               class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -2656,7 +2665,7 @@ exports[`With search parameters both search components are populated as expected
       data-testid="base-selected-revision"
     >
       <div
-        class="box_f1wdk99e base-box MuiBox-root css-0"
+        class="box_f9k3p52 base-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -2668,7 +2677,7 @@ exports[`With search parameters both search components are populated as expected
     class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1sh1skx label-edit-wrapper css-dhs41p-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -2695,7 +2704,7 @@ exports[`With search parameters both search components are populated as expected
       id="new-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1sh1skx  -base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb  -base-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown"
       >
         <div
@@ -2736,14 +2745,14 @@ exports[`With search parameters both search components are populated as expected
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f7qwsv0   css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f18mez9x   css-17gmabg-MuiGrid-root"
         id="new_search-input"
       >
         <div
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiFormControl-root MuiFormControl-fullWidth f6q7umf css-q8hpuo-MuiFormControl-root"
+            class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-q8hpuo-MuiFormControl-root"
           >
             <div
               class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -2800,7 +2809,7 @@ exports[`With search parameters both search components are populated as expected
       data-testid="new-selected-revision"
     >
       <div
-        class="box_f1wdk99e new-box MuiBox-root css-0"
+        class="box_f9k3p52 new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -2827,16 +2836,16 @@ exports[`With search parameters both search components are populated as expected
               </div>
             </div>
             <div
-              class="selectedRevision_f1h5nweo MuiBox-root css-0"
+              class="selectedRevision_fubtarc MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-4q8oy7-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-7p9rhm-MuiTypography-root"
                 >
                   <span
-                    class="MuiTypography-root MuiTypography-body2 revision-hash css-eqisi8-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 revision-hash css-1kaxyiw-MuiTypography-root"
                   >
                     <a
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
@@ -2873,13 +2882,12 @@ exports[`With search parameters both search components are populated as expected
                       </button>
                     </span>
                   </span>
-                  <div
-                    class="info-caption"
+                  <span
+                    class="MuiTypography-root MuiTypography-body2 info-caption css-1e2mg7s-MuiTypography-root"
                   >
-                    <div
+                    <span
                       class="info-caption-item item-author"
                     >
-                       
                       <svg
                         aria-hidden="true"
                         class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
@@ -2891,11 +2899,15 @@ exports[`With search parameters both search components are populated as expected
                           d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
                         />
                       </svg>
-                       
-                      michaelpalin@python.com
-                    </div>
-                    <div
+                      <span
+                        style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; display: inline-block; max-width: 100%;"
+                      >
+                        michaelpalin@python.com
+                      </span>
+                    </span>
+                    <span
                       class="info-caption-item item-time"
+                      style="display: flex; align-items: center; margin-left: 8px;"
                     >
                       <svg
                         aria-hidden="true"
@@ -2915,11 +2927,11 @@ exports[`With search parameters both search components are populated as expected
                       >
                         Jul 4, 20, 00:00 UTC
                       </div>
-                    </div>
-                  </div>
+                    </span>
+                  </span>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-jxfi63-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-16ejnil-MuiTypography-root"
                 >
                   You've got two empty 'alves of coconuts and you're bangin' 'em togetha 
                 </span>
@@ -2953,7 +2965,7 @@ exports[`With search parameters both search components are populated as expected
     </div>
   </div>
   <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1sh1skx css-bwiycy-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_frp1utb css-bwiycy-MuiGrid-root"
   >
     <div
       class="MuiFormControl-root framework-dropdown f1ttr4cl css-1nrlq1o-MuiFormControl-root"
@@ -3047,7 +3059,7 @@ exports[`With search parameters displays the default value for framework if the 
     class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f1sh1skx css-1e9xsub-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_frp1utb css-1e9xsub-MuiGrid-root"
     >
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-1ikqdgy-MuiGrid-root"
@@ -3145,7 +3157,7 @@ exports[`With search parameters displays the default value for framework if the 
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  dropDown_f1sh1skx   css-1t7ybvx-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  dropDown_frp1utb   css-1t7ybvx-MuiGrid-root"
         id="time-range"
         style="max-width: 365px;"
       >
@@ -3199,7 +3211,7 @@ exports[`With search parameters displays the default value for framework if the 
       </div>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1sh1skx css-13eijkh-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb css-13eijkh-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -3227,7 +3239,7 @@ exports[`With search parameters displays the default value for framework if the 
       id="new-search-container--time"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1sh1skx  -new-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb  -new-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown--time"
       >
         <div
@@ -3268,14 +3280,14 @@ exports[`With search parameters displays the default value for framework if the 
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f7qwsv0   css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f18mez9x   css-17gmabg-MuiGrid-root"
         id="new_search-input--time"
       >
         <div
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiFormControl-root MuiFormControl-fullWidth f6q7umf css-q8hpuo-MuiFormControl-root"
+            class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-q8hpuo-MuiFormControl-root"
           >
             <div
               class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -3331,7 +3343,7 @@ exports[`With search parameters displays the default value for framework if the 
       class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
     >
       <div
-        class="box_f1wdk99e new-box MuiBox-root css-0"
+        class="box_f9k3p52 new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -3358,16 +3370,16 @@ exports[`With search parameters displays the default value for framework if the 
               </div>
             </div>
             <div
-              class="selectedRevision_f1h5nweo MuiBox-root css-0"
+              class="selectedRevision_fubtarc MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-4q8oy7-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-7p9rhm-MuiTypography-root"
                 >
                   <span
-                    class="MuiTypography-root MuiTypography-body2 revision-hash css-eqisi8-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 revision-hash css-1kaxyiw-MuiTypography-root"
                   >
                     <a
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
@@ -3404,13 +3416,12 @@ exports[`With search parameters displays the default value for framework if the 
                       </button>
                     </span>
                   </span>
-                  <div
-                    class="info-caption"
+                  <span
+                    class="MuiTypography-root MuiTypography-body2 info-caption css-1e2mg7s-MuiTypography-root"
                   >
-                    <div
+                    <span
                       class="info-caption-item item-author"
                     >
-                       
                       <svg
                         aria-hidden="true"
                         class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
@@ -3422,11 +3433,15 @@ exports[`With search parameters displays the default value for framework if the 
                           d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
                         />
                       </svg>
-                       
-                      terrygilliam@python.com
-                    </div>
-                    <div
+                      <span
+                        style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; display: inline-block; max-width: 100%;"
+                      >
+                        terrygilliam@python.com
+                      </span>
+                    </span>
+                    <span
                       class="info-caption-item item-time"
+                      style="display: flex; align-items: center; margin-left: 8px;"
                     >
                       <svg
                         aria-hidden="true"
@@ -3446,11 +3461,11 @@ exports[`With search parameters displays the default value for framework if the 
                       >
                         Jul 29, 87, 00:00 UTC
                       </div>
-                    </div>
-                  </div>
+                    </span>
+                  </span>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-jxfi63-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-16ejnil-MuiTypography-root"
                 >
                   What, ridden on a horse? 
                 </span>
@@ -3484,7 +3499,7 @@ exports[`With search parameters displays the default value for framework if the 
     </div>
   </div>
   <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1sh1skx css-bwiycy-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_frp1utb css-bwiycy-MuiGrid-root"
   >
     <div
       class="MuiFormControl-root framework-dropdown f1ttr4cl css-1nrlq1o-MuiFormControl-root"
@@ -3578,7 +3593,7 @@ exports[`With search parameters displays the default value for framework if the 
     class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1sh1skx label-edit-wrapper css-dhs41p-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_frp1utb label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -3605,7 +3620,7 @@ exports[`With search parameters displays the default value for framework if the 
       id="base-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1sh1skx  -base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_frp1utb  -base-dropdown css-1awobkc-MuiGrid-root"
         id="base_search-dropdown"
       >
         <div
@@ -3646,14 +3661,14 @@ exports[`With search parameters displays the default value for framework if the 
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f7qwsv0   css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f18mez9x   css-17gmabg-MuiGrid-root"
         id="base_search-input"
       >
         <div
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiFormControl-root MuiFormControl-fullWidth f6q7umf css-q8hpuo-MuiFormControl-root"
+            class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-q8hpuo-MuiFormControl-root"
           >
             <div
               class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -3710,7 +3725,7 @@ exports[`With search parameters displays the default value for framework if the 
       data-testid="base-selected-revision"
     >
       <div
-        class="box_f1wdk99e base-box MuiBox-root css-0"
+        class="box_f9k3p52 base-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -3722,7 +3737,7 @@ exports[`With search parameters displays the default value for framework if the 
     class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1sh1skx label-edit-wrapper css-dhs41p-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -3749,7 +3764,7 @@ exports[`With search parameters displays the default value for framework if the 
       id="new-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1sh1skx  -base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb  -base-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown"
       >
         <div
@@ -3790,14 +3805,14 @@ exports[`With search parameters displays the default value for framework if the 
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f7qwsv0   css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f18mez9x   css-17gmabg-MuiGrid-root"
         id="new_search-input"
       >
         <div
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiFormControl-root MuiFormControl-fullWidth f6q7umf css-q8hpuo-MuiFormControl-root"
+            class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-q8hpuo-MuiFormControl-root"
           >
             <div
               class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -3854,7 +3869,7 @@ exports[`With search parameters displays the default value for framework if the 
       data-testid="new-selected-revision"
     >
       <div
-        class="box_f1wdk99e new-box MuiBox-root css-0"
+        class="box_f9k3p52 new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -3881,16 +3896,16 @@ exports[`With search parameters displays the default value for framework if the 
               </div>
             </div>
             <div
-              class="selectedRevision_f1h5nweo MuiBox-root css-0"
+              class="selectedRevision_fubtarc MuiBox-root css-0"
             >
               <div
                 class="MuiListItemText-root MuiListItemText-multiline search-revision-item-text css-konndc-MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-4q8oy7-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap MuiListItemText-primary css-7p9rhm-MuiTypography-root"
                 >
                   <span
-                    class="MuiTypography-root MuiTypography-body2 revision-hash css-eqisi8-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 revision-hash css-1kaxyiw-MuiTypography-root"
                   >
                     <a
                       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qhous5-MuiTypography-root-MuiLink-root"
@@ -3927,13 +3942,12 @@ exports[`With search parameters displays the default value for framework if the 
                       </button>
                     </span>
                   </span>
-                  <div
-                    class="info-caption"
+                  <span
+                    class="MuiTypography-root MuiTypography-body2 info-caption css-1e2mg7s-MuiTypography-root"
                   >
-                    <div
+                    <span
                       class="info-caption-item item-author"
                     >
-                       
                       <svg
                         aria-hidden="true"
                         class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mail-icon css-1mecf1h-MuiSvgIcon-root"
@@ -3945,11 +3959,15 @@ exports[`With search parameters displays the default value for framework if the 
                           d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
                         />
                       </svg>
-                       
-                      terrygilliam@python.com
-                    </div>
-                    <div
+                      <span
+                        style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; display: inline-block; max-width: 100%;"
+                      >
+                        terrygilliam@python.com
+                      </span>
+                    </span>
+                    <span
                       class="info-caption-item item-time"
+                      style="display: flex; align-items: center; margin-left: 8px;"
                     >
                       <svg
                         aria-hidden="true"
@@ -3969,11 +3987,11 @@ exports[`With search parameters displays the default value for framework if the 
                       >
                         Jul 29, 87, 00:00 UTC
                       </div>
-                    </div>
-                  </div>
+                    </span>
+                  </span>
                 </span>
                 <span
-                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-jxfi63-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-16ejnil-MuiTypography-root"
                 >
                   What, ridden on a horse? 
                 </span>
@@ -4007,7 +4025,7 @@ exports[`With search parameters displays the default value for framework if the 
     </div>
   </div>
   <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1sh1skx css-bwiycy-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_frp1utb css-bwiycy-MuiGrid-root"
   >
     <div
       class="MuiFormControl-root framework-dropdown f1ttr4cl css-1nrlq1o-MuiFormControl-root"
@@ -4101,7 +4119,7 @@ exports[`With search parameters displays the default values if some values are b
     class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_f1sh1skx css-1e9xsub-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 base-repo-dropdown dropDown_frp1utb css-1e9xsub-MuiGrid-root"
     >
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-1ikqdgy-MuiGrid-root"
@@ -4199,7 +4217,7 @@ exports[`With search parameters displays the default values if some values are b
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  dropDown_f1sh1skx   css-1t7ybvx-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true new-search-dropdown  dropDown_frp1utb   css-1t7ybvx-MuiGrid-root"
         id="time-range"
         style="max-width: 365px;"
       >
@@ -4253,7 +4271,7 @@ exports[`With search parameters displays the default values if some values are b
       </div>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1sh1skx css-13eijkh-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb css-13eijkh-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -4281,7 +4299,7 @@ exports[`With search parameters displays the default values if some values are b
       id="new-search-container--time"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1sh1skx  -new-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb  -new-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown--time"
       >
         <div
@@ -4322,14 +4340,14 @@ exports[`With search parameters displays the default values if some values are b
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f7qwsv0   css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f18mez9x   css-17gmabg-MuiGrid-root"
         id="new_search-input--time"
       >
         <div
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiFormControl-root MuiFormControl-fullWidth f6q7umf css-q8hpuo-MuiFormControl-root"
+            class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-q8hpuo-MuiFormControl-root"
           >
             <div
               class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -4385,7 +4403,7 @@ exports[`With search parameters displays the default values if some values are b
       class="MuiGrid-root d-flex css-plh9qo-MuiGrid-root"
     >
       <div
-        class="box_f1wdk99e new-box MuiBox-root css-0"
+        class="box_f9k3p52 new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -4394,7 +4412,7 @@ exports[`With search parameters displays the default values if some values are b
     </div>
   </div>
   <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1sh1skx css-bwiycy-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_frp1utb css-bwiycy-MuiGrid-root"
   >
     <div
       class="MuiFormControl-root framework-dropdown f1ttr4cl css-1nrlq1o-MuiFormControl-root"
@@ -4488,7 +4506,7 @@ exports[`With search parameters displays the default values if some values are b
     class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1sh1skx label-edit-wrapper css-dhs41p-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_frp1utb label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -4515,7 +4533,7 @@ exports[`With search parameters displays the default values if some values are b
       id="base-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_f1sh1skx  -base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 base-search-dropdown dropDown_frp1utb  -base-dropdown css-1awobkc-MuiGrid-root"
         id="base_search-dropdown"
       >
         <div
@@ -4556,14 +4574,14 @@ exports[`With search parameters displays the default values if some values are b
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f7qwsv0   css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f18mez9x   css-17gmabg-MuiGrid-root"
         id="base_search-input"
       >
         <div
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiFormControl-root MuiFormControl-fullWidth f6q7umf css-q8hpuo-MuiFormControl-root"
+            class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-q8hpuo-MuiFormControl-root"
           >
             <div
               class="MuiFormControl-root MuiTextField-root search-text-field base css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -4620,7 +4638,7 @@ exports[`With search parameters displays the default values if some values are b
       data-testid="base-selected-revision"
     >
       <div
-        class="box_f1wdk99e base-box MuiBox-root css-0"
+        class="box_f9k3p52 base-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -4632,7 +4650,7 @@ exports[`With search parameters displays the default values if some values are b
     class="MuiGrid-root component_fr4vqnw css-plh9qo-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1sh1skx label-edit-wrapper css-dhs41p-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb label-edit-wrapper css-dhs41p-MuiGrid-root"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated dropdown-select-label css-qru5ho-MuiFormLabel-root-MuiInputLabel-root"
@@ -4659,7 +4677,7 @@ exports[`With search parameters displays the default values if some values are b
       id="new-search-container"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_f1sh1skx  -base-dropdown css-1awobkc-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 new-search-dropdown dropDown_frp1utb  -base-dropdown css-1awobkc-MuiGrid-root"
         id="new_search-dropdown"
       >
         <div
@@ -4700,14 +4718,14 @@ exports[`With search parameters displays the default values if some values are b
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f7qwsv0   css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f18mez9x   css-17gmabg-MuiGrid-root"
         id="new_search-input"
       >
         <div
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiFormControl-root MuiFormControl-fullWidth f6q7umf css-q8hpuo-MuiFormControl-root"
+            class="MuiFormControl-root MuiFormControl-fullWidth f7lnopv css-q8hpuo-MuiFormControl-root"
           >
             <div
               class="MuiFormControl-root MuiTextField-root search-text-field new css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
@@ -4764,7 +4782,7 @@ exports[`With search parameters displays the default values if some values are b
       data-testid="new-selected-revision"
     >
       <div
-        class="box_f1wdk99e new-box MuiBox-root css-0"
+        class="box_f9k3p52 new-box MuiBox-root css-0"
       >
         <ul
           class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
@@ -4773,7 +4791,7 @@ exports[`With search parameters displays the default values if some values are b
     </div>
   </div>
   <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_f1sh1skx css-bwiycy-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 dropDown_frp1utb css-bwiycy-MuiGrid-root"
   >
     <div
       class="MuiFormControl-root framework-dropdown f1ttr4cl css-1nrlq1o-MuiFormControl-root"
