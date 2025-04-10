@@ -104,7 +104,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f1yel07 big  css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
         id="base_search-input"
       >
         <div
@@ -188,7 +188,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
               value="try"
             />
             <div
-              class="repo_fkd3ycy"
+              class="repo_f1akv6s4"
             >
               <div>
                 try
@@ -261,10 +261,10 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                       </button>
                     </span>
                   </span>
-                  <span
+                  <div
                     class="MuiTypography-root MuiTypography-body2 info-caption css-1e2mg7s-MuiTypography-root"
                   >
-                    <span
+                    <div
                       class="info-caption-item item-author"
                     >
                       <svg
@@ -278,15 +278,14 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                           d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
                         />
                       </svg>
-                      <span
-                        style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; display: inline-block; max-width: 100%;"
+                      <div
+                        class="MuiBox-root css-1obfhg7"
                       >
                         johncleese@python.com
-                      </span>
-                    </span>
-                    <span
-                      class="info-caption-item item-time"
-                      style="display: flex; align-items: center; margin-left: 8px;"
+                      </div>
+                    </div>
+                    <div
+                      class="info-caption-item item-time MuiBox-root css-9mul5i"
                     >
                       <svg
                         aria-hidden="true"
@@ -306,8 +305,8 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                       >
                         Mar 29, 51, 00:00 UTC
                       </div>
-                    </span>
-                  </span>
+                    </div>
+                  </div>
                 </span>
                 <span
                   class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-16ejnil-MuiTypography-root"
@@ -415,7 +414,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f1yel07 big  css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
         id="new_search-input"
       >
         <div
@@ -499,7 +498,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
               value="try"
             />
             <div
-              class="repo_fkd3ycy"
+              class="repo_f1akv6s4"
             >
               <div>
                 try
@@ -572,10 +571,10 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                       </button>
                     </span>
                   </span>
-                  <span
+                  <div
                     class="MuiTypography-root MuiTypography-body2 info-caption css-1e2mg7s-MuiTypography-root"
                   >
-                    <span
+                    <div
                       class="info-caption-item item-author"
                     >
                       <svg
@@ -589,15 +588,14 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                           d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
                         />
                       </svg>
-                      <span
-                        style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; display: inline-block; max-width: 100%;"
+                      <div
+                        class="MuiBox-root css-1obfhg7"
                       >
                         johncleese@python.com
-                      </span>
-                    </span>
-                    <span
-                      class="info-caption-item item-time"
-                      style="display: flex; align-items: center; margin-left: 8px;"
+                      </div>
+                    </div>
+                    <div
+                      class="info-caption-item item-time MuiBox-root css-9mul5i"
                     >
                       <svg
                         aria-hidden="true"
@@ -617,8 +615,8 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                       >
                         Mar 29, 51, 00:00 UTC
                       </div>
-                    </span>
-                  </span>
+                    </div>
+                  </div>
                 </span>
                 <span
                   class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-16ejnil-MuiTypography-root"
@@ -921,7 +919,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f1yel07 big  css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
         id="base_search-input"
       >
         <div
@@ -1005,7 +1003,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               value="try"
             />
             <div
-              class="repo_fkd3ycy"
+              class="repo_f1akv6s4"
             >
               <div>
                 try
@@ -1078,10 +1076,10 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                       </button>
                     </span>
                   </span>
-                  <span
+                  <div
                     class="MuiTypography-root MuiTypography-body2 info-caption css-1e2mg7s-MuiTypography-root"
                   >
-                    <span
+                    <div
                       class="info-caption-item item-author"
                     >
                       <svg
@@ -1095,15 +1093,14 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                           d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
                         />
                       </svg>
-                      <span
-                        style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; display: inline-block; max-width: 100%;"
+                      <div
+                        class="MuiBox-root css-1obfhg7"
                       >
                         johncleese@python.com
-                      </span>
-                    </span>
-                    <span
-                      class="info-caption-item item-time"
-                      style="display: flex; align-items: center; margin-left: 8px;"
+                      </div>
+                    </div>
+                    <div
+                      class="info-caption-item item-time MuiBox-root css-9mul5i"
                     >
                       <svg
                         aria-hidden="true"
@@ -1123,8 +1120,8 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                       >
                         Mar 29, 51, 00:00 UTC
                       </div>
-                    </span>
-                  </span>
+                    </div>
+                  </div>
                 </span>
                 <span
                   class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-16ejnil-MuiTypography-root"
@@ -1232,7 +1229,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f1yel07 big  css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
         id="new_search-input"
       >
         <div
@@ -1425,7 +1422,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f1yel07 big  css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
         id="base_search-input"
       >
         <div
@@ -1509,7 +1506,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               value="try"
             />
             <div
-              class="repo_fkd3ycy"
+              class="repo_f1akv6s4"
             >
               <div>
                 try
@@ -1582,10 +1579,10 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                       </button>
                     </span>
                   </span>
-                  <span
+                  <div
                     class="MuiTypography-root MuiTypography-body2 info-caption css-1e2mg7s-MuiTypography-root"
                   >
-                    <span
+                    <div
                       class="info-caption-item item-author"
                     >
                       <svg
@@ -1599,15 +1596,14 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                           d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
                         />
                       </svg>
-                      <span
-                        style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; display: inline-block; max-width: 100%;"
+                      <div
+                        class="MuiBox-root css-1obfhg7"
                       >
                         johncleese@python.com
-                      </span>
-                    </span>
-                    <span
-                      class="info-caption-item item-time"
-                      style="display: flex; align-items: center; margin-left: 8px;"
+                      </div>
+                    </div>
+                    <div
+                      class="info-caption-item item-time MuiBox-root css-9mul5i"
                     >
                       <svg
                         aria-hidden="true"
@@ -1627,8 +1623,8 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                       >
                         Mar 29, 51, 00:00 UTC
                       </div>
-                    </span>
-                  </span>
+                    </div>
+                  </div>
                 </span>
                 <span
                   class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-16ejnil-MuiTypography-root"
@@ -1736,7 +1732,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f1yel07 big  css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
         id="new_search-input"
       >
         <div
@@ -1820,7 +1816,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
               value="try"
             />
             <div
-              class="repo_fkd3ycy"
+              class="repo_f1akv6s4"
             >
               <div>
                 try
@@ -1893,10 +1889,10 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                       </button>
                     </span>
                   </span>
-                  <span
+                  <div
                     class="MuiTypography-root MuiTypography-body2 info-caption css-1e2mg7s-MuiTypography-root"
                   >
-                    <span
+                    <div
                       class="info-caption-item item-author"
                     >
                       <svg
@@ -1910,15 +1906,14 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                           d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
                         />
                       </svg>
-                      <span
-                        style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; display: inline-block; max-width: 100%;"
+                      <div
+                        class="MuiBox-root css-1obfhg7"
                       >
                         johncleese@python.com
-                      </span>
-                    </span>
-                    <span
-                      class="info-caption-item item-time"
-                      style="display: flex; align-items: center; margin-left: 8px;"
+                      </div>
+                    </div>
+                    <div
+                      class="info-caption-item item-time MuiBox-root css-9mul5i"
                     >
                       <svg
                         aria-hidden="true"
@@ -1938,8 +1933,8 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                       >
                         Mar 29, 51, 00:00 UTC
                       </div>
-                    </span>
-                  </span>
+                    </div>
+                  </div>
                 </span>
                 <span
                   class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-16ejnil-MuiTypography-root"
@@ -2117,7 +2112,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f1yel07 big  css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
         id="base_search-input"
       >
         <div
@@ -2201,7 +2196,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
               value="try"
             />
             <div
-              class="repo_fkd3ycy"
+              class="repo_f1akv6s4"
             >
               <div>
                 try
@@ -2274,10 +2269,10 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                       </button>
                     </span>
                   </span>
-                  <span
+                  <div
                     class="MuiTypography-root MuiTypography-body2 info-caption css-1e2mg7s-MuiTypography-root"
                   >
-                    <span
+                    <div
                       class="info-caption-item item-author"
                     >
                       <svg
@@ -2291,15 +2286,14 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                           d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
                         />
                       </svg>
-                      <span
-                        style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; display: inline-block; max-width: 100%;"
+                      <div
+                        class="MuiBox-root css-1obfhg7"
                       >
                         johncleese@python.com
-                      </span>
-                    </span>
-                    <span
-                      class="info-caption-item item-time"
-                      style="display: flex; align-items: center; margin-left: 8px;"
+                      </div>
+                    </div>
+                    <div
+                      class="info-caption-item item-time MuiBox-root css-9mul5i"
                     >
                       <svg
                         aria-hidden="true"
@@ -2319,8 +2313,8 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                       >
                         Mar 29, 51, 00:00 UTC
                       </div>
-                    </span>
-                  </span>
+                    </div>
+                  </div>
                 </span>
                 <span
                   class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-16ejnil-MuiTypography-root"
@@ -2428,7 +2422,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f1yel07 big  css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
         id="new_search-input"
       >
         <div
@@ -2512,7 +2506,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
               value="try"
             />
             <div
-              class="repo_fkd3ycy"
+              class="repo_f1akv6s4"
             >
               <div>
                 try
@@ -2585,10 +2579,10 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                       </button>
                     </span>
                   </span>
-                  <span
+                  <div
                     class="MuiTypography-root MuiTypography-body2 info-caption css-1e2mg7s-MuiTypography-root"
                   >
-                    <span
+                    <div
                       class="info-caption-item item-author"
                     >
                       <svg
@@ -2602,15 +2596,14 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                           d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
                         />
                       </svg>
-                      <span
-                        style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; display: inline-block; max-width: 100%;"
+                      <div
+                        class="MuiBox-root css-1obfhg7"
                       >
                         johncleese@python.com
-                      </span>
-                    </span>
-                    <span
-                      class="info-caption-item item-time"
-                      style="display: flex; align-items: center; margin-left: 8px;"
+                      </div>
+                    </div>
+                    <div
+                      class="info-caption-item item-time MuiBox-root css-9mul5i"
                     >
                       <svg
                         aria-hidden="true"
@@ -2630,8 +2623,8 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                       >
                         Mar 29, 51, 00:00 UTC
                       </div>
-                    </span>
-                  </span>
+                    </div>
+                  </div>
                 </span>
                 <span
                   class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-16ejnil-MuiTypography-root"
@@ -2796,7 +2789,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f1yel07 big  css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
         id="base_search-input"
       >
         <div
@@ -2940,7 +2933,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f1yel07 big  css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
         id="new_search-input"
       >
         <div
@@ -3024,7 +3017,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
               value="try"
             />
             <div
-              class="repo_fkd3ycy"
+              class="repo_f1akv6s4"
             >
               <div>
                 try
@@ -3097,10 +3090,10 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                       </button>
                     </span>
                   </span>
-                  <span
+                  <div
                     class="MuiTypography-root MuiTypography-body2 info-caption css-1e2mg7s-MuiTypography-root"
                   >
-                    <span
+                    <div
                       class="info-caption-item item-author"
                     >
                       <svg
@@ -3114,15 +3107,14 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                           d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
                         />
                       </svg>
-                      <span
-                        style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; display: inline-block; max-width: 100%;"
+                      <div
+                        class="MuiBox-root css-1obfhg7"
                       >
                         johncleese@python.com
-                      </span>
-                    </span>
-                    <span
-                      class="info-caption-item item-time"
-                      style="display: flex; align-items: center; margin-left: 8px;"
+                      </div>
+                    </div>
+                    <div
+                      class="info-caption-item item-time MuiBox-root css-9mul5i"
                     >
                       <svg
                         aria-hidden="true"
@@ -3142,8 +3134,8 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                       >
                         Mar 29, 51, 00:00 UTC
                       </div>
-                    </span>
-                  </span>
+                    </div>
+                  </div>
                 </span>
                 <span
                   class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-16ejnil-MuiTypography-root"
@@ -3346,7 +3338,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f1yel07 big  css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
         id="base_search-input"
       >
         <div
@@ -3430,7 +3422,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
               value="try"
             />
             <div
-              class="repo_fkd3ycy"
+              class="repo_f1akv6s4"
             >
               <div>
                 try
@@ -3503,10 +3495,10 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                       </button>
                     </span>
                   </span>
-                  <span
+                  <div
                     class="MuiTypography-root MuiTypography-body2 info-caption css-1e2mg7s-MuiTypography-root"
                   >
-                    <span
+                    <div
                       class="info-caption-item item-author"
                     >
                       <svg
@@ -3520,15 +3512,14 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                           d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
                         />
                       </svg>
-                      <span
-                        style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; display: inline-block; max-width: 100%;"
+                      <div
+                        class="MuiBox-root css-1obfhg7"
                       >
                         johncleese@python.com
-                      </span>
-                    </span>
-                    <span
-                      class="info-caption-item item-time"
-                      style="display: flex; align-items: center; margin-left: 8px;"
+                      </div>
+                    </div>
+                    <div
+                      class="info-caption-item item-time MuiBox-root css-9mul5i"
                     >
                       <svg
                         aria-hidden="true"
@@ -3548,8 +3539,8 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                       >
                         Mar 29, 51, 00:00 UTC
                       </div>
-                    </span>
-                  </span>
+                    </div>
+                  </div>
                 </span>
                 <span
                   class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-16ejnil-MuiTypography-root"
@@ -3657,7 +3648,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f1yel07 big  css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
         id="new_search-input"
       >
         <div
@@ -3970,7 +3961,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                       </div>
                     </div>
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f1yel07   css-17gmabg-MuiGrid-root"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
                       id="base_search-input"
                     >
                       <div
@@ -4114,7 +4105,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                       </div>
                     </div>
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f1yel07   css-17gmabg-MuiGrid-root"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
                       id="new_search-input"
                     >
                       <div
@@ -4535,7 +4526,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
                       </div>
                     </div>
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f1yel07   css-17gmabg-MuiGrid-root"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
                       id="new_search-input--time"
                     >
                       <div

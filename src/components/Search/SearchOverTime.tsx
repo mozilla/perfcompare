@@ -274,9 +274,7 @@ export default function SearchOverTime({
             item
             xs={7}
             id='new_search-input--time'
-            className={`new-search-input--time  ${styles.baseSearchInput} ${
-              hasEditButton ? 'big' : ''
-            } `}
+            className={`new-search-input--time  ${styles.baseSearchInput}`}
           >
             <SearchInputAndResults
               compact={hasEditButton}

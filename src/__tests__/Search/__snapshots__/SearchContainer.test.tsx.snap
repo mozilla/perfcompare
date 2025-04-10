@@ -122,7 +122,7 @@ exports[`Search Containter should match snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f1yel07   css-17gmabg-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
                     id="base_search-input"
                   >
                     <div
@@ -266,7 +266,7 @@ exports[`Search Containter should match snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f1yel07   css-17gmabg-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
                     id="new_search-input"
                   >
                     <div
@@ -687,7 +687,7 @@ exports[`Search Containter should match snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f1yel07   css-17gmabg-MuiGrid-root"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
                     id="new_search-input--time"
                   >
                     <div

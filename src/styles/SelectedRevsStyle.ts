@@ -42,7 +42,7 @@ export const SelectRevsStyles = (mode: string) => {
     },
 
     repo: {
-      minWidth: '125px',
+      minWidth: '275px',
       display: 'flex',
       $nest: {
         '.warning-icon': {

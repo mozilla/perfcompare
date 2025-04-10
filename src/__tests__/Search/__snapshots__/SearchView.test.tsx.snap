@@ -201,7 +201,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                       </div>
                     </div>
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f1yel07   css-17gmabg-MuiGrid-root"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
                       id="base_search-input"
                     >
                       <div
@@ -345,7 +345,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                       </div>
                     </div>
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f1yel07   css-17gmabg-MuiGrid-root"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
                       id="new_search-input"
                     >
                       <div
@@ -766,7 +766,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
                       </div>
                     </div>
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f1yel07   css-17gmabg-MuiGrid-root"
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
                       id="new_search-input--time"
                     >
                       <div
@@ -1160,7 +1160,7 @@ exports[`With search parameters both search components are populated as expected
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f1yel07   css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
         id="new_search-input--time"
       >
         <div
@@ -1243,7 +1243,7 @@ exports[`With search parameters both search components are populated as expected
               value="try"
             />
             <div
-              class="repo_fkd3ycy"
+              class="repo_f1akv6s4"
             >
               <div>
                 try
@@ -1296,10 +1296,10 @@ exports[`With search parameters both search components are populated as expected
                       </button>
                     </span>
                   </span>
-                  <span
+                  <div
                     class="MuiTypography-root MuiTypography-body2 info-caption css-1e2mg7s-MuiTypography-root"
                   >
-                    <span
+                    <div
                       class="info-caption-item item-author"
                     >
                       <svg
@@ -1313,15 +1313,14 @@ exports[`With search parameters both search components are populated as expected
                           d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
                         />
                       </svg>
-                      <span
-                        style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; display: inline-block; max-width: 100%;"
+                      <div
+                        class="MuiBox-root css-1obfhg7"
                       >
                         terrygilliam@python.com
-                      </span>
-                    </span>
-                    <span
-                      class="info-caption-item item-time"
-                      style="display: flex; align-items: center; margin-left: 8px;"
+                      </div>
+                    </div>
+                    <div
+                      class="info-caption-item item-time MuiBox-root css-9mul5i"
                     >
                       <svg
                         aria-hidden="true"
@@ -1341,8 +1340,8 @@ exports[`With search parameters both search components are populated as expected
                       >
                         Jul 29, 87, 00:00 UTC
                       </div>
-                    </span>
-                  </span>
+                    </div>
+                  </div>
                 </span>
                 <span
                   class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-16ejnil-MuiTypography-root"
@@ -1541,7 +1540,7 @@ exports[`With search parameters both search components are populated as expected
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f1yel07   css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
         id="base_search-input"
       >
         <div
@@ -1685,7 +1684,7 @@ exports[`With search parameters both search components are populated as expected
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f1yel07   css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
         id="new_search-input"
       >
         <div
@@ -1769,7 +1768,7 @@ exports[`With search parameters both search components are populated as expected
               value="try"
             />
             <div
-              class="repo_fkd3ycy"
+              class="repo_f1akv6s4"
             >
               <div>
                 try
@@ -1822,10 +1821,10 @@ exports[`With search parameters both search components are populated as expected
                       </button>
                     </span>
                   </span>
-                  <span
+                  <div
                     class="MuiTypography-root MuiTypography-body2 info-caption css-1e2mg7s-MuiTypography-root"
                   >
-                    <span
+                    <div
                       class="info-caption-item item-author"
                     >
                       <svg
@@ -1839,15 +1838,14 @@ exports[`With search parameters both search components are populated as expected
                           d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
                         />
                       </svg>
-                      <span
-                        style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; display: inline-block; max-width: 100%;"
+                      <div
+                        class="MuiBox-root css-1obfhg7"
                       >
                         terrygilliam@python.com
-                      </span>
-                    </span>
-                    <span
-                      class="info-caption-item item-time"
-                      style="display: flex; align-items: center; margin-left: 8px;"
+                      </div>
+                    </div>
+                    <div
+                      class="info-caption-item item-time MuiBox-root css-9mul5i"
                     >
                       <svg
                         aria-hidden="true"
@@ -1867,8 +1865,8 @@ exports[`With search parameters both search components are populated as expected
                       >
                         Jul 29, 87, 00:00 UTC
                       </div>
-                    </span>
-                  </span>
+                    </div>
+                  </div>
                 </span>
                 <span
                   class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-16ejnil-MuiTypography-root"
@@ -2220,7 +2218,7 @@ exports[`With search parameters both search components are populated as expected
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f1yel07   css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
         id="new_search-input--time"
       >
         <div
@@ -2303,7 +2301,7 @@ exports[`With search parameters both search components are populated as expected
               value="autoland"
             />
             <div
-              class="repo_fkd3ycy"
+              class="repo_f1akv6s4"
             >
               <div>
                 autoland
@@ -2356,10 +2354,10 @@ exports[`With search parameters both search components are populated as expected
                       </button>
                     </span>
                   </span>
-                  <span
+                  <div
                     class="MuiTypography-root MuiTypography-body2 info-caption css-1e2mg7s-MuiTypography-root"
                   >
-                    <span
+                    <div
                       class="info-caption-item item-author"
                     >
                       <svg
@@ -2373,15 +2371,14 @@ exports[`With search parameters both search components are populated as expected
                           d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
                         />
                       </svg>
-                      <span
-                        style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; display: inline-block; max-width: 100%;"
+                      <div
+                        class="MuiBox-root css-1obfhg7"
                       >
                         michaelpalin@python.com
-                      </span>
-                    </span>
-                    <span
-                      class="info-caption-item item-time"
-                      style="display: flex; align-items: center; margin-left: 8px;"
+                      </div>
+                    </div>
+                    <div
+                      class="info-caption-item item-time MuiBox-root css-9mul5i"
                     >
                       <svg
                         aria-hidden="true"
@@ -2401,8 +2398,8 @@ exports[`With search parameters both search components are populated as expected
                       >
                         Jul 4, 20, 00:00 UTC
                       </div>
-                    </span>
-                  </span>
+                    </div>
+                  </div>
                 </span>
                 <span
                   class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-16ejnil-MuiTypography-root"
@@ -2601,7 +2598,7 @@ exports[`With search parameters both search components are populated as expected
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f1yel07   css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
         id="base_search-input"
       >
         <div
@@ -2745,7 +2742,7 @@ exports[`With search parameters both search components are populated as expected
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f1yel07   css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
         id="new_search-input"
       >
         <div
@@ -2829,7 +2826,7 @@ exports[`With search parameters both search components are populated as expected
               value="autoland"
             />
             <div
-              class="repo_fkd3ycy"
+              class="repo_f1akv6s4"
             >
               <div>
                 autoland
@@ -2882,10 +2879,10 @@ exports[`With search parameters both search components are populated as expected
                       </button>
                     </span>
                   </span>
-                  <span
+                  <div
                     class="MuiTypography-root MuiTypography-body2 info-caption css-1e2mg7s-MuiTypography-root"
                   >
-                    <span
+                    <div
                       class="info-caption-item item-author"
                     >
                       <svg
@@ -2899,15 +2896,14 @@ exports[`With search parameters both search components are populated as expected
                           d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
                         />
                       </svg>
-                      <span
-                        style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; display: inline-block; max-width: 100%;"
+                      <div
+                        class="MuiBox-root css-1obfhg7"
                       >
                         michaelpalin@python.com
-                      </span>
-                    </span>
-                    <span
-                      class="info-caption-item item-time"
-                      style="display: flex; align-items: center; margin-left: 8px;"
+                      </div>
+                    </div>
+                    <div
+                      class="info-caption-item item-time MuiBox-root css-9mul5i"
                     >
                       <svg
                         aria-hidden="true"
@@ -2927,8 +2923,8 @@ exports[`With search parameters both search components are populated as expected
                       >
                         Jul 4, 20, 00:00 UTC
                       </div>
-                    </span>
-                  </span>
+                    </div>
+                  </div>
                 </span>
                 <span
                   class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-16ejnil-MuiTypography-root"
@@ -3280,7 +3276,7 @@ exports[`With search parameters displays the default value for framework if the 
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f1yel07   css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
         id="new_search-input--time"
       >
         <div
@@ -3363,7 +3359,7 @@ exports[`With search parameters displays the default value for framework if the 
               value="try"
             />
             <div
-              class="repo_fkd3ycy"
+              class="repo_f1akv6s4"
             >
               <div>
                 try
@@ -3416,10 +3412,10 @@ exports[`With search parameters displays the default value for framework if the 
                       </button>
                     </span>
                   </span>
-                  <span
+                  <div
                     class="MuiTypography-root MuiTypography-body2 info-caption css-1e2mg7s-MuiTypography-root"
                   >
-                    <span
+                    <div
                       class="info-caption-item item-author"
                     >
                       <svg
@@ -3433,15 +3429,14 @@ exports[`With search parameters displays the default value for framework if the 
                           d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
                         />
                       </svg>
-                      <span
-                        style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; display: inline-block; max-width: 100%;"
+                      <div
+                        class="MuiBox-root css-1obfhg7"
                       >
                         terrygilliam@python.com
-                      </span>
-                    </span>
-                    <span
-                      class="info-caption-item item-time"
-                      style="display: flex; align-items: center; margin-left: 8px;"
+                      </div>
+                    </div>
+                    <div
+                      class="info-caption-item item-time MuiBox-root css-9mul5i"
                     >
                       <svg
                         aria-hidden="true"
@@ -3461,8 +3456,8 @@ exports[`With search parameters displays the default value for framework if the 
                       >
                         Jul 29, 87, 00:00 UTC
                       </div>
-                    </span>
-                  </span>
+                    </div>
+                  </div>
                 </span>
                 <span
                   class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-16ejnil-MuiTypography-root"
@@ -3661,7 +3656,7 @@ exports[`With search parameters displays the default value for framework if the 
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f1yel07   css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
         id="base_search-input"
       >
         <div
@@ -3805,7 +3800,7 @@ exports[`With search parameters displays the default value for framework if the 
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f1yel07   css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
         id="new_search-input"
       >
         <div
@@ -3889,7 +3884,7 @@ exports[`With search parameters displays the default value for framework if the 
               value="try"
             />
             <div
-              class="repo_fkd3ycy"
+              class="repo_f1akv6s4"
             >
               <div>
                 try
@@ -3942,10 +3937,10 @@ exports[`With search parameters displays the default value for framework if the 
                       </button>
                     </span>
                   </span>
-                  <span
+                  <div
                     class="MuiTypography-root MuiTypography-body2 info-caption css-1e2mg7s-MuiTypography-root"
                   >
-                    <span
+                    <div
                       class="info-caption-item item-author"
                     >
                       <svg
@@ -3959,15 +3954,14 @@ exports[`With search parameters displays the default value for framework if the 
                           d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
                         />
                       </svg>
-                      <span
-                        style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; display: inline-block; max-width: 100%;"
+                      <div
+                        class="MuiBox-root css-1obfhg7"
                       >
                         terrygilliam@python.com
-                      </span>
-                    </span>
-                    <span
-                      class="info-caption-item item-time"
-                      style="display: flex; align-items: center; margin-left: 8px;"
+                      </div>
+                    </div>
+                    <div
+                      class="info-caption-item item-time MuiBox-root css-9mul5i"
                     >
                       <svg
                         aria-hidden="true"
@@ -3987,8 +3981,8 @@ exports[`With search parameters displays the default value for framework if the 
                       >
                         Jul 29, 87, 00:00 UTC
                       </div>
-                    </span>
-                  </span>
+                    </div>
+                  </div>
                 </span>
                 <span
                   class="MuiTypography-root MuiTypography-body2 MuiTypography-noWrap MuiListItemText-secondary css-16ejnil-MuiTypography-root"
@@ -4340,7 +4334,7 @@ exports[`With search parameters displays the default values if some values are b
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_f1yel07   css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input--time  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
         id="new_search-input--time"
       >
         <div
@@ -4574,7 +4568,7 @@ exports[`With search parameters displays the default values if some values are b
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_f1yel07   css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 base-search-input  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
         id="base_search-input"
       >
         <div
@@ -4718,7 +4712,7 @@ exports[`With search parameters displays the default values if some values are b
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_f1yel07   css-17gmabg-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-7 new-search-input  baseSearchInput_foodp4k css-17gmabg-MuiGrid-root"
         id="new_search-input"
       >
         <div

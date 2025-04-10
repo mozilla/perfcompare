@@ -191,10 +191,6 @@ export const SearchStyles = (mode: string) => {
       position: 'absolute',
       left: '288px',
       $nest: {
-        '&.big': {
-          left: '276px',
-          minWidth: `${850 - repoDropdownWidth - Spacing.Default}px`,
-        },
         '&.base-search-input--mobile, &.new-search-input--mobile': {
           position: 'unset',
         },

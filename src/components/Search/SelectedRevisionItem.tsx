@@ -100,17 +100,17 @@ function SelectedRevisionItem({
               </Typography>
 
               <Typography
-                component='span'
+                component='div'
                 variant='body2'
                 className='info-caption'
               >
-                <span className='info-caption-item item-author'>
+                <div className='info-caption-item item-author'>
                   <MailOutlineOutlinedIcon
                     className='mail-icon'
                     fontSize='small'
                   />
-                  <span
-                    style={{
+                  <Box
+                    sx={{
                       textOverflow: 'ellipsis',
                       whiteSpace: 'nowrap',
                       overflow: 'hidden',
@@ -119,11 +119,11 @@ function SelectedRevisionItem({
                     }}
                   >
                     {item.author}
-                  </span>
-                </span>
-                <span
+                  </Box>
+                </div>
+                <Box
                   className='info-caption-item item-time'
-                  style={{
+                  sx={{
                     display: 'flex',
                     alignItems: 'center',
                     marginLeft: '8px',
@@ -134,7 +134,7 @@ function SelectedRevisionItem({
                     fontSize='small'
                   />
                   <DateTimeDisplay itemDate={itemDate} />
-                </span>
+                </Box>
               </Typography>
             </React.Fragment>
           }
