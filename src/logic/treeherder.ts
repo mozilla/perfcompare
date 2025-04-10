@@ -77,7 +77,7 @@ export async function fetchRevisionFromHash(
   });
   const url = `${treeherderBaseURL}/api/project/${repo}/hash/tocommit/?${searchParams.toString()}`;
   const response = await fetchFromTreeherder(url);
-  return response.json() as Promise<CommitToHash[]>;
+  return response.json() as Promise<CommitToHash>;
 }
 
 // This fetches data from the Treeherder API /api/perfcompare/results.

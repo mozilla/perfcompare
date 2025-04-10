@@ -110,8 +110,8 @@ export type CompareResultsItem = {
 };
 
 export type CommitToHash = {
-  originalRevision: string | null;
-  newRevision: string | null;
+  originalRevision: string;
+  newRevision: string;
 };
 
 export type InputType = 'base' | 'new';
