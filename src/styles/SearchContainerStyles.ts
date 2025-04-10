@@ -7,7 +7,9 @@ export const SearchContainerStyles = (mode: string, isHome: boolean) => {
 
   const styles = stylesheet({
     container: {
-      maxWidth: isHome ? '850px' : '950px',
+      /*** maxWidth based on mozilla protocol large cards size; see https://protocol.mozilla.org/components/detail/card--large
+       ***/
+      maxWidth: '973px',
       marginTop: isHome ? `${Spacing.layoutLarge + 20}px` : '0px',
       margin: '0 auto',
       marginBottom: isHome ? '0px' : `${Spacing.layoutXLarge + 4}px`,

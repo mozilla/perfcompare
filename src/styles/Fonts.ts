@@ -17,11 +17,32 @@ const sharedFontStyles = {
   fontStyle: 'normal',
 };
 
+export const FontSizeRaw = {
+  xSmall: {
+    fontSize: `${12 / 16}rem`,
+  },
+  Small: {
+    fontSize: `${14 / 16}rem`,
+  },
+  Normal: {
+    fontSize: '1rem',
+  },
+  Large: {
+    fontSize: `${18 / 16}rem`,
+  },
+  xLarge: {
+    fontSize: `${20 / 16}rem`,
+  },
+  xxLarge: {
+    fontSize: `${24 / 16}rem`,
+  },
+};
+
 export const FontsRaw = {
   HeadingDefault: {
     ...sharedFontStyles,
     fontWeight: '600',
-    fontSize: '17px',
+    fontSize: FontSizeRaw.Large.fontSize,
     fontFamily: 'SF Pro',
     fontStyle: 'normal',
   },
@@ -35,7 +56,7 @@ export const FontsRaw = {
   BodyDefault: {
     ...sharedFontStyles,
     fontWeight: '400',
-    fontSize: '16px',
+    fontSize: FontSizeRaw.Normal.fontSize,
     fontFamily: 'SF Pro',
   },
 
@@ -57,7 +78,7 @@ export const FontsRaw = {
   BodyDefaultDark: {
     ...sharedFontStyles,
     fontWeight: '400',
-    fontSize: '14px',
+    fontSize: FontSizeRaw.Normal.fontSize,
     fontFamily: 'SF Pro',
   },
 };
@@ -69,27 +90,6 @@ export const Fonts = {
   HeadingDefaultDark: style(FontsRaw.HeadingDefaultDark),
   HeadingXSDark: style(FontsRaw.HeadingXSDark),
   BodyDefaultDark: style(FontsRaw.BodyDefaultDark),
-};
-
-export const FontSizeRaw = {
-  xSmall: {
-    fontSize: `${12 / 16}rem`,
-  },
-  Small: {
-    fontSize: `${14 / 16}rem`,
-  },
-  Normal: {
-    fontSize: '1rem',
-  },
-  Large: {
-    fontSize: `${18 / 16}rem`,
-  },
-  xLarge: {
-    fontSize: `${20 / 16}rem`,
-  },
-  xxLarge: {
-    fontSize: `${24 / 16}rem`,
-  },
 };
 
 export const FontSize = {
