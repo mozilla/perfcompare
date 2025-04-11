@@ -127,6 +127,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
               <form
                 action="/compare-results"
                 aria-label="Compare with base form"
+                autocomplete="off"
                 method="get"
               >
                 <div
@@ -539,6 +540,7 @@ exports[`Search View renders correctly when there are no results 1`] = `
               <form
                 action="/compare-over-time-results"
                 aria-label="Compare over time form"
+                autocomplete="off"
                 method="get"
               >
                 <div
@@ -933,6 +935,7 @@ exports[`With search parameters both search components are populated as expected
 <form
   action="/compare-over-time-results"
   aria-label="Compare over time form"
+  autocomplete="off"
   method="get"
 >
   <div
@@ -1334,11 +1337,11 @@ exports[`With search parameters both search components are populated as expected
                         />
                       </svg>
                       <div
-                        aria-label="Jul 29, 87, 00:00 UTC"
+                        aria-label="Jul 29, 87, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Jul 29, 87, 00:00 UTC
+                        Jul 29, 87, 24:00 UTC
                       </div>
                     </div>
                   </div>
@@ -1466,6 +1469,7 @@ exports[`With search parameters both search components are populated as expected
 <form
   action="/compare-results"
   aria-label="Compare with base form"
+  autocomplete="off"
   method="get"
 >
   <div
@@ -1859,11 +1863,11 @@ exports[`With search parameters both search components are populated as expected
                         />
                       </svg>
                       <div
-                        aria-label="Jul 29, 87, 00:00 UTC"
+                        aria-label="Jul 29, 87, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Jul 29, 87, 00:00 UTC
+                        Jul 29, 87, 24:00 UTC
                       </div>
                     </div>
                   </div>
@@ -1991,6 +1995,7 @@ exports[`With search parameters both search components are populated as expected
 <form
   action="/compare-over-time-results"
   aria-label="Compare over time form"
+  autocomplete="off"
   method="get"
 >
   <div
@@ -2392,11 +2397,11 @@ exports[`With search parameters both search components are populated as expected
                         />
                       </svg>
                       <div
-                        aria-label="Jul 4, 20, 00:00 UTC"
+                        aria-label="Jul 4, 20, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Jul 4, 20, 00:00 UTC
+                        Jul 4, 20, 24:00 UTC
                       </div>
                     </div>
                   </div>
@@ -2524,6 +2529,7 @@ exports[`With search parameters both search components are populated as expected
 <form
   action="/compare-results"
   aria-label="Compare with base form"
+  autocomplete="off"
   method="get"
 >
   <div
@@ -2917,11 +2923,11 @@ exports[`With search parameters both search components are populated as expected
                         />
                       </svg>
                       <div
-                        aria-label="Jul 4, 20, 00:00 UTC"
+                        aria-label="Jul 4, 20, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Jul 4, 20, 00:00 UTC
+                        Jul 4, 20, 24:00 UTC
                       </div>
                     </div>
                   </div>
@@ -3049,6 +3055,7 @@ exports[`With search parameters displays the default value for framework if the 
 <form
   action="/compare-over-time-results"
   aria-label="Compare over time form"
+  autocomplete="off"
   method="get"
 >
   <div
@@ -3450,11 +3457,11 @@ exports[`With search parameters displays the default value for framework if the 
                         />
                       </svg>
                       <div
-                        aria-label="Jul 29, 87, 00:00 UTC"
+                        aria-label="Jul 29, 87, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Jul 29, 87, 00:00 UTC
+                        Jul 29, 87, 24:00 UTC
                       </div>
                     </div>
                   </div>
@@ -3582,6 +3589,7 @@ exports[`With search parameters displays the default value for framework if the 
 <form
   action="/compare-results"
   aria-label="Compare with base form"
+  autocomplete="off"
   method="get"
 >
   <div
@@ -3975,11 +3983,11 @@ exports[`With search parameters displays the default value for framework if the 
                         />
                       </svg>
                       <div
-                        aria-label="Jul 29, 87, 00:00 UTC"
+                        aria-label="Jul 29, 87, 24:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Jul 29, 87, 00:00 UTC
+                        Jul 29, 87, 24:00 UTC
                       </div>
                     </div>
                   </div>
@@ -4107,6 +4115,7 @@ exports[`With search parameters displays the default values if some values are b
 <form
   action="/compare-over-time-results"
   aria-label="Compare over time form"
+  autocomplete="off"
   method="get"
 >
   <div
@@ -4494,6 +4503,7 @@ exports[`With search parameters displays the default values if some values are b
 <form
   action="/compare-results"
   aria-label="Compare with base form"
+  autocomplete="off"
   method="get"
 >
   <div
