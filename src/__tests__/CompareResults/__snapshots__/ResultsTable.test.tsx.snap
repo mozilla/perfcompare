@@ -100,6 +100,7 @@ exports[`Results Table Should match snapshot 1`] = `
             <form
               action="/compare-results"
               aria-label="Compare with base form"
+              autocomplete="off"
               method="get"
             >
               <div
@@ -375,11 +376,11 @@ exports[`Results Table Should match snapshot 1`] = `
                                     />
                                   </svg>
                                   <div
-                                    aria-label="Mar 29, 51, 00:00 UTC"
+                                    aria-label="Mar 29, 51, 24:00 UTC"
                                     class=""
                                     data-mui-internal-clone-element="true"
                                   >
-                                    Mar 29, 51, 00:00 UTC
+                                    Mar 29, 51, 24:00 UTC
                                   </div>
                                 </div>
                               </div>
@@ -665,11 +666,11 @@ exports[`Results Table Should match snapshot 1`] = `
                                     />
                                   </svg>
                                   <div
-                                    aria-label="Mar 29, 51, 00:00 UTC"
+                                    aria-label="Mar 29, 51, 24:00 UTC"
                                     class=""
                                     data-mui-internal-clone-element="true"
                                   >
-                                    Mar 29, 51, 00:00 UTC
+                                    Mar 29, 51, 24:00 UTC
                                   </div>
                                 </div>
                               </div>
