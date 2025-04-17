@@ -110,7 +110,7 @@ export type CompareResultsItem = {
 };
 
 export type CommitToHash = {
-  originalRevision: string;
+  baseRevision: string;
   newRevision: string;
 };
 

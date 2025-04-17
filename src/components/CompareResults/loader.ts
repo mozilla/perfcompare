@@ -183,7 +183,7 @@ export async function loader({ request }: { request: Request }) {
 
   let baseRevFromUrl = url.searchParams.get('baseRev');
   let newRevsFromUrl = url.searchParams.getAll('newRev');
-  const baseHashFromUrl = url.searchParams.get('originalHash');
+  const baseHashFromUrl = url.searchParams.get('baseHash');
   const newHashFromUrl = url.searchParams.get('newHash');
   if (baseHashFromUrl && newHashFromUrl) {
     const commits_from_hashes = await fetchRevisionFromHash(
@@ -191,7 +191,7 @@ export async function loader({ request }: { request: Request }) {
       newHashFromUrl,
       'try',
     );
-    baseRevFromUrl = commits_from_hashes.originalRevision;
+    baseRevFromUrl = commits_from_hashes.baseRevision;
     newRevsFromUrl = [commits_from_hashes.newRevision];
   }
 
