@@ -4,6 +4,7 @@ import {
   fetchCompareResults,
   fetchFakeCompareResults,
   memoizedFetchRevisionForRepository,
+  fetchRevisionFromHash,
 } from '../../logic/treeherder';
 import { Changeset, CompareResultsItem, Repository } from '../../types/state';
 import { FakeCommitHash, Framework } from '../../types/types';
@@ -180,11 +181,23 @@ export async function loader({ request }: { request: Request }) {
     };
   }
 
-  const baseRevFromUrl = url.searchParams.get('baseRev');
+  let baseRevFromUrl = url.searchParams.get('baseRev');
+  let newRevsFromUrl = url.searchParams.getAll('newRev');
+  const baseHashFromUrl = url.searchParams.get('baseHash');
+  const newHashFromUrl = url.searchParams.get('newHash');
+  if (baseHashFromUrl && newHashFromUrl) {
+    const commits_from_hashes = await fetchRevisionFromHash(
+      baseHashFromUrl,
+      newHashFromUrl,
+      'try',
+    );
+    baseRevFromUrl = commits_from_hashes.baseRevision;
+    newRevsFromUrl = [commits_from_hashes.newRevision];
+  }
+
   const baseRepoFromUrl = url.searchParams.get('baseRepo') as
     | Repository['name']
     | null;
-  const newRevsFromUrl = url.searchParams.getAll('newRev');
   const newReposFromUrl = url.searchParams.getAll(
     'newRepo',
   ) as Repository['name'][];
