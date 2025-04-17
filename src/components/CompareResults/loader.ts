@@ -191,8 +191,14 @@ export async function loader({ request }: { request: Request }) {
       newHashFromUrl,
       'try',
     );
-    baseRevFromUrl = commits_from_hashes.baseRevision;
-    newRevsFromUrl = [commits_from_hashes.newRevision];
+    try {
+      baseRevFromUrl = commits_from_hashes.baseRevision;
+      newRevsFromUrl = [commits_from_hashes.newRevision];
+      console.log(baseRevFromUrl)
+    } catch {
+      throw new Error('Unable to convert commit to hash, please check data again');
+    }
+
   }
 
   const baseRepoFromUrl = url.searchParams.get('baseRepo') as
