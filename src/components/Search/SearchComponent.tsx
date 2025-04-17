@@ -103,9 +103,7 @@ function SearchComponent({
           item
           xs={7}
           id={`${searchType}_search-input`}
-          className={`${searchType}-search-input  ${styles.baseSearchInput} ${
-            hasEditButton ? 'big' : ''
-          } `}
+          className={`${searchType}-search-input  ${styles.baseSearchInput}`}
         >
           <SearchInputAndResults
             compact={hasEditButton}
