@@ -1,7 +1,7 @@
+import App, {router} from "../../components/App";
 import {
     FetchMockSandbox, render,
 } from '../utils/test-utils';
-import App, {router} from "../../components/App";
 
 // Test 2 One of baseHash/newHash missing
 // Test 3 not numeric hash provided
