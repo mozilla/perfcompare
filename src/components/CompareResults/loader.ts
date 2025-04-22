@@ -191,12 +191,11 @@ export async function loader({ request }: { request: Request }) {
       newHashFromUrl,
       'try',
     );
-    try {
-      baseRevFromUrl = commits_from_hashes.baseRevision;
-      newRevsFromUrl = [commits_from_hashes.newRevision];
-    } catch {
+    baseRevFromUrl = commits_from_hashes.baseRevision;
+    newRevsFromUrl = [commits_from_hashes.newRevision];
+    if (baseRevFromUrl == undefined || newRevsFromUrl[0] == undefined) {
       throw new Error(
-        'Unable to convert commit to hash, please check data again',
+        'Unable to parse baseRev and/or newHash returned from treeherder',
       );
     }
   }

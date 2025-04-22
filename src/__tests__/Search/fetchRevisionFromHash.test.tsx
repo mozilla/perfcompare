@@ -35,4 +35,33 @@ describe('Hash to commit good run validating', () => {
     expect(console.error).toHaveBeenCalledTimes(1);
     (console.error as jest.Mock).mockClear();
   });
+
+  it('should reject bad null results also', async () => {
+    jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    (global.fetch as FetchMockSandbox).get(
+      'glob:https://treeherder.mozilla.org/api/project/*/hash/*',
+      (url) => {
+        return url.includes('tocommit')
+          ? {
+              badbaseRevision: 'Press',
+              newRevision: 'Another',
+            }
+          : {};
+      },
+    );
+
+    // Error 1: no baseRev
+    await router.navigate(
+      '/compare-results?baseHash=7844063918536384434&baseRepo=try&newHash=83782697878014813466&newRepo=try&framework=1',
+    );
+    render(<App />);
+    expect(console.error).toHaveBeenCalledWith(
+      new Error(
+        'Unable to parse baseRev and/or newHash returned from treeherder',
+      ),
+    );
+    expect(console.error).toHaveBeenCalledTimes(1);
+    (console.error as jest.Mock).mockClear();
+  });
 });

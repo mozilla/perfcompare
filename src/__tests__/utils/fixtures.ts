@@ -800,13 +800,6 @@ const getTestData = () => {
     },
   ];
 
-  const testCommitToHash: CommitToHash[] = [
-    {
-      baseRevision: '33b13dd34be603ffa7e7093ceecdc96ba1f344e8',
-      newRevision: '1ebfd591be18e6e8201a75fc253e39fc5b9c0b98',
-    },
-  ];
-
   return {
     testCompareData,
     subtestsResult,
@@ -815,7 +808,6 @@ const getTestData = () => {
     testCompareDataWithReplicates,
     testCompareDataWithReplicatesOneValue,
     testCompareDataWithReplicatesMultipleValues,
-    testCommitToHash,
   };
 };
 export default getTestData;
