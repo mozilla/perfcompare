@@ -79,7 +79,7 @@ describe('SearchView/fetchRevisions', () => {
     ).toBeInTheDocument();
   });
 
-  it('should fetch revisions by phrase', async () => {
+  it('should fetch revisions by comments', async () => {
     const { testData } = getTestData();
     (global.fetch as FetchMockSandbox).get(
       'glob:https://treeherder.mozilla.org/api/project/*/push/*',

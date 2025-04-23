@@ -73,7 +73,7 @@ describe('SelectedRevision', () => {
     expect(baseDropdown).toHaveTextContent('try');
 
     const firstSearchInput = screen.getAllByPlaceholderText(
-      'Search base by ID number, author email or bug number',
+      'Search by revision ID, author, bug number and comments',
     )[0];
     await user.click(firstSearchInput);
     await user.click(

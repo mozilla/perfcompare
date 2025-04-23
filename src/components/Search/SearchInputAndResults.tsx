@@ -69,13 +69,13 @@ export default function SearchInputAndResults({
   const searchRecentRevisions = useCallback(
     async (searchTerm: string) => {
       // The search input must be at least three characters.
-      // If the searchTerm doesn't look like a hash, then we assume it might be an author.
-      // If it looks like a hash, then we assume it's a hash.
+      // If the input matches a hash pattern (4-40 hex characters with at least one letter), treat it as a hash.
+      const isHash = /^(?=.*[a-f])[a-f0-9]{4,40}$/i;
+      // Otherwise, assume it's an author name, email, bug number, or comment and pass it as a general search term.
       // NOTE: In the future we might want to be more clever and request both
       // endpoints even when it looks like a hash. For example a request such as "ade" could
       // return results for an author named "adenot" _and_  results for a hash "ade821ac".
       // In that case it would be better to show the results for the author.
-      const isHash = /^(?=.*[a-f])[a-f0-9]{4,40}$/i;
 
       // Reset various states
       setSearchError(null);
@@ -85,7 +85,6 @@ export default function SearchInputAndResults({
       const thisRequestId = ++requestsCounterRef.current;
 
       let searchParameters;
-      // we have to find a way to return hash if hash is searched and other fields when they are searched.
       if (!searchTerm) {
         searchParameters = { repository };
       } else if (searchTerm.length < 3) {
