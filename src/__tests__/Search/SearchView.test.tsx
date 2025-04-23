@@ -133,9 +133,9 @@ describe('Search Container', () => {
       name: baseTitle,
     });
 
-    const baseInput = screen.getByPlaceholderText(
-      'Search base by ID number, author email or bug number',
-    );
+    const baseInput = screen.getAllByPlaceholderText(
+      'Search by revision ID, author, bug number and comments',
+    )[0];
     const repoDropdown = screen.getByRole('button', { name: 'Base' });
 
     expect(compTitle).toBeInTheDocument();
@@ -160,15 +160,15 @@ describe('Base and OverTime Search', () => {
 
     // Search input appears
     expect(
-      screen.getByPlaceholderText(
-        /Search base by ID number, author email or bug number/i,
-      ),
+      screen.getAllByPlaceholderText(
+        /Search by revision ID, author, bug number and comments/i,
+      )[0],
     ).toBeInTheDocument();
 
     await expandOverTimeComponent();
     expect(
       screen.getAllByPlaceholderText(
-        /Search revision by ID number, author email or bug number/i,
+        /Search by revision ID, author, bug number and comments/i,
       )[1],
     ).toBeInTheDocument();
 
