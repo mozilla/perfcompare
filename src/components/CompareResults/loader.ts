@@ -180,22 +180,32 @@ export async function loader({ request }: { request: Request }) {
       generation: generationCounter++,
     };
   }
-
-  let baseRevFromUrl = url.searchParams.get('baseRev');
-  let newRevsFromUrl = url.searchParams.getAll('newRev');
+  const baseRevFromUrl = url.searchParams.get('baseRev');
+  const newRevsFromUrl = url.searchParams.getAll('newRev');
   const baseHashFromUrl = url.searchParams.get('baseHash');
   const newHashFromUrl = url.searchParams.get('newHash');
+
+  // This loader is the only one used by ./mach try perf, and due to
+  // recent changes mach try perf can't get instant push links to try
+  // when we push, we must attach a hash to the commit message and
+  // search commits for that hash, and return the commit associated
+  // with that hash and update the baseRev and newRev
+  let baseRevsFromHash = baseRevFromUrl;
+  let newRevsFromHash = newRevsFromUrl;
+  let usingRevisionsOrHash = true;
   if (baseHashFromUrl && newHashFromUrl) {
+    // Update to the boolean to indicate we are using a hash to find revisions
+    usingRevisionsOrHash = false;
     const commits_from_hashes = await fetchRevisionFromHash(
       baseHashFromUrl,
       newHashFromUrl,
       'try',
     );
-    baseRevFromUrl = commits_from_hashes.baseRevision;
-    newRevsFromUrl = [commits_from_hashes.newRevision];
-    if (baseRevFromUrl == undefined || newRevsFromUrl[0] == undefined) {
+    baseRevsFromHash = commits_from_hashes.baseRevision;
+    newRevsFromHash = [commits_from_hashes.newRevision];
+    if (baseRevsFromHash == undefined || newRevsFromHash[0] == undefined) {
       throw new Error(
-        'Unable to parse baseRev and/or newHash returned from treeherder',
+        'Unable to parse baseRev and/or newRev returned from treeherder',
       );
     }
   }
@@ -207,12 +217,17 @@ export async function loader({ request }: { request: Request }) {
     'newRepo',
   ) as Repository['name'][];
   const frameworkFromUrl = url.searchParams.get('framework');
+  // Update baseRev and newRev if and only if we are supplied with newHash and baseHash
+  const updateBaseRev = usingRevisionsOrHash
+    ? baseRevFromUrl
+    : baseRevsFromHash;
+  const updateNewRev = usingRevisionsOrHash ? newRevsFromUrl : newRevsFromHash;
 
   const { baseRev, baseRepo, newRevs, newRepos, frameworkId, frameworkName } =
     checkValues({
-      baseRev: baseRevFromUrl,
+      baseRev: updateBaseRev,
       baseRepo: baseRepoFromUrl,
-      newRevs: newRevsFromUrl,
+      newRevs: updateNewRev,
       newRepos: newReposFromUrl,
       framework: frameworkFromUrl,
     });

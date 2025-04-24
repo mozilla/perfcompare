@@ -1,13 +1,8 @@
 import App, { router } from '../../components/App';
 import { FetchMockSandbox, render } from '../utils/test-utils';
 
-// Test 2 One of baseHash/newHash missing
-// Test 3 not numeric hash provided
-// Test 4 not existing hash
-// test 5 good run
-
 describe('Hash to commit good run validating', () => {
-  it('should reject bad null results', async () => {
+  it('should reject hashes not associated with any commits', async () => {
     jest.spyOn(console, 'error').mockImplementation(() => {});
 
     (global.fetch as FetchMockSandbox).get(
@@ -22,11 +17,11 @@ describe('Hash to commit good run validating', () => {
           : {},
     );
 
-    // Error 1: no baseRev
     await router.navigate(
       '/compare-results?baseHash=7844063918536384434&baseRepo=try&newHash=83782697878014813466&newRepo=try&framework=1',
     );
     render(<App />);
+    // Expecting to have a hashes do not correlate with revision error
     expect(console.error).toHaveBeenCalledWith(
       new Error(
         'Error when requesting treeherder: ["83782697878014813466 or 7844063918536384434 do not correspond to any existing hashes please double check both hashes you provided"]',
@@ -36,7 +31,7 @@ describe('Hash to commit good run validating', () => {
     (console.error as jest.Mock).mockClear();
   });
 
-  it('should reject bad null results also', async () => {
+  it('should reject invalid results returned from treeherder', async () => {
     jest.spyOn(console, 'error').mockImplementation(() => {});
 
     (global.fetch as FetchMockSandbox).get(
@@ -51,14 +46,14 @@ describe('Hash to commit good run validating', () => {
       },
     );
 
-    // Error 1: no baseRev
     await router.navigate(
       '/compare-results?baseHash=7844063918536384434&baseRepo=try&newHash=83782697878014813466&newRepo=try&framework=1',
     );
     render(<App />);
+    // Expecting to have an error about unable to parse baseRev and/or newRev returned from treeherder
     expect(console.error).toHaveBeenCalledWith(
       new Error(
-        'Unable to parse baseRev and/or newHash returned from treeherder',
+        'Unable to parse baseRev and/or newRev returned from treeherder',
       ),
     );
     expect(console.error).toHaveBeenCalledTimes(1);
