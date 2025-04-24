@@ -221,7 +221,9 @@ export async function loader({ request }: { request: Request }) {
   const updateBaseRev = notUsingHashToFindRevisions
     ? baseRevFromUrl
     : baseRevsFromHash;
-  const updateNewRev = notUsingHashToFindRevisions ? newRevsFromUrl : newRevsFromHash;
+  const updateNewRev = notUsingHashToFindRevisions
+    ? newRevsFromUrl
+    : newRevsFromHash;
 
   const { baseRev, baseRepo, newRevs, newRepos, frameworkId, frameworkName } =
     checkValues({
