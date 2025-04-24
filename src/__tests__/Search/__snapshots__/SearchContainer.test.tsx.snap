@@ -48,6 +48,7 @@ exports[`Search Containter should match snapshot 1`] = `
             <form
               action="/compare-results"
               aria-label="Compare with base form"
+              autocomplete="off"
               method="get"
             >
               <div
@@ -460,6 +461,7 @@ exports[`Search Containter should match snapshot 1`] = `
             <form
               action="/compare-over-time-results"
               aria-label="Compare over time form"
+              autocomplete="off"
               method="get"
             >
               <div
