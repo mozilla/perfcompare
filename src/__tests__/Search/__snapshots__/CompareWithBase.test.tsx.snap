@@ -300,11 +300,11 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                         />
                       </svg>
                       <div
-                        aria-label="Mar 29, 51, 24:00 UTC"
+                        aria-label="Mar 29, 51, 00:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Mar 29, 51, 24:00 UTC
+                        Mar 29, 51, 00:00 UTC
                       </div>
                     </div>
                   </div>
@@ -610,11 +610,11 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
                         />
                       </svg>
                       <div
-                        aria-label="Mar 29, 51, 24:00 UTC"
+                        aria-label="Mar 29, 51, 00:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Mar 29, 51, 24:00 UTC
+                        Mar 29, 51, 00:00 UTC
                       </div>
                     </div>
                   </div>
@@ -1116,11 +1116,11 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                         />
                       </svg>
                       <div
-                        aria-label="Mar 29, 51, 24:00 UTC"
+                        aria-label="Mar 29, 51, 00:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Mar 29, 51, 24:00 UTC
+                        Mar 29, 51, 00:00 UTC
                       </div>
                     </div>
                   </div>
@@ -1620,11 +1620,11 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                         />
                       </svg>
                       <div
-                        aria-label="Mar 29, 51, 24:00 UTC"
+                        aria-label="Mar 29, 51, 00:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Mar 29, 51, 24:00 UTC
+                        Mar 29, 51, 00:00 UTC
                       </div>
                     </div>
                   </div>
@@ -1930,11 +1930,11 @@ exports[`Compare With Base should have an edit mode in Results View: After click
                         />
                       </svg>
                       <div
-                        aria-label="Mar 29, 51, 24:00 UTC"
+                        aria-label="Mar 29, 51, 00:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Mar 29, 51, 24:00 UTC
+                        Mar 29, 51, 00:00 UTC
                       </div>
                     </div>
                   </div>
@@ -2311,11 +2311,11 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                         />
                       </svg>
                       <div
-                        aria-label="Mar 29, 51, 24:00 UTC"
+                        aria-label="Mar 29, 51, 00:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Mar 29, 51, 24:00 UTC
+                        Mar 29, 51, 00:00 UTC
                       </div>
                     </div>
                   </div>
@@ -2621,11 +2621,11 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
                         />
                       </svg>
                       <div
-                        aria-label="Mar 29, 51, 24:00 UTC"
+                        aria-label="Mar 29, 51, 00:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Mar 29, 51, 24:00 UTC
+                        Mar 29, 51, 00:00 UTC
                       </div>
                     </div>
                   </div>
@@ -3133,11 +3133,11 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                         />
                       </svg>
                       <div
-                        aria-label="Mar 29, 51, 24:00 UTC"
+                        aria-label="Mar 29, 51, 00:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Mar 29, 51, 24:00 UTC
+                        Mar 29, 51, 00:00 UTC
                       </div>
                     </div>
                   </div>
@@ -3539,11 +3539,11 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
                         />
                       </svg>
                       <div
-                        aria-label="Mar 29, 51, 24:00 UTC"
+                        aria-label="Mar 29, 51, 00:00 UTC"
                         class=""
                         data-mui-internal-clone-element="true"
                       >
-                        Mar 29, 51, 24:00 UTC
+                        Mar 29, 51, 00:00 UTC
                       </div>
                     </div>
                   </div>
