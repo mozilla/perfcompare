@@ -4,6 +4,7 @@ exports[`Compare With Base renders correctly when there are no results: Initial 
 <form
   action="/compare-results"
   aria-label="Compare with base form"
+  autocomplete="off"
   method="get"
 >
   <div
@@ -794,6 +795,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
 <form
   action="/compare-results"
   aria-label="Compare with base form"
+  autocomplete="off"
   method="get"
 >
   <div
@@ -1313,6 +1315,7 @@ exports[`Compare With Base should have an edit mode in Results View: After click
 <form
   action="/compare-results"
   aria-label="Compare with base form"
+  autocomplete="off"
   method="get"
 >
   <div
@@ -2012,6 +2015,7 @@ exports[`Compare With Base should have an edit mode in Results View: Initial sta
 <form
   action="/compare-results"
   aria-label="Compare with base form"
+  autocomplete="off"
   method="get"
 >
   <div
@@ -2672,6 +2676,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
 <form
   action="/compare-results"
   aria-label="Compare with base form"
+  autocomplete="off"
   method="get"
 >
   <div
@@ -3213,6 +3218,7 @@ exports[`Compare With Base should have an edit mode in Results View: after remov
 <form
   action="/compare-results"
   aria-label="Compare with base form"
+  autocomplete="off"
   method="get"
 >
   <div
@@ -3887,6 +3893,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
               <form
                 action="/compare-results"
                 aria-label="Compare with base form"
+                autocomplete="off"
                 method="get"
               >
                 <div
@@ -4299,6 +4306,7 @@ exports[`Compare With Base should remove the checked revision once X button is c
               <form
                 action="/compare-over-time-results"
                 aria-label="Compare over time form"
+                autocomplete="off"
                 method="get"
               >
                 <div
