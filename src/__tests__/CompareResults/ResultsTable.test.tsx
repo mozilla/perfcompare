@@ -6,6 +6,7 @@ import { loader } from '../../components/CompareResults/loader';
 import ResultsView from '../../components/CompareResults/ResultsView';
 import { Strings } from '../../resources/Strings';
 import type { CompareResultsItem } from '../../types/state';
+import type { Platform } from '../../types/types';
 import getTestData, {
   augmentCompareDataWithSeveralTests,
   augmentCompareDataWithSeveralRevisions,
@@ -102,6 +103,27 @@ function summarizeTableFiltersFromUrl() {
   return result;
 }
 
+async function summarizeTableFiltersFromCheckboxes(user: UserEvent) {
+  const result: Record<string, string[]> = {};
+  const columnButtons = screen.getAllByRole('button', {
+    name: /Click to filter values/,
+  });
+  for (const columnButton of columnButtons) {
+    const menuName = columnButton.textContent ?? '';
+
+    await user.click(columnButton);
+    const menu = screen.getByRole('menu');
+    const menuItemsChecked = within(menu)
+      .getAllByRole('menuitemcheckbox', { checked: true })
+      .map((item) => item.textContent ?? '');
+
+    result[menuName] = menuItemsChecked;
+    await user.keyboard('[Escape]');
+  }
+
+  return result;
+}
+
 function expectParameterToHaveValue(parameter: string, expectedValue: string) {
   const searchParams = new URLSearchParams(window.location.search);
   const currentValue = searchParams.get(parameter);
@@ -113,10 +135,10 @@ async function clickMenuItem(
   menuMatcher: string,
   itemMatcher: string | RegExp,
 ) {
-  const platformColumnButton = screen.getByRole('button', {
+  const columnButton = screen.getByRole('button', {
     name: new RegExp(`${menuMatcher}.*filter`),
   });
-  await user.click(platformColumnButton);
+  await user.click(columnButton);
 
   const menu = screen.getByRole('menu');
   let menuItem = within(menu).queryByRole('menuitemcheckbox', {
@@ -173,16 +195,25 @@ describe('Results Table', () => {
 
   it('should filter on the Platform column', async () => {
     const { testCompareData } = getTestData();
-    testCompareData.push({
-      ...testCompareData[0],
-      platform: 'android-em-7-0-x86_64-lite-qr',
-    });
+    testCompareData.push(
+      {
+        ...testCompareData[0],
+        platform: 'android-em-7-0-x86_64-lite-qr',
+      },
+      // This entry with an unknown platform will show up only when all values
+      // are checked.
+      {
+        ...testCompareData[0],
+        platform: 'inexistant' as Platform,
+      },
+    );
     setupAndRender(testCompareData);
 
     await screen.findByText('a11yr');
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Android, Improvement, 1.08 %, Low',
+      '  - inexistant, Improvement, 1.08 %, Low',
       '  - Linux 18.04, Regression, 1.85 %, Medium',
       '  - macOS 10.15, Improvement, 1.08 %, Low',
       '  - Windows 10, -, -24 %, -',
@@ -203,6 +234,21 @@ describe('Results Table', () => {
       platform: ['osx', 'linux', 'android', 'ios'],
     });
 
+    // Clicking Windows again should remove the search param and make the
+    // "inexitant" platform visible again.
+    await clickMenuItem(user, 'Platform', /Windows/);
+    expect(summarizeVisibleRows()).toEqual([
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - Android, Improvement, 1.08 %, Low',
+      '  - inexistant, Improvement, 1.08 %, Low',
+      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - macOS 10.15, Improvement, 1.08 %, Low',
+      '  - Windows 10, -, -24 %, -',
+      '  - Windows 10, -, -2.4 %, High',
+    ]);
+    expect(summarizeTableFiltersFromUrl()).toEqual({});
+
+    await clickMenuItem(user, 'Platform', /Windows/);
     await clickMenuItem(user, 'Platform', /Linux/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
@@ -221,13 +267,14 @@ describe('Results Table', () => {
       '  - macOS 10.15, Improvement, 1.08 %, Low',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
-      platform: ['osx', 'linux', 'android', 'ios'],
+      platform: ['osx', 'android', 'ios', 'linux'],
     });
 
     await clickMenuItem(user, 'Platform', 'Select all values');
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
       '  - Android, Improvement, 1.08 %, Low',
+      '  - inexistant, Improvement, 1.08 %, Low',
       '  - Linux 18.04, Regression, 1.85 %, Medium',
       '  - macOS 10.15, Improvement, 1.08 %, Low',
       '  - Windows 10, -, -24 %, -',
@@ -391,6 +438,17 @@ describe('Results Table', () => {
       confidence: ['low', 'medium', 'high'],
     });
 
+    // Clicking again to select it should make the search param disappear
+    await clickMenuItem(user, 'Confidence', /No value/);
+    expect(summarizeVisibleRows()).toEqual([
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - Linux 18.04, Regression, 1.85 %, Medium',
+      '  - macOS 10.15, Improvement, 1.08 %, Low',
+      '  - Windows 10, -, -24 %, -',
+      '  - Windows 10, -, -2.4 %, High',
+    ]);
+    expect(summarizeTableFiltersFromUrl()).toEqual({});
+
     await clickMenuItem(user, 'Confidence', /Select only.*High/);
     expect(summarizeVisibleRows()).toEqual([
       'a11yr dhtml.html spam opt e10s fission stylo webrender',
@@ -398,6 +456,29 @@ describe('Results Table', () => {
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
       confidence: ['high'],
+    });
+  });
+
+  it('can load the filter parameters from the URL', async () => {
+    const { testCompareData } = getTestData();
+    setupAndRender(testCompareData, 'filter_platform=android,osx,foo');
+    await screen.findByText('dhtml.html');
+
+    expect(summarizeVisibleRows()).toEqual([
+      'a11yr dhtml.html spam opt e10s fission stylo webrender',
+      '  - macOS 10.15, Improvement, 1.08 %, Low',
+    ]);
+    const user = userEvent.setup({ delay: null });
+    expect(await summarizeTableFiltersFromCheckboxes(user)).toEqual({
+      'Platform(2)': ['macOS', 'Android'],
+      'Status(3)': ['No changes', 'Improvement', 'Regression'],
+      'Confidence(4)': ['No value', 'Low', 'Medium', 'High'],
+    });
+
+    // After a change, "foo" should disappear
+    await clickMenuItem(user, 'Platform', /Linux/);
+    expect(summarizeTableFiltersFromUrl()).toEqual({
+      platform: ['osx', 'android', 'linux'],
     });
   });
 
