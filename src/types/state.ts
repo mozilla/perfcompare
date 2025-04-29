@@ -129,4 +129,5 @@ export type PlatformShortName =
   | 'macOS'
   | 'Windows'
   | 'Android'
+  | 'iOS'
   | 'Unspecified';
