@@ -57,7 +57,7 @@ describe('<RevisionRow>', () => {
     },
     {
       platform: 'i am not an operating system',
-      shortName: 'Unspecified',
+      shortName: 'i am not an operating system',
       hasIcon: false,
     },
   ])(
