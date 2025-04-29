@@ -29,7 +29,7 @@ exports[`Retrigger should retrigger one job for base revision and one job for ne
     class="SnackbarItem-action"
   >
     <a
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-cm1dua-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-aa1ild-MuiButtonBase-root-MuiButton-root"
       href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=coconut"
       rel="noreferrer"
       tabindex="0"
@@ -95,7 +95,7 @@ exports[`Retrigger should retrigger one job for base revision and one job for ne
     class="SnackbarItem-action"
   >
     <a
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-cm1dua-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-aa1ild-MuiButtonBase-root-MuiButton-root"
       href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
       rel="noreferrer"
       tabindex="0"

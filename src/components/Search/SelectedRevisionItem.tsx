@@ -99,23 +99,43 @@ function SelectedRevisionItem({
                 />
               </Typography>
 
-              <div className='info-caption'>
+              <Typography
+                component='div'
+                variant='body2'
+                className='info-caption'
+              >
                 <div className='info-caption-item item-author'>
-                  {' '}
                   <MailOutlineOutlinedIcon
                     className='mail-icon'
                     fontSize='small'
-                  />{' '}
-                  {item.author}
+                  />
+                  <Box
+                    sx={{
+                      textOverflow: 'ellipsis',
+                      whiteSpace: 'nowrap',
+                      overflow: 'hidden',
+                      display: 'inline-block',
+                      maxWidth: '100%',
+                    }}
+                  >
+                    {item.author}
+                  </Box>
                 </div>
-                <div className='info-caption-item item-time'>
+                <Box
+                  className='info-caption-item item-time'
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    marginLeft: '8px',
+                  }}
+                >
                   <AccessTimeOutlinedIcon
                     className='time-icon'
                     fontSize='small'
                   />
                   <DateTimeDisplay itemDate={itemDate} />
-                </div>
-              </div>
+                </Box>
+              </Typography>
             </React.Fragment>
           }
           secondary={`${commitMessage} `}

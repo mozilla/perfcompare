@@ -156,6 +156,7 @@ function CompareOverTime({
           action='/compare-over-time-results'
           onSubmit={onFormSubmit}
           aria-label='Compare over time form'
+          autoComplete='off'
         >
           {/**** Edit Button ****/}
           {hasEditButton && (

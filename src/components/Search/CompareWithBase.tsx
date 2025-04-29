@@ -231,6 +231,7 @@ function CompareWithBase({
           action='/compare-results'
           onSubmit={onFormSubmit}
           aria-label='Compare with base form'
+          autoComplete='off'
         >
           {/**** Edit Button ****/}
           {hasEditButton && (
