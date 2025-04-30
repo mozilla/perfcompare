@@ -200,7 +200,7 @@ describe('Results Table', () => {
       '  - macOS 10.15, Improvement, 1.08 %, Low',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
-      platform: ['osx', 'linux', 'android'],
+      platform: ['osx', 'linux', 'android', 'ios'],
     });
 
     await clickMenuItem(user, 'Platform', /Linux/);
@@ -210,7 +210,7 @@ describe('Results Table', () => {
       '  - macOS 10.15, Improvement, 1.08 %, Low',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
-      platform: ['osx', 'android'],
+      platform: ['osx', 'android', 'ios'],
     });
 
     await clickMenuItem(user, 'Platform', /Linux/);
@@ -221,7 +221,7 @@ describe('Results Table', () => {
       '  - macOS 10.15, Improvement, 1.08 %, Low',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
-      platform: ['osx', 'linux', 'android'],
+      platform: ['osx', 'linux', 'android', 'ios'],
     });
 
     await clickMenuItem(user, 'Platform', 'Select all values');
@@ -244,7 +244,7 @@ describe('Results Table', () => {
       '  - Windows 10, -, -2.4 %, High',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
-      platform: ['windows', 'linux', 'android'],
+      platform: ['windows', 'linux', 'android', 'ios'],
     });
 
     await clickMenuItem(user, 'Platform', /Android/);
@@ -255,7 +255,7 @@ describe('Results Table', () => {
       '  - Windows 10, -, -2.4 %, High',
     ]);
     expect(summarizeTableFiltersFromUrl()).toEqual({
-      platform: ['windows', 'linux'],
+      platform: ['windows', 'linux', 'ios'],
     });
 
     await clickMenuItem(user, 'Platform', /Select only.*Android/);

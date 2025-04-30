@@ -220,6 +220,7 @@ function determineSign(baseMedianValue: number, newMedianValue: number) {
 const platformIcons: Record<PlatformShortName, ReactNode> = {
   Linux: <LinuxIcon />,
   macOS: <AppleIcon />,
+  iOS: <AppleIcon />,
   Windows: <WindowsIcon />,
   Android: <AndroidIcon />,
   Unspecified: '',
@@ -298,6 +299,7 @@ function RevisionRow(props: RevisionRowProps) {
 
   const platformShortName = getPlatformShortName(platform);
   const platformIcon = platformIcons[platformShortName];
+  const platformNameAndVersion = getPlatformAndVersion(platform);
 
   const [expanded, setExpanded] = useState(false);
 
@@ -331,7 +333,11 @@ function RevisionRow(props: RevisionRowProps) {
           >
             <div className='platform-container'>
               {platformIcon}
-              <span>{getPlatformAndVersion(platform)}</span>
+              <span>
+                {platformNameAndVersion === 'Unspecified'
+                  ? platform
+                  : platformNameAndVersion}
+              </span>
             </div>
           </Tooltip>
         </div>

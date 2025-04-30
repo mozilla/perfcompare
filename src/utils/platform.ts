@@ -11,6 +11,7 @@ export const getPlatformShortName = (
     return 'macOS';
   if (platformName.toLowerCase().startsWith('win')) return 'Windows';
   if (platformName.toLowerCase().includes('android')) return 'Android';
+  if (platformName.toLowerCase().startsWith('ios')) return 'iOS';
   return 'Unspecified';
 };
 
@@ -27,6 +28,7 @@ const osMapping = {
   macosx1300: 'macOS 13',
   macosx1400: 'macOS 14.00',
   macosx1470: 'macOS 14.70',
+  macosx1500: 'macOS 15',
   win32: 'Windows x86',
   win64: 'Windows x64',
   windows7: 'Windows 7',

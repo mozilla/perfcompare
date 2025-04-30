@@ -1066,11 +1066,11 @@ exports[`Results Table Should match snapshot 1`] = `
                     >
                       Platform
                       <div
-                        aria-label="4 items selected"
+                        aria-label="5 items selected"
                         class="MuiBox-root css-18uhbjh"
                       >
                         (
-                        4
+                        5
                         )
                       </div>
                       <svg

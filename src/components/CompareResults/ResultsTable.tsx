@@ -29,6 +29,7 @@ const columnsConfiguration: CompareResultsTableConfig = [
       { label: 'macOS', key: 'osx' },
       { label: 'Linux', key: 'linux' },
       { label: 'Android', key: 'android' },
+      { label: 'iOS', key: 'ios' },
     ],
     matchesFunction(result, valueKey) {
       const label = this.possibleValues.find(
