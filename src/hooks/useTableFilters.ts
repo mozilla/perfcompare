@@ -9,9 +9,7 @@ import type {
 
 // This hook handles the state that handles table filtering, and also takes care
 // of handling the URL parameters that mirror this state.
-// Currently the state contains the _unselected_ items (the default is that
-// they're all selected), while the URL contains the _selected_ items because it
-// makes more sense to the user.
+// Both the state and the URL contain the _selected_ items.
 //
 // In the URL:
 // * no column indication means the default (that is all values are selected)
@@ -20,6 +18,10 @@ import type {
 // * a column indication with an empty value will unselect everything (all
 //   possible values will be added to the state).
 //
+// In the state, when all items are checked for a column, there may or may not
+// be an entry in the state for that column. This means that if there's no entry
+// for a filterable column, it means all values are checked.
+//
 // For example:
 // * no "filter_confidence" means all values for confidence are shown.
 // * "filter_confidence=medium,high" means that "none" and "low" will be added
@@ -27,8 +29,6 @@ import type {
 //   displayed.
 // * "filter_confidence=" means that no line will be displayed, which isn't
 //   super useful actually (but is supported).
-//
-// In the future we'd like the state to contains the selected items instead.
 
 const useTableFilters = (columnsConfiguration: CompareResultsTableConfig) => {
   const columnIdToConfiguration: Map<string, CompareResultsTableColumn> =
@@ -37,14 +37,14 @@ const useTableFilters = (columnsConfiguration: CompareResultsTableConfig) => {
       [columnsConfiguration],
     );
 
-  const filterValuesBySet = (
+  const keepValuesBySet = (
     values: Array<{ key: string }>,
-    excludedKeys: Set<string>,
+    includedKeys: Set<string>,
   ) => {
-    // Note: in the future it would be more idiomatic to use Set.difference,
-    // but it's not widely available enough at the time of writing this.
+    // Note: in the future it could be more idiomatic to use one of the Set
+    // methods but it's not widely available enough at the time of writing this.
     return values
-      .filter(({ key }) => !excludedKeys.has(key))
+      .filter(({ key }) => includedKeys.has(key))
       .map(({ key }) => key);
   };
 
@@ -55,31 +55,30 @@ const useTableFilters = (columnsConfiguration: CompareResultsTableConfig) => {
   // only be called once at mount time.
   const getInitialTableFilters = () => {
     const result: Map<string, Set<string>> = new Map();
-    for (const [param, paramValue] of rawSearchParams.entries()) {
-      if (!param.startsWith('filter_')) {
+    for (const columnConfiguration of columnsConfiguration) {
+      if (!('filter' in columnConfiguration)) {
         continue;
       }
 
-      const columnId = param.slice('filter_'.length);
-      const columnConfiguration = columnIdToConfiguration.get(columnId);
-      if (!columnConfiguration || !('filter' in columnConfiguration)) {
-        // The columnId passed as a parameter doesn't exist or isn't a
-        // filterable column, ignore it.
-        continue;
+      const { key: columnKey, possibleValues } = columnConfiguration;
+
+      const paramValue = rawSearchParams.get('filter_' + columnKey);
+      if (paramValue) {
+        const configuredValuesSet = new Set(
+          paramValue.split(',').map((item) => item.trim()),
+        );
+
+        // Now we need to make sure all specified values are correct. Let's keep
+        // only the possible values.
+        const checkedValueKeys = keepValuesBySet(
+          possibleValues,
+          configuredValuesSet,
+        );
+
+        result.set(columnKey, new Set(checkedValueKeys));
+      } else {
+        result.set(columnKey, new Set(possibleValues.map(({ key }) => key)));
       }
-
-      const configuredValuesSet = new Set(
-        paramValue.split(',').map((item) => item.trim()),
-      );
-      // Now we need to compute which possible values are _not_ specified in the
-      // URL, that is we compute the difference. Remember that the state holds
-      // the unchecked values (currently).
-      const uncheckedValueKeys = filterValuesBySet(
-        columnConfiguration.possibleValues,
-        configuredValuesSet,
-      );
-
-      result.set(columnId, new Set(uncheckedValueKeys));
     }
 
     return result;
@@ -109,15 +108,8 @@ const useTableFilters = (columnsConfiguration: CompareResultsTableConfig) => {
       return;
     }
 
-    if (filters.size > 0) {
-      // We need to compute which values are not stored in the state. They are
-      // the values that should be present in the URL.
-      const checkedValueKeys = filterValuesBySet(
-        columnConfiguration.possibleValues,
-        filters,
-      );
-
-      rawSearchParams.set(`filter_${columnId}`, checkedValueKeys.join(','));
+    if (filters.size < columnConfiguration.possibleValues.length) {
+      rawSearchParams.set(`filter_${columnId}`, [...filters].join(','));
     } else {
       rawSearchParams.delete(`filter_${columnId}`);
     }
@@ -140,7 +132,7 @@ function resultMatchesColumnFilter(
   columnsConfiguration: CompareResultsTableConfig,
   result: CompareResultsItem,
   columnId: string,
-  uncheckedValues: Set<string>,
+  checkedValues: Set<string>,
 ): boolean {
   const columnConfiguration = columnsConfiguration.find(
     (column) => column.key === columnId,
@@ -149,7 +141,13 @@ function resultMatchesColumnFilter(
     return true;
   }
 
-  for (const filterValueKey of uncheckedValues) {
+  if (checkedValues.size === columnConfiguration.possibleValues.length) {
+    // Return all values if all the checkboxes are set. This makes it possible
+    // to return values that are different.
+    return true;
+  }
+
+  for (const filterValueKey of checkedValues) {
     if (columnConfiguration.matchesFunction(result, filterValueKey)) {
       return true;
     }
@@ -158,7 +156,7 @@ function resultMatchesColumnFilter(
 }
 
 // This function filters the results array using both the searchTerm and the
-// tableFilters. The tableFilters is a map ColumnID -> Set of values to remove.
+// tableFilters. The tableFilters is a map ColumnID -> Set of values to add.
 export function filterResults(
   columnsConfiguration: CompareResultsTableConfig,
   results: CompareResultsItem[],
@@ -178,13 +176,13 @@ export function filterResults(
       return false;
     }
 
-    for (const [columnId, uncheckedValues] of tableFilters) {
+    for (const [columnId, checkedValues] of tableFilters) {
       if (
-        resultMatchesColumnFilter(
+        !resultMatchesColumnFilter(
           columnsConfiguration,
           result,
           columnId,
-          uncheckedValues,
+          checkedValues,
         )
       ) {
         return false;
