@@ -49,6 +49,24 @@ type FetchSubtestsOverTimeProps = {
   newParentSignature: string;
 };
 
+export async function fetchRevisionFromHash(
+  basehash: string,
+  basehashdate: string,
+  newhash: string,
+  newhashdate: string,
+  repo: string,
+) {
+  const searchParams = new URLSearchParams({
+    basehash: basehash,
+    newhash: newhash,
+    basehashdate: basehashdate,
+    newhashdate: newhashdate,
+  });
+  const url = `${treeherderBaseURL}/api/project/${repo}/hash/tocommit/?${searchParams.toString()}`;
+  const response = await fetchFromTreeherder(url);
+  return response.json() as Promise<CommitToHash>;
+}
+
 async function fetchFromTreeherder(url: string) {
   const response = await fetch(url);
   if (!response.ok) {
@@ -64,21 +82,7 @@ async function fetchFromTreeherder(url: string) {
   }
   return response;
 }
-
-// This fetches the revision with the hash inside the ./mach try perf pushed job
-export async function fetchRevisionFromHash(
-  basehash: string,
-  newhash: string,
-  repo: string,
-) {
-  const searchParams = new URLSearchParams({
-    basehash: basehash,
-    newhash: newhash,
-  });
-  const url = `${treeherderBaseURL}/api/project/${repo}/hash/tocommit/?${searchParams.toString()}`;
-  const response = await fetchFromTreeherder(url);
-  return response.json() as Promise<CommitToHash>;
-}
+// This fetches the based on the hash inside the commit message of ./mach try perf pushed jobs
 
 // This fetches data from the Treeherder API /api/perfcompare/results.
 // This API returns the results of a comparison between 2 revisions.

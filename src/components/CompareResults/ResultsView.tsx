@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid';
 import { useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
 
+import type { HashLoaderReturnValue } from './hashToCommitLoader';
 import type { LoaderReturnValue } from './loader';
 import ResultsMain from './ResultsMain';
 import { useAppSelector } from '../../hooks/app';
@@ -17,7 +18,7 @@ interface ResultsViewProps {
 }
 function ResultsView(props: ResultsViewProps) {
   const { baseRevInfo, newRevsInfo, frameworkId, baseRepo, newRepos } =
-    useLoaderData() as LoaderReturnValue;
+    useLoaderData() as LoaderReturnValue | HashLoaderReturnValue;
 
   const newRepo = newRepos[0];
   const { title } = props;
