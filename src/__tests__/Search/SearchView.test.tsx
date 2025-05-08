@@ -22,10 +22,10 @@ function setupTestData() {
   const { testData } = getTestData();
   (global.fetch as FetchMockSandbox)
     .get(
-      'begin:https://treeherder.mozilla.org/api/project/try/push/?author_contains=',
+      'begin:https://treeherder.mozilla.org/api/project/try/push/?search=',
       (url) => {
-        const author = new URL(url).searchParams.get('author_contains');
-        return { results: testData.filter((item) => item.author === author) };
+        const search = new URL(url).searchParams.get('search');
+        return { results: testData.filter((item) => item.author === search) };
       },
     )
     .get(
@@ -133,9 +133,9 @@ describe('Search Container', () => {
       name: baseTitle,
     });
 
-    const baseInput = screen.getByPlaceholderText(
-      'Search base by ID number or author email',
-    );
+    const baseInput = screen.getAllByPlaceholderText(
+      'Search by revision ID, author, bug number and comments',
+    )[0];
     const repoDropdown = screen.getByRole('button', { name: 'Base' });
 
     expect(compTitle).toBeInTheDocument();
@@ -160,13 +160,15 @@ describe('Base and OverTime Search', () => {
 
     // Search input appears
     expect(
-      screen.getByPlaceholderText(/Search base by ID number or author email/i),
+      screen.getAllByPlaceholderText(
+        /Search by revision ID, author, bug number and comments/i,
+      )[0],
     ).toBeInTheDocument();
 
     await expandOverTimeComponent();
     expect(
       screen.getAllByPlaceholderText(
-        /Search revision by ID number or author email/i,
+        /Search by revision ID, author, bug number and comments/i,
       )[1],
     ).toBeInTheDocument();
 
@@ -299,11 +301,11 @@ describe('Base and OverTime Search', () => {
     // - once for coconut@python.com
     // The call to coconut@python.co was debounced.
     expect(global.fetch).not.toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/try/push/?author_contains=johncleese%40python.co',
+      'https://treeherder.mozilla.org/api/project/try/push/?search=johncleese%40python.co',
       undefined,
     );
     expect(global.fetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/try/push/?author_contains=johncleese%40python.com',
+      'https://treeherder.mozilla.org/api/project/try/push/?search=johncleese%40python.com',
       undefined,
     );
     expect(global.fetch).toHaveBeenCalledTimes(4);
@@ -319,7 +321,7 @@ describe('Base and OverTime Search', () => {
     act(() => void jest.runAllTimers());
 
     expect(global.fetch).toHaveBeenCalledWith(
-      'https://treeherder.mozilla.org/api/project/try/push/?author_contains=terrygilliam%40python.com',
+      'https://treeherder.mozilla.org/api/project/try/push/?search=terrygilliam%40python.com',
       undefined,
     );
 

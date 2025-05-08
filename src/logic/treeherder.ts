@@ -192,7 +192,7 @@ export async function fetchFakeCompareResults(commitHash: string) {
 export type RecentRevisionsParams = {
   repository: string;
   hash?: string | undefined;
-  author?: string | undefined;
+  search?: string | undefined;
 };
 
 // This computes the URL to the Treeherder API /api/project depending on whether
@@ -200,16 +200,16 @@ export type RecentRevisionsParams = {
 function computeUrlFromSearchTermAndRepository({
   repository,
   hash,
-  author,
+  search,
 }: RecentRevisionsParams) {
   const baseUrl = `${treeherderBaseURL}/api/project/${repository}/push/`;
 
-  if (author) {
-    return baseUrl + '?author_contains=' + encodeURIComponent(author);
-  }
-
   if (hash) {
     return baseUrl + '?revision=' + hash;
+  }
+
+  if (search) {
+    return baseUrl + '?search=' + encodeURIComponent(search);
   }
 
   return baseUrl + '?hide_reviewbot_pushes=true&count=30';
