@@ -72,7 +72,7 @@ type FilterableColumnHeaderProps = {
 
   /* Properties for filtering */
   possibleValues: FilterableColumn['possibleValues'];
-  uncheckedValues?: Set<string>;
+  checkedValues?: Set<string>;
   onToggleFilter: (checkedValues: Set<string>) => unknown;
   onClearFilter: () => unknown;
   tooltip?: string;
@@ -82,35 +82,33 @@ function FilterableColumnHeader({
   name,
   columnId,
   possibleValues,
-  uncheckedValues,
+  checkedValues,
   onToggleFilter,
   onClearFilter,
   tooltip,
 }: FilterableColumnHeaderProps) {
   const popupState = usePopupState({ variant: 'popover', popupId: columnId });
-  const possibleCheckedValues =
-    possibleValues.length - (uncheckedValues?.size || 0);
+  const possibleCheckedValues = checkedValues?.size ?? possibleValues.length;
 
   const onClickFilter = (valueKey: string) => {
-    const newUncheckedValues = new Set(uncheckedValues);
-    if (newUncheckedValues.has(valueKey)) {
-      newUncheckedValues.delete(valueKey);
+    const newCheckedValues = checkedValues
+      ? new Set(checkedValues)
+      : new Set(possibleValues.map(({ key }) => key));
+    if (newCheckedValues.has(valueKey)) {
+      newCheckedValues.delete(valueKey);
     } else {
-      newUncheckedValues.add(valueKey);
+      newCheckedValues.add(valueKey);
     }
-    onToggleFilter(newUncheckedValues);
+    onToggleFilter(newCheckedValues);
   };
 
   const onClickOnlyFilter = (valueKey: string) => {
-    const newUncheckedValues = new Set(
-      possibleValues
-        .filter(({ key }) => key !== valueKey)
-        .map(({ key }) => key),
-    );
-    onToggleFilter(newUncheckedValues);
+    const newCheckedValues = new Set([valueKey]);
+    onToggleFilter(newCheckedValues);
   };
 
-  const hasFilteredValues = uncheckedValues && uncheckedValues.size;
+  const hasFilteredValues =
+    checkedValues && checkedValues.size < possibleValues.length;
   const buttonAriaLabel = hasFilteredValues
     ? `${name} (Click to filter values. Some filters are active.)`
     : `${name} (Click to filter values)`;
@@ -161,7 +159,7 @@ function FilterableColumnHeader({
         <Divider />
         {possibleValues.map((possibleValue) => {
           const isChecked =
-            !uncheckedValues || !uncheckedValues.has(possibleValue.key);
+            !checkedValues || checkedValues.has(possibleValue.key);
           return (
             <MenuItem
               dense
@@ -343,7 +341,7 @@ function TableHeader({
             possibleValues={header.possibleValues}
             name={header.name}
             columnId={header.key}
-            uncheckedValues={filters.get(header.key)}
+            checkedValues={filters.get(header.key)}
             onClearFilter={() => onClearFilter(header.key)}
             onToggleFilter={(checkedValues) =>
               onToggleFilter(header.key, checkedValues)
@@ -369,7 +367,7 @@ function TableHeader({
           possibleValues={header.possibleValues}
           name={header.name}
           columnId={header.key}
-          uncheckedValues={filters.get(header.key)}
+          checkedValues={filters.get(header.key)}
           onClearFilter={() => onClearFilter(header.key)}
           onToggleFilter={(checkedValues) =>
             onToggleFilter(header.key, checkedValues)
