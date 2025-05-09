@@ -1,13 +1,18 @@
 import { checkValues, getComparisonInformation } from './loader';
 import { compareView } from '../../common/constants';
 import { fetchRevisionFromHash } from '../../logic/treeherder';
-import { Changeset, CompareResultsItem, Repository } from '../../types/state';
+import {
+  Changeset,
+  CompareResultsItem,
+  Repository,
+  HashToCommit,
+} from '../../types/state';
 import { Framework } from '../../types/types';
 
 // This function is responsible for fetching the data from the URL. It's called
-// by React Router DOM when the compare-hash-results path is requested.
-// This loader is the only one used by ./mach try perf, and due to recent
-// changes mach try perf we can't get instant push links to try when we push.
+// by React Router DOM when the compare-hash-results route is requested.
+// This loader is the current default, soon to be old route that ./mach try perf
+// uses, this will be the default until the lando api work is completed.
 // We attach a hash to the commit message and search for that hash, and return
 // the commit associated with that hash and update the baseRev and newRev
 export async function loader({ request }: { request: Request }) {
@@ -26,7 +31,7 @@ export async function loader({ request }: { request: Request }) {
   const pushed_today =
     new Date(newHashDateFromUrl).toISOString().split('T')[0] ==
     new Date().toISOString().split('T')[0];
-  let commits_from_hashes: CommitFromHashData = {
+  let commits_from_hashes: HashToCommit = {
     baseRevision: '',
     newRevision: '',
   };
@@ -89,8 +94,4 @@ type HashLoaderData = {
   generation: number;
 };
 
-type CommitFromHashData = {
-  baseRevision: string;
-  newRevision: string;
-};
 export type HashLoaderReturnValue = HashLoaderData;

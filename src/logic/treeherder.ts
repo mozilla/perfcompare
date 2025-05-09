@@ -5,7 +5,7 @@ import {
   CompareResultsItem,
   Repository,
   Changeset,
-  CommitToHash,
+  HashToCommit,
 } from '../types/state';
 import { Framework, TimeRange } from '../types/types';
 
@@ -64,7 +64,7 @@ export async function fetchRevisionFromHash(
   });
   const url = `${treeherderBaseURL}/api/project/${repo}/hash/tocommit/?${searchParams.toString()}`;
   const response = await fetchFromTreeherder(url);
-  return response.json() as Promise<CommitToHash>;
+  return response.json() as Promise<HashToCommit>;
 }
 
 async function fetchFromTreeherder(url: string) {

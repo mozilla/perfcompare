@@ -5,6 +5,7 @@ import { useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import type { HashLoaderReturnValue } from './hashToCommitLoader';
+import type { LandoLoaderReturnValue } from './landoToCommitLoader';
 import type { LoaderReturnValue } from './loader';
 import ResultsMain from './ResultsMain';
 import { useAppSelector } from '../../hooks/app';
@@ -18,7 +19,10 @@ interface ResultsViewProps {
 }
 function ResultsView(props: ResultsViewProps) {
   const { baseRevInfo, newRevsInfo, frameworkId, baseRepo, newRepos } =
-    useLoaderData() as LoaderReturnValue | HashLoaderReturnValue;
+    useLoaderData() as
+      | LoaderReturnValue
+      | HashLoaderReturnValue
+      | LandoLoaderReturnValue;
 
   const newRepo = newRepos[0];
   const { title } = props;
