@@ -4,14 +4,13 @@ import {
   fetchCompareResults,
   fetchFakeCompareResults,
   memoizedFetchRevisionForRepository,
-  fetchRevisionFromHash,
 } from '../../logic/treeherder';
 import { Changeset, CompareResultsItem, Repository } from '../../types/state';
 import { FakeCommitHash, Framework } from '../../types/types';
 
 // This function checks and sanitizes the input values, then returns values that
 // we can then use in the rest of the application.
-function checkValues({
+export function checkValues({
   baseRev,
   baseRepo,
   newRevs,
@@ -180,60 +179,44 @@ export async function loader({ request }: { request: Request }) {
       generation: generationCounter++,
     };
   }
+
   const baseRevFromUrl = url.searchParams.get('baseRev');
-  const newRevsFromUrl = url.searchParams.getAll('newRev');
-  const baseHashFromUrl = url.searchParams.get('baseHash');
-  const newHashFromUrl = url.searchParams.get('newHash');
-
-  // This loader is the only one used by ./mach try perf, and due to
-  // recent changes mach try perf can't get instant push links to try
-  // when we push, we must attach a hash to the commit message and
-  // search commits for that hash, and return the commit associated
-  // with that hash and update the baseRev and newRev
-  let baseRevsFromHash = baseRevFromUrl;
-  let newRevsFromHash = newRevsFromUrl;
-  let notUsingHashToFindRevisions = true;
-  if (baseHashFromUrl && newHashFromUrl) {
-    // Update to the boolean to indicate we are using a hash to find revisions
-    notUsingHashToFindRevisions = false;
-    const commits_from_hashes = await fetchRevisionFromHash(
-      baseHashFromUrl,
-      newHashFromUrl,
-      'try',
-    );
-    baseRevsFromHash = commits_from_hashes.baseRevision;
-    newRevsFromHash = [commits_from_hashes.newRevision];
-    if (baseRevsFromHash == undefined || newRevsFromHash[0] == undefined) {
-      throw new Error(
-        'Unable to parse baseRev and/or newRev returned from treeherder',
-      );
-    }
-  }
-
   const baseRepoFromUrl = url.searchParams.get('baseRepo') as
     | Repository['name']
     | null;
+  const newRevsFromUrl = url.searchParams.getAll('newRev');
   const newReposFromUrl = url.searchParams.getAll(
     'newRepo',
   ) as Repository['name'][];
   const frameworkFromUrl = url.searchParams.get('framework');
-  // Update baseRev and newRev if and only if we are supplied with newHash and baseHash
-  const updateBaseRev = notUsingHashToFindRevisions
-    ? baseRevFromUrl
-    : baseRevsFromHash;
-  const updateNewRev = notUsingHashToFindRevisions
-    ? newRevsFromUrl
-    : newRevsFromHash;
 
   const { baseRev, baseRepo, newRevs, newRepos, frameworkId, frameworkName } =
     checkValues({
-      baseRev: updateBaseRev,
+      baseRev: baseRevFromUrl,
       baseRepo: baseRepoFromUrl,
-      newRevs: updateNewRev,
+      newRevs: newRevsFromUrl,
       newRepos: newReposFromUrl,
       framework: frameworkFromUrl,
     });
 
+  return await getComparisonInformation(
+    baseRev,
+    baseRepo,
+    newRevs,
+    newRepos,
+    frameworkId,
+    frameworkName,
+  );
+}
+
+export async function getComparisonInformation(
+  baseRev: string,
+  baseRepo: Repository['name'],
+  newRevs: string[],
+  newRepos: Repository['name'][],
+  frameworkId: Framework['id'],
+  frameworkName: Framework['name'],
+) {
   const resultsPromise = fetchCompareResultsOnTreeherder({
     baseRev,
     baseRepo,
