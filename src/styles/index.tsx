@@ -9,7 +9,7 @@ export * from './Input';
 export * from './SelectList';
 export * from './Switch';
 export * from './Banner';
-export * from './Document';
+import './Document'; // This file doesn't export anything. We import it still for its side-effects.
 export * from './Tooltips';
 export * from './Select';
 

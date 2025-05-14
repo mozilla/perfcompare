@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
-import { Grid } from '@mui/material';
-import { Link } from '@mui/material';
+import { Grid, Link } from '@mui/material';
 import Alert from '@mui/material/Alert';
 import { Container } from '@mui/system';
 import { useLoaderData } from 'react-router-dom';
