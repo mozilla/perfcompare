@@ -88,6 +88,7 @@ export default defineConfig([
     files: ['src/__tests__/**/*.{ts,tsx}'],
     extends: [
       jestPlugin.configs['flat/recommended'],
+      jestPlugin.configs['flat/style'],
       testingLibraryPlugin.configs['flat/react'],
       jestDomPlugin.configs['flat/recommended'],
     ],

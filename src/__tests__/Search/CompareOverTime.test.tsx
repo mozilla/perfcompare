@@ -347,7 +347,7 @@ describe('Compare Over Time', () => {
 
     render(<RouterProvider router={router} />);
 
-    expect(window.location.pathname).toEqual('/');
+    expect(window.location.pathname).toBe('/');
     await expandOverTimeComponent();
 
     const user = userEvent.setup({ delay: null });
@@ -359,7 +359,7 @@ describe('Compare Over Time', () => {
     await user.click(compareButton);
 
     // We haven't navigated.
-    expect(window.location.pathname).toEqual('/');
+    expect(window.location.pathname).toBe('/');
     // And there should be an alert
     expect(
       await screen.findByText('Please select at least one revision.'),
@@ -383,10 +383,10 @@ describe('Compare Over Time', () => {
     // Press the compare button
     await user.click(compareButton);
 
-    expect(window.location.pathname).toEqual('/compare-over-time-results');
+    expect(window.location.pathname).toBe('/compare-over-time-results');
     const searchParams = new URLSearchParams(window.location.search);
 
-    expect(searchParams.toString()).toEqual(
+    expect(searchParams.toString()).toBe(
       'baseRepo=try&selectedTimeRange=86400&newRev=coconut&newRepo=try&framework=1',
     );
   });

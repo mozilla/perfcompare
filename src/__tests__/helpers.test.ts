@@ -70,8 +70,8 @@ describe('truncateHash Helper', () => {
 
     const hash = truncateHash(testData[3].revision);
 
-    expect(hash).toStrictEqual('spamspamspam');
-    expect(hash.length).toStrictEqual(12);
+    expect(hash).toBe('spamspamspam');
+    expect(hash).toHaveLength(12);
   });
 });
 
@@ -81,7 +81,7 @@ describe('getLatestCommitMessage Helper', () => {
 
     const commitMessage = getLatestCommitMessage(testData[4]);
 
-    expect(commitMessage).toStrictEqual('She turned me into a newt!');
+    expect(commitMessage).toBe('She turned me into a newt!');
   });
 });
 
@@ -89,7 +89,7 @@ describe('formateDate Helper', () => {
   it('correctly formats date', () => {
     const timestamp = 1649883600;
     const date = formatDate(timestamp);
-    expect(date).toStrictEqual('04/13/22 21:00');
+    expect(date).toBe('04/13/22 21:00');
   });
 });
 
