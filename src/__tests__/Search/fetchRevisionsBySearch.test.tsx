@@ -208,4 +208,30 @@ describe('SearchView/fetchRevisions', () => {
       new Error(),
     );
   });
+
+  it('should fetch revisions by ID if searchValue is a 12 or 40 character hash', async () => {
+    const { testData } = getTestData();
+    (global.fetch as FetchMockSandbox).get(
+      'glob:https://treeherder.mozilla.org/api/project/*/push/*',
+      {
+        results: testData,
+      },
+    );
+
+    // set delay to null to prevent test time-out due to useFakeTimers
+    const user = userEvent.setup({ delay: null });
+
+    await renderSearchViewComponent();
+
+    const searchInput = screen.getAllByRole('textbox')[0];
+    await user.type(searchInput, 'abcdef123456');
+    act(() => void jest.runAllTimers());
+    expect(global.fetch).toHaveBeenCalledWith(
+      'https://treeherder.mozilla.org/api/project/try/push/?revision=abcdef123456',
+      undefined,
+    );
+    expect(
+      await screen.findByText("you've got no arms left!"),
+    ).toBeInTheDocument();
+  });
 });
