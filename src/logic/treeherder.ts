@@ -192,6 +192,7 @@ export async function fetchFakeCompareResults(commitHash: string) {
 export type RecentRevisionsParams = {
   repository: string;
   hash?: string | undefined;
+  search?: string | undefined;
   author?: string | undefined;
 };
 
@@ -200,6 +201,7 @@ export type RecentRevisionsParams = {
 function computeUrlFromSearchTermAndRepository({
   repository,
   hash,
+  search,
   author,
 }: RecentRevisionsParams) {
   const baseUrl = `${treeherderBaseURL}/api/project/${repository}/push/`;
@@ -210,6 +212,10 @@ function computeUrlFromSearchTermAndRepository({
 
   if (hash) {
     return baseUrl + '?revision=' + hash;
+  }
+
+  if (search) {
+    return baseUrl + '?search=' + encodeURIComponent(search);
   }
 
   return baseUrl + '?hide_reviewbot_pushes=true&count=30';
