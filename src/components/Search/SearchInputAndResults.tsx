@@ -68,14 +68,20 @@ export default function SearchInputAndResults({
 
   const searchRecentRevisions = useCallback(
     async (searchTerm: string) => {
+      // If the URL has a parameter useFulltextSearch, use it to determine the search type.
+      const urlParams = new URLSearchParams(window.location.search);
+      const useFulltextSearch = urlParams.has('useFulltextSearch');
       // The search input must be at least three characters.
       // If the input matches a hash pattern (4-40 hex characters with at least one letter), treat it as a hash.
-      const isHash = /^(?=.*[a-f])[a-f0-9]{4,40}$/i;
+
       // Otherwise, assume it's an author name, email, bug number, or comment and pass it as a general search term.
       // NOTE: In the future we might want to be more clever and request both
       // endpoints even when it looks like a hash. For example a request such as "ade" could
       // return results for an author named "adenot" _and_  results for a hash "ade821ac".
       // In that case it would be better to show the results for the author.
+
+      const isHash = /^(?=.*[a-f])[a-f0-9]{4,40}$/i;
+      const authorInfoMatch = /[^0-9a-fA-F]/;
 
       // Reset various states
       setSearchError(null);
@@ -85,16 +91,23 @@ export default function SearchInputAndResults({
       const thisRequestId = ++requestsCounterRef.current;
 
       let searchParameters;
+
       if (!searchTerm) {
         searchParameters = { repository };
       } else if (searchTerm.length < 3) {
         setSearchError(Strings.errors.warningText);
         setRecentRevisions(null);
         return;
-      } else if (isHash.test(searchTerm)) {
-        searchParameters = { repository, hash: searchTerm };
+      } else if (useFulltextSearch) {
+        // Fulltext mode: check if it's a hash
+        searchParameters = isHash.test(searchTerm)
+          ? { repository, hash: searchTerm }
+          : { repository, search: searchTerm };
       } else {
-        searchParameters = { repository, search: searchTerm };
+        // Author mode: check if it contains non-hex characters
+        searchParameters = authorInfoMatch.test(searchTerm)
+          ? { repository, author: searchTerm }
+          : { repository, hash: searchTerm };
       }
 
       // Keep the current searchTerm in ref so that we can use it when the
@@ -103,11 +116,9 @@ export default function SearchInputAndResults({
 
       try {
         const results = await fetchRecentRevisions(searchParameters);
-        if (thisRequestId !== requestsCounterRef.current) {
-          // The user edited the text since the request started.
-          // Let's ignore the result then.
-          return;
-        }
+        if (thisRequestId !== requestsCounterRef.current) return;
+        // The user edited the text since the request started.
+        // Let's ignore the result then.
         if (results.length) {
           setRecentRevisions(results);
         } else {

@@ -32,7 +32,7 @@ export const Strings = {
       sharedCollasped: {
         revisions: {
           selectLabel: 'Revisions',
-          placeholder: 'Search by revision ID, author, bug number and comments',
+          placeholder: 'Search by revision ID or author email',
         },
         framework: {
           selectLabel: 'Framework',
@@ -57,15 +57,13 @@ export const Strings = {
           },
           base: {
             selectLabel: 'Base',
-            inputPlaceholder:
-              'Search by revision ID, author, bug number and comments',
+            inputPlaceholder: 'Search by revision ID or author email',
             tooltip:
               'The baseline revision (no changes) your revision will be compared against.',
           },
           revision: {
             selectLabel: 'Revisions',
-            inputPlaceholder:
-              'Search by revision ID, author, bug number and comments',
+            inputPlaceholder: 'Search by revision ID or author email',
             tooltip:
               'Revisions (typically including your changes) to compare against the selected base revision.',
           },
@@ -91,8 +89,7 @@ export const Strings = {
             selectLabel: 'Revisions',
             tooltip:
               'Revisions (typically including your changes) to compare over a specified time range.',
-            inputPlaceholder:
-              'Search by revision ID, author, bug number and comments',
+            inputPlaceholder: 'Search by revision ID or author email',
           },
         },
       },

@@ -14,6 +14,8 @@ import {
 async function renderSearchViewComponent() {
   renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />, {
     loader,
+    route: '/',
+    search: '?useFulltextSearch',
   });
   const title = 'Compare with a base';
   const compTitle = await screen.findByRole('heading', { name: title });

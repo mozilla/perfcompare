@@ -193,6 +193,7 @@ export type RecentRevisionsParams = {
   repository: string;
   hash?: string | undefined;
   search?: string | undefined;
+  author?: string | undefined;
 };
 
 // This computes the URL to the Treeherder API /api/project depending on whether
@@ -201,8 +202,13 @@ function computeUrlFromSearchTermAndRepository({
   repository,
   hash,
   search,
+  author,
 }: RecentRevisionsParams) {
   const baseUrl = `${treeherderBaseURL}/api/project/${repository}/push/`;
+
+  if (author) {
+    return baseUrl + '?author_contains=' + encodeURIComponent(author);
+  }
 
   if (hash) {
     return baseUrl + '?revision=' + hash;
