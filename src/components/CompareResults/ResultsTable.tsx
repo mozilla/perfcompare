@@ -212,7 +212,13 @@ export default function ResultsTable() {
         for more explanation (and questioning) about this issue. */}
       <Suspense
         fallback={
-          <Box display='flex' justifyContent='center' sx={{ marginTop: 3 }}>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              marginTop: 3,
+            }}
+          >
             <CircularProgress />
           </Box>
         }
