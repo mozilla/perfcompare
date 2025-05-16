@@ -68,8 +68,15 @@ export function renderWithRouter(
   };
 }
 
-// re-export everything
-export * from '@testing-library/react';
+// re-export some useful things from testing-library
+export {
+  act,
+  screen,
+  fireEvent,
+  within,
+  waitFor,
+  waitForElementToBeRemoved,
+} from '@testing-library/react';
 
 // See https://www.wheresrhys.co.uk/fetch-mock/ for more information about how
 // to use this package.

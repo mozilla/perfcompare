@@ -2,8 +2,7 @@ import { Suspense, useState } from 'react';
 
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
-import { useSearchParams } from 'react-router-dom';
-import { useLoaderData, Await } from 'react-router-dom';
+import { useSearchParams, useLoaderData, Await } from 'react-router-dom';
 
 import type { LoaderReturnValue } from './loader';
 import type { LoaderReturnValue as OverTimeLoaderReturnValue } from './overTimeLoader';

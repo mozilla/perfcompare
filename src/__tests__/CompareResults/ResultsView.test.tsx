@@ -284,13 +284,13 @@ describe('Results View', () => {
     expect(bubbleProps[0].data.datasets[0].label).toBe('Base');
     expect(bubbleProps[1].data.datasets[0].label).toBe('New');
 
-    expect(bubbleProps[0].data.datasets[0].data.length).toBe(4);
+    expect(bubbleProps[0].data.datasets[0].data).toHaveLength(4);
     expect(bubbleProps[0].data.datasets[0].data[3]).toStrictEqual({
       r: 10,
       x: 602.04,
       y: 0,
     });
-    expect(bubbleProps[1].data.datasets[0].data.length).toBe(5);
+    expect(bubbleProps[1].data.datasets[0].data).toHaveLength(5);
     expect(bubbleProps[1].data.datasets[0].data[4]).toStrictEqual({
       r: 10,
       x: 607.27,
@@ -357,13 +357,13 @@ describe('Results View', () => {
     expect(bubbleProps[0].data.datasets[0].label).toBe('Base');
     expect(bubbleProps[1].data.datasets[0].label).toBe('New');
 
-    expect(bubbleProps[0].data.datasets[0].data.length).toBe(4);
+    expect(bubbleProps[0].data.datasets[0].data).toHaveLength(4);
     expect(bubbleProps[0].data.datasets[0].data[3]).toStrictEqual({
       r: 10,
       x: 602.04,
       y: 0,
     });
-    expect(bubbleProps[1].data.datasets[0].data.length).toBe(5);
+    expect(bubbleProps[1].data.datasets[0].data).toHaveLength(5);
     expect(bubbleProps[1].data.datasets[0].data[4]).toStrictEqual({
       r: 10,
       x: 607.27,
@@ -525,7 +525,7 @@ describe('Results View', () => {
 
     await user.click(saveButton);
     await waitFor(async () => {
-      expect(window.location.pathname).toEqual('/compare-results/');
+      expect(window.location.pathname).toBe('/compare-results/');
     });
 
     expect(form).toMatchSnapshot('After clicking the Save button');

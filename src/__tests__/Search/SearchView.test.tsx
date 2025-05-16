@@ -396,7 +396,7 @@ describe('Base and OverTime Search', () => {
 
     render(<RouterProvider router={router} />);
 
-    expect(window.location.pathname).toEqual('/');
+    expect(window.location.pathname).toBe('/');
 
     const user = userEvent.setup({ delay: null });
 
@@ -407,7 +407,7 @@ describe('Base and OverTime Search', () => {
     await user.click(compareButton);
 
     // We haven't navigated.
-    expect(window.location.pathname).toEqual('/');
+    expect(window.location.pathname).toBe('/');
     // And there should be an alert
     expect(
       await screen.findByText('Please select at least one base revision.'),
@@ -443,10 +443,10 @@ describe('Base and OverTime Search', () => {
     // Press the compare button
     await user.click(compareButton);
 
-    expect(window.location.pathname).toEqual('/compare-results');
+    expect(window.location.pathname).toBe('/compare-results');
     const searchParams = new URLSearchParams(window.location.search);
     searchParams.sort();
-    expect(searchParams.toString()).toEqual(
+    expect(searchParams.toString()).toBe(
       'baseRepo=try&baseRev=coconut&framework=1&newRepo=mozilla-central&newRev=spam',
     );
   });
