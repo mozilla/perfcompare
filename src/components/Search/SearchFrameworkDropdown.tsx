@@ -40,7 +40,14 @@ function SearchFrameworkDropdown({
 
   return (
     <FormControl className={`framework-dropdown ${styles.container}`}>
-      <Grid item xs={2} display='flex' alignItems='center' mb={0.75}>
+      <Grid
+        size={2}
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          mb: 0.75,
+        }}
+      >
         <InputLabel
           id='select-framework-label'
           className='dropdown-select-label'
@@ -57,7 +64,6 @@ function SearchFrameworkDropdown({
           <InfoIcon fontSize='small' className='dropdown-info-icon' />
         </Tooltip>
       </Grid>
-
       <FrameworkDropdown
         frameworkId={frameworkIdVal}
         labelId='select-framework-label'

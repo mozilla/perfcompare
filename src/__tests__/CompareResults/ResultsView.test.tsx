@@ -49,7 +49,7 @@ describe('Results View', () => {
   });
 
   it('renders framework dropdown in closed condition', async () => {
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
 
     const header = await screen.findByText('Results');
@@ -106,7 +106,7 @@ describe('Results View', () => {
   });
 
   it('Should display Base, New and Common graphs with tooltips', async () => {
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     // We set up a compare data that has 1 result but with several runs, so that
     // the graphs are displayed for this result.
@@ -165,7 +165,7 @@ describe('Results View', () => {
   });
 
   it('should make blobUrl available when "Download JSON" button is clicked', async () => {
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     const createObjectURLMock = jest.fn().mockReturnValue('blob:');
     global.URL.createObjectURL = createObjectURLMock;
@@ -182,7 +182,7 @@ describe('Results View', () => {
   });
 
   it('Clicking on the retrigger button should request an authorization code', async () => {
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     const { testCompareDataWithMultipleRuns, testData } = getTestData();
     (window.fetch as FetchMockSandbox)
@@ -243,7 +243,7 @@ describe('Results View', () => {
   });
 
   it('Should display Base, New and Common graphs with replicates', async () => {
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     // We set up a compare data that has 1 result but with several runs, so that
     // the graphs are displayed for this result.
@@ -316,7 +316,7 @@ describe('Results View', () => {
   });
 
   it('Should display Base, New and Common graphs with 1 value and replicates', async () => {
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     // We set up a compare data that has 1 result but with several runs, so that
     // the graphs are displayed for this result.
@@ -389,7 +389,7 @@ describe('Results View', () => {
   });
 
   it('Should show the input, cancel and save button when the user click edit title button', async () => {
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
 
@@ -416,7 +416,7 @@ describe('Results View', () => {
   });
 
   it('Should hide the input and show default title when the user clicks cancel button', async () => {
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
 
@@ -445,7 +445,7 @@ describe('Results View', () => {
   });
 
   it('Should show the previous title after the user inputs a new title and clicks the cancel button', async () => {
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
 
@@ -475,7 +475,7 @@ describe('Results View', () => {
   });
 
   it("Should show error message when the input is empty and the user clicks the 'Save' button", async () => {
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
     await screen.findByRole('heading', { name: 'Results' });
     const editTitleButton = await screen.findByRole('button', {
@@ -497,7 +497,7 @@ describe('Results View', () => {
   });
 
   it('Should update url with new title and the table with the new title', async () => {
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     renderWithRoute(<ResultsView title={Strings.metaData.pageTitle.results} />);
 

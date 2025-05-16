@@ -79,12 +79,14 @@ function SelectedRevisionItem({
           primary={
             <React.Fragment>
               <Typography
-                sx={{ display: 'inline' }}
                 component='span'
                 variant='body2'
-                color='text.primary'
-                alignItems='center'
+                color='textPrimary'
                 className='revision-hash'
+                sx={{
+                  alignItems: 'center',
+                  display: 'inline',
+                }}
               >
                 <Link
                   href={getTreeherderURL(item.revision, repository)}
@@ -139,8 +141,10 @@ function SelectedRevisionItem({
             </React.Fragment>
           }
           secondary={`${commitMessage} `}
-          primaryTypographyProps={{ noWrap: true }}
-          secondaryTypographyProps={{ noWrap: true }}
+          slotProps={{
+            primary: { noWrap: true },
+            secondary: { noWrap: true },
+          }}
         />
         <IconButton
           name='close-button'

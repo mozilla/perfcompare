@@ -52,13 +52,14 @@ function SearchComponent({
   return (
     <Grid className={styles.component}>
       <Grid
-        item
-        xs={2}
-        display='flex'
-        alignItems='center'
         className={`${isBaseComp ? 'base' : 'new'}-search-dropdown ${
           styles.dropDown
         } label-edit-wrapper`}
+        size={2}
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+        }}
       >
         <InputLabel id={labelIdInfo} className='dropdown-select-label'>
           {selectLabel}
@@ -76,19 +77,20 @@ function SearchComponent({
       {/**** Search - DropDown Section ****/}
       <Grid
         container
-        alignItems='flex-start'
         id={`${searchType}-search-container`}
         className={`${styles.container} ${
           formIsDisplayed ? 'show-container' : 'hide-container'
         } `}
+        sx={{
+          alignItems: 'flex-start',
+        }}
       >
         <Grid
-          item
-          xs={2}
           id={`${searchType}_search-dropdown`}
           className={`${searchType}-search-dropdown ${styles.dropDown} ${
             hasEditButton ? 'small' : ''
           } ${hasEditButton ? compareView : ''}-base-dropdown`}
+          size={2}
         >
           <SearchDropdown
             compact={hasEditButton}
@@ -100,10 +102,9 @@ function SearchComponent({
           />
         </Grid>
         <Grid
-          item
-          xs={7}
           id={`${searchType}_search-input`}
           className={`${searchType}-search-input  ${styles.baseSearchInput}`}
+          size={7}
         >
           <SearchInputAndResults
             compact={hasEditButton}
