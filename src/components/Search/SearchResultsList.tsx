@@ -100,8 +100,10 @@ function SearchResultsList({
     <Box
       className={`${styles[mode]} results-list-${mode}`}
       id='search-results-list'
-      alignItems='flex-end'
       data-testid='list-mode'
+      sx={{
+        alignItems: 'flex-end',
+      }}
     >
       <List dense={compact} sx={{ paddingTop: '0' }}>
         {searchResults.map((item, index) => (
