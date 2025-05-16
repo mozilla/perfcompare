@@ -33,7 +33,7 @@ describe('SearchResultsList', () => {
 
   it('should match snapshot', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     await renderComponent();
     // focus input to show results
@@ -45,7 +45,7 @@ describe('SearchResultsList', () => {
 
   it('should fill the checkbox when a result is clicked', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     await renderComponent();
     // focus input to show results
@@ -60,7 +60,7 @@ describe('SearchResultsList', () => {
 
   it('should clear the checkbox when a checked result is clicked', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     await renderComponent();
 
@@ -86,7 +86,7 @@ describe('SearchResultsList', () => {
 
   it('should select the new revision and uncheck the previous one when clicking a different base revision', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     await renderComponent();
     // focus input to show results
@@ -112,7 +112,7 @@ describe('SearchResultsList', () => {
       textElement.closest('li')?.querySelector('.MuiCheckbox-root');
 
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     await renderComponent();
     // focus input to show results
@@ -143,7 +143,7 @@ describe('SearchResultsList', () => {
 
   it('Should apply dark and light mode styles when theme button is toggled', async () => {
     await renderComponent();
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     const darkModeToggle = screen.getByRole('checkbox', {
       name: /Dark mode switch/,
     });
