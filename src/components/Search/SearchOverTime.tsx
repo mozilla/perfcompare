@@ -141,7 +141,7 @@ export default function SearchOverTime({
             <Typography
               component='span'
               variant='body2'
-              color='text.primary'
+              color='textPrimary'
               alignItems='center'
             >
               {baseRepo}
@@ -159,7 +159,7 @@ export default function SearchOverTime({
               <Typography
                 component='span'
                 variant='body2'
-                color='text.primary'
+                color='textPrimary'
                 alignItems='center'
               >
                 {timeRangeText}

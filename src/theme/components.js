@@ -225,14 +225,18 @@ const components = {
           outline: '1px auto',
         },
       },
-      select: ({ theme }) =>
-        theme.palette.mode == 'light' ? Select.light : Select.dark,
+      select: [
+        Select.light,
+        ({ theme }) => theme.applyStyles('dark', Select.dark),
+      ],
     },
   },
   MuiTooltip: {
     styleOverrides: {
-      tooltip: ({ theme }) =>
-        theme.palette.mode == 'light' ? TooltipRaw.Light : TooltipRaw.Dark,
+      tooltip: [
+        TooltipRaw.Light,
+        ({ theme }) => theme.applyStyles('dark', TooltipRaw.Dark),
+      ],
     },
   },
 };

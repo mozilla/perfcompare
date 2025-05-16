@@ -103,7 +103,7 @@ function SearchResultsListItem({
                   sx={{ display: 'inline' }}
                   component='span'
                   variant='body2'
-                  color='text.primary'
+                  color='textPrimary'
                   alignItems='center'
                   className='revision-hash'
                 >
