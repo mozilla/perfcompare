@@ -79,12 +79,14 @@ function SelectedRevisionItem({
           primary={
             <React.Fragment>
               <Typography
-                sx={{ display: 'inline' }}
                 component='span'
                 variant='body2'
                 color='textPrimary'
-                alignItems='center'
                 className='revision-hash'
+                sx={{
+                  alignItems: 'center',
+                  display: 'inline',
+                }}
               >
                 <Link
                   href={getTreeherderURL(item.revision, repository)}

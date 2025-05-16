@@ -34,14 +34,14 @@ const CopyIcon = ({ text, arialLabel }: CopyIconProps) => {
     >
       {copied && (
         <Typography
+          variant='body2'
+          data-testid='copied-text'
           sx={{
+            color: 'text.primary',
             fontSize: '0.75rem',
             position: 'absolute',
             top: '-1rem',
           }}
-          variant='body2'
-          color='text.primary'
-          data-testid='copied-text'
         >
           Copied
         </Typography>

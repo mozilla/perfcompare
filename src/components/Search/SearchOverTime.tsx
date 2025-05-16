@@ -82,7 +82,13 @@ export default function SearchOverTime({
         spacing={2}
         className={`base-repo-dropdown ${styles.dropDown}`}
       >
-        <Grid display='flex' alignItems='center' size='grow'>
+        <Grid
+          size='grow'
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
           <InputLabel
             id='base-repo-dropdown--overtime'
             className='dropdown-select-label dropdown-select-label--base'
@@ -100,7 +106,13 @@ export default function SearchOverTime({
           </Tooltip>
         </Grid>
 
-        <Grid display='flex' alignItems='center' size='grow'>
+        <Grid
+          size='grow'
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
           <InputLabel
             id='select-timerange-label'
             className='dropdown-select-label dropdown-select-label--time'
@@ -122,12 +134,14 @@ export default function SearchOverTime({
       {!formIsDisplayed && (
         <Grid
           container
-          alignItems='flex-start'
-          mb={3}
-          p={0}
-          ml={0}
           id='time-search-container--readonly'
           className={styles.container}
+          sx={{
+            alignItems: 'flex-start',
+            mb: 3,
+            p: 0,
+            ml: 0,
+          }}
         >
           <Grid
             style={{
@@ -142,7 +156,9 @@ export default function SearchOverTime({
               component='span'
               variant='body2'
               color='textPrimary'
-              alignItems='center'
+              sx={{
+                alignItems: 'center',
+              }}
             >
               {baseRepo}
             </Typography>
@@ -160,7 +176,9 @@ export default function SearchOverTime({
                 component='span'
                 variant='body2'
                 color='textPrimary'
-                alignItems='center'
+                sx={{
+                  alignItems: 'center',
+                }}
               >
                 {timeRangeText}
               </Typography>
@@ -178,12 +196,14 @@ export default function SearchOverTime({
       {formIsDisplayed && (
         <Grid
           container
-          alignItems='flex-start'
           id='base-time-dropdown-container'
-          mb={3}
-          p={0}
-          ml={0}
           className={`${styles.container}`}
+          sx={{
+            alignItems: 'flex-start',
+            mb: 3,
+            p: 0,
+            ml: 0,
+          }}
         >
           <Grid
             style={{
@@ -240,10 +260,12 @@ export default function SearchOverTime({
       {formIsDisplayed && (
         <Grid
           container
-          alignItems='flex-start'
           id='new-search-container--time'
           className={`${styles.container} show-container--time
           }`}
+          sx={{
+            alignItems: 'flex-start',
+          }}
         >
           <Grid
             id='new_search-dropdown--time'
