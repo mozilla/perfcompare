@@ -82,7 +82,7 @@ export default function SearchOverTime({
         spacing={2}
         className={`base-repo-dropdown ${styles.dropDown}`}
       >
-        <Grid item xs display='flex' alignItems='center'>
+        <Grid display='flex' alignItems='center' size='grow'>
           <InputLabel
             id='base-repo-dropdown--overtime'
             className='dropdown-select-label dropdown-select-label--base'
@@ -100,7 +100,7 @@ export default function SearchOverTime({
           </Tooltip>
         </Grid>
 
-        <Grid item xs display='flex' alignItems='center'>
+        <Grid display='flex' alignItems='center' size='grow'>
           <InputLabel
             id='select-timerange-label'
             className='dropdown-select-label dropdown-select-label--time'
@@ -118,7 +118,6 @@ export default function SearchOverTime({
           </Tooltip>
         </Grid>
       </Grid>
-
       {/**** Base - TimeRange ReadyOnly ****/}
       {!formIsDisplayed && (
         <Grid
@@ -131,14 +130,13 @@ export default function SearchOverTime({
           className={styles.container}
         >
           <Grid
-            item
-            xs
             style={{
               maxWidth: hasEditButton ? maxWidthTimeRangeL : maxWidthTimeRangeS,
             }}
             className={`base-search-dropdown ${readOnlyStyles} ${
               styles.dropDown
             }  ${hasEditButton ? compareOverTimeView : ''}-base-dropdown`}
+            size='grow'
           >
             <Typography
               component='span'
@@ -151,12 +149,11 @@ export default function SearchOverTime({
           </Grid>
 
           <Grid
-            item
-            xs
             style={{
               maxWidth: hasEditButton ? maxWidthTimeRangeL : maxWidthTimeRangeS,
             }}
             className={`new-search-dropdown  ${readOnlyStyles}`}
+            size='grow'
           >
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <Typography
@@ -177,7 +174,6 @@ export default function SearchOverTime({
           </Grid>
         </Grid>
       )}
-
       {/**** Base - TimeRange DropDowns Section ****/}
       {formIsDisplayed && (
         <Grid
@@ -190,13 +186,12 @@ export default function SearchOverTime({
           className={`${styles.container}`}
         >
           <Grid
-            item
-            xs
             style={{
               maxWidth: hasEditButton ? maxWidthTimeRangeL : maxWidthTimeRangeS,
             }}
             id='base_search-dropdown--time'
             className='base-search-dropdown'
+            size='grow'
           >
             <SearchDropdown
               compact={hasEditButton}
@@ -210,13 +205,12 @@ export default function SearchOverTime({
           </Grid>
 
           <Grid
-            item
-            xs
             id='time-range'
             style={{ maxWidth: maxWidthTimeRangeL }}
             className={`new-search-dropdown ${hasEditButton ? 'small' : ''} ${
               styles.dropDown
             }  `}
+            size='grow'
           >
             <TimeRangeDropdown
               timeRangeValue={timeRangeValue}
@@ -225,9 +219,8 @@ export default function SearchOverTime({
           </Grid>
         </Grid>
       )}
-
       {/*** Revision- DropDown Labels Section ***/}
-      <Grid item xs={2} className={`new-search-dropdown ${styles.dropDown}`}>
+      <Grid className={`new-search-dropdown ${styles.dropDown}`} size={2}>
         <InputLabel
           id='repo-dropdown--overtime'
           className='dropdown-select-label'
@@ -244,7 +237,6 @@ export default function SearchOverTime({
           </Tooltip>
         </InputLabel>
       </Grid>
-
       {formIsDisplayed && (
         <Grid
           container
@@ -254,12 +246,11 @@ export default function SearchOverTime({
           }`}
         >
           <Grid
-            item
-            xs={2}
             id='new_search-dropdown--time'
             className={`new-search-dropdown ${styles.dropDown} ${
               hasEditButton ? 'small' : ''
             } ${hasEditButton ? compareOverTimeView : ''}-new-dropdown`}
+            size={2}
           >
             <SearchDropdown
               compact={hasEditButton}
@@ -271,10 +262,9 @@ export default function SearchOverTime({
             />
           </Grid>
           <Grid
-            item
-            xs={7}
             id='new_search-input--time'
             className={`new-search-input--time  ${styles.baseSearchInput}`}
+            size={7}
           >
             <SearchInputAndResults
               compact={hasEditButton}
@@ -287,7 +277,6 @@ export default function SearchOverTime({
           </Grid>
         </Grid>
       )}
-
       {/***** Selected Revisions Section *****/}
       {displayedRevisions && (
         <Grid className='d-flex'>

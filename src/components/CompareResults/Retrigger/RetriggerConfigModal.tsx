@@ -71,13 +71,13 @@ export function RetriggerConfigModal(props: RetriggerModalProps) {
       <Typography>{retriggerStrings.body}</Typography>
       <form onSubmit={onFormSubmit}>
         <Grid container gap={1}>
-          <Grid item xs={3}>
+          <Grid size={3}>
             <RetriggerCountSelect prefix='base' label='Base' />
           </Grid>
-          <Grid item xs={3}>
+          <Grid size={3}>
             <RetriggerCountSelect prefix='new' label='New' />
           </Grid>
-          <Grid item xs='auto' ml='auto'>
+          <Grid ml='auto' size='auto'>
             <Button type='submit'>{retriggerStrings.submitButton}</Button>
           </Grid>
         </Grid>

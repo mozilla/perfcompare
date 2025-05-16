@@ -60,16 +60,22 @@ function SubtestsResultsHeader({
     <>
       <SubtestsRevisionHeader header={subtestsHeader} view={view} />
       <Grid container spacing={1}>
-        <Grid item xs={12} md={6} sx={{ marginInlineEnd: 'auto' }}>
+        <Grid
+          sx={{ marginInlineEnd: 'auto' }}
+          size={{
+            xs: 12,
+            md: 6,
+          }}
+        >
           <SearchInput
             defaultValue={initialSearchTerm}
             onChange={onSearchTermChange}
           />
         </Grid>
-        <Grid item xs='auto'>
+        <Grid size='auto'>
           <DownloadButton resultsPromise={[loadedResults]} />
         </Grid>
-        <Grid item xs='auto'>
+        <Grid size='auto'>
           <RetriggerButton result={loadedResults[0]} variant='text' />
         </Grid>
       </Grid>
@@ -146,16 +152,22 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
                 />
               </Stack>
               <Grid container spacing={1}>
-                <Grid item xs={12} md={6} sx={{ marginInlineEnd: 'auto' }}>
+                <Grid
+                  sx={{ marginInlineEnd: 'auto' }}
+                  size={{
+                    xs: 12,
+                    md: 6,
+                  }}
+                >
                   <SearchInput
                     defaultValue={initialSearchTerm}
                     onChange={onSearchTermChange}
                   />
                 </Grid>
-                <Grid item xs='auto'>
+                <Grid size='auto'>
                   <DisabledDownloadButton />
                 </Grid>
-                <Grid item xs='auto'>
+                <Grid size='auto'>
                   <DisabledRetriggerButton />
                 </Grid>
               </Grid>
@@ -174,7 +186,6 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
           </Await>
         </Suspense>
       </header>
-
       <SubtestsResultsTable
         filteringSearchTerm={searchTerm}
         resultsPromise={results}
