@@ -54,7 +54,7 @@ describe('App', () => {
 
   test('Should switch between dark mode and light mode on toggle', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     render(<App />);
 

@@ -94,7 +94,7 @@ describe('SubtestsResultsView Component Tests', () => {
 
   it('should request authorization code when "Retrigger" button is clicked', async () => {
     const { subtestsResult } = getTestData();
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     jest.spyOn(window, 'alert').mockImplementation();
     const mockedWindowAlert = window.alert as jest.Mock;
@@ -146,7 +146,7 @@ describe('SubtestsResultsView Component Tests', () => {
   });
 
   it('should make blobUrl available when "Download JSON" button is clicked', async () => {
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     const createObjectURLMock = jest.fn().mockReturnValue('blob:');
     global.URL.createObjectURL = createObjectURLMock;
@@ -222,7 +222,7 @@ describe('SubtestsResultsView Component Tests', () => {
       ]);
 
       // Sort by Delta
-      const user = userEvent.setup({ delay: null });
+      const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
       const deltaButton = screen.getByRole('button', { name: /Delta/ });
       expect(deltaButton).toMatchSnapshot();
       expect(window.location.search).not.toContain('sort=');

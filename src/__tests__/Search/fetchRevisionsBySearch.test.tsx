@@ -33,7 +33,7 @@ describe('SearchView/fetchRevisions', () => {
     );
 
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     await renderSearchViewComponent();
 
@@ -62,7 +62,7 @@ describe('SearchView/fetchRevisions', () => {
     );
 
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     await renderSearchViewComponent();
 
@@ -91,7 +91,7 @@ describe('SearchView/fetchRevisions', () => {
     );
 
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     await renderSearchViewComponent();
 
@@ -119,7 +119,7 @@ describe('SearchView/fetchRevisions', () => {
     );
 
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     await renderSearchViewComponent();
 
@@ -152,7 +152,7 @@ describe('SearchView/fetchRevisions', () => {
     jest.spyOn(console, 'error').mockImplementation(() => {});
 
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     await renderSearchViewComponent();
 
@@ -187,7 +187,7 @@ describe('SearchView/fetchRevisions', () => {
     jest.spyOn(console, 'error').mockImplementation(() => {});
 
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     await renderSearchViewComponent();
 
@@ -219,7 +219,7 @@ describe('SearchView/fetchRevisions', () => {
     );
 
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     await renderSearchViewComponent();
 
