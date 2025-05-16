@@ -41,6 +41,7 @@ function RevisionSelect() {
         defaultValue=''
         displayEmpty
         size='small'
+        inputProps={{ 'aria-label': 'Filter by revision' }}
         renderValue={(value) => {
           return (
             <Box className={styles.box}>

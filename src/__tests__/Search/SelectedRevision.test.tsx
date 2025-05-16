@@ -69,7 +69,7 @@ describe('SelectedRevision', () => {
     const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await renderComponent();
 
-    const baseDropdown = screen.getByRole('button', { name: 'Base' });
+    const baseDropdown = screen.getByRole('combobox', { name: 'Base' });
     expect(baseDropdown).toHaveTextContent('try');
 
     const firstSearchInput = screen.getAllByPlaceholderText(
@@ -82,7 +82,9 @@ describe('SelectedRevision', () => {
       }),
     );
 
-    const newDropdown = screen.getAllByRole('button', { name: 'Revisions' })[0];
+    const newDropdown = screen.getByRole('combobox', {
+      name: 'Revisions',
+    });
     await user.click(newDropdown);
     const mozRepoItem = await screen.findByRole('option', {
       name: 'mozilla-central',

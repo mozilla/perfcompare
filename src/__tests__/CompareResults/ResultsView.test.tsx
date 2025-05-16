@@ -56,7 +56,7 @@ describe('Results View', () => {
 
     expect(header).toBeInTheDocument();
 
-    const frameworkDropdown = screen.getByRole('button', {
+    const frameworkDropdown = screen.getByRole('combobox', {
       name: 'Framework',
     });
 

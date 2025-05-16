@@ -149,11 +149,11 @@ describe('Compare With Base', () => {
       within(formElement).queryByText(/build_metrics/i),
     ).not.toBeInTheDocument();
 
-    const frameworkDropdown = screen.getAllByRole('button', {
+    const frameworkDropdown = screen.getByRole('combobox', {
       name: 'Framework Framework',
     });
 
-    await user.click(frameworkDropdown[0]);
+    await user.click(frameworkDropdown);
     expect(screen.getByRole('listbox')).toMatchSnapshot();
     const buildMetricsItem = screen.getByRole('option', {
       name: 'build_metrics',
@@ -300,7 +300,7 @@ describe('Compare With Base', () => {
 
     expect(header).toBeInTheDocument();
 
-    const frameworkDropdown = screen.getByRole('button', {
+    const frameworkDropdown = screen.getByRole('combobox', {
       name: 'Framework',
     });
 
