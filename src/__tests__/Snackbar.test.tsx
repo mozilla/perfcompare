@@ -27,7 +27,7 @@ describe('Snackbar', () => {
 
   it('should dismiss an alert when close button is clicked', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     render(<App />);
 
@@ -51,7 +51,7 @@ describe('Snackbar', () => {
 
   it('should have aria-live attribute', async () => {
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     render(<App />);
 
@@ -69,7 +69,7 @@ describe('Snackbar', () => {
   it('should dismiss an alert after 6 seconds', async () => {
     jest.spyOn(global, 'setTimeout');
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     renderWithRouter(<SearchView title={Strings.metaData.pageTitle.search} />, {
       loader,

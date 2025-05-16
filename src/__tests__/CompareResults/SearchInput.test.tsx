@@ -88,7 +88,7 @@ describe('Search by title/test name', () => {
     });
 
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     await user.type(searchInput, 'glvideo');
 
     // I don't understand why waitForElementToBeRemoved doesn't work properly.
@@ -114,7 +114,7 @@ describe('Search by title/test name', () => {
     });
 
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     // With the mock setup in this test, there are 2 results with different
     // properties. In this test we make each of the input show and disappear in
@@ -167,7 +167,7 @@ describe('Search by title/test name', () => {
     });
 
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     // With the mock setup in this test, there are 2 results with different
     // properties. In this test we make each of the input show and disappear in
@@ -192,7 +192,7 @@ describe('Search by title/test name', () => {
     });
 
     // set delay to null to prevent test time-out due to useFakeTimers
-    const user = userEvent.setup({ delay: null });
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
 
     // With the mock setup in this test, there are 2 results with different
     // properties. In this test we make each of the input show and disappear in
