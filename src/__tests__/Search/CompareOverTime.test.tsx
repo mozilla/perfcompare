@@ -155,14 +155,14 @@ describe('Compare Over Time', () => {
       name: 'mozilla-central',
     });
     await user.click(mozRepoItem);
-    expect(mozRepoItem).toBeInTheDocument();
+    expect(baseDropdown).toHaveTextContent('mozilla-central');
 
     await user.click(baseDropdown);
     const autolandItem = await screen.findByRole('option', {
       name: 'autoland',
     });
     await user.click(autolandItem);
-    expect(autolandItem).toBeInTheDocument();
+    expect(baseDropdown).toHaveTextContent('autoland');
   });
 
   it('selects and displays new repository when clicked', async () => {
@@ -184,14 +184,14 @@ describe('Compare Over Time', () => {
       name: 'mozilla-central',
     });
     await user.click(mozRepoItem);
-    expect(mozRepoItem).toBeInTheDocument();
+    expect(newDropdown).toHaveTextContent('mozilla-central');
 
     await user.click(newDropdown);
     const autolandItem = await screen.findByRole('option', {
       name: 'autoland',
     });
     await user.click(autolandItem);
-    expect(autolandItem).toBeInTheDocument();
+    expect(newDropdown).toHaveTextContent('autoland');
   });
 
   it('selects and displays new framework when clicked', async () => {
@@ -215,7 +215,7 @@ describe('Compare Over Time', () => {
       name: 'build_metrics',
     });
     await user.click(buildMetricsItem);
-    expect(screen.getAllByText(/build_metrics/i)[1]).toBeInTheDocument();
+    expect(frameworkDropdown).toHaveTextContent('build_metrics');
   });
 
   it('selects and displays new time range when clicked', async () => {
