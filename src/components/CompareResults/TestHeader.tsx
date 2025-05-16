@@ -18,6 +18,7 @@ const styles = {
   }),
   tagsOptions: style({
     textAlign: 'right',
+    whiteSpace: 'nowrap',
     $nest: {
       'span:nth-child(3n)': {
         background: '#592ACB',
