@@ -132,8 +132,10 @@ function SearchResultsListItem({
               </Fragment>
             }
             secondary={`${commitMessage} `}
-            primaryTypographyProps={{ noWrap: true }}
-            secondaryTypographyProps={{ noWrap: true }}
+            slotProps={{
+              primary: { noWrap: true },
+              secondary: { noWrap: true },
+            }}
           />
         </ListItem>
       </ListItemButton>

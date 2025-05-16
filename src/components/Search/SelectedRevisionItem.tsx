@@ -141,8 +141,10 @@ function SelectedRevisionItem({
             </React.Fragment>
           }
           secondary={`${commitMessage} `}
-          primaryTypographyProps={{ noWrap: true }}
-          secondaryTypographyProps={{ noWrap: true }}
+          slotProps={{
+            primary: { noWrap: true },
+            secondary: { noWrap: true },
+          }}
         />
         <IconButton
           name='close-button'
