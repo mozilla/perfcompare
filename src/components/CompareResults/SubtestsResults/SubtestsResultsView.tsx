@@ -32,7 +32,7 @@ function SubtestsResultsView(props: ResultsViewProps) {
     >
       <PerfCompareHeader />
       <Grid container alignItems='center' justifyContent='center'>
-        <Grid item xs={12}>
+        <Grid size={12}>
           <SubtestsResultsMain view={subtestsView} />
         </Grid>
       </Grid>

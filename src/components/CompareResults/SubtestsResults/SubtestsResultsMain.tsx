@@ -147,16 +147,22 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
         </Alert>
         <SubtestsRevisionHeader header={subtestsHeader} view={view} />
         <Grid container spacing={1}>
-          <Grid item xs={12} md={6} sx={{ marginInlineEnd: 'auto' }}>
+          <Grid
+            sx={{ marginInlineEnd: 'auto' }}
+            size={{
+              xs: 12,
+              md: 6,
+            }}
+          >
             <SearchInput
               defaultValue={initialSearchTerm}
               onChange={onSearchTermChange}
             />
           </Grid>
-          <Grid item xs='auto'>
+          <Grid size='auto'>
             <DownloadButton resultsPromise={[results]} />
           </Grid>
-          <Grid item xs='auto'>
+          <Grid size='auto'>
             <RetriggerButton result={results[0]} variant='text' />
           </Grid>
         </Grid>

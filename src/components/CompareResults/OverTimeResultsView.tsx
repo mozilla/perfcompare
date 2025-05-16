@@ -52,7 +52,7 @@ function ResultsView(props: ResultsViewProps) {
         />
       </section>
       <Grid container alignItems='center' justifyContent='center'>
-        <Grid item xs={12}>
+        <Grid size={12}>
           <ResultsMain />
         </Grid>
       </Grid>
