@@ -17,6 +17,7 @@ import { Strings } from '../resources/Strings';
 import { Banner } from '../styles/Banner';
 import getProtocolTheme from '../theme/protocolTheme';
 import { loader as hashToCommitLoader } from './CompareResults/hashToCommitLoader';
+import { loader as landoToCommitLoader } from './CompareResults/landoToCommitLoader';
 import { loader as compareLoader } from './CompareResults/loader';
 import { loader as compareOverTimeLoader } from './CompareResults/overTimeLoader';
 import OverTimeResultsView from './CompareResults/OverTimeResultsView';
@@ -85,6 +86,13 @@ export const router = createBrowserRouter(
       <Route
         path='/compare-hash-results'
         loader={hashToCommitLoader}
+        element={<ResultsView title={Strings.metaData.pageTitle.results} />}
+        errorElement={<PageError title={Strings.metaData.pageTitle.results} />}
+      />
+
+      <Route
+        path='/compare-lando-results'
+        loader={landoToCommitLoader}
         element={<ResultsView title={Strings.metaData.pageTitle.results} />}
         errorElement={<PageError title={Strings.metaData.pageTitle.results} />}
       />
