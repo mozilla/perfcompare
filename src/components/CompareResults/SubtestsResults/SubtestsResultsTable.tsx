@@ -1,12 +1,16 @@
-import { useMemo } from 'react';
+import { Suspense, useMemo } from 'react';
+import { Await } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
+import CircularProgress from '@mui/material/CircularProgress';
 
 import SubtestsTableContent from './SubtestsTableContent';
 import NoResultsFound from '.././NoResultsFound';
 import TableHeader from '.././TableHeader';
+
 import useTableFilters, { filterResults } from '../../../hooks/useTableFilters';
 import useTableSort, { sortResults } from '../../../hooks/useTableSort';
+
 import type { CompareResultsItem } from '../../../types/state';
 import type { CompareResultsTableConfig } from '../../../types/types';
 
@@ -167,12 +171,12 @@ function resultMatchesSearchTerm(
 
 type ResultsTableProps = {
   filteringSearchTerm: string;
-  results: CompareResultsItem[];
+  resultsPromise: CompareResultsItem[] | Promise<CompareResultsItem[]>;
 };
 
 function SubtestsResultsTable({
   filteringSearchTerm,
-  results,
+  resultsPromise,
 }: ResultsTableProps) {
   // This is our custom hook that manages table filters
   // and provides methods for clearing and toggling them.
@@ -180,30 +184,6 @@ function SubtestsResultsTable({
     useTableFilters(columnsConfiguration);
   const { sortColumn, sortDirection, onToggleSort } =
     useTableSort(columnsConfiguration);
-
-  const filteredResults = useMemo(() => {
-    return filterResults(
-      columnsConfiguration,
-      results,
-      filteringSearchTerm,
-      tableFilters,
-      resultMatchesSearchTerm,
-    );
-  }, [results, filteringSearchTerm, tableFilters]);
-
-  const filteredAndSortedResults = useMemo(() => {
-    return sortResults(
-      columnsConfiguration,
-      filteredResults,
-      sortColumn,
-      sortDirection,
-      defaultSortFunction,
-    );
-  }, [sortColumn, sortDirection, filteredResults]);
-
-  const processedResults = useMemo(() => {
-    return processResults(filteredAndSortedResults);
-  }, [filteredAndSortedResults]);
 
   const rowGridTemplateColumns = columnsConfiguration
     .map((config) => config.gridWidth)
@@ -225,16 +205,59 @@ function SubtestsResultsTable({
         sortDirection={sortDirection}
         onToggleSort={onToggleSort}
       />
-      {processedResults.map((res) => (
-        <SubtestsTableContent
-          key={res.key}
-          identifier={res.key}
-          results={res.value}
-          rowGridTemplateColumns={rowGridTemplateColumns}
-        />
-      ))}
 
-      {processedResults.length == 0 && <NoResultsFound />}
+      <Suspense
+        fallback={
+          <Box display='flex' justifyContent='center' sx={{ marginTop: 3 }}>
+            <CircularProgress />
+          </Box>
+        }
+      >
+        <Await resolve={resultsPromise}>
+          {(results: CompareResultsItem[]) => {
+            const filteredResults = useMemo(() => {
+              return filterResults(
+                columnsConfiguration,
+                results,
+                filteringSearchTerm,
+                tableFilters,
+                resultMatchesSearchTerm,
+              );
+            }, [results, filteringSearchTerm, tableFilters]);
+
+            const filteredAndSortedResults = useMemo(() => {
+              return sortResults(
+                columnsConfiguration,
+                filteredResults,
+                sortColumn,
+                sortDirection,
+                defaultSortFunction,
+              );
+            }, [filteredResults, sortColumn, sortDirection]);
+
+            const processedResults = useMemo(() => {
+              return processResults(filteredAndSortedResults);
+            }, [filteredAndSortedResults]);
+
+            if (processedResults.length === 0) {
+              return <NoResultsFound />;
+            }
+
+            return (
+              <>
+                {processedResults.map((res) => (
+                  <SubtestsTableContent
+                    key={res.key}
+                    identifier={res.key}
+                    results={res.value}
+                    rowGridTemplateColumns={rowGridTemplateColumns}
+                  />
+                ))}
+              </>
+            );
+          }}
+        </Await>
+      </Suspense>
     </Box>
   );
 }
