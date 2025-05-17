@@ -14,15 +14,9 @@ import SearchInput from '.././SearchInput';
 import { subtestsView, subtestsOverTimeView } from '../../../common/constants';
 import { useAppSelector } from '../../../hooks/app';
 import useRawSearchParams from '../../../hooks/useRawSearchParams';
-import {
-  getPerfherderSubtestsCompareWithBaseViewURL,
-  getPerfherderSubtestsCompareOverTimeViewURL,
-} from '../../../logic/treeherder';
 import { Colors, Spacing } from '../../../styles';
-import type {
-  CompareResultsItem,
-  SubtestsRevisionsHeader,
-} from '../../../types/state';
+import type { CompareResultsItem } from '../../../types/state';
+import { getSubtestsHeaderAndPerfherderURL } from '../../../utils/subtestsUtils';
 import RetriggerButton from '../Retrigger/RetriggerButton';
 import { LoaderReturnValue } from '../subtestsLoader';
 import { LoaderReturnValue as OvertimeLoaderReturnValue } from '../subtestsOverTimeLoader';
@@ -122,51 +116,17 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
                   return <></>;
                 }
               }
-              const subtestsHeader: SubtestsRevisionsHeader = {
-                suite: loadedResults[0].suite,
-                framework_id: loadedResults[0].framework_id,
-                test: loadedResults[0].test,
-                option_name: loadedResults[0].option_name,
-                extra_options: loadedResults[0].extra_options,
-                new_rev: loadedResults[0].new_rev,
-                new_repo: loadedResults[0].new_repository_name,
-                base_rev: loadedResults[0].base_rev,
-                base_repo: loadedResults[0].base_repository_name,
-                base_parent_signature: loadedResults[0].base_parent_signature,
-                new_parent_signature: loadedResults[0].base_parent_signature,
-                platform: loadedResults[0].platform,
-              };
+              const { intervalValue } =
+                view === subtestsOverTimeView
+                  ? (useLoaderData() as OvertimeLoaderReturnValue)
+                  : { intervalValue: undefined };
 
-              let subtestsViewPerfherderURL;
-              if (
-                subtestsHeader.base_parent_signature !== null &&
-                subtestsHeader.new_parent_signature !== null
-              ) {
-                if (view === subtestsOverTimeView) {
-                  const { intervalValue } =
-                    useLoaderData() as OvertimeLoaderReturnValue;
-                  subtestsViewPerfherderURL =
-                    getPerfherderSubtestsCompareOverTimeViewURL(
-                      subtestsHeader.base_repo,
-                      subtestsHeader.new_repo,
-                      subtestsHeader.new_rev,
-                      subtestsHeader.framework_id,
-                      intervalValue,
-                      subtestsHeader.base_parent_signature,
-                      subtestsHeader.new_parent_signature,
-                    );
-                } else
-                  subtestsViewPerfherderURL =
-                    getPerfherderSubtestsCompareWithBaseViewURL(
-                      subtestsHeader.base_repo,
-                      subtestsHeader.base_rev,
-                      subtestsHeader.base_repo,
-                      subtestsHeader.new_rev,
-                      subtestsHeader.framework_id,
-                      subtestsHeader.base_parent_signature,
-                      subtestsHeader.new_parent_signature,
-                    );
-              }
+              const { subtestsHeader, subtestsViewPerfherderURL } =
+                getSubtestsHeaderAndPerfherderURL(
+                  loadedResults,
+                  view,
+                  intervalValue,
+                );
 
               return (
                 <>
