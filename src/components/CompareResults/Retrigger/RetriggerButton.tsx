@@ -24,21 +24,21 @@ import SnackbarCloseButton from '../../Shared/SnackbarCloseButton';
 type Status = 'pending' | 'signin-modal' | 'retrigger-modal';
 
 interface RetriggerButtonProps {
-  result: CompareResultsItem;
+  result?: CompareResultsItem;
   variant: 'icon' | 'text';
 }
 
 function RetriggerButton({ result, variant }: RetriggerButtonProps) {
   const {
-    base_repository_name: baseRepository,
-    base_retriggerable_job_ids: baseRetriggerableJobIds,
-    new_repository_name: newRepository,
-    new_retriggerable_job_ids: newRetriggerableJobIds,
-    base_rev: baseRev,
-    new_rev: newRev,
-    base_repository_name: baseRepo,
-    new_repository_name: newRepo,
-  } = result;
+    base_repository_name: baseRepository = '',
+    base_retriggerable_job_ids: baseRetriggerableJobIds = [],
+    new_repository_name: newRepository = '',
+    new_retriggerable_job_ids: newRetriggerableJobIds = [],
+    base_rev: baseRev = '',
+    new_rev: newRev = '',
+    base_repository_name: baseRepo = 'try',
+    new_repository_name: newRepo = 'try',
+  } = result ?? {};
 
   const [status, setStatus] = useState('pending' as Status);
   const { enqueueSnackbar } = useSnackbar();
@@ -164,6 +164,7 @@ function RetriggerButton({ result, variant }: RetriggerButtonProps) {
           variant='text'
           onClick={() => void onRetriggerButtonClick()}
           startIcon={<RefreshOutlinedIcon />}
+          disabled={!result}
         >
           Retrigger test
         </Button>
@@ -173,6 +174,7 @@ function RetriggerButton({ result, variant }: RetriggerButtonProps) {
           color='primary'
           size='small'
           onClick={() => void onRetriggerButtonClick()}
+          disabled={!result}
         >
           <RefreshOutlinedIcon />
         </IconButton>
