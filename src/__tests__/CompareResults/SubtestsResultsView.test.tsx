@@ -1,6 +1,7 @@
 import userEvent from '@testing-library/user-event';
 
 import { loader } from '../../components/CompareResults/subtestsLoader';
+import { loader as subtestsOverTimeLoader } from '../../components/CompareResults/subtestsOverTimeLoader';
 import SubtestsOverTimeResultsView from '../../components/CompareResults/SubtestsResults/SubtestsOverTimeResultsView';
 import SubtestsResultsView from '../../components/CompareResults/SubtestsResults/SubtestsResultsView';
 import { Strings } from '../../resources/Strings';
@@ -33,11 +34,16 @@ const setup = ({
     subtestsResult,
   );
 
+  // Check if selectedTimeRange is present in the search query
+  const isOverTimeComparison = new URLSearchParams(search).has(
+    'selectedTimeRange',
+  );
+
   // Render the component with routing
   renderWithRouter(element, {
     route,
     search,
-    loader,
+    loader: isOverTimeComparison ? subtestsOverTimeLoader : loader,
   });
 };
 
