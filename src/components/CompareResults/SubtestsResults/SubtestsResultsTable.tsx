@@ -1,16 +1,14 @@
 import { Suspense, useMemo } from 'react';
-import { Await } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
+import { Await } from 'react-router-dom';
 
 import SubtestsTableContent from './SubtestsTableContent';
 import NoResultsFound from '.././NoResultsFound';
 import TableHeader from '.././TableHeader';
-
 import useTableFilters, { filterResults } from '../../../hooks/useTableFilters';
 import useTableSort, { sortResults } from '../../../hooks/useTableSort';
-
 import type { CompareResultsItem } from '../../../types/state';
 import type { CompareResultsTableConfig } from '../../../types/types';
 

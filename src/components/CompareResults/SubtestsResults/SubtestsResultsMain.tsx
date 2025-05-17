@@ -19,7 +19,10 @@ import {
   getPerfherderSubtestsCompareOverTimeViewURL,
 } from '../../../logic/treeherder';
 import { Colors, Spacing } from '../../../styles';
-import type { SubtestsRevisionsHeader } from '../../../types/state';
+import type {
+  CompareResultsItem,
+  SubtestsRevisionsHeader,
+} from '../../../types/state';
 import RetriggerButton from '../Retrigger/RetriggerButton';
 import { LoaderReturnValue } from '../subtestsLoader';
 import { LoaderReturnValue as OvertimeLoaderReturnValue } from '../subtestsOverTimeLoader';
@@ -113,7 +116,7 @@ function SubtestsResultsMain({ view }: SubtestsResultsMainProps) {
           }
         >
           <Await resolve={results}>
-            {(loadedResults) => {
+            {(loadedResults: CompareResultsItem[]) => {
               {
                 if (!loadedResults.length) {
                   return <></>;
