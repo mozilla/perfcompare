@@ -107,7 +107,7 @@ function checkValues({
 // by React Router DOM when the compare-results path is requested.
 // It uses the URL parameters as inputs, and returns all the fetched data to the
 // React components through React Router's useLoaderData hook.
-export async function loader({ request }: { request: Request }) {
+export function loader({ request }: { request: Request }) {
   const url = new URL(request.url);
 
   const baseRevFromUrl = url.searchParams.get('baseRev');
@@ -143,7 +143,7 @@ export async function loader({ request }: { request: Request }) {
     newParentSignature: newParentSignatureFromUrl,
   });
 
-  const results = await fetchSubtestsCompareResults({
+  const results = fetchSubtestsCompareResults({
     baseRev,
     baseRepo,
     newRev,
