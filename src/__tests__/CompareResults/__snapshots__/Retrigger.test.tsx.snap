@@ -3,19 +3,17 @@
 exports[`Retrigger should retrigger one job for base revision and one job for new revision 1`] = `
 <div
   aria-describedby="notistack-snackbar"
-  class="SnackbarContent-root SnackbarItem-contentRoot SnackbarItem-variantInfo SnackbarItem-lessPadding css-hped4j"
+  class="go1888806478 notistack-MuiContent notistack-MuiContent-info go167266335 go1930647212 go3162094071"
   role="alert"
-  style="webkit-transform: none; transform: none; webkit-transition: -webkit-transform 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms; transition: transform 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;"
+  style="width: 1000px; max-width: calc(100vw - 40px); webkit-transform: none; transform: none; webkit-transition: -webkit-transform 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms; transition: transform 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;"
 >
   <div
-    class="SnackbarItem-message"
+    class="go946087465"
     id="notistack-snackbar"
   >
     <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
       focusable="false"
-      style="font-size: 20px; margin-inline-end: 8px;"
+      style="font-size: 20px; margin-inline-end: 8px; user-select: none; width: 1em; height: 1em; display: inline-block; fill: currentColor; flex-shrink: 0;"
       viewBox="0 0 24 24"
     >
       <path
@@ -26,30 +24,27 @@ exports[`Retrigger should retrigger one job for base revision and one job for ne
     The retrigger request for the base run has been sent successfully, with ID rEtrRigGERtaSkId.
   </div>
   <div
-    class="SnackbarItem-action"
+    class="go703367398"
   >
     <a
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-aa1ild-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-1n6dz2l-MuiButtonBase-root-MuiButton-root"
       href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=coconut"
       rel="noreferrer"
       tabindex="0"
       target="_blank"
     >
       Open Treeherder
-      <span
-        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-      />
     </a>
     <button
       aria-label="Dismiss"
-      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeMedium css-16podhg-MuiButtonBase-root-MuiIconButton-root"
+      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeMedium css-1yobzn6-MuiButtonBase-root-MuiIconButton-root"
       data-testid="alert-close"
       tabindex="0"
       type="button"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
         data-testid="CloseIcon"
         focusable="false"
         viewBox="0 0 24 24"
@@ -58,9 +53,6 @@ exports[`Retrigger should retrigger one job for base revision and one job for ne
           d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
         />
       </svg>
-      <span
-        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-      />
     </button>
   </div>
 </div>
@@ -69,19 +61,17 @@ exports[`Retrigger should retrigger one job for base revision and one job for ne
 exports[`Retrigger should retrigger one job for base revision and one job for new revision 2`] = `
 <div
   aria-describedby="notistack-snackbar"
-  class="SnackbarContent-root SnackbarItem-contentRoot SnackbarItem-variantInfo SnackbarItem-lessPadding css-hped4j"
+  class="go1888806478 notistack-MuiContent notistack-MuiContent-info go167266335 go1930647212 go3162094071"
   role="alert"
-  style="webkit-transform: none; transform: none; webkit-transition: -webkit-transform 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms; transition: transform 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;"
+  style="width: 1000px; max-width: calc(100vw - 40px); webkit-transform: none; transform: none; webkit-transition: -webkit-transform 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms; transition: transform 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;"
 >
   <div
-    class="SnackbarItem-message"
+    class="go946087465"
     id="notistack-snackbar"
   >
     <svg
-      aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
       focusable="false"
-      style="font-size: 20px; margin-inline-end: 8px;"
+      style="font-size: 20px; margin-inline-end: 8px; user-select: none; width: 1em; height: 1em; display: inline-block; fill: currentColor; flex-shrink: 0;"
       viewBox="0 0 24 24"
     >
       <path
@@ -92,30 +82,27 @@ exports[`Retrigger should retrigger one job for base revision and one job for ne
     The retrigger request for the new run has been sent successfully, with ID rEtrRigGERtaSkId.
   </div>
   <div
-    class="SnackbarItem-action"
+    class="go703367398"
   >
     <a
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation css-aa1ild-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-1n6dz2l-MuiButtonBase-root-MuiButton-root"
       href="https://treeherder.mozilla.org/jobs?repo=mozilla-central&revision=spam"
       rel="noreferrer"
       tabindex="0"
       target="_blank"
     >
       Open Treeherder
-      <span
-        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-      />
     </a>
     <button
       aria-label="Dismiss"
-      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeMedium css-16podhg-MuiButtonBase-root-MuiIconButton-root"
+      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeMedium css-1yobzn6-MuiButtonBase-root-MuiIconButton-root"
       data-testid="alert-close"
       tabindex="0"
       type="button"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-fuz6rv-MuiSvgIcon-root"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-120he73-MuiSvgIcon-root"
         data-testid="CloseIcon"
         focusable="false"
         viewBox="0 0 24 24"
@@ -124,9 +111,6 @@ exports[`Retrigger should retrigger one job for base revision and one job for ne
           d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
         />
       </svg>
-      <span
-        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-      />
     </button>
   </div>
 </div>
