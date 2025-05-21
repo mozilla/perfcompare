@@ -133,9 +133,9 @@ describe('Search Container', () => {
       name: baseTitle,
     });
 
-    const baseInput = screen.getByPlaceholderText(
-      'Search base by ID number or author email',
-    );
+    const baseInput = screen.getAllByPlaceholderText(
+      'Search by revision ID or author email',
+    )[0];
     const repoDropdown = screen.getByRole('button', { name: 'Base' });
 
     expect(compTitle).toBeInTheDocument();
@@ -160,13 +160,15 @@ describe('Base and OverTime Search', () => {
 
     // Search input appears
     expect(
-      screen.getByPlaceholderText(/Search base by ID number or author email/i),
+      screen.getAllByPlaceholderText(
+        /Search by revision ID or author email/i,
+      )[0],
     ).toBeInTheDocument();
 
     await expandOverTimeComponent();
     expect(
       screen.getAllByPlaceholderText(
-        /Search revision by ID number or author email/i,
+        /Search by revision ID or author email/i,
       )[1],
     ).toBeInTheDocument();
 
@@ -394,7 +396,7 @@ describe('Base and OverTime Search', () => {
 
     render(<RouterProvider router={router} />);
 
-    expect(window.location.pathname).toEqual('/');
+    expect(window.location.pathname).toBe('/');
 
     const user = userEvent.setup({ delay: null });
 
@@ -405,7 +407,7 @@ describe('Base and OverTime Search', () => {
     await user.click(compareButton);
 
     // We haven't navigated.
-    expect(window.location.pathname).toEqual('/');
+    expect(window.location.pathname).toBe('/');
     // And there should be an alert
     expect(
       await screen.findByText('Please select at least one base revision.'),
@@ -441,10 +443,10 @@ describe('Base and OverTime Search', () => {
     // Press the compare button
     await user.click(compareButton);
 
-    expect(window.location.pathname).toEqual('/compare-results');
+    expect(window.location.pathname).toBe('/compare-results');
     const searchParams = new URLSearchParams(window.location.search);
     searchParams.sort();
-    expect(searchParams.toString()).toEqual(
+    expect(searchParams.toString()).toBe(
       'baseRepo=try&baseRev=coconut&framework=1&newRepo=mozilla-central&newRev=spam',
     );
   });

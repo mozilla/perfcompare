@@ -1,5 +1,9 @@
-import { repoMap, frameworks, timeRanges } from '../../common/constants';
-import { compareOverTimeView } from '../../common/constants';
+import {
+  repoMap,
+  frameworks,
+  timeRanges,
+  compareOverTimeView,
+} from '../../common/constants';
 import {
   fetchCompareOverTimeResults,
   memoizedFetchRevisionForRepository,

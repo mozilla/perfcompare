@@ -13,6 +13,7 @@ module.exports = {
       assert: require.resolve('assert'),
       buffer: require.resolve('buffer'),
       crypto: require.resolve('crypto-browserify'),
+      process: require.resolve('process'),
       stream: require.resolve('stream-browserify'),
       url: require.resolve('url'),
       vm: false,

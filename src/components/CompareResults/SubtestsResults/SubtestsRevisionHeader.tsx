@@ -6,9 +6,12 @@ import Tooltip from '@mui/material/Tooltip';
 import { useLoaderData } from 'react-router-dom';
 import { style } from 'typestyle';
 
-import { frameworkMap } from '../../../common/constants';
-import { subtestsView, subtestsOverTimeView } from '../../../common/constants';
-import { timeRangeMap } from '../../../common/constants';
+import {
+  frameworkMap,
+  subtestsView,
+  subtestsOverTimeView,
+  timeRangeMap,
+} from '../../../common/constants';
 import { Strings } from '../../../resources/Strings';
 import { Colors, Spacing } from '../../../styles';
 import type {

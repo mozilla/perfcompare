@@ -1,11 +1,9 @@
 import { useState } from 'react';
 
-import { Box } from '@mui/material';
-import { Grid } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import { VariantType, useSnackbar } from 'notistack';
-import { Form } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+import { Form, useLocation } from 'react-router-dom';
 import { style } from 'typestyle';
 
 import CancelAndCompareButtons from './CancelAndCompareButtons';
