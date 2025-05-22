@@ -1355,7 +1355,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </span>
                           </div>
                           <div
-                            class="f849a7e"
+                            class="fexjzun"
                           >
                             <span
                               class="f1rpr1m5"
@@ -2115,7 +2115,7 @@ exports[`Results Table Should match snapshot 1`] = `
                             </span>
                           </div>
                           <div
-                            class="f849a7e"
+                            class="fexjzun"
                           >
                             <span
                               class="f1rpr1m5"
@@ -2616,7 +2616,7 @@ exports[`Results Table should render different blocks when rendering several rev
       </strong>
     </div>
     <div
-      class="f849a7e"
+      class="fexjzun"
     >
       <span
         class="f1rpr1m5"

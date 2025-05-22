@@ -17,8 +17,11 @@ const styles = {
     marginBottom: '12px',
   }),
   tagsOptions: style({
+    display: 'flex',
+    flexWrap: 'wrap',
+    gap: '4px',
+    margin: '0 4px',
     textAlign: 'right',
-    whiteSpace: 'nowrap',
     $nest: {
       'span:nth-child(3n)': {
         background: '#592ACB',
